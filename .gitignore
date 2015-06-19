@@ -1,0 +1,23 @@
+#project
+dist
+
+#node
+node_modules
+npm-debug.log
+
+#bower
+bower_components
+
+#IDEs
+.idea
+
+#Mac OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+
+test/ui/test.bundle.js
+test/ui/style.css

@@ -2,9 +2,6 @@ import React from 'react';
 import cn from 'classNames';
 import BaseComponent from 'base-component';
 
-// You can opt to pull in the base component and compose your component with it
-// e.g. import Cmp from 'base-component';
-
 /**
  * @private
  * @enum
@@ -102,11 +99,10 @@ export default class UserAvatar extends BaseComponent {
 	}
 
 	render() {
-		const classNames = cn();
 		return (
-			<div className={classNames}>
+			<span className={this.props.className}>
 				{this.renderAvatar()}
-			</div>
+			</span>
 		);
 	}
 }

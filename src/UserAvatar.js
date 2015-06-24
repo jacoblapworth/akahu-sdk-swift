@@ -68,15 +68,19 @@ export default class UserAvatar extends BaseComponent {
 			fontSize: this.props.fontSize
 		};
 
-		if(this.props.imageUrl) {
-			return <span className="c-avatar has-image" style={avatarStyle}></span>;
+		let avatar = '';
+
+		if (this.props.imageUrl) {
+			avatar = <span className="c-avatar has-image" style={avatarStyle}></span>;
 		} else {
-			return (
+			avatar =
 				<span className={avatarClassNames} style={avatarStyle}>
 					<span className="c-avatar--initials">{UserAvatar.getInitials()}</span>
-				</span>
-			)
+				</span>;
+
 		}
+
+		return avatar;
 	}
 
 	determineBGColor(initials) {

@@ -54,7 +54,7 @@ export default class UserAvatar extends BaseComponent {
 
 	renderAvatar() {
 
-		let UserAvatar = this;
+		const UserAvatar = this;
 
 		const avatarClassNames = cn(
 			'c-avatar',
@@ -62,15 +62,15 @@ export default class UserAvatar extends BaseComponent {
 		);
 
 		const avatarStyle = {
-			width: this.props.avatarSize,
-			height: this.props.avatarSize,
-			fontSize: this.props.fontSize
+			width: UserAvatar.props.avatarSize,
+			height: UserAvatar.props.avatarSize,
+			fontSize: UserAvatar.props.fontSize
 		};
 
 		let avatar = null;
 
-		if (this.props.imageUrl) {
-			avatarStyle.backgroundImage = 'url(' + this.props.imageUrl + ')';
+		if (UserAvatar.props.imageUrl) {
+			avatarStyle.backgroundImage = 'url(' + UserAvatar.props.imageUrl + ')';
 			avatar = <span className="c-avatar has-image" style={avatarStyle}></span>;
 		} else {
 			avatar =

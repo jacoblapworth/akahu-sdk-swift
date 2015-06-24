@@ -4,6 +4,11 @@ import '../../src/scss/_user-avatar.scss';
 
 (function() {
 	React.render(
-		<UserAvatar>Hello World</UserAvatar>, document.getElementById('app')
+		<UserAvatar className="my-comp"
+					firstName="Dave"
+					lastName="Atkins"
+					imageUrl="logo.png"
+					avatarSize={24}
+					fontSize={10}/>, document.getElementById('app')
 	);
 })();

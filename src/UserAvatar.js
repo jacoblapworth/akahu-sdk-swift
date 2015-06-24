@@ -67,7 +67,7 @@ export default class UserAvatar extends BaseComponent {
 			fontSize: this.props.fontSize
 		};
 
-		let avatar = '';
+		let avatar = null;
 
 		if (this.props.imageUrl) {
 			avatarStyle.backgroundImage = 'url(' + this.props.imageUrl + ')';
@@ -88,7 +88,7 @@ export default class UserAvatar extends BaseComponent {
 		const letters = ['ab', 'cd', 'ef', 'ghi', 'jkl', 'mno', 'pqr', 'st', 'uvw', 'xyz'];
 		let bgClass = `${CSS_CLASSES.COLORPREFIX}-${letters[0]}`;
 
-		letters.forEach( function(letter, idx) {
+		letters.forEach( letter => {
 			if (letter.indexOf(firstInitial) !== -1) {
 				bgClass = `${CSS_CLASSES.COLORPREFIX}-${letter}`;
 			}

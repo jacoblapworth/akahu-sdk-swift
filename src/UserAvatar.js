@@ -9,7 +9,7 @@ import BaseComponent from 'base-component';
  * CSS classes used by this component
  */
 const CSS_CLASSES = {
-	COLORPREFIX: 'c-avatar-'
+	COLORPREFIX: 'c-avatar'
 };
 
 /**
@@ -20,7 +20,7 @@ const CSS_CLASSES = {
 const propTypes = {
 
 	/** @property {String} [firstName] The first name of the user */
-	firstName: React.PropTypes.string,
+	firstName: React.PropTypes.string.isRequired,
 
 	/** @property {String} [lastName] The last name of the user */
 	lastName: React.PropTypes.string,
@@ -61,7 +61,7 @@ export default class UserAvatar extends BaseComponent {
 			this.determineBGColor(UserAvatar.getInitials())
 		);
 
-		var avatarStyle = {
+		const avatarStyle = {
 			backgroundImage: this.props.imageUrl ? 'url(' + this.props.imageUrl + ')' : '',
 			width: this.props.avatarSize,
 			height: this.props.avatarSize,
@@ -77,7 +77,6 @@ export default class UserAvatar extends BaseComponent {
 				<span className={avatarClassNames} style={avatarStyle}>
 					<span className="c-avatar--initials">{UserAvatar.getInitials()}</span>
 				</span>;
-
 		}
 
 		return avatar;
@@ -87,11 +86,11 @@ export default class UserAvatar extends BaseComponent {
 
 		let firstInitial = initials[0].toLowerCase();
 		let letters = ['ab', 'cd', 'ef', 'ghi', 'jkl', 'mno', 'pqr', 'st', 'uvw', 'xyz'];
-		let bgClass = CSS_CLASSES.COLORPREFIX;
+		let bgClass = `${CSS_CLASSES.COLORPREFIX}-${letters[0]}`;
 
-		letters.forEach(function(letter, idx){
-			if(letter.indexOf(firstInitial) !== -1){
-				bgClass+=letter;
+		letters.forEach( function(letter, idx) {
+			if (letter.indexOf(firstInitial) !== -1) {
+				bgClass = `${CSS_CLASSES.COLORPREFIX}-${letter}`;
 			}
 		});
 
@@ -99,7 +98,12 @@ export default class UserAvatar extends BaseComponent {
 	}
 
 	getInitials() {
-		return this.props.firstName[0].toUpperCase() + this.props.lastName[0].toUpperCase();
+
+		let initials =  this.props.lastName ?
+			this.props.firstName[0].toUpperCase() + this.props.lastName[0].toUpperCase() :
+			this.props.firstName[0].toUpperCase();
+
+		return initials;
 	}
 
 	render() {

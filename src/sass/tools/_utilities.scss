@@ -1,0 +1,15 @@
+/**
+ * A collection of general-purpose utility rules.
+ */
+
+@import "mixins";
+
+.u-hidden {
+	display: none;
+}
+
+.u-hidden-mobile {
+	@include mobile {
+		display: none;
+	}
+}

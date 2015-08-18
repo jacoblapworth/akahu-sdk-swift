@@ -1,0 +1,6 @@
+{
+	"analytics": false,
+	"scripts": {
+		"postinstall": "grunt bower_postinstall"
+	}
+}

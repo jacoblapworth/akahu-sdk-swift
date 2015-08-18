@@ -1,0 +1,16 @@
+/**
+ * Styles for form panels and non-input elements typically found inside the
+ * context of a form.
+ */
+
+// Form elements
+// -----------------------------------------------------------------------------
+
+label {
+	box-sizing: border-box;
+	display: block;
+
+	&:hover {
+		cursor: pointer;
+	}
+}

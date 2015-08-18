@@ -1,0 +1,12 @@
+/**
+ * Settings for the structure/layout of the Xero design.
+ */
+
+// TODO: I'm iffy on the fact that structure relies on colour, so figure out a
+//       way to break this dependency.
+@import "colours";
+
+$border-standard:  1px solid $color-borders;
+$divider-standard: 1px solid $color-dividers;
+
+$radius: 3px;

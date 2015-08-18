@@ -1,0 +1,16 @@
+
+# Library and framework files/directories
+/bower_components
+/.bundle
+/node_modules
+/vendor/bundle/
+npm-debug.log
+
+# Build/Output files/directories
+/dist
+/tmp
+/src/sass/tools/_sprites.scss
+
+# IDE files/directores
+/.idea
+*.iml

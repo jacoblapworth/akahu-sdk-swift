@@ -1,0 +1,14 @@
+/**
+ * Styles for grouped inputs like checkbox and radio button groups.
+ */
+
+@import "../settings/structure";
+@import "../tools/mixins";
+
+.o-checkboxgroup,
+.o-radiogroup {
+	@include mobile {
+		border: $border-standard;
+		border-radius: $radius;
+	}
+}

@@ -1,0 +1,34 @@
+/**
+ * Styles for standard HTML headings.
+ */
+
+@import "../settings/typography";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+	margin: 1.25em 0;
+}
+
+h1 {
+	font-size: $font-size-page-title;
+}
+
+h2 {
+	font-size: $font-size-page-title;
+}
+
+h3 {
+	font-size: $font-size-section-title;
+}
+
+// TODO: Figure out if we're using h5 and h6 at all
+h4,
+h5,
+h6 {
+	font-size: $font-size-heading-mini;
+}

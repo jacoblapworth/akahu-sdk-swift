@@ -1,0 +1,86 @@
+/**
+ * Button objects for all the sorts of elements that can be made to look like a
+ * button.
+ */
+
+@import "../settings/structure";
+@import "../settings/typography";
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// STANDARD/ALL BUTTONS
+// -----------------------------------------------------------------------------
+
+// Make both semantic buttons and any element with this class look like a button
+button,
+.o-button {
+	background-color: $color-grey-7;
+	border: $border-standard;
+	border-radius: $radius;
+	box-sizing: border-box;
+	color: $color-xero-blue;
+	cursor: pointer;
+	display: inline-block;
+	line-height: px-to-rem(24);	// Should be an em
+	min-width: px-to-rem(120);
+	padding: 0.5em 1.5em;
+	text-align: center;
+	text-decoration: none;
+
+	@include mobile {
+		display: block;
+		width: 100%;
+
+		@include all-but-first {
+			margin-left: 0;
+			margin-top: px-to-rem(10);
+		}
+	}
+
+	// TODO: The following should probably be extracted to some kind of button
+	//       group object.
+	@include all-but-first {
+		margin-left: px-to-rem(10);
+	}
+
+	// NOTE: I'm not fond of having to specify these colours directly...  Need to
+	//       ask design if these are right for the hover and active states.
+	&:hover {
+		border-color: $color-grey-3;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		background-color: $color-grey-6;
+		border-color: $color-grey-3;
+		text-decoration: none;
+	}
+}
+
+
+// PRIMARY ACTION BUTTON
+// -----------------------------------------------------------------------------
+
+.o-button-action-main {
+	background-color: $color-xero-green;
+	border-color: $color-xero-green;
+	color: $color-grey-7;
+
+	@mixin button-shadow($fade) {
+		border-color: $color-xero-green;
+		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
+	}
+
+	&:hover {
+		@include button-shadow(0.05);
+	}
+
+	&:active {
+		@include button-shadow(0.1);
+		background-color: $color-xero-green;
+	}
+}

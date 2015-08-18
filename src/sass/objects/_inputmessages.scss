@@ -1,0 +1,75 @@
+/**
+ * Input validation messages.
+ */
+
+@import "../tools/functions";
+@import "../tools/mixins";
+@import "../settings/animation";
+@import "../settings/colours";
+@import "../settings/structure";
+
+// Validation Message
+// -----------------------------------------------------------------------------
+
+// A container is required so that text content inside the message can flow.
+// Otherwise, an absolutely-positioned element has far different flow mechanics
+// and leads to over-wrapped validation messages.
+.o-inputmessage-container {
+	display: flex;
+	left: calc(100% + 1em);
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transition: opacity $transition-duration-short;
+	width: px-to-rem(275);
+
+	@include tablet {
+		bottom: calc(100% + 0.5em);
+		left: 0;
+		top: auto;
+	}
+
+	@include mobile {
+		width: 100%;
+	}
+}
+
+.o-inputmessage-shown {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.o-inputmessage {
+	background-color: $color-grey-1;
+	border-radius: $radius;
+	box-sizing: border-box;
+	color: $color-white;
+	display: inline-block;
+	padding: 0.425em 1em;	// NOTE: top/bottom padding for Chrome's baselining issues
+
+	@include tablet {
+		margin: 0 auto;
+	}
+
+	&:before {
+		border-bottom: 5px solid transparent;
+		border-left: 0;
+		border-right: 5px solid $color-grey-1;
+		border-top: 5px solid transparent;
+		content: "";
+		left: -5px;
+		position: absolute;
+		top: 12px;
+
+		@include tablet {
+			border-bottom: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 5px solid $color-grey-1;
+			bottom: -5px;
+			left: calc(50% - 2.5px);
+			top: auto;
+		}
+	}
+}

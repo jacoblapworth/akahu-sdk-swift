@@ -1,0 +1,15 @@
+/**
+ * Link styles.
+ */
+
+@import "../settings/colours";
+
+a {
+	color: $color-xero-blue;
+	text-decoration: none;
+
+	&:hover,
+	&:active {
+		text-decoration: underline;
+	}
+}

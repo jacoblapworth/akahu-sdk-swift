@@ -1,0 +1,30 @@
+{
+	"name": "xui",
+	"version": "0.0.1",
+	"description": "Shared styles for Xero applications",
+	"authors": [
+		"Ed Sansom <ed.sansom@xero.com>",
+		"Emanuel Rabina <emanuel.rabina@xero.com>",
+		"Walter Rumsby <walter.rumsby@xero.com>"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.dev.xero.com:Style/xui.git"
+	},
+	"moduleType": "scss",
+	"main": "src/sass/xui.scss",
+	"ignore": [
+		"**/.*",
+		"bower_components",
+		"build",
+		"node_modules",
+		"browserslist",
+		"Gemfile",
+		"Gemfile.lock",
+		"Gruntfile.js",
+		"package.json"
+	],
+	"dependencies": {
+		"normalize-css": "~3.0.3"
+	}
+}

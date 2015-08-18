@@ -1,0 +1,27 @@
+/**
+ * Styles affecting the entire page.
+ */
+
+@import "../settings/colours";
+@import "../settings/typography";
+@import "../tools/mixins";
+
+body {
+	background-color: $color-backgrounds;
+	color: $color-primary-text;
+	font-family: $font-family;
+	font-size: $font-size-text; // Make every other use of em relative to this
+	line-height: $line-height;
+
+	@include mobile {
+		font-size: $font-size-text-mobile;
+	}
+}
+
+// Ideally, this would be in the BODY above, but because of the Xero Header that
+// uses a mix of different sizings, it's far too broad.  This localizes it to
+// just the page 'body'/content part.
+// TODO: Get the header on border-box so everyone can use this :P
+main {
+	box-sizing: border-box;
+}

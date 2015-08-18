@@ -1,0 +1,25 @@
+exclude: "src/sass/tools/_sprites.scss"
+
+linters:
+  BorderZero:
+    enabled: true
+    convention: zero
+
+  Comment:
+    enabled: false
+
+  Indentation:
+    character: tab
+    width: 1
+
+  LeadingZero:
+    style: include_zero
+
+  QualifyingElement:
+    allow_element_with_attribute: true
+
+  SingleLinePerProperty:
+    allow_single_line_rule_sets: false
+
+  StringQuotes:
+    style: double_quotes

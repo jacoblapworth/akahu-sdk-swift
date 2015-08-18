@@ -1,0 +1,25 @@
+/**
+ * A collection of functions to help build the Xero UI.
+ */
+
+// UNIT CONVERSION
+// -----------------------------------------------------------------------------
+// We are often given pixel units by design, but for anybody considering the
+// vast array of internet-capable devices out there, we should be more
+// forward-thinking and opt for relative units such as rem or em instead.
+//
+// See: http://www.w3.org/Style/Examples/007/units.en.html
+
+// Returns an em value for what design considers a pixel
+// NOTE: Think first when using this one, as trying to pixel down to the em
+//       level is often a sign that you're being too controlling, not letting
+//       the browser do its thing (a fight that never ends well for developers).
+//       Think instead of using ems to describe fractions of a context.
+@function px-to-em($px, $context) {
+	@return ($px / $context) + em
+}
+
+// Returns a rem value for what design considers a pixel
+@function px-to-rem($px) {
+	@return ($px / 16) + rem
+}

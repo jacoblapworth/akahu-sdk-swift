@@ -1,0 +1,31 @@
+/**
+ * Typography settings for the Xero design
+ * =======================================
+ *
+ * TODO: Switch to relative units.  This file used to have a variety of
+ *       measurement units, each for a specific reason:
+ *
+ *  - rem: unit relative to the user agent's default em.  Used for font sizes to
+ *         keep text content relative to browser defaults.
+ *  - em: For when we want things relative to the current text context, eg:
+ *        margins and line heights (as they are based around the text)
+ *  - px: Used for very thin items, like: borders, dividers, radii, and shadows.
+ *        ie: scaffolding items that aren't based on text content.
+ *
+ * We are often given pixel units by design, but for anybody considering the
+ * vast array of internet-capable devices out there, we should be more
+ * forward-thinking and opt for relative units such as rem or em instead.
+ *
+ * See: http://www.w3.org/Style/Examples/007/units.en.html
+ */
+
+$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-size-heading:       22px;
+$font-size-page-title:    18px;
+$font-size-section-title: 16px;
+$font-size-text:          13px;
+$font-size-text-mobile:   14px;
+$font-size-heading-mini:  10px;	// What kind of heading is this?  Need a better name.
+
+$line-height: 24px;

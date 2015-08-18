@@ -1,0 +1,74 @@
+/**
+ * Panels are bordered containers for other items.  They can contain several
+ * sections, and usually consist of at least 1 header section, a footer section,
+ * and as many body sections as they need.
+ */
+
+@import "../settings/colours";
+@import "../settings/structure";
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// PANEL
+// -----------------------------------------------------------------------------
+
+.o-panel {
+	background-color: $color-panels;
+	border: $border-standard;
+	border-radius: $radius;
+	margin: 2em auto;
+	max-width: px-to-rem(940);
+
+	@include tablet {
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+	}
+}
+
+.o-panel-header,
+.o-panel-section,
+.o-panel-footer {
+	padding: px-to-rem(20);
+}
+
+// PANEL HEADER
+// -----------------------------------------------------------------------------
+// TODO: Nothing uses this yet...
+
+// PANEL SECTIONS/BODY
+// -----------------------------------------------------------------------------
+
+.o-panel-section {
+	@include all-but-last-of-type {
+		border-bottom: $divider-standard;
+	}
+}
+
+.o-panel-section-header {
+	margin: 0;
+	text-align: center;
+
+	@media(min-width: px-to-rem(600)) {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: px-to-rem(460);
+	}
+}
+
+// PANEL FOOTER
+// -----------------------------------------------------------------------------
+// TODO: This footer currently assumes that it's a container for buttons.
+//       Examples for that have been true so far, but if that changes, then it
+//       might do good to extract the following styles into a class that's more
+//       semantic, eg: 'o-buttongroup'
+
+.o-panel-footer {
+	border-top: $divider-standard;
+	display: flex;
+	justify-content: flex-end;
+
+	@include mobile {
+		flex-direction: column;
+	}
+}

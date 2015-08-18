@@ -1,0 +1,67 @@
+/**
+ * XUI main stylesheet
+ * =======================
+ *
+ * These stylesheets are organized in the manner prescribed by the ITCSS
+ * (Inverted Triangle CSS) methodology introduced here:
+ * http://www.creativebloq.com/web-design/manage-large-scale-web-projects-new-css-architecture-itcss-41514731
+ *
+ * It organizes styles into files for various 'layers', with each layer becoming
+ * more and more specific in terms of selector rules:
+ *
+ * The top layers consist of broad, unopinionated styles and common tooling.
+ * These target nothing in particular.  Utility classes are prefixed by u-
+ *
+ * The middle layers then add scaffolding for pages, first targeting semantic
+ * HTML elements to give pages their structure, followed by common
+ * object/component classes that would be familiar if they followed existing CSS
+ * methodologies like OOCSS, SMACSS, or BEM.  The Xero theme and components live
+ * across these layers.  Objects are prefixed by o-
+ *
+ * The bottom layer is the most specific layer, reserved for page-specific
+ * styles and the use of !important.  These rules are prefixed by whatever they
+ * wish for the page control, eg: NAB Lending Enquiry screen uses nab-.
+ */
+
+// Unopinionated global styles and tooling
+// -----------------------------------------------------------------------------
+
+@import "normalize-css/normalize";
+
+// TODO: The following can belong anywhere.  Sass globals project maybe?
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/utilities";
+
+// Xero styles as per the Xero UI Toolkit
+// -----------------------------------------------------------------------------
+// This is the stuff that will likely live inside a Xero UI repository that
+// other projects, like Banking, can import and get the proper styles.
+
+@import "settings/animation";
+@import "settings/colours";
+@import "settings/structure";
+@import "settings/typography";
+
+@import "elements/body";
+@import "elements/forms";
+@import "elements/headings";
+@import "elements/inputs";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/tables";
+@import "elements/text";
+
+@import "objects/buttons";
+@import "objects/checkboxradiogroup";
+@import "objects/headings";
+@import "objects/inputgroups";
+@import "objects/inputmessages";
+@import "objects/modals";
+@import "objects/panels";
+@import "objects/tabs";
+
+// Et cetera...
+// -----------------------------------------------------------------------------
+
+@import "conflicts";

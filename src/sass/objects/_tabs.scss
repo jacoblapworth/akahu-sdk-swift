@@ -1,0 +1,65 @@
+/**
+ * Styles for the tabbed elements.  These typically sit above <section>
+ * elements, controlling the display of them.
+ */
+
+@import "../tools/mixins";
+@import "../settings/colours";
+
+// Tab groups
+// -----------------------------------------------------------------------------
+
+// Applied to sections that have tabs in them, removes the padding so that the
+// bottom of the tabs are flush with the top of the section they manage.
+// NOTE: Keep an eye on this one... there might be a better way to declare a
+//       tab section without having to undo existing section padding.
+.o-tabbed-navigation {
+	padding-bottom: 0;
+}
+
+.o-tabgroup {
+	color: $color-secondary-text;
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.o-tabgroup-start {
+	justify-content: flex-start;
+}
+
+// Individual tabs
+// -----------------------------------------------------------------------------
+
+@mixin tab-color($color) {
+	border-bottom-color: $color;
+	color: $color;
+}
+
+.o-tab {
+	border-bottom: 3px solid transparent;
+	color: $color-secondary-text;
+	cursor: pointer;
+	margin: 0 1em;
+	padding: 0.5em 0;
+	text-align: center;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover {
+		@include tab-color($color-primary-text);
+		text-decoration: none;
+	}
+}
+
+.o-tab-selected {
+	@include tab-color($color-primary-text);
+}

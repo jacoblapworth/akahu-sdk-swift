@@ -1,0 +1,119 @@
+/**
+ * Modals/popups.  Whatever you want to call it, it's the panels that are made
+ * to look like they're floating above the normal page content.
+ */
+
+@import "../tools/functions";
+@import "../tools/mixins";
+@import "../tools/sprites";
+@import "../settings/animation";
+@import "../settings/colours";
+@import "../settings/structure";
+
+// Modal
+// -----------------------------------------------------------------------------
+
+.o-modal-container {
+	align-items: center;
+	background-color: transparentize($color-primary-text, 0.3);
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: opacity $transition-duration-short;
+	z-index: 10;
+
+	&.o-modal-opened {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.o-modal {
+	background-color: $color-panels;
+	border: $border-standard;
+	border-radius: $radius;
+	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
+	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal
+	width: px-to-rem(360);
+}
+
+.o-modal-medium {
+	width: px-to-rem(560);
+}
+
+.o-modal-large {
+	width: px-to-rem(860);
+}
+
+// Modal header
+// -----------------------------------------------------------------------------
+
+.o-modal-header {
+	align-content: stretch;
+	display: flex;
+	justify-content: space-between;
+	padding-left: px-to-rem(20);
+}
+
+.o-modal-header-close {
+	cursor: pointer;
+	height: px-to-rem(64);
+	position: relative;
+	width: px-to-rem(64);
+
+	&:after {
+		@extend %svg-modals-cross;
+		@extend %svg-modals-cross-dims;
+		content: "";
+		left: px-to-rem(22);
+		position: absolute;
+		top: px-to-rem(22);
+
+		&:hover {
+			@extend %svg-modals-cross-hover;
+		}
+	}
+}
+
+// Modal body
+// -----------------------------------------------------------------------------
+
+.o-modal-body {
+	max-height: 45vh;
+	overflow-y: auto;
+
+	// Because of how padding is handled in the context of an overflow, we can't
+	// just add padding to the bottom of this container so that the content
+	// doesn't push up to the edge.  Instead, I have to add margins to the inside
+	// elements to push them away from the edges.
+	// See: https://bugzilla.mozilla.org/show_bug.cgi?id=748518
+	padding-left: px-to-rem(20);
+	padding-right: px-to-rem(20);
+
+	> *:first-child {
+		margin-top: px-to-rem(20);
+	}
+
+	> *:last-child {
+		margin-bottom: px-to-rem(20);
+	}
+}
+
+// Modal footer
+// -----------------------------------------------------------------------------
+
+.o-modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	padding: px-to-rem(20);
+
+	@include mobile {
+		flex-direction: column;
+	}
+}

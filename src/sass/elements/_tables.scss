@@ -1,0 +1,52 @@
+/**
+ * Styles for tables.  Used for displaying tabular data, not for styling!
+ */
+
+@import "../settings/structure";
+@import "../settings/typography";
+@import "../tools/mixins";
+
+table {
+	border: $border-standard;
+	border-radius: $radius;
+	margin: 0 auto;
+	width: 100%;
+}
+
+thead {
+	background-color: $color-backgrounds;
+	border-bottom: $divider-standard;
+}
+
+th {
+	color: $color-secondary-text;
+	font-size: $font-size-heading-mini;
+	padding: 0.5em 1em;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+tbody {
+	background-color: $color-panels;
+
+	tr {
+		@include all-but-last {
+			border-bottom: $divider-standard;
+		}
+
+		// TODO: Should probably be a table-object state class, eg: o-table-row-selected
+		//       Do when creating a proper table component and styling against that
+		//       component's classes instead of standard HTML table.
+		&.selected {
+			background-color: fade-out($color-xero-blue, 0.9);
+		}
+
+		&:hover {
+			background-color: $color-hovers;
+		}
+	}
+}
+
+td {
+	padding: 1em;
+}

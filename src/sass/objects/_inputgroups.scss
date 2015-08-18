@@ -1,0 +1,78 @@
+/**
+ * Input groups within a form follow a very set pattern: label on the left,
+ * input area in the middle, with validation messages floating around it.
+ */
+
+// TODO: Inputs can appear in the context of a full-screen panel, or a modal.
+//       In a modal, the items align much like they were in a mobile view.  I
+//       think it needs to be set which context the input group belongs?
+
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// Label and related input(s) container
+// -----------------------------------------------------------------------------
+
+.o-inputgroup {
+	align-items: stretch;
+	display: flex;
+	margin: px-to-rem(20) auto;
+
+	@include tablet {
+		justify-content: center;
+	}
+
+	@include mobile {
+		display: block;
+	}
+}
+
+// TODO: Think of better naming for distinguishing between input group contexts
+.o-modal-inputgroup {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	margin: px-to-rem(20) auto;
+}
+
+// Label part
+// -----------------------------------------------------------------------------
+
+.o-inputgroup-label {
+	box-sizing: border-box;
+	max-width: 280px;
+	padding: 0 1em 0 6em;
+	text-align: right;
+	width: 30%;
+
+	@include tablet {
+		padding-left: 0;
+		text-align: left;
+	}
+
+	@include mobile {
+		padding-right: 0;
+		width: auto;
+	}
+}
+
+// TODO: Now being used to distinguish between labels alongside text inputs and
+//       radio/checkbox labels.  Should think of a better way to do this.
+// scss-lint:disable QualifyingElement
+label.o-inputgroup-label {
+	line-height: 35px;
+}
+
+// Input(s) part
+// -----------------------------------------------------------------------------
+
+.o-inputgroup-inputs {
+	box-sizing: border-box;
+	max-width: 350px;
+	position: relative;
+	width: 100%;
+
+	@include mobile {
+		max-width: none;
+	}
+}

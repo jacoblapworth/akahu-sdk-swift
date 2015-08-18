@@ -1,0 +1,16 @@
+/**
+ * Styles related to content, in particular text content.
+ *
+ * NOTE: Not sure if this is the best name for the file.  Might want to rename
+ *       it.
+ */
+
+@import "../tools/mixins";
+
+p {
+	margin: 0 0 1em;
+
+	&:last-child {
+		margin: 0;
+	}
+}

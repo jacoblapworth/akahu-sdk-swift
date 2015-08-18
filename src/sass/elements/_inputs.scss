@@ -1,0 +1,161 @@
+/**
+ * Styles for form inputs.
+ */
+
+@import "../tools/functions";
+@import "../tools/mixins";
+@import "../tools/sprites";
+@import "../settings/animation";
+@import "../settings/structure";
+@import "../settings/typography";
+
+// TEXT INPUTS
+// -----------------------------------------------------------------------------
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;	// For removing drop-shadow on iOS
+	border: $border-standard;
+	border-radius: $radius;
+	box-shadow: none;
+	box-sizing: border-box;
+	max-width: 350px;
+	outline: none;
+	width: 100%;
+
+	@include mobile {
+		max-width: none;
+	}
+
+	&:hover {
+		// TODO: I don't like how we specify this directly instead of an alias.
+		//       Either we decide on some hover colours, or have a scheme where
+		//       hover colours are some percentage darker than a base colour.
+		border-color: $color-grey-3;
+	}
+
+	&:focus {
+		border-color: $color-xero-blue;
+	}
+
+	// TODO: I need to think about how to represent state classes like this.
+	//       Either this could be a utility class (`u-invalid`, although that then
+	//       makes concerns that could be centralized available everywhere?) or
+	//       shown in some BEM-like syntax (but BEM doesn't belong in this layer?).
+	&.invalid {
+		border-color: $color-xero-red;
+	}
+}
+
+// Removes the 'spinner' elements in a number input
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="tel"] {
+	padding: px-to-rem(9) 0.5em;
+
+	@include mobile {
+		padding: px-to-rem(12) 0.5em;
+	}
+}
+
+textarea {
+	display: block;
+	height: 70px;
+	padding: px-to-rem(5) 0.5em;
+	resize: none;
+
+	@include mobile {
+		height: 90px;
+	}
+}
+
+// CHECKED/STATE INPUTS
+// -----------------------------------------------------------------------------
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: none;
+}
+
+// TODO: This mixin is ridiculous.  Surely there's a better way to simplify all
+//       of this?
+
+@mixin state-control($type, $vertical-offset-mobile) {
+	+ label {
+		padding-left: 27px;
+		position: relative;
+
+		@include mobile {
+			padding: 0.75em 0.75em 0.75em calc(0.75em + 29px);
+
+			@include all-but-last {
+				border-bottom: $divider-standard;
+			}
+		}
+
+		&::before {
+			@extend %svg-inputs-#{$type};
+			content: "";
+			height: 18px;
+			left: 0;
+			position: absolute;
+			top: 3px;
+			width: 18px;
+
+			// scss-lint:disable ImportantRule
+			@include mobile {
+				background-size: 76px * (22 / 18) !important;	// Sprite is currently 76px wide
+				height: 22px;
+				left: 0.75em;
+				top: $vertical-offset-mobile;
+				width: 22px;
+			}
+		}
+
+		&:hover::before {
+			@extend %svg-inputs-#{$type}-hover;
+		}
+
+		&:focus::before {
+			@extend %svg-inputs-#{$type}-focus;
+		}
+	}
+
+	&:checked {
+		+ label {
+			&::before {
+				@extend %svg-inputs-#{$type}-selected;
+			}
+
+			&:active::before {
+				@extend %svg-inputs-#{$type}-selected-focus;
+			}
+		}
+
+		&:disabled + label::before {
+			@extend %svg-inputs-#{$type}-selected-disabled;
+		}
+	}
+
+	&:disabled + label::before {
+		@extend %svg-inputs-#{$type}-disabled;
+	}
+}
+
+input[type="radio"] {
+	@include state-control("radio", calc(50% - 11px));
+}
+
+input[type="checkbox"] {
+	@include state-control("checkbox", calc(0.75em + 2px));
+}

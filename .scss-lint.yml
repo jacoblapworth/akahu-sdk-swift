@@ -18,6 +18,9 @@ linters:
   QualifyingElement:
     allow_element_with_attribute: true
 
+  SelectorDepth:
+    max_depth: 2
+
   SingleLinePerProperty:
     allow_single_line_rule_sets: false
 

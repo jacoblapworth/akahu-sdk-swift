@@ -9,7 +9,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git@github.dev.xero.com:Style/xui.git"
+		"url": "https://github.dev.xero.com/Style/xui"
 	},
 	"moduleType": "scss",
 	"main": "src/sass/xui.scss",

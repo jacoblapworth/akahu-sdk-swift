@@ -1,6 +1,6 @@
 /**
  * XUI main stylesheet
- * =======================
+ * ===================
  *
  * These stylesheets are organized in the manner prescribed by the ITCSS
  * (Inverted Triangle CSS) methodology introduced here:
@@ -35,8 +35,6 @@
 
 // Xero styles as per the Xero UI Toolkit
 // -----------------------------------------------------------------------------
-// This is the stuff that will likely live inside a Xero UI repository that
-// other projects, like Banking, can import and get the proper styles.
 
 @import "settings/animation";
 @import "settings/colours";

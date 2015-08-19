@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.dev.xero.com/Xero/Banking.UI.git"
+    "url": "https://github.dev.xero.com/Style/xui"
   },
   "engines" : {
     "node" : ">=0.10.0"

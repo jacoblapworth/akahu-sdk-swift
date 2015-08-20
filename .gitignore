@@ -9,7 +9,6 @@ npm-debug.log
 # Build/Output files/directories
 /dist
 /tmp
-/src/sass/tools/_sprites.scss
 
 # IDE files/directores
 /.idea

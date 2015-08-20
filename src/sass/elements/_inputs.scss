@@ -4,7 +4,6 @@
 
 @import "../tools/functions";
 @import "../tools/mixins";
-@import "../tools/sprites";
 @import "../settings/animation";
 @import "../settings/structure";
 @import "../settings/typography";
@@ -77,85 +76,4 @@ textarea {
 	@include mobile {
 		height: 90px;
 	}
-}
-
-// CHECKED/STATE INPUTS
-// -----------------------------------------------------------------------------
-
-input[type="checkbox"],
-input[type="radio"] {
-	display: none;
-}
-
-// TODO: This mixin is ridiculous.  Surely there's a better way to simplify all
-//       of this?
-
-@mixin state-control($type, $vertical-offset-mobile) {
-	+ label {
-		padding-left: 27px;
-		position: relative;
-
-		@include mobile {
-			padding: 0.75em 0.75em 0.75em calc(0.75em + 29px);
-
-			@include all-but-last {
-				border-bottom: $divider-standard;
-			}
-		}
-
-		&::before {
-			@extend %svg-inputs-#{$type};
-			content: "";
-			height: 18px;
-			left: 0;
-			position: absolute;
-			top: 3px;
-			width: 18px;
-
-			// scss-lint:disable ImportantRule
-			@include mobile {
-				background-size: 76px * (22 / 18) !important;	// Sprite is currently 76px wide
-				height: 22px;
-				left: 0.75em;
-				top: $vertical-offset-mobile;
-				width: 22px;
-			}
-		}
-
-		&:hover::before {
-			@extend %svg-inputs-#{$type}-hover;
-		}
-
-		&:focus::before {
-			@extend %svg-inputs-#{$type}-focus;
-		}
-	}
-
-	&:checked {
-		+ label {
-			&::before {
-				@extend %svg-inputs-#{$type}-selected;
-			}
-
-			&:active::before {
-				@extend %svg-inputs-#{$type}-selected-focus;
-			}
-		}
-
-		&:disabled + label::before {
-			@extend %svg-inputs-#{$type}-selected-disabled;
-		}
-	}
-
-	&:disabled + label::before {
-		@extend %svg-inputs-#{$type}-disabled;
-	}
-}
-
-input[type="radio"] {
-	@include state-control("radio", calc(50% - 11px));
-}
-
-input[type="checkbox"] {
-	@include state-control("checkbox", calc(0.75em + 2px));
 }

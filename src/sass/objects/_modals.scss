@@ -5,7 +5,6 @@
 
 @import "../tools/functions";
 @import "../tools/mixins";
-@import "../tools/sprites";
 @import "../settings/animation";
 @import "../settings/colours";
 @import "../settings/structure";
@@ -68,15 +67,19 @@
 	width: px-to-rem(64);
 
 	&:after {
-		@extend %svg-modals-cross;
-		@extend %svg-modals-cross-dims;
-		content: "";
-		left: px-to-rem(22);
+		color: $color-grey-3;
+		content: "\00d7";
+		font-size: 1.2rem;
+		font-weight: 300;
+		left: 1.6rem;
 		position: absolute;
 		top: px-to-rem(22);
 
-		&:hover {
-			@extend %svg-modals-cross-hover;
+	}
+
+	&:hover {
+		&:after {
+			color: $color-grey-2;
 		}
 	}
 }

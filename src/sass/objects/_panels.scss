@@ -12,7 +12,7 @@
 // PANEL
 // -----------------------------------------------------------------------------
 
-.o-panel {
+.#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;
 	border-radius: $radius;
@@ -26,9 +26,9 @@
 	}
 }
 
-.o-panel-header,
-.o-panel-section,
-.o-panel-footer {
+.#{$ns}-panel-header,
+.#{$ns}-panel-section,
+.#{$ns}-panel-footer {
 	padding: px-to-rem(20);
 }
 
@@ -39,13 +39,13 @@
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
-.o-panel-section {
+.#{$ns}-panel-section {
 	@include all-but-last-of-type {
 		border-bottom: $divider-standard;
 	}
 }
 
-.o-panel-section-header {
+.#{$ns}-panel-section-header {
 	margin: 0;
 	text-align: center;
 
@@ -63,7 +63,7 @@
 //       might do good to extract the following styles into a class that's more
 //       semantic, eg: 'o-buttongroup'
 
-.o-panel-footer {
+.#{$ns}-panel-footer {
 	border-top: $divider-standard;
 	display: flex;
 	justify-content: flex-end;

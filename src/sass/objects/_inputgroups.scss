@@ -13,7 +13,7 @@
 // Label and related input(s) container
 // -----------------------------------------------------------------------------
 
-.o-inputgroup {
+.#{$ns}-inputgroup {
 	align-items: stretch;
 	display: flex;
 	margin: px-to-rem(20) auto;
@@ -28,7 +28,7 @@
 }
 
 // TODO: Think of better naming for distinguishing between input group contexts
-.o-modal-inputgroup {
+.#{$ns}-modal-inputgroup {
 	align-items: stretch;
 	display: flex;
 	flex-direction: column;
@@ -38,7 +38,7 @@
 // Label part
 // -----------------------------------------------------------------------------
 
-.o-inputgroup-label {
+.#{$ns}-inputgroup-label {
 	box-sizing: border-box;
 	max-width: 280px;
 	padding: 0 1em 0 6em;
@@ -59,14 +59,14 @@
 // TODO: Now being used to distinguish between labels alongside text inputs and
 //       radio/checkbox labels.  Should think of a better way to do this.
 // scss-lint:disable QualifyingElement
-label.o-inputgroup-label {
+label.#{$ns}-inputgroup-label {
 	line-height: 35px;
 }
 
 // Input(s) part
 // -----------------------------------------------------------------------------
 
-.o-inputgroup-inputs {
+.#{$ns}-inputgroup-inputs {
 	box-sizing: border-box;
 	max-width: 350px;
 	position: relative;

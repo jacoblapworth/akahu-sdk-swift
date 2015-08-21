@@ -14,7 +14,7 @@
 // A container is required so that text content inside the message can flow.
 // Otherwise, an absolutely-positioned element has far different flow mechanics
 // and leads to over-wrapped validation messages.
-.o-inputmessage-container {
+.#{$ns}-inputmessage-container {
 	display: flex;
 	left: calc(100% + 1em);
 	opacity: 0;
@@ -35,12 +35,12 @@
 	}
 }
 
-.o-inputmessage-shown {
+.#{$ns}-inputmessage-shown {
 	opacity: 1;
 	pointer-events: auto;
 }
 
-.o-inputmessage {
+.#{$ns}-inputmessage {
 	background-color: $color-grey-1;
 	border-radius: $radius;
 	box-sizing: border-box;

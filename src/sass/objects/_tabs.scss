@@ -13,11 +13,11 @@
 // bottom of the tabs are flush with the top of the section they manage.
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
-.o-tabbed-navigation {
+.#{$ns}-tabbed-navigation {
 	padding-bottom: 0;
 }
 
-.o-tabgroup {
+.#{$ns}-tabgroup {
 	color: $color-secondary-text;
 	display: flex;
 	justify-content: center;
@@ -26,7 +26,7 @@
 	padding: 0;
 }
 
-.o-tabgroup-start {
+.#{$ns}-tabgroup-start {
 	justify-content: flex-start;
 }
 
@@ -38,7 +38,7 @@
 	color: $color;
 }
 
-.o-tab {
+.#{$ns}-tab {
 	border-bottom: 3px solid transparent;
 	color: $color-secondary-text;
 	cursor: pointer;
@@ -60,6 +60,6 @@
 	}
 }
 
-.o-tab-selected {
+.#{$ns}-tab-selected {
 	@include tab-color($color-primary-text);
 }

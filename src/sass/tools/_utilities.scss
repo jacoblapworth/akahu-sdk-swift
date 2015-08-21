@@ -4,11 +4,11 @@
 
 @import "mixins";
 
-.u-hidden {
+.#{$ns}-u-hidden {
 	display: none;
 }
 
-.u-hidden-mobile {
+.#{$ns}-u-hidden-mobile {
 	@include mobile {
 		display: none;
 	}

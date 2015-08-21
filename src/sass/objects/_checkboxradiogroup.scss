@@ -5,8 +5,8 @@
 @import "../settings/structure";
 @import "../tools/mixins";
 
-.o-checkboxgroup,
-.o-radiogroup {
+.#{$ns}-checkboxgroup,
+.#{$ns}-radiogroup {
 	@include mobile {
 		border: $border-standard;
 		border-radius: $radius;

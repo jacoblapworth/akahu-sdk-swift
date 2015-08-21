@@ -26,6 +26,8 @@
 // Unopinionated global styles and tooling
 // -----------------------------------------------------------------------------
 
+$ns: "xui" !default;
+
 @import "normalize-css/normalize";
 
 // TODO: The following can belong anywhere.  Sass globals project maybe?

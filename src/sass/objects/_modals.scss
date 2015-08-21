@@ -12,7 +12,7 @@
 // Modal
 // -----------------------------------------------------------------------------
 
-.o-modal-container {
+.#{$ns}-modal-container {
 	align-items: center;
 	background-color: transparentize($color-primary-text, 0.3);
 	bottom: 0;
@@ -33,7 +33,7 @@
 	}
 }
 
-.o-modal {
+.#{$ns}-modal {
 	background-color: $color-panels;
 	border: $border-standard;
 	border-radius: $radius;
@@ -42,25 +42,25 @@
 	width: px-to-rem(360);
 }
 
-.o-modal-medium {
+.#{$ns}-modal-medium {
 	width: px-to-rem(560);
 }
 
-.o-modal-large {
+.#{$ns}-modal-large {
 	width: px-to-rem(860);
 }
 
 // Modal header
 // -----------------------------------------------------------------------------
 
-.o-modal-header {
+.#{$ns}-modal-header {
 	align-content: stretch;
 	display: flex;
 	justify-content: space-between;
 	padding-left: px-to-rem(20);
 }
 
-.o-modal-header-close {
+.#{$ns}-modal-header-close {
 	cursor: pointer;
 	height: px-to-rem(64);
 	position: relative;
@@ -87,7 +87,7 @@
 // Modal body
 // -----------------------------------------------------------------------------
 
-.o-modal-body {
+.#{$ns}-modal-body {
 	max-height: 45vh;
 	overflow-y: auto;
 
@@ -111,7 +111,7 @@
 // Modal footer
 // -----------------------------------------------------------------------------
 
-.o-modal-footer {
+.#{$ns}-modal-footer {
 	display: flex;
 	justify-content: flex-end;
 	padding: px-to-rem(20);

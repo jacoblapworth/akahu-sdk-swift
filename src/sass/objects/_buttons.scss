@@ -13,7 +13,7 @@
 
 // Make both semantic buttons and any element with this class look like a button
 button,
-.o-button {
+.#{$ns}-button {
 	background-color: $color-grey-7;
 	border: $border-standard;
 	border-radius: $radius;
@@ -65,7 +65,7 @@ button,
 // PRIMARY ACTION BUTTON
 // -----------------------------------------------------------------------------
 
-.o-button-action-main {
+.#{$ns}-button-action-main {
 	background-color: $color-xero-green;
 	border-color: $color-xero-green;
 	color: $color-grey-7;

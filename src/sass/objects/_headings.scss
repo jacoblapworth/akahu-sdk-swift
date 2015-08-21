@@ -4,13 +4,13 @@
 
 @import "../settings/structure";
 
-.o-pageheader {
+.#{$ns}-pageheader {
 	background-color: $color-grey-7;
 	border-bottom: $border-standard;
 	overflow: auto;
 }
 
-.o-pageheader-title {
+.#{$ns}-pageheader-title {
 	margin: 1em auto;
 	max-width: 940px;
 }

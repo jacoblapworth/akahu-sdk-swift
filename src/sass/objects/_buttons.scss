@@ -69,12 +69,12 @@ input[type="button"],
 input[type="submit"],
 button[type="submit"],
 .#{$ns}-button-action-main {
-	background-color: $color-xero-green;
-	border-color: $color-xero-green;
+	background-color: $color-xero-blue;
+	border-color: $color-xero-blue;
 	color: $color-grey-7;
 
 	@mixin button-shadow($fade) {
-		border-color: $color-xero-green;
+		border-color: $color-xero-blue;
 		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
 	}
 
@@ -84,6 +84,6 @@ button[type="submit"],
 
 	&:active {
 		@include button-shadow(0.1);
-		background-color: $color-xero-green;
+		background-color: $color-xero-blue;
 	}
 }

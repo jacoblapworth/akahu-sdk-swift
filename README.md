@@ -14,6 +14,10 @@ $ bower install git@github.dev.xero.com:Style/xui.git --save
 
 You will need to compile `xui.scss`.
 
+![](construction-cat.gif)
+
+XUI is rapidly evolving and breaking changes are likely with versions before 1.0.0. It is recommended that you use a specific version rather than a version range _and_ stay in contact with the User Experience Engineering team to keep up with changes.
+
 
 ## Contributing to XUI
 

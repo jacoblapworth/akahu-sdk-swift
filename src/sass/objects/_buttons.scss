@@ -1,19 +1,30 @@
-/**
- * Button objects for all the sorts of elements that can be made to look like a
- * button.
- */
-
 @import "../settings/structure";
 @import "../settings/typography";
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// STANDARD/ALL BUTTONS
-// -----------------------------------------------------------------------------
+// Buttons
+//
+// Styleguide: Buttons
 
-// Make both semantic buttons and any element with this class look like a button
+// Standard Buttons
+//
+// Your standard button suitable for clicking.
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+// .xui-button - Standard styling
+//
+// Markup:
+// <button>Text</button>
+// <input type="button" value="Text"/>
+// <a href="#" class="xui-button">Text</a>
+//
+// Styleguide: Buttons.1
 button,
 input[type="button"],
+input[type="submit"],
 .#{$ns}-button {
 	background-color: $color-grey-7;
 	border: $border-standard;
@@ -63,9 +74,22 @@ input[type="button"],
 }
 
 
-// PRIMARY ACTION BUTTON
-// -----------------------------------------------------------------------------
-
+// Primary Action Buttons
+//
+// The primary action of a form or dialog.
+//
+// :hover - Highlights when hovering.
+// :focus - When focused
+// :active - When active
+// .xui-button-action-main - Primary action
+//
+// Markup:
+// <button type="submit">Text</button>
+// <input type="submit" value="Text"/>
+// <button class="xui-button-action-main">Text</button>
+// <a href="#" class="xui-button xui-button-action-main">Text</a>
+//
+// Styleguide: Buttons.2
 input[type="submit"],
 button[type="submit"],
 .#{$ns}-button-action-main {

@@ -1,0 +1,11 @@
+{
+	"source": "src/sass",
+
+	"destination": "public",
+	
+	"css": [
+		"../dist/xui.css"
+	],
+
+	"title": "XUI"
+}

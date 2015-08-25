@@ -11,13 +11,13 @@
     "type": "git",
     "url": "https://github.dev.xero.com/Style/xui"
   },
-  "engines" : {
-    "node" : ">=0.10.0"
+  "engines": {
+    "node": ">=0.10.0"
   },
   "scripts": {
     "install": "grunt install",
     "build": "grunt build",
-    "doc": "./node_modules/.bin/kss-node -c kss-config.json",
+    "doc": "kss-node -c kss-config.json",
     "lint": "grunt lint"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "grunt-sass": "^1.0.0",
     "grunt-scss-lint": "^0.3.8",
     "grunt-shell": "^1.1.2",
+    "kss": "^2.1.0",
     "load-grunt-config": "^0.17.2",
     "load-grunt-tasks": "^3.2.0"
   }

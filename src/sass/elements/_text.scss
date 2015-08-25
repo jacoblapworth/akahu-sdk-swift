@@ -14,3 +14,7 @@ p {
 		margin: 0;
 	}
 }
+
+.#{$ns}-text-secondary {
+	color: $color-secondary-text;
+}

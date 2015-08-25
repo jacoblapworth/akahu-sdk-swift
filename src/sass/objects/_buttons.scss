@@ -1,19 +1,30 @@
-/**
- * Button objects for all the sorts of elements that can be made to look like a
- * button.
- */
-
 @import "../settings/structure";
 @import "../settings/typography";
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// STANDARD/ALL BUTTONS
-// -----------------------------------------------------------------------------
+// Buttons
+//
+// Styleguide: Buttons
 
-// Make both semantic buttons and any element with this class look like a button
+// Standard Buttons
+//
+// Your standard button suitable for clicking.
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+// .xui-button - Standard styling
+//
+// Markup:
+// <button>Text</button>
+// <input type="button" value="Text"/>
+// <a href="#" class="xui-button">Text</a>
+//
+// Styleguide: Buttons.1
 button,
 input[type="button"],
+input[type="submit"],
 .#{$ns}-button {
 	background-color: $color-grey-7;
 	border: $border-standard;
@@ -63,9 +74,22 @@ input[type="button"],
 }
 
 
-// PRIMARY ACTION BUTTON
-// -----------------------------------------------------------------------------
-
+// Primary Action Buttons
+//
+// The primary action of a form or dialog.
+//
+// :hover - Highlights when hovering.
+// :focus - When focused
+// :active - When active
+// .xui-button-action-main - Primary action
+//
+// Markup:
+// <button type="submit">Text</button>
+// <input type="submit" value="Text"/>
+// <button class="xui-button-action-main">Text</button>
+// <a href="#" class="xui-button xui-button-action-main">Text</a>
+//
+// Styleguide: Buttons.2
 input[type="submit"],
 button[type="submit"],
 .#{$ns}-button-action-main {
@@ -85,5 +109,44 @@ button[type="submit"],
 	&:active {
 		@include button-shadow(0.1);
 		background-color: $color-xero-blue;
+	}
+}
+
+// Create Action Buttons
+//
+// Button to use when creating things.
+//
+// :hover - Highlights when hovering.
+// :focus - When focused
+// :active - When active
+// .xui-button-action-create - Primary action
+//
+// Markup:
+// <button type="button" class="xui-button-action-create">Text</button>
+// <input type="button" class="xui-button-action-create" value="Text"/>
+// <button class="xui-button-action-create">Text</button>
+// <a href="#" class="xui-button xui-button-action-create">Text</a>
+//
+// Styleguide: Buttons.3
+button.#{$ns}-button-action-create,
+input[type="button"].#{$ns}-button-action-create,
+input[type="submit"].#{$ns}-button-action-create,
+.#{$ns}-button-action-create {
+	background-color: $color-xero-green;
+	border-color: $color-xero-green;
+	color: $color-grey-7;
+
+	@mixin button-shadow($fade) {
+		border-color: $color-xero-green;
+		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
+	}
+
+	&:hover {
+		@include button-shadow(0.05);
+	}
+
+	&:active {
+		@include button-shadow(0.1);
+		background-color: $color-xero-green;
 	}
 }

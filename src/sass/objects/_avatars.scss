@@ -1,4 +1,21 @@
+// Avatars
+//
+// Markup:
+// <img class="xui-avatar" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar">UX</abbr>
+//
+// Styleguide: Avatars
 .#{$ns}-avatar {
+	align-items: center;
+	background-color: $color-xero-blue;
 	border: 1px solid $color-dividers;
 	border-radius: 50%;
+	color: $color-reversed-text;
+	display: flex;
+	font-size: $font-size-heading;
+	font-weight: bold;
+	height: 48px;
+	justify-content: center;
+	overflow: hidden;
+	width: 48px;
 }

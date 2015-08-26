@@ -1,4 +1,3 @@
-
 # xui
 
 <a href="https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master"><img src="https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon"></a>
@@ -16,7 +15,7 @@ You will need to compile `xui.scss`.
 
 ![](construction-cat.gif)
 
-XUI is rapidly evolving and breaking changes are likely with versions before 1.0.0. It is recommended that you use a specific version rather than a version range _and_ stay in contact with the User Experience Engineering team to keep up with changes.
+XUI is rapidly evolving and breaking changes are likely with versions before 1.0.0. It is recommended that you use a specific version rather than a version range _and_ stay in contact with the [User Experience Engineering team](https://www.flowdock.com/app/xero/ux-engineering) to keep up with changes.
 
 
 ## Contributing to XUI
@@ -37,3 +36,4 @@ Script          | Description
 `npm install`   | Installs dependencies; required for other steps.
 `npm run lint`  | Lints the stylesheet.
 `npm run build` | Comiples the stylesheet.
+`npm run doc`   | Comiples the style guide documentation.

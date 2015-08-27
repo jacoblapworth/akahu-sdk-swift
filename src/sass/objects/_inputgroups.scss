@@ -10,9 +10,24 @@
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// Label and related input(s) container
-// -----------------------------------------------------------------------------
-
+// Inputgroups
+//
+// Styleguide: Inputgroups
+//
+// Inputgroups
+//
+//
+// Markup:
+// <div class="xui-inputgroup">
+//  <label class="xui-inputgroup-label" for="username">Username</label>
+// 	<input type="text" id="username" placeholder="Username"/>
+// </div>
+// <div class="xui-inputgroup">
+//  <label class="xui-inputgroup-label" for="password">Password</label>
+// 	<input type="password" id="password" placeholder="Password"/>
+// </div>
+//
+// Styleguide: Inputgroups
 .#{$ns}-inputgroup {
 	align-items: stretch;
 	display: flex;

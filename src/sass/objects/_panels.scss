@@ -9,9 +9,16 @@
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// PANEL
-// -----------------------------------------------------------------------------
-
+// Panels
+//
+// Markup:
+//	<div class="xui-panel">
+//		<div class="xui-panel-header">Header</div>
+//		<div class="xui-panel-section">Section</div>
+//		<div class="xui-panel-footer">Footer</div>
+//	</div>
+//
+// Styleguide: Panels
 .#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;

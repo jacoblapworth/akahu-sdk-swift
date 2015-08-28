@@ -6,13 +6,23 @@
 @import "../tools/mixins";
 @import "../settings/colours";
 
-// Tab groups
-// -----------------------------------------------------------------------------
-
+// Tabs
+//
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
+//
+// Markup:
+//	<div class="xui-tabbed-navigation">
+//		<div class="xui-tabgroup">
+//			<div class="xui-tab">xui-tab</div>
+//			<div class="xui-tab">xui-tab</div>
+//			<div class="xui-tab">xui-tab</div>
+//		</div>
+//	</div>
+//
+// Styleguide: Tabs
 .#{$ns}-tabbed-navigation {
 	padding-bottom: 0;
 }

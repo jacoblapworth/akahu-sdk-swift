@@ -6,6 +6,28 @@
 @import "../settings/typography";
 @import "../tools/mixins";
 
+// Tables
+//
+// Styleguide: Tables
+//
+// Standard Tables
+//
+//
+// Markup:
+// <table>
+//	<tr>
+//		<th>Column header</th>
+//		<th>Column header</th>
+//		<th>Column header</th>
+//	</tr>
+//	<tr>
+//		<td>Cell 1</td>
+//		<td>Cell 2</td>
+//		<td>Cell 3</td>
+//	</tr>
+// </table>
+//
+// Styleguide: Tables
 table {
 	border: $border-standard;
 	border-radius: $radius;

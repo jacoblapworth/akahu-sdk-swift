@@ -25,6 +25,7 @@
 	border-radius: $radius;
 	margin: 2em auto;
 	max-width: px-to-rem(940);
+	box-shadow: $shadow-standard;
 
 	@include tablet {
 		border-left: 0;

@@ -3,8 +3,6 @@ module.exports = {
     map: true
   },
   dist: {
-    files: {
-      'dist/xui.css': 'tmp/xui.css'
-    }
+    src: 'dist/xui.css'
   }
 };

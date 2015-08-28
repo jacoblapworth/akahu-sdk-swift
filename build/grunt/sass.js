@@ -7,7 +7,7 @@ module.exports = {
   },
   dist: {
     files: {
-      'tmp/xui.css': 'src/sass/xui.scss'
+      'dist/xui.css': 'src/sass/xui.scss'
     }
   }
 };

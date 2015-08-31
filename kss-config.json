@@ -2,8 +2,9 @@
 	"source": "src/sass",
 
 	"destination": "public",
-	
+
 	"css": [
+		"../kss-style.css",
 		"../dist/xui.css"
 	],
 

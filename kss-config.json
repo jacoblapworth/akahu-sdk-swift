@@ -2,9 +2,13 @@
 	"source": "src/sass",
 
 	"destination": "public",
-	
+
 	"css": [
 		"../dist/xui.css"
+	],
+
+	"js": [
+		"../kss-script.js"
 	],
 
 	"title": "XUI"

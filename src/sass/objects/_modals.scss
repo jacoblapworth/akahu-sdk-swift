@@ -6,12 +6,8 @@
 
 // Modals
 //
-// Styleguide: Modals
-
-// Modals
-//
 // Markup:
-// <a href="#" onclick="showExampleModal(); return false">Show Modal</a>
+// <a href="#" onclick="showExampleModal(); return false;">Show Modal</a>
 // <div id="example-modal" class="xui-modal-container">
 // 	<section class="xui-modal xui-modal-medium">
 // 		<header class="xui-modal-header">
@@ -27,7 +23,7 @@
 // 	</section>
 // </div>
 //
-// Styleguide: Modals.1
+// Styleguide: Modals
 .#{$ns}-modal-container {
 	align-items: center;
 	background-color: transparentize($color-primary-text, 0.3);
@@ -42,11 +38,11 @@
 	top: 0;
 	transition: opacity $transition-duration-short;
 	z-index: 10;
+}
 
-	&.o-modal-opened {
-		opacity: 1;
-		pointer-events: auto;
-	}
+&.#{$ns}-modal-opened {
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .#{$ns}-modal {

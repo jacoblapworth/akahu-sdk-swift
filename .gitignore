@@ -9,7 +9,6 @@ npm-debug.log
 
 # Build/Output files/directories
 /dist
-/tmp
 
 # IDE files/directores
 /.idea

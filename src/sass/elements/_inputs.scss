@@ -30,13 +30,8 @@ textarea {
 	border-radius: $radius;
 	box-shadow: none;
 	box-sizing: border-box;
-	max-width: 350px;
 	outline: none;
 	width: 100%;
-
-	@include mobile {
-		max-width: none;
-	}
 
 	&:hover {
 		// TODO: I don't like how we specify this directly instead of an alias.

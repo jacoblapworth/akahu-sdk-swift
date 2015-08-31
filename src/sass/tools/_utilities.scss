@@ -13,3 +13,19 @@
 		display: none;
 	}
 }
+
+.#{$ns}-u-flex {
+	display: flex;
+}
+
+.#{$ns}-u-flex-col {
+	flex-direction: row;
+
+	& + & {
+		margin-left: 16px;
+	}
+}
+
+.#{$ns}-u-flex-grow {
+	flex: 1;
+}

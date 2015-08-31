@@ -43,33 +43,34 @@
 // Individual tabs
 // -----------------------------------------------------------------------------
 
-@mixin tab-color($color) {
-	border-bottom-color: $color;
-	color: $color;
-}
-
 .#{$ns}-tab {
-	border-bottom: 3px solid transparent;
 	color: $color-secondary-text;
 	cursor: pointer;
-	margin: 0 1em;
-	padding: 0.5em 0;
+	margin: 0;
+	padding: 0.5em 1em 0;
 	text-align: center;
 
-	&:first-child {
-		margin-left: 0;
-	}
-
-	&:last-child {
-		margin-right: 0;
-	}
-
 	&:hover {
-		@include tab-color($color-primary-text);
-		text-decoration: none;
+		color: $color-primary-text;
+	}
+
+	&:after {
+		content : " ";
+		background-color: transparent;
+		display: block;
+		height: 3px;
+		margin-top: 6px;
+	}
+
+	&:hover:after {
+		background-color: $color-primary-text;
 	}
 }
 
 .#{$ns}-tab-selected {
-	@include tab-color($color-primary-text);
+	color : $color-primary-text;
+
+	&:after {
+		background-color: $color-primary-text;
+	}
 }

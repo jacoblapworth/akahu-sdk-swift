@@ -40,7 +40,7 @@
 	z-index: 10;
 }
 
-&.#{$ns}-modal-opened {
+.#{$ns}-modal-opened {
 	opacity: 1;
 	pointer-events: auto;
 }

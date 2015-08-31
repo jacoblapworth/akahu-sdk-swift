@@ -1,17 +1,33 @@
-/**
- * Modals/popups.  Whatever you want to call it, it's the panels that are made
- * to look like they're floating above the normal page content.
- */
-
 @import "../tools/functions";
 @import "../tools/mixins";
 @import "../settings/animation";
 @import "../settings/colours";
 @import "../settings/structure";
 
-// Modal
-// -----------------------------------------------------------------------------
+// Modals
+//
+// Styleguide: Modals
 
+// Modals
+//
+// Markup:
+// <a href="#" onclick="showExampleModal(); return false">Show Modal</a>
+// <div id="example-modal" class="xui-modal-container">
+// 	<section class="xui-modal xui-modal-medium">
+// 		<header class="xui-modal-header">
+// 			<h3>Modal</h3>
+// 			<a href="#" class="xui-modal-header-close"></a>
+// 		</header>
+// 		<div class="xui-modal-body">
+// 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros velit, tincidunt sit amet mi in, varius posuere tellus. Aliquam rutrum mi non nulla aliquet sollicitudin et vitae justo. Aliquam dignissim augue ex, vitae aliquam diam accumsan mattis. Donec sit amet efficitur neque, nec sagittis ex. Curabitur odio elit, blandit eu sapien ut, porttitor vestibulum dolor. Mauris fermentum urna urna, nec cursus diam rutrum sed.</p>
+// 		</div>
+// 		<footer class="xui-modal-footer">
+// 			<button class="xui-button-action-main">Button</button>
+// 		</footer>
+// 	</section>
+// </div>
+//
+// Styleguide: Modals.1
 .#{$ns}-modal-container {
 	align-items: center;
 	background-color: transparentize($color-primary-text, 0.3);

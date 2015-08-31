@@ -8,5 +8,9 @@
 		"../dist/xui.css"
 	],
 
+	"js": [
+		"../kss-script.js"
+	],
+
 	"title": "XUI"
 }

@@ -55,8 +55,8 @@
 	}
 
 	&:after {
-		content : " ";
 		background-color: transparent;
+		content: " ";
 		display: block;
 		height: 3px;
 		margin-top: 6px;
@@ -68,7 +68,7 @@
 }
 
 .#{$ns}-tab-selected {
-	color : $color-primary-text;
+	color: $color-primary-text;
 
 	&:after {
 		background-color: $color-primary-text;

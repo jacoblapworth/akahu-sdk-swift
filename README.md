@@ -36,4 +36,4 @@ Script          | Description
 `npm install`   | Installs dependencies; required for other steps.
 `npm run lint`  | Lints the stylesheet.
 `npm run build` | Comiples the stylesheet.
-`npm run doc`   | Comiples the style guide documentation.
+`npm run doc`   | Compiles the style guide documentation.

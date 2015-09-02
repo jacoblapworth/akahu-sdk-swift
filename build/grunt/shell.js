@@ -4,6 +4,6 @@ module.exports = {
   },
 
   styleguide: {
-      command: 'kss-node -c kss-config.json'
+      command: './node_modules/.bin/kss-node -c kss-config.json'
   }
 };

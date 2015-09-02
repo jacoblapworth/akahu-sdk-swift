@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['scsslint']);
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
 
-	grunt.registerTask('gh-pages', ['shell', 'gitadd', 'gitcommit', 'gitpush'].map(function (name) {
+	grunt.registerTask('gh-pages', ['kss', 'gitadd', 'gitcommit', 'gitpush'].map(function (name) {
 		return name + ':styleguide';
 	}));
 };

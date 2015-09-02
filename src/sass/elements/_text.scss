@@ -29,10 +29,8 @@ p {
 // <p class="xui-text-primary">Some primary text</p>
 // <p class="xui-text-secondary">Some secondary text</p>
 // <p class="xui-placeholder">Placeholders</p>
-// <p class="xui-button-text">Buttons</p>
-// <a class="xui-link">Links</a>
-// <a class="xui-anchor">Anchors</a>
 // <p class="xui-heading-mini">Headers</p>
+// <a>Links</a>
 //
 // Styleguide: Typography
 .#{$ns}-heading {
@@ -60,14 +58,6 @@ p {
 
 .#{$ns}-placeholder {
 	color: $color-placeholders;
-}
-
-.#{$ns}-button-text { // This feels very wrong to me, not sure what it needs to change to
-	color: $color-xero-red;
-}
-
-.#{$ns}-anchor, .#{$ns}-link {
-	cursor: pointer;
 }
 
 .#{$ns}-heading-mini {

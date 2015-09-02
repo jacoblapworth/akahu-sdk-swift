@@ -83,3 +83,16 @@ textarea {
 		height: 90px;
 	}
 }
+
+// Checkboxes and Radios
+// -----------------------------------------------------------------------------
+
+input[type="checkbox"],
+input[type="radio"] {
+	height: px-to-rem(18);
+	margin-right: 0.5em;
+	position: relative;
+	top: px-to-rem(4);
+	vertical-align: top;
+	width: px-to-rem(18);
+}

@@ -11,7 +11,7 @@
 // Inputs
 //
 // Styleguide: Inputs
-//
+
 // Standard Inputs
 //
 //
@@ -19,7 +19,7 @@
 // <input type="text" placeholder="Username"/>
 // <input type="password" placeholder="Password"/>
 //
-// Styleguide: Inputs
+// Styleguide: Inputs.1
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -45,11 +45,7 @@ textarea {
 		border-color: $color-xero-blue;
 	}
 
-	// TODO: I need to think about how to represent state classes like this.
-	//       Either this could be a utility class (`u-invalid`, although that then
-	//       makes concerns that could be centralized available everywhere?) or
-	//       shown in some BEM-like syntax (but BEM doesn't belong in this layer?).
-	&.invalid {
+	&.xui-u-invalid {
 		border-color: $color-xero-red;
 	}
 }
@@ -85,10 +81,22 @@ textarea {
 }
 
 // Checkboxes and Radios
-// -----------------------------------------------------------------------------
+// 
+// Markup:
+// <label>
+//   <input type="checkbox" name="checkbox"/>
+//   Tick me!
+// </label>
+// <label>
+//   <input type="radio" name="radio"/>
+//   Pick me!
+// </label>
+// 
+// Styleguide: Inputs.2
 
 input[type="checkbox"],
 input[type="radio"] {
+	box-shadow: none;
 	height: px-to-rem(18);
 	margin-right: 0.5em;
 	position: relative;

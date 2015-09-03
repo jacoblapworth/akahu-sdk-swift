@@ -1,11 +1,12 @@
 {
   "name": "xui",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Shared styles for Xero applications",
   "contributors": [
     "Ed Sansom <ed.sansom@xero.com>",
     "Emanuel Rabina <emanuel.rabina@xero.com>",
-    "Walter Rumsby <walter.rumsby@xero.com>"
+    "Walter Rumsby <walter.rumsby@xero.com>",
+    "Tim Redmond <tim.redmond@xero.com>"
   ],
   "repository": {
     "type": "git",

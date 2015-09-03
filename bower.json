@@ -22,8 +22,5 @@
 		"Gemfile.lock",
 		"Gruntfile.js",
 		"package.json"
-	],
-	"dependencies": {
-		"normalize-css": "~3.0.3"
-	}
+	]
 }

@@ -1,7 +1,11 @@
 module.exports = {
 	styleguide: {
 		files: {
-			src: ['./*.html']
+			src: [
+				'dist/*',
+				'styleguide/*',
+				'./*.html'
+			]
 		}
 	}
 };

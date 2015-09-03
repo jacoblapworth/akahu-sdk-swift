@@ -49,6 +49,7 @@
 	left: 1em;
 	padding: 0.425em 1em;	// NOTE: top/bottom padding for Chrome's baselining issues
 	position: relative;
+	text-indent: 0;
 
 	@include tablet {
 		bottom: 0.5em;

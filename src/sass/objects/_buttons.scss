@@ -39,6 +39,12 @@ input[type="submit"],
 	text-align: center;
 	text-decoration: none;
 
+	// TODO: The following should probably be extracted to some kind of button
+	//       group object.
+	@include all-but-first {
+		margin-left: px-to-rem(10);
+	}
+
 	@include mobile {
 		display: block;
 		width: 100%;
@@ -47,12 +53,6 @@ input[type="submit"],
 			margin-left: 0;
 			margin-top: px-to-rem(10);
 		}
-	}
-
-	// TODO: The following should probably be extracted to some kind of button
-	//       group object.
-	@include all-but-first {
-		margin-left: px-to-rem(10);
 	}
 
 	// NOTE: I'm not fond of having to specify these colours directly...  Need to

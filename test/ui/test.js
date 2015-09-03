@@ -1,14 +1,23 @@
 import React from 'react';
-import UserAvatar from '../../src/UserAvatar.js';
-import '../../src/scss/_user-avatar.scss';
+import UserAvatar from '../../src/Avatar.js';
+import '../../src/scss/_avatar.scss';
 
 (function() {
 	React.render(
-		<UserAvatar className="my-comp"
-					firstName="Dave"
-					lastName="Atkins"
-					imageUrl="logo.png"
-					avatarSize={24}
-					fontSize={10}/>, document.getElementById('app')
+		<div>
+			<UserAvatar className="my-comp"
+				value="Dave"
+				size="small"
+				colour="red"/>
+			<UserAvatar className="my-comp"
+				value="Dave"
+				size="small"
+				identifier="lalala"/>
+			<UserAvatar className="my-comp"
+				value="Dave"
+				size="small"
+				imageUrl="logo.png"/>
+		</div>, 
+		document.getElementById('app')
 	);
 })();

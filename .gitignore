@@ -18,6 +18,8 @@ bower_components
 .Spotlight-V100
 .Trashes
 
+#json
+jsconfig.json
 
 test/ui/test.bundle.js
 test/ui/style.css

@@ -17,7 +17,7 @@
   "scripts": {
     "install": "grunt install",
     "build": "grunt build",
-    "doc": "kss-node -c kss-config.json",
+    "doc": "grunt kss:styleguide",
     "lint": "grunt lint"
   },
   "devDependencies": {

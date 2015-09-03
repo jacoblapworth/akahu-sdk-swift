@@ -97,6 +97,7 @@ textarea {
 input[type="checkbox"],
 input[type="radio"] {
 	box-shadow: none;
+	cursor: pointer;
 	height: px-to-rem(18);
 	margin-right: 0.5em;
 	position: relative;

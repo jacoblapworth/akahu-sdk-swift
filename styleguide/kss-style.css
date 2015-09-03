@@ -1,3 +1,31 @@
+#kss-node {
+	background: #2baaed;
+	background-image: linear-gradient(to right, #2baaed, #2baaed 20%, #fff 20%, #fff);
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 24px;
+}
+
+#kss-node .kss-sidebar,
+#kss-node .kss-sidebar h1,
+#kss-node .kss-sidebar a {
+	color: #fff;
+}
+
+#kss-node .kss-sidebar h1 {
+	font-size: 66px;
+	letter-spacing: 1px;
+}
+
+#kss-node .kss-sidebar .kss-nav__menu-item {
+	font-size: 24px;
+	font-weight: 100;
+	line-height: 1.5;
+}
+
+#kss-node .kss-sidebar .kss-nav__ref {
+	display: none;
+}
+
 #kss-node .kss-markup {
 	font-size: 12px;
 }

@@ -158,9 +158,9 @@ input[type="submit"].#{$ns}-button-action-create,
 // .xui-button-small
 //
 // Markup:
-// <button type="button" class="xui-button-small">Text</button>
-// <button type="button" class="xui-button-action-main xui-button-small">Text</button>
-// <button type="button" class="xui-button-action-create xui-button-small">Text</button>
+// <button type="button" class="xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button-action-main xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button-action-create xui-button-small {{modifier_class}}">Text</button>
 //
 // Styleguide: Buttons.4
 button.#{$ns}-button-small,

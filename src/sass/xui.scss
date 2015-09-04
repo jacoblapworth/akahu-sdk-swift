@@ -26,9 +26,8 @@
 // Unopinionated global styles and tooling
 // -----------------------------------------------------------------------------
 
-$ns: "xui" !default;
-
 @import "../../vendor/normalize/normalize";
+@import "vars";
 
 // TODO: The following can belong anywhere.  Sass globals project maybe?
 @import "tools/functions";
@@ -37,12 +36,6 @@ $ns: "xui" !default;
 
 // Xero styles as per the Xero UI Toolkit
 // -----------------------------------------------------------------------------
-
-@import "settings/animation";
-@import "settings/colours";
-@import "settings/structure";
-@import "settings/typography";
-
 @import "elements/body";
 @import "elements/forms";
 @import "elements/headings";

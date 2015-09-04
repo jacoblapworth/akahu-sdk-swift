@@ -19,3 +19,15 @@
 	overflow: hidden;
 	width: 48px;
 }
+
+.#{$ns}-avatar-small {
+	font-size: $font-size-section-title;
+	height: 24px;
+	width: 24px;
+}
+
+.#{$ns}-avatar-large {
+	font-size: $font-size-heading;
+	height: 96px;
+	width: 96px;
+}

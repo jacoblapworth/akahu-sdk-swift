@@ -1,12 +1,6 @@
 {
 	"name": "xui",
 	"description": "Shared styles for Xero applications",
-	"authors": [
-		"Ed Sansom <ed.sansom@xero.com>",
-		"Emanuel Rabina <emanuel.rabina@xero.com>",
-		"Walter Rumsby <walter.rumsby@xero.com>",
-		"Tim Redmond <tim.redmond@xero.com>"
-	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.dev.xero.com/Style/xui"

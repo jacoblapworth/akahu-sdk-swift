@@ -1,0 +1,10 @@
+Dmitry Fadeev <dmitry.fadeev@xero.com>
+Rebecca Hill <rebecca.hill@xero.com>
+James Magness <james.magness@xero.com>
+Ivan Miskovic <ivan.miskovic@xero.com>
+Emanuel Rabina <emanuel.rabina@xero.com>
+Tim Redmond <tim.redmond@xero.com>
+Adam Reeve <adam.reeve@xero.com>
+Walter Rumsby <walter.rumsby@xero.com>
+Ed Sansom <ed.sansom@xero.com>
+Logan Willmott <logan.willmott@xero.com>

@@ -14,12 +14,11 @@
 // :hover - Highlights when hovering
 // :focus - When focused
 // :active - When active
-// .xui-button - Standard styling
 //
 // Markup:
-// <button>Text</button>
-// <input type="button" value="Text"/>
-// <a href="#" class="xui-button">Text</a>
+// <button class="{{modifier_class}}">Text</button>
+// <input type="button" class="{{modifier_class}}" value="Text" />
+// <a href="#" class="xui-button {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.1
 button,
@@ -81,13 +80,12 @@ input[type="submit"],
 // :hover - Highlights when hovering.
 // :focus - When focused
 // :active - When active
-// .xui-button-action-main - Primary action
 //
 // Markup:
-// <button type="submit">Text</button>
-// <input type="submit" value="Text"/>
-// <button class="xui-button-action-main">Text</button>
-// <a href="#" class="xui-button xui-button-action-main">Text</a>
+// <button type="submit" class="{{modifier_class}}">Text</button>
+// <input type="submit" class="{{modifier_class}}" value="Text" />
+// <button class="xui-button-action-main {{modifier_class}}">Text</button>
+// <a href="#" class="xui-button xui-button-action-main {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.2
 input[type="submit"],
@@ -119,13 +117,12 @@ button[type="submit"],
 // :hover - Highlights when hovering.
 // :focus - When focused
 // :active - When active
-// .xui-button-action-create - Primary action
 //
 // Markup:
-// <button type="button" class="xui-button-action-create">Text</button>
-// <input type="button" class="xui-button-action-create" value="Text"/>
-// <button class="xui-button-action-create">Text</button>
-// <a href="#" class="xui-button xui-button-action-create">Text</a>
+// <button type="button" class="xui-button-action-create {{modifier_class}}">Text</button>
+// <input type="button" class="xui-button-action-create {{modifier_class}}" value="Text"/>
+// <button class="xui-button-action-create {{modifier_class}}">Text</button>
+// <a href="#" class="xui-button xui-button-action-create {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.3
 button.#{$ns}-button-action-create,

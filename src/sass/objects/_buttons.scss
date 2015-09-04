@@ -150,3 +150,27 @@ input[type="submit"].#{$ns}-button-action-create,
 		background-color: $color-xero-green;
 	}
 }
+
+// Smaller Buttons
+//
+// Button to use when creating smaller more compact things.
+//
+// :hover - Highlights when hovering.
+// :focus - When focused
+// :active - When active
+// .xui-button-small
+//
+// Markup:
+// <button type="button" class="xui-button-small">Text</button>
+// <button type="button" class="xui-button-action-main xui-button-small">Text</button>
+// <button type="button" class="xui-button-action-create xui-button-small">Text</button>
+//
+// Styleguide: Buttons.4
+button.#{$ns}-button-small,
+input[type="button"].#{$ns}-button-small,
+input[type="submit"].#{$ns}-button-small,
+.#{$ns}-button-small {
+	line-height: px-to-rem(16);	// Should be an em
+	min-width: px-to-rem(60);
+	padding: 0.5em 1em;
+}

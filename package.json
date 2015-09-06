@@ -1,7 +1,7 @@
 {
 	"version": "1.0.0",
 	"name": "avatar",
-	"main": "src/UserAvatar.js",
+	"main": "src/Avatar.js",
 	"description": "React UI component that renders an avatar, either based on the user's name or profile image",
 	"author": "Jishaal Kalyan <jishaal.kalyan@xero.com>",
 	"license": "Copyright Xero Ltd",

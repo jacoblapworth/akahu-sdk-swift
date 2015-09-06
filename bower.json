@@ -2,8 +2,8 @@
 	"name": "avatar",
 	"description": "React UI component that renders an avatar, either based on the user's name or profile image",
 	"main": [
-		"src/UserAvatar.js",
-		"src/scss/_user-avatar.scss"
+		"src/Avatar.js",
+		"src/scss/_avatar.scss"
 	],
 	"private": true,
 	"ignore": [

@@ -1,5 +1,5 @@
 {
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"name": "avatar",
 	"main": "src/Avatar.js",
 	"description": "React UI component that renders an avatar, either based on the user's name or profile image",

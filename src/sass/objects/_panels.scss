@@ -13,10 +13,27 @@
 //
 // Markup:
 //	<div class="xui-panel">
-//		<div class="xui-panel-header">Header</div>
+//		<div class="xui-panel-header">Panel with 1 Section</div>
 //		<div class="xui-panel-section">Section</div>
 //		<div class="xui-panel-footer">Footer</div>
 //	</div>
+//	<br/>
+//	<div class="xui-panel">
+//		<div class="xui-panel-header">Panel with Multiple Sections</div>
+//		<div class="xui-panel-section">Section</div>
+//		<div class="xui-panel-section">Section</div>
+//		<div class="xui-panel-footer">Footer</div>
+//	</div>
+//	<br/>
+//	<div class="xui-panel">
+//		<div class="xui-panel-header">Panel with No Footer</div>
+//		<div class="xui-panel-section">Section</div>
+//	</div>
+//	<br/>
+//	<div class="xui-panel">
+//		<div class="xui-panel-footer">Panel with Only a Footer</div>
+//	</div>
+//
 //
 // Styleguide: Panels
 .#{$ns}-panel {
@@ -44,12 +61,22 @@
 // -----------------------------------------------------------------------------
 // TODO: Nothing uses this yet...
 
+.#{$ns}-panel-header {
+	border-bottom: $divider-standard;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel-section {
-	@include all-but-last-of-type {
-		border-bottom: $divider-standard;
+	border-bottom: $divider-standard;
+
+	&:last-child {
+		border-bottom: 0;
 	}
 }
 
@@ -72,7 +99,6 @@
 //       semantic, eg: 'o-buttongroup'
 
 .#{$ns}-panel-footer {
-	border-top: $divider-standard;
 	display: flex;
 	justify-content: flex-end;
 

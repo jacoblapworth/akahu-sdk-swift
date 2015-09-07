@@ -181,9 +181,17 @@ input[type="submit"].#{$ns}-button-small,
 // :active - When active
 //
 // Markup:
-// <button type="button" disabled class="xui-button-action-main {{modifier_class}}">Text</button>
-// <button type="button" disabled class="{{modifier_class}}">Text</button>
-// <a href="#" class="xui-button xui-button-disabled {{modifier_class}}">Text</a>
+// <p>
+//   <button type="button" disabled class="xui-button-action-main {{modifier_class}}">Text</button>
+//   <button type="button" disabled class="xui-button-action-create {{modifier_class}}">Text</button>
+//   <input type="submit" disabled class="{{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-action-main xui-button-disabled {{modifier_class}}">Text</a>
+// </p>
+// <p>
+//   <button type="button" disabled class="{{modifier_class}}">Text</button>
+//   <input type="button" disabled class="{{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-disabled {{modifier_class}}">Text</a>
+// </p>
 //
 // Styleguide: Buttons.5
 

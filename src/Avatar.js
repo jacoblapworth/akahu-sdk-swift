@@ -21,8 +21,8 @@ const propTypes = {
 
 	/** @property {String} [colour] The background colour of the avatar */
 	colour: React.PropTypes.string,
-	
-	/** @property {String} [identifier] An unique string that will be used to generate the colour of the avatar */
+
+	/** @property {String} [identifier] A unique string that will be used to generate the colour of the avatar if colour is not provided. If this is not set then value is used as the identifier. */
 	identifier: React.PropTypes.string
 
 };
@@ -63,7 +63,7 @@ const COLOURS = [
 */
 function generateColour(identifier) {
 	let i;
-	let c;	
+	let c;
 	let h = 5381;
 	const len = identifier.length >>> 0;
 
@@ -101,7 +101,7 @@ export default class Avatar extends React.Component {
 		if (imageUrl) {
 			element = <img className={avatarClassNames} alt="" src={imageUrl}></img>;
 		} else {
-			colour = colour || generateColour(identifier);
+			colour = colour || generateColour(identifier || avatar.props.value);
 			const avatarStyle = { 'backgroundColor': colour };
 			element =
 			<abbr className={avatarClassNames} style={avatarStyle}>{value}</abbr>;

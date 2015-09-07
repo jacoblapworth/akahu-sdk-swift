@@ -171,3 +171,60 @@ input[type="submit"].#{$ns}-button-small,
 	min-width: px-to-rem(60);
 	padding: 0.5em 1em;
 }
+
+// Disabled buttons
+//
+// Styling of buttons with the disabled attribute and hyperlinks with the xui-button-disabled class.
+//
+// :hover - When hovered
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <button type="button" disabled class="xui-button-action-main {{modifier_class}}">Text</button>
+// <button type="button" disabled class="{{modifier_class}}">Text</button>
+// <a href="#" class="xui-button xui-button-disabled {{modifier_class}}">Text</a>
+//
+// Styleguide: Buttons.5
+
+// Disabled styling for standard buttons
+button[disabled],
+input[type="button"][disabled],
+.#{$ns}-button-disabled {
+	background-color: $color-backgrounds;
+	border-color: $color-grey-5;
+	color: $color-grey-3;
+	cursor: default;
+
+	&:hover {
+		border-color: $color-grey-5;
+	}
+
+	&:active {
+		background-color: $color-backgrounds;
+		border-color: $color-grey-5;
+	}
+}
+
+// Disabled styling for action buttons
+button[type="submit"][disabled],
+input[type="submit"][disabled],
+.#{$ns}-button-action-main[disabled],
+.#{$ns}-button-action-main.#{$ns}-button-disabled,
+.#{$ns}-button-action-create[disabled],
+.#{$ns}-button-action-create.#{$ns}-button-disabled {
+	background-color: $color-grey-5;
+	border-color: $color-grey-5;
+	color: $color-grey-7;
+
+	&:hover {
+		border-color: $color-grey-5;
+		box-shadow: none;
+	}
+
+	&:active {
+		background-color: $color-grey-5;
+		border-color: $color-grey-5;
+		box-shadow: none;
+	}
+}

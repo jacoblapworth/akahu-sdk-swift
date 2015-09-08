@@ -10,24 +10,19 @@
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// Inputgroups
-//
-// Styleguide: Inputgroups
-//
-// Inputgroups
-//
+// Input Groups
 //
 // Markup:
 // <div class="xui-inputgroup">
-//  <label class="xui-inputgroup-label" for="username">Username</label>
+// 	<label class="xui-inputgroup--label" for="username">Username</label>
 // 	<input type="text" id="username" placeholder="Username"/>
 // </div>
 // <div class="xui-inputgroup">
-//  <label class="xui-inputgroup-label" for="password">Password</label>
+// 	<label class="xui-inputgroup--label" for="password">Password</label>
 // 	<input type="password" id="password" placeholder="Password"/>
 // </div>
 //
-// Styleguide: Inputgroups
+// Styleguide: Input Groups
 .#{$ns}-inputgroup {
 	align-items: stretch;
 	display: flex;
@@ -53,7 +48,7 @@
 // Label part
 // -----------------------------------------------------------------------------
 
-.#{$ns}-inputgroup-label {
+.#{$ns}-inputgroup--label {
 	box-sizing: border-box;
 	max-width: 280px;
 	padding: 0 1em 0 6em;
@@ -74,14 +69,14 @@
 // TODO: Now being used to distinguish between labels alongside text inputs and
 //       radio/checkbox labels.  Should think of a better way to do this.
 // scss-lint:disable QualifyingElement
-label.#{$ns}-inputgroup-label {
+label.#{$ns}-inputgroup--label {
 	line-height: 35px;
 }
 
 // Input(s) part
 // -----------------------------------------------------------------------------
 
-.#{$ns}-inputgroup-inputs {
+.#{$ns}-inputgroup--inputs {
 	box-sizing: border-box;
 	max-width: 350px;
 	position: relative;

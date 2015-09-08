@@ -13,25 +13,25 @@
 //
 // Markup:
 //	<div class="xui-panel">
-//		<div class="xui-panel-header">Panel with 1 Section</div>
-//		<div class="xui-panel-section">Section</div>
-//		<div class="xui-panel-footer">Footer</div>
+//		<div class="xui-panel--header">Panel with 1 Section</div>
+//		<div class="xui-panel--section">Section</div>
+//		<div class="xui-panel--footer">Footer</div>
 //	</div>
 //	<br/>
 //	<div class="xui-panel">
-//		<div class="xui-panel-header">Panel with Multiple Sections</div>
-//		<div class="xui-panel-section">Section</div>
-//		<div class="xui-panel-section">Section</div>
-//		<div class="xui-panel-footer">Footer</div>
+//		<div class="xui-panel--header">Panel with Multiple Sections</div>
+//		<div class="xui-panel--section">Section</div>
+//		<div class="xui-panel--section">Section</div>
+//		<div class="xui-panel--footer">Footer</div>
 //	</div>
 //	<br/>
 //	<div class="xui-panel">
-//		<div class="xui-panel-header">Panel with No Footer</div>
-//		<div class="xui-panel-section">Section</div>
+//		<div class="xui-panel--header">Panel with No Footer</div>
+//		<div class="xui-panel--section">Section</div>
 //	</div>
 //	<br/>
 //	<div class="xui-panel">
-//		<div class="xui-panel-footer">Panel with Only a Footer</div>
+//		<div class="xui-panel--footer">Panel with Only a Footer</div>
 //	</div>
 //
 //
@@ -51,9 +51,9 @@
 	}
 }
 
-.#{$ns}-panel-header,
-.#{$ns}-panel-section,
-.#{$ns}-panel-footer {
+.#{$ns}-panel--header,
+.#{$ns}-panel--section,
+.#{$ns}-panel--footer {
 	padding: px-to-rem(20);
 }
 
@@ -61,7 +61,7 @@
 // -----------------------------------------------------------------------------
 // TODO: Nothing uses this yet...
 
-.#{$ns}-panel-header {
+.#{$ns}-panel--header {
 	border-bottom: $divider-standard;
 
 	&:last-child {
@@ -72,7 +72,7 @@
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
-.#{$ns}-panel-section {
+.#{$ns}-panel--section {
 	border-bottom: $divider-standard;
 
 	&:last-child {
@@ -80,7 +80,7 @@
 	}
 }
 
-.#{$ns}-panel-section-header {
+.#{$ns}-panel--section--header {
 	margin: 0;
 	text-align: center;
 
@@ -98,7 +98,7 @@
 //       might do good to extract the following styles into a class that's more
 //       semantic, eg: 'o-buttongroup'
 
-.#{$ns}-panel-footer {
+.#{$ns}-panel--footer {
 	display: flex;
 	justify-content: flex-end;
 

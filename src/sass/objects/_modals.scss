@@ -8,23 +8,22 @@
 //
 // Markup:
 // <a href="#" onclick="showExampleModal(); return false;">Show Modal</a>
-// <div id="example-modal" class="xui-modal-container">
+// <div id="example-modal" class="xui-mask">
 // 	<section class="xui-modal xui-modal-medium">
-// 		<header class="xui-modal-header">
+// 		<header class="xui-modal--header">
 // 			<h3>Modal</h3>
-// 			<a href="#" class="xui-modal-header-close"></a>
+// 			<a href="#" class="xui-modal--header-close"></a>
 // 		</header>
-// 		<div class="xui-modal-body">
-// 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros velit, tincidunt sit amet mi in, varius posuere tellus. Aliquam rutrum mi non nulla aliquet sollicitudin et vitae justo. Aliquam dignissim augue ex, vitae aliquam diam accumsan mattis. Donec sit amet efficitur neque, nec sagittis ex. Curabitur odio elit, blandit eu sapien ut, porttitor vestibulum dolor. Mauris fermentum urna urna, nec cursus diam rutrum sed.</p>
-// 		</div>
-// 		<footer class="xui-modal-footer">
-// 			<button class="xui-button-action-main">Button</button>
+// 		<div class="xui-modal--body">
+// 			<p>Body content.</p>
+// 		<footer class="xui-modal--footer">
+// 			<button class="xui-button-main">Button</button>
 // 		</footer>
 // 	</section>
 // </div>
 //
 // Styleguide: Modals
-.#{$ns}-modal-container {
+.#{$ns}-mask {
 	align-items: center;
 	background-color: transparentize($color-primary-text, 0.3);
 	bottom: 0;
@@ -65,14 +64,14 @@
 // Modal header
 // -----------------------------------------------------------------------------
 
-.#{$ns}-modal-header {
+.#{$ns}-modal--header {
 	align-content: stretch;
 	display: flex;
 	justify-content: space-between;
 	padding-left: px-to-rem(20);
 }
 
-.#{$ns}-modal-header-close {
+.#{$ns}-modal--header-close {
 	cursor: pointer;
 	height: px-to-rem(64);
 	position: relative;
@@ -99,7 +98,7 @@
 // Modal body
 // -----------------------------------------------------------------------------
 
-.#{$ns}-modal-body {
+.#{$ns}-modal--body {
 	max-height: 45vh;
 	overflow-y: auto;
 
@@ -123,7 +122,7 @@
 // Modal footer
 // -----------------------------------------------------------------------------
 
-.#{$ns}-modal-footer {
+.#{$ns}-modal--footer {
 	display: flex;
 	justify-content: flex-end;
 	padding: px-to-rem(20);

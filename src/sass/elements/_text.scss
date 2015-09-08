@@ -65,3 +65,18 @@ p {
 	color: $color-secondary-text;
 	font-size: $font-size-heading-mini;
 }
+
+.#{$ns}-text-sectionheading {
+	color: $color-secondary-text;
+	font-size: $font-size-heading-mini;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.#{$ns}-text-cell {
+	padding: 16px;
+}
+
+.#{$ns}-text-number {
+	text-align: right;
+}

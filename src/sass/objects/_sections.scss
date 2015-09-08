@@ -1,0 +1,13 @@
+@import "../settings/colours";
+
+.#{$ns}-sectionheading {
+	background-color: $color-backgrounds;
+	border: $border-standard;
+	margin: 0;
+	padding: 4px 16px;
+	text-align: left;
+}
+
+.#{$ns}-sectionheading--cell {
+	padding: 4px 16px;
+}

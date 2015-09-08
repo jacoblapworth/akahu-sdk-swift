@@ -16,9 +16,10 @@
 // Markup:
 //	<div class="xui-tabbed-navigation">
 //		<div class="xui-tabgroup">
-//			<div class="xui-tab">xui-tab</div>
-//			<div class="xui-tab">xui-tab</div>
-//			<div class="xui-tab">xui-tab</div>
+//			<div class="xui-tab">Default</div>
+//			<div class="xui-tab-is-selected">Default Selected</div>
+//			<div class="xui-tab-globalheader">Global Header</div>
+//			<div class="xui-tab-globalheader-is-selected">Global Header Selected</div>
 //		</div>
 //	</div>
 //
@@ -53,34 +54,42 @@
 // Individual tabs
 // -----------------------------------------------------------------------------
 
-.#{$ns}-tab {
-	color: $color-secondary-text;
+@mixin xuitab ($color: $color-secondary-text, $hover-color: $color-primary-text, $border-color: "transparent") {
+	color: $color;
 	cursor: pointer;
 	margin: 0;
 	padding: 0.5em 1em 0;
 	text-align: center;
 
-	&:hover {
-		color: $color-primary-text;
-	}
-
 	&:after {
-		background-color: transparent;
+		background-color: $border-color;
 		content: " ";
 		display: block;
 		height: 3px;
 		margin-top: 6px;
 	}
 
+	&:hover {
+		color: $hover-color;
+	}
+
 	&:hover:after {
-		background-color: $color-primary-text;
+		background-color: $hover-color;
 	}
 }
 
-.#{$ns}-tab-selected {
-	color: $color-primary-text;
+.#{$ns}-tab {
+	@include xuitab();
+}
 
-	&:after {
-		background-color: $color-primary-text;
-	}
+.#{$ns}-tab-is-selected {
+	@include xuitab($color-primary-text, $color-primary-text, $color-primary-text);
+}
+
+.#{$ns}-tab-globalheader {
+	@include xuitab($color-reversed-text, $color-xero-light-blue);
+}
+
+.#{$ns}-tab-globalheader-is-selected {
+	@include xuitab($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue);
 }

@@ -87,19 +87,9 @@
 
 // PANEL FOOTER
 // -----------------------------------------------------------------------------
-// TODO: This footer currently assumes that it's a container for buttons.
-//       Examples for that have been true so far, but if that changes, then it
-//       might do good to extract the following styles into a class that's more
-//       semantic, eg: 'o-buttongroup'
 
 .#{$ns}-panel--footer {
 	border-top: $divider-standard;
-	display: flex;
-	justify-content: flex-end;
-
-	@include mobile {
-		flex-direction: column;
-	}
 
 	&:first-child {
 		border-top: 0;

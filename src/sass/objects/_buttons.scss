@@ -25,7 +25,7 @@ button,
 input[type="button"],
 input[type="submit"],
 .#{$ns}-button {
-	background-color: $color-grey-7;
+	background-color: $color-forms;
 	border: $border-standard;
 	border-radius: $radius;
 	box-sizing: border-box;
@@ -93,7 +93,7 @@ button[type="submit"],
 .#{$ns}-button-action-main {
 	background-color: $color-xero-blue;
 	border-color: $color-xero-blue;
-	color: $color-grey-7;
+	color: $color-reversed-text;
 
 	@mixin button-shadow($fade) {
 		border-color: $color-xero-blue;
@@ -131,7 +131,7 @@ input[type="submit"].#{$ns}-button-action-create,
 .#{$ns}-button-action-create {
 	background-color: $color-xero-green;
 	border-color: $color-xero-green;
-	color: $color-grey-7;
+	color: $color-reversed-text;
 
 	@mixin button-shadow($fade) {
 		border-color: $color-xero-green;
@@ -170,4 +170,69 @@ input[type="submit"].#{$ns}-button-small,
 	line-height: px-to-rem(16);	// Should be an em
 	min-width: px-to-rem(60);
 	padding: 0.5em 1em;
+}
+
+// Disabled buttons
+//
+// Styling of buttons with the disabled attribute and hyperlinks with the xui-button-disabled class.
+//
+// :hover - When hovered
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <p>
+//   <button type="button" disabled class="xui-button-action-main {{modifier_class}}">Text</button>
+//   <button type="button" disabled class="xui-button-action-create {{modifier_class}}">Text</button>
+//   <input type="submit" disabled class="{{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-action-main xui-button-disabled {{modifier_class}}">Text</a>
+// </p>
+// <p>
+//   <button type="button" disabled class="{{modifier_class}}">Text</button>
+//   <input type="button" disabled class="{{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-disabled {{modifier_class}}">Text</a>
+// </p>
+//
+// Styleguide: Buttons.5
+
+// Disabled styling for standard buttons
+button[disabled],
+input[type="button"][disabled],
+.#{$ns}-button-disabled {
+	background-color: $color-backgrounds;
+	border-color: $color-disabled;
+	color: $color-disabled-text;
+	cursor: default;
+
+	&:hover {
+		border-color: $color-disabled;
+	}
+
+	&:active {
+		background-color: $color-backgrounds;
+		border-color: $color-disabled;
+	}
+}
+
+// Disabled styling for action buttons
+button[type="submit"][disabled],
+input[type="submit"][disabled],
+.#{$ns}-button-action-main[disabled],
+.#{$ns}-button-action-main.#{$ns}-button-disabled,
+.#{$ns}-button-action-create[disabled],
+.#{$ns}-button-action-create.#{$ns}-button-disabled {
+	background-color: $color-disabled;
+	border-color: $color-disabled;
+	color: $color-reversed-text;
+
+	&:hover {
+		border-color: $color-disabled;
+		box-shadow: none;
+	}
+
+	&:active {
+		background-color: $color-disabled;
+		border-color: $color-disabled;
+		box-shadow: none;
+	}
 }

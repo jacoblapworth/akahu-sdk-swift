@@ -84,13 +84,13 @@ input[type="submit"],
 // Markup:
 // <button type="submit" class="{{modifier_class}}">Text</button>
 // <input type="submit" class="{{modifier_class}}" value="Text" />
-// <button class="xui-button-action-main {{modifier_class}}">Text</button>
-// <a href="#" class="xui-button xui-button-action-main {{modifier_class}}">Text</a>
+// <button class="xui-button-main {{modifier_class}}">Text</button>
+// <a href="#" class="xui-button xui-button-main {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.2
 input[type="submit"],
 button[type="submit"],
-.#{$ns}-button-action-main {
+.#{$ns}-button-main {
 	background-color: $color-xero-blue;
 	border-color: $color-xero-blue;
 	color: $color-reversed-text;
@@ -110,7 +110,7 @@ button[type="submit"],
 	}
 }
 
-// Create Action Buttons
+// Create Buttons
 //
 // Button to use when creating things.
 //
@@ -119,16 +119,16 @@ button[type="submit"],
 // :active - When active
 //
 // Markup:
-// <button type="button" class="xui-button-action-create {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button-action-create {{modifier_class}}" value="Text"/>
-// <button class="xui-button-action-create {{modifier_class}}">Text</button>
-// <a href="#" class="xui-button xui-button-action-create {{modifier_class}}">Text</a>
+// <button type="button" class="xui-button-create {{modifier_class}}">Text</button>
+// <input type="button" class="xui-button-create {{modifier_class}}" value="Text"/>
+// <button class="xui-button-create {{modifier_class}}">Text</button>
+// <a href="#" class="xui-button xui-button-create {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.3
-button.#{$ns}-button-action-create,
-input[type="button"].#{$ns}-button-action-create,
-input[type="submit"].#{$ns}-button-action-create,
-.#{$ns}-button-action-create {
+button.#{$ns}-button-create,
+input[type="button"].#{$ns}-button-create,
+input[type="submit"].#{$ns}-button-create,
+.#{$ns}-button-create {
 	background-color: $color-xero-green;
 	border-color: $color-xero-green;
 	color: $color-reversed-text;
@@ -159,8 +159,8 @@ input[type="submit"].#{$ns}-button-action-create,
 //
 // Markup:
 // <button type="button" class="xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button-action-main xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button-action-create xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button-main xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button-create xui-button-small {{modifier_class}}">Text</button>
 //
 // Styleguide: Buttons.4
 button.#{$ns}-button-small,
@@ -182,10 +182,10 @@ input[type="submit"].#{$ns}-button-small,
 //
 // Markup:
 // <p>
-//   <button type="button" disabled class="xui-button-action-main {{modifier_class}}">Text</button>
-//   <button type="button" disabled class="xui-button-action-create {{modifier_class}}">Text</button>
+//   <button type="button" disabled class="xui-button-main {{modifier_class}}">Text</button>
+//   <button type="button" disabled class="xui-button-create {{modifier_class}}">Text</button>
 //   <input type="submit" disabled class="{{modifier_class}}" value="Text" />
-//   <a href="#" class="xui-button xui-button-action-main xui-button-disabled {{modifier_class}}">Text</a>
+//   <a href="#" class="xui-button xui-button-main xui-button-disabled {{modifier_class}}">Text</a>
 // </p>
 // <p>
 //   <button type="button" disabled class="{{modifier_class}}">Text</button>
@@ -217,10 +217,10 @@ input[type="button"][disabled],
 // Disabled styling for action buttons
 button[type="submit"][disabled],
 input[type="submit"][disabled],
-.#{$ns}-button-action-main[disabled],
-.#{$ns}-button-action-main.#{$ns}-button-disabled,
-.#{$ns}-button-action-create[disabled],
-.#{$ns}-button-action-create.#{$ns}-button-disabled {
+.#{$ns}-button-main[disabled],
+.#{$ns}-button-main.#{$ns}-button-disabled,
+.#{$ns}-button-create[disabled],
+.#{$ns}-button-create.#{$ns}-button-disabled {
 	background-color: $color-disabled;
 	border-color: $color-disabled;
 	color: $color-reversed-text;

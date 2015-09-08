@@ -7,6 +7,15 @@ A shared stylesheet for Xero applications.
 
 ## Using in Your Project
 
+### CDN
+
+Include the following CSS file in your page:
+
+```html
+<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/1.2.0/xui.css"/>
+```
+
+### Bower
 ```bash
 $ bower install git@github.dev.xero.com:Style/xui.git --save
 ```

@@ -1,0 +1,69 @@
+/**
+ * Styles for the nav elements.  These typically sit above body content or
+ * breadcrumb elements.
+ */
+
+@import "../tools/mixins";
+@import "../settings/colours";
+
+// Page Header
+//
+// .#{$ns}-pagenav-fullsize    - A full browser width version of the default
+// .#{$ns}-pagenav-mediumsize  - A medium size (940px) version
+//
+// Markup:
+// <header class="xui-pagenav">
+//   <div class="xui-pagenav-main">
+//     <h1 class="xui-page-title">Banking UI Pattern Library</h1>
+//   </div>
+//   <nav class="xui-pagenav-nav">
+//     <ul id="main-tabs" class="xui-tabgroup xui-tabgroup-start">
+//       <li class="xui-tab-pagenav">Nav 1</li>
+//       <li class="xui-tab-pagenav">Nav 2</li>
+//       <li class="xui-tab-pagenav">Nav 3</li>
+//       <li class="xui-tab-pagenav">Nav 4</li>
+//       <li class="xui-tab-pagenav">Nav 5</li>
+//     </ul>
+//   </nav>
+// </header>
+//
+// Styleguide: Page Header
+.#{$ns}-pagenav {
+	background-color: $color-xero-blue;
+	overflow: hidden;
+
+	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+		margin: 0 auto;
+		max-width: 1160px;
+	}
+
+	.#{$ns}-page-title {
+		color: $color-reversed-text;
+		margin: 0.75em auto 0.25em;
+	}
+
+}
+
+.#{$ns}-pagenav-mediumsize {
+	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+		max-width: 940px;
+	}
+}
+
+.#{$ns}-pagenav-fullsize {
+	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+		max-width: calc(100% - 20px);
+	}
+}
+
+@include desktop {
+	.#{$ns}-pagenav {
+		padding: 0 10px;
+	}
+
+	.#{$ns}-pagenav-fullsize {
+		.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+			max-width: 100%;
+		}
+	}
+}

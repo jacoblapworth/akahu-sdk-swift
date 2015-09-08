@@ -59,24 +59,18 @@
 
 // PANEL HEADER
 // -----------------------------------------------------------------------------
-// TODO: Nothing uses this yet...
 
 .#{$ns}-panel--header {
-	border-bottom: $divider-standard;
-
-	&:last-child {
-		border-bottom: 0;
-	}
 }
 
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--section {
-	border-bottom: $divider-standard;
+	border-top: $divider-standard;
 
-	&:last-child {
-		border-bottom: 0;
+	&:first-child {
+		border-top: 0;
 	}
 }
 
@@ -99,10 +93,15 @@
 //       semantic, eg: 'o-buttongroup'
 
 .#{$ns}-panel--footer {
+	border-top: $divider-standard;
 	display: flex;
 	justify-content: flex-end;
 
 	@include mobile {
 		flex-direction: column;
+	}
+
+	&:first-child {
+		border-top: 0;
 	}
 }

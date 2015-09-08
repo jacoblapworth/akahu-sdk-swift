@@ -18,8 +18,8 @@
 //		<div class="xui-tabgroup">
 //			<div class="xui-tab">Default</div>
 //			<div class="xui-tab-is-selected">Default Selected</div>
-//			<div class="xui-tab-globalheader">Global Header</div>
-//			<div class="xui-tab-globalheader-is-selected">Global Header Selected</div>
+//			<div class="xui-tab-pageheader">Global Header</div>
+//			<div class="xui-tab-pageheader-is-selected">Global Header Selected</div>
 //		</div>
 //	</div>
 //
@@ -37,10 +37,9 @@
 	padding: 0;
 }
 
-.#{$ns}-tabgroup-start {
-	justify-content: flex-start;
+@mixin children ($className) {
 
-	.#{$ns}-tab {
+	.#{$className} {
 		&:first-of-type {
 			padding-left: 0;
 		}
@@ -51,10 +50,40 @@
 	}
 }
 
+$variations: (
+	"#{$ns}-tab":($color-secondary-text, $color-primary-text, transparent),
+	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text),
+	"#{$ns}-tab-pageheader":($color-reversed-text, $color-xero-light-blue, transparent),
+	"#{$ns}-tab-pageheader-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
+);
+
+@mixin children ($className) {
+
+	.#{$className} {
+		&:first-of-type {
+			padding-left: 0;
+		}
+
+		&:last-of-type {
+			padding-right: 0;
+		}
+	}
+
+}
+
+.#{$ns}-tabgroup-start {
+	justify-content: flex-start;
+
+	@each $variation, $colors in $variations {
+    @include children(#{$variation});
+  }
+
+}
+
 // Individual tabs
 // -----------------------------------------------------------------------------
 
-@mixin xuitab ($color: $color-secondary-text, $hover-color: $color-primary-text, $border-color: "transparent") {
+@mixin xuitab ($color: $color-secondary-text, $hover-color: $color-primary-text, $border-color: transparent) {
 	color: $color;
 	cursor: pointer;
 	margin: 0;
@@ -78,18 +107,8 @@
 	}
 }
 
-.#{$ns}-tab {
-	@include xuitab();
-}
-
-.#{$ns}-tab-is-selected {
-	@include xuitab($color-primary-text, $color-primary-text, $color-primary-text);
-}
-
-.#{$ns}-tab-globalheader {
-	@include xuitab($color-reversed-text, $color-xero-light-blue);
-}
-
-.#{$ns}-tab-globalheader-is-selected {
-	@include xuitab($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue);
+@each $variation, $colors in $variations {
+  .#{$variation} {
+  	@include xuitab(nth($colors, 1), nth($colors, 2), nth($colors, 3));
+  }
 }

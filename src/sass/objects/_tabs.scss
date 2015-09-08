@@ -37,19 +37,6 @@
 	padding: 0;
 }
 
-@mixin children ($className) {
-
-	.#{$className} {
-		&:first-of-type {
-			padding-left: 0;
-		}
-
-		&:last-of-type {
-			padding-right: 0;
-		}
-	}
-}
-
 $variations: (
 	"#{$ns}-tab":($color-secondary-text, $color-primary-text, transparent),
 	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text),
@@ -57,9 +44,9 @@ $variations: (
 	"#{$ns}-tab-pageheader-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
 );
 
-@mixin children ($className) {
+@mixin children ($classname) {
 
-	.#{$className} {
+	.#{$classname} {
 		&:first-of-type {
 			padding-left: 0;
 		}
@@ -75,8 +62,8 @@ $variations: (
 	justify-content: flex-start;
 
 	@each $variation, $colors in $variations {
-    @include children(#{$variation});
-  }
+		@include children(#{$variation});
+	}
 
 }
 
@@ -108,7 +95,7 @@ $variations: (
 }
 
 @each $variation, $colors in $variations {
-  .#{$variation} {
-  	@include xuitab(nth($colors, 1), nth($colors, 2), nth($colors, 3));
-  }
+	.#{$variation} {
+		@include xuitab(nth($colors, 1), nth($colors, 2), nth($colors, 3));
+	}
 }

@@ -16,9 +16,10 @@
 // Markup:
 //	<div class="xui-tabbed-navigation">
 //		<div class="xui-tabgroup">
-//			<div class="xui-tab">xui-tab</div>
-//			<div class="xui-tab">xui-tab</div>
-//			<div class="xui-tab">xui-tab</div>
+//			<div class="xui-tab">Default</div>
+//			<div class="xui-tab-is-selected">Default Selected</div>
+//			<div class="xui-tab-pageheader">Global Header</div>
+//			<div class="xui-tab-pageheader-is-selected">Global Header Selected</div>
 //		</div>
 //	</div>
 //
@@ -36,10 +37,18 @@
 	padding: 0;
 }
 
-.#{$ns}-tabgroup-start {
-	justify-content: flex-start;
+// Put all the variations of tabs you need in here
+// Makes for an easy place to store and create new variations of tabs with different colours.
+$variations: (
+	"#{$ns}-tab":($color-secondary-text, $color-primary-text, transparent),
+	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text),
+	"#{$ns}-tab-pagenav":($color-reversed-text, $color-xero-light-blue, transparent),
+	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
+);
 
-	.#{$ns}-tab {
+@mixin children ($classname) {
+
+	.#{$classname} {
 		&:first-of-type {
 			padding-left: 0;
 		}
@@ -48,39 +57,47 @@
 			padding-right: 0;
 		}
 	}
+
+}
+
+.#{$ns}-tabgroup-start {
+	justify-content: flex-start;
+
+	@each $variation, $colors in $variations {
+		@include children(#{$variation});
+	}
+
 }
 
 // Individual tabs
 // -----------------------------------------------------------------------------
 
-.#{$ns}-tab {
-	color: $color-secondary-text;
+@mixin xuitab ($color: $color-secondary-text, $hover-color: $color-primary-text, $border-color: transparent) {
+	color: $color;
 	cursor: pointer;
 	margin: 0;
 	padding: 0.5em 1em 0;
 	text-align: center;
 
-	&:hover {
-		color: $color-primary-text;
-	}
-
 	&:after {
-		background-color: transparent;
+		background-color: $border-color;
 		content: " ";
 		display: block;
 		height: 3px;
 		margin-top: 6px;
 	}
 
+	&:hover {
+		color: $hover-color;
+	}
+
 	&:hover:after {
-		background-color: $color-primary-text;
+		background-color: $hover-color;
 	}
 }
 
-.#{$ns}-tab-selected {
-	color: $color-primary-text;
-
-	&:after {
-		background-color: $color-primary-text;
+@each $variation, $colors in $variations {
+	.#{$variation} {
+		@include xuitab(nth($colors, 1), nth($colors, 2), nth($colors, 3));
 	}
 }

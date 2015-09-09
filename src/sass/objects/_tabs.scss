@@ -37,11 +37,13 @@
 	padding: 0;
 }
 
+// Put all the variations of tabs you need in here
+// Makes for an easy place to store and create new variations of tabs with different colours.
 $variations: (
 	"#{$ns}-tab":($color-secondary-text, $color-primary-text, transparent),
 	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text),
-	"#{$ns}-tab-pageheader":($color-reversed-text, $color-xero-light-blue, transparent),
-	"#{$ns}-tab-pageheader-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
+	"#{$ns}-tab-pagenav":($color-reversed-text, $color-xero-light-blue, transparent),
+	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
 );
 
 @mixin children ($classname) {

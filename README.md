@@ -12,7 +12,7 @@ A shared stylesheet for Xero applications.
 Include the following CSS file in your page:
 
 ```html
-<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/1.2.0/xui.css"/>
+<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/2.0.1/xui.css"/>
 ```
 
 ### Bower

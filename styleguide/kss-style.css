@@ -5,6 +5,13 @@
 	line-height: 24px;
 }
 
+#kss-node .kss-sidebar {
+	max-height: 100vh;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+}
+
 #kss-node .kss-sidebar,
 #kss-node .kss-sidebar h1,
 #kss-node .kss-sidebar a {

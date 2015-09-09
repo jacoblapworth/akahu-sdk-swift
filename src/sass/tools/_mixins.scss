@@ -44,6 +44,7 @@
 
 $mobile-breakpoint: px-to-rem(520);
 $tablet-breakpoint: px-to-rem(940);
+$desktop-breakpoint: px-to-rem(1160);
 
 // Mobile is a subset of tablet
 @mixin mobile {
@@ -55,6 +56,13 @@ $tablet-breakpoint: px-to-rem(940);
 // Tablet is a subset of desktop
 @mixin tablet {
 	@media screen and (max-width: $tablet-breakpoint) {
+		@content;
+	}
+}
+
+// Desktop is a subset of full width
+@mixin desktop {
+	@media screen and (max-width: $desktop-breakpoint) {
 		@content;
 	}
 }

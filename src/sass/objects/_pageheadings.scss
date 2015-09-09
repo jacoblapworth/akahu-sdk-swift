@@ -27,9 +27,9 @@
 // <section class="xui-pageheading xui-pageheading-large">
 //   <div class="xui-pageheading--main">
 //      <ol class="xui-pageheading--breadcrumbs">
-//         <li class="xui-crumb"><a href="#">Sales</a></li>
-//         <li class="xui-crumb"><a href="#">Invoices</a></li>
-//         <li class="xui-crumb active">INV-001</li>
+//         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
+//         <li class="xui-breadcrumb"><a href="#">Invoices</a></li>
+//         <li class="xui-breadcrumb active">INV-001</li>
 //       </ol>
 //      <button>Button</button>
 //   </div>
@@ -70,8 +70,8 @@
 	padding: 0;
 }
 
-.#{$ns}-crumb {
-	float: left;
+.#{$ns}-breadcrumb {
+	display: inline-block;
 	font-size: $font-size-page-title;
 	list-style-type: none;
 

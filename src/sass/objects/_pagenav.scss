@@ -1,6 +1,6 @@
 /**
  * Styles for the nav elements.  These typically sit above body content or
- * breadcrumb elements.
+ * breadcrumb elements. Defaults to full page width.
  */
 
 @import "../tools/mixins";
@@ -8,8 +8,8 @@
 
 // Page Header
 //
-// .#{$ns}-pagenav-fullsize    - A full browser width version of the default
-// .#{$ns}-pagenav-mediumsize  - A medium size (940px) version
+// .#{$ns}-pagenav-large  - A 1160px size version
+// .#{$ns}-pagenav-small  - A 940px size version
 //
 // Markup:
 // <header class="xui-pagenav">
@@ -34,36 +34,39 @@
 
 	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
 		margin: 0 auto;
-		max-width: 1160px;
+		max-width: calc(100% - 20px);
 	}
 
 	.#{$ns}-page-title {
 		color: $color-reversed-text;
 		margin: 0.75em auto 0.25em;
 	}
-
 }
 
-.#{$ns}-pagenav-mediumsize {
+.#{$ns}-pagenav--small {
 	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
 		max-width: 940px;
 	}
 }
 
-.#{$ns}-pagenav-fullsize {
+.#{$ns}-pagenav--large {
 	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
-		max-width: calc(100% - 20px);
+		max-width: 1160px;
+	}
+}
+
+@include tablet {
+	.#{$ns}-pagenav--small {
+		.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+			padding: 0 10px;
+		}
 	}
 }
 
 @include desktop {
-	.#{$ns}-pagenav {
-		padding: 0 10px;
-	}
-
-	.#{$ns}-pagenav-fullsize {
+	.#{$ns}-pagenav--large {
 		.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
-			max-width: 100%;
+			padding: 0 10px;
 		}
 	}
 }

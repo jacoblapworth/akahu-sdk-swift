@@ -12,8 +12,12 @@ A shared stylesheet for Xero applications.
 Include the following CSS file in your page:
 
 ```html
-<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/1.2.0/xui.css"/>
+<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/2.0.1/xui.css"/>
 ```
+
+### Usage Guidelines
+
+Do not create any classes that use the `xui` namespace outside this project.
 
 ### Bower
 ```bash
@@ -29,14 +33,7 @@ XUI is rapidly evolving and breaking changes are likely with versions before 1.0
 
 ## Contributing to XUI
 
-You'll need:
-
-* [NodeJS](https://nodejs.org/)
-* [Grunt](http://gruntjs.com/)
-* [Ruby](https://www.ruby-lang.org/en/)
-* [Bundler](http://bundler.io/)
-
-[nvm](https://github.com/creationix/nvm) is recommended, but not required.
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ### npm scripts
 

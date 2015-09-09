@@ -33,7 +33,23 @@
 //	<div class="xui-panel">
 //		<div class="xui-panel--footer">Panel with Only a Footer</div>
 //	</div>
-//
+//	<br/>
+//	<div class="xui-panel">
+//		<div class="xui-panel--header">Footer Item Alignment</div>
+//		<div class="xui-panel--footer xui-u-flex">
+//			<div class="xui-u-flex-col xui-u-flex-grow">
+//				<button>Left</button>
+//			</div>
+//			<button class="xui-u-flex-col">Right</button>
+//		</div>
+//	</div>
+//	<br/>
+//	<div class="xui-panel">
+//		<div class="xui-panel--header">Full Width Button</div>
+//		<div class="xui-panel--footer xui-u-flex">
+//			<button class="xui-u-flex-col xui-u-flex-grow">Stretch</button>
+//		</div>
+//	</div>
 //
 // Styleguide: Panels
 .#{$ns}-panel {
@@ -59,24 +75,18 @@
 
 // PANEL HEADER
 // -----------------------------------------------------------------------------
-// TODO: Nothing uses this yet...
 
 .#{$ns}-panel--header {
-	border-bottom: $divider-standard;
-
-	&:last-child {
-		border-bottom: 0;
-	}
 }
 
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--section {
-	border-bottom: $divider-standard;
+	border-top: $divider-standard;
 
-	&:last-child {
-		border-bottom: 0;
+	&:first-child {
+		border-top: 0;
 	}
 }
 
@@ -93,16 +103,11 @@
 
 // PANEL FOOTER
 // -----------------------------------------------------------------------------
-// TODO: This footer currently assumes that it's a container for buttons.
-//       Examples for that have been true so far, but if that changes, then it
-//       might do good to extract the following styles into a class that's more
-//       semantic, eg: 'o-buttongroup'
 
 .#{$ns}-panel--footer {
-	display: flex;
-	justify-content: flex-end;
+	border-top: $divider-standard;
 
-	@include mobile {
-		flex-direction: column;
+	&:first-child {
+		border-top: 0;
 	}
 }

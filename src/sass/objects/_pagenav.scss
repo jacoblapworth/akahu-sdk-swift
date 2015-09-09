@@ -13,11 +13,11 @@
 //
 // Markup:
 // <header class="xui-pagenav">
-//   <div class="xui-pagenav-main">
+//   <div class="xui-pagenav--main">
 //     <h1 class="xui-page-title">Banking UI Pattern Library</h1>
 //   </div>
-//   <nav class="xui-pagenav-nav">
-//     <ul id="main-tabs" class="xui-tabgroup xui-tabgroup-start">
+//   <nav class="xui-pagenav--nav">
+//     <ul class="xui-tabgroup xui-tabgroup-start">
 //       <li class="xui-tab-pagenav">Nav 1</li>
 //       <li class="xui-tab-pagenav">Nav 2</li>
 //       <li class="xui-tab-pagenav">Nav 3</li>
@@ -32,7 +32,7 @@
 	background-color: $color-xero-blue;
 	overflow: hidden;
 
-	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+	.#{$ns}-pagenav--main, .#{$ns}-pagenav--nav {
 		margin: 0 auto;
 		max-width: calc(100% - 20px);
 	}
@@ -43,29 +43,29 @@
 	}
 }
 
-.#{$ns}-pagenav--small {
-	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+.#{$ns}-pagenav-small {
+	.#{$ns}-pagenav--main, .#{$ns}-pagenav--nav {
 		max-width: 940px;
 	}
 }
 
-.#{$ns}-pagenav--large {
-	.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+.#{$ns}-pagenav-large {
+	.#{$ns}-pagenav-main, .#{$ns}-pagenav--nav {
 		max-width: 1160px;
 	}
 }
 
 @include tablet {
-	.#{$ns}-pagenav--small {
-		.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+	.#{$ns}-pagenav-small {
+		.#{$ns}-pagenav--main, .#{$ns}-pagenav--nav {
 			padding: 0 10px;
 		}
 	}
 }
 
 @include desktop {
-	.#{$ns}-pagenav--large {
-		.#{$ns}-pagenav-main, .#{$ns}-pagenav-nav {
+	.#{$ns}-pagenav-large {
+		.#{$ns}-pagenav--main, .#{$ns}-pagenav--nav {
 			padding: 0 10px;
 		}
 	}

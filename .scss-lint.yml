@@ -19,7 +19,7 @@ linters:
     allow_element_with_attribute: true
 
   SelectorDepth:
-    max_depth: 2
+    max_depth: 3
 
   SingleLinePerProperty:
     allow_single_line_rule_sets: false

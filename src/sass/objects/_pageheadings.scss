@@ -1,0 +1,124 @@
+/**
+ * Styles for the nav elements.  These typically sit above body content or
+ * breadcrumb elements. Defaults to full page width.
+ */
+
+@import "../settings/structure";
+@import "../settings/colours";
+@import "../settings/typography";
+
+// Page Heading
+//
+//
+// Markup:
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--main">
+//     <h2 class="xui-page-title">Sales</h2>
+//   </div>
+// </section>
+// <br />
+// <section class="xui-pageheading xui-pageheading-small">
+//   <div class="xui-pageheading--main">
+//     <h2 class="xui-page-title">Sales</h2>
+//     <button>Button</button>
+//   </div>
+// </section>
+// <br />
+// <section class="xui-pageheading xui-pageheading-large">
+//   <div class="xui-pageheading--main">
+//      <ol class="xui-pageheading--breadcrumbs">
+//   			<li><a href="#">Sales</a></li>
+//   			<li><a href="#">Invoices</a></li>
+//   			<li class="active">INV-001</li>
+// 			</ol>
+//      <button>Button</button>
+//   </div>
+// </section>
+//
+// Styleguide: Page Heading
+.#{$ns}-pageheading {
+	align-items: center;
+	background-color: $color-white;
+	border-bottom: $border-standard;
+	box-sizing: border-box;
+	display: flex;
+	height: 60px;
+	overflow: hidden;
+
+	.#{$ns}-pageheading--main {
+		display: flex;
+		justify-content: space-between;
+		max-width: calc(100% - 20px);
+		width: 100%;
+	}
+
+	.#{$ns}-pageheading--breadcrumbs {
+		align-items: center;
+		display: flex;
+	}
+
+	.#{$ns}-page-title { // This HAS TO GO, bloody margins.
+		align-items: center;
+		display: flex;
+		margin: 0 10px 0 0;
+	}
+
+}
+
+// <ol class="breadcrumb">
+//   <li><a href="#">Home</a></li>
+//   <li><a href="#">Library</a></li>
+//   <li class="active">Data</li>
+// </ol>
+
+
+.#{$ns}-pageheading--breadcrumbs {
+	margin: 0;
+	padding: 0;
+
+	li {
+		float: left;
+		font-size: $font-size-page-title;
+		list-style-type: none;
+
+		&:before {
+			color: $color-placeholders;
+			content: ">";
+			display: inline-block;
+			font-weight: 400;
+			margin: 0 10px;
+		}
+
+		&:first-of-type:before {
+			display: none;
+		}
+	}
+}
+
+.#{$ns}-pageheading-small {
+	.#{$ns}-pageheading--main {
+		max-width: 940px;
+	}
+}
+
+.#{$ns}-pageheading-large {
+	.#{$ns}-pageheading-main {
+		max-width: 1160px;
+	}
+}
+
+@include tablet {
+	.#{$ns}-pageheading-small {
+		.#{$ns}-pageheading--main {
+			padding: 0 10px;
+		}
+	}
+}
+
+@include desktop {
+	.#{$ns}-pageheading-large {
+		.#{$ns}-pageheading--main {
+			padding: 0 10px;
+		}
+	}
+}

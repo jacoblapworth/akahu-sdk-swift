@@ -6,7 +6,7 @@
 @import "../tools/mixins";
 @import "../settings/colours";
 
-// Page Header
+// Page Nav
 //
 // .#{$ns}-pagenav-large  - A 1160px size version
 // .#{$ns}-pagenav-small  - A 940px size version
@@ -27,7 +27,7 @@
 //   </nav>
 // </header>
 //
-// Styleguide: Page Header
+// Styleguide: Page Nav
 .#{$ns}-pagenav {
 	background-color: $color-xero-blue;
 	overflow: hidden;

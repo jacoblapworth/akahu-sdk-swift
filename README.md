@@ -43,3 +43,4 @@ Script          | Description
 `npm run lint`  | Lints the stylesheet.
 `npm run build` | Comiples the stylesheet.
 `npm run doc`   | Compiles the style guide documentation.
+`npm run watch` | Watches for changes and then lints and compiles the stylesheet and the style guide

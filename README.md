@@ -41,6 +41,7 @@ Script          | Description
 ----------------|-------------
 `npm install`   | Installs dependencies; required for other steps.
 `npm run lint`  | Lints the stylesheet.
-`npm run build` | Comiples the stylesheet.
+`npm run build` | Compiles the stylesheet
+`npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
 `npm run doc`   | Compiles the style guide documentation.
-`npm run watch` | Watches for changes and then lints and compiles the stylesheet and the style guide
+`npm run watch` | Watches for changes in SCSS files.

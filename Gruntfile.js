@@ -15,6 +15,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('install', ['bower-install-simple', 'shell:install']);
 	grunt.registerTask('lint', ['scsslint']);
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
+	grunt.registerTask('dist', ['cssmin']);
 
 	grunt.registerTask('gh-pages', ['gitadd', 'gitcommit', 'gitpush'].map(function (name) {
 		return name + ':styleguide';

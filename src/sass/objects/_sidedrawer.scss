@@ -1,0 +1,83 @@
+@import "../vars";
+
+// Side Drawer
+//
+// Markup:
+//	<div class="xui-sidedrawer">
+//		<div class="xui-sidedrawer--header">
+//			<h3 class="xui-section-title">Comments</h3>
+//		</div>
+//		<div class="xui-sidedrawer--content">
+//			Body content<br />
+//			Body content<br />
+//			Body content<br />
+//			Body content
+//		</div>
+//		<div class="xui-sidedrawer--footer">
+//			Footer content
+//		</div>
+//	</div>
+//
+// Styleguide: Sidedrawer
+$drawer-width: 350px;
+
+@mixin sidedrawer($right: 0) {
+	background: $color-backgrounds;
+	border-left: 1px solid $color-borders;
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
+	right: $right;
+	top: 0;
+	transition: all 275ms;
+	width: $drawer-width;
+}
+
+.#{$ns}-sidedrawer {
+	@include sidedrawer();
+
+	&-is-closed {
+		@include sidedrawer(-$drawer-width);
+	}
+}
+
+.#{$ns}-sidedrawer--header {
+	align-items: center;
+	background: $color-panels;
+	border-bottom: 1px solid $color-borders;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 50px;
+	font-size: 14px;
+	font-weight: 700;
+	justify-content: center;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	z-index: 5;
+
+	.#{$ns}-section-title {
+		margin: 0;
+	}
+}
+
+.#{$ns}-sidedrawer--content {
+	flex: 1 1 auto;
+}
+
+.#{$ns}-sidedrawer--footer {
+	align-self: flex-end;
+	background: $color-panels;
+	border-top: 1px solid $color-borders;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 50px;
+	flex-flow: row nowrap;
+	max-height: calc(100% - 50px);
+	overflow: hidden;
+	width: 100%;
+	z-index: 5;
+}

@@ -17,15 +17,15 @@
 //   </div>
 // </section>
 // <br />
-// <section class="xui-pageheading xui-pageheading-small">
-//   <div class="xui-pageheading--main">
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--content-small">
 //     <h2 class="xui-page-title">Sales</h2>
 //     <button>Button</button>
 //   </div>
 // </section>
 // <br />
-// <section class="xui-pageheading xui-pageheading-large">
-//   <div class="xui-pageheading--main">
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--content-large">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb"><a href="#">Invoices</a></li>
@@ -36,6 +36,16 @@
 // </section>
 //
 // Styleguide: Page Heading
+
+@mixin pageheadingcontent($mwidth: calc(100% - 20px)) {
+	display: flex;
+	justify-content: space-between;
+	max-width: $mwidth;
+	width: 100%;
+}
+
+// Parent container
+// The coloured background goes full width of the page
 .#{$ns}-pageheading {
 	align-items: center;
 	background-color: $color-white;
@@ -45,18 +55,6 @@
 	height: 60px;
 	overflow: hidden;
 
-	.#{$ns}-pageheading--main {
-		display: flex;
-		justify-content: space-between;
-		max-width: calc(100% - 20px);
-		width: 100%;
-	}
-
-	.#{$ns}-pageheading--breadcrumbs {
-		align-items: center;
-		display: flex;
-	}
-
 	.#{$ns}-page-title { // This HAS TO GO, bloody margins.
 		align-items: center;
 		display: flex;
@@ -65,7 +63,24 @@
 
 }
 
+// Content container
+// This can be set to a max width
+.#{$ns}-pageheading--content {
+	@include pageheadingcontent();
+}
+
+// Variation 1 - 940px maxwidth
+.#{$ns}-pageheading--content-small {
+	@include pageheadingcontent("940px");
+}
+
+.#{$ns}-pageheading--content-large {
+	@include pageheadingcontent("1160px");
+}
+
 .#{$ns}-pageheading--breadcrumbs {
+	align-items: center;
+	display: flex;
 	margin: 0;
 	padding: 0;
 }
@@ -88,30 +103,14 @@
 	}
 }
 
-.#{$ns}-pageheading-small {
-	.#{$ns}-pageheading--main {
-		max-width: 940px;
-	}
-}
-
-.#{$ns}-pageheading-large {
-	.#{$ns}-pageheading-main {
-		max-width: 1160px;
-	}
-}
-
 @include tablet {
-	.#{$ns}-pageheading-small {
-		.#{$ns}-pageheading--main {
-			padding: 0 10px;
-		}
+	.#{$ns}-pageheading--content-small {
+		padding: 0 10px;
 	}
 }
 
 @include desktop {
-	.#{$ns}-pageheading-large {
-		.#{$ns}-pageheading--main {
-			padding: 0 10px;
-		}
+	.#{$ns}-pageheading--content-large {
+		padding: 0 10px;
 	}
 }

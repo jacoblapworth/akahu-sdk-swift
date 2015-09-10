@@ -6,26 +6,27 @@
 @import "../settings/structure";
 @import "../settings/colours";
 @import "../settings/typography";
+@import "../tools/mixins";
 
 // Page Heading
 //
 //
 // Markup:
 // <section class="xui-pageheading">
-//   <div class="xui-pageheading--main">
+//   <div class="xui-pageheading--content xui-container">
 //     <h2 class="xui-page-title">Sales</h2>
 //   </div>
 // </section>
 // <br />
 // <section class="xui-pageheading">
-//   <div class="xui-pageheading--content-small">
+//   <div class="xui-pageheading--content xui-container-small">
 //     <h2 class="xui-page-title">Sales</h2>
 //     <button>Button</button>
 //   </div>
 // </section>
 // <br />
 // <section class="xui-pageheading">
-//   <div class="xui-pageheading--content-large">
+//   <div class="xui-pageheading--content xui-container-large">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb"><a href="#">Invoices</a></li>
@@ -36,13 +37,6 @@
 // </section>
 //
 // Styleguide: Page Heading
-
-@mixin pageheadingcontent($mwidth: calc(100% - 20px)) {
-	display: flex;
-	justify-content: space-between;
-	max-width: $mwidth;
-	width: 100%;
-}
 
 // Parent container
 // The coloured background goes full width of the page
@@ -64,18 +58,9 @@
 }
 
 // Content container
-// This can be set to a max width
 .#{$ns}-pageheading--content {
-	@include pageheadingcontent();
-}
-
-// Variation 1 - 940px maxwidth
-.#{$ns}-pageheading--content-small {
-	@include pageheadingcontent("940px");
-}
-
-.#{$ns}-pageheading--content-large {
-	@include pageheadingcontent("1160px");
+	display: flex;
+	justify-content: space-between;
 }
 
 .#{$ns}-pageheading--breadcrumbs {
@@ -103,14 +88,4 @@
 	}
 }
 
-@include tablet {
-	.#{$ns}-pageheading--content-small {
-		padding: 0 10px;
-	}
-}
 
-@include desktop {
-	.#{$ns}-pageheading--content-large {
-		padding: 0 10px;
-	}
-}

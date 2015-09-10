@@ -10,6 +10,12 @@ html {
 	box-sizing: border-box;
 }
 
+// Generally we don't use * selectors, however as this is a CSS WG
+// https://wiki.csswg.org/ideas/mistakes mistake, It's perfectly
+// reasonable to undo the mistake in this instance.
+//
+// Here, the code matches the better best practices in this article
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 *,
 *:before,
 *:after {

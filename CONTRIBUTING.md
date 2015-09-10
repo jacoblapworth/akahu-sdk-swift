@@ -15,7 +15,7 @@ All classes should be prefixed with `xui-`.
 
 Be sure to `npm run lint` before you commit.
 
-Classes should follow the format: 
+Classes should follow the format:
 * `xui-component`
 * `xui-component-modifier`
 * `xui-component--subcomponent`
@@ -25,6 +25,6 @@ Classes should follow the format:
 
 Use class selectors. Do not use ids or element selectors.
 
-Avoid nesting as much as possible; if you really need to, nest up to a maximum of 3 levels deep.
+Avoid nesting as much as possible; if you really need to, nest up to a maximum of 2 levels deep.
 
 Layout styling should be separate to component styling. Individual components should not make assumptions about their layout (e.g. by setting margins, or position).

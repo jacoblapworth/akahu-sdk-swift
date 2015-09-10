@@ -45,7 +45,7 @@ textarea {
 		border-color: $color-xero-blue;
 	}
 
-	&.xui-u-invalid {
+	&.#{$ns}-u-invalid {
 		border-color: $color-xero-red;
 	}
 }

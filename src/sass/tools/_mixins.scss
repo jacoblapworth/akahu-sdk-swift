@@ -66,9 +66,3 @@ $desktop-breakpoint: px-to-rem(1160);
 		@content;
 	}
 }
-
-// A mixin for constraining content width on a page (maximum width container)
-@mixin constrain-width ($width: 100%) {
-	width: 100%;
-	max-width: $width;
-}

@@ -6,6 +6,12 @@
 @import "../settings/typography";
 @import "../tools/mixins";
 
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
 body {
 	background-color: $color-backgrounds;
 	color: $color-primary-text;

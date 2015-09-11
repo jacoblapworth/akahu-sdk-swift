@@ -2,22 +2,17 @@
 
 <a href="https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master"><img src="https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon"></a>
 
-A shared stylesheet for Xero applications.
-
+A shared stylesheet for Xero applications that implements [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 
 ## Using in Your Project
 
 ### CDN
 
-Include the following CSS file in your page:
+Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/2.0.1/xui.css"/>
+<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/2.2.0/xui.css"/>
 ```
-
-### Usage Guidelines
-
-Do not create any classes that use the `xui` namespace outside this project.
 
 ### Bower
 ```bash
@@ -26,25 +21,16 @@ $ bower install git@github.dev.xero.com:Style/xui.git --save
 
 You will need to compile `xui.scss`.
 
-![](construction-cat.gif)
+### Usage Guidelines
 
-XUI is rapidly evolving and breaking changes are likely with versions before 1.0.0. It is recommended that you use a specific version rather than a version range _and_ stay in contact with the [User Experience Engineering team](https://www.flowdock.com/app/xero/ux-engineering) to keep up with changes.
-[XUI Invision Board](https://xero.invisionapp.com/boards/DN2P9HFAUVQP)  
-[Toolkit Invision Board](https://xero.invisionapp.com/share/P52VL4LHW)  
-
-
+Do not create any classes that use the `xui` namespace outside this project.
 
 ## Contributing to XUI
 
 Please see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-### npm scripts
+## Help
 
-Script          | Description
-----------------|-------------
-`npm install`   | Installs dependencies; required for other steps.
-`npm run lint`  | Lints the stylesheet.
-`npm run build` | Compiles the stylesheet
-`npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
-`npm run doc`   | Compiles the style guide documentation.
-`npm run watch` | Watches for changes in SCSS files.
+For Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering).
+
+You may also want to subscribe to the [UX Engineering Newsletter](http://xero.us11.list-manage1.com/subscribe?u=b6eb05e31e28aab10df3721c6&id=5c27a93854).

@@ -29,3 +29,30 @@
 .#{$ns}-u-flex-grow {
 	flex: 1;
 }
+
+.#{$ns}-container {
+	margin: 0 auto;
+	width: calc(100%) - 20px;
+}
+
+.#{$ns}-container-large {
+	max-width: 1160px;
+	width: 100%;
+}
+
+.#{$ns}-container-small {
+	max-width: 940px;
+	width: 100%;
+}
+
+@include tablet {
+	.#{$ns}-container-small {
+		padding: 0 10px;
+	}
+}
+
+@include desktop {
+	.#{$ns}-container-large {
+		padding: 0 10px;
+	}
+}

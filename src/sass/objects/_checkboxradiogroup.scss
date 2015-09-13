@@ -14,8 +14,8 @@
 }
 
 // FIXME: WTF is this?
-.#{$ns}-checkboxgroup-checkbox,
-.#{$ns}-radiogroup-radio {
+.#{$ns}-checkboxgroup--checkbox,
+.#{$ns}-radiogroup--radio {
 	display: block;
 	padding-left: calc(22px + 0.5em);
 	text-indent: calc(-22px - 0.5em);

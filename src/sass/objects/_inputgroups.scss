@@ -11,13 +11,13 @@
 @import "../tools/mixins";
 
 // Input Groups
-// 
+//
 // This object brings together other objects into a single behavioural unit.
 // The pieces are:
 //  - a label
 //  - an input or group of inputs
 //  - a validation message for the input / group of inputs
-// 
+//
 // Markup:
 // <div class="xui-inputgroup">
 // 	<label class="xui-inputgroup--label" for="display-name">Name</label>
@@ -33,11 +33,11 @@
 // <div class="xui-inputgroup">
 // 	<div class="xui-inputgroup--label">Notifications</div>
 // 	<div class="xui-inputgroup--inputs xui-checkboxgroup">
-// 		<label class="xui-checkboxgroup-checkbox">
+// 		<label class="xui-checkboxgroup--checkbox">
 // 			<input type="checkbox"/>
 // 			When a friend comments on my post
 // 		</label>
-// 		<label class="xui-checkboxgroup-checkbox">
+// 		<label class="xui-checkboxgroup--checkbox">
 // 			<input type="checkbox"/>
 // 			When a friend sends me a message
 // 		</label>
@@ -48,7 +48,7 @@
 // 		</div>
 // 	</div>
 // </div>
-// 
+//
 // Styleguide: Input Groups
 
 .#{$ns}-inputgroup {

@@ -34,5 +34,3 @@ Please see [CONTRIBUTING.md](./CONTRIBUTING.md)
 For Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering).
 
 You may also want to subscribe to the [UX Engineering Newsletter](http://xero.us11.list-manage1.com/subscribe?u=b6eb05e31e28aab10df3721c6&id=5c27a93854).
-
-LOL IVAN LOLOLOLOLOLOL

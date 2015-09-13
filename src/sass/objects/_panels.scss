@@ -58,7 +58,6 @@
 	border-radius: $radius;
 	box-shadow: $shadow-standard;
 	margin: 2em auto;
-	max-width: px-to-rem(940);
 
 	@include tablet {
 		border-left: 0;
@@ -97,7 +96,6 @@
 	@media(min-width: px-to-rem(600)) {
 		margin-left: auto;
 		margin-right: auto;
-		max-width: px-to-rem(460);
 	}
 }
 

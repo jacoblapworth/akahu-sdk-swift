@@ -9,13 +9,24 @@ You'll need:
 
 [nvm](https://github.com/creationix/nvm) is recommended, but not required.
 
+# npm scripts
+
+Script          | Description
+----------------|-------------
+`npm install`   | Installs dependencies; required for other steps.
+`npm run lint`  | Lints the stylesheet.
+`npm run build` | Compiles the stylesheet
+`npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
+`npm run doc`   | Compiles the style guide documentation.
+`npm run watch` | Watches for changes in SCSS files.
+
 # Conventions
 
 All classes should be prefixed with `xui-`.
 
 Be sure to `npm run lint` before you commit.
 
-Classes should follow the format: 
+Classes should follow the format:
 * `xui-component`
 * `xui-component-modifier`
 * `xui-component--subcomponent`
@@ -25,6 +36,12 @@ Classes should follow the format:
 
 Use class selectors. Do not use ids or element selectors.
 
-Avoid nesting as much as possible; if you really need to, nest up to a maximum of 3 levels deep.
+Avoid nesting as much as possible; if you really need to, nest up to a maximum of 2 levels deep.
 
 Layout styling should be separate to component styling. Individual components should not make assumptions about their layout (e.g. by setting margins, or position).
+
+# Making Contributions
+
+Contributions can be made via issues and pull requests.
+
+You should cc [@Style/uxe-team](https://github.dev.xero.com/orgs/Style/teams/uxe-team) on pull requests for prompt feedback.

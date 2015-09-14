@@ -61,6 +61,10 @@
 	display: flex;
 }
 
+.#{$ns}-u-spacebetween {
+	justify-content: space-between;
+}
+
 .#{$ns}-u-flex-col {
 	flex-direction: row;
 

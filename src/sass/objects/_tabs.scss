@@ -92,12 +92,7 @@ $selected-variations: (
 	margin: 0;
 
 	a {
-		color: $color;
-		cursor: pointer;
-		display: inline-block;
-		line-height: 1.3em;
-		padding: 0.5em 1em 0;
-		text-align: center;
+		@include anchorstyles($color);
 
 		&:after {
 			background-color: $border-color;
@@ -119,13 +114,7 @@ $selected-variations: (
 }
 
 @mixin xuiselectedtab ($color: $color-secondary-text, $hover-color: $color-primary-text, $border-color: transparent) {
-	color: $color;
-	cursor: not-allowed;
-	display: inline-block;
-	line-height: 1.3em;
-	margin: 0;
-	padding: 0.5em 1em 0;
-	text-align: center;
+	@include anchorstyles($color);
 
 	&:after {
 		background-color: $border-color;

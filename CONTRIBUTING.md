@@ -26,6 +26,8 @@ All classes should be prefixed with `xui-`.
 
 Be sure to `npm run lint` before you commit.
 
+If you are bumping the version, please update the usage example in [README.md](README.md) to point at your new version.
+
 Classes should follow the format:
 * `xui-component`
 * `xui-component-modifier`

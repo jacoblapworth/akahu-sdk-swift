@@ -21,7 +21,7 @@
 // Styleguide: Sidedrawer
 $drawer-width: 350px;
 
-@mixin sidedrawer($right: 0) {
+.#{$ns}-sidedrawer {
 	background: $color-backgrounds;
 	border-left: 1px solid $color-borders;
 	box-sizing: border-box;
@@ -30,18 +30,14 @@ $drawer-width: 350px;
 	height: 100%;
 	overflow: hidden;
 	position: fixed;
-	right: $right;
+	right: 0;
 	top: 0;
 	transition: all $transition-duration-quick;
 	width: $drawer-width;
 }
 
-.#{$ns}-sidedrawer {
-	@include sidedrawer();
-
-	&-is-closed {
-		@include sidedrawer(-$drawer-width);
-	}
+.#{$ns}-sidedrawer-is-closed {
+	right: -$drawer-width;
 }
 
 .#{$ns}-sidedrawer--header {
@@ -74,9 +70,10 @@ $drawer-width: 350px;
 	border-top: 1px solid $color-borders;
 	box-sizing: border-box;
 	display: flex;
-	flex: 0 0 50px;
+	flex: 0 0 auto;
 	flex-flow: row nowrap;
 	max-height: calc(100% - 50px);
+	min-height: 50px;
 	width: 100%;
 	z-index: 5;
 }

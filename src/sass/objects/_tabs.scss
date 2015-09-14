@@ -15,20 +15,20 @@
 //
 // Markup:
 //	<div class="xui-tabbed-navigation">
-//		<div class="xui-tabgroup">
-//			<div class="xui-tab">
+//		<ul class="xui-tabgroup">
+//			<li class="xui-tab">
 //				<a href="#default">Default</a>
-//			</div>
-//			<div class="xui-tab xui-tab-is-selected">
+//			</li>
+//			<li class="xui-tab xui-tab-is-selected">
 //				<a href="#selected_default">Selected Default</a>
-//			</div>
-//			<div class="xui-tab xui-tab-pagenav">
+//			</li>
+//			<li class="xui-tab xui-tab-pagenav">
 //				<a href="#g-header">Page nav</a>
-//			</div>
-//			<div class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
+//			</li>
+//			<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
 //				<a href="#selected_pagenav">Selected Page nav</a>
-//			</div>
-//		</div>
+//			</li>
+//		</ul>
 //	</div>
 //
 // Styleguide: Tabs

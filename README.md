@@ -6,7 +6,7 @@ A shared stylesheet for Xero applications that implements [Xero Pattern Library]
 
 ## Using in Your Project
 
-### CDN
+### CDN (Recommended)
 
 Include the following `link` in your page:
 

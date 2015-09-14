@@ -4,7 +4,7 @@
 
 A shared stylesheet for Xero applications that implements [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 
-For usage examples see https://github.dev.xero.com/pages/Style/xui/
+For examples see https://github.dev.xero.com/pages/Style/xui/
 
 ## Using in Your Project
 

@@ -11,7 +11,7 @@ A shared stylesheet for Xero applications that implements [Xero Pattern Library]
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/2.3.0/xui.css"/>
+<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/3.0.0/xui.css"/>
 ```
 
 ### Bower

@@ -4,7 +4,7 @@
 //
 // Markup:
 //	<div class="xui-dropdownmenu">
-//		<div class="xui-dropdownmenu--content">
+//		<div class="xui-dropdownmenu--body">
 // 			<ul class="xui-menugroup">
 // 				<li class="xui-menugroup--item">
 // 					<a href="#">Menu item 1</a>
@@ -98,12 +98,12 @@ $shadow-color: #ccc;
 	z-index: 1;
 }
 
-.#{$ns}-dropdownmenu--content,
+.#{$ns}-dropdownmenu--body,
 .#{$ns}-dropdownmenu--footer {
 	flex: 1 1 auto;
 }
 
-.#{$ns}-dropdownmenu--content {
+.#{$ns}-dropdownmenu--body {
 	max-height: 350px;
 	overflow: auto;
 }

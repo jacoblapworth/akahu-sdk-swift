@@ -5,74 +5,74 @@
 // Markup:
 //	<div class="xui-dropdownmenu">
 //		<div class="xui-dropdownmenu--content">
-// 			<ul>
-// 				<li>
+// 			<ul class="xui-menugroup">
+// 				<li class="xui-menugroup--item">
 // 					<a href="#">Menu item 1</a>
 // 				</li>
-// 				<li class="xui-dropdownmenu-is-selected">
+// 				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
 // 					<a href="#">Menu item 2</a>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<a href="#">Menu item 3</a>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
-// 						<input type="checkbox" />
+// 						<input type="checkbox" class="xui-menugroup--input" />
 // 						Menu item 4
 // 					</label>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
-// 						<input type="checkbox" />
+// 						<input type="checkbox" class="xui-menugroup--input" />
 // 						Menu item 5
 // 					</label>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
-// 						<input type="radio" name="radios" />
+// 						<input type="radio" name="radios" class="xui-menugroup--input" />
 // 						Menu item 6
 // 					</label>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
-// 						<input type="radio" name="radios" />
+// 						<input type="radio" name="radios" class="xui-menugroup--input" />
 // 						Menu item 7
 // 					</label>
 // 				</li>
 // 			</ul>
-// 			<ul>
-// 				<li>
+// 			<ul class="xui-menugroup">
+// 				<li class="xui-menugroup--item">
 // 					<a href="#">Menu item 1</a>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
 // 						<input type="checkbox" />
 // 						Menu item 2
 // 					</label>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
 // 						<input type="checkbox" />
 // 						Menu item 3
 // 					</label>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
-// 						<input type="radio" name="radios2" />
+// 						<input type="radio" name="radios2" class="xui-menugroup--input" />
 // 						Menu item 4
 // 					</label>
 // 				</li>
-// 				<li>
+// 				<li class="xui-menugroup--item">
 // 					<label>
-// 						<input type="radio" name="radios2" />
+// 						<input type="radio" name="radios2" class="xui-menugroup--input" />
 // 						Menu item 5
 // 					</label>
 // 				</li>
 // 			</ul>
 // 		</div>
 //		<footer>
-//			<ul>
-//				<li>
+//			<ul class="xui-menugroup">
+// 				<li class="xui-menugroup--item">
 //					<a href="#">+ Some action</a>
 //				</li>
 //			</ul>
@@ -98,41 +98,6 @@ $shadow-color: #ccc;
 	width: 180px;
 	z-index: 1;
 
-	ul {
-		border-top: 1px solid $color-borders;
-		margin: 0;
-		padding: 8px 0;
-	}
-
-	ul:first-of-type {
-		border-top: 0;
-	}
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		margin: 0 7px 0 0;
-		padding: 0;
-		top: 0;
-		z-index: 0;
-	}
-
-	li {
-		list-style-type: none;
-	}
-
-	a,
-	label {
-		align-items: center;
-		display: flex;
-		padding: 8px 15px;
-		text-decoration: none;
-		width: 100%;
-
-		&:hover {
-			background-color: $color-hovers;
-		}
-	}
-
 	.xui-dropdownmenu--content,
 	footer {
 		flex: 1 1 auto;
@@ -151,7 +116,41 @@ $shadow-color: #ccc;
 
 }
 
-.#{$ns}-dropdownmenu-is-selected {
+.#{$ns}-menugroup {
+	border-top: 1px solid $color-borders;
+	margin: 0;
+	padding: 8px 0;
+
+	&:first-of-type {
+		border-top: 0;
+	}
+}
+
+.#{$ns}-menugroup--item {
+	list-style-type: none;
+
+	.#{$ns}-menugroup--input {
+		margin: 0 7px 0 0;
+		padding: 0;
+		top: 0;
+		z-index: 0;
+	}
+
+	a,
+	label {
+		align-items: center;
+		display: flex;
+		padding: 8px 15px;
+		text-decoration: none;
+		width: 100%;
+
+		&:hover {
+			background-color: $color-hovers;
+		}
+	}
+}
+
+.#{$ns}-menugroup--item-is-selected {
 	background-color: $color-xero-blue;
 
 	a,
@@ -164,7 +163,7 @@ $shadow-color: #ccc;
 	}
 }
 
-.#{$ns}-dropdownmenu-is-selected a:hover,
-.#{$ns}-dropdownmenu-is-selected label:hover {
+.#{$ns}-menugroup--item-is-selected a:hover,
+.#{$ns}-menugroup--item-is-selected label:hover {
 	background-color: $color-xero-blue;
 }

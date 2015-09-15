@@ -70,7 +70,7 @@
 // 				</li>
 // 			</ul>
 // 		</div>
-//		<footer>
+//		<footer class="xui-dropdownmenu--footer">
 //			<ul class="xui-menugroup">
 // 				<li class="xui-menugroup--item">
 //					<a href="#">+ Some action</a>
@@ -84,8 +84,8 @@ $shadow-color: #ccc;
 
 .#{$ns}-dropdownmenu {
 	background-color: $color-panels;
-	border: 1px solid $color-borders;
-	border-radius: 4px;
+	border: $border-standard;
+	border-radius: $radius;
 	bottom: -3px;
 	display: flex;
 	flex-flow: column nowrap;
@@ -97,23 +97,22 @@ $shadow-color: #ccc;
 	position: relative;
 	width: 180px;
 	z-index: 1;
+}
 
-	.xui-dropdownmenu--content,
-	footer {
-		flex: 1 1 auto;
-	}
+.#{$ns}-dropdownmenu--content,
+.#{$ns}-dropdownmenu--footer {
+	flex: 1 1 auto;
+}
 
-	.xui-dropdownmenu--content {
-		max-height: 350px;
-		overflow: auto;
-	}
+.#{$ns}-dropdownmenu--content {
+	max-height: 350px;
+	overflow: auto;
+}
 
-	footer {
-		border-top: $border-standard;
-		box-shadow: 0 -1px 3px $shadow-color;
-		z-index: 1;
-	}
-
+.#{$ns}-dropdownmenu--footer {
+	border-top: $border-standard;
+	box-shadow: 0 -1px 3px $shadow-color;
+	z-index: 1;
 }
 
 .#{$ns}-menugroup {
@@ -129,13 +128,6 @@ $shadow-color: #ccc;
 .#{$ns}-menugroup--item {
 	list-style-type: none;
 
-	.#{$ns}-menugroup--input {
-		margin: 0 7px 0 0;
-		padding: 0;
-		top: 0;
-		z-index: 0;
-	}
-
 	a,
 	label {
 		align-items: center;
@@ -143,19 +135,27 @@ $shadow-color: #ccc;
 		padding: 8px 15px;
 		text-decoration: none;
 		width: 100%;
-
-		&:hover {
-			background-color: $color-hovers;
-		}
 	}
+
+	&:hover {
+		background-color: $color-hovers;
+	}
+}
+
+.#{$ns}-menugroup--input {
+	margin: 0 7px 0 0;
+	padding: 0;
+	top: 0; // doesn't work due to odd top's in _inputs.scss
+	z-index: 0;
 }
 
 .#{$ns}-menugroup--item-is-selected {
 	background-color: $color-xero-blue;
+	color: $color-reversed-text;
 
 	a,
 	label {
-		color: $color-reversed-text;
+		color: inherit;
 	}
 
 	&:hover {

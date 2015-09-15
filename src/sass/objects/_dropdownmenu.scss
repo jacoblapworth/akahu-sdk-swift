@@ -127,8 +127,7 @@ $shadow-color: #ccc;
 .#{$ns}-menugroup--item {
 	list-style-type: none;
 
-	a,
-	label {
+	> :nth-child(n) {
 		align-items: center;
 		display: flex;
 		padding: 8px 15px;
@@ -152,8 +151,7 @@ $shadow-color: #ccc;
 	background-color: $color-xero-blue;
 	color: $color-reversed-text;
 
-	a,
-	label {
+	> :nth-child(n) {
 		color: inherit;
 	}
 

@@ -1,0 +1,170 @@
+@import "../vars";
+
+// Dropdown Menu
+//
+// Markup:
+//	<div class="xui-dropdownmenu">
+//		<div class="xui-dropdownmenu--content">
+// 			<ul>
+// 				<li>
+// 					<a href="#">Menu item 1</a>
+// 				</li>
+// 				<li class="xui-dropdownmenu-is-selected">
+// 					<a href="#">Menu item 2</a>
+// 				</li>
+// 				<li>
+// 					<a href="#">Menu item 3</a>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="checkbox" />
+// 						Menu item 4
+// 					</label>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="checkbox" />
+// 						Menu item 5
+// 					</label>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="radio" name="radios" />
+// 						Menu item 6
+// 					</label>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="radio" name="radios" />
+// 						Menu item 7
+// 					</label>
+// 				</li>
+// 			</ul>
+// 			<ul>
+// 				<li>
+// 					<a href="#">Menu item 1</a>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="checkbox" />
+// 						Menu item 2
+// 					</label>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="checkbox" />
+// 						Menu item 3
+// 					</label>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="radio" name="radios2" />
+// 						Menu item 4
+// 					</label>
+// 				</li>
+// 				<li>
+// 					<label>
+// 						<input type="radio" name="radios2" />
+// 						Menu item 5
+// 					</label>
+// 				</li>
+// 			</ul>
+// 		</div>
+//		<footer>
+//			<ul>
+//				<li>
+//					<a href="#">+ Some action</a>
+//				</li>
+//			</ul>
+//		</footer>
+//	</div>
+//
+// Styleguide: Dropdown Menu
+$shadow-color: #ccc;
+
+.#{$ns}-dropdownmenu {
+	background-color: $color-panels;
+	border: 1px solid $color-borders;
+	border-radius: 4px;
+	bottom: -3px;
+	display: flex;
+	flex-flow: column nowrap;
+	font-size: 13px;
+	list-style-type: none;
+	margin: 0;
+	max-height: 350px;
+	overflow: hidden;
+	position: relative;
+	width: 180px;
+	z-index: 1;
+
+	ul {
+		border-top: 1px solid $color-borders;
+		margin: 0;
+		padding: 8px 0;
+	}
+
+	ul:first-of-type {
+		border-top: 0;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		margin: 0 7px 0 0;
+		padding: 0;
+		top: 0;
+		z-index: 0;
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	a,
+	label {
+		align-items: center;
+		display: flex;
+		padding: 8px 15px;
+		text-decoration: none;
+		width: 100%;
+
+		&:hover {
+			background-color: $color-hovers;
+		}
+	}
+
+	.xui-dropdownmenu--content,
+	footer {
+		flex: 1 1 auto;
+	}
+
+	.xui-dropdownmenu--content {
+		max-height: 350px;
+		overflow: auto;
+	}
+
+	footer {
+		border-top: $border-standard;
+		box-shadow: 0 -1px 3px $shadow-color;
+		z-index: 1;
+	}
+
+}
+
+.#{$ns}-dropdownmenu-is-selected {
+	background-color: $color-xero-blue;
+
+	a,
+	label {
+		color: $color-reversed-text;
+	}
+
+	&:hover {
+		background-color: $color-xero-blue;
+	}
+}
+
+.#{$ns}-dropdownmenu-is-selected a:hover,
+.#{$ns}-dropdownmenu-is-selected label:hover {
+	background-color: $color-xero-blue;
+}

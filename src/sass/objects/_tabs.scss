@@ -17,16 +17,16 @@
 //	<div class="xui-tabbed-navigation">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab">
-//				<a href="#default">Default</a>
+//				<a class="xui-tab--body" href="#default">Default</a>
 //			</li>
 //			<li class="xui-tab xui-tab-is-selected">
-//				<a href="#selected_default">Selected Default</a>
+//				<a class="xui-tab--body" href="#selected_default">Selected Default</a>
 //			</li>
 //			<li class="xui-tab xui-tab-pagenav">
-//				<a href="#g-header">Page nav</a>
+//				<a class="xui-tab--body" href="#g-header">Page nav</a>
 //			</li>
 //			<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
-//				<a href="#selected_pagenav">Selected Page nav</a>
+//				<a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
 //			</li>
 //		</ul>
 //	</div>
@@ -55,17 +55,10 @@ $color-variations: (
 	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
 );
 
-.#{$ns}-tabgroup-start {
-	justify-content: flex-start;
-
-
-
-}
-
 // Individual tabs
 // -----------------------------------------------------------------------------
 @mixin tab-variation($color, $bg-color, $hover-color, $hover-bg-color) {
-	a {
+	.#{$ns}-tab--body {
 		color: $color;
 
 		&:after {
@@ -85,7 +78,7 @@ $color-variations: (
 .#{$ns}-tab {
 	margin: 0;
 
-	a {
+	.#{$ns}-tab--body {
 		color: $color-secondary-text;
 		cursor: pointer;
 		display: inline-block;
@@ -113,11 +106,11 @@ $color-variations: (
 }
 
 .#{$ns}-tab {
-	&:first-of-type a {
+	&:first-of-type .#{$ns}-tab--body {
 		padding-left: 0;
 	}
 
-	&:last-of-type a {
+	&:last-of-type .#{$ns}-tab--body {
 		padding-right: 0;
 	}
 }

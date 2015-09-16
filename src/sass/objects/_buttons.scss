@@ -22,6 +22,7 @@
 //
 // Styleguide: Buttons.1
 .#{$ns}-button {
+	-webkit-appearance: none;
 	background-color: $color-forms;
 	border: $border-standard;
 	border-radius: $radius;

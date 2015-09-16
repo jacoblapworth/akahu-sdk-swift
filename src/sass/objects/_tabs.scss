@@ -39,7 +39,7 @@
 .#{$ns}-tabgroup {
 	color: $color-secondary-text;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -58,15 +58,7 @@ $color-variations: (
 .#{$ns}-tabgroup-start {
 	justify-content: flex-start;
 
-	.#{$ns}-tab {
-		&:first-of-type {
-			padding-left: 0;
-		}
 
-		&:last-of-type {
-			padding-right: 0;
-		}
-	}
 
 }
 
@@ -106,7 +98,7 @@ $color-variations: (
 			content: " ";
 			display: block;
 			height: 3px;
-			margin-top: 6px;
+			margin: 6px 0 0.5px;
 		}
 
 		&:hover {
@@ -117,6 +109,16 @@ $color-variations: (
 		&:hover:after {
 			background-color: $color-primary-text;
 		}
+	}
+}
+
+.#{$ns}-tab {
+	&:first-of-type a {
+		padding-left: 0;
+	}
+
+	&:last-of-type a {
+		padding-right: 0;
 	}
 }
 

@@ -7,13 +7,28 @@
 #kss-node .kss-sidebar {
 	background: #fff;
 	background-image: linear-gradient(to right, #fff, #fff 100%);
-	min-height: 100%;
 	max-height: 100vh;
 	overflow: auto;
 	position: fixed;
 	top: 0;
 	padding: 0;
 	border-right: 1px solid rgba( 208, 218, 226, 0.5);
+	width: 20%;
+	z-index: 1000;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	#kss-node .kss-sidebar {
+		height: 48px;
+	}
+
+	#kss-node .kss-main {
+		margin-top: 48px;
+	}
+}
+
+#kss-node .kss-sidebar:hover {
+	height: auto;
 }
 
 #kss-node .kss-header,

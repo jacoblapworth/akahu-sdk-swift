@@ -10,6 +10,8 @@
 
 // scss-lint:disable IdSelector
 #xero-nav {
+	box-sizing: content-box;
+
 	input,
 	textarea {
 		color: $color-primary-text;
@@ -30,5 +32,6 @@ input.xn-h-textbox {
 // Header modals assume a different line height, and have built components
 // around that value.
 .xn-h-modal-dialog {
+	box-sizing: content-box;
 	line-height: 16px;
 }

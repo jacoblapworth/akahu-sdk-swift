@@ -15,12 +15,20 @@
 //
 // Markup:
 //	<div class="xui-tabbed-navigation">
-//		<div class="xui-tabgroup">
-//			<div class="xui-tab">Default</div>
-//			<div class="xui-tab-is-selected">Default Selected</div>
-//			<div class="xui-tab-pageheader">Global Header</div>
-//			<div class="xui-tab-pageheader-is-selected">Global Header Selected</div>
-//		</div>
+//		<ul class="xui-tabgroup">
+//			<li class="xui-tab">
+//				<a class="xui-tab--body" href="#default">Default</a>
+//			</li>
+//			<li class="xui-tab xui-tab-is-selected">
+//				<a class="xui-tab--body" href="#selected_default">Selected Default</a>
+//			</li>
+//			<li class="xui-tab xui-tab-pagenav">
+//				<a class="xui-tab--body" href="#g-header">Page nav</a>
+//			</li>
+//			<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
+//				<a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
+//			</li>
+//		</ul>
 //	</div>
 //
 // Styleguide: Tabs
@@ -31,7 +39,7 @@
 .#{$ns}-tabgroup {
 	color: $color-secondary-text;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -39,65 +47,78 @@
 
 // Put all the variations of tabs you need in here
 // Makes for an easy place to store and create new variations of tabs with different colours.
-$variations: (
-	"#{$ns}-tab":($color-secondary-text, $color-primary-text, transparent),
-	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text),
-	"#{$ns}-tab-pagenav":($color-reversed-text, $color-xero-light-blue, transparent),
-	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
+//
+// (text-color, border-color, hover-text-color, hover-border-color)
+$color-variations: (
+	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text, $color-primary-text),
+	"#{$ns}-tab-pagenav":($color-reversed-text, transparent, $color-xero-light-blue, $color-xero-light-blue),
+	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
 );
-
-@mixin children ($classname) {
-
-	.#{$classname} {
-		&:first-of-type {
-			padding-left: 0;
-		}
-
-		&:last-of-type {
-			padding-right: 0;
-		}
-	}
-
-}
-
-.#{$ns}-tabgroup-start {
-	justify-content: flex-start;
-
-	@each $variation, $colors in $variations {
-		@include children(#{$variation});
-	}
-
-}
 
 // Individual tabs
 // -----------------------------------------------------------------------------
+@mixin tab-variation($color, $bg-color, $hover-color, $hover-bg-color) {
+	.#{$ns}-tab--body {
+		color: $color;
 
-@mixin xuitab ($color: $color-secondary-text, $hover-color: $color-primary-text, $border-color: transparent) {
-	color: $color;
-	cursor: pointer;
+		&:after {
+			background-color: $bg-color;
+		}
+
+		&:hover {
+			color: $hover-color;
+		}
+
+		&:hover:after {
+			background-color: $hover-bg-color;
+		}
+	}
+}
+
+.#{$ns}-tab {
 	margin: 0;
-	padding: 0.5em 1em 0;
-	text-align: center;
 
-	&:after {
-		background-color: $border-color;
-		content: " ";
-		display: block;
-		height: 3px;
-		margin-top: 6px;
-	}
+	.#{$ns}-tab--body {
+		color: $color-secondary-text;
+		cursor: pointer;
+		display: inline-block;
+		line-height: 1.2;
+		padding: 0.5em 1em 0;
+		text-align: center;
 
-	&:hover {
-		color: $hover-color;
-	}
+		&:after {
+			background-color: transparent;
+			content: " ";
+			display: block;
+			height: 3px;
+			margin: 6px 0 0.5px;
+		}
 
-	&:hover:after {
-		background-color: $hover-color;
+		&:hover {
+			color: $color-primary-text;
+			text-decoration: none; // Fix for no more normalize
+		}
+
+		&:hover:after {
+			background-color: $color-primary-text;
+		}
 	}
 }
 
-@each $variation, $colors in $variations {
+.#{$ns}-tab {
+	&:first-of-type .#{$ns}-tab--body {
+		padding-left: 0;
+	}
+
+	&:last-of-type .#{$ns}-tab--body {
+		padding-right: 0;
+	}
+}
+
+@each $variation, $colors in $color-variations {
 	.#{$variation} {
-		@include xuitab(nth($colors, 1), nth($colors, 2), nth($colors, 3));
+		@include tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
 	}
 }
+
+

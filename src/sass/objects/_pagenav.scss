@@ -14,15 +14,25 @@
 // Markup:
 // <header class="xui-pagenav">
 //   <div class="xui-pagenav--main">
-//     <h1 class="xui-page-title">Banking UI Pattern Library</h1>
+//     <h1 class="xui-page-title">Page Navigation Title</h1>
 //   </div>
 //   <nav class="xui-pagenav--nav">
 //     <ul class="xui-tabgroup xui-tabgroup-start">
-//       <li class="xui-tab-pagenav">Nav 1</li>
-//       <li class="xui-tab-pagenav">Nav 2</li>
-//       <li class="xui-tab-pagenav">Nav 3</li>
-//       <li class="xui-tab-pagenav">Nav 4</li>
-//       <li class="xui-tab-pagenav">Nav 5</li>
+//       <li class="xui-tab xui-tab-pagenav">
+//         <a class="xui-tab--body" href="#nav1">Nav 1</a>
+//       </li>
+//       <li class="xui-tab xui-tab-pagenav">
+//       	 <a class="xui-tab--body" href="#nav2">Nav 2</a>
+//       </li>
+//       <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
+//       	 <a class="xui-tab--body" href="#nav3">Nav 3</a>
+//       </li>
+//       <li class="xui-tab xui-tab-pagenav">
+//       	 <a class="xui-tab--body" href="#nav4">Nav 4</a>
+//       </li>
+//       <li class="xui-tab xui-tab-pagenav">
+//       	 <a class="xui-tab--body" href="#nav5">Nav 5</a>
+//       </li>
 //     </ul>
 //   </nav>
 // </header>

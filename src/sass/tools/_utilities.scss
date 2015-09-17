@@ -13,10 +13,8 @@
 // Classes that can be added to any element to hide it from view.
 //
 // Markup:
-// <section class="xui-u-container">
-// 	<h1 class="xui-sectionheading xui-text-sectionheading">Today</h1>
-//
-// </section>
+// <section class="xui-u-container xui-u-hidden"></section>
+// <section class="xui-u-container xui-u-hidden-mobile"></section>
 //
 // Styleguide: Utilities.1
 
@@ -112,7 +110,7 @@
 //	 </table>
 // </div>
 //
-// Styleguide: Utilities.2
+// Styleguide: Utilities.3
 
 .#{$ns}-container {
 	margin: 0 auto;

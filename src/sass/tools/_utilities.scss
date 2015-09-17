@@ -30,6 +30,35 @@
 	}
 }
 
+
+// Flex
+//
+// Classes that can be added to any container to add a flexible layout. These can be combined
+// to create a flexible multi-column layout. Sibling flex columns will be given a small margin
+// to seperate them.
+//
+// Markup:
+// <div class="xui-u-flex">
+//   <div class="xui-panel xui-u-flex-col">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+//   <div class="xui-panel xui-u-flex-col xui-u-flex-grow">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+//   <div class="xui-panel xui-u-flex-col">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+// </div>
+//
+// Styleguide: Utilities.2
+
+
 .#{$ns}-u-flex {
 	display: flex;
 }

@@ -4,6 +4,22 @@
 
 @import "mixins";
 
+// Utility classes
+//
+// Styleguide: Utilities
+
+// Display
+//
+// Classes that can be added to any element to hide it from view.
+//
+// Markup:
+// <section class="xui-u-container">
+// 	<h1 class="xui-sectionheading xui-text-sectionheading">Today</h1>
+//
+// </section>
+//
+// Styleguide: Utilities.1
+
 .#{$ns}-u-hidden {
 	display: none;
 }

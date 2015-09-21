@@ -11,13 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var closeEl = document.querySelector('#example-modal .xui-modal--header-close');
 	var openedClass = 'xui-modal-opened';
 
-	function isInside (xy, box) {
-		var x = xy.x;
-		var y = xy.y;
-
-		return x >= box.left && x <= box.right && y >= box.top && y <= box.bottom;
-	}
-
 	function isModalOpen () {
 		return maskEl.classList.contains(openedClass);
 	}
@@ -45,14 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				return;
 			}
 
-			var xy = { x: e.clientX, y: e.clientY };
-			var clientRects = Array.prototype.slice.call(modalEl.getClientRects());
-
-			var clicksInside = clientRects.filter(function (clientRect) {
-				return isInside(xy, clientRect);
-			});
-
-			if (clicksInside.length === 0) {
+			if(e.target === maskEl) {
 				window.hideExampleModal();
 			}
 		});

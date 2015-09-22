@@ -4,6 +4,7 @@
 /.bundle
 /node_modules
 /vendor/bundle/
+/styleguide/styleguide.md
 npm-debug.log
 
 # Build/Output files/directories

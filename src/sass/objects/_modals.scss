@@ -6,6 +6,15 @@
 
 // Modals
 //
+// ### Behaviour
+// * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
+// * If the modal can be closed (should be the case for most modals), it can be done in the following ways:
+//   * Clicking the &times; inside the modal
+//   * Pressing ESC while the modal is open
+//   * Clicking on a button in the modal footer can optionally close the modal
+//   * If the modal contains no user-inputted data that could be lost, then it may also be closed by clicking on the mask (outside the modal)
+// * TODO: Define behaviour for multiple modals
+//
 // Markup:
 // <a href="#" onclick="showExampleModal();">Show Modal</a>
 // <div id="example-modal" class="xui-mask">

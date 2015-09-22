@@ -4,7 +4,6 @@
 /.bundle
 /node_modules
 /vendor/bundle/
-/public
 npm-debug.log
 
 # Build/Output files/directories

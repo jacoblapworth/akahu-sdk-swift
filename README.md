@@ -4,14 +4,16 @@
 
 A shared stylesheet for Xero applications that implements [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 
+For examples see https://github.dev.xero.com/pages/Style/xui/
+
 ## Using in Your Project
 
-### CDN
+### CDN (Recommended)
 
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://xero-rd-edge.s3-us-west-2.amazonaws.com/style/xui/2.2.0/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/4.0.0/xui.css"/>
 ```
 
 ### Bower

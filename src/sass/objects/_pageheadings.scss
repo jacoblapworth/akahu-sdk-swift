@@ -1,0 +1,88 @@
+/**
+ * Styles for the nav elements.  These typically sit above body content or
+ * breadcrumb elements. Defaults to full page width.
+ */
+
+@import "../settings/structure";
+@import "../settings/colours";
+@import "../settings/typography";
+@import "../tools/mixins";
+
+// Page Heading
+//
+//
+// Markup:
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-container">
+//     <h2 class="xui-page-title">Sales</h2>
+//   </div>
+// </section>
+// <br />
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-container xui-container-small">
+//     <h2 class="xui-pageheading--title">Sales</h2>
+//     <button class="xui-button">Button</button>
+//   </div>
+// </section>
+// <br />
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-container xui-container-large">
+//      <ol class="xui-pageheading--breadcrumbs">
+//         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
+//         <li class="xui-breadcrumb"><a href="#">Invoices</a></li>
+//         <li class="xui-breadcrumb active">INV-001</li>
+//       </ol>
+//      <button class="xui-button">Button</button>
+//   </div>
+// </section>
+//
+// Styleguide: Page Heading
+
+// Parent container
+// The coloured background goes full width of the page
+.#{$ns}-pageheading {
+	align-items: center;
+	background-color: $color-white;
+	border-bottom: $border-standard;
+	display: flex;
+	height: 60px;
+	overflow: hidden;
+
+	.#{$ns}-pageheading--title {
+		align-items: center;
+		display: flex;
+		margin: 0 10px 0 0;
+	}
+
+}
+
+// Content container
+.#{$ns}-pageheading--content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.#{$ns}-pageheading--breadcrumbs {
+	align-items: center;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-breadcrumb {
+	display: inline-block;
+	font-size: $font-size-page-title;
+	list-style-type: none;
+
+	&:before {
+		color: $color-placeholders;
+		content: ">";
+		display: inline-block;
+		font-weight: 400;
+		margin: 0 10px;
+	}
+
+	&:first-of-type:before {
+		display: none;
+	}
+}

@@ -16,41 +16,29 @@
 // :active - When active
 //
 // Markup:
-// <button class="{{modifier_class}}">Text</button>
-// <input type="button" class="{{modifier_class}}" value="Text" />
+// <button class="xui-button {{modifier_class}}">Text</button>
+// <input type="button" class="xui-button {{modifier_class}}" value="Text" />
 // <a href="#" class="xui-button {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.1
-button,
-input[type="button"],
-input[type="submit"],
 .#{$ns}-button {
+	-webkit-appearance: none;
 	background-color: $color-forms;
 	border: $border-standard;
 	border-radius: $radius;
 	color: $color-xero-blue;
 	cursor: pointer;
 	display: inline-block;
-	line-height: px-to-rem(24);	// Should be an em
-	min-width: px-to-rem(120);
-	padding: 0.5em 1.5em;
+	font-size: $font-size-text;
+	line-height: px-to-rem(16);
+	min-width: px-to-rem(80);
+	padding: px-to-rem(10);
 	text-align: center;
 	text-decoration: none;
-
-	// TODO: The following should probably be extracted to some kind of button
-	//       group object.
-	@include all-but-first {
-		margin-left: px-to-rem(10);
-	}
 
 	@include mobile {
 		display: block;
 		width: 100%;
-
-		@include all-but-first {
-			margin-left: 0;
-			margin-top: px-to-rem(10);
-		}
 	}
 
 	// NOTE: I'm not fond of having to specify these colours directly...  Need to
@@ -71,6 +59,16 @@ input[type="submit"],
 	}
 }
 
+.#{$ns}-button--grouped {
+	@include all-but-first {
+		margin-left: px-to-rem(10);
+
+		@include mobile {
+			margin-left: 0;
+			margin-top: px-to-rem(10);
+		}
+	}
+}
 
 // Primary Action Buttons
 //
@@ -81,14 +79,12 @@ input[type="submit"],
 // :active - When active
 //
 // Markup:
-// <button type="submit" class="{{modifier_class}}">Text</button>
-// <input type="submit" class="{{modifier_class}}" value="Text" />
-// <button class="xui-button-main {{modifier_class}}">Text</button>
+// <button type="submit" class="xui-button xui-button-main {{modifier_class}}">Text</button>
+// <input type="submit" class="xui-button xui-button-main {{modifier_class}}" value="Text" />
+// <button class="xui-button xui-button-main {{modifier_class}}">Text</button>
 // <a href="#" class="xui-button xui-button-main {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.2
-input[type="submit"],
-button[type="submit"],
 .#{$ns}-button-main {
 	background-color: $color-xero-blue;
 	border-color: $color-xero-blue;
@@ -118,15 +114,12 @@ button[type="submit"],
 // :active - When active
 //
 // Markup:
-// <button type="button" class="xui-button-create {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button-create {{modifier_class}}" value="Text"/>
-// <button class="xui-button-create {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-create {{modifier_class}}">Text</button>
+// <input type="button" class="xui-button xui-button-create {{modifier_class}}" value="Text"/>
+// <button class="xui-button xui-button-create {{modifier_class}}">Text</button>
 // <a href="#" class="xui-button xui-button-create {{modifier_class}}">Text</a>
 //
 // Styleguide: Buttons.3
-button.#{$ns}-button-create,
-input[type="button"].#{$ns}-button-create,
-input[type="submit"].#{$ns}-button-create,
 .#{$ns}-button-create {
 	background-color: $color-xero-green;
 	border-color: $color-xero-green;
@@ -157,14 +150,11 @@ input[type="submit"].#{$ns}-button-create,
 // .xui-button-small
 //
 // Markup:
-// <button type="button" class="xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button-main xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button-create xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-main xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-create xui-button-small {{modifier_class}}">Text</button>
 //
 // Styleguide: Buttons.4
-button.#{$ns}-button-small,
-input[type="button"].#{$ns}-button-small,
-input[type="submit"].#{$ns}-button-small,
 .#{$ns}-button-small {
 	line-height: px-to-rem(16);	// Should be an em
 	min-width: px-to-rem(60);
@@ -173,65 +163,28 @@ input[type="submit"].#{$ns}-button-small,
 
 // Disabled buttons
 //
-// Styling of buttons with the disabled attribute and hyperlinks with the xui-button-disabled class.
-//
-// :hover - When hovered
-// :focus - When focused
-// :active - When active
+// Styling of buttons when disabled.
 //
 // Markup:
 // <p>
-//   <button type="button" disabled class="xui-button-main {{modifier_class}}">Text</button>
-//   <button type="button" disabled class="xui-button-create {{modifier_class}}">Text</button>
-//   <input type="submit" disabled class="{{modifier_class}}" value="Text" />
-//   <a href="#" class="xui-button xui-button-main xui-button-disabled {{modifier_class}}">Text</a>
+//   <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</button>
+//   <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled {{modifier_class}}">Text</button>
+//   <input type="submit" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</a>
 // </p>
 // <p>
-//   <button type="button" disabled class="{{modifier_class}}">Text</button>
-//   <input type="button" disabled class="{{modifier_class}}" value="Text" />
-//   <a href="#" class="xui-button xui-button-disabled {{modifier_class}}">Text</a>
+//   <button type="button" disabled class="xui-button xui-button-is-disabled {{modifier_class}}">Text</button>
+//   <input type="button" disabled class="xui-button xui-button-is-disabled {{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-is-disabled {{modifier_class}}">Text</a>
 // </p>
 //
 // Styleguide: Buttons.5
 
-// Disabled styling for standard buttons
-button[disabled],
-input[type="button"][disabled],
-.#{$ns}-button-disabled {
-	background-color: $color-backgrounds;
+// Disabled styling for buttons
+.#{$ns}-button-is-disabled {
+	background-color: $color-reversed-text;
 	border-color: $color-disabled;
 	color: $color-disabled-text;
 	cursor: default;
-
-	&:hover {
-		border-color: $color-disabled;
-	}
-
-	&:active {
-		background-color: $color-backgrounds;
-		border-color: $color-disabled;
-	}
-}
-
-// Disabled styling for action buttons
-button[type="submit"][disabled],
-input[type="submit"][disabled],
-.#{$ns}-button-main[disabled],
-.#{$ns}-button-main.#{$ns}-button-disabled,
-.#{$ns}-button-create[disabled],
-.#{$ns}-button-create.#{$ns}-button-disabled {
-	background-color: $color-disabled;
-	border-color: $color-disabled;
-	color: $color-reversed-text;
-
-	&:hover {
-		border-color: $color-disabled;
-		box-shadow: none;
-	}
-
-	&:active {
-		background-color: $color-disabled;
-		border-color: $color-disabled;
-		box-shadow: none;
-	}
+	pointer-events: none;
 }

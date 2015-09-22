@@ -30,6 +30,8 @@ textarea {
 	border: $border-standard;
 	border-radius: $radius;
 	box-shadow: none;
+	color: inherit;
+	font: inherit;
 	outline: none;
 	width: 100%;
 
@@ -68,9 +70,19 @@ input[type="tel"] {
 	}
 }
 
+// Textareas
+//
+// Markup:
+// <textarea></textarea>
+//
+// Styleguide: Inputs.2
+
 textarea {
+	color: inherit;
 	display: block;
+	font: inherit;
 	height: 70px;
+	margin: 0;
 	padding: px-to-rem(5) 0.5em;
 	resize: none;
 
@@ -91,7 +103,7 @@ textarea {
 //   Pick me!
 // </label>
 //
-// Styleguide: Inputs.2
+// Styleguide: Inputs.3
 
 input[type="checkbox"],
 input[type="radio"] {

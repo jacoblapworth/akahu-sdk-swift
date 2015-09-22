@@ -13,9 +13,20 @@
 	color: $color-reversed-text;
 	display: flex;
 	font-size: $font-size-heading;
-	font-weight: bold;
 	height: 48px;
 	justify-content: center;
 	overflow: hidden;
 	width: 48px;
+}
+
+.#{$ns}-avatar-small {
+	font-size: $font-size-text;
+	height: 24px;
+	width: 24px;
+}
+
+.#{$ns}-avatar-large {
+	font-size: $font-size-heading;
+	height: 96px;
+	width: 96px;
 }

@@ -7,7 +7,7 @@
 // Modals
 //
 // Markup:
-// <a href="#" onclick="showExampleModal(); return false;">Show Modal</a>
+// <a href="#" onclick="showExampleModal();">Show Modal</a>
 // <div id="example-modal" class="xui-mask">
 // 	<section class="xui-modal xui-modal-medium">
 // 		<header class="xui-modal--header">
@@ -18,7 +18,12 @@
 // 			<p>Body content.</p>
 // 		</div>
 // 		<footer class="xui-modal--footer">
-// 			<button class="xui-button-main">Button</button>
+// 			<div class="xui-modal--secondaryactions">
+// 				<button class="xui-button">Button on Left</button>
+// 			</div>
+// 			<div class="xui-modal--primaryactions">
+// 				<button class="xui-button xui-button-main">Button</button>
+// 			</div>
 // 		</footer>
 // 	</section>
 // </div>
@@ -124,11 +129,14 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--footer {
-	display: flex;
-	justify-content: flex-end;
+	@include clearfix;
 	padding: px-to-rem(20);
+}
 
-	@include mobile {
-		flex-direction: column;
-	}
+.#{$ns}-modal--primaryactions {
+	float: right;
+}
+
+.#{$ns}-modal--secondaryactions {
+	float: left;
 }

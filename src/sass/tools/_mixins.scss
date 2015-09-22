@@ -4,6 +4,14 @@
 
 @import "functions";
 
+@mixin clearfix {
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
 // GROUP APPLICATION
 // -----------------------------------------------------------------------------
 

@@ -1,0 +1,166 @@
+@import "../vars";
+
+// Dropdown Menu
+//
+// Markup:
+//	<div class="xui-dropdownmenu">
+//		<div class="xui-dropdownmenu--body">
+// 			<ul class="xui-menugroup">
+// 				<li class="xui-menugroup--item">
+// 					<a href="#">Menu item 1</a>
+// 				</li>
+// 				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
+// 					<a href="#">Menu item 2</a>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<a href="#">Menu item 3</a>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="checkbox" class="xui-menugroup--input" />
+// 						Menu item 4
+// 					</label>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="checkbox" class="xui-menugroup--input" />
+// 						Menu item 5
+// 					</label>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="radio" name="radios" class="xui-menugroup--input" />
+// 						Menu item 6
+// 					</label>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="radio" name="radios" class="xui-menugroup--input" />
+// 						Menu item 7
+// 					</label>
+// 				</li>
+// 			</ul>
+// 			<ul class="xui-menugroup">
+// 				<li class="xui-menugroup--item">
+// 					<a href="#">Menu item 1</a>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="checkbox" />
+// 						Menu item 2
+// 					</label>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="checkbox" />
+// 						Menu item 3
+// 					</label>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="radio" name="radios2" class="xui-menugroup--input" />
+// 						Menu item 4
+// 					</label>
+// 				</li>
+// 				<li class="xui-menugroup--item">
+// 					<label>
+// 						<input type="radio" name="radios2" class="xui-menugroup--input" />
+// 						Menu item 5
+// 					</label>
+// 				</li>
+// 			</ul>
+// 		</div>
+//		<footer class="xui-dropdownmenu--footer">
+//			<ul class="xui-menugroup">
+// 				<li class="xui-menugroup--item">
+//					<a href="#">+ Some action</a>
+//				</li>
+//			</ul>
+//		</footer>
+//	</div>
+//
+// Styleguide: Dropdown Menu
+$shadow-color: #ccc;
+
+.#{$ns}-dropdownmenu {
+	background-color: $color-panels;
+	border: $border-standard;
+	border-radius: $radius;
+	display: flex;
+	flex-flow: column nowrap;
+	font-size: 13px;
+	list-style-type: none;
+	margin: 0;
+	max-height: 350px;
+	overflow: hidden;
+	position: relative;
+	width: 180px;
+	z-index: 1;
+}
+
+.#{$ns}-dropdownmenu--body,
+.#{$ns}-dropdownmenu--footer {
+	flex: 1 1 auto;
+}
+
+.#{$ns}-dropdownmenu--body {
+	max-height: 350px;
+	overflow: auto;
+}
+
+.#{$ns}-dropdownmenu--footer {
+	border-top: $border-standard;
+	box-shadow: 0 -1px 3px $shadow-color;
+	z-index: 1;
+}
+
+.#{$ns}-menugroup {
+	border-top: 1px solid $color-borders;
+	margin: 0;
+	padding: 8px 0;
+
+	&:first-of-type {
+		border-top: 0;
+	}
+}
+
+.#{$ns}-menugroup--item {
+	list-style-type: none;
+
+	> :nth-child(n) {
+		align-items: center;
+		display: flex;
+		padding: 8px 15px;
+		text-decoration: none;
+		width: 100%;
+	}
+
+	&:hover {
+		background-color: $color-hovers;
+	}
+}
+
+.#{$ns}-menugroup--input {
+	margin: 0 7px 0 0;
+	padding: 0;
+	top: 0; // doesn't work due to odd top's in _inputs.scss
+	z-index: 0;
+}
+
+.#{$ns}-menugroup--item-is-selected {
+	background-color: $color-xero-blue;
+	color: $color-reversed-text;
+
+	> :nth-child(n) {
+		color: inherit;
+	}
+
+	&:hover {
+		background-color: $color-xero-blue;
+	}
+}
+
+.#{$ns}-menugroup--item-is-selected a:hover,
+.#{$ns}-menugroup--item-is-selected label:hover {
+	background-color: $color-xero-blue;
+}

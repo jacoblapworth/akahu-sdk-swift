@@ -30,9 +30,9 @@
 	cursor: pointer;
 	display: inline-block;
 	font-size: $font-size-text;
-	line-height: px-to-rem(24);	// Should be an em
-	min-width: px-to-rem(120);
-	padding: 0.5em 1.5em;
+	line-height: px-to-rem(16);
+	min-width: px-to-rem(80);
+	padding: px-to-rem(10);
 	text-align: center;
 	text-decoration: none;
 

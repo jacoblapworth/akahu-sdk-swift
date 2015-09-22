@@ -77,6 +77,21 @@
 	flex: 1;
 }
 
+// Full Width
+//
+// Sometimes you want an element to have full width.
+//
+// Markup:
+// <div>
+// 	<span class="xui-button xui-u-fullwidth">Wide</span>
+// </div>
+//
+// Styleguide: Utilities.3
+.#{$ns}-u-fullwidth {
+	display: block;
+	width: 100%;
+}
+
 // Containers
 //
 // Container classes used solely to set width layout styles for elements. It is restricted to
@@ -114,7 +129,7 @@
 //	 </table>
 // </div>
 //
-// Styleguide: Utilities.3
+// Styleguide: Utilities.4
 
 .#{$ns}-container {
 	margin: 0 auto;

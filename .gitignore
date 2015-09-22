@@ -5,7 +5,7 @@
 /node_modules
 /vendor/bundle/
 /public
-/styleguide/styguide.md
+/styleguide/styleguide.md
 npm-debug.log
 
 # Build/Output files/directories

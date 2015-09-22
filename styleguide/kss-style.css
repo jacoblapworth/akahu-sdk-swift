@@ -37,7 +37,7 @@
  * See: http://www.w3.org/Style/Examples/007/units.en.html
  */
 .kss-style {
-  color: #444;
+  color: #32465a;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px; }
@@ -61,7 +61,7 @@
   .kss-style h1, .kss-style h2, .kss-style h3, .kss-style h4, .kss-style h5, .kss-style h6 {
     margin: 24px 0 0 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #111;
+    color: #32465a;
     line-height: 1.15em; }
   .kss-style h4, .kss-style h5, .kss-style h6 {
     font-weight: bold; }
@@ -86,23 +86,23 @@
     display: block;
     height: 2px;
     border: 0;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #d0dae2;
     border-bottom: 1px solid #e6e6e6;
     margin: 24px 0;
     padding: 0; }
   .kss-style pre, .kss-style code, .kss-style kbd, .kss-style samp {
     font-family: Menlo, "Ubuntu Mono", "Lucida Console", "Courier New", Courier, monospace;
-    color: #2b2b2b;
+    color: #32465a;
     font-size: 1em; }
   .kss-style pre {
     white-space: pre;
     overflow: scroll; }
   .kss-style ins {
-    color: #111;
+    color: #32465a;
     background: #ff9;
     text-decoration: none; }
   .kss-style mark {
-    color: #111;
+    color: #32465a;
     background: #ff0;
     font-weight: bold; }
   .kss-style sub, .kss-style sup {
@@ -162,7 +162,7 @@
   margin: 0;
   padding: 20px;
   background: #fff;
-  background: #fff; }
+  background: #f6f9fc; }
   @media screen and (min-width: 769px) {
     #kss-node {
       padding: 0; }
@@ -173,8 +173,7 @@
         box-sizing: border-box; } }
   #kss-node .kss-main {
     width: 100%;
-    margin: 0 auto;
-    background: #fff; }
+    margin: 0 auto; }
     @media screen and (min-width: 769px) {
       #kss-node .kss-main {
         width: 80%;
@@ -188,7 +187,7 @@
     position: fixed;
     top: 0;
     padding: 0;
-    border-right: 1px solid rgba(208, 218, 226, 0.5);
+    border-right: 1px solid #d0dae2;
     z-index: 1; }
     @media screen and (min-width: 769px) {
       #kss-node .kss-sidebar {

@@ -36,16 +36,20 @@
 //	<br/>
 //	<div class="xui-panel">
 //		<div class="xui-panel--header">Footer Item Alignment</div>
-//		<div class="xui-panel--footer xui-u-flex xui-u-spacebetween">
-//			<button class="xui-button">Left</button>
-//			<button class="xui-button xui-u-flex-col">Right</button>
+//		<div class="xui-panel--footer">
+//			<div class="xui-panel--secondaryactions">
+//				<button class="xui-button">Left</button>
+//			</div>
+//			<div class="xui-panel--primaryactions">
+//				<button class="xui-button xui-button-main">Right</button>
+//			</div>
 //		</div>
 //	</div>
 //	<br/>
 //	<div class="xui-panel">
 //		<div class="xui-panel--header">Full Width Button</div>
-//		<div class="xui-panel--footer xui-u-flex">
-//			<button class="xui-button xui-u-flex-col xui-u-flex-grow">Stretch</button>
+//		<div class="xui-panel--footer">
+//			<button class="xui-button xui-button-full">Stretch</button>
 //		</div>
 //	</div>
 //
@@ -101,9 +105,18 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--footer {
+	@include clearfix;
 	border-top: $divider-standard;
 
 	&:first-child {
 		border-top: 0;
 	}
+}
+
+.#{$ns}-panel--primaryactions {
+	float: right;
+}
+
+.#{$ns}-panel--secondaryactions {
+	float: left;
 }

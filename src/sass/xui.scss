@@ -31,7 +31,6 @@
 // TODO: The following can belong anywhere.  Sass globals project maybe?
 @import "tools/functions";
 @import "tools/mixins";
-@import "tools/utilities";
 
 // Xero styles as per the Xero UI Toolkit
 // -----------------------------------------------------------------------------
@@ -63,4 +62,5 @@
 // Et cetera...
 // -----------------------------------------------------------------------------
 
+@import "tools/utilities";
 @import "conflicts";

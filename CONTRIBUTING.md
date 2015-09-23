@@ -19,6 +19,7 @@ Script          | Description
 `npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
 `npm run doc`   | Compiles the style guide documentation.
 `npm run watch` | Watches for changes in SCSS files.
+`npm run watch -- --livereload` | Enables livereload on port 35729.
 
 # Conventions
 

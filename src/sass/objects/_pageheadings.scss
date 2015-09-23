@@ -35,6 +35,23 @@
 //      <button class="xui-button">Button</button>
 //   </div>
 // </section>
+// <section class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-container">
+//     <h2 class="xui-page-title">Sales</h2>
+//   </div>
+//   <div class="xui-pageheading--tabs xui-container">
+//     <div class="xui-tabbed-navigation">
+//       <ul class="xui-tabgroup">
+//         <li class="xui-tab xui-tab-pageheading">
+//           <a class="xui-tab--body" href="#g-header">Page heading</a>
+//         </li>
+//         <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected">
+//           <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+// </section>
 //
 // Styleguide: Page Heading
 
@@ -45,7 +62,9 @@
 	background-color: $color-white;
 	border-bottom: $border-standard;
 	display: flex;
-	height: 60px;
+	flex-direction: column;
+	flex-wrap: no-wrap;
+	min-height: 60px;
 	overflow: hidden;
 
 	.#{$ns}-pageheading--title {

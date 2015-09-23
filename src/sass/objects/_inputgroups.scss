@@ -33,11 +33,11 @@
 // <div class="xui-inputgroup">
 // 	<div class="xui-inputgroup--label">Notifications</div>
 // 	<div class="xui-inputgroup--inputs xui-checkboxgroup">
-// 		<label class="xui-checkboxgroup--checkbox">
+// 		<label class="xui-checkbox">
 // 			<input type="checkbox"/>
 // 			When a friend comments on my post
 // 		</label>
-// 		<label class="xui-checkboxgroup--checkbox">
+// 		<label class="xui-checkbox">
 // 			<input type="checkbox"/>
 // 			When a friend sends me a message
 // 		</label>
@@ -97,7 +97,7 @@
 //       radio/checkbox labels.  Should think of a better way to do this.
 // scss-lint:disable QualifyingElement
 label.#{$ns}-inputgroup--label {
-	line-height: 35px;
+	line-height: 36px;
 }
 
 // Input(s) part

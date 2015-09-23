@@ -13,10 +13,11 @@ For examples see https://github.dev.xero.com/pages/Style/xui/
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/4.0.0/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/6.0.0/xui.css"/>
 ```
 
 ### Bower
+
 ```bash
 $ bower install git@github.dev.xero.com:Style/xui.git --save
 ```

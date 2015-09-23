@@ -22,6 +22,22 @@
 //			<li class="xui-tab xui-tab-is-selected">
 //				<a class="xui-tab--body" href="#selected_default">Selected Default</a>
 //			</li>
+//		</ul>
+//	</div>
+//	<br />
+//	<div class="xui-tabbed-navigation">
+//		<ul class="xui-tabgroup">
+//			<li class="xui-tab xui-tab-pageheading">
+//				<a class="xui-tab--body" href="#g-header">Page heading</a>
+//			</li>
+//			<li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected">
+//				<a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//			</li>
+//		</ul>
+//	</div>
+//	<br />
+//	<div class="xui-tabbed-navigation xui-pagenav">
+//		<ul class="xui-tabgroup">
 //			<li class="xui-tab xui-tab-pagenav">
 //				<a class="xui-tab--body" href="#g-header">Page nav</a>
 //			</li>
@@ -51,6 +67,8 @@
 // (text-color, border-color, hover-text-color, hover-border-color)
 $color-variations: (
 	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text, $color-primary-text),
+	"#{$ns}-tab-pageheading":($color-primary-text, transparent, $color-xero-blue, $color-xero-blue),
+	"#{$ns}-tab-pageheading-is-selected":($color-xero-blue, $color-xero-blue, $color-xero-blue, $color-xero-blue),
 	"#{$ns}-tab-pagenav":($color-reversed-text, transparent, $color-xero-light-blue, $color-xero-light-blue),
 	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
 );

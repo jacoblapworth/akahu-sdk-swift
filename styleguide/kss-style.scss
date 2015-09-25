@@ -396,10 +396,10 @@ $kss-vertical-rhythm: 19.5px; //13 * 1.5;
   .kss-parameters__description {
     display: table-cell;
   }
-
   .kss-modifier__wrapper {
     border: 1px solid #ccc;
     padding: 10px;
+    background: #fff;
   }
   .kss-modifier__heading {
     margin: -10px -10px 10px -10px;
@@ -432,7 +432,7 @@ $kss-vertical-rhythm: 19.5px; //13 * 1.5;
 
   .kss-markup {
     margin: -1px 0 $kss-vertical-rhythm 0;
-    border: 1px solid #999;
+    border: 1px solid #ccc;
     font-size: $kss-markup-size;
   }
   .kss-markup pre {
@@ -488,5 +488,27 @@ $kss-vertical-rhythm: 19.5px; //13 * 1.5;
     .atv { color: #060 }
   }
 
+  .prettyprint {
+    background: #fff;
+  }
+
+  .linenums {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid #eee;
+      padding: 0 10px;
+
+      &:nth-child(2) {
+        background-color: #fcfcfc;
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
 
 }

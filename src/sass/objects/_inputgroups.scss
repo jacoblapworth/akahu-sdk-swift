@@ -54,7 +54,9 @@
 .#{$ns}-inputgroup {
 	align-items: stretch;
 	display: flex;
+	list-style: none;
 	margin: px-to-rem(20) auto;
+	padding: 0;
 
 	@include tablet {
 		justify-content: center;

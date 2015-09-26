@@ -1,59 +1,170 @@
-/**
- * Panels are bordered containers for other items.  They can contain several
- * sections, and usually consist of at least 1 header section, a footer section,
- * and as many body sections as they need.
- */
+// Panel
+//
+// Panels are bordered containers for other items.  They can contain several
+// sections, and usually consist of at least 1 header section, a footer section,
+// and as many body sections as they need.
+//
+// Because panels are generic containers panel sections do not provide padding.
+//
+// Styleguide: Panels
 
 @import "../settings/colours";
 @import "../settings/structure";
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// Panels
+// Panel with a table
 //
 // Markup:
 //	<div class="xui-panel">
-//		<div class="xui-panel--header">Panel with 1 Section</div>
-//		<div class="xui-panel--section">Section</div>
-//		<div class="xui-panel--footer">Footer</div>
-//	</div>
-//	<br/>
-//	<div class="xui-panel">
-//		<div class="xui-panel--header">Panel with Multiple Sections</div>
-//		<div class="xui-panel--section">Section</div>
-//		<div class="xui-panel--section">Section</div>
-//		<div class="xui-panel--footer">Footer</div>
-//	</div>
-//	<br/>
-//	<div class="xui-panel">
-//		<div class="xui-panel--header">Panel with No Footer</div>
-//		<div class="xui-panel--section">Section</div>
-//	</div>
-//	<br/>
-//	<div class="xui-panel">
-//		<div class="xui-panel--footer">Panel with Only a Footer</div>
-//	</div>
-//	<br/>
-//	<div class="xui-panel">
-//		<div class="xui-panel--header">Footer Item Alignment</div>
-//		<div class="xui-panel--footer">
-//			<div class="xui-panel--secondaryactions">
-//				<button class="xui-button">Left</button>
-//			</div>
-//			<div class="xui-panel--primaryactions">
-//				<button class="xui-button xui-button-main">Right</button>
-//			</div>
+//		<div class="xui-panel--header">
+//			<header class="xui-panel--heading">57 bills don't have files added</header>
 //		</div>
-//	</div>
-//	<br/>
-//	<div class="xui-panel">
-//		<div class="xui-panel--header">Full Width Button</div>
-//		<div class="xui-panel--footer">
-//			<button class="xui-button xui-button-full">Stretch</button>
+//		<table class="xui-panel--section xui-contentblock">
+//			<thead>
+//				<tr class="xui-sectionheading">
+//					<th class="xui-text-sectionheading xui-sectionheading--cell">Date</th>
+//					<th class="xui-text-sectionheading xui-sectionheading--cell">From</th>
+//					<th class="xui-text-sectionheading xui-sectionheading--cell">Reference</th>
+//					<th class="xui-text-sectionheading xui-sectionheading--cell xui-text-number">Amount</th>
+//				</tr>
+//			</thead>
+//			<tbody>
+//				<tr class="xui-contentblock--item">
+//					<td class="xui-text-cell">20 Sep 2014</td>
+//					<td class="xui-text-cell">Gateway Graphics</td>
+//					<td class="xui-text-cell">Ref - 7276130</td>
+//					<td class="xui-text-cell xui-text-number">7,947.00</td>
+//				</tr>
+//				<tr class="xui-contentblock--item">
+//					<td class="xui-text-cell">20 Sep 2014</td>
+//					<td class="xui-text-cell">Eye Design</td>
+//					<td class="xui-text-cell"></td>
+//					<td class="xui-text-cell xui-text-number">5,718.49</td>
+//				</tr>
+//			</tbody>
+//		</table>
+//		<div class="xui-panel--footer xui-panel--actions">
+//			<a href="#">View All...</a>
 //		</div>
 //	</div>
 //
-// Styleguide: Panels
+// Styleguide: Panels.1
+
+// Panel with a content block
+//
+//	<div class="xui-panel">
+//		<div class="xui-panel--header">
+//			<header class="xui-panel--heading">Needs your attention</header>
+//		</div>
+//		<div class="xui-panel--section">
+//			<header class="xui-sectionheading xui-text-sectionheading">Due this week</header>
+//			<ol class="xui-contentblock">
+//				<li class="xui-contentblock--item xui-u-flex">
+//					<div class="xui-u-flex-col">
+//						<abbr class="xui-avatar xui-avatar-small">A</abbr>
+//					</div>
+//					<div class="xui-u-flex-col xui-u-flex-grow">
+//						<a href="#">All Good Organics</a>
+//						<div>
+//							GST Return due this week
+//							<div class="xui-text-secondary">162 unreconciled lines, due 21 Aug 2015</div>
+//						</div>
+//					</div>
+//					<div class="xui-u-flex-col">
+//						<button type="button" class="xui-button">Reconcile</button>
+//					</div>
+//				</li>
+//				<li class="xui-contentblock--item xui-u-flex">
+//					<div class="xui-u-flex-col">
+//						<abbr class="xui-avatar xui-avatar-small">C</abbr>
+//					</div>
+//					<div class="xui-u-flex-col xui-u-flex-grow">
+//						<a href="#">Coffee Supreme</a>
+//						<div>
+//							GST Return due this week
+//							<div class="xui-text-secondary">Reconciled up to date, due 21 Aug 2015</div>
+//						</div>
+//					</div>
+//					<div class="xui-u-flex-col">
+//						<button type="button" class="xui-button">Prepare</button>
+//					</div>
+//				</li>
+//			</ol>
+//		</div>
+//		<div class="xui-panel--section">
+//			<header class="xui-sectionheading xui-text-sectionheading">Due this month</header>
+//			<ol class="xui-contentblock">
+//				<li class="xui-contentblock--item xui-u-flex">
+//					<div class="xui-u-flex-col">
+//						<abbr class="xui-avatar xui-avatar-small">B</abbr>
+//					</div>
+//					<div class="xui-u-flex-col xui-u-flex-grow">
+//						<a href="#">Bluebells Cakery</a>
+//						<div>
+//							GST Return due this month
+//							<div class="xui-text-secondary">134 unreconciled lines, 3 comments, due 28 Aug 2015</div>
+//						</div>
+//					</div>
+//					<div class="xui-u-flex-col">
+//						<button type="button" class="xui-button">Reconcile</button>
+//					</div>
+//				</li>
+//				<li class="xui-contentblock--item xui-u-flex">
+//					<div class="xui-u-flex-col">
+//						<img class="xui-avatar xui-avatar-small" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p160x160/10154937_10152887999318438_3131690082284361725_n.png?oh=823be4c396970a7ca4f97fb2c4fd1713&oe=5664EB6A&__gda__=1449098493_9f6b36c34fed7aa5fadf0879964869ce"/>
+//					</div>
+//					<div class="xui-u-flex-col xui-u-flex-grow">
+//						<a href="#">Good as Gold</a>
+//						<div>
+//							GST Return due this week
+//							<div class="xui-text-secondary">Reconciled up to date, due 28 Aug 2015</div>
+//						</div>
+//					</div>
+//					<div class="xui-u-flex-col">
+//						<button type="button" class="xui-button">Prepare</button>
+//					</div>
+//				</li>
+//			</ol>
+//		</div>
+//		<div class="xui-panel--footer">
+//			<a href="#">More</a>
+//		</div>
+//	</div>
+//
+// Styleguide: Panels.2
+
+// Panel with a form
+//
+//	<div class="xui-panel">
+//		<div class="xui-panel--header">
+//			<header class="xui-panel--heading">Basic Information</header>
+//		</div>
+//		<ul class="xui-panel--section">
+//			<li class="xui-inputgroup">
+//				<label class="xui-inputgroup--label" for="display-name">Display Name</label>
+//				<div class="xui-inputgroup--inputs">
+//					<input type="text" id="display-name" placeholder="Your name"/>
+//				</div>
+//			</li>
+//			<li class="xui-inputgroup">
+//				<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
+//				<div class="xui-inputgroup--inputs">
+//					<input type="text" id="legal-name" placeholder="If different from above"/>
+//				</div>
+//			</li>
+//		</ul>
+//		<div class="xui-panel--footer xui-panel--actions">
+//			<div class="xui-panel--secondaryactions">
+//				<button type="button" class="xui-button">Cancel</button>
+//			</div>
+//			<div class="xui-panel--primaryactions">
+//				<button type="subit" class="xui-button xui-button-main">Save</button>
+//			</div>
+//		</div>
+//	</div>
+//
+// Styleguide: Panels.3
 .#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;
@@ -74,15 +185,31 @@
 .#{$ns}-panel--header {
 }
 
+.#{$ns}-panel--header-standard {
+	padding: px-to-rem(20);
+}
+
+.#{$ns}-panel--heading {
+	font-size: $font-size-section-title;
+	font-weight: bold;
+	padding: px-to-rem(20);
+}
+
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--section {
 	border-top: $divider-standard;
+	margin: 0;
+	padding: 0;
 
 	&:first-child {
 		border-top: 0;
 	}
+}
+
+.#{$ns}-panel--section-standard {
+	padding: px-to-rem(20);
 }
 
 .#{$ns}-panel--section--header {
@@ -105,6 +232,11 @@
 	&:first-child {
 		border-top: 0;
 	}
+}
+
+.#{$ns}-panel--footer-standard,
+.#{$ns}-panel--actions {
+	padding: px-to-rem(20);
 }
 
 .#{$ns}-panel--primaryactions {

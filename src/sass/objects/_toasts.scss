@@ -1,0 +1,37 @@
+// Toasts
+//
+// The example displays in the bottom left of your screen.
+//
+// Markup:
+//   <div class="xui-toast">
+//     <p class="xui-toast--message">Toast Message</p>
+//     <a class="xui-toast--link" href="#ToastLink">Toast Link Label</a>
+//   </div>
+//
+// Styleguide: Toasts
+.#{$ns}-toast {
+	background: transparentize($color-grey-1, 0.1);
+	border-radius: 3px;
+	bottom: 0;
+	box-shadow: $shadow-standard;
+	color: $color-white;
+	left: 0;
+	margin: 20px;
+	padding: 20px;
+	position: fixed;
+	z-index: 10;
+}
+
+.#{$ns}-toast--message {
+	display: inline;
+	margin-right: 20px;
+}
+
+@include mobile {
+	.#{$ns}-toast {
+		left: 50%;
+		margin-left: 0;
+		min-width: 70%;
+		transform: translateX(-50%);
+	}
+}

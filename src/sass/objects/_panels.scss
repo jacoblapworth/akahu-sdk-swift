@@ -17,9 +17,9 @@
 //
 // Markup:
 //	<div class="xui-panel">
-//		<div class="xui-panel--header">
-//			<header class="xui-panel--heading">57 bills don't have files added</header>
-//		</div>
+//		<header class="xui-panel--header">
+//			<h3 class="xui-panel--heading">57 bills don't have files added</h3>
+//		</header>
 //		<table class="xui-panel--section xui-contentblock">
 //			<thead>
 //				<tr class="xui-sectionheading">
@@ -44,20 +44,21 @@
 //				</tr>
 //			</tbody>
 //		</table>
-//		<div class="xui-panel--footer xui-panel--actions">
+//		<footer class="xui-panel--footer xui-panel--actions">
 //			<a href="#">View All...</a>
-//		</div>
+//		</footer>
 //	</div>
 //
 // Styleguide: Panels.1
 
 // Panel with a content block
 //
+//	Markup:
 //	<div class="xui-panel">
-//		<div class="xui-panel--header">
-//			<header class="xui-panel--heading">Needs your attention</header>
-//		</div>
-//		<div class="xui-panel--section">
+//		<header class="xui-panel--header">
+//			<h3 class="xui-panel--heading">Needs your attention</h3>
+//		</header>
+//		<section>
 //			<header class="xui-sectionheading xui-text-sectionheading">Due this week</header>
 //			<ol class="xui-contentblock">
 //				<li class="xui-contentblock--item xui-u-flex">
@@ -91,8 +92,8 @@
 //					</div>
 //				</li>
 //			</ol>
-//		</div>
-//		<div class="xui-panel--section">
+//		</section>
+//		<section class="xui-panel--section">
 //			<header class="xui-sectionheading xui-text-sectionheading">Due this month</header>
 //			<ol class="xui-contentblock">
 //				<li class="xui-contentblock--item xui-u-flex">
@@ -126,16 +127,17 @@
 //					</div>
 //				</li>
 //			</ol>
-//		</div>
-//		<div class="xui-panel--footer">
+//		</section>
+//		<footer class="xui-panel--footer xui-panel--actions">
 //			<a href="#">More</a>
-//		</div>
+//		</footer>
 //	</div>
 //
 // Styleguide: Panels.2
 
 // Panel with a form
 //
+//  Markup:
 //	<div class="xui-panel">
 //		<div class="xui-panel--header">
 //			<header class="xui-panel--heading">Basic Information</header>
@@ -192,7 +194,7 @@
 .#{$ns}-panel--heading {
 	font-size: $font-size-section-title;
 	font-weight: bold;
-	padding: px-to-rem(20);
+	margin: px-to-rem(20);
 }
 
 // PANEL SECTIONS/BODY

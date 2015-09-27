@@ -17,9 +17,9 @@ $kss-colors-link-active: #faa700;
 
 $kss-font-code: Menlo, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
 
-$kss-font-size: 16px;
+$kss-font-size: 13px;
 $kss-markup-size: 12px;
-$kss-vertical-rhythm: $kss-font-size * 1.5;
+$kss-vertical-rhythm: 19.5px; //13 * 1.5;
 
 
 
@@ -125,8 +125,8 @@ $kss-vertical-rhythm: $kss-font-size * 1.5;
   sub { bottom: -0.25em; }
 
   ul, ol {
-    margin: $kss-vertical-rhythm 0;
-    padding: 0 0 0 $kss-vertical-rhythm;
+    margin: 0;
+    padding: 0;
   }
   li p:last-child {
     margin: 0;

@@ -101,3 +101,13 @@
 .kss-main {
 	background-color: #fff;
 }
+
+/* Grid specific styles. Just to make the demos look a bit better */
+.xui-grid {
+	margin: 20px 0;
+}
+
+.xui-grid > .xui-grid--cell, div[class*='xui-layout'] {
+  background-color: rgba(4, 138, 187, 0.3);
+  border: 1px solid rgba(4, 138, 187, 0.3);
+}

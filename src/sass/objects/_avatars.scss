@@ -1,32 +1,38 @@
 // Avatars
 //
 // Markup:
+// <h3>Small</h3>
+// <img class="xui-avatar xui-avatar-small" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
+// <abbr class="xui-avatar xui-avatar-small">UX</abbr>
+// <h3>Medium</h3>
 // <img class="xui-avatar" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
 // <abbr class="xui-avatar">UX</abbr>
+// <h3>Large</h3>
+// <img class="xui-avatar xui-avatar-large" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar xui-avatar-large">UX</abbr>
 //
 // Styleguide: Avatars
 .#{$ns}-avatar {
 	align-items: center;
 	background-color: $color-xero-blue;
-	border: 1px solid $color-dividers;
 	border-radius: 50%;
 	color: $color-reversed-text;
 	display: flex;
-	font-size: $font-size-heading;
-	height: 48px;
+	font-size: $font-size-text;
+	height: px-to-rem(32);
 	justify-content: center;
 	overflow: hidden;
-	width: 48px;
+	width: px-to-rem(32);
 }
 
 .#{$ns}-avatar-small {
-	font-size: $font-size-text;
-	height: 24px;
-	width: 24px;
+	font-size: $font-size-avatar-small;
+	height: px-to-rem(24);
+	width: px-to-rem(24);
 }
 
 .#{$ns}-avatar-large {
-	font-size: $font-size-heading;
-	height: 96px;
-	width: 96px;
+	font-size: $font-size-avatar-large;
+	height: px-to-rem(48);
+	width: px-to-rem(48);
 }

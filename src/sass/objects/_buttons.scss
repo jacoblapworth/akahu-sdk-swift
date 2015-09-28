@@ -181,9 +181,11 @@
 // Styleguide: Buttons.5
 
 // Disabled styling for buttons
-.#{$ns}-button-is-disabled {
+.#{$ns}-button-is-disabled,
+.#{$ns}-button-is-disabled:hover {
 	background-color: $color-reversed-text;
 	border-color: $color-disabled;
+	box-shadow: none;
 	color: $color-disabled-text;
 	cursor: default;
 	pointer-events: none;

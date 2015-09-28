@@ -275,7 +275,7 @@
 //
 // Styleguide: Grid Layout.3
 
-div[class*='#{$ns}-layout'] {
+[class*='#{$ns}-layout'] {
 	flex: none;
 }
 

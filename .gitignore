@@ -4,12 +4,15 @@
 /.bundle
 /node_modules
 /vendor/bundle/
-/public
+/styleguide/styleguide.md
 npm-debug.log
 
 # Build/Output files/directories
-*.html
+/*.html
 /dist
+/public
+/styleguide/kss-style.css
+/styleguide/kss-style.css.map
 
 # IDE files/directores
 /.idea

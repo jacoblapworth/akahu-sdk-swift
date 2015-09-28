@@ -46,4 +46,5 @@ body {
 // TODO: Get the header on border-box so everyone can use this :P
 main {
 	box-sizing: border-box;
+	display: block; // Needed for IE11 which thinks it should be inline...
 }

@@ -12,5 +12,9 @@
 		"styleguide/kss-script.js"
 	],
 
+	"homepage": "../../styleguide/styleguide.md",
+
+	"template": "./template",
+
 	"title": "XUI"
 }

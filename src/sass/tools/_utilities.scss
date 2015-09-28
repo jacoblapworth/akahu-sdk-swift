@@ -4,6 +4,20 @@
 
 @import "mixins";
 
+// Utility classes
+//
+// Styleguide: Utilities
+
+// Display
+//
+// Classes that can be added to any element to hide it from view.
+//
+// Markup:
+// <section class="xui-u-container xui-u-hidden"></section>
+// <section class="xui-u-container xui-u-hidden-mobile"></section>
+//
+// Styleguide: Utilities.1
+
 .#{$ns}-u-hidden {
 	display: none;
 }
@@ -14,8 +28,41 @@
 	}
 }
 
+
+// Flex
+//
+// Classes that can be added to any container to add a flexible layout. These can be combined
+// to create a flexible multi-column layout. Sibling flex columns will be given a small margin
+// to seperate them.
+//
+// Markup:
+// <div class="xui-u-flex">
+//   <div class="xui-panel xui-u-flex-col">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+//   <div class="xui-panel xui-u-flex-col xui-u-flex-grow">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+//   <div class="xui-panel xui-u-flex-col">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+// </div>
+//
+// Styleguide: Utilities.2
+
+
 .#{$ns}-u-flex {
 	display: flex;
+}
+
+.#{$ns}-u-spacebetween {
+	justify-content: space-between;
 }
 
 .#{$ns}-u-flex-col {
@@ -30,9 +77,63 @@
 	flex: 1;
 }
 
+// Full Width
+//
+// Sometimes you want an element to have full width.
+//
+// Markup:
+// <div>
+// 	<span class="xui-button xui-u-fullwidth">Wide</span>
+// </div>
+//
+// Styleguide: Utilities.3
+.#{$ns}-u-fullwidth {
+	display: block;
+	width: 100%;
+}
+
+// Containers
+//
+// Container classes used solely to set width layout styles for elements. It is restricted to
+// setting layout to one of three sizes: 960px, 1160px, or full screen. Depending on screensize
+// there is also some slight padding on the left and right
+//
+// Due to the current width restrictions of this styleguide it's a bit hard to show the different
+// sizes in the markup below. Instead I've just shown one to show the markup
+//
+// Markup:
+// <div class="xui-container xui-container-small">
+//	 <table class="xui-contentblock">
+//	 	<thead>
+//	 		<tr class="xui-sectionheading">
+//	 			<th class="xui-text-sectionheading xui-sectionheading--cell">Code</th>
+//	 			<th class="xui-text-sectionheading xui-sectionheading--cell">Account</th>
+//	 			<th class="xui-text-sectionheading xui-sectionheading--cell">Account Type</th>
+//	 			<th class="xui-text-sectionheading xui-sectionheading--cell xui-text-number">Amount</th>
+//	 		</tr>
+//	 	</thead>
+//	 	<tbody>
+//	 		<tr class="xui-contentblock--item">
+//	 			<td class="xui-text-cell">300</td>
+//	 			<td class="xui-text-cell">Bank Account 01</td>
+//	 			<td class="xui-text-cell">3</td>
+//	 			<td class="xui-text-cell xui-text-number">400.00</td>
+//	 		</tr>
+//	 		<tr class="xui-contentblock--item">
+//	 			<td class="xui-text-cell">301</td>
+//	 			<td class="xui-text-cell">Bank Account 01</td>
+//	 			<td class="xui-text-cell">3</td>
+//	 			<td class="xui-text-cell xui-text-number">400.00</td>
+//	 		</tr>
+//	 	</tbody>
+//	 </table>
+// </div>
+//
+// Styleguide: Utilities.4
+
 .#{$ns}-container {
 	margin: 0 auto;
-	width: calc(100%) - 20px;
+	width: calc(100% - 20px);
 }
 
 .#{$ns}-container-large {

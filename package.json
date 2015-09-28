@@ -1,6 +1,6 @@
 {
   "name": "xui",
-  "version": "3.1.1",
+  "version": "6.1.0",
   "description": "Shared styles for Xero applications",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "install": "grunt install",
     "build": "grunt build",
     "dist": "grunt dist",
-    "doc": "grunt kss:styleguide",
+    "doc": "grunt doc",
     "lint": "grunt lint",
     "watch": "grunt watch"
   },
@@ -23,14 +23,16 @@
     "grunt-bower-install-simple": "^1.1.4",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-csslint": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.13.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-git": "^0.3.5",
     "grunt-kss": "^2.0.0",
     "grunt-sass": "^1.0.0",
     "grunt-scss-lint": "^0.3.8",
     "grunt-shell": "^1.1.2",
+    "grunt-template": "^0.2.3",
     "load-grunt-config": "^0.17.2",
     "load-grunt-tasks": "^3.2.0",
-    "grunt-contrib-cssmin": "^0.13.0"
+    "nopt": "^3.0.4"
   }
 }

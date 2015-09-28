@@ -38,6 +38,21 @@
 // 			</div>
 // 		</li>
 // 	</ol>
+//	<h1 class="xui-sectionheading xui-text-sectionheading">Tomorrow</h1>
+// 	<ol class="xui-contentblock">
+// 		<li class="xui-contentblock--item xui-u-flex">
+// 			<div class="xui-u-flex-col">
+// 				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
+// 			</div>
+// 			<div class="xui-u-flex-col xui-u-flex-grow">
+// 				<a href="#">Parrot Dog</a> - Workpaper available for review
+// 				<div class="xui-text-secondary">1 January - 28 February 2015</div>
+// 			</div>
+// 			<div class="xui-u-flex-col">
+// 				<button class="xui-button">Action</button>
+// 			</div>
+// 		</li>
+//	</ol>
 // </section>
 //
 // Styleguide: Content Blocks.1
@@ -50,7 +65,7 @@
 }
 
 .#{$ns}-contentblock--item {
-	border: $border-standard;
+	border-top: $divider-standard;
 	list-style: none;
 	margin: 0;
 	padding: 16px;
@@ -62,8 +77,7 @@
 		background-color: fade-out($color-xero-blue, 0.9);
 	}
 
-	&:first-of-type,
-	& + & {
+	&:first-of-type {
 		border-top: 0;
 	}
 }

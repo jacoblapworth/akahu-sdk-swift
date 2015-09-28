@@ -6,8 +6,17 @@
 
 // Modals
 //
+// ### Behaviour
+// * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
+// * If the modal can be closed (should be the case for most modals), it can be done in the following ways:
+//   * Clicking the &times; inside the modal
+//   * Pressing ESC while the modal is open
+//   * Clicking on a button in the modal footer can optionally close the modal
+//   * If the modal contains no user-inputted data that could be lost, then it may also be closed by clicking on the mask (outside the modal)
+// * TODO: Define behaviour for multiple modals
+//
 // Markup:
-// <a href="#" onclick="showExampleModal(); return false;">Show Modal</a>
+// <a href="#" onclick="showExampleModal();">Show Modal</a>
 // <div id="example-modal" class="xui-mask">
 // 	<section class="xui-modal xui-modal-medium">
 // 		<header class="xui-modal--header">
@@ -18,7 +27,12 @@
 // 			<p>Body content.</p>
 // 		</div>
 // 		<footer class="xui-modal--footer">
-// 			<button class="xui-button xui-button-main">Button</button>
+// 			<div class="xui-modal--secondaryactions">
+// 				<button class="xui-button">Button on Left</button>
+// 			</div>
+// 			<div class="xui-modal--primaryactions">
+// 				<button class="xui-button xui-button-main">Button</button>
+// 			</div>
 // 		</footer>
 // 	</section>
 // </div>
@@ -124,11 +138,14 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--footer {
-	display: flex;
-	justify-content: flex-end;
+	@include clearfix;
 	padding: px-to-rem(20);
+}
 
-	@include mobile {
-		flex-direction: column;
-	}
+.#{$ns}-modal--primaryactions {
+	float: right;
+}
+
+.#{$ns}-modal--secondaryactions {
+	float: left;
 }

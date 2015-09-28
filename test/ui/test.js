@@ -1,6 +1,6 @@
 import React from 'react';
 import UserAvatar from '../../src/Avatar.js';
-import '../../src/scss/_avatar.scss';
+import './test.scss';
 
 (function() {
 	React.render(

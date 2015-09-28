@@ -1,7 +1,6 @@
 import React from 'react';
 import ClassName from 'classNames';
-/* eslint no-unused-vars: 0 */
-import atPolyfill from 'String.prototype.at';
+import 'String.prototype.at';
 
 /**
  * @public
@@ -33,26 +32,25 @@ const propTypes = {
  * Default property values for this component
  */
 const defaultProps = {
-	size: 'small'
+	size: 'medium'
 };
 
 const AVATAR_SIZE_CLS = {
 	'small': 'xui-avatar-small',
-	'medium': 'xui-avatar-medium',
 	'large': 'xui-avatar-large'
 };
 
 const COLOURS = [
-	'#F6534E',
-	'#FA8100',
-	'#F8A900',
-	'#57C40A',
-	'#51DAAF',
-	'#3ADCF6',
-	'#2BAAED',
-	'#5C5CE6',
-	'#A352CC',
-	'#FF66CC'
+	'#FA908C',
+	'#FCAD59',
+	'#FBC859',
+	'#92D960',
+	'#8EE7CB',
+	'#7FE9FA',
+	'#75C8F4',
+	'#9595EF',
+	'#C48FDE',
+	'#FF9CDE'
 ];
 
 /**
@@ -76,46 +74,28 @@ function generateColour(identifier) {
 }
 
 export default class Avatar extends React.Component {
-
-	constructor(props) {
-		super(props);
-	}
-
-	renderAvatar() {
-
+	render() {
 		const avatar = this;
 
 		const value = avatar.props.value.at(0);
 		const imageUrl = avatar.props.imageUrl;
 		const size = avatar.props.size;
-		let colour = avatar.props.colour;
 		const identifier = avatar.props.identifier;
+		let colour = avatar.props.colour;
 
 		const avatarClassNames = ClassName(
+			avatar.props.className,
 			'xui-avatar',
 			AVATAR_SIZE_CLS[size]
 		);
 
-		let element;
-
 		if (imageUrl) {
-			element = <img className={avatarClassNames} alt="" src={imageUrl}></img>;
+			return <img className={avatarClassNames} alt="" src={imageUrl}></img>;
 		} else {
 			colour = colour || generateColour(identifier || avatar.props.value);
 			const avatarStyle = { 'backgroundColor': colour };
-			element =
-			<abbr className={avatarClassNames} style={avatarStyle}>{value}</abbr>;
+			return <abbr className={avatarClassNames} className={avatarClassNames} style={avatarStyle}>{value}</abbr>;
 		}
-
-		return element;
-	}
-
-	render() {
-		return (
-			<span className={this.props.className}>
-				{this.renderAvatar()}
-			</span>
-		);
 	}
 }
 

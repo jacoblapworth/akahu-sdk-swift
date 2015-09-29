@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassName from 'classNames';
+import cn from 'classNames';
 import 'String.prototype.at';
 
 /**
@@ -78,15 +78,13 @@ export default class Avatar extends React.Component {
 		const avatar = this;
 
 		const value = avatar.props.value.at(0);
-		const imageUrl = avatar.props.imageUrl;
-		const size = avatar.props.size;
-		const identifier = avatar.props.identifier;
+		const { imageUrl, size, identifier } = avatar.props;
 		let colour = avatar.props.colour;
 
-		const avatarClassNames = ClassName(
+		const avatarClassNames = cn(
 			avatar.props.className,
 			'xui-avatar',
-			AVATAR_SIZE_CLS[size]
+			AVATAR_SIZE_CLS[size] || ''
 		);
 
 		if (imageUrl) {

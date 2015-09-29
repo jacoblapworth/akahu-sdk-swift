@@ -93,7 +93,7 @@
 //				</li>
 //			</ol>
 //		</section>
-//		<section class="xui-panel--section">
+//		<section>
 //			<header class="xui-sectionheading xui-text-sectionheading">Due this month</header>
 //			<ol class="xui-contentblock">
 //				<li class="xui-contentblock--item xui-u-flex">
@@ -142,6 +142,9 @@
 //		<div class="xui-panel--header">
 //			<header class="xui-panel--heading">Basic Information</header>
 //		</div>
+//		<section class="xui-panel--section xui-panel--section-standard">
+//			<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
+//		</section>
 //		<ul class="xui-panel--section">
 //			<li class="xui-inputgroup">
 //				<label class="xui-inputgroup--label" for="display-name">Display Name</label>

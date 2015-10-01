@@ -1,6 +1,6 @@
 # xui
 
-<a href="https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master"><img src="https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon"></a>
+<a href="https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master"><img src="https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon"></a> <span style="display: inline-block; border-radius: 3px; background-color: #2baaed; padding: 0px 4px 1px 4px; text-transform: lowercase; font-size: 12px; font-weight: bold; color: #fff;">Beta</span>
 
 A shared stylesheet for Xero applications that implements [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 

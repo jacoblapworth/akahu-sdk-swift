@@ -24,7 +24,19 @@ $ bower install git@github.dev.xero.com:Style/xui.git --save
 
 You will need to compile `xui.scss`.
 
-### Usage Guidelines
+## What is XUI For?
+
+XUI provides a CSS base that implements the Xero Pattern Library.
+
+The approach is heavily inspired by Stripe's approach, which is discussed in this video:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ
+" target="_blank"><img src="http://img.youtube.com/vi/NHpSmJrEvRQ/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10"></a>
+
+In the near future we aim to provide JavaScript components that target XUI and when those components are available developers should prefer those components over using XUI directly.
+
+## Usage Guidelines
 
 * Do not create any classes that use the `xui` namespace outside this project. Namespace your project's classes appropriately.
 * In your main application, make sure XUI is loaded or imported before any of your other stylesheets.

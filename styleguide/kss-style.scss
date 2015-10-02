@@ -512,3 +512,15 @@ $kss-vertical-rhythm: 19.5px; //13 * 1.5;
   }
 
 }
+
+#kssref-0 {
+  line-height: 1.8;
+
+  h1, h2, h3 {
+    line-height: 1.8;
+  }
+
+  ul, ol {
+    padding-left: 20px;
+  }
+}

@@ -1,6 +1,6 @@
-# xui
+# XUI
 
-xui is a CSS implementation of the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
+XUI is a CSS implementation of the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 
 To use xui in your project include the following `link` in your page:
 

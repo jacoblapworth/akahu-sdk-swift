@@ -224,18 +224,17 @@
 	top: -10px;
 	vertical-align: middle;
 	width: 20px;
-}
 
-.#{$ns}-panel--arrow--border {
-	stroke: $color-borders;
-}
+	&--border {
+		stroke: $color-borders;
 
-.#{$ns}-panel--arrow--border-fill {
-	stroke: $color-white;
+		&-fill {
+			stroke: $color-white;
+		}
+	}
 }
 
 .#{$ns}-notificationpanel {
-	overflow: hidden;
 	position: relative;
 	width: 360px;
 

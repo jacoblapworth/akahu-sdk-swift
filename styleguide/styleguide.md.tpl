@@ -19,7 +19,7 @@ To use XUI in your project include the following `link` in your page:
 
 ## Contributing to XUI
 
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md)
+Please see [CONTRIBUTING.md](https://github.dev.xero.com/Style/xui/blob/master/CONTRIBUTING.md)
 
 ## Help
 

@@ -197,7 +197,8 @@
 .#{$ns}-panel--heading {
 	font-size: $font-size-section-title;
 	font-weight: bold;
-	margin: px-to-rem(20);
+	margin: 0;
+	padding: px-to-rem(20);
 }
 
 // PANEL SECTIONS/BODY

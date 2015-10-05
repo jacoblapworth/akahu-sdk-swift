@@ -14,202 +14,23 @@
 //
 // Markup:
 //	<div class="xui-panel xui-notificationpanel">
-//		<div class="xui-panel--arrow">
-//			<svg viewbox="0 0 100 100">
-//				<line x1="0" y1="50"
-//					x2="50" y2="0"
-//					stroke-width="6"
-// 					class="xui-panel--arrow--border"/>
-//				<line x1="50" y1="0"
-//					x2="100" y2="50"
-//					stroke-width="6"
-//					class="xui-panel--arrow--border"/>
-//				<line x1="5" y1="50"
-//					x2="95" y2="50"
-//					stroke-width="9"
-//					class="xui-panel--arrow--border-fill"/>
-//			</svg>
-//		</div>
-//		<header class="xui-panel--header xui-notificationpanel--header canscrollup">
-//			<h3 class="xui-notificationpanel--heading">Notifications</h3>
-//		</header>
-//		<div class="xui-panel--section xui-notificationpanel--body">
-//			<div class="notification-card">
-//				<div>
-//					<div class="o-closeIcon"></div>
-//					<div class="c-card--header">
-//						<span class="o-cardicon">
-//							<svg viewBox="0 0 26 26" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="">
-//								<g>
-//									<path fill="#ED4747" stroke="none" d="
-//										M 26 13
-//										Q 26 7.65 22.2 3.8 18.4 0 13 0 7.65 0 3.8 3.8 0 7.65 0 13 0 18.35 3.8 22.15 7.65 26 13 26 18.4 26 22.2 22.15 26 18.35 26 13
-//										M 12 6
-//										L 14 6 14 16 12 16 12 6
-//										M 12 20
-//										L 12 18 14 18 14 20 12 20 Z"></path>
-//									<path fill="#FFFFFF" stroke="none" d="
-//										M 12 18
-//										L 12 20 14 20 14 18 12 18
-//										M 14 6
-//										L 12 6 12 16 14 16 14 6 Z"></path>
-//								</g>
-//							</svg>
-//						</span>
-//						<div class="o-header">
-//							<p class="o-header--subject">Subject</p>
-//							<span>12 minutes ago</span>
-//							<span> - Xero</span>
-//						</div>
-//					</div>
-//  				<div>A notification message</div>
-//				</div>
-//				{this.Actions}
-//				{this.ActionLoading}
-//				{this.ActionResponse}
-//			</div>
-//			<div class="notification-card">
-//				<div>
-//					<div class="o-closeIcon"></div>
-//					<div class="c-card--header">
-//						<span class="o-cardicon">
-//							<svg viewBox="0 0 26 26" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="">
-//								<g>
-//									<path fill="#ED4747" stroke="none" d="
-//										M 26 13
-//										Q 26 7.65 22.2 3.8 18.4 0 13 0 7.65 0 3.8 3.8 0 7.65 0 13 0 18.35 3.8 22.15 7.65 26 13 26 18.4 26 22.2 22.15 26 18.35 26 13
-//										M 12 6
-//										L 14 6 14 16 12 16 12 6
-//										M 12 20
-//										L 12 18 14 18 14 20 12 20 Z"></path>
-//									<path fill="#FFFFFF" stroke="none" d="
-//										M 12 18
-//										L 12 20 14 20 14 18 12 18
-//										M 14 6
-//										L 12 6 12 16 14 16 14 6 Z"></path>
-//								</g>
-//							</svg>
-//						</span>
-//						<div class="o-header">
-//							<p class="o-header--subject">Subject</p>
-//							<span>12 minutes ago</span>
-//							<span> - Xero</span>
-//						</div>
-//					</div>
-//  				<div>A notification message</div>
-//				</div>
-//				{this.Actions}
-//				{this.ActionLoading}
-//				{this.ActionResponse}
-//			</div>
-//			<div class="notification-card">
-//				<div>
-//					<div class="o-closeIcon"></div>
-//					<div class="c-card--header">
-//						<span class="o-cardicon">
-//							<svg viewBox="0 0 26 26" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="">
-//								<g>
-//									<path fill="#ED4747" stroke="none" d="
-//										M 26 13
-//										Q 26 7.65 22.2 3.8 18.4 0 13 0 7.65 0 3.8 3.8 0 7.65 0 13 0 18.35 3.8 22.15 7.65 26 13 26 18.4 26 22.2 22.15 26 18.35 26 13
-//										M 12 6
-//										L 14 6 14 16 12 16 12 6
-//										M 12 20
-//										L 12 18 14 18 14 20 12 20 Z"></path>
-//									<path fill="#FFFFFF" stroke="none" d="
-//										M 12 18
-//										L 12 20 14 20 14 18 12 18
-//										M 14 6
-//										L 12 6 12 16 14 16 14 6 Z"></path>
-//								</g>
-//							</svg>
-//						</span>
-//						<div class="o-header">
-//							<p class="o-header--subject">Subject</p>
-//							<span>12 minutes ago</span>
-//							<span> - Xero</span>
-//						</div>
-//					</div>
-//  				<div>A notification message</div>
-//				</div>
-//				{this.Actions}
-//				{this.ActionLoading}
-//				{this.ActionResponse}
-//			</div>
-//			<div class="notification-card">
-//				<div>
-//					<div class="o-closeIcon"></div>
-//					<div class="c-card--header">
-//						<span class="o-cardicon">
-//							<svg viewBox="0 0 26 26" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="">
-//								<g>
-//									<path fill="#ED4747" stroke="none" d="
-//										M 26 13
-//										Q 26 7.65 22.2 3.8 18.4 0 13 0 7.65 0 3.8 3.8 0 7.65 0 13 0 18.35 3.8 22.15 7.65 26 13 26 18.4 26 22.2 22.15 26 18.35 26 13
-//										M 12 6
-//										L 14 6 14 16 12 16 12 6
-//										M 12 20
-//										L 12 18 14 18 14 20 12 20 Z"></path>
-//									<path fill="#FFFFFF" stroke="none" d="
-//										M 12 18
-//										L 12 20 14 20 14 18 12 18
-//										M 14 6
-//										L 12 6 12 16 14 16 14 6 Z"></path>
-//								</g>
-//							</svg>
-//						</span>
-//						<div class="o-header">
-//							<p class="o-header--subject">Subject</p>
-//							<span>12 minutes ago</span>
-//							<span> - Xero</span>
-//						</div>
-//					</div>
-//  				<div>A notification message</div>
-//				</div>
-//				{this.Actions}
-//				{this.ActionLoading}
-//				{this.ActionResponse}
-//			</div>
-//			<div class="notification-card">
-//				<div>
-//					<div class="o-closeIcon"></div>
-//					<div class="c-card--header">
-//						<span class="o-cardicon">
-//							<svg viewBox="0 0 26 26" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="">
-//								<g>
-//									<path fill="#ED4747" stroke="none" d="
-//										M 26 13
-//										Q 26 7.65 22.2 3.8 18.4 0 13 0 7.65 0 3.8 3.8 0 7.65 0 13 0 18.35 3.8 22.15 7.65 26 13 26 18.4 26 22.2 22.15 26 18.35 26 13
-//										M 12 6
-//										L 14 6 14 16 12 16 12 6
-//										M 12 20
-//										L 12 18 14 18 14 20 12 20 Z"></path>
-//									<path fill="#FFFFFF" stroke="none" d="
-//										M 12 18
-//										L 12 20 14 20 14 18 12 18
-//										M 14 6
-//										L 12 6 12 16 14 16 14 6 Z"></path>
-//								</g>
-//							</svg>
-//						</span>
-//						<div class="o-header">
-//							<p class="o-header--subject">Subject</p>
-//							<span>12 minutes ago</span>
-//							<span> - Xero</span>
-//						</div>
-//					</div>
-//  				<div>A notification message</div>
-//				</div>
-//				{this.Actions}
-//				{this.ActionLoading}
-//				{this.ActionResponse}
-//			</div>
-//		</div>
-//		<footer class="xui-panel--footer xui-panel--actions xui-notificationpanel--footer canscrolldown">
-//			<a href="#">Mark as read</a>
-//			<a href="#">Settings</a>
-//		</footer>
-//	</div>
+//    <div class="xui-panel--arrow">
+//      <svg viewbox="0 0 100 100">
+//        <line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-panel--arrow--border"/>
+//        <line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-panel--arrow--border"/>
+//        <line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-panel--arrow--border-fill"/>
+//      </svg>
+//    </div>
+//    <header class="xui-panel--header xui-notificationpanel--header">
+//      <h3 class="xui-notificationpanel--heading">Notifications</h3>
+//    </header>
+//    <div class="xui-panel--section xui-notificationpanel--body">
+//    </div>
+//    <footer class="xui-panel--footer xui-panel--actions xui-notificationpanel--footer">
+//      <a href="#">Mark as read</a>
+//      <a href="#">Settings</a>
+//    </footer>
+//  </div>
 //
 // Styleguide: Dropdown Panels.1
 
@@ -303,18 +124,9 @@
 //	<div class="xui-panel xui-datepicker">
 //		<div class="xui-panel--arrow">
 //			<svg viewbox="0 0 100 100">
-//				<line x1="0" y1="50"
-//					x2="50" y2="0"
-//					stroke-width="6"
-// 					class="xui-panel--arrow--border"/>
-//				<line x1="50" y1="0"
-//					x2="100" y2="50"
-//					stroke-width="6"
-//					class="xui-panel--arrow--border"/>
-//				<line x1="5" y1="50"
-//					x2="95" y2="50"
-//					stroke-width="9"
-//					class="xui-panel--arrow--border-fill"/>
+//				<line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-panel--arrow--border"/>
+//				<line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-panel--arrow--border"/>
+//				<line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-panel--arrow--border-fill"/>
 //			</svg>
 //		</div>
 //		<header class="xui-panel--header xui-datepicker--header">
@@ -324,7 +136,7 @@
 //		</header>
 //		<table class="xui-panel--section xui-datepicker--body">
 //			<thead>
-//				<tr class="rd-days-row">
+//				<tr>
 //					<th class="xui-datepicker--weekday">Su</th>
 //					<th class="xui-datepicker--weekday">Mo</th>
 //					<th class="xui-datepicker--weekday">Tu</th>
@@ -335,7 +147,7 @@
 //				</tr>
 //			</thead>
 //			<tbody>
-//				<tr class="rd-days-row">
+//				<tr>
 //					<td class="xui-datepicker--day xui-datepicker--othermonth">27</td>
 //					<td class="xui-datepicker--day xui-datepicker--othermonth">28</td>
 //					<td class="xui-datepicker--day xui-datepicker--othermonth">29</td>
@@ -344,7 +156,7 @@
 //					<td class="xui-datepicker--day is-selected">2</td>
 //					<td class="xui-datepicker--day">3</td>
 //				</tr>
-//				<tr class="rd-days-row">
+//				<tr>
 //					<td class="xui-datepicker--day">4</td>
 //					<td class="xui-datepicker--day">5</td>
 //					<td class="xui-datepicker--day">6</td>
@@ -353,7 +165,7 @@
 //					<td class="xui-datepicker--day">9</td>
 //					<td class="xui-datepicker--day">10</td>
 //				</tr>
-//				<tr class="rd-days-row">
+//				<tr>
 //					<td class="xui-datepicker--day">11</td>
 //					<td class="xui-datepicker--day">12</td>
 //					<td class="xui-datepicker--day">13</td>
@@ -362,7 +174,7 @@
 //					<td class="xui-datepicker--day">16</td>
 //					<td class="xui-datepicker--day">17</td>
 //				</tr>
-//				<tr class="rd-days-row">
+//				<tr>
 //					<td class="xui-datepicker--day">18</td>
 //					<td class="xui-datepicker--day">19</td>
 //					<td class="xui-datepicker--day">20</td>
@@ -371,7 +183,7 @@
 //					<td class="xui-datepicker--day">23</td>
 //					<td class="xui-datepicker--day">24</td>
 //				</tr>
-//				<tr class="rd-days-row">
+//				<tr>
 //					<td class="xui-datepicker--day">25</td>
 //					<td class="xui-datepicker--day">26</td>
 //					<td class="xui-datepicker--day">27</td>

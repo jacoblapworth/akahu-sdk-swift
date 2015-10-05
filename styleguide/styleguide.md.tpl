@@ -8,6 +8,10 @@ To use XUI in your project include the following `link` in your page:
 <link rel="stylesheet" href="https://edge.xero.com/style/xui/<%= version %>/xui.css"/>
 ```
 
+## Examples
+
+[XUI Examples](https://github.dev.xero.com/pages/Style/xui-examples/) provides examples of XUI component styles in larger interface layouts.
+
 ## Usage Guidelines
 
 * Do not create any classes that use the `xui` namespace outside this project. Namespace your project's classes appropriately.

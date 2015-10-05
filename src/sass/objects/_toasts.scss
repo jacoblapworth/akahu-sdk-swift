@@ -11,20 +11,20 @@
 // Styleguide: Toasts
 .#{$ns}-toast {
 	background: transparentize($color-grey-1, 0.1);
-	border-radius: 3px;
+	border-radius: $radius;
 	bottom: 0;
 	box-shadow: $shadow-standard;
 	color: $color-white;
 	left: 0;
-	margin: 20px;
-	padding: 20px;
+	margin: px-to-rem(20);
+	padding: px-to-rem(20);
 	position: fixed;
 	z-index: 10;
 }
 
 .#{$ns}-toast--message {
 	display: inline;
-	margin-right: 20px;
+	margin-right: px-to-rem(20);
 }
 
 @include mobile {

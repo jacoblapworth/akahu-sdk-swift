@@ -4,7 +4,9 @@
 // sections, and usually consist of at least 1 header section, a footer section,
 // and as many body sections as they need.
 //
-// Because panels are generic containers panel sections do not provide padding.
+// Because panels are generic containers panel sections do not provide padding
+// by default. You can add `.xui-panel--section-inset` to an element to provide
+// padding.
 //
 // Styleguide: Panels
 
@@ -142,7 +144,7 @@
 //		<div class="xui-panel--header">
 //			<header class="xui-panel--heading">Basic Information</header>
 //		</div>
-//		<section class="xui-panel--section xui-panel--section-standard">
+//		<section class="xui-panel--section xui-panel--section-inset">
 //			<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
 //		</section>
 //		<ul class="xui-panel--section">
@@ -214,7 +216,9 @@
 	}
 }
 
-.#{$ns}-panel--section-standard {
+// Prefer .#{$ns}-panel--section-inset to .#{$ns}-panel--section-standard
+.#{$ns}-panel--section-standard,
+.#{$ns}-panel--section-inset {
 	padding: px-to-rem(20);
 }
 

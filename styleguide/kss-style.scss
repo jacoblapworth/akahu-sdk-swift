@@ -511,11 +511,21 @@ $kss-vertical-rhythm: 19.5px; //13 * 1.5;
     }
   }
 
+  // ------------------------------------------------------------------------------
+  //   Demo styles for the XUI grid documentation
+  // ------------------------------------------------------------------------------
+  .xui-grid {
+    margin: 20px 0;
+  }
+
+  .xui-grid > .xui-grid--cell, div[class*='xui-layout'] {
+    background-color: rgba(4, 138, 187, 0.3);
+    border: 1px solid rgba(4, 138, 187, 0.3);
+  }
 }
 
 #kssref-0 {
   line-height: 1.8;
-
   h1, h2, h3 {
     line-height: 1.8;
   }

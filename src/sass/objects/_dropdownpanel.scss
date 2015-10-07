@@ -153,7 +153,7 @@
 //					<td class="xui-datepicker--day xui-datepicker--othermonth">29</td>
 //					<td class="xui-datepicker--day xui-datepicker--othermonth">30</td>
 //					<td class="xui-datepicker--day">1</td>
-//					<td class="xui-datepicker--day is-selected">2</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-selected">2</td>
 //					<td class="xui-datepicker--day">3</td>
 //				</tr>
 //				<tr>
@@ -266,11 +266,11 @@
 	&:hover {
 		background-color: $color-backgrounds;
 	}
+}
 
-	&.is-selected {
-		background-color: $color-xero-blue;
-		color: $color-reversed-text;
-	}
+.#{$ns}-datepicker--day-is-selected {
+	background-color: $color-xero-blue;
+	color: $color-reversed-text;
 }
 
 .#{$ns}-datepicker--weekday {

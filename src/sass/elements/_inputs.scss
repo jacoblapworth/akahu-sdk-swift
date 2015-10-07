@@ -47,6 +47,10 @@ textarea {
 		border-color: $color-xero-blue;
 	}
 
+	&::placeholder {
+		color: $color-placeholders;
+	}
+
 	&.#{$ns}-u-invalid {
 		border-color: $color-xero-red;
 	}

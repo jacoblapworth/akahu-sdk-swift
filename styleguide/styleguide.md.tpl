@@ -1,12 +1,16 @@
-# xui
+# XUI
 
-xui is a CSS implementation of the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
+XUI is a CSS implementation of the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 
-To use xui in your project include the following `link` in your page:
+To use XUI in your project include the following `link` in your page:
 
 ```html
 <link rel="stylesheet" href="https://edge.xero.com/style/xui/<%= version %>/xui.css"/>
 ```
+
+## Examples
+
+[XUI Examples](https://github.dev.xero.com/pages/Style/xui-examples/) provides examples of XUI component styles in larger interface layouts.
 
 ## Usage Guidelines
 
@@ -19,7 +23,7 @@ To use xui in your project include the following `link` in your page:
 
 ## Contributing to XUI
 
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md)
+Please see [CONTRIBUTING.md](https://github.dev.xero.com/Style/xui/blob/master/CONTRIBUTING.md)
 
 ## Help
 

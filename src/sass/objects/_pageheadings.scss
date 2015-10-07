@@ -12,20 +12,20 @@
 //
 //
 // Markup:
-// <section class="xui-pageheading">
+// <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-container">
-//     <h2 class="xui-page-title">Sales</h2>
+//     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
-// </section>
+// </header>
 // <br />
-// <section class="xui-pageheading">
+// <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-container xui-container-small">
-//     <h2 class="xui-pageheading--title">Sales</h2>
+//     <h1 class="xui-pageheading--title">Sales</h1>
 //     <button class="xui-button">Button</button>
 //   </div>
-// </section>
+// </header>
 // <br />
-// <section class="xui-pageheading">
+// <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-container xui-container-large">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
@@ -34,10 +34,10 @@
 //       </ol>
 //      <button class="xui-button">Button</button>
 //   </div>
-// </section>
-// <section class="xui-pageheading">
+// </header>
+// <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-container">
-//     <h2 class="xui-page-title">Sales</h2>
+//     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
 //   <div class="xui-pageheading--tabs xui-container">
 //     <div class="xui-tabbed-navigation">
@@ -51,7 +51,7 @@
 //       </ul>
 //     </div>
 //   </div>
-// </section>
+// </header>
 //
 // Styleguide: Page Heading
 
@@ -66,13 +66,14 @@
 	flex-wrap: no-wrap;
 	min-height: 60px;
 	overflow: hidden;
+}
 
-	.#{$ns}-pageheading--title {
-		align-items: center;
-		display: flex;
-		margin: 0 10px 0 0;
-	}
-
+.#{$ns}-pageheading--title {
+	align-items: center;
+	display: flex;
+	font-size: $font-size-page-title;
+	font-weight: bold;
+	margin: 0 10px 0 0;
 }
 
 // Content container

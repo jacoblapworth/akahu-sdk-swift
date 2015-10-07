@@ -1,0 +1,283 @@
+// Dropdown Panel
+//
+// Dropdown panels use their parent panel and represent content overtop of other
+// content. Examples include app Addons, Calendar Pickers.
+//
+// Styleguide: Dropdown Panels
+
+@import "../settings/colours";
+@import "../settings/structure";
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// Notification Addon Panel
+//
+// Markup:
+//	<div class="xui-panel xui-notificationpanel">
+//    <div class="xui-panel--arrow">
+//      <svg viewbox="0 0 100 100">
+//        <line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-panel--arrow--border"/>
+//        <line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-panel--arrow--border"/>
+//        <line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-panel--arrow--border-fill"/>
+//      </svg>
+//    </div>
+//    <header class="xui-panel--header xui-notificationpanel--header">
+//      <h3 class="xui-notificationpanel--heading">Notifications</h3>
+//    </header>
+//    <div class="xui-panel--section xui-notificationpanel--body">
+//    </div>
+//    <footer class="xui-panel--footer xui-panel--actions xui-notificationpanel--footer">
+//      <a href="#">Mark as read</a>
+//      <a href="#">Settings</a>
+//    </footer>
+//  </div>
+//
+// Styleguide: Dropdown Panels.1
+
+.#{$ns}-panel--arrow {
+	display: inline-block;
+	fill: $color-white;
+	height: 20px;
+	left: 15px;
+	opacity: 1;
+	pointer-events: none;
+	position: absolute;
+	top: -10px;
+	vertical-align: middle;
+	width: 20px;
+
+	&--border {
+		stroke: $color-borders;
+
+		&-fill {
+			stroke: $color-white;
+		}
+	}
+}
+
+.#{$ns}-notificationpanel {
+	position: relative;
+	width: 360px;
+
+	&--header {
+		padding: 0.5rem 0.8rem;
+		position: relative;
+		z-index: 1;
+
+		&.canscrollup {
+			box-shadow: 0 2px 3px $color-borders;
+		}
+	}
+
+	&--footer {
+		padding: 0.5rem 0.8rem;
+		position: relative;
+
+		&.canscrolldown {
+			box-shadow: 0 -2px 3px $color-borders;
+		}
+
+		a {
+			border-right: $border-standard;
+			padding-right: 5px;
+		}
+
+		a:last-of-type {
+			border-right: 0;
+		}
+	}
+}
+
+.#{$ns}-notificationpanel--heading {
+	margin: 0;
+}
+
+.#{$ns}-notificationpanel--body {
+	max-height: 400px;
+	overflow: auto;
+	position: relative;
+	z-index: 0;
+}
+
+// Temporary while we work out the details
+.notification-card {
+	background-color: $color-white;
+	border: $border-standard;
+	margin: 10px;
+}
+
+.o-cardicon {
+	display: inline-block;
+	float: left;
+	height: 26px;
+	margin: 0 10px 0 4px;
+	width: 27px;
+}
+
+// Date Picker Panel
+//
+// Looks amazing at 350px.
+// Doesn't have other states
+// Designed to style only, BYO JS framework
+//
+// Markup:
+//	<div class="xui-panel xui-datepicker">
+//		<div class="xui-panel--arrow">
+//			<svg viewbox="0 0 100 100">
+//				<line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-panel--arrow--border"/>
+//				<line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-panel--arrow--border"/>
+//				<line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-panel--arrow--border-fill"/>
+//			</svg>
+//		</div>
+//		<header class="xui-panel--header xui-datepicker--header">
+//			<button class="xui-datepicker--backbutton"></button>
+//			<h3 class="xui-datepicker--heading">October 2015</h3>
+//			<button class="xui-datepicker--nextbutton"></button>
+//		</header>
+//		<table class="xui-panel--section xui-datepicker--body">
+//			<thead>
+//				<tr>
+//					<th class="xui-datepicker--weekday">Su</th>
+//					<th class="xui-datepicker--weekday">Mo</th>
+//					<th class="xui-datepicker--weekday">Tu</th>
+//					<th class="xui-datepicker--weekday">We</th>
+//					<th class="xui-datepicker--weekday">Th</th>
+//					<th class="xui-datepicker--weekday">Fr</th>
+//					<th class="xui-datepicker--weekday">Sa</th>
+//				</tr>
+//			</thead>
+//			<tbody>
+//				<tr>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth">27</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth">28</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth">29</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth">30</td>
+//					<td class="xui-datepicker--day">1</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-selected">2</td>
+//					<td class="xui-datepicker--day">3</td>
+//				</tr>
+//				<tr>
+//					<td class="xui-datepicker--day">4</td>
+//					<td class="xui-datepicker--day">5</td>
+//					<td class="xui-datepicker--day">6</td>
+//					<td class="xui-datepicker--day">7</td>
+//					<td class="xui-datepicker--day">8</td>
+//					<td class="xui-datepicker--day">9</td>
+//					<td class="xui-datepicker--day">10</td>
+//				</tr>
+//				<tr>
+//					<td class="xui-datepicker--day">11</td>
+//					<td class="xui-datepicker--day">12</td>
+//					<td class="xui-datepicker--day">13</td>
+//					<td class="xui-datepicker--day">14</td>
+//					<td class="xui-datepicker--day">15</td>
+//					<td class="xui-datepicker--day">16</td>
+//					<td class="xui-datepicker--day">17</td>
+//				</tr>
+//				<tr>
+//					<td class="xui-datepicker--day">18</td>
+//					<td class="xui-datepicker--day">19</td>
+//					<td class="xui-datepicker--day">20</td>
+//					<td class="xui-datepicker--day">21</td>
+//					<td class="xui-datepicker--day">22</td>
+//					<td class="xui-datepicker--day">23</td>
+//					<td class="xui-datepicker--day">24</td>
+//				</tr>
+//				<tr>
+//					<td class="xui-datepicker--day">25</td>
+//					<td class="xui-datepicker--day">26</td>
+//					<td class="xui-datepicker--day">27</td>
+//					<td class="xui-datepicker--day">28</td>
+//					<td class="xui-datepicker--day">29</td>
+//					<td class="xui-datepicker--day">30</td>
+//					<td class="xui-datepicker--day">31</td>
+//				</tr>
+//			</tbody>
+//		</table>
+//	</div>
+//
+// Styleguide: Dropdown Panels.2
+
+.#{$ns}-datepicker {
+	position: relative;
+	width: 350px;
+}
+
+.#{$ns}-datepicker--header {
+	align-items: center;
+	border-bottom: $border-standard;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.#{$ns}-datepicker--backbutton, .#{$ns}-datepicker--nextbutton {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	line-height: 56px;
+	margin: 0;
+	min-width: 10px;
+	outline: none;
+	padding: 0;
+
+	&:before {
+		color: $color-grey-2;
+		display: inline-block;
+		font-size: 33px;
+	}
+}
+
+.#{$ns}-datepicker--backbutton {
+	padding-left: 20px;
+
+	&:before {
+		content: "\231c";
+		transform: rotate(-45deg);
+	}
+}
+
+.#{$ns}-datepicker--nextbutton {
+	padding-right: 20px;
+
+	&:before {
+		content: "\231c";
+		position: relative;
+		top: 6px;
+		transform: rotate(135deg);
+	}
+}
+
+.#{$ns}-datepicker--body {
+	border: 0;
+	margin: 10px;
+}
+
+.#{$ns}-datepicker--day {
+	background-clip: padding-box;
+	border: 8px solid transparent;
+	border-radius: 23px;
+	cursor: pointer;
+	font-size: 15px;
+	height: 46px;
+	text-align: center;
+	width: 46px;
+
+	&:hover {
+		background-color: $color-backgrounds;
+	}
+}
+
+.#{$ns}-datepicker--day-is-selected {
+	background-color: $color-xero-blue;
+	color: $color-reversed-text;
+}
+
+.#{$ns}-datepicker--weekday {
+	color: $color-disabled-text;
+	font-size: $font-size-heading-mini;
+}
+
+.#{$ns}-datepicker--othermonth {
+	color: $color-disabled-text;
+}

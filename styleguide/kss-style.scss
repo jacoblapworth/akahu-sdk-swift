@@ -537,3 +537,8 @@ $kss-vertical-rhythm: 19.5px; //13 * 1.5;
     padding-left: 20px;
   }
 }
+
+.kss-main .xui-toast {
+	display: inline-block;
+	position: relative;
+}

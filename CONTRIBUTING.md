@@ -30,12 +30,19 @@ Be sure to `npm run lint` before you commit.
 If you are bumping the version, please update the usage example in [README.md](README.md) to point at your new version.
 
 Classes should follow the format:
+
 * `xui-component`
 * `xui-component-modifier`
 * `xui-component--subcomponent`
 * `xui-component--subcomponent-modifier`
 * `xui-component-is-state`
 * `xui-is-globalstate`
+
+This format is a [BEM](https://en.bem.info/)-inspired evolution of [SMACSS](https://smacss.com/).
+
+* `xui-component` represents the higher level of an abstraction or component.
+* `xui-component-modifier` represents a different state or version of `xui-component`.
+* `xui-component--subcomponent` represents a descendant of `xui-component` that helps form `xui-component` as a whole.
 
 Use class selectors. Do not use ids or element selectors.
 

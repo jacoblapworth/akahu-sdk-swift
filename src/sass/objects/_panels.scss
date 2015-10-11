@@ -20,7 +20,7 @@
 // Markup:
 //	<div class="xui-panel">
 //		<header class="xui-panel--header">
-//			<h3 class="xui-panel--heading">57 bills don't have files added</h3>
+//			<h3 class="xui-panel--heading xui-text-panelheading">57 bills don't have files added</h3>
 //		</header>
 //		<table class="xui-panel--section xui-contentblock">
 //			<thead>
@@ -58,7 +58,7 @@
 //	Markup:
 //	<div class="xui-panel">
 //		<header class="xui-panel--header">
-//			<h3 class="xui-panel--heading">Needs your attention</h3>
+//			<h3 class="xui-panel--heading xui-text-panelheading">Needs your attention</h3>
 //		</header>
 //		<section>
 //			<header class="xui-sectionheading xui-text-sectionheading">Due this week</header>
@@ -142,7 +142,7 @@
 //  Markup:
 //	<div class="xui-panel">
 //		<div class="xui-panel--header">
-//			<header class="xui-panel--heading">Basic Information</header>
+//			<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //		</div>
 //		<section class="xui-panel--section xui-panel--section-inset">
 //			<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
@@ -197,8 +197,6 @@
 }
 
 .#{$ns}-panel--heading {
-	font-size: $font-size-section-title;
-	font-weight: bold;
 	margin: 0;
 	padding: px-to-rem(20);
 }

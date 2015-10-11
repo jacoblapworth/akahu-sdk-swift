@@ -25,8 +25,11 @@ p {
 // Markup:
 // <p class="xui-heading">Heading</p>
 // <p class="xui-page-title">Page Titles</p>
-// <p class="xui-section-title">Section Titles</p>
+// <p class="xui-section-title">Section Title</p>
+// <p class="xui-text-panelheading">Panel Heading</p>
+// <p class="xui-text-sectionheading">Section Heading</p>
 // <p class="xui-text-primary">Some primary text</p>
+// <p>More primary text</p>
 // <p class="xui-text-secondary">Some secondary text</p>
 // <p class="xui-placeholder">Placeholders</p>
 // <p class="xui-heading-mini">Headers</p>
@@ -48,6 +51,7 @@ p {
 	font-size: $font-size-section-title;
 }
 
+/* FIXME: why would be need this? */
 .#{$ns}-text-primary {
 	color: $color-primary-text;
 }
@@ -64,6 +68,11 @@ p {
 .#{$ns}-heading-mini {
 	color: $color-secondary-text;
 	font-size: $font-size-heading-mini;
+}
+
+.#{$ns}-text-panelheading {
+	font-size: $font-size-section-title;
+	font-weight: bold;
 }
 
 .#{$ns}-text-sectionheading {

@@ -4,6 +4,6 @@ module.exports = {
   },
 
   'bump-major': {
-    command: './node_modules/.bin/bumper major'
+    command: 'bumper major'
   }
 };

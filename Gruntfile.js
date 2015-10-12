@@ -1,12 +1,13 @@
+/*eslint-env node */
 module.exports = function (grunt) {
 	'use strict';
 
 	var nopt = require('nopt');
 	var knownOpts = {
-	  'livereload': [Number, Boolean, null]
+		'livereload': [Number, Boolean, null]
 	};
 	var shortHands = {
-	  'lr': ['--livereload']
+		'lr': ['--livereload']
 	};
 	var opts = nopt(knownOpts, shortHands, process.argv, 2);
 
@@ -27,6 +28,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['template', 'kss:styleguide']);
+
+	grunt.registerTask('bump:major', ['shell:bump-major']);
 
 	grunt.registerTask('gh-pages', ['gitadd', 'gitcommit', 'gitpush'].map(function (name) {
 		return name + ':styleguide';

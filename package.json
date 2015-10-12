@@ -16,7 +16,7 @@
 		"doc": "grunt doc",
 		"lint": "grunt lint",
 		"watch": "grunt watch",
-		"bump-major": "grunt bump:major"
+		"bump-major": "bumper major \"Major version++\""
 	},
 	"devDependencies": {
 		"bumper-cli": "git://github.dev.xero.com/XeroJS/bumper-cli.git#0.1.2",

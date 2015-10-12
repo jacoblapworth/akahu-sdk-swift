@@ -29,8 +29,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['template', 'kss:styleguide']);
 
-	grunt.registerTask('bump:major', ['shell:bump-major']);
-
 	grunt.registerTask('gh-pages', ['gitadd', 'gitcommit', 'gitpush'].map(function (name) {
 		return name + ':styleguide';
 	}));

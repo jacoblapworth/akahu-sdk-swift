@@ -49,6 +49,7 @@
 	}
 
 	&:focus {
+		border-color: $color-xero-blue;
 		outline: none;
 	}
 
@@ -99,6 +100,12 @@
 		@include button-shadow(0.05);
 	}
 
+	&:focus {
+		border-color: $color-xero-blue;
+		outline: 1px solid $color-white;
+		outline-offset: -3px;
+	}
+
 	&:active {
 		@include button-shadow(0.1);
 		background-color: $color-xero-blue;
@@ -132,6 +139,12 @@
 
 	&:hover {
 		@include button-shadow(0.05);
+	}
+
+	&:focus {
+		border-color: $color-xero-green;
+		outline: 1px solid $color-white;
+		outline-offset: -3px;
 	}
 
 	&:active {
@@ -191,6 +204,7 @@
 
 // Disabled styling for buttons
 .#{$ns}-button-is-disabled,
+.#{$ns}-button-is-disabled:focus,
 .#{$ns}-button-is-disabled:hover {
 	background-color: $color-reversed-text;
 	border-color: $color-disabled;

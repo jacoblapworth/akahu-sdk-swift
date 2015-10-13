@@ -13,7 +13,7 @@ For examples see https://github.dev.xero.com/pages/Style/xui/
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/7.0.0/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/7.0.1/xui.css"/>
 ```
 
 ### Bower

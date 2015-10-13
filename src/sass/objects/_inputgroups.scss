@@ -20,33 +20,33 @@
 //
 // Markup:
 // <div class="xui-inputgroup">
-// 	<label class="xui-inputgroup--label" for="display-name">Name</label>
-// 	<div class="xui-inputgroup--inputs">
-// 		<input type="text" id="display-name" placeholder="Your name"/>
-// 		<div class="xui-inputmessage xui-inputmessage-shown">
-// 			<div class="xui-inputmessage--body">
-// 				This field is required
-// 			</div>
-// 		</div>
-// 	</div>
+//  <label class="xui-inputgroup--label" for="display-name">Name</label>
+//  <div class="xui-inputgroup--inputs">
+//    <input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
+//    <div class="xui-inputmessage xui-inputmessage-shown">
+//      <div class="xui-inputmessage--body">
+//        This field is required
+//      </div>
+//    </div>
+//  </div>
 // </div>
 // <div class="xui-inputgroup">
-// 	<div class="xui-inputgroup--label">Notifications</div>
-// 	<div class="xui-inputgroup--inputs xui-checkboxgroup">
-// 		<label class="xui-checkbox">
-// 			<input type="checkbox"/>
-// 			When a friend comments on my post
-// 		</label>
-// 		<label class="xui-checkbox">
-// 			<input type="checkbox"/>
-// 			When a friend sends me a message
-// 		</label>
-// 		<div class="xui-inputmessage xui-inputmessage-shown">
-// 			<div class="xui-inputmessage--body">
-// 				Select at least 1 option
-// 			</div>
-// 		</div>
-// 	</div>
+//  <div class="xui-inputgroup--label">Notifications</div>
+//  <div class="xui-inputgroup--inputs xui-checkboxgroup">
+//    <label class="xui-checkbox">
+//      <input type="checkbox"/>
+//      When a friend comments on my post
+//    </label>
+//    <label class="xui-checkbox">
+//      <input type="checkbox"/>
+//      When a friend sends me a message
+//    </label>
+//    <div class="xui-inputmessage xui-inputmessage-shown">
+//      <div class="xui-inputmessage--body">
+//        Select at least 1 option
+//      </div>
+//    </div>
+//  </div>
 // </div>
 //
 // Styleguide: Form Elements.4

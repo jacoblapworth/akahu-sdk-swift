@@ -8,9 +8,9 @@
 @import "../settings/structure";
 @import "../settings/typography";
 
-// Inputs
+// Form Elements
 //
-// Styleguide: Inputs
+// Styleguide: Form Elements
 
 // Standard Inputs
 //
@@ -19,7 +19,8 @@
 // <input type="text" placeholder="Username"/>
 // <input type="password" placeholder="Password"/>
 //
-// Styleguide: Inputs.1
+// Styleguide: Form Elements.1
+
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -80,7 +81,7 @@ input[type="tel"] {
 // Markup:
 // <textarea></textarea>
 //
-// Styleguide: Inputs.2
+// Styleguide: Form Elements.2
 
 textarea {
 	color: inherit;
@@ -108,7 +109,7 @@ textarea {
 //  Pick me!
 // </label>
 //
-// Styleguide: Inputs.3
+// Styleguide: Form Elements.3
 
 input[type="checkbox"],
 input[type="radio"] {

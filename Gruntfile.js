@@ -27,9 +27,31 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['scsslint']);
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
 	grunt.registerTask('dist', ['cssmin']);
-	grunt.registerTask('doc', ['template', 'kss:styleguide']);
+	grunt.registerTask('doc', ['readme', 'template', 'kss:styleguide']);
 
-	grunt.registerTask('gh-pages', ['gitadd', 'gitcommit', 'gitpush'].map(function (name) {
+	var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];
+
+	grunt.registerTask('gh-pages', gitOperations.map(function (name) {
 		return name + ':styleguide';
 	}));
+
+	grunt.registerTask('master', gitOperations.map(function (name) {
+		return name + ':readme';
+	}));
+
+	grunt.registerTask('readme', 'Update version number in README.md', function () {
+		var filepath = 'README.md';
+		var re = /(https:\/\/edge.xero.com\/style\/xui\/)(\d+.\d+.\d+)(\/xui.css)/g;
+		var options = { encoding: 'utf8' };
+		var packageJson = require('./package.json');
+		var originalContents = grunt.file.read(filepath, options);
+
+		var newContents = originalContents.replace(re, function () {
+				return arguments[1] + packageJson.version + arguments[3];
+		});
+
+		if (newContents !== originalContents) {
+			grunt.file.write(filepath, newContents, options);
+		}
+	});
 };

@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 		return name + ':styleguide';
 	}));
 
-	grunt.registerTask('master', gitOperations.map(function (name) {
+	grunt.registerTask('master', gitOperations.slice(0, 2).map(function (name) {
 		return name + ':readme';
 	}));
 

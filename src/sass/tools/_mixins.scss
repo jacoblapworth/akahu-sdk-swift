@@ -74,3 +74,16 @@ $desktop-breakpoint: px-to-rem(1160);
 		@content;
 	}
 }
+
+// Other Mixin utilities
+
+@mixin caret {
+	border-color: $color-borders;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px dashed;
+	color: $color-borders;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}

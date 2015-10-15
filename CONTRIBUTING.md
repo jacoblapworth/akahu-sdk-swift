@@ -55,3 +55,5 @@ Layout styling should be separate to component styling. Individual components sh
 Contributions can be made via issues and pull requests.
 
 You should cc [@Style/uxe-team](https://github.dev.xero.com/orgs/Style/teams/uxe-team) on pull requests for prompt feedback.
+
+If you are submitting a pull request, please include a screenshot of your change to aid the review process.

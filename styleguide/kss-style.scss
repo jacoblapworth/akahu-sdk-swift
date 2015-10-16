@@ -169,6 +169,10 @@ $kss-content-padding: 50px;
 
 #kss-node {
 
+  .kss-markup{
+    margin-top: 20px;
+  }
+
   pre{
     overflow: scroll;
   }

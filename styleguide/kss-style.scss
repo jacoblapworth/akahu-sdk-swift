@@ -64,6 +64,7 @@ $kss-content-padding: 50px;
     padding: 7px 0 3px 50px;
     background: url(xero.svg) 15px center no-repeat;
     font-weight: normal;
+    font-size: 16px;
   }
 
   a{
@@ -115,9 +116,17 @@ $kss-content-padding: 50px;
 
 #kss-node {
 
+  .kss-section:empty{
+    display: none;
+  }
+
   .kss-section{
     padding: $kss-content-padding;
     border-top: 1px solid $color-borders;
+
+    &:not(.kss-section--title) .content{
+      max-width: 1000px;
+    }
 
     // dont show top border on title, or on next section
     &:nth-child(-n+2){

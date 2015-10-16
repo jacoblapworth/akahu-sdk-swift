@@ -10,6 +10,8 @@ $kss-background:  $color-white;
 $kss-sidebar-width: 200px;
 $kss-sidebar-background-color: $color-white;
 
+$kss-content-padding: 50px;
+
 
 
 
@@ -34,7 +36,6 @@ $kss-sidebar-background-color: $color-white;
       width: calc(100% - #{$kss-sidebar-width});
       // width: 80%;
       margin-left: $kss-sidebar-width;
-      padding: 0 20px 0 30px;
   }
 
 }
@@ -102,9 +103,6 @@ $kss-sidebar-background-color: $color-white;
 
     //   a{padding-left: 30px;}
     // }
-
-
-
   }
 
 }
@@ -116,6 +114,56 @@ $kss-sidebar-background-color: $color-white;
 // ------------------------------------------------------------------------------
 
 #kss-node {
+
+  .kss-section{
+    padding: $kss-content-padding;
+    border-top: 1px solid $color-borders;
+
+    // dont show top border on title, or on next section
+    &:nth-child(-n+2){
+      border-top: 0;
+    }
+  }
+
+  // Title of component
+  .kss-section--title{
+    background: $color-grey-1;
+    color: $color-white;
+    position: relative;
+    padding-bottom: 0;
+
+    h1{
+      margin: 0;
+      padding: 20px 0;
+      font-weight: normal;
+      font-size: 22px;
+    }
+
+    .xui-menugroup--item a{
+      color: #fff;
+      &:hover{
+        color: $color-grey-1;
+      }
+    }
+
+
+  }
+
+  // .kss-title__permalink{
+  //   $size: 20px;
+  //   // float: right;
+  //   display: inline-block;
+
+  //   // position: absolute;
+  //   // top: 50%;
+  //   // right: 0;
+  //   width: $size;
+  //   height: $size;
+  //   background: url(link.svg) center center no-repeat;
+  // }
+
+
+
 
   // .kss-section {
   //   max-width: 48em;
@@ -172,11 +220,11 @@ $kss-sidebar-background-color: $color-white;
   // .kss-parameters__description {
   //   display: table-cell;
   // }
-  .kss-modifier__wrapper {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background: #fff;
-  }
+  // .kss-modifier__wrapper {
+  //   border: 1px solid #ccc;
+  //   padding: 10px;
+  //   background: #fff;
+  // }
   // .kss-modifier__heading {
   //   margin: -10px -10px 10px -10px;
   //   padding: 10px;

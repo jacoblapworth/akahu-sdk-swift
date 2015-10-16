@@ -146,9 +146,8 @@ $kss-content-padding: 50px;
         background: $color-white;
       }
     }
-
-
   }
+
 
   .kss-modifier__default-name {
     font-weight: bold;
@@ -158,6 +157,10 @@ $kss-content-padding: 50px;
     float: left;
     padding-right: 10px;
     font-weight: bold;
+  }
+
+  .kss-description{
+    max-width: 600px;
   }
 
 }

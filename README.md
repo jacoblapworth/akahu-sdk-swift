@@ -47,7 +47,11 @@ In the near future we aim to provide JavaScript components that target XUI and w
 
 ## Contributing to XUI
 
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md)
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## Who Contributes to XUI?
+
+XUI is "internal open source" at Xero, meaning that anyone can contribute to the library. See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to contribute.
 
 ## Help
 

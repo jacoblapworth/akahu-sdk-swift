@@ -55,6 +55,6 @@ XUI is "internal open source" at Xero, meaning that anyone can contribute to the
 
 ## Help
 
-For Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering).
+For Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering) or ask a question with [the topic xui on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
 
 You may also want to subscribe to the [UX Engineering Newsletter](http://xero.us11.list-manage1.com/subscribe?u=b6eb05e31e28aab10df3721c6&id=5c27a93854).

@@ -38,9 +38,9 @@ XUI provides a CSS base that implements the Xero Pattern Library.
 The approach is heavily inspired by Stripe's approach, which is discussed in
 this video:
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ
-" target="_blank"><img src="http://img.youtube.com/vi/NHpSmJrEvRQ/0.jpg"
-alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10"></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ" target="_blank">
+  <img src="http://img.youtube.com/vi/NHpSmJrEvRQ/0.jpg" alt="Thumbnail of Michelle Bu's TXJS 2015 talk" width="480" height="360">
+</a>
 
 In the near future we aim to provide JavaScript components that target XUI and
 when those components are available developers should prefer those components
@@ -66,12 +66,6 @@ Usage Guidelines
 
 Contributing to XUI
 -------------------
-
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-
-Who Contributes to XUI?
------------------------
 
 XUI is "internal open source" at Xero, meaning that anyone can contribute to the
 library. See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to

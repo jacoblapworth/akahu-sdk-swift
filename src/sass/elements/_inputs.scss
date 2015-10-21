@@ -14,19 +14,21 @@
 
 // Standard Inputs
 //
+// The number inputs have had their up and down arrows removed to sync browser styles
 //
 // Markup:
-// <input type="text" placeholder="Username"/>
-// <input type="password" placeholder="Password"/>
+// <input class="xui-input" type="text" placeholder="Standard Input"/>
+// <input class="xui-input" type="password" placeholder="Password Input"/>
+// <input class="xui-input" type="number" placeholder="0.00" />
+// <input class="xui-input" type="search" placeholder="Search"/>
+// <input class="xui-input" type="tel" placeholder="telephone #"/>
+// <input class="xui-input" type="email" placeholder="example@xero.com"/>
+// <input class="xui-input" type="url" placeholder="http://www.xero.com"/>
 //
 // Styleguide: Form Elements.1
 
-input[type="text"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-textarea {
+.#{$ns}-input,
+.#{$ns}-textarea {
 	-webkit-appearance: none;	// For removing drop-shadow on iOS
 	border: $border-standard;
 	border-radius: $radius;
@@ -35,7 +37,12 @@ textarea {
 	font-family: inherit;
 	font-size: inherit;
 	outline: none;
+	padding: px-to-rem(9) 0.5em;
 	width: 100%;
+
+	@include mobile {
+		padding: px-to-rem(12) 0.5em;
+	}
 
 	&:hover {
 		// TODO: I don't like how we specify this directly instead of an alias.
@@ -52,41 +59,28 @@ textarea {
 		color: $color-placeholders;
 	}
 
-	&.#{$ns}-u-invalid {
-		border-color: $color-xero-red;
-	}
 }
 
 // Removes the 'spinner' elements in a number input
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"] {
-	padding: px-to-rem(9) 0.5em;
-
-	@include mobile {
-		padding: px-to-rem(12) 0.5em;
-	}
-}
-
 // Textareas
 //
 // Markup:
-// <textarea></textarea>
+// <textarea class="xui-textarea"></textarea>
 //
 // Styleguide: Form Elements.2
 
-textarea {
-	color: inherit;
+.#{$ns}-textarea {
 	display: block;
-	font: inherit;
 	height: 70px;
 	margin: 0;
 	padding: px-to-rem(5) 0.5em;

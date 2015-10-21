@@ -4,7 +4,22 @@
 @import "../settings/colours";
 @import "../settings/structure";
 
-// Validation Message
+// Validation styles
+//
+// We support the use of a manual class, or HTML5 invalid pseudo class
+//
+// Markup:
+// <input type="text" class="xui-input xui-input-is-invalid"/>
+// <textarea class="xui-textarea xui-input-is-invalid"></textarea>
+//
+// Styleguide: Form Elements.98
+
+&.#{$ns}-input-is-invalid,
+:invalid {
+	border-color: $color-xero-red;
+}
+
+// Validation messages
 //
 // A container is required so that text content inside the message can flow.
 // Otherwise, an absolutely-positioned element has far different flow mechanics
@@ -13,13 +28,13 @@
 // Markup:
 // <!-- FIXME: currently needs to be inside a relative positioned context -->
 // <div style="position: relative;">
-// 	<input type="text" required/>
-// 	<div class="xui-inputmessage xui-inputmessage-shown">
-// 		<span class="xui-inputmessage--body">Please fill out this field</span>
-// 	</div>
+//  <input class="xui-input" type="text" required/>
+//  <div class="xui-inputmessage xui-inputmessage-shown">
+//    <span class="xui-inputmessage--body">Please fill out this field</span>
+//  </div>
 // </div>
 //
-// Styleguide: Validation Messages
+// Styleguide: Form Elements.99
 .#{$ns}-inputmessage {
 	display: flex;
 	left: 100%;

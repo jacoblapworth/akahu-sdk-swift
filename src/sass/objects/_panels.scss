@@ -172,6 +172,58 @@
 //	</div>
 //
 // Styleguide: Panels.3
+
+// Panel with a sidebar
+//
+//  Markup:
+//	<div class="xui-panel xui-panel-withsidebar">
+//		<div class="xui-panel--sidebar">
+//			<ul class="xui-panel--sidebar--nav">
+//				<li class="xui-panel--sidebar--nav--item xui-u-spacebetween xui-u-flex">
+//					<a href="#" class="xui-text-primary">Select Item 1</a>
+//					<span class="xui-text-secondary">ON</span>
+//				</li>
+//				<li class="xui-panel--sidebar--nav--item xui-panel--sidebar--nav--item-is-selected">
+//					<a href="#" class="xui-text-primary">Select Item 2</a>
+//				</li>
+//				<li class="xui-panel--sidebar--nav--item">
+//					<a href="#" class="xui-text-primary">Select Item 3</a>
+//				</li>
+//			</ul>
+//		</div>
+//		<div class="xui-panel--body">
+//			<div class="xui-panel--header">
+//				<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
+//			</div>
+//			<section class="xui-panel--section xui-panel--section-inset">
+//				<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
+//			</section>
+//			<ul class="xui-panel--section">
+//				<li class="xui-inputgroup">
+//					<label class="xui-inputgroup--label" for="display-name">Display Name</label>
+//					<div class="xui-inputgroup--inputs">
+//						<input type="text" id="display-name" placeholder="Your name"/>
+//					</div>
+//				</li>
+//				<li class="xui-inputgroup">
+//					<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
+//					<div class="xui-inputgroup--inputs">
+//						<input type="text" id="legal-name" placeholder="If different from above"/>
+//					</div>
+//				</li>
+//			</ul>
+//			<div class="xui-panel--footer xui-panel--actions">
+//				<div class="xui-panel--secondaryactions">
+//					<button type="button" class="xui-button">Cancel</button>
+//				</div>
+//				<div class="xui-panel--primaryactions">
+//					<button type="submit" class="xui-button xui-button-main">Save</button>
+//				</div>
+//			</div>
+//		</div>
+//	</div>
+//
+// Styleguide: Panels.4
 .#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;
@@ -254,3 +306,38 @@
 .#{$ns}-panel--secondaryactions {
 	float: left;
 }
+
+// PANEL WITH SIDEBAR
+// -----------------------------------------------------------------------------
+
+.#{$ns}-panel-withsidebar {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.#{$ns}-panel--body {
+	flex: 1 1 auto;
+}
+
+.#{$ns}-panel--sidebar {
+	border-right: $border-standard;
+	flex: 0 0 px-to-rem(200);
+}
+
+.#{$ns}-panel--sidebar--nav {
+	list-style: none;
+	margin: px-to-rem(5) 0;
+	padding: 0;
+}
+
+.#{$ns}-panel--sidebar--nav--item {
+	border-left: px-to-rem(4) solid $color-white;
+	color: $color-primary-text;
+	padding: px-to-rem(10);
+}
+
+.#{$ns}-panel--sidebar--nav--item-is-selected {
+	border-left: px-to-rem(4) solid $color-xero-blue;
+}
+
+

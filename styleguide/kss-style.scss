@@ -269,3 +269,12 @@ $kss-content-padding: 50px;
   }
 
 }
+
+.kss-main .xui-dropdownmenu {
+	position: relative;
+}
+
+//Double override due to specificity rules
+.xui-inputgroup .xui-dropdownmenu {
+	position: absolute;
+}

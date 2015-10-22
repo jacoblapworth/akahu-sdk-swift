@@ -114,3 +114,78 @@ label.#{$ns}-inputgroup--label {
 		max-width: none;
 	}
 }
+
+// Native Select Boxes
+//
+// For use when you want to display native controls on devices that support pretty controls
+// Examples include iOS and Android devices
+//
+// Markup:
+// <div class="xui-inputgroup">
+//   <label class="xui-inputgroup--label" for="group-button-example3">Native</label>
+//   <div class="xui-inputgroup--inputs xui-u-flex xui-select-control">
+//     <select class="xui-select" id="group-button-example3">
+//       <option>Value 1</option>
+//     </select>
+//   </div>
+// </div>
+//
+// Styleguide: Form Elements.6
+
+// Styled Select Boxes
+//
+// This is the intended style for select boxes.
+// It requires a JS implementation / framework on top to take the selected item and
+// insert it into the input. Inputs should be hidden.
+//
+// Rules for the `<button>`
+//
+// Dropdown Hidden state : Remove class 'xui-button-select-is-selected'
+//
+// Dropdown Not hidden state : Add class 'xui-button-select-is-selected'
+//
+//
+// Rules for the `<div class="xui-dropdownmenu-select">`
+//
+// Dropdown Hidden state : Add class 'xui-dropdownmenu-is-closed'
+//
+// Dropdown Not hidden state : Remove class 'xui-dropdownmenu-is-closed'
+//
+// Markup:
+// <div class="xui-inputgroup">
+//  <label class="xui-inputgroup--label">Custom</label>
+//  <div class="xui-inputgroup--inputs xui-u-flex">
+//		<input class="xui-input" type="text" value="Select option 1" hidden="true"/>
+//		<button type="button" class="xui-button xui-u-fullwidth xui-button-select xui-button-select-is-selected" aria-haspopup="true">
+//			Select option 1
+//			<span class="xui-select-caret"></span>
+//		</button>
+//		<div class="xui-dropdownmenu xui-dropdownmenu-select xui-u-fullwidth" aria-hidden="true">
+//			<div class="xui-dropdownmenu--body">
+//				<ul class="xui-menugroup" role="menu">
+//					<li class="xui-menugroup--item xui-menugroup--item-is-selected" role="menuitem">
+//						<a href="#">Select option 1</a>
+//					</li>
+//					<li class="xui-menugroup--item" role="menuitem">
+//						<a href="#">Select option 2</a>
+//					</li>
+//					<li class="xui-menugroup--item" role="menuitem">
+//						<a href="#">Select option 3</a>
+//					</li>
+//				</ul>
+//			</div>
+//		</div>
+//  </div>
+// </div>
+//
+// Styleguide: Form Elements.7
+
+.#{$ns}-select-button + .#{$ns}-dropdownmenu {
+	border-color: $color-xero-blue;
+	border-radius: 0 0 3px 3px;
+	border-top: 0;
+	left: 0;
+	position: absolute;
+	top: 100%;
+	transition: $transition-duration-quick all ease-out;
+}

@@ -28,12 +28,15 @@
 // Styleguide: Form Elements.1
 
 .#{$ns}-input,
-.#{$ns}-textarea {
+.#{$ns}-textarea,
+.#{$ns}-select {
 	-webkit-appearance: none;	// For removing drop-shadow on iOS
+	background-color: $color-white;
 	border: $border-standard;
 	border-radius: $radius;
 	box-shadow: none;
 	color: inherit;
+	cursor: pointer;
 	font-family: inherit;
 	font-size: inherit;
 	outline: none;
@@ -112,4 +115,12 @@ input[type="radio"] {
 	height: px-to-rem(18);
 	margin: 3px 0.5em 3px 3px;
 	width: px-to-rem(18);
+}
+
+.#{$ns}-select-caret {
+	@include caret;
+	position: absolute;
+	right: 6px;
+	top: calc(50% - 2px);
+	vertical-align: middle;
 }

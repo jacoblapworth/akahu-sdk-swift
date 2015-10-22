@@ -213,3 +213,19 @@
 	cursor: default;
 	pointer-events: none;
 }
+
+.#{$ns}-button-select {
+	background-color: transparent;
+	color: $color-primary-text;
+	left: 0;
+	position: absolute;
+	text-align: left;
+	top: 0;
+}
+
+.#{$ns}-button-select-is-selected {
+	border: $border-standard;
+	border-bottom: 0;
+	border-color: $color-xero-blue;
+	border-radius: 3px 3px 0 0;
+}

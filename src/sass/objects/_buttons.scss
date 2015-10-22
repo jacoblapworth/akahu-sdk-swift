@@ -19,6 +19,7 @@
 // <button type="button" class="xui-button {{modifier_class}}">Text</button>
 // <input type="button" class="xui-button {{modifier_class}}" value="Text" />
 // <a href="#" class="xui-button {{modifier_class}}">Text</a>
+// <button type="button" class="xui-button {{modifier_class}}">A button with longer text</button>
 //
 // Styleguide: Buttons.1
 .#{$ns}-button {
@@ -32,7 +33,7 @@
 	font-size: $font-size-text;
 	line-height: px-to-rem(33); // 35 px total height with borders
 	min-width: px-to-rem(80);
-	padding: 0;
+	padding: 0 px-to-rem(10);
 	text-align: center;
 	text-decoration: none;
 

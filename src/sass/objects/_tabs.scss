@@ -177,7 +177,7 @@ $color-variations: (
 	position: relative;
 }
 
-.#{$ns}-verticaltab-is-selected:before {
+.#{$ns}-verticaltab-is-selected::before {
 	background: $color-xero-blue;
 	content: " ";
 	height: 100%;

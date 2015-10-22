@@ -151,13 +151,13 @@
 //			<li class="xui-inputgroup">
 //				<label class="xui-inputgroup--label" for="display-name">Display Name</label>
 //				<div class="xui-inputgroup--inputs">
-//					<input type="text" id="display-name" placeholder="Your name"/>
+//					<input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
 //				</div>
 //			</li>
 //			<li class="xui-inputgroup">
 //				<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
 //				<div class="xui-inputgroup--inputs">
-//					<input type="text" id="legal-name" placeholder="If different from above"/>
+//					<input class="xui-input" type="text" id="legal-name" placeholder="If different from above"/>
 //				</div>
 //			</li>
 //		</ul>
@@ -172,6 +172,59 @@
 //	</div>
 //
 // Styleguide: Panels.3
+
+// Panel with a sidebar
+//
+//  Markup:
+//	<div class="xui-panel xui-u-flex">
+//		<div class="xui-panel--sidebar">
+//			<div class="xui-verticaltabbed-navigation">
+//				<ul class="xui-tabgroup xui-tabgroup-vertical">
+//					<li class="xui-verticaltab">
+//						<a class="xui-verticaltab--body xui-u-flex xui-u-spacebetween" href="#default">Default <span class="xui-text-secondary">ON</span></a>
+//					</li>
+//					<li class="xui-verticaltab xui-verticaltab-is-selected">
+//						<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
+//					</li>
+//					<li class="xui-verticaltab">
+//						<a class="xui-verticaltab--body" href="#">Selected Default</a>
+//					</li>
+//				</ul>
+//			</div>
+//		</div>
+//		<div class="xui-u-flex-grow">
+//			<div class="xui-panel--header">
+//				<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
+//			</div>
+//			<section class="xui-panel--section xui-panel--section-inset">
+//				<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
+//			</section>
+//			<ul class="xui-panel--section">
+//				<li class="xui-inputgroup">
+//					<label class="xui-inputgroup--label" for="display-name">Display Name</label>
+//					<div class="xui-inputgroup--inputs">
+//						<input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
+//					</div>
+//				</li>
+//				<li class="xui-inputgroup">
+//					<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
+//					<div class="xui-inputgroup--inputs">
+//						<input class="xui-input" type="text" id="legal-name" placeholder="If different from above"/>
+//					</div>
+//				</li>
+//			</ul>
+//			<div class="xui-panel--footer xui-panel--actions">
+//				<div class="xui-panel--secondaryactions">
+//					<button type="button" class="xui-button">Cancel</button>
+//				</div>
+//				<div class="xui-panel--primaryactions">
+//					<button type="submit" class="xui-button xui-button-main">Save</button>
+//				</div>
+//			</div>
+//		</div>
+//	</div>
+//
+// Styleguide: Panels.4
 .#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;
@@ -254,3 +307,12 @@
 .#{$ns}-panel--secondaryactions {
 	float: left;
 }
+
+// PANEL WITH SIDEBAR
+// -----------------------------------------------------------------------------
+
+.#{$ns}-panel--sidebar {
+	border-right: $border-standard;
+	flex: 0 0 px-to-rem(200);
+}
+

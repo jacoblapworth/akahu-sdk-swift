@@ -1,7 +1,9 @@
-/**
- * Styles for the tabbed elements.  These typically sit above <section>
- * elements, controlling the display of them.
- */
+// Tabs
+//
+// Styles for the tabbed elements.  These typically sit above <section>
+// elements, controlling the display of them.
+//
+// Styleguide: Tabs
 
 @import "../tools/mixins";
 @import "../settings/colours";
@@ -47,7 +49,7 @@
 //		</ul>
 //	</div>
 //
-// Styleguide: Tabs
+// Styleguide: Tabs.1
 .#{$ns}-tabbed-navigation {
 	padding-bottom: 0;
 }
@@ -139,4 +141,64 @@ $color-variations: (
 	}
 }
 
+// Vertical Tabs
+//
+// Applied to sections that have tabs in them, removes the padding so that the
+// bottom of the tabs are flush with the top of the section they manage.
+// NOTE: Keep an eye on this one... there might be a better way to declare a
+//       tab section without having to undo existing section padding.
+//
+// Markup:
+//	<div class="xui-verticaltabbed-navigation">
+//		<ul class="xui-tabgroup xui-tabgroup-vertical">
+//			<li class="xui-verticaltab">
+//				<a class="xui-verticaltab--body" href="#default">Default</a>
+//			</li>
+//			<li class="xui-verticaltab xui-verticaltab-is-selected">
+//				<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
+//			</li>
+//			<li class="xui-verticaltab">
+//				<a class="xui-verticaltab--body" href="#other">Other</a>
+//			</li>
+//		</ul>
+//	</div>
+//
+// Styleguide: Tabs.2
+
+.#{$ns}-tabgroup-vertical {
+	display: flex;
+	flex-flow: column nowrap;
+	list-style: none;
+	margin: px-to-rem(5) 0;
+	padding: 0;
+}
+
+.#{$ns}-verticaltab {
+	border-left: px-to-rem(4) solid $color-white;
+	position: relative;
+
+	&:hover {
+		background-color: $color-backgrounds;
+		border-left: px-to-rem(4) solid $color-backgrounds;
+	}
+}
+
+.#{$ns}-verticaltab-is-selected {
+	border-left: px-to-rem(4) solid $color-xero-blue;
+
+	&:hover {
+		border-left: px-to-rem(4) solid $color-xero-blue;
+	}
+}
+
+.#{$ns}-verticaltab--body {
+	color: $color-primary-text;
+	display: block;
+	padding: px-to-rem(10);
+	width: 100%;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
 

@@ -174,17 +174,21 @@ $color-variations: (
 }
 
 .#{$ns}-verticaltab {
+	border-left: px-to-rem(4) solid $color-white;
 	position: relative;
+
+	&:hover {
+		background-color: $color-backgrounds;
+		border-left: px-to-rem(4) solid $color-backgrounds;
+	}
 }
 
-.#{$ns}-verticaltab-is-selected::before {
-	background: $color-xero-blue;
-	content: " ";
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: px-to-rem(4);
+.#{$ns}-verticaltab-is-selected {
+	border-left: px-to-rem(4) solid $color-xero-blue;
+
+	&:hover {
+		border-left: px-to-rem(4) solid $color-xero-blue;
+	}
 }
 
 .#{$ns}-verticaltab--body {
@@ -194,7 +198,6 @@ $color-variations: (
 	width: 100%;
 
 	&:hover {
-		background-color: $color-backgrounds;
 		text-decoration: none;
 	}
 }

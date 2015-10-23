@@ -1,0 +1,86 @@
+// Button Groups
+//
+// Styling of button groups.
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <div class="xui-button-group">
+//   <button type="button" class="xui-button {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-button-group">
+//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-button-group">
+//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Right</button>
+// </div>
+//
+// Styleguide: Buttons.100
+
+.#{$ns}-button-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  > .#{$ns}-button {
+    position: relative;
+    float: left;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+}
+// Prevent double borders
+.#{$ns}-button-group {
+  .#{$ns}-button + .#{$ns}-button,
+  .#{$ns}-button + .#{$ns}-button-group,
+  .#{$ns}-button-group + .#{$ns}-button,
+  .#{$ns}-button-group + .#{$ns}-button-group {
+    margin-left: -1px;
+  }
+}
+
+.#{$ns}-button-group > .#{$ns}-button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.#{$ns}-button-group > .#{$ns}-button:first-child {
+  margin-left: 0;
+  &:not(:last-child) {
+		border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.#{$ns}-button-group > .#{$ns}-button:last-child:not(:first-child) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.#{$ns}-button-group > .#{$ns}-button:not(:first-child) {
+  &.#{$ns}-button-main, &.#{$ns}-button-main:hover {
+    border-left-color: mix(rgba($color-xero-blue, 0.35), #fff);
+  }
+  &.#{$ns}-button-create, &.#{$ns}-button-create:hover {
+    border-left-color: mix(rgba($color-xero-green, 0.35), #fff);
+  }
+}
+
+.#{$ns}-button-group > .#{$ns}-button:hover:not(:last-child) {
+  &.#{$ns}-button-main {
+    border-right-color: mix(rgba($color-xero-blue, 0.35), #fff);
+  }
+  &.#{$ns}-button-create {
+    border-right-color: mix(rgba($color-xero-green, 0.35), #fff);
+  }
+}

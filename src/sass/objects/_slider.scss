@@ -30,7 +30,7 @@
 	border: 1px solid $color-disabled-text;
 	border-radius: 40px;
 	cursor: pointer;
-	height: 2em;
+	height: px-to-rem(26);
 	position: relative;
 	transition: all $transition-duration-super-quick ease-out;
 	width: 50px;
@@ -41,12 +41,12 @@
 		border-radius: 50%;
 		content: " ";
 		display: block;
-		height: 1.7em;
+		height: px-to-rem(22);
 		position: absolute;
 		top: 1px;
 		transform: translate(1px);
 		transition: all $transition-duration-super-quick ease-out;
-		width: 1.7em;
+		width: px-to-rem(22);
 	}
 
 }
@@ -57,6 +57,6 @@
 
 	&::before {
 		left: auto;
-		transform: translate(1.9em);
+		transform: translate(px-to-rem(25));
 	}
 }

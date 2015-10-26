@@ -26,12 +26,9 @@
 // Styleguide: Buttons.100
 
 .#{$ns}-button-group {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+
   > .#{$ns}-button {
-    position: relative;
-    float: left;
     &:hover,
     &:focus,
     &:active,
@@ -40,47 +37,46 @@
     }
   }
 }
+
 // Prevent double borders
-.#{$ns}-button-group {
-  .#{$ns}-button + .#{$ns}-button,
-  .#{$ns}-button + .#{$ns}-button-group,
-  .#{$ns}-button-group + .#{$ns}-button,
-  .#{$ns}-button-group + .#{$ns}-button-group {
-    margin-left: -1px;
-  }
+.#{$ns}-button-group > .#{$ns}-button + .#{$ns}-button {
+  margin-left: -1px;
 }
 
-.#{$ns}-button-group > .#{$ns}-button:not(:first-child):not(:last-child) {
+.#{$ns}-button-group > .#{$ns}-button {
   border-radius: 0;
-}
 
-.#{$ns}-button-group > .#{$ns}-button:first-child {
-  margin-left: 0;
-  &:not(:last-child) {
-		border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  &:first-child {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
   }
 }
-
-.#{$ns}-button-group > .#{$ns}-button:last-child:not(:first-child) {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
+$color-xero-blue-divider: mix(rgba($color-xero-blue, 0.35), #fff);
+$color-xero-green-divider: mix(rgba($color-xero-green, 0.35), #fff);
 
 .#{$ns}-button-group > .#{$ns}-button:not(:first-child) {
-  &.#{$ns}-button-main, &.#{$ns}-button-main:hover {
-    border-left-color: mix(rgba($color-xero-blue, 0.35), #fff);
+  &.#{$ns}-button-main,
+  &.#{$ns}-button-main:hover {
+    border-left-color: $color-xero-blue-divider;
   }
-  &.#{$ns}-button-create, &.#{$ns}-button-create:hover {
-    border-left-color: mix(rgba($color-xero-green, 0.35), #fff);
+
+  &.#{$ns}-button-create,
+  &.#{$ns}-button-create:hover {
+    border-left-color: $color-xero-green-divider;
   }
 }
 
 .#{$ns}-button-group > .#{$ns}-button:hover:not(:last-child) {
   &.#{$ns}-button-main {
-    border-right-color: mix(rgba($color-xero-blue, 0.35), #fff);
+    border-right-color: $color-xero-blue-divider;
   }
+
   &.#{$ns}-button-create {
-    border-right-color: mix(rgba($color-xero-green, 0.35), #fff);
+    border-right-color: $color-xero-green-divider;
   }
 }

@@ -1,31 +1,18 @@
-// Slider
+// Switch
 //
-// iOS style sliders for use in your apps
+// UI Switches
 //
-// Styleguide: Slider
-
-// Disabled Slider
-//
-// Standard Slider state
+// `.xui-switch-is-enabled` : Add this class to enable the switch
 //
 // Markup:
-// <div class="xui-slider"></div>
+// <div class="xui-switch"></div>
 //
-// Styleguide: Slider.1
-
-// Enabled Slider
-//
-// Enabled Slider state
-//
-// Markup:
-// <div class="xui-slider xui-slider-is-enabled"></div>
-//
-// Styleguide: Slider.2
+// Styleguide: Form Elements.8
 
 @import "../tools/mixins";
 @import "../settings/colours";
 
-.#{$ns}-slider {
+.#{$ns}-switch {
 	background-color: $color-disabled-text;
 	border: 1px solid $color-disabled-text;
 	border-radius: 40px;
@@ -51,7 +38,7 @@
 
 }
 
-.#{$ns}-slider-is-enabled {
+.#{$ns}-switch-is-enabled {
 	background: $color-xero-blue;
 	border: 1px solid $color-xero-blue;
 

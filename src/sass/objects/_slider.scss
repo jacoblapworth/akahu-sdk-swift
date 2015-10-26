@@ -1,0 +1,62 @@
+// Slider
+//
+// iOS style sliders for use in your apps
+//
+// Styleguide: Slider
+
+// Disabled Slider
+//
+// Standard Slider state
+//
+// Markup:
+// <div class="xui-slider"></div>
+//
+// Styleguide: Slider.1
+
+// Enabled Slider
+//
+// Enabled Slider state
+//
+// Markup:
+// <div class="xui-slider xui-slider-is-enabled"></div>
+//
+// Styleguide: Slider.2
+
+@import "../tools/mixins";
+@import "../settings/colours";
+
+.#{$ns}-slider {
+	background-color: $color-disabled-text;
+	border: 1px solid $color-disabled-text;
+	border-radius: 40px;
+	cursor: pointer;
+	height: 2em;
+	position: relative;
+	transition: all $transition-duration-super-quick ease-out;
+	width: 50px;
+
+	&::before {
+		background-color: $color-white;
+		border: 1px solid $color-white;
+		border-radius: 50%;
+		content: " ";
+		display: block;
+		height: 1.7em;
+		position: absolute;
+		top: 1px;
+		transform: translate(1px);
+		transition: all $transition-duration-super-quick ease-out;
+		width: 1.7em;
+	}
+
+}
+
+.#{$ns}-slider-is-enabled {
+	background: $color-xero-blue;
+	border: 1px solid $color-xero-blue;
+
+	&::before {
+		left: auto;
+		transform: translate(1.9em);
+	}
+}

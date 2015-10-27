@@ -77,12 +77,12 @@ $desktop-breakpoint: px-to-rem(1160);
 
 // Other Mixin utilities
 
-@mixin caret {
-	border-color: $color-borders;
+@mixin caret($color: $color-borders) {
+	border-color: $color;
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
 	border-top: 4px dashed;
-	color: $color-borders;
+	color: $color;
 	display: inline-block;
 	height: 0;
 	width: 0;

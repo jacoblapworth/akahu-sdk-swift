@@ -28,16 +28,14 @@ $button-margin-left: px-to-rem(5);
 
 .#{$ns}-button--caret {
   @include caret($color-xero-blue);
-  height: 6px;
+  min-height: 6px;
   margin-left: $button-margin-left;
 }
 
 .#{$ns}-button-main,
 .#{$ns}-button-create {
-  .#{$ns}-button--caret {
-    @include caret($color-white);
-    height: 6px;
-    margin-left: $button-margin-left;
+  > .#{$ns}-button--caret {
+    color: $color-white;
   }
 }
 

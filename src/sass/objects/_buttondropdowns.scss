@@ -50,26 +50,26 @@ $button-margin-left: px-to-rem(5);
 // Markup:
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-grouped {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-caret {{modifier_class}}">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-split {{modifier_class}}">
 //     <span class="xui-button--caret"></span>
 //   </button>
 // </div>
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-main xui-button-caret {{modifier_class}}">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main xui-button-split {{modifier_class}}">
 //     <span class="xui-button--caret"></span>
 //   </button>
 // </div>
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-caret {{modifier_class}}">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split {{modifier_class}}">
 //     <span class="xui-button--caret"></span>
 //   </button>
 // </div>
 //
 // Styleguide: Buttons.201
 
-.#{$ns}-button-caret {
+.#{$ns}-button-split {
 	min-width: 0;
 	padding-left: $button-margin-left;
 }

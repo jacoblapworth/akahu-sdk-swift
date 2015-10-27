@@ -34,7 +34,7 @@ $button-margin-left: px-to-rem(5);
 
 .#{$ns}-button-main,
 .#{$ns}-button-create {
-  > .#{$ns}-button--caret {
+  .#{$ns}-button--caret {
     color: $color-white;
   }
 }
@@ -48,21 +48,21 @@ $button-margin-left: px-to-rem(5);
 // :active - When active
 //
 // Markup:
-// <div class="xui-button-group">
-//   <button type="button" class="xui-button {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-caret {{modifier_class}}">
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-caret {{modifier_class}}">
 //     <span class="xui-button--caret"></span>
 //   </button>
 // </div>
-// <div class="xui-button-group">
-//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-main xui-button-caret {{modifier_class}}">
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main xui-button-caret {{modifier_class}}">
 //     <span class="xui-button--caret"></span>
 //   </button>
 // </div>
-// <div class="xui-button-group">
-//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-create xui-button-caret {{modifier_class}}">
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-caret {{modifier_class}}">
 //     <span class="xui-button--caret"></span>
 //   </button>
 // </div>

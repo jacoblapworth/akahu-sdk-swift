@@ -7,108 +7,84 @@
 // :active - When active
 //
 // Markup:
-// <div class="xui-button-group">
-//   <button type="button" class="xui-button {{modifier_class}}">Left</button>
-//   <button type="button" class="xui-button {{modifier_class}}">Middle</button>
-//   <button type="button" class="xui-button {{modifier_class}}">Right</button>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped {{modifier_class}}">Right</button>
 // </div>
-// <div class="xui-button-group">
-//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Left</button>
-//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Middle</button>
-//   <button type="button" class="xui-button xui-button-main {{modifier_class}}">Right</button>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Right</button>
 // </div>
-// <div class="xui-button-group">
-//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Left</button>
-//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Middle</button>
-//   <button type="button" class="xui-button xui-button-create {{modifier_class}}">Right</button>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Right</button>
 // </div>
 //
 // Styleguide: Buttons.100
 
-.#{$ns}-button-group {
+.#{$ns}-buttongroup {
   display: inline-flex;
-
-  > .#{$ns}-button {
-    &:hover {
-      z-index: 2;
-    }
-
-    &:focus,
-    &:active {
-      z-index: 3;
-    }
-  }
 }
-$color-xero-blue-divider: mix(rgba($color-xero-blue, 0.35), #fff);
-$color-xero-green-divider: mix(rgba($color-xero-green, 0.35), #fff);
 
-.#{$ns}-button-group > .#{$ns}-button {
+.#{$ns}-button-grouped {
   border-radius: 0;
-  margin-right: -1px; // Prevent double borders
+  margin-right : -1px; // Prevent double borders
 
-  &.#{$ns}-button-main:not(:first-child):not(:last-child) {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      border-right-color: $color-xero-blue-divider;
-      border-left-color: $color-xero-blue-divider;
-    }
+  &:hover {
+    z-index: 2; // show full border on hover
   }
 
-  &.#{$ns}-button-create:not(:first-child):not(:last-child) {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      border-right-color: $color-xero-green-divider;
-      border-left-color: $color-xero-green-divider;
-    }
+  &:focus,
+  &:active {
+    z-index: 3; // override full border on focus/active
   }
 
-  &:first-child {
-    border-top-left-radius: $radius;
+  &:first-of-type {
     border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+  }
 
-    &.#{$ns}-button-main {
-      &,
-      &:hover,
-      &:focus,
-      &:active {
-        border-right-color: $color-xero-blue-divider;
-      }
+  &:last-of-type {
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+
+  &.#{$ns}-button-main {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-left-color: $color-xero-blue-divider;
+      border-right-color: $color-xero-blue-divider;
     }
 
-    &.#{$ns}-button-create {
-      &,
-      &:hover,
-      &:focus,
-      &:active {
-        border-right-color: $color-xero-green-divider;
-      }
+    &:first-of-type {
+      border-left: 0;
+    }
+
+    &:last-of-type {
+      border-right: 0;
     }
   }
 
-  &:last-child {
-    border-top-right-radius: $radius;
-    border-bottom-right-radius: $radius;
-
-    &.#{$ns}-button-main {
-      &,
-      &:hover,
-      &:focus,
-      &:active {
-        border-left-color: $color-xero-blue-divider;
-      }
+  &.#{$ns}-button-create {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-left-color: $color-xero-green-divider;
+      border-right-color: $color-xero-green-divider;
     }
 
-    &.#{$ns}-button-create {
-      &,
-      &:hover,
-      &:focus,
-      &:active {
-        border-left-color: $color-xero-green-divider;
-      }
+    &:first-of-type {
+      border-left: 0;
+    }
+
+    &:last-of-type {
+      border-right: 0;
     }
   }
 }

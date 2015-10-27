@@ -72,6 +72,6 @@ $button-margin-left: px-to-rem(5);
 // Styleguide: Buttons.201
 
 .#{$ns}-button-caret {
-  min-width: auto;
+  min-width: 0;
   padding-left: $button-margin-left;
 }

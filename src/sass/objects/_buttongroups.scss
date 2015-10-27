@@ -29,54 +29,86 @@
   display: inline-flex;
 
   > .#{$ns}-button {
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
+    &:hover {
       z-index: 2;
     }
-  }
-}
 
-// Prevent double borders
-.#{$ns}-button-group > .#{$ns}-button + .#{$ns}-button {
-  margin-left: -1px;
-}
-
-.#{$ns}-button-group > .#{$ns}-button {
-  border-radius: 0;
-
-  &:first-child {
-    border-top-left-radius: $radius;
-    border-bottom-left-radius: $radius;
-  }
-
-  &:last-child {
-    border-top-right-radius: $radius;
-    border-bottom-right-radius: $radius;
+    &:focus,
+    &:active {
+      z-index: 3;
+    }
   }
 }
 $color-xero-blue-divider: mix(rgba($color-xero-blue, 0.35), #fff);
 $color-xero-green-divider: mix(rgba($color-xero-green, 0.35), #fff);
 
-.#{$ns}-button-group > .#{$ns}-button:not(:first-child) {
-  &.#{$ns}-button-main,
-  &.#{$ns}-button-main:hover {
-    border-left-color: $color-xero-blue-divider;
+.#{$ns}-button-group > .#{$ns}-button {
+  border-radius: 0;
+  margin-right: -1px; // Prevent double borders
+
+  &.#{$ns}-button-main:not(:first-child):not(:last-child) {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-right-color: $color-xero-blue-divider;
+      border-left-color: $color-xero-blue-divider;
+    }
   }
 
-  &.#{$ns}-button-create,
-  &.#{$ns}-button-create:hover {
-    border-left-color: $color-xero-green-divider;
+  &.#{$ns}-button-create:not(:first-child):not(:last-child) {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-right-color: $color-xero-green-divider;
+      border-left-color: $color-xero-green-divider;
+    }
   }
-}
 
-.#{$ns}-button-group > .#{$ns}-button:hover:not(:last-child) {
-  &.#{$ns}-button-main {
-    border-right-color: $color-xero-blue-divider;
+  &:first-child {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+
+    &.#{$ns}-button-main {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        border-right-color: $color-xero-blue-divider;
+      }
+    }
+
+    &.#{$ns}-button-create {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        border-right-color: $color-xero-green-divider;
+      }
+    }
   }
 
-  &.#{$ns}-button-create {
-    border-right-color: $color-xero-green-divider;
+  &:last-child {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+
+    &.#{$ns}-button-main {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        border-left-color: $color-xero-blue-divider;
+      }
+    }
+
+    &.#{$ns}-button-create {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        border-left-color: $color-xero-green-divider;
+      }
+    }
   }
 }

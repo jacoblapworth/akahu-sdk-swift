@@ -54,8 +54,10 @@
 .#{$ns}-inputgroup {
 	align-items: stretch;
 	display: flex;
+	line-height: px-to-rem(36);
 	list-style: none;
 	margin: px-to-rem(20) auto;
+	min-height: px-to-rem(36);
 	padding: 0;
 
 	@include tablet {
@@ -93,13 +95,6 @@
 		padding-right: 0;
 		width: auto;
 	}
-}
-
-// TODO: Now being used to distinguish between labels alongside text inputs and
-//       radio/checkbox labels.  Should think of a better way to do this.
-// scss-lint:disable QualifyingElement
-label.#{$ns}-inputgroup--label {
-	line-height: 36px;
 }
 
 // Input(s) part

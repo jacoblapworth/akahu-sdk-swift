@@ -1,7 +1,7 @@
-XUI Tabs
+XUI Switch
 ========
 
-A React UI component designed to mimick the XUI Switch behavour.
+A React UI component designed to mimic the XUI Switch behaviour.
 
 ## Installation
 

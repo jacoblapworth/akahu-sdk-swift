@@ -1,0 +1,56 @@
+// Switch
+//
+// UI Switches
+//
+// `.xui-switch-is-enabled` : Add this class to enable the switch
+//
+//	Markup:
+//	<label class="xui-switch">
+//		<input type="checkbox" class="xui-u-hidden xui-switch--checkbox">
+//		<div class="xui-switch--control"></div>
+//	</label>
+//
+// Styleguide: Form Elements.8
+
+@import "../tools/mixins";
+@import "../settings/colours";
+
+.#{$ns}-switch {
+	display: inline-block;
+}
+
+.#{$ns}-switch--control {
+	background-color: $color-disabled-text;
+	border: 1px solid $color-disabled-text;
+	border-radius: 40px;
+	cursor: pointer;
+	height: px-to-rem(26);
+	position: relative;
+	transition: all $transition-duration-super-quick ease-out;
+	width: 50px;
+
+	&::before {
+		background-color: $color-white;
+		border: 1px solid $color-white;
+		border-radius: 50%;
+		content: " ";
+		display: block;
+		height: px-to-rem(22);
+		position: absolute;
+		top: 1px;
+		transform: translate(1px);
+		transition: all $transition-duration-super-quick ease-out;
+		width: px-to-rem(22);
+	}
+
+}
+
+.#{$ns}-switch--checkbox:checked + .#{$ns}-switch--control {
+	background: $color-xero-blue;
+	border: 1px solid $color-xero-blue;
+
+	&::before {
+		left: auto;
+		transform: translate(px-to-rem(25));
+	}
+}

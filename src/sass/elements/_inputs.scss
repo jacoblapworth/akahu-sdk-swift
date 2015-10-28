@@ -36,7 +36,6 @@
 	border-radius: $radius;
 	box-shadow: none;
 	color: inherit;
-	cursor: pointer;
 	font-family: inherit;
 	font-size: inherit;
 	outline: none;
@@ -62,6 +61,10 @@
 		color: $color-placeholders;
 	}
 
+}
+
+.#{$ns}-select {
+	cursor: pointer;
 }
 
 // Removes the 'spinner' elements in a number input

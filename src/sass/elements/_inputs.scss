@@ -63,10 +63,6 @@
 
 }
 
-.#{$ns}-select {
-	cursor: pointer;
-}
-
 // Removes the 'spinner' elements in a number input
 input[type=number] {
 	-moz-appearance: textfield;
@@ -118,6 +114,21 @@ input[type="radio"] {
 	height: px-to-rem(18);
 	margin: 3px 0.5em 3px 3px;
 	width: px-to-rem(18);
+}
+
+
+// Select menu selection
+//
+// Markup:
+// <select class="xui-select">
+//  <option>Value 1</option>
+//  <option>Value 2</option>
+// </select>
+//
+// Styleguide: Form Elements.4
+
+.#{$ns}-select {
+	cursor: pointer;
 }
 
 .#{$ns}-select-caret {

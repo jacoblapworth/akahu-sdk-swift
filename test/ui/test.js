@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import XUISwitch from '../../src/XUISwitch.js';
-import '../../src/scss/_xui-switch.scss';
+
+class FakeApp extends Component {
+
+	constructor() {
+		super();
+
+		this.state = {
+			// Sets default disabled for this switch example
+			switchEnabled : false
+		};
+	}
+
+	handleSwitch(event) {
+		console.log('Switch triggered', event, this.state.switchEnabled);
+
+		const switchEnabled = !this.state.switchEnabled;
+
+		this.setState({
+			switchEnabled
+		});
+	}
+
+	render() {
+		return (
+			<XUISwitch
+				isEnabled={this.state.switchEnabled}
+				handleChange={this.handleSwitch.bind(this)}></XUISwitch>
+		);
+	}
+}
 
 (function() {
+
 	React.render(
-		<XUISwitch>Hello World</XUISwitch>, document.getElementById('app')
+		<FakeApp />,
+		document.getElementById('app')
 	);
+
 })();

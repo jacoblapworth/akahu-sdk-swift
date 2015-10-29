@@ -24,7 +24,7 @@ import { XUISwitch } from 'xui-switch';
 
 <XUISwitch
 	isEnabled={true}
-	handleChange={handleSwitch()}
+	onChange={handleSwitch()}
 	value='someValue'
 	name='someName'></XUISwitch>
 ```

@@ -8,10 +8,16 @@ import React from 'react';
 const propTypes = {
 
 	/** @property {function} onChange Fires parent onChange handler */
-	handleChange : React.PropTypes.func.isRequired,
+	onChange : React.PropTypes.func.isRequired,
 
 	/** @property {boolean} [isEnabled=false] Determines whether the switch is enabled or disabled */
-	isEnabled : React.PropTypes.bool
+	isEnabled : React.PropTypes.bool,
+
+	/** @property {string} [name=name] Name attribute for the input */
+	name : React.PropTypes.string,
+
+	/** @property {string} [value=value] Value attribute for the input */
+	value: React.PropTypes.string
 
 };
 
@@ -29,9 +35,17 @@ const defaultProps = {
 export default class XUISwitch extends React.Component {
 	render() {
 
+		const props = this.props;
+
 		return (
 			<label className="xui-switch">
-				<input type="checkbox" className="xui-u-hidden xui-switch--checkbox" checked={this.props.isEnabled} onChange={this.props.handleChange} />
+				<input
+					type="checkbox"
+					checked={props.isEnabled}
+					onChange={props.onChange}
+					name={props.name}
+					value={props.value}
+					className="xui-u-hidden xui-switch--checkbox" />
 				<div className="xui-switch--control"></div>
 			</label>
 		);

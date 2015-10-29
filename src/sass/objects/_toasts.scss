@@ -5,7 +5,7 @@
 // Markup:
 //   <div class="xui-toast">
 //     <p class="xui-toast--message">Toast Message</p>
-//     <a href="#ToastLink">Toast Link Label</a>
+//     <a class="xui-toast--message" href="#ToastLink">Toast Link Label</a>
 //   </div>
 //
 // Styleguide: Toasts
@@ -17,14 +17,25 @@
 	color: $color-white;
 	left: 0;
 	margin: px-to-rem(20);
+	opacity: 1;
 	padding: px-to-rem(20);
 	position: fixed;
+	transition: opacity $transition-duration-super-quick ease-out;
 	z-index: 10;
 }
 
 .#{$ns}-toast--message {
 	display: inline;
 	margin-right: px-to-rem(20);
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.#{$ns}-toast-is-hidden {
+	opacity: 0;
+	pointer-events: none;
 }
 
 @include mobile {

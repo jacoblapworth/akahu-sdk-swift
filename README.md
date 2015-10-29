@@ -9,9 +9,7 @@ A React UI component designed to mimic the XUI Switch behaviour.
 $ bower install --save git@github.dev.xero.com:FutureRobot/xui-switch.git
 ```
 
-## Horizontal Tabs
-
-### XUIHorizontalTabItem Properties
+### XUI Switch Properties
 `isEnabled` : (Boolean, Optional) Sets the switch to enabled or disabled
 
 `onChange` : (Function, Required) Bind a function to fire when the Switch state changes

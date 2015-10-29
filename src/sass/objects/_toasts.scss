@@ -1,6 +1,10 @@
 // Toasts
 //
-// The example displays in the bottom left of your screen.
+// This is intended to display short useful messages to users.
+//
+// It's typical screen location is bottom left.
+//
+// `xui-toast-is-hidden` : An optional class to hide the element, transitions out over 0.1s when the class is applied
 //
 // Markup:
 //   <div class="xui-toast">

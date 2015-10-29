@@ -7,8 +7,8 @@ import React from 'react';
  */
 const propTypes = {
 
-	/** @property {function} handleChange Fires parent handleChange handler */
-	handleChange : React.PropTypes.func.isRequired,
+	/** @property {function} onChange Fires parent onChange handler */
+	onChange : React.PropTypes.func.isRequired,
 
 	/** @property {boolean} [isEnabled=false] Determines whether the switch is enabled or disabled */
 	isEnabled : React.PropTypes.bool,
@@ -42,7 +42,7 @@ export default class XUISwitch extends React.Component {
 				<input
 					type="checkbox"
 					checked={props.isEnabled}
-					onChange={props.handleChange}
+					onChange={props.onChange}
 					name={props.name}
 					value={props.value}
 					className="xui-u-hidden xui-switch--checkbox" />

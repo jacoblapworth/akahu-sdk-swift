@@ -12,7 +12,7 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-switch.git
 ### XUI Switch Properties
 `isEnabled` : (Boolean, Optional) Sets the switch to enabled or disabled
 
-`handleChange` : (Function, Required) Bind a function to fire when the Switch state changes
+`onChange` : (Function, Required) Bind a function to fire when the Switch state changes
 
 `value` : (String, Optional) Optional value for the input
 

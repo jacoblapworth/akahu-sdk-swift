@@ -26,7 +26,7 @@ class FakeApp extends Component {
 		return (
 			<XUISwitch
 				isEnabled={this.state.switchEnabled}
-				handleChange={this.handleSwitch.bind(this)}
+				onChange={this.handleSwitch.bind(this)}
 				value='someValue'
 				name='someName'></XUISwitch>
 		);

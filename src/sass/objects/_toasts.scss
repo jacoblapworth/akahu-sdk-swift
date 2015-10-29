@@ -26,10 +26,9 @@
 
 .#{$ns}-toast--message {
 	display: inline;
-	margin-right: px-to-rem(20);
 
-	&:last-child {
-		margin-right: 0;
+	&:nth-child(n+2) {
+		margin-left: px-to-rem(20);
 	}
 }
 

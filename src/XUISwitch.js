@@ -35,15 +35,17 @@ const defaultProps = {
 export default class XUISwitch extends React.Component {
 	render() {
 
+		const props = this.props;
+
 		return (
 			<label className="xui-switch">
 				<input
 					type="checkbox"
-					checked={this.props.isEnabled}
-					onChange={this.props.handleChange}
-					name={this.props.name}
-					value={this.props.value}
-					className="xui-u-hidden xui-switch--checkbox"  />
+					checked={props.isEnabled}
+					onChange={props.handleChange}
+					name={props.name}
+					value={props.value}
+					className="xui-u-hidden xui-switch--checkbox" />
 				<div className="xui-switch--control"></div>
 			</label>
 		);

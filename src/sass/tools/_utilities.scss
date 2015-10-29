@@ -12,14 +12,29 @@
 //
 // Classes that can be added to any element to hide it from view.
 //
+// Implementation of rules here are based on the A11Y Project's [How to Hide Content](http://a11yproject.com/posts/how-to-hide-content/).
+//
 // Markup:
-// <section class="xui-u-container xui-u-hidden"></section>
-// <section class="xui-u-container xui-u-hidden-mobile"></section>
+// <section class="xui-u-container xui-u-hidden">hidden</section>
+// <section class="xui-u-container xui-u-hidden-visually">hidden visually</section>
+// <section class="xui-u-container xui-u-hidden-mobile">hidden on mobile</section>
 //
 // Styleguide: Utilities.1
 
 .#{$ns}-u-hidden {
 	display: none;
+	visibility: hidden;
+}
+
+// scss-lint:disable ImportantRule
+.#{$ns}-u-hidden-visually {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px !important;
+	overflow: hidden;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
 }
 
 .#{$ns}-u-hidden-mobile {

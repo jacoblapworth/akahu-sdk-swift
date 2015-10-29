@@ -18,7 +18,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/8.1.1/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/8.2.0/xui.css"/>
 ```
 
 ### Bower

@@ -23,8 +23,7 @@
 .#{$ns}-radio {
 	display: flex;
 
-	input[type="checkbox"],
-	input[type="radio"] {
+	input {
 		box-shadow: none;
 		cursor: pointer;
 		height: px-to-rem(18);

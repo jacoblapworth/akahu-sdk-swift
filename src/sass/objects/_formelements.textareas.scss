@@ -1,0 +1,24 @@
+
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// Textareas
+//
+// Markup:
+// <textarea class="xui-textarea"></textarea>
+//
+// Styleguide: Form Elements.2
+
+.#{$ns}-textarea {
+	@extend %xui-commoninput;
+
+	display: block;
+	height: 70px;
+	margin: 0;
+	padding: px-to-rem(5) 0.5em;
+	resize: none;
+
+	@include mobile {
+		height: 90px;
+	}
+}

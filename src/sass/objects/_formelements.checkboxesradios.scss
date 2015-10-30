@@ -5,6 +5,36 @@
 @import "../settings/structure";
 @import "../tools/mixins";
 
+// Checkboxes and Radios
+//
+// Markup:
+// <label class="xui-checkbox">
+//  <input type="checkbox" name="checkbox"/>
+//  Tick me!
+// </label>
+// <label class="xui-radio">
+//  <input type="radio" name="radio"/>
+//  Pick me!
+// </label>
+//
+// Styleguide: Form Elements.4
+
+.#{$ns}-checkbox,
+.#{$ns}-radio {
+	display: block;
+	line-height: px-to-rem(36);
+	vertical-align: middle;
+
+	input {
+		box-shadow: none;
+		cursor: pointer;
+		height: px-to-rem(18);
+		margin: 3px 0.5em 3px 3px;
+		vertical-align: middle;
+		width: px-to-rem(18);
+	}
+}
+
 // Checkbox and Radio groups
 //
 // A collection of checkbox/radio items within a single container, grouped as
@@ -41,24 +71,12 @@
 //   </label>
 // </div>
 //
-// Styleguide: Form Elements.6
+// Styleguide: Form Elements.5
 
 .#{$ns}-checkboxgroup,
 .#{$ns}-radiogroup {
 	@include mobile {
 		border: $border-standard;
 		border-radius: $radius;
-	}
-}
-
-.#{$ns}-checkbox,
-.#{$ns}-radio {
-	display: block;
-	line-height: px-to-rem(36);
-	vertical-align: middle;
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		vertical-align: middle;
 	}
 }

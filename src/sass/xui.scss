@@ -5,6 +5,7 @@
  * These stylesheets are organized in the manner prescribed by the ITCSS
  * (Inverted Triangle CSS) methodology introduced here:
  * http://www.creativebloq.com/web-design/manage-large-scale-web-projects-new-css-architecture-itcss-41514731
+ * http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528
  *
  * It organizes styles into files for various 'layers', with each layer becoming
  * more and more specific in terms of selector rules:
@@ -28,7 +29,6 @@
 
 @import "vars";
 
-// TODO: The following can belong anywhere.  Sass globals project maybe?
 @import "tools/functions";
 @import "tools/mixins";
 
@@ -48,24 +48,22 @@
 @import "objects/buttons";
 @import "objects/buttongroups";
 @import "objects/buttondropdowns";
-@import "objects/checkboxradiogroup";
-@import "objects/sections";
+@import "objects/dropdownmenu";
+@import "objects/dropdownpanel";
 @import "objects/contentblocks";
+@import "objects/formelements";
+@import "objects/grid";
+@import "objects/labels";
 @import "objects/loaders";
-@import "objects/sidedrawer";
 @import "objects/pagenav";
 @import "objects/pageheadings";
-@import "objects/inputgroups";
-@import "objects/inputmessages";
 @import "objects/modals";
 @import "objects/panels";
+@import "objects/sections";
+@import "objects/sidedrawer";
+@import "objects/switch";
 @import "objects/tabs";
 @import "objects/toasts";
-@import "objects/dropdownmenu";
-@import "objects/labels";
-@import "objects/dropdownpanel";
-@import "objects/grid";
-@import "objects/switch";
 
 // Et cetera...
 // -----------------------------------------------------------------------------

@@ -1,0 +1,22 @@
+/**
+ * Styles for form inputs.
+ */
+
+// Standard Inputs
+//
+// The number inputs have had their up and down arrows removed to sync browser styles
+//
+// Markup:
+// <input class="xui-input" type="text" placeholder="Standard Input"/>
+// <input class="xui-input" type="password" placeholder="Password Input"/>
+// <input class="xui-input" type="number" placeholder="0.00" />
+// <input class="xui-input" type="search" placeholder="Search"/>
+// <input class="xui-input" type="tel" placeholder="telephone #"/>
+// <input class="xui-input" type="email" placeholder="example@xero.com"/>
+// <input class="xui-input" type="url" placeholder="http://www.xero.com"/>
+//
+// Styleguide: Form Elements.1
+
+.#{$ns}-input {
+	@extend %xui-commoninput;
+}

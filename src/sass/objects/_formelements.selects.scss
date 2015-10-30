@@ -1,0 +1,26 @@
+
+@import "../tools/mixins";
+
+// Select menu selection
+//
+// Markup:
+// <select class="xui-select">
+//  <option>Value 1</option>
+//  <option>Value 2</option>
+// </select>
+//
+// Styleguide: Form Elements.3
+
+.#{$ns}-select {
+	@extend %xui-commoninput;
+
+	cursor: pointer;
+}
+
+.#{$ns}-select-caret {
+	@include caret;
+	position: absolute;
+	right: 6px;
+	top: calc(50% - 2px);
+	vertical-align: middle;
+}

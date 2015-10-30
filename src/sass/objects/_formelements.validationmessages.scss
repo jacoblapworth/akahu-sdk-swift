@@ -26,12 +26,16 @@
 // and leads to over-wrapped validation messages.
 //
 // Markup:
-// <!-- FIXME: currently needs to be inside a relative positioned context -->
-// <div style="position: relative;">
-//  <input class="xui-input" type="text" required/>
-//  <div class="xui-inputmessage xui-inputmessage-shown">
-//    <span class="xui-inputmessage--body">Please fill out this field</span>
-//  </div>
+// <!-- NOTE: Needs to be in a relatively positioned context, which in this
+//            example is provided by being in an xui-inputgroup--inputs
+//            subcomponent -->
+// <div class="xui-inputgroup">
+//   <div class="xui-inputgroup--inputs">
+//     <input class="xui-input" type="text" required/>
+//     <div class="xui-inputmessage xui-inputmessage-shown">
+//       <span class="xui-inputmessage--body">Please fill out this field</span>
+//     </div>
+//   </div>
 // </div>
 //
 // Styleguide: Form Elements.99

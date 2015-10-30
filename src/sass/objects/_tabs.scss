@@ -149,24 +149,22 @@ $color-variations: (
 //       tab section without having to undo existing section padding.
 //
 // Markup:
-//	<div class="xui-verticaltabbed-navigation">
-//		<ul class="xui-tabgroup xui-tabgroup-vertical">
-//			<li class="xui-verticaltab">
-//				<a class="xui-verticaltab--body" href="#default">Default</a>
-//			</li>
-//			<li class="xui-verticaltab xui-verticaltab-is-selected">
-//				<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
-//			</li>
-//			<li class="xui-verticaltab">
-//				<a class="xui-verticaltab--body" href="#other">Other</a>
-//			</li>
-//		</ul>
-//		<ul class="xui-tabgroup xui-tabgroup-vertical">
-//			<li class="xui-verticaltab">
-//				<a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
-//			</li>
-//		</ul>
-//	</div>
+//	<ul class="xui-tabgroup xui-tabgroup-vertical">
+//		<li class="xui-verticaltab">
+//			<a class="xui-verticaltab--body" href="#default">Default</a>
+//		</li>
+//		<li class="xui-verticaltab xui-verticaltab-is-selected">
+//			<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
+//		</li>
+//		<li class="xui-verticaltab">
+//			<a class="xui-verticaltab--body" href="#other">Other</a>
+//		</li>
+//	</ul>
+//	<ul class="xui-tabgroup xui-tabgroup-vertical">
+//		<li class="xui-verticaltab">
+//			<a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
+//		</li>
+//	</ul>
 //
 // Styleguide: Tabs.2
 

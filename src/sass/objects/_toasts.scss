@@ -1,11 +1,15 @@
 // Toasts
 //
-// The example displays in the bottom left of your screen.
+// This is intended to display short useful messages to users.
+//
+// It's typical screen location is bottom left.
+//
+// `xui-toast-is-hidden` : An optional class to hide the element, transitions out over 0.1s when the class is applied
 //
 // Markup:
 //   <div class="xui-toast">
 //     <p class="xui-toast--message">Toast Message</p>
-//     <a href="#ToastLink">Toast Link Label</a>
+//     <a class="xui-toast--message" href="#ToastLink">Toast Link Label</a>
 //   </div>
 //
 // Styleguide: Toasts
@@ -17,14 +21,31 @@
 	color: $color-white;
 	left: 0;
 	margin: px-to-rem(20);
+	opacity: 1;
 	padding: px-to-rem(20);
 	position: fixed;
+	transition: opacity $transition-duration-super-quick ease-out;
 	z-index: 10;
 }
 
 .#{$ns}-toast--message {
 	display: inline;
-	margin-right: px-to-rem(20);
+}
+
+/*
+	:nth-child(n+2) is the same as saying,
+	select all elements with this class that have the same parent,
+	except for the very first one
+	https://css-tricks.com/how-nth-child-works/
+	https://css-tricks.com/examples/nth-child-tester/
+*/
+.#{$ns}-toast--message:nth-child(n+2) {
+	margin-left: px-to-rem(20);
+}
+
+.#{$ns}-toast-is-hidden {
+	opacity: 0;
+	pointer-events: none;
 }
 
 @include mobile {

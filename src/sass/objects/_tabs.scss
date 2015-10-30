@@ -161,6 +161,11 @@ $color-variations: (
 //				<a class="xui-verticaltab--body" href="#other">Other</a>
 //			</li>
 //		</ul>
+//		<ul class="xui-tabgroup xui-tabgroup-vertical">
+//			<li class="xui-verticaltab">
+//				<a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
+//			</li>
+//		</ul>
 //	</div>
 //
 // Styleguide: Tabs.2
@@ -171,6 +176,18 @@ $color-variations: (
 	list-style: none;
 	margin: px-to-rem(5) 0;
 	padding: 0;
+}
+
+/*
+	:nth-child(n+2) is the same as saying,
+	select all elements with this class that have the same parent,
+	except for the very first one
+	https://css-tricks.com/how-nth-child-works/
+	https://css-tricks.com/examples/nth-child-tester/
+*/
+.#{$ns}-tabgroup-vertical:nth-child(n+2) {
+	border-top: $border-standard;
+	padding-top: px-to-rem(5);
 }
 
 .#{$ns}-verticaltab {

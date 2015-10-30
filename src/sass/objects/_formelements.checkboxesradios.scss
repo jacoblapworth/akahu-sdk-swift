@@ -21,13 +21,16 @@
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
-	display: flex;
+	display: block;
+	line-height: px-to-rem(36);
+	vertical-align: middle;
 
 	input {
 		box-shadow: none;
 		cursor: pointer;
 		height: px-to-rem(18);
 		margin: 3px 0.5em 3px 3px;
+		vertical-align: middle;
 		width: px-to-rem(18);
 	}
 }

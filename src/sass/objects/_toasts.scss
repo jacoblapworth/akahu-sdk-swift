@@ -30,10 +30,17 @@
 
 .#{$ns}-toast--message {
 	display: inline;
+}
 
-	&:nth-child(n+2) {
-		margin-left: px-to-rem(20);
-	}
+/*
+	:nth-child(n+2) is the same as saying,
+	select all elements with this class that have the same parent,
+	except for the very first one
+	https://css-tricks.com/how-nth-child-works/
+	https://css-tricks.com/examples/nth-child-tester/
+*/
+.#{$ns}-toast--message:nth-child(n+2) {
+	margin-left: px-to-rem(20);
 }
 
 .#{$ns}-toast-is-hidden {

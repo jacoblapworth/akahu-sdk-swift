@@ -20,18 +20,30 @@
 // <div id="example-modal" class="xui-mask">
 // 	<section class="xui-modal xui-modal-medium">
 // 		<header class="xui-modal--header">
-// 			<h3>Modal</h3>
+// 			<h3 class="xui-text-panelheading">Smart Rule: Bank</h3>
 // 			<a href="#" class="xui-modal--header-close"></a>
 // 		</header>
 // 		<div class="xui-modal--body">
-// 			<p>Body content.</p>
+// 			<div class="xui-inputgroup">
+// 				<div class="xui-inputgroup--inputs">
+// 					<select class="xui-select">
+// 						<option>If items are negative</option>
+// 					</select>
+// 				</div>
+// 				<label class="xui-inputgroup--label" for="move-to"><nobr>Move To</nobr></label>
+// 				<div class="xui-inputgroup--inputs">
+// 					<select id="move-to" class="xui-select">
+// 						<option>Current Liabilities</option>
+// 					</select>
+// 				</div>
+// 			</div>
 // 		</div>
 // 		<footer class="xui-modal--footer">
 // 			<div class="xui-modal--secondaryactions">
-// 				<button type="button" class="xui-button">Button on Left</button>
+// 				<button type="button" class="xui-button">Delete</button>
 // 			</div>
 // 			<div class="xui-modal--primaryactions">
-// 				<button type="button" class="xui-button xui-button-main">Button</button>
+// 				<button type="button" class="xui-button xui-button-main">Done</button>
 // 			</div>
 // 		</footer>
 // 	</section>

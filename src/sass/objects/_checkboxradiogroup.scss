@@ -53,5 +53,12 @@
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
-	display: flex;
+	display: block;
+	line-height: px-to-rem(36);
+	vertical-align: middle;
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		vertical-align: middle;
+	}
 }

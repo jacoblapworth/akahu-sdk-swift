@@ -1,5 +1,5 @@
 import React from 'react';
-import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../src/XUIButton.js';
+import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 import './styles/test.scss';
 
 (function() {

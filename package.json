@@ -1,7 +1,7 @@
 {
   "version": "1.3.1",
   "name": "xui-button",
-  "main": "src/XUIButton.js",
+  "main": "index.js",
   "description": "A button. That clicks",
   "author": "a person who could not configure their git properly :) (TODO: fix this)",
   "license": "Copyright Xero Ltd",

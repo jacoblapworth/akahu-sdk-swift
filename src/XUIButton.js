@@ -2,9 +2,6 @@ import React from 'react';
 import Component from 'reporting-base-component';
 import cn from 'classNames';
 
-import XUIButtonGroup from './XUIButtonGroup';
-import XUIButtonCaret from './XUIButtonCaret';
-
 const propTypes = {
 	/**
 	 * @property {boolean} [isDisabled=false] Determines if the button is disabled or not. Set to false by default
@@ -145,7 +142,7 @@ function getGroupClass(isGrouped) {
 	return isGrouped ? CSS_CLASSES.GROUP : null;
 }
 
-class XUIButton extends Component {
+export default class XUIButton extends Component {
 	constructor(props, context) {
 		super(props, context);
 	}
@@ -195,5 +192,3 @@ class XUIButton extends Component {
 
 XUIButton.propTypes = propTypes;
 XUIButton.defaultProps = defaultProps;
-
-export {XUIButton as default, XUIButtonGroup, XUIButtonCaret};

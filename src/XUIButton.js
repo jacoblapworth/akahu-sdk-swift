@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from 'base-component';
+import Component from 'reporting-base-component';
 import cn from 'classNames';
 
 import XUIButtonGroup from './XUIButtonGroup';
@@ -146,11 +146,14 @@ function getGroupClass(isGrouped) {
 }
 
 class XUIButton extends Component {
+	constructor(props, context) {
+		super(props, context);
+	}
 
 	render() {
 		const button = this;
 		const props = this.props;
-		const elementType = this.props.type === 'link' ? 'a' : 'button';
+		const ElementType = this.props.type === 'link' ? 'a' : 'button';
 		const isLink = this.props.type === 'link';
 		const href = isLink ? (props.href || '#') : null;
 		const target = isLink ? props.target : null;
@@ -177,17 +180,15 @@ class XUIButton extends Component {
 		} : props.onClick;
 
 		return (
-			<Component
-				el={elementType}
+			<ElementType
 				href={href}
 				target={target}
 				title={props.title}
 				onClick={clickHandler}
 				disabled={props.isDisabled}
-				qaHook={props.qaHook}
 				className={classNames}>
 					{this.props.children}
-			</Component>
+			</ElementType>
 		);
 	}
 }

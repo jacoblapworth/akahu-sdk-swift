@@ -2,13 +2,8 @@
  * Settings for the structure/layout of the Xero design.
  */
 
-// TODO: I'm iffy on the fact that structure relies on colour, so figure out a
-//       way to break this dependency.
-@import "colours";
-
-$border-standard:  1px solid $color-borders;
-$divider-standard: 1px solid $color-dividers;
-
 $radius: 3px;
 
-$shadow-standard: 0 2px 0 0 rgba(#000, 0.03);
+$padding-menu-vertical: 8px;
+$padding-menu-horizontal: 15px;
+$padding-menu: $padding-menu-vertical $padding-menu-horizontal;

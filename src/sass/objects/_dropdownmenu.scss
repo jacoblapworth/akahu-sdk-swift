@@ -144,7 +144,7 @@ $shadow-color: #ccc;
 	> :nth-child(n) {
 		align-items: center;
 		display: flex;
-		padding: 8px 15px;
+		padding: $padding-menu;
 		text-decoration: none;
 		width: 100%;
 	}

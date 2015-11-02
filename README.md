@@ -40,9 +40,9 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 
 <XUIButton
 	isDisabled={true}
-	onChange={handleClick()}  
-	variant={'create'}
-	size={'full-width'}>Click me</XUIButton>
+	onChange={this.handleClick}  
+	variant='create'
+	size='full-width'>Click me</XUIButton>
 
 <XUIButton>I'm a dropdown <XUIButtonCaret /></XUIButton>
 

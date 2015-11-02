@@ -14,9 +14,13 @@
 //
 // Styleguide: Form Elements.98
 
-&.#{$ns}-input-is-invalid,
+.#{$ns}-input-is-invalid,
 :invalid {
 	border-color: $color-xero-red;
+
+	&:hover {
+		border-color: $color-xero-red;
+	}
 }
 
 // Validation messages

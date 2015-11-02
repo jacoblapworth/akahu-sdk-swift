@@ -28,6 +28,12 @@ import './styles/test.scss';
 					isDisabled={true}></XUIButton>
 			</div>
 			<div className={"testButtonContainer"}>
+			<XUIButton
+					text={'A dropdown button'}
+					variant={'create'}
+					includeCaret={true}></XUIButton>
+			</div>
+			<div className={"testButtonContainer"}>
 				<XUIButtonGroup>
 					<XUIButton
 						text={'Grouped Button One'}

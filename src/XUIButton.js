@@ -3,6 +3,7 @@ import Component from 'base-component';
 import cn from 'classNames';
 
 import XUIButtonGroup from './XUIButtonGroup';
+import XUIButtonCaret from './XUIButtonCaret';
 
 const propTypes = {
 	/**
@@ -14,6 +15,11 @@ const propTypes = {
 	 * @property {boolean} [isGrouped=false] If this button is part of a parent button group
 	 */
 	isGrouped: React.PropTypes.bool,
+
+	/**
+	 * @property {boolean} [includeCaret=false] Set to true if you want to style the button with a caret(i.e - a dropdown). Set to false by default
+	 */
+	includeCaret: React.PropTypes.bool,
 
 	/**
 	 * @property {function} onClick Bind a function to fire when the button is clicked
@@ -73,7 +79,8 @@ const propTypes = {
  */
 const defaultProps = {
 	isGrouped: false,
-	isDisabled: false
+	isDisabled: false,
+	includeCaret: false
 };
 
 /**
@@ -149,6 +156,19 @@ function getGroupClass(isGrouped) {
 	return isGrouped ? CSS_CLASSES.GROUP : null;
 }
 
+/**
+ * Returns the caret component if the user wants it inside the button
+ *
+ * @private
+ * @param {Boolean} includeCaret - Whether or not the button should include a caret
+ * @return {XUIButtonCaret} The caret
+ */
+function getCaretEl(includeCaret) {
+	if (includeCaret) {
+		return (<XUIButtonCaret />);
+	}
+}
+
 class XUIButton extends Component {
 
 	render() {
@@ -158,6 +178,7 @@ class XUIButton extends Component {
 		const isLink = this.props.type === 'link';
 		const href = isLink ? (props.href || '#') : null;
 		const target = isLink ? props.target : null;
+		const caret = getCaretEl(props.includeCaret);
 
 		const classNames = cn(
 				CSS_CLASSES.DEFAULT,
@@ -189,7 +210,10 @@ class XUIButton extends Component {
 				onClick={clickHandler}
 				disabled={props.isDisabled}
 				qaHook={props.qaHook}
-				className={classNames}>{props.text}</Component>
+				className={classNames}>
+					{props.text}
+					{caret}
+			</Component>
 		);
 	}
 }

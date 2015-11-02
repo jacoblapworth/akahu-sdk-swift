@@ -14,7 +14,9 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 ### XUI Button Properties
 `isDisabled`: (Boolean, Optional) Determines if the button is disabled or not. Set to false by default
 
-`isGrouped`: (Boolean, Optional) If this button is part of a parent button group
+`isGrouped`: (Boolean, Optional) If this button is part of a parent button group. Set to false by default
+
+`includeCaret`: (Boolean, Optional) Set to true if you want to style the button with a caret(i.e - a dropdown). Set to false by default
 
 `onClick`: (Function, Required) Bind a function to fire when the button is clicked
 

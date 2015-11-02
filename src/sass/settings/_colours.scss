@@ -48,3 +48,9 @@ $color-xero-yellow:      #f8a900;
 // Button divider colours
 $color-xero-blue-divider: mix(rgba($color-xero-blue, 0.35), $color-white);
 $color-xero-green-divider: mix(rgba($color-xero-green, 0.35), $color-white);
+
+// Borders and shadows
+$border-standard:  1px solid $color-borders;
+$divider-standard: 1px solid $color-dividers;
+
+$shadow-standard: 0 2px 0 0 rgba(#000, 0.03);

@@ -99,8 +99,6 @@ function getVariantClass(variant) {
 			return CSS_CLASSES.PRIMARY;
 		case 'create':
 			return CSS_CLASSES.CREATE;
-		case 'default':
-			return CSS_CLASSES.DEFAULT;
 	}
 }
 

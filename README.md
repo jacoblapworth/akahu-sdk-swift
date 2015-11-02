@@ -44,7 +44,7 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 	variant='create'
 	size='full-width'>Click me</XUIButton>
 
-<XUIButton>I'm a dropdown <XUIButtonCaret /></XUIButton>
+<XUIButton>I am a dropdown <XUIButtonCaret /></XUIButton>
 
 <XUIButtonGroup>
 	<XUIButton

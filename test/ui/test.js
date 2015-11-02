@@ -28,6 +28,21 @@ import './styles/test.scss';
 					isDisabled={true}></XUIButton>
 			</div>
 			<div className={"testButtonContainer"}>
+				<XUIButtonGroup>
+					<XUIButton
+						text={'Grouped Button One'}
+						isGrouped={true}
+						variant={'primary'}></XUIButton>
+					<XUIButton
+						text={'Grouped Button Two'}
+						isGrouped={true}
+						variant={'create'}></XUIButton>
+					<XUIButton
+						text={'Grouped Button Three'}
+						isGrouped={true}></XUIButton>
+				</XUIButtonGroup>
+			</div>
+			<div className={"testButtonContainer"}>
 				<XUIButton
 					text={'Click me for an alert'}
 					onClick={clickHandler}></XUIButton>
@@ -69,21 +84,6 @@ import './styles/test.scss';
 				<XUIButton
 					text={'Button with a QA hook class'}
 					qaHook={'buttonQAHook'}></XUIButton>
-			</div>
-			<div className={"testButtonContainer"}>
-				<XUIButtonGroup>
-					<XUIButton
-						text={'Grouped Button One'}
-						isGrouped={true}
-						variant={'primary'}></XUIButton>
-					<XUIButton
-						text={'Grouped Button One'}
-						isGrouped={true}
-						variant={'create'}></XUIButton>
-					<XUIButton
-						text={'Grouped BUtton Two'}
-						isGrouped={true}></XUIButton>
-				</XUIButtonGroup>
 			</div>
 		</div>, document.getElementById('app')
 	);

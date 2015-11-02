@@ -3,6 +3,8 @@ xui-button
 
 A React UI component that creates buttons from the [XUI UI library](https://github.dev.xero.com/pages/Style/xui/section-buttons.html). This includes single buttons and grouped buttons
 
+![](example/buttons.png)
+
 ## Installation
 
 ```bash

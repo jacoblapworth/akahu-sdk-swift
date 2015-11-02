@@ -21,9 +21,10 @@
 //
 // Styleguide: Utilities.1
 
+// scss-lint:disable ImportantRule
 .#{$ns}-u-hidden {
-	display: none;
-	visibility: hidden;
+	display: none !important;
+	visibility: hidden !important;
 }
 
 // scss-lint:disable ImportantRule
@@ -37,9 +38,10 @@
 	width: 1px !important;
 }
 
+// scss-lint:disable ImportantRule
 .#{$ns}-u-hidden-mobile {
 	@include mobile {
-		display: none;
+		display: none !important;
 	}
 }
 

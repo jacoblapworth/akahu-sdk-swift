@@ -19,17 +19,17 @@ const propTypes = {
 	onClick: React.PropTypes.func.isRequired,
 
 	/**
-	 * @property {string} variant Determines what the purpose of this button is. `default`, `primary`, or `create`. Defaults to `default`
+	 * @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `default`, `primary`, or `create`. Defaults to `default`
 	 */
 	variant: React.PropTypes.string,
 
 	/**
-	 * @property {string} size Modifier for the size of the button. `default`, `small`, or `full-width`. Defaults to `default`
+	 * @property {string} [size='default'] size Modifier for the size of the button. `default`, `small`, or `full-width`. Defaults to `default`
 	 */
 	size: React.PropTypes.string,
 
 	/**
-	 * @property {string} type The HTML type of this button. `button`, or `link`. Defaults to `button`
+	 * @property {string} [type='button'] type The HTML type of this button. `button`, or `link`. Defaults to `button`
 	 */
 	type: React.PropTypes.string,
 

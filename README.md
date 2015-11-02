@@ -16,11 +16,7 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `isGrouped`: (Boolean, Optional) If this button is part of a parent button group. Set to false by default
 
-`includeCaret`: (Boolean, Optional) Set to true if you want to style the button with a caret(i.e - a dropdown). Set to false by default
-
 `onClick`: (Function, Required) Bind a function to fire when the button is clicked
-
-`text`: (String, Required) Sets the button text
 
 `variant`: (String, Optional) Determines what the purpose of this button is. `default`, `primary`, or `create`. Defaults to `default`
 
@@ -40,22 +36,19 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 ### Example
 ```js
-import XUIButton, {XUIButtonGroup} from 'xui-button';
+import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 
 <XUIButton
 	isDisabled={true}
 	onChange={handleClick()}
 	variant={'create'}
-	size={'full-width'}
-	text='Click me'></XUIButton>
+	size={'full-width'}>Click me</XUIButton>
 
 <XUIButtonGroup>
 	<XUIButton
-		isGrouped={true}
-		text='Grouped one'></XUIButton>
+		isGrouped={true}>Grouped one</XUIButton>
 	<XUIButton
-		isGrouped={true}
-		text='Grouped two'></XUIButton>
+		isGrouped={true}>Grouped two</XUIButton>
 </XUIButtonGroup>
 
 ```

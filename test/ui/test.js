@@ -1,5 +1,5 @@
 import React from 'react';
-import XUIButton, {XUIButtonGroup} from '../../src/XUIButton.js';
+import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../src/XUIButton.js';
 import './styles/test.scss';
 
 (function() {
@@ -9,85 +9,57 @@ import './styles/test.scss';
 
 	React.render(<div>
 			<div className="testButtonContainer">
-				<XUIButton
-					text='Default button'></XUIButton>
+				<XUIButton>Default button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton
-						variant='primary'
-						text='Primary button'></XUIButton>
+				<XUIButton variant='primary'>Primary button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton
-						variant='create'
-						text='Create button'></XUIButton>
+				<XUIButton variant='create'>Create button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton
-					text='Disabled button'
-					isDisabled={true}></XUIButton>
+				<XUIButton isDisabled={true}>Disabled button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-			<XUIButton
-					text='A dropdown button'
-					variant='create'
-					includeCaret={true}></XUIButton>
+			<XUIButton variant='create'>A dropdown button<XUIButtonCaret /></XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButtonGroup>
-					<XUIButton
-						text='Grouped Button One'
-						isGrouped={true}></XUIButton>
-					<XUIButton
-						text='Grouped Button Two'
-						isGrouped={true}></XUIButton>
-					<XUIButton
-						text='Grouped Button Three'
-						isGrouped={true}></XUIButton>
+					<XUIButton isGrouped={true}>Grouped Button One</XUIButton>
+					<XUIButton isGrouped={true}>Grouped Button Two</XUIButton>
+					<XUIButton isGrouped={true}>Grouped Button Three</XUIButton>
 				</XUIButtonGroup>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton
-					text='Click me for an alert'
-					onClick={clickHandler}></XUIButton>
+				<XUIButton onClick={clickHandler}>Click me for an alert</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton size='small'>Small button</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton size='full-width'>Full width button</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton type='link'>Simple anchor tag with no href</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
-					text='Small button'
-					size='small'></XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					text='Full width button'
-					size='full-width'></XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-						text='Simple anchor tag with no href'
-						type='link'></XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					text='Simple anchor tag with href'
 					type='link'
-					href='http://go.xero.com'></XUIButton>
+					href='http://go.xero.com'>Simple anchor tag with href</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
-						text='Anchor tag with `_blank` target'
 						type='link'
 						href='http://go.xero.com'
-						target='_blank'></XUIButton>
+						target='_blank'>Anchor tag with `_blank` target</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
-					text='Button with non-XUI modifier class'
-					className='fun-times'></XUIButton>
+					className='fun-times'>Button with non-XUI modifier class</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
-					text='Button with a QA hook class'
-					qaHook='buttonQAHook'></XUIButton>
+					qaHook='buttonQAHook'>Button with a QA hook class</XUIButton>
 			</div>
 		</div>, document.getElementById('app')
 	);

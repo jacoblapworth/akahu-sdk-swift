@@ -17,19 +17,9 @@ const propTypes = {
 	isGrouped: React.PropTypes.bool,
 
 	/**
-	 * @property {boolean} [includeCaret=false] Set to true if you want to style the button with a caret(i.e - a dropdown). Set to false by default
-	 */
-	includeCaret: React.PropTypes.bool,
-
-	/**
 	 * @property {function} onClick Bind a function to fire when the button is clicked
 	 */
 	onClick: React.PropTypes.func.isRequired,
-
-	/**
-	 * @property {string} text Sets the button text
-	 */
-	text: React.PropTypes.string.isRequired,
 
 	/**
 	 * @property {string} variant Determines what the purpose of this button is. `default`, `primary`, or `create`. Defaults to `default`
@@ -79,8 +69,7 @@ const propTypes = {
  */
 const defaultProps = {
 	isGrouped: false,
-	isDisabled: false,
-	includeCaret: false
+	isDisabled: false
 };
 
 /**
@@ -156,19 +145,6 @@ function getGroupClass(isGrouped) {
 	return isGrouped ? CSS_CLASSES.GROUP : null;
 }
 
-/**
- * Returns the caret component if the user wants it inside the button
- *
- * @private
- * @param {Boolean} includeCaret - Whether or not the button should include a caret
- * @return {XUIButtonCaret} The caret
- */
-function getCaretEl(includeCaret) {
-	if (includeCaret) {
-		return (<XUIButtonCaret />);
-	}
-}
-
 class XUIButton extends Component {
 
 	render() {
@@ -178,7 +154,6 @@ class XUIButton extends Component {
 		const isLink = this.props.type === 'link';
 		const href = isLink ? (props.href || '#') : null;
 		const target = isLink ? props.target : null;
-		const caret = getCaretEl(props.includeCaret);
 
 		const classNames = cn(
 				CSS_CLASSES.DEFAULT,
@@ -211,8 +186,7 @@ class XUIButton extends Component {
 				disabled={props.isDisabled}
 				qaHook={props.qaHook}
 				className={classNames}>
-					{props.text}
-					{caret}
+					{this.props.children}
 			</Component>
 		);
 	}
@@ -221,4 +195,4 @@ class XUIButton extends Component {
 XUIButton.propTypes = propTypes;
 XUIButton.defaultProps = defaultProps;
 
-export {XUIButton as default, XUIButtonGroup};
+export {XUIButton as default, XUIButtonGroup, XUIButtonCaret};

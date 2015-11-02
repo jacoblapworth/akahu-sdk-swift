@@ -116,12 +116,13 @@
 // Container classes used solely to set the maximum width on larger components such as general containers and panels.
 // The maximum width rule allows you to mark up content in a responsive manner.
 //
-// `xui-container` : Default container class, use this class as well as a size class
+// `xui-container` : Default container class, use this class in combination with one of the size classes listed below
 //
-// `xui-container-small` : Regular size. This is the same as the site that exists today, use to match
-// shared header widths.
+// * `xui-container-small`
+//   * Regular size. This is the same as the site that exists today, use to match shared header widths.
 //
-// `xui-container-large` : Larger size. This is the recommended size for your layouts.
+// * `xui-container-large`
+//   * Larger size. This is the recommended size for your layouts.
 //
 // Markup:
 // <div class="xui-container xui-container-large">

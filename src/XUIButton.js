@@ -151,8 +151,8 @@ export default class XUIButton extends Component {
 	render() {
 		const button = this;
 		const props = this.props;
-		const ElementType = this.props.type === 'link' ? 'a' : 'button';
-		const isLink = this.props.type === 'link';
+		const ElementType = props.type === 'link' ? 'a' : 'button';
+		const isLink = props.type === 'link';
 		const href = isLink ? (props.href || '#') : null;
 		const target = isLink ? props.target : null;
 
@@ -185,7 +185,7 @@ export default class XUIButton extends Component {
 				onClick={clickHandler}
 				disabled={props.isDisabled}
 				className={classNames}>
-					{this.props.children}
+					{props.children}
 			</ElementType>
 		);
 	}

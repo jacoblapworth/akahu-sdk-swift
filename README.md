@@ -43,7 +43,7 @@ import XUIButton, {XUIButtonGroup} from 'xui-button';
 <XUIButton
 	isDisabled={true}
 	onChange={handleClick()}
-	variant={'secondary'}
+	variant={'create'}
 	size={'full-width'}
 	text='Click me'></XUIButton>
 

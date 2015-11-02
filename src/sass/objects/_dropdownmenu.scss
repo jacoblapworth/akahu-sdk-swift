@@ -121,7 +121,7 @@ $shadow-color: #ccc;
 
 .#{$ns}-dropdownmenu-select {
 	border-color: $color-xero-blue;
-	border-radius: 0 0 3px 3px;
+	border-radius: 0 0 $radius $radius;
 	border-top: 0;
 	left: 0;
 	position: absolute;
@@ -129,7 +129,7 @@ $shadow-color: #ccc;
 }
 
 .#{$ns}-menugroup {
-	border-top: 1px solid $color-borders;
+	border-top: $border-standard;
 	margin: 0;
 	padding: 8px 0;
 

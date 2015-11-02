@@ -19,19 +19,19 @@ const propTypes = {
 	onClick: React.PropTypes.func.isRequired,
 
 	/**
-	 * @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `default`, `primary`, or `create`. Defaults to `default`
+	 * @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, or `create`. If nothing is provided then it is a default button
 	 */
 	variant: React.PropTypes.string,
 
 	/**
-	 * @property {string} [size='default'] size Modifier for the size of the button. `default`, `small`, or `full-width`. Defaults to `default`
+	 * @property {string} [size='default'] size Modifier for the size of the button. `small`, or `full-width`. Else ignored
 	 */
 	size: React.PropTypes.string,
 
 	/**
 	 * @property {string} [type='button'] type The HTML type of this button. `button`, or `link`. Defaults to `button`
 	 */
-	type: React.PropTypes.string,
+	type: React.PropTypes.oneOf(['button', 'link']),
 
 	/**
 	 * @property {string} className Any extra modifier classes you want on the button
@@ -66,7 +66,8 @@ const propTypes = {
  */
 const defaultProps = {
 	isGrouped: false,
-	isDisabled: false
+	isDisabled: false,
+	type: 'button'
 };
 
 /**

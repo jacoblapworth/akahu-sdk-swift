@@ -18,9 +18,9 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `onClick`: (Function, Required) Bind a function to fire when the button is clicked
 
-`variant`: (String, Optional) Determines what the purpose of this button is. `default`, `primary`, or `create`. Defaults to `default`
+`variant`: (String, Optional) Determines what the purpose of this button is. `primary`, or `create`. If nothing is provided then it is a default button
 
-`size`: (String, Optional) Modifier for the size of the button. `default`, `small`, or `full-width`. Defaults to `default`
+`size`: (String, Optional) Modifier for the size of the button. `small`, or `full-width`. Else ignored
 
 `type`: (String, Optional) The HTML type of this button. `button`, or `link`. Defaults to `button`
 

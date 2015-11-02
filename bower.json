@@ -3,8 +3,7 @@
 	"version": "0.0.1",
 	"description": "A button. That clicks",
 	"main": [
-		"src/XUIButton.js",
-		"src/scss/_xui-button.scss"
+		"src/XUIButton.js"
 	],
 	"private": true,
 	"ignore": [

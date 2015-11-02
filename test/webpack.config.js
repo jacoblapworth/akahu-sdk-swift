@@ -23,12 +23,9 @@ module.exports = {
 				loaders: [
 					ExtractTextPlugin.extract('style-loader'),
 					'css-loader',
-					'autoprefixer-loader',
 					'sass-loader?includePaths[]=' + path.join(__dirname, '..', 'bower_components')
 				]
 			},
-			{ test: /\.svg$/, loader: 'url-loader' },
-			{ test: /\.(png|jpg|jpeg|gif)$/, loader: 'file-loader' },
 			{ test: /\.js$/, loader: 'babel-loader' }
 		]
 	},

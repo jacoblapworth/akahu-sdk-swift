@@ -9,6 +9,7 @@
 
 @import "../tools/functions";
 @import "../tools/mixins";
+@import "../vars";
 
 // Input groups
 //
@@ -177,7 +178,7 @@
 
 .#{$ns}-select-button + .#{$ns}-dropdownmenu {
 	border-color: $color-xero-blue;
-	border-radius: 0 0 3px 3px;
+	border-radius: 0 0 $radius $radius;
 	border-top: 0;
 	left: 0;
 	position: absolute;

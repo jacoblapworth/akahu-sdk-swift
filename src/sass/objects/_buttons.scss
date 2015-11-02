@@ -1,5 +1,4 @@
-@import "../settings/structure";
-@import "../settings/typography";
+@import "../vars";
 @import "../tools/functions";
 @import "../tools/mixins";
 
@@ -221,6 +220,7 @@
 	bottom: 0;
 	color: $color-primary-text;
 	left: 0;
+	padding: 0 $padding-menu-horizontal;
 	position: absolute;
 	text-align: left;
 	top: 0;
@@ -230,5 +230,5 @@
 	border: $border-standard;
 	border-bottom: 0;
 	border-color: $color-xero-blue;
-	border-radius: 3px 3px 0 0;
+	border-radius: $radius $radius 0 0;
 }

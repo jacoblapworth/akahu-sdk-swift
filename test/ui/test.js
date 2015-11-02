@@ -37,12 +37,10 @@ import './styles/test.scss';
 				<XUIButtonGroup>
 					<XUIButton
 						text={'Grouped Button One'}
-						isGrouped={true}
-						variant={'primary'}></XUIButton>
+						isGrouped={true}></XUIButton>
 					<XUIButton
 						text={'Grouped Button Two'}
-						isGrouped={true}
-						variant={'create'}></XUIButton>
+						isGrouped={true}></XUIButton>
 					<XUIButton
 						text={'Grouped Button Three'}
 						isGrouped={true}></XUIButton>

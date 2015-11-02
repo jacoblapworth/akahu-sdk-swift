@@ -21,8 +21,9 @@ To use XUI in your project include the following `link` in your page:
 ## Example Page Markup
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8" />
 		<title>Page Title</title>
 		<link rel="stylesheet" href="https://edge.xero.com/style/xui/<%= version %>/xui.min.css"/>
 	</head>

@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('install', ['bower-install-simple', 'shell:install']);
-	grunt.registerTask('lint', ['scsslint']);
+	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['readme', 'template', 'kss:styleguide']);
@@ -53,5 +53,46 @@ module.exports = function (grunt) {
 		if (newContents !== originalContents) {
 			grunt.file.write(filepath, newContents, options);
 		}
+	});
+
+	grunt.registerTask('doiuse', 'Task to run doiuse', function () {
+		var postcss = require('postcss');
+		var doiuse = require('doiuse');
+		var fs = require('fs');
+		var os = require('os');
+		var done = this.async();
+
+		fs.readFile('browserslist', { encoding: 'utf8' }, function (err, data) {
+			if (err) {
+				throw err;
+			}
+
+			var browsers = data.split(os.EOL).filter(function (browser) {
+				return browser && typeof browser === 'string';
+			});
+
+			var count = 0;
+
+			postcss(doiuse({
+				browsers: browsers,
+				ignore: [
+					'css-appearance',
+					'css-resize',
+					'viewport-units'
+				],
+				onFeatureUsage: function(usageInfo) {
+					grunt.log.error(usageInfo.message);
+					count++;
+				}
+			}))
+			.process(grunt.file.read('./dist/xui.css'), 'utf8')
+			.catch(function (reason) {
+				grunt.log.error(reason);
+				done(false);
+			})
+			.then(function () {
+				done(count === 0);
+			});
+		});
 	});
 };

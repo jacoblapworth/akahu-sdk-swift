@@ -141,17 +141,29 @@ function getGroupClass(isGrouped) {
 	return isGrouped ? CSS_CLASSES.GROUP : null;
 }
 
+/**
+ * Replaces any href of `#` with `javascript:void(0)`. Else returns the passed href.
+ *
+ * @private
+ * @param {String} href - A given link's href
+ * @return {String} The href that will be assigned to a link
+ */
+function getHref(href) {
+	return href === '#' ? 'javascript:void(0)' : href;
+}
+
 export default class XUIButton extends Component {
 	constructor(props, context) {
 		super(props, context);
 	}
 
 	render() {
+
 		const button = this;
 		const props = this.props;
 		const ElementType = props.type === 'link' ? 'a' : 'button';
 		const isLink = props.type === 'link';
-		const href = isLink ? (props.href || '#') : null;
+		const href = isLink ? getHref(props.href) : null;
 		const target = isLink ? props.target : null;
 
 		const classNames = cn(
@@ -163,15 +175,10 @@ export default class XUIButton extends Component {
 				getGroupClass(props.isGrouped)
 		);
 
-		// If the type is a link, put this handler around all click events to automatically
-		// prevent the default action (following the href) if the href is empty or a hash.
+		// If the type is a link, only call the click event if the link isn't disabled
 		const clickHandler = isLink ? function(e) {
 			if(!props.disabled && props.onClick) {
 				props.onClick.call(button, arguments);
-			}
-
-			if(!props.href || href === '#') {
-				e.preventDefault();
 			}
 		} : props.onClick;
 

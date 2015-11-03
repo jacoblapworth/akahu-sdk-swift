@@ -142,14 +142,14 @@ function getGroupClass(isGrouped) {
 }
 
 /**
- * Replaces any href of `#` with `javascript:void(0)`. Else returns the passed href.
+ * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
  *
  * @private
  * @param {String} href - A given link's href
  * @return {String} The href that will be assigned to a link
  */
 function getHref(href) {
-	return href === '#' ? 'javascript:void(0)' : href;
+	return (!href || href === '#') ? 'javascript:void(0)' : href;
 }
 
 export default class XUIButton extends Component {

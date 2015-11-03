@@ -1,18 +1,14 @@
+@import "../vars";
 // Toasts
 //
-// This is intended to display short useful messages to users.
+// Used to display short, useful messages to users.
 //
-// It's typical screen location is bottom left.
+// Its typical screen location is bottom left.
 //
 // `xui-toast-is-hidden` : An optional class to hide the element, transitions out over 0.1s when the class is applied
 //
-// Markup:
-//   <div class="xui-toast">
-//     <p class="xui-toast--message">Toast Message</p>
-//     <a class="xui-toast--message" href="#ToastLink">Toast Link Label</a>
-//   </div>
-//
 // Styleguide: Toasts
+
 .#{$ns}-toast {
 	background: transparentize($color-grey-1, 0.1);
 	border-radius: $radius;
@@ -28,24 +24,75 @@
 	z-index: 10;
 }
 
-.#{$ns}-toast--message {
+// Single action
+//
+// Markup:
+//   <div class="xui-toast">
+//     <p class="xui-toast--message">Toast Message</p>
+//     <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
+//   </div>
+//
+// Styleguide: Toasts.1
+
+// Multiple actions
+//
+// Markup:
+//   <div class="xui-toast">
+//     <p class="xui-toast--message">Toast Message</p>
+//     <ul class="xui-toast--actionlist">
+//       <li class="xui-toast--action">
+//         <a class="xui-toast--link" href="#ToastLink">Undo</a>
+//       </li>
+//       <li class="xui-toast--action">
+//         <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
+//       </li>
+//     </ul>
+//     <a class="xui-toast--close" title="Close">×</a>
+//   </div>
+//
+// Styleguide: Toasts.2
+
+.#{$ns}-toast--link {
+	color: $color-toast-link;
+}
+
+.#{$ns}-toast--message,
+.#{$ns}-toast--actionlist,
+.#{$ns}-toast--action {
 	display: inline;
 }
 
-/*
-	:nth-child(n+2) is the same as saying,
-	select all elements with this class that have the same parent,
-	except for the very first one
-	https://css-tricks.com/how-nth-child-works/
-	https://css-tricks.com/examples/nth-child-tester/
-*/
-.#{$ns}-toast--message:nth-child(n+2) {
+.#{$ns}-toast--actionlist {
+	padding: 0;
+}
+
+.#{$ns}-toast--action {
 	margin-left: px-to-rem(20);
+
+	&:nth-of-type(n+2) {
+		border-left: 1px solid rgba(255, 255, 255, 0.5);
+		padding: 2px 0 2px px-to-rem(20);
+	}
+}
+
+.#{$ns}-toast--close {
+	color: $color-grey-3;
+	font-size: $font-size-icon-large;
+	margin-left: px-to-rem(20);
+
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 .#{$ns}-toast-is-hidden {
 	opacity: 0;
 	pointer-events: none;
+}
+
+.#{$ns}-toast-list {
+	color: $color-white;
+	list-style: disc;
 }
 
 @include mobile {

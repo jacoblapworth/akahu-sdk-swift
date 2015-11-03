@@ -60,6 +60,23 @@ of 2 levels deep.
 Layout styling should be separate to component styling. Individual components
 should not make assumptions about their layout (e.g. by setting margins, or position).
 
+Avoid the anti-pattern of applying styles in a generic class and then undoing them in a
+more specific class.
+
+
+Patterns
+--------
+
+When you have one set of styles for the first item and a different set of styles for all
+other items, use `nth-of-type(n+2)` or `:nth-child(n+2)` as appropriate.
+
+See: [How nth-child works](https://css-tricks.com/how-nth-child-works/) and
+[nth-child Tester](https://css-tricks.com/examples/nth-child-tester/)
+
+If you used `:first-child` to target the first item and a more general class selector for all
+other items, it is likely you would need to undo some styles for the `:first-child`, which would
+violate our conventions.
+
 
 Making Contributions
 --------------------

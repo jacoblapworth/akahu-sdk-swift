@@ -24,6 +24,6 @@
   "dependencies": {
     "classnames": "^2.1.0",
     "react": "~0.13.3",
-    "reporting-base-component": "https://github.dev.xero.com/FutureRobot/reporting-base-component.git#~1.0.0"
+    "xui-base-component": "https://github.dev.xero.com/FutureRobot/xui-base-component.git#~0.0.1"
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from 'reporting-base-component';
+import Component from 'xui-base-component';
 import cn from 'classNames';
 
 const propTypes = {

@@ -231,4 +231,8 @@
 	border-bottom: 0;
 	border-color: $color-xero-blue;
 	border-radius: $radius $radius 0 0;
+
+	&:hover {
+		border-color: $color-xero-blue;
+	}
 }

@@ -34,13 +34,16 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `title`: (String, Optional) The `title` attribute for this button
 
+### XUI Button Caret Properties
+`isSelect`: (Boolean, Optional) Determines if the caret has select styles. Defaults to false.
+
 ### Example
 ```js
 import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 
 <XUIButton
 	isDisabled={true}
-	onChange={this.handleClick}  
+	onChange={this.handleClick}
 	variant='create'
 	size='full-width'>Click me</XUIButton>
 

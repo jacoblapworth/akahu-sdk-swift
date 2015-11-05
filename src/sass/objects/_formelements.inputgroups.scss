@@ -185,5 +185,5 @@
 	left: 0;
 	position: absolute;
 	top: 100%;
-	transition: $transition-duration-quick all ease-out;
+	transition: $transition-duration-quick all $easing-standard;
 }

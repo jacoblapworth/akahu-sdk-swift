@@ -20,7 +20,7 @@
 	opacity: 1;
 	padding: px-to-rem(20);
 	position: fixed;
-	transition: opacity $transition-duration-super-quick ease-out;
+	transition: opacity $transition-duration-super-quick $easing-standard;
 	z-index: 10;
 }
 

@@ -3,7 +3,7 @@
   "version": "1.5.1",
   "description": "A button. That clicks",
   "main": [
-    "import.js"
+    "index.js"
   ],
   "private": true,
   "ignore": [

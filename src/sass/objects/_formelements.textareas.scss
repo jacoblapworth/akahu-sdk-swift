@@ -10,7 +10,7 @@
 // Styleguide: Form Elements.2
 
 .#{$ns}-textarea {
-	@extend %xui-commoninput;
+	@extend %#{$ns}-commoninput;
 
 	display: block;
 	height: 70px;

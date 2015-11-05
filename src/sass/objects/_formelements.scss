@@ -30,6 +30,10 @@
 		border-color: $color-grey-3;
 	}
 
+	&:disabled {
+		border-color: $color-borders;
+	}
+
 	&:focus {
 		border-color: $color-xero-blue;
 	}

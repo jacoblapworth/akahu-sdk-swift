@@ -94,7 +94,7 @@ $shadow-color: #ccc;
 	max-height: 350px;
 	overflow: hidden;
 	position: absolute;
-	transition: $transition-duration-quick opacity ease-out;
+	transition: $transition-duration-quick opacity $easing-standard;
 	width: 180px;
 	z-index: 1;
 }

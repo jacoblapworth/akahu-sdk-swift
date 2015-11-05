@@ -62,7 +62,7 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: opacity $transition-duration-short;
+	transition: opacity $transition-duration-short $easing-standard;
 	z-index: 10;
 }
 

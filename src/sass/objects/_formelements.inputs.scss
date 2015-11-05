@@ -14,9 +14,10 @@
 // <input class="xui-input" type="tel" placeholder="telephone #"/>
 // <input class="xui-input" type="email" placeholder="example@xero.com"/>
 // <input class="xui-input" type="url" placeholder="http://www.xero.com"/>
+// <input class="xui-input" type="text" placeholder="Disabled input" disabled />
 //
 // Styleguide: Form Elements.1
 
 .#{$ns}-input {
-	@extend %xui-commoninput;
+	@extend %#{$ns}-commoninput;
 }

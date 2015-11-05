@@ -12,7 +12,7 @@
 // Styleguide: Form Elements.3
 
 .#{$ns}-select {
-	@extend %xui-commoninput;
+	@extend %#{$ns}-commoninput;
 
 	cursor: pointer;
 }

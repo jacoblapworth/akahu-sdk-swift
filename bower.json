@@ -1,0 +1,30 @@
+{
+	"name": "XUI-Loader",
+	"version": "0.0.1",
+	"description": "Displays a loader",
+	"main": [
+		"src/Loader.js"
+	],
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"license": "Copyright Xero Ltd",
+	"keywords": [
+		"fedule",
+		"ui"
+	],
+	"moduleType": [
+		"es6"
+	],
+	"dependencies": {
+		"xui-base-component": "git://github.dev.xero.com/FutureRobot/xui-base-component.git",
+		"classnames": "^2.1.0",
+		"react": "~0.13.3",
+		"sass-globals": "git://github.dev.xero.com/gravity/sass-globals.git#^1.0.0"
+	}
+}

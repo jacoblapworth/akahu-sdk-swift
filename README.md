@@ -1,0 +1,5 @@
+Loader
+======
+
+Display a loader
+

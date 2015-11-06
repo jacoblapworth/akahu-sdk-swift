@@ -1,7 +1,7 @@
 import React from 'react';
 import Component from 'xui-base-component';
 
-export default class Loader extends Component {
+export default class XUILoader extends Component {
 	render() {
 		return (
 			<div className={'xui-loader'}>

@@ -4,6 +4,6 @@ import '../../src/scss/_loader.scss';
 
 (function() {
 	React.render(
-		<XUILoader>Hello ffWodsfgsdfg</XUILoader>, document.getElementById('app')
+		<XUILoader/>, document.getElementById('app')
 	);
 })();

@@ -34,6 +34,11 @@ const propTypes = {
 	type: React.PropTypes.oneOf(['button', 'link']),
 
 	/**
+	 * @property {string} [buttonType='submit'] type The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`
+	 */
+	buttonType: React.PropTypes.string,
+
+	/**
 	 * @property {string} className Any extra modifier classes you want on the button
 	 */
 	className: React.PropTypes.string,
@@ -83,6 +88,19 @@ const CSS_CLASSES = {
 	SMALL: 'xui-button-small',
 	FULL_WIDTH: 'xui-u-fullwidth',
 	GROUP: 'xui-button-grouped'
+};
+
+/**
+ * String constants
+ *
+ * @private
+ * @type {Object}
+ */
+const CONSTANTS = {
+	BUTTON: 'button',
+	LINK: 'link',
+	A: 'a',
+	TYPE_SUBMIT: 'submit'
 };
 
 /**
@@ -152,6 +170,19 @@ function getHref(href) {
 	return (!href || href === '#') ? 'javascript:void(0)' : href;
 }
 
+/**
+ * [getButtonType description]
+ * @param  {Boolean} isLink    is the button a link or button?
+ * @param  {String}  [buttonType='button']
+ * @return {null | String}
+ */
+function getButtonType(isLink, buttonType) {
+	if(isLink) {
+		return null;
+	}
+	return buttonType || CONSTANTS.TYPE_SUBMIT;
+}
+
 export default class XUIButton extends Component {
 	constructor(props, context) {
 		super(props, context);
@@ -161,8 +192,9 @@ export default class XUIButton extends Component {
 
 		const button = this;
 		const props = this.props;
-		const ElementType = props.type === 'link' ? 'a' : 'button';
-		const isLink = props.type === 'link';
+		const isLink = props.type === CONSTANTS.LINK;
+		const ElementType = isLink ? CONSTANTS.A : CONSTANTS.BUTTON;
+		const buttonType = getButtonType(isLink, props.buttonType);
 		const href = isLink ? getHref(props.href) : null;
 		const target = isLink ? props.target : null;
 
@@ -187,6 +219,7 @@ export default class XUIButton extends Component {
 				href={href}
 				target={target}
 				title={props.title}
+				type={buttonType}
 				onClick={clickHandler}
 				disabled={props.isDisabled}
 				className={classNames}>

@@ -10,9 +10,9 @@ export default class XUILoader extends Component {
 	render() {
 		return (
 			<div className={'xui-loader ' + this.props.className} style={this.props.customStyle}>
-				<div className={'xui-loader--dot'}></div>
-				<div className={'xui-loader--dot'}></div>
-				<div className={'xui-loader--dot'}></div>
+				<div className='xui-loader--dot'></div>
+				<div className='xui-loader--dot'></div>
+				<div className='xui-loader--dot'></div>
 			</div>
 		);
 	}

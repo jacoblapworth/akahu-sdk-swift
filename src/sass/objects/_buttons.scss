@@ -236,3 +236,65 @@
 		border-color: $color-xero-blue;
 	}
 }
+
+// Unstyled buttons
+//
+// Used to undo OS/User Agent styling on buttons so that they can be used in places where
+// anchors would have been used otherwise. Note that this is completely separate from xui-button
+// styling.
+//
+// Markup:
+// <button type="button" class="xui-unstyledbutton">This is an unstyled button</button>
+//
+// Styleguide: Buttons.7
+
+.#{$ns}-unstyledbutton,
+.#{$ns}-iconbutton {
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: $font-size-text;
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-iconbutton {
+	color: $color-primary-text;
+
+	&:hover {
+		color: $color-grey-2;
+	}
+
+	&:focus {
+		background: rgba(0, 0, 0, 0.1);
+		border-radius: 50%;
+		outline: none;
+	}
+}
+
+// Font icon buttons
+//
+// Used for buttons that only use icons.
+//
+// :active - When active
+// :hover - When hovered
+//
+// Markup:
+// <button type="button" class="xui-iconbutton xui-iconbutton-large">✕</button>
+//
+// Styleguide: Buttons.8
+
+.#{$ns}-iconbutton-small {
+	font-size: $font-size-text;
+	line-height: px-to-rem(18);
+	width: px-to-rem(18);
+}
+
+.#{$ns}-iconbutton-large {
+	font-size: $font-size-icon-large;
+	line-height: px-to-rem(32);
+	width: px-to-rem(32);
+}

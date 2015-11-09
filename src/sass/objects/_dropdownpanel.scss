@@ -1,7 +1,9 @@
 // Dropdown Panel
 //
-// Dropdown panels use their parent panel and represent content overtop of other
-// content. Examples include app Addons, Calendar Pickers.
+// Dropdown panels appear on top of other content. Examples include datepickers and popovers.
+//
+// Note that clicking the arrow of the dropdown should not close the dropdown.
+// Clicking within the arrow's containing element does not need to close the dropdown.
 //
 // Styleguide: Dropdown Panels
 
@@ -40,7 +42,6 @@
 	height: 20px;
 	left: 15px;
 	opacity: 1;
-	pointer-events: none;
 	position: absolute;
 	top: -10px;
 	vertical-align: middle;

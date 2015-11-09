@@ -23,6 +23,6 @@
   "dependencies": {
     "classnames": "^2.1.0",
     "react": "~0.13.3",
-    "xui-base-component": "https://github.dev.xero.com/FutureRobot/xui-base-component.git#~0.0.1"
+    "xui-base-component": "https://github.dev.xero.com/FutureRobot/xui-base-component.git#~2.0.0"
   }
 }

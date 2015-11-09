@@ -2,6 +2,19 @@ import React from 'react';
 import Component from 'xui-base-component';
 import cn from 'classNames';
 
+/**
+ * String constants
+ *
+ * @private
+ * @type {Object}
+ */
+const CONSTANTS = {
+	BUTTON: 'button',
+	LINK: 'link',
+	A: 'a',
+	TYPE_SUBMIT: 'submit'
+};
+
 const propTypes = {
 	/**
 	 * @property {boolean} [isDisabled=false] Determines if the button is disabled or not. Set to false by default
@@ -36,7 +49,7 @@ const propTypes = {
 	/**
 	 * @property {string} [buttonType='submit'] type The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`
 	 */
-	buttonType: React.PropTypes.string,
+	buttonType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
 
 	/**
 	 * @property {string} className Any extra modifier classes you want on the button
@@ -70,6 +83,7 @@ const propTypes = {
  * Default property values for this component
  */
 const defaultProps = {
+	buttonType: CONSTANTS.TYPE_SUBMIT,
 	isGrouped: false,
 	isDisabled: false,
 	type: 'button'
@@ -88,19 +102,6 @@ const CSS_CLASSES = {
 	SMALL: 'xui-button-small',
 	FULL_WIDTH: 'xui-u-fullwidth',
 	GROUP: 'xui-button-grouped'
-};
-
-/**
- * String constants
- *
- * @private
- * @type {Object}
- */
-const CONSTANTS = {
-	BUTTON: 'button',
-	LINK: 'link',
-	A: 'a',
-	TYPE_SUBMIT: 'submit'
 };
 
 /**
@@ -170,19 +171,6 @@ function getHref(href) {
 	return (!href || href === '#') ? 'javascript:void(0)' : href;
 }
 
-/**
- * [getButtonType description]
- * @param  {Boolean} isLink    is the button a link or button?
- * @param  {String}  [buttonType='button']
- * @return {null | String}
- */
-function getButtonType(isLink, buttonType) {
-	if(isLink) {
-		return null;
-	}
-	return buttonType || CONSTANTS.TYPE_SUBMIT;
-}
-
 export default class XUIButton extends Component {
 	constructor(props, context) {
 		super(props, context);
@@ -194,7 +182,7 @@ export default class XUIButton extends Component {
 		const props = this.props;
 		const isLink = props.type === CONSTANTS.LINK;
 		const ElementType = isLink ? CONSTANTS.A : CONSTANTS.BUTTON;
-		const buttonType = getButtonType(isLink, props.buttonType);
+		const buttonType = isLink ? null : props.buttonType;
 		const href = isLink ? getHref(props.href) : null;
 		const target = isLink ? props.target : null;
 

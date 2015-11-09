@@ -9,6 +9,8 @@
 //
 // Styleguide: Toasts
 
+$color-toast-link: #70bae4;
+
 .#{$ns}-toast {
 	background: transparentize($color-grey-1, 0.1);
 	border-radius: $radius;
@@ -47,7 +49,7 @@
 //         <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
 //       </li>
 //     </ul>
-//     <a class="xui-toast--close" title="Close">×</a>
+//     <button class="xui-iconbutton xui-iconbutton-small xui-toast--close" title="Close">✕</a>
 //   </div>
 //
 // Styleguide: Toasts.2
@@ -77,12 +79,7 @@
 
 .#{$ns}-toast--close {
 	color: $color-grey-3;
-	font-size: $font-size-icon-large;
 	margin-left: px-to-rem(20);
-
-	&:hover {
-		text-decoration: none;
-	}
 }
 
 .#{$ns}-toast-is-hidden {

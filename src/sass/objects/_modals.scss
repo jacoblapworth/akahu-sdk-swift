@@ -21,7 +21,7 @@
 // 	<section class="xui-modal xui-modal-medium">
 // 		<header class="xui-modal--header">
 // 			<h3 class="xui-text-panelheading">Smart Rule: Bank</h3>
-// 			<a href="#" class="xui-modal--header-close"></a>
+// 			<button type="button" class="xui-iconbutton xui-iconbutton-large xui-modal--header-close">✕</button>
 // 		</header>
 // 		<div class="xui-modal--body">
 // 			<div class="xui-inputgroup">
@@ -99,27 +99,7 @@
 }
 
 .#{$ns}-modal--header-close {
-	cursor: pointer;
-	height: px-to-rem(64);
-	position: relative;
-	width: px-to-rem(64);
-
-	&:after {
-		color: $color-grey-3;
-		content: "\00d7";
-		font-size: 1.2rem;
-		font-weight: 300;
-		left: 1.6rem;
-		position: absolute;
-		top: px-to-rem(22);
-
-	}
-
-	&:hover {
-		&:after {
-			color: $color-grey-2;
-		}
-	}
+	margin: px-to-rem(16);
 }
 
 // Modal body

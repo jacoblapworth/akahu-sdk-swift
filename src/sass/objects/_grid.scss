@@ -65,7 +65,7 @@
 	flex: 1;
 }
 
-// Fixed width layouts (grid cells)
+// Fixed width layout (grid cells)
 //
 // When used inside a `xui-grid` container, any non layout classes (i.e. `xui-grid-cells`) will
 // take up any remaining space.
@@ -115,7 +115,7 @@
 	width: calc(100% / 3);
 }
 
-// Fixed width layouts (orphan nodes)
+// Fixed width layout (orphan nodes)
 //
 // These layout classes can be used either in isolation or as part of a `xui-grid` container. They
 // basically just provide set widths.
@@ -485,7 +485,7 @@
 	width: calc((100% / 12) * 11);
 }
 
-// Fixed width layouts (device specific)
+// Fixed width layout (device specific)
 //
 // Each of the fixed layout classes has a corresponding mobile and tablet class that only take
 // effect at certain width breakpoints.

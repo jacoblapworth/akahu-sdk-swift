@@ -1,21 +1,24 @@
 {
-	"name": "xui",
-	"description": "Shared styles for Xero applications",
-	"repository": {
-		"type": "git",
-		"url": "https://github.dev.xero.com/Style/xui"
-	},
-	"moduleType": "scss",
-	"main": "src/sass/xui.scss",
-	"ignore": [
-		"**/.*",
-		"bower_components",
-		"build",
-		"node_modules",
-		"browserslist",
-		"Gemfile",
-		"Gemfile.lock",
-		"Gruntfile.js",
-		"package.json"
-	]
+  "name": "xui",
+  "description": "Shared styles for Xero applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.dev.xero.com/Style/xui"
+  },
+  "moduleType": "scss",
+  "main": "src/sass/xui.scss",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "build",
+    "node_modules",
+    "browserslist",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "colors": "git@github.dev.xero.com:Style/colors.git#~1.0.0"
+  }
 }

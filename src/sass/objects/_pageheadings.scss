@@ -35,7 +35,26 @@
 //      <button type="button" class="xui-button">Button</button>
 //   </div>
 // </header>
-// <header class="xui-pageheading">
+//
+// Styleguide: Page Heading.1
+
+// Parent container
+// The coloured background goes full width of the page
+.#{$ns}-pageheading {
+	align-items: center;
+	background-color: $color-white;
+	border-bottom: $border-standard;
+	display: flex;
+	flex-wrap: no-wrap;
+	min-height: 60px;
+	overflow: hidden;
+}
+
+// Page Heading with Tabs
+//
+//
+// Markup:
+// <header class="xui-pageheading xui-pageheading-has-tabs">
 //   <div class="xui-pageheading--content xui-container">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
@@ -53,19 +72,16 @@
 //   </div>
 // </header>
 //
-// Styleguide: Page Heading
+// Styleguide: Page Heading.2
 
-// Parent container
-// The coloured background goes full width of the page
-.#{$ns}-pageheading {
-	align-items: center;
-	background-color: $color-white;
-	border-bottom: $border-standard;
-	display: flex;
+.#{$ns}-pageheading-has-tabs {
 	flex-direction: column;
-	flex-wrap: no-wrap;
-	min-height: 60px;
-	overflow: hidden;
+	justify-content: space-between;
+}
+
+.#{$ns}-pageheading-has-tabs,
+.#{$ns}-pageheading--tabs {
+	padding: 20px 0 0 0;
 }
 
 .#{$ns}-pageheading--title {

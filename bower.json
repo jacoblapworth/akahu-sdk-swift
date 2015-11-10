@@ -1,9 +1,8 @@
 {
 	"name": "XUI-Loader",
-	"version": "0.0.2",
 	"description": "Displays a loader",
 	"main": [
-		"src/Loader.js"
+		"src/XUILoader.js"
 	],
 	"private": true,
 	"ignore": [
@@ -22,7 +21,7 @@
 		"es6"
 	],
 	"dependencies": {
-		"xui-base-component": "git://github.dev.xero.com/FutureRobot/xui-base-component.git",
+		"xui-base-component": "git://github.dev.xero.com/FutureRobot/xui-base-component.git#^1.0.0",
 		"classnames": "^2.1.0",
 		"react": "~0.13.3"
 	}

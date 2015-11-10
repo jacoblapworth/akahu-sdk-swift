@@ -1,7 +1,7 @@
 {
 	"name": "XUI-Loader",
 	"description": "Displays a loader",
-	"main": ""src/XUILoader.js",
+	"main": "src/XUILoader.js",
 	"private": true,
 	"ignore": [
 		"**/.*",

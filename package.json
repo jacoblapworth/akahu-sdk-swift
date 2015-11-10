@@ -1,7 +1,7 @@
 {
-	"version": "0.0.1",
-	"name": "loader",
-	"main": "src/Loader.js",
+	"version": "1.0.0",
+	"name": "xui-loader",
+	"main": "src/XUILoader.js",
 	"description": "Display a loader",
 	"author": "Tony Anderson <tony.anderson@xero.com>",
 	"license": "Copyright Xero Ltd",

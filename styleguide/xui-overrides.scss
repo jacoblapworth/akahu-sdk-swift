@@ -1,0 +1,36 @@
+// ------------------------------------------------------------------------------
+// XUI overrides. Used to undo KSS-specific styling,
+// or add styling for demo purposes
+// ------------------------------------------------------------------------------
+
+#kss-node {
+
+	.kss-main .xui-toast {
+		display: inline-block;
+		position: relative;
+	}
+
+	//   Demo styles for the XUI grid documentation
+	.xui-grid {
+		margin: 20px 0;
+	}
+
+	.xui-grid > .xui-grid--cell, div[class*='xui-layout'] {
+		background-color: rgba(4, 138, 187, 0.3);
+		border: 1px solid rgba(4, 138, 187, 0.3);
+	}
+
+}
+
+.kss-main .xui-dropdownmenu {
+	position: relative;
+}
+
+//Double override due to specificity rules
+.xui-inputgroup .xui-dropdownmenu {
+	position: absolute;
+}
+
+.xui-popover {
+	width: 360px;
+}

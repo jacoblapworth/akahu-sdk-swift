@@ -1,126 +1,26 @@
-// Dropdowns
-//
-// Dropdown panels appear on top of other content. Examples include datepickers and popovers.
-//
-// Note that if a dropdown has an arrow, then clicking the arrow should not close the dropdown.
-// Clicking within the arrow's containing element does not need to close the dropdown.
-//
-// Styleguide: Dropdowns
+@import "../vars";
 
-@import "../settings/colours";
-@import "../settings/structure";
-@import "../tools/functions";
-@import "../tools/mixins";
-
-// Notification Add-on Panel
-//
-// Markup:
-//	<div class="xui-panel xui-notificationpanel">
-//    <div class="xui-panel--arrow">
-//      <svg viewbox="0 0 100 100">
-//        <line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-panel--arrow--border"/>
-//        <line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-panel--arrow--border"/>
-//        <line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-panel--arrow--border-fill"/>
-//      </svg>
-//    </div>
-//    <header class="xui-panel--header xui-notificationpanel--header">
-//      <h3 class="xui-notificationpanel--heading">Notifications</h3>
-//    </header>
-//    <div class="xui-panel--section xui-notificationpanel--body">
-//    </div>
-//    <footer class="xui-panel--footer xui-panel--actions xui-notificationpanel--footer">
-//      <a href="#">Mark as read</a>
-//      <a href="#">Settings</a>
-//    </footer>
-//  </div>
-//
-// Styleguide: Dropdowns.2
-
-.#{$ns}-panel--arrow {
-	display: inline-block;
-	fill: $color-white;
-	height: 20px;
-	left: 15px;
-	opacity: 1;
-	position: absolute;
-	top: -10px;
-	vertical-align: middle;
-	width: 20px;
-
-	&--border {
-		stroke: $color-borders;
-
-		&-fill {
-			stroke: $color-white;
-		}
-	}
-}
-
-.#{$ns}-notificationpanel {
-	position: relative;
-	width: 360px;
-
-	&--header {
-		padding: 0.5rem 0.8rem;
-		position: relative;
-		z-index: 1;
-
-		&.canscrollup {
-			box-shadow: 0 2px 3px $color-borders;
-		}
-	}
-
-	&--footer {
-		padding: 0.5rem 0.8rem;
-		position: relative;
-
-		&.canscrolldown {
-			box-shadow: 0 -2px 3px $color-borders;
-		}
-
-		a {
-			border-right: $border-standard;
-			padding-right: 5px;
-		}
-
-		a:last-of-type {
-			border-right: 0;
-		}
-	}
-}
-
-.#{$ns}-notificationpanel--heading {
-	margin: 0;
-}
-
-.#{$ns}-notificationpanel--body {
-	max-height: 400px;
-	overflow: auto;
-	position: relative;
-	z-index: 0;
-}
-
-// Date Picker Panel
+// Date Picker
 //
 // Looks amazing at 350px.
 // Doesn't have other states
 // Designed to style only, BYO JS framework
 //
 // Markup:
-//	<div class="xui-panel xui-datepicker">
-//		<div class="xui-panel--arrow">
+//	<div class="xui-popover xui-datepicker">
+//		<div class="xui-popover--arrow">
 //			<svg viewbox="0 0 100 100">
-//				<line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-panel--arrow--border"/>
-//				<line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-panel--arrow--border"/>
-//				<line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-panel--arrow--border-fill"/>
+//				<line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-popover--arrow--border"/>
+//				<line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-popover--arrow--border"/>
+//				<line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-popover--arrow--border-fill"/>
 //			</svg>
 //		</div>
-//		<header class="xui-panel--header xui-datepicker--header">
+//		<header class="xui-popover--header xui-datepicker--header">
 //			<button type="button" class="xui-datepicker--backbutton"></button>
 //			<h3 class="xui-datepicker--heading">October 2015</h3>
 //			<button type="button" class="xui-datepicker--nextbutton"></button>
 //		</header>
-//		<table class="xui-panel--section xui-datepicker--body">
+//		<table class="xui-popover--section xui-datepicker--body">
 //			<thead>
 //				<tr>
 //					<th class="xui-datepicker--weekday">Su</th>

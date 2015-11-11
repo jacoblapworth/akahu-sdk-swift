@@ -1,18 +1,18 @@
-// Dropdown Panels
+// Dropdowns
 //
 // Dropdown panels appear on top of other content. Examples include datepickers and popovers.
 //
-// Note that clicking the arrow of the dropdown should not close the dropdown.
+// Note that if a dropdown has an arrow, then clicking the arrow should not close the dropdown.
 // Clicking within the arrow's containing element does not need to close the dropdown.
 //
-// Styleguide: Dropdown Panels
+// Styleguide: Dropdowns
 
 @import "../settings/colours";
 @import "../settings/structure";
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// Notification Addon Panel
+// Notification Add-on Panel
 //
 // Markup:
 //	<div class="xui-panel xui-notificationpanel">
@@ -34,7 +34,7 @@
 //    </footer>
 //  </div>
 //
-// Styleguide: Dropdown Panels.1
+// Styleguide: Dropdowns.2
 
 .#{$ns}-panel--arrow {
 	display: inline-block;
@@ -197,7 +197,7 @@
 //		</table>
 //	</div>
 //
-// Styleguide: Dropdown Panels.2
+// Styleguide: Dropdowns.3
 
 .#{$ns}-datepicker {
 	position: relative;

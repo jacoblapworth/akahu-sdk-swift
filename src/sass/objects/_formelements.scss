@@ -36,6 +36,8 @@
 
 	&:focus {
 		border-color: $color-xero-blue;
+		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+		transition: box-shadow $transition-duration-super-quick;
 	}
 
 	&::placeholder {

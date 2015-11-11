@@ -18,6 +18,7 @@
 :invalid {
 	border-color: $color-xero-red;
 
+	&:focus,
 	&:hover {
 		border-color: $color-xero-red;
 	}

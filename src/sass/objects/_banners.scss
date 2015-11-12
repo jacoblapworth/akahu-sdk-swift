@@ -1,0 +1,56 @@
+@import "../vars";
+// Banners
+//
+// Used to display banner notifications to users, typically in the top center of the screen.
+//
+// Styleguide: Banners
+//
+// Markup:
+//	<div class="xui-banner">
+//	<p class="xui-banner--message">Banner Message</p>
+//    <div class="xui-banner--action">
+//      <a class="xui-banner--link" href="#BannerLink">Action</a>
+//      <a class="xui-banner--link" href="#BannerLink">Action Two</a>
+//      <a class="xui-banner--link" href="#BannerLink">Action Three</a>
+//    </div>
+//	</div>
+
+.#{$ns}-banner {
+	@include clearfix;
+	animation: animate $transition-duration-quick;
+	background: transparentize($color-white, 0.1);
+	border: 1px solid $color-grey-4;
+	border-left: 4px solid $color-xero-blue;
+	border-radius: $radius;
+	box-shadow: $shadow-standard;
+	color: $color-grey-1;
+	margin: px-to-rem(20) auto;
+	padding: px-to-rem(10) px-to-rem(14);
+}
+
+.#{$ns}-banner--message {
+	float: left;
+	margin: 0;
+}
+
+.#{$ns}-banner--action {
+	float: right;
+}
+
+.#{$ns}-banner--link:nth-of-type(n+2) {
+	border-left: 1px solid $color-grey-4;
+	margin-left: px-to-rem(10);
+	padding-left: px-to-rem(10);
+}
+
+@keyframes animate {
+	0% {
+		margin-top: -20px;
+		opacity: 0;
+	}
+
+	100% {
+		margin-top: 0;
+		opacity: 1;
+	}
+}

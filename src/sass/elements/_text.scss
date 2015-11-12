@@ -11,12 +11,12 @@ p {
 	margin: 0 0 1em;
 }
 
-
 // Typography
 //
 // Styleguide: Typography
+
+// Text Styles
 //
-// Standard Text style
 //
 // Markup:
 // <p class="xui-heading">Heading</p>
@@ -31,7 +31,7 @@ p {
 // <p class="xui-heading-mini">Headers</p>
 // <a>Links</a>
 //
-// Styleguide: Typography
+// Styleguide: Typography.1
 .#{$ns}-heading {
 	color: $color-primary-text;
 	font-size: $font-size-heading;

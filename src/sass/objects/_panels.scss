@@ -267,8 +267,6 @@
 	}
 }
 
-// Prefer .#{$ns}-panel--section-inset to .#{$ns}-panel--section-standard
-.#{$ns}-panel--section-standard,
 .#{$ns}-panel--section-inset {
 	padding: px-to-rem(20);
 }

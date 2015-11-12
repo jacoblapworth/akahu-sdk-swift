@@ -20,16 +20,16 @@
     </ul>
 		<ul class="kss-nav__menu xui-menugroup">
 			<li class="kss-nav__menu-item xui-menugroup--item">
-        <a href="./"><span class="kss-nav__name">Overview</span></a>
+        <a href="./" tabindex="-1"><span class="kss-nav__name" >Overview</span></a>
 			</li>
       <li class="kss-nav__menu-item xui-menugroup--item">
-        <a href="https://github.dev.xero.com/pages/Style/xui-examples/"><span class="kss-nav__name">Examples</span></a>
+        <a href="https://github.dev.xero.com/pages/Style/xui-examples/" tabindex="-1"><span class="kss-nav__name">Examples</span></a>
       </li>
     </ul>
     <ul class="kss-nav__menu xui-menugroup">
 			{{#eachRoot}}
 			<li class="kss-nav__menu-item xui-menugroup--item {{#ifReference ../rootName}}menu-item-selected{{/ifReference}}">
-				<a class="menu-header" href="section-{{referenceURI}}.html">
+				<a class="menu-header" href="section-{{referenceURI}}.html" tabindex="-1">
 					<span class="kss-nav__name">{{header}}</span>
 				</a>
 				{{#ifReference ../rootName}}
@@ -76,7 +76,7 @@
         {{#eachSection reference}}
         {{#ifDepth 2}}
         <li class="kss-nav__menu-item xui-menugroup--item">
-          <a class="xui-tab--body" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}">{{header}}</a>
+          <a class="xui-tab--body" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
         </li>
         {{/ifDepth}}
         {{/eachSection}}

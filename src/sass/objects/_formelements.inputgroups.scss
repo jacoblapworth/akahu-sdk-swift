@@ -53,28 +53,15 @@
 // Styleguide: Form Elements.6
 
 .#{$ns}-inputgroup {
-	align-items: stretch;
-	display: flex;
 	line-height: px-to-rem(36);
 	list-style: none;
 	margin: px-to-rem(20) auto;
 	min-height: px-to-rem(36);
 	padding: 0;
-
-	@include tablet {
-		justify-content: center;
-	}
-
-	@include mobile {
-		display: block;
-	}
 }
 
 // TODO: Think of better naming for distinguishing between input group contexts
 .#{$ns}-modal-inputgroup {
-	align-items: stretch;
-	display: flex;
-	flex-direction: column;
 	margin: px-to-rem(20) auto;
 }
 
@@ -82,33 +69,21 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-inputgroup--label {
-	max-width: 280px;
-	padding: 0 1em 0 6em;
-	text-align: right;
-	width: 30%;
-
-	@include tablet {
-		padding-left: 0;
-		text-align: left;
-	}
-
-	@include mobile {
-		padding-right: 0;
-		width: auto;
-	}
+	display: block;
+	margin: 0 auto;
+	padding: 0 1em;
+	width: px-to-rem(350);
 }
 
 // Input(s) part
 // -----------------------------------------------------------------------------
 
 .#{$ns}-inputgroup--inputs {
-	max-width: 350px;
+	display: block;
+	margin: 0 auto;
+	padding: 0 1em;
 	position: relative;
-	width: 100%;
-
-	@include mobile {
-		max-width: none;
-	}
+	width: px-to-rem(350);
 }
 
 // Native Select Boxes
@@ -119,7 +94,7 @@
 // Markup:
 // <div class="xui-inputgroup">
 //   <label class="xui-inputgroup--label" for="group-button-example3">Native</label>
-//   <div class="xui-inputgroup--inputs xui-select-control">
+//   <div class="xui-inputgroup--inputs">
 //     <select class="xui-select" id="group-button-example3">
 //       <option>Value 1</option>
 //       <option>Value 2</option>
@@ -138,27 +113,27 @@
 //
 // Rules for the `<button>`
 //
-// Dropdown Hidden state : Remove class 'xui-button-select-is-selected'
+// Dropdown Hidden state : Remove class `xui-select--button-is-selected`
 //
-// Dropdown Not hidden state : Add class 'xui-button-select-is-selected'
+// Dropdown Not hidden state : Add class `xui-select--button-is-selected`
 //
 //
 // Rules for the `<div class="xui-dropdownmenu-select">`
 //
-// Dropdown Hidden state : Add class 'xui-dropdownmenu-is-closed'
+// Dropdown Hidden state : Add class `xui-dropdownmenu-is-closed`
 //
-// Dropdown Not hidden state : Remove class 'xui-dropdownmenu-is-closed'
+// Dropdown Not hidden state : Remove class `xui-dropdownmenu-is-closed`
 //
 // Markup:
 // <div class="xui-inputgroup">
 //  <label class="xui-inputgroup--label">Custom</label>
-//  <div class="xui-inputgroup--inputs xui-u-flex">
-//		<input class="xui-input" type="text" value="Select option 1" hidden="true"/>
-//		<button type="button" class="xui-button xui-u-fullwidth xui-button-select xui-button-select-is-selected" aria-haspopup="true">
+//  <div class="xui-inputgroup--inputs xui-select">
+//		<input type="hidden" value="Select option 1"/>
+//		<button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //			Select option 1
-//			<span class="xui-select-caret"></span>
+//			<span class="xui-select--caret"></span>
 //		</button>
-//		<div class="xui-dropdownmenu xui-dropdownmenu-select xui-u-fullwidth" aria-hidden="true">
+//		<div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
 //			<div class="xui-dropdownmenu--body">
 //				<ul class="xui-menugroup" role="menu">
 //					<li class="xui-menugroup--item xui-menugroup--item-is-selected" role="menuitem">
@@ -178,12 +153,38 @@
 //
 // Styleguide: Form Elements.8
 
-.#{$ns}-select-button + .#{$ns}-dropdownmenu {
+.#{$ns}-select--button {
+	background-color: transparent;
+	color: $color-primary-text;
+	display: block;
+	padding: px-to-rem(5) px-to-rem(15);
+	text-align: left;
+	width: px-to-rem(350);
+}
+
+.#{$ns}-select--button-is-selected {
+	border: $border-standard;
+	border-bottom: 0;
+	border-color: $color-xero-blue;
+	border-radius: $radius $radius 0 0;
+
+	&:hover {
+		border-color: $color-xero-blue;
+	}
+}
+
+.#{$ns}-select .#{$ns}-dropdownmenu-select {
 	border-color: $color-xero-blue;
 	border-radius: 0 0 $radius $radius;
 	border-top: 0;
 	left: 0;
 	position: absolute;
-	top: 100%;
+	top: 40px;
 	transition: $transition-duration-quick all $easing-standard;
+	width: px-to-rem(350);
+	z-index: 1;
+}
+
+.#{$ns}-inputgroup--inputs .#{$ns}-dropdownmenu-select {
+	left: 1em;
 }

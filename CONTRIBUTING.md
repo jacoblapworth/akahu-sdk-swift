@@ -81,10 +81,25 @@ violate our conventions.
 Making Contributions
 --------------------
 
-Contributions can be made via issues and pull requests.
+Contributions can be made via issues and pull requests. For [breaking changes](#breaking-changes),
+please open PRs against the `breaking-changes` branch. Otherwise open your PR against master.
 
 You should cc [@Style/uxe-team](https://github.dev.xero.com/orgs/Style/teams/uxe-team)
 on pull requests for prompt feedback.
 
 If you are submitting a pull request, please include a screenshot of your change
 to aid the review process.
+
+Breaking Changes
+----------------
+
+A change is considered to be breaking if:
+
+* It removes existing classes. All our classes are public and should be considered XUI's "API"
+* It alters existing classes in a way that could break layouts implementing the existing classes.
+Since projects may subscribe to a semver range (either patch or minor), we do not want layouts
+breaking unexpectedly.
+
+New CSS classes are not considered breaking changes.
+
+If you're not sure, [ask on the UXE flow](https://www.flowdock.com/app/xero/ux-engineering).

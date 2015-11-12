@@ -130,14 +130,21 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--footer {
-	@include clearfix;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 	padding: px-to-rem(20);
 }
 
+.#{$ns}-modal--footer-linear {
+	justify-content: space-between;
+}
+
 .#{$ns}-modal--primaryactions {
-	float: right;
+	order: 1;
+	padding-left: px-to-rem(10);
 }
 
 .#{$ns}-modal--secondaryactions {
-	float: left;
+	order: 0;
 }

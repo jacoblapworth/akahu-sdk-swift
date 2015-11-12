@@ -173,6 +173,39 @@
 //
 // Styleguide: Panels.3
 
+// Multi-step Panel
+//
+//  Markup:
+//	<div class="xui-panel">
+//		<div class="xui-panel--header">
+//			<header class="xui-panel--heading xui-text-panelheading">Current Step</header>
+//		</div>
+//		<ul class="xui-panel--section">
+//			<li class="xui-inputgroup">
+//				<label class="xui-inputgroup--label" for="display-name">Display Name</label>
+//				<div class="xui-inputgroup--inputs">
+//					<input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
+//				</div>
+//			</li>
+//			<li class="xui-inputgroup">
+//				<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
+//				<div class="xui-inputgroup--inputs">
+//					<input class="xui-input" type="text" id="legal-name" placeholder="If different from above"/>
+//				</div>
+//			</li>
+//		</ul>
+//		<div class="xui-panel--footer xui-panel--actions xui-panel--actions-linear">
+//			<div class="xui-panel--primaryactions">
+//				<button type="button" class="xui-button">Continue</button>
+//			</div>
+//			<div class="xui-panel--secondaryactions">
+//				<button type="submit" class="xui-button xui-button-main">Back</button>
+//			</div>
+//		</div>
+//	</div>
+//
+// Styleguide: Panels.4
+
 // Panel with a sidebar
 //
 //  Markup:
@@ -214,17 +247,17 @@
 //				</li>
 //			</ul>
 //			<div class="xui-panel--footer xui-panel--actions">
-//				<div class="xui-panel--secondaryactions">
-//					<button type="button" class="xui-button">Cancel</button>
-//				</div>
 //				<div class="xui-panel--primaryactions">
 //					<button type="submit" class="xui-button xui-button-main">Save</button>
+//				</div>
+//				<div class="xui-panel--secondaryactions">
+//					<button type="button" class="xui-button">Cancel</button>
 //				</div>
 //			</div>
 //		</div>
 //	</div>
 //
-// Styleguide: Panels.4
+// Styleguide: Panels.5
 .#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;
@@ -287,7 +320,6 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--footer {
-	@include clearfix;
 	border-top: $divider-standard;
 
 	&:first-child {
@@ -300,12 +332,23 @@
 	padding: px-to-rem(20);
 }
 
+.#{$ns}-panel--actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+.#{$ns}-panel--actions-linear {
+	justify-content: space-between;
+}
+
 .#{$ns}-panel--primaryactions {
-	float: right;
+	order: 1;
+	padding-left: px-to-rem(10);
 }
 
 .#{$ns}-panel--secondaryactions {
-	float: left;
+	order: 0;
 }
 
 // PANEL WITH SIDEBAR

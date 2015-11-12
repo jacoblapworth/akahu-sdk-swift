@@ -111,49 +111,54 @@
 	width: 100%;
 }
 
-// Containers
+// Page containers
 //
-// Container classes used solely to set the maximum width on larger components such as general containers and panels.
-// The maximum width rule allows you to mark up content in a responsive manner.
+// Used to set the width of page-level content
 //
-// `xui-container` : Default container class, use this class in combination with one of the size classes listed below
+// `xui-pagecontainer` : Default container class, use this class in combination with one of the size classes listed below
 //
-// * `xui-container-small`
+// `xui-pagecontainer-spaced` : Add this modifier to ensure some spacing between the edge of the page and your content.
+// You will want this for page headings with container classes, but perhaps not for panels with container classes.
+//
+// * `xui-pagecontainer-small`
 //   * Regular size. This is the same as the site that exists today, use to match shared header widths.
 //
-// * `xui-container-large`
+// * `xui-pagecontainer-large`
 //   * Larger size. This is the recommended size for your layouts.
 //
 // Markup:
-// <div class="xui-container xui-container-large">
+// <div class="xui-pagecontainer xui-pagecontainer-large">
 //		<!-- your content goes here -->
 // </div>
 //
 // Styleguide: Utilities.4
 
-.#{$ns}-container {
+.#{$ns}-pagecontainer {
 	margin: 0 auto;
-	width: calc(100% - 20px);
 }
 
-.#{$ns}-container-large {
-	max-width: 1160px;
+.#{$ns}-pagecontainer-small {
+	max-width: $page-width-small;
 	width: 100%;
 }
 
-.#{$ns}-container-small {
-	max-width: 940px;
-	width: 100%;
-}
-
-@include tablet {
-	.#{$ns}-container-small {
-		padding: 0 10px;
+@media screen and (max-width: ($page-width-small + 20)) {
+	.#{$ns}-pagecontainer-small {
+		&.#{$ns}-pagecontainer-spaced {
+			padding: 0 10px;
+		}
 	}
 }
 
-@include desktop {
-	.#{$ns}-container-large {
-		padding: 0 10px;
+.#{$ns}-pagecontainer-large {
+	max-width: $page-width-large;
+	width: 100%;
+}
+
+@media screen and (max-width: $page-width-large + 20) {
+	.#{$ns}-pagecontainer-large {
+		&.#{$ns}-pagecontainer-spaced {
+			padding: 0 10px;
+		}
 	}
 }

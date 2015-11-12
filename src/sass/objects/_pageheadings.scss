@@ -13,20 +13,20 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-container">
+//   <div class="xui-pageheading--content xui-pagecontainer">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-container xui-container-small">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-small">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //     <button type="button" class="xui-button">Button</button>
 //   </div>
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-container xui-container-large">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-large">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb"><a href="#">Invoices</a></li>
@@ -55,10 +55,10 @@
 //
 // Markup:
 // <header class="xui-pageheading xui-pageheading-has-tabs">
-//   <div class="xui-pageheading--content xui-container">
+//   <div class="xui-pageheading--content xui-pagecontainer">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
-//   <div class="xui-pageheading--tabs xui-container">
+//   <div class="xui-pageheading--tabs xui-pagecontainer">
 //     <div class="xui-tabbed-navigation">
 //       <ul class="xui-tabgroup">
 //         <li class="xui-tab xui-tab-pageheading">

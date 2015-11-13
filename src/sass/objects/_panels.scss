@@ -46,7 +46,7 @@
 //				</tr>
 //			</tbody>
 //		</table>
-//		<footer class="xui-panel--footer xui-panel--actions">
+//		<footer class="xui-panel--footer xui-actions">
 //			<a href="#">View All...</a>
 //		</footer>
 //	</div>
@@ -130,7 +130,7 @@
 //				</li>
 //			</ol>
 //		</section>
-//		<footer class="xui-panel--footer xui-panel--actions">
+//		<footer class="xui-panel--footer xui-actions">
 //			<a href="#">More</a>
 //		</footer>
 //	</div>
@@ -161,12 +161,12 @@
 //				</div>
 //			</li>
 //		</ul>
-//		<div class="xui-panel--footer xui-panel--actions">
-//			<div class="xui-panel--secondaryactions">
-//				<button type="button" class="xui-button">Cancel</button>
-//			</div>
-//			<div class="xui-panel--primaryactions">
+//		<div class="xui-panel--footer xui-actions">
+//			<div class="xui-actions--primary">
 //				<button type="submit" class="xui-button xui-button-main">Save</button>
+//			</div>
+//			<div class="xui-actions--secondary">
+//				<button type="button" class="xui-button">Cancel</button>
 //			</div>
 //		</div>
 //	</div>
@@ -194,11 +194,11 @@
 //				</div>
 //			</li>
 //		</ul>
-//		<div class="xui-panel--footer xui-panel--actions xui-panel--actions-linear">
-//			<div class="xui-panel--primaryactions">
+//		<div class="xui-panel--footer xui-actions xui-actions-linear">
+//			<div class="xui-actions--primary">
 //				<button type="button" class="xui-button">Continue</button>
 //			</div>
-//			<div class="xui-panel--secondaryactions">
+//			<div class="xui-actions--secondary">
 //				<button type="submit" class="xui-button xui-button-main">Back</button>
 //			</div>
 //		</div>
@@ -246,11 +246,11 @@
 //					</div>
 //				</li>
 //			</ul>
-//			<div class="xui-panel--footer xui-panel--actions">
-//				<div class="xui-panel--primaryactions">
+//			<div class="xui-panel--footer xui-actions">
+//				<div class="xui-actions--primary">
 //					<button type="submit" class="xui-button xui-button-main">Save</button>
 //				</div>
-//				<div class="xui-panel--secondaryactions">
+//				<div class="xui-actions--secondary">
 //					<button type="button" class="xui-button">Cancel</button>
 //				</div>
 //			</div>
@@ -325,28 +325,8 @@
 	}
 }
 
-.#{$ns}-panel--footer-standard,
-.#{$ns}-panel--actions {
+.#{$ns}-panel--footer-standard {
 	padding: px-to-rem(20);
-}
-
-.#{$ns}-panel--actions {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-}
-
-.#{$ns}-panel--actions-linear {
-	justify-content: space-between;
-}
-
-.#{$ns}-panel--primaryactions {
-	order: 1;
-	padding-left: px-to-rem(10);
-}
-
-.#{$ns}-panel--secondaryactions {
-	order: 0;
 }
 
 // PANEL WITH SIDEBAR

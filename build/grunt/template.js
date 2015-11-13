@@ -7,7 +7,6 @@ module.exports = {
 				'use strict';
 
 				return {
-
 					version: packageJson.version
 				};
 			}

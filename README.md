@@ -3,7 +3,6 @@ xui
 ===
 
 [![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
-[![project_status](https://img.shields.io/badge/status-beta-blue.svg)](http://shields.io/)
 
 A shared stylesheet for Xero applications that implements the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 

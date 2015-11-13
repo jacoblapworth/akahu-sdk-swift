@@ -3,7 +3,7 @@
   "description": "Shared styles for Xero applications",
   "repository": {
     "type": "git",
-    "url": "https://github.dev.xero.com/Style/xui"
+    "url": "https://github.dev.xero.com/UXE/xui"
   },
   "moduleType": "scss",
   "main": "src/sass/xui.scss",
@@ -19,6 +19,6 @@
     "package.json"
   ],
   "dependencies": {
-    "colors": "git@github.dev.xero.com:Style/colors.git#~1.0.0"
+    "colors": "git@github.dev.xero.com:UXE/colors.git#~1.0.0"
   }
 }

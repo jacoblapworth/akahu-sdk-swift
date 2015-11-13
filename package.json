@@ -4,7 +4,7 @@
   "description": "Shared styles for Xero applications",
   "repository": {
     "type": "git",
-    "url": "https://github.dev.xero.com/Style/xui"
+    "url": "https://github.dev.xero.com/UXE/xui"
   },
   "engineStrict": true,
   "engines": {

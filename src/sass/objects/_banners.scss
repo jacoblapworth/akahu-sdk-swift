@@ -1,0 +1,65 @@
+@import "../vars";
+// Banners
+//
+// Used to display banner notifications to users, typically in the top center of the screen.
+//
+// Styleguide: Banners
+//
+// Markup:
+//<div class="xui-banner xui-banner-animated">
+//	<p class="xui-banner--message">Banner Message</p>
+//    <ul class="xui-banner--action">
+//      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
+//      <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
+//      <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//    </ul>
+//</div>
+
+.#{$ns}-banner {
+	@include clearfix;
+	background: transparentize($color-white, 0.1);
+	border: 1px solid $color-grey-4;
+	border-left: 4px solid $color-xero-blue;
+	border-radius: $radius;
+	box-shadow: $shadow-standard;
+	color: $color-grey-1;
+	margin: px-to-rem(20) auto;
+	padding: px-to-rem(10) px-to-rem(14);
+}
+
+.#{$ns}-banner-animated {
+	animation: animate $transition-duration-quick;
+}
+
+.#{$ns}-banner--message {
+	float: left;
+	margin: 0;
+}
+
+.#{$ns}-banner--action {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-banner--link {
+	display: inline;
+
+	&:nth-of-type(n+2) {
+		border-left: 1px solid $color-grey-4;
+		margin-left: px-to-rem(10);
+		padding-left: px-to-rem(10);
+	}
+}
+
+@keyframes animate {
+	0% {
+		margin-top: -20px;
+		opacity: 0;
+	}
+
+	100% {
+		margin-top: 0;
+		opacity: 1;
+	}
+}

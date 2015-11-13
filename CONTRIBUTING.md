@@ -84,7 +84,7 @@ Making Contributions
 Contributions can be made via issues and pull requests. For [breaking changes](#breaking-changes),
 please open PRs against the `breaking-changes` branch. Otherwise open your PR against master.
 
-You should cc [@Style/uxe-team](https://github.dev.xero.com/orgs/Style/teams/uxe-team)
+You should cc [@UXE/uxe-team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team)
 on pull requests for prompt feedback.
 
 If you are submitting a pull request, please include a screenshot of your change

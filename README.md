@@ -7,7 +7,7 @@ xui
 
 A shared stylesheet for Xero applications that implements the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
 
-For examples see https://github.dev.xero.com/pages/Style/xui/
+For examples see https://github.dev.xero.com/pages/UXE/xui/
 
 
 Using in Your Project
@@ -24,7 +24,7 @@ Include the following `link` in your page:
 ### Bower
 
 ```bash
-$ bower install git@github.dev.xero.com:Style/xui.git --save
+$ bower install git@github.dev.xero.com:UXE/xui.git --save
 ```
 
 You will need to compile `xui.scss`.
@@ -62,7 +62,7 @@ Usage Guidelines
  * If you need XUI's variables and mixins, import them individually:
     * For variables, `@import 'xui/src/sass/vars';`
     * For mixins, `@import 'xui/src/sass/tools/mixins';`
-    * Colours are defined in [colors](https://github.dev.xero.com/Style/colors) - see that repository for information on how to import those variables.
+    * Colours are defined in [colors](../colors) - see that repository for information on how to import those variables.
 
 
 Contributing to XUI
@@ -79,6 +79,6 @@ Help
 For Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering)
 or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
 
-XUI's [roadmap](https://github.dev.xero.com/Style/xui/wiki#roadmap) is documented in the project wiki.
+XUI's [roadmap](./wiki#roadmap) is documented in the project wiki.
 
 You may also want to subscribe to the [UX Engineering Newsletter](http://xero.us11.list-manage1.com/subscribe?u=b6eb05e31e28aab10df3721c6&id=5c27a93854).

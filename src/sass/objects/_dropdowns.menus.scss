@@ -123,7 +123,7 @@ $shadow-color: #ccc;
 	left: 1em;
 	position: absolute;
 	top: 100%;
-	width: px-to-rem(350);
+	width: $inputgroup-width;
 }
 
 .#{$ns}-menugroup {

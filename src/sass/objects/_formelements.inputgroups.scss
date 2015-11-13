@@ -72,7 +72,7 @@
 	display: block;
 	margin: 0 auto;
 	padding: 0 1em;
-	width: px-to-rem(350);
+	width: $inputgroup-width;
 }
 
 // Input(s) part
@@ -83,7 +83,7 @@
 	margin: 0 auto;
 	padding: 0 1em;
 	position: relative;
-	width: px-to-rem(350);
+	width: $inputgroup-width;
 }
 
 // Native Select Boxes
@@ -159,7 +159,7 @@
 	display: block;
 	padding: px-to-rem(5) px-to-rem(15);
 	text-align: left;
-	width: px-to-rem(350);
+	width: $inputgroup-width;
 }
 
 .#{$ns}-select--button-is-selected {
@@ -181,7 +181,7 @@
 	position: absolute;
 	top: 40px;
 	transition: $transition-duration-quick all $easing-standard;
-	width: px-to-rem(350);
+	width: $inputgroup-width;
 	z-index: 1;
 }
 

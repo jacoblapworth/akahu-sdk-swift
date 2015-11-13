@@ -27,7 +27,9 @@
 // Styleguide: Page Layout.1
 
 .#{$ns}-pagecontainer {
-	margin: 0 auto;
+	// Allow components to set their own vertical margins
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .#{$ns}-pagecontainer-small {

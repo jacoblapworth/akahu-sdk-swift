@@ -1,6 +1,6 @@
 {
   "name": "xui",
-  "version": "8.4.0",
+  "version": "8.5.0",
   "description": "Shared styles for Xero applications",
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
     "doc": "grunt doc",
     "lint": "grunt lint",
     "watch": "grunt watch",
-    "bump-major": "bumper major \"Bump to {version}\" --tag \"{version}\""
+    "bump-major": "bumper major \"Bump to {version}\" --tag \"{version}\"",
+    "bump-minor": "bumper minor \"Bump to {version}\" --tag \"{version}\"",
+    "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\""
   },
   "devDependencies": {
     "bumper-cli": "git://github.dev.xero.com/XeroJS/bumper-cli.git#1.2.0",

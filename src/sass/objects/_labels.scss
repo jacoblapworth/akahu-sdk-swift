@@ -8,26 +8,26 @@
 //
 //
 // Markup:
-// <span class="xui-label-default">
+// <span class="xui-label">
 //   DRAFT
 // </span>
-// <span class="xui-label-positive">
+// <span class="xui-label xui-label-positive">
 //   ACCEPTED
 // </span>
-// <span class="xui-label-negative">
+// <span class="xui-label xui-label-negative">
 //   DECLINED
 // </span>
 // <p class="xui-heading">
 // 	Heading
-// 	<span class="xui-label-default">DRAFT</span>
+// 	<span class="xui-label">DRAFT</span>
 // </p>
 // <p class="xui-page-title">
 // 	Page Titles
-// 	<span class="xui-label-positive">APPROVED</span>
+// 	<span class="xui-label xui-label-positive">APPROVED</span>
 // </p>
 // <p class="xui-heading-mini">
 // 	Headers
-// 	<span class="xui-label-negative">OVERDUE</span>
+// 	<span class="xui-label xui-label-negative">OVERDUE</span>
 // </p>
 //
 //
@@ -36,9 +36,7 @@
 // Parent container
 // The coloured background goes full width of the page
 .#{$ns}-label {
-	&-default {
-		color: $color-secondary-text;
-	}
+	color: $color-secondary-text;
 
 	&-positive {
 		color: $color-xero-light-green;

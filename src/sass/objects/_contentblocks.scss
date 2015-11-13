@@ -82,11 +82,6 @@
 	}
 }
 
-// FIXME: need a better way of opting into row hover
-tr.#{$ns}-contentblock:hover {
-	background-color: $color-hovers;
-}
-
 // Tables
 //
 // Markup:

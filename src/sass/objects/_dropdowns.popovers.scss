@@ -1,0 +1,98 @@
+@import "../vars";
+
+// Popover
+//
+// Markup:
+//	<div class="xui-popover">
+//    <div class="xui-popover--arrow">
+//      <svg viewbox="0 0 100 100">
+//        <line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-popover--arrow--border"/>
+//        <line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-popover--arrow--border"/>
+//        <line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-popover--arrow--border-fill"/>
+//      </svg>
+//    </div>
+//    <header class="xui-popover--header xui-popover--header-standard">
+//      <h3 class="xui-popover--heading">Notifications</h3>
+//    </header>
+//    <div class="xui-popover--body">
+//    </div>
+//    <footer class="xui-popover--footer xui-popover--footer-standard">
+//      <a class="xui-popover--link" href="#">Mark as read</a>
+//      <a class="xui-popover--link" href="#">Settings</a>
+//    </footer>
+//  </div>
+//
+// Styleguide: Dropdowns.2
+
+.#{$ns}-popover {
+	background-color: $color-panels;
+	border: $border-standard;
+	border-radius: $radius;
+	box-shadow: $shadow-standard;
+	position: relative;
+}
+
+.#{$ns}-popover--header {
+	position: relative;
+	z-index: 1;
+ }
+
+.#{$ns}-popover--header-standard {
+	padding: 0.5rem 0.8rem;
+}
+
+.#{$ns}-popover--header-can-scroll-up {
+	box-shadow: 0 2px 3px $color-borders;
+}
+
+.#{$ns}-popover--arrow {
+	display: inline-block;
+	fill: $color-white;
+	height: 20px;
+	left: 15px;
+	opacity: 1;
+	position: absolute;
+	top: -10px;
+	vertical-align: middle;
+	width: 20px;
+
+	&--border {
+		stroke: $color-borders;
+
+		&-fill {
+			stroke: $color-white;
+		}
+	}
+}
+
+.#{$ns}-popover--heading {
+	margin: 0;
+}
+
+.#{$ns}-popover--body {
+	max-height: 400px;
+	overflow: auto;
+	position: relative;
+	z-index: 0;
+}
+
+.#{$ns}-popover--footer {
+	border-top: $divider-standard;
+	position: relative;
+}
+
+.#{$ns}-popover--footer-standard {
+	padding: 0.5rem 0.8rem;
+}
+
+.#{$ns}-popover--footer-can-scroll-down {
+	box-shadow: 0 -2px 3px $color-borders;
+}
+
+.#{$ns}-popover--link {
+	&:nth-of-type(n+2) {
+		border-left: $border-standard;
+		margin-left: px-to-rem(10);
+		padding: 0 0 0 px-to-rem(10);
+	}
+}

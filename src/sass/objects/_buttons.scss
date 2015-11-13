@@ -215,27 +215,6 @@
 	pointer-events: none;
 }
 
-.#{$ns}-button-select {
-	background-color: transparent;
-	bottom: 0;
-	color: $color-primary-text;
-	left: 0;
-	padding: 0 $padding-menu-horizontal;
-	position: absolute;
-	text-align: left;
-	top: 0;
-}
-
-.#{$ns}-button-select-is-selected {
-	border: $border-standard;
-	border-bottom: 0;
-	border-color: $color-xero-blue;
-	border-radius: $radius $radius 0 0;
-
-	&:hover {
-		border-color: $color-xero-blue;
-	}
-}
 
 // Unstyled buttons
 //

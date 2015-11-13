@@ -1,6 +1,6 @@
 @import "../vars";
 
-// Dropdown Menus
+// Dropdown Menu
 //
 // Markup:
 //	<div class="xui-dropdownmenu">
@@ -120,9 +120,10 @@ $shadow-color: #ccc;
 	border-color: $color-xero-blue;
 	border-radius: 0 0 $radius $radius;
 	border-top: 0;
-	left: 0;
+	left: 1em;
 	position: absolute;
 	top: 100%;
+	width: $inputgroup-width;
 }
 
 .#{$ns}-menugroup {

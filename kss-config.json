@@ -14,7 +14,5 @@
 
 	"homepage": "../../styleguide/styleguide.md",
 
-	"template": "./template",
-
-	"title": "XUI"
+	"template": "./template"
 }

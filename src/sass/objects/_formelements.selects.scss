@@ -12,12 +12,16 @@
 // Styleguide: Form Elements.3
 
 .#{$ns}-select {
+	position: relative;
+}
+
+select.#{$ns}-select {
 	@extend %#{$ns}-commoninput;
 
 	cursor: pointer;
 }
 
-.#{$ns}-select-caret {
+.#{$ns}-select--caret {
 	@include caret;
 	position: absolute;
 	right: 6px;

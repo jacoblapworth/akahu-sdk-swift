@@ -1,0 +1,13 @@
+// Dropdowns
+//
+// A dropdown is a component that appear on top of other content.
+// Examples include menus, popovers and pickers.
+//
+// Note that if a dropdown has an arrow, then clicking the arrow should not close the dropdown.
+// Clicking within the arrow's containing element does not need to close the dropdown.
+//
+// Styleguide: Dropdowns
+
+@import "dropdowns.menus";
+@import "dropdowns.popovers";
+@import "dropdowns.pickers";

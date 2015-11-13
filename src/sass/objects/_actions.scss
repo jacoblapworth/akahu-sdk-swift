@@ -1,0 +1,19 @@
+.#{$ns}-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding: px-to-rem(20);
+}
+
+.#{$ns}-actions-linear {
+	justify-content: space-between;
+}
+
+.#{$ns}-actions--primary {
+	order: 1;
+	padding-left: px-to-rem(10);
+}
+
+.#{$ns}-actions--secondary {
+	order: 0;
+}

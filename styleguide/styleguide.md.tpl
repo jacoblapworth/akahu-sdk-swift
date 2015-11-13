@@ -28,35 +28,37 @@ To use XUI in your project include the following `link` in your page:
 		<link rel="stylesheet" href="https://edge.xero.com/style/xui/<%= version %>/xui.min.css"/>
 	</head>
 	<body>
-		<header class="xui-pagenav">
-			<div class="xui-pagenav--main xui-container xui-container-large">
-				<h1 class="xui-page-title">Page Navigation Title</h1>
-			</div>
-			<nav class="xui-pagenav--nav xui-container xui-container-large">
-				<ul class="xui-tabgroup">
-					<li class="xui-tab xui-tab-pagenav">
-						<a class="xui-tab--body" href="#nav1">Nav 1</a>
-					</li>
-					<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
-						 <a class="xui-tab--body" href="#nav3">Nav 3</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<header class="xui-pageheading">
-			<div class="xui-pageheading--content xui-container xui-container-large">
-				<h1 class="xui-pageheading--title">Title</h1>
-			</div>
-		</header>
-		<div class="xui-panel xui-container xui-container-large">
-			<header class="xui-panel--header">
-				<h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
-			</header>
-			<section>
-				<!-- page content -->
-			</section>
-		</div>
-	</body>
+        <header class="xui-pagenav">
+            <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
+                <div class="xui-pagenav--main ">
+                    <h1 class="xui-page-title">Page Navigation Title</h1>
+                </div>
+                <nav class="xui-pagenav--nav xui-pagecontainer">
+                    <ul class="xui-tabgroup">
+                        <li class="xui-tab xui-tab-pagenav">
+                            <a class="xui-tab--body" href="#nav1">Nav 1</a>
+                        </li>
+                        <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
+                             <a class="xui-tab--body" href="#nav3">Nav 3</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <header class="xui-pageheading">
+            <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
+                <h1 class="xui-pageheading--title">Title</h1>
+            </div>
+        </header>
+        <div class="xui-panel xui-pagecontainer xui-pagecontainer-large">
+            <header class="xui-panel--header">
+                <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
+            </header>
+            <section>
+                <!-- page content -->
+            </section>
+        </div>
+    </body>
 </html>
 ```
 

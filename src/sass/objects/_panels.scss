@@ -10,10 +10,9 @@
 //
 // Styleguide: Panels
 
-@import "../settings/colours";
-@import "../settings/structure";
-@import "../tools/functions";
+@import "../vars";
 @import "../tools/mixins";
+@import "../tools/functions";
 
 // Panel with a table
 //
@@ -309,8 +308,7 @@
 	text-align: center;
 
 	@media(min-width: px-to-rem(600)) {
-		margin-left: auto;
-		margin-right: auto;
+		@include margin-auto-horizontal;
 	}
 }
 

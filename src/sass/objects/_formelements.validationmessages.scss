@@ -1,8 +1,6 @@
-@import "../tools/functions";
+@import "../vars";
 @import "../tools/mixins";
-@import "../settings/animation";
-@import "../settings/colours";
-@import "../settings/structure";
+@import "../tools/functions";
 
 // Validation styles
 //
@@ -81,10 +79,9 @@
 	text-indent: 0;
 
 	@include tablet {
+		@include margin-auto-horizontal;
 		bottom: 0.5em;
 		left: 0;
-		margin-left: auto;
-		margin-right: auto;
 	}
 
 	&:before {

@@ -39,7 +39,7 @@
     "kss": "^2.1.0",
     "load-grunt-config": "^0.17.2",
     "load-grunt-tasks": "^3.2.0",
-    "nopt": "3.0.4",
+    "nopt": "^3.0.6",
     "postcss": "^5.0.10"
   }
 }

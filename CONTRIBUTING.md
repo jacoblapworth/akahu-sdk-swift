@@ -5,11 +5,10 @@ Getting Started
 You'll need:
 
  * [NodeJS](https://nodejs.org/)
- * [Grunt](http://gruntjs.com/)
  * [Ruby](https://www.ruby-lang.org/en/)
  * [Bundler](http://bundler.io/)
 
-[nvm](https://github.com/creationix/nvm) is recommended, but not required.
+[nvm](https://github.com/creationix/nvm) and [Grunt](http://gruntjs.com/) are recommended, but not required.
 
 
 npm scripts

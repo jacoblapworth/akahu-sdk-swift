@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from 'reporting-base-component';
+import Component from 'xui-base-component';
 
 export default class XUIButtonCaret extends Component {
 	constructor(props, context) {

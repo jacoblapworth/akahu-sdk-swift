@@ -16,7 +16,7 @@ To use XUI in your project include the following `link` in your page:
 
 ## Examples
 
-[XUI Examples](https://github.dev.xero.com/pages/Style/xui-examples/) provides examples of XUI component styles in larger interface layouts.
+[XUI Examples](https://github.dev.xero.com/pages/UXE/xui-examples/) provides examples of XUI component styles in larger interface layouts.
 
 ## Example Page Markup
 ```html

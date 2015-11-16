@@ -71,8 +71,8 @@
 .#{$ns}-inputgroup--label {
 	display: block;
 	margin: 0 auto;
+	max-width: $inputgroup-width;
 	padding: 0 1em;
-	width: $inputgroup-width;
 }
 
 // Input(s) part
@@ -81,9 +81,9 @@
 .#{$ns}-inputgroup--inputs {
 	display: block;
 	margin: 0 auto;
+	max-width: $inputgroup-width;
 	padding: 0 1em;
 	position: relative;
-	width: $inputgroup-width;
 }
 
 // Native Select Boxes

@@ -1,6 +1,6 @@
 {
   "name": "xui",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "dependencies": {
     "bumper-cli": {
       "version": "1.2.0",

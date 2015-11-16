@@ -1,9 +1,8 @@
 {
   "name": "xui-button",
-  "version": "1.5.1",
   "description": "A button. That clicks",
   "main": [
-    "import.js"
+    "index.js"
   ],
   "private": true,
   "ignore": [
@@ -24,6 +23,6 @@
   "dependencies": {
     "classnames": "^2.1.0",
     "react": "~0.14.2",
-    "xui-base-component": "https://github.dev.xero.com/FutureRobot/xui-base-component.git#~0.0.1"
+    "xui-base-component": "git@github.dev.xero.com:FutureRobot/xui-base-component.git#~2.0.0"
   }
 }

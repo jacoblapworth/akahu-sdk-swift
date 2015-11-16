@@ -24,6 +24,8 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `type`: (String, Optional) The HTML type of this button. `button`, or `link`. Defaults to `button`
 
+`buttonType` (String, Optional} The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`
+
 `className`: (String, Optional) Any extra modifier classes you want on the button
 
 `href`: (String, Optional) If this button is type `link` then this will be the hyperlink reference. Else ignored
@@ -34,13 +36,16 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `title`: (String, Optional) The `title` attribute for this button
 
+### XUI Button Caret Properties
+`isSelect`: (Boolean, Optional) Determines if the caret has select styles. Defaults to false.
+
 ### Example
 ```js
 import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 
 <XUIButton
 	isDisabled={true}
-	onChange={this.handleClick}  
+	onChange={this.handleClick}
 	variant='create'
 	size='full-width'>Click me</XUIButton>
 

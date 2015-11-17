@@ -1,14 +1,16 @@
-@import "../settings/colours";
+@import "../vars";
+
+$_section-padding: 4px $spacing-standard;
 
 .#{$ns}-sectionheading {
 	background-color: $color-backgrounds;
 	border-bottom: $divider-standard;
 	border-top: $divider-standard;
 	margin: 0;
-	padding: 4px 16px;
+	padding: $_section-padding;
 	text-align: left;
 }
 
 .#{$ns}-sectionheading--cell {
-	padding: 4px 16px;
+	padding: $_section-padding;
 }

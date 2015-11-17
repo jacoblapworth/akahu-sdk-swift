@@ -278,12 +278,12 @@
 }
 
 .#{$ns}-panel--header-standard {
-	padding: px-to-rem(20);
+	padding: $spacing-standard;
 }
 
 .#{$ns}-panel--heading {
 	margin: 0;
-	padding: px-to-rem(20);
+	padding: $spacing-standard;
 }
 
 // PANEL SECTIONS/BODY

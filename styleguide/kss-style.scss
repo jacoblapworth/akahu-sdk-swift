@@ -1,177 +1,201 @@
-// Import XUI variables
-@import "../src/sass/vars";
+/**
+ * Our customizations to the KSS style sheet.
+ */
+
+@import "../src/sass/xui";
 
 
-// ------------------------------------------------------------------------------
-//   $group Variables - Colors, Fonts, etc.
-// ------------------------------------------------------------------------------
-$kss-background:  $color-white;
+$kss-sidebar-width: 13rem;
 
-$kss-sidebar-width: 200px;
-$kss-sidebar-background-color: $color-white;
+@mixin sidebar-hide-breakpoint {
+	@media screen and (min-width: 37.5rem) {
+		@content;
+	}
+}
 
-$kss-content-padding: 50px;
-
-
-
-
-
-// ------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Layout and page background
-// ------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
-#kss-node {
-  background: $kss-background;
-  margin: 0;
-  padding: 0;
+.kss-node {
+	background: $color-white;
+	box-sizing: border-box;
 
-  .kss-main,
-  .kss-sidebar {
-    float: left;
-    box-sizing: border-box;
-  }
-
-
-  .kss-main {
-      width: calc(100% - #{$kss-sidebar-width});
-      // width: 80%;
-      margin-left: $kss-sidebar-width;
-  }
-
+	@include sidebar-hide-breakpoint {
+		display: flex;
+	}
 }
 
-// ------------------------------------------------------------------------------
+.kss-node-is-showing-sidebar {
+	overflow: hidden;
+}
+
+
+// -----------------------------------------------------------------------------
 // Sidebar-area components
-// ------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
-#kss-node .kss-sidebar{
+.kss-sidebar {
+	background: $color-white;
+	border-right: $border-standard;
+	height: 100vh;
+	left: calc(-13rem - 1px);
+	min-width: $kss-sidebar-width;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	transition: left 0.2s;
+	z-index: 10;
 
-  background: $kss-sidebar-background-color;
-  max-height: 100vh;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  padding: 0;
-  border-right: 1px solid $color-borders;
+	@include sidebar-hide-breakpoint {
+		left: 0;
+		position: fixed;
+	}
 
-  width: $kss-sidebar-width;
-  border-bottom: 0;
+	a {
+		color: $color-grey-1;
 
-  height: 100%;
+		// override xui to tighten the spacing up a bit
+		padding-top: 6px;
+		padding-bottom: 6px;
+	}
 
-  .kss-doc-title{
-    margin: 0;
-    padding: 7px 0 3px 50px;
-    background: url(xero.svg) 15px center no-repeat;
-    font-weight: normal;
-    font-size: 16px;
-  }
+	.menu-item-selected {
+		ul {
+			display: none;
+		}
 
-  a{
-    color: $color-grey-1;
+		.menu-header {
+			border-left: 4px solid $color-xero-blue;
+			padding-left: 11px;
+		}
+	}
+}
 
-    // override xui to tighten the spacing up a bit
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
+.kss-sidebar-is-showing {
+	left: 0;
+}
 
-  .menu-item-selected{
-
-    ul{
-      display: none;
-    }
-
-    .menu-header{
-      border-left: 4px solid $color-xero-blue;
-      padding-left: 11px;
-    }
-
-    // &:hover{
-    //   background-color: $kss-sidebar-background-color;
-    // }
-
-    // .menu-header{
-    //   border-left: 4px solid $color-xero-blue;
-    //   font-weight: bold;
-    //   padding-left: 11px;
-    // }
-
-    // // override xui styles to get nested menu
-    // .xui-menugroup{
-    //   flex-direction: column;
-    //   align-items: initial;
-    //   padding: 0;
-
-    //   a{padding-left: 30px;}
-    // }
-  }
-
+.kss-doc-title {
+	background: url(xero.svg) 0.85em center no-repeat;
+	font-weight: normal;
+	margin: 0;
+	padding: 0.5em 0 0.5em 3em;
 }
 
 
+// -----------------------------------------------------------------------------
+// Content-area
+// -----------------------------------------------------------------------------
 
-// ------------------------------------------------------------------------------
-// Content-area components
-// ------------------------------------------------------------------------------
+.kss-main {
+	left: 0;
+	padding-top: 3.75rem;
+	position: relative;
+	transition: left 0.2s;
+	width: 100vw;
 
-#kss-node {
+	@include sidebar-hide-breakpoint {
+		left: $kss-sidebar-width;
+		width: calc(100% - 13rem);
+	}
+}
 
-  .kss-section:empty{
-    display: none;
-  }
+.kss-main-is-showing-sidebar {
+	left: $kss-sidebar-width;
+}
 
-  .kss-section{
-    padding: $kss-content-padding;
-    border-top: 1px solid $color-borders;
+.kss-hamburger {
+	background: url('hamburger.png') center center / 2rem auto no-repeat $color-grey-2;
+	width: 3.5rem;
 
-    &:not(.kss-section--title) .content{
-      max-width: 1000px;
-    }
+	&:hover {
+		background-color: $color-grey-3;
+	}
 
-    // dont show top border on title, or on next section
-    &:nth-child(-n+2){
-      border-top: 0;
-    }
-  }
+	@include sidebar-hide-breakpoint {
+		display: none;
+	}
+}
 
-  // Title of component
-  .kss-section--title{
-    background: $color-grey-1;
-    color: $color-white;
-    position: relative;
-    padding-bottom: 0;
+.kss-overview {
+	margin: 2em 1em;
+}
 
-    h1{
-      margin: 0;
-      padding: 20px 0;
-      font-weight: normal;
-      font-size: 22px;
-    }
+.kss-section:empty {
+	display: none;
+}
 
-    .xui-menugroup--item a{
-      color: $color-white;
-      &:hover{
-        color: $color-grey-1;
-        background: $color-white;
-      }
-    }
-  }
+.kss-section {
+	border-top: $border-standard;
+
+	// dont show top border on title, or on next section
+	&:nth-child(-n+2) {
+		border-top: 0;
+	}
+
+	+ .kss-section {
+		margin-top: 2em;
+	}
+
+	.content {
+		margin: 1em;
+	}
+}
+
+.kss-section--title {
+	background: $color-grey-1;
+	color: $color-white;
+
+	h1 {
+		font-weight: normal;
+		margin: 0;
+		padding: 1em;
+	}
+
+	.xui-menugroup--item a {
+		color: $color-white;
+
+		&:hover {
+			color: $color-grey-1;
+			background: $color-white;
+		}
+	}
+}
+
+.kss-section--header {
+	background-color: $color-grey-1;
+	display: flex;
+	left: 0;
+	position: fixed;
+	top: 0;
+	transition: left 0.2s;
+	width: 100%;
+	z-index: 10;
+
+	@include sidebar-hide-breakpoint {
+		left: $kss-sidebar-width;
+		width: calc(100% - 13rem);
+	}
+}
+
+.kss-section--header-is-showing-sidebar {
+	left: $kss-sidebar-width;
+}
 
 
-  .kss-modifier__default-name {
-    font-weight: bold;
-    // margin-bottom: ($kss-vertical-rhythm / 2);
-  }
-  .kss-modifier__name {
-    float: left;
-    padding-right: 10px;
-    font-weight: bold;
-  }
+.kss-modifier__default-name {
+	font-weight: bold;
+	// margin-bottom: ($kss-vertical-rhythm / 2);
+}
+.kss-modifier__name {
+	float: left;
+	padding-right: 10px;
+	font-weight: bold;
+}
 
-  .kss-description{
-    max-width: 600px;
-  }
-
+.kss-description{
+	max-width: 600px;
 }
 
 
@@ -179,69 +203,68 @@ $kss-content-padding: 50px;
 //   $group prettyprint.js styling
 // ------------------------------------------------------------------------------
 
-#kss-node {
-
-  .kss-markup{
-    margin-top: 20px;
-  }
-
-  pre{
-    overflow: scroll;
-  }
-  /* Pretty printing styles. Used with prettify.js. */
-
-  /* SPAN elements with the classes below are added by prettyprint. */
-  .pln { color: #000 }  /* plain text */
-
-  .str { color: #080 }  /* string content */
-  .kwd { color: #008 }  /* a keyword */
-  .com { color: #800 }  /* a comment */
-  .typ { color: #606 }  /* a type name */
-  .lit { color: #066 }  /* a literal value */
-  /* punctuation, lisp open bracket, lisp close bracket */
-  .pun, .opn, .clo { color: #660 }
-  .tag { color: #008 }  /* a markup tag name */
-  .atn { color: #606 }  /* a markup attribute name */
-  .atv { color: #080 }  /* a markup attribute value */
-  .dec, .var { color: #606 }  /* a declaration; a variable name */
-  .fun { color: red }  /* a function name */
-
-  /* Use higher contrast and text-weight for printable form. */
-  // @media print, projection {
-  //   .str { color: #060 }
-  //   .kwd { color: #006; font-weight: bold }
-  //   .com { color: #600; font-style: italic }
-  //   .typ { color: #404; font-weight: bold }
-  //   .lit { color: #044 }
-  //   .pun, .opn, .clo { color: #440 }
-  //   .tag { color: #006; font-weight: bold }
-  //   .atn { color: #404 }
-  //   .atv { color: #060 }
-  // }
-
-
-  .prettyprint {
-    background: $color-grey-6;
-  }
-
-  .linenums {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      // border-bottom: 1px solid #eee;
-      padding: 0 10px;
-
-      // &:nth-child(2) {
-      //   background-color: #fcfcfc;
-      // }
-
-      &:last-of-type {
-        border-bottom: none;
-      }
-    }
-  }
+.kss-markup {
+	border: $border-standard;
+	border-radius: $radius;
+	margin-top: 20px;
 }
 
-@import './xui-overrides';
+pre{
+	overflow: scroll;
+}
+/* Pretty printing styles. Used with prettify.js. */
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+.str { color: #080 }  /* string content */
+.kwd { color: #008 }  /* a keyword */
+.com { color: #800 }  /* a comment */
+.typ { color: #606 }  /* a type name */
+.lit { color: #066 }  /* a literal value */
+/* punctuation, lisp open bracket, lisp close bracket */
+.pun, .opn, .clo { color: #660 }
+.tag { color: #008 }  /* a markup tag name */
+.atn { color: #606 }  /* a markup attribute name */
+.atv { color: #080 }  /* a markup attribute value */
+.dec, .var { color: #606 }  /* a declaration; a variable name */
+.fun { color: red }  /* a function name */
+
+/* Use higher contrast and text-weight for printable form. */
+// @media print, projection {
+//   .str { color: #060 }
+//   .kwd { color: #006; font-weight: bold }
+//   .com { color: #600; font-style: italic }
+//   .typ { color: #404; font-weight: bold }
+//   .lit { color: #044 }
+//   .pun, .opn, .clo { color: #440 }
+//   .tag { color: #006; font-weight: bold }
+//   .atn { color: #404 }
+//   .atv { color: #060 }
+// }
+
+
+.prettyprint {
+	background: $color-grey-6;
+}
+
+.linenums {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		// border-bottom: 1px solid #eee;
+		padding: 0 10px;
+
+		// &:nth-child(2) {
+		//   background-color: #fcfcfc;
+		// }
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+}
+
+@import 'xui-overrides';

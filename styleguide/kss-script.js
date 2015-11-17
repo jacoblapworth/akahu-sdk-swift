@@ -55,4 +55,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	}
+
+
+	// For the slide-out menu on smaller screens
+	var sidebar = document.getElementById('kss-sidebar');
+	var content = document.getElementById('kss-main');
+	var sectionHeader = document.querySelector('.kss-section--header');
+	var toggle = document.querySelector('.kss-hamburger');
+	toggle.addEventListener('click', function(event) {
+		sidebar.classList.toggle('kss-sidebar-is-showing');
+		content.classList.toggle('kss-main-is-showing-sidebar');
+		sectionHeader.classList.toggle('kss-section--header-is-showing-sidebar');
+		document.body.classList.toggle('kss-node-is-showing-sidebar');
+		event.preventDefault();
+	});
+
 });

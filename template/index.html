@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
-	<meta charset="utf-8">
-  <title>XUI</title>
 
-	<meta name="description" content="">
+<html class="no-js" lang="en">
+
+<head>
+	<title>XUI</title>
+	<meta charset="utf-8">
 	<meta name="generator" content="kss-node">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{{{styles}}}
 </head>
-<body id="kss-node">
 
-<div class="kss-sidebar kss-style">
-	<nav class="kss-nav">
-    <ul class="kss-nav__menu xui-menugroup title">
-      <li class="kss-nav__menu-item">
-        <h1 class="kss-doc-title">XUI</h1>
-      </li>
-    </ul>
+<body id="kss-node" class="kss-node">
+
+	<nav id="kss-sidebar" class="kss-sidebar">
+		<ul class="kss-nav__menu xui-menugroup title">
+			<li class="kss-nav__menu-item">
+				<h1 class="kss-doc-title">XUI</h1>
+			</li>
+		</ul>
 		<ul class="kss-nav__menu xui-menugroup">
 			<li class="kss-nav__menu-item xui-menugroup--item">
-        <a href="./" tabindex="-1"><span class="kss-nav__name" >Overview</span></a>
+				<a href="./" tabindex="-1"><span class="kss-nav__name" >Overview</span></a>
 			</li>
-      <li class="kss-nav__menu-item xui-menugroup--item">
-        <a href="https://github.dev.xero.com/pages/UXE/xui-examples/" tabindex="-1"><span class="kss-nav__name">Examples</span></a>
-      </li>
-    </ul>
-    <ul class="kss-nav__menu xui-menugroup">
+			<li class="kss-nav__menu-item xui-menugroup--item">
+				<a href="https://github.dev.xero.com/pages/UXE/xui-examples/" tabindex="-1"><span class="kss-nav__name">Examples</span></a>
+			</li>
+		</ul>
+		<ul class="kss-nav__menu xui-menugroup">
 			{{#eachRoot}}
 			<li class="kss-nav__menu-item xui-menugroup--item {{#ifReference ../rootName}}menu-item-selected{{/ifReference}}">
 				<a class="menu-header" href="section-{{referenceURI}}.html" tabindex="-1">
@@ -49,9 +49,16 @@
 			{{/eachRoot}}
 		</ul>
 	</nav>
-</div>
-<article role="main" class="kss-main">
+
+
+<article id="kss-main" role="main" class="kss-main">
 	{{#if homepage}}
+	<section class="kss-section kss-section--title">
+		<header class="kss-section--header">
+			<a href="#kss-sidebar" class="kss-hamburger"></a>
+			<h1 class="kss-title">XUI</h1>
+		</header>
+	</section>
 	<div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
 		{{{homepage}}}
 	</div>
@@ -67,9 +74,12 @@
 
   {{#ifDepth 1}}
   <section class="kss-section kss-section--title">
-    <h{{depth}} class="kss-title kss-title--level-{{depth}}">
-      {{header}}
-    </h{{depth}}>
+		<header class="kss-section--header">
+			<a href="#kss-sidebar" class="kss-hamburger"></a>
+			<h{{depth}} class="kss-title kss-title--level-{{depth}}">
+			{{header}}
+			</h{{depth}}>
+		</header>
 
     <div class="xui-tabbed-navigation">
       <ul class="xui-tabgroup">
@@ -82,14 +92,8 @@
         {{/eachSection}}
       </ul>
     </div>
-
-
-
-
-
   </section>
   {{/ifDepth}}
-
 
 
 	<section id="kssref-{{referenceURI}}" class="kss-section kss-section--depth-{{depth}}">
@@ -170,5 +174,7 @@
 	new Clipboard('.copy-button');
 </script>
 {{{scripts}}}
+
 </body>
+
 </html>

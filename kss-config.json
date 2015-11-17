@@ -1,18 +1,12 @@
 {
 	"source": "src/sass",
-
 	"destination": ".",
-
 	"css": [
-		"styleguide/kss-style.css",
-		"dist/xui.css"
+		"styleguide/kss-style.css"
 	],
-
 	"js": [
 		"styleguide/kss-script.js"
 	],
-
 	"homepage": "../../styleguide/styleguide.md",
-
 	"template": "./template"
 }

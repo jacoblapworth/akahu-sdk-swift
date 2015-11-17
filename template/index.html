@@ -18,33 +18,18 @@
 				<h1 class="kss-doc-title">XUI</h1>
 			</li>
 		</ul>
-		<ul class="kss-nav__menu xui-menugroup">
-			<li class="kss-nav__menu-item xui-menugroup--item">
-				<a href="./" tabindex="-1"><span class="kss-nav__name" >Overview</span></a>
+		<ul class="xui-tabgroup xui-tabgroup-vertical">
+			<li class="xui-verticaltab">
+				<a href="./" tabindex="-1" class="xui-verticaltab--body">Overview</a>
 			</li>
-			<li class="kss-nav__menu-item xui-menugroup--item">
-				<a href="https://github.dev.xero.com/pages/UXE/xui-examples/" tabindex="-1"><span class="kss-nav__name">Examples</span></a>
+			<li class="xui-verticaltab">
+				<a href="https://github.dev.xero.com/pages/UXE/xui-examples/" tabindex="-1" class="xui-verticaltab--body">Examples</a>
 			</li>
 		</ul>
-		<ul class="kss-nav__menu xui-menugroup">
+		<ul class="xui-tabgroup xui-tabgroup-vertical">
 			{{#eachRoot}}
-			<li class="kss-nav__menu-item xui-menugroup--item {{#ifReference ../rootName}}menu-item-selected{{/ifReference}}">
-				<a class="menu-header" href="section-{{referenceURI}}.html" tabindex="-1">
-					<span class="kss-nav__name">{{header}}</span>
-				</a>
-				{{#ifReference ../rootName}}
-				<ul class="kss-nav__menu-child xui-menugroup">
-					{{#eachSection reference}}
-					{{#ifDepth 2}}
-					<li class="kss-nav__menu-item xui-menugroup--item">
-						<a href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}">
-							<span class="kss-nav__name">{{header}}</span>
-						</a>
-					</li>
-					{{/ifDepth}}
-					{{/eachSection}}
-				</ul>
-				{{/ifReference}}
+			<li class="xui-verticaltab {{#ifReference ../rootName}}xui-verticaltab-is-selected{{/ifReference}}">
+				<a href="section-{{referenceURI}}.html" tabindex="-1" class="xui-verticaltab--body">{{header}}</a>
 			</li>
 			{{/eachRoot}}
 		</ul>

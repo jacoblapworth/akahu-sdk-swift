@@ -202,13 +202,13 @@
 .#{$ns}-breadcrumb {
 	display: inline-block;
 	font-size: $font-size-page-title;
+    font-weight: bold;
 	list-style-type: none;
 
 	&:before {
 		color: $color-placeholders;
-		content: ">";
+		content: "›";
 		display: inline-block;
-		font-weight: 400;
 		margin: 0 10px;
 	}
 

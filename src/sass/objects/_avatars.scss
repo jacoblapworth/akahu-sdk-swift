@@ -2,14 +2,14 @@
 //
 // Markup:
 // <h3>Small</h3>
-// <img class="xui-avatar xui-avatar-small" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
-// <abbr class="xui-avatar xui-avatar-small">UX</abbr>
+// <img class="xui-avatar xui-avatar-small" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
+// <abbr class="xui-avatar xui-avatar-small" role="presentation">UX</abbr>
 // <h3>Medium</h3>
-// <img class="xui-avatar" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar">UX</abbr>
+// <img class="xui-avatar" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar" role="presentation">UX</abbr>
 // <h3>Large</h3>
-// <img class="xui-avatar xui-avatar-large" alt="" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-large">UX</abbr>
+// <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar xui-avatar-large" role="presentation">UX</abbr>
 //
 // Styleguide: Avatars
 .#{$ns}-avatar {

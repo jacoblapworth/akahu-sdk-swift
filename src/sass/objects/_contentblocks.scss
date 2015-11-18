@@ -1,5 +1,4 @@
-@import "../settings/structure";
-@import "../settings/typography";
+@import "../vars";
 @import "../tools/functions";
 @import "../tools/mixins";
 
@@ -68,7 +67,7 @@
 	border-top: $divider-standard;
 	list-style: none;
 	margin: 0;
-	padding: 16px;
+	padding: $spacing-standard;
 
 	// TODO: Should probably be a table-object state class, eg: o-table-row-selected
 	//       Do when creating a proper table component and styling against that

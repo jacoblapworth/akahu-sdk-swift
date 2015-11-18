@@ -164,12 +164,13 @@
 
 .#{$ns}-select--button-is-selected {
 	border: $border-standard;
-	border-bottom: 0;
-	border-color: $color-xero-blue;
+	border-color: $color-xero-blue $color-xero-blue transparent;
 	border-radius: $radius $radius 0 0;
 
-	&:hover {
-		border-color: $color-xero-blue;
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: $color-xero-blue $color-xero-blue transparent;
 	}
 }
 

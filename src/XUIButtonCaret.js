@@ -16,7 +16,7 @@ export default class XUIButtonCaret extends Component {
 	}
 
 	render() {
-		const caretClass = this.props.isSelect ? 'xui-select-caret' : 'xui-button--caret';
+		const caretClass = this.props.isSelect ? 'xui-select--caret' : 'xui-button--caret';
 
 		return (
 				<span className={caretClass}></span>

@@ -89,6 +89,10 @@ on pull requests for prompt feedback.
 If you are submitting a pull request, please include a screenshot of your change
 to aid the review process.
 
+Do not bump the version in package.json as part of your PR. If you would like a release to be made
+once your change has been merged, please highlight that in your PR's description. The UXE team will 
+coordinate releases.
+
 Breaking Changes
 ----------------
 

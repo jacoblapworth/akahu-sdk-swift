@@ -4,5 +4,8 @@ module.exports = {
   },
   dist: {
     src: 'dist/xui.css'
+  },
+  styleguide: {
+    src: 'styleguide/kss-style.css'
   }
 };

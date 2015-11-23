@@ -5,74 +5,75 @@
 // Markup:
 //	<div class="xui-dropdownmenu">
 //		<div class="xui-dropdownmenu--body">
-// 			<ul class="xui-menugroup">
-// 				<li class="xui-menugroup--item">
-// 					<a href="#">Menu item 1</a>
-// 				</li>
-// 				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
-// 					<a href="#">Menu item 2</a>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<a href="#">Menu item 3</a>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="checkbox" class="xui-menugroup--input" />
-// 						Menu item 4
-// 					</label>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="checkbox" class="xui-menugroup--input" />
-// 						Menu item 5
-// 					</label>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="radio" name="radios" class="xui-menugroup--input" />
-// 						Menu item 6
-// 					</label>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="radio" name="radios" class="xui-menugroup--input" />
-// 						Menu item 7
-// 					</label>
-// 				</li>
-// 			</ul>
-// 			<ul class="xui-menugroup">
-// 				<li class="xui-menugroup--item">
-// 					<a href="#">Menu item 1</a>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="checkbox" />
-// 						Menu item 2
-// 					</label>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="checkbox" />
-// 						Menu item 3
-// 					</label>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="radio" name="radios2" class="xui-menugroup--input" />
-// 						Menu item 4
-// 					</label>
-// 				</li>
-// 				<li class="xui-menugroup--item">
-// 					<label>
-// 						<input type="radio" name="radios2" class="xui-menugroup--input" />
-// 						Menu item 5
-// 					</label>
-// 				</li>
-// 			</ul>
-// 		</div>
+//			<h3 class="xui-dropdownmenu--groupheading">GROUP TITLE</h3>
+//			<ul class="xui-menugroup">
+//				<li class="xui-menugroup--item">
+//					<a href="#">Menu item 1</a>
+//					</li>
+//				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
+//					<a href="#">Menu item 2</a>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<a href="#">Menu item 3</a>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="checkbox" class="xui-menugroup--input" />
+//						Menu item 4
+//					</label>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="checkbox" class="xui-menugroup--input" />
+//						Menu item 5
+//					</label>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="radio" name="radios" class="xui-menugroup--input" />
+//						Menu item 6
+//					</label>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="radio" name="radios" class="xui-menugroup--input" />
+//						Menu item 7
+//					</label>
+//				</li>
+//			</ul>
+//			<ul class="xui-menugroup">
+//				<li class="xui-menugroup--item">
+//					<a href="#">Menu item 1</a>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="checkbox" />
+//						Menu item 2
+//					</label>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="checkbox" />
+//						Menu item 3
+//					</label>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="radio" name="radios2" class="xui-menugroup--input" />
+//						Menu item 4
+//					</label>
+//				</li>
+//				<li class="xui-menugroup--item">
+//					<label>
+//						<input type="radio" name="radios2" class="xui-menugroup--input" />
+//						Menu item 5
+//					</label>
+//				</li>
+//			</ul>
+//		</div>
 //		<footer class="xui-dropdownmenu--footer">
 //			<ul class="xui-menugroup">
-// 				<li class="xui-menugroup--item">
+//				<li class="xui-menugroup--item">
 //					<a href="#">+ Some action</a>
 //				</li>
 //			</ul>
@@ -139,6 +140,7 @@ $shadow-color: #ccc;
 .#{$ns}-menugroup--item {
 	list-style-type: none;
 
+	// FIXME: This selector is too broad-reaching
 	> :nth-child(n) {
 		align-items: center;
 		display: flex;
@@ -151,6 +153,25 @@ $shadow-color: #ccc;
 		background-color: $color-hovers;
 	}
 }
+
+.#{$ns}-dropdownmenu--groupheading {
+	background-color: $color-disabled;
+	border-bottom: 1px solid $color-grey-3;
+	color: $color-secondary-text;
+	font-size: $font-size-heading-mini;
+	line-height: px-to-rem(30);
+	margin: 0;
+	padding: 0 $padding-menu-horizontal;
+
+	&:nth-of-type(n+2) {
+		border-top: 1px solid $color-grey-4;
+	}
+
+	& + .#{$ns}-menugroup {
+		border-top: 0;
+	}
+}
+
 
 .#{$ns}-menugroup--input {
 	margin: 0 7px 0 0;

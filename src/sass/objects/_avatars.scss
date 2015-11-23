@@ -43,6 +43,11 @@
 	justify-content: center;
 	overflow: hidden;
 	width: px-to-rem(32);
+
+	// FIXME: Remove this in favour of breaking change PR#431
+	&img {
+		background-color: transparent;
+	}
 }
 
 .#{$ns}-avatar-small {

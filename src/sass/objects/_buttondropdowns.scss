@@ -1,6 +1,10 @@
 @import "../tools/functions";
 @import "../tools/mixins";
 
+// Dropdowns
+//
+// Styleguide: Buttons.200
+
 // Single Button Dropdowns
 //
 // Styling of button dropdowns.
@@ -23,7 +27,7 @@
 //   <span class="xui-button--caret"></span>
 // </button>
 //
-// Styleguide: Buttons.200
+// Styleguide: Buttons.200.1
 $button-margin-left: px-to-rem(5);
 
 .#{$ns}-button--caret {
@@ -67,7 +71,7 @@ $button-margin-left: px-to-rem(5);
 //   </button>
 // </div>
 //
-// Styleguide: Buttons.201
+// Styleguide: Buttons.200.2
 
 .#{$ns}-button-split {
 	min-width: 0;

@@ -2,6 +2,13 @@
  * Styles for form inputs.
  */
 
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// Text Inputs
+//
+// Styleguide: Form Elements.100
+
 // Standard Inputs
 //
 // The number inputs have had their up and down arrows removed to sync browser styles
@@ -16,8 +23,29 @@
 // <input class="xui-input" type="url" placeholder="http://www.xero.com"/>
 // <input class="xui-input" type="text" placeholder="Disabled input" disabled />
 //
-// Styleguide: Form Elements.1
+// Styleguide: Form Elements.100.1
 
 .#{$ns}-input {
 	@extend %#{$ns}-commoninput;
+}
+
+// Textareas
+//
+// Markup:
+// <textarea class="xui-textarea"></textarea>
+//
+// Styleguide: Form Elements.100.2
+
+.#{$ns}-textarea {
+	@extend %#{$ns}-commoninput;
+
+	display: block;
+	margin: 0;
+	min-height: 70px;
+	padding: px-to-rem(5) 0.5em;
+	resize: none;
+
+	@include mobile {
+		height: 90px;
+	}
 }

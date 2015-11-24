@@ -45,9 +45,9 @@
 	}
 }
 
-@import "formelements.checkboxesradios";
 @import "formelements.inputs";
-@import "formelements.inputgroups";
 @import "formelements.selects";
-@import "formelements.textareas";
+@import "formelements.checkboxesradios";
+@import "formelements.grouped";
+@import "formelements.switch";
 @import "formelements.validationmessages";

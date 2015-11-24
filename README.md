@@ -61,7 +61,7 @@ Usage Guidelines
  * If you need XUI's variables and mixins, import them individually:
     * For variables, `@import 'xui/src/sass/vars';`
     * For mixins, `@import 'xui/src/sass/tools/mixins';`
-    * Colours are defined in [colors](../colors) - see that repository for information on how to import those variables.
+    * Colours are defined in [colors](https://github.dev.xero.com/UXE/colors) - see that repository for information on how to import those variables.
 
 
 Contributing to XUI

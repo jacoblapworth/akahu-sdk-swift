@@ -18,7 +18,7 @@
 //
 // Styleguide: Grid Layout
 
-// Fluid grid cells
+// Fluid Cells
 //
 // The `xui-grid-cell` classes are simply flex containers with a `flex` value of 1. As you add cells to
 // the grid container, each other cell will get smaller proportionally and all cells will continue to
@@ -65,7 +65,7 @@
 	flex: 1;
 }
 
-// Fixed width layout (grid cells)
+// Fixed-Width Cells
 //
 // When used inside a `xui-grid` container, any non layout classes (i.e. `xui-grid-cells`) will
 // take up any remaining space.
@@ -115,7 +115,7 @@
 	width: calc(100% / 3);
 }
 
-// Fixed width layout (orphan nodes)
+// Fixed-Width Orphan Nodes
 //
 // These layout classes can be used either in isolation or as part of a `xui-grid` container. They
 // basically just provide set widths.
@@ -485,7 +485,7 @@
 	width: calc((100% / 12) * 11);
 }
 
-// Fixed width layout (device specific)
+// Fixed-Width Device-Specific
 //
 // Each of the fixed layout classes has a corresponding mobile and tablet class that only take
 // effect at certain width breakpoints.

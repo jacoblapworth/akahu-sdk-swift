@@ -5,7 +5,7 @@
 //
 // Styleguide: Page Layout
 
-// Page Container
+// Container
 //
 // Used to set the width of page-level content.
 //
@@ -57,7 +57,7 @@
 	}
 }
 
-// Page Nav
+// Nav
 //
 // Styles for the nav elements.  These typically sit above body content or
 // breadcrumb elements. Defaults to full page width.
@@ -102,8 +102,11 @@
 	}
 }
 
-// Page Headings
+// Headings
 //
+// Styleguide: Page Layout.3
+
+// Standard
 //
 // Markup:
 // <header class="xui-pageheading">
@@ -130,7 +133,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Page Layout.3
+// Styleguide: Page Layout.3.1
 
 // Parent container
 // The coloured background goes full width of the page
@@ -144,7 +147,7 @@
 	overflow: hidden;
 }
 
-// Page Heading with Tabs
+// With Tabs
 //
 //
 // Markup:
@@ -166,7 +169,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Page Layout.4
+// Styleguide: Page Layout.3.2
 
 .#{$ns}-pageheading-has-tabs {
 	flex-direction: column;

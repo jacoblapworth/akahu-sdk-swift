@@ -8,7 +8,7 @@
 @import "../tools/mixins";
 @import "../settings/colours";
 
-// Tabs
+// Horizontal
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
@@ -141,7 +141,7 @@ $color-variations: (
 	}
 }
 
-// Vertical Tabs
+// Vertical
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.

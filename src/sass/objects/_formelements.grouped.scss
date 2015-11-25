@@ -1,0 +1,137 @@
+@import "../tools/functions";
+@import "../tools/mixins";
+@import "../vars";
+
+// Grouped
+//
+// Styleguide: Form Elements.400
+
+// Checkbox and Radio Groups
+//
+// A collection of checkbox/radio items within a single container, grouped as
+// such so that on mobile, their appearance resembles that of a
+// single-column table to be fat-finger friendly.
+//
+// Markup:
+// <div class="xui-checkboxgroup">
+//   <label class="xui-checkbox">
+//     <input type="checkbox" name="checkbox1"/>
+//     Tick me!
+//   </label>
+//   <label class="xui-checkbox">
+//     <input type="checkbox" name="checkbox2"/>
+//     No, tick me!
+//   </label>
+//   <label class="xui-checkbox">
+//     <input type="checkbox" name="checkbox3"/>
+//     Don't listen to those 2 - tick me instead!
+//   </label>
+// </div>
+// <div class="xui-radiogroup">
+//   <label class="xui-radio">
+//     <input type="radio" name="radio"/>
+//     Pick me!
+//   </label>
+//   <label class="xui-radio">
+//     <input type="radio" name="radio"/>
+//     No, pick me!
+//   </label>
+//   <label class="xui-radio">
+//     <input type="radio" name="radio"/>
+//     Are you insane?  Pick me!
+//   </label>
+// </div>
+//
+// Styleguide: Form Elements.400.1
+
+.#{$ns}-checkboxgroup,
+.#{$ns}-radiogroup {
+	@include mobile {
+		border: $border-standard;
+		border-radius: $radius;
+	}
+}
+
+/**
+ * Input groups within a form follow a very set pattern: label on the left,
+ * input area in the middle, with validation messages floating around it.
+ */
+
+// TODO: Inputs can appear in the context of a full-screen panel, or a modal.
+//       In a modal, the items align much like they were in a mobile view.  I
+//       think it needs to be set which context the input group belongs?
+
+// Input groups
+//
+// This object brings together other objects into a single behavioural unit.
+// The pieces are:
+//  - a label
+//  - an input or group of inputs
+//  - a validation message for the input / group of inputs
+//
+// Markup:
+// <div class="xui-inputgroup">
+//  <label class="xui-inputgroup--label" for="display-name">Name</label>
+//  <div class="xui-inputgroup--inputs">
+//    <input class="xui-input xui-input-is-invalid" type="text" id="display-name" placeholder="Your name"/>
+//    <div class="xui-inputmessage xui-inputmessage-shown">
+//      <div class="xui-inputmessage--body">
+//        This field is required
+//      </div>
+//    </div>
+//  </div>
+// </div>
+// <div class="xui-inputgroup">
+//  <div class="xui-inputgroup--label">Notifications</div>
+//  <div class="xui-inputgroup--inputs xui-checkboxgroup">
+//    <label class="xui-checkbox">
+//      <input type="checkbox"/>
+//      When a friend comments on my post
+//    </label>
+//    <label class="xui-checkbox">
+//      <input type="checkbox"/>
+//      When a friend sends me a message
+//    </label>
+//    <div class="xui-inputmessage xui-inputmessage-shown">
+//      <div class="xui-inputmessage--body">
+//        Select at least 1 option
+//      </div>
+//    </div>
+//  </div>
+// </div>
+//
+// Styleguide: Form Elements.400.2
+
+.#{$ns}-inputgroup {
+	line-height: px-to-rem(36);
+	list-style: none;
+	margin: px-to-rem(20) auto;
+	min-height: px-to-rem(36);
+	padding: 0;
+}
+
+// TODO: Think of better naming for distinguishing between input group contexts
+.#{$ns}-modal-inputgroup {
+	margin: px-to-rem(20) auto;
+}
+
+// Label part
+// -----------------------------------------------------------------------------
+
+.#{$ns}-inputgroup--label {
+	display: block;
+	margin: 0 auto;
+	max-width: $inputgroup-width;
+	padding: 0 1em;
+}
+
+// Input(s) part
+// -----------------------------------------------------------------------------
+
+.#{$ns}-inputgroup--inputs {
+	display: block;
+	margin: 0 auto;
+	max-width: $inputgroup-width;
+	padding: 0 1em;
+	position: relative;
+}

@@ -17,7 +17,7 @@
 //  Pick me!
 // </label>
 //
-// Styleguide: Form Elements.4
+// Styleguide: Form Elements.300
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
@@ -32,51 +32,5 @@
 		margin: 3px 0.5em 3px 3px;
 		vertical-align: middle;
 		width: px-to-rem(18);
-	}
-}
-
-// Checkbox and Radio groups
-//
-// A collection of checkbox/radio items within a single container, grouped as
-// such so that on mobile, their appearance resembles that of a
-// single-column table to be fat-finger friendly.
-//
-// Markup:
-// <div class="xui-checkboxgroup">
-//   <label class="xui-checkbox">
-//     <input type="checkbox" name="checkbox1"/>
-//     Tick me!
-//   </label>
-//   <label class="xui-checkbox">
-//     <input type="checkbox" name="checkbox2"/>
-//     No, tick me!
-//   </label>
-//   <label class="xui-checkbox">
-//     <input type="checkbox" name="checkbox3"/>
-//     Don't listen to those 2 - tick me instead!
-//   </label>
-// </div>
-// <div class="xui-radiogroup">
-//   <label class="xui-radio">
-//     <input type="radio" name="radio"/>
-//     Pick me!
-//   </label>
-//   <label class="xui-radio">
-//     <input type="radio" name="radio"/>
-//     No, pick me!
-//   </label>
-//   <label class="xui-radio">
-//     <input type="radio" name="radio"/>
-//     Are you insane?  Pick me!
-//   </label>
-// </div>
-//
-// Styleguide: Form Elements.5
-
-.#{$ns}-checkboxgroup,
-.#{$ns}-radiogroup {
-	@include mobile {
-		border: $border-standard;
-		border-radius: $radius;
 	}
 }

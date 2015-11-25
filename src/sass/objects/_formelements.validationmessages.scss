@@ -2,7 +2,11 @@
 @import "../tools/mixins";
 @import "../tools/functions";
 
-// Validation styles
+// Validation
+//
+// Styleguide: Form Elements.600
+
+// Validation Styles
 //
 // We support the use of a manual class, or HTML5 invalid pseudo class
 //
@@ -10,7 +14,7 @@
 // <input type="text" class="xui-input xui-input-is-invalid"/>
 // <textarea class="xui-textarea xui-input-is-invalid"></textarea>
 //
-// Styleguide: Form Elements.98
+// Styleguide: Form Elements.600.1
 
 .#{$ns}-input-is-invalid,
 :invalid {
@@ -22,7 +26,7 @@
 	}
 }
 
-// Validation messages
+// Validation Messages
 //
 // A container is required so that text content inside the message can flow.
 // Otherwise, an absolutely-positioned element has far different flow mechanics
@@ -41,7 +45,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Form Elements.99
+// Styleguide: Form Elements.600.2
 .#{$ns}-inputmessage {
 	display: flex;
 	left: 100%;

@@ -26,6 +26,10 @@ $color-toast-link: #70bae4;
 	z-index: 10;
 }
 
+.#{$ns}-toast-error {
+	background: transparentize($color-xero-red, 0.1);
+}
+
 // Single-Action
 //
 // Markup:
@@ -53,6 +57,16 @@ $color-toast-link: #70bae4;
 //   </div>
 //
 // Styleguide: Toasts.2
+
+// Error
+//
+// Markup:
+//   <div class="xui-toast xui-toast-error">
+//     <p class="xui-toast--message">No internet connection</p>
+//   </div>
+//
+// Styleguide: Toasts.3
+
 
 .#{$ns}-toast--link {
 	color: $color-toast-link;

@@ -32,9 +32,6 @@ All classes should be prefixed with `xui-`.
 
 Be sure to `npm run lint` before you commit.
 
-If you are bumping the version, please update the usage example in [README.md](README.md)
-to point at your new version.
-
 Classes should follow the format:
 
  * `xui-component`
@@ -90,7 +87,7 @@ If you are submitting a pull request, please include a screenshot of your change
 to aid the review process.
 
 Do not bump the version in package.json as part of your PR. If you would like a release to be made
-once your change has been merged, please highlight that in your PR's description. The UXE team will 
+once your change has been merged, please highlight that in your PR's description. The UXE team will
 coordinate releases.
 
 Breaking Changes

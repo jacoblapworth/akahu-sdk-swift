@@ -10,9 +10,7 @@
 //	<div class="xui-popover xui-datepicker">
 //		<div class="xui-popover--arrow">
 //			<svg viewbox="0 0 100 100">
-//				<line x1="0" y1="50" x2="50" y2="0" stroke-width="6" class="xui-popover--arrow--border"/>
-//				<line x1="50" y1="0" x2="100" y2="50" stroke-width="6" class="xui-popover--arrow--border"/>
-//				<line x1="5" y1="50" x2="95" y2="50" stroke-width="9" class="xui-popover--arrow--border-fill"/>
+//				<polyline points="0,50 50,0 100, 50" stroke-width="6" class="xui-popover--arrow--border"/>
 //			</svg>
 //		</div>
 //		<header class="xui-popover--header xui-datepicker--header">

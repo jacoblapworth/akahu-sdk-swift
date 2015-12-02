@@ -290,13 +290,17 @@
 
 	@include mobile {
 		.#{$ns}-layout-phone-#{$suffix} {
-			@content;
+			.xui-grid & {
+				@content;
+			}
 		}
 	}
 
 	@include tablet {
 		.#{$ns}-layout-tablet-#{$suffix} {
-			@content;
+			.xui-grid & {
+				@content;
+			}
 		}
 	}
 }
@@ -313,12 +317,12 @@
 	width: calc(100% / 3);
 }
 
-@include layout("2-of-3") {
-	width: calc((100% / 3) * 2);
-}
-
 @include layout("1-of-4") {
 	width: calc(100% / 4);
+}
+
+@include layout("2-of-3") {
+	width: calc((100% / 3) * 2);
 }
 
 @include layout("3-of-3") {

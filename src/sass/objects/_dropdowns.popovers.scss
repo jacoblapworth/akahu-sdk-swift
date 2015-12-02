@@ -2,9 +2,24 @@
 
 // Popover
 //
+// Popover container styled with an arrow pointing at relevant content. Supports
+// header, body and footer sections.
+//
+// Full list of modifier classes: `-topleft` (default) `-topcenter`, `-topright`,
+// `-bottomleft`, `-bottomcenter`, `-bottomright`,
+// `-lefttop`, `-leftcenter`, `-leftbottom`,
+// `-righttop`, `-rightcenter`, `-rightbottom`.
+//
+// A sample of the modifiers are shown bellow.
+//
+// .xui-popover--arrow-topcenter  - Top center aligned  arrow
+// .xui-popover--arrow-bottomright  - Bottom right aligned  arrow
+// .xui-popover--arrow-lefttop    - Left top aligned arrow
+// .xui-popover--arrow-rightbottom   - Right bottom aligned  arrow
+//
 // Markup:
 //	<div class="xui-popover">
-//    <div class="xui-popover--arrow">
+//    <div class="xui-popover--arrow {{modifier_class}}">
 //      <svg viewbox="0 0 100 100">
 //        <polyline points="0,50 50,0 100, 50" stroke-width="6" class="xui-popover--arrow--border"/>
 //      </svg>
@@ -43,6 +58,7 @@
 	box-shadow: 0 2px 3px $color-borders;
 }
 
+.#{$ns}-popover--arrow-topleft,
 .#{$ns}-popover--arrow {
 	display: inline-block;
 	fill: $color-white;
@@ -54,9 +70,82 @@
 	vertical-align: middle;
 	width: 20px;
 
+	&-topcenter {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&-topright {
+		left: auto;
+		right: 15px;
+	}
+
+	&-bottomleft {
+		bottom: -10px;
+		top: auto;
+		transform: rotate(180deg);
+	}
+
+	&-bottomcenter {
+		bottom: -10px;
+		left: 50%;
+		top: auto;
+		transform: translateX(-50%) rotate(180deg);
+	}
+
+	&-bottomright {
+		bottom: -10px;
+		left: auto;
+		right: 15px;
+		top: auto;
+		transform: rotate(180deg);
+	}
+
+	&-lefttop {
+		left: -10px;
+		top: 15px;
+		transform: rotate(270deg);
+	}
+
+	&-leftcenter {
+		left: -10px;
+		top: 50%;
+		transform: translateY(-50%) rotate(270deg);
+	}
+
+	&-leftbottom {
+		bottom: 15px;
+		left: -10px;
+		top: auto;
+		transform: rotate(270deg);
+	}
+
+	&-righttop {
+		left: auto;
+		right: -10px;
+		top: 15px;
+		transform: rotate(90deg);
+	}
+
+	&-rightcenter {
+		left: auto;
+		right: -10px;
+		top: 50%;
+		transform: translateY(-50%) rotate(90deg);
+	}
+
+	&-rightbottom {
+		bottom: 15px;
+		left: auto;
+		right: -10px;
+		top: auto;
+		transform: rotate(90deg);
+	}
+
 	&--border {
 		stroke: $color-borders;
 
+// FIXME Remove `&-fill` when merged to breaking changes
 		&-fill {
 			stroke: $color-white;
 		}

@@ -9,7 +9,7 @@
 //			<ul class="xui-menugroup">
 //				<li class="xui-menugroup--item">
 //					<a href="#">Menu item 1</a>
-//					</li>
+//				</li>
 //				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
 //					<a href="#">Menu item 2</a>
 //				</li>
@@ -43,7 +43,7 @@
 //			</ul>
 //			<ul class="xui-menugroup">
 //				<li class="xui-menugroup--item">
-//					<a href="#">Menu item 1</a>
+//					<a href="http://www.google.com">Link Menu Item 1</a>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
@@ -149,6 +149,11 @@ $shadow-color: #ccc;
 		width: 100%;
 	}
 
+	// FIXME: This should not be an element selector
+	a[href='#'] {
+		color: $color-primary-text;
+	}
+
 	&:hover {
 		background-color: $color-hovers;
 	}
@@ -188,12 +193,20 @@ $shadow-color: #ccc;
 		color: inherit;
 	}
 
+	// FIXME: This should not be an element selector
+	a[href='#'] {
+		color: $color-reversed-text;
+	}
+
 	&:hover {
 		background-color: $color-xero-blue;
 	}
 }
 
-.#{$ns}-menugroup--item-is-selected a:hover,
-.#{$ns}-menugroup--item-is-selected label:hover {
-	background-color: $color-xero-blue;
+.#{$ns}-menugroup--item-is-selected {
+	// FIXME: These should not be element selectors
+	a:hover,
+	label:hover {
+		background-color: $color-xero-blue;
+	}
 }

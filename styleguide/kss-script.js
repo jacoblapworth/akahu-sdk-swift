@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	var bodyEl = document.body;
 	var maskEl = document.getElementById('example-modal');
-	var modalEl = document.querySelector('#example-modal .xui-modal');
 	var closeEl = document.querySelector('#example-modal .xui-modal--header-close');
 	var openedClass = 'xui-modal-opened';
 
@@ -32,16 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (closeEl) {
 		closeEl.addEventListener('click', window.hideExampleModal);
-
-		bodyEl.addEventListener('click', function (e) {
-			if (!isModalOpen()) {
-				return;
-			}
-
-			if(e.target === maskEl) {
-				window.hideExampleModal();
-			}
-		});
 
 		bodyEl.addEventListener('keyup', function (e) {
 			if (!isModalOpen()) {

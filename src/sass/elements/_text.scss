@@ -85,3 +85,7 @@ p {
 .#{$ns}-text-number {
 	text-align: right;
 }
+
+.#{$ns}-text-sectionheading {
+	line-height: px-to-rem(16);
+}

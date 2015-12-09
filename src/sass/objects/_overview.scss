@@ -1,0 +1,58 @@
+// Overview
+//
+// Overviews are dashboard style overview panel designed to display sectioned content
+//
+//  Markup:
+//	<div class="xui-overview">
+//		<section class="xui-overview--section">
+//			<div class="xui-text-secondary">All</div>
+//			<div class="xui-heading">1.3m</div>
+//		</section>
+//		<section class="xui-overview--section">
+//			<div class="xui-text-secondary">Draft</div>
+//			<div class="xui-heading xui-text-secondary">None</div>
+//		</section>
+//		<section class="xui-overview--section">
+//			<div class="xui-text-secondary">Paid</div>
+//			<div class="xui-heading xui-label-positive">14.5k</div>
+//		</section>
+//		<section class="xui-overview--section">
+//			<div class="xui-text-secondary">Overdue</div>
+//			<div class="xui-heading xui-label-negative">350.25</div>
+//		</section>
+//	</div>
+//
+// Styleguide: Overview
+
+@import "../vars";
+@import "../tools/mixins";
+@import "../tools/functions";
+
+.#{$ns}-overview {
+	background-color: $color-panels;
+	border: $border-standard;
+	border-radius: $radius;
+	box-shadow: $shadow-standard;
+	display: flex;
+	margin: 2em auto;
+	width: 100%;
+
+	@include tablet {
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+	}
+}
+
+.#{$ns}-overview--section {
+	display: flex;
+	flex: 1 0 calc(100% / 6);
+	flex-flow: column nowrap;
+	justify-content: center;
+	padding: px-to-rem(20) 0;
+	text-align: center;
+}
+
+.#{$ns}-overview--section:nth-child(n+2) {
+	border-left: $border-standard;
+}

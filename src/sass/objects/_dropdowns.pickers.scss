@@ -155,6 +155,10 @@
 .#{$ns}-datepicker--day-is-selected {
 	background-color: $color-xero-blue;
 	color: $color-reversed-text;
+
+	&:hover {
+		background-color: $color-xero-blue;
+	}
 }
 
 .#{$ns}-datepicker--weekday {

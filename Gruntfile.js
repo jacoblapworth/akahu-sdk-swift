@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
 	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
 	grunt.registerTask('dist', ['cssmin']);
-	grunt.registerTask('doc', ['readme', 'template', 'kss']);
+	grunt.registerTask('doc', ['if:readme', 'template', 'kss']);
 
 	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide']);
 
@@ -36,26 +36,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('gh-pages', gitOperations.map(function (name) {
 		return name + ':styleguide';
 	}));
-
-	grunt.registerTask('master', gitOperations.slice(0, 2).map(function (name) {
-		return name + ':readme';
-	}));
-
-	grunt.registerTask('readme', 'Update version number in README.md', function () {
-		var filepath = 'README.md';
-		var re = /(https:\/\/edge.xero.com\/style\/xui\/)(\d+.\d+.\d+)(\/xui.css)/g;
-		var options = { encoding: 'utf8' };
-		var packageJson = require('./package.json');
-		var originalContents = grunt.file.read(filepath, options);
-
-		var newContents = originalContents.replace(re, function () {
-				return arguments[1] + packageJson.version + arguments[3];
-		});
-
-		if (newContents !== originalContents) {
-			grunt.file.write(filepath, newContents, options);
-		}
-	});
 
 	grunt.registerTask('doiuse', 'Task to run doiuse', function () {
 		var postcss = require('postcss');

@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/9.1.0/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/9.2.0/xui.css"/>
 ```
 
 ### Bower
@@ -75,8 +75,10 @@ contribute.
 Help
 ----
 
-For Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering)
+For general Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering)
 or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
+
+We have [a UXE team member on interrupts each week](https://github.dev.xero.com/UXE/Home/wiki/Interrupts-Support-Schedule) who can provide a prompt response to any specific questions or issues.
 
 XUI's [roadmap](./wiki#roadmap) is documented in the project wiki.
 

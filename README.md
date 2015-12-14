@@ -1,7 +1,7 @@
 Avatar
 ===========
 
-The React implementation of the [Avatar component](https://github.dev.xero.com/pages/Style/xui/section-avatars.html) from XUI.
+The React implementation of the [Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html) from XUI.
 
 ## Getting Started ##
 

@@ -16,7 +16,7 @@
 //       tab section without having to undo existing section padding.
 //
 // Markup:
-//	<div class="xui-tabbed-navigation">
+//	<div class="xui-tabbednav">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab">
 //				<a class="xui-tab--body" href="#default">Default</a>
@@ -27,7 +27,7 @@
 //		</ul>
 //	</div>
 //	<br />
-//	<div class="xui-tabbed-navigation">
+//	<div class="xui-tabbednav">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab xui-tab-pageheading">
 //				<a class="xui-tab--body" href="#g-header">Page heading</a>
@@ -38,7 +38,7 @@
 //		</ul>
 //	</div>
 //	<br />
-//	<div class="xui-tabbed-navigation xui-pagenav">
+//	<div class="xui-tabbednav xui-pagenav">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab xui-tab-pagenav">
 //				<a class="xui-tab--body" href="#g-header">Page nav</a>
@@ -50,7 +50,7 @@
 //	</div>
 //
 // Styleguide: Tabs.1
-.#{$ns}-tabbed-navigation {
+.#{$ns}-tabbednav {
 	padding-bottom: 0;
 }
 
@@ -216,4 +216,3 @@ $color-variations: (
 		text-decoration: none;
 	}
 }
-

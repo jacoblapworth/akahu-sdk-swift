@@ -20,6 +20,10 @@ Include the following `link` in your page:
 <link rel="stylesheet" href="https://edge.xero.com/style/xui/9.3.0/xui.css"/>
 ```
 
+#### Sherlock
+
+You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range. A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
+
 ### Bower
 
 ```bash

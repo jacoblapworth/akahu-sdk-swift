@@ -263,7 +263,7 @@
 	background-color: $color-panels;
 	border: $border-standard;
 	border-radius: $radius;
-	box-shadow: $shadow-standard;
+	box-shadow: $shadow-depth-1;
 	margin: 2em auto;
 
 	@include tablet {

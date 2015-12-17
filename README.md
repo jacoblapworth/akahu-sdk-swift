@@ -4,7 +4,7 @@ xui
 
 [![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
 
-A shared stylesheet for Xero applications that implements the [Xero Pattern Library](https://xero.invisionapp.com/boards/DN2P9HFAUVQP).
+A shared stylesheet for Xero applications that implements the [Xero Pattern Library](https://xero.invisionapp.com/share/CX2VL4F75).
 
 For examples see https://github.dev.xero.com/pages/UXE/xui/
 

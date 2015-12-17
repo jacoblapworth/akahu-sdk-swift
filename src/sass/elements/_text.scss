@@ -27,6 +27,7 @@ p {
 // <p class="xui-text-sectionheading">Section Heading</p>
 // <p class="xui-text-primary">Some primary text</p>
 // <p>More primary text</p>
+// <p class="xui-text-label">Form Label</p>
 // <p class="xui-text-secondary">Some secondary text</p>
 // <p class="xui-placeholder">Placeholders</p>
 // <p class="xui-heading-mini">Headers</p>
@@ -51,6 +52,11 @@ p {
 /* FIXME: why would be need this? */
 .#{$ns}-text-primary {
 	color: $color-primary-text;
+}
+
+.#{$ns}-text-label {
+	color: $color-secondary-text;
+	font-weight: bold;
 }
 
 .#{$ns}-text-secondary {

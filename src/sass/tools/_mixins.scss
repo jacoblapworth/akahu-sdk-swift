@@ -75,7 +75,7 @@ $desktop-breakpoint: px-to-rem(1160);
 	}
 }
 
-@mixin max_tablet {
+@mixin max-tablet {
 	@media screen and (max-width: $tablet-breakpoint) {
 		@content;
 	}

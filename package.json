@@ -22,6 +22,7 @@
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\""
   },
   "devDependencies": {
+    "bower-art-resolver": "^2.0.5",
     "bumper-cli": "git://github.dev.xero.com/XeroJS/bumper-cli.git#1.2.0",
     "check-engines": "^1.2.0",
     "doiuse": "^2.0.2",

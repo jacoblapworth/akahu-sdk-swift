@@ -70,34 +70,46 @@
 //  - a validation message for the input / group of inputs
 //
 // Markup:
-// <div class="xui-inputgroup">
-//  <label class="xui-inputgroup--label" for="display-name">Name</label>
-//  <div class="xui-inputgroup--inputs">
-//    <input class="xui-input xui-input-is-invalid" type="text" id="display-name" placeholder="Your name"/>
-//    <div class="xui-inputmessage xui-inputmessage-shown">
-//      <div class="xui-inputmessage--body">
-//        This field is required
-//      </div>
-//    </div>
-//  </div>
+// <div class="xui-grid">
+//   <div class="xui-grid--cell">&nbsp;</div>
+//   <div class="xui-grid--cell xui-layout-2-of-5">
+//     <div class="xui-inputgroup">
+//       <label class="xui-inputgroup--label" for="display-name">Name</label>
+//       <div class="xui-inputgroup--inputs">
+//         <input class="xui-input xui-input-is-invalid" type="text" id="display-name" placeholder="Your name"/>
+//         <div class="xui-inputmessage xui-inputmessage-shown">
+//           <div class="xui-inputmessage--body">
+//             This field is required
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="xui-grid--cell">&nbsp;</div>
 // </div>
-// <div class="xui-inputgroup">
-//  <div class="xui-inputgroup--label">Notifications</div>
-//  <div class="xui-inputgroup--inputs xui-checkboxgroup">
-//    <label class="xui-checkbox">
-//      <input type="checkbox"/>
-//      When a friend comments on my post
-//    </label>
-//    <label class="xui-checkbox">
-//      <input type="checkbox"/>
-//      When a friend sends me a message
-//    </label>
-//    <div class="xui-inputmessage xui-inputmessage-shown">
-//      <div class="xui-inputmessage--body">
-//        Select at least 1 option
-//      </div>
-//    </div>
-//  </div>
+// <div class="xui-grid">
+//   <div class="xui-grid--cell">&nbsp;</div>
+//   <div class="xui-grid--cell xui-layout-2-of-5">
+//     <div class="xui-inputgroup">
+//       <div class="xui-inputgroup--label">Notifications</div>
+//       <div class="xui-inputgroup--inputs xui-checkboxgroup">
+//         <label class="xui-checkbox">
+//           <input type="checkbox"/>
+//           When a friend comments on my post
+//         </label>
+//         <label class="xui-checkbox">
+//           <input type="checkbox"/>
+//           When a friend sends me a message
+//         </label>
+//         <div class="xui-inputmessage xui-inputmessage-shown">
+//           <div class="xui-inputmessage--body">
+//             Select at least 1 option
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="xui-grid--cell">&nbsp;</div>
 // </div>
 //
 // Styleguide: Form Elements.400.2
@@ -105,7 +117,6 @@
 .#{$ns}-inputgroup {
 	line-height: px-to-rem(36);
 	list-style: none;
-	margin: px-to-rem(20) auto;
 	min-height: px-to-rem(36);
 	padding: 0;
 }
@@ -120,9 +131,6 @@
 
 .#{$ns}-inputgroup--label {
 	display: block;
-	margin: 0 auto;
-	max-width: $inputgroup-width;
-	padding: 0 1em;
 }
 
 // Input(s) part
@@ -130,8 +138,5 @@
 
 .#{$ns}-inputgroup--inputs {
 	display: block;
-	margin: 0 auto;
-	max-width: $inputgroup-width;
-	padding: 0 1em;
 	position: relative;
 }

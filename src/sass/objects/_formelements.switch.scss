@@ -6,7 +6,7 @@
 //
 //	Markup:
 //	<label class="xui-switch">
-//		<input type="checkbox" class="xui-u-hidden xui-switch--checkbox">
+//		<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox">
 //		<div class="xui-switch--control"></div>
 //	</label>
 //
@@ -27,6 +27,7 @@
 	height: px-to-rem(26);
 	position: relative;
 	transition: all $transition-duration-super-quick $easing-standard;
+	user-select: none;
 	width: 50px;
 
 	&::before {
@@ -45,12 +46,18 @@
 
 }
 
-.#{$ns}-switch--checkbox:checked + .#{$ns}-switch--control {
-	background: $color-xero-blue;
-	border: 1px solid $color-xero-blue;
+.#{$ns}-switch--checkbox {
+	&:focus + .#{$ns}-switch--control {
+		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+	}
 
-	&::before {
-		left: auto;
-		transform: translate(px-to-rem(25));
+	&:checked + .#{$ns}-switch--control {
+		background: $color-xero-blue;
+		border: 1px solid $color-xero-blue;
+
+		&::before {
+			left: auto;
+			transform: translate(px-to-rem(25));
+		}
 	}
 }

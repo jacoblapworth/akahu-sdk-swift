@@ -148,13 +148,13 @@
 //		</section>
 //		<ul class="xui-panel--section">
 //			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label" for="display-name-pf">Display Name</label>
+//				<label class="xui-inputgroup--label xui-text-label" for="display-name-pf">Display Name</label>
 //				<div class="xui-inputgroup--inputs">
 //					<input class="xui-input" type="text" id="display-name-pf" placeholder="Your name"/>
 //				</div>
 //			</li>
 //			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label" for="legal-name-pf">Legal Name</label>
+//				<label class="xui-inputgroup--label xui-text-label" for="legal-name-pf">Legal Name</label>
 //				<div class="xui-inputgroup--inputs">
 //					<input class="xui-input" type="text" id="legal-name-pf" placeholder="If different from above"/>
 //				</div>
@@ -181,13 +181,13 @@
 //		</div>
 //		<ul class="xui-panel--section">
 //			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label" for="display-name">Display Name</label>
+//				<label class="xui-inputgroup--label xui-text-label" for="display-name">Display Name</label>
 //				<div class="xui-inputgroup--inputs">
 //					<input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
 //				</div>
 //			</li>
 //			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
+//				<label class="xui-inputgroup--label xui-text-label" for="legal-name">Legal Name</label>
 //				<div class="xui-inputgroup--inputs">
 //					<input class="xui-input" type="text" id="legal-name" placeholder="If different from above"/>
 //				</div>
@@ -233,9 +233,9 @@
 //			</section>
 //			<ul class="xui-panel--section">
 //				<li class="xui-inputgroup">
-//					<label class="xui-inputgroup--label" for="display-name">Display Name</label>
+//					<label class="xui-inputgroup--label xui-text-label" for="display-name">Display Name</label>
 //					<div class="xui-inputgroup--inputs">
-//						<input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
+//						<input class="xui-input xui-text-label" type="text" id="display-name" placeholder="Your name"/>
 //					</div>
 //				</li>
 //				<li class="xui-inputgroup">
@@ -263,10 +263,10 @@
 	background-color: $color-panels;
 	border: $border-standard;
 	border-radius: $radius;
-	box-shadow: $shadow-standard;
+	box-shadow: $shadow-depth-1;
 	margin: 2em auto;
 
-	@include tablet {
+	@include max-tablet {
 		border-left: 0;
 		border-radius: 0;
 		border-right: 0;

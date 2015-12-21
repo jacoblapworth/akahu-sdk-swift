@@ -97,6 +97,12 @@
 	flex: 1;
 }
 
+.#{$ns}-u-flex-verticalalign-center {
+	flex-direction: column;
+	justify-content: center;
+}
+
+
 // Full Width
 //
 // Sometimes you want an element to have full width.

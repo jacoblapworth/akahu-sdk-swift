@@ -71,7 +71,7 @@
 //
 // Markup:
 // <div class="xui-inputgroup">
-//  <label class="xui-inputgroup--label" for="display-name">Name</label>
+//  <label class="xui-inputgroup--label xui-text-label" for="display-name">Name</label>
 //  <div class="xui-inputgroup--inputs">
 //    <input class="xui-input xui-input-is-invalid" type="text" id="display-name" placeholder="Your name"/>
 //    <div class="xui-inputmessage xui-inputmessage-shown">
@@ -82,7 +82,7 @@
 //  </div>
 // </div>
 // <div class="xui-inputgroup">
-//  <div class="xui-inputgroup--label">Notifications</div>
+//  <div class="xui-inputgroup--label xui-text-label">Notifications</div>
 //  <div class="xui-inputgroup--inputs xui-checkboxgroup">
 //    <label class="xui-checkbox">
 //      <input type="checkbox"/>

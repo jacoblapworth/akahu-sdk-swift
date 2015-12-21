@@ -30,7 +30,7 @@
 // 						<option>If items are negative</option>
 // 					</select>
 // 				</div>
-// 				<label class="xui-inputgroup--label" for="move-to"><nobr>Move To</nobr></label>
+// 				<label class="xui-inputgroup--label xui-text-label" for="move-to"><nobr>Move To</nobr></label>
 // 				<div class="xui-inputgroup--inputs">
 // 					<select id="move-to" class="xui-select">
 // 						<option>Current Liabilities</option>
@@ -73,8 +73,8 @@
 
 .#{$ns}-modal {
 	background-color: $color-panels;
-	border: $border-standard;
 	border-radius: $radius;
+	box-shadow: $shadow-depth-3;
 	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
 	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal
 	width: px-to-rem(360);

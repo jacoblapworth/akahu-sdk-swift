@@ -19,6 +19,6 @@
     "package.json"
   ],
   "dependencies": {
-    "colors": "git@github.dev.xero.com:UXE/colors.git#~1.0.0"
+    "colors": "git@github.dev.xero.com:UXE/colors.git#~1.0.2"
   }
 }

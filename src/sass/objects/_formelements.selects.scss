@@ -37,7 +37,7 @@ select.#{$ns}-select {
 //
 // Markup:
 // <div class="xui-inputgroup">
-//   <label class="xui-inputgroup--label" for="group-button-example3">Native</label>
+//   <label class="xui-inputgroup--label xui-text-label" for="group-button-example3">Native</label>
 //   <div class="xui-inputgroup--inputs">
 //     <select class="xui-select" id="group-button-example3">
 //       <option>Value 1</option>
@@ -70,7 +70,7 @@ select.#{$ns}-select {
 //
 // Markup:
 // <div class="xui-inputgroup">
-//  <label class="xui-inputgroup--label">Custom</label>
+//  <label class="xui-inputgroup--label xui-text-label">Custom</label>
 //  <div class="xui-inputgroup--inputs xui-select">
 //		<input type="hidden" value="Select option 1"/>
 //		<button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">

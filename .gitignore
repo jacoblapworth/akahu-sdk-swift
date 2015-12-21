@@ -11,6 +11,7 @@ npm-debug.log
 /*.html
 /dist
 /public
+/styleguide/images
 /styleguide/kss-style.css
 /styleguide/kss-style.css.map
 

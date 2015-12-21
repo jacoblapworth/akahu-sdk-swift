@@ -75,6 +75,12 @@ $desktop-breakpoint: px-to-rem(1160);
 	}
 }
 
+@mixin max_tablet {
+	@media screen and (max-width: $tablet-breakpoint) {
+		@content;
+	}
+}
+
 // Desktop is a subset of full width
 @mixin desktop {
 	@media screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {

@@ -266,7 +266,7 @@
 	box-shadow: $shadow-depth-1;
 	margin: 2em auto;
 
-	@include tablet {
+	@include max_tablet {
 		border-left: 0;
 		border-radius: 0;
 		border-right: 0;

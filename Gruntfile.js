@@ -25,11 +25,11 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('install', ['bower-install-simple', 'shell:install']);
 	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
-	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
+	grunt.registerTask('build', ['sass', 'autoprefixer:dist', 'copy:images']);
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['if:readme', 'template', 'kss']);
 
-	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide']);
+	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide', 'copy:images-docs']);
 
 	var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];
 

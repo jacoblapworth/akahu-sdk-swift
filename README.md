@@ -84,6 +84,6 @@ or ask a question with [the topic "xui" on Confluence Questions](https://conflue
 
 We have [a UXE team member on interrupts each week](https://github.dev.xero.com/UXE/Home/wiki/Interrupts-Support-Schedule) who can provide a prompt response to any specific questions or issues.
 
-XUI's [roadmap](./wiki#roadmap) is documented in the project wiki.
+XUI's [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap) is documented in the project wiki.
 
 You may also want to subscribe to the [UX Engineering Newsletter](http://xero.us11.list-manage1.com/subscribe?u=b6eb05e31e28aab10df3721c6&id=5c27a93854).

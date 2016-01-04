@@ -2,6 +2,9 @@
  * An aggregator stylesheet of input elements that can be found in forms.
  */
 
+@import "../tools/functions";
+@import "../tools/mixins";
+
 // Form Elements
 //
 // Styleguide: Form Elements
@@ -45,9 +48,9 @@
 	}
 }
 
+@import "formelements.checkboxesradios";
 @import "formelements.inputs";
 @import "formelements.selects";
-@import "formelements.checkboxesradios";
 @import "formelements.grouped";
 @import "formelements.switch";
 @import "formelements.validationmessages";

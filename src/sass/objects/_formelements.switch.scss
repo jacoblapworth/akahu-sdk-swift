@@ -48,7 +48,7 @@
 
 .#{$ns}-switch--checkbox {
 	&:focus + .#{$ns}-switch--control {
-		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+		box-shadow: $shadow-focus;
 	}
 
 	&:checked + .#{$ns}-switch--control {

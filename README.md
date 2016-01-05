@@ -22,7 +22,8 @@ Include the following `link` in your page:
 
 #### Sherlock
 
-You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range. A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
+You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range. 
+A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
 
 ### Bower
 
@@ -53,8 +54,12 @@ over using XUI directly.
 Usage Guidelines
 ----------------
 
- * Do not create any classes that use the `xui` namespace outside this project.
-   Namespace your project's classes appropriately.
+ * Do not create any classes that use the `xui-` namespace outside this project.
+   The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
+ * Namespace your project's classes appropriately and separately to XUI.
+ * Avoid writing your own CSS as much as possible, particularly if your CSS
+   overrides XUI's styling. The less custom CSS you have, the easier it will be
+   to upgrade to new versions of XUI.
  * In your main application, make sure XUI is loaded or imported before any of
    your other stylesheets.
  * When developing components, import XUI as a devDependency. Do not import XUI,
@@ -65,15 +70,51 @@ Usage Guidelines
  * If you need XUI's variables and mixins, import them individually:
     * For variables, `@import 'xui/src/sass/vars';`
     * For mixins, `@import 'xui/src/sass/tools/mixins';`
-    * Colours are defined in [colors](https://github.dev.xero.com/UXE/colors) - see that repository for information on how to import those variables.
+    * Colours are defined in the [colors repository](https://github.dev.xero.com/UXE/colors) - consult its README for information on how to import colour variables.
+
+
+Updating
+--------
+
+XUI follows [semantic versioning](http://semver.org). You should be able to update patch and minor versions without
+requiring any changes to your code.
+
+The [UXE Releases flow](https://www.flowdock.com/app/xero/uxe-releases) lists updates and upgrades when they 
+become available.
+
+
+Upgrading
+---------
+
+Major releases with breaking changes will be made in accordance with our [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap).
+
+Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to 
+enable you to upgrade as seamlessly as possible.
+
+
+Consuming Future Breaking Changes
+---------------------------------
+
+If you find yourself needing XUI CSS before it's released, you have two options:
+* Implement the required changes to the `xui-` classes as part of your app code
+ * If you do this, take care to ensure that these XUI classes are loaded first before the rest of your CSS so that it
+   simulates what will happen when you upgrade XUI
+* Create an app-specific class for the element you're targeting which will override XUI styling
+ * These app-specific classes should be treated as tech debt and should not linger in the relevant JS/HTML after upgrading.
+
+Regardless of the approach you choose, make sure you do the following:
+
+* Document! Explain the reason for the overrides and add a TODO to remove it with the expected version of XUI containing 
+  the change you want. You could also create an issue in your Github repo or a JIRA ticket.
+* When upgrading, check to see that the change you wanted is still there - it may have changed! Then remove your custom
+  code and verify that it works with the version of XUI you are upgrading to.
 
 
 Contributing to XUI
 -------------------
 
-XUI is "internal open source" at Xero, meaning that anyone can contribute to the
-library. See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to
-contribute.
+XUI is "internal open source" at Xero, meaning that we welcome contributions from anyone. 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to contribute.
 
 
 Help

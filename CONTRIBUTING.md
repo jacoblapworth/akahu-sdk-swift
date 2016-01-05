@@ -90,16 +90,38 @@ Do not bump the version in package.json as part of your PR. If you would like a 
 once your change has been merged, please highlight that in your PR's description. The UXE team will
 coordinate releases.
 
+
 Breaking Changes
 ----------------
 
-A change is considered to be breaking if:
+Determining what constitutes a breaking change in CSS can be tricky.
 
-* It removes existing classes. All our classes are public and should be considered XUI's "API"
-* It alters existing classes in a way that could break layouts implementing the existing classes.
+The general rule is: **if it requires consumers to make changes to their code, then it's a breaking change**.
+
+This includes:
+
+* Removing existing classes. All our classes are public and should be considered XUI's "API"
+* Modifying properties of existing classes in a way that could break layouts implementing those classes.
 Since projects may subscribe to a semver range (either patch or minor), we do not want layouts
 breaking unexpectedly.
 
-New CSS classes are not considered breaking changes.
+New CSS classes are not considered breaking changes. Changes to existing classes that do not impact 
+layout are also not considered breaking changes (e.g. font-weight, color, border-color, box-shadow, etc)
 
-If you're not sure, [ask on the UXE flow](https://www.flowdock.com/app/xero/ux-engineering).
+If you're unsure, [ask on the UXE flow](https://www.flowdock.com/app/xero/ux-engineering).
+
+To submit a PR that contains a breaking change, make sure that it is made against the 
+[breaking-changes branch](https://github.dev.xero.com/UXE/xui/tree/breaking-changes). If it is merged, 
+it will be included in of the next major release. See the [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap) 
+for more details.
+
+
+Releases
+--------
+
+The [UXE team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team) will coordinate releases.
+
+For each merge into the `breaking-changes` branch, an `-alpha` release should be created with:
+
+* Clear documentation describing the change and any changes need to be made by consumers
+* The release notes from any previous alpha release (each alpha release should detail ALL previous alpha changes)

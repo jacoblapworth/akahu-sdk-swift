@@ -22,6 +22,21 @@
 
 }
 
+.kss-modifier__example {
+
+	// Position the side drawer on the right side of its container
+	.xui-sidedrawer {
+		float: right;
+		position: relative;
+	}
+
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
 .kss-main .xui-dropdownmenu {
 	position: relative;
 }

@@ -3,5 +3,8 @@
 	"registry": "https://artifactory.dev.xero.com/artifactory/api/bower/bower-virtual",
 	"resolvers": [
 		"bower-art-resolver"
-  ]
+	],
+	"shallowCloneHosts": [
+		"github.dev.xero.com"
+	]
 }

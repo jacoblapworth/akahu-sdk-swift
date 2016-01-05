@@ -7,6 +7,7 @@ You'll need:
  * [NodeJS](https://nodejs.org/)
  * [Ruby](https://www.ruby-lang.org/en/)
  * [Bundler](http://bundler.io/)
+ * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
 
 [nvm](https://github.com/creationix/nvm) and [Grunt](http://gruntjs.com/) are recommended, but not required.
 
@@ -23,6 +24,9 @@ Script          | Description
 `npm run doc`   | Compiles the style guide documentation.
 `npm run watch` | Watches for changes in SCSS files.
 `npm run watch -- --livereload` | Enables livereload on port 35729.
+
+We recommend that you run the `watch` task as it will lint and compile the SCSS and docs for you. 
+Otherwise you will manually need to run something like `npm run lint && npm run build && npm run doc`
 
 
 Conventions
@@ -48,10 +52,10 @@ This format is a [BEM](https://en.bem.info/)-inspired evolution of [SMACSS](http
  * `xui-component--subcomponent` represents a descendant of `xui-component` that
    helps form `xui-component` as a whole.
 
-Use class selectors. Do not use ids or element selectors.
+Use class selectors as much as possible. Use attribute selectors only if required. 
+Do not use ids or element selectors.
 
-Avoid nesting as much as possible; if you really need to, nest up to a maximum
-of 2 levels deep.
+[Nesting selectors is bad](http://markdotto.com/2015/07/20/css-nesting/); we only allow 2 levels max.
 
 Layout styling should be separate to component styling. Individual components
 should not make assumptions about their layout (e.g. by setting margins, or position).
@@ -80,10 +84,16 @@ Making Contributions
 Contributions can be made via issues and pull requests. For [breaking changes](#breaking-changes),
 please open PRs against the `breaking-changes` branch. Otherwise open your PR against master.
 
+We use a pretty OCD linter, so make sure your code passes linting before opening a PR, otherwise 
+your PR build will fail.
+
+The XUI documentation is generated from the comments in our SCSS files. Please ensure that your change 
+is also correctly reflected in the generated documentation.
+
 You should cc [@UXE/uxe-team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team)
 on pull requests for prompt feedback.
 
-If you are submitting a pull request, please include a screenshot of your change
+If you are submitting a pull request, please include a screenshot of your change (if your change is visual) 
 to aid the review process.
 
 Do not bump the version in package.json as part of your PR. If you would like a release to be made

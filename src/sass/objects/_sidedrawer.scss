@@ -2,10 +2,12 @@
 
 // Side Drawers
 //
+// Side Drawers are used as application layout components. By default they will appear fixed to the right hand side of the browser window.
+//
 // Markup:
 //	<div class="xui-sidedrawer">
 //		<div class="xui-sidedrawer--header">
-//			<h3 class="xui-section-title">Comments</h3>
+//			<h3 class="xui-section-title">Header</h3>
 //		</div>
 //		<div class="xui-sidedrawer--content">
 //			Body content<br />

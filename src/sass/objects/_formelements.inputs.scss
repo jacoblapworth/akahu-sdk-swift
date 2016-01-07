@@ -21,7 +21,7 @@
 // <input class="xui-input" type="tel" placeholder="telephone #"/>
 // <input class="xui-input" type="email" placeholder="example@xero.com"/>
 // <input class="xui-input" type="url" placeholder="http://www.xero.com"/>
-// <input class="xui-input xui-input-date" type="date" placeholder="13 December 1989"/>
+// <input class="xui-input xui-input-date" type="text" placeholder="13 December 1989"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
 // <input class="xui-input" type="text" placeholder="Disabled input" disabled />
 //
 // Styleguide: Form Elements.100.1
@@ -38,12 +38,6 @@
 .#{$ns}-input-date {
 	background: url("images/inputs/calendar.svg") right 0.8em center / 1.2em no-repeat;
 	padding-right: 2.8em;
-
-	&::-webkit-clear-button,
-	&::-webkit-inner-spin-button,
-	&::-webkit-calendar-picker-indicator {
-		display: none;
-	}
 }
 
 // Textareas

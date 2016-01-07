@@ -32,11 +32,13 @@
 
 .#{$ns}-input-search {
 	background: url("images/inputs/search.svg") right 0.8em center / 1.2em no-repeat;
+	background-size: 1.22em 1.24em; // Required for background SVGs in IE11
 	padding-right: 2.8em;
 }
 
 .#{$ns}-input-date {
 	background: url("images/inputs/calendar.svg") right 0.8em center / 1.2em no-repeat;
+	background-size: 1.22em 1.24em; // Required for background SVGs in IE11
 	padding-right: 2.8em;
 }
 

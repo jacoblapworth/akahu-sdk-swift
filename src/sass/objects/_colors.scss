@@ -1,0 +1,110 @@
+@import "../vars";
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// Colors
+//
+// Standard colors to be used throughout Xero.
+//
+// Includes the various shades of grey with their typical usages and the colors used for Xero branding.
+//
+// Use the variable names shown to achieve the correct color.
+//
+// Styleguide: Colors
+//
+// Markup:
+// <div class="xui-u-flex kss-flex-grid">
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color-forms">
+// 		<div class="kss-color--desc">Forms</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-white</li>
+// 				<li>$color-grey-7</li>
+// 				<li>$color-forms</li>
+// 				<li>$color-panels</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color-backgrounds">
+// 		<div class="kss-color--desc">Backgrounds & Hovers</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-grey-6</li>
+// 				<li>$color-backgrounds</li>
+// 				<li>$color-hovers</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color-dividers">
+// 		<div class="kss-color--desc">Dividers</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-grey-5</li>
+// 				<li>$color-dividers</li>
+// 				<li>$color-disabled</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color-borders">
+// 		<div class="kss-color--desc">Borders</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-grey-4</li>
+// 				<li>$color-borders</li>
+// 			<ul>
+// 		</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-dark kss-color-placeholders">
+// 		<div class="kss-color--desc">Placeholders & Icons</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-grey-3</li>
+// 				<li>$color-placeholders</li>
+// 				<li>$color-icons</li>
+// 				<li>$color-disabled-text</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-dark kss-color-secondary-text">
+// 		<div class="kss-color--desc">Secondary Text</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-grey-2</li>
+// 				<li>$color-secondary-text</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-dark kss-color-primary-text">
+// 		<div class="kss-color--desc">Primary Text & Tooltips</div>
+// 		<div class="kss-color--vars">
+// 			<ul class="kss-color--list">
+// 				<li>$color-grey-1</li>
+// 				<li>$color-primary-text</li>
+// 				<li>$color-tooltips</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// </div>
+// <div class="xui-u-flex kss-flex-grid">
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-blue">
+// 		<div class="kss-color--desc">$color-xero-blue</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-light-blue">
+// 		<div class="kss-color--desc">$color-xero-light-blue</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-light-green">
+// 		<div class="kss-color--desc">$color-xero-light-green</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-green">
+// 		<div class="kss-color--desc">$color-xero-green</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-yellow">
+// 		<div class="kss-color--desc">$color-xero-yellow</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-orange">
+// 		<div class="kss-color--desc">$color-xero-orange</div>
+// 	</div>
+// 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-red">
+// 		<div class="kss-color--desc">$color-xero-red</div>
+// 	</div>
+// </div>

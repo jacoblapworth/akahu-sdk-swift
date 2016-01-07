@@ -38,6 +38,12 @@
 .#{$ns}-input-date {
 	background: url("images/inputs/calendar.svg") right 0.8em center / 1.2em no-repeat;
 	padding-right: 2.8em;
+
+	&::-webkit-clear-button,
+	&::-webkit-inner-spin-button,
+	&::-webkit-calendar-picker-indicator {
+		display: none;
+	}
 }
 
 // Textareas

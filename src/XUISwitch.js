@@ -45,7 +45,7 @@ export default class XUISwitch extends React.Component {
 					onChange={props.onChange}
 					name={props.name}
 					value={props.value}
-					className="xui-u-hidden xui-switch--checkbox" />
+					className="xui-u-hidden-visually xui-switch--checkbox" />
 				<div className="xui-switch--control"></div>
 			</label>
 		);

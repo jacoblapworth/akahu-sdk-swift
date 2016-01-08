@@ -1,5 +1,5 @@
 {
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"name": "xui-switch",
 	"main": "src/XUISwitch.js",
 	"description": "Layout component for XUI Switches",

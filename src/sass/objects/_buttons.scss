@@ -162,6 +162,48 @@
 	}
 }
 
+// Negative
+//
+// Button for negative actions such as delete and remove.
+//
+// :hover - Highlights when hovering.
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-negative {{modifier_class}}">Text</button>
+// <input type="button" class="xui-button xui-button-negative {{modifier_class}}" value="Text"/>
+// <button type="submit" class="xui-button xui-button-negative {{modifier_class}}">Text</button>
+// <a href="#" class="xui-button xui-button-negative {{modifier_class}}">Text</a>
+//
+// Styleguide: Buttons.1.4
+
+.#{$ns}-button-negative {
+	background-color: $color-xero-red;
+	border-color: $color-xero-red;
+	color: $color-reversed-text;
+
+	@mixin button-shadow($fade) {
+		border-color: $color-xero-red;
+		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
+	}
+
+	&:hover {
+		@include button-shadow(0.05);
+	}
+
+	&:focus {
+		border-color: $color-xero-red;
+		outline: 1px solid $color-white;
+		outline-offset: -3px;
+	}
+
+	&:active {
+		@include button-shadow(0.1);
+		background-color: $color-xero-red;
+	}
+}
+
 // Sizes
 //
 // Styleguide: Buttons.2
@@ -201,17 +243,11 @@
 //
 // Styleguide: Buttons.3
 
-// Disabled
+// Standard Disabled
 //
-// Styling of buttons when disabled.
+// Styling of standard buttons when disabled.
 //
 // Markup:
-// <p>
-//   <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</button>
-//   <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled {{modifier_class}}">Text</button>
-//   <input type="submit" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}" value="Text" />
-//   <a href="#" class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</a>
-// </p>
 // <p>
 //   <button type="button" disabled class="xui-button xui-button-is-disabled {{modifier_class}}">Text</button>
 //   <input type="button" disabled class="xui-button xui-button-is-disabled {{modifier_class}}" value="Text" />
@@ -220,7 +256,7 @@
 //
 // Styleguide: Buttons.3.1
 
-// Disabled styling for buttons
+// Disabled styling for standard buttons
 .#{$ns}-button-is-disabled,
 .#{$ns}-button-is-disabled:focus,
 .#{$ns}-button-is-disabled:hover {
@@ -230,6 +266,29 @@
 	color: $color-disabled-text;
 	cursor: default;
 	pointer-events: none;
+}
+
+// Primary Disabled
+//
+// Styling of primary buttons when disabled.
+//
+// Markup:
+// <p>
+//   <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</button>
+//   <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled {{modifier_class}}">Text</button>
+//   <input type="submit" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}" value="Text" />
+//   <a href="#" class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</a>
+// </p>
+//
+// Styleguide: Buttons.3.2
+
+// Disabled styling for primary buttons
+.#{$ns}-button-is-disabled {
+	&.#{$ns}-button-main,
+	&.#{$ns}-button-create {
+		background-color: $color-disabled;
+		color: $color-reversed-text;
+	}
 }
 
 // Unstyled

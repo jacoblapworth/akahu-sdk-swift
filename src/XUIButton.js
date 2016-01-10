@@ -1,6 +1,6 @@
 import React from 'react';
 import Component from 'xui-base-component';
-import cn from 'classNames';
+import cn from 'classnames';
 
 /**
  * String constants

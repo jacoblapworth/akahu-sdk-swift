@@ -35,6 +35,7 @@
 // Styleguide: Avatars
 .#{$ns}-avatar {
 	align-items: center;
+	background-color: $color-xero-blue;
 	border-radius: 50%;
 	color: $color-reversed-text;
 	display: flex;

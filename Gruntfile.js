@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
 	grunt.registerTask('build', ['sass', 'autoprefixer:dist', 'copy:images']);
 	grunt.registerTask('dist', ['cssmin']);
-	grunt.registerTask('doc', ['if:readme', 'template', 'kss']);
+	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:files']);
 
 	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide', 'copy:images-docs']);
 

@@ -30,11 +30,11 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `href`: (String, Optional) If this button is type `link` then this will be the hyperlink reference. Else ignored
 
-`qaHook`: (String, Optional) An optional data attribute for QA automation hooks
-
 `target`: (String, Optional) The `target` attribute for the button if the type is `link`. Else ignored
 
 `title`: (String, Optional) The `title` attribute for this button
+
+`tabIndex`: (Boolean, Optional) The HTML `tabIndex` attribute which will go on the node.  Default `0`
 
 ### XUI Button Caret Properties
 `isSelect`: (Boolean, Optional) Determines if the caret has select styles. Defaults to false.

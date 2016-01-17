@@ -10,8 +10,10 @@ input[type=number] {
 	-moz-appearance: textfield;
 }
 
+// Removes the inner focus ring that Firefox applies to inputs
 input::-moz-focus-inner {
 	border: 0;
+	padding: 0;
 }
 
 input[type=number]::-webkit-inner-spin-button,

@@ -1,52 +1,60 @@
+import 'babel-core/external-helpers.js';
+
 import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
-import './styles/test.scss';
 
 (function() {
 	var clickHandler = function() {
 		alert('I was clicked'); //eslint-disable-line no-alert
 	};
 
-	React.render(<div>
+	ReactDOM.render(<div>
 			<div className="testButtonContainer">
-				<XUIButton>Default button</XUIButton>
+				<XUIButton onClick={clickHandler}>Default button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton variant='primary'>Primary button</XUIButton>
+				<XUIButton onClick={clickHandler} variant='primary'>Primary button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton variant='create'>Create button</XUIButton>
+				<XUIButton onClick={clickHandler} variant='create'>Create button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton isDisabled={true}>Disabled button</XUIButton>
+				<XUIButton onClick={clickHandler} isDisabled={true}>Disabled button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-			<XUIButton variant='create'>A dropdown button<XUIButtonCaret /></XUIButton>
+			<XUIButton onClick={clickHandler} variant='create'>A dropdown button<XUIButtonCaret /></XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButtonGroup>
-					<XUIButton isGrouped={true}>Grouped Button One</XUIButton>
-					<XUIButton isGrouped={true}>Grouped Button Two</XUIButton>
-					<XUIButton isGrouped={true}>Grouped Button Three</XUIButton>
+					<XUIButton onClick={clickHandler} isGrouped={true}>Grouped Button One</XUIButton>
+					<XUIButton onClick={clickHandler} isGrouped={true}>Grouped Button Two</XUIButton>
+					<XUIButton onClick={clickHandler} isGrouped={true}>Grouped Button Three</XUIButton>
 				</XUIButtonGroup>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler}>Click me for an alert</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton size='small'>Small button</XUIButton>
+				<XUIButton onClick={clickHandler} size='small'>Small button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton size='full-width'>Full width button</XUIButton>
+				<XUIButton onClick={clickHandler} size='full-width'>Full width button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton type='link'>Simple anchor tag with no href</XUIButton>
+				<XUIButton onClick={clickHandler} type='link'>Simple anchor tag with no href</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
 					type='link'
 					href='http://go.xero.com'>Simple anchor tag with href</XUIButton>
 			</div>
+		<div className="testButtonContainer">
+			<XUIButton
+				type='link'
+				isDisabled={true}
+				href='http://go.xero.com'>Disabled link button</XUIButton>
+		</div>
 			<div className="testButtonContainer">
 				<XUIButton
 						type='link'
@@ -55,10 +63,12 @@ import './styles/test.scss';
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
+					onClick={clickHandler}
 					className='fun-times'>Button with non-XUI modifier class</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
+					onClick={clickHandler}
 					qaHook='buttonQAHook'>Button with a QA hook class</XUIButton>
 			</div>
 		</div>, document.getElementById('app')

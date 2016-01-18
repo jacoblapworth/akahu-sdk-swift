@@ -2,12 +2,13 @@ import React from 'react';
 import Component from 'xui-base-component';
 
 const PropTypes = {
-	/** @property {Boolean} [isSelect=false] signal if the caret has select styles */
+	/** @property {boolean} [isSelect=false] signal if the caret has select styles */
 	isSelect: React.PropTypes.bool
 };
 
 const DefaultProps = {
-	isSelect: false
+	isSelect: false,
+	pureRender: true
 };
 
 export default class XUIButtonCaret extends Component {

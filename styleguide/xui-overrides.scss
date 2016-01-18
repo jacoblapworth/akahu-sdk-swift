@@ -11,11 +11,11 @@
 	}
 
 	//   Demo styles for the XUI grid documentation
-	.xui-grid {
+	[id*="kssref-grid-layout"] .xui-grid {
 		margin: 20px 0;
 	}
 
-	.xui-grid > .xui-grid--cell, div[class*='xui-layout'] {
+	[id*="kssref-grid-layout"] .xui-grid > .xui-grid--cell, div[class*='xui-layout'] {
 		background-color: rgba(4, 138, 187, 0.3);
 		border: 1px solid rgba(4, 138, 187, 0.3);
 	}

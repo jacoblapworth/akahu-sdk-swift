@@ -7,6 +7,13 @@
 
 // Checkboxes and Radios
 //
+// Currently XUI supports native checkboxes and radio buttons. If we want to go
+// down the path of XUI styled controls we want to provide full components and
+// not just CSS with bring your own behaviour.
+//
+// The following examples show laying out radio and checkboxes with clickable
+// labels.
+//
 // Markup:
 // <label class="xui-checkbox">
 //  <input type="checkbox" name="checkbox"/>

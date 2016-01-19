@@ -11,6 +11,10 @@ A React UI component that creates buttons from the [XUI UI library](https://gith
 $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 ```
 
+### XUI Compatibility
+
+Currently compatible with XUI version 9.x
+
 ### XUI Button Properties
 `isDisabled`: (Boolean, Optional) Determines if the button is disabled or not. Set to false by default
 

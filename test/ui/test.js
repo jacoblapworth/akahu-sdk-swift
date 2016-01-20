@@ -1,4 +1,7 @@
+import 'babel-core/external-helpers.js';
+
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import XUISwitch from '../../src/XUISwitch.js';
 
 class FakeApp extends Component {
@@ -35,7 +38,7 @@ class FakeApp extends Component {
 
 (function() {
 
-	React.render(
+	ReactDOM.render(
 		<FakeApp />,
 		document.getElementById('app')
 	);

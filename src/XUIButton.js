@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import Component from 'xui-base-component';
 import cn from 'classnames';
 
+import XUIClasses, {Button as ButtonClasses} from 'xui-css-classes';
+
 /**
  * String constants
  *
@@ -75,21 +77,6 @@ const defaultProps = {
 };
 
 /**
- * XUI CSS classes for internal reference.
- *
- * @private
- */
-const CSS_CLASSES = {
-	DEFAULT: 'xui-button',
-	DISABLED: 'xui-button-is-disabled',
-	PRIMARY: 'xui-button-main',
-	CREATE: 'xui-button-create',
-	SMALL: 'xui-button-small',
-	FULL_WIDTH: 'xui-u-fullwidth',
-	GROUP: 'xui-button-grouped'
-};
-
-/**
  * Returns a class name for the button depending on the button variant string given. Will return
  * undefined if no matching variant is given.
  *
@@ -100,9 +87,9 @@ const CSS_CLASSES = {
 function getVariantClass(variant) {
 	switch (variant) {
 		case 'primary':
-			return CSS_CLASSES.PRIMARY;
+			return ButtonClasses.MAIN;
 		case 'create':
-			return CSS_CLASSES.CREATE;
+			return ButtonClasses.CREATE;
 	}
 }
 
@@ -114,7 +101,7 @@ function getVariantClass(variant) {
  * @return {string} The disabled state specific classname
  */
 function getDisabledClass(isDisabled) {
-	return isDisabled ? CSS_CLASSES.DISABLED : null;
+	return isDisabled ? ButtonClasses.IS_DISABLED : null;
 }
 
 /**
@@ -128,9 +115,9 @@ function getDisabledClass(isDisabled) {
 function getSizeClass(size) {
 	switch (size) {
 		case 'small':
-			return CSS_CLASSES.SMALL;
+			return ButtonClasses.SMALL;
 		case 'full-width':
-			return CSS_CLASSES.FULL_WIDTH;
+			return XUIClasses.Utility.FULL_WIDTH;
 	}
 }
 
@@ -142,7 +129,7 @@ function getSizeClass(size) {
  * @return {string} The grouped state specific class name
  */
 function getGroupClass(isGrouped) {
-	return isGrouped ? CSS_CLASSES.GROUP : null;
+	return isGrouped ? ButtonClasses.GROUPED : null;
 }
 
 /**
@@ -215,7 +202,7 @@ export default class XUIButton extends Component {
 		const ElementType = isLink ? CONSTANTS.A : CONSTANTS.BUTTON;
 
 		const classNames = cn(
-				CSS_CLASSES.DEFAULT,
+				ButtonClasses.BASE,
 				props.className,
 				getVariantClass(props.variant),
 				getDisabledClass(props.isDisabled),

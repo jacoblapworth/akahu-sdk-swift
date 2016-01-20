@@ -1,30 +1,29 @@
 {
-	"name": "xui-switch",
-	"version": "1.0.0",
-	"description": "Layout component for XUI Switches",
-	"main": [
-		"src/XUISwitch.js"
-	],
-	"private": true,
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"license": "Copyright Xero Ltd",
-	"keywords": [
-		"fedule",
-		"ui"
-	],
-	"moduleType": [
-		"es6"
-	],
-	"dependencies": {
-		"base-component": "git://github.dev.xero.com/FutureRobot/base-component.git",
-		"classnames": "^2.1.0",
-		"react": "~0.13.3",
-		"sass-globals": "git://github.dev.xero.com/gravity/sass-globals.git#^1.0.0"
-	}
+  "name": "xui-switch",
+  "description": "Layout component for XUI Switches",
+  "main": [
+    "src/XUISwitch.js"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "fedule",
+    "ui"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "xui-base-component": "git://github.dev.xero.com/ReactLabs/xui-base-component.git#^2.1.0",
+    "classnames": "^2.1.0",
+    "react": "^0.14.0",
+    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#~9.5.0"
+  }
 }

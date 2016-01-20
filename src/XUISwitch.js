@@ -1,4 +1,7 @@
 import React from 'react';
+import XUIBaseComponent from 'xui-base-component';
+import CSSClasses from 'xui-css-classes';
+import cn from 'classnames';
 
 /**
  * @public
@@ -32,20 +35,20 @@ const defaultProps = {
 
 };
 
-export default class XUISwitch extends React.Component {
+export default class XUISwitch extends XUIBaseComponent {
 	render() {
 
 		const props = this.props;
 
 		return (
-			<label className="xui-switch">
+			<label className='xui-switch'>
 				<input
 					type="checkbox"
 					checked={props.isEnabled}
 					onChange={props.onChange}
 					name={props.name}
 					value={props.value}
-					className="xui-u-hidden-visually xui-switch--checkbox" />
+					className={cn(CSSClasses.Utility.Hidden.VISUALLY, 'xui-switch--checkbox')} />
 				<div className="xui-switch--control"></div>
 			</label>
 		);

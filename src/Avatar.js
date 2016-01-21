@@ -92,7 +92,7 @@ export default class Avatar extends React.Component {
 		} else {
 			colour = colour || generateColour(identifier || avatar.props.value);
 			const avatarStyle = { 'backgroundColor': colour };
-			return <abbr className={avatarClassNames} className={avatarClassNames} style={avatarStyle}>{value}</abbr>;
+			return <abbr className={avatarClassNames} style={avatarStyle}>{value}</abbr>;
 		}
 	}
 }

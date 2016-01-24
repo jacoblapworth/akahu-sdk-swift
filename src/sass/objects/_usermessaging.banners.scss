@@ -12,29 +12,45 @@
 //
 // ### Accessibility
 //
-// **role="alert"**: It is recommended to use the `alert` role when using the `.xui-banner-error` class.
-// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
-// the users attention to the banner when you require their immediate attention. For further information, please
-// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
-//
 // **role="status**: Use the `status` role when you want to convey relevant advisory information that doesn't justify
 // using the alert role. For further information, please refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
 //
-// .xui-banner-error - Error styling. Useful for page level validation. Should not be dismissable.
-//
 // Markup:
-//<div class="xui-banner xui-banner-animated {{modifier_class}}" role="<!-- ROLE -->">
+//<div class="xui-banner xui-banner-animated" role="status">
 //    <p class="xui-banner--message">Banner Message</p>
 //</div>
 //
 // Styleguide: User Messaging.100.1
+
+// Errors
+//
+// Error styling. Useful for page level validation. Should not be dismissable.
+//
+// ### Accessibility
+//
+// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
+// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
+// the users attention to the banner when you require their immediate attention. For further information, please
+// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
+//
+// Markup:
+//<div class="xui-banner xui-banner-animated xui-banner-error" role="alert">
+//    <p class="xui-banner--message">Banner Message</p>
+//    <ul class="xui-banner--action">
+//      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
+//      <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
+//      <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//    </ul>
+//</div>
+//
+// Styleguide: User Messaging.100.2
 
 // With Actions
 //
 // Actions will be right aligned
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated {{modifier_class}}" role="status">
+//<div class="xui-banner xui-banner-animated" role="status">
 //    <p class="xui-banner--message">Banner Message</p>
 //    <ul class="xui-banner--action">
 //      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
@@ -50,7 +66,7 @@
 // Some banners are dismissible and styled with a right aligned close cross.
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated {{modifier_class}}" role="status">
+//<div class="xui-banner xui-banner-animated" role="status">
 //    <p class="xui-banner--message">Banner Message</p>
 //    <div class="xui-banner--action">
 //      <button class=" xui-iconbutton xui-iconbutton-small xui-toast--close" title="Close">✕</button>
@@ -65,7 +81,7 @@
 // styled as left aligned secondary text.
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated {{modifier_class}}" role="status">
+//<div class="xui-banner xui-banner-animated" role="status">
 //    <p class="xui-banner--message">Banner Message</p>
 //    <div class="xui-banner--action">
 //      <button class=" xui-iconbutton xui-iconbutton-small xui-toast--close" title="Close">✕</button>

@@ -35,8 +35,13 @@ $color-toast-link: #70bae4;
 
 // Single-Action
 //
+// ### Accessibility
+//
+// **role="status**: Use the `status` role when you want to convey relevant advisory information that doesn't justify
+// using the alert role. For further information, please refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
+//
 // Markup:
-//   <div class="xui-toast">
+//   <div class="xui-toast" role="status">
 //     <p class="xui-toast--message">Toast Message</p>
 //     <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
 //   </div>
@@ -46,7 +51,7 @@ $color-toast-link: #70bae4;
 // Multi-Action
 //
 // Markup:
-//   <div class="xui-toast">
+//   <div class="xui-toast" role="status">
 //     <p class="xui-toast--message">Toast Message</p>
 //     <ul class="xui-toast--actionlist">
 //       <li class="xui-toast--action">
@@ -61,11 +66,17 @@ $color-toast-link: #70bae4;
 //
 // Styleguide: User Messaging.200.2
 
-
 // Error
 //
+// ### Accessibility
+//
+// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
+// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
+// the users attention to the toast when you require their immediate attention. For further information, please
+// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
+//
 // Markup:
-//   <div class="xui-toast xui-toast-error">
+//   <div class="xui-toast xui-toast-error" role="alert">
 //     <p class="xui-toast--message">No internet connection</p>
 //   </div>
 //

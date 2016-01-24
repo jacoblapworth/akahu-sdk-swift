@@ -94,3 +94,9 @@ $desktop-breakpoint: px-to-rem(1160);
 	height: 0;
 	width: 0;
 }
+
+@mixin font-smooth {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

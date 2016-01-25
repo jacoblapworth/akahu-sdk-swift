@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../tools/functions";
 
 // Menu
 //
@@ -7,65 +8,72 @@
 //		<div class="xui-dropdownmenu--body">
 //			<h3 class="xui-dropdownmenu--groupheading">Group Title</h3>
 //			<ul class="xui-menugroup">
-//				<li class="xui-menugroup--item">
-//					<a href="#">Menu item 1</a>
+//				<li class="xui-menuitem">
+//					<button class="xui-unstyledbutton xui-menuitem--body">
+//						Menu item 1
+//					</button>
 //				</li>
-//				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
-//					<a href="#">Menu item 2</a>
+//				<li class="xui-menuitem xui-menuitem-is-selected">
+//					<button class="xui-unstyledbutton xui-menuitem--body">
+//						Menu item 2
+//					</button>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<a href="#">Menu item 3</a>
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
+//						Menu item 3
+//					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="checkbox" class="xui-menugroup--input" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
 //						Menu item 4
 //					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="checkbox" class="xui-menugroup--input" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
 //						Menu item 5
 //					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="radio" name="radios" class="xui-menugroup--input" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
 //						Menu item 6
 //					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="radio" name="radios" class="xui-menugroup--input" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
 //						Menu item 7
 //					</label>
 //				</li>
 //			</ul>
 //			<ul class="xui-menugroup">
-//				<li class="xui-menugroup--item">
-//					<a href="http://www.google.com">Link Menu Item 1</a>
+//				<li class="xui-menuitem">
+//					<a class="xui-menuitem--body" href="http://www.google.com">Link Menu Item 1</a>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="checkbox" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
 //						Menu item 2
 //					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="checkbox" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="checkbox" class="xui-menuitem--input" />
 //						Menu item 3
 //					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="radio" name="radios2" class="xui-menugroup--input" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="radio" name="radios2" class="xui-menuitem--input" />
 //						Menu item 4
 //					</label>
 //				</li>
-//				<li class="xui-menugroup--item">
-//					<label>
-//						<input type="radio" name="radios2" class="xui-menugroup--input" />
+//				<li class="xui-menuitem">
+//					<label class="xui-menuitem--body">
+//						<input type="radio" name="radios2" class="xui-menuitem--input" />
 //						Menu item 5
 //					</label>
 //				</li>
@@ -73,8 +81,8 @@
 //		</div>
 //		<footer class="xui-dropdownmenu--footer">
 //			<ul class="xui-menugroup">
-//				<li class="xui-menugroup--item">
-//					<a href="#">+ Some action</a>
+//				<li class="xui-menuitem">
+//					<button class="xui-menuitem--body xui-unstyledbutton">+ Some action</button>
 //				</li>
 //			</ul>
 //		</footer>
@@ -138,26 +146,22 @@ $shadow-color: #ccc;
 	}
 }
 
-.#{$ns}-menugroup--item {
+.#{$ns}-menuitem {
 	list-style-type: none;
-
-	// FIXME: This selector is too broad-reaching
-	> :nth-child(n) {
-		align-items: center;
-		display: flex;
-		padding: $padding-menu;
-		text-decoration: none;
-		width: 100%;
-	}
-
-	// FIXME: This should not be an element selector
-	a[href='#'] {
-		color: $color-primary-text;
-	}
 
 	&:hover {
 		background-color: $color-hovers;
 	}
+}
+
+.#{$ns}-menuitem--body {
+	align-items: center;
+	display: flex;
+	line-height: px-to-rem(24);
+	padding: $padding-menu;
+	text-align: left;
+	text-decoration: none;
+	width: 100%;
 }
 
 .#{$ns}-dropdownmenu--groupheading {
@@ -179,36 +183,22 @@ $shadow-color: #ccc;
 	}
 }
 
-
-.#{$ns}-menugroup--input {
+.#{$ns}-menuitem--input {
 	margin: 0 7px 0 0;
 	padding: 0;
 	top: 0; // doesn't work due to odd top's in _inputs.scss
 	z-index: 0;
 }
 
-.#{$ns}-menugroup--item-is-selected {
+.#{$ns}-menuitem-is-selected {
 	background-color: $color-xero-blue;
 	color: $color-reversed-text;
 
-	> :nth-child(n) {
+	.#{$ns}-menuitem--body {
 		color: inherit;
 	}
 
-	// FIXME: This should not be an element selector
-	a[href='#'] {
-		color: $color-reversed-text;
-	}
-
 	&:hover {
-		background-color: $color-xero-blue;
-	}
-}
-
-.#{$ns}-menugroup--item-is-selected {
-	// FIXME: These should not be element selectors
-	a:hover,
-	label:hover {
 		background-color: $color-xero-blue;
 	}
 }

@@ -97,6 +97,7 @@
 	overflow: hidden;
 
 	.#{$ns}-page-title {
+		@include font-smooth;
 		color: $color-reversed-text;
 		margin: 0.75em auto 0.25em;
 	}
@@ -138,6 +139,7 @@
 // Parent container
 // The coloured background goes full width of the page
 .#{$ns}-pageheading {
+	@include font-smooth;
 	align-items: center;
 	background-color: $color-white;
 	border-bottom: $border-standard;

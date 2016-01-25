@@ -5,39 +5,39 @@
 // `xui-accordionitem-is-open` : This class toggles the accordion items open and closed. Includes transition animation.
 //
 // Markup:
-//<ul class="xui-accordion xui-pagecontainer xui-pagecontainer-small">
+//<ul class="xui-accordion xui-pagecontainer xui-pagecontainer-small xui-panel" role="tablist" aria-multiselectable="true">
 //  <li class="xui-accordionitem">
-//    <div class="xui-accordionitem--collapsed">
+//    <div id="tab-1" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-1" arial-expanded="false" role="tab" tabindex="-1">
 //      <a href="#">Collapsed Title</a>
 //    </div>
-//    <div class="xui-accordionitem--expanded">
+//    <div id="panel-1" class="xui-accordionitem--expanded" aria-labelledby="tab-1" aria-hidden="true" role="tabpanel">
 //      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
 //      <p>Some other content...</p>
 //    </div>
 //  </li>
 //  <li class="xui-accordionitem">
-//    <div class="xui-accordionitem--collapsed">
+//    <div id="tab-2" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-2" aria-expanded="false" role="tab" tabindex="-1">
 //      <a href="#">Collapsed Title</a>
 //    </div>
-//    <div class="xui-accordionitem--expanded">
+//    <div id="panel-2" class="xui-accordionitem--expanded" aria-labelledby="tab-2" aria-hidden="true" role="tabpanel">
 //      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
 //      <p>Some other content...</p>
 //    </div>
 //  </li>
 //  <li class="xui-accordionitem xui-accordionitem-is-open">
-//    <div class="xui-accordionitem--collapsed">
+//    <div id="tab-3" class="xui-accordionitem--collapsed" aria-selected="true" aria-controls="panel-3" aria-expanded="true" role="tab" tabindex="0">
 //      <a href="#">Collapsed Title</a>
 //    </div>
-//    <div class="xui-accordionitem--expanded">
+//    <div id="panel-3" class="xui-accordionitem--expanded" aria-labelledby="tab-3" aria-hidden="false" role="tabpanel">
 //      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
 //      <p>Some other content...</p>
 //    </div>
 //  </li>
 //  <li class="xui-accordionitem">
-//    <div class="xui-accordionitem--collapsed">
+//    <div id="tab-4" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-4" aria-expanded="false" role="tab" tabindex="-1">
 //      <a href="#">Collapsed Title</a>
 //    </div>
-//    <div class="xui-accordionitem--expanded">
+//    <div id="panel-4" class="xui-accordionitem--expanded" aria-labelledby="tab-4" aria-hidden="true" role="tabpanel">
 //      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
 //      <p>Some other content...</p>
 //    </div>

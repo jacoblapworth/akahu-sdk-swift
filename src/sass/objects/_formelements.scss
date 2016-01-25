@@ -34,7 +34,9 @@
 	}
 
 	&:disabled {
+		background-color: $color-backgrounds;
 		border-color: $color-borders;
+		color: $color-secondary-text;
 	}
 
 	&:focus {

@@ -1,7 +1,7 @@
-xui
+XUI
 ===
 
-[![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:Xui_Style_Master)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
+[![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
 ![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
 
 A shared stylesheet for Xero applications that implements the [Xero Pattern Library](https://xero.invisionapp.com/share/CX2VL4F75).
@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/9.4.0/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-alpha.2/xui.css"/>
 ```
 
 #### Sherlock
@@ -50,6 +50,50 @@ In the near future we aim to provide JavaScript components that target XUI and
 when those components are available developers should prefer those components
 over using XUI directly.
 
+Example Page Markup
+-------------------
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Page Title</title>
+		<link rel="stylesheet" href="https://edge.xero.com/style/xui/9.5.0/xui.min.css"/>
+	</head>
+	<body>
+        <header class="xui-pagenav">
+            <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
+                <div class="xui-pagenav--main ">
+                    <h1 class="xui-page-title">Page Navigation Title</h1>
+                </div>
+                <nav class="xui-pagenav--nav xui-pagecontainer">
+                    <ul class="xui-tabgroup">
+                        <li class="xui-tab xui-tab-pagenav">
+                            <a class="xui-tab--body" href="#nav1">Nav 1</a>
+                        </li>
+                        <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
+                             <a class="xui-tab--body" href="#nav3">Nav 3</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <header class="xui-pageheading">
+            <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
+                <h1 class="xui-pageheading--title">Title</h1>
+            </div>
+        </header>
+        <div class="xui-panel xui-pagecontainer xui-pagecontainer-large">
+            <header class="xui-panel--header">
+                <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
+            </header>
+            <section>
+                <!-- page content -->
+            </section>
+        </div>
+    </body>
+</html>
+```
 
 Usage Guidelines
 ----------------

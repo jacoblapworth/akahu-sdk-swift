@@ -2,8 +2,8 @@
 // Toasts
 //
 // Toast notifications are typically global, they are a system event, and they
-// do not require immediate action. Things will not fall apart if a user misses
-// them or takes no action.
+// do not require immediate action. Unless the toast is an error toast, things
+// will not fall apart if a user misses them or takes no action.
 //
 // Placement should be bottom left of the screen.
 //

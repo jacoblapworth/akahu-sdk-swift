@@ -16,7 +16,7 @@
 //		<header class="xui-popover--header xui-datepicker--header">
 //			<button type="button" class="xui-datepicker--backbutton"></button>
 //			<h3 class="xui-datepicker--heading">October 2015</h3>
-//			<button type="button" class="xui-datepicker--nextbutton"></button>
+//			<button type="button" class="xui-datepicker--nextbutton xui-datepicker--button-is-disabled"></button>
 //		</header>
 //		<table class="xui-popover--section xui-datepicker--body">
 //			<thead>
@@ -70,11 +70,11 @@
 //				<tr>
 //					<td class="xui-datepicker--day">25</td>
 //					<td class="xui-datepicker--day">26</td>
-//					<td class="xui-datepicker--day">27</td>
-//					<td class="xui-datepicker--day">28</td>
-//					<td class="xui-datepicker--day">29</td>
-//					<td class="xui-datepicker--day">30</td>
-//					<td class="xui-datepicker--day">31</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">27</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">28</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">29</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">30</td>
+//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">31</td>
 //				</tr>
 //			</tbody>
 //		</table>
@@ -132,9 +132,17 @@
 	}
 }
 
+.#{$ns}-datepicker--button-is-disabled {
+	cursor: default;
+
+	&::before {
+		color: $color-grey-4;
+	}
+}
+
 .#{$ns}-datepicker--body {
 	border: 0;
-	margin: 10px;
+	margin: 10px auto;
 }
 
 .#{$ns}-datepicker--day {
@@ -164,8 +172,18 @@
 .#{$ns}-datepicker--weekday {
 	color: $color-disabled-text;
 	font-size: $font-size-heading-mini;
+	text-align: center;
 }
 
 .#{$ns}-datepicker--othermonth {
-	color: $color-disabled-text;
+	color: $color-secondary-text;
+}
+
+.#{$ns}-datepicker--day-is-disabled {
+	color: $color-grey-4;
+	cursor: default;
+
+	&:hover {
+		background-color: inherit;
+	}
 }

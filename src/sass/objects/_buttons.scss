@@ -357,12 +357,14 @@
 // Icon
 //
 // Used for buttons that only use icons.
+// `title` and `aria-label` attributes should be provided to explain the icon.
+// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
 //
 // :active - When active
 // :hover - When hovered
 //
 // Markup:
-// <button type="button" class="xui-iconbutton xui-iconbutton-large">✕</button>
+// <button type="button" class="xui-iconbutton xui-iconbutton-large" title="Close" aria-label="Close">✕</button>
 //
 // Styleguide: Buttons.4.2
 

@@ -5,9 +5,9 @@
 //
 // ## A note on accessibility (aria)
 //
-// When the URL changes, it is recommended to apply the `role="navigation"` and `aria-label` attributes.
-// When the intent is to have a panel, that exhibits behaviour similar to on page JS tabs. i.e switches a corresponding
-// view without changing the URL. Then it is recommended to apply the `tablist` role instead of `navigation`.
+// When clicking a tab results in a URL change, it is recommended to apply the `role="navigation"` and `aria-label` attributes.
+// When the intent is to have a panel, that exhibits behaviour similar to on-page JS tabs (i.e switches to a
+// corresponding view without changing the URL), then it is recommended to apply the `tablist` role instead of `navigation`.
 //
 // [Example tablist implementation](http://accessibility.athena-ict.com/aria/examples/tabpanel2.shtml)
 //
@@ -20,7 +20,7 @@
 //   - When not selected should have `aria-selected="false"`
 //
 // Panels should be marked up with `id="panelN"` `aria-hidden="boolean"` `aria-labelledby="tabN"`.
-// Note: Panels should be rendered to the document and should have visual states updated based on selected tabs
+// Note: All Panels should be rendered to the document and should have visual states updated based on selected tabs
 //   - When hidden should have `class="xui-u-hidden-visually"` and `aria-hidden="true"` or
 //   - When visible should have only `aria-hidden="false"`
 //

@@ -3,7 +3,7 @@
 // Styles for the tabbed elements.  These typically sit above `<section>`
 // elements, controlling the display of them.
 //
-// ## A note on accessibility (aria)
+// ### A note on accessibility (aria)
 //
 // When clicking a tab results in a URL change, it is recommended to apply the `role="navigation"` and `aria-label` attributes.
 // When the intent is to have a panel, that exhibits behaviour similar to on-page JS tabs (i.e switches to a

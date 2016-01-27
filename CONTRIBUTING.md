@@ -63,6 +63,9 @@ should not make assumptions about their layout (e.g. by setting margins, or posi
 Avoid the anti-pattern of applying styles in a generic class and then undoing them in a
 more specific class.
 
+If you are adding images, ensure you prefix their path with the `$xui-images-path` variable and use
+a leading slash, e.g. `background: url("#{$xui-images-path}/inputs/search.svg")`
+
 
 Patterns
 --------

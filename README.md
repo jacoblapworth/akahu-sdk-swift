@@ -22,7 +22,7 @@ Include the following `link` in your page:
 
 #### Sherlock
 
-You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range. 
+You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range.
 A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
 
 ### Bower
@@ -31,7 +31,12 @@ A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sher
 $ bower install git@github.dev.xero.com:UXE/xui.git --save
 ```
 
-You will need to compile `xui.scss`.
+You will need to compile `xui.scss`. 
+
+Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using 
+xui-build-tools, then use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
+CSS. Otherwise, to avoid having to upload XUI's images with your own deployables, you can set the value to point at S3, e.g.
+`http://edge.xero.com/style/xui/9.6.0/images`.
 
 
 What is XUI For?
@@ -58,40 +63,42 @@ Example Page Markup
 	<head>
 		<meta charset="utf-8" />
 		<title>Page Title</title>
-		<link rel="stylesheet" href="https://edge.xero.com/style/xui/9.5.0/xui.min.css"/>
+		<link href="https://edge.xero.com/style/xui/9.6.0/xui.min.css" rel="stylesheet" />
 	</head>
 	<body>
-        <header class="xui-pagenav">
-            <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
-                <div class="xui-pagenav--main ">
-                    <h1 class="xui-page-title">Page Navigation Title</h1>
-                </div>
-                <nav class="xui-pagenav--nav xui-pagecontainer">
-                    <ul class="xui-tabgroup">
-                        <li class="xui-tab xui-tab-pagenav">
-                            <a class="xui-tab--body" href="#nav1">Nav 1</a>
-                        </li>
-                        <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
-                             <a class="xui-tab--body" href="#nav3">Nav 3</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <header class="xui-pageheading">
-            <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
-                <h1 class="xui-pageheading--title">Title</h1>
-            </div>
-        </header>
-        <div class="xui-panel xui-pagecontainer xui-pagecontainer-large">
-            <header class="xui-panel--header">
-                <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
-            </header>
-            <section>
-                <!-- page content -->
-            </section>
-        </div>
-    </body>
+		<header class="xui-pagenav">
+			<div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
+				<div class="xui-pagenav--main">
+					<h1 class="xui-page-title">Page Navigation Title</h1>
+				</div>
+				<nav class="xui-pagenav--nav xui-pagecontainer">
+					<ul class="xui-tabgroup">
+						<li class="xui-tab xui-tab-pagenav">
+							<a class="xui-tab--body" href="#nav1">Nav 1</a>
+						</li>
+						<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
+							<a class="xui-tab--body" href="#nav2">Nav 2</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<header class="xui-pageheading">
+			<div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
+				<h1 class="xui-pageheading--title">Title</h1>
+			</div>
+		</header>
+		<main role="main">
+			<div class="xui-panel xui-pagecontainer xui-pagecontainer-large">
+				<header class="xui-panel--header">
+					<h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
+				</header>
+				<section>
+					<!-- page content -->
+				</section>
+			</div>
+		</main>
+	</body>
 </html>
 ```
 
@@ -123,7 +130,7 @@ Updating
 XUI follows [semantic versioning](http://semver.org). You should be able to update patch and minor versions without
 requiring any changes to your code.
 
-The [UXE Releases flow](https://www.flowdock.com/app/xero/uxe-releases) lists updates and upgrades when they 
+The [UXE Releases flow](https://www.flowdock.com/app/xero/uxe-releases) lists updates and upgrades when they
 become available.
 
 
@@ -132,7 +139,7 @@ Upgrading
 
 Major releases with breaking changes will be made in accordance with our [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap).
 
-Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to 
+Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to
 enable you to upgrade as seamlessly as possible.
 
 
@@ -148,7 +155,7 @@ If you find yourself needing XUI CSS before it's released, you have two options:
 
 Regardless of the approach you choose, make sure you do the following:
 
-* Document! Explain the reason for the overrides and add a TODO to remove it with the expected version of XUI containing 
+* Document! Explain the reason for the overrides and add a TODO to remove it with the expected version of XUI containing
   the change you want. You could also create an issue in your Github repo or a JIRA ticket.
 * When upgrading, check to see that the change you wanted is still there - it may have changed! Then remove your custom
   code and verify that it works with the version of XUI you are upgrading to.
@@ -157,7 +164,7 @@ Regardless of the approach you choose, make sure you do the following:
 Contributing to XUI
 -------------------
 
-XUI is "internal open source" at Xero, meaning that we welcome contributions from anyone. 
+XUI is "internal open source" at Xero, meaning that we welcome contributions from anyone.
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to contribute.
 
 

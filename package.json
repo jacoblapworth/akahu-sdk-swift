@@ -16,7 +16,7 @@
     "dist": "grunt dist",
     "doc": "grunt doc",
     "lint": "grunt lint",
-    "watch": "grunt watch",
+    "watch": "grunt watch --livereload",
     "bump-major": "bumper major \"Bump to {version}\" --tag \"{version}\"",
     "bump-minor": "bumper minor \"Bump to {version}\" --tag \"{version}\"",
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\""

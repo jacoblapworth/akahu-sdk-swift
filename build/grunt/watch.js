@@ -1,7 +1,7 @@
 module.exports = function(grunt, opts) {
 	var livereload;
 
-	if(opts.livereload === 1) {
+	if(opts.livereload === 1 || opts.livereload === true) {
 		livereload = true;
 	}
 	else if(opts.livereload === 0) {

@@ -95,3 +95,44 @@ p {
 .#{$ns}-text-sectionheading {
 	line-height: px-to-rem(16);
 }
+
+//	Statuses
+//
+//	Markup:
+//	<span class="xui-text-status">
+//		DRAFT
+//	</span>
+//	<span class="xui-text-status xui-text-status-positive">
+//		ACCEPTED
+//	</span>
+//	<span class="xui-text-status xui-text-status-negative">
+//		DECLINED
+//	</span>
+//	<p class="xui-heading">
+//		Heading
+//		<span class="xui-text-status">DRAFT</span>
+//	</p>
+//	<p class="xui-page-title">
+//		Page Titles
+//		<span class="xui-text-status xui-text-status-positive">APPROVED</span>
+//	</p>
+//	<p class="xui-heading-mini">
+//		Headers
+//		<span class="xui-text-status xui-text-status-negative">OVERDUE</span>
+//	</p>
+//
+// Styleguide: Typography.2
+
+// Parent container
+// The coloured background goes full width of the page
+.#{$ns}-text-status {
+	color: $color-secondary-text;
+}
+
+.#{$ns}-text-status-positive {
+	color: $color-xero-light-green;
+}
+
+.#{$ns}-text-status-negative {
+	color: $color-xero-red;
+}

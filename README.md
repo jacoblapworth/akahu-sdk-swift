@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-alpha.3/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-alpha.4/xui.css"/>
 ```
 
 #### Sherlock
@@ -63,7 +63,7 @@ Example Page Markup
 	<head>
 		<meta charset="utf-8" />
 		<title>Page Title</title>
-		<link href="https://edge.xero.com/style/xui/9.6.0/xui.min.css" rel="stylesheet" />
+		<link href="https://edge.xero.com/style/xui/10.0.0-alpha.4/xui.min.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header class="xui-pagenav">

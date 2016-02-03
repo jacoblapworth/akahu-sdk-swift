@@ -22,8 +22,7 @@ Script          | Description
 `npm run build` | Compiles the stylesheet
 `npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
 `npm run doc`   | Compiles the style guide documentation.
-`npm run watch` | Watches for changes in SCSS files.
-`npm run watch -- --livereload` | Enables livereload on port 35729.
+`npm run watch` | Watches for changes in SCSS files and live reloads them if you have the docs open
 
 We recommend that you run the `watch` task as it will lint and compile the SCSS and docs for you. 
 Otherwise you will manually need to run something like `npm run lint && npm run build && npm run doc`

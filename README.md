@@ -65,7 +65,7 @@ Example Page Markup
 		<title>Page Title</title>
 		<link href="https://edge.xero.com/style/xui/10.0.0-alpha.4/xui.min.css" rel="stylesheet" />
 	</head>
-	<body>
+	<body class="xui-body">
 		<header class="xui-pagenav">
 			<div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
 				<div class="xui-pagenav--main">

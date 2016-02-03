@@ -28,7 +28,7 @@ form {
 	padding: 0;
 }
 
-body {
+.#{$ns}-body {
 	background-color: $color-backgrounds;
 	color: $color-primary-text;
 	font-family: $font-family;

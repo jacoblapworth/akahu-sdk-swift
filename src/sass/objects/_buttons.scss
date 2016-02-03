@@ -56,9 +56,9 @@
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
-	font-size: $font-size-text;
+	font-size: 1rem;
 	font-weight: bold;
-	line-height: px-to-rem(33); // 35 px total height with borders
+	line-height: 33px; // 35 px total height with borders
 	min-width: px-to-rem(80);
 	padding: 0 px-to-rem(10);
 	text-align: center;
@@ -66,6 +66,7 @@
 
 	@include mobile {
 		display: block;
+		line-height: 38px; // 40 px total height with borders
 		width: 100%;
 	}
 
@@ -335,7 +336,7 @@
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
-	font-size: $font-size-text;
+	font-size: 1rem;
 	margin: 0;
 	padding: 0;
 }
@@ -369,7 +370,7 @@
 // Styleguide: Buttons.4.2
 
 .#{$ns}-iconbutton-small {
-	font-size: $font-size-text;
+	font-size: 1rem;
 	line-height: px-to-rem(18);
 	width: px-to-rem(18);
 }

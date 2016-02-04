@@ -22,4 +22,4 @@ bower_components
 jsconfig.json
 
 test/ui/test.bundle.js
-test/ui/style.css
+/coverage

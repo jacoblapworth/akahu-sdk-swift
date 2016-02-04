@@ -1,10 +1,7 @@
 {
-	"name": "avatar",
+	"name": "xui-avatar",
 	"description": "React UI component that renders an avatar, either based on the user's name or profile image",
-	"main": [
-		"src/Avatar.js",
-		"src/scss/_avatar.scss"
-	],
+	"main": "src/XUIAvatar.js",
 	"private": true,
 	"ignore": [
 		"**/.*",
@@ -23,15 +20,12 @@
 	],
 	"dependencies": {
 		"classnames": "^2.1.0",
-		"react": "~0.13.3",
-		"String.prototype.at": "https://github.com/mathiasbynens/String.prototype.at.git"
+		"react": "~0.14.2",
+		"xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.7.1",
+		"String.prototype.at": "git@github.dev.xero.com:XeroJS/string.prototype.at.git#^0.2.0",
+		"xui-base-component": "git@github.dev.xero.com:ReactLabs/xui-base-component.git#^2.1.0"
 	},
 	"devDependencies": {
-		"xui": "git@github.dev.xero.com:Style/xui.git#~6.1.0"
-	},
-	"bowerade": {
-		"customMains": {
-			"String.prototype.at": "at.js"
-		}
+		"xui": "git@github.dev.xero.com:UXE/xui.git#^9.7.0"
 	}
 }

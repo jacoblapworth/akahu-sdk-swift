@@ -1,23 +1,42 @@
+import 'babel-core/external-helpers.js';
 import React from 'react';
-import UserAvatar from '../../src/Avatar.js';
-import './test.scss';
+import ReactDOM from 'react-dom';
+import XUIAvatar from '../../src/XUIAvatar.js';
 
-(function() {
-	React.render(
+(function () {
+	ReactDOM.render(
 		<div>
-			<UserAvatar className="my-comp"
-				value="Dave"
+			<XUIAvatar
+				className="my-custom-class"
+				value="Huey"
 				size="small"
-				colour="red"/>
-			<UserAvatar className="my-comp"
-				value="Dave"
+				identifier="quack"
+			/>
+
+			<XUIAvatar
+				value="Dewey"
+				size="medium"
+				identifier="decimal"
+			/>
+
+			<XUIAvatar
+				value="Louie"
+				size="large"
+				identifier="quack-a-rooney"
+			/>
+
+			<XUIAvatar
+				value="💩"
+				size="medium"
+			/>
+
+			<XUIAvatar
+				value="Gyro"
 				size="small"
-				identifier="lalala"/>
-			<UserAvatar className="my-comp"
-				value="Dave"
-				size="small"
-				imageUrl="logo.png"/>
-		</div>, 
+				imageUrl="logo.png"
+			/>
+
+		</div>,
 		document.getElementById('app')
 	);
 })();

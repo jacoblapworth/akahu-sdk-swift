@@ -1,34 +1,19 @@
 {
-	"version": "2.0.3",
-	"name": "avatar",
-	"main": "src/Avatar.js",
-	"description": "React UI component that renders an avatar, either based on the user's name or profile image",
-	"author": "Jishaal Kalyan <jishaal.kalyan@xero.com>",
-	"license": "Copyright Xero Ltd",
-	"private": true,
-	"scripts": {
-		"prepublish": "bower install && node ./node_modules/bowerade/",
-		"test": "env UV_THREADPOOL_SIZE=100 ./node_modules/.bin/webpack --config ./test/webpack.config.js",
-		"watch": "env UV_THREADPOOL_SIZE=100 ./node_modules/.bin/webpack --config ./test/webpack.config.js --progress --colors --watch"
-	},
-	"devDependencies": {
-		"autoprefixer-loader": "^1.2.0",
-		"babel-core": "^5.3.0",
-		"babel-eslint": "^3.1.1",
-		"babel-loader": "^5.0.0",
-		"bower-webpack-plugin": "^0.1.8",
-		"css-loader": "^0.12.0",
-		"eslint": "^0.20.0",
-		"eslint-loader": "^0.11.1",
-		"eslint-plugin-react": "^2.2.0",
-		"extract-text-webpack-plugin": "^0.8.0",
-		"node-sass": "^3.0.0",
-		"sass-loader": "^1.0.1",
-		"style-loader": "^0.12.2",
-		"url-loader": "^0.5.5",
-		"webpack": "^1.9.4"
-	},
-	"dependencies": {
-		"bowerade": "git://github.dev.xero.com/XeroJS/bowerade.git"
-	}
+  "version": "3.0.0",
+  "name": "xui-avatar",
+  "main": "src/XUIAvatar.js",
+  "description": "React UI component that renders an avatar, either based on the user's name or profile image",
+  "author": "Jishaal Kalyan <jishaal.kalyan@xero.com>",
+  "license": "Copyright Xero Ltd",
+  "private": true,
+  "scripts": {
+	  "prepublish": "bower install",
+	  "test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js",
+	  "test-coverage": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js --coverage",
+	  "test-ui": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch",
+	  "watch": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch"
+  },
+  "devDependencies": {
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#2.0.0"
+  }
 }

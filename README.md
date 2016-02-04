@@ -1,57 +1,58 @@
-Avatar
+xui-avatar
 ===========
 
-The React implementation of the [Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html) from XUI.
+A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html).
 
-## Getting Started ##
+Renders an avatar either as an image (with the image URL provided) or as the first character of the value representing the entity in a coloured circle.
+
+## Installation
 
 ```
-$ npm install && npm test
+bower install --save git@github.dev.xero.com:ReactLabs/xui-avatar.git
 ```
 
-## Usage ##
-
-Install via bower
-```bash
-$ bower install --save git@github.dev.xero.com:FutureRobot/avatar.git
-```
+## Example
 
 ```js
-import Avatar from 'Avatar';
+import XUIAvatar from 'xui-avatar';
 
 (function() {
-	React.render(
+	ReactDOM.render(
 		<div>
-			<Avatar className="my-comp"
-				value="Magic Unicorn's Fairy Dust"
-				size="medium"
-				colour= "#800080"
-				identifier="XfCqgf"
-				imageUrl="logo.png"/>
+            <XUIAvatar
+                size="small"
+                value="Donald Trump"
+                identifier="m4k34m4r1c4gr84g41n"
+            />
+            
+            <XUIAvatar
+                size="large"
+                imageUrl="logo.png"
+            />
 		</div>, 
 		document.getElementById('app')
 	);
 })();
 ```
 
-**Config Properties:**
-
-`value`: The text to display in the avatar.
-
-`imageUrl`: The image the component should render. Image will always be used if imageUrl is specified.
-
-`size`: The size of the avatar. Can be small, medium or large. Default size is medium. 
-
-`colour`:The background colour of the avatar. Default colour is blue. Colour will be used if there is no imageUrl and the first letter of the value property will be rendered.
-
-`identifier`: An unique string that will be used to generate the colour of the avatar. Colour generated using the identifier will be used if there is no imageUrl or colour, and the first letter of the value property will be rendered.
-
-## Example ##
-
-**Avatar with identifier**
+### Avatar with identifier
 
 ![](example/avatar_identifier.PNG)
 
-**Avatar with imageUrl**
+### Avatar with imageUrl
 
 ![](example/avatar_imageUrl.PNG)
+
+## Properties
+
+Although all the properties are marked as optional, one of either `value` or `imageUrl` must be provided. The component will throw if neither are provided, or if either is falsy (e.g. empty string).
+
+`value`: (String, Optional) The text that represents the entity for which the avatar is being shown. If no `imageUrl` is supplied, the first character from the value will be used.
+
+`imageUrl`: (String, Optional) The image URL to use in the avatar. If a `value` is supplied in addition to the `imageUrl`, it will be ignored (as will `identifier`)
+
+`size`: (One of: ['small', 'medium', 'large'], Optional, default: 'medium') The size of the avatar.
+
+`identifier`: (String, Optional) A unique string that will be used to generate the colour of the avatar. Note that if `identifier` is not supplied, `value` will be used in its place. Doing this is not recommended since if different entities with the same value exist, they will end up looking identical. 
+
+`className`: (String, Optional) Any custom CSS class(es) you want to add to this component

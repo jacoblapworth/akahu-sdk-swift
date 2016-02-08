@@ -5,6 +5,5 @@ var basePath = path.resolve(__dirname, '..');
 module.exports =  buildTools.makeWebpack({
 	basePath: basePath,
 	entry: path.resolve(basePath, 'src', 'test', 'ui', 'test.js'),
-	uiTest: true,
-	production: process.argv.indexOf('--production') !== -1
+	uiTest: true
 });

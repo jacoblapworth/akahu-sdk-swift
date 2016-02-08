@@ -119,7 +119,31 @@
 // <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
 //     <h1 class="xui-pageheading--title">Sales</h1>
-//     <button type="button" class="xui-button">Button</button>
+//     <div>
+//        <button type="button" class="xui-button">
+//           Options
+//           <span class="xui-button--caret"></span>
+//        </button>
+//        <button type="button" class="xui-button xui-button-create">
+//           New
+//           <span class="xui-button--caret"></span>
+//        </button>
+//     </div>
+//   </div>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//      <ol class="xui-pageheading--breadcrumbs">
+//         <li class="xui-breadcrumb"><a href="#">Sales</a></li>
+//         <li class="xui-breadcrumb active">Invoices</a></li>
+//      </ol>
+//      <div class="xui-buttongroup">
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create">New Invoice</button>
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split">
+//            <span class="xui-button--caret"></span>
+//         </button>
+//      </div>
 //   </div>
 // </header>
 // <br />
@@ -130,7 +154,10 @@
 //         <li class="xui-breadcrumb"><a href="#">Invoices</a></li>
 //         <li class="xui-breadcrumb active">INV-001</li>
 //       </ol>
-//      <button type="button" class="xui-button">Button</button>
+//      <button type="button" class="xui-button">
+//         Options
+//         <span class="xui-button--caret"></span>
+//      </button>
 //   </div>
 // </header>
 //

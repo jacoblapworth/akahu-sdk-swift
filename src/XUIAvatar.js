@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
 import Component from 'xui-base-component';
 import cn from 'classnames';
 import XUIClasses from 'xui-css-classes';

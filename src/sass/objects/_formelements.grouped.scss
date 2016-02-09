@@ -13,7 +13,7 @@
 // single-column table to be fat-finger friendly.
 //
 // Markup:
-// <div class="xui-checkboxgroup">
+// <div class="xui-checkboxgroup" role="group" aria-label="Checkbox form">
 //   <label class="xui-checkbox">
 //     <input type="checkbox" name="checkbox1"/>
 //     Tick me!
@@ -27,17 +27,17 @@
 //     Don't listen to those 2 - tick me instead!
 //   </label>
 // </div>
-// <div class="xui-radiogroup">
+// <div class="xui-radiogroup" role="radiogroup" aria-label="Radio form">
 //   <label class="xui-radio">
-//     <input type="radio" name="radio"/>
+//     <input type="radio" name="radio1"/>
 //     Pick me!
 //   </label>
 //   <label class="xui-radio">
-//     <input type="radio" name="radio"/>
+//     <input type="radio" name="radio1"/>
 //     No, pick me!
 //   </label>
 //   <label class="xui-radio">
-//     <input type="radio" name="radio"/>
+//     <input type="radio" name="radio1"/>
 //     Are you insane?  Pick me!
 //   </label>
 // </div>
@@ -72,10 +72,10 @@
 // Markup:
 // <div class="xui-inputgroup">
 //  <label class="xui-inputgroup--label xui-text-label" for="display-name">Name</label>
-//  <div class="xui-inputgroup--inputs">
-//    <input class="xui-input xui-input-is-invalid" type="text" id="display-name" placeholder="Your name"/>
+//  <div class="xui-inputgroup--inputs" role="group">
+//    <input class="xui-input xui-input-is-invalid" type="text" id="display-name" placeholder="Your name" aria-describedby="req-message"/>
 //    <div class="xui-inputmessage xui-inputmessage-shown">
-//      <div class="xui-inputmessage--body">
+//      <div id="req-message" class="xui-inputmessage--body">
 //        This field is required
 //      </div>
 //    </div>
@@ -83,7 +83,7 @@
 // </div>
 // <div class="xui-inputgroup">
 //  <div class="xui-inputgroup--label xui-text-label">Notifications</div>
-//  <div class="xui-inputgroup--inputs xui-checkboxgroup">
+//  <div class="xui-inputgroup--inputs xui-checkboxgroup" role="group" aria-describedby="sel-message">
 //    <label class="xui-checkbox">
 //      <input type="checkbox"/>
 //      When a friend comments on my post
@@ -93,7 +93,7 @@
 //      When a friend sends me a message
 //    </label>
 //    <div class="xui-inputmessage xui-inputmessage-shown">
-//      <div class="xui-inputmessage--body">
+//      <div id="sel-message" class="xui-inputmessage--body">
 //        Select at least 1 option
 //      </div>
 //    </div>

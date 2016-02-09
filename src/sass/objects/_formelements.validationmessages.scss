@@ -16,8 +16,7 @@
 //
 // Styleguide: Form Elements.600.1
 
-.#{$ns}-input-is-invalid,
-:invalid {
+.#{$ns}-input-is-invalid {
 	border-color: $color-xero-red;
 
 	&:focus,

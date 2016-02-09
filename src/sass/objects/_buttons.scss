@@ -329,10 +329,11 @@
 // Styleguide: Buttons.4.1
 
 .#{$ns}-unstyledbutton,
+.#{$ns}-inlineaction,
 .#{$ns}-iconbutton {
 	-webkit-appearance: none;
 	background: transparent;
-	border: 0;
+	border: 1px solid transparent;
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
@@ -340,6 +341,21 @@
 	margin: 0;
 	padding: 0;
 }
+
+// Icon
+//
+// Used for buttons that only use icons.
+// `title` and `aria-label` attributes should be provided to explain the icon.
+// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+//
+// :active - When active
+// :hover - When hovered
+// :focus - When focused
+//
+// Markup:
+// <button type="button" class="xui-iconbutton xui-iconbutton-large" title="Close" aria-label="Close">✕</button>
+//
+// Styleguide: Buttons.4.2
 
 .#{$ns}-iconbutton {
 	color: $color-primary-text;
@@ -355,20 +371,6 @@
 	}
 }
 
-// Icon
-//
-// Used for buttons that only use icons.
-// `title` and `aria-label` attributes should be provided to explain the icon.
-// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
-//
-// :active - When active
-// :hover - When hovered
-//
-// Markup:
-// <button type="button" class="xui-iconbutton xui-iconbutton-large" title="Close" aria-label="Close">✕</button>
-//
-// Styleguide: Buttons.4.2
-
 .#{$ns}-iconbutton-small {
 	font-size: 1rem;
 	line-height: px-to-rem(18);
@@ -379,4 +381,35 @@
 	font-size: $font-size-icon-large;
 	line-height: px-to-rem(32);
 	width: px-to-rem(32);
+}
+
+// Inline Action
+//
+// Used for buttons that look like standard buttons when focused and icon buttons when not focused.
+//
+// :focus - When focused
+//
+// Markup:
+// <button type="button" class="xui-inlineaction xui-inlineaction-large" title="Add" aria-label="Add">+</button>
+//
+// Styleguide: Buttons.4.3
+
+.#{$ns}-inlineaction {
+	color: $color-xero-blue;
+	line-height: px-to-rem(32);
+	min-width: px-to-rem(18);
+	transition: $transition-duration-quick all $easing-standard;
+
+	&:focus {
+		background: $color-white;
+		border: 1px solid $color-xero-blue;
+		border-radius: $radius;
+		box-shadow: $shadow-focus;
+		outline: none;
+	}
+}
+
+.#{$ns}-inlineaction-large {
+	font-size: $font-size-icon-large;
+	min-width: px-to-rem(32);
 }

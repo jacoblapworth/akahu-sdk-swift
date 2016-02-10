@@ -53,7 +53,7 @@
 	pointer-events: none;
 	position: absolute;
 	top: 0;
-	transition: opacity $xui-transition-duration-short $xui-easing-standard;
+	transition: opacity $xui-transition-duration-medium $xui-easing-standard;
 	width: 275px;
 
 	@include xui-breakpoint-md {

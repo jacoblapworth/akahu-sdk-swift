@@ -125,7 +125,7 @@ select.#{$ns}-select {
 	left: 0;
 	position: absolute;
 	top: 40px;
-	transition: $xui-transition-duration-quick all $xui-easing-standard;
+	transition: $xui-transition-duration-short all $xui-easing-standard;
 	width: 100%;
 	z-index: 1;
 }

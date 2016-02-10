@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import React from 'react';
 import Component from 'xui-base-component';
 import cn from 'classnames';
 import XUIClasses from 'xui-css-classes';
@@ -19,13 +19,13 @@ const propTypes = {
 	},
 
 	/** @property {String} [imageUrl] the image the component should render. Initials rendered otherwise */
-	imageUrl: PropTypes.string,
+	imageUrl: React.PropTypes.string,
 
 	/** @property {String} [size=medium] The size of the avatar. Can be small, medium or large */
-	size: PropTypes.oneOf(['small', 'medium', 'large']),
+	size: React.PropTypes.oneOf(['small', 'medium', 'large']),
 
 	/** @property {String} [identifier] A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
-	identifier: PropTypes.string
+	identifier: React.PropTypes.string
 
 };
 

@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.0.1",
   "name": "xui-avatar",
   "main": "src/XUIAvatar.js",
   "description": "React UI component that renders an avatar, either based on the user's name or profile image",
@@ -7,13 +7,16 @@
   "license": "Copyright Xero Ltd",
   "private": true,
   "scripts": {
-	  "prepublish": "bower install",
-	  "test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js",
-	  "test-coverage": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js --coverage",
-	  "test-ui": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch",
-	  "watch": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch"
+    "prepublish": "bower install",
+    "test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js",
+    "test-coverage": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js --coverage",
+    "test-ui": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch",
+    "watch": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch"
   },
   "devDependencies": {
     "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#2.0.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.7"
   }
 }

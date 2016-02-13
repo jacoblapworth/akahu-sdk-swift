@@ -15,17 +15,28 @@
 //   * Clicking on the mask should not close the modal
 // * TODO: Define behaviour for multiple modals
 //
+// ### Accessibility
+// Adding a `dialog` role to the modal is usually not enough to make it accessible. The modal also needs to be labelled appropriately and focus around the modal needs to be managed.
+//
+// #### Labelling
+//  * The `aria-labelledby` and `aria-describedby` attributes can be used to ensure the purpose of the modal is clear.
+//
+// #### Keyboard interaction
+//  * When the modal is opened, the keyboard focus should be moved to a default focusable control with the modal. For example, this could be a button in the footer of the modal or the first element in a form within the modal.
+//  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
+//
 // Markup:
 // <div class="xui-mask">
-// 	<section class="xui-modal xui-modal-medium">
+// 	<section class="xui-modal xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 // 		<header class="xui-modal--header">
-// 			<h3 class="xui-text-panelheading">Smart Rule: Bank</h3>
+// 			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
 // 			<button type="button" class="xui-iconbutton xui-iconbutton-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
 // 		</header>
 // 		<div class="xui-modal--body">
+// 			<div id="modal-text">Select which items from your bank should be automatically allocated to which account</div>
 // 			<div class="xui-inputgroup">
 // 				<div class="xui-inputgroup--inputs">
-// 					<select class="xui-select">
+// 					<select aria-describedby="modal-text" class="xui-select">
 // 						<option>If items are negative</option>
 // 					</select>
 // 				</div>

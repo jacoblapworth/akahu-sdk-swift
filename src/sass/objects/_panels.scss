@@ -258,19 +258,11 @@
 //
 // Styleguide: Panels.5
 
-
 .#{$ns}-panel {
 	background-color: $color-panels;
 	border: $border-standard;
 	border-radius: $radius;
 	box-shadow: $shadow-depth-1;
-	margin: 2em auto;
-
-	@include tablet {
-		border-left: 0;
-		border-radius: 0;
-		border-right: 0;
-	}
 }
 
 // PANEL HEADER

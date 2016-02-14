@@ -2,6 +2,14 @@
 
 // Menu
 //
+// ### Behaviour
+//
+// Implementations should make the most of the screen space available when showing dropdowns.
+// Scrollbars can be used when there is not enough screen space to fit all menu items. When there
+// is more space above than below the dropdown trigger, the menu should be positioned above the
+// trigger. The same applies for whether the menu should be left-aligned or right-aligned against
+// the trigger.
+//
 // Markup:
 //	<div class="xui-dropdownmenu">
 //		<div class="xui-dropdownmenu--body">

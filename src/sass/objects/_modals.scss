@@ -27,26 +27,20 @@
 //
 // Markup:
 // <div class="xui-mask">
-// 	<section class="xui-modal xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+// 	<section class="xui-modal xui-modal-opened xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 // 		<header class="xui-modal--header">
 // 			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
 // 			<button type="button" class="xui-iconbutton xui-iconbutton-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
 // 		</header>
 // 		<div class="xui-modal--body">
-// 			<div id="modal-text">Select which items from your bank should be automatically allocated to which account</div>
-// 			<div class="xui-inputgroup">
-// 				<div class="xui-inputgroup--inputs">
-// 					<select aria-describedby="modal-text" class="xui-select">
-// 						<option>If items are negative</option>
-// 					</select>
-// 				</div>
-// 				<label class="xui-inputgroup--label xui-text-label" for="move-to"><nobr>Move To</nobr></label>
-// 				<div class="xui-inputgroup--inputs">
-// 					<select id="move-to" class="xui-select">
-// 						<option>Current Liabilities</option>
-// 					</select>
-// 				</div>
-// 			</div>
+// 			<p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
+// 			<select aria-describedby="modal-text" class="xui-select">
+// 				<option>If items are negative</option>
+// 			</select>
+// 			<label class="xui-text-label" for="move-to">Move To</label>
+// 			<select id="move-to" class="xui-select">
+// 				<option>Current Liabilities</option>
+// 			</select>
 // 		</div>
 // 		<footer class="xui-modal--footer xui-actions">
 // 			<div class="xui-actions--primary">

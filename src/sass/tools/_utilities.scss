@@ -21,8 +21,8 @@
 // <section class="xui-u-container xui-u-hidden-mobile">hidden on mobile</section>
 //
 // Styleguide: Utilities.1
-
 // scss-lint:disable ImportantRule
+
 .#{$ns}-u-hidden {
 	display: none !important;
 	// Screen readers sometimes ignore display:none as per
@@ -76,7 +76,6 @@
 //
 // Styleguide: Utilities.2
 
-
 .#{$ns}-u-flex {
 	display: flex;
 }
@@ -113,11 +112,11 @@
 // </div>
 //
 // Styleguide: Utilities.3
+
 .#{$ns}-u-fullwidth {
 	display: block;
 	width: 100%;
 }
-
 
 // Position
 //
@@ -130,7 +129,9 @@
 //  <div class="xui-dropdownmenu xui-u-position-inherit">...</div>
 // </div>
 //
+// Styleguide: Utilities.4
 // scss-lint:disable ImportantRule
+
 .#{$ns}-u-position-inherit {
 	position: inherit !important;
 }

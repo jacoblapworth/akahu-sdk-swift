@@ -117,3 +117,20 @@
 	display: block;
 	width: 100%;
 }
+
+
+// Position
+//
+// Sometimes you need to disable position attributes as
+// existing parent elements take care of those for you
+//
+// eg
+// Markup:
+// <div class="handyParent">
+//  <div class="xui-dropdownmenu xui-u-position-inherit">...</div>
+// </div>
+//
+// scss-lint:disable ImportantRule
+.#{$ns}-u-position-inherit {
+	position: inherit !important;
+}

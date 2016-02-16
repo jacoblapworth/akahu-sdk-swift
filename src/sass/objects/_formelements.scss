@@ -16,7 +16,7 @@
 // Styleguide: Form Elements
 
 %#{$ns}-commoninput {
-	-webkit-appearance: none;	// For removing drop-shadow on iOS
+	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
 	background-color: $color-white;
 	border: $border-standard;
 	border-radius: $radius;

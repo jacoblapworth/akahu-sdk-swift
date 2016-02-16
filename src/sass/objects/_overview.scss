@@ -59,7 +59,7 @@
 	margin: 2em auto;
 	width: 100%;
 
-	@include tablet {
+	@include md-breakpoint {
 		border-left: 0;
 		border-radius: 0;
 		border-right: 0;

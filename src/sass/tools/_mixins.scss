@@ -57,31 +57,27 @@
 // difficult to implement as the majority of design choices are desktop-first,
 // with mobile exceptions.
 
-$mobile-breakpoint: px-to-rem(520);
-$tablet-breakpoint: px-to-rem(940);
-$desktop-breakpoint: px-to-rem(1160);
+$sm-breakpoint: px-to-rem(520);
+$md-breakpoint: px-to-rem(940);
+$lg-breakpoint: px-to-rem(1160);
 
-// Mobile is a subset of tablet
-@mixin mobile {
-	@media screen and (max-width: $mobile-breakpoint) {
+@mixin sm-breakpoint {
+	@media screen and (max-width: $sm-breakpoint) {
 		@content;
 	}
 }
 
-// Tablet is a subset of desktop
-@mixin tablet {
-	@media screen and (min-width: $mobile-breakpoint) and (max-width: $tablet-breakpoint) {
+@mixin md-breakpoint {
+	@media screen and (min-width: $sm-breakpoint) and (max-width: $md-breakpoint) {
 		@content;
 	}
 }
 
-// Desktop is a subset of full width
-@mixin desktop {
-	@media screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint) {
+@mixin lg-breakpoint {
+	@media screen and (min-width: $md-breakpoint){
 		@content;
 	}
 }
-
 // Other Mixin utilities
 
 @mixin caret($color: $color-borders) {

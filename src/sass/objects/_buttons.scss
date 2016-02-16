@@ -64,7 +64,7 @@
 	text-align: center;
 	text-decoration: none;
 
-	@include mobile {
+	@include sm-breakpoint {
 		display: block;
 		width: 100%;
 	}
@@ -92,7 +92,7 @@
 	@include all-but-first {
 		margin-left: px-to-rem(10);
 
-		@include mobile {
+		@include sm-breakpoint {
 			margin-left: 0;
 			margin-top: px-to-rem(10);
 		}

@@ -38,7 +38,7 @@ form {
 	//       is released. Revert to `$line-height` after 10.0.0. comes out.
 	line-height: 24px;
 
-	@include mobile {
+	@include sm-breakpoint {
 		font-size: $font-size-text-mobile;
 	}
 }

@@ -7,10 +7,10 @@
 .kss-flex-grid {
   padding-top: 20px;
   
-  @include tablet {
+  @include md-breakpoint {
     flex-direction: column-reverse;
   }
-  @include mobile {
+  @include sm-breakpoint {
     flex-direction: column-reverse;
   }
 }

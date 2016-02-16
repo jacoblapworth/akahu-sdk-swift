@@ -120,7 +120,7 @@ $color-toast-link: #70bae4;
 	list-style: disc;
 }
 
-@include mobile {
+@include sm-breakpoint {
 	.#{$ns}-toast {
 		left: 50%;
 		margin-left: 0;

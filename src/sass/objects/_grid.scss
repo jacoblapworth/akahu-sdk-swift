@@ -15,6 +15,15 @@
 // via classes like `xui-layout-phone-*` for smaller screens and `xui-layout-tablet-*` for tablet
 // sized screens.
 //
+// ### Accessibility
+// If the use of these grids in your application is to create an interactive control which contains cells of tabular data arranged in rows and columns,
+// then using the `grid` role would be appropriate.
+// Using the `grid` role means that the table is considered editable unless otherwise specified by setting the `aria-readonly` attribute on the grid to true.
+// Each row in the grid must have the role `row` and each cell within the rows must have the role `gridcell`.
+// The cells of the grid must able to be either active, selectable or editable in order to apply the `gridcell` role.
+// The grid must also be keyboard accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
+//
+// Refer to the [W3C Documentation on grids](https://www.w3.org/TR/wai-aria/roles#grid) for further information about using the `grid` role and its associated roles and attributes.
 //
 // Styleguide: Grid Layout
 

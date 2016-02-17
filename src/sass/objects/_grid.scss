@@ -285,7 +285,7 @@
  * Helper mixin for specifying the layout class once but have it also spit out the device
  * specific classes
  */
- @mixin layout($suffix) {
+@mixin layout($suffix) {
 	.#{$ns}-layout-#{$suffix} {
 		@content;
 	}

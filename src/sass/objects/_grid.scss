@@ -277,6 +277,8 @@
 
 [class*='#{$ns}-layout'] {
 	flex: none;
+	float: left;
+	width: 100%;
 }
 
 /*
@@ -288,16 +290,24 @@
 		@content;
 	}
 
-	@include mobile {
-		.#{$ns}-layout-phone-#{$suffix} {
+	@include sm-breakpoint {
+		.#{$ns}-layout-sm-#{$suffix} {
 			.xui-grid & {
 				@content;
 			}
 		}
 	}
 
-	@include tablet {
-		.#{$ns}-layout-tablet-#{$suffix} {
+	@include md-breakpoint {
+		.#{$ns}-layout-md-#{$suffix} {
+			.xui-grid & {
+				@content;
+			}
+		}
+	}
+
+	@include lg-breakpoint {
+		.#{$ns}-layout-lg-#{$suffix} {
 			.xui-grid & {
 				@content;
 			}
@@ -489,47 +499,40 @@
 	width: calc((100% / 12) * 11);
 }
 
-// Fixed-Width Device-Specific
+// Percentage-Width Breakpoint-Specific
 //
-// Each of the fixed layout classes has a corresponding mobile and tablet class that only take
-// effect at certain width breakpoints.
+// Each of the layout class has a corresponding small, medium and large class that only take
+// effect at certain width breakpoints (sm, md, lg).
 //
-// As an example, the class `xui-layout-1-of-2` will always take effect unless there are other
+// The class `xui-layout-1-of-1` will always take effect unless there are other
 // breakpoint specific classes on that same element. If that node also has a class of
-// `xui-layout-tablet-1-of-4` then that will take effeect when the browser width is at "tablet size"
-// or smaller. To also enable a different layout on a phone, you could also add `xui-layout-phone-1-of-6`.
-// Now your layout would go through three different transitions depending on what the current width
-// of the browser is.
-//
-// BTW, I don't think the example below works properly with KSS.
-//
-// Thought: are these breakpoints enough? Instead of specifying `phone` or `tablet` should we instead
-// have `small` and `med` or something?
+// `xui-layout-md-1-of-4` then that will take effect when the browser width is at "medium size"
+// or higher, think 'mobile first'. Asume all components will be 100% on mobile and work up from there.
 //
 // Markup:
 // <div class="xui-grid">
-// 	<div class="xui-layout-phone-1-of-1 xui-layout-tablet-1-of-2 xui-layout-1-of-3">
-// 		<p>33% on desktop, 50% on tablet, 100% on phone</p>
+// 	<div class="xui-layout-md-1-of-2 xui-layout-lg-1-of-3">
+// 		<p>100% on phone, 50% on tablet, 33% on desktop</p>
 // 	</div>
-// 	<div class="xui-layout-phone-1-of-1 xui-layout-tablet-1-of-2 xui-layout-1-of-3">
-// 		<p>33% on desktop, 50% on tablet, 100% on phone</p>
+// 	<div class="xui-layout-md-1-of-2 xui-layout-lg-1-of-3">
+// 		<p>100% on phone, 50% on tablet, 33% on desktop</p>
 // 	</div>
-// 	<div class="xui-layout-phone-1-of-1 xui-layout-tablet-1-of-2 xui-layout-1-of-3">
-// 		<p>33% on desktop, 50% on tablet, 100% on phone</p>
+// 	<div class="xui-layout-md-1-of-2 xui-layout-lg-1-of-3">
+// 		<p>100% on phone, 50% on tablet, 33% on desktop</p>
 // 	</div>
 // </div>
 // <div class="xui-grid">
-// 	<div class="xui-layout-tablet-1-of-2 xui-layout-1-of-4">
-// 		<p>50% on desktop, 100% on tablet and phone</p>
+// 	<div class="xui-layout-lg-1-of-2">
+// 		<p>100% on phone and tablet, 50% on desktop</p>
 // 	</div>
-// 	<div class="xui-layout-tablet-1-of-2 xui-layout-1-of-4">
-// 		<p>50% on desktop, 100% on tablet and phone</p>
+// 	<div class="xui-layout-lg-1-of-2">
+// 		<p>100% on phone and tablet, 50% on desktop</p>
 // 	</div>
-// 	<div class="xui-layout-tablet-1-of-2 xui-layout-1-of-4">
-// 		<p>50% on desktop, 100% on tablet and phone</p>
+// 	<div class="xui-layout-lg-1-of-2">
+// 		<p>100% on phone and tablet, 50% on desktop</p>
 // 	</div>
-// 	<div class="xui-layout-tablet-1-of-2 xui-layout-1-of-4">
-// 		<p>50% on desktop, 100% on tablet and phone</p>
+// 	<div class="xui-layout-lg-1-of-2">
+// 		<p>100% on phone and tablet, 50% on desktop</p>
 // 	</div>
 // </div>
 //

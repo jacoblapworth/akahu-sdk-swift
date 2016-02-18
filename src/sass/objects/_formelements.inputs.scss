@@ -59,7 +59,7 @@
 	padding: px-to-rem(5) 0.5em;
 	resize: none;
 
-	@include mobile {
+	@include sm-breakpoint {
 		height: 90px;
 	}
 }

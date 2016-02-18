@@ -113,6 +113,9 @@ Usage Guidelines
    to upgrade to new versions of XUI.
  * In your main application, make sure XUI is loaded or imported before any of
    your other stylesheets.
+ * Add the `xui-body` class to your `<body>` element, unless you are targeting
+   legacy pages. The `xui-body` class provides background color, baseline font
+   styling and line height.
  * When developing components, import XUI as a devDependency. Do not import XUI,
    or any SCSS file containing shared classes, in any code that your component
    exports. SCSS does not currently dedupe multiple imports of the same code, so

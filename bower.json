@@ -1,21 +1,19 @@
 {
   "name": "xui-switch",
   "description": "Layout component for XUI Switches",
-  "main": [
-    "src/XUISwitch.js"
-  ],
+  "main": "src/XUISwitch.js",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "conf"
   ],
   "license": "Copyright Xero Ltd",
   "keywords": [
-    "fedule",
-    "ui"
+    "React"
   ],
   "moduleType": [
     "es6"
@@ -24,6 +22,6 @@
     "xui-base-component": "git://github.dev.xero.com/ReactLabs/xui-base-component.git#^2.1.0",
     "classnames": "^2.1.0",
     "react": "^0.14.0",
-    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#~9.5.0"
+    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.7.0"
   }
 }

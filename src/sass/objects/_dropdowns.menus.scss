@@ -11,69 +11,69 @@
 // the trigger.
 //
 // Markup:
-//	<div class="xui-dropdownmenu">
+//	<div class="xui-dropdownmenu" role="menu" aria-label="dropdown menu">
 //		<div class="xui-dropdownmenu--body">
 //			<h3 class="xui-dropdownmenu--groupheading">Group Title</h3>
 //			<ul class="xui-menugroup">
-//				<li class="xui-menugroup--item">
+//				<li class="xui-menugroup--item" role="menuitem" aria-selected="false">
 //					<a href="#">Menu item 1</a>
 //				</li>
-//				<li class="xui-menugroup--item xui-menugroup--item-is-selected">
+//				<li class="xui-menugroup--item xui-menugroup--item-is-selected" role="menuitem" aria-selected="true">
 //					<a href="#">Menu item 2</a>
 //				</li>
-//				<li class="xui-menugroup--item">
+//				<li class="xui-menugroup--item" role="menuitem" aria-selected="false">
 //					<a href="#">Menu item 3</a>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="checkbox" class="xui-menugroup--input" />
+//						<input type="checkbox" class="xui-menugroup--input" role="menuitemcheckbox"/>
 //						Menu item 4
 //					</label>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="checkbox" class="xui-menugroup--input" />
+//						<input type="checkbox" class="xui-menugroup--input" role="menuitemcheckbox"/>
 //						Menu item 5
 //					</label>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="radio" name="radios" class="xui-menugroup--input" />
+//						<input type="radio" name="radios" class="xui-menugroup--input" role="menuitemradio"/>
 //						Menu item 6
 //					</label>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="radio" name="radios" class="xui-menugroup--input" />
+//						<input type="radio" name="radios" class="xui-menugroup--input" role="menuitemradio"/>
 //						Menu item 7
 //					</label>
 //				</li>
 //			</ul>
 //			<ul class="xui-menugroup">
-//				<li class="xui-menugroup--item">
+//				<li class="xui-menugroup--item" role="menuitem">
 //					<a href="http://www.google.com">Link Menu Item 1</a>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="checkbox" />
+//						<input type="checkbox" role="menuitemcheckbox"/>
 //						Menu item 2
 //					</label>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="checkbox" />
+//						<input type="checkbox" role="menuitemcheckbox"/>
 //						Menu item 3
 //					</label>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="radio" name="radios2" class="xui-menugroup--input" />
+//						<input type="radio" name="radios2" class="xui-menugroup--input" role="menuitemradio"/>
 //						Menu item 4
 //					</label>
 //				</li>
 //				<li class="xui-menugroup--item">
 //					<label>
-//						<input type="radio" name="radios2" class="xui-menugroup--input" />
+//						<input type="radio" name="radios2" class="xui-menugroup--input" role="menuitemradio"/>
 //						Menu item 5
 //					</label>
 //				</li>
@@ -81,7 +81,7 @@
 //		</div>
 //		<footer class="xui-dropdownmenu--footer">
 //			<ul class="xui-menugroup">
-//				<li class="xui-menugroup--item">
+//				<li class="xui-menugroup--item" role="menuitem">
 //					<a href="#">+ Some action</a>
 //				</li>
 //			</ul>

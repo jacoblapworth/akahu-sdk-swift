@@ -40,7 +40,7 @@
 	border-radius: 50%;
 	color: $color-reversed-text;
 	display: flex;
-	font-size: 1rem;
+	font-size: $font-size-text;
 	height: px-to-rem(32);
 	justify-content: center;
 	overflow: hidden;

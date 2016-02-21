@@ -143,20 +143,6 @@ $kss-sidebar-width: 12.5rem;
 		margin: 0;
 		padding: 1em;
 	}
-
-	.xui-menugroup--item {
-
-	a {
-		color: $color-white;
-	}
-	&:hover {
-		background: $color-white;
-		a {
-			color: $color-grey-1;
-			background: $color-white;
-		}
-	}
-}
 }
 
 .kss-section--header {

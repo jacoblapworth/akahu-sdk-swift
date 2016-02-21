@@ -139,7 +139,7 @@ $color-variations: (
 
 		&:hover {
 			color: $color-primary-text;
-			text-decoration: none; // Fix for no more normalize
+			text-decoration: none;
 		}
 
 		&:hover:after {

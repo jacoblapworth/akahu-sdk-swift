@@ -10,11 +10,15 @@
 // trigger. The same applies for whether the menu should be left-aligned or right-aligned against
 // the trigger.
 //
+// ### Accessibility
+// An example of applying ARIA attributes to a dropdown is given below, using the roles `menubar`, `menu` and `menuitem`.
+// The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
+//
 // Markup:
-//	<div class="xui-dropdownmenu" role="menu" aria-label="dropdown menu">
+//	<div class="xui-dropdownmenu" role="menubar" aria-label="dropdown menu">
 //		<div class="xui-dropdownmenu--body">
 //			<h3 class="xui-dropdownmenu--groupheading">Group Title</h3>
-//			<ul class="xui-menugroup">
+//			<ul class="xui-menugroup" role="menu" aria-label="Menu group 1 label">
 //				<li class="xui-menugroup--item" role="menuitem" aria-selected="false">
 //					<a href="#">Menu item 1</a>
 //				</li>
@@ -49,7 +53,7 @@
 //					</label>
 //				</li>
 //			</ul>
-//			<ul class="xui-menugroup">
+//			<ul class="xui-menugroup" role="menu" aria-label="Menu group 2 label">
 //				<li class="xui-menugroup--item" role="menuitem">
 //					<a href="http://www.google.com">Link Menu Item 1</a>
 //				</li>
@@ -80,7 +84,7 @@
 //			</ul>
 //		</div>
 //		<footer class="xui-dropdownmenu--footer">
-//			<ul class="xui-menugroup">
+//			<ul class="xui-menugroup" role="menu" aria-label="Footer menu label">
 //				<li class="xui-menugroup--item" role="menuitem">
 //					<a href="#">+ Some action</a>
 //				</li>

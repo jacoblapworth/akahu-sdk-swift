@@ -117,6 +117,7 @@ select.#{$ns}-select {
 	background-color: transparent;
 	color: $color-primary-text;
 	display: block;
+	font-weight: normal;
 	padding: px-to-rem(5) px-to-rem(15);
 	text-align: left;
 	width: $inputgroup-width;

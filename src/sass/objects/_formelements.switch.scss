@@ -2,11 +2,15 @@
 //
 // UI Switches
 //
-// `.xui-switch-is-enabled` : Add this class to enable the switch
+// The state of the switch reflects the checked attribute of the underlying input
 //
 //	Markup:
 //	<label class="xui-switch">
 //		<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox">
+//		<div class="xui-switch--control"></div>
+//	</label>
+//	<label class="xui-switch">
+//		<input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
 //		<div class="xui-switch--control"></div>
 //	</label>
 //

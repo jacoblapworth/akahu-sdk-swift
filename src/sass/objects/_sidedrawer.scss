@@ -6,11 +6,11 @@
 //
 // ### Accessibility
 // Depending on the use of the side drawer in your application, the appropriate role (and corresponding attributes) to use can vary.
-//   * **`role="complementary"`** - Acts as a supporting section, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content. ([W3C documentation](https://www.w3.org/TR/wai-aria/roles#complementary))
-//   * **`role="log"`** - Acts as a 'live region' where new information is added in meaningful order and old information may disappear. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_log_role))
-//   * **`role="dialog"`** - Acts as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
-//
-// A 'live region' is a region of a web page that is typically updated as a result of an external event when user focus may be elsewhere. ([W3C documentation](https://www.w3.org/TR/wai-aria-practices/#LiveRegions))
+//  * **`role="complementary"`** - Acts as a supporting section, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content. ([W3C documentation](https://www.w3.org/TR/wai-aria/roles#complementary))
+//  * **`role="log"`** - Acts as a 'live region' where new information is added in meaningful order and old information may disappear. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_log_role))
+//   * A 'live region' is a region of a web page that is typically updated as a result of an external event when user focus may be elsewhere. ([W3C documentation](https://www.w3.org/TR/wai-aria-practices/#LiveRegions))
+//   * The `aria-live` attribute for this role should be set to `polite` so that users are notified of change at the next graceful opportunity, even when the side drawer isn't in focus. ([W3C documentation](https://www.w3.org/TR/wai-aria/states_and_properties#aria-live))
+//  * **`role="dialog"`** - Acts as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
 // Markup:
 //	<div class="xui-sidedrawer" role="complementary" aria-labelledby="drawer-header">

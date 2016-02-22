@@ -212,7 +212,7 @@ $color-variations: (
 }
 
 .#{$ns}-verticaltab {
-	border-left: px-to-rem(4) solid $color-white;
+	border-left: px-to-rem(4) solid transparent;
 	position: relative;
 
 	&:hover {

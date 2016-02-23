@@ -24,7 +24,7 @@
 //   - When hidden should have `class="xui-u-hidden-visually"` and `aria-hidden="true"` or
 //   - When visible should have only `aria-hidden="false"`
 //
-// Styleguide: Tabs
+// Styleguide: Navigation.5
 
 @import "../tools/mixins";
 @import "../settings/colours";
@@ -70,7 +70,7 @@
 //		</ul>
 //	</div>
 //
-// Styleguide: Tabs.1
+// Styleguide: Navigation.5.1
 .#{$ns}-tabbednav,
 // FIXME: remove .#{$ns}-tabbed-navigation in 10.0.0
 .#{$ns}-tabbed-navigation {
@@ -189,7 +189,7 @@ $color-variations: (
 //		</li>
 //	</ul>
 //
-// Styleguide: Tabs.2
+// Styleguide: Navigation.5.2
 
 .#{$ns}-tabgroup-vertical {
 	display: flex;

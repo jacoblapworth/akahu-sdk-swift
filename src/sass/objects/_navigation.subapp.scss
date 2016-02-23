@@ -1,116 +1,10 @@
-@import "../vars";
-@import "../tools/mixins";
-
-// Page Layout
+// Sub application Navigation
 //
-// ### Accessibility
-// As mentioned in the [Tabs section](https://github.dev.xero.com/pages/UXE/xui/section-tabs.html), when clicking a tab results in a URL change,
-// it is recommended to apply the `role="navigation"` and aria-label attributes. When the intent is to have a panel, that exhibits behaviour similar
-// to on-page JS tabs (i.e switches to a corresponding view without changing the URL), then it is recommended to apply the tablist role instead of navigation.
+// New styles for app sub-navigation, meant to show more detail around the current page, and give optional patterns for displaying action buttons, or breadcrumbs for navigation.
 //
-// Styleguide: Page Layout
-
-// Container
+// This component uses `xui-pagecontainer-<size>` classes to center align it's navigation, and title sub-components to the widths of your content.
 //
-// Used to set the width of page-level content.
-//
-// `xui-pagecontainer` : Default container class, use this class in combination with one of the size classes listed below
-//
-// * `xui-pagecontainer-small`
-//   * Regular size. This is the same as the site that exists today, use to match shared header widths.
-//
-// * `xui-pagecontainer-large`
-//   * Larger size. This is the recommended size for your layouts.
-//
-// `xui-pagecontainer-spaced` : Add this modifier to ensure some spacing between the edge of the page and your content.
-// You will want this for page headings with container classes, but perhaps not for panels with container classes.
-//
-// Markup:
-// <div class="xui-pagecontainer xui-pagecontainer-large">
-//		<!-- your content goes here -->
-// </div>
-//
-// Styleguide: Page Layout.1
-
-.#{$ns}-pagecontainer {
-	@include margin-auto-horizontal;
-}
-
-.#{$ns}-pagecontainer-small {
-	max-width: $page-width-small;
-	width: 100%;
-}
-
-@media screen and (max-width: ($page-width-small + 20)) {
-	.#{$ns}-pagecontainer-small {
-		&.#{$ns}-pagecontainer-spaced {
-			padding: 0 10px;
-		}
-	}
-}
-
-.#{$ns}-pagecontainer-large {
-	max-width: $page-width-large;
-	width: 100%;
-}
-
-@media screen and (max-width: $page-width-large + 20) {
-	.#{$ns}-pagecontainer-large {
-		&.#{$ns}-pagecontainer-spaced {
-			padding: 0 10px;
-		}
-	}
-}
-
-// Nav
-//
-// Styles for the nav elements.  These typically sit above body content or
-// breadcrumb elements. Defaults to full page width.
-//
-// Markup:
-// <header class="xui-pagenav">
-//   <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
-//     <div class="xui-pagenav--main">
-//       <h1 id="nav-title" class="xui-page-title">Page Navigation Title</h1>
-//     </div>
-//     <nav class="xui-pagenav--nav" role="navigation" aria-labelledby="nav-title">
-//       <ul class="xui-tabgroup">
-//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav1">Nav 1</a>
-//         </li>
-//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav2">Nav 2</a>
-//         </li>
-//         <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
-//           <a class="xui-tab--body" href="#nav3">Nav 3</a>
-//         </li>
-//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav4">Nav 4</a>
-//         </li>
-//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav5">Nav 5</a>
-//         </li>
-//       </ul>
-//     </nav>
-//   </div>
-// </header>
-//
-// Styleguide: Page Layout.2
-
-.#{$ns}-pagenav {
-	background-color: $color-xero-blue;
-	overflow: hidden;
-
-	.#{$ns}-page-title {
-		@include font-smooth;
-		color: $color-reversed-text;
-		margin: 0.75em auto 0.25em;
-	}
-}
-
-// Headings
-//
-// Styleguide: Page Layout.3
+// Styleguide: Navigation.3
 
 // Standard
 //
@@ -166,7 +60,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Page Layout.3.1
+// Styleguide: Navigation.3.1
 
 // Parent container
 // The coloured background goes full width of the page
@@ -203,7 +97,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Page Layout.3.2
+// Styleguide: Navigation.3.2
 
 .#{$ns}-pageheading-has-tabs {
 	flex-direction: column;

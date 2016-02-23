@@ -36,7 +36,7 @@ You will need to compile `xui.scss`.
 Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using 
 xui-build-tools, then use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
 CSS. Otherwise, to avoid having to upload XUI's images with your own deployables, you can set the value to point at S3, e.g.
-`http://edge.xero.com/style/xui/9.6.0/images`.
+`http://edge.xero.com/style/xui/9.8.0/images`.
 
 
 What is XUI For?

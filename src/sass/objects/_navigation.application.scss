@@ -1,0 +1,49 @@
+@import "../vars";
+@import "../tools/mixins";
+
+// Application Navigation
+//
+// New styles for app navigation, meant to replace Shared Header *eventually*
+//
+// This component uses `xui-pagecontainer-<size>` classes to center align it's navigation, and title sub-components to the widths of your content.
+//
+// Markup:
+// <header class="xui-pagenav">
+//   <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//     <div class="xui-pagenav--main">
+//       <h1 id="nav-title" class="xui-page-title">Page Navigation Title</h1>
+//     </div>
+//     <nav class="xui-pagenav--nav" role="navigation" aria-labelledby="nav-title">
+//       <ul class="xui-tabgroup">
+//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
+//           <a class="xui-tab--body" href="#nav1">Nav 1</a>
+//         </li>
+//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
+//           <a class="xui-tab--body" href="#nav2">Nav 2</a>
+//         </li>
+//         <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
+//           <a class="xui-tab--body" href="#nav3">Nav 3</a>
+//         </li>
+//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
+//           <a class="xui-tab--body" href="#nav4">Nav 4</a>
+//         </li>
+//         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
+//           <a class="xui-tab--body" href="#nav5">Nav 5</a>
+//         </li>
+//       </ul>
+//     </nav>
+//   </div>
+// </header>
+//
+// Styleguide: Navigation.2
+
+.#{$ns}-pagenav {
+	background-color: $color-xero-blue;
+	overflow: hidden;
+
+	.#{$ns}-page-title {
+		@include font-smooth;
+		color: $color-reversed-text;
+		margin: 0.75em auto 0.25em;
+	}
+}

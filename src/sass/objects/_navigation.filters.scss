@@ -1,0 +1,225 @@
+@import "colors/colors";
+
+// Filters
+//
+// Filters are a way to operate over a set of data, and change the view to show the new set of data based on your chosen filter
+//
+// Styleguide: Navigation.4
+
+// Sidebar filters
+//
+// Sidebar filters are used to filter content that is displayed in an associated panel / section
+//
+// Markup:
+// <div class="xui-grid">
+//   <div class="xui-layout-phone-1-of-1 xui-layout-2-of-9">
+//     <label class="xui-sidebarsummary" for="everythingFilters">
+//       <strong>I'm the selected sidebarfilter</strong>
+//     </label>
+//     <input type="checkbox" class="xui-sidebarsummary--control" id="everythingFilters" />
+//     <div class="xui-sidebarfilters-multiple">
+//       <ul class="xui-sidebarfilters">
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter1">Filter 1</a>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter2">
+//               <span class="xui-layout-8-of-9 xui-text-truncated">Some filter with some more content</span>
+//               <span class="xui-layout-1-of-9 xui-text-secondary xui-text-rightaligned">10</span>
+//             </a>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter3">Another filter</a>
+//             <ul class="xui-sidebarfilters">
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">
+//                     <strong>Sub filters!</strong>
+//                   </span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//             </ul>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter4">Filter 4</a>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter5">Fifth Element</a>
+//           </li>
+//         </ul>
+//         <ul class="xui-sidebarfilters">
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter1">Filter 1</a>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter2">Some filter</a>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <label class="xui-sidebarfilter--body" for="navControl1">
+//               Click me I expand!
+//             </label>
+//             <input type="checkbox" class="xui-sidebarfilter--control" id="navControl1" />
+//             <ul class="xui-sidebarfilters">
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">
+//                     <strong>Sub filters!</strong>
+//                   </span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//               <li class="xui-sidebarfilter" aria-selected="false">
+//                 <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
+//                   <span class="xui-layout-1-of-10"></span>
+//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                 </a>
+//               </li>
+//             </ul>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter4">Filter 4</a>
+//           </li>
+//           <li class="xui-sidebarfilter" aria-selected="false">
+//             <a class="xui-sidebarfilter--body" href="#Filter5">Fifth Element</a>
+//           </li>
+//        </ul>
+//     </div>
+//   </div>
+//   <div class="xui-grid--cell xui-layout-phone-1-of-1 xui-layout-7-of-9">
+//     <div class="xui-panel">
+//       A panel would live here
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Navigation.4.3
+
+@mixin hide-control() {
+	display: none;
+}
+
+@mixin collapse-list() {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height $transition-duration-short linear;
+}
+
+@mixin expand-list() {
+	max-height: 100vh; // Set huge, because you most likely will never get this big, but gotta be safe here
+}
+
+.#{$ns}-sidebarfilters {
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-sidebarfilter {
+	list-style: none;
+}
+
+.#{$ns}-sidebarfilter--control {
+	@include hide-control();
+
+	& + .#{$ns}-sidebarfilters {
+		@include collapse-list();
+	}
+
+	&:checked + .#{$ns}-sidebarfilters {
+		@include expand-list();
+	}
+}
+
+.#{$ns}-sidebarsummary--control {
+	@include hide-control();
+
+	@include mobile() {
+
+		& + .#{$ns}-sidebarfilters, & + .#{$ns}-sidebarfilters-multiple {
+			@include collapse-list();
+		}
+
+		&:checked + .#{$ns}-sidebarfilters, &:checked + .#{$ns}-sidebarfilters-multiple {
+			@include expand-list();
+		}
+
+	}
+
+}
+
+.#{$ns}-sidebarfilter--body, .#{$ns}-sidebarsummary {
+	color: $color-primary-text;
+	display: flex;
+	padding: px-to-rem(5);
+	width: 100%;
+
+	&:hover {
+		background-color: darken($color-backgrounds, 5%);
+	}
+}
+
+.#{$ns}-sidebarsummary {
+	@include hide-control();
+
+	@include mobile() {
+		display: flex;
+	}
+}
+
+.#{$ns}-sidebarfilters-multiple {
+
+	.#{$ns}-sidebarfilters {
+		padding-bottom: px-to-rem(10);
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+
+	.#{$ns}-sidebarfilters + .#{$ns}-sidebarfilters {
+		border-top: $border-standard;
+		padding-top: px-to-rem(10);
+	}
+}

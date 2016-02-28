@@ -122,6 +122,7 @@ $shadow-color: #ccc;
 .#{$ns}-dropdownmenu--body {
 	max-height: 350px;
 	overflow: auto;
+	-ms-scroll-chaining: none;
 }
 
 .#{$ns}-dropdownmenu--footer {

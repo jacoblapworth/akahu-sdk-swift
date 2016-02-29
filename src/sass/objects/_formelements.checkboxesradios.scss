@@ -29,16 +29,16 @@
 .#{$ns}-checkbox,
 .#{$ns}-radio {
 	display: block;
-	line-height: px-to-rem(36);
+	line-height: 36px;
 	vertical-align: middle;
 
 	input {
 		box-shadow: none;
 		cursor: pointer;
-		height: px-to-rem(18);
+		height: 18px;
 		margin: 3px 0.5em 3px 3px;
 		vertical-align: middle;
-		width: px-to-rem(18);
+		width: 18px;
 	}
 }
 

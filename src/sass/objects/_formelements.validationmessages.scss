@@ -54,7 +54,7 @@
 	position: absolute;
 	top: 0;
 	transition: opacity $transition-duration-short $easing-standard;
-	width: px-to-rem(275);
+	width: 275px;
 
 	@include md-breakpoint {
 		bottom: 100%;

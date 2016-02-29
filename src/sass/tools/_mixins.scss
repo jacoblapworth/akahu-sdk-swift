@@ -57,9 +57,9 @@
 // difficult to implement as the majority of design choices are desktop-first,
 // with mobile exceptions.
 
-$sm-breakpoint: px-to-rem(520);
-$md-breakpoint: px-to-rem(940);
-$lg-breakpoint: px-to-rem(1160);
+$sm-breakpoint: 520px;
+$md-breakpoint: 940px;
+$lg-breakpoint: 1160px;
 
 @mixin sm-breakpoint {
 	@media screen and (max-width: $sm-breakpoint) {

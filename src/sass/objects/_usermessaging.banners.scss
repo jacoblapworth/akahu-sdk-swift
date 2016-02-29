@@ -101,8 +101,8 @@
 	border-radius: $radius;
 	box-shadow: $shadow-depth-1;
 	color: $color-primary-text;
-	margin: px-to-rem(20) auto;
-	padding: px-to-rem(10) px-to-rem(14);
+	margin: 20px auto;
+	padding: 10px 14px;
 }
 
 .#{$ns}-banner-error {
@@ -136,8 +136,8 @@
 
 	&:nth-of-type(n+2) {
 		border-left: $border-standard;
-		margin-left: px-to-rem(10);
-		padding-left: px-to-rem(10);
+		margin-left: 10px;
+		padding-left: 10px;
 	}
 }
 

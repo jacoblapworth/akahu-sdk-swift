@@ -19,11 +19,11 @@
 	font-family: inherit;
 	font-size: inherit;
 	outline: none;
-	padding: px-to-rem(9) 0.5em;
+	padding: 9px 0.5em;
 	width: 100%;
 
 	@include sm-breakpoint {
-		padding: px-to-rem(12) 0.5em;
+		padding: 12px 0.5em;
 	}
 
 	&:hover {

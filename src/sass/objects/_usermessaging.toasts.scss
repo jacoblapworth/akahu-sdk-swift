@@ -21,9 +21,7 @@ $color-toast-link: #70bae4;
 	box-shadow: $shadow-depth-2;
 	color: $color-primary-text;
 	left: 0;
-	margin: px-to-rem(20);
 	opacity: 1;
-	padding: px-to-rem(13);
 	position: fixed;
 	transition: opacity $transition-duration-super-quick $easing-standard;
 	z-index: 10;
@@ -97,17 +95,17 @@ $color-toast-link: #70bae4;
 }
 
 .#{$ns}-toast--action {
-	margin-left: px-to-rem(20);
+	margin-left: 20px;
 
 	&:nth-of-type(n+2) {
 		border-left: 1px solid rgba(255, 255, 255, 0.5);
-		padding: 2px 0 2px px-to-rem(20);
+		padding: 2px 0 2px 20px;
 	}
 }
 
 .#{$ns}-toast--close {
 	color: $color-grey-3;
-	margin-left: px-to-rem(20);
+	margin-left: 20px;
 }
 
 .#{$ns}-toast-is-hidden {

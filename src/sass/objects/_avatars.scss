@@ -41,10 +41,10 @@
 	color: $color-reversed-text;
 	display: flex;
 	font-size: $font-size-text;
-	height: px-to-rem(32);
+	height: 32px;
 	justify-content: center;
 	overflow: hidden;
-	width: px-to-rem(32);
+	width: 32px;
 
 	// FIXME: Remove this in favour of breaking change PR#431
 	&img {
@@ -54,14 +54,14 @@
 
 .#{$ns}-avatar-small {
 	font-size: $font-size-avatar-small;
-	height: px-to-rem(24);
-	width: px-to-rem(24);
+	height: 24px;
+	width: 24px;
 }
 
 .#{$ns}-avatar-large {
 	font-size: $font-size-avatar-large;
-	height: px-to-rem(48);
-	width: px-to-rem(48);
+	height: 48px;
+	width: 48px;
 }
 
 .#{$ns}-avatar-color-1 {

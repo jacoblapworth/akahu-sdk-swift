@@ -1,0 +1,48 @@
+// Sizes
+//
+// Styleguide: Buttons.3
+
+// TODO: $line-height should be an em
+@mixin xui-button-size($line-height: 16px, $min-width: 60px, $padding: 0.5em 1em) {
+	line-height: $line-height;
+	min-width: $min-width;
+	padding: $padding;
+}
+
+$sizes: (
+  small : (line-height: 16px, min-width: 60px, padding: 0.5em 1em)
+);
+
+// Smaller
+//
+// Button to use when creating smaller more compact things.
+//
+// :hover - Highlights when hovering.
+// :focus - When focused
+// :active - When active
+// .xui-button-small
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-standard xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-main xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-create xui-button-small {{modifier_class}}">Text</button>
+// <button type="button" class="xui-button xui-button-negative xui-button-small {{modifier_class}}">Text</button>
+//
+// Styleguide: Buttons.3.1
+
+@each $size, $value-map in $sizes {
+	.#{$ns}-button-#{$size} {
+		@include xui-button-size($value-map...);
+	}
+}
+
+// Full-width
+//
+// Sometimes used when there is a single action.
+//
+// **On smaller screen widths**: Buttons are set to automatically flow to block, width 100% when under the small breakpoint
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-main xui-u-fullwidth">Big Button</button>
+//
+// Styleguide: Buttons.3.2

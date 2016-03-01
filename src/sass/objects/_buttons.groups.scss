@@ -1,0 +1,109 @@
+// Groups
+//
+// Styleguide: Buttons.5
+
+@mixin xui-buttongroup {
+	.#{$ns}-buttongroup {
+		display: inline-flex;
+	}
+}
+
+$variants: (
+	main : $color-xero-blue-divider,
+	create : $color-xero-green-divider,
+	negative : mix(rgba($color-xero-red, 0.35), $color-white) // TODO: Import this into colours project
+);
+
+@mixin xui-button-grouped {
+	.#{$ns}-button-grouped {
+		border-radius: 0;
+		margin-right: -1px; // Prevent double borders
+
+		&:hover {
+			z-index: 2; // show full border on hover
+		}
+
+		&:focus,
+		&:active {
+			z-index: 3; // override full border on focus/active
+		}
+
+		&:first-of-type {
+			border-bottom-left-radius: $radius;
+			border-top-left-radius: $radius;
+		}
+
+		&:last-of-type {
+			border-bottom-right-radius: $radius;
+			border-top-right-radius: $radius;
+		}
+
+		@each $variant, $color in $variants {
+			&.#{$ns}-button-#{$variant} {
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					border-left-color: $color;
+					border-right-color: $color;
+				}
+
+				&:first-of-type {
+					border-left: 0;
+				}
+
+				&:last-of-type {
+					border-right: 0;
+				}
+			}
+		}
+	}
+}
+
+// Groups
+//
+// Button groups are use, when you have room and want to display multiple actions without hiding them behind a dropdown menu.
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-negative {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-negative {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-negative {{modifier_class}}">Right</button>
+// </div>
+//
+// Styleguide: Buttons.5.1
+
+@include xui-buttongroup;
+@include xui-button-grouped;
+
+// TODO: Now this is in another section, determine if it's actually required
+// Side note, this doesn't actually appear to be used in the buttons section of the docs currently.
+.#{$ns}-button--grouped {
+	@include all-but-first {
+		margin-left: px-to-rem(10);
+
+		@include sm-breakpoint {
+			margin-left: 0;
+			margin-top: px-to-rem(10);
+		}
+	}
+}

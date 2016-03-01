@@ -1,0 +1,97 @@
+@import "../tools/functions";
+@import "../tools/mixins";
+
+// Dropdowns
+//
+// Styleguide: Buttons.6
+
+$button-spacing-left: 5px;
+
+@mixin xui-button--caret($color: $color-xero-blue) {
+	.#{$ns}-button--caret {
+		@include caret($color);
+		margin-left: $button-spacing-left;
+		min-height: 6px;
+	}
+}
+
+@mixin xui-button-split {
+	.#{$ns}-button-split {
+		min-width: 0;
+		padding-left: $button-spacing-left;
+	}
+}
+
+// Single Button Dropdowns
+//
+// These buttons are used when you want to provide a list of primary actions, instead of a single action
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">
+//	 Dropdown
+//   <span class="xui-button--caret"></span>
+// </button>
+// <button type="button" class="xui-button xui-button-main {{modifier_class}}">
+//	 Dropdown
+//   <span class="xui-button--caret"></span>
+// </button>
+// <button type="button" class="xui-button xui-button-create {{modifier_class}}">
+//	 Dropdown
+//   <span class="xui-button--caret"></span>
+// </button>
+// <button type="button" class="xui-button xui-button-negative {{modifier_class}}">
+//	 Dropdown
+//   <span class="xui-button--caret"></span>
+// </button>
+//
+// Styleguide: Buttons.6.1
+
+@include xui-button--caret; // Creates the class as a standalone component
+
+@each $variant in main, create, negative {
+	.#{$ns}-button-#{$variant} {
+		@include xui-button--caret($color-white);
+	}
+}
+
+// Split Button Dropdowns
+//
+// These buttons are used when you want to provide a primary action, and single or multiple secondary actions
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-standard xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-standard xui-button-grouped xui-button-split {{modifier_class}}">
+//     <span class="xui-button--caret"></span>
+//   </button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-main xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-main xui-button-grouped xui-button-split {{modifier_class}}">
+//     <span class="xui-button--caret"></span>
+//   </button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-create xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-create xui-button-grouped xui-button-split {{modifier_class}}">
+//     <span class="xui-button--caret"></span>
+//   </button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-negative xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-negative xui-button-grouped xui-button-split {{modifier_class}}">
+//     <span class="xui-button--caret"></span>
+//   </button>
+// </div>
+//
+// Styleguide: Buttons.6.2
+
+@include xui-button-split; // Creates the class as a standalone component

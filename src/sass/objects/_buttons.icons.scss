@@ -1,0 +1,66 @@
+// Icons
+//
+// Styleguide: Buttons.7
+
+// Icon
+//
+// Used for buttons that only use icons.
+// `title` and `aria-label` attributes should be provided to explain the icon.
+// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+//
+// :active - When active
+// :hover - When hovered
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="Close" aria-label="Close">✕</button>
+// <button type="button" class="xui-button xui-button-icon" title="Close" aria-label="Close">✕</button>
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="Close" aria-label="Close">✕</button>
+//
+// Styleguide: Buttons.7.1
+
+@mixin xui-button-icon {
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0;
+	color: $color-primary-text;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: $font-size-text;
+	margin: 0;
+	padding: 0;
+
+	&:hover {
+		color: $color-grey-2;
+	}
+
+	&:focus {
+		background: rgba(0, 0, 0, 0.1);
+		border-radius: 50%;
+		outline: none;
+	}
+}
+
+@mixin xui-button-icon-size($font-size, $line-height, $width) {
+	font-size: $font-size;
+	line-height: $line-height;
+	width: $width;
+}
+
+$base-size: 18px;
+
+// TODO: Medium/unsuffixed size has a broken click area - needs fixing.
+$sizes: (
+	small : (font-size: $font-size-text, line-height: $base-size, width: $base-size),
+	large : (font-size: $font-size-icon-large, line-height: $base-size * 2, width: $base-size * 2),
+);
+
+.#{$ns}-button-icon {
+	@include xui-button-icon;
+}
+
+@each $size, $value-map in $sizes {
+	.#{$ns}-button-icon-#{$size} {
+		@include xui-button-icon-size($value-map...);
+	}
+}

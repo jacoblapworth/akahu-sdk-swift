@@ -44,14 +44,6 @@
 //
 // Styleguide: Form Elements.400.1
 
-.#{$ns}-checkboxgroup,
-.#{$ns}-radiogroup {
-	@include sm-breakpoint {
-		border: $border-standard;
-		border-radius: $radius;
-	}
-}
-
 /**
  * Input groups within a form follow a very set pattern: label on the left,
  * input area in the middle, with validation messages floating around it.
@@ -103,16 +95,15 @@
 // Styleguide: Form Elements.400.2
 
 .#{$ns}-inputgroup {
-	line-height: px-to-rem(36);
+	line-height: 36px;
 	list-style: none;
-	margin: px-to-rem(20) auto;
-	min-height: px-to-rem(36);
+	min-height: 36px;
 	padding: 0;
 }
 
 // TODO: Think of better naming for distinguishing between input group contexts
 .#{$ns}-modal-inputgroup {
-	margin: px-to-rem(20) auto;
+	margin: 20px auto;
 }
 
 // Label part
@@ -122,7 +113,6 @@
 	display: block;
 	margin: 0 auto;
 	max-width: $inputgroup-width;
-	padding: 0 1em;
 }
 
 // Input(s) part
@@ -132,6 +122,5 @@
 	display: block;
 	margin: 0 auto;
 	max-width: $inputgroup-width;
-	padding: 0 1em;
 	position: relative;
 }

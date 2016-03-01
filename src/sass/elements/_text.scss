@@ -84,16 +84,12 @@ p {
 	font-weight: normal;
 }
 
-.#{$ns}-text-cell {
-	padding: $spacing-standard;
-}
-
 .#{$ns}-text-number {
 	text-align: right;
 }
 
 .#{$ns}-text-sectionheading {
-	line-height: px-to-rem(16);
+	line-height: 16px;
 }
 
 //	Statuses

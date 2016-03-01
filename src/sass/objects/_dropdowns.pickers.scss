@@ -14,9 +14,9 @@
 //			</svg>
 //		</div>
 //		<header class="xui-popover--header xui-datepicker--header">
-//			<button type="button" class="xui-datepicker--backbutton"></button>
+//			<button type="button" class="xui-unstyledbutton xui-datepicker--backbutton"></button>
 //			<h3 class="xui-datepicker--heading">October 2015</h3>
-//			<button type="button" class="xui-datepicker--nextbutton xui-datepicker--button-is-disabled"></button>
+//			<button type="button" class="xui-unstyledbutton xui-datepicker--nextbutton xui-datepicker--button-is-disabled"></button>
 //		</header>
 //		<table class="xui-popover--section xui-datepicker--body">
 //			<thead>
@@ -96,19 +96,13 @@
 }
 
 .#{$ns}-datepicker--backbutton, .#{$ns}-datepicker--nextbutton {
-	background: none;
-	border: 0;
-	cursor: pointer;
 	line-height: 56px;
-	margin: 0;
 	min-width: 10px;
-	outline: none;
-	padding: 0;
 
 	&:before {
 		color: $color-grey-2;
 		display: inline-block;
-		font-size: 33px;
+		font-size: $font-size-icon-xlarge;
 	}
 
 	&:active {

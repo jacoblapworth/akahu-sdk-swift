@@ -27,6 +27,58 @@
 //
 // Styleguide: Grid Layout
 
+// Container
+//
+// Used to set the width of page-level content.
+//
+// `xui-pagecontainer` : Default container class, use this class in combination with one of the size classes listed below
+//
+// * `xui-pagecontainer-small`
+//   * Regular size. This is the same as the site that exists today, use to match shared header widths.
+//
+// * `xui-pagecontainer-large`
+//   * Larger size. This is the recommended size for your layouts.
+//
+// `xui-pagecontainer-spaced` : Add this modifier to ensure some spacing between the edge of the page and your content.
+// You will want this for page headings with container classes, but perhaps not for panels with container classes.
+//
+// Markup:
+// <div class="xui-pagecontainer xui-pagecontainer-large">
+//		<!-- your content goes here -->
+// </div>
+//
+// Styleguide: Grid Layout.1
+
+.#{$ns}-pagecontainer {
+	@include margin-auto-horizontal;
+}
+
+.#{$ns}-pagecontainer-small {
+	max-width: $page-width-small;
+	width: 100%;
+}
+
+@media screen and (max-width: ($page-width-small + 20)) {
+	.#{$ns}-pagecontainer-small {
+		&.#{$ns}-pagecontainer-spaced {
+			padding: 0 10px;
+		}
+	}
+}
+
+.#{$ns}-pagecontainer-large {
+	max-width: $page-width-large;
+	width: 100%;
+}
+
+@media screen and (max-width: $page-width-large + 20) {
+	.#{$ns}-pagecontainer-large {
+		&.#{$ns}-pagecontainer-spaced {
+			padding: 0 10px;
+		}
+	}
+}
+
 // Fluid Cells
 //
 // The `xui-grid-cell` classes are simply flex containers with a `flex` value of 1. As you add cells to
@@ -62,7 +114,7 @@
 //	 </div>
 // </div>
 //
-// Styleguide: Grid Layout.1
+// Styleguide: Grid Layout.2
 
 .#{$ns}-grid {
 	align-content: flex-start;
@@ -117,7 +169,7 @@
 //	 </div>
 // </div>
 //
-// Styleguide: Grid Layout.2
+// Styleguide: Grid Layout.3
 
 .#{$ns}-layout-1-of-3 {
 	flex: none;
@@ -282,7 +334,7 @@
 //	  <p>.xui-layout-11-of-12</p>
 // </div>
 //
-// Styleguide: Grid Layout.3
+// Styleguide: Grid Layout.4
 
 [class*='#{$ns}-layout'] {
 	flex: none;
@@ -542,4 +594,4 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Grid Layout.4
+// Styleguide: Grid Layout.5

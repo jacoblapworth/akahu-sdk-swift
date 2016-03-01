@@ -113,7 +113,7 @@
 	align-items: center;
 	display: flex;
 	font-size: $font-size-page-title;
-	font-weight: bold;
+	@include xui-bold;
 	margin: 0 10px 0 0;
 }
 
@@ -133,7 +133,7 @@
 .#{$ns}-breadcrumb {
 	display: inline-block;
 	font-size: $font-size-page-title;
-	font-weight: bold;
+	@include xui-bold;
 	list-style-type: none;
 
 	&:before {

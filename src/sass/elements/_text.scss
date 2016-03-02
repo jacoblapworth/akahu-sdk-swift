@@ -56,7 +56,7 @@ p {
 
 .#{$ns}-text-label {
 	color: $color-secondary-text;
-	font-weight: bold;
+	@include xui-bold;
 }
 
 .#{$ns}-text-secondary {
@@ -75,7 +75,7 @@ p {
 
 .#{$ns}-text-panelheading {
 	font-size: $font-size-section-title;
-	font-weight: bold;
+	@include xui-bold;
 }
 
 .#{$ns}-text-sectionheading {

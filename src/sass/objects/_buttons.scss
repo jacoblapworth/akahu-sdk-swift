@@ -47,7 +47,7 @@
 // Styleguide: Buttons.1.1
 
 .#{$ns}-button {
-	@include font-smooth;
+	@include xui-bold;
 	-webkit-appearance: none;
 	background-color: $color-forms;
 	border: $border-standard;
@@ -57,7 +57,6 @@
 	display: inline-block;
 	font-family: inherit;
 	font-size: $font-size-text;
-	font-weight: bold;
 	line-height: 33px; // 35 px total height with borders
 	min-width: px-to-rem(80);
 	padding: 0 px-to-rem(10);

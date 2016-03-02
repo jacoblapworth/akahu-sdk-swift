@@ -100,3 +100,8 @@ $desktop-breakpoint: px-to-rem(1160);
 	font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+@mixin xui-bold {
+	@include font-smooth;
+	font-weight: bold;
+}

@@ -1,5 +1,5 @@
 @import "../vars";
-
+@import "../tools/mixins";
 // Side Drawers
 //
 // Side Drawers are used as application layout components. By default they will appear fixed to the right hand side of the browser window.
@@ -58,7 +58,7 @@ $drawer-width: 350px;
 	display: flex;
 	flex: 0 0 50px;
 	font-size: 14px;
-	font-weight: bold;
+	@include xui-bold;
 	justify-content: center;
 	position: relative;
 	text-align: center;

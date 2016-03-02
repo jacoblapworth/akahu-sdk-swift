@@ -28,7 +28,7 @@
 // </button>
 //
 // Styleguide: Buttons.200.1
-$button-margin-left: px-to-rem(5);
+$button-margin-left: 5px;
 
 .#{$ns}-button--caret {
 	@include caret($color-xero-blue);

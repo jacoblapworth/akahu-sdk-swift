@@ -95,17 +95,17 @@ $color-toast-link: #70bae4;
 }
 
 .#{$ns}-toast--action {
-	margin-left: px-to-rem(20);
+	margin-left: 20px;
 
 	&:nth-of-type(n+2) {
 		border-left: 1px solid rgba(255, 255, 255, 0.5);
-		padding: 2px 0 2px px-to-rem(20);
+		padding: 2px 0 2px 20px;
 	}
 }
 
 .#{$ns}-toast--close {
 	color: $color-grey-3;
-	margin-left: px-to-rem(20);
+	margin-left: 20px;
 }
 
 .#{$ns}-toast-is-hidden {

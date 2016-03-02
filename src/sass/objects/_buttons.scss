@@ -58,9 +58,9 @@
 	font-family: inherit;
 	font-size: $font-size-text;
 	font-weight: bold;
-	line-height: px-to-rem(33); // 35 px total height with borders
-	min-width: px-to-rem(80);
-	padding: 0 px-to-rem(10);
+	line-height: 33px; // 35 px total height with borders
+	min-width: 80px;
+	padding: 0 10px;
 	text-align: center;
 	text-decoration: none;
 
@@ -90,11 +90,11 @@
 
 .#{$ns}-button--grouped {
 	@include all-but-first {
-		margin-left: px-to-rem(10);
+		margin-left: 10px;
 
 		@include sm-breakpoint {
 			margin-left: 0;
-			margin-top: px-to-rem(10);
+			margin-top: 10px;
 		}
 	}
 }
@@ -246,8 +246,8 @@
 // Styleguide: Buttons.2.1
 
 .#{$ns}-button-small {
-	line-height: px-to-rem(16);	// Should be an em
-	min-width: px-to-rem(60);
+	line-height: 16px;	// Should be an em
+	min-width: 60px;
 	padding: 0.5em 1em;
 }
 
@@ -370,12 +370,12 @@
 
 .#{$ns}-iconbutton-small {
 	font-size: $font-size-text;
-	line-height: px-to-rem(18);
-	width: px-to-rem(18);
+	line-height: 18px;
+	width: 18px;
 }
 
 .#{$ns}-iconbutton-large {
 	font-size: $font-size-icon-large;
-	line-height: px-to-rem(32);
-	width: px-to-rem(32);
+	line-height: 32px;
+	width: 32px;
 }

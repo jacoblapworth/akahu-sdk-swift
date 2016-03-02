@@ -134,8 +134,8 @@
 
 	&:nth-of-type(n+2) {
 		border-left: $border-standard;
-		margin-left: px-to-rem(10);
-		padding-left: px-to-rem(10);
+		margin-left: 10px;
+		padding-left: 10px;
 	}
 }
 

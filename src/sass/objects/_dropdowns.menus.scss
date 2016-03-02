@@ -157,7 +157,7 @@ $shadow-color: #ccc;
 .#{$ns}-menuitem--body {
 	align-items: center;
 	display: flex;
-	line-height: px-to-rem(24);
+	line-height: 24px;
 	padding: $padding-menu;
 	text-align: left;
 	text-decoration: none;
@@ -170,7 +170,7 @@ $shadow-color: #ccc;
 	color: $color-secondary-text;
 	font-size: $font-size-heading-mini;
 	font-weight: normal;
-	line-height: px-to-rem(30);
+	line-height: 30px;
 	margin: 0;
 	padding: 0 $padding-menu-horizontal;
 

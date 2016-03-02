@@ -110,10 +110,10 @@
 }
 
 .#{$ns}-pageheading--title {
+	@include xui-bold;
 	align-items: center;
 	display: flex;
 	font-size: $font-size-page-title;
-	@include xui-bold;
 	margin: 0 10px 0 0;
 }
 
@@ -131,9 +131,9 @@
 }
 
 .#{$ns}-breadcrumb {
+	@include xui-bold;
 	display: inline-block;
 	font-size: $font-size-page-title;
-	@include xui-bold;
 	list-style-type: none;
 
 	&:before {

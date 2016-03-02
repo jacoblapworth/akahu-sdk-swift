@@ -26,7 +26,7 @@
 	cursor: pointer;
 	height: px-to-rem(26);
 	position: relative;
-	transition: all $transition-duration-super-quick $easing-standard;
+	transition: all $xui-transition-duration-super-quick $xui-easing-standard;
 	user-select: none;
 	width: 50px;
 
@@ -40,7 +40,7 @@
 		position: absolute;
 		top: 1px;
 		transform: translate(1px);
-		transition: all $transition-duration-super-quick $easing-standard;
+		transition: all $xui-transition-duration-super-quick $xui-easing-standard;
 		width: px-to-rem(22);
 	}
 

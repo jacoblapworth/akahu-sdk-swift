@@ -61,7 +61,7 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: opacity $transition-duration-short $easing-standard;
+	transition: opacity $xui-transition-duration-short $xui-easing-standard;
 	z-index: 10;
 }
 
@@ -72,7 +72,7 @@
 
 .#{$ns}-modal {
 	background-color: $color-panels;
-	border-radius: $radius;
+	border-radius: $xui-radius;
 	box-shadow: $shadow-depth-3;
 	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
 	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal

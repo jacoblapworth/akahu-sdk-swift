@@ -102,7 +102,7 @@
 	&:before {
 		color: $color-grey-2;
 		display: inline-block;
-		font-size: $font-size-icon-xlarge;
+		font-size: $xui-font-size-icon-xlarge;
 	}
 
 	&:active {
@@ -169,7 +169,7 @@
 
 .#{$ns}-datepicker--weekday {
 	color: $color-disabled-text;
-	font-size: $font-size-heading-mini;
+	font-size: $xui-font-size-heading-small;
 	text-align: center;
 }
 

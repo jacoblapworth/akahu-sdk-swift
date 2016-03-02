@@ -4,7 +4,7 @@
 
 @import "functions";
 
-@mixin clearfix {
+@mixin xui-clearfix {
 	&:after {
 		clear: both;
 		content: "";
@@ -14,7 +14,7 @@
 
 // Center components horizontally while allowing them to set
 // their own vertical margins
-@mixin margin-auto-horizontal {
+@mixin xui-margin-auto-horizontal {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -23,28 +23,28 @@
 // -----------------------------------------------------------------------------
 
 // Apply the given rules to all but the first element in a group
-@mixin all-but-first {
+@mixin xui-all-but-first {
 	&:nth-child(n+2) {
 		@content;
 	}
 }
 
 // Apply the given rules to all but the first element of its type in a group
-@mixin all-but-first-of-type {
+@mixin xui-all-but-first-of-type {
 	&:nth-of-type(n+2) {
 		@content;
 	}
 }
 
 // Apply the given rules to all but the last element in a group
-@mixin all-but-last {
+@mixin xui-all-but-last {
 	&:nth-last-child(n+2) {
 		@content;
 	}
 }
 
 // Apply the given rules to all but the last element of its type in a group
-@mixin all-but-last-of-type {
+@mixin xui-all-but-last-of-type {
 	&:nth-last-of-type(n+2) {
 		@content;
 	}
@@ -57,30 +57,30 @@
 // difficult to implement as the majority of design choices are desktop-first,
 // with mobile exceptions.
 
-$sm-breakpoint: px-to-rem(520);
-$md-breakpoint: px-to-rem(940);
-$lg-breakpoint: px-to-rem(1160);
+$xui-breakpoint-sm: px-to-rem(520);
+$xui-breakpoint-md: px-to-rem(940);
+$xui-breakpoint-lg: px-to-rem(1160);
 
-@mixin sm-breakpoint {
-	@media screen and (max-width: $sm-breakpoint) {
+@mixin xui-breakpoint-sm {
+	@media screen and (max-width: $xui-breakpoint-sm) {
 		@content;
 	}
 }
 
-@mixin md-breakpoint {
-	@media screen and (min-width: $sm-breakpoint) and (max-width: $md-breakpoint) {
+@mixin xui-breakpoint-md {
+	@media screen and (min-width: $xui-breakpoint-sm) and (max-width: $xui-breakpoint-md) {
 		@content;
 	}
 }
 
-@mixin lg-breakpoint {
-	@media screen and (min-width: $md-breakpoint){
+@mixin xui-breakpoint-lg {
+	@media screen and (min-width: $xui-breakpoint-md){
 		@content;
 	}
 }
 // Other Mixin utilities
 
-@mixin caret($color: $color-borders) {
+@mixin xui-caret($color: $color-borders) {
 	border-color: $color;
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
@@ -91,7 +91,7 @@ $lg-breakpoint: px-to-rem(1160);
 	width: 0;
 }
 
-@mixin font-smooth {
+@mixin xui-font-smooth {
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

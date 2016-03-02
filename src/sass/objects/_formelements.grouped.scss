@@ -112,7 +112,7 @@
 .#{$ns}-inputgroup--label {
 	display: block;
 	margin: 0 auto;
-	max-width: $inputgroup-width;
+	max-width: $xui-inputgroup-width;
 	padding: 0 1em;
 }
 
@@ -122,7 +122,7 @@
 .#{$ns}-inputgroup--inputs {
 	display: block;
 	margin: 0 auto;
-	max-width: $inputgroup-width;
+	max-width: $xui-inputgroup-width;
 	padding: 0 1em;
 	position: relative;
 }

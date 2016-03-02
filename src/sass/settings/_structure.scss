@@ -2,15 +2,15 @@
  * Settings for the structure/layout of the Xero design.
  */
 
-$radius: 3px;
+$xui-radius: 3px;
 
-$inputgroup-width: 425px;
+$xui-inputgroup-width: 425px;
 
-$page-width-small: 940px;
-$page-width-large: 1160px;
+$xui-page-width-small: 940px;
+$xui-page-width-large: 1160px;
 
-$spacing-standard: 16px;
+$xui-spacing-standard: 16px;
 
-$padding-menu-vertical: 8px;
-$padding-menu-horizontal: $spacing-standard;
-$padding-menu: $padding-menu-vertical $padding-menu-horizontal;
+$xui-padding-menu-vertical: 8px;
+$xui-padding-menu-horizontal: $xui-spacing-standard;
+$xui-padding-menu: $xui-padding-menu-vertical $xui-padding-menu-horizontal;

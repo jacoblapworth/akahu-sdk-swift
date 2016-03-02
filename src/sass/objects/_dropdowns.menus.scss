@@ -94,14 +94,14 @@ $shadow-color: #ccc;
 .#{$ns}-dropdownmenu {
 	background-color: $color-panels;
 	border: $border-standard;
-	border-radius: $radius;
+	border-radius: $xui-radius;
 	box-shadow: $shadow-depth-2;
 	font-size: 13px;
 	list-style-type: none;
 	margin: 0;
 	overflow: hidden;
 	position: absolute;
-	transition: $transition-duration-quick opacity $easing-standard;
+	transition: $xui-transition-duration-quick opacity $xui-easing-standard;
 	width: 180px;
 	z-index: 1;
 }
@@ -128,18 +128,18 @@ $shadow-color: #ccc;
 
 .#{$ns}-dropdownmenu-select {
 	border-color: $color-xero-blue;
-	border-radius: 0 0 $radius $radius;
+	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
 	left: 1em;
 	position: absolute;
 	top: 100%;
-	width: $inputgroup-width;
+	width: $xui-inputgroup-width;
 }
 
 .#{$ns}-menugroup {
 	border-top: $divider-standard;
 	margin: 0;
-	padding: $padding-menu-vertical 0;
+	padding: $xui-padding-menu-vertical 0;
 
 	&:first-of-type {
 		border-top: 0;
@@ -158,7 +158,7 @@ $shadow-color: #ccc;
 	align-items: center;
 	display: flex;
 	line-height: px-to-rem(24);
-	padding: $padding-menu;
+	padding: $xui-padding-menu;
 	text-align: left;
 	text-decoration: none;
 	width: 100%;
@@ -168,11 +168,11 @@ $shadow-color: #ccc;
 	background-color: $color-grey-6;
 	border-bottom: $divider-standard;
 	color: $color-secondary-text;
-	font-size: $font-size-heading-mini;
+	font-size: $xui-font-size-heading-small;
 	font-weight: normal;
 	line-height: px-to-rem(30);
 	margin: 0;
-	padding: 0 $padding-menu-horizontal;
+	padding: 0 $xui-padding-menu-horizontal;
 
 	&:nth-of-type(n+2) {
 		border-top: 1px solid $color-grey-4;

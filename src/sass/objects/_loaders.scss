@@ -29,7 +29,7 @@
 	// easeInOutSine
 	$animation-easing: cubic-bezier(0.455, 0.030, 0.515, 0.955);
 
-	animation: pulse $animation-time infinite $animation-easing;
+	animation: xui-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
 	background-color: $color-xero-blue;
 	border-radius: 50%;
@@ -52,7 +52,7 @@
 }
 
 
-@keyframes pulse {
+@keyframes xui-loader-animation {
 	0%,
 	80%,
 	100% {

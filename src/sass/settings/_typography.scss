@@ -19,21 +19,21 @@
  * See: http://www.w3.org/Style/Examples/007/units.en.html
  */
 
-$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$xui-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$font-size-heading:       22px;
-$font-size-page-title:    18px;
-$font-size-section-title: 15px;
-$font-size-text:          13px;
-$font-size-text-mobile:   14px;
-$font-size-heading-mini:  11px;	// What kind of heading is this?  Need a better name.
+$xui-font-size-heading:       22px;
+$xui-font-size-page-title:    18px;
+$xui-font-size-section-title: 15px;
+$xui-font-size-text:          13px;
+$xui-font-size-text-mobile:   14px;
+$xui-font-size-heading-small: 11px;
 
-$font-size-avatar-small:  11px;
-$font-size-avatar-large:  18px;
+$xui-font-size-avatar-small:  11px;
+$xui-font-size-avatar-large:  18px;
 
-$font-size-icon-large: 18px;
-$font-size-icon-xlarge: 32px;
+$xui-font-size-icon-large:    18px;
+$xui-font-size-icon-xlarge:   32px;
 
 // Base line height value, will be assinged to the body el from 10.0.0
 // If you use this pre 10.0.0 you might inherit the value in the future
-$line-height: 1.3;
+$xui-line-height: 1.3;

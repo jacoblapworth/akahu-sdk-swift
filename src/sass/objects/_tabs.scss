@@ -100,7 +100,7 @@ $color-variations: (
 
 // Individual tabs
 // -----------------------------------------------------------------------------
-@mixin tab-variation($color, $bg-color, $hover-color, $hover-bg-color) {
+@mixin xui-tab-variation($color, $bg-color, $hover-color, $hover-bg-color) {
 	.#{$ns}-tab--body {
 		color: $color;
 
@@ -160,7 +160,7 @@ $color-variations: (
 
 @each $variation, $colors in $color-variations {
 	.#{$variation} {
-		@include tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
+		@include xui-tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
 	}
 }
 

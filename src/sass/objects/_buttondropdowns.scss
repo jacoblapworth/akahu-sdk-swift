@@ -31,7 +31,7 @@
 $button-margin-left: px-to-rem(5);
 
 .#{$ns}-button--caret {
-	@include caret($color-xero-blue);
+	@include xui-caret($color-xero-blue);
 	margin-left: $button-margin-left;
 	min-height: 6px;
 }

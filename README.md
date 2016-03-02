@@ -31,9 +31,9 @@ A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sher
 $ bower install git@github.dev.xero.com:UXE/xui.git --save
 ```
 
-You will need to compile `xui.scss`. 
+You will need to compile `xui.scss`.
 
-Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using 
+Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using
 xui-build-tools, then use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
 CSS. Otherwise, to avoid having to upload XUI's images with your own deployables, you can set the value to point at S3, e.g.
 `http://edge.xero.com/style/xui/9.8.0/images`.
@@ -63,7 +63,7 @@ Example Page Markup
 	<head>
 		<meta charset="utf-8" />
 		<title>Page Title</title>
-		<link href="https://edge.xero.com/style/xui/9.6.0/xui.min.css" rel="stylesheet" />
+		<link href="https://edge.xero.com/style/xui/9.8.0/xui.min.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header class="xui-pagenav">

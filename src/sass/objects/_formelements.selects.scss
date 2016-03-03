@@ -103,7 +103,7 @@ select.#{$ns}-select {
 	display: block;
 	padding: 5px 15px;
 	text-align: left;
-	width: $inputgroup-width;
+	width: 100%;
 }
 
 .#{$ns}-select--button-is-selected {
@@ -126,11 +126,7 @@ select.#{$ns}-select {
 	position: absolute;
 	top: 40px;
 	transition: $transition-duration-quick all $easing-standard;
-	width: $inputgroup-width;
+	width: 100%;
 	z-index: 1;
-}
-
-.#{$ns}-inputgroup--inputs .#{$ns}-dropdownmenu-select {
-	left: 1em;
 }
 

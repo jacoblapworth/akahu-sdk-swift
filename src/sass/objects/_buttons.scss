@@ -67,15 +67,6 @@
 	}
 }
 
-@mixin xui-button-is-disabled($bg-color: $color-reversed-text, $color: $color-disabled-text) {
-	background-color: $bg-color;
-	border-color: $color-disabled;
-	box-shadow: none;
-	color: $color;
-	cursor: default;
-	pointer-events: none;
-}
-
 // Unstyled
 //
 // Styleguide: Buttons.1

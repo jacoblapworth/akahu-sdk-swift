@@ -210,14 +210,14 @@
 	font-weight: bold;
 	list-style-type: none;
 
-	&:before {
+	&::before {
 		color: $color-placeholders;
 		content: "›";
 		display: inline-block;
 		margin: 0 10px;
 	}
 
-	&:first-of-type:before {
+	&:first-of-type::before {
 		display: none;
 	}
 }

@@ -98,7 +98,7 @@ $color-toast-link: #70bae4;
 	margin-left: 20px;
 
 	&:nth-of-type(n+2) {
-		border-left: 1px solid rgba(255, 255, 255, 0.5);
+		border-left: 1px solid $color-shadow-strong;
 		padding: 2px 0 2px 20px;
 	}
 }

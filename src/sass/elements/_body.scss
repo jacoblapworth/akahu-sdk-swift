@@ -18,8 +18,8 @@ html {
 // https://wiki.csswg.org/ideas/mistakes mistake, It's perfectly
 // reasonable to undo the mistake in this instance.
 *,
-*:before,
-*:after {
+*::before,
+*::after {
 	box-sizing: inherit;
 }
 

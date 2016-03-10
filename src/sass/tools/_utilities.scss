@@ -43,7 +43,7 @@
 
 // scss-lint:disable ImportantRule
 .#{$ns}-u-hidden-mobile {
-	@include sm-breakpoint {
+	@include xui-breakpoint-sm {
 		display: none !important;
 	}
 }
@@ -89,7 +89,7 @@
 	flex-direction: row;
 
 	& + & {
-		margin-left: $spacing-standard;
+		margin-left: $xui-spacing-standard;
 	}
 }
 

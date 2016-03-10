@@ -15,20 +15,20 @@ h6 {
 }
 
 h1 {
-	font-size: $font-size-page-title;
+	font-size: $xui-font-size-page-title;
 }
 
 h2 {
-	font-size: $font-size-page-title;
+	font-size: $xui-font-size-page-title;
 }
 
 h3 {
-	font-size: $font-size-section-title;
+	font-size: $xui-font-size-section-title;
 }
 
 // TODO: Figure out if we're using h5 and h6 at all
 h4,
 h5,
 h6 {
-	font-size: $font-size-heading-mini;
+	font-size: $xui-font-size-heading-small;
 }

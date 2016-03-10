@@ -59,7 +59,7 @@
 	padding: 5px 0.5em;
 	resize: none;
 
-	@include sm-breakpoint {
+	@include xui-breakpoint-sm {
 		height: 90px;
 	}
 }

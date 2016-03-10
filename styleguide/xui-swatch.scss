@@ -7,10 +7,10 @@
 .kss-flex-grid {
   padding-top: 20px;
   
-  @include md-breakpoint {
+  @include xui-breakpoint-md {
     flex-direction: column-reverse;
   }
-  @include sm-breakpoint {
+  @include xui-breakpoint-sm {
     flex-direction: column-reverse;
   }
 }

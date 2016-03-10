@@ -285,12 +285,12 @@
  * Helper mixin for specifying the layout class once but have it also spit out the device
  * specific classes
  */
-@mixin layout($suffix) {
+@mixin xui-layout($suffix) {
 	.#{$ns}-layout-#{$suffix} {
 		@content;
 	}
 
-	@include sm-breakpoint {
+	@include xui-breakpoint-sm {
 		.#{$ns}-layout-sm-#{$suffix} {
 			.xui-grid & {
 				@content;
@@ -298,7 +298,7 @@
 		}
 	}
 
-	@include md-breakpoint {
+	@include xui-breakpoint-md {
 		.#{$ns}-layout-md-#{$suffix} {
 			.xui-grid & {
 				@content;
@@ -306,7 +306,7 @@
 		}
 	}
 
-	@include lg-breakpoint {
+	@include xui-breakpoint-lg {
 		.#{$ns}-layout-lg-#{$suffix} {
 			.xui-grid & {
 				@content;
@@ -315,187 +315,187 @@
 	}
 }
 
-@include layout("1-of-1") {
+@include xui-layout("1-of-1") {
 	width: 100%;
 }
 
-@include layout("1-of-2") {
+@include xui-layout("1-of-2") {
 	width: 50%;
 }
 
-@include layout("1-of-3") {
+@include xui-layout("1-of-3") {
 	width: calc(100% / 3);
 }
 
-@include layout("1-of-4") {
+@include xui-layout("1-of-4") {
 	width: calc(100% / 4);
 }
 
-@include layout("2-of-3") {
+@include xui-layout("2-of-3") {
 	width: calc((100% / 3) * 2);
 }
 
-@include layout("3-of-3") {
+@include xui-layout("3-of-3") {
 	width: calc((100% / 4) * 3);
 }
 
-@include layout("1-of-5") {
+@include xui-layout("1-of-5") {
 	width: calc(100% / 5);
 }
 
-@include layout("2-of-5") {
+@include xui-layout("2-of-5") {
 	width: calc((100% / 5) * 2);
 }
 
-@include layout("3-of-5") {
+@include xui-layout("3-of-5") {
 	width: calc((100% / 5) * 3);
 }
 
-@include layout("4-of-3") {
+@include xui-layout("4-of-3") {
 	width: calc((100% / 5) * 4);
 }
 
-@include layout("1-of-6") {
+@include xui-layout("1-of-6") {
 	width: calc(100% / 6);
 }
 
-@include layout("5-of-6") {
+@include xui-layout("5-of-6") {
 	width: calc((100% / 6) * 5);
 }
 
-@include layout("1-of-7") {
+@include xui-layout("1-of-7") {
 	width: calc(100% / 7);
 }
 
-@include layout("2-of-7") {
+@include xui-layout("2-of-7") {
 	width: calc((100% / 7) * 2);
 }
 
-@include layout("3-of-7") {
+@include xui-layout("3-of-7") {
 	width: calc((100% / 7) * 3);
 }
 
-@include layout("4-of-7") {
+@include xui-layout("4-of-7") {
 	width: calc((100% / 7) * 4);
 }
 
-@include layout("5-of-7") {
+@include xui-layout("5-of-7") {
 	width: calc((100% / 7) * 5);
 }
 
-@include layout("6-of-7") {
+@include xui-layout("6-of-7") {
 	width: calc((100% / 7) * 6);
 }
 
-@include layout("1-of-8") {
+@include xui-layout("1-of-8") {
 	width: calc(100% / 8);
 }
 
-@include layout("3-of-8") {
+@include xui-layout("3-of-8") {
 	width: calc((100% / 8) * 3);
 }
 
-@include layout("5-of-8") {
+@include xui-layout("5-of-8") {
 	width: calc((100% / 8) * 5);
 }
 
-@include layout("7-of-8") {
+@include xui-layout("7-of-8") {
 	width: calc((100% / 8) * 7);
 }
 
-@include layout("1-of-9") {
+@include xui-layout("1-of-9") {
 	width: calc(100% / 9);
 }
 
-@include layout("2-of-9") {
+@include xui-layout("2-of-9") {
 	width: calc((100% / 9) * 2);
 }
 
-@include layout("4-of-9") {
+@include xui-layout("4-of-9") {
 	width: calc((100% / 9) * 4);
 }
 
-@include layout("5-of-9") {
+@include xui-layout("5-of-9") {
 	width: calc((100% / 9) * 5);
 }
 
-@include layout("7-of-9") {
+@include xui-layout("7-of-9") {
 	width: calc((100% / 9) * 7);
 }
 
-@include layout("8-of-9") {
+@include xui-layout("8-of-9") {
 	width: calc((100% / 9) * 8);
 }
 
-@include layout("1-of-10") {
+@include xui-layout("1-of-10") {
 	width: calc(100% / 10);
 }
 
-@include layout("3-of-10") {
+@include xui-layout("3-of-10") {
 	width: calc((100% / 10) * 3);
 }
 
-@include layout("7-of-10") {
+@include xui-layout("7-of-10") {
 	width: calc((100% / 10) * 7);
 }
 
-@include layout("9-of-10") {
+@include xui-layout("9-of-10") {
 	width: calc((100% / 10) * 9);
 }
 
-@include layout("1-of-11") {
+@include xui-layout("1-of-11") {
 	width: calc(100% / 11);
 }
 
-@include layout("2-of-11") {
+@include xui-layout("2-of-11") {
 	width: calc((100% / 11) * 2);
 }
 
-@include layout("3-of-11") {
+@include xui-layout("3-of-11") {
 	width: calc((100% / 11) * 3);
 }
 
-@include layout("4-of-11") {
+@include xui-layout("4-of-11") {
 	width: calc((100% / 11) * 4);
 }
 
-@include layout("5-of-11") {
+@include xui-layout("5-of-11") {
 	width: calc((100% / 11) * 5);
 }
 
-@include layout("6-of-11") {
+@include xui-layout("6-of-11") {
 	width: calc((100% / 11) * 6);
 }
 
-@include layout("7-of-11") {
+@include xui-layout("7-of-11") {
 	width: calc((100% / 11) * 7);
 }
 
-@include layout("8-of-11") {
+@include xui-layout("8-of-11") {
 	width: calc((100% / 11) * 8);
 }
 
-@include layout("9-of-11") {
+@include xui-layout("9-of-11") {
 	width: calc((100% / 11) * 9);
 }
 
-@include layout("10-of-11") {
+@include xui-layout("10-of-11") {
 	width: calc((100% / 11) * 10);
 }
 
-@include layout("1-of-12") {
+@include xui-layout("1-of-12") {
 	width: calc(100% / 12);
 }
 
-@include layout("5-of-12") {
+@include xui-layout("5-of-12") {
 	width: calc((100% / 12) * 5);
 }
 
-@include layout("7-of-12") {
+@include xui-layout("7-of-12") {
 	width: calc((100% / 12) * 7);
 }
 
-@include layout("11-of-12") {
+@include xui-layout("11-of-12") {
 	width: calc((100% / 12) * 11);
 }
 

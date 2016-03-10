@@ -43,13 +43,13 @@
   }
 
 	&:first-of-type {
-		border-bottom-left-radius: $radius;
-		border-top-left-radius: $radius;
+		border-bottom-left-radius: $xui-radius;
+		border-top-left-radius: $xui-radius;
 	}
 
 	&:last-of-type {
-		border-bottom-right-radius: $radius;
-		border-top-right-radius: $radius;
+		border-bottom-right-radius: $xui-radius;
+		border-top-right-radius: $xui-radius;
 	}
 
 	&.#{$ns}-button-main {

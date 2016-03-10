@@ -11,19 +11,19 @@
 //
 // Styleguide: User Messaging.200
 
-$color-toast-link: #70bae4;
+$xui-color-toast-link: #70bae4;
 
 .#{$ns}-toast {
 	background: transparentize($color-white, 0.1);
 	border-left: 4px solid $color-xero-blue;
-	border-radius: $radius;
+	border-radius: $xui-radius;
 	bottom: 0;
 	box-shadow: $shadow-depth-2;
 	color: $color-primary-text;
 	left: 0;
 	opacity: 1;
 	position: fixed;
-	transition: opacity $transition-duration-super-quick $easing-standard;
+	transition: opacity $xui-transition-duration-super-quick $xui-easing-standard;
 	z-index: 10;
 }
 
@@ -81,7 +81,7 @@ $color-toast-link: #70bae4;
 // Styleguide: User Messaging.200.3
 
 .#{$ns}-toast--link {
-	color: $color-toast-link;
+	color: $xui-color-toast-link;
 }
 
 .#{$ns}-toast--message,
@@ -118,7 +118,7 @@ $color-toast-link: #70bae4;
 	list-style: disc;
 }
 
-@include sm-breakpoint {
+@include xui-breakpoint-sm {
 	.#{$ns}-toast {
 		left: 50%;
 		margin-left: 0;

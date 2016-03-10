@@ -112,7 +112,7 @@
 .#{$ns}-inputgroup--label {
 	display: block;
 	margin: 0 auto;
-	max-width: $inputgroup-width;
+	max-width: $xui-inputgroup-width;
 }
 
 // Input(s) part
@@ -121,6 +121,6 @@
 .#{$ns}-inputgroup--inputs {
 	display: block;
 	margin: 0 auto;
-	max-width: $inputgroup-width;
+	max-width: $xui-inputgroup-width;
 	position: relative;
 }

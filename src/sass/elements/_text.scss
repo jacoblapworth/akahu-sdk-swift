@@ -36,17 +36,17 @@ p {
 // Styleguide: Typography.1
 .#{$ns}-heading {
 	color: $color-primary-text;
-	font-size: $font-size-heading;
+	font-size: $xui-font-size-heading;
 }
 
 .#{$ns}-page-title {
 	color: $color-primary-text;
-	font-size: $font-size-page-title;
+	font-size: $xui-font-size-page-title;
 }
 
 .#{$ns}-section-title {
 	color: $color-primary-text;
-	font-size: $font-size-section-title;
+	font-size: $xui-font-size-section-title;
 }
 
 /* FIXME: why would be need this? */
@@ -70,17 +70,17 @@ p {
 
 .#{$ns}-heading-mini {
 	color: $color-secondary-text;
-	font-size: $font-size-heading-mini;
+	font-size: $xui-font-size-heading-small;
 }
 
 .#{$ns}-text-panelheading {
-	font-size: $font-size-section-title;
+	font-size: $xui-font-size-section-title;
 	font-weight: bold;
 }
 
 .#{$ns}-text-sectionheading {
 	color: $color-secondary-text;
-	font-size: $font-size-heading-mini;
+	font-size: $xui-font-size-heading-small;
 	font-weight: normal;
 }
 

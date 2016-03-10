@@ -76,15 +76,15 @@
 	box-shadow: $shadow-depth-3;
 	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
 	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal
-	width: px-to-rem(360);
+	width: 360px;
 }
 
 .#{$ns}-modal-medium {
-	width: px-to-rem(560);
+	width: 560px;
 }
 
 .#{$ns}-modal-large {
-	width: px-to-rem(860);
+	width: 860px;
 }
 
 // Modal header
@@ -94,11 +94,11 @@
 	align-content: stretch;
 	display: flex;
 	justify-content: space-between;
-	padding-left: px-to-rem(20);
+	padding-left: 20px;
 }
 
 .#{$ns}-modal--header-close {
-	margin: px-to-rem(16);
+	margin: 16px;
 }
 
 // Modal body
@@ -113,15 +113,15 @@
 	// doesn't push up to the edge.  Instead, I have to add margins to the inside
 	// elements to push them away from the edges.
 	// See: https://bugzilla.mozilla.org/show_bug.cgi?id=748518
-	padding-left: px-to-rem(20);
-	padding-right: px-to-rem(20);
+	padding-left: 20px;
+	padding-right: 20px;
 
 	> *:first-child {
-		margin-top: px-to-rem(20);
+		margin-top: 20px;
 	}
 
 	> *:last-child {
-		margin-bottom: px-to-rem(20);
+		margin-bottom: 20px;
 	}
 }
 

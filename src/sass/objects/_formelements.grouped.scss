@@ -95,15 +95,15 @@
 // Styleguide: Form Elements.400.2
 
 .#{$ns}-inputgroup {
-	line-height: px-to-rem(36);
+	line-height: 36px;
 	list-style: none;
-	min-height: px-to-rem(36);
+	min-height: 36px;
 	padding: 0;
 }
 
 // TODO: Think of better naming for distinguishing between input group contexts
 .#{$ns}-modal-inputgroup {
-	margin: px-to-rem(20) auto;
+	margin: 20px auto;
 }
 
 // Label part
@@ -113,7 +113,6 @@
 	display: block;
 	margin: 0 auto;
 	max-width: $xui-inputgroup-width;
-	padding: 0 1em;
 }
 
 // Input(s) part
@@ -123,6 +122,5 @@
 	display: block;
 	margin: 0 auto;
 	max-width: $xui-inputgroup-width;
-	padding: 0 1em;
 	position: relative;
 }

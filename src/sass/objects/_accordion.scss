@@ -79,7 +79,7 @@
 
 .#{$ns}-accordionitem-is-open {
 	border: $divider-standard;
-	box-shadow: 0 6px 20px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 6px 20px 2px $color-shadow-strong;
 	height: auto;
 	margin: 0 -4%;
 	transform: translateY(-1px); /** hides the border-bottom of the accordion--collapsed above it **/

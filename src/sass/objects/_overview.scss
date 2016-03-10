@@ -56,7 +56,6 @@
 	border-radius: $xui-radius;
 	box-shadow: $shadow-depth-1;
 	display: flex;
-	margin: 2em auto;
 	width: 100%;
 
 	@include xui-breakpoint-md {
@@ -71,7 +70,6 @@
 	flex: 1 0 calc(100% / 6);
 	flex-flow: column nowrap;
 	justify-content: center;
-	padding: px-to-rem(20) 0;
 	text-align: center;
 }
 

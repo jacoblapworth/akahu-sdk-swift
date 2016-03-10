@@ -104,7 +104,7 @@ $color-variations: (
 	.#{$ns}-tab--body {
 		color: $color;
 
-		&:after {
+		&::after {
 			background-color: $bg-color;
 		}
 
@@ -112,7 +112,7 @@ $color-variations: (
 			color: $hover-color;
 		}
 
-		&:hover:after {
+		&:hover::after {
 			background-color: $hover-bg-color;
 		}
 	}
@@ -129,7 +129,7 @@ $color-variations: (
 		padding: 0.5em 1em 0;
 		text-align: center;
 
-		&:after {
+		&::after {
 			background-color: transparent;
 			content: " ";
 			display: block;
@@ -142,7 +142,7 @@ $color-variations: (
 			text-decoration: none; // Fix for no more normalize
 		}
 
-		&:hover:after {
+		&:hover::after {
 			background-color: $color-primary-text;
 		}
 	}
@@ -195,7 +195,7 @@ $color-variations: (
 	display: flex;
 	flex-flow: column nowrap;
 	list-style: none;
-	margin: px-to-rem(5) 0;
+	margin: 5px 0;
 	padding: 0;
 }
 
@@ -208,31 +208,31 @@ $color-variations: (
 */
 .#{$ns}-tabgroup-vertical:nth-child(n+2) {
 	border-top: $border-standard;
-	padding-top: px-to-rem(5);
+	padding-top: 5px;
 }
 
 .#{$ns}-verticaltab {
-	border-left: px-to-rem(4) solid $color-white;
+	border-left: 4px solid $color-white;
 	position: relative;
 
 	&:hover {
 		background-color: $color-backgrounds;
-		border-left: px-to-rem(4) solid $color-backgrounds;
+		border-left: 4px solid $color-backgrounds;
 	}
 }
 
 .#{$ns}-verticaltab-is-selected {
-	border-left: px-to-rem(4) solid $color-xero-blue;
+	border-left: 4px solid $color-xero-blue;
 
 	&:hover {
-		border-left: px-to-rem(4) solid $color-xero-blue;
+		border-left: 4px solid $color-xero-blue;
 	}
 }
 
 .#{$ns}-verticaltab--body {
 	color: $color-primary-text;
 	display: block;
-	padding: px-to-rem(10);
+	padding: 10px;
 	width: 100%;
 
 	&:hover {

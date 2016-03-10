@@ -5,7 +5,7 @@
 @import "functions";
 
 @mixin xui-clearfix {
-	&:after {
+	&::after {
 		clear: both;
 		content: "";
 		display: table;
@@ -57,9 +57,9 @@
 // difficult to implement as the majority of design choices are desktop-first,
 // with mobile exceptions.
 
-$xui-breakpoint-sm: px-to-rem(520);
-$xui-breakpoint-md: px-to-rem(940);
-$xui-breakpoint-lg: px-to-rem(1160);
+$xui-breakpoint-sm: 520px;
+$xui-breakpoint-md: 940px;
+$xui-breakpoint-lg: 1160px;
 
 @mixin xui-breakpoint-sm {
 	@media screen and (max-width: $xui-breakpoint-sm) {

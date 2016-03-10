@@ -294,14 +294,14 @@
 }
 
 .#{$ns}-panel--section-inset {
-	padding: px-to-rem(20);
+	padding: 20px;
 }
 
 .#{$ns}-panel--section--header {
 	margin: 0;
 	text-align: center;
 
-	@media(min-width: px-to-rem(600)) {
+	@media(min-width: 600px) {
 		@include xui-margin-auto-horizontal;
 	}
 }
@@ -318,7 +318,7 @@
 }
 
 .#{$ns}-panel--footer-standard {
-	padding: px-to-rem(20);
+	padding: 20px;
 }
 
 // PANEL WITH SIDEBAR
@@ -326,5 +326,5 @@
 
 .#{$ns}-panel--sidebar {
 	border-right: $border-standard;
-	flex: 0 0 px-to-rem(200);
+	flex: 0 0 200px;
 }

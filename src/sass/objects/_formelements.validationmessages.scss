@@ -54,7 +54,7 @@
 	position: absolute;
 	top: 0;
 	transition: opacity $xui-transition-duration-short $xui-easing-standard;
-	width: px-to-rem(275);
+	width: 275px;
 
 	@include xui-breakpoint-md {
 		bottom: 100%;
@@ -88,7 +88,7 @@
 		left: 0;
 	}
 
-	&:before {
+	&::before {
 		border-bottom: 5px solid transparent;
 		border-left: 0;
 		border-right: 5px solid $color-grey-1;

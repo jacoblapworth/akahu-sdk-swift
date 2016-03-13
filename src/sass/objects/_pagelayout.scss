@@ -28,15 +28,15 @@
 // Styleguide: Page Layout.1
 
 .#{$ns}-pagecontainer {
-	@include margin-auto-horizontal;
+	@include xui-margin-auto-horizontal;
 }
 
 .#{$ns}-pagecontainer-small {
-	max-width: $page-width-small;
+	max-width: $xui-page-width-small;
 	width: 100%;
 }
 
-@media screen and (max-width: ($page-width-small + 20)) {
+@media screen and (max-width: ($xui-page-width-small + 20)) {
 	.#{$ns}-pagecontainer-small {
 		&.#{$ns}-pagecontainer-spaced {
 			padding: 0 10px;
@@ -45,11 +45,11 @@
 }
 
 .#{$ns}-pagecontainer-large {
-	max-width: $page-width-large;
+	max-width: $xui-page-width-large;
 	width: 100%;
 }
 
-@media screen and (max-width: $page-width-large + 20) {
+@media screen and (max-width: $xui-page-width-large + 20) {
 	.#{$ns}-pagecontainer-large {
 		&.#{$ns}-pagecontainer-spaced {
 			padding: 0 10px;
@@ -97,7 +97,7 @@
 	overflow: hidden;
 
 	.#{$ns}-page-title {
-		@include font-smooth;
+		@include xui-font-smooth;
 		color: $color-reversed-text;
 		margin: 0.75em auto 0.25em;
 	}
@@ -139,7 +139,7 @@
 // Parent container
 // The coloured background goes full width of the page
 .#{$ns}-pageheading {
-	@include font-smooth;
+	@include xui-font-smooth;
 	align-items: center;
 	background-color: $color-white;
 	border-bottom: $border-standard;
@@ -178,15 +178,10 @@
 	justify-content: space-between;
 }
 
-.#{$ns}-pageheading-has-tabs,
-.#{$ns}-pageheading--tabs {
-	padding: 20px 0 0;
-}
-
 .#{$ns}-pageheading--title {
 	align-items: center;
 	display: flex;
-	font-size: $font-size-page-title;
+	font-size: $xui-font-size-page-title;
 	font-weight: bold;
 	margin: 0 10px 0 0;
 }
@@ -206,7 +201,7 @@
 
 .#{$ns}-breadcrumb {
 	display: inline-block;
-	font-size: $font-size-page-title;
+	font-size: $xui-font-size-page-title;
 	font-weight: bold;
 	list-style-type: none;
 

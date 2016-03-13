@@ -40,7 +40,7 @@
 	border-radius: 50%;
 	color: $color-reversed-text;
 	display: flex;
-	font-size: $font-size-text;
+	font-size: $xui-font-size-text;
 	height: 32px;
 	justify-content: center;
 	overflow: hidden;
@@ -53,13 +53,13 @@
 }
 
 .#{$ns}-avatar-small {
-	font-size: $font-size-avatar-small;
+	font-size: $xui-font-size-avatar-small;
 	height: 24px;
 	width: 24px;
 }
 
 .#{$ns}-avatar-large {
-	font-size: $font-size-avatar-large;
+	font-size: $xui-font-size-avatar-large;
 	height: 48px;
 	width: 48px;
 }

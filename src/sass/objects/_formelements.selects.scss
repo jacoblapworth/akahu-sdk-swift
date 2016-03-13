@@ -22,7 +22,7 @@ select.#{$ns}-select {
 }
 
 .#{$ns}-select--caret {
-	@include caret;
+	@include xui-caret;
 	position: absolute;
 	right: 6px;
 	top: calc(50% - 2px);
@@ -109,7 +109,7 @@ select.#{$ns}-select {
 .#{$ns}-select--button-is-selected {
 	border: $border-standard;
 	border-color: $color-xero-blue $color-xero-blue transparent;
-	border-radius: $radius $radius 0 0;
+	border-radius: $xui-radius $xui-radius 0 0;
 
 	&:hover,
 	&:focus,
@@ -120,12 +120,12 @@ select.#{$ns}-select {
 
 .#{$ns}-select .#{$ns}-dropdownmenu-select {
 	border-color: $color-xero-blue;
-	border-radius: 0 0 $radius $radius;
+	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
 	left: 0;
 	position: absolute;
 	top: 40px;
-	transition: $transition-duration-quick all $easing-standard;
+	transition: $xui-transition-duration-quick all $xui-easing-standard;
 	width: 100%;
 	z-index: 1;
 }

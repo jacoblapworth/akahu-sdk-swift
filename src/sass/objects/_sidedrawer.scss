@@ -34,7 +34,7 @@ $drawer-width: 350px;
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: all $transition-duration-quick $easing-standard;
+	transition: all $xui-transition-duration-quick $xui-easing-standard;
 	width: $drawer-width;
 }
 

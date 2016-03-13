@@ -13,7 +13,7 @@
 	-webkit-appearance: none;	// For removing drop-shadow on iOS
 	background-color: $color-white;
 	border: $border-standard;
-	border-radius: $radius;
+	border-radius: $xui-radius;
 	box-shadow: none;
 	color: inherit;
 	font-family: inherit;
@@ -22,7 +22,7 @@
 	padding: 9px 0.5em;
 	width: 100%;
 
-	@include sm-breakpoint {
+	@include xui-breakpoint-sm {
 		padding: 12px 0.5em;
 	}
 
@@ -42,7 +42,7 @@
 	&:focus {
 		border-color: $color-xero-blue;
 		box-shadow: $shadow-focus;
-		transition: box-shadow $transition-duration-super-quick;
+		transition: box-shadow $xui-transition-duration-super-quick;
 	}
 
 	&::placeholder {

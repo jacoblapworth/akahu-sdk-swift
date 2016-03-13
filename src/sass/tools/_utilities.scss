@@ -87,10 +87,6 @@
 
 .#{$ns}-u-flex-col {
 	flex-direction: row;
-
-	& + & {
-		margin-left: $xui-spacing-standard;
-	}
 }
 
 .#{$ns}-u-flex-grow {

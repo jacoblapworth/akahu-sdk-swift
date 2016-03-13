@@ -29,13 +29,13 @@ $variants: (
 		}
 
 		&:first-of-type {
-			border-bottom-left-radius: $radius;
-			border-top-left-radius: $radius;
+			border-bottom-left-radius: $xui-radius;
+			border-top-left-radius: $xui-radius;
 		}
 
 		&:last-of-type {
-			border-bottom-right-radius: $radius;
-			border-top-right-radius: $radius;
+			border-bottom-right-radius: $xui-radius;
+			border-top-right-radius: $xui-radius;
 		}
 
 		@each $variant, $color in $variants {
@@ -94,16 +94,3 @@ $variants: (
 
 @include xui-buttongroup;
 @include xui-button-grouped;
-
-// TODO: Now this is in another section, determine if it's actually required
-// Side note, this doesn't actually appear to be used in the buttons section of the docs currently.
-.#{$ns}-button--grouped {
-	@include all-but-first {
-		margin-left: px-to-rem(10);
-
-		@include sm-breakpoint {
-			margin-left: 0;
-			margin-top: px-to-rem(10);
-		}
-	}
-}

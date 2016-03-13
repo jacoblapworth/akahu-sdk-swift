@@ -7,11 +7,11 @@
 // Styleguide: Buttons.2
 
 @mixin xui-button-variant($background-color: $color-forms, $border: $border-standard, $color: $color-xero-blue) {
-	@include font-smooth;
+	@include xui-font-smooth;
 	background-color: $background-color;
 	border: $border;
 	color: $color;
-	border-radius: $radius;
+	border-radius: $xui-radius;
 	font-weight: bold;
 	line-height: 33px; // 35 px total height with borders
 	min-width: 80px;
@@ -19,7 +19,7 @@
 	text-align: center;
 	text-decoration: none;
 
-	@include sm-breakpoint {
+	@include xui-breakpoint-sm {
 		display: block;
 		width: 100%;
 	}

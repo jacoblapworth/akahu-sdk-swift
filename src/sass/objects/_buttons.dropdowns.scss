@@ -9,7 +9,7 @@ $button-spacing-left: 5px;
 
 @mixin xui-button--caret($color: $color-xero-blue) {
 	.#{$ns}-button--caret {
-		@include caret($color);
+		@include xui-caret($color);
 		margin-left: $button-spacing-left;
 		min-height: 6px;
 	}

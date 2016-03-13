@@ -54,6 +54,7 @@ module.exports = function (grunt) {
 			});
 
 			var count = 0;
+			var selectorArray = [];
 
 			postcss(doiuse({
 				browsers: browsers,
@@ -63,8 +64,18 @@ module.exports = function (grunt) {
 					'viewport-units'
 				],
 				onFeatureUsage: function(usageInfo) {
-					grunt.log.error(usageInfo.message);
-					count++;
+					if (usageInfo.feature === 'flexbox'){
+						var found = selectorArray.find(function(selector){
+							return selector === usageInfo.usage.parent.selector;
+						});
+						if (!found) {
+							grunt.log.warn('The selector', usageInfo.usage.parent.selector, 'uses flexbox which has partial support in IE11, please ensure you test any changes in IE11');
+							selectorArray[selectorArray.length]=usageInfo.usage.parent.selector;
+						}
+					} else {
+						grunt.log.error(usageInfo.message);
+						count++;
+					}
 				}
 			}))
 			.process(grunt.file.read('./dist/xui.css'), 'utf8')

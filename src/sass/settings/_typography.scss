@@ -21,19 +21,19 @@
 
 $xui-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$xui-font-size-heading:       22px;
-$xui-font-size-page-title:    18px;
-$xui-font-size-section-title: 15px;
-$xui-font-size-text:          13px;
-$xui-font-size-text-mobile:   14px;
-$xui-font-size-heading-small: 11px;
+$xui-font-size-heading:       1.692307rem; // 22/13
+$xui-font-size-page-title:    1.384615rem; // 18/13
+$xui-font-size-section-title: 1.153846rem; // 15/13;
+$xui-font-size-text:          1rem; // 13
+$xui-font-size-text-mobile:   1.076923rem; // 14/13;
+$xui-font-size-heading-small: 0.846153rem; // 11/13;
 
-$xui-font-size-avatar-small:  11px;
-$xui-font-size-avatar-large:  18px;
+$xui-font-size-avatar-small:  0.846153rem; // 11/13;
+$xui-font-size-avatar-large:  1.384615rem; // 18/13
 
-$xui-font-size-icon-large:    18px;
-$xui-font-size-icon-xlarge:   32px;
+$xui-font-size-icon-large:    1.384615rem; // 18/13
+$xui-font-size-icon-xlarge:   2.461538rem; // 32/13;
 
-// Base line height value, will be assinged to the body el from 10.0.0
+// Base line height value, will be assigned to the body el from 10.0.0
 // If you use this pre 10.0.0 you might inherit the value in the future
 $xui-line-height: 1.3;

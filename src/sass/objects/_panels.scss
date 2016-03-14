@@ -210,15 +210,15 @@
 //  Markup:
 //	<div class="xui-panel xui-u-flex">
 //		<div class="xui-panel--sidebar">
-//			<div class="xui-verticaltabbed-navigation">
+//			<div class="xui-verticaltabbed-navigation" role="navigation" aria-label="sidebar">
 //				<ul class="xui-tabgroup xui-tabgroup-vertical">
-//					<li class="xui-verticaltab">
+//					<li class="xui-verticaltab" aria-selected="false">
 //						<a class="xui-verticaltab--body xui-u-flex xui-u-spacebetween" href="#default">Default <span class="xui-text-secondary">ON</span></a>
 //					</li>
-//					<li class="xui-verticaltab xui-verticaltab-is-selected">
+//					<li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
 //						<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
 //					</li>
-//					<li class="xui-verticaltab">
+//					<li class="xui-verticaltab" aria-selected="false">
 //						<a class="xui-verticaltab--body" href="#">Selected Default</a>
 //					</li>
 //				</ul>

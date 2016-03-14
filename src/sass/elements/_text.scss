@@ -55,8 +55,8 @@ p {
 }
 
 .#{$ns}-text-label {
+	@include xui-bold;
 	color: $color-secondary-text;
-	font-weight: bold;
 }
 
 .#{$ns}-text-secondary {
@@ -74,23 +74,59 @@ p {
 }
 
 .#{$ns}-text-panelheading {
+	@include xui-bold;
 	font-size: $xui-font-size-section-title;
-	font-weight: bold;
 }
 
 .#{$ns}-text-sectionheading {
 	color: $color-secondary-text;
 	font-size: $xui-font-size-heading-small;
 	font-weight: normal;
+	// FIXME: we probably want to remove this
+	line-height: 16px;
 }
 
-.#{$ns}-text-number {
+
+// Text Alignment
+//
+// Classes that can be added to change the alignment of text.
+//
+// Markup:
+//	<p class="xui-text-leftaligned">Left-aligned text</p>
+//	<p class="xui-text-centered">Centered text</p>
+//	<p class="xui-text-rightaligned">Right aligned text</p>
+//
+// Styleguide: Typography.2
+
+.#{$ns}-text-leftaligned {
+	text-align: left;
+}
+
+.#{$ns}-text-centered {
+	text-align: center;
+}
+
+.#{$ns}-text-number,
+.#{$ns}-text-rightaligned {
 	text-align: right;
 }
 
-.#{$ns}-text-sectionheading {
-	line-height: 16px;
+// Text Truncation
+//
+// Useful for truncating a single line of text with an ellipsis. To truncate after an arbitrary number of lines,
+// you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
+//
+// Markup:
+//	<p class="xui-text-truncated">Pak n' Save holds the most nuclear-free community in the country. Every time I see those rip-off Monopoly money, from the New Zealand version with Queen Street and stuff it's like the op shop all over again aye, fully. Put the jug on will you bro, all these primo giant wekas can wait till later. Eh, rack off, nek minnit.</p>
+//
+// Styleguide: Typography.3
+
+.#{$ns}-text-truncated {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
+
 
 //	Statuses
 //
@@ -117,7 +153,7 @@ p {
 //		<span class="xui-text-status xui-text-status-negative">OVERDUE</span>
 //	</p>
 //
-// Styleguide: Typography.2
+// Styleguide: Typography.4
 
 // Parent container
 // The coloured background goes full width of the page

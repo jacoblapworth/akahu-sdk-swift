@@ -16,7 +16,8 @@
     "Gemfile",
     "Gemfile.lock",
     "Gruntfile.js",
-    "package.json"
+    "package.json",
+    "pre-commit.sh"
   ],
   "dependencies": {
     "colors": "git@github.dev.xero.com:UXE/colors.git#~1.2.0"

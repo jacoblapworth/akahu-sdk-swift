@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-alpha.4/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-alpha.10/xui.css"/>
 ```
 
 #### Sherlock
@@ -31,12 +31,12 @@ A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sher
 $ bower install git@github.dev.xero.com:UXE/xui.git --save
 ```
 
-You will need to compile `xui.scss`. 
+You will need to compile `xui.scss`.
 
-Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using 
+Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using
 xui-build-tools, then use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
 CSS. Otherwise, to avoid having to upload XUI's images with your own deployables, you can set the value to point at S3, e.g.
-`http://edge.xero.com/style/xui/9.6.0/images`.
+`https://edge.xero.com/style/xui/10.0.0-alpha.10/images`.
 
 
 What is XUI For?
@@ -60,45 +60,74 @@ Example Page Markup
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Page Title</title>
-		<link href="https://edge.xero.com/style/xui/10.0.0-alpha.4/xui.min.css" rel="stylesheet" />
-	</head>
-	<body class="xui-body">
-		<header class="xui-pagenav">
-			<div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
-				<div class="xui-pagenav--main">
-					<h1 class="xui-page-title">Page Navigation Title</h1>
-				</div>
-				<nav class="xui-pagenav--nav xui-pagecontainer">
-					<ul class="xui-tabgroup">
-						<li class="xui-tab xui-tab-pagenav">
-							<a class="xui-tab--body" href="#nav1">Nav 1</a>
-						</li>
-						<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected">
-							<a class="xui-tab--body" href="#nav2">Nav 2</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-		<header class="xui-pageheading">
-			<div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-large">
-				<h1 class="xui-pageheading--title">Title</h1>
-			</div>
-		</header>
-		<main role="main">
-			<div class="xui-panel xui-pagecontainer xui-pagecontainer-large">
-				<header class="xui-panel--header">
-					<h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
-				</header>
-				<section>
-					<!-- page content -->
-				</section>
-			</div>
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <link href="https://static.xero.com/header/2.3.1/stylesheets/all.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.0.0-alpha.10/xui.min.css" rel="stylesheet" />
+    <script src="https://static.xero.com/header/2.3.1/scripts/header.min.js"></script>
+  </head>
+  <body>
+    <header id="header"></header>
+    <!-- Example JSON configuration, typically this would be generated server-side -->
+    <script id="config" type="application/json">
+      {
+        "colour": "blue",
+        "appMenu": {
+          "model": {
+            "type": "header/appmenu/appMenuDropDown",
+            "text": "Page Navigation Title",
+            "collection": []
+          }
+        },
+        "navigation": {
+          "collection": [
+            {
+              "type": "widgets/tab/tabItem",
+              "model": {
+                "text": "Nav 1",
+                "href": "#nav1"
+              }
+            },
+            {
+              "type": "widgets/tab/tabItem",
+              "model": {
+                "text": "Nav 2",
+                "href": "#nav2",
+                "listClass": "selected"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+    <script>
+      // TODO: ideally this would be an external script so we can CSP
+      (function () {
+        'use strict';
+
+        var configEl = document.getElementById('config');
+        var config = JSON.parse(configEl.innerHTML);
+
+        XERO.Header.init(config, '#header');
+      }());
+    </script>
+    <header class="xui-pageheading">
+      <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+        <h1 class="xui-pageheading--title">Title</h1>
+      </div>
+    </header>
+    <main role="main">
+      <div class="xui-panel xui-pagecontainer xui-pagecontainer-small">
+        <header class="xui-panel--header">
+          <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
+        </header>
+        <section>
+          <!-- page content -->
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
 ```
 

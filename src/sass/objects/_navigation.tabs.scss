@@ -24,7 +24,7 @@
 //   - When hidden should have `class="xui-u-hidden-visually"` and `aria-hidden="true"` or
 //   - When visible should have only `aria-hidden="false"`
 //
-// Styleguide: Tabs
+// Styleguide: Navigation.5
 
 @import "../tools/mixins";
 @import "../settings/colours";
@@ -70,7 +70,7 @@
 //		</ul>
 //	</div>
 //
-// Styleguide: Tabs.1
+// Styleguide: Navigation.5.1
 .#{$ns}-tabbednav,
 // FIXME: remove .#{$ns}-tabbed-navigation in 10.0.0
 .#{$ns}-tabbed-navigation {
@@ -90,6 +90,7 @@
 // Makes for an easy place to store and create new variations of tabs with different colours.
 //
 // (text-color, border-color, hover-text-color, hover-border-color)
+// FIXME: this should be prefixed with xui-
 $color-variations: (
 	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text, $color-primary-text),
 	"#{$ns}-tab-pageheading":($color-primary-text, transparent, $color-xero-blue, $color-xero-blue),
@@ -134,12 +135,12 @@ $color-variations: (
 			content: " ";
 			display: block;
 			height: 3px;
-			margin: 6px 0 0.5px;
+			margin: 6px 0 0;
 		}
 
 		&:hover {
 			color: $color-primary-text;
-			text-decoration: none; // Fix for no more normalize
+			text-decoration: none;
 		}
 
 		&:hover::after {
@@ -189,7 +190,7 @@ $color-variations: (
 //		</li>
 //	</ul>
 //
-// Styleguide: Tabs.2
+// Styleguide: Navigation.5.2
 
 .#{$ns}-tabgroup-vertical {
 	display: flex;
@@ -212,7 +213,7 @@ $color-variations: (
 }
 
 .#{$ns}-verticaltab {
-	border-left: 4px solid $color-white;
+	border-left: 4px solid transparent;
 	position: relative;
 
 	&:hover {

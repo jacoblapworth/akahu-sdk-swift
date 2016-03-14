@@ -48,7 +48,7 @@
 	&:focus {
 		border-color: $color-xero-blue;
 		box-shadow: $shadow-focus;
-		transition: box-shadow $xui-transition-duration-super-quick;
+		transition: box-shadow $xui-transition-duration-short;
 	}
 
 	&::placeholder {

@@ -114,7 +114,7 @@ $shadow-color: #ccc;
 	margin: 0;
 	overflow: hidden;
 	position: absolute;
-	transition: $xui-transition-duration-quick opacity $xui-easing-standard;
+	transition: $xui-transition-duration-short opacity $xui-easing-standard;
 	width: 180px;
 	z-index: 1;
 }

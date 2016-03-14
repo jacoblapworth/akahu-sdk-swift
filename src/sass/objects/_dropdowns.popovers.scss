@@ -10,7 +10,12 @@
 // `-lefttop`, `-leftcenter`, `-leftbottom`,
 // `-righttop`, `-rightcenter`, `-rightbottom`.
 //
-// A sample of the modifiers are shown bellow.
+// A sample of the modifiers are shown below.
+//
+// ### Accessibility
+// The appropriate role to use for the popover depends on its use in your application. The purpose of the popover should still be clearly stated using `aria-label` and `aria-describedby` attributes.
+// * **`role="tooltip"`** - a contextual popup that displays a description of an element and typically becomes visible in response to a mouse hover or keyboard focus after a short delay. ([W3C Documentation](https://www.w3.org/TR/wai-aria/roles#tooltip))
+// * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
 // .xui-popover--arrow-topcenter  - Top center aligned  arrow
 // .xui-popover--arrow-bottomright  - Bottom right aligned  arrow
@@ -18,14 +23,14 @@
 // .xui-popover--arrow-rightbottom   - Right bottom aligned  arrow
 //
 // Markup:
-//	<div class="xui-popover">
+//	<div class="xui-popover" role="dialog" aria-labelledby="popover-header">
 //    <div class="xui-popover--arrow {{modifier_class}}">
 //      <svg viewbox="0 0 100 100">
 //        <polyline points="0,50 50,0 100, 50" stroke-width="6" class="xui-popover--arrow--border"/>
 //      </svg>
 //    </div>
 //    <header class="xui-popover--header xui-popover--header-standard">
-//      <h3 class="xui-popover--heading">Notifications</h3>
+//      <h3 id="popover-header" class="xui-popover--heading">Notifications</h3>
 //    </header>
 //    <div class="xui-popover--body">
 //    </div>

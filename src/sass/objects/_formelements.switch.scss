@@ -2,12 +2,22 @@
 //
 // UI Switches
 //
-// `.xui-switch-is-enabled` : Add this class to enable the switch
+// The state of the switch reflects the checked attribute of the underlying input
+//
+// When the input is `disabled`, you should use the global `xui-is-disabled` class on the `.xui-switch` element
 //
 //	Markup:
 //	<label class="xui-switch">
 //		<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox">
-//		<div class="xui-switch--control"></div>
+//		<span class="xui-switch--control"></span>
+//	</label>
+//	<label class="xui-switch">
+//		<input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
+//		<span class="xui-switch--control"></span>
+//	</label>
+//	<label class="xui-switch xui-is-disabled">
+//		<input type="checkbox" disabled checked class="xui-u-hidden-visually xui-switch--checkbox">
+//		<span class="xui-switch--control"></span>
 //	</label>
 //
 // Styleguide: Form Elements.500
@@ -17,6 +27,13 @@
 
 .#{$ns}-switch {
 	display: inline-block;
+
+	&.#{$ns}-is-disabled {
+		// Disabled due to iOS - no cursor, but we still want this for desktop clients
+		/* doiuse-disable */
+		cursor: not-allowed;
+		/* doiuse-enable */
+	}
 }
 
 .#{$ns}-switch--control {
@@ -24,6 +41,7 @@
 	border: 1px solid $color-disabled-text;
 	border-radius: 40px;
 	cursor: pointer;
+	display: block;
 	height: 26px;
 	position: relative;
 	transition: all $xui-transition-duration-super-quick $xui-easing-standard;

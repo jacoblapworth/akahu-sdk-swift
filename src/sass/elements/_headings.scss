@@ -3,6 +3,7 @@
  */
 
 @import "../settings/typography";
+@import "../tools/mixins";
 
 h1,
 h2,
@@ -10,7 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: bold;
+	@include xui-bold;
 	margin: 1.25em 0;
 }
 

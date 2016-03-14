@@ -3,8 +3,12 @@
 // Date Picker
 //
 // Looks amazing at 350px.
-// Doesn't have other states
-// Designed to style only, BYO JS framework
+// Doesn't have other states.
+// Designed to style only, BYO JS framework.
+//
+// For accessibility, the date picker must have keyboard support as described in the [W3C documentation](https://www.w3.org/TR/2013/WD-wai-aria-practices-20130307/#kbd_focus).
+// This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also requires each active cell to have an id. Examples of how these attributes can be used are given below.
+// An example of a date picker with aria-attributes and keyboard support can be found [here](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
 // Markup:
 //	<div class="xui-popover xui-datepicker">
@@ -14,67 +18,67 @@
 //			</svg>
 //		</div>
 //		<header class="xui-popover--header xui-datepicker--header">
-//			<button type="button" class="xui-unstyledbutton xui-datepicker--backbutton"></button>
-//			<h3 class="xui-datepicker--heading">October 2015</h3>
-//			<button type="button" class="xui-unstyledbutton xui-datepicker--nextbutton xui-datepicker--button-is-disabled"></button>
+//			<button type="button" class="xui-button xui-datepicker--prevbutton" aria-label="Go to previous month"></button>
+//			<h3 class="xui-datepicker--heading" role="heading">October 2015</h3>
+//			<button type="button" class="xui-button xui-datepicker--nextbutton xui-datepicker--button-is-disabled" aria-label="Go to next month" aria-disabled="true"></button>
 //		</header>
-//		<table class="xui-popover--section xui-datepicker--body">
+//		<table class="xui-popover--section xui-datepicker--body" role="grid" aria-label="Select a day" aria-activedescendant="day1" tabindex="0">
 //			<thead>
-//				<tr>
-//					<th class="xui-datepicker--weekday">Su</th>
-//					<th class="xui-datepicker--weekday">Mo</th>
-//					<th class="xui-datepicker--weekday">Tu</th>
-//					<th class="xui-datepicker--weekday">We</th>
-//					<th class="xui-datepicker--weekday">Th</th>
-//					<th class="xui-datepicker--weekday">Fr</th>
-//					<th class="xui-datepicker--weekday">Sa</th>
+//				<tr role="row">
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Sunday">Su</th>
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Monday">Mo</th>
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Tuesday">Tu</th>
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Wednesday">We</th>
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Thursday">Th</th>
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Friday">Fr</th>
+//					<th class="xui-datepicker--weekday" role="columnheader" aria-label="Saturday">Sa</th>
 //				</tr>
 //			</thead>
 //			<tbody>
-//				<tr>
-//					<td class="xui-datepicker--day xui-datepicker--othermonth">27</td>
-//					<td class="xui-datepicker--day xui-datepicker--othermonth">28</td>
-//					<td class="xui-datepicker--day xui-datepicker--othermonth">29</td>
-//					<td class="xui-datepicker--day xui-datepicker--othermonth">30</td>
-//					<td class="xui-datepicker--day">1</td>
-//					<td class="xui-datepicker--day xui-datepicker--day-is-selected">2</td>
-//					<td class="xui-datepicker--day">3</td>
+//				<tr role="row">
+//					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">27</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">28</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">29</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">30</td>
+//					<td id="day1" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">1</td>
+//					<td id="day2" class="xui-datepicker--day xui-datepicker--day-is-selected" role="gridcell" aria-selected="true" tabindex="-1">2</td>
+//					<td id="day3" class="xui-datepicker--day" role="gridcell" tabindex="-1">3</td>
 //				</tr>
-//				<tr>
-//					<td class="xui-datepicker--day">4</td>
-//					<td class="xui-datepicker--day">5</td>
-//					<td class="xui-datepicker--day">6</td>
-//					<td class="xui-datepicker--day">7</td>
-//					<td class="xui-datepicker--day">8</td>
-//					<td class="xui-datepicker--day">9</td>
-//					<td class="xui-datepicker--day">10</td>
+//				<tr role="row">
+//					<td id="day4" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">4</td>
+//					<td id="day5" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">5</td>
+//					<td id="day6" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">6</td>
+//					<td id="day7" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">7</td>
+//					<td id="day8" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">8</td>
+//					<td id="day9" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">9</td>
+//					<td id="day10" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">10</td>
 //				</tr>
-//				<tr>
-//					<td class="xui-datepicker--day">11</td>
-//					<td class="xui-datepicker--day">12</td>
-//					<td class="xui-datepicker--day">13</td>
-//					<td class="xui-datepicker--day">14</td>
-//					<td class="xui-datepicker--day">15</td>
-//					<td class="xui-datepicker--day">16</td>
-//					<td class="xui-datepicker--day">17</td>
+//				<tr role="row">
+//					<td id="day11" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">11</td>
+//					<td id="day12" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">12</td>
+//					<td id="day13" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">13</td>
+//					<td id="day14" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">14</td>
+//					<td id="day15" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">15</td>
+//					<td id="day16" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">16</td>
+//					<td id="day17" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">17</td>
 //				</tr>
-//				<tr>
-//					<td class="xui-datepicker--day">18</td>
-//					<td class="xui-datepicker--day">19</td>
-//					<td class="xui-datepicker--day">20</td>
-//					<td class="xui-datepicker--day">21</td>
-//					<td class="xui-datepicker--day">22</td>
-//					<td class="xui-datepicker--day">23</td>
-//					<td class="xui-datepicker--day">24</td>
+//				<tr role="row">
+//					<td id="day18" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">18</td>
+//					<td id="day19" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">19</td>
+//					<td id="day20" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">20</td>
+//					<td id="day21" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">21</td>
+//					<td id="day22" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">22</td>
+//					<td id="day23" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">23</td>
+//					<td id="day24" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">24</td>
 //				</tr>
-//				<tr>
-//					<td class="xui-datepicker--day">25</td>
-//					<td class="xui-datepicker--day">26</td>
-//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">27</td>
-//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">28</td>
-//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">29</td>
-//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">30</td>
-//					<td class="xui-datepicker--day xui-datepicker--day-is-disabled">31</td>
+//				<tr role="row">
+//					<td id="day25" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">25</td>
+//					<td id="day26" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">26</td>
+//					<td id="day27" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">27</td>
+//					<td id="day28" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">28</td>
+//					<td id="day29" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">29</td>
+//					<td id="day30" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">30</td>
+//					<td id="day31" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">31</td>
 //				</tr>
 //			</tbody>
 //		</table>
@@ -95,7 +99,8 @@
 	justify-content: space-between;
 }
 
-.#{$ns}-datepicker--backbutton, .#{$ns}-datepicker--nextbutton {
+.#{$ns}-datepicker--prevbutton,
+.#{$ns}-datepicker--nextbutton {
 	line-height: 56px;
 	min-width: 10px;
 
@@ -110,7 +115,7 @@
 	}
 }
 
-.#{$ns}-datepicker--backbutton {
+.#{$ns}-datepicker--prevbutton {
 	padding-left: 20px;
 
 	&::before {

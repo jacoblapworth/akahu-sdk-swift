@@ -46,6 +46,7 @@
 //
 // Styleguide: Accordion
 .#{$ns}-accordion {
+	list-style: none;
 	margin: 0;
 	padding: 0;
 }
@@ -79,11 +80,13 @@
 
 .#{$ns}-accordionitem-is-open {
 	border: $divider-standard;
-	box-shadow: 0 6px 20px 2px $color-shadow-strong;
+	border-radius: $xui-radius;
+	box-shadow: $shadow-depth-2;
 	height: auto;
-	margin: 0 -4%;
+	margin: 0 -20px;
+	max-width: 100vw;
 	transform: translateY(-1px); /** hides the border-bottom of the accordion--collapsed above it **/
-	width: 108%;
+	width: calc(100% + 40px);
 
 	> .#{$ns}-accordionitem--collapsed {
 		border: 0;

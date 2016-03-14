@@ -16,7 +16,7 @@ dl {
 }
 
 dt {
-	font-weight: bold;
+	@include xui-bold;
 
 	&::after {
 		content: ":";

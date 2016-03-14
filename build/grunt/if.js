@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 			options: {
 				test: function() {
 					var filepath = 'README.md';
-					var re = /(https:\/\/edge.xero.com\/style\/xui\/)(\d+.\d+.\d+)(\/xui.css)/g;
+					var re = /(http[s]?:\/\/edge.xero.com\/style\/xui\/)(\d+.\d+.\d+)(\/\w+(.*\w*)?)/g;
 					var options = { encoding: 'utf8' };
 					var packageJson = require('../../package.json');
 					var originalContents = grunt.file.read(filepath, options);

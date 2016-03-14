@@ -11,13 +11,12 @@
 // We support the use of a manual class, or HTML5 invalid pseudo class
 //
 // Markup:
-// <input type="text" class="xui-input xui-input-is-invalid"/>
-// <textarea class="xui-textarea xui-input-is-invalid"></textarea>
+// <input type="text" class="xui-input xui-input-is-invalid" aria-label="Text input"/>
+// <textarea class="xui-textarea xui-input-is-invalid" aria-label="Text area field"></textarea>
 //
 // Styleguide: Form Elements.600.1
 
-.#{$ns}-input-is-invalid,
-:invalid {
+.#{$ns}-input-is-invalid {
 	border-color: $color-xero-red;
 
 	&:focus,
@@ -37,10 +36,11 @@
 //            example is provided by being in an xui-inputgroup--inputs
 //            subcomponent -->
 // <div class="xui-inputgroup">
-//   <div class="xui-inputgroup--inputs">
-//     <input class="xui-input" type="text" required/>
+//   <label class="xui-inputgroup--label xui-text-label" for="display-email">Email</label>
+//   <div class="xui-inputgroup--inputs" role="group">
+//     <input id="display-email" class="xui-input" type="email" placeholder="Email" aria-describedby="field-message" required/>
 //     <div class="xui-inputmessage xui-inputmessage-shown">
-//       <span class="xui-inputmessage--body">Please fill out this field</span>
+//       <span id="field-message" class="xui-inputmessage--body">Please fill out this field</span>
 //     </div>
 //   </div>
 // </div>

@@ -8,7 +8,7 @@
 // Loaders provide users with feedback that something is happening.
 //
 // Markup:
-// <div class="xui-loader">
+// <div class="xui-loader" role="progressbar" aria-label="Content loading" aria-busy="true">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -31,7 +31,7 @@
 
 	animation: xui-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
-	background-color: $color-xero-blue;
+	background-color: $color-placeholders;
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;

@@ -37,16 +37,19 @@ p {
 .#{$ns}-heading {
 	color: $color-primary-text;
 	font-size: $xui-font-size-heading;
+	font-weight: bold;
 }
 
 .#{$ns}-page-title {
 	color: $color-primary-text;
 	font-size: $xui-font-size-page-title;
+	font-weight: bold;
 }
 
 .#{$ns}-section-title {
 	color: $color-primary-text;
 	font-size: $xui-font-size-section-title;
+	font-weight: bold;
 }
 
 /* FIXME: why would be need this? */

@@ -11,6 +11,7 @@
 // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 html {
 	box-sizing: border-box;
+	font-size: 16px; // Explicitly set font-size for rems.
 }
 
 // Generally we don't use * selectors, however as this is a CSS WG

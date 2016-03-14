@@ -15,15 +15,15 @@
 // The number inputs have had their up and down arrows removed to sync browser styles
 //
 // Markup:
-// <input class="xui-input" type="text" placeholder="Standard Input"/>
-// <input class="xui-input" type="password" placeholder="Password Input"/>
-// <input class="xui-input" type="number" placeholder="0.00" />
-// <input class="xui-input xui-input-search" type="search" placeholder="Search"/>
-// <input class="xui-input" type="tel" placeholder="telephone #"/>
-// <input class="xui-input" type="email" placeholder="example@xero.com"/>
-// <input class="xui-input" type="url" placeholder="http://www.xero.com"/>
-// <input class="xui-input xui-input-date" type="text" placeholder="13 December 1989"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
-// <input class="xui-input" type="text" placeholder="Disabled input" disabled />
+// <input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
+// <input class="xui-input" type="password" placeholder="Password Input" aria-label="Password"/>
+// <input class="xui-input" type="number" placeholder="0.00" aria-label="Number input"/>
+// <input class="xui-input xui-input-search" type="search" placeholder="Search" aria-label="Search"/>
+// <input class="xui-input" type="tel" placeholder="telephone #" aria-label="Telephone"/>
+// <input class="xui-input" type="email" placeholder="example@xero.com" aria-label="Email"/>
+// <input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
+// <input class="xui-input xui-input-date" type="text" placeholder="13 December 1989" aria-label="Date"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
+// <input class="xui-input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled />
 //
 // Styleguide: Form Elements.100.1
 
@@ -46,7 +46,7 @@
 // Textareas
 //
 // Markup:
-// <textarea class="xui-textarea"></textarea>
+// <textarea class="xui-textarea" aria-label="Large text area input"></textarea>
 //
 // Styleguide: Form Elements.100.2
 

@@ -1,0 +1,150 @@
+// Sub application Navigation
+//
+// New styles for app sub-navigation, meant to show more detail around the current page, and give optional patterns for displaying action buttons, or breadcrumbs for navigation.
+//
+// This component uses `xui-pagecontainer-<size>` classes to center align it's navigation, and title sub-components to the widths of your content.
+//
+// Styleguide: Navigation.3
+
+// Standard
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//     <h1 class="xui-pageheading--title">Sales</h1>
+//   </div>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//     <h1 class="xui-pageheading--title">Sales</h1>
+//     <div>
+//        <button type="button" class="xui-button">
+//           Options
+//           <span class="xui-button--caret"></span>
+//        </button>
+//        <button type="button" class="xui-button xui-button-create">
+//           New
+//           <span class="xui-button--caret"></span>
+//        </button>
+//     </div>
+//   </div>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small" role="navigation" aria-label="Sales breadcrumb">
+//      <ol class="xui-pageheading--breadcrumbs">
+//         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
+//         <li class="xui-breadcrumb active" aria-selected="true">Invoices</li>
+//      </ol>
+//      <div class="xui-buttongroup">
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create">New Invoice</button>
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split">
+//            <span class="xui-button--caret"></span>
+//         </button>
+//      </div>
+//   </div>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small" role="navigation" aria-label="Sales breadcrumb 2">
+//      <ol class="xui-pageheading--breadcrumbs">
+//         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
+//         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Invoices</a></li>
+//         <li class="xui-breadcrumb active" aria-selected="true">INV-001</li>
+//       </ol>
+//      <button type="button" class="xui-button">
+//         Options
+//         <span class="xui-button--caret"></span>
+//      </button>
+//   </div>
+// </header>
+//
+// Styleguide: Navigation.3.1
+
+// Parent container
+// The coloured background goes full width of the page
+.#{$ns}-pageheading {
+	// FIXME: do we need some bold up in here and if yes then Y NO xui-bold;
+	@include xui-font-smooth;
+	align-items: center;
+	background-color: $color-white;
+	border-bottom: $border-standard;
+	display: flex;
+	flex-wrap: no-wrap;
+	min-height: 60px;
+	overflow: hidden;
+}
+
+// With Tabs
+//
+//
+// Markup:
+// <header class="xui-pageheading xui-pageheading-has-tabs">
+//   <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//     <div class="xui-pageheading--content">
+//       <h1 id="page-title" class="xui-pageheading--title">Sales</h1>
+//     </div>
+//     <div class="xui-pageheading--tabs xui-tabbednav" role="navigation" aria-labelledby="page-title">
+//       <ul class="xui-tabgroup">
+//         <li class="xui-tab xui-tab-pageheading" aria-selected="false">
+//           <a class="xui-tab--body" href="#g-header">Page heading</a>
+//         </li>
+//         <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
+//           <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+// </header>
+//
+// Styleguide: Navigation.3.2
+
+.#{$ns}-pageheading-has-tabs {
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.#{$ns}-pageheading-has-tabs,
+.#{$ns}-pageheading--tabs {
+	padding: 20px 0 0;
+}
+
+.#{$ns}-pageheading--title {
+	@include xui-bold;
+	align-items: center;
+	display: flex;
+	font-size: $xui-font-size-page-title;
+	margin: 0 10px 0 0;
+}
+
+// Content container
+.#{$ns}-pageheading--content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.#{$ns}-pageheading--breadcrumbs {
+	align-items: center;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-breadcrumb {
+	@include xui-bold;
+	display: inline-block;
+	font-size: $xui-font-size-page-title;
+	list-style-type: none;
+
+	&::before {
+		color: $color-placeholders;
+		content: "›";
+		display: inline-block;
+		margin: 0 10px;
+	}
+
+	&:first-of-type::before {
+		display: none;
+	}
+}

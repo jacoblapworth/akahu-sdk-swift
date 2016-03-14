@@ -1,13 +1,22 @@
-
+@import "../vars";
 @import "../tools/mixins";
 
 // Selects
+
+// Native Selects
+//
+// For use when you want to display native controls on devices that support pretty controls
+// Examples include iOS and Android devices. The `xui-selectwrapper` class provides the caret
+// in a consistent cross-browser manner.
 //
 // Markup:
-// <select class="xui-select">
-//  <option>Value 1</option>
-//  <option>Value 2</option>
-// </select>
+//	<div class="xui-selectwrapper">
+//		<select class="xui-select" id="group-button-example3">
+//			<option>Value 1</option>
+//			<option>Value 2</option>
+//			<option>Value 3</option>
+//		</select>
+//	</div>
 //
 // Styleguide: Form Elements.200
 
@@ -19,6 +28,33 @@ select.#{$ns}-select {
 	@extend %#{$ns}-commoninput;
 
 	cursor: pointer;
+	padding-right: 20px;
+
+	&::-ms-expand {
+		display: none;
+	}
+
+	&:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 $color-black;
+	}
+}
+
+.#{$ns}-selectwrapper {
+	position: relative;
+
+	&::after {
+		@include xui-caret;
+
+		content: " ";
+		height: 0;
+		pointer-events: none;
+		position: absolute;
+		right: 8px;
+		top: calc(50% - 2px);
+		vertical-align: middle;
+		width: 0;
+	}
 }
 
 .#{$ns}-select--caret {
@@ -28,26 +64,6 @@ select.#{$ns}-select {
 	top: calc(50% - 2px);
 	vertical-align: middle;
 }
-
-
-// Native Select Boxes
-//
-// For use when you want to display native controls on devices that support pretty controls
-// Examples include iOS and Android devices
-//
-// Markup:
-// <div class="xui-inputgroup">
-//   <label class="xui-inputgroup--label xui-text-label" for="group-button-example3">Native</label>
-//   <div class="xui-inputgroup--inputs">
-//     <select class="xui-select" id="group-button-example3">
-//       <option>Value 1</option>
-//       <option>Value 2</option>
-//       <option>Value 3</option>
-//     </select>
-//   </div>
-// </div>
-//
-// Styleguide: Form Elements.200.1
 
 // Styled Select Boxes
 //
@@ -81,13 +97,13 @@ select.#{$ns}-select {
 //			<div class="xui-dropdownmenu--body">
 //				<ul class="xui-menugroup" role="menu">
 //					<li class="xui-menuitem xui-menuitem-is-selected" role="menuitem">
-//						<a href="#">Select option 1</a>
+//						<a href="#" class="xui-menuitem--body">Select option 1</a>
 //					</li>
 //					<li class="xui-menuitem" role="menuitem">
-//						<a href="#">Select option 2</a>
+//						<a href="#" class="xui-menuitem--body">Select option 2</a>
 //					</li>
 //					<li class="xui-menuitem" role="menuitem">
-//						<a href="#">Select option 3</a>
+//						<a href="#" class="xui-menuitem--body">Select option 3</a>
 //					</li>
 //				</ul>
 //			</div>
@@ -95,12 +111,13 @@ select.#{$ns}-select {
 //  </div>
 // </div>
 //
-// Styleguide: Form Elements.200.2
+// Styleguide: Form Elements.201
 
 .#{$ns}-select--button {
 	background-color: transparent;
 	color: $color-primary-text;
 	display: block;
+	font-weight: normal;
 	padding: 5px 15px;
 	text-align: left;
 	width: 100%;
@@ -129,4 +146,3 @@ select.#{$ns}-select {
 	width: 100%;
 	z-index: 1;
 }
-

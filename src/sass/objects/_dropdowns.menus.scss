@@ -3,92 +3,105 @@
 
 // Menu
 //
+// ### Behaviour
+//
+// Implementations should make the most of the screen space available when showing dropdowns.
+// Scrollbars can be used when there is not enough screen space to fit all menu items. When there
+// is more space above than below the dropdown trigger, the menu should be positioned above the
+// trigger. The same applies for whether the menu should be left-aligned or right-aligned against
+// the trigger.
+//
+// ### Accessibility
+// An example of applying ARIA attributes to a dropdown is given below, using the roles `menubar`, `menu` and `menuitem`.
+// The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
+//
 // Markup:
-//	<div class="xui-dropdownmenu">
+//	<div class="xui-dropdownmenu" role="menubar" aria-label="dropdown menu">
 //		<div class="xui-dropdownmenu--body">
 //			<h3 class="xui-dropdownmenu--groupheading">Group Title</h3>
-//			<ul class="xui-menugroup">
-//				<li class="xui-menuitem">
-//					<button class="xui-unstyledbutton xui-menuitem--body">
+//			<ul class="xui-menugroup" role="menu" aria-label="Menu group 1 label">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
+//					<button class="xui-button xui-menuitem--body">
 //						Menu item 1
 //					</button>
 //				</li>
-//				<li class="xui-menuitem xui-menuitem-is-selected">
-//					<button class="xui-unstyledbutton xui-menuitem--body">
+//				<li class="xui-menuitem xui-menuitem-is-selected" role="menuitem" aria-selected="true">
+//					<button class="xui-button xui-menuitem--body">
 //						Menu item 2
 //					</button>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 3
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 4
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 5
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 6
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 7
 //					</label>
 //				</li>
 //			</ul>
-//			<ul class="xui-menugroup">
-//				<li class="xui-menuitem">
+//			<ul class="xui-menugroup" role="menu" aria-label="Menu group 2 label">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<a class="xui-menuitem--body" href="http://www.google.com">Link Menu Item 1</a>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 2
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" />
+//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //						Menu item 3
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="radio" name="radios2" class="xui-menuitem--input" />
+//						<input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
 //						Menu item 4
 //					</label>
 //				</li>
-//				<li class="xui-menuitem">
+//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
 //					<label class="xui-menuitem--body">
-//						<input type="radio" name="radios2" class="xui-menuitem--input" />
+//						<input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
 //						Menu item 5
 //					</label>
 //				</li>
 //			</ul>
 //		</div>
 //		<footer class="xui-dropdownmenu--footer">
-//			<ul class="xui-menugroup">
-//				<li class="xui-menuitem">
-//					<button class="xui-menuitem--body xui-unstyledbutton">+ Some action</button>
+//			<ul class="xui-menugroup" role="menu" aria-label="Footer menu label">
+//				<li class="xui-menuitem" role="menuitem">
+//					<button class="xui-button xui-menuitem--body">+ Some action</button>
 //				</li>
 //			</ul>
 //		</footer>
 //	</div>
 //
 // Styleguide: Dropdowns.1
+// FIXME: xui- prefix required
 $shadow-color: #ccc;
 
 .#{$ns}-dropdownmenu {
@@ -118,6 +131,7 @@ $shadow-color: #ccc;
 .#{$ns}-dropdownmenu--body {
 	max-height: 350px;
 	overflow: auto;
+	-ms-scroll-chaining: none;
 }
 
 .#{$ns}-dropdownmenu--footer {

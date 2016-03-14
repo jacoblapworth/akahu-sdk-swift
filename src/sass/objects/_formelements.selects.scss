@@ -97,13 +97,13 @@ select.#{$ns}-select {
 //			<div class="xui-dropdownmenu--body">
 //				<ul class="xui-menugroup" role="menu">
 //					<li class="xui-menuitem xui-menuitem-is-selected" role="menuitem">
-//						<a href="#">Select option 1</a>
+//						<a href="#" class="xui-menuitem--body">Select option 1</a>
 //					</li>
 //					<li class="xui-menuitem" role="menuitem">
-//						<a href="#">Select option 2</a>
+//						<a href="#" class="xui-menuitem--body">Select option 2</a>
 //					</li>
 //					<li class="xui-menuitem" role="menuitem">
-//						<a href="#">Select option 3</a>
+//						<a href="#" class="xui-menuitem--body">Select option 3</a>
 //					</li>
 //				</ul>
 //			</div>
@@ -111,7 +111,7 @@ select.#{$ns}-select {
 //  </div>
 // </div>
 //
-// Styleguide: Form Elements.200.2
+// Styleguide: Form Elements.201
 
 .#{$ns}-select--button {
 	background-color: transparent;

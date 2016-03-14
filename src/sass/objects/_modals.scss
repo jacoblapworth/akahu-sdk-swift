@@ -30,7 +30,7 @@
 // 	<section class="xui-modal xui-modal-opened xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 // 		<header class="xui-modal--header">
 // 			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
-// 			<button type="button" class="xui-iconbutton xui-iconbutton-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
+// 			<button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
 // 		</header>
 // 		<div class="xui-modal--body">
 // 			<p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
@@ -47,7 +47,7 @@
 // 				<button type="button" class="xui-button xui-button-main">Done</button>
 // 			</div>
 // 			<div class="xui-actions--secondary">
-// 				<button type="button" class="xui-button">Delete</button>
+// 				<button type="button" class="xui-button xui-button-negative">Delete</button>
 // 			</div>
 // 		</footer>
 // 	</section>

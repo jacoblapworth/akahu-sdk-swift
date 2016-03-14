@@ -40,6 +40,18 @@ $ ln -s ../../pre-commit.sh .git/hooks/pre-commit
 ```
 
 
+post-merge hook
+---------------
+
+You can also add a post-merge hook so that your local environment is updated after a merge.
+
+Install the hook by running the following command:
+
+```bash
+$ ln -s ../../post-merge.sh .git/hooks/post-merge
+```
+
+
 Conventions
 -----------
 

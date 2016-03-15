@@ -78,7 +78,7 @@
 }
 
 .#{$ns}-tabgroup {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 	display: flex;
 	justify-content: flex-start;
 	list-style: none;
@@ -92,11 +92,11 @@
 // (text-color, border-color, hover-text-color, hover-border-color)
 // FIXME: this should be prefixed with xui-
 $color-variations: (
-	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text, $color-primary-text),
-	"#{$ns}-tab-pageheading":($color-primary-text, transparent, $color-xero-blue, $color-xero-blue),
-	"#{$ns}-tab-pageheading-is-selected":($color-xero-blue, $color-xero-blue, $color-xero-blue, $color-xero-blue),
-	"#{$ns}-tab-pagenav":($color-reversed-text, transparent, $color-xero-light-blue, $color-xero-light-blue),
-	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
+	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
+	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
+	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
+	"#{$ns}-tab-pagenav":($xui-color-reversed-text, transparent, $xui-color-xero-light-blue, $xui-color-xero-light-blue),
+	"#{$ns}-tab-pagenav-is-selected":($xui-color-xero-light-blue, $xui-color-xero-light-blue, $xui-color-xero-light-blue, $xui-color-xero-light-blue)
 );
 
 // Individual tabs
@@ -123,7 +123,7 @@ $color-variations: (
 	margin: 0;
 
 	.#{$ns}-tab--body {
-		color: $color-secondary-text;
+		color: $xui-color-secondary-text;
 		cursor: pointer;
 		display: inline-block;
 		line-height: 1.2;
@@ -139,12 +139,12 @@ $color-variations: (
 		}
 
 		&:hover {
-			color: $color-primary-text;
+			color: $xui-color-primary-text;
 			text-decoration: none;
 		}
 
 		&:hover::after {
-			background-color: $color-primary-text;
+			background-color: $xui-color-primary-text;
 		}
 	}
 }
@@ -208,7 +208,7 @@ $color-variations: (
 	https://css-tricks.com/examples/nth-child-tester/
 */
 .#{$ns}-tabgroup-vertical:nth-child(n+2) {
-	border-top: $border-standard;
+	border-top: $xui-border-standard;
 	padding-top: 5px;
 }
 
@@ -217,21 +217,21 @@ $color-variations: (
 	position: relative;
 
 	&:hover {
-		background-color: $color-backgrounds;
-		border-left: 4px solid $color-backgrounds;
+		background-color: $xui-color-background;
+		border-left: 4px solid $xui-color-background;
 	}
 }
 
 .#{$ns}-verticaltab-is-selected {
-	border-left: 4px solid $color-xero-blue;
+	border-left: 4px solid $xui-color-xero-blue;
 
 	&:hover {
-		border-left: 4px solid $color-xero-blue;
+		border-left: 4px solid $xui-color-xero-blue;
 	}
 }
 
 .#{$ns}-verticaltab--body {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	display: block;
 	padding: 10px;
 	width: 100%;

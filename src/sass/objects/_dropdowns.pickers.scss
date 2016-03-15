@@ -93,7 +93,7 @@
 
 .#{$ns}-datepicker--header {
 	align-items: center;
-	border-bottom: $border-standard;
+	border-bottom: $xui-border-standard;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
@@ -105,7 +105,7 @@
 	min-width: 10px;
 
 	&::before {
-		color: $color-grey-2;
+		color: $xui-color-grey-2;
 		display: inline-block;
 		font-size: $xui-font-size-icon-xlarge;
 	}
@@ -139,7 +139,7 @@
 	cursor: default;
 
 	&::before {
-		color: $color-grey-4;
+		color: $xui-color-grey-4;
 	}
 }
 
@@ -159,31 +159,31 @@
 	width: 46px;
 
 	&:hover {
-		background-color: $color-backgrounds;
+		background-color: $xui-color-background;
 	}
 }
 
 .#{$ns}-datepicker--day-is-selected {
-	background-color: $color-xero-blue;
-	color: $color-reversed-text;
+	background-color: $xui-color-xero-blue;
+	color: $xui-color-reversed-text;
 
 	&:hover {
-		background-color: $color-xero-blue;
+		background-color: $xui-color-xero-blue;
 	}
 }
 
 .#{$ns}-datepicker--weekday {
-	color: $color-disabled-text;
+	color: $xui-color-disabled-text;
 	font-size: $xui-font-size-heading-small;
 	text-align: center;
 }
 
 .#{$ns}-datepicker--othermonth {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 }
 
 .#{$ns}-datepicker--day-is-disabled {
-	color: $color-grey-4;
+	color: $xui-color-grey-4;
 	cursor: default;
 
 	&:hover {

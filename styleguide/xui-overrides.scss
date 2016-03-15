@@ -80,13 +80,13 @@
 	.xui-menugroup--item {
 
 		a {
-			color: $color-white;
+			color: $xui-color-white;
 		}
 		&:hover {
-			background: $color-white;
+			background: $xui-color-white;
 			a {
-				color: $color-grey-1;
-				background: $color-white;
+				color: $xui-color-grey-1;
+				background: $xui-color-white;
 			}
 		}
 	}

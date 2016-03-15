@@ -17,11 +17,11 @@
 // Styleguide: Form Elements.600.1
 
 .#{$ns}-input-is-invalid {
-	border-color: $color-xero-red;
+	border-color: $xui-color-xero-red;
 
 	&:focus,
 	&:hover {
-		border-color: $color-xero-red;
+		border-color: $xui-color-xero-red;
 	}
 }
 
@@ -73,9 +73,9 @@
 }
 
 .#{$ns}-inputmessage--body {
-	background-color: $color-grey-1;
+	background-color: $xui-color-grey-1;
 	border-radius: $xui-radius;
-	color: $color-white;
+	color: $xui-color-white;
 	display: inline-block;
 	left: 1em;
 	padding: 0 1em;
@@ -91,7 +91,7 @@
 	&::before {
 		border-bottom: 5px solid transparent;
 		border-left: 0;
-		border-right: 5px solid $color-grey-1;
+		border-right: 5px solid $xui-color-grey-1;
 		border-top: 5px solid transparent;
 		content: "";
 		left: -5px;
@@ -102,7 +102,7 @@
 			border-bottom: 0;
 			border-left: 5px solid transparent;
 			border-right: 5px solid transparent;
-			border-top: 5px solid $color-grey-1;
+			border-top: 5px solid $xui-color-grey-1;
 			bottom: -5px;
 			left: calc(50% - 2.5px);
 			top: auto;

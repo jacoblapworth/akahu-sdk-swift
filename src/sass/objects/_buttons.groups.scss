@@ -9,9 +9,9 @@
 }
 
 $variants: (
-	main : $color-xero-blue-divider,
-	create : $color-xero-green-divider,
-	negative : mix(rgba($color-xero-red, 0.35), $color-white) // TODO: Import this into colours project
+	main : $xui-color-xero-blue-divider,
+	create : $xui-color-xero-green-divider,
+	negative : mix(rgba($xui-color-xero-red, 0.35), $xui-color-white) // TODO: Import this into colours project
 );
 
 @mixin xui-button-grouped {

@@ -95,16 +95,16 @@
 
 .#{$ns}-banner {
 	@include xui-clearfix;
-	background: transparentize($color-white, 0.1);
-	border: $border-standard;
-	border-left: 4px solid $color-xero-blue;
+	background: transparentize($xui-color-white, 0.1);
+	border: $xui-border-standard;
+	border-left: 4px solid $xui-color-xero-blue;
 	border-radius: $xui-radius;
-	box-shadow: $shadow-depth-1;
-	color: $color-primary-text;
+	box-shadow: $xui-shadow-depth-1;
+	color: $xui-color-primary-text;
 }
 
 .#{$ns}-banner-error {
-	border-left: 4px solid $color-xero-red;
+	border-left: 4px solid $xui-color-xero-red;
 }
 
 .#{$ns}-banner-animated {
@@ -118,7 +118,7 @@
 
 .#{$ns}-banner--messagedetail {
 	clear: both;
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 	float: left;
 	margin: 0;
 }
@@ -133,7 +133,7 @@
 	display: inline;
 
 	&:nth-of-type(n+2) {
-		border-left: $border-standard;
+		border-left: $xui-border-standard;
 		margin-left: 10px;
 		padding-left: 10px;
 	}

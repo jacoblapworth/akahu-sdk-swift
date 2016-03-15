@@ -43,10 +43,10 @@
 // Styleguide: Dropdowns.2
 
 .#{$ns}-popover {
-	background-color: $color-panels;
-	border: $border-standard;
+	background-color: $xui-color-panel;
+	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	box-shadow: $shadow-depth-2;
+	box-shadow: $xui-shadow-depth-2;
 	position: relative;
 }
 
@@ -60,13 +60,13 @@
 }
 
 .#{$ns}-popover--header-can-scroll-up {
-	box-shadow: 0 2px 3px $color-borders;
+	box-shadow: 0 2px 3px $xui-color-border;
 }
 
 .#{$ns}-popover--arrow-topleft,
 .#{$ns}-popover--arrow {
 	display: inline-block;
-	fill: $color-white;
+	fill: $xui-color-white;
 	height: 20px;
 	left: 15px;
 	opacity: 1;
@@ -148,11 +148,11 @@
 	}
 
 	&--border {
-		stroke: $color-borders;
+		stroke: $xui-color-border;
 
 // FIXME Remove `&-fill` when merged to breaking changes
 		&-fill {
-			stroke: $color-white;
+			stroke: $xui-color-white;
 		}
 	}
 }
@@ -169,7 +169,7 @@
 }
 
 .#{$ns}-popover--footer {
-	border-top: $divider-standard;
+	border-top: $xui-divider-standard;
 	position: relative;
 }
 
@@ -178,12 +178,12 @@
 }
 
 .#{$ns}-popover--footer-can-scroll-down {
-	box-shadow: 0 -2px 3px $color-borders;
+	box-shadow: 0 -2px 3px $xui-color-border;
 }
 
 .#{$ns}-popover--link {
 	&:nth-of-type(n+2) {
-		border-left: $border-standard;
+		border-left: $xui-border-standard;
 		margin-left: 10px;
 		padding: 0 0 0 10px;
 	}

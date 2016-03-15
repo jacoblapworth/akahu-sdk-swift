@@ -14,12 +14,12 @@
 $xui-color-toast-link: #70bae4;
 
 .#{$ns}-toast {
-	background: transparentize($color-white, 0.1);
-	border-left: 4px solid $color-xero-blue;
+	background: transparentize($xui-color-white, 0.1);
+	border-left: 4px solid $xui-color-xero-blue;
 	border-radius: $xui-radius;
 	bottom: 0;
-	box-shadow: $shadow-depth-2;
-	color: $color-primary-text;
+	box-shadow: $xui-shadow-depth-2;
+	color: $xui-color-primary-text;
 	left: 0;
 	opacity: 1;
 	position: fixed;
@@ -28,7 +28,7 @@ $xui-color-toast-link: #70bae4;
 }
 
 .#{$ns}-toast-error {
-	border-left: 4px solid $color-xero-red;
+	border-left: 4px solid $xui-color-xero-red;
 }
 
 // Single-Action
@@ -98,13 +98,13 @@ $xui-color-toast-link: #70bae4;
 	margin-left: 20px;
 
 	&:nth-of-type(n+2) {
-		border-left: 1px solid $color-shadow-strong;
+		border-left: 1px solid $xui-color-shadow-strong;
 		padding: 2px 0 2px 20px;
 	}
 }
 
 .#{$ns}-toast--close {
-	color: $color-grey-3;
+	color: $xui-color-grey-3;
 	margin-left: 20px;
 }
 
@@ -114,7 +114,7 @@ $xui-color-toast-link: #70bae4;
 }
 
 .#{$ns}-toast-list {
-	color: $color-white;
+	color: $xui-color-white;
 	list-style: disc;
 }
 

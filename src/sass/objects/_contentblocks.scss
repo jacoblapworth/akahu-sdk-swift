@@ -10,44 +10,44 @@
 //
 // Markup:
 // <section>
-// 	<h2 class="xui-sectionheading xui-text-sectionheading">Today</h2>
+// 	<h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Today</h2>
 // 	<ol class="xui-contentblock">
-// 		<li class="xui-contentblock--item xui-u-flex">
+// 		<li class="xui-contentblock--item xui-padding xui-u-flex">
 // 			<div class="xui-u-flex-col">
 // 				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 // 			</div>
-// 			<div class="xui-u-flex-col xui-u-flex-grow">
+// 			<div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
 // 				<a href="#">Parrot Dog</a> - Workpaper available for review
 // 				<div class="xui-text-secondary">1 January - 28 February 2015</div>
 // 			</div>
-// 			<div class="xui-u-flex-col">
+// 			<div class="xui-u-flex-col xui-margin-left">
 // 				<button type="button" class="xui-button xui-button-standard">Action</button>
 // 			</div>
 // 		</li>
-// 		<li class="xui-contentblock--item xui-u-flex">
+// 		<li class="xui-contentblock--item xui-padding xui-u-flex">
 // 			<div class="xui-u-flex-col">
 // 				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 // 			</div>
-// 			<div class="xui-u-flex-col xui-u-flex-grow">
+// 			<div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
 // 				<a href="#">Garage Project</a> - Workpaper available for review
 // 				<div class="xui-text-secondary">1 January - 28 February 2015</div>
 // 			</div>
-// 			<div class="xui-u-flex-col">
+// 			<div class="xui-u-flex-col xui-margin-left">
 // 				<button type="button" class="xui-button xui-button-standard">Action</button>
 // 			</div>
 // 		</li>
 // 	</ol>
-// 	<h2 class="xui-sectionheading xui-text-sectionheading">Tomorrow</h2>
+// 	<h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Tomorrow</h2>
 // 	<ol class="xui-contentblock">
-// 		<li class="xui-contentblock--item xui-u-flex">
+// 		<li class="xui-contentblock--item xui-padding xui-u-flex">
 // 			<div class="xui-u-flex-col">
 // 				<img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 // 			</div>
-// 			<div class="xui-u-flex-col xui-u-flex-grow">
+// 			<div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
 // 				<a href="#">Parrot Dog</a> - Workpaper available for review
 // 				<div class="xui-text-secondary">1 January - 28 February 2015</div>
 // 			</div>
-// 			<div class="xui-u-flex-col">
+// 			<div class="xui-u-flex-col xui-margin-left">
 // 				<button type="button" class="xui-button xui-button-standard">Action</button>
 // 			</div>
 // 		</li>
@@ -85,24 +85,24 @@
 // <table class="xui-contentblock">
 // 	<thead>
 // 		<tr class="xui-sectionheading">
-// 			<th class="xui-text-sectionheading xui-sectionheading--cell">Code</th>
-// 			<th class="xui-text-sectionheading xui-sectionheading--cell">Account</th>
-// 			<th class="xui-text-sectionheading xui-sectionheading--cell">Account Type</th>
-// 			<th class="xui-text-sectionheading xui-sectionheading--cell xui-text-number">Amount</th>
+// 			<th class="xui-text-sectionheading xui-sectionheading--cell xui-sectionheading-layout">Code</th>
+// 			<th class="xui-text-sectionheading xui-sectionheading--cell xui-sectionheading-layout">Account</th>
+// 			<th class="xui-text-sectionheading xui-sectionheading--cell xui-sectionheading-layout">Account Type</th>
+// 			<th class="xui-text-sectionheading xui-sectionheading--cell xui-sectionheading-layout xui-text-number">Amount</th>
 // 		</tr>
 // 	</thead>
 // 	<tbody>
 // 		<tr class="xui-contentblock--item">
-// 			<td class="xui-text-cell">300</td>
-// 			<td class="xui-text-cell">Bank Account 01</td>
-// 			<td class="xui-text-cell">3</td>
-// 			<td class="xui-text-cell xui-text-number">400.00</td>
+// 			<td class="xui-text-cell xui-padding">300</td>
+// 			<td class="xui-text-cell xui-padding">Bank Account 01</td>
+// 			<td class="xui-text-cell xui-padding">3</td>
+// 			<td class="xui-text-cell xui-padding xui-text-number">400.00</td>
 // 		</tr>
 // 		<tr class="xui-contentblock--item">
-// 			<td class="xui-text-cell">301</td>
-// 			<td class="xui-text-cell">Bank Account 01</td>
-// 			<td class="xui-text-cell">3</td>
-// 			<td class="xui-text-cell xui-text-number">400.00</td>
+// 			<td class="xui-text-cell xui-padding">301</td>
+// 			<td class="xui-text-cell xui-padding">Bank Account 01</td>
+// 			<td class="xui-text-cell xui-padding">3</td>
+// 			<td class="xui-text-cell xui-padding xui-text-number">400.00</td>
 // 		</tr>
 // 	</tbody>
 // </table>

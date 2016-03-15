@@ -1,4 +1,5 @@
 @import "../vars";
+@import "layout";
 // Toasts
 //
 // Toast notifications are typically global, they are a system event, and they
@@ -27,6 +28,11 @@ $xui-color-toast-link: #70bae4;
 	z-index: 10;
 }
 
+.#{$ns}-toast-layout {
+	@include xui-margin($xui-s-large);
+	@include xui-padding($xui-s-standard);
+}
+
 .#{$ns}-toast-error {
 	border-left: 4px solid $xui-color-xero-red;
 }
@@ -39,7 +45,7 @@ $xui-color-toast-link: #70bae4;
 // using the alert role. For further information, please refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
 //
 // Markup:
-//   <div class="xui-toast" role="status">
+//   <div class="xui-toast xui-toast-layout" role="status">
 //     <p class="xui-toast--message">Toast Message</p>
 //     <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
 //   </div>
@@ -49,7 +55,7 @@ $xui-color-toast-link: #70bae4;
 // Multi-Action
 //
 // Markup:
-//   <div class="xui-toast" role="status">
+//   <div class="xui-toast xui-toast-layout" role="status">
 //     <p class="xui-toast--message">Toast Message</p>
 //     <ul class="xui-toast--actionlist">
 //       <li class="xui-toast--action">
@@ -74,7 +80,7 @@ $xui-color-toast-link: #70bae4;
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
 // Markup:
-//   <div class="xui-toast xui-toast-error" role="alert">
+//   <div class="xui-toast xui-toast-layout xui-toast-error" role="alert">
 //     <p class="xui-toast--message">No internet connection</p>
 //   </div>
 //

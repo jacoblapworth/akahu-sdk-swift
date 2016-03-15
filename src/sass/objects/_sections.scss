@@ -1,8 +1,14 @@
 @import "../vars";
+@import "layout";
 
 .#{$ns}-sectionheading {
 	background-color: $xui-color-background;
 	border-bottom: $xui-divider-standard;
 	border-top: $xui-divider-standard;
 	text-align: left;
+}
+
+.#{$ns}-sectionheading-layout {
+	@include xui-padding-horizontal($xui-s-standard);
+	@include xui-padding-vertical($xui-s-small);
 }

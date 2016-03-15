@@ -1,0 +1,143 @@
+// Margin
+//
+// The basic make-up of the margin  is to apply one or more of the
+// margin classes to acheive the desired layout.
+//
+// Markup:
+// <div class="margin-example">
+//  <div class="xui-margin-top">
+//   Top
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-right">
+//   Right
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-bottom">
+//   Bottom
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-left">
+//   Left
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-vertical">
+//   Vertical
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-horizontal">
+//   Horizontal
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin">
+//   All
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-none">
+//   None
+//  </div>
+// </div>
+//
+// Styleguide: Layout.Margin
+
+// Margin variations
+//
+// All the above primitives  are available at small, standard and large.
+// Standard is as per above, `-sm` and `-lg` suffixes can be used to vary the
+// margin.
+//
+// Markup:
+// <div class="margin-example">
+//  <div class="xui-margin-vertical-sm">
+//   Vertical Small
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-horizontal-sm xui-margin-bottom">
+//   Horizontal small, bottom standard
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-lg">
+//   All large
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-horizontal-sm xui-margin-vertical-lg">
+//   Horizontal small, vertical large
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-right-sm">
+//   Right small
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-right-lg">
+//   Right large
+//  </div>
+// </div>
+//
+// Styleguide: Layout.Margin.1
+
+// Margin primitive scss mixins
+// For use when composing XUI-endorsed component layout classes
+@mixin xui-margin-top($margin) {
+	margin-top: $margin;
+}
+
+@mixin xui-margin-right($margin) {
+	margin-right: $margin;
+}
+
+@mixin xui-margin-bottom($margin) {
+	margin-bottom: $margin;
+}
+
+@mixin xui-margin-left($margin) {
+	margin-left: $margin;
+}
+
+@mixin xui-margin-vertical($margin) {
+	@include xui-margin-top($margin);
+	@include xui-margin-bottom($margin);
+}
+
+@mixin xui-margin-horizontal($margin) {
+	@include xui-margin-left($margin);
+	@include xui-margin-right($margin);
+}
+
+@mixin xui-margin($margin) {
+	@include xui-margin-vertical($margin);
+	@include xui-margin-horizontal($margin);
+}
+
+// Margin primitive css classes
+// For generating a collection of XUI layout classes with a given $margin and $suffix
+@mixin generate-margin($margin, $suffix) {
+	.#{$ns}-margin-top#{$suffix} { @include xui-margin-top($margin); }
+	.#{$ns}-margin-right#{$suffix} { @include xui-margin-right($margin); }
+	.#{$ns}-margin-bottom#{$suffix} { @include xui-margin-bottom($margin); }
+	.#{$ns}-margin-left#{$suffix} { @include xui-margin-left($margin); }
+	.#{$ns}-margin-vertical#{$suffix} { @include xui-margin-vertical($margin); }
+	.#{$ns}-margin-horizontal#{$suffix} { @include xui-margin-horizontal($margin); }
+	.#{$ns}-margin#{$suffix} { @include xui-margin($margin); }
+}
+
+// Collections of XUI layout classes in standard, small and large
+@include generate-margin($xui-s-standard, $xui-class-suffix-standard);
+@include generate-margin($xui-s-small, $xui-class-suffix-small);
+@include generate-margin($xui-s-large, $xui-class-suffix-large);
+
+// scss-lint:disable ImportantRule
+.#{$ns}-margin-none {
+	margin: 0 !important;
+}

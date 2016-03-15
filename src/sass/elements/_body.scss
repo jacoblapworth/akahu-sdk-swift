@@ -11,10 +11,10 @@
 // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 html {
 	box-sizing: border-box;
-	font-size: 81.25%; // Explicitly set font-size for rems - 13px for a UA default of 16px
+	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
 
 	@include xui-breakpoint-sm {
-		font-size: 87.5%; // 14px for a UA default of 16px
+		font-size: 107.6923%; // Based on increasing 13px to 14px for a UA default of 16px
 	}
 
 }

@@ -35,16 +35,19 @@ p {
 //
 // Styleguide: Typography.1
 .#{$ns}-heading {
+	@include xui-bold;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-heading;
 }
 
 .#{$ns}-page-title {
+	@include xui-bold;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-page-title;
 }
 
 .#{$ns}-section-title {
+	@include xui-bold;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-section-title;
 }

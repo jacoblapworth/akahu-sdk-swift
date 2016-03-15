@@ -19,7 +19,7 @@
 //   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //     <div>
-//        <button type="button" class="xui-button">
+//        <button type="button" class="xui-button xui-button-standard">
 //           Options
 //           <span class="xui-button--caret"></span>
 //        </button>
@@ -53,7 +53,7 @@
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Invoices</a></li>
 //         <li class="xui-breadcrumb active" aria-selected="true">INV-001</li>
 //       </ol>
-//      <button type="button" class="xui-button">
+//      <button type="button" class="xui-button xui-button-standard">
 //         Options
 //         <span class="xui-button--caret"></span>
 //      </button>
@@ -68,8 +68,8 @@
 	// FIXME: do we need some bold up in here and if yes then Y NO xui-bold;
 	@include xui-font-smooth;
 	align-items: center;
-	background-color: $color-white;
-	border-bottom: $border-standard;
+	background-color: $xui-color-white;
+	border-bottom: $xui-border-standard;
 	display: flex;
 	flex-wrap: no-wrap;
 	min-height: 60px;
@@ -138,7 +138,7 @@
 	list-style-type: none;
 
 	&::before {
-		color: $color-placeholders;
+		color: $xui-color-placeholder;
 		content: "›";
 		display: inline-block;
 		margin: 0 10px;

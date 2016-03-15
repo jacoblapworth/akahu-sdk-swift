@@ -56,7 +56,7 @@
 // Styleguide: Modals
 .#{$ns}-mask {
 	align-items: center;
-	background-color: transparentize($color-primary-text, 0.3);
+	background-color: transparentize($xui-color-primary-text, 0.3);
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -76,9 +76,9 @@
 }
 
 .#{$ns}-modal {
-	background-color: $color-panels;
+	background-color: $xui-color-panel;
 	border-radius: $xui-radius;
-	box-shadow: $shadow-depth-3;
+	box-shadow: $xui-shadow-depth-3;
 	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
 	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal
 	width: 360px;

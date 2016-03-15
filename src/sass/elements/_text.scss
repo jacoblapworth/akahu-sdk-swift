@@ -35,44 +35,44 @@ p {
 //
 // Styleguide: Typography.1
 .#{$ns}-heading {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	font-size: $xui-font-size-heading;
 	font-weight: bold;
 }
 
 .#{$ns}-page-title {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	font-size: $xui-font-size-page-title;
 	font-weight: bold;
 }
 
 .#{$ns}-section-title {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	font-size: $xui-font-size-section-title;
 	font-weight: bold;
 }
 
 /* FIXME: why would be need this? */
 .#{$ns}-text-primary {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 }
 
 .#{$ns}-text-label {
 	@include xui-bold;
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 }
 
 .#{$ns}-text-secondary {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 }
 
 /* FIXME: should this be .#{$ns}-text-placeholder ? */
 .#{$ns}-placeholder {
-	color: $color-placeholders;
+	color: $xui-color-placeholder;
 }
 
 .#{$ns}-heading-mini {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 	font-size: $xui-font-size-heading-small;
 }
 
@@ -82,7 +82,7 @@ p {
 }
 
 .#{$ns}-text-sectionheading {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 	font-size: $xui-font-size-heading-small;
 	font-weight: normal;
 	// FIXME: we probably want to remove this
@@ -161,13 +161,13 @@ p {
 // Parent container
 // The coloured background goes full width of the page
 .#{$ns}-text-status {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 }
 
 .#{$ns}-text-status-positive {
-	color: $color-xero-light-green;
+	color: $xui-color-xero-light-green;
 }
 
 .#{$ns}-text-status-negative {
-	color: $color-xero-red;
+	color: $xui-color-xero-red;
 }

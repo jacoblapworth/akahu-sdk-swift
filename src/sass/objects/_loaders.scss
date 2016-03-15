@@ -22,6 +22,7 @@
 }
 
 .#{$ns}-loader--dot {
+	// FIXME: I think these need a prefix - check Sass scoping
 	$dot-size: 12px;
 	$animation-time: 1.3s;
 	$animation-delay: -0.16s;
@@ -31,7 +32,7 @@
 
 	animation: xui-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
-	background-color: $color-placeholders;
+	background-color: $xui-color-placeholder;
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;

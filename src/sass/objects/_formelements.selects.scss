@@ -36,7 +36,7 @@ select.#{$ns}-select {
 
 	&:-moz-focusring {
 		color: transparent;
-		text-shadow: 0 0 0 $color-black;
+		text-shadow: 0 0 0 $xui-color-black;
 	}
 }
 
@@ -115,7 +115,7 @@ select.#{$ns}-select {
 
 .#{$ns}-select--button {
 	background-color: transparent;
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	display: block;
 	font-weight: normal;
 	padding: 5px 15px;
@@ -124,19 +124,19 @@ select.#{$ns}-select {
 }
 
 .#{$ns}-select--button-is-selected {
-	border: $border-standard;
-	border-color: $color-xero-blue $color-xero-blue transparent;
+	border: $xui-border-standard;
+	border-color: $xui-color-xero-blue $xui-color-xero-blue transparent;
 	border-radius: $xui-radius $xui-radius 0 0;
 
 	&:hover,
 	&:focus,
 	&:active {
-		border-color: $color-xero-blue $color-xero-blue transparent;
+		border-color: $xui-color-xero-blue $xui-color-xero-blue transparent;
 	}
 }
 
 .#{$ns}-select .#{$ns}-dropdownmenu-select {
-	border-color: $color-xero-blue;
+	border-color: $xui-color-xero-blue;
 	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
 	left: 0;

@@ -2,9 +2,9 @@
 //
 // Styleguide: Buttons.4
 
-@mixin xui-button-is-disabled($bg-color: $color-reversed-text, $color: $color-disabled-text) {
+@mixin xui-button-is-disabled($bg-color: $xui-color-reversed-text, $color: $xui-color-disabled-text) {
 	background-color: $bg-color;
-	border-color: $color-disabled;
+	border-color: $xui-color-disabled;
 	box-shadow: none;
 	color: $color;
 	cursor: default;
@@ -19,11 +19,13 @@
 		@include xui-button-is-disabled;
 	}
 
+	// FIXME: this will need to be renamed when $variants is renamed in _buttons.scss
+	// FIXME: seems like we don't need $colour here... but maybe that's just exported by $variants
 	@each $variant, $colour in $variants {
 
 		@if $variant != standard {
 			&.#{$ns}-button-#{$variant} {
-				@include xui-button-is-disabled($color-disabled, $color-reversed-text);
+				@include xui-button-is-disabled($xui-color-disabled, $xui-color-reversed-text);
 			}
 		}
 

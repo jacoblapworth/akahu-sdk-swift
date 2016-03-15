@@ -38,13 +38,13 @@
 // Styleguide: Navigation.2
 
 .#{$ns}-pagenav {
-	background-color: $color-xero-blue;
+	background-color: $xui-color-xero-blue;
 	overflow: hidden;
 
 	.#{$ns}-page-title {
 		// FIXME: do we need some bold up in here and if yes then Y NO xui-bold;
 		@include xui-font-smooth;
-		color: $color-reversed-text;
+		color: $xui-color-reversed-text;
 		margin: 0.75em auto 0.25em;
 	}
 }

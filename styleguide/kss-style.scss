@@ -24,7 +24,7 @@ $kss-sidebar-width: 12.5rem;
 // -----------------------------------------------------------------------------
 
 .kss-node {
-	background: $color-white;
+	background: $xui-color-white;
 	box-sizing: border-box;
 
 	.kss-node-is-showing-sidebar & {
@@ -38,8 +38,8 @@ $kss-sidebar-width: 12.5rem;
 // -----------------------------------------------------------------------------
 
 .kss-sidebar {
-	background: $color-white;
-	border-right: $border-standard;
+	background: $xui-color-white;
+	border-right: $xui-border-standard;
 	height: 100vh;
 	left: calc(-#{$kss-sidebar-width} - 1px);
 	overflow: auto;
@@ -96,11 +96,11 @@ $kss-sidebar-width: 12.5rem;
 }
 
 .kss-hamburger {
-	background: url('hamburger.png') center center / 2rem auto no-repeat $color-grey-2;
+	background: url('hamburger.png') center center / 2rem auto no-repeat $xui-color-grey-2;
 	width: 3.5rem;
 
 	&:hover {
-		background-color: $color-grey-3;
+		background-color: $xui-color-grey-3;
 	}
 
 	@include sidebar-hide-breakpoint {
@@ -117,7 +117,7 @@ $kss-sidebar-width: 12.5rem;
 }
 
 .kss-section {
-	border-top: $border-standard;
+	border-top: $xui-border-standard;
 
 	// dont show top border on title, or on next section
 	&:nth-child(-n+2) {
@@ -135,8 +135,8 @@ $kss-sidebar-width: 12.5rem;
 }
 
 .kss-section--title {
-	background: $color-grey-1;
-	color: $color-white;
+	background: $xui-color-grey-1;
+	color: $xui-color-white;
 
 	h1 {
 		font-weight: normal;
@@ -147,21 +147,21 @@ $kss-sidebar-width: 12.5rem;
 	// This is for the top-level menu in the XUI docs
 	.xui-menuitem {
 		&:hover {
-			background: $color-white;
+			background: $xui-color-white;
 			.xui-menuitem--body {
-				color: $color-grey-1;
-				background: $color-white;
+				color: $xui-color-grey-1;
+				background: $xui-color-white;
 			}
 		}
 	}
 
 	.xui-menuitem--body {
-		color: $color-white;
+		color: $xui-color-white;
 	}
 }
 
 .kss-section--header {
-	background-color: $color-grey-1;
+	background-color: $xui-color-grey-1;
 	display: flex;
 	left: 0;
 	position: fixed;
@@ -200,7 +200,7 @@ $kss-sidebar-width: 12.5rem;
 // ------------------------------------------------------------------------------
 
 .kss-markup {
-	border: $border-standard;
+	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	margin-top: 20px;
 }
@@ -241,7 +241,7 @@ pre {
 
 
 .prettyprint {
-	background: $color-grey-6;
+	background: $xui-color-grey-6;
 }
 
 .linenums {

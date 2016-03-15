@@ -42,7 +42,7 @@
 	box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
 }
 
-@mixin xui-button-hover($border-colour: $color-grey-3) {
+@mixin xui-button-hover($border-colour: $xui-color-grey-3) {
 	&:hover {
 		border-color: $border-colour;
 		text-decoration: inherit;
@@ -50,7 +50,7 @@
 	}
 }
 
-@mixin xui-button-focus($border-colour: $color-xero-blue, $outline: none, $outline-offset: 0) {
+@mixin xui-button-focus($border-colour: $xui-color-xero-blue, $outline: none, $outline-offset: 0) {
 	&:focus {
 		border-color: $border-colour;
 		outline: $outline;
@@ -58,7 +58,7 @@
 	}
 }
 
-@mixin xui-button-active($bg-color: $color-grey-6, $border-color: $color-grey-3) {
+@mixin xui-button-active($bg-color: $xui-color-grey-6, $border-color: $xui-color-grey-3) {
 	&:active {
 		background-color: $bg-color;
 		border-color: $border-color;

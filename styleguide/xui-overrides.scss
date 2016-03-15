@@ -20,6 +20,34 @@
 		border: 1px solid rgba(4, 138, 187, 0.3);
 	}
 
+	// Layout.Padding
+	$kss-color-padding: rgba(136, 123, 215, 0.7);
+	[id*="kssref-layout-padding"] [class*="xui-padding"] {
+		margin-bottom: 10px;
+		background-color: $kss-color-padding;
+		border: 1px solid $kss-color-padding;
+	}
+
+	[id*="kssref-layout-padding"] [class*="xui-padding"] div {
+		background-color: white;
+	}
+
+	// Layout.Margin
+	$kss-color-margin: rgba(249, 204, 157, 0.9);
+	.margin-example {
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 10px;
+		background-color: $kss-color-margin;
+		border: 1px solid $kss-color-margin;
+
+		[class*="xui-margin"] {
+			background: white;
+		}
+	}
+
+// rgb for margin 241, 255, 131
+
 }
 
 .kss-modifier__example {
@@ -52,13 +80,13 @@
 	.xui-menugroup--item {
 
 		a {
-			color: $color-white;
+			color: $xui-color-white;
 		}
 		&:hover {
-			background: $color-white;
+			background: $xui-color-white;
 			a {
-				color: $color-grey-1;
-				background: $color-white;
+				color: $xui-color-grey-1;
+				background: $xui-color-white;
 			}
 		}
 	}

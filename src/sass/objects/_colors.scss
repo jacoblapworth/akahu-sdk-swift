@@ -15,53 +15,53 @@
 // Markup:
 // <div class="xui-u-flex kss-flex-grid">
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color-forms">
-// 		<div class="kss-color--desc">Forms</div>
+// 		<div class="kss-color--desc">Form</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-white</li>
-// 				<li>$color-grey-7</li>
-// 				<li>$color-forms</li>
-// 				<li>$color-panels</li>
+// 				<li>$xui-color-white</li>
+// 				<li>$xui-color-grey-7</li>
+// 				<li>$xui-color-form</li>
+// 				<li>$xui-color-panel</li>
 // 			</ul>
 // 		</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color-backgrounds">
-// 		<div class="kss-color--desc">Backgrounds & Hovers</div>
+// 		<div class="kss-color--desc">Background & Hover</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-grey-6</li>
-// 				<li>$color-backgrounds</li>
-// 				<li>$color-hovers</li>
+// 				<li>$xui-color-grey-6</li>
+// 				<li>$xui-color-background</li>
+// 				<li>$xui-color-hover</li>
 // 			</ul>
 // 		</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color-dividers">
-// 		<div class="kss-color--desc">Dividers</div>
+// 		<div class="kss-color--desc">Divider</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-grey-5</li>
-// 				<li>$color-dividers</li>
-// 				<li>$color-disabled</li>
+// 				<li>$xui-color-grey-5</li>
+// 				<li>$xui-color-divider</li>
+// 				<li>$xui-color-disabled</li>
 // 			</ul>
 // 		</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color-borders">
-// 		<div class="kss-color--desc">Borders</div>
+// 		<div class="kss-color--desc">Border</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-grey-4</li>
-// 				<li>$color-borders</li>
+// 				<li>$xui-color-grey-4</li>
+// 				<li>$xui-color-border</li>
 // 			<ul>
 // 		</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-dark kss-color-placeholders">
-// 		<div class="kss-color--desc">Placeholders & Icons</div>
+// 		<div class="kss-color--desc">Placeholder & Icon</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-grey-3</li>
-// 				<li>$color-placeholders</li>
-// 				<li>$color-icons</li>
-// 				<li>$color-disabled-text</li>
+// 				<li>$xui-color-grey-3</li>
+// 				<li>$xui-color-placeholder</li>
+// 				<li>$xui-color-icon</li>
+// 				<li>$xui-color-disabled-text</li>
 // 			</ul>
 // 		</div>
 // 	</div>
@@ -69,42 +69,42 @@
 // 		<div class="kss-color--desc">Secondary Text</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-grey-2</li>
-// 				<li>$color-secondary-text</li>
+// 				<li>$xui-color-grey-2</li>
+// 				<li>$xui-color-secondary-text</li>
 // 			</ul>
 // 		</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-dark kss-color-primary-text">
-// 		<div class="kss-color--desc">Primary Text & Tooltips</div>
+// 		<div class="kss-color--desc">Primary Text & Tooltip</div>
 // 		<div class="kss-color--vars">
 // 			<ul class="kss-color--list">
-// 				<li>$color-grey-1</li>
-// 				<li>$color-primary-text</li>
-// 				<li>$color-tooltips</li>
+// 				<li>$xui-color-grey-1</li>
+// 				<li>$xui-color-primary-text</li>
+// 				<li>$xui-color-tooltip</li>
 // 			</ul>
 // 		</div>
 // 	</div>
 // </div>
 // <div class="xui-u-flex kss-flex-grid">
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-blue">
-// 		<div class="kss-color--desc">$color-xero-blue</div>
+// 		<div class="kss-color--desc">$xui-color-xero-blue</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-light-blue">
-// 		<div class="kss-color--desc">$color-xero-light-blue</div>
+// 		<div class="kss-color--desc">$xui-color-xero-light-blue</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-light-green">
-// 		<div class="kss-color--desc">$color-xero-light-green</div>
+// 		<div class="kss-color--desc">$xui-color-xero-light-green</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-green">
-// 		<div class="kss-color--desc">$color-xero-green</div>
+// 		<div class="kss-color--desc">$xui-color-xero-green</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-yellow">
-// 		<div class="kss-color--desc">$color-xero-yellow</div>
+// 		<div class="kss-color--desc">$xui-color-xero-yellow</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-orange">
-// 		<div class="kss-color--desc">$color-xero-orange</div>
+// 		<div class="kss-color--desc">$xui-color-xero-orange</div>
 // 	</div>
 // 	<div class="kss-flex-grid--cell kss-color--box kss-color--box-swatch kss-color-red">
-// 		<div class="kss-color--desc">$color-xero-red</div>
+// 		<div class="kss-color--desc">$xui-color-xero-red</div>
 // 	</div>
 // </div>

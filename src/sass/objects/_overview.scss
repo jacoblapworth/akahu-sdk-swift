@@ -51,10 +51,10 @@
 @import "../tools/functions";
 
 .#{$ns}-overview {
-	background-color: $color-panels;
-	border: $border-standard;
+	background-color: $xui-color-panel;
+	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	box-shadow: $shadow-depth-1;
+	box-shadow: $xui-shadow-depth-1;
 	display: flex;
 	width: 100%;
 
@@ -74,5 +74,5 @@
 }
 
 .#{$ns}-overview--section:nth-child(n+2) {
-	border-left: $border-standard;
+	border-left: $xui-border-standard;
 }

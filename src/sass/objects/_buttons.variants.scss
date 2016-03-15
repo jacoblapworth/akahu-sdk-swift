@@ -6,7 +6,7 @@
 //
 // Styleguide: Buttons.2
 
-@mixin xui-button-variant($background-color: $color-forms, $border: $border-standard, $color: $color-xero-blue) {
+@mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue) {
 	@include xui-font-smooth;
 	background-color: $background-color;
 	border: $border;
@@ -28,9 +28,9 @@
 // FIXME: needs xui- prefix (maybe $xui-button-variants)
 $variants: (
 	standard : null,
-	main : $color-xero-blue,
-	create : $color-xero-green,
-	negative : $color-xero-red
+	main : $xui-color-xero-blue,
+	create : $xui-color-xero-green,
+	negative : $xui-color-xero-red
 );
 
 // FIXME: needs U.Sization of colour
@@ -47,9 +47,9 @@ $variants: (
 
 		} @else {
 
-			@include xui-button-variant($colour, 1px solid $colour, $color-reversed-text);
+			@include xui-button-variant($colour, 1px solid $colour, $xui-color-reversed-text);
 
-			@include xui-button-focus($colour, 1px solid $color-white, -3px);
+			@include xui-button-focus($colour, 1px solid $xui-color-white, -3px);
 
 			@include xui-button-hover {
 				@include xui-button-shadow(0.05);

@@ -30,8 +30,8 @@ form {
 }
 
 .#{$ns}-body {
-	background-color: $color-backgrounds;
-	color: $color-primary-text;
+	background-color: $xui-color-background;
+	color: $xui-color-primary-text;
 	font-family: $xui-font-family;
 	font-size: $xui-font-size-text;
 	line-height: $xui-line-height;

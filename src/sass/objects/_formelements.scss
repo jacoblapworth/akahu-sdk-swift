@@ -17,8 +17,8 @@
 
 %#{$ns}-commoninput {
 	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
-	background-color: $color-white;
-	border: $border-standard;
+	background-color: $xui-color-white;
+	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	box-shadow: none;
 	color: inherit;
@@ -36,23 +36,23 @@
 		// TODO: I don't like how we specify this directly instead of an alias.
 		//       Either we decide on some hover colours, or have a scheme where
 		//       hover colours are some percentage darker than a base colour.
-		border-color: $color-grey-3;
+		border-color: $xui-color-grey-3;
 	}
 
 	&:disabled {
-		background-color: $color-backgrounds;
-		border-color: $color-borders;
-		color: $color-secondary-text;
+		background-color: $xui-color-background;
+		border-color: $xui-color-border;
+		color: $xui-color-secondary-text;
 	}
 
 	&:focus {
-		border-color: $color-xero-blue;
-		box-shadow: $shadow-focus;
+		border-color: $xui-color-xero-blue;
+		box-shadow: $xui-shadow-focus;
 		transition: box-shadow $xui-transition-duration-short;
 	}
 
 	&::placeholder {
-		color: $color-placeholders;
+		color: $xui-color-placeholder;
 		opacity: 1;
 	}
 }

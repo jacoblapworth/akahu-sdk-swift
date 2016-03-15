@@ -105,10 +105,10 @@
 $shadow-color: #ccc;
 
 .#{$ns}-dropdownmenu {
-	background-color: $color-panels;
-	border: $border-standard;
+	background-color: $xui-color-panel;
+	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	box-shadow: $shadow-depth-2;
+	box-shadow: $xui-shadow-depth-2;
 	font-size: 13px;
 	list-style-type: none;
 	margin: 0;
@@ -135,13 +135,13 @@ $shadow-color: #ccc;
 }
 
 .#{$ns}-dropdownmenu--footer {
-	border-top: $border-standard;
-	box-shadow: 0 -2px 0 0 rgba($color-black, 0.05); // Should be a negative shadow variable
+	border-top: $xui-border-standard;
+	box-shadow: 0 -2px 0 0 rgba($xui-color-black, 0.05); // Should be a negative shadow variable
 	z-index: 1;
 }
 
 .#{$ns}-dropdownmenu-select {
-	border-color: $color-xero-blue;
+	border-color: $xui-color-xero-blue;
 	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
 	left: 1em;
@@ -151,7 +151,7 @@ $shadow-color: #ccc;
 }
 
 .#{$ns}-menugroup {
-	border-top: $divider-standard;
+	border-top: $xui-divider-standard;
 	margin: 0;
 	padding: $xui-padding-menu-vertical 0;
 
@@ -164,7 +164,7 @@ $shadow-color: #ccc;
 	list-style-type: none;
 
 	&:hover {
-		background-color: $color-hovers;
+		background-color: $xui-color-hover;
 	}
 }
 
@@ -179,9 +179,9 @@ $shadow-color: #ccc;
 }
 
 .#{$ns}-dropdownmenu--groupheading {
-	background-color: $color-grey-6;
-	border-bottom: $divider-standard;
-	color: $color-secondary-text;
+	background-color: $xui-color-grey-6;
+	border-bottom: $xui-divider-standard;
+	color: $xui-color-secondary-text;
 	font-size: $xui-font-size-heading-small;
 	font-weight: normal;
 	line-height: 30px;
@@ -189,7 +189,7 @@ $shadow-color: #ccc;
 	padding: 0 $xui-padding-menu-horizontal;
 
 	&:nth-of-type(n+2) {
-		border-top: 1px solid $color-grey-4;
+		border-top: 1px solid $xui-color-grey-4;
 	}
 
 	& + .#{$ns}-menugroup {
@@ -205,14 +205,14 @@ $shadow-color: #ccc;
 }
 
 .#{$ns}-menuitem-is-selected {
-	background-color: $color-xero-blue;
-	color: $color-reversed-text;
+	background-color: $xui-color-xero-blue;
+	color: $xui-color-reversed-text;
 
 	.#{$ns}-menuitem--body {
 		color: inherit;
 	}
 
 	&:hover {
-		background-color: $color-xero-blue;
+		background-color: $xui-color-xero-blue;
 	}
 }

@@ -64,14 +64,14 @@
 }
 
 .#{$ns}-contentblock--item {
-	border-top: $divider-standard;
+	border-top: $xui-divider-standard;
 	list-style: none;
 
 	// TODO: Should probably be a table-object state class, eg: o-table-row-selected
 	//       Do when creating a proper table component and styling against that
 	//       component's classes instead of standard HTML table.
 	&.selected {
-		background-color: fade-out($color-xero-blue, 0.9);
+		background-color: fade-out($xui-color-xero-blue, 0.9);
 	}
 
 	&:first-of-type {

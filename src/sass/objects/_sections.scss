@@ -1,11 +1,12 @@
 @import "../vars";
 
+// FIXME: this should have a xui- prefix (and probably doesn't need the _)
 $_section-padding: 8px $xui-spacing-standard;
 
 .#{$ns}-sectionheading {
-	background-color: $color-backgrounds;
-	border-bottom: $divider-standard;
-	border-top: $divider-standard;
+	background-color: $xui-color-background;
+	border-bottom: $xui-divider-standard;
+	border-top: $xui-divider-standard;
 	margin: 0;
 	padding: $_section-padding;
 	text-align: left;

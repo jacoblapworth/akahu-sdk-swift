@@ -22,7 +22,7 @@
 	-webkit-appearance: none;
 	background: transparent;
 	border: 0;
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
@@ -31,11 +31,11 @@
 	padding: 0;
 
 	&:hover {
-		color: $color-grey-2;
+		color: $xui-color-grey-2;
 	}
 
 	&:focus {
-		background: $color-shadow-medium;
+		background: $xui-color-shadow-medium;
 		border-radius: 50%;
 		outline: none;
 	}
@@ -47,6 +47,7 @@
 	width: $width;
 }
 
+// FIXME: this needs a prefix
 $base-size: 18px;
 
 // TODO: Medium/unsuffixed size has a broken click area - needs fixing.

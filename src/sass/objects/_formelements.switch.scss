@@ -37,8 +37,8 @@
 }
 
 .#{$ns}-switch--control {
-	background-color: $color-disabled-text;
-	border: 1px solid $color-disabled-text;
+	background-color: $xui-color-disabled-text;
+	border: 1px solid $xui-color-disabled-text;
 	border-radius: 40px;
 	cursor: pointer;
 	display: block;
@@ -49,8 +49,8 @@
 	width: 50px;
 
 	&::before {
-		background-color: $color-white;
-		border: 1px solid $color-white;
+		background-color: $xui-color-white;
+		border: 1px solid $xui-color-white;
 		border-radius: 50%;
 		content: " ";
 		display: block;
@@ -66,12 +66,12 @@
 
 .#{$ns}-switch--checkbox {
 	&:focus + .#{$ns}-switch--control {
-		box-shadow: $shadow-focus;
+		box-shadow: $xui-shadow-focus;
 	}
 
 	&:checked + .#{$ns}-switch--control {
-		background: $color-xero-blue;
-		border: 1px solid $color-xero-blue;
+		background: $xui-color-xero-blue;
+		border: 1px solid $xui-color-xero-blue;
 
 		&::before {
 			left: auto;

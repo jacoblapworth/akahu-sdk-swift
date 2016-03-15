@@ -190,13 +190,13 @@
 }
 
 .#{$ns}-sidebarfilter--body, .#{$ns}-sidebarsummary {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	display: flex;
 	padding: 5px;
 	width: 100%;
 
 	&:hover {
-		background-color: darken($color-backgrounds, 5%);
+		background-color: darken($xui-color-background, 5%);
 	}
 }
 
@@ -219,7 +219,7 @@
 	}
 
 	.#{$ns}-sidebarfilters + .#{$ns}-sidebarfilters {
-		border-top: $border-standard;
+		border-top: $xui-border-standard;
 		padding-top: px-to-rem(10);
 	}
 }

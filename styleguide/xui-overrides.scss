@@ -15,7 +15,7 @@
 		margin: 20px 0;
 	}
 
-	[id*="kssref-grid-layout"] .xui-grid > .xui-grid--cell, div[class*='xui-layout'] {
+	div[class*='xui-layout-column'] {
 		background-color: rgba(4, 138, 187, 0.3);
 		border: 1px solid rgba(4, 138, 187, 0.3);
 	}

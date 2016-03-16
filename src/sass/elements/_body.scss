@@ -11,7 +11,12 @@
 // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 html {
 	box-sizing: border-box;
-	font-size: 16px; // Explicitly set font-size for rems.
+	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
+
+	@include xui-breakpoint-sm {
+		font-size: 107.6923%; // Based on increasing 13px to 14px for a UA default of 16px
+	}
+
 }
 
 // Generally we don't use * selectors, however as this is a CSS WG
@@ -35,10 +40,6 @@ form {
 	font-family: $xui-font-family;
 	font-size: $xui-font-size-text;
 	line-height: $xui-line-height;
-
-	@include xui-breakpoint-sm {
-		font-size: $xui-font-size-text-mobile;
-	}
 }
 
 // Ideally, this would be in the BODY above, but because of the Xero Header that

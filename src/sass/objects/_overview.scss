@@ -3,42 +3,42 @@
 // A dashboard-style block designed to display summarised stats and figures
 //
 //  Markup:
-//	<div class="xui-overview">
-//		<section class="xui-overview--section">
+//	<div class="xui-overview xui-overview-layout">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">All</div>
 //			<div class="xui-heading xui-text-status">1.3m</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Draft</div>
 //			<div class="xui-heading xui-text-status">None</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Paid</div>
 //			<div class="xui-heading xui-text-status xui-text-status-positive">14.5k</div>
 //		</section>
 //	</div>
-//	<div class="xui-overview">
-//		<section class="xui-overview--section">
+//	<div class="xui-overview xui-overview-layout">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">All</div>
 //			<div class="xui-heading xui-text-status">1.3m</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Draft</div>
 //			<div class="xui-heading xui-text-status">None</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Paid</div>
 //			<div class="xui-heading xui-text-status xui-text-status-positive">14.5k</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Overdue</div>
 //			<div class="xui-heading xui-text-status xui-text-status-negative">350.25</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Sales</div>
 //			<div class="xui-heading xui-text-status">10k</div>
 //		</section>
-//		<section class="xui-overview--section">
+//		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">Marketing</div>
 //			<div class="xui-heading xui-text-status xui-text-status-negative">20k</div>
 //		</section>
@@ -49,6 +49,7 @@
 @import "../vars";
 @import "../tools/mixins";
 @import "../tools/functions";
+@import "layout";
 
 .#{$ns}-overview {
 	background-color: $xui-color-panel;
@@ -63,6 +64,11 @@
 		border-radius: 0;
 		border-right: 0;
 	}
+}
+
+.#{$ns}-overview-layout {
+	@include xui-margin-vertical($xui-s-large);
+	@include xui-margin-horizontal(auto);
 }
 
 .#{$ns}-overview--section {

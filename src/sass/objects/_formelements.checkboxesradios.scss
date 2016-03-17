@@ -24,7 +24,7 @@
 //  Pick me!
 // </label>
 //
-// Styleguide: Form Elements.300
+// Styleguide: Form Elements.300.1
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
@@ -42,3 +42,48 @@
 	}
 }
 
+// Checkbox and Radio Groups
+//
+// A collection of checkbox/radio items within a single container, grouped as
+// such so that on mobile, their appearance resembles that of a
+// single-column table to be fat-finger friendly.
+//
+// Markup:
+// <div class="xui-checkboxgroup" role="group" aria-label="Checkbox form">
+//   <label class="xui-checkbox">
+//     <input type="checkbox" name="checkbox1"/>
+//     Tick me!
+//   </label>
+//   <label class="xui-checkbox">
+//     <input type="checkbox" name="checkbox2"/>
+//     No, tick me!
+//   </label>
+//   <label class="xui-checkbox">
+//     <input type="checkbox" name="checkbox3"/>
+//     Don't listen to those 2 - tick me instead!
+//   </label>
+// </div>
+// <div class="xui-radiogroup" role="radiogroup" aria-label="Radio form">
+//   <label class="xui-radio">
+//     <input type="radio" name="radio1"/>
+//     Pick me!
+//   </label>
+//   <label class="xui-radio">
+//     <input type="radio" name="radio1"/>
+//     No, pick me!
+//   </label>
+//   <label class="xui-radio">
+//     <input type="radio" name="radio1"/>
+//     Are you insane?  Pick me!
+//   </label>
+// </div>
+//
+// Styleguide: Form Elements.300.2
+
+.#{$ns}-checkboxgroup,
+.#{$ns}-radiogroup {
+	@include xui-breakpoint-sm {
+		border: $xui-border-standard;
+		border-radius: $xui-radius;
+	}
+}

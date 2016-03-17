@@ -5,15 +5,15 @@
 //
 // New styles for app navigation, meant to replace Shared Header *eventually*
 //
-// This component uses `xui-pagecontainer-<size>` classes to center align it's navigation, and title sub-components to the widths of your content.
+// This component uses the `xui-page-width-standard` class to center align it's navigation, and title sub-components to the widths of your content.
 //
 // Markup:
 // <header class="xui-pagenav">
-//   <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
-//     <div class="xui-pagenav--main">
+//   <div class="xui-page-width-standard">
+//     <div>
 //       <h1 id="nav-title" class="xui-page-title">Page Navigation Title</h1>
 //     </div>
-//     <nav class="xui-pagenav--nav" role="navigation" aria-labelledby="nav-title">
+//     <nav role="navigation" aria-labelledby="nav-title">
 //       <ul class="xui-tabgroup">
 //         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
 //           <a class="xui-tab--body" href="#nav1">Nav 1</a>
@@ -45,6 +45,6 @@
 		// FIXME: do we need some bold up in here and if yes then Y NO xui-bold;
 		@include xui-font-smooth;
 		color: $xui-color-reversed-text;
-		margin: 0.75em auto 0.25em;
+		margin: 0 auto 0.25em;
 	}
 }

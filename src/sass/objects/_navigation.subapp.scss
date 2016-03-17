@@ -2,7 +2,7 @@
 //
 // New styles for app sub-navigation, meant to show more detail around the current page, and give optional patterns for displaying action buttons, or breadcrumbs for navigation.
 //
-// This component uses `xui-pagecontainer-<size>` classes to center align it's navigation, and title sub-components to the widths of your content.
+// This component uses the `xui-page-width-standard` class to center align it's navigation, and title sub-components to the widths of your content.
 //
 // Styleguide: Navigation.3
 
@@ -10,13 +10,13 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//   <div class="xui-pageheading--content xui-page-width-standard">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+//   <div class="xui-pageheading--content xui-page-width-standard">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //     <div>
 //        <button type="button" class="xui-button xui-button-standard">
@@ -32,7 +32,7 @@
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small" role="navigation" aria-label="Sales breadcrumb">
+//   <div class="xui-pageheading--content xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb active" aria-selected="true">Invoices</li>
@@ -47,7 +47,7 @@
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small" role="navigation" aria-label="Sales breadcrumb 2">
+//   <div class="xui-pageheading--content xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Invoices</a></li>
@@ -80,8 +80,8 @@
 //
 //
 // Markup:
-// <header class="xui-pageheading xui-pageheading-has-tabs xui-padding-top-lg">
-//   <div class="xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+// <header class="xui-pageheading xui-pageheading-has-tabs">
+//   <div class="xui-page-width-standard">
 //     <div class="xui-pageheading--content">
 //       <h1 id="page-title" class="xui-pageheading--title">Sales</h1>
 //     </div>
@@ -107,21 +107,21 @@
 
 .#{$ns}-pageheading--title {
 	@include xui-bold;
-	align-items: center;
-	display: flex;
+	flex: 1 1 auto;
 	font-size: $xui-font-size-page-title;
 	margin: 0 10px 0 0;
 }
 
 // Content container
 .#{$ns}-pageheading--content {
+	align-items: center;
 	display: flex;
 	justify-content: space-between;
+	margin-top: 0;
 }
 
 .#{$ns}-pageheading--breadcrumbs {
-	align-items: center;
-	display: flex;
+	flex: 1 1 auto;
 	margin: 0;
 	padding: 0;
 }

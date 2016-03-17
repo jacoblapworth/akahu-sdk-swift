@@ -1,0 +1,77 @@
+// Form Layout
+//
+// The following examples illustrate basic stacked and inline form layouts. Future versions of XUI will include grid-based layouts and grouped inputs.
+//
+// Styleguide: Form Layout.0
+
+// Forms and Fields
+//
+// * Use the `.xui-form` class with any `<form>` element to create the default stacked form.
+// * Use the `.xui-field` class as a container for related form elements (e.g. `<label>` and `<input>`).
+//
+// Markup:
+// <form class="xui-form">
+//   <p class="xui-text-panelheading">Form Heading</p>
+//   <div class="xui-field">
+//     <label class="xui-text-label" for="field1">Field One</label>
+//     <input class="xui-input" type="text" id="field1" placeholder="Placeholder for field one" />
+//   </div>
+//   <div class="xui-field">
+//     <label class="xui-text-label" for="field2">Field Two</label>
+//     <input class="xui-input" type="text" id="field2" placeholder="Placeholder for field two" />
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+//
+// Styleguide: Form Layout.1
+
+.#{$ns}-form {
+	display: block;
+
+	.#{$ns}-field {
+		margin-bottom: $xui-s-xlarge;
+	}
+}
+
+// Inline Forms
+//
+// * Use the `.xui-form-inline` class alongside the `.xui-form` class to create an inline form.
+// * Use the `.xui-u-hidden` utility class if you wish to hide labels.
+// * Inline forms will stack at the smallest breakpoint by default.
+//
+// Markup:
+// <form class="xui-form xui-form-inline">
+//   <p class="xui-text-panelheading">Form Heading</p>
+//   <div class="xui-field">
+//     <label class="xui-text-label" for="field3">Field One</label>
+//     <input class="xui-input" type="text" id="field3" placeholder="Placeholder for field one" />
+//   </div>
+//   <div class="xui-field">
+//     <label class="xui-text-label" for="field4">Field Two</label>
+//     <input class="xui-input" type="text" id="field4" placeholder="Placeholder for field two" />
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+// <br />
+// <form class="xui-form xui-form-inline">
+//   <p class="xui-text-panelheading">Form Heading</p>
+//   <div class="xui-field">
+//     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
+//     <input class="xui-input" type="text" id="field5" placeholder="Field One" />
+//   </div>
+//   <div class="xui-field">
+//     <label class="xui-text-label xui-u-hidden" for="field6">Field Two</label>
+//     <input class="xui-input" type="text" id="field6" placeholder="Field Two" />
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+//
+// Styleguide: Form Layout.2
+
+.#{$ns}-form-inline {
+	.#{$ns}-field {
+		@media screen and (min-width: $xui-breakpoint-sm) {
+			display: inline-block;
+		}
+	}
+}

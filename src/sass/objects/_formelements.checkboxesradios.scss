@@ -82,7 +82,7 @@
 
 .#{$ns}-checkboxgroup,
 .#{$ns}-radiogroup {
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		border: $xui-border-standard;
 		border-radius: $xui-radius;
 	}

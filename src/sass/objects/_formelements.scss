@@ -28,7 +28,7 @@
 	padding: 9px 0.5em;
 	width: 100%;
 
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		padding: 12px 0.5em;
 	}
 

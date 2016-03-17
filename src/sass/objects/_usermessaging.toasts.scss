@@ -124,7 +124,7 @@ $xui-color-toast-link: #70bae4;
 	list-style: disc;
 }
 
-@include xui-breakpoint-sm {
+@include xui-breakpoint-narrow {
 	.#{$ns}-toast {
 		left: 50%;
 		margin-left: 0;

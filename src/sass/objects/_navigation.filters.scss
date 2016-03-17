@@ -175,7 +175,7 @@
 .#{$ns}-sidebarsummary--control {
 	@include hide-control();
 
-	@include xui-breakpoint-sm() {
+	@include xui-breakpoint-narrow() {
 
 		& + .#{$ns}-sidebarfilters, & + .#{$ns}-sidebarfilters-multiple {
 			@include collapse-list();
@@ -203,7 +203,7 @@
 .#{$ns}-sidebarsummary {
 	@include hide-control();
 
-	@include xui-breakpoint-sm() {
+	@include xui-breakpoint-narrow() {
 		display: flex;
 	}
 }

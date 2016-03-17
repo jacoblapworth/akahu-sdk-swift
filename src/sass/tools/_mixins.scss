@@ -57,24 +57,24 @@
 // difficult to implement as the majority of design choices are desktop-first,
 // with mobile exceptions.
 
-$xui-breakpoint-sm: 520px;
-$xui-breakpoint-md: 940px;
-$xui-breakpoint-lg: 1160px;
+$xui-breakpoint-narrow: 520px;
+$xui-breakpoint-medium: 940px;
+$xui-breakpoint-wide: 1160px;
 
-@mixin xui-breakpoint-sm {
-	@media screen and (max-width: $xui-breakpoint-sm) {
+@mixin xui-breakpoint-narrow {
+	@media screen and (max-width: $xui-breakpoint-narrow) {
 		@content;
 	}
 }
 
-@mixin xui-breakpoint-md {
-	@media screen and (min-width: $xui-breakpoint-sm) and (max-width: $xui-breakpoint-md) {
+@mixin xui-breakpoint-medium {
+	@media screen and (min-width: $xui-breakpoint-narrow) and (max-width: $xui-breakpoint-medium) {
 		@content;
 	}
 }
 
-@mixin xui-breakpoint-lg {
-	@media screen and (min-width: $xui-breakpoint-md){
+@mixin xui-breakpoint-wide {
+	@media screen and (min-width: $xui-breakpoint-medium){
 		@content;
 	}
 }

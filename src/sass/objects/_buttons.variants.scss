@@ -19,7 +19,7 @@
 	text-align: center;
 	text-decoration: none;
 
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		display: block;
 		width: 100%;
 	}

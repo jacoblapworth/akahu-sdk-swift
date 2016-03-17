@@ -59,7 +59,7 @@
 	display: flex;
 	width: 100%;
 
-	@include xui-breakpoint-md {
+	@include xui-breakpoint-medium {
 		border-left: 0;
 		border-radius: 0;
 		border-right: 0;

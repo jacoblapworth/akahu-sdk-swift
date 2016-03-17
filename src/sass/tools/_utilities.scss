@@ -43,7 +43,7 @@
 
 // scss-lint:disable ImportantRule
 .#{$ns}-u-hidden-mobile {
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		display: none !important;
 	}
 }

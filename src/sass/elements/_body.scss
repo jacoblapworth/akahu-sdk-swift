@@ -13,7 +13,7 @@ html {
 	box-sizing: border-box;
 	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
 
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		font-size: 107.6923%; // Based on increasing 13px to 14px for a UA default of 16px
 	}
 

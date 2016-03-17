@@ -267,21 +267,21 @@ $xui-layout-column-start: 1;
 		width: $width;
 	}
 
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		.#{$ns}-layout-column-#{$suffix}-narrow {
 			float: left;
 			width: $width;
 		}
 	}
 
-	@include xui-breakpoint-md {
+	@include xui-breakpoint-medium {
 		.#{$ns}-layout-column-#{$suffix}-medium {
 			float: left;
 			width: $width;
 		}
 	}
 
-	@include xui-breakpoint-lg {
+	@include xui-breakpoint-wide {
 		.#{$ns}-layout-column-#{$suffix}-wide {
 			float: left;
 			width: $width;
@@ -420,12 +420,12 @@ $xui-layout-column-start: 1;
 //   </tr>
 //   <tr class="xui-contentblock--item">
 //    <td class="xui-text-cell xui-padding-sm">Medium viewport widths (&gt; 940px &lt; 1160px)</td>
-//    <td class="xui-text-cell">`-md`</td>
+//    <td class="xui-text-cell">`-medium`</td>
 //    <td class="xui-text-cell">`.xui-layout-1-of-3-medium`</td>
 //   </tr>
 //   <tr class="xui-contentblock--item">
 //    <td class="xui-text-cell xui-padding-sm">Wide viewport widths (&gt; 1160px)</td>
-//    <td class="xui-text-cell">`-lg`</td>
+//    <td class="xui-text-cell">`-wide`</td>
 //    <td class="xui-text-cell">`.xui-layout-1-of-3-wide`</td>
 //   </tr>
 //  </tbody>
@@ -539,7 +539,7 @@ $xui-layout-column-start: 1;
 	.#{$ns}-page-layout-sidebar-right--main {
 		width: 100%;
 
-		@include xui-breakpoint-lg {
+		@include xui-breakpoint-wide {
 			float: left;
 			width: calc((100% / 9) * 6);
 		}
@@ -549,7 +549,7 @@ $xui-layout-column-start: 1;
 		@include xui-margin-top($xui-grid-gutter);
 		width: 100%;
 
-		@include xui-breakpoint-lg {
+		@include xui-breakpoint-wide {
 			@include xui-margin-left($xui-grid-gutter);
 			@include xui-margin-top(0);
 			float: left;
@@ -569,7 +569,7 @@ $xui-layout-column-start: 1;
 		@include xui-margin-top($xui-grid-gutter);
 		width: 100%;
 
-		@include xui-breakpoint-lg {
+		@include xui-breakpoint-wide {
 			@include xui-margin-right($xui-grid-gutter);
 			@include xui-margin-top(0);
 			float: left;
@@ -581,7 +581,7 @@ $xui-layout-column-start: 1;
 		@include xui-margin-top($xui-grid-gutter);
 		width: 100%;
 
-		@include xui-breakpoint-lg {
+		@include xui-breakpoint-wide {
 			@include xui-margin-top(0);
 			float: left;
 			width: calc((100% / 9) * 6);
@@ -599,7 +599,7 @@ $xui-layout-column-start: 1;
 	.#{$ns}-page-layout-split-left {
 		width: 100%;
 
-		@include xui-breakpoint-lg {
+		@include xui-breakpoint-wide {
 			@include xui-margin-right($xui-grid-gutter / 2);
 			float: left;
 			width: calc((100% / 2) - #{$xui-grid-gutter / 2});
@@ -610,7 +610,7 @@ $xui-layout-column-start: 1;
 		@include xui-margin-top($xui-grid-gutter);
 		width: 100%;
 
-		@include xui-breakpoint-lg {
+		@include xui-breakpoint-wide {
 			@include xui-margin-left($xui-grid-gutter / 2);
 			@include xui-margin-top(0);
 			float: left;

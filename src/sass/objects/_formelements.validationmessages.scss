@@ -56,13 +56,13 @@
 	transition: opacity $xui-transition-duration-medium $xui-easing-standard;
 	width: 275px;
 
-	@include xui-breakpoint-md {
+	@include xui-breakpoint-medium {
 		bottom: 100%;
 		left: 0;
 		top: auto;
 	}
 
-	@include xui-breakpoint-sm {
+	@include xui-breakpoint-narrow {
 		width: 100%;
 	}
 }
@@ -82,7 +82,7 @@
 	position: relative;
 	text-indent: 0;
 
-	@include xui-breakpoint-md {
+	@include xui-breakpoint-medium {
 		@include xui-margin-auto-horizontal;
 		bottom: 0.5em;
 		left: 0;
@@ -98,7 +98,7 @@
 		position: absolute;
 		top: 12px;
 
-		@include xui-breakpoint-md {
+		@include xui-breakpoint-medium {
 			border-bottom: 0;
 			border-left: 5px solid transparent;
 			border-right: 5px solid transparent;

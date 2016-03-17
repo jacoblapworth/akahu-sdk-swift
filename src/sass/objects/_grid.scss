@@ -19,19 +19,8 @@ $xui-layout-column-start: 1;
 // Layout content
 //
 // XUI has two types of grid systems: one where the developer does not specify the width of any of
-// of the columns, and one where the developer specifies at least one of the column widths. The fixed
-// width columns are 12ths based units.
-//
-// When the developer does not specify any column widths, all columns will become fluid and identical
-// in width. They are all based off all columns having the `flex` value of 1.
-// When the developer does specify widths, they do not have to specify widths on all columns. If,
-// for example, they only specify widths on the first column, then all other columns will fill the
-// remaining space equally.
-//
-//
-// The fixed width columns also come with two width-dependent breakpoint styles. These are specified
-// via classes like `xui-layout-phone-*` for smaller screens and `xui-layout-tablet-*` for tablet
-// sized screens.
+// of the columns and the columns will evenly fill the space available. And one where the developer specifies at
+// least one of the column widths. The fixed width columns are 12ths based units.
 //
 // ### Accessibility
 // If the use of these grids in your application is to create an interactive control which contains columns of tabular
@@ -279,21 +268,21 @@ $xui-layout-column-start: 1;
 	}
 
 	@include xui-breakpoint-sm {
-		.#{$ns}-layout-column-#{$suffix}-sm {
+		.#{$ns}-layout-column-#{$suffix}-narrow {
 			float: left;
 			width: $width;
 		}
 	}
 
 	@include xui-breakpoint-md {
-		.#{$ns}-layout-column-#{$suffix}-md {
+		.#{$ns}-layout-column-#{$suffix}-medium {
 			float: left;
 			width: $width;
 		}
 	}
 
 	@include xui-breakpoint-lg {
-		.#{$ns}-layout-column-#{$suffix}-lg {
+		.#{$ns}-layout-column-#{$suffix}-wide {
 			float: left;
 			width: $width;
 		}
@@ -430,24 +419,24 @@ $xui-layout-column-start: 1;
 //    <td class="xui-text-cell">`.xui-layout-1-of-3`</td>
 //   </tr>
 //   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">Medium Sizes (&gt; 940px &lt; 1160px)</td>
+//    <td class="xui-text-cell xui-padding-sm">Medium viewport widths (&gt; 940px &lt; 1160px)</td>
 //    <td class="xui-text-cell">`-md`</td>
-//    <td class="xui-text-cell">`.xui-layout-1-of-3-md`</td>
+//    <td class="xui-text-cell">`.xui-layout-1-of-3-medium`</td>
 //   </tr>
 //   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">Large Sizes (&gt; 1160px)</td>
+//    <td class="xui-text-cell xui-padding-sm">Wide viewport widths (&gt; 1160px)</td>
 //    <td class="xui-text-cell">`-lg`</td>
-//    <td class="xui-text-cell">`.xui-layout-1-of-3-lg`</td>
+//    <td class="xui-text-cell">`.xui-layout-1-of-3-wide`</td>
 //   </tr>
 //  </tbody>
 // </table>
 //
 // Markup:
 // <div class="xui-layout">
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg">
+//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
 //     <p>1 of 1 or <br />1 of 3 lg</p>
 //   </div>
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg">
+//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
 //     <p>1 of 1 or <br />1 of 3 lg</p>
 //   </div>
 //   <div class="xui-layout-column-fluid">
@@ -473,21 +462,21 @@ $xui-layout-column-start: 1;
 //
 // Markup:
 // <div class="xui-layout">
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg xui-layout xui-padding-sm">
+//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide xui-layout xui-padding-sm">
 //     <div class="xui-layout-column-fluid">I'm fluid!</div>
 //   </div>
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg xui-layout">
+//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide xui-layout">
 //     <div class="xui-layout-column-fluid">I'm fluid!</div>
 //     <div class="xui-layout-column-fluid">I'm fluid!</div>
 //   </div>
 //   <div class="xui-layout-column-fluid xui-padding">
-//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg">
+//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
 //       I'm fixed
 //     </div>
-//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg xui-layout">
+//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
 //       I'm fixed
 //     </div>
-//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-lg xui-layout">
+//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
 //       I'm fixed
 //     </div>
 //   </div>
@@ -525,7 +514,7 @@ $xui-layout-column-start: 1;
 //  <div class="xui-panel xui-page-layout-split-right">Hello two</div>
 // </div>
 //
-// Styleguide: Grid Layout.10
+// Styleguide: Grid Layout.7
 
 @mixin xui-page-width-and-spacing-standard {
 	max-width: $xui-page-width-small;

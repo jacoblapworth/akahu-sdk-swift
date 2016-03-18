@@ -49,7 +49,7 @@
 @import "../vars";
 @import "../tools/mixins";
 @import "../tools/functions";
-@import "layout";
+@import "marginpadding";
 
 .#{$ns}-overview {
 	background-color: $xui-color-panel;

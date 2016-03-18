@@ -16,7 +16,7 @@ $xui-layout-column-start: 1;
 	}
 }
 
-// Layout content
+// Layout and Structure
 //
 // XUI has two types of grid systems: one where the developer does not specify the width of any of
 // of the columns and the columns will evenly fill the space available. And one where the developer specifies at
@@ -36,6 +36,38 @@ $xui-layout-column-start: 1;
 // using the `grid` role and its associated roles and attributes.
 //
 // Styleguide: Grid Layout
+
+// Typical Page Layouts
+//
+// These set of component classes are designed to let you achieve the typical set of page level layouts we have in
+// 95% of typical Xero designs.
+//
+// These are very opinionated, and provide for you Margins, and Responsive handlers. The reason these exist are because
+// it's impossible to achieve this type of responsive margin / change layout given the current set of utilities the
+// XUI library provides.
+//
+// Markup:
+// <div class="xui-page-width-standard">
+//  <div class="xui-panel">Hello</div>
+// </div>
+// <div class="xui-page-width-standard xui-page-layout-sidebar-right">
+//  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
+//  <div class="xui-panel xui-page-layout-sidebar-right--sidebar">Hello two</div>
+// </div>
+// <div class="xui-page-width-standard xui-page-layout-sidebar-right">
+//  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
+//  <p class="xui-page-layout-sidebar-right--sidebar">I'm a bit of text that can exist floating next to my main content, it's pretty easy to replicate this type of display</p>
+// </div>
+// <div class="xui-page-width-standard xui-page-layout-sidebar-left">
+//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar">Hello</div>
+//  <div class="xui-panel xui-page-layout-sidebar-left--main">Hello two</div>
+// </div>
+// <div class="xui-page-width-standard xui-page-layout-split">
+//  <div class="xui-panel xui-page-layout-split-left">Left Box</div>
+//  <div class="xui-panel xui-page-layout-split-right">Hello two</div>
+// </div>
+//
+// Styleguide: Grid Layout.1
 
 // Fixed Percentage Width Columns
 //
@@ -246,7 +278,7 @@ $xui-layout-column-start: 1;
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.1
+// Styleguide: Grid Layout.2
 
 @mixin xui-layout-fixed {
 	@include xui-clearfix();
@@ -335,7 +367,7 @@ $xui-layout-column-start: 1;
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.2
+// Styleguide: Grid Layout.3
 
 @mixin xui-layout-fluid {
 	align-content: flex-start;
@@ -387,7 +419,7 @@ $xui-layout-column-start: 1;
 //	</div>
 // </div>
 //
-// Styleguide: Grid Layout.3
+// Styleguide: Grid Layout.4
 
 .#{$ns}-layout {
 	@include xui-layout-fixed;
@@ -483,38 +515,6 @@ $xui-layout-column-start: 1;
 // </div>
 //
 // Styleguide: Grid Layout.6
-
-// Typical Page Layouts
-//
-// These set of component classes are designed to let you achieve the typical set of page level layouts we have in
-// 95% of typical Xero designs.
-//
-// These are very opinionated, and provide for you Margins, and Responsive handlers. The reason these exist are because
-// it's impossible to achieve this type of responsive margin / change layout given the current set of utilities the
-// XUI library provides.
-//
-// Markup:
-// <div class="xui-page-width-standard">
-//  <div class="xui-panel">Hello</div>
-// </div>
-// <div class="xui-page-width-standard xui-page-layout-sidebar-right">
-//  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
-//  <div class="xui-panel xui-page-layout-sidebar-right--sidebar">Hello two</div>
-// </div>
-// <div class="xui-page-width-standard xui-page-layout-sidebar-right">
-//  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
-//  <p class="xui-page-layout-sidebar-right--sidebar">I'm a bit of text that can exist floating next to my main content, it's pretty easy to replicate this type of display</p>
-// </div>
-// <div class="xui-page-width-standard xui-page-layout-sidebar-left">
-//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar">Hello</div>
-//  <div class="xui-panel xui-page-layout-sidebar-left--main">Hello two</div>
-// </div>
-// <div class="xui-page-width-standard xui-page-layout-split">
-//  <div class="xui-panel xui-page-layout-split-left">Left Box</div>
-//  <div class="xui-panel xui-page-layout-split-right">Hello two</div>
-// </div>
-//
-// Styleguide: Grid Layout.7
 
 @mixin xui-page-width-and-spacing-standard {
 	max-width: $xui-page-width-small;

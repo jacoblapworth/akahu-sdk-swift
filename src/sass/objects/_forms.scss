@@ -5,7 +5,7 @@
 @import "../tools/functions";
 @import "../tools/mixins";
 
-// Form Elements
+// Forms
 //
 // ### Accessibility
 // All form elements should have labels to ensure the purpose of each element is clear.
@@ -13,7 +13,7 @@
 //
 // If there are instructions or context information associated with the form element, `aria-describedby` should be used to ensure it is not missed by the assistive technology.
 //
-// Styleguide: Form Elements
+// Styleguide: Forms
 
 %#{$ns}-commoninput {
 	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
@@ -57,9 +57,10 @@
 	}
 }
 
-@import "formelements.checkboxesradios";
-@import "formelements.inputs";
-@import "formelements.selects";
-@import "formelements.grouped";
-@import "formelements.switch";
-@import "formelements.validationmessages";
+@import "forms.layout";
+@import "forms.labels";
+@import "forms.inputs";
+@import "forms.checkboxesradios";
+@import "forms.switch";
+@import "forms.selects";
+@import "forms.validationmessages";

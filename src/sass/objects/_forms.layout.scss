@@ -1,9 +1,3 @@
-// Form Layout
-//
-// The following examples illustrate basic stacked and inline form layouts. Future versions of XUI will include grid-based layouts and grouped inputs.
-//
-// Styleguide: Form Layout.0
-
 // Forms and Fields
 //
 // * Use the `.xui-form` class with any `<form>` element to create the default stacked form.
@@ -23,7 +17,7 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 //
-// Styleguide: Form Layout.1
+// Styleguide: Forms.1
 
 .#{$ns}-form {
 	display: block;
@@ -66,7 +60,7 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 //
-// Styleguide: Form Layout.2
+// Styleguide: Forms.2
 
 .#{$ns}-form-inline {
 	.#{$ns}-field {

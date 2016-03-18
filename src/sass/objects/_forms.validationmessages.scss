@@ -2,10 +2,6 @@
 @import "../tools/mixins";
 @import "../tools/functions";
 
-// Validation
-//
-// Styleguide: Form Elements.600
-
 // Validation Styles
 //
 // We support the use of a manual class, or HTML5 invalid pseudo class
@@ -14,7 +10,7 @@
 // <input type="text" class="xui-input xui-input-is-invalid" aria-label="Text input"/>
 // <textarea class="xui-textarea xui-input-is-invalid" aria-label="Text area field"></textarea>
 //
-// Styleguide: Form Elements.600.1
+// Styleguide: Forms.10
 
 .#{$ns}-input-is-invalid {
 	border-color: $xui-color-xero-red;
@@ -45,7 +41,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Form Elements.600.2
+// Styleguide: Forms.11
 .#{$ns}-inputmessage {
 	display: flex;
 	left: 100%;

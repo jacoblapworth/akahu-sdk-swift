@@ -122,7 +122,7 @@
 
 // Margin primitive css classes
 // For generating a collection of XUI layout classes with a given $margin and $suffix
-@mixin generate-margin($margin, $suffix) {
+@mixin xui-generate-margin($margin, $suffix) {
 	.#{$ns}-margin-top#{$suffix} { @include xui-margin-top($margin); }
 	.#{$ns}-margin-right#{$suffix} { @include xui-margin-right($margin); }
 	.#{$ns}-margin-bottom#{$suffix} { @include xui-margin-bottom($margin); }
@@ -133,9 +133,9 @@
 }
 
 // Collections of XUI layout classes in standard, small and large
-@include generate-margin($xui-s-standard, $xui-class-suffix-standard);
-@include generate-margin($xui-s-small, $xui-class-suffix-small);
-@include generate-margin($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-margin($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
 
 // scss-lint:disable ImportantRule
 .#{$ns}-margin-none {

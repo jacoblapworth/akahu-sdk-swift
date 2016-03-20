@@ -137,17 +137,17 @@
 //
 // Styleguide: Navigation.4.3
 
-@mixin hide-control() {
+@mixin xui-hide-control() {
 	display: none;
 }
 
-@mixin collapse-list() {
+@mixin xui-collapse-list() {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height $xui-transition-duration-short linear;
 }
 
-@mixin expand-list() {
+@mixin xui-expand-list() {
 	max-height: 100vh; // Set huge, because you most likely will never get this big, but gotta be safe here
 }
 
@@ -161,28 +161,28 @@
 }
 
 .#{$ns}-sidebarfilter--control {
-	@include hide-control();
+	@include xui-hide-control();
 
 	& + .#{$ns}-sidebarfilters {
-		@include collapse-list();
+		@include xui-collapse-list();
 	}
 
 	&:checked + .#{$ns}-sidebarfilters {
-		@include expand-list();
+		@include xui-expand-list();
 	}
 }
 
 .#{$ns}-sidebarsummary--control {
-	@include hide-control();
+	@include xui-hide-control();
 
 	@include xui-breakpoint-narrow() {
 
 		& + .#{$ns}-sidebarfilters, & + .#{$ns}-sidebarfilters-multiple {
-			@include collapse-list();
+			@include xui-collapse-list();
 		}
 
 		&:checked + .#{$ns}-sidebarfilters, &:checked + .#{$ns}-sidebarfilters-multiple {
-			@include expand-list();
+			@include xui-expand-list();
 		}
 
 	}
@@ -201,7 +201,7 @@
 }
 
 .#{$ns}-sidebarsummary {
-	@include hide-control();
+	@include xui-hide-control();
 
 	@include xui-breakpoint-narrow() {
 		display: flex;

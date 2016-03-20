@@ -90,8 +90,7 @@
 // Makes for an easy place to store and create new variations of tabs with different colours.
 //
 // (text-color, border-color, hover-text-color, hover-border-color)
-// FIXME: this should be prefixed with xui-
-$color-variations: (
+$xui-color-variations: (
 	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
 	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
 	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
@@ -159,7 +158,7 @@ $color-variations: (
 	}
 }
 
-@each $variation, $colors in $color-variations {
+@each $variation, $colors in $xui-color-variations {
 	.#{$variation} {
 		@include xui-tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
 	}

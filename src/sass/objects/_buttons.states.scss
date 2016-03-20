@@ -19,9 +19,8 @@
 		@include xui-button-is-disabled;
 	}
 
-	// FIXME: this will need to be renamed when $variants is renamed in _buttons.scss
-	// FIXME: seems like we don't need $colour here... but maybe that's just exported by $variants
-	@each $variant, $colour in $variants {
+	// FIXME: seems like we don't need $colour here... but maybe that's just exported by $xui-button-variants
+	@each $variant, $colour in $xui-button-variants {
 
 		@if $variant != standard {
 			&.#{$ns}-button-#{$variant} {

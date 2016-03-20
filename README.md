@@ -2,6 +2,7 @@ xui-avatar
 ===========
 
 [![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_UxeXuiAvatar)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_UxeXuiAvatar)
+![](https://img.shields.io/badge/XUI-%5E9.7.0%20%7C%7C%20%5E10.0.0-blue.svg)
 
 A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html).
 

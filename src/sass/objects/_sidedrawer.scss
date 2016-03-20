@@ -29,8 +29,7 @@
 //	</div>
 //
 // Styleguide: Sidedrawer
-// FIXME: needs xui- prefix
-$drawer-width: 350px;
+$xui-drawer-width: 350px;
 
 .#{$ns}-sidedrawer {
 	background: $xui-color-background;
@@ -44,11 +43,11 @@ $drawer-width: 350px;
 	right: 0;
 	top: 0;
 	transition: all $xui-transition-duration-short $xui-easing-standard;
-	width: $drawer-width;
+	width: $xui-drawer-width;
 }
 
 .#{$ns}-sidedrawer-is-closed {
-	right: -$drawer-width;
+	right: -$xui-drawer-width;
 }
 
 .#{$ns}-sidedrawer--header {

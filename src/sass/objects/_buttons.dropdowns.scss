@@ -5,13 +5,12 @@
 //
 // Styleguide: Buttons.6
 
-// FIXME: this needs a prefix
-$button-spacing-left: 5px;
+$xui-button-spacing-left: 5px;
 
 @mixin xui-button--caret($color: $xui-color-xero-blue) {
 	.#{$ns}-button--caret {
 		@include xui-caret($color);
-		margin-left: $button-spacing-left;
+		margin-left: $xui-button-spacing-left;
 		min-height: 6px;
 	}
 }
@@ -19,7 +18,7 @@ $button-spacing-left: 5px;
 @mixin xui-button-split {
 	.#{$ns}-button-split {
 		min-width: 0;
-		padding-left: $button-spacing-left;
+		padding-left: $xui-button-spacing-left;
 	}
 }
 

@@ -9,7 +9,7 @@
 	padding: $padding;
 }
 
-$sizes: (
+$xui-button-sizes: (
   small : (line-height: 16px, min-width: 60px, padding: 0.5em 1em)
 );
 
@@ -30,7 +30,7 @@ $sizes: (
 //
 // Styleguide: Buttons.3.1
 
-@each $size, $value-map in $sizes {
+@each $size, $value-map in $xui-button-sizes {
 	.#{$ns}-button-#{$size} {
 		@include xui-button-size($value-map...);
 	}

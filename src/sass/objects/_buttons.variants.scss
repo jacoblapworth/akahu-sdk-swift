@@ -25,8 +25,7 @@
 	}
 }
 
-// FIXME: needs xui- prefix (maybe $xui-button-variants)
-$variants: (
+$xui-button-variants: (
 	standard : null,
 	main : $xui-color-xero-blue,
 	create : $xui-color-xero-green,
@@ -34,7 +33,7 @@ $variants: (
 );
 
 // FIXME: needs U.Sization of colour
-@each $variant, $colour in $variants {
+@each $variant, $colour in $xui-button-variants {
 
 	.#{$ns}-button-#{$variant} {
 

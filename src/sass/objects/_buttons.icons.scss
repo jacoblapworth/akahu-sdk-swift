@@ -47,20 +47,19 @@
 	width: $width;
 }
 
-// FIXME: this needs a prefix
-$base-size: 18px;
+$xui-button-icon-base-size: 18px;
 
 // TODO: Medium/unsuffixed size has a broken click area - needs fixing.
-$sizes: (
-	small : (font-size: $xui-font-size-text, line-height: $base-size, width: $base-size),
-	large : (font-size: $xui-font-size-icon-large, line-height: $base-size * 2, width: $base-size * 2),
+$xui-button-sizes: (
+	small : (font-size: $xui-font-size-text, line-height: $xui-button-icon-base-size, width: $xui-button-icon-base-size),
+	large : (font-size: $xui-font-size-icon-large, line-height: $xui-button-icon-base-size * 2, width: $xui-button-icon-base-size * 2),
 );
 
 .#{$ns}-button-icon {
 	@include xui-button-icon;
 }
 
-@each $size, $value-map in $sizes {
+@each $size, $value-map in $xui-button-sizes {
 	.#{$ns}-button-icon-#{$size} {
 		@include xui-button-icon-size($value-map...);
 	}

@@ -60,7 +60,7 @@ select.#{$ns}-select {
 .#{$ns}-select--caret {
 	@include xui-caret;
 	position: absolute;
-	right: 6px;
+	right: 20px;
 	top: calc(50% - 2px);
 	vertical-align: middle;
 }
@@ -85,9 +85,9 @@ select.#{$ns}-select {
 // Dropdown Not hidden state : Remove class `xui-dropdownmenu-is-closed`
 //
 // Markup:
-// <div class="xui-inputgroup">
-//  <label class="xui-inputgroup--label xui-text-label">Custom</label>
-//  <div class="xui-inputgroup--inputs xui-select">
+// <div class="xui-field">
+//  <label class="xui-text-label">Custom</label>
+//  <div class="xui-select">
 //		<input type="hidden" value="Select option 1"/>
 //		<button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //			Select option 1

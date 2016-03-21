@@ -288,35 +288,47 @@ $xui-layout-column-start: 1;
 	@include xui-layout-fixed;
 }
 
+@mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
+
+	@if $columnpercentage >= $numberofcolumns {
+		width: 100%;
+	} @else if(type-of($gutter) == number and $gutter > 0) {
+		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage} - #{$gutter});
+	} @else {
+		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage});
+	}
+
+}
+
 /*
  * Helper mixin for specifying the layout class once but have it also spit out the device
  * specific classes
  */
-@mixin xui-fixed-column-generator($suffix, $width) {
+@mixin xui-fixed-column-generator($suffix, $numofcols, $columnpercentage : 1, $gutter: 0) {
 
 	.#{$ns}-layout-column-#{$suffix} {
+		@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
 		float: left;
-		width: $width;
 	}
 
 	@include xui-breakpoint-narrow {
 		.#{$ns}-layout-column-#{$suffix}-narrow {
+			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
 			float: left;
-			width: $width;
 		}
 	}
 
 	@include xui-breakpoint-medium {
 		.#{$ns}-layout-column-#{$suffix}-medium {
+			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
 			float: left;
-			width: $width;
 		}
 	}
 
 	@include xui-breakpoint-wide {
 		.#{$ns}-layout-column-#{$suffix}-wide {
+			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
 			float: left;
-			width: $width;
 		}
 	}
 }
@@ -325,17 +337,7 @@ $xui-layout-column-start: 1;
 
 	@for $j from $xui-layout-column-start through $i {
 
-		@if $j == $i {
-
-			$width: 100%;
-			@include xui-fixed-column-generator("#{$j}-of-#{$i}", $width);
-
-		} @else {
-
-			$width: calc((100% / #{$i}) * #{$j});
-
-			@include xui-fixed-column-generator("#{$j}-of-#{$i}", $width);
-		}
+		@include xui-fixed-column-generator("#{$j}-of-#{$i}", $i, $j);
 
 	}
 
@@ -521,13 +523,15 @@ $xui-layout-column-start: 1;
 	@include xui-margin-top($xui-s-large);
 	@include xui-margin-bottom(0);
 	@include xui-margin-horizontal(auto);
-	width: 100%;
+	@include xui-column-width-generator(1, 1);
 }
 
 @mixin xui-page-width-and-spacing-large {
 	max-width: $xui-page-width-large;
-	margin: $xui-s-large auto 0;
-	width: 100%;
+	@include xui-margin-top($xui-s-large);
+	@include xui-margin-bottom(0);
+	@include xui-margin-horizontal(auto);
+	@include xui-column-width-generator(1, 1);
 }
 
 @mixin xui-page-layout-sidebar-right {
@@ -537,23 +541,23 @@ $xui-layout-column-start: 1;
 	}
 
 	.#{$ns}-page-layout-sidebar-right--main {
-		width: 100%;
+		@include xui-column-width-generator(1, 1);
 
 		@include xui-breakpoint-wide {
+			@include xui-column-width-generator(9, 6);
 			float: left;
-			width: calc((100% / 9) * 6);
 		}
 	}
 
 	.#{$ns}-page-layout-sidebar-right--sidebar {
 		@include xui-margin-top($xui-grid-gutter);
-		width: 100%;
+		@include xui-column-width-generator(1, 1);
 
 		@include xui-breakpoint-wide {
 			@include xui-margin-left($xui-grid-gutter);
 			@include xui-margin-top(0);
+			@include xui-column-width-generator(9, 3, $xui-grid-gutter);
 			float: left;
-			width: calc((100% / 9) * 3 - #{$xui-grid-gutter});
 		}
 	}
 
@@ -567,24 +571,24 @@ $xui-layout-column-start: 1;
 
 	.#{$ns}-page-layout-sidebar-left--sidebar {
 		@include xui-margin-top($xui-grid-gutter);
-		width: 100%;
+		@include xui-column-width-generator(1, 1);
 
 		@include xui-breakpoint-wide {
 			@include xui-margin-right($xui-grid-gutter);
 			@include xui-margin-top(0);
+			@include xui-column-width-generator(9, 3, $xui-grid-gutter);
 			float: left;
-			width: calc((100% / 9) * 3 - #{$xui-grid-gutter});
 		}
 	}
 
 	.#{$ns}-page-layout-sidebar-left--main {
 		@include xui-margin-top($xui-grid-gutter);
-		width: 100%;
+		@include xui-column-width-generator(1, 1);
 
 		@include xui-breakpoint-wide {
 			@include xui-margin-top(0);
+			@include xui-column-width-generator(9, 6);
 			float: left;
-			width: calc((100% / 9) * 6);
 		}
 	}
 
@@ -597,24 +601,24 @@ $xui-layout-column-start: 1;
 	}
 
 	.#{$ns}-page-layout-split-left {
-		width: 100%;
+		@include xui-column-width-generator(1, 1);
 
 		@include xui-breakpoint-wide {
 			@include xui-margin-right($xui-grid-gutter / 2);
+			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
 			float: left;
-			width: calc((100% / 2) - #{$xui-grid-gutter / 2});
 		}
 	}
 
 	.#{$ns}-page-layout-split-right {
 		@include xui-margin-top($xui-grid-gutter);
-		width: 100%;
+		@include xui-column-width-generator(1, 1);
 
 		@include xui-breakpoint-wide {
 			@include xui-margin-left($xui-grid-gutter / 2);
 			@include xui-margin-top(0);
+			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
 			float: left;
-			width: calc((100% / 2) - #{$xui-grid-gutter / 2});
 		}
 	}
 

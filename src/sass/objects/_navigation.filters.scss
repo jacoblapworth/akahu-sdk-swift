@@ -11,8 +11,8 @@
 // Sidebar filters are used to filter content that is displayed in an associated panel / section
 //
 // Markup:
-// <div class="xui-grid">
-//   <div class="xui-layout-phone-1-of-1 xui-layout-2-of-9">
+// <div class="xui-page-width-standard xui-page-layout-sidebar-left">
+//   <div class="xui-page-layout-sidebar-left--sidebar">
 //     <label class="xui-sidebarsummary" for="everythingFilters">
 //       <strong>I'm the selected sidebarfilter</strong>
 //     </label>
@@ -24,8 +24,8 @@
 //           </li>
 //           <li class="xui-sidebarfilter" aria-selected="false">
 //             <a class="xui-sidebarfilter--body" href="#Filter2">
-//               <span class="xui-layout-8-of-9 xui-text-truncated">Some filter with some more content</span>
-//               <span class="xui-layout-1-of-9 xui-text-secondary xui-text-rightaligned">10</span>
+//               <span class="xui-layout-column-8-of-9 xui-text-truncated">Some filter with some more content that actually doesn't fit the space</span>
+//               <span class="xui-layout-column-1-of-9 xui-text-secondary xui-text-rightaligned">10</span>
 //             </a>
 //           </li>
 //           <li class="xui-sidebarfilter" aria-selected="false">
@@ -33,34 +33,34 @@
 //             <ul class="xui-sidebarfilters">
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">
 //                     <strong>Sub filters!</strong>
 //                   </span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //             </ul>
@@ -87,34 +87,34 @@
 //             <ul class="xui-sidebarfilters">
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">
 //                     <strong>Sub filters!</strong>
 //                   </span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //               <li class="xui-sidebarfilter" aria-selected="false">
 //                 <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
-//                   <span class="xui-layout-1-of-10"></span>
-//                   <span class="xui-layout-9-of-10">Sub filters!</span>
+//                   <span class="xui-layout-column-1-of-10"></span>
+//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
 //                 </a>
 //               </li>
 //             </ul>
@@ -128,10 +128,8 @@
 //        </ul>
 //     </div>
 //   </div>
-//   <div class="xui-grid--cell xui-layout-phone-1-of-1 xui-layout-7-of-9">
-//     <div class="xui-panel">
-//       A panel would live here
-//     </div>
+//   <div class="xui-panel xui-page-layout-sidebar-left--main">
+//     A panel would live here
 //   </div>
 // </div>
 //
@@ -144,7 +142,7 @@
 @mixin xui-collapse-list() {
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height $xui-transition-duration-short linear;
+	transition: max-height $xui-transition-duration-medium linear;
 }
 
 @mixin xui-expand-list() {
@@ -190,9 +188,9 @@
 }
 
 .#{$ns}-sidebarfilter--body, .#{$ns}-sidebarsummary {
+	@include xui-padding($xui-s-small / 2);
 	color: $xui-color-primary-text;
 	display: flex;
-	padding: 5px;
 	width: 100%;
 
 	&:hover {
@@ -211,15 +209,15 @@
 .#{$ns}-sidebarfilters-multiple {
 
 	.#{$ns}-sidebarfilters {
-		padding-bottom: 10px;
+		@include xui-padding-bottom($xui-s-small);
 
 		&:last-child {
-			padding-bottom: 0;
+			@include xui-padding-bottom(0);
 		}
 	}
 
 	.#{$ns}-sidebarfilters + .#{$ns}-sidebarfilters {
+		@include xui-padding-top($xui-s-small);
 		border-top: $xui-border-standard;
-		padding-top: px-to-rem(10);
 	}
 }

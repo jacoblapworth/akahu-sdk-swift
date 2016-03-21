@@ -4,20 +4,20 @@
 //
 //  Markup:
 //	<div class="xui-overview xui-overview-layout">
-//		<section class="xui-overview--section xui-padding-vertical-lg">
+//		<section class="xui-overview--section">
 //			<div class="xui-text-secondary">All</div>
 //			<div class="xui-heading xui-text-status">1.3m</div>
 //		</section>
-//		<section class="xui-overview--section xui-padding-vertical-lg">
+//		<section class="xui-overview--section">
 //			<div class="xui-text-secondary">Draft</div>
 //			<div class="xui-heading xui-text-status">None</div>
 //		</section>
-//		<section class="xui-overview--section xui-padding-vertical-lg">
+//		<section class="xui-overview--section">
 //			<div class="xui-text-secondary">Paid</div>
 //			<div class="xui-heading xui-text-status xui-text-status-positive">14.5k</div>
 //		</section>
 //	</div>
-//	<div class="xui-overview xui-overview-layout">
+//	<div class="xui-overview xui-margin-vertical-lg">
 //		<section class="xui-overview--section xui-padding-vertical-lg">
 //			<div class="xui-text-secondary">All</div>
 //			<div class="xui-heading xui-text-status">1.3m</div>
@@ -59,11 +59,6 @@
 	width: 100%;
 }
 
-.#{$ns}-overview-layout {
-	@include xui-margin-vertical($xui-s-large);
-	@include xui-margin-horizontal(auto);
-}
-
 .#{$ns}-overview--section {
 	display: flex;
 	flex: 1 0 calc(100% / 6);
@@ -74,4 +69,19 @@
 
 .#{$ns}-overview--section:nth-child(n+2) {
 	border-left: $xui-border-standard;
+}
+
+.#{$ns}-overview-layout {
+	@include xui-margin-vertical($xui-s-large);
+	@include xui-margin-horizontal(auto);
+
+	@include xui-breakpoint-narrow {
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+	}
+
+	.#{$ns}-overview--section {
+		@include xui-padding-vertical($xui-s-large);
+	}
 }

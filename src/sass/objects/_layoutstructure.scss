@@ -1,20 +1,9 @@
 @import "marginpadding.margin";
+@import "layoutstructure.mixins";
 
 $xui-grid-gutter: $xui-s-large;
 $xui-layout-columns: 12;
 $xui-layout-column-start: 1;
-
-@mixin xui-clearfix {
-	&::before,
-	&::after {
-		content: " ";
-		display: table;
-	}
-
-	&::after {
-		clear: both;
-	}
-}
 
 // Layout and Structure
 //
@@ -54,13 +43,17 @@ $xui-layout-column-start: 1;
 //  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
 //  <div class="xui-panel xui-page-layout-sidebar-right--sidebar">Hello two</div>
 // </div>
-// <div class="xui-page-width-standard xui-page-layout-sidebar-right">
-//  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
-//  <p class="xui-page-layout-sidebar-right--sidebar">I'm a bit of text that can exist floating next to my main content, it's pretty easy to replicate this type of display</p>
+// <div class="xui-page-width-standard xui-page-layout-sidebar-right-small">
+//  <div class="xui-panel xui-page-layout-sidebar-right--main-small">Hello</div>
+//  <p class="xui-page-layout-sidebar-right--sidebar-small">I'm a bit of text that can exist floating next to my main content, it's pretty easy to replicate this type of display</p>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-sidebar-left">
 //  <div class="xui-panel xui-page-layout-sidebar-left--sidebar">Hello</div>
 //  <div class="xui-panel xui-page-layout-sidebar-left--main">Hello two</div>
+// </div>
+// <div class="xui-page-width-standard xui-page-layout-sidebar-left-small">
+//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar-small">Hello</div>
+//  <div class="xui-panel xui-page-layout-sidebar-left--main-small">Hello two</div>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-split">
 //  <div class="xui-panel xui-page-layout-split-left">Left Box</div>
@@ -68,6 +61,22 @@ $xui-layout-column-start: 1;
 // </div>
 //
 // Styleguide: Grid Layout.1
+
+.#{$ns}-page-width-standard {
+	@include xui-clearfix;
+	@include xui-page-width-and-spacing-standard;
+}
+
+.#{$ns}-page-width-large {
+	@include xui-clearfix;
+	@include xui-page-width-and-spacing-large;
+}
+
+@include xui-page-layout-sidebar-right;
+@include xui-page-layout-sidebar-right(9, 7, "-small");
+@include xui-page-layout-sidebar-left;
+@include xui-page-layout-sidebar-left(9, 7, "-small");
+@include xui-page-layout-split;
 
 // Fixed Percentage Width Columns
 //
@@ -280,57 +289,8 @@ $xui-layout-column-start: 1;
 //
 // Styleguide: Grid Layout.2
 
-@mixin xui-layout-fixed {
-	@include xui-clearfix();
-}
-
 .#{$ns}-layout-fixed {
 	@include xui-layout-fixed;
-}
-
-@mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
-
-	@if $columnpercentage >= $numberofcolumns {
-		width: 100%;
-	} @else if(type-of($gutter) == number and $gutter > 0) {
-		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage} - #{$gutter});
-	} @else {
-		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage});
-	}
-
-}
-
-/*
- * Helper mixin for specifying the layout class once but have it also spit out the device
- * specific classes
- */
-@mixin xui-fixed-column-generator($suffix, $numofcols, $columnpercentage : 1, $gutter: 0) {
-
-	.#{$ns}-layout-column-#{$suffix} {
-		@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-		float: left;
-	}
-
-	@include xui-breakpoint-narrow {
-		.#{$ns}-layout-column-#{$suffix}-narrow {
-			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-			float: left;
-		}
-	}
-
-	@include xui-breakpoint-medium {
-		.#{$ns}-layout-column-#{$suffix}-medium {
-			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-			float: left;
-		}
-	}
-
-	@include xui-breakpoint-wide {
-		.#{$ns}-layout-column-#{$suffix}-wide {
-			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-			float: left;
-		}
-	}
 }
 
 @for $i from $xui-layout-column-start through $xui-layout-columns {
@@ -371,23 +331,7 @@ $xui-layout-column-start: 1;
 //
 // Styleguide: Grid Layout.3
 
-@mixin xui-layout-fluid {
-	align-content: flex-start;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-@mixin xui-fixed-column-generator {
-	.#{$ns}-layout-fluid {
-		@include xui-layout-fluid;
-	}
-
-	.#{$ns}-layout-column-fluid {
-		flex: 1 1 auto;
-	}
-}
-
-@include xui-fixed-column-generator;
+@include xui-fluid-column-generator;
 
 // Fluid & Fixed
 //
@@ -517,123 +461,3 @@ $xui-layout-column-start: 1;
 // </div>
 //
 // Styleguide: Grid Layout.6
-
-@mixin xui-page-width-and-spacing-standard {
-	max-width: $xui-page-width-small;
-	@include xui-margin-top($xui-s-large);
-	@include xui-margin-bottom(0);
-	@include xui-margin-horizontal(auto);
-	@include xui-column-width-generator(1, 1);
-}
-
-@mixin xui-page-width-and-spacing-large {
-	max-width: $xui-page-width-large;
-	@include xui-margin-top($xui-s-large);
-	@include xui-margin-bottom(0);
-	@include xui-margin-horizontal(auto);
-	@include xui-column-width-generator(1, 1);
-}
-
-@mixin xui-page-layout-sidebar-right {
-
-	.#{$ns}-page-layout-sidebar-right {
-		@include xui-clearfix;
-	}
-
-	.#{$ns}-page-layout-sidebar-right--main {
-		@include xui-column-width-generator(1, 1);
-
-		@include xui-breakpoint-wide {
-			@include xui-column-width-generator(9, 6);
-			float: left;
-		}
-	}
-
-	.#{$ns}-page-layout-sidebar-right--sidebar {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
-
-		@include xui-breakpoint-wide {
-			@include xui-margin-left($xui-grid-gutter);
-			@include xui-margin-top(0);
-			@include xui-column-width-generator(9, 3, $xui-grid-gutter);
-			float: left;
-		}
-	}
-
-}
-
-@mixin xui-page-layout-sidebar-left {
-
-	.#{$ns}-page-layout-sidebar-left {
-		@include xui-clearfix;
-	}
-
-	.#{$ns}-page-layout-sidebar-left--sidebar {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
-
-		@include xui-breakpoint-wide {
-			@include xui-margin-right($xui-grid-gutter);
-			@include xui-margin-top(0);
-			@include xui-column-width-generator(9, 3, $xui-grid-gutter);
-			float: left;
-		}
-	}
-
-	.#{$ns}-page-layout-sidebar-left--main {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
-
-		@include xui-breakpoint-wide {
-			@include xui-margin-top(0);
-			@include xui-column-width-generator(9, 6);
-			float: left;
-		}
-	}
-
-}
-
-@mixin xui-page-layout-split {
-
-	.xui-page-layout-split {
-		@include xui-clearfix;
-	}
-
-	.#{$ns}-page-layout-split-left {
-		@include xui-column-width-generator(1, 1);
-
-		@include xui-breakpoint-wide {
-			@include xui-margin-right($xui-grid-gutter / 2);
-			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
-			float: left;
-		}
-	}
-
-	.#{$ns}-page-layout-split-right {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
-
-		@include xui-breakpoint-wide {
-			@include xui-margin-left($xui-grid-gutter / 2);
-			@include xui-margin-top(0);
-			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
-			float: left;
-		}
-	}
-
-}
-
-.#{$ns}-page-width-standard {
-	@include xui-clearfix;
-	@include xui-page-width-and-spacing-standard;
-}
-
-.#{$ns}-page-width-large {
-	@include xui-clearfix;
-	@include xui-page-width-and-spacing-large;
-}
-
-@include xui-page-layout-sidebar-right;
-@include xui-page-layout-sidebar-left;
-@include xui-page-layout-split;

@@ -2,8 +2,6 @@
  * A collection of mixins for the Xero design.
  */
 
-@import "functions";
-
 @mixin xui-clearfix {
 	&::after {
 		clear: both;

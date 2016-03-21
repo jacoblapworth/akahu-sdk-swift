@@ -18,15 +18,15 @@ $xui-layout-column-start: 1;
 
 // Layout and Structure
 //
-// XUI has two types of grid systems: one where the developer does not specify the width of any of
-// of the columns and the columns will evenly fill the space available. And one where the developer specifies at
-// least one of the column widths. The fixed width columns are 12ths based units.
+// XUI provides two grid systems:
+// * **Fixed percentage width**, where the developer specifies at least one of the column widths based on a 12 column grid.
+// * **Fluid width**, where the developer does not specify any column widths. The columns will fill the available space evenly, regardless of their contents.
 //
 // ### Accessibility
 // If the use of these grids in your application is to create an interactive control which contains columns of tabular
-// data arranged in rows and columns,then using the `grid` role would be appropriate.
+// data arranged in rows and columns, then using the `grid` role would be appropriate.
 // Using the `grid` role means that the table is considered editable unless otherwise specified by setting the
-// `aria-readonly` attribute on the grid to true.
+// `aria-readonly` attribute on the grid to `true`.
 // Each row in the grid must have the role `row` and each cell within the rows must have the role `gridcell`.
 // The columns of the grid must able to be either active, selectable or editable in order to apply the `gridcell` role.
 // The grid must also be keyboard accessible, as described in the
@@ -39,12 +39,10 @@ $xui-layout-column-start: 1;
 
 // Typical Page Layouts
 //
-// These set of component classes are designed to let you achieve the typical set of page level layouts we have in
-// 95% of typical Xero designs.
-//
-// These are very opinionated, and provide for you Margins, and Responsive handlers. The reason these exist are because
-// it's impossible to achieve this type of responsive margin / change layout given the current set of utilities the
-// XUI library provides.
+// These opinionated component classes are designed to let you easily create typical page layouts used in Xero.
+// They provide both margins and responsive handlers. The reason they exist is because it is impossible
+// to achieve this type of responsive margin / change layout by composing the current set of utilities
+// provided by XUI.
 //
 // Markup:
 // <div class="xui-page-width-standard">
@@ -72,14 +70,14 @@ $xui-layout-column-start: 1;
 // Fixed Percentage Width Columns
 //
 // Use these classes when you want to control the width of a column in your specific layout.
-// These classes provide % widths based on the width of their parent container.
-// They act in a grid-like fashion without forcing you into specific pixel widths. Pixel widths are bad for responsive
-// stories.
+// These classes provide percentage widths based on the width of their parent container.
+// They act in a grid-like fashion without forcing you into specific pixel widths, which are bad for responsive
+// designs.
 //
 // To begin using these classes you need to use the wrapper `.xui-layout-fixed` class. The wrapper class provides the
 // clearfix required to properly layout subsequent sections of content.
 //
-// **Table of available classes**
+// ### Table of available classes
 //
 // **Note:** While all variations of classes are available, these docs have removed sizes that are similar for brevity.
 //
@@ -263,7 +261,7 @@ $xui-layout-column-start: 1;
 //  </tbody>
 // </table>
 //
-// **Example**
+// ### Example
 //
 // Markup:
 // <div class="xui-layout-fixed">
@@ -348,7 +346,7 @@ $xui-layout-column-start: 1;
 // Use these classes when you want an even number of columns that share a similar width.
 //
 // To begin using these classes you need to use the wrapper `.xui-layout-fluid` class. The wrapper class provides the
-// ability for it's children to be fluid (display:flex).
+// ability for its children to be fluid (via flexbox)
 //
 // The `xui-layout-column-fluid` class gives these columns a `flex` value of 1. As you add columns to the container,
 // each column will get smaller proportionally and all columns will continue to have an equal width.
@@ -430,9 +428,8 @@ $xui-layout-column-start: 1;
 
 // Viewport Sizes
 //
-// Fixed columns have responsive modifiers that can be appended to them. These modifiers allow you to control the
-// width of a column at an associated viewport size. It is not recommended to use a combination of fluid / fixed on
-// the same element, this will give you headaches.
+// Fixed columns have responsive modifiers that can be applied to them. These modifiers allow you to control the
+// width of a column at an associated viewport size.
 //
 // Change your browser width to see an example of how these columns adjust based on your screen width.
 //
@@ -490,7 +487,7 @@ $xui-layout-column-start: 1;
 
 // Nesting
 //
-// Fluid, and Fixed columns can be nested to achieve any possible number of layout combinations.
+// Fluid, and Fixed columns can be nested to achieve any number of layout combinations.
 //
 // This example illustrates some combinations.
 //

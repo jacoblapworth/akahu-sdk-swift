@@ -19,8 +19,7 @@
 		@include xui-button-is-disabled;
 	}
 
-	// FIXME: seems like we don't need $colour here... but maybe that's just exported by $xui-button-variants
-	@each $variant, $colour in $xui-button-variants {
+	@each $variant, $color in $xui-button-variants {
 
 		@if $variant != standard {
 			&.#{$ns}-button-#{$variant} {

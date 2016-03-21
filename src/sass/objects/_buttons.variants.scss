@@ -32,8 +32,7 @@ $xui-button-variants: (
 	negative : $xui-color-xero-red
 );
 
-// FIXME: needs U.Sization of colour
-@each $variant, $colour in $xui-button-variants {
+@each $variant, $color in $xui-button-variants {
 
 	.#{$ns}-button-#{$variant} {
 
@@ -46,15 +45,15 @@ $xui-button-variants: (
 
 		} @else {
 
-			@include xui-button-variant($colour, 1px solid $colour, $xui-color-reversed-text);
+			@include xui-button-variant($color, 1px solid $color, $xui-color-reversed-text);
 
-			@include xui-button-focus($colour, 1px solid $xui-color-white, -3px);
+			@include xui-button-focus($color, 1px solid $xui-color-white, -3px);
 
 			@include xui-button-hover {
 				@include xui-button-shadow(0.05);
 			};
 
-			@include xui-button-active($colour, $colour) {
+			@include xui-button-active($color, $color) {
 				@include xui-button-shadow(0.1);
 			}
 

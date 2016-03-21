@@ -25,32 +25,38 @@
 //  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
 //
 // Markup:
-// <div class="xui-mask">
-// 	<section class="xui-modal xui-modal-opened xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-// 		<header class="xui-modal--header xui-usercontent">
-// 			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
-// 			<button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
-// 		</header>
+//<div class="xui-mask">
+//	<section class="xui-modal xui-modal-opened xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//		<header class="xui-modal--header xui-usercontent">
+//			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
+//			<button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
+//		</header>
 // 		<div class="xui-modal--body">
-// 			<p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
-// 			<select aria-describedby="modal-text" class="xui-select">
-// 				<option>If items are negative</option>
-// 			</select>
-// 			<label class="xui-text-label" for="move-to">Move To</label>
-// 			<select id="move-to" class="xui-select">
-// 				<option>Current Liabilities</option>
-// 			</select>
-// 		</div>
-// 		<footer class="xui-modal--footer xui-actions">
-// 			<div class="xui-actions--primary">
-// 				<button type="button" class="xui-button xui-button-main">Done</button>
-// 			</div>
-// 			<div class="xui-actions--secondary">
-// 				<button type="button" class="xui-button xui-button-negative">Delete</button>
-// 			</div>
-// 		</footer>
-// 	</section>
-// </div>
+//			<p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
+//			<form class="xui-form">
+//				<p class="xui-field">
+//					<select aria-describedby="modal-text" class="xui-select">
+//						<option>If items are negative</option>
+//					</select>
+//				</p>
+//				<p class="xui-field">
+//					<label class="xui-text-label" for="move-to">Move To</label>
+//					<select id="move-to" class="xui-select">
+//						<option>Current Liabilities</option>
+//					</select>
+//				</p>
+//			</form>
+//		</div>
+//		<footer class="xui-modal--footer xui-actions">
+//			<div class="xui-actions--primary">
+//				<button type="button" class="xui-button xui-button-main">Done</button>
+//			</div>
+//			<div class="xui-actions--secondary">
+//				<button type="button" class="xui-button xui-button-negative">Delete</button>
+//			</div>
+//		</footer>
+//	</section>
+//</div>
 //
 // Styleguide: Modals
 .#{$ns}-mask {

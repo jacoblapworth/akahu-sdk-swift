@@ -63,9 +63,9 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://static.xero.com/header/2.3.1/stylesheets/all.css" rel="stylesheet" />
-    <link href="https://edge.xero.com/style/xui/10.0.0-alpha.10/xui.min.css" rel="stylesheet" />
-    <script src="https://static.xero.com/header/2.3.1/scripts/header.min.js"></script>
+    <link href="https://edge.xero.com/platform/header/3.0.0/stylesheets/all.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.0.0-alpha.18/xui.min.css" rel="stylesheet" />
+    <script src="https://edge.xero.com/platform/header/3.0.0/scripts/header.min.js"></script>
   </head>
   <body>
     <header id="header"></header>

@@ -65,8 +65,6 @@
 // Parent container
 // The coloured background goes full width of the page
 .#{$ns}-pageheading {
-	// FIXME: do we need some bold up in here and if yes then Y NO xui-bold;
-	@include xui-font-smooth;
 	align-items: center;
 	background-color: $xui-color-white;
 	border-bottom: $xui-border-standard;

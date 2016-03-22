@@ -42,8 +42,6 @@
 	overflow: hidden;
 
 	.#{$ns}-page-title {
-		// FIXME: do we need some bold up in here and if yes then Y NO xui-bold;
-		@include xui-font-smooth;
 		color: $xui-color-reversed-text;
 		margin: 0 auto 0.25em;
 	}

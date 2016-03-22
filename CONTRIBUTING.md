@@ -40,6 +40,18 @@ $ ln -s ../../pre-commit.sh .git/hooks/pre-commit
 ```
 
 
+post-merge hook
+---------------
+
+You can also add a post-merge hook so that your local environment is updated after a merge.
+
+Install the hook by running the following command:
+
+```bash
+$ ln -s ../../post-merge.sh .git/hooks/post-merge
+```
+
+
 Conventions
 -----------
 
@@ -95,8 +107,12 @@ violate our conventions.
 Making Contributions
 --------------------
 
-Contributions can be made via issues and pull requests. For [breaking changes](#breaking-changes),
-please open PRs against the `breaking-changes` branch. Otherwise open your PR against master.
+Contributions can be made via issues and pull requests. Please be aware of what we consider to be
+[breaking changes](#breaking-changes) and avoid making them if possible. 
+
+If you are confident that you do not have breaking changes, open your PR against `master`. 
+Otherwise, prefix your PR title with `[breaking-changes]` (or other feature branch), add the `breaking change` label,
+and open your PR against the `breaking-changes` branch (or other feature branch). 
 
 We use a pretty OCD linter, so make sure your code passes linting before opening a PR, otherwise
 your PR build will fail.
@@ -124,7 +140,9 @@ The general rule is: **if it requires consumers to make changes to their code, t
 
 This includes:
 
-* Removing existing classes. All our classes are public and should be considered XUI's "API"
+* Removing or renaming existing classes. All our classes are public and should be considered XUI's "API"
+* Removing or renaming existing mixins, variables or anything else that would be available if XUI's individual
+SCSS files were imported by a project
 * Modifying properties of existing classes in a way that could break layouts implementing those classes.
 Since projects may subscribe to a semver range (either patch or minor), we do not want layouts
 breaking unexpectedly.

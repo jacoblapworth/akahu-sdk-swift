@@ -8,10 +8,10 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4.0.0"
   },
   "scripts": {
-    "install": "check-engines && grunt install",
+    "prepublish": "check-engines && grunt install",
     "build": "grunt build",
     "dist": "grunt dist",
     "doc": "grunt doc",

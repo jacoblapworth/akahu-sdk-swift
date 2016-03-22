@@ -1,6 +1,6 @@
 {
   "name": "xui",
-  "version": "10.0.0-alpha.18",
+  "version": "10.0.0-beta.1",
   "description": "Shared styles for Xero applications",
   "repository": {
     "type": "git",

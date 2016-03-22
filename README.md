@@ -23,7 +23,7 @@ Include the following `link` in your page:
 #### Sherlock
 
 You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range.
-A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
+A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
 
 ### Bower
 
@@ -34,8 +34,8 @@ $ bower install git@github.dev.xero.com:UXE/xui.git --save
 You will need to compile `xui.scss`.
 
 Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using
-xui-build-tools, then use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
-CSS. Otherwise, to avoid having to upload XUI's images with your own deployables, you can set the value to point at S3, e.g.
+xui-build-tools, use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
+CSS. Otherwise, to avoid having to include XUI's images with your own deployables, you can set the value to point at S3, e.g.
 `https://edge.xero.com/style/xui/10.0.0-beta.1/images`.
 
 

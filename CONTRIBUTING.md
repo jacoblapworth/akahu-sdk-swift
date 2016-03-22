@@ -55,9 +55,7 @@ $ ln -s ../../post-merge.sh .git/hooks/post-merge
 Conventions
 -----------
 
-All classes should be prefixed with `xui-`.
-
-Be sure to `npm run lint` before you commit.
+All classes must be prefixed with `xui-`.
 
 Classes should follow the format:
 
@@ -75,19 +73,29 @@ This format is a [BEM](https://en.bem.info/)-inspired evolution of [SMACSS](http
  * `xui-component--subcomponent` represents a descendant of `xui-component` that
    helps form `xui-component` as a whole.
 
-Use class selectors as much as possible. Use attribute selectors only if required.
+Use class selectors wherever possible. Use attribute selectors only if absolutely required.
 Do not use ids or element selectors.
 
 [Nesting selectors is bad](http://markdotto.com/2015/07/20/css-nesting/); we only allow 2 levels max.
 
 Layout styling should be separate to component styling. Individual components
-should not make assumptions about their layout (e.g. by setting margins, or position).
+should not make assumptions about their layout (e.g. by setting margins, padding or position)
+
+A modifier class with the `-layout` suffix may be provided for the purpose of providing the most common layout
+configuration for that component, including responsive styling.
 
 Avoid the anti-pattern of applying styles in a generic class and then undoing them in a
 more specific class.
 
 If you are adding images, ensure you prefix their path with the `$xui-images-path` variable and use
 a leading slash, e.g. `background: url("#{$xui-images-path}/inputs/search.svg")`
+
+If you are contributing a new component, be sure to provide ample documentation, which should include any 
+applicable ARIA attributes, and demonstrate at least 2 different examples of the same component with
+different classes, children, or using different elements
+(e.g. showing the component classes when used with a `<div>` parent and a `<ul>` parent)
+
+Be sure to `npm run lint` before you commit. This can be done automatically if you install the [precommit hook](#precommit-hook).
 
 
 Patterns
@@ -130,6 +138,8 @@ Do not bump the version in package.json as part of your PR. If you would like a 
 once your change has been merged, please highlight that in your PR's description. The UXE team will
 coordinate releases.
 
+Be sure to `npm run lint` before you commit. This can be done automatically if you install the [precommit hook](#precommit-hook).
+
 
 Breaking Changes
 ----------------
@@ -154,7 +164,7 @@ If you're unsure, [ask on the UXE flow](https://www.flowdock.com/app/xero/ux-eng
 
 To submit a PR that contains a breaking change, make sure that it is made against the
 [breaking-changes branch](https://github.dev.xero.com/UXE/xui/tree/breaking-changes). If it is merged,
-it will be included in of the next major release. See the [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap)
+it will be included in the next major release. See the [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap)
 for more details.
 
 
@@ -163,7 +173,9 @@ Releases
 
 The [UXE team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team) will coordinate releases.
 
-For each merge into the `breaking-changes` branch, an `-alpha` release should be created with:
+For each merge into the `breaking-changes` branch, an `-alpha.n` release should be created, where `n` is the alpha
+release number.
+The release description needs to include the following:
 
 * Clear documentation describing the change and any changes need to be made by consumers
 * The release notes from any previous alpha release (each alpha release should detail ALL previous alpha changes)

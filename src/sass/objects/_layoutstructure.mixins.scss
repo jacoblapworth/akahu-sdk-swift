@@ -1,0 +1,182 @@
+@mixin xui-clearfix {
+	&::before,
+	&::after {
+		content: " ";
+		display: table;
+	}
+
+	&::after {
+		clear: both;
+	}
+}
+
+@mixin xui-layout-fixed {
+	@include xui-clearfix();
+}
+
+@mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
+
+	@if $columnpercentage >= $numberofcolumns {
+		width: 100%;
+	} @else if(type-of($gutter) == number and $gutter > 0) {
+		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage} - #{$gutter});
+	} @else {
+		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage});
+	}
+
+}
+
+/*
+ * Helper mixin for specifying the layout class once but have it also spit out the device
+ * specific classes
+ */
+@mixin xui-fixed-column-generator($suffix, $numofcols, $columnpercentage : 1, $gutter: 0) {
+
+	.#{$ns}-layout-column-#{$suffix} {
+		@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
+		float: left;
+	}
+
+	@include xui-breakpoint-narrow {
+		.#{$ns}-layout-column-#{$suffix}-narrow {
+			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
+			float: left;
+		}
+	}
+
+	@include xui-breakpoint-medium {
+		.#{$ns}-layout-column-#{$suffix}-medium {
+			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
+			float: left;
+		}
+	}
+
+	@include xui-breakpoint-wide {
+		.#{$ns}-layout-column-#{$suffix}-wide {
+			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
+			float: left;
+		}
+	}
+}
+
+@mixin xui-layout-fluid {
+	align-content: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@mixin xui-fluid-column-generator {
+	.#{$ns}-layout-fluid {
+		@include xui-layout-fluid;
+	}
+
+	.#{$ns}-layout-column-fluid {
+		flex: 1 1 auto;
+	}
+}
+
+@mixin xui-page-width-and-spacing-standard {
+	max-width: $xui-page-width-small;
+	@include xui-margin-top($xui-s-large);
+	@include xui-margin-bottom(0);
+	@include xui-margin-horizontal(auto);
+	@include xui-column-width-generator(1, 1);
+}
+
+@mixin xui-page-width-and-spacing-large {
+	max-width: $xui-page-width-large;
+	@include xui-margin-top($xui-s-large);
+	@include xui-margin-bottom(0);
+	@include xui-margin-horizontal(auto);
+	@include xui-column-width-generator(1, 1);
+}
+
+@mixin xui-page-layout-sidebar-right($columns: 9, $columnmain: 6, $suffix: "") {
+
+	.#{$ns}-page-layout-sidebar-right#{$suffix} {
+		@include xui-clearfix;
+	}
+
+	.#{$ns}-page-layout-sidebar-right--main#{$suffix} {
+		@include xui-column-width-generator(1, 1);
+
+		@include xui-breakpoint-wide {
+			@include xui-column-width-generator($columns, $columnmain);
+			float: left;
+		}
+	}
+
+	.#{$ns}-page-layout-sidebar-right--sidebar#{$suffix} {
+		@include xui-margin-top($xui-grid-gutter);
+		@include xui-column-width-generator(1, 1);
+
+		@include xui-breakpoint-wide {
+			@include xui-margin-left($xui-grid-gutter);
+			@include xui-margin-top(0);
+			@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
+			float: left;
+		}
+	}
+
+}
+
+@mixin xui-page-layout-sidebar-left($columns: 9, $columnmain: 6, $suffix: "") {
+
+	.#{$ns}-page-layout-sidebar-left#{$suffix} {
+		@include xui-clearfix;
+	}
+
+	.#{$ns}-page-layout-sidebar-left--sidebar#{$suffix} {
+		@include xui-margin-top($xui-grid-gutter);
+		@include xui-column-width-generator(1, 1);
+
+		@include xui-breakpoint-wide {
+			@include xui-margin-right($xui-grid-gutter);
+			@include xui-margin-top(0);
+			@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
+			float: left;
+		}
+	}
+
+	.#{$ns}-page-layout-sidebar-left--main#{$suffix} {
+		@include xui-margin-top($xui-grid-gutter);
+		@include xui-column-width-generator(1, 1);
+
+		@include xui-breakpoint-wide {
+			@include xui-margin-top(0);
+			@include xui-column-width-generator($columns, $columnmain);
+			float: left;
+		}
+	}
+
+}
+
+@mixin xui-page-layout-split {
+
+	.xui-page-layout-split {
+		@include xui-clearfix;
+	}
+
+	.#{$ns}-page-layout-split-left {
+		@include xui-column-width-generator(1, 1);
+
+		@include xui-breakpoint-wide {
+			@include xui-margin-right($xui-grid-gutter / 2);
+			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
+			float: left;
+		}
+	}
+
+	.#{$ns}-page-layout-split-right {
+		@include xui-margin-top($xui-grid-gutter);
+		@include xui-column-width-generator(1, 1);
+
+		@include xui-breakpoint-wide {
+			@include xui-margin-left($xui-grid-gutter / 2);
+			@include xui-margin-top(0);
+			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
+			float: left;
+		}
+	}
+
+}

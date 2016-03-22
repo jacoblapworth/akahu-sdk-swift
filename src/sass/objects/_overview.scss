@@ -72,7 +72,6 @@
 }
 
 .#{$ns}-overview-layout {
-	@include xui-margin-vertical($xui-s-large);
 	@include xui-margin-horizontal(auto);
 
 	@include xui-breakpoint-narrow {

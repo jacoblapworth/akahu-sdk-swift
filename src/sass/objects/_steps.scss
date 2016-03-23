@@ -1,0 +1,135 @@
+@import "../settings/colours";
+
+// Steps
+//
+// Styles for the steps in panels. These are for wizard steps or
+// just a status showing the current step in a read-only process.
+//
+// Applied usually to panel headers, removes the bottom padding so that the
+// bottom of the steps are flush with the bottom of the container they sit within.
+//
+// Markup: For steps that are hoverable.
+// <div class="xui-panel">
+//   <div class="xui-steps xui-steps-hoverable">
+//     <ul class="xui-stepsgroup">
+//       <li class="xui-step xui-step-is-complete">
+//         <span class="xui-step--body">Acceptance</span>
+//       </li>
+//       <li class="xui-step xui-step-is-selected">
+//         <span class="xui-step--body">Contact</span>
+//       </li>
+//       <li class="xui-step">
+//         <span class="xui-step--body">Submitted</span>
+//       </li>
+//       <li class="xui-step">
+//         <span class="xui-step--body">Registered</span>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+//
+// Markup: For steps that are read only / not hoverable.
+// <div class="xui-panel">
+//   <div class="xui-steps">
+//     <ul class="xui-stepsgroup">
+//       <li class="xui-step xui-step-is-complete">
+//         <span class="xui-step--body">Acceptance</span>
+//       </li>
+//       <li class="xui-step xui-step-is-selected">
+//         <span class="xui-step--body">Contact</span>
+//       </li>
+//       <li class="xui-step">
+//         <span class="xui-step--body">Submitted</span>
+//       </li>
+//       <li class="xui-step">
+//         <span class="xui-step--body">Registered</span>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Steps
+
+.#{$ns}-steps {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.#{$ns}-stepsgroup {
+	color: $xui-color-xero-blue;
+	display: flex;
+	justify-content: flex-start;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.#{$ns}-step--body {
+	color: $xui-color-secondary-text;
+	cursor: default;
+	display: inline-block;
+	line-height: 1.2;
+	margin: 23px 0 0;
+	padding: 0.5em 1em 0;
+	text-align: center;
+
+	&::after {
+		background-color: transparent;
+		content: " ";
+		display: block;
+		height: 3px;
+		margin: 23px 0 0.5px;
+	}
+
+	&.#{$ns}-step-is-selected:after {
+		background-color: $xui-color-grey-1;
+	}
+
+}
+
+.#{$ns}-step:after {
+	color: $xui-color-grey-4;
+	content: "›";
+	font-family: monospace;
+	font-weight: 600;
+	margin: 0 7px;
+}
+
+.#{$ns}-step:last-of-type::after {
+	display: none;
+}
+
+&.#{$ns}-step-is-complete {
+	.#{$ns}-step--body {
+		color: $xui-color-xero-blue;
+	}
+}
+
+&.#{$ns}-step-is-selected {
+	.#{$ns}-step--body {
+		color: $xui-color-xero-blue;
+	}
+
+	.#{$ns}-step--body:after {
+		background-color: $xui-color-xero-blue;
+	}
+}
+
+/* hoverable extensions */
+.#{$ns}-steps-hoverable .#{$ns}-step-is-complete,.#{$ns}-steps-hoverable .#{$ns}-step-is-selected {
+
+	.#{$ns}-step--body:hover:after {
+		background-color: $xui-color-grey-1;
+	}
+
+	.#{$ns}-step--body:hover {
+		color: $xui-color-primary-text;
+		text-decoration: none;
+	}
+
+	.#{$ns}-step--body {
+		cursor: pointer;
+	}
+}

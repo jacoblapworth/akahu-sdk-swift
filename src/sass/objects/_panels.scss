@@ -5,8 +5,8 @@
 // and as many body sections as they need.
 //
 // Because panels are generic containers panel sections do not provide padding
-// by default. You can add `.xui-panel--section-inset` to an element to provide
-// padding.
+// by default. You can add padding using the `xui-padding-*` classes available.
+// It is recommended to use the `xui-padding-lg` class for a panel inset.
 //
 // Styleguide: Panels
 
@@ -142,10 +142,10 @@
 //		<div class="xui-panel--header">
 //			<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //		</div>
-//		<section class="xui-panel--section xui-panel--section-inset">
+//		<section class="xui-panel--section xui-padding-lg">
 //			<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
 //		</section>
-//		<div class="xui-panel--section xui-panel--section-inset">
+//		<div class="xui-panel--section xui-padding-lg">
 //			<form class="xui-form">
 //				<div class="xui-field">
 //					<label class="xui-text-label" for="display-name-pf">Display Name</label>
@@ -176,7 +176,7 @@
 //		<div class="xui-panel--header">
 //			<header class="xui-panel--heading xui-text-panelheading">Current Step</header>
 //		</div>
-//		<div class="xui-panel--section xui-panel--section-inset">
+//		<div class="xui-panel--section xui-padding-lg">
 //			<form class="xui-form">
 //				<div class="xui-field">
 //					<label class="xui-text-label" for="display-name-pf">Display Name</label>
@@ -223,10 +223,10 @@
 //			<div class="xui-panel--header">
 //				<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //			</div>
-//			<section class="xui-panel--section xui-panel--section-inset">
+//			<section class="xui-panel--section xui-padding-lg">
 //				<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
 //			</section>
-//			<div class="xui-panel--section xui-panel--section-inset">
+//			<div class="xui-panel--section xui-padding-lg">
 //				<form class="xui-form">
 //					<div class="xui-field">
 //						<label class="xui-text-label" for="display-name-pf">Display Name</label>
@@ -280,10 +280,6 @@
 	&:first-child {
 		border-top: 0;
 	}
-}
-
-.#{$ns}-panel--section-inset {
-	padding: 20px;
 }
 
 .#{$ns}-panel--section--header {

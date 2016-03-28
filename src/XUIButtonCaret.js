@@ -1,6 +1,7 @@
 import React from 'react';
 import Component from 'xui-base-component';
-import {Button as ButtonClasses} from 'xui-css-classes';
+import XUIClasses from 'xui-css-classes';
+const ButtonClasses = XUIClasses.Button;
 
 const PropTypes = {
 	/** @property {boolean} [isSelect=false] signal if the caret has select styles */

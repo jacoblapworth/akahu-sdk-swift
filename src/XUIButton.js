@@ -2,7 +2,8 @@ import React, {PropTypes} from 'react';
 import Component from 'xui-base-component';
 import cn from 'classnames';
 
-import XUIClasses, {Button as ButtonClasses} from 'xui-css-classes';
+import XUIClasses from 'xui-css-classes';
+const ButtonClasses = XUIClasses.Button;
 
 /**
  * String constants

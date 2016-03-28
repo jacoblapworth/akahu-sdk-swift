@@ -1,9 +1,9 @@
+@import "../settings/typography";
+@import "../mixins";
+
 /**
  * Styles for standard HTML headings.
  */
-
-@import "../settings/typography";
-@import "../tools/mixins";
 
 .#{$ns}-usercontent {
 	h1,

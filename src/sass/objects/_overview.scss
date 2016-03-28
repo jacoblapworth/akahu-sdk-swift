@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // Overview Blocks
 //
 // A dashboard-style block designed to display summarised stats and figures
@@ -45,10 +48,6 @@
 //	</div>
 //
 // Styleguide: Overview Blocks
-
-@import "../vars";
-@import "../tools/mixins";
-@import "marginpadding";
 
 .#{$ns}-overview {
 	background-color: $xui-color-panel;

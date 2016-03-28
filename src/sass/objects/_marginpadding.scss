@@ -1,3 +1,5 @@
+@import "../mixins";
+
 // Margin and Padding
 //
 // XUI has a number of layout concerns. These include:
@@ -7,5 +9,173 @@
 //
 // Styleguide: Margin and Padding
 
-@import "marginpadding.margin";
-@import "marginpadding.padding";
+// Margin
+//
+// The basic make-up of the margin  is to apply one or more of the
+// margin classes to acheive the desired layout.
+//
+// Markup:
+// <div class="margin-example">
+//  <div class="xui-margin-top">
+//   Top
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-right">
+//   Right
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-bottom">
+//   Bottom
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-left">
+//   Left
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-vertical">
+//   Vertical
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-horizontal">
+//   Horizontal
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin">
+//   All
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-none">
+//   None
+//  </div>
+// </div>
+//
+// Styleguide: Margin and Padding.Margin
+
+// Margin variations
+//
+// All the above primitives  are available at small, standard and large.
+// Standard is as per above, `-sm` and `-lg` suffixes can be used to vary the
+// margin.
+//
+// Markup:
+// <div class="margin-example">
+//  <div class="xui-margin-vertical-sm">
+//   Vertical Small
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-horizontal-sm xui-margin-bottom">
+//   Horizontal small, bottom standard
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-lg">
+//   All large
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-horizontal-sm xui-margin-vertical-lg">
+//   Horizontal small, vertical large
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-right-sm">
+//   Right small
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-right-lg">
+//   Right large
+//  </div>
+// </div>
+//
+// Styleguide: Margin and Padding.Margin.1
+
+// Collections of XUI layout classes in standard, small and large
+@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-margin($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
+
+// scss-lint:disable ImportantRule
+.#{$ns}-margin-none {
+	margin: 0 !important;
+}
+
+// Padding
+//
+// The basic make-up of the padding primitives is to apply one or more of the
+// padding classes to acheive the desired layout.
+//
+// Markup:
+// <div class="xui-padding-top">
+//  <div>Top</div>
+// </div>
+// <div class="xui-padding-right">
+//  <div>Right</div>
+// </div>
+// <div class="xui-padding-bottom">
+//  <div>Bottom</div>
+// </div>
+// <div class="xui-padding-left">
+//  <div>Left</div>
+// </div>
+// <div class="xui-padding-vertical">
+//  <div>Vertical</div>
+// </div>
+// <div class="xui-padding-horizontal">
+//  <div>Horizontal</div>
+// </div>
+// <div class="xui-padding">
+//  <div>All</div>
+// </div>
+// <div class="xui-padding-none">
+//  <div>None</div>
+// </div>
+//
+// Styleguide: Margin and Padding.Padding
+
+
+// Padding variations
+//
+// All the above primitives  are available at small, standard and large.
+// Standard is as per above, `-sm` and `-lg` suffixes can be used to vary the
+// padding.
+//
+// Markup:
+// <div class="xui-padding-vertical-sm">
+//  <div>Vertical Small</div>
+// </div>
+// <div class="xui-padding-horizontal-sm xui-padding-bottom">
+//  <div>Horizontal small, bottom standard</div>
+// </div>
+// <div class="xui-padding-lg">
+//  <div>All large</div>
+// </div>
+// <div class="xui-padding-horizontal-sm xui-padding-vertical-lg">
+//  <div>Horizontal Small, vertical large</div>
+// </div>
+// <div class="xui-padding-left-sm">
+//  <div>Left small</div>
+// </div>
+// <div class="xui-padding-left-lg">
+//  <div>Left large</div>
+// </div>
+//
+// Styleguide: Margin and Padding.Padding.1
+
+// Collections of XUI layout classes in standard, small and large
+@include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-padding($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-padding($xui-s-large, $xui-class-suffix-large);
+
+// scss-lint:disable ImportantRule
+.#{$ns}-padding-none {
+	padding: 0 !important;
+}

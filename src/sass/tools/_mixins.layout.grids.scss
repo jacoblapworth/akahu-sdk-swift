@@ -1,14 +1,5 @@
-@mixin xui-clearfix {
-	&::before,
-	&::after {
-		content: " ";
-		display: table;
-	}
-
-	&::after {
-		clear: both;
-	}
-}
+@import "mixins.layout.utilities";
+@import "../vars";
 
 @mixin xui-layout-fixed {
 	@include xui-clearfix();

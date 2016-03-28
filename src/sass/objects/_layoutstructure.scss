@@ -1,9 +1,4 @@
-@import "marginpadding.margin";
-@import "layoutstructure.mixins";
-
-$xui-grid-gutter: $xui-s-large;
-$xui-layout-columns: 12;
-$xui-layout-column-start: 1;
+@import "../mixins";
 
 // Layout and Structure
 //

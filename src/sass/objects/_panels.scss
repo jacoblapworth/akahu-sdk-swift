@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // Panels
 //
 // Panels are bordered containers for other items.  They can contain several
@@ -9,9 +12,6 @@
 // It is recommended to use the `xui-padding-lg` class for a panel inset.
 //
 // Styleguide: Panels
-
-@import "../vars";
-@import "../tools/mixins";
 
 // With Table
 //

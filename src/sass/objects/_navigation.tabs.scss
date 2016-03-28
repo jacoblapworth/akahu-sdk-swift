@@ -1,3 +1,6 @@
+@import "../mixins";
+@import "../settings/colours";
+
 // Tabs
 //
 // Styles for the tabbed elements.  These typically sit above `<section>`
@@ -25,9 +28,6 @@
 //   - When visible should have only `aria-hidden="false"`
 //
 // Styleguide: Navigation.5
-
-@import "../tools/mixins";
-@import "../settings/colours";
 
 // Horizontal
 //

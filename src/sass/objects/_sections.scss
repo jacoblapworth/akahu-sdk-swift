@@ -1,5 +1,5 @@
 @import "../vars";
-@import "marginpadding";
+@import "../mixins";
 
 .#{$ns}-sectionheading {
 	background-color: $xui-color-background;

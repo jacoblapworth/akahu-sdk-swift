@@ -28,8 +28,7 @@
 // -----------------------------------------------------------------------------
 
 @import "vars";
-
-@import "tools/mixins";
+@import "mixins";
 
 // Xero styles as per the Xero UI Toolkit
 // -----------------------------------------------------------------------------
@@ -58,7 +57,6 @@
 @import "objects/navigation";
 @import "objects/modals";
 @import "objects/panels";
-@import "objects/sections";
 @import "objects/sidedrawer";
 @import "objects/steps";
 @import "objects/usermessaging";

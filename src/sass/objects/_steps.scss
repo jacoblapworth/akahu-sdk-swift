@@ -12,16 +12,16 @@
 // <div class="xui-panel">
 //   <div class="xui-steps xui-steps-hoverable">
 //     <ul class="xui-stepsgroup">
-//       <li class="xui-step xui-step-is-complete">
+//       <li class="xui-step xui-step-layout xui-step-is-complete">
 //         <span class="xui-step--body">Acceptance</span>
 //       </li>
-//       <li class="xui-step xui-step-is-selected">
+//       <li class="xui-step xui-step-layout xui-step-is-selected">
 //         <span class="xui-step--body">Contact</span>
 //       </li>
-//       <li class="xui-step">
+//       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">Submitted</span>
 //       </li>
-//       <li class="xui-step">
+//       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">Registered</span>
 //       </li>
 //     </ul>
@@ -33,16 +33,16 @@
 // <div class="xui-panel">
 //   <div class="xui-steps">
 //     <ul class="xui-stepsgroup">
-//       <li class="xui-step xui-step-is-complete">
+//       <li class="xui-step xui-step-layout xui-step-is-complete">
 //         <span class="xui-step--body">Acceptance</span>
 //       </li>
-//       <li class="xui-step xui-step-is-selected">
+//       <li class="xui-step xui-step-layout xui-step-is-selected">
 //         <span class="xui-step--body">Contact</span>
 //       </li>
-//       <li class="xui-step">
+//       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">Submitted</span>
 //       </li>
-//       <li class="xui-step">
+//       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">Registered</span>
 //       </li>
 //     </ul>
@@ -71,22 +71,44 @@
 	cursor: default;
 	display: inline-block;
 	line-height: 1.2;
-	margin: 23px 0 0;
-	padding: 0.5em 1em 0;
+	position: relative;
 	text-align: center;
 
 	&::after {
 		background-color: transparent;
+		bottom: 0;
 		content: " ";
 		display: block;
 		height: 3px;
-		margin: 23px 0 0.5px;
+		left: 0;
+		position: absolute;
+		right: 0;
 	}
 
 	&.#{$ns}-step-is-selected:after {
 		background-color: $xui-color-grey-1;
 	}
+}
 
+.#{$ns}-step {
+	display: flex;
+}
+
+.#{$ns}-step-layout {
+
+	.#{$ns}-step--body {
+		margin: auto 0;
+		padding: 23px 1em;
+
+		&::after {
+			left: 1em;
+			right: 1em;
+		}
+	}
+
+	&::after {
+		margin: auto 7px;
+	}
 }
 
 .#{$ns}-step:after {
@@ -94,7 +116,6 @@
 	content: "›";
 	font-family: monospace;
 	font-weight: 600;
-	margin: 0 7px;
 }
 
 .#{$ns}-step:last-of-type::after {

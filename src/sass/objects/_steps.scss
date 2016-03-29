@@ -8,6 +8,9 @@
 // Applied usually to panel headers, removes the bottom padding so that the
 // bottom of the steps are flush with the bottom of the container they sit within.
 //
+// Please note when using this component, since the xui-step class uses flex-box to vertically align, text will not wrap correctly in IE11.
+// If you have a step which you know will need to wrap at all screen sizes, please add a line break.
+//
 // Markup: For steps that are hoverable.
 // <div class="xui-panel">
 //   <div class="xui-steps xui-steps-hoverable">
@@ -16,7 +19,7 @@
 //         <span class="xui-step--body">Acceptance</span>
 //       </li>
 //       <li class="xui-step xui-step-layout xui-step-is-selected">
-//         <span class="xui-step--body">Contact</span>
+//         <span class="xui-step--body">Contact Information</span>
 //       </li>
 //       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">Submitted</span>
@@ -67,9 +70,10 @@
 }
 
 .#{$ns}-step--body {
+	align-items: center;
 	color: $xui-color-secondary-text;
 	cursor: default;
-	display: inline-block;
+	display: flex;
 	line-height: 1.2;
 	position: relative;
 	text-align: center;
@@ -97,7 +101,6 @@
 .#{$ns}-step-layout {
 
 	.#{$ns}-step--body {
-		margin: auto 0;
 		padding: 23px 1em;
 
 		&::after {
@@ -107,13 +110,15 @@
 	}
 
 	&::after {
-		margin: auto 7px;
+		margin: 0 7px;
 	}
 }
 
 .#{$ns}-step:after {
+	align-items: center;
 	color: $xui-color-grey-4;
 	content: "›";
+	display: flex;
 	font-family: monospace;
 	font-weight: 600;
 }

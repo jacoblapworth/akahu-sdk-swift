@@ -29,6 +29,8 @@
 //
 // Styleguide: Navigation.5
 
+@import "../vars";
+@import "marginpadding";
 // Horizontal
 //
 // Applied to sections that have tabs in them, removes the padding so that the
@@ -38,7 +40,7 @@
 //
 // Markup:
 //	<div class="xui-tabbednav" role="navigation" aria-label="Tertiary">
-//		<ul class="xui-tabgroup">
+//		<ul class="xui-tabgroup xui-tabgroup-layout">
 //			<li class="xui-tab">
 //				<a class="xui-tab--body" href="#default">Default</a>
 //			</li>
@@ -49,7 +51,7 @@
 //	</div>
 //	<br />
 //	<div class="xui-tabbednav" role="navigation" aria-label="Secondary">
-//		<ul class="xui-tabgroup">
+//		<ul class="xui-tabgroup xui-tabgroup-layout">
 //			<li class="xui-tab xui-tab-pageheading">
 //				<a class="xui-tab--body" href="#g-header">Page heading</a>
 //			</li>
@@ -60,7 +62,7 @@
 //	</div>
 //	<br />
 //	<div class="xui-tabbednav xui-pagenav" role="navigation" aria-label="Primary">
-//		<ul class="xui-tabgroup">
+//		<ul class="xui-tabgroup xui-tabgroup-layout">
 //			<li class="xui-tab xui-tab-pagenav">
 //				<a class="xui-tab--body" href="#g-header">Page nav</a>
 //			</li>
@@ -92,27 +94,23 @@ $xui-color-variations: (
 	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
 	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
 	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
-	"#{$ns}-tab-pagenav":($xui-color-reversed-text, transparent, $xui-color-xero-light-blue, $xui-color-xero-light-blue),
-	"#{$ns}-tab-pagenav-is-selected":($xui-color-xero-light-blue, $xui-color-xero-light-blue, $xui-color-xero-light-blue, $xui-color-xero-light-blue)
+	"#{$ns}-tab-pagenav":($xui-color-tab-pagenav, transparent, $xui-color-reversed-text, $xui-color-reversed-text),
+	"#{$ns}-tab-pagenav-is-selected":($xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text)
 );
 
 // Individual tabs
 // -----------------------------------------------------------------------------
 @mixin xui-tab-variation($color, $bg-color, $hover-color, $hover-bg-color) {
+	&::after {
+		background-color: $bg-color;
+	}
 	.#{$ns}-tab--body {
 		color: $color;
-
-		&::after {
-			background-color: $bg-color;
-		}
 
 		&:hover {
 			color: $hover-color;
 		}
 
-		&:hover::after {
-			background-color: $hover-bg-color;
-		}
 	}
 }
 
@@ -124,41 +122,41 @@ $xui-color-variations: (
 		cursor: pointer;
 		display: inline-block;
 		line-height: 1.2;
-		padding: 0.5em 1em 0;
+		outline: none;
 		text-align: center;
-
-		&::after {
-			background-color: transparent;
-			content: " ";
-			display: block;
-			height: 3px;
-			margin: 6px 0 0;
-		}
+		border-radius: 3px;
+		padding-bottom: 6px;
 
 		&:hover {
 			color: $xui-color-primary-text;
 			text-decoration: none;
 		}
+		&:focus {
+			background: $xui-color-tab-focus;
+		}
 
-		&:hover::after {
-			background-color: $xui-color-primary-text;
+		&:focus:active {
+			background: $xui-color-tab-active;
 		}
 	}
-}
-
-.#{$ns}-tab {
-	&:first-of-type .#{$ns}-tab--body {
-		padding-left: 0;
-	}
-
-	&:last-of-type .#{$ns}-tab--body {
-		padding-right: 0;
+	&::after {
+		background-color: transparent;
+		content: " ";
+		display: block;
+		height: 3px;
 	}
 }
 
 @each $variation, $colors in $xui-color-variations {
 	.#{$variation} {
 		@include xui-tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
+	}
+}
+
+.#{$ns}-tabgroup-layout {
+	.#{$ns}-tab--body{
+		@include xui-padding-horizontal($xui-s-standard);
+		@include xui-padding-top($xui-s-small);
 	}
 }
 

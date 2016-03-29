@@ -1,3 +1,7 @@
 @import "colors/colors";
 
+//TODO: Move these to colors project
 $xui-color-toast-link:       #70bae4;
+$xui-color-tab-pagenav:      rgba($xui-color-reversed-text, 0.8);
+$xui-color-tab-focus:        rgba($xui-color-primary-text, 0.1);
+$xui-color-tab-active:        rgba($xui-color-primary-text, 0.15);

@@ -10,11 +10,11 @@
 // Markup:
 // <header class="xui-pagenav">
 //   <div class="xui-page-width-standard">
-//     <div>
+//     <div class="xui-padding-left">
 //       <h1 id="nav-title" class="xui-page-title">Page Navigation Title</h1>
 //     </div>
 //     <nav role="navigation" aria-labelledby="nav-title">
-//       <ul class="xui-tabgroup">
+//       <ul class="xui-tabgroup xui-tabgroup-layout">
 //         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
 //           <a class="xui-tab--body" href="#nav1">Nav 1</a>
 //         </li>

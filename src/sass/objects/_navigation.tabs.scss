@@ -1,5 +1,5 @@
 @import "../mixins";
-@import "../settings/colours";
+@import "../vars";
 
 // Tabs
 //
@@ -29,8 +29,6 @@
 //
 // Styleguide: Navigation.5
 
-@import "../vars";
-@import "marginpadding";
 // Horizontal
 //
 // Applied to sections that have tabs in them, removes the padding so that the
@@ -104,6 +102,7 @@ $xui-color-variations: (
 	&::after {
 		background-color: $bg-color;
 	}
+
 	.#{$ns}-tab--body {
 		color: $color;
 
@@ -118,19 +117,20 @@ $xui-color-variations: (
 	margin: 0;
 
 	.#{$ns}-tab--body {
+		border-radius: $xui-radius;
 		color: $xui-color-secondary-text;
 		cursor: pointer;
 		display: inline-block;
 		line-height: 1.2;
 		outline: none;
-		text-align: center;
-		border-radius: 3px;
 		padding-bottom: 6px;
+		text-align: center;
 
 		&:hover {
 			color: $xui-color-primary-text;
 			text-decoration: none;
 		}
+
 		&:focus {
 			background: $xui-color-tab-focus;
 		}
@@ -139,6 +139,7 @@ $xui-color-variations: (
 			background: $xui-color-tab-active;
 		}
 	}
+
 	&::after {
 		background-color: transparent;
 		content: " ";
@@ -154,7 +155,7 @@ $xui-color-variations: (
 }
 
 .#{$ns}-tabgroup-layout {
-	.#{$ns}-tab--body{
+	.#{$ns}-tab--body {
 		@include xui-padding-horizontal($xui-s-standard);
 		@include xui-padding-top($xui-s-small);
 	}

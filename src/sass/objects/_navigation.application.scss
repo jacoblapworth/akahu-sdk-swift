@@ -10,25 +10,25 @@
 // Markup:
 // <header class="xui-pagenav">
 //   <div class="xui-page-width-standard">
-//     <div>
+//     <div class="xui-padding-left">
 //       <h1 id="nav-title" class="xui-page-title">Page Navigation Title</h1>
 //     </div>
 //     <nav role="navigation" aria-labelledby="nav-title">
 //       <ul class="xui-tabgroup">
 //         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav1">Nav 1</a>
+//           <a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#nav1">Nav 1</a>
 //         </li>
 //         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav2">Nav 2</a>
+//           <a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#nav2">Nav 2</a>
 //         </li>
 //         <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
-//           <a class="xui-tab--body" href="#nav3">Nav 3</a>
+//           <a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#nav3">Nav 3</a>
 //         </li>
 //         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav4">Nav 4</a>
+//           <a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#nav4">Nav 4</a>
 //         </li>
 //         <li class="xui-tab xui-tab-pagenav" aria-selected="false">
-//           <a class="xui-tab--body" href="#nav5">Nav 5</a>
+//           <a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#nav5">Nav 5</a>
 //         </li>
 //       </ul>
 //     </nav>

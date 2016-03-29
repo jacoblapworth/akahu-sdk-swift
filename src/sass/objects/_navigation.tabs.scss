@@ -40,10 +40,10 @@
 //	<div class="xui-tabbednav" role="navigation" aria-label="Tertiary">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab">
-//				<a class="xui-tab--body" href="#default">Default</a>
+//				<a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#default">Default</a>
 //			</li>
 //			<li class="xui-tab xui-tab-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_default">Selected Default</a>
+//				<a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#selected_default">Selected Default</a>
 //			</li>
 //		</ul>
 //	</div>
@@ -51,10 +51,10 @@
 //	<div class="xui-tabbednav" role="navigation" aria-label="Secondary">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab xui-tab-pageheading">
-//				<a class="xui-tab--body" href="#g-header">Page heading</a>
+//				<a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#g-header">Page heading</a>
 //			</li>
 //			<li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//				<a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#selected_pagenav">Selected heading</a>
 //			</li>
 //		</ul>
 //	</div>
@@ -62,10 +62,10 @@
 //	<div class="xui-tabbednav xui-pagenav" role="navigation" aria-label="Primary">
 //		<ul class="xui-tabgroup">
 //			<li class="xui-tab xui-tab-pagenav">
-//				<a class="xui-tab--body" href="#g-header">Page nav</a>
+//				<a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#g-header">Page nav</a>
 //			</li>
 //			<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
+//				<a class="xui-tab--body xui-padding-horizontal xui-padding-top-sm" href="#selected_pagenav">Selected Page nav</a>
 //			</li>
 //		</ul>
 //	</div>
@@ -124,7 +124,6 @@ $xui-color-variations: (
 		cursor: pointer;
 		display: inline-block;
 		line-height: 1.2;
-		padding: 0.5em 1em 0;
 		text-align: center;
 
 		&::after {

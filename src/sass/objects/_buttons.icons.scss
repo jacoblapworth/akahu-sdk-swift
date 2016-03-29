@@ -4,7 +4,7 @@
 
 // Icon
 //
-// Used for buttons that only use icons.
+// Used for buttons that only use icons. Three size variants are available. Small (`-sm`), standard (no suffix) and large (`-lg`).
 // `title` and `aria-label` attributes should be provided to explain the icon.
 // Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
 //
@@ -12,13 +12,14 @@
 // :hover - When hovered
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-icon xui-button-icon-small" title="Close" aria-label="Close">✕</button>
-// <button type="button" class="xui-button xui-button-icon" title="Close" aria-label="Close">✕</button>
-// <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="Close" aria-label="Close">✕</button>
+// <button type="button" class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">&#x2716</button>
+// <button type="button" class="xui-button xui-button-icon" title="Close" aria-label="Close">&#x2716</button>
+// <button type="button" class="xui-button xui-button-icon-lg" title="Close" aria-label="Close">&#x2716</button>
 //
 // Styleguide: Buttons.7.1
 
-@mixin xui-button-icon {
+// Base style applied to all xui-button-icon classes
+@mixin xui-button-icon-base {
 	-webkit-appearance: none;
 	background: transparent;
 	border: 0;
@@ -26,7 +27,6 @@
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
-	font-size: $xui-font-size-text;
 	margin: 0;
 	padding: 0;
 
@@ -41,26 +41,17 @@
 	}
 }
 
-@mixin xui-button-icon-size($font-size, $line-height, $width) {
-	font-size: $font-size;
-	line-height: $line-height;
-	width: $width;
-}
-
-$xui-button-icon-base-size: 18px;
-
-// TODO: Medium/unsuffixed size has a broken click area - needs fixing.
-$xui-button-sizes: (
-	small : (font-size: $xui-font-size-text, line-height: $xui-button-icon-base-size, width: $xui-button-icon-base-size),
-	large : (font-size: $xui-font-size-icon-large, line-height: $xui-button-icon-base-size * 2, width: $xui-button-icon-base-size * 2),
-);
-
-.#{$ns}-button-icon {
-	@include xui-button-icon;
-}
-
-@each $size, $value-map in $xui-button-sizes {
-	.#{$ns}-button-icon-#{$size} {
-		@include xui-button-icon-size($value-map...);
+// Generate xui-button-icon class variants with given $font-size and $suffix
+@mixin xui-generate-button-icon-sizes($font-size, $suffix) {
+	.#{$ns}-button-icon#{$suffix} {
+		@include xui-button-icon-base;
+		font-size: $font-size;
+		line-height: $font-size * 1.5;
+		width: $font-size * 1.5;
 	}
 }
+
+// Small, standard and large xui-button-icon classes
+@include xui-generate-button-icon-sizes($xui-font-size-heading-small, $xui-class-suffix-small);
+@include xui-generate-button-icon-sizes($xui-font-size-text, $xui-class-suffix-standard);
+@include xui-generate-button-icon-sizes($xui-font-size-icon-large, $xui-class-suffix-large);

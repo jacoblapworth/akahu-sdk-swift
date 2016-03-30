@@ -195,6 +195,7 @@
 }
 
 .#{$ns}-menuitem--input {
+	flex: none;
 	margin: 0 7px 0 0;
 	padding: 0;
 	top: 0; // doesn't work due to odd top's in _inputs.scss

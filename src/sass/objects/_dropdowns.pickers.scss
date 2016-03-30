@@ -87,27 +87,32 @@
 // Styleguide: Dropdowns.3
 
 .#{$ns}-datepicker {
+	font-size: 0.9375rem;
 	position: relative;
-	width: 350px;
+	width: 20em;
 }
 
 .#{$ns}-datepicker--header {
 	align-items: center;
-	border-bottom: $xui-border-standard;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 }
 
+.#{$ns}-datepicker--heading {
+	font-size: 1.2em;
+}
+
 .#{$ns}-datepicker--prevbutton,
 .#{$ns}-datepicker--nextbutton {
-	line-height: 56px;
+	font-size: inherit;
+	line-height: 3em;
 	min-width: 10px;
 
 	&::before {
 		color: $xui-color-grey-2;
 		display: inline-block;
-		font-size: $xui-font-size-icon-xlarge;
+		font-size: 2em;
 	}
 
 	&:active {
@@ -116,7 +121,7 @@
 }
 
 .#{$ns}-datepicker--prevbutton {
-	padding-left: 20px;
+	padding-left: 1em;
 
 	&::before {
 		content: "\231c";
@@ -125,7 +130,7 @@
 }
 
 .#{$ns}-datepicker--nextbutton {
-	padding-right: 20px;
+	padding-right: 1em;
 
 	&::before {
 		content: "\231c";
@@ -149,14 +154,14 @@
 }
 
 .#{$ns}-datepicker--day {
-	background-clip: padding-box;
-	border: 8px solid transparent;
-	border-radius: 23px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	box-sizing: content-box;
 	cursor: pointer;
-	font-size: 0.9375rem; // 15/16
-	height: 46px;
+	font-size: inherit;
+	height: 2.2em;
 	text-align: center;
-	width: 46px;
+	width: 2.2em;
 
 	&:hover {
 		background-color: $xui-color-background;
@@ -174,7 +179,7 @@
 
 .#{$ns}-datepicker--weekday {
 	color: $xui-color-disabled-text;
-	font-size: $xui-font-size-heading-small;
+	font-size: 0.75em;
 	text-align: center;
 }
 

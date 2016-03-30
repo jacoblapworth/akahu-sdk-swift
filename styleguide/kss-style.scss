@@ -145,17 +145,17 @@ $kss-sidebar-width: 12.5rem;
 	}
 
 	// This is for the top-level menu in the XUI docs
-	.xui-menuitem {
+	.xui-tab {
 		&:hover {
 			background: $xui-color-white;
-			.xui-menuitem--body {
+			.xui-tab--body {
 				color: $xui-color-grey-1;
 				background: $xui-color-white;
 			}
 		}
 	}
 
-	.xui-menuitem--body {
+	.xui-tab--body {
 		color: $xui-color-white;
 	}
 }

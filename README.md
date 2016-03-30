@@ -134,6 +134,10 @@ Example Page Markup
 Usage Guidelines
 ----------------
 
+ * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI for `<main>` elements.
+   If you need to use XUI's CSS classes outside the `<main>` element, ensure that the container
+   has `box-sizing: border-box`. The reason for this approach is that the current Shared Header
+   CSS would break if `border-box` were used on it or its parent container(s).
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.

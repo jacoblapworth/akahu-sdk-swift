@@ -2,15 +2,14 @@
 //
 // Styleguide: Buttons.3
 
-// TODO: $line-height should be an em
-@mixin xui-button-size($line-height: 16px, $min-width: 60px, $padding: 0.5em 1em) {
+@mixin xui-button-size($line-height: 1, $min-width: 60px, $padding: 0.5em 1em) {
 	line-height: $line-height;
 	min-width: $min-width;
 	padding: $padding;
 }
 
 $xui-button-sizes: (
-  small : (line-height: 16px, min-width: 60px, padding: 0.5em 1em)
+  small : (line-height: 1, min-width: 60px, padding: 0.5em 1em)
 );
 
 // Smaller

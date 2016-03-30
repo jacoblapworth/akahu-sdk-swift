@@ -1,7 +1,6 @@
 // Other Mixin utilities
 
 @mixin xui-caret($color: $xui-color-border) {
-	border-color: $color;
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
 	border-top: 4px dashed;

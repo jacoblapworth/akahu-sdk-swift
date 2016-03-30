@@ -63,9 +63,9 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/platform/header/3.0.0/stylesheets/all.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/platform/header/3.0.3/stylesheets/all.css" rel="stylesheet" />
     <link href="https://edge.xero.com/style/xui/10.0.0-beta.1/xui.min.css" rel="stylesheet" />
-    <script src="https://edge.xero.com/platform/header/3.0.0/scripts/header.min.js"></script>
+    <script src="https://edge.xero.com/platform/header/3.0.3/scripts/header.min.js"></script>
   </head>
   <body>
     <header id="header"></header>
@@ -134,10 +134,13 @@ Example Page Markup
 Usage Guidelines
 ----------------
 
- * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI for `<main>` elements.
-   If you need to use XUI's CSS classes outside the `<main>` element, ensure that the container
-   has `box-sizing: border-box`. The reason for this approach is that the current Shared Header
-   CSS would break if `border-box` were used on it or its parent container(s).
+ * Add the `xui-body` class to your `<body>` element, unless you are targeting
+   legacy pages. The `xui-body` class provides background color, baseline font
+   styling and line height. Note that if you use this, you must use at least
+   version 3.0.3 of the Shared Header.
+ * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI via the `xui-body` class.
+   For legacy pages, you will need to set `box-sizing: border-box` on the container that wraps
+   XUI CSS classes.
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.
@@ -146,9 +149,6 @@ Usage Guidelines
    to upgrade to new versions of XUI.
  * In your main application, make sure XUI is loaded or imported before any of
    your other stylesheets.
- * Add the `xui-body` class to your `<body>` element, unless you are targeting
-   legacy pages. The `xui-body` class provides background color, baseline font
-   styling and line height.
  * When developing components, import XUI as a devDependency. Do not import XUI,
    or any SCSS file containing shared classes, in any code that your component
    exports. SCSS does not currently dedupe multiple imports of the same code, so

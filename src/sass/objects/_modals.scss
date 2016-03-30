@@ -102,6 +102,7 @@
 
 .#{$ns}-modal--header {
 	align-content: stretch;
+	align-items: flex-start;
 	display: flex;
 	justify-content: space-between;
 }

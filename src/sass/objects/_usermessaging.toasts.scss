@@ -48,7 +48,7 @@ $xui-color-toast-link: #70bae4;
 // Markup:
 //   <div class="xui-toast xui-toast-layout" role="status">
 //     <p class="xui-toast--message">Toast Message</p>
-//     <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
+//     <a class="xui-toast--action xui-toast--link xui-margin-left-lg" href="#ToastLink">Undo</a>
 //   </div>
 //
 // Styleguide: User Messaging.200.1
@@ -59,14 +59,14 @@ $xui-color-toast-link: #70bae4;
 //   <div class="xui-toast xui-toast-layout" role="status">
 //     <p class="xui-toast--message">Toast Message</p>
 //     <ul class="xui-toast--actionlist">
-//       <li class="xui-toast--action">
+//       <li class="xui-toast--action xui-margin-left-lg">
 //         <a class="xui-toast--link" href="#ToastLink">Undo</a>
 //       </li>
-//       <li class="xui-toast--action">
+//       <li class="xui-toast--action xui-margin-left-lg">
 //         <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
 //       </li>
 //     </ul>
-//     <button class="xui-button xui-button-icon xui-button-icon-small xui-toast--close" title="Close">✕</a>
+//     <button class="xui-button xui-button-icon xui-button-icon-small xui-toast--close xui-margin-left-lg" title="Close">✕</a>
 //   </div>
 //
 // Styleguide: User Messaging.200.2
@@ -102,7 +102,6 @@ $xui-color-toast-link: #70bae4;
 }
 
 .#{$ns}-toast--action {
-	margin-left: 20px;
 
 	&:nth-of-type(n+2) {
 		border-left: 1px solid $xui-color-shadow-strong;
@@ -112,7 +111,6 @@ $xui-color-toast-link: #70bae4;
 
 .#{$ns}-toast--close {
 	color: $xui-color-grey-3;
-	margin-left: 20px;
 }
 
 .#{$ns}-toast-is-hidden {

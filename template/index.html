@@ -67,11 +67,11 @@
 		</header>
 
     <div class="xui-tabbed-navigation">
-      <ul class="xui-tabgroup">
+      <ul class="xui-tabgroup xui-tabgroup-layout">
         {{#eachSection reference}}
         {{#ifDepth 2}}
-        <li class="kss-nav__menu-item xui-menuitem">
-          <a class="xui-menuitem--body" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
+        <li class="kss-nav__menu-item xui-tab">
+          <a class="xui-tab--body" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
         </li>
         {{/ifDepth}}
         {{/eachSection}}

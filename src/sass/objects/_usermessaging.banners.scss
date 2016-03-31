@@ -110,6 +110,14 @@
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-margin-vertical($xui-s-large);
 	@include xui-margin-horizontal(auto);
+
+	.#{$ns}-banner--message {
+		max-width: calc(100% - 40px);
+	}
+
+	.#{$ns}-banner--messagedetail {
+		margin-top: $xui-s-small;
+	}
 }
 
 .#{$ns}-banner-error {

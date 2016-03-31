@@ -118,8 +118,11 @@ select.#{$ns}-select {
 	display: block;
 	font-weight: normal;
 	line-height: 33px;
-	padding: 5px 15px;
+	overflow: hidden;
+	padding: $xui-s-xsmall $xui-s-xxlarge $xui-s-xsmall $xui-s-standard;
 	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	width: 100%;
 
 	&::after {

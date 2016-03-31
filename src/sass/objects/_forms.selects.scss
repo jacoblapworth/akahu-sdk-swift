@@ -91,7 +91,6 @@ select.#{$ns}-select {
 //		<input type="hidden" value="Select option 1"/>
 //		<button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //			Select option 1
-//			<span class="xui-select--caret"></span>
 //		</button>
 //		<div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
 //			<div class="xui-dropdownmenu--body">
@@ -122,6 +121,14 @@ select.#{$ns}-select {
 	padding: 5px 15px;
 	text-align: left;
 	width: 100%;
+
+	&::after {
+		@include xui-caret;
+		content: " ";
+		position: absolute;
+		right: 20px;
+		top: calc(50% - 2px);
+	}
 }
 
 .#{$ns}-select--button-is-selected {

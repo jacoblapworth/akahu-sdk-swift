@@ -41,7 +41,6 @@
 @import "elements/links";
 @import "elements/lists";
 @import "elements/tables";
-@import "elements/text";
 
 @import "objects/accordion";
 @import "objects/actions";
@@ -62,8 +61,6 @@
 @import "objects/steps";
 @import "objects/usermessaging";
 @import "objects/overview";
+@import "objects/text";
 
-// Et cetera...
-// -----------------------------------------------------------------------------
-
-@import "tools/utilities";
+@import "trumps/utilities";

@@ -6,7 +6,7 @@
 //
 // Markup:
 //<ul class="xui-accordion xui-page-width-standard xui-panel" role="tablist" aria-multiselectable="true">
-//  <li class="xui-accordionitem">
+//  <li class="xui-accordionitem xui-accordionitem-layout">
 //    <div id="tab-1" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-1" arial-expanded="false" role="tab" tabindex="-1">
 //      <a href="#">Collapsed Title</a>
 //    </div>
@@ -15,7 +15,7 @@
 //      <p>Some other content...</p>
 //    </div>
 //  </li>
-//  <li class="xui-accordionitem">
+//  <li class="xui-accordionitem xui-accordionitem-layout">
 //    <div id="tab-2" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-2" aria-expanded="false" role="tab" tabindex="-1">
 //      <a href="#">Collapsed Title</a>
 //    </div>
@@ -24,7 +24,7 @@
 //      <p>Some other content...</p>
 //    </div>
 //  </li>
-//  <li class="xui-accordionitem xui-accordionitem-is-open">
+//  <li class="xui-accordionitem xui-accordionitem-layout xui-accordionitem-is-open">
 //    <div id="tab-3" class="xui-accordionitem--collapsed" aria-selected="true" aria-controls="panel-3" aria-expanded="true" role="tab" tabindex="0">
 //      <a href="#">Collapsed Title</a>
 //    </div>
@@ -33,7 +33,7 @@
 //      <p>Some other content...</p>
 //    </div>
 //  </li>
-//  <li class="xui-accordionitem">
+//  <li class="xui-accordionitem xui-accordionitem-layout">
 //    <div id="tab-4" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-4" aria-expanded="false" role="tab" tabindex="-1">
 //      <a href="#">Collapsed Title</a>
 //    </div>

@@ -8,13 +8,14 @@
 // `title` and `aria-label` attributes should be provided to explain the icon.
 // Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
 //
+// :hover - Highlights when hovering
+// :focus - When focused
 // :active - When active
-// :hover - When hovered
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">&#x2716</button>
-// <button type="button" class="xui-button xui-button-icon" title="Close" aria-label="Close">&#x2716</button>
-// <button type="button" class="xui-button xui-button-icon-lg" title="Close" aria-label="Close">&#x2716</button>
+// <button type="button" class="xui-button xui-button-icon-sm {{modifier_class}}" title="Close" aria-label="Close">&#x2716</button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close">&#x2716</button>
+// <button type="button" class="xui-button xui-button-icon-lg {{modifier_class}}" title="Close" aria-label="Close">&#x2716</button>
 //
 // Styleguide: Buttons.7.1
 
@@ -23,7 +24,7 @@
 	-webkit-appearance: none;
 	background: transparent;
 	border: 0;
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-3;
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
@@ -35,8 +36,15 @@
 	}
 
 	&:focus {
-		background: $xui-color-shadow-medium;
+		background: $xui-color-shadow-light;
 		border-radius: 50%;
+		outline: none;
+	}
+
+	&:active {
+		background: $xui-color-shadow-light;
+		border-radius: 50%;
+		color: $xui-color-grey-2;
 		outline: none;
 	}
 }
@@ -46,8 +54,8 @@
 	.#{$ns}-button-icon#{$suffix} {
 		@include xui-button-icon-base;
 		font-size: $font-size;
-		line-height: $font-size * 1.5;
-		width: $font-size * 1.5;
+		line-height: $font-size * 2;
+		width: $font-size * 2;
 	}
 }
 

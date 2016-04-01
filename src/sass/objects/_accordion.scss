@@ -57,25 +57,32 @@
 
 .#{$ns}-accordionitem {
 	background-color: $xui-color-white;
-	height: 3.5rem;
-	overflow: hidden;
 	transition: width 0.3s, margin 0.3s;
 	width: 100%;
 }
 
 .#{$ns}-accordionitem--collapsed {
 	border-bottom: $xui-divider-standard;
-	height: 3.5rem;
-	line-height: 3.5rem;
-	padding: 0 1.25em;
 }
 
 .#{$ns}-accordionitem--expanded {
+	height: 0;
 	opacity: 0;
-	padding: 2em 2em 0;
-	transform: scaleY(0.9);
-	transition: opacity 0.2s, padding 0.3s, transform 0.3s;
-	transition-delay: 0.1s, 0s, 0s;
+	padding: 0;
+	transform: scaleY(0);
+	transition: padding 0.3s;
+}
+
+.#{$ns}-accordionitem-layout {
+	.#{$ns}-accordionitem--collapsed {
+		padding: $xui-s-standard;
+	}
+}
+
+.#{$ns}-accordionitem-is-open.#{$ns}-accordionitem-layout {
+	.#{$ns}-accordionitem--expanded {
+		padding: $xui-s-xxlarge;
+	}
 }
 
 .#{$ns}-accordionitem-is-open {
@@ -93,11 +100,14 @@
 		height: 0;
 		opacity: 0;
 		overflow: hidden;
+		padding: 0;
 	}
 
 	> .#{$ns}-accordionitem--expanded {
+		height: auto;
 		opacity: 1;
-		padding: 2em;
 		transform: scaleY(1);
+		transition: opacity 0.2s, padding 0.3s, transform 0.3s;
+		transition-delay: 0.1s, 0s, -2s;
 	}
 }

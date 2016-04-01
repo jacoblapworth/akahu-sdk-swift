@@ -7,12 +7,13 @@
 //
 // ### Behaviour
 // * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
-// * If the modal can be closed (should be the case for most modals), it can be done in the following ways:
-//   * Clicking the &times; inside the modal
-//   * Pressing ESC while the modal is open
-//   * Clicking on a button in the modal footer can optionally close the modal
-//   * Clicking on the mask should not close the modal
-// * TODO: Define behaviour for multiple modals
+// * The `.xui-mask` class sets `opacity: 0;` which hides the modal by default
+// * Apply the `.xui-modal-opened` class alongside `.xui-mask` when you wish to display the modal
+// * Closing modals should be handled in the following ways:
+//   * Clicking on the cross in the modal should close the modal
+//   * Pressing ESC while the modal is open should close the modal
+//   * Clicking on a button in the modal footer can optionally close the modal (e.g. 'Submit')
+//   * Clicking on the mask should **not** close the modal
 //
 // ### Accessibility
 // Adding a `dialog` role to the modal is usually not enough to make it accessible. The modal also needs to be labelled appropriately and focus around the modal needs to be managed.
@@ -25,38 +26,38 @@
 //  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
 //
 // Markup:
-//<div class="xui-mask">
-//	<section class="xui-modal xui-modal-opened xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-//		<header class="xui-modal--header xui-padding-left-lg">
-//			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
-//			<button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-margin" title="Close" aria-label="Close">✕</button>
-//		</header>
-// 		<div class="xui-modal--body xui-padding-horizontal-lg">
-//			<p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
-//			<form class="xui-form">
-//				<p class="xui-field">
-//					<select aria-describedby="modal-text" class="xui-select">
-//						<option>If items are negative</option>
-//					</select>
-//				</p>
-//				<p class="xui-field">
-//					<label class="xui-text-label" for="move-to">Move To</label>
-//					<select id="move-to" class="xui-select">
-//						<option>Current Liabilities</option>
-//					</select>
-//				</p>
-//			</form>
-//		</div>
-//		<footer class="xui-modal--footer xui-actions xui-padding-lg">
-//			<div class="xui-actions--primary xui-padding-left-sm">
-//				<button type="button" class="xui-button xui-button-main">Done</button>
-//			</div>
-//			<div class="xui-actions--secondary">
-//				<button type="button" class="xui-button xui-button-negative">Delete</button>
-//			</div>
-//		</footer>
-//	</section>
-//</div>
+// <div class="xui-mask xui-modal-opened">
+//   <section class="xui-modal xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//     <header class="xui-modal--header xui-padding-left-lg">
+//       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
+//       <button type="button" class="xui-button xui-button-icon xui-margin" title="Close" aria-label="Close">&#x2716</button>
+//     </header>
+//     <div class="xui-modal--body xui-padding-horizontal-lg">
+//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
+//       <form class="xui-form">
+//         <p class="xui-field">
+//           <select aria-describedby="modal-text" class="xui-select">
+//             <option>If items are negative</option>
+//           </select>
+//         </p>
+//         <p class="xui-field">
+//           <label class="xui-text-label" for="move-to">Move To</label>
+//           <select id="move-to" class="xui-select">
+//             <option>Current Liabilities</option>
+//           </select>
+//         </p>
+//       </form>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-padding-lg">
+//       <div class="xui-actions--primary xui-padding-left-sm">
+//         <button type="button" class="xui-button xui-button-main">Done</button>
+//       </div>
+//       <div class="xui-actions--secondary">
+//         <button type="button" class="xui-button xui-button-negative">Delete</button>
+//       </div>
+//     </footer>
+//   </section>
+// </div>
 //
 // Styleguide: Modals
 .#{$ns}-mask {
@@ -84,8 +85,8 @@
 	background-color: $xui-color-panel;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-3;
-	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
-	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal
+	max-height: calc(100vh - 2.5rem); // Allows for minimum 20px margin at the top/bottom of modal
+	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
 	width: 360px;
 }
 

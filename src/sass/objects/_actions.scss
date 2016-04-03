@@ -15,3 +15,25 @@
 .#{$ns}-actions--secondary {
 	order: 0;
 }
+
+.#{$ns}-actions-layout {
+	.#{$ns}-actions--primary {
+		padding-left: $xui-s-small;
+	}
+}
+
+.#{$ns}-actions-layout {
+	@include xui-breakpoint-narrow {
+		flex-direction: column;
+
+		.#{$ns}-actions--primary {
+			order: 0;
+			padding: 0;
+		}
+
+		.#{$ns}-actions--secondary {
+			order: 1;
+			padding: $xui-s-standard 0 0;
+		}
+	}
+}

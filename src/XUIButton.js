@@ -86,12 +86,12 @@ const defaultProps = {
  * @return {string} The variant specific classname
  */
 function getVariantClass(variant) {
-	switch (variant) {
-		case 'primary':
-			return ButtonClasses.MAIN;
-		case 'create':
-			return ButtonClasses.CREATE;
-	}
+	const variants = {
+		'primary': ButtonClasses.MAIN,
+		'create': ButtonClasses.CREATE,
+		'negative': ButtonClasses.NEGATIVE
+	};
+	return variants[variant];
 }
 
 /**
@@ -114,12 +114,11 @@ function getDisabledClass(isDisabled) {
  * @return {string} The size specific class name
  */
 function getSizeClass(size) {
-	switch (size) {
-		case 'small':
-			return ButtonClasses.SMALL;
-		case 'full-width':
-			return XUIClasses.Utility.FULL_WIDTH;
-	}
+	const sizes = {
+		'small': ButtonClasses.SMALL,
+		'full-width': ButtonClasses.FULL_WIDTH
+	};
+	return sizes[size];
 }
 
 /**
@@ -203,12 +202,12 @@ export default class XUIButton extends Component {
 		const ElementType = isLink ? CONSTANTS.A : CONSTANTS.BUTTON;
 
 		const classNames = cn(
-				ButtonClasses.BASE,
-				props.className,
-				getVariantClass(props.variant),
-				getDisabledClass(props.isDisabled),
-				getSizeClass(props.size),
-				getGroupClass(props.isGrouped)
+			ButtonClasses.BASE,
+			props.className,
+			getVariantClass(props.variant),
+			getDisabledClass(props.isDisabled),
+			getSizeClass(props.size),
+			getGroupClass(props.isGrouped)
 		);
 
 		// Only call the click event if the element isn't disabled.

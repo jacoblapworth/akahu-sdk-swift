@@ -18,7 +18,7 @@
 
 .#{$ns}-actions-layout {
 	.#{$ns}-actions--primary {
-		padding-left: $xui-s-small;
+		margin-left: $xui-s-small;
 	}
 }
 
@@ -27,13 +27,13 @@
 		flex-direction: column;
 
 		.#{$ns}-actions--primary {
+			margin: 0;
 			order: 0;
-			padding: 0;
 		}
 
 		.#{$ns}-actions--secondary {
+			margin: $xui-s-standard 0 0;
 			order: 1;
-			padding: $xui-s-standard 0 0;
 		}
 	}
 }

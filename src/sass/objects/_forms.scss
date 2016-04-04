@@ -32,9 +32,6 @@
 	}
 
 	&:hover {
-		// TODO: I don't like how we specify this directly instead of an alias.
-		//       Either we decide on some hover colours, or have a scheme where
-		//       hover colours are some percentage darker than a base colour.
 		border-color: $xui-color-grey-3;
 	}
 

@@ -24,9 +24,9 @@
     "classnames": "^2.1.0",
     "react": "~0.14.2",
     "xui-base-component": "git@github.dev.xero.com:ReactLabs/xui-base-component.git#^2.1.0",
-    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.5.0"
+    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.8.2"
   },
   "devDependencies": {
-    "xui": "git@github.dev.xero.com:UXE/xui.git#^9.0.0"
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^9.10.1"
   }
 }

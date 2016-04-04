@@ -20,6 +20,6 @@
     "pre-commit.sh"
   ],
   "dependencies": {
-    "colors": "git@github.dev.xero.com:UXE/colors.git#^2.0.1"
+    "colors": "git@github.dev.xero.com:UXE/colors.git#^2.2.0"
   }
 }

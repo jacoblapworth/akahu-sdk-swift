@@ -11,7 +11,7 @@
 $xui-button-variants: (
 	main : $xui-color-xero-blue-divider,
 	create : $xui-color-xero-green-divider,
-	negative : mix(rgba($xui-color-xero-red, 0.35), $xui-color-white) // TODO: Import this into colours project
+	negative : $xui-color-xero-red-divider
 );
 
 @mixin xui-button-grouped {

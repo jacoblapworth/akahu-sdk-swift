@@ -37,11 +37,11 @@
 //			<tbody>
 //				<tr role="row">
 //					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">27</td>
-//					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">28</td>
+//					<td class="xui-datepicker--day xui-datepicker--othermonth xui-datepicker--day-is-selected" role="gridcell" aria-disabled="true">28</td>
 //					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">29</td>
 //					<td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">30</td>
 //					<td id="day1" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">1</td>
-//					<td id="day2" class="xui-datepicker--day xui-datepicker--day-is-selected" role="gridcell" aria-selected="true" tabindex="-1">2</td>
+//					<td id="day2" class="xui-datepicker--day" role="gridcell" aria-selected="true" tabindex="-1">2</td>
 //					<td id="day3" class="xui-datepicker--day" role="gridcell" tabindex="-1">3</td>
 //				</tr>
 //				<tr role="row">
@@ -168,15 +168,6 @@
 	}
 }
 
-.#{$ns}-datepicker--day-is-selected {
-	background-color: $xui-color-xero-blue;
-	color: $xui-color-reversed-text;
-
-	&:hover {
-		background-color: $xui-color-xero-blue;
-	}
-}
-
 .#{$ns}-datepicker--weekday {
 	color: $xui-color-disabled-text;
 	font-size: 0.75em;
@@ -185,6 +176,15 @@
 
 .#{$ns}-datepicker--othermonth {
 	color: $xui-color-secondary-text;
+}
+
+.#{$ns}-datepicker--day-is-selected {
+	background-color: $xui-color-xero-blue;
+	color: $xui-color-reversed-text;
+
+	&:hover {
+		background-color: $xui-color-xero-blue;
+	}
 }
 
 .#{$ns}-datepicker--day-is-disabled {

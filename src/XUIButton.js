@@ -3,7 +3,12 @@ import Component from 'xui-base-component';
 import cn from 'classnames';
 
 import XUIClasses from 'xui-css-classes';
+
 const ButtonClasses = XUIClasses.Button;
+
+// general helpers
+const keys = Object.keys;
+const values = (x) => keys(x).map(k => x[k]);
 
 /**
  * String constants
@@ -12,10 +17,19 @@ const ButtonClasses = XUIClasses.Button;
  * @type {Object}
  */
 const CONSTANTS = {
-	BUTTON: 'button',
-	LINK: 'link',
-	A: 'a',
-	TYPE_SUBMIT: 'submit',
+	TYPES: {
+		BUTTON: 'button',
+		LINK: 'link'
+	},
+	ELEMENT_TYPES: {
+		BUTTON: 'button',
+		LINK: 'a'
+	},
+	BUTTON_TYPES: {
+		SUBMIT: 'submit',
+		BUTTON: 'button',
+		RESET: 'reset'
+	},
 	VARIANTS: {
 		'primary': ButtonClasses.MAIN,
 		'create': ButtonClasses.CREATE,
@@ -42,16 +56,16 @@ const propTypes = {
 	},
 
 	/** @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button */
-	variant: PropTypes.string,
+	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
 
 	/** @property {string} [size='default'] size Modifier for the size of the button. `small`, or `full-width`. Else ignored */
-	size: PropTypes.string,
+	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
 
 	/** @property {string} [type='button'] type The HTML type of this button. `button`, or `link`. Defaults to `button` */
-	type: PropTypes.oneOf([CONSTANTS.BUTTON, CONSTANTS.LINK]),
+	type: PropTypes.oneOf(values(CONSTANTS.TYPES)),
 
 	/** @property {string} [buttonType='submit'] type The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
-	buttonType: PropTypes.oneOf(['submit', 'button', 'reset']),
+	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
 
 	/** @property {string} [className] Any extra modifier classes you want on the button */
 	className: PropTypes.string,
@@ -79,7 +93,7 @@ const propTypes = {
  * @public
  */
 const defaultProps = {
-	buttonType: CONSTANTS.TYPE_SUBMIT,
+	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
 	isGrouped: false,
 	isDisabled: false,
 	tabIndex: 0,
@@ -188,8 +202,8 @@ export default class XUIButton extends Component {
 	render() {
 		const button = this;
 		const props = button.props;
-		const isLink = props.type === CONSTANTS.LINK;
-		const ElementType = isLink ? CONSTANTS.A : CONSTANTS.BUTTON;
+		const isLink = props.type === CONSTANTS.TYPES.LINK;
+		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
 
 		const classNames = cn(
 			ButtonClasses.BASE,

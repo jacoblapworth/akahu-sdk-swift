@@ -97,12 +97,15 @@
 
 .#{$ns}-banner {
 	@include xui-clearfix;
+	align-items: center;
 	background: transparentize($xui-color-white, 0.1);
 	border: $xui-border-standard;
 	border-left: 4px solid $xui-color-xero-blue;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-1;
 	color: $xui-color-primary-text;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .#{$ns}-banner-layout {
@@ -110,10 +113,6 @@
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-margin-vertical($xui-s-large);
 	@include xui-margin-horizontal(auto);
-
-	.#{$ns}-banner--message {
-		max-width: calc(100% - 40px);
-	}
 
 	.#{$ns}-banner--messagedetail {
 		margin-top: $xui-s-small;
@@ -129,19 +128,18 @@
 }
 
 .#{$ns}-banner--message {
-	float: left;
+	flex: 1;
 	margin: 0;
 }
 
 .#{$ns}-banner--messagedetail {
 	clear: both;
 	color: $xui-color-secondary-text;
-	float: left;
 	margin: 0;
+	width: 100%;
 }
 
 .#{$ns}-banner--action {
-	float: right;
 	margin: 0;
 	padding: 0;
 }

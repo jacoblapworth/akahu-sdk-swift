@@ -1,4 +1,5 @@
 @import "../vars";
+
 // Avatars
 //
 // Avatars can be either an image or text.
@@ -34,6 +35,7 @@
 // <abbr class="xui-avatar xui-avatar-color-10" role="presentation">10</abbr>
 //
 // Styleguide: Avatars
+
 .#{$ns}-avatar {
 	align-items: center;
 	border-radius: 50%;

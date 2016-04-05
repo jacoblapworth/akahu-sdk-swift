@@ -12,6 +12,7 @@
 html {
 	box-sizing: border-box;
 	font-size: 16px; // Explicitly set font-size for rems.
+	-webkit-text-size-adjust: 100%; // Prevent font size adjustments from orientation changes in iOS
 }
 
 // Generally we don't use * selectors, however as this is a CSS WG

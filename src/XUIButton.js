@@ -8,7 +8,7 @@ const ButtonClasses = XUIClasses.Button;
 
 // general helpers
 const keys = Object.keys;
-const values = (x) => keys(x).map(k => x[k]);
+const values = x => keys(x).map(k => x[k]);
 
 /**
  * String constants
@@ -108,7 +108,7 @@ const defaultProps = {
  * @param {string} variant - The button variant
  * @return {string} The variant specific classname
  */
-const getVariantClass = (variant) => CONSTANTS.VARIANTS[variant];
+const getVariantClass = variant => CONSTANTS.VARIANTS[variant];
 
 /**
  * Returns a classname for the button depending on it's disabled state
@@ -117,7 +117,7 @@ const getVariantClass = (variant) => CONSTANTS.VARIANTS[variant];
  * @param {boolean} isDisabled - Whether or not the button is disabled
  * @return {string} The disabled state specific classname
  */
-const getDisabledClass = (isDisabled) => isDisabled ? ButtonClasses.IS_DISABLED : null;
+const getDisabledClass = isDisabled => isDisabled ? ButtonClasses.IS_DISABLED : null;
 
 /**
  * Returns a class name for the button depending on the button sizing string given. Will return
@@ -127,7 +127,7 @@ const getDisabledClass = (isDisabled) => isDisabled ? ButtonClasses.IS_DISABLED 
  * @param {string} size - The button size
  * @return {string} The size specific class name
  */
-const getSizeClass = (size) => CONSTANTS.SIZES[size];
+const getSizeClass = size => CONSTANTS.SIZES[size];
 
 /**
  * Returns a class name for the button depending on if it has been set to belong to a group
@@ -136,7 +136,7 @@ const getSizeClass = (size) => CONSTANTS.SIZES[size];
  * @param {boolean} isGrouped - Whether or not the button belongs to a group
  * @return {string} The grouped state specific class name
  */
-const getGroupClass = (isGrouped) => isGrouped ? ButtonClasses.GROUPED : null;
+const getGroupClass = isGrouped => isGrouped ? ButtonClasses.GROUPED : null;
 
 /**
  * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
@@ -145,7 +145,7 @@ const getGroupClass = (isGrouped) => isGrouped ? ButtonClasses.GROUPED : null;
  * @param {string} href - A given link's href
  * @return {string} The href that will be assigned to a link
  */
-const getHref = (href) => (!href || href === '#') ? 'javascript:void(0)' : href;
+const getHref = href => (!href || href === '#') ? 'javascript:void(0)' : href;
 
 /**
  * KeyPress handler which will dispatch a click event when the space bar is pressed.

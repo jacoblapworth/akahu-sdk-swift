@@ -1,9 +1,7 @@
 {
   "name": "xui-button",
   "description": "A button. That clicks",
-  "main": [
-    "index.js"
-  ],
+  "main": "index.js",
   "private": true,
   "ignore": [
     "**/.*",

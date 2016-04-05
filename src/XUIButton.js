@@ -15,7 +15,16 @@ const CONSTANTS = {
 	BUTTON: 'button',
 	LINK: 'link',
 	A: 'a',
-	TYPE_SUBMIT: 'submit'
+	TYPE_SUBMIT: 'submit',
+	VARIANTS: {
+		'primary': ButtonClasses.MAIN,
+		'create': ButtonClasses.CREATE,
+		'negative': ButtonClasses.NEGATIVE
+	},
+	SIZES: {
+		'small': ButtonClasses.SMALL,
+		'full-width': ButtonClasses.FULL_WIDTH
+	}
 };
 
 const propTypes = {
@@ -85,14 +94,7 @@ const defaultProps = {
  * @param {string} variant - The button variant
  * @return {string} The variant specific classname
  */
-function getVariantClass(variant) {
-	const variants = {
-		'primary': ButtonClasses.MAIN,
-		'create': ButtonClasses.CREATE,
-		'negative': ButtonClasses.NEGATIVE
-	};
-	return variants[variant];
-}
+const getVariantClass = (variant) => CONSTANTS.VARIANTS[variant];
 
 /**
  * Returns a classname for the button depending on it's disabled state
@@ -101,9 +103,7 @@ function getVariantClass(variant) {
  * @param {boolean} isDisabled - Whether or not the button is disabled
  * @return {string} The disabled state specific classname
  */
-function getDisabledClass(isDisabled) {
-	return isDisabled ? ButtonClasses.IS_DISABLED : null;
-}
+const getDisabledClass = (isDisabled) => isDisabled ? ButtonClasses.IS_DISABLED : null;
 
 /**
  * Returns a class name for the button depending on the button sizing string given. Will return
@@ -113,13 +113,7 @@ function getDisabledClass(isDisabled) {
  * @param {string} size - The button size
  * @return {string} The size specific class name
  */
-function getSizeClass(size) {
-	const sizes = {
-		'small': ButtonClasses.SMALL,
-		'full-width': ButtonClasses.FULL_WIDTH
-	};
-	return sizes[size];
-}
+const getSizeClass = (size) => CONSTANTS.SIZES[size];
 
 /**
  * Returns a class name for the button depending on if it has been set to belong to a group
@@ -128,9 +122,7 @@ function getSizeClass(size) {
  * @param {boolean} isGrouped - Whether or not the button belongs to a group
  * @return {string} The grouped state specific class name
  */
-function getGroupClass(isGrouped) {
-	return isGrouped ? ButtonClasses.GROUPED : null;
-}
+const getGroupClass = (isGrouped) => isGrouped ? ButtonClasses.GROUPED : null;
 
 /**
  * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
@@ -139,9 +131,7 @@ function getGroupClass(isGrouped) {
  * @param {string} href - A given link's href
  * @return {string} The href that will be assigned to a link
  */
-function getHref(href) {
-	return (!href || href === '#') ? 'javascript:void(0)' : href;
-}
+const getHref = (href) => (!href || href === '#') ? 'javascript:void(0)' : href;
 
 /**
  * KeyPress handler which will dispatch a click event when the space bar is pressed.

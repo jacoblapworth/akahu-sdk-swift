@@ -3,7 +3,12 @@ import Component from 'xui-base-component';
 import cn from 'classnames';
 
 import XUIClasses from 'xui-css-classes';
+
 const ButtonClasses = XUIClasses.Button;
+
+// general helpers
+const keys = Object.keys;
+const values = x => keys(x).map(k => x[k]);
 
 /**
  * String constants
@@ -12,10 +17,28 @@ const ButtonClasses = XUIClasses.Button;
  * @type {Object}
  */
 const CONSTANTS = {
-	BUTTON: 'button',
-	LINK: 'link',
-	A: 'a',
-	TYPE_SUBMIT: 'submit'
+	TYPES: {
+		BUTTON: 'button',
+		LINK: 'link'
+	},
+	ELEMENT_TYPES: {
+		BUTTON: 'button',
+		LINK: 'a'
+	},
+	BUTTON_TYPES: {
+		SUBMIT: 'submit',
+		BUTTON: 'button',
+		RESET: 'reset'
+	},
+	VARIANTS: {
+		'primary': ButtonClasses.MAIN,
+		'create': ButtonClasses.CREATE,
+		'negative': ButtonClasses.NEGATIVE
+	},
+	SIZES: {
+		'small': ButtonClasses.SMALL,
+		'full-width': ButtonClasses.FULL_WIDTH
+	}
 };
 
 const propTypes = {
@@ -32,17 +55,17 @@ const propTypes = {
 		}
 	},
 
-	/** @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, or `create`. If nothing is provided then it is a default button */
-	variant: PropTypes.string,
+	/** @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button */
+	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
 
 	/** @property {string} [size='default'] size Modifier for the size of the button. `small`, or `full-width`. Else ignored */
-	size: PropTypes.string,
+	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
 
 	/** @property {string} [type='button'] type The HTML type of this button. `button`, or `link`. Defaults to `button` */
-	type: PropTypes.oneOf([CONSTANTS.BUTTON, CONSTANTS.LINK]),
+	type: PropTypes.oneOf(values(CONSTANTS.TYPES)),
 
 	/** @property {string} [buttonType='submit'] type The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
-	buttonType: PropTypes.oneOf(['submit', 'button', 'reset']),
+	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
 
 	/** @property {string} [className] Any extra modifier classes you want on the button */
 	className: PropTypes.string,
@@ -70,7 +93,7 @@ const propTypes = {
  * @public
  */
 const defaultProps = {
-	buttonType: CONSTANTS.TYPE_SUBMIT,
+	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
 	isGrouped: false,
 	isDisabled: false,
 	tabIndex: 0,
@@ -85,14 +108,7 @@ const defaultProps = {
  * @param {string} variant - The button variant
  * @return {string} The variant specific classname
  */
-function getVariantClass(variant) {
-	switch (variant) {
-		case 'primary':
-			return ButtonClasses.MAIN;
-		case 'create':
-			return ButtonClasses.CREATE;
-	}
-}
+const getVariantClass = variant => CONSTANTS.VARIANTS[variant];
 
 /**
  * Returns a classname for the button depending on it's disabled state
@@ -101,9 +117,7 @@ function getVariantClass(variant) {
  * @param {boolean} isDisabled - Whether or not the button is disabled
  * @return {string} The disabled state specific classname
  */
-function getDisabledClass(isDisabled) {
-	return isDisabled ? ButtonClasses.IS_DISABLED : null;
-}
+const getDisabledClass = isDisabled => isDisabled ? ButtonClasses.IS_DISABLED : null;
 
 /**
  * Returns a class name for the button depending on the button sizing string given. Will return
@@ -113,14 +127,7 @@ function getDisabledClass(isDisabled) {
  * @param {string} size - The button size
  * @return {string} The size specific class name
  */
-function getSizeClass(size) {
-	switch (size) {
-		case 'small':
-			return ButtonClasses.SMALL;
-		case 'full-width':
-			return XUIClasses.Utility.FULL_WIDTH;
-	}
-}
+const getSizeClass = size => CONSTANTS.SIZES[size];
 
 /**
  * Returns a class name for the button depending on if it has been set to belong to a group
@@ -129,9 +136,7 @@ function getSizeClass(size) {
  * @param {boolean} isGrouped - Whether or not the button belongs to a group
  * @return {string} The grouped state specific class name
  */
-function getGroupClass(isGrouped) {
-	return isGrouped ? ButtonClasses.GROUPED : null;
-}
+const getGroupClass = isGrouped => isGrouped ? ButtonClasses.GROUPED : null;
 
 /**
  * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
@@ -140,9 +145,7 @@ function getGroupClass(isGrouped) {
  * @param {string} href - A given link's href
  * @return {string} The href that will be assigned to a link
  */
-function getHref(href) {
-	return (!href || href === '#') ? 'javascript:void(0)' : href;
-}
+const getHref = href => (!href || href === '#') ? 'javascript:void(0)' : href;
 
 /**
  * KeyPress handler which will dispatch a click event when the space bar is pressed.
@@ -199,16 +202,16 @@ export default class XUIButton extends Component {
 	render() {
 		const button = this;
 		const props = button.props;
-		const isLink = props.type === CONSTANTS.LINK;
-		const ElementType = isLink ? CONSTANTS.A : CONSTANTS.BUTTON;
+		const isLink = props.type === CONSTANTS.TYPES.LINK;
+		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
 
 		const classNames = cn(
-				ButtonClasses.BASE,
-				props.className,
-				getVariantClass(props.variant),
-				getDisabledClass(props.isDisabled),
-				getSizeClass(props.size),
-				getGroupClass(props.isGrouped)
+			ButtonClasses.BASE,
+			props.className,
+			getVariantClass(props.variant),
+			getDisabledClass(props.isDisabled),
+			getSizeClass(props.size),
+			getGroupClass(props.isGrouped)
 		);
 
 		// Only call the click event if the element isn't disabled.

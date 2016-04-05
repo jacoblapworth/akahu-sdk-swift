@@ -22,7 +22,7 @@ Currently compatible with XUI version 9.x
 
 `onClick`: (Function, Required) Bind a function to fire when the button is clicked
 
-`variant`: (String, Optional) Determines what the purpose of this button is. `primary`, or `create`. If nothing is provided then it is a default button
+`variant`: (String, Optional) Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button
 
 `size`: (String, Optional) Modifier for the size of the button. `small`, or `full-width`. Else ignored
 

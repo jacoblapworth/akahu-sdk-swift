@@ -1,9 +1,7 @@
 {
   "name": "xui-button",
   "description": "A button. That clicks",
-  "main": [
-    "index.js"
-  ],
+  "main": "index.js",
   "private": true,
   "ignore": [
     "**/.*",
@@ -27,6 +25,6 @@
     "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.5.0"
   },
   "devDependencies": {
-    "xui": "git@github.dev.xero.com:UXE/xui.git#^9.0.0"
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^9.6.0"
   }
 }

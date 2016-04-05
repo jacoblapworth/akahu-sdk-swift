@@ -5,25 +5,29 @@ import ReactDOM from 'react-dom';
 import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 
 (function() {
-	var clickHandler = function() {
+	const clickHandler = function() {
 		alert('I was clicked'); //eslint-disable-line no-alert
 	};
 
-	ReactDOM.render(<div>
+	const examples = (
+		<div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler}>Default button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant='primary'>Primary button</XUIButton>
+				<XUIButton onClick={clickHandler} variant="primary">Primary button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant='create'>Create button</XUIButton>
+				<XUIButton onClick={clickHandler} variant="create">Create button</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton onClick={clickHandler} variant="negative">Negative button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} isDisabled={true}>Disabled button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-			<XUIButton onClick={clickHandler} variant='create'>A dropdown button<XUIButtonCaret /></XUIButton>
+			<XUIButton onClick={clickHandler} variant="create">A dropdown button<XUIButtonCaret /></XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButtonGroup>
@@ -36,41 +40,46 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 				<XUIButton onClick={clickHandler}>Click me for an alert</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} size='small'>Small button</XUIButton>
+				<XUIButton onClick={clickHandler} size="small">Small button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} size='full-width'>Full width button</XUIButton>
+				<XUIButton onClick={clickHandler} size="full-width">Full width button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} type='link'>Simple anchor tag with no href</XUIButton>
+				<XUIButton onClick={clickHandler} type="link">Simple anchor tag with no href</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton onClick={clickHandler} type="link" variant="negative">Simple negative anchor tag with no href</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
-					type='link'
-					href='http://go.xero.com'>Simple anchor tag with href</XUIButton>
+					type="link"
+					href="http://go.xero.com">Simple anchor tag with href</XUIButton>
 			</div>
 		<div className="testButtonContainer">
 			<XUIButton
-				type='link'
+				type="link"
 				isDisabled={true}
-				href='http://go.xero.com'>Disabled link button</XUIButton>
+				href="http://go.xero.com">Disabled link button</XUIButton>
 		</div>
 			<div className="testButtonContainer">
 				<XUIButton
-						type='link'
-						href='http://go.xero.com'
-						target='_blank'>Anchor tag with `_blank` target</XUIButton>
+					type="link"
+					href="http://go.xero.com"
+					target="_blank">Anchor tag with `_blank` target</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
 					onClick={clickHandler}
-					className='fun-times'>Button with non-XUI modifier class</XUIButton>
+					className="fun-times">Button with non-XUI modifier class</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton
 					onClick={clickHandler}
-					qaHook='buttonQAHook'>Button with a QA hook class</XUIButton>
+					qaHook="buttonQAHook">Button with a QA hook class</XUIButton>
 			</div>
-		</div>, document.getElementById('app')
+		</div>
 	);
+
+	ReactDOM.render(examples, document.getElementById('app'));
 })();

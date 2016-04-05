@@ -11,6 +11,7 @@
 	pointer-events: none;
 }
 
+.#{$ns}-button[disabled],
 .#{$ns}-button-is-disabled {
 	@include xui-button-is-disabled;
 

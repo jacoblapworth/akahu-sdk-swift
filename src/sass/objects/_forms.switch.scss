@@ -5,28 +5,38 @@
 //
 // UI Switches
 //
-// The state of the switch reflects the checked attribute of the underlying input
+// The state of the switch reflects the checked attribute of the underlying input.
 //
-// When the input is `disabled`, you should use the global `xui-is-disabled` class on the `.xui-switch` element
+// When the input is `disabled`, you should use the global `.xui-is-disabled` class on the `.xui-switch` element.
 //
-//	Markup:
-//	<label class="xui-switch">
-//		<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox">
-//		<span class="xui-switch--control"></span>
-//	</label>
-//	<label class="xui-switch">
-//		<input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
-//		<span class="xui-switch--control"></span>
-//	</label>
-//	<label class="xui-switch xui-is-disabled">
-//		<input type="checkbox" disabled checked class="xui-u-hidden-visually xui-switch--checkbox">
-//		<span class="xui-switch--control"></span>
-//	</label>
+// Use the `.xui-switch--labeltext` class on an extra `<span>` inside the `<label>` element to include a label for the switch.
+//
+//  Markup:
+// <label class="xui-switch">
+//   <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox">
+//   <span class="xui-switch--control"></span>
+//   <span class="xui-switch--labeltext">Switch off</span>
+// </label>
+// <label class="xui-switch">
+//   <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
+//   <span class="xui-switch--control"></span>
+//   <span class="xui-switch--labeltext">Switch on</span>
+// </label>
+// <label class="xui-switch xui-is-disabled">
+//   <input type="checkbox" disabled checked class="xui-u-hidden-visually xui-switch--checkbox">
+//   <span class="xui-switch--control"></span>
+//   <span class="xui-switch--labeltext">Switch disabled</span>
+// </label>
+// <label class="xui-switch">
+//   <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
+//   <span class="xui-switch--control"></span>
+// </label>
 //
 // Styleguide: Forms.7
 
 .#{$ns}-switch {
 	display: inline-block;
+	vertical-align: top;
 
 	&.#{$ns}-is-disabled {
 		// Disabled due to iOS - no cursor, but we still want this for desktop clients
@@ -36,16 +46,23 @@
 	}
 }
 
+.#{$ns}-switch--labeltext {
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
 .#{$ns}-switch--control {
 	background-color: $xui-color-disabled-text;
 	border: 1px solid $xui-color-disabled-text;
 	border-radius: 40px;
 	cursor: pointer;
-	display: block;
+	display: inline-block;
 	height: 26px;
 	position: relative;
 	transition: all $xui-transition-duration-short $xui-easing-standard;
 	user-select: none;
+	vertical-align: middle;
 	width: 50px;
 
 	&::before {
@@ -53,7 +70,7 @@
 		border: 1px solid $xui-color-white;
 		border-radius: 50%;
 		content: " ";
-		display: block;
+		display: inline-block;
 		height: 22px;
 		position: absolute;
 		top: 1px;

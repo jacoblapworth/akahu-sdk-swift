@@ -32,7 +32,7 @@ const propTypes = {
 		}
 	},
 
-	/** @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, or `create`. If nothing is provided then it is a default button */
+	/** @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button */
 	variant: PropTypes.string,
 
 	/** @property {string} [size='default'] size Modifier for the size of the button. `small`, or `full-width`. Else ignored */

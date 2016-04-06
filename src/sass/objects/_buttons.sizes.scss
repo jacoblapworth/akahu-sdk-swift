@@ -12,6 +12,13 @@ $xui-button-sizes: (
   small : (line-height: 1, min-width: 60px, padding: 0.5em 1em)
 );
 
+.#{$ns}-button-fullwidth-layout {
+	@include xui-breakpoint-narrow {
+		display: block;
+		width: 100%;
+	}
+}
+
 // Smaller
 //
 // Button to use when creating smaller more compact things.
@@ -39,9 +46,16 @@ $xui-button-sizes: (
 //
 // Sometimes used when there is a single action.
 //
-// **On smaller screen widths**: Buttons are set to automatically flow to block, width 100% when under the small breakpoint
-//
 // Markup:
 // <button type="button" class="xui-button xui-button-main xui-u-fullwidth">Big Button</button>
 //
-// Styleguide: Buttons.3.2
+// Styleguide: Buttons.3.2.1
+
+// Full-width for mobile devices
+//
+// Used for creating full-width buttons for narow breakpoints.
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-main xui-button-fullwidth-layout">Mobile Button</button>
+//
+// Styleguide: Buttons.3.2.2

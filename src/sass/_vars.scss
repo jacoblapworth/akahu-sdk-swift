@@ -1,8 +1,9 @@
+@import "colors/colors";
+
 @import "settings/animation";
 @import "settings/layout";
 @import "settings/structure";
 @import "settings/typography";
-@import "colors/colors";
 
 $ns: "xui" !default;
 $xui-images-path: "./images" !default;

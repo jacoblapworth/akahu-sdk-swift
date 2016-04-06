@@ -51,10 +51,22 @@
 
 // Flex
 //
-// Classes that can be added to any container to add a flexible layout. These can be combined
-// to create a flexible multi-column layout.
+// Flex classes can be used to create flexible mutli-column layouts.
+//
+// - The `.xui-u-flex` class should be applied to the parent container to enable flexible multi-column layouts
+// - The `.xui-u-flex-row` class can be applied to the parent container to vertically align all children at the center
+// (this is useful for cases when the children have different heights, e.g. panel headings and buttons)
+// - The `.xui-u-flex-col` class should be applied to children to create flexible columns
+// - The `.xui-u-flex-grow` class can be applied to children to fill the remaining horizontal space of the parent container
 //
 // Markup:
+// <div class="xui-panel">
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">Panel Header</h3>
+//     <button type="button" class="xui-button xui-button-standard xui-u-flex-col">Button</button>
+//   </header>
+// </div>
+// <br />
 // <div class="xui-u-flex">
 //   <div class="xui-panel xui-u-flex-col">
 //     <div class="xui-panel--header">Header</div>
@@ -77,6 +89,10 @@
 
 .#{$ns}-u-flex {
 	display: flex;
+}
+
+.#{$ns}-u-flex-row {
+	align-items: center;
 }
 
 .#{$ns}-u-spacebetween {

@@ -17,8 +17,9 @@
 //
 // Markup:
 // <div class="xui-panel">
-//   <header class="xui-panel--header">
-//     <h3 class="xui-panel--heading xui-text-panelheading xui-padding">57 bills don't have files added</h3>
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">57 bills don't have files added</h3>
+//     <button type="button" class="xui-button xui-button-standard xui-u-flex-col">Button</button>
 //   </header>
 //   <table class="xui-panel--section xui-contentblock">
 //     <thead>
@@ -55,8 +56,12 @@
 //
 //  Markup:
 // <div class="xui-panel">
-//   <header class="xui-panel--header">
-//     <h3 class="xui-panel--heading xui-text-panelheading xui-padding">Needs your attention</h3>
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">Needs your attention</h3>
+//     <label class="xui-switch xui-u-flex-col">
+//       <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
+//       <span class="xui-switch--control"></span>
+//     </label>
 //   </header>
 //   <section>
 //     <header class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Due this week</header>
@@ -139,8 +144,8 @@
 //
 // Markup:
 // <div class="xui-panel">
-//   <div class="xui-panel--header">
-//     <header class="xui-panel--heading xui-text-panelheading xui-padding">Basic Information</header>
+//   <div class="xui-panel--header xui-padding">
+//     <header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //   </div>
 //   <section class="xui-panel--section xui-padding-lg">
 //     <p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
@@ -173,8 +178,8 @@
 //
 // Markup:
 // <div class="xui-panel">
-//   <div class="xui-panel--header">
-//     <header class="xui-panel--heading xui-text-panelheading xui-padding">Current Step</header>
+//   <div class="xui-panel--header xui-padding">
+//     <header class="xui-panel--heading xui-text-panelheading">Current Step</header>
 //   </div>
 //   <div class="xui-panel--section xui-padding-lg">
 //     <form class="xui-form">
@@ -220,8 +225,8 @@
 //     </div>
 //   </div>
 //   <div class="xui-u-flex-grow">
-//     <div class="xui-panel--header">
-//       <header class="xui-panel--heading xui-text-panelheading xui-padding">Basic Information</header>
+//     <div class="xui-panel--header xui-padding">
+//       <header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //     </div>
 //     <section class="xui-panel--section xui-padding-lg">
 //       <p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>

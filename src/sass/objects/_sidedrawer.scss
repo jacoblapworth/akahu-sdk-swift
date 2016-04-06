@@ -14,20 +14,20 @@
 //  * **`role="dialog"`** - Acts as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
 // Markup:
-//	<div class="xui-sidedrawer" role="complementary" aria-labelledby="drawer-header">
-//		<div class="xui-sidedrawer--header">
-//			<h3 id="drawer-header" class="xui-section-title">Header</h3>
-//		</div>
-//		<div class="xui-sidedrawer--content">
-//			Body content<br />
-//			Body content<br />
-//			Body content<br />
-//			Body content
-//		</div>
-//		<div class="xui-sidedrawer--footer">
-//			Footer content
-//		</div>
-//	</div>
+// <div class="xui-sidedrawer" role="complementary" aria-labelledby="drawer-header">
+//   <div class="xui-sidedrawer--header">
+//     <h3 id="drawer-header" class="xui-section-title">Header</h3>
+//   </div>
+//   <div class="xui-sidedrawer--content">
+//     Body content<br />
+//     Body content<br />
+//     Body content<br />
+//     Body content
+//   </div>
+//   <div class="xui-sidedrawer--footer">
+//     Footer content
+//   </div>
+// </div>
 //
 // Styleguide: Sidedrawer
 $xui-drawer-width: 350px;

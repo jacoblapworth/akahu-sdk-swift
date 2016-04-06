@@ -19,113 +19,113 @@
 //     <input type="checkbox" class="xui-sidebarsummary--control" id="everythingFilters" />
 //     <div class="xui-sidebarfilters-multiple">
 //       <ul class="xui-sidebarfilters">
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter1">Filter 1</a>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter2">
-//               <span class="xui-layout-column-8-of-9 xui-text-truncated">Some filter with some more content that actually doesn't fit the space</span>
-//               <span class="xui-layout-column-1-of-9 xui-text-secondary xui-text-rightaligned">10</span>
-//             </a>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter3">Another filter</a>
-//             <ul class="xui-sidebarfilters">
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">
-//                     <strong>Sub filters!</strong>
-//                   </span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//             </ul>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter4">Filter 4</a>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter5">Fifth Element</a>
-//           </li>
-//         </ul>
-//         <ul class="xui-sidebarfilters">
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter1">Filter 1</a>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter2">Some filter</a>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <label class="xui-sidebarfilter--body" for="navControl1">
-//               Click me I expand!
-//             </label>
-//             <input type="checkbox" class="xui-sidebarfilter--control" id="navControl1" />
-//             <ul class="xui-sidebarfilters">
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">
-//                     <strong>Sub filters!</strong>
-//                   </span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//               <li class="xui-sidebarfilter" aria-selected="false">
-//                 <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
-//                   <span class="xui-layout-column-1-of-10"></span>
-//                   <span class="xui-layout-column-9-of-10">Sub filters!</span>
-//                 </a>
-//               </li>
-//             </ul>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter4">Filter 4</a>
-//           </li>
-//           <li class="xui-sidebarfilter" aria-selected="false">
-//             <a class="xui-sidebarfilter--body" href="#Filter5">Fifth Element</a>
-//           </li>
-//        </ul>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter1">Filter 1</a>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter2">
+//             <span class="xui-layout-column-8-of-9 xui-text-truncated">Some filter with some more content that actually doesn't fit the space</span>
+//             <span class="xui-layout-column-1-of-9 xui-text-secondary xui-text-rightaligned">10</span>
+//           </a>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter3">Another filter</a>
+//           <ul class="xui-sidebarfilters">
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">
+//                   <strong>Sub filters!</strong>
+//                 </span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//           </ul>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter4">Filter 4</a>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter5">Fifth Element</a>
+//         </li>
+//       </ul>
+//       <ul class="xui-sidebarfilters">
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter1">Filter 1</a>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter2">Some filter</a>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <label class="xui-sidebarfilter--body" for="navControl1">
+//             Click me I expand!
+//           </label>
+//           <input type="checkbox" class="xui-sidebarfilter--control" id="navControl1" />
+//           <ul class="xui-sidebarfilters">
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">
+//                   <strong>Sub filters!</strong>
+//                 </span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//             <li class="xui-sidebarfilter" aria-selected="false">
+//               <a class="xui-sidebarfilter--body xui-grid" href="#Filter1">
+//                 <span class="xui-layout-column-1-of-10"></span>
+//                 <span class="xui-layout-column-9-of-10">Sub filters!</span>
+//               </a>
+//             </li>
+//           </ul>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter4">Filter 4</a>
+//         </li>
+//         <li class="xui-sidebarfilter" aria-selected="false">
+//           <a class="xui-sidebarfilter--body" href="#Filter5">Fifth Element</a>
+//         </li>
+//       </ul>
 //     </div>
 //   </div>
 //   <div class="xui-panel xui-page-layout-sidebar-left--main">

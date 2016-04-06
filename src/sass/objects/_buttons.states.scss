@@ -11,6 +11,7 @@
 	pointer-events: none;
 }
 
+// We provide both disabled attribute selector for button elements and a custom class for links
 .#{$ns}-button[disabled],
 .#{$ns}-button-is-disabled {
 	@include xui-button-is-disabled;
@@ -37,7 +38,8 @@
 // These buttons invert to a greyscale colour
 //
 // Markup:
-// <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled {{modifier_class}}">Text</button>
+// <button type="button" disabled class="xui-button xui-button-standard">Text</button>
+// <a href="https://go.xero.com" class="xui-button xui-button-standard xui-button-is-disabled">Text</a>
 //
 // Styleguide: Buttons.4.1
 
@@ -46,8 +48,11 @@
 // Button variants receive the same treatment when disabled and should invert to a greyscale colour when in this state
 //
 // Markup:
-// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</button>
-// <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled {{modifier_class}}">Text</button>
-// <button type="button" disabled class="xui-button xui-button-negative xui-button-is-disabled {{modifier_class}}">Text</button>
+// <button type="button" disabled class="xui-button xui-button-main">Text</button>
+// <button type="button" disabled class="xui-button xui-button-create">Text</button>
+// <button type="button" disabled class="xui-button xui-button-negative">Text</button>
+// <a href="https://go.xero.com" class="xui-button xui-button-main xui-button-is-disabled">Text</a>
+// <a href="https://go.xero.com" class="xui-button xui-button-create xui-button-is-disabled">Text</a>
+// <a href="https://go.xero.com" class="xui-button xui-button-negative xui-button-is-disabled">Text</a>
 //
 // Styleguide: Buttons.4.2

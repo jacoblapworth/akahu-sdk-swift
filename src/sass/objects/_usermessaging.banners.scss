@@ -36,14 +36,14 @@
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
 // Markup:
-//<div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-error" role="alert">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <ul class="xui-banner--action">
-//      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
-//    </ul>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-error" role="alert">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--action">
+//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.100.2
 
@@ -52,14 +52,14 @@
 // Actions will be right aligned
 //
 // Markup:
-//<div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <ul class="xui-banner--action">
-//      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
-//    </ul>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--action">
+//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.100.3
 
@@ -68,12 +68,12 @@
 // Some banners are dismissible and styled with a right aligned close cross.
 //
 // Markup:
-//<div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <div class="xui-banner--action">
-//      <button class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">✕</button>
-//    </div>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <div class="xui-banner--action">
+//     <button class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">✕</button>
+//   </div>
+// </div>
 //
 // Styleguide: User Messaging.100.4
 
@@ -83,15 +83,15 @@
 // styled as left aligned secondary text.
 //
 // Markup:
-//<div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <div class="xui-banner--action">
-//      <button class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">✕</button>
-//    </div>
-//    <ul class="xui-banner--messagedetail">
-//        <li>We've got this request</li
-//    </ul>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <div class="xui-banner--action">
+//     <button class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">✕</button>
+//   </div>
+//   <ul class="xui-banner--messagedetail">
+//       <li>We've got this request</li
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.100.5
 

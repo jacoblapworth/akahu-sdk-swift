@@ -37,38 +37,38 @@
 //       tab section without having to undo existing section padding.
 //
 // Markup:
-//	<div class="xui-tabbednav" role="navigation" aria-label="Tertiary">
-//		<ul class="xui-tabgroup xui-tabgroup-layout">
-//			<li class="xui-tab">
-//				<a class="xui-tab--body" href="#default">Default</a>
-//			</li>
-//			<li class="xui-tab xui-tab-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_default">Selected Default</a>
-//			</li>
-//		</ul>
-//	</div>
-//	<br />
-//	<div class="xui-tabbednav" role="navigation" aria-label="Secondary">
-//		<ul class="xui-tabgroup xui-tabgroup-layout">
-//			<li class="xui-tab xui-tab-pageheading">
-//				<a class="xui-tab--body" href="#g-header">Page heading</a>
-//			</li>
-//			<li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
-//			</li>
-//		</ul>
-//	</div>
-//	<br />
-//	<div class="xui-tabbednav xui-pagenav" role="navigation" aria-label="Primary">
-//		<ul class="xui-tabgroup xui-tabgroup-layout">
-//			<li class="xui-tab xui-tab-pagenav">
-//				<a class="xui-tab--body" href="#g-header">Page nav</a>
-//			</li>
-//			<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
-//			</li>
-//		</ul>
-//	</div>
+// <div class="xui-tabbednav" role="navigation" aria-label="Tertiary">
+//   <ul class="xui-tabgroup xui-tabgroup-layout">
+//     <li class="xui-tab">
+//       <a class="xui-tab--body" href="#default">Default</a>
+//     </li>
+//     <li class="xui-tab xui-tab-is-selected" aria-selected="true">
+//       <a class="xui-tab--body" href="#selected_default">Selected Default</a>
+//     </li>
+//   </ul>
+// </div>
+// <br />
+// <div class="xui-tabbednav" role="navigation" aria-label="Secondary">
+//   <ul class="xui-tabgroup xui-tabgroup-layout">
+//     <li class="xui-tab xui-tab-pageheading">
+//       <a class="xui-tab--body" href="#g-header">Page heading</a>
+//     </li>
+//     <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
+//       <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//     </li>
+//   </ul>
+// </div>
+// <br />
+// <div class="xui-tabbednav xui-pagenav" role="navigation" aria-label="Primary">
+//   <ul class="xui-tabgroup xui-tabgroup-layout">
+//     <li class="xui-tab xui-tab-pagenav">
+//       <a class="xui-tab--body" href="#g-header">Page nav</a>
+//     </li>
+//     <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
+//       <a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
+//     </li>
+//   </ul>
+// </div>
 //
 // Styleguide: Navigation.5.1
 .#{$ns}-tabbednav {
@@ -169,22 +169,22 @@ $xui-color-variations: (
 //       tab section without having to undo existing section padding.
 //
 // Markup:
-//	<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout" role="navigation" aria-label="Tertiary">
-//		<li class="xui-verticaltab">
-//			<a class="xui-verticaltab--body" href="#default">Default</a>
-//		</li>
-//		<li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
-//			<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
-//		</li>
-//		<li class="xui-verticaltab">
-//			<a class="xui-verticaltab--body" href="#other">Other</a>
-//		</li>
-//	</ul>
-//	<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-//		<li class="xui-verticaltab">
-//			<a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
-//		</li>
-//	</ul>
+// <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout" role="navigation" aria-label="Tertiary">
+//   <li class="xui-verticaltab">
+//     <a class="xui-verticaltab--body" href="#default">Default</a>
+//   </li>
+//   <li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
+//     <a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
+//   </li>
+//   <li class="xui-verticaltab">
+//     <a class="xui-verticaltab--body" href="#other">Other</a>
+//   </li>
+// </ul>
+// <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+//   <li class="xui-verticaltab">
+//     <a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
+//   </li>
+// </ul>
 //
 // Styleguide: Navigation.5.2
 

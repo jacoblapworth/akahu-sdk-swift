@@ -16,89 +16,89 @@
 // The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
 //
 // Markup:
-//	<div class="xui-dropdownmenu" role="menubar" aria-label="dropdown menu">
-//		<div class="xui-dropdownmenu--body">
-//			<h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">Group Title</h3>
-//			<ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 1 label">
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<button class="xui-button xui-menuitem--body">
-//						Menu item 1
-//					</button>
-//				</li>
-//				<li class="xui-menuitem xui-menuitem-is-selected" role="menuitem" aria-selected="true">
-//					<button class="xui-button xui-menuitem--body">
-//						Menu item 2
-//					</button>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 3
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 4
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 5
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 6 with more text
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 7
-//					</label>
-//				</li>
-//			</ul>
-//			<ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 2 label">
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<a class="xui-menuitem--body" href="http://www.google.com">Link Menu Item 1</a>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 2
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
-//						Menu item 3
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
-//						Menu item 4
-//					</label>
-//				</li>
-//				<li class="xui-menuitem" role="menuitem" aria-selected="false">
-//					<label class="xui-menuitem--body">
-//						<input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
-//						Menu item 5
-//					</label>
-//				</li>
-//			</ul>
-//		</div>
-//		<footer class="xui-dropdownmenu--footer">
-//			<ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Footer menu label">
-//				<li class="xui-menuitem" role="menuitem">
-//					<button class="xui-button xui-menuitem--body">+ Some action</button>
-//				</li>
-//			</ul>
-//		</footer>
-//	</div>
+// <div class="xui-dropdownmenu" role="menubar" aria-label="dropdown menu">
+//   <div class="xui-dropdownmenu--body">
+//     <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">Group Title</h3>
+//     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 1 label">
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <button class="xui-button xui-menuitem--body">
+//           Menu item 1
+//         </button>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-is-selected" role="menuitem" aria-selected="true">
+//         <button class="xui-button xui-menuitem--body">
+//           Menu item 2
+//         </button>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 3
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 4
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 5
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 6 with more text
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 7
+//         </label>
+//       </li>
+//     </ul>
+//     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 2 label">
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <a class="xui-menuitem--body" href="http://www.google.com">Link Menu Item 1</a>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 2
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 3
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
+//           Menu item 4
+//         </label>
+//       </li>
+//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
+//           Menu item 5
+//         </label>
+//       </li>
+//     </ul>
+//   </div>
+//   <footer class="xui-dropdownmenu--footer">
+//     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Footer menu label">
+//       <li class="xui-menuitem" role="menuitem">
+//         <button class="xui-button xui-menuitem--body">+ Some action</button>
+//       </li>
+//     </ul>
+//   </footer>
+// </div>
 //
 // Styleguide: Dropdowns.1
 

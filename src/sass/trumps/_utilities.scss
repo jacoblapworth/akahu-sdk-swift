@@ -16,9 +16,9 @@
 // Implementation of rules here are based on the A11Y Project's [How to Hide Content](http://a11yproject.com/posts/how-to-hide-content/).
 //
 // Markup:
-//	<section class="xui-u-container xui-u-hidden">hidden</section>
-//	<section class="xui-u-container xui-u-hidden-visually">hidden visually</section>
-//	<section class="xui-u-container xui-u-hidden-mobile">hidden on mobile</section>
+//  <section class="xui-u-container xui-u-hidden">hidden</section>
+//  <section class="xui-u-container xui-u-hidden-visually">hidden visually</section>
+//  <section class="xui-u-container xui-u-hidden-mobile">hidden on mobile</section>
 //
 // Styleguide: Utilities.1
 // scss-lint:disable ImportantRule
@@ -55,23 +55,23 @@
 // to create a flexible multi-column layout.
 //
 // Markup:
-//	<div class="xui-u-flex">
-//		<div class="xui-panel xui-u-flex-col">
-//			<div class="xui-panel--header">Header</div>
-//			<div class="xui-panel--section">Content</div>
-//			<div class="xui-panel--footer">Footer</div>
-//		</div>
-//		<div class="xui-panel xui-u-flex-col xui-u-flex-grow">
-//			<div class="xui-panel--header">Header</div>
-//			<div class="xui-panel--section">Content</div>
-//			<div class="xui-panel--footer">Footer</div>
-//		</div>
-//		<div class="xui-panel xui-u-flex-col">
-//			<div class="xui-panel--header">Header</div>
-//			<div class="xui-panel--section">Content</div>
-//			<div class="xui-panel--footer">Footer</div>
-//		</div>
-//	</div>
+// <div class="xui-u-flex">
+//   <div class="xui-panel xui-u-flex-col">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+//   <div class="xui-panel xui-u-flex-col xui-u-flex-grow">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+//   <div class="xui-panel xui-u-flex-col">
+//     <div class="xui-panel--header">Header</div>
+//     <div class="xui-panel--section">Content</div>
+//     <div class="xui-panel--footer">Footer</div>
+//   </div>
+// </div>
 //
 // Styleguide: Utilities.2
 
@@ -102,9 +102,9 @@
 // Sometimes you want an element to have full width.
 //
 // Markup:
-//	<div>
-//		<span class="xui-button xui-button-standard xui-u-fullwidth">Wide</span>
-//	</div>
+// <div>
+//   <span class="xui-button xui-button-standard xui-u-fullwidth">Wide</span>
+// </div>
 //
 // Styleguide: Utilities.3
 
@@ -119,9 +119,9 @@
 // existing parent elements take care of those for you.
 //
 // Markup:
-//	<div class="handyParent">
-//		<div class="xui-dropdownmenu xui-u-position-inherit">...</div>
-//	</div>
+// <div class="handyParent">
+//   <div class="xui-dropdownmenu xui-u-position-inherit">...</div>
+// </div>
 //
 // Styleguide: Utilities.4
 // scss-lint:disable ImportantRule

@@ -10,13 +10,13 @@
 // in a consistent cross-browser manner.
 //
 // Markup:
-//	<div class="xui-selectwrapper">
-//		<select class="xui-select" id="group-button-example3">
-//			<option>Value 1</option>
-//			<option>Value 2</option>
-//			<option>Value 3</option>
-//		</select>
-//	</div>
+//  <div class="xui-selectwrapper">
+//    <select class="xui-select" id="group-button-example3">
+//      <option>Value 1</option>
+//      <option>Value 2</option>
+//      <option>Value 3</option>
+//    </select>
+//  </div>
 //
 // Styleguide: Forms.8
 
@@ -86,28 +86,28 @@ select.#{$ns}-select {
 //
 // Markup:
 // <div class="xui-field">
-//  <label class="xui-text-label">Custom</label>
-//  <div class="xui-select">
-//		<input type="hidden" value="Select option 1"/>
-//		<button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
-//			Select option 1
-//		</button>
-//		<div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
-//			<div class="xui-dropdownmenu--body">
-//				<ul class="xui-menugroup xui-menugroup-layout" role="menu">
-//					<li class="xui-menuitem xui-menuitem-is-selected" role="menuitem">
-//						<a href="#" class="xui-menuitem--body">Select option 1</a>
-//					</li>
-//					<li class="xui-menuitem" role="menuitem">
-//						<a href="#" class="xui-menuitem--body">Select option 2</a>
-//					</li>
-//					<li class="xui-menuitem" role="menuitem">
-//						<a href="#" class="xui-menuitem--body">Select option 3</a>
-//					</li>
-//				</ul>
-//			</div>
-//		</div>
-//  </div>
+//   <label class="xui-text-label">Custom</label>
+//   <div class="xui-select">
+//     <input type="hidden" value="Select option 1"/>
+//     <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
+//       Select option 1
+//     </button>
+//     <div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
+//       <div class="xui-dropdownmenu--body">
+//         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
+//           <li class="xui-menuitem xui-menuitem-is-selected" role="menuitem">
+//             <a href="#" class="xui-menuitem--body">Select option 1</a>
+//           </li>
+//           <li class="xui-menuitem" role="menuitem">
+//             <a href="#" class="xui-menuitem--body">Select option 2</a>
+//           </li>
+//           <li class="xui-menuitem" role="menuitem">
+//             <a href="#" class="xui-menuitem--body">Select option 3</a>
+//           </li>
+//         </ul>
+//       </div>
+//     </div>
+//   </div>
 // </div>
 //
 // Styleguide: Forms.9

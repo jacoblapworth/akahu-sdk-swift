@@ -32,6 +32,7 @@ form {
 	font-family: $xui-font-family;
 	font-size: $xui-font-size-text;
 	line-height: $xui-line-height;
+	overflow-y: scroll;
 }
 
 main {

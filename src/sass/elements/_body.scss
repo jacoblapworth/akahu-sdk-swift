@@ -2,8 +2,7 @@
  * Styles affecting the entire page.
  */
 
-@import "colors/colors";
-@import "../settings/typography";
+@import "../vars";
 @import "../mixins";
 
 html {

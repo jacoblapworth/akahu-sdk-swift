@@ -9,8 +9,10 @@
 // colour and letter with a particular entity. If two entities share the same name, the colour should
 // be different ([Sample solution](https://github.dev.xero.com/FutureRobot/avatar/blob/master/src/Avatar.js#L62)).
 //
-// There are 10 available background colors. These can be applied using the classes `xui-avatar-color-1` through
-// `xui-avatar-color-10`
+// There are 10 available background colors. These can be applied using the classes `.xui-avatar-color-1` through
+// `.xui-avatar-color-10`.
+//
+// Use the `.xui-u-flex` and `.xui-u-flex-row` utility classes to display additional elements alongside an avatar (e.g. descriptive text).
 //
 // Markup:
 // <h3>Small</h3>
@@ -33,6 +35,11 @@
 // <abbr class="xui-avatar xui-avatar-color-8" role="presentation">8</abbr>
 // <abbr class="xui-avatar xui-avatar-color-9" role="presentation">9</abbr>
 // <abbr class="xui-avatar xui-avatar-color-10" role="presentation">10</abbr>
+// <h3>Avatar with Descriptive Text</h3>
+// <div class="xui-u-flex xui-u-flex-row">
+//   <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+//   <span class="xui-margin-left-sm">Sue Denim</span>
+// </div>
 //
 // Styleguide: Avatars
 

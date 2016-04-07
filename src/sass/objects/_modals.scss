@@ -24,14 +24,14 @@
 //  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
 //
 // Markup:
-// <div class="xui-mask xui-modal-opened">
-//   <section class="xui-modal xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+// <div class="xui-mask xui-mask-is-active">
+//   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 //     <header class="xui-modal--header xui-padding-left-lg">
 //       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
 //       <button type="button" class="xui-button xui-button-icon xui-margin" title="Close" aria-label="Close">&#x2716</button>
 //     </header>
 //     <div class="xui-modal--body xui-padding-horizontal-lg">
-//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
+//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. Select which items from your bank should be automatically allocated to which account. </p>
 //       <form class="xui-form">
 //         <p class="xui-field">
 //           <select aria-describedby="modal-text" class="xui-select">
@@ -70,7 +70,7 @@
 	z-index: 10;
 }
 
-.#{$ns}-modal-opened {
+.#{$ns}-mask-is-active {
 	opacity: 1;
 	pointer-events: auto;
 }
@@ -79,9 +79,16 @@
 	background-color: $xui-color-panel;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-3;
+}
+
+.#{$ns}-modal-layout {
 	max-height: calc(100vh - 2.5rem); // Allows for minimum 20px margin at the top/bottom of modal
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
 	width: 360px;
+
+	.#{$ns}-modal--body {
+		max-height: 45vh;
+	}
 }
 
 .#{$ns}-modal-medium {
@@ -106,22 +113,7 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--body {
-	max-height: 45vh;
 	overflow-y: auto;
-
-	// Because of how padding is handled in the context of an overflow, we can't
-	// just add padding to the bottom of this container so that the content
-	// doesn't push up to the edge.  Instead, I have to add margins to the inside
-	// elements to push them away from the edges.
-	// See: https://bugzilla.mozilla.org/show_bug.cgi?id=748518
-
-	> *:first-child {
-		margin-top: 20px;
-	}
-
-	> *:last-child {
-		margin-bottom: 20px;
-	}
 }
 
 // Modal footer

@@ -6,7 +6,8 @@
 // ### Behaviour
 // * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
 // * The `.xui-mask` class sets `opacity: 0;` which hides the modal by default
-// * Apply the `.xui-modal-opened` class alongside `.xui-mask` when you wish to display the modal
+// * Apply the `.xui-mask-is-active` class alongside `.xui-mask` when you wish to display the modal
+// * Use the `.xui-modal-medium` or `.xui-modal-large` classes alongside `.xui-modal` for larger width variations
 // * Closing modals should be handled in the following ways:
 //   * Clicking on the cross in the modal should close the modal
 //   * Pressing ESC while the modal is open should close the modal

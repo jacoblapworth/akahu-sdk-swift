@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-beta.1/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-beta.2/xui.css"/>
 ```
 
 #### Sherlock
@@ -36,7 +36,7 @@ You will need to compile `xui.scss`.
 Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using
 xui-build-tools, use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
 CSS. Otherwise, to avoid having to include XUI's images with your own deployables, you can set the value to point at S3, e.g.
-`https://edge.xero.com/style/xui/10.0.0-beta.1/images`.
+`https://edge.xero.com/style/xui/10.0.0-beta.2/images`.
 
 
 What is XUI For?
@@ -64,7 +64,7 @@ Example Page Markup
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link href="https://edge.xero.com/platform/header/3.0.3/stylesheets/all.css" rel="stylesheet" />
-    <link href="https://edge.xero.com/style/xui/10.0.0-beta.1/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.0.0-beta.2/xui.min.css" rel="stylesheet" />
     <script src="https://edge.xero.com/platform/header/3.0.3/scripts/header.min.js"></script>
   </head>
   <body>

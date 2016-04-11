@@ -13,9 +13,10 @@
 	color: $color;
 	border-radius: $xui-radius;
 	font-weight: bold;
-	line-height: 33px; // 35 px total height with borders
+	// TODO: Remove line-height declaration once changes are made in other areas of XUI
+	line-height: $xui-line-height;
 	min-width: 80px;
-	padding: 0 10px;
+	padding: 8px 10px;
 	text-align: center;
 	text-decoration: none;
 }

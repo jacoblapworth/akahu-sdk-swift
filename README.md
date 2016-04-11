@@ -1,5 +1,4 @@
-XUI Switch ![](https://img.shields.io/badge/xui-^9.7.0-blue.svg) [![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_ReactLabsXuiSwitch)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_ReactLabsXuiSwitch)
-========
+XUI Switch ![](https://img.shields.io/badge/xui-^9.7.0-blue.svg) [![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_SharedReactComponents_UxeXuiSwitch)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_ReactLabsXuiSwitch)
 
 A React UI component designed to mimic the XUI Switch behaviour.
 

@@ -13,8 +13,7 @@
 	color: $color;
 	border-radius: $xui-radius;
 	font-weight: bold;
-	// TODO: Remove line-height declaration once changes are made in other areas of XUI
-	line-height: $xui-line-height;
+	line-height: $xui-line-height-button;
 	min-width: 80px;
 	padding: 8px 10px;
 	text-align: center;

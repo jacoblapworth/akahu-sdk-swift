@@ -41,8 +41,8 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 			</div>
 			<div className="testButtonContainer">
 				<XUIButtonGroup>
-					{['One', 'Two', 'Three'].map(x => (
-						<XUIButton onClick={clickHandler} isGrouped>Grouped Button {x}</XUIButton>
+					{['One', 'Two', 'Three'].map((x, key) => (
+						<XUIButton onClick={clickHandler} key={key}>Grouped Button {x}</XUIButton>
 					))}
 				</XUIButtonGroup>
 			</div>

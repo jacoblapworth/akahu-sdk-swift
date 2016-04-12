@@ -33,7 +33,8 @@ const CONSTANTS = {
 	VARIANTS: {
 		'primary': ButtonClasses.MAIN,
 		'create': ButtonClasses.CREATE,
-		'negative': ButtonClasses.NEGATIVE
+		'negative': ButtonClasses.NEGATIVE,
+		'unstyled': ButtonClasses.UNSTYLED
 	},
 	SIZES: {
 		'small': ButtonClasses.SMALL,

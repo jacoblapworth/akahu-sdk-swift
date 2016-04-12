@@ -13,27 +13,37 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 		<div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler}>Default button</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} isDisabled>Default button (disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="primary">Primary button</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="primary" isDisabled>Primary button (disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="create">Create button</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="create" isDisabled>Create button (disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="negative">Negative button</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="negative" isDisabled>Negative button (disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} isDisabled={true}>Disabled button</XUIButton>
+				<XUIButton onClick={clickHandler} variant="unstyled">Unstyled Button</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="unstyled" isDisabled>Unstyled Button (disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-			<XUIButton onClick={clickHandler} variant="create">A dropdown button<XUIButtonCaret /></XUIButton>
+				<XUIButton onClick={clickHandler} variant="create">A dropdown button<XUIButtonCaret /></XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButtonGroup>
-					<XUIButton onClick={clickHandler} isGrouped={true}>Grouped Button One</XUIButton>
-					<XUIButton onClick={clickHandler} isGrouped={true}>Grouped Button Two</XUIButton>
-					<XUIButton onClick={clickHandler} isGrouped={true}>Grouped Button Three</XUIButton>
+					{['One', 'Two', 'Three'].map((x, key) => (
+						<XUIButton onClick={clickHandler} key={key}>Grouped Button {x}</XUIButton>
+					))}
 				</XUIButtonGroup>
 			</div>
 			<div className="testButtonContainer">
@@ -59,7 +69,7 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 		<div className="testButtonContainer">
 			<XUIButton
 				type="link"
-				isDisabled={true}
+				isDisabled
 				href="http://go.xero.com">Disabled link button</XUIButton>
 		</div>
 			<div className="testButtonContainer">

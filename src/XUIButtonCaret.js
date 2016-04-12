@@ -1,6 +1,6 @@
 import React from 'react';
-import Component from 'xui-base-component';
 import XUIClasses from 'xui-css-classes';
+
 const ButtonClasses = XUIClasses.Button;
 
 const PropTypes = {
@@ -13,15 +13,11 @@ const DefaultProps = {
 	pureRender: true
 };
 
-export default class XUIButtonCaret extends Component {
-	render() {
-		const caretClass = this.props.isSelect ? 'xui-select--caret' : ButtonClasses.CARET;
+const XUIButtonCaret = ({ isSelect }) => (
+	<span className={isSelect ? 'xui-select--caret' : ButtonClasses.CARET}></span>
+);
 
-		return (
-				<span className={caretClass}></span>
-		);
-	}
-}
+export default XUIButtonCaret;
 
 XUIButtonCaret.propTypes = PropTypes;
 XUIButtonCaret.defaultProps = DefaultProps;

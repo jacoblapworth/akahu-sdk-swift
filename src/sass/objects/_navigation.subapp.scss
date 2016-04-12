@@ -10,20 +10,20 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-page-width-standard">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-page-width-standard">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
 //     <h1 class="xui-pageheading--title">Sales</h1>
-//     <div>
-//        <button type="button" class="xui-button xui-button-standard">
+//     <div class="xui-actions">
+//        <button type="button" class="xui-button xui-button-standard" style="width:initial">
 //           Options
 //           <span class="xui-button--caret"></span>
 //        </button>
-//        <button type="button" class="xui-button xui-button-create">
+//        <button type="button" class="xui-button xui-button-create xui-margin-left-sm" style="width:initial">
 //           New
 //           <span class="xui-button--caret"></span>
 //        </button>
@@ -32,14 +32,14 @@
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb active" aria-selected="true">Invoices</li>
 //      </ol>
 //      <div class="xui-buttongroup">
-//         <button type="button" class="xui-button xui-button-grouped xui-button-create">New Invoice</button>
-//         <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split">
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create" style="width:initial">New Invoice</button>
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split" style="width:initial;">
 //            <span class="xui-button--caret"></span>
 //         </button>
 //      </div>
@@ -47,13 +47,13 @@
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
 //      <ol class="xui-pageheading--breadcrumbs">
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
 //         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Invoices</a></li>
 //         <li class="xui-breadcrumb active" aria-selected="true">INV-001</li>
 //       </ol>
-//      <button type="button" class="xui-button xui-button-standard">
+//      <button type="button" class="xui-button xui-button-standard" style="width:initial;">
 //         Options
 //         <span class="xui-button--caret"></span>
 //      </button>
@@ -72,6 +72,24 @@
 	flex-wrap: no-wrap;
 	min-height: 60px;
 	overflow: hidden;
+
+	// Content container
+	.#{$ns}-pageheading--content {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.#{$ns}-pageheading--content-layout {
+		flex-flow: row wrap;
+		margin-top: 0;
+	}
+
+	.#{$ns}-pageheading--breadcrumbs {
+		flex: 1 1 auto;
+		margin: 0;
+		padding: 0;
+	}
 }
 
 // With Tabs
@@ -80,7 +98,7 @@
 // Markup:
 // <header class="xui-pageheading xui-pageheading-has-tabs">
 //   <div class="xui-page-width-standard">
-//     <div class="xui-pageheading--content">
+//     <div class="xui-pageheading--content xui-pageheading--content-layout">
 //       <h1 id="page-title" class="xui-pageheading--title">Sales</h1>
 //     </div>
 //     <div class="xui-pageheading--tabs xui-padding-top-lg xui-tabbednav" role="navigation" aria-labelledby="page-title">
@@ -110,19 +128,7 @@
 	margin: 0 10px 0 0;
 }
 
-// Content container
-.#{$ns}-pageheading--content {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
-	margin-top: 0;
-}
 
-.#{$ns}-pageheading--breadcrumbs {
-	flex: 1 1 auto;
-	margin: 0;
-	padding: 0;
-}
 
 .#{$ns}-breadcrumb {
 	@include xui-bold;

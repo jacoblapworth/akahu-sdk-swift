@@ -5,7 +5,7 @@ A React UI component designed to mimic the XUI Switch behaviour.
 ## Installation
 
 ```bash
-$ bower install --save git@github.dev.xero.com:ReactLabs/xui-switch.git
+$ bower install --save git@github.dev.xero.com:UXE/xui-switch.git
 ```
 
 ### XUI Switch Properties

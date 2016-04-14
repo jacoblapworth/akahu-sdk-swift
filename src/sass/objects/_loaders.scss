@@ -1,3 +1,5 @@
+@import "../vars";
+
 /**
  * Styles for the loader.  These typically sit inside the page
  *  or container prior to loading.
@@ -9,7 +11,7 @@
 //
 // Markup:
 // <!-- Loader -->
-// <div class="xui-loader" role="progressbar" aria-label="Content loading" aria-busy="true">
+// <div class="xui-loader xui-loader-layout" role="progressbar" aria-label="Content loading" aria-busy="true">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -27,6 +29,12 @@
 // Styleguide: Loaders
 
 .#{$ns}-loader {} // Placeholder for future use
+
+.#{$ns}-loader-layout {
+	margin-bottom: $xui-s-3xlarge;
+	margin-top: $xui-s-3xlarge;
+	text-align: center;
+}
 
 .#{$ns}-loader--dot {
 	$dot-size: 12px;

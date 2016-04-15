@@ -6,12 +6,10 @@
 
 $xui-button-spacing-left: 5px;
 
-@mixin xui-button--caret($color: $xui-color-xero-blue) {
-	.#{$ns}-button--caret {
-		@include xui-caret($color);
-		margin-left: $xui-button-spacing-left;
-		min-height: 6px;
-	}
+.#{$ns}-button--caret {
+	@include xui-caret;
+	margin-left: $xui-button-spacing-left;
+	min-height: 6px;
 }
 
 @mixin xui-button-split {
@@ -48,14 +46,6 @@ $xui-button-spacing-left: 5px;
 // </button>
 //
 // Styleguide: Buttons.6.1
-
-@include xui-button--caret; // Creates the class as a standalone component
-
-@each $variant in main, create, negative {
-	.#{$ns}-button-#{$variant} {
-		@include xui-button--caret($xui-color-white);
-	}
-}
 
 // Split Button Dropdowns
 //

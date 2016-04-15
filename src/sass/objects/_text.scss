@@ -151,3 +151,19 @@
 .#{$ns}-text-status-negative {
 	color: $xui-color-xero-red;
 }
+
+// Carets
+//
+// Simple caret using CSS border tricks. Will inherit it's colour from the text it's placed with.
+//
+// Markup:
+//  <p>Text <span class="xui-caret"></span></p>
+//  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
+//  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
+//
+// Styleguide: Typography.5
+
+.#{$ns}-caret {
+	@include xui-caret;
+	vertical-align: middle;
+}

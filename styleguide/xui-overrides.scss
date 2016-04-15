@@ -11,6 +11,23 @@
 	}
 
 	//   Demo styles for the XUI grid documentation
+	[id*="kssref-grid-layout"] .xui-row, [id*="kssref-grid-layout"] .xui-row-grid, [id*="kssref-grid-layout"] .xui-row-flex {
+		margin-bottom: 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	[class*="column"] {
+		background: rgba($xui-color-xero-blue, 0.5);
+		color: inherit;
+		text-transform: uppercase;
+		font-size: 11px;
+		padding: 10px;
+		border: 1px solid $xui-color-border;
+	}
+
 	[id*="kssref-grid-layout"] .xui-grid {
 		margin: 20px 0;
 	}

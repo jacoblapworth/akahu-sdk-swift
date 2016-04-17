@@ -1,17 +1,19 @@
 // Forms and Fields
 //
-// * Use the `.xui-form` class with any `<form>` element to create the default stacked form.
-// * Use the `.xui-field` class as a container for related form elements (e.g. `<label>` and `<input>`).
+// Use the `.xui-form` class with any `<form>` element to create the default stacked form.
+//
+// Use the `.xui-field` class as a container for related form elements (e.g. `<label>` and `<input>`)
+// to give the suggested spacing between form fields.
 //
 // Markup:
 // <form class="xui-form">
-//   <p class="xui-text-panelheading">Form Heading</p>
+//   <p class="xui-text-panelheading">Stacked Form</p>
 //   <div class="xui-field">
-//     <label class="xui-text-label" for="field1">Field One</label>
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Field One</label>
 //     <input class="xui-input" type="text" id="field1" placeholder="Placeholder for field one" />
 //   </div>
 //   <div class="xui-field">
-//     <label class="xui-text-label" for="field2">Field Two</label>
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">Field Two</label>
 //     <input class="xui-input" type="text" id="field2" placeholder="Placeholder for field two" />
 //   </div>
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
@@ -21,34 +23,37 @@
 
 .#{$ns}-form {
 	display: block;
+}
 
-	.#{$ns}-field {
-		margin-bottom: $xui-s-xlarge;
-	}
+.#{$ns}-field {
+	margin-bottom: $xui-s-xxlarge;
 }
 
 // Inline Forms
 //
-// * Use the `.xui-form-inline` class alongside the `.xui-form` class to create an inline form.
-// * Use the `.xui-u-hidden` utility class if you wish to hide labels.
-// * Inline forms will stack at the smallest breakpoint by default.
+// Use the `.xui-form-inline` class alongside the `.xui-form` class to create an inline form.
+//
+// Use the `.xui-u-hidden` utility class if only want screen-readers to see `<label>` elements.
+//
+// Inline forms will stack at the smallest breakpoint by default.
 //
 // Markup:
+// <!-- Inline Form -->
 // <form class="xui-form xui-form-inline">
-//   <p class="xui-text-panelheading">Form Heading</p>
+//   <p class="xui-text-panelheading">Inline Form</p>
 //   <div class="xui-field">
-//     <label class="xui-text-label" for="field3">Field One</label>
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Field One</label>
 //     <input class="xui-input" type="text" id="field3" placeholder="Placeholder for field one" />
 //   </div>
 //   <div class="xui-field">
-//     <label class="xui-text-label" for="field4">Field Two</label>
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field4">Field Two</label>
 //     <input class="xui-input" type="text" id="field4" placeholder="Placeholder for field two" />
 //   </div>
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
-// <br />
+// <!-- Hidden Labels -->
 // <form class="xui-form xui-form-inline">
-//   <p class="xui-text-panelheading">Form Heading</p>
+//   <p class="xui-text-panelheading">Hidden Labels</p>
 //   <div class="xui-field">
 //     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
 //     <input class="xui-input" type="text" id="field5" placeholder="Field One" />

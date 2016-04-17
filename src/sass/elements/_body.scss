@@ -7,6 +7,10 @@
 
 html {
 	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
+	// scss-lint:disable VendorPrefix
+	/* doiuse-disable */
+	-webkit-text-size-adjust: 100%; // Prevent font size adjustments from orientation changes in iOS
+	/* doiuse-enable */
 }
 
 // Generally we don't use * selectors, however as this is a CSS WG

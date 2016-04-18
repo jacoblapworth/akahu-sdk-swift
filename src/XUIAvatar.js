@@ -1,5 +1,4 @@
 import React from 'react';
-import Component from 'xui-base-component';
 import cn from 'classnames';
 import XUIClasses from 'xui-css-classes';
 import 'String.prototype.at';
@@ -10,6 +9,9 @@ import 'String.prototype.at';
  * Property types for this component
  */
 const propTypes = {
+
+	className: React.PropTypes.string,
+	qaHook: React.PropTypes.string,
 
 	/** @property {String} [value] The text to display in the avatar */
 	value: function(props, propName) {
@@ -26,7 +28,6 @@ const propTypes = {
 
 	/** @property {String} [identifier] A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
 	identifier: React.PropTypes.string
-
 };
 
 /**
@@ -70,23 +71,20 @@ function getAvatarColorClass(identifier) {
 	return XUIClasses.Avatar.COLORS[colorNumber];
 }
 
-export default class Avatar extends Component {
-	render() {
-		const avatar = this;
-		const { imageUrl, size, identifier, value } = avatar.props;
+export default function Avatar(props) {
+	const { qaHook, imageUrl, size, identifier, value } = props;
 
-		const avatarClassNames = cn(
-			avatar.props.className,
-			XUIClasses.Avatar.BASE,
-			XUIClasses.Avatar[sizeMap[size]],
-			imageUrl ? null : getAvatarColorClass(identifier || value)
-		);
+	const avatarClassNames = cn(
+		props.className,
+		XUIClasses.Avatar.BASE,
+		XUIClasses.Avatar[sizeMap[size]],
+		imageUrl ? null : getAvatarColorClass(identifier || value)
+	);
 
-		if (imageUrl) {
-			return <img className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;
-		} else {
-			return <abbr className={avatarClassNames} role="presentation">{avatar.props.value.at(0)}</abbr>;
-		}
+	if (imageUrl) {
+		return <img data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;
+	} else {
+		return <abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{props.value.at(0)}</abbr>;
 	}
 }
 

@@ -1,0 +1,21 @@
+{
+	"version": "0.0.1",
+	"name": "xui-icon",
+	"main": "src/XuiIcon.js",
+	"description": "Module for using XUI Icons",
+	"author": "Kirk Holloway <kirk.holloway@xero.com>",
+	"license": "Copyright Xero Ltd",
+	"private": true,
+	"scripts": {
+		"lint": "eslint -c .eslintrc ./src",
+		"prepublish": "bower install",
+		"test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js",
+		"test-coverage": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js --coverage",
+		"test-ui": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch",
+		"watch": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors --watch"
+	},
+	"devDependencies": {
+		"bower": "^1.7.0",
+		"xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#2.1.1"
+	}
+}

@@ -49,6 +49,7 @@
 
 .#{$ns}-toast-layout {
 	@include xui-margin($xui-s-large);
+	@include xui-padding-left($xui-s-small);
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-breakpoint-narrow {
 		border-bottom: 0;
@@ -65,7 +66,7 @@
 	}
 
 	.#{$ns}-toast--message {
-		@include xui-margin-horizontal($xui-s-large);
+		@include xui-margin-horizontal($xui-s-small);
 		@include xui-margin-vertical($xui-s-xsmall);
 	}
 
@@ -170,7 +171,6 @@
 }
 
 .#{$ns}-toast--action {
-	white-space: nowrap;
 
 	&:nth-of-type(n+2) {
 		padding-left: $xui-s-small;

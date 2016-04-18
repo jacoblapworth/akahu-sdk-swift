@@ -6,16 +6,18 @@ import XUILoader from '../XUILoader.js';
 const assert = chai.assert;
 const TestUtils = React.addons.TestUtils;
 
-describe('XUIAvatar', function () {
-	it('should render with an aria label describing it\'s purpose', function () {
+describe('XUILoader', function () {
+	it('should render with an aria label describing its purpose', function () {
 
 		const testString = 'Something is loading, please wait';
 
 		const component = TestUtils.renderIntoDocument(
-			<XUILoader label="Something is loading, please wait" />
+			<div>
+				<XUILoader label="Something is loading, please wait" />
+			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component);
+		const node = ReactDOM.findDOMNode(component).children[0];
 		assert.strictEqual(node.getAttribute('aria-label'), testString, testString);
 	});
 
@@ -24,10 +26,12 @@ describe('XUIAvatar', function () {
 		const testClass = 'test-class';
 
 		const component = TestUtils.renderIntoDocument(
-			<XUILoader className={testClass} label="Something is loading, please wait" />
+			<div>
+				<XUILoader className={testClass} label="Something is loading, please wait" />
+			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component);
+		const node = ReactDOM.findDOMNode(component).children[0];
 		assert.strictEqual(node.classList[1], testClass, testClass);
 	});
 });

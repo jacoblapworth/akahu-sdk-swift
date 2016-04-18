@@ -4,6 +4,6 @@ import XUILoader from '../../src/XUILoader.js';
 
 (function() {
 	ReactDOM.render(
-		<XUILoader className='custom-class' label="Something is loading, please wait" />, document.getElementById('app')
+		<XUILoader qaHook={'myid'} className='custom-class' label="Something is loading, please wait" />, document.getElementById('app')
 	);
 })();

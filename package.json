@@ -14,7 +14,7 @@
     "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage"
   },
   "devDependencies": {
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#5.1.0"
   },
   "dependencies": {
     "bower": "^1.7.7"

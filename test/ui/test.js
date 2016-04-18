@@ -1,9 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import XUILoader from '../../src/XUILoader.js';
 
 (function() {
-	const optionalStyle = {backgroundColor: '#f1f4f5'};
-	React.render(
-		<XUILoader className='custom-class' customStyle={optionalStyle} />, document.getElementById('app')
+	ReactDOM.render(
+		<XUILoader className='custom-class' label="Something is loading, please wait" />, document.getElementById('app')
 	);
 })();

@@ -1,6 +1,9 @@
 xui-button
 ==========
 
+![](https://img.shields.io/badge/XUI-%5E9.6.0%20%7C%7C%20%5E10.0.0-blue.svg)
+![](https://img.shields.io/badge/React-~0.14.2-blue.svg)
+
 A React UI component that creates buttons from the [XUI UI library](https://github.dev.xero.com/pages/Style/xui/section-buttons.html). This includes single buttons and grouped buttons
 
 ![](example/buttons.png)

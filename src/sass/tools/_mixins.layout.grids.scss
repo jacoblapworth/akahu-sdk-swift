@@ -1,5 +1,6 @@
 @import "mixins.layout.utilities";
 @import "../vars";
+@import "functions.decimals";
 
 @mixin xui-layout-fixed {
 	@include xui-clearfix();
@@ -16,6 +17,73 @@
 	}
 
 }
+
+@mixin xui-column-responsive-generator($padded: false) {
+
+	@for $i from $xui-layout-column-start through $xui-layout-columns {
+
+		$suffix: "#{$i}-of-#{$xui-layout-columns}";
+		$width: decimal-floor(100% / 12 * $i, 2);
+
+		@if ($padded == false) {
+
+			@include xui-breakpoint-medium {
+				.#{$ns}-column-#{$suffix}-medium {
+					float: left;
+					width: #{$width};
+				}
+			}
+
+			@include xui-breakpoint-wide {
+				.#{$ns}-column-#{$suffix}-wide {
+					float: left;
+					width: #{$width};
+				}
+			}
+
+		} @else {
+
+			@include xui-breakpoint-medium {
+				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-medium {
+					float: left;
+					width: calc( (100% - (12/#{$i} - 1) * 20px) / 12 * #{$i} );
+				}
+			}
+
+			@include xui-breakpoint-wide {
+				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix}-wide {
+					float: left;
+					width: calc( (100% - (12/#{$i} - 1) * 20px) / 12 * #{$i} );
+				}
+			}
+		}
+	}
+}
+
+@mixin xui-column-width-generator2($padded: false) {
+
+	@for $i from $xui-layout-column-start through $xui-layout-columns {
+
+		$suffix: "#{$i}-of-#{$xui-layout-columns}";
+		$width: decimal-floor(100% / 12 * $i, 2);
+
+		@if ($padded == false) {
+			.#{$ns}-column-#{$suffix} {
+				float: left;
+				width: #{$width};
+			}
+		} @else {
+			@if ($i < $xui-layout-columns) {
+				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
+					width: calc( (100% - (12/#{$i} - 1) * 20px) / 12 * #{$i} );
+				}
+			}
+		}
+
+	}
+
+}
+
 
 /*
  * Helper mixin for specifying the layout class once but have it also spit out the device

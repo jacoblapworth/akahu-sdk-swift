@@ -71,308 +71,260 @@
 @include xui-page-layout-sidebar-left(9, 7, "-small");
 @include xui-page-layout-split;
 
-// Fixed Percentage Width Columns
+// Fixed percentage width columns
 //
 // Use these classes when you want to control the width of a column in your specific layout.
 // These classes provide percentage widths based on the width of their parent container.
 // They act in a grid-like fashion without forcing you into specific pixel widths, which are bad for responsive
 // designs.
 //
-// To begin using these classes you need to use the wrapper `.xui-layout-fixed` class. The wrapper class provides the
+// To begin using these classes you need to use the wrapper `.xui-row` class. The wrapper class provides the
 // clearfix required to properly layout subsequent sections of content.
-//
-// ### Table of available classes
-//
-// **Note:** While all variations of classes are available, these docs have removed sizes that are similar for brevity.
-//
-// <table class="xui-contentblock xui-margin-bottom">
-//  <thead>
-//   <tr class="xui-sectionheading">
-//    <th class="xui-text-sectionheading xui-padding-sm">Class</th>
-//    <th class="xui-text-sectionheading xui-padding-vertical-sm">Width of container</th>
-//    <th class="xui-text-sectionheading xui-padding-vertical-sm">Max # of columns</th>
-//   </tr>
-//  </thead>
-//  <tbody>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">`.xui-layout-column-1-of-1`</td>
-//    <td class="xui-text-cell">100%</td>
-//    <td class="xui-text-cell">1</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">`.xui-layout-column-1-of-2`</td>
-//    <td class="xui-text-cell">50%</td>
-//    <td class="xui-text-cell">2</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-3`<br />
-//     `.xui-layout-column-2-of-3`
-//    </td>
-//    <td class="xui-text-cell">
-//     33.33%<br />
-//     66.67%
-//    </td>
-//    <td class="xui-text-cell">3</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-4`<br />
-//     `.xui-layout-column-3-of-4`
-//    </td>
-//    <td class="xui-text-cell">
-//     25%<br />
-//     75%
-//    </td>
-//    <td class="xui-text-cell">4</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-5`<br />
-//     `.xui-layout-column-2-of-5`<br />
-//     `.xui-layout-column-3-of-5`<br />
-//     `.xui-layout-column-4-of-5`
-//    </td>
-//    <td class="xui-text-cell">
-//     20%<br />
-//     40%<br />
-//     60%<br />
-//     80%<br />
-//    </td>
-//    <td class="xui-text-cell">5</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-6`<br />
-//     `.xui-layout-column-5-of-6`<br />
-//    </td>
-//    <td class="xui-text-cell">
-//     16.67%<br />
-//     83.33%<br />
-//    </td>
-//    <td class="xui-text-cell">6</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-7`<br />
-//     `.xui-layout-column-2-of-7`<br />
-//     `.xui-layout-column-3-of-7`<br />
-//     `.xui-layout-column-4-of-7`<br />
-//     `.xui-layout-column-5-of-7`<br />
-//     `.xui-layout-column-6-of-7`
-//    </td>
-//    <td class="xui-text-cell">
-//     14.29%<br />
-//     28.57%<br />
-//     42.85%<br />
-//     57.14%<br />
-//     71.43%<br />
-//     85.71%
-//    </td>
-//    <td class="xui-text-cell">7</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-8`<br />
-//     `.xui-layout-column-3-of-8`<br />
-//     `.xui-layout-column-5-of-8`<br />
-//     `.xui-layout-column-7-of-8`
-//    </td>
-//    <td class="xui-text-cell">
-//     12.5%<br />
-//     37.5%<br />
-//     62.5%<br />
-//     87.5%
-//    </td>
-//    <td class="xui-text-cell">8</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-9`<br />
-//     `.xui-layout-column-2-of-9`<br />
-//     `.xui-layout-column-4-of-9`<br />
-//     `.xui-layout-column-5-of-9`<br />
-//     `.xui-layout-column-7-of-9`<br />
-//     `.xui-layout-column-8-of-9`
-//    </td>
-//    <td class="xui-text-cell">
-//     11.11%<br />
-//     22.22%<br />
-//     44.44%<br />
-//     55.55%<br />
-//     77.77%<br />
-//     88.88%<br />
-//    </td>
-//    <td class="xui-text-cell">9</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//      `.xui-layout-column-1-of-10`<br />
-//      `.xui-layout-column-3-of-10`<br />
-//      `.xui-layout-column-7-of-10`<br />
-//      `.xui-layout-column-9-of-10`
-//    </td>
-//    <td class="xui-text-cell">
-//      10%<br />
-//      30%<br />
-//      70%<br />
-//      90%<br />
-//    </td>
-//    <td class="xui-text-cell">10</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-11`<br />
-//     `.xui-layout-column-2-of-11`<br />
-//     `.xui-layout-column-3-of-11`<br />
-//     `.xui-layout-column-4-of-11`<br />
-//     `.xui-layout-column-5-of-11`<br />
-//     `.xui-layout-column-6-of-11`<br />
-//     `.xui-layout-column-7-of-11`<br />
-//     `.xui-layout-column-8-of-11`<br />
-//     `.xui-layout-column-9-of-11`<br />
-//     `.xui-layout-column-10-of-11`
-//    </td>
-//    <td class="xui-text-cell">
-//     9.09%<br />
-//     18.18%<br />
-//     27.27%<br />
-//     36.36%<br />
-//     45.45%<br />
-//     54.54%<br />
-//     63.63%<br />
-//     72.72%<br />
-//     81.81%<br />
-//     90.90%
-//    </td>
-//    <td class="xui-text-cell">11</td>
-//   </tr>
-//   <tr class="xui-contentblock--item">
-//    <td class="xui-text-cell xui-padding-sm">
-//     `.xui-layout-column-1-of-12`<br />
-//     `.xui-layout-column-5-of-12`<br />
-//     `.xui-layout-column-7-of-12`<br />
-//     `.xui-layout-column-11-of-12`
-//    </td>
-//    <td class="xui-text-cell">
-//     8.33%<br />
-//     41.67%<br />
-//     58.33%<br />
-//     91.66%
-//    </td>
-//    <td class="xui-text-cell">12</td>
-//   </tr>
-//  </tbody>
-// </table>
 //
 // ### Example
 //
 // Markup:
-// <div class="xui-layout-fixed">
-//   <div class="xui-layout-column-1-of-3">
-//     <p>.xui-layout-column-1-of-3</p>
+// <div class="xui-row">
+//   <div class="xui-column-4-of-12">
+//     .xui-column-4-of-12
 //   </div>
-//   <div class="xui-layout-column-1-of-3">
-//     <p>.xui-layout-column-1-of-3</p>
+//   <div class="xui-column-4-of-12">
+//     .xui-column-4-of-12
 //   </div>
-//   <div class="xui-layout-column-1-of-3">
-//     <p>.xui-layout-column-1-of-3</p>
+//   <div class="xui-column-4-of-12">
+//     .xui-column-4-of-12
 //   </div>
 // </div>
 //
 // Styleguide: Grid Layout.2
 
-.#{$ns}-layout-fixed {
-	@include xui-layout-fixed;
+.#{$ns}-row, .#{$ns}-row-grid {
+	@include xui-clearfix;
 }
 
-@for $i from $xui-layout-column-start through $xui-layout-columns {
-
-	@for $j from $xui-layout-column-start through $i {
-
-		@include xui-fixed-column-generator("#{$j}-of-#{$i}", $i, $j);
-
-	}
-
+.#{$ns}-row-flex {
+	display: flex;
 }
 
-// Fluid Columns
+/*
+ Generate Regular columns, 1 to 12 with responsive variants
+ Responsive variants are : -medium, -wide
+ */
+@include xui-column-width-generator2();
+
+// Fixed percentage width columns with gutters (grid)
 //
-// Use these classes when you want an even number of columns that share a similar width.
+// Use these classes when you want to layout your page. These are helpful as they provide a 20px gutter between the
+// columns. As a result, the column widths are calculated to include this gutter and appear using the full space
+// of the parent container.
 //
-// To begin using these classes you need to use the wrapper `.xui-layout-fluid` class. The wrapper class provides the
-// ability for its children to be fluid (via flexbox)
+// To begin using these classes you need to use the wrapper `.xui-row-grid` class. The wrapper class provides the
+// clearfix required to properly layout subsequent sections of content.
 //
-// The `xui-layout-column-fluid` class gives these columns a `flex` value of 1. As you add columns to the container,
-// each column will get smaller proportionally and all columns will continue to have an equal width.
+// ### Example
 //
 // Markup:
-// <div class="xui-layout-fluid">
-//   <div class="xui-layout-column-fluid">
-//     <p>.xui-layout-column-fluid</p>
+// <div class="xui-row-grid">
+//   <div class="xui-column-4-of-12">
+//     .xui-column-4-of-12
 //   </div>
-//   <div class="xui-layout-column-fluid">
-//     <p>.xui-layout-column-fluid</p>
+//   <div class="xui-column-8-of-12">
+//     .xui-column-8-of-12
 //   </div>
-//   <div class="xui-layout-column-fluid">
-//     <p>.xui-layout-column-fluid</p>
+// </div>
+// <div class="xui-row-grid">
+//   <div class="xui-column-6-of-12">
+//     .xui-column-6-of-12
 //   </div>
-//   <div class="xui-layout-column-fluid">
-//     <p>.xui-layout-column-fluid</p>
+//   <div class="xui-column-6-of-12">
+//     .xui-column-6-of-12
 //   </div>
 // </div>
 //
 // Styleguide: Grid Layout.3
 
-@include xui-fluid-column-generator;
+// Setting up the parent class for padded columns
+// This is our "Grid" since we want a nice even space between the columns
+.#{$ns}-row-grid {
+	> [class*="xui-column"] {
+		margin: 0 10px;
 
-// Fluid & Fixed
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
+
+/*
+ Generate padded columns, 1 to 12 with responsive variants
+ Responsive variants are : -medium, -wide
+ */
+@include xui-column-width-generator2(true);
+
+// Flexible column layout
 //
-// `xui-layout-column-*-of-*` classes, and `xui-layout-column-fluid` classes can be combined to share and grow
-// the maximum possible number of columns within a container.
+// Use these classes when you want to layout your content within a row, where your row is likely to be bigger than
+// the combined sizes of your content
 //
-// To begin using the classes together, use the `xui-layout` class. This wrapper class combines the properties of
-// the `xui-layout-fixed` and `xui-layout-fluid` classes together.
+// To begin using these classes you need to use the wrapper `.xui-row-flex` class. The wrapper class provides the
+// clearfix required to properly layout subsequent sections of content.
 //
-// **Note:** It's inadvisable to use these classes on the same elements.
-// ~~`<div class="xui-layout-column-fluid xui-layout-column-1-of-2"></div>`~~
+// Additional classes give flavour to the positioning of content.
+//
+// `xui-space-between` : Even space between the columns, takes up the full width of the row container
+//
+// `xui-space-around` : Even space between and around the columns
+//
+// `xui-justify-center` : Group and center the columns within the row container
+//
+// `xui-justify-left` : Group and align the columns within the row container to the left hand side
+//
+// `xui-justify-right` : Group and align the columns within the row container to the right hand side
+//
+// ### Example
 //
 // Markup:
-// <div class="xui-layout">
-//  <div class="xui-layout-column-1-of-3">
-//   <p>.xui-layout-column-1-of-3</p>
-//  </div>
-//  <div class="xui-layout-column-fluid">
-//   <p>.xui-layout-column-fluid</p>
-//  </div>
+// <h4 class="xui-section-title">Space between columns</h4>
+// <div class="xui-row-flex xui-space-between">
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
 // </div>
-// <div class="xui-layout">
-//  <div class="xui-layout-column-1-of-2">
-//   <p>.xui-layout-column-1-of-2</p>
-//  </div>
-//  <div class="xui-layout-column-fluid">
-//   <p>.xui-layout-column-fluid</p>
-//  </div>
-//  <div class="xui-layout-column-fluid">
-//   <p>.xui-layout-column-fluid</p>
-//	</div>
+// <h4 class="xui-section-title">Space around columns</h4>
+// <div class="xui-row-flex xui-space-around">
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+// </div>
+// <h4 class="xui-section-title">Group and align center</h4>
+// <div class="xui-row-flex xui-justify-center">
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+// </div>
+// <h4 class="xui-section-title">Group and align left</h4>
+// <div class="xui-row-flex xui-justify-left">
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+// </div>
+// <h4 class="xui-section-title">Group and align right</h4>
+// <div class="xui-row-flex xui-justify-right">
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
+//   <div class="xui-column-3-of-12">
+//     .xui-column-3-of-12
+//   </div>
 // </div>
 //
 // Styleguide: Grid Layout.4
 
-.#{$ns}-layout {
-	@include xui-layout-fixed;
-	@include xui-layout-fluid;
+// Flex row utilities
+// Should these live in a utility somewhere?
+.#{$ns}-space-between {
+	justify-content: space-between;
 }
 
-// Viewport Sizes
+.#{$ns}-space-around {
+	justify-content: space-around;
+}
+
+.#{$ns}-justify-left {
+	justify-content: flex-start;
+}
+
+.#{$ns}-justify-right {
+	justify-content: flex-end;
+}
+
+.#{$ns}-justify-center {
+	justify-content: center;
+}
+
+// Flex row responsive utilities
+@include xui-breakpoint-medium {
+	.#{$ns}-space-between-medium {
+		justify-content: space-between;
+	}
+
+	.#{$ns}-space-around-medium {
+		justify-content: space-around;
+	}
+
+	.#{$ns}-justify-left-medium {
+		justify-content: flex-start;
+	}
+
+	.#{$ns}-justify-right-medium {
+		justify-content: flex-end;
+	}
+
+	.#{$ns}-justify-center-medium {
+		justify-content: center;
+	}
+}
+
+@include xui-breakpoint-wide {
+	.#{$ns}-space-between-wide {
+		justify-content: space-between;
+	}
+
+	.#{$ns}-space-around-wide {
+		justify-content: space-around;
+	}
+
+	.#{$ns}-justify-left-wide {
+		justify-content: flex-start;
+	}
+
+	.#{$ns}-justify-right-wide {
+		justify-content: flex-end;
+	}
+
+	.#{$ns}-justify-center-wide {
+		justify-content: center;
+	}
+}
+
+// Responsive Layout
 //
-// Fixed columns have responsive modifiers that can be applied to them. These modifiers allow you to control the
-// width of a column at an associated viewport size.
+// Columns all have responsive layout variants that come into effect when the browser is of a certain width.
 //
 // Change your browser width to see an example of how these columns adjust based on your screen width.
 //
-// **Note:** Modifiers are available on ALL `.xui-layout-*-of-*` classes.
+// **Note:** Modifiers are available on ALL `.xui-column-*-of-*` classes.
 //
 // <table class="xui-contentblock xui-margin-bottom">
 //  <thead>
@@ -386,70 +338,67 @@
 //   <tr class="xui-contentblock--item">
 //    <td class="xui-text-cell xui-padding-sm">Always</td>
 //    <td class="xui-text-cell">n/a</td>
-//    <td class="xui-text-cell">`.xui-layout-1-of-3`</td>
+//    <td class="xui-text-cell">`.xui-column-1-of-12`</td>
 //   </tr>
 //   <tr class="xui-contentblock--item">
 //    <td class="xui-text-cell xui-padding-sm">Medium viewport widths (&gt; 940px &lt; 1160px)</td>
 //    <td class="xui-text-cell">`-medium`</td>
-//    <td class="xui-text-cell">`.xui-layout-1-of-3-medium`</td>
+//    <td class="xui-text-cell">`.xui-column-1-of-12-medium`</td>
 //   </tr>
 //   <tr class="xui-contentblock--item">
 //    <td class="xui-text-cell xui-padding-sm">Wide viewport widths (&gt; 1160px)</td>
 //    <td class="xui-text-cell">`-wide`</td>
-//    <td class="xui-text-cell">`.xui-layout-1-of-3-wide`</td>
+//    <td class="xui-text-cell">`.xui-column-1-of-12-wide`</td>
 //   </tr>
 //  </tbody>
 // </table>
 //
 // Markup:
-// <div class="xui-layout">
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
-//     <p>1 of 1 or <br />1 of 3 lg</p>
+// <div class="xui-row">
+//   <div class="xui-column-12-of-12 xui-column-6-of-12-wide">
+//     <p>12 of 12 by default <br />6 of 12 wide</p>
 //   </div>
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
-//     <p>1 of 1 or <br />1 of 3 lg</p>
-//   </div>
-//   <div class="xui-layout-column-fluid">
-//     <p>Will float when there's space or 100%</p>
-//   </div>
-// </div>
-// <div class="xui-layout">
-//   <div class="xui-layout-column-1-of-2">
-//     <p>1 of 2 always</p>
-//   </div>
-//   <div class="xui-layout-column-fluid">
-//     <p>Will always float in this case</p>
+//   <div class="xui-column-12-of-12 xui-column-6-of-12-wide">
+//     <p>12 of 12 by default <br />6 of 12 wide</p>
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.5
+// Styleguide: Grid Layout.7
+
+@include xui-column-responsive-generator();
+@include xui-column-responsive-generator(true);
+
+// Parent Utility to stretch the boxes to full height of the box with the biggest height
+.#{$ns}-align-stretch {
+	> [class*='xui-column'] {
+		align-items: stretch;
+	}
+}
+
+// Parent utility to flip the order of the columns in a row
+.#{$ns}-columns-reverse {
+	flex-direction: row-reverse;
+}
 
 // Nesting
 //
-// Fluid, and Fixed columns can be nested to achieve any number of layout combinations.
+// You can nest any type of column with any responsive variant to achieve a large possible number of layouts
 //
 // This example illustrates some combinations.
 //
 // Markup:
-// <div class="xui-layout">
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide xui-layout xui-padding-sm">
-//     <div class="xui-layout-column-fluid">I'm fluid!</div>
-//   </div>
-//   <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide xui-layout">
-//     <div class="xui-layout-column-fluid">I'm fluid!</div>
-//     <div class="xui-layout-column-fluid">I'm fluid!</div>
-//   </div>
-//   <div class="xui-layout-column-fluid xui-padding">
-//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
-//       I'm fixed
-//     </div>
-//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
-//       I'm fixed
-//     </div>
-//     <div class="xui-layout-column-1-of-1 xui-layout-column-1-of-3-wide">
-//       I'm fixed
+// <div class="xui-row-grid">
+//   <div class="xui-column-12-of-12">
+//     <div class="xui-row-grid">
+//       <div class="xui-column-6-of-12">half</div>
+//       <div class="xui-column-6-of-12">
+//         <div class="xui-row-flex xui-space-between">
+//           <div class="xui-column-3-of-12">space</div>
+//           <div class="xui-column-3-of-12">between</div>
+//         </div>
+//       </div>
 //     </div>
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.6
+// Styleguide: Grid Layout.8

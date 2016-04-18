@@ -1,16 +1,23 @@
-import React from 'react';
+/**
+ * Created by kirk.holloway on 18/04/2016.
+ */
+import React, {PropTypes} from 'react';
 import XUIBaseComponent from 'xui-base-component';
 import cn from 'classnames';
+//import icons from './iconData.js';
 
-// You can opt to pull in the base component and compose your component with it
-// e.g. import Cmp from 'base-component';
+const propTypes = {
+	icon: PropTypes.string.isRequired,
+	modifierClasses: PropTypes.string
+}
 
 export default class XuiIcon extends XUIBaseComponent {
 	render() {
-		const classNames = cn( /* add your classes here */ );
-
-		return (
-			<div className={classNames}>{this.props.children}</div>
+		const classes = cn('xui-icon', this.props.modifierClasses);
+		return(
+			<svg className={classes}><use xlinkHref={'#'+this.props.icon}/></svg>
 		);
 	}
 }
+
+XuiIcon.PropTypes = propTypes;

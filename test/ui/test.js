@@ -2,10 +2,25 @@ import 'babel-core/external-helpers.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XuiIcon from '../../src/XuiIcon.js';
+import XuiIconBlob from '../../../xui-icon/src/XuiIconBlob.js';
+import icons from '../../../xui-icon/src/iconData.js';
+import XuiIcon from '../../../xui-icon/src/XuiIcon.js';
 
 (function() {
+	let iconUseTags = [];
+	for (var label in icons) {
+		iconUseTags.push(
+			<div key={label} className="xui-layout-column-2-of-12">
+				<h2>{label}<XuiIcon icon={label} /></h2>
+			</div>
+		);
+	}
 	ReactDOM.render(
-		<XuiIcon>Hello World</XuiIcon>, document.getElementById('app')
+		<div>
+			<XuiIconBlob/>
+			<div className="xui-layout">
+				{iconUseTags}
+			</div>
+		</div>, document.getElementById('app')
 	);
 })();

@@ -1,0 +1,15 @@
+.xui-icon-svg {
+	fill: currentColor;
+}
+
+.xui-icon {
+	fill-rule: evenodd;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+}
+
+.xui-icon-sm {
+	width: 15px;
+	height: 15px;
+}

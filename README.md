@@ -59,10 +59,8 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 <XUIButton>I am a dropdown <XUIButtonCaret /></XUIButton>
 
 <XUIButtonGroup>
-	<XUIButton
-		isGrouped={true}>Grouped one</XUIButton>
-	<XUIButton
-		isGrouped={true}>Grouped two</XUIButton>
+	<XUIButton>Grouped one</XUIButton>
+	<XUIButton>Grouped two</XUIButton>
 </XUIButtonGroup>
 
 ```

@@ -13,29 +13,79 @@
 //
 // Styleguide: User Messaging.200
 
-$xui-color-toast-link: #70bae4;
-
 .#{$ns}-toast {
 	background: transparentize($xui-color-white, 0.1);
-	border-left: 4px solid $xui-color-xero-blue;
+	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	bottom: 0;
 	box-shadow: $xui-shadow-depth-2;
 	color: $xui-color-primary-text;
 	left: 0;
+	max-width: 400px;
 	opacity: 1;
-	position: fixed;
+	position: absolute;
 	transition: opacity $xui-transition-duration-short $xui-easing-standard;
 	z-index: 10;
 }
 
-.#{$ns}-toast-layout {
-	@include xui-margin($xui-s-large);
-	@include xui-padding($xui-s-standard);
+.#{$ns}-toast::before {
+	background: transparent;
+	border-radius: $xui-radius 0 0 $xui-radius;
+	bottom: -1px;
+	content: "";
+	left: -1px;
+	position: absolute;
+	top: -1px;
+	width: 4px;
 }
 
-.#{$ns}-toast-error {
-	border-left: 4px solid $xui-color-xero-red;
+.#{$ns}-toast-positive::before {
+	background: $xui-color-xero-blue;
+}
+
+.#{$ns}-toast-negative::before {
+	background: $xui-color-xero-red;
+}
+
+.#{$ns}-toast-layout {
+	@include xui-margin($xui-s-large);
+	@include xui-padding-left($xui-s-small);
+	@include xui-padding-vertical($xui-s-small);
+	@include xui-breakpoint-narrow {
+		border-bottom: 0;
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+		margin: 0;
+		max-width: none;
+		width: 100%;
+
+		&::before {
+			border-radius: 0;
+		}
+	}
+
+	.#{$ns}-toast--message {
+		@include xui-margin-horizontal($xui-s-small);
+		@include xui-margin-vertical($xui-s-xsmall);
+	}
+
+	.#{$ns}-toast--action-wrapper {
+		margin: 0 $xui-s-small 0 0;
+		padding: 0;
+	}
+
+	.#{$ns}-toast--action {
+		padding: $xui-s-xsmall $xui-s-small;
+	}
+
+	.#{$ns}-toast--close {
+		margin-right: $xui-s-small;
+	}
+
+	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
+		max-width: calc(100% - 80px);
+	}
 }
 
 // Single-Action
@@ -47,8 +97,10 @@ $xui-color-toast-link: #70bae4;
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
-//   <p class="xui-toast--message">Toast Message</p>
-//   <a class="xui-toast--action xui-toast--link xui-margin-left-lg" href="#ToastLink">Undo</a>
+//   <div class="xui-toast--message">Toast Message</div>
+//   <div class="xui-toast--action-wrapper">
+//       <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
+//   </div>
 // </div>
 //
 // Styleguide: User Messaging.200.1
@@ -57,21 +109,36 @@ $xui-color-toast-link: #70bae4;
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
-//   <p class="xui-toast--message">Toast Message</p>
-//   <ul class="xui-toast--actionlist">
-//     <li class="xui-toast--action xui-margin-left-lg">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">&#x2716</button>
+//   <div class="xui-toast--message">Toast Message</div>
+//   <ul class="xui-toast--action-wrapper">
+//     <li class="xui-toast--action">
 //       <a class="xui-toast--link" href="#ToastLink">Undo</a>
 //     </li>
-//     <li class="xui-toast--action xui-margin-left-lg">
+//     <li class="xui-toast--action">
 //       <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
 //     </li>
 //   </ul>
-//   <button class="xui-button xui-button-icon-sm xui-margin-left-lg" title="Close">✕</a>
 // </div>
 //
 // Styleguide: User Messaging.200.2
 
-// Error
+// Toast Sentiment
+//
+// Toast sentiment classes should be used sparingly, only used when there is a positive or negative message being conveyed to the user. The classes to apply for adding sentiment are `xui-toast-positive` and `xui-toast-negative`.
+//
+// ### Positive
+//
+// <div class="xui-toast xui-toast-layout xui-toast-positive" role="alert">
+//   <div class="xui-toast--message">Connection successful</div>
+// </div>
+//
+// ### Negative
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout xui-toast-negative" role="alert">
+//   <div class="xui-toast--message">No internet connection</div>
+// </div>
 //
 // ### Accessibility
 //
@@ -80,32 +147,33 @@ $xui-color-toast-link: #70bae4;
 // the users attention to the toast when you require their immediate attention. For further information, please
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
-// Markup:
-// <div class="xui-toast xui-toast-layout xui-toast-error" role="alert">
-//   <p class="xui-toast--message">No internet connection</p>
-// </div>
-//
-// Styleguide: User Messaging.200.3
+// Styleguide: User Messaging.200.3.2
+
 
 .#{$ns}-toast--link {
-	color: $xui-color-toast-link;
+	@include xui-bold;
+	color: $xui-color-xero-blue;
 }
 
 .#{$ns}-toast--message,
-.#{$ns}-toast--actionlist,
+.#{$ns}-toast--action-wrapper,
 .#{$ns}-toast--action {
-	display: inline;
+	display: inline-block;
 }
 
-.#{$ns}-toast--actionlist {
-	padding: 0;
+.#{$ns}-toast--close {
+	float: right;
+}
+
+.#{$ns}-toast--action-wrapper {
+	display: flex;
+	float: right;
 }
 
 .#{$ns}-toast--action {
 
 	&:nth-of-type(n+2) {
-		border-left: 1px solid $xui-color-shadow-strong;
-		padding: 2px 0 2px 20px;
+		padding-left: $xui-s-small;
 	}
 }
 
@@ -117,13 +185,4 @@ $xui-color-toast-link: #70bae4;
 .#{$ns}-toast-list {
 	color: $xui-color-white;
 	list-style: disc;
-}
-
-@include xui-breakpoint-narrow {
-	.#{$ns}-toast {
-		left: 50%;
-		margin-left: 0;
-		min-width: 70%;
-		transform: translateX(-50%);
-	}
 }

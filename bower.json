@@ -10,7 +10,8 @@
     "test",
     "tests",
     "conf",
-    "example"
+    "example",
+    "src/__tests__"
   ],
   "license": "Copyright Xero Ltd",
   "keywords": [

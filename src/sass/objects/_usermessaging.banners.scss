@@ -24,9 +24,11 @@
 //
 // Styleguide: User Messaging.100.1
 
-// Errors
+// Sentiment
 //
-// Error styling. Useful for page level validation. Should not be dismissable.
+// Positive and negative sentiment can be applied to banners through `xui-banner-positive` and `xui-banner-negative`.
+//
+// Negative sentiment styling is useful for for page level validation, usually they should not be dismissable.
 //
 // ### Accessibility
 //
@@ -36,7 +38,15 @@
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
 // Markup:
-// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-error" role="alert">
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-positive" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--action">
+//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   </ul>
+// </div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
 //   <p class="xui-banner--message">Banner Message</p>
 //   <ul class="xui-banner--action">
 //     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
@@ -70,9 +80,7 @@
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
 //   <p class="xui-banner--message">Banner Message</p>
-//   <div class="xui-banner--action">
-//     <button class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">✕</button>
-//   </div>
+//   <button class="xui-button xui-button-icon-sm xui-banner--close" title="Close" aria-label="Close">✕</button>
 // </div>
 //
 // Styleguide: User Messaging.100.4
@@ -83,73 +91,134 @@
 // styled as left aligned secondary text.
 //
 // Markup:
-// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+// <div class="xui-banner xui-banner-layout" role="status">
+//   <button class="xui-button xui-button-icon-sm xui-banner--close" title="Close" aria-label="Close">✕</button>
 //   <p class="xui-banner--message">Banner Message</p>
-//   <div class="xui-banner--action">
-//     <button class="xui-button xui-button-icon-sm" title="Close" aria-label="Close">✕</button>
-//   </div>
 //   <ul class="xui-banner--messagedetail">
-//       <li>We've got this request</li
+//       <li>We've got this request</li>
+//   </ul>
+//   <ul class="xui-banner--action">
+//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
+//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
 //   </ul>
 // </div>
 //
 // Styleguide: User Messaging.100.5
 
 .#{$ns}-banner {
-	@include xui-clearfix;
-	align-items: center;
-	background: transparentize($xui-color-white, 0.1);
+	background-color: $xui-color-white;
 	border: $xui-border-standard;
-	border-left: 4px solid $xui-color-xero-blue;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-1;
+	box-shadow: $xui-shadow-depth-2;
 	color: $xui-color-primary-text;
-	display: flex;
-	flex-wrap: wrap;
+	opacity: 1;
+	position: relative;
+	transition: opacity $xui-transition-duration-short $xui-easing-standard;
+}
+
+.#{$ns}-banner::before {
+	background: transparent;
+	border-radius: $xui-radius 0 0 $xui-radius;
+	content: "";
+	height: calc(100% + 2px);
+	left: -1px;
+	position: absolute;
+	top: -1px;
+	width: 4px;
+}
+
+.#{$ns}-banner-positive::before {
+	background: $xui-color-xero-blue;
+}
+
+.#{$ns}-banner-negative::before {
+	background: $xui-color-xero-red;
 }
 
 .#{$ns}-banner-layout {
-	@include xui-padding-horizontal($xui-s-standard);
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-margin-vertical($xui-s-large);
 	@include xui-margin-horizontal(auto);
 
+	display: inline-block;
+	width: 100%;
+
+	@include xui-breakpoint-narrow {
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+		border-top: 0;
+		margin-top: 0;
+		width: 100%;
+
+		&::before {
+			border-radius: 0;
+		}
+	}
+
+	.#{$ns}-banner--message {
+		@include xui-margin-vertical($xui-s-xsmall);
+		@include xui-margin-horizontal($xui-s-large);
+	}
+
 	.#{$ns}-banner--messagedetail {
-		margin-top: $xui-s-small;
+		@include xui-margin-vertical($xui-s-xsmall);
+		@include xui-margin-horizontal($xui-s-large);
+	}
+
+	.#{$ns}-banner--action {
+		@include xui-margin-left(0);
+		@include xui-margin-top(0);
+		@include xui-margin-bottom(0);
+		@include xui-margin-right($xui-s-small);
+		@include xui-padding(0);
+	}
+
+	.#{$ns}-banner--link {
+		@include xui-padding-vertical($xui-s-xsmall);
+		@include xui-padding-horizontal($xui-s-small);
+	}
+
+	.#{$ns}-banner--close {
+		@include xui-margin-right($xui-s-small);
+	}
+
+	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
+		max-width: calc(100% - 80px);
+	}
+
+	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
+		max-width: calc(100% - 80px);
 	}
 }
 
-.#{$ns}-banner-error {
-	border-left: 4px solid $xui-color-xero-red;
+
+.#{$ns}-banner--message,
+.#{$ns}-banner--action {
+	display: inline-block;
 }
 
 .#{$ns}-banner-animated {
 	animation: xui-banner-animation $xui-transition-duration-short;
 }
 
-.#{$ns}-banner--message {
-	flex: 1;
-	margin: 0;
-}
-
 .#{$ns}-banner--messagedetail {
-	clear: both;
 	color: $xui-color-secondary-text;
-	margin: 0;
-	width: 100%;
 }
 
 .#{$ns}-banner--action {
-	margin: 0;
-	padding: 0;
+	float: right;
+}
+
+.#{$ns}-banner--close {
+	float: right;
 }
 
 .#{$ns}-banner--link {
-	display: inline;
+	display: inline-block;
 
 	&:nth-of-type(n+2) {
-		border-left: $xui-border-standard;
-		margin-left: 10px;
 		padding-left: 10px;
 	}
 }

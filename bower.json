@@ -1,26 +1,29 @@
 {
-	"name": "XUI-Loader",
-	"description": "Displays a loader",
-	"main": "src/XUILoader.js",
-	"private": true,
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"license": "Copyright Xero Ltd",
-	"keywords": [
-		"fedule",
-		"ui"
-	],
-	"moduleType": [
-		"es6"
-	],
-	"dependencies": {
-		"xui-base-component": "git@github.dev.xero.com:FutureRobot/xui-base-component.git#^2.0.1",
-		"classnames": "^2.1.0",
-		"react": "~0.14.2"
-	}
+  "name": "XUI-Loader",
+  "description": "Displays a loader",
+  "main": "src/XUILoader.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "conf",
+    "example",
+    "src/__tests__"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "React",
+    "fedule",
+    "xui"
+  ],
+  "moduleType": "es6",
+  "dependencies": {
+    "classnames": "^2.1.0",
+    "react": "~0.14.2",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^9.7.0 || ^10.0.0",
+    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#~9.8.2"
+  }
 }

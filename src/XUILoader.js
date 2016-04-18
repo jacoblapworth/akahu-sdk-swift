@@ -1,22 +1,22 @@
 import React from 'react';
-import Component from 'xui-base-component';
 import cn from 'classnames';
+import CSSCLasses from 'xui-css-classes';
 
 const propTypes = {
 	className: React.PropTypes.string,
-	customStyle: React.PropTypes.object
+	qaHook: React.PropTypes.string,
+	label: React.PropTypes.string
 };
 
-export default class XUILoader extends Component {
-	render() {
-		const classNames = cn('xui-loader', this.props.className);
-		return (
-			<div className={classNames} style={this.props.customStyle}>
-				<div className='xui-loader--dot'></div>
-				<div className='xui-loader--dot'></div>
-				<div className='xui-loader--dot'></div>
-			</div>
-		);
-	}
-}
+const XUILoader = (props) => {
+	return (
+		<div data-automationid={props.qaHook} className={cn(CSSCLasses.Loader.BASE, props.className)} role="progressbar" aria-label={props.label} aria-busy="true">
+			<div className={CSSCLasses.Loader.DOT} />
+			<div className={CSSCLasses.Loader.DOT} />
+			<div className={CSSCLasses.Loader.DOT} />
+		</div>
+	)
+};
+
 XUILoader.propTypes = propTypes;
+export default XUILoader;

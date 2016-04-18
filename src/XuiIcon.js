@@ -4,7 +4,7 @@
 import React, {PropTypes} from 'react';
 import XUIBaseComponent from 'xui-base-component';
 import cn from 'classnames';
-//import icons from './iconData.js';
+import XuiIconBlob from './XuiIconBlob';
 
 const propTypes = {
 	icon: PropTypes.string.isRequired,
@@ -19,5 +19,7 @@ export default class XuiIcon extends XUIBaseComponent {
 		);
 	}
 }
+
+export {XuiIconBlob as XuiIconBlob};
 
 XuiIcon.PropTypes = propTypes;

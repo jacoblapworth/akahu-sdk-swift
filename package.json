@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint -c .eslintrc ./src",
     "prepublish": "bower install",
-    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --progress --colors --watch",
+    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
     "test-ui": "env UV_THREADPOOL_SIZE=100 xui-webpack --config conf/build.js --progress --colors --watch",
     "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage"
   },

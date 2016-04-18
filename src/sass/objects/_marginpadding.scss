@@ -95,6 +95,31 @@
 //   Right large
 //  </div>
 // </div>
+// <div class="margin-example">
+//  <div class="xui-margin-auto-horizontal" style="width: 300px">
+//   Auto horizontal (arbitrary width demo)
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-auto-left" style="width: 300px">
+//   Auto left (arbitrary width demo)
+//  </div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-auto-right" style="width: 300px">
+//   Auto right (arbitrary width demo)
+//  </div>
+// </div>
+// <div class="margin-example xui-u-flex" style="height: 100px">
+//  <div class="xui-margin-auto-vertical">
+//   Auto vertical (arbitrary height demo; useful for vertical centering with flexbox)
+//  </div>
+// </div>
+// <div class="margin-example xui-u-flex" style="height: 100px">
+//  <div class="xui-margin-auto" style="width: 300px;">
+//   Auto (arbitrary width demo; useful for centering with flexbox)
+//  </div>
+// </div>
 //
 // Styleguide: Margin and Padding.Margin.1
 
@@ -106,6 +131,27 @@
 // scss-lint:disable ImportantRule
 .#{$ns}-margin-none {
 	margin: 0 !important;
+}
+
+.#{$ns}-margin-auto-left {
+	margin-left: auto;
+}
+
+#{$ns}-margin-auto-right {
+	margin-right: auto;
+}
+
+.#{$ns}-margin-auto-horizontal {
+	@include xui-margin-auto-horizontal;
+}
+
+.#{$ns}-margin-auto-vertical {
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.#{$ns}-margin-auto {
+	margin: auto;
 }
 
 // Padding

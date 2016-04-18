@@ -14,7 +14,7 @@
 //  * **`role="dialog"`** - Acts as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
 // Markup:
-// <div class="xui-sidedrawer" role="complementary" aria-labelledby="drawer-header">
+// <div class="xui-sidedrawer xui-sidedrawer-layout" role="complementary" aria-labelledby="drawer-header">
 //   <div class="xui-sidedrawer--header">
 //     <h3 id="drawer-header" class="xui-section-title">Header</h3>
 //   </div>
@@ -36,8 +36,6 @@ $xui-drawer-width: 350px;
 	background: $xui-color-background;
 	border-left: 1px solid $xui-color-border;
 	box-sizing: border-box;
-	display: flex;
-	flex-flow: column nowrap;
 	height: 100%;
 	overflow: hidden;
 	position: fixed;
@@ -53,37 +51,48 @@ $xui-drawer-width: 350px;
 
 .#{$ns}-sidedrawer--header {
 	@include xui-bold;
-	align-items: center;
 	background: $xui-color-panel;
 	border-bottom: 1px solid $xui-color-border;
 	box-sizing: border-box;
-	display: flex;
-	flex: 0 0 50px;
-	justify-content: center;
-	position: relative;
 	text-align: center;
 	width: 100%;
 	z-index: 5;
-
-	.#{$ns}-section-title {
-		margin: 0;
-	}
 }
 
-.#{$ns}-sidedrawer--content {
-	flex: 1 1 auto;
-}
 
 .#{$ns}-sidedrawer--footer {
-	align-self: flex-end;
 	background: $xui-color-panel;
 	border-top: 1px solid $xui-color-border;
 	box-sizing: border-box;
-	display: flex;
-	flex: 0 0 auto;
-	flex-flow: row nowrap;
-	max-height: calc(100% - 50px);
-	min-height: 50px;
 	width: 100%;
 	z-index: 5;
+}
+
+.#{$ns}-sidedrawer-layout {
+	display: flex;
+	flex-flow: column nowrap;
+
+	.#{$ns}-sidedrawer--content {
+		flex: 1 1 auto;
+	}
+
+	.#{$ns}-sidedrawer--header {
+		align-items: center;
+		display: flex;
+		flex: 0 0 50px;
+		justify-content: center;
+	}
+
+	.#{$ns}-sidedrawer--header > .#{$ns}-section-title {
+		margin: 0;
+	}
+
+	.#{$ns}-sidedrawer--footer {
+		align-self: flex-end;
+		display: flex;
+		flex: 0 0 auto;
+		flex-flow: row nowrap;
+		max-height: calc(100% - 50px);
+		min-height: 50px;
+	}
 }

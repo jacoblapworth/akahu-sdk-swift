@@ -154,10 +154,9 @@ Usage Guidelines
    exports. SCSS does not currently dedupe multiple imports of the same code, so
    importing XUI in separate components will at the very least lead to bloated
    files. It may also cause broken styling depending on when the imports occur.
- * If you need XUI's variables and mixins, import them individually:
+ * If you need XUI's variables and mixins, import them via these entry points:
     * For variables, `@import 'xui/src/sass/vars';`
-    * For mixins, `@import 'xui/src/sass/tools/mixins';`
-    * Colours are defined in the [colors repository](https://github.dev.xero.com/UXE/colors) - consult its README for information on how to import colour variables.
+    * For mixins, `@import 'xui/src/sass/mixins';`
 
 
 Updating

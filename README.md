@@ -14,14 +14,10 @@ A React UI component that creates buttons from the [XUI UI library](https://gith
 $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 ```
 
-### XUI Compatibility
-
-Currently compatible with XUI version 9.x
-
 ### XUI Button Properties
 `isDisabled`: (Boolean, Optional) Determines if the button is disabled or not. Set to false by default
 
-`isGrouped`: (Boolean, Optional) If this button is part of a parent button group. Set to false by default
+`isGrouped`: (Boolean, Optional) Automatically set to true when it's a child of XUIButtonGroup. Set to false by default otherwise
 
 `onClick`: (Function, Required) Bind a function to fire when the button is clicked
 

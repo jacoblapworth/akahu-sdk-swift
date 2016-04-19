@@ -1,6 +1,7 @@
 #project
-dist
 coverage
+build/bundle.js
+test/ui/test.bundle.js
 
 #node
 node_modules
@@ -18,4 +19,3 @@ bower_components
 ._*
 .Spotlight-V100
 .Trashes
-test/ui/test.bundle.js

@@ -1,28 +1,31 @@
 {
-	"name": "xui-avatar",
-	"description": "React UI component that renders an avatar, either based on the user's name or profile image",
-	"main": "src/XUIAvatar.js",
-	"private": true,
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"license": "Copyright Xero Ltd",
-	"keywords": [
-		"fedule",
-		"ui"
-	],
-	"moduleType": [
-		"es6"
-	],
-	"dependencies": {
-		"classnames": "^2.1.0",
-		"react": "^0.14.2 || ^15.0.0",
-		"xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.7.1 || ^10.0.0",
-		"String.prototype.at": "git@github.dev.xero.com:XeroJS/string.prototype.at.git#^0.2.0",
-		"xui": "git@github.dev.xero.com:UXE/xui.git#^9.7.0 || ^10.0.0"
-	}
+  "name": "xui-avatar",
+  "description": "React UI component that renders an avatar, either based on the user's name or profile image",
+  "main": "src/XUIAvatar.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "example",
+    "src/__tests__",
+    "conf"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "fedule",
+    "ui"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "classnames": "^2.1.0",
+    "react": "^0.14.2 || ^15.0.0",
+    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.7.1 || ^10.0.0",
+    "String.prototype.at": "git@github.dev.xero.com:XeroJS/string.prototype.at.git#^0.2.0",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^9.7.0 || ^10.0.0"
+  }
 }

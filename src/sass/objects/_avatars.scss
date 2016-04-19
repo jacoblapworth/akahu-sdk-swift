@@ -7,7 +7,7 @@
 // The background colour should be selected deterministically from a list of colours based on a unique
 // attribute of the entity (not their name). This allows the user to associate a pair of
 // colour and letter with a particular entity. If two entities share the same name, the colour should
-// be different ([Sample solution](https://github.dev.xero.com/FutureRobot/avatar/blob/master/src/Avatar.js#L62)).
+// be different ([Sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa)).
 //
 // There are 10 available background colors. These can be applied using the classes `.xui-avatar-color-1` through
 // `.xui-avatar-color-10`.

@@ -2,7 +2,11 @@
 //
 // Used to display an expandable/collapsible list to users.
 //
-// `xui-accordionitem-is-open` : This class toggles the accordion items open and closed. Includes transition animation.
+// The `.xui-accordionitem-is-open` class toggles which item is open and includes transition animations.
+//
+// The `.xui-accordionitem-layout` class provides standard padding to collapsed items and large padding to open items.
+// It also provides a responsive story; open items sit flush within the border of the accordion on narrow screens but expand
+// in width to overhang the sides of the accordion on standard and wide screens.
 //
 // Markup:
 //<ul class="xui-accordion xui-page-width-standard xui-panel" role="tablist" aria-multiselectable="true">
@@ -79,21 +83,31 @@
 	}
 }
 
-.#{$ns}-accordionitem-is-open.#{$ns}-accordionitem-layout {
+.#{$ns}-accordionitem-is-open {
+	&.#{$ns}-accordionitem-layout {
+		@include xui-breakpoint-wide { /** increase width of open accordion item by 40px on larger screen sizes **/
+			border-left: $xui-divider-standard;
+			border-radius: $xui-radius;
+			border-right: $xui-divider-standard;
+			margin-left: -20px;
+			width: calc(100% + 40px);
+		}
+	}
+
 	.#{$ns}-accordionitem--expanded {
 		padding: $xui-s-xxlarge;
 	}
 }
 
 .#{$ns}-accordionitem-is-open {
-	border: $xui-divider-standard;
-	border-radius: $xui-radius;
+	border-bottom: $xui-divider-standard;
+	border-top: $xui-divider-standard;
 	box-shadow: $xui-shadow-depth-2;
 	height: auto;
-	margin: 0 -20px;
+	margin: 0;
 	max-width: 100vw;
 	transform: translateY(-1px); /** hides the border-bottom of the accordion--collapsed above it **/
-	width: calc(100% + 40px);
+
 
 	> .#{$ns}-accordionitem--collapsed {
 		border: 0;

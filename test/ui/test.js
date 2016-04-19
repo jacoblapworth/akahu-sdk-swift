@@ -4,8 +4,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import icons from '../../../xui-icon/src/iconData.js';
 import XuiIcon, {XuiIconBlob} from '../../../xui-icon/src/XuiIcon.js';
+import blobDump from '../../dist/xuiIconBlob';
 
 (function() {
+	blobDump(document.getElementById('testID'));
 	let iconUseTags = [];
 	for (var label in icons) {
 		iconUseTags.push(

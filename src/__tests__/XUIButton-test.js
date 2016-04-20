@@ -35,6 +35,8 @@ describe('<XUIButton/>', () => {
 			<XUIButton onClick={() => clicks++}>test</XUIButton>
 		);
 
+		// although this component can trigger the 'onClick' handler with either
+		// 'enter' or 'space' keyPress, that cannot be simulated as expected using Simulate
 		Simulate.click(findDOMNode(button));
 
 		expect(clicks).to.equal(1);

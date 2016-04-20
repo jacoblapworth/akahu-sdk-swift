@@ -49,8 +49,7 @@
 
 .#{$ns}-toast-layout {
 	@include xui-margin($xui-s-large);
-	@include xui-padding-left($xui-s-small);
-	@include xui-padding-vertical($xui-s-small);
+	@include xui-padding($xui-s-small);
 	@include xui-breakpoint-narrow {
 		border-bottom: 0;
 		border-left: 0;
@@ -63,6 +62,10 @@
 		&::before {
 			border-radius: 0;
 		}
+
+		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
+			max-width: calc(100% - 80px);
+		}
 	}
 
 	.#{$ns}-toast--message {
@@ -71,7 +74,7 @@
 	}
 
 	.#{$ns}-toast--action-wrapper {
-		margin: 0 $xui-s-small 0 0;
+		margin: 0;
 		padding: 0;
 	}
 
@@ -79,12 +82,16 @@
 		padding: $xui-s-xsmall $xui-s-small;
 	}
 
-	.#{$ns}-toast--close {
-		margin-right: $xui-s-small;
-	}
-
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-		max-width: calc(100% - 80px);
+		max-width: 320px;
+	}
+}
+
+@include xui-breakpoint-narrow {
+	.#{$ns}-toast-layout {
+		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
+			max-width: calc(100% - 80px);
+		}
 	}
 }
 

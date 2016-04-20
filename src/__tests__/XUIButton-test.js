@@ -8,7 +8,7 @@ const { renderIntoDocument, Simulate } = React.addons.TestUtils;
 
 const noop = () => {};
 
-describe('XUIButton', function () {
+describe('<XUIButton/>', () => {
 	it('should render as a button element when no type is provided', () => {
 		const button = renderIntoDocument(
 			<XUIButton onClick={noop}>test</XUIButton>

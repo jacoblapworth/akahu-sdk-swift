@@ -7,17 +7,14 @@
   "license": "Copyright Xero Ltd",
   "private": true,
   "scripts": {
-		"prepublish": "npm run bower-install",
-		"bower-install": "bower install",
-		"build": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/webpack.config.js --progress --colors",
-		"dist": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/production.webpack.config.js --progress --colors",
-    "test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/single.karma.config.js",
-		"test-coverage": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/coverage.karma.config.js",
-		"test-ui": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/testui.webpack.config.js --progress --colors --watch",
-    "watch": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/watch.karma.config.js"
+    "prepublish": "bower install",
+    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --single-run",
+    "watch": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
+    "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage",
+    "test-ui": "env UV_THREADPOOL_SIZE=100 xui-webpack --config conf/build.js --progress --colors --watch"
   },
   "devDependencies": {
     "bower": "^1.6.3",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/FutureRobot/xui-webpack-build-tools.git"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git"
   }
 }

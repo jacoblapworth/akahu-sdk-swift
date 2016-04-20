@@ -21,6 +21,7 @@ import xuiIconBlob from 'xui-icon-blob/dist/xuiIconBlob.js';
 
 xuiIconBlob(document.getElementById('iconblob'));
 ```
+ Alternatively, if you are unable to use ES6, you may import `xui-icon-blob/dist/xuiIconBlobES5.js` and call `xuiIconBlobES5(document.getElementById('iconblob'))'`
  - Place `<svg class="xui-icon [modifiers]"> <use xlink:href="#[icon name]" /> </svg>` wherever you are wanting to use an icon from the package.
 
 Icons

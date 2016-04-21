@@ -13,9 +13,9 @@
 // :active - When active
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-icon-sm {{modifier_class}}" title="Close" aria-label="Close">&#x2716</button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close">&#x2716</button>
-// <button type="button" class="xui-button xui-button-icon-lg {{modifier_class}}" title="Close" aria-label="Close">&#x2716</button>
+// <button type="button" class="xui-button xui-button-icon-sm {{modifier_class}}" title="Close" aria-label="Close">×</button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close">×</button>
+// <button type="button" class="xui-button xui-button-icon-lg {{modifier_class}}" title="Close" aria-label="Close">×</button>
 //
 // Styleguide: Buttons.7.1
 
@@ -54,8 +54,8 @@
 	.#{$ns}-button-icon#{$suffix} {
 		@include xui-button-icon-base;
 		font-size: $font-size;
-		line-height: $font-size * 2;
-		width: $font-size * 2;
+		line-height: $font-size * 1.6;
+		width: $font-size * 1.6;
 	}
 }
 

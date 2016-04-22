@@ -1,6 +1,5 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import { assert, expect } from 'chai';
 
 import XUIButton from '../XUIButton';
 
@@ -15,8 +14,8 @@ describe('<XUIButton/>', () => {
 		);
 
 		const node = findDOMNode(button);
-		assert.strictEqual(node.tagName, 'BUTTON', 'XUIButton has been rendered with a BUTTON tag');
-		assert.strictEqual(node.innerText, 'test', 'XUIButton has been rendered with the right text');
+		node.tagName.should.equal('BUTTON');
+		node.innerText.should.equal('test');
 	});
 
 	it('should render as a button element when no type is provided', () => {
@@ -25,20 +24,21 @@ describe('<XUIButton/>', () => {
 		);
 
 		const node = findDOMNode(button);
-		assert.strictEqual(node.tagName, 'A', 'XUIButton has been rendered with a A tag');
+		node.tagName.should.equal('A');
+		node.innerText.should.equal('foo');
 	});
 
 	it('should be able to receive and handle an onClick callback', () => {
-		let clicks = 0;
+		const onClick = sinon.spy();
 
 		const button = renderIntoDocument(
-			<XUIButton onClick={() => clicks++}>test</XUIButton>
+			<XUIButton onClick={onClick}>test</XUIButton>
 		);
 
 		// although this component can trigger the 'onClick' handler with either
 		// 'enter' or 'space' keyPress, that cannot be simulated as expected using Simulate
 		Simulate.click(findDOMNode(button));
 
-		expect(clicks).to.equal(1);
+		onClick.should.have.been.calledOnce;
 	});
 });

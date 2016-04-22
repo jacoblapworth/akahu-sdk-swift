@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "bower": "^1.6.3",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.0"
   }
 }

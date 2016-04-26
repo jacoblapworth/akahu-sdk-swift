@@ -9,8 +9,8 @@ import XuiIcon, {XuiIconBlob} from '../../../xui-icon/src/XuiIcon.js';
 	let iconUseTags = [];
 	for (var label in icons) {
 		iconUseTags.push(
-			<div key={label} className="xui-layout-column-3-of-12">
-				<h2>{label}<XuiIcon icon={label} /></h2>
+			<div key={label} className="xui-column-3-of-12">
+				<h2>{label} <XuiIcon icon={label} /></h2>
 			</div>
 		);
 	}

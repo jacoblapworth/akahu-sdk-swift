@@ -5,9 +5,9 @@
 
 #kss-node {
 
-	.kss-main .xui-toast {
-		display: inline-block;
+	.xui-toast-wrapper {
 		position: relative;
+		z-index: 100;
 	}
 
 	//   Demo styles for the XUI grid documentation

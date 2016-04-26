@@ -67,63 +67,27 @@ Example Page Markup
     <link href="https://edge.xero.com/style/xui/10.0.0-beta.4/xui.min.css" rel="stylesheet" />
     <script src="https://edge.xero.com/platform/header/3.0.3/scripts/header.min.js"></script>
   </head>
-  <body>
+  <body class="xui-body">
     <header id="header"></header>
-    <!-- Example JSON configuration, typically this would be generated server-side -->
-    <script id="config" type="application/json">
-      {
-        "colour": "blue",
-        "appMenu": {
-          "model": {
-            "type": "header/appmenu/appMenuDropDown",
-            "text": "Page Navigation Title",
-            "collection": []
-          }
-        },
-        "navigation": {
-          "collection": [
-            {
-              "type": "widgets/tab/tabItem",
-              "model": {
-                "text": "Nav 1",
-                "href": "#nav1"
-              }
-            },
-            {
-              "type": "widgets/tab/tabItem",
-              "model": {
-                "text": "Nav 2",
-                "href": "#nav2",
-                "listClass": "selected"
-              }
-            }
-          ]
-        }
-      }
-    </script>
     <script>
       // TODO: ideally this would be an external script so we can CSP
       (function () {
         'use strict';
-
-        var configEl = document.getElementById('config');
-        var config = JSON.parse(configEl.innerHTML);
-
-        XERO.Header.init(config, '#header');
+        XERO.Header.init({}, '#header');
       }());
     </script>
     <header class="xui-pageheading">
-      <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+      <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
         <h1 class="xui-pageheading--title">Title</h1>
       </div>
     </header>
-    <main role="main">
-      <div class="xui-panel xui-pagecontainer xui-pagecontainer-small">
-        <header class="xui-panel--header">
+    <main role="main" class="xui-page-width-standard">
+      <div class="xui-panel">
+        <header class="xui-panel--header xui-padding">
           <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
         </header>
-        <section>
-          <!-- page content -->
+        <section class="xui-panel--section xui-padding">
+          Page Content
         </section>
       </div>
     </main>

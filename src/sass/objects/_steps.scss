@@ -74,7 +74,6 @@
 	color: $xui-color-secondary-text;
 	cursor: default;
 	display: flex;
-	line-height: 1.2;
 	position: relative;
 	text-align: center;
 
@@ -121,6 +120,7 @@
 	display: flex;
 	font-family: monospace;
 	font-weight: 600;
+	margin-top: -2px; // Offset for vertical alignment
 }
 
 .#{$ns}-step:last-of-type::after {

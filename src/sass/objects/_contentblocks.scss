@@ -7,11 +7,13 @@
 
 // Content Block with Actions
 //
+// The `.xui-contentblock--item-negative` class can be used to highlight items which are invalid and need attention.
+//
 // Markup:
 // <section>
 //   <h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Today</h2>
 //   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-padding xui-u-flex">
+//     <li class="xui-contentblock--item xui-contentblock--item-negative xui-padding xui-u-flex">
 //       <div class="xui-u-flex-col">
 //         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 //       </div>
@@ -95,6 +97,7 @@
 .#{$ns}-contentblock--item {
 	border-top: $xui-divider-standard;
 	list-style: none;
+	position: relative;
 
 	&.xui-contentblock--item-selected {
 		background-color: fade-out($xui-color-xero-blue, 0.9);
@@ -103,6 +106,16 @@
 	&:first-of-type {
 		border-top: 0;
 	}
+}
+
+.#{$ns}-contentblock--item-negative::before {
+	background: $xui-color-xero-red;
+	content: "";
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 4px;
 }
 
 .#{$ns}-rowlink {

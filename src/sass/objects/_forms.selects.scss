@@ -87,7 +87,7 @@ select.#{$ns}-select {
 // Markup:
 // <div class="xui-field">
 //   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
-//   <div class="xui-select">
+//   <div class="xui-select xui-select-layout">
 //     <input type="hidden" value="Select option 1"/>
 //     <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //       Select option 1
@@ -95,13 +95,13 @@ select.#{$ns}-select {
 //     <div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
 //       <div class="xui-dropdownmenu--body">
 //         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
-//           <li class="xui-menuitem xui-menuitem-is-selected" role="menuitem">
+//           <li class="xui-menuitem xui-menuitem-layout xui-menuitem-is-selected" role="menuitem">
 //             <a href="#" class="xui-menuitem--body">Select option 1</a>
 //           </li>
-//           <li class="xui-menuitem" role="menuitem">
+//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
 //             <a href="#" class="xui-menuitem--body">Select option 2</a>
 //           </li>
-//           <li class="xui-menuitem" role="menuitem">
+//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
 //             <a href="#" class="xui-menuitem--body">Select option 3</a>
 //           </li>
 //         </ul>
@@ -123,7 +123,6 @@ select.#{$ns}-select {
 	text-align: left;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: 100%;
 
 	&::after {
 		@include xui-caret;
@@ -146,14 +145,23 @@ select.#{$ns}-select {
 	}
 }
 
-.#{$ns}-select .#{$ns}-dropdownmenu-select {
+.#{$ns}-dropdownmenu-select {
 	border-color: $xui-color-xero-blue;
 	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
-	left: 0;
-	position: absolute;
-	top: 40px;
-	transition: $xui-transition-duration-short all $xui-easing-standard;
-	width: 100%;
-	z-index: 1;
+}
+
+.#{$ns}-select-layout {
+	.#{$ns}-select--button {
+		width: 100%;
+	}
+
+	.#{$ns}-dropdownmenu-select {
+		left: 0;
+		position: absolute;
+		top: 40px;
+		transition: $xui-transition-duration-short all $xui-easing-standard;
+		width: 100%;
+		z-index: 1;
+	}
 }

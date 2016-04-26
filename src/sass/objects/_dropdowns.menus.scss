@@ -16,11 +16,11 @@
 // The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
 //
 // Markup:
-// <div class="xui-dropdownmenu" role="menubar" aria-label="dropdown menu">
+// <div class="xui-dropdownmenu xui-dropdownmenu-layout" role="menubar" aria-label="dropdown menu">
 //   <div class="xui-dropdownmenu--body">
 //     <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">Group Title</h3>
 //     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 1 label">
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <button class="xui-button xui-menuitem--body">
 //           Menu item 1
 //         </button>
@@ -30,31 +30,31 @@
 //           Menu item 2
 //         </button>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 3
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 4
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 5
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 6 with more text
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 7
@@ -62,28 +62,28 @@
 //       </li>
 //     </ul>
 //     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 2 label">
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <a class="xui-menuitem--body" href="http://www.google.com">Link Menu Item 1</a>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 2
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
 //           Menu item 3
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
 //           Menu item 4
 //         </label>
 //       </li>
-//       <li class="xui-menuitem" role="menuitem" aria-selected="false">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
 //         <label class="xui-menuitem--body">
 //           <input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
 //           Menu item 5
@@ -93,7 +93,7 @@
 //   </div>
 //   <footer class="xui-dropdownmenu--footer">
 //     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Footer menu label">
-//       <li class="xui-menuitem" role="menuitem">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
 //         <button class="xui-button xui-menuitem--body">+ Some action</button>
 //       </li>
 //     </ul>
@@ -112,8 +112,10 @@
 	margin: 0;
 	overflow: hidden;
 	transition: $xui-transition-duration-short opacity $xui-easing-standard;
+}
+
+.#{$ns}-dropdownmenu-layout {
 	width: 180px;
-	z-index: 1;
 }
 
 .#{$ns}-dropdownmenu-is-closed {
@@ -126,7 +128,6 @@
 }
 
 .#{$ns}-dropdownmenu--body {
-	max-height: 350px;
 	overflow: auto;
 	-ms-scroll-chaining: none;
 }
@@ -134,17 +135,6 @@
 .#{$ns}-dropdownmenu--footer {
 	border-top: $xui-border-standard;
 	box-shadow: 0 -2px 0 0 rgba($xui-color-black, 0.05); // Should be a negative shadow variable
-	z-index: 1;
-}
-
-.#{$ns}-dropdownmenu-select {
-	border-color: $xui-color-xero-blue;
-	border-radius: 0 0 $xui-radius $xui-radius;
-	border-top: 0;
-	left: 1em;
-	position: absolute;
-	top: 100%;
-	width: 100%;
 }
 
 .#{$ns}-menugroup {
@@ -165,13 +155,19 @@
 	}
 }
 
-.#{$ns}-menuitem--body {
-	align-items: center;
-	display: flex;
-	line-height: 20px;
-	text-align: left;
-	text-decoration: none;
-	width: 100%;
+.#{$ns}-menuitem-layout {
+	.#{$ns}-menuitem--body {
+		display: flex;
+		line-height: 20px;
+		text-align: left;
+		text-decoration: none;
+	}
+
+	.#{$ns}-menuitem--input {
+		flex: none;
+		margin: 3px 7px 0 0;
+		padding: 0;
+	}
 }
 
 .#{$ns}-menugroup-layout {
@@ -203,14 +199,6 @@
 .#{$ns}-dropdownmenu--groupheading-layout {
 	@include xui-padding-horizontal($xui-s-standard);
 	@include xui-padding-vertical($xui-s-small);
-}
-
-.#{$ns}-menuitem--input {
-	flex: none;
-	margin: 0 7px 0 0;
-	padding: 0;
-	top: 0; // doesn't work due to odd top's in _inputs.scss
-	z-index: 0;
 }
 
 .#{$ns}-menuitem-is-selected {

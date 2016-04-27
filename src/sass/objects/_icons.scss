@@ -1,0 +1,73 @@
+// Icons
+//
+// The XUI Icons repository may be found [here](https://github.dev.xero.com/UXE/xui-icon). It contains [50+ commonly used icons](https://github.dev.xero.com/pages/UXE/xui-icon/) for consumption through ReactJS, or via ES5 and ES6 javascript without react.
+//
+// Styleguide: Icons
+
+// Inline placement of icons
+//
+// Markup:
+//  <p class="xui-text-secondary">They'll inherit text colour wherever they're placed <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-text" /></svg></p>
+//  <a class="xui-button  xui-button-main xui-margin-bottom">
+// 	  Buttons! <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-view" /></svg>
+//  </a>
+//  <a>Links!<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-location" /></svg></a>
+// <span class="xui-text-status xui-text-status-positive">
+//   Green<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-payment" /></svg>
+// </span>
+// <span class="xui-text-status xui-text-status-negative">
+//   Red<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-tracking" /></svg>
+// </span>
+//
+//
+// Styleguide: Icons.1
+
+// Icon rotation
+//
+// The classes `xui-icon-rotate-90`, `xui-icon-rotate-180`, and `xui-icon-rotate-270` may be used to rotate the icon to various orientations.
+//
+// Markup:
+//  <svg class="xui-icon xui-icon-rotate-90 [modifiers]"> <use xlink:href="#xui-icon-arrow" /></svg><svg class="xui-icon xui-icon-rotate-270 [modifiers]"> <use xlink:href="#xui-icon-arrow" /></svg>
+//
+// Styleguide: Icons.2
+
+/* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
+.xui-icon-svg {
+	fill: currentColor;
+	fill-rule: evenodd;
+	shape-rendering: auto;
+}
+
+.xui-icon {
+	display: inline-block;
+	height: $xui-icon-standard;
+	width: $xui-icon-standard;
+}
+
+.xui-icon-inline {
+	@include xui-margin-vertical(-9px);
+	@include xui-margin-horizontal(-5px);
+}
+
+.xui-icon-lg {
+	height: $xui-icon-large;
+	width: $xui-icon-large;
+}
+
+.xui-icon-xlg {
+	height: $xui-icon-xlarge;
+	width: $xui-icon-xlarge;
+}
+
+.xui-icon-rotate-90 {
+	transform: rotate(90deg);
+}
+
+.xui-icon-rotate-180 {
+	transform: rotate(180deg);
+}
+
+
+.xui-icon-rotate-270 {
+	transform: rotate(270deg);
+}

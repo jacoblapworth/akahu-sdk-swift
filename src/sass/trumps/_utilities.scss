@@ -128,3 +128,28 @@
 	display: block;
 	width: 100%;
 }
+
+// Transitions
+//
+// May be added to elements to give them a smooth transition between transforms.
+//
+// Markup:
+// <div>
+// 	<div><span class="xui-text-panelheading">Short transition</span><svg class="xui-icon xui-icon xui-icon-rotate-right xui-u-transition-short [modifiers]"> <use xlink:href="#arrow" /></svg></div>
+// 	<div><span class="xui-text-panelheading">Medium transition</span><svg class="xui-icon xui-icon xui-icon-rotate-right xui-u-transition-medium [modifiers]"> <use xlink:href="#arrow" /></svg></div>
+// 	<div><span class="xui-text-panelheading">Long transition</span><svg class="xui-icon xui-icon xui-icon-rotate-right xui-u-transition-long [modifiers]"> <use xlink:href="#arrow" /></svg></div>
+// </div>
+//
+// Styleguide: Utilities.4
+
+.#{$ns}-u-transition-short {
+	transition: $xui-transition-duration-short;
+}
+
+.#{$ns}-u-transition-medium {
+	transition: $xui-transition-duration-medium;
+}
+
+.#{$ns}-u-transition-long {
+	transition: $xui-transition-duration-long;
+}

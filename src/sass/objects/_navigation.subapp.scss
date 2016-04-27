@@ -125,7 +125,7 @@
 	@include xui-bold;
 	flex: 1 1 auto;
 	font-size: $xui-font-size-page-title;
-	margin: 0 10px 0 0;
+	margin: 0 $xui-s-small 0 0;
 }
 
 
@@ -140,7 +140,7 @@
 		color: $xui-color-placeholder;
 		content: "›";
 		display: inline-block;
-		margin: 0 10px;
+		margin: 0 $xui-s-small;
 	}
 
 	&:first-of-type::before {

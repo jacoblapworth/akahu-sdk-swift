@@ -89,7 +89,7 @@
 			border-left: $xui-divider-standard;
 			border-radius: $xui-radius;
 			border-right: $xui-divider-standard;
-			margin-left: -20px;
+			margin-left: -$xui-s-large;
 			width: calc(100% + 40px);
 		}
 	}

@@ -21,15 +21,7 @@
 
 // Base style applied to all xui-button-icon classes
 @mixin xui-button-icon-base {
-	-webkit-appearance: none;
-	background: transparent;
-	border: 0;
 	color: $xui-color-grey-3;
-	cursor: pointer;
-	display: inline-block;
-	font-family: inherit;
-	margin: 0;
-	padding: 0;
 
 	&:hover {
 		color: $xui-color-grey-2;

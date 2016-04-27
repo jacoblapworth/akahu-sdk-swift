@@ -11,7 +11,7 @@
 //
 // Markup:
 // <!-- Loader -->
-// <div class="xui-loader xui-loader-layout" role="progressbar" aria-label="Content loading" aria-busy="true">
+// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-label="Content loading" aria-busy="true">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -19,7 +19,7 @@
 // <br />
 // <!-- Loader inside a button -->
 // <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">
-//   <div class="xui-loader" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
@@ -37,7 +37,9 @@
 }
 
 .#{$ns}-loader--dot {
+	$dot-size-small: 10px;
 	$dot-size: 12px;
+	$dot-size-large: 14px;
 	$animation-time: 1.3s;
 	$animation-delay: -0.16s;
 
@@ -64,8 +66,17 @@
 	&:nth-child(3) {
 		animation-delay: $animation-delay * 0;
 	}
-}
 
+	.#{$ns}-loader-small & {
+		height: $dot-size-small;
+		width: $dot-size-small;
+	}
+
+	.#{$ns}-loader-large & {
+		height: $dot-size-large;
+		width: $dot-size-large;
+	}
+}
 
 @keyframes xui-loader-animation {
 	0%,

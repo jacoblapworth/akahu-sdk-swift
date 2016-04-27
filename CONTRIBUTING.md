@@ -79,10 +79,11 @@ Do not use ids or element selectors.
 [Nesting selectors is bad](http://markdotto.com/2015/07/20/css-nesting/); we only allow 2 levels max.
 
 Layout styling should be separate to component styling. Individual components
-should not make assumptions about their layout (e.g. by setting margins, padding or position)
+should not make assumptions about their layout (e.g. by setting margins, padding or position).
+Examples can be shown using the layout primitive classes.
 
 A modifier class with the `-layout` suffix may be provided for the purpose of providing the most common layout
-configuration for that component, including responsive styling.
+configuration for that component, including responsive styling. More info on layout styling can be found in this blog post: [Styling Components in XUI 10](https://confluence.inside.xero.com/x/ww0YCQ).
 
 Avoid the anti-pattern of applying styles in a generic class and then undoing them in a
 more specific class.
@@ -90,7 +91,7 @@ more specific class.
 If you are adding images, ensure you prefix their path with the `$xui-images-path` variable and use
 a leading slash, e.g. `background: url("#{$xui-images-path}/inputs/search.svg")`
 
-If you are contributing a new component, be sure to provide ample documentation, which should include any 
+If you are contributing a new component, be sure to provide ample documentation, which should include any
 applicable ARIA attributes, and demonstrate at least 2 different examples of the same component with
 different classes, children, or using different elements
 (e.g. showing the component classes when used with a `<div>` parent and a `<ul>` parent)
@@ -116,11 +117,11 @@ Making Contributions
 --------------------
 
 Contributions can be made via issues and pull requests. Please be aware of what we consider to be
-[breaking changes](#breaking-changes) and avoid making them if possible. 
+[breaking changes](#breaking-changes) and avoid making them if possible.
 
-If you are confident that you do not have breaking changes, open your PR against `master`. 
+If you are confident that you do not have breaking changes, open your PR against `master`.
 Otherwise, prefix your PR title with `[breaking-changes]` (or other feature branch), add the `breaking change` label,
-and open your PR against the `breaking-changes` branch (or other feature branch). 
+and open your PR against the `breaking-changes` branch (or other feature branch).
 
 We use a pretty OCD linter, so make sure your code passes linting before opening a PR, otherwise
 your PR build will fail.

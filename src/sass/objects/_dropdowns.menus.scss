@@ -176,6 +176,7 @@
 	.#{$ns}-menuitem--body {
 		@include xui-padding-horizontal($xui-s-standard);
 		@include xui-padding-vertical($xui-s-small);
+		color: $xui-color-primary-text;
 	}
 }
 

@@ -137,7 +137,7 @@
 }
 
 .#{$ns}-banner-layout {
-	@include xui-padding-vertical($xui-s-small);
+	@include xui-padding($xui-s-small);
 	@include xui-margin-vertical($xui-s-large);
 	@include xui-margin-horizontal(auto);
 
@@ -159,26 +159,22 @@
 
 	.#{$ns}-banner--message {
 		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-large);
+		@include xui-margin-horizontal($xui-s-small);
 	}
 
 	.#{$ns}-banner--messagedetail {
 		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-large);
+		@include xui-margin-horizontal($xui-s-small);
 	}
 
 	.#{$ns}-banner--actions {
-		margin: 0 $xui-s-small 0 0;
+		margin: 0;
 	}
 
 	.#{$ns}-banner--link {
 		@include xui-padding-vertical($xui-s-xsmall);
 		@include xui-padding-horizontal($xui-s-small);
 		display: inline-block;
-	}
-
-	.#{$ns}-banner--close {
-		@include xui-margin-right($xui-s-small);
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
@@ -210,6 +206,7 @@
 }
 
 .#{$ns}-banner--action {
+	@include xui-bold;
 	display: inline-block;
 }
 

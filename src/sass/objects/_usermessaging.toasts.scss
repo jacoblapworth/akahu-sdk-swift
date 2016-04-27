@@ -12,6 +12,7 @@
 // Styleguide: User Messaging.200
 
 .#{$ns}-toast {
+	@include xui-clearfix;
 	background: transparentize($xui-color-white, 0.1);
 	border: $xui-border-standard;
 	border-radius: $xui-radius;

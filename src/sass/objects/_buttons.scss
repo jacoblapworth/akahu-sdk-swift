@@ -41,9 +41,8 @@
 	box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
 }
 
-@mixin xui-button-hover($border-colour: $xui-color-grey-3) {
+@mixin xui-button-hover {
 	&:hover {
-		border-color: $border-colour;
 		text-decoration: inherit;
 		@content;
 	}
@@ -89,3 +88,4 @@
 @import "buttons.groups"; // Section 5
 @import "buttons.dropdowns"; // Section 6
 @import "buttons.icons"; // Section 7
+@import "buttons.link"; // Section 8

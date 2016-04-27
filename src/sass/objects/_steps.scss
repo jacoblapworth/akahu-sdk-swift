@@ -11,7 +11,7 @@
 // Please note when using this component, since the xui-step class uses flex-box to vertically align, text will not wrap correctly in IE11.
 // If you have a step which you know will need to wrap at all screen sizes, please add a line break.
 //
-// Markup: For steps that are hoverable.
+// Markup:
 // <div class="xui-panel">
 //   <div class="xui-steps xui-steps-hoverable">
 //     <ul class="xui-stepsgroup">
@@ -31,8 +31,13 @@
 //   </div>
 // </div>
 //
+// Styleguide: Steps.1
+
+// Read-only Steps
 //
-// Markup: For steps that are read only / not hoverable.
+// For steps that are read only / not hoverable.
+//
+// Markup:
 // <div class="xui-panel">
 //   <div class="xui-steps">
 //     <ul class="xui-stepsgroup">
@@ -52,7 +57,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Steps
+// Styleguide: Steps.2
 
 .#{$ns}-steps {
 	display: table;
@@ -74,7 +79,6 @@
 	color: $xui-color-secondary-text;
 	cursor: default;
 	display: flex;
-	line-height: 1.2;
 	position: relative;
 	text-align: center;
 
@@ -121,6 +125,7 @@
 	display: flex;
 	font-family: monospace;
 	font-weight: 600;
+	margin-top: -2px; // Offset for vertical alignment
 }
 
 .#{$ns}-step:last-of-type::after {

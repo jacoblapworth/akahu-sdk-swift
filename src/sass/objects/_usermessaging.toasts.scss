@@ -69,13 +69,15 @@
 		@include xui-margin-vertical($xui-s-xsmall);
 	}
 
-	.#{$ns}-toast--action-wrapper {
+	.#{$ns}-toast--actions {
 		margin: 0;
 		padding: 0;
 	}
 
-	.#{$ns}-toast--action {
-		padding: $xui-s-xsmall $xui-s-small;
+	.#{$ns}-toast--link {
+		@include xui-padding-vertical($xui-s-xsmall);
+		@include xui-padding-horizontal($xui-s-small);
+		display: inline-block;
 	}
 
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
@@ -111,7 +113,7 @@
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
 //   <div class="xui-toast--message">Toast Message</div>
-//   <div class="xui-toast--action-wrapper">
+//   <div class="xui-toast--actions">
 //       <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
 //   </div>
 // </div>
@@ -124,9 +126,9 @@
 // <div class="xui-toast xui-toast-layout" role="status">
 //   <button type="button" class="xui-button xui-button-icon-lg xui-toast--close" title="Close" aria-label="Close">×</button>
 //   <div class="xui-toast--message">Toast Message</div>
-//   <ul class="xui-toast--action-wrapper">
+//   <ul class="xui-toast--actions">
 //     <li class="xui-toast--action">
-//       <a class="xui-toast--link" href="#ToastLink">Undo</a>
+//       <button class="xui-button xui-button-link xui-toast--link" href="#ToastLink">Undo</button>
 //     </li>
 //     <li class="xui-toast--action">
 //       <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
@@ -180,9 +182,9 @@
 // 	<div class="xui-toast xui-toast-layout" role="status">
 // 	  <button type="button" class="xui-button xui-button-icon-lg xui-toast--close" title="Close" aria-label="Close">×</button>
 // 	  <div class="xui-toast--message">Toast Message</div>
-// 	  <ul class="xui-toast--action-wrapper">
+// 	  <ul class="xui-toast--actions">
 // 	    <li class="xui-toast--action">
-// 	      <a class="xui-toast--link" href="#ToastLink">Undo</a>
+// 	      <button class="xui-button xui-button-link xui-toast--link" href="#ToastLink">Undo</button>
 // 	    </li>
 // 	    <li class="xui-toast--action">
 // 	      <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
@@ -193,31 +195,23 @@
 //
 // Styleguide: User Messaging.200.3
 
-.#{$ns}-toast--link {
+.#{$ns}-toast--action {
 	@include xui-bold;
-	color: $xui-color-xero-blue;
 }
 
 .#{$ns}-toast--message,
-.#{$ns}-toast--action-wrapper,
+.#{$ns}-toast--actions,
 .#{$ns}-toast--action {
 	display: inline-block;
 }
 
-.#{$ns}-toast--close {
-	float: right;
-}
-
-.#{$ns}-toast--action-wrapper {
-	display: flex;
+.#{$ns}-toast--close,
+.#{$ns}-toast--actions {
 	float: right;
 }
 
 .#{$ns}-toast--action {
-
-	&:nth-of-type(n+2) {
-		padding-left: $xui-s-small;
-	}
+	display: inline-block;
 }
 
 .#{$ns}-toast-is-hidden {

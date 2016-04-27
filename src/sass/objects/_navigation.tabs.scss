@@ -115,15 +115,15 @@ $xui-color-variations: (
 
 .#{$ns}-tab {
 	margin: 0;
+	position: relative;
 
 	.#{$ns}-tab--body {
 		border-radius: $xui-radius;
 		color: $xui-color-secondary-text;
 		cursor: pointer;
 		display: inline-block;
-		line-height: 1.2;
+		font-weight: bold;
 		outline: none;
-		padding-bottom: 6px;
 		text-align: center;
 
 		&:hover {
@@ -142,9 +142,12 @@ $xui-color-variations: (
 
 	&::after {
 		background-color: transparent;
+		bottom: 0;
 		content: " ";
 		display: block;
 		height: 3px;
+		position: absolute;
+		width: 100%;
 	}
 }
 
@@ -157,7 +160,7 @@ $xui-color-variations: (
 .#{$ns}-tabgroup-layout {
 	.#{$ns}-tab--body {
 		@include xui-padding-horizontal($xui-s-standard);
-		@include xui-padding-top($xui-s-small);
+		@include xui-padding-vertical($xui-s-small);
 	}
 }
 

@@ -40,18 +40,18 @@
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-positive" role="status">
 //   <p class="xui-banner--message">Banner Message</p>
-//   <ul class="xui-banner--action">
-//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
 //   </ul>
 // </div>
 // <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
 //   <p class="xui-banner--message">Banner Message</p>
-//   <ul class="xui-banner--action">
-//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
 //   </ul>
 // </div>
 //
@@ -64,10 +64,10 @@
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
 //   <p class="xui-banner--message">Banner Message</p>
-//   <ul class="xui-banner--action">
-//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link" type="button">Action Three</button></li>
 //   </ul>
 // </div>
 //
@@ -97,10 +97,10 @@
 //   <ul class="xui-banner--messagedetail">
 //       <li>We've got this request</li>
 //   </ul>
-//   <ul class="xui-banner--action">
-//     <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//     <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
 //   </ul>
 // </div>
 //
@@ -167,17 +167,14 @@
 		@include xui-margin-horizontal($xui-s-large);
 	}
 
-	.#{$ns}-banner--action {
-		@include xui-margin-left(0);
-		@include xui-margin-top(0);
-		@include xui-margin-bottom(0);
-		@include xui-margin-right($xui-s-small);
-		@include xui-padding(0);
+	.#{$ns}-banner--actions {
+		margin: 0 $xui-s-small 0 0;
 	}
 
 	.#{$ns}-banner--link {
 		@include xui-padding-vertical($xui-s-xsmall);
 		@include xui-padding-horizontal($xui-s-small);
+		display: inline-block;
 	}
 
 	.#{$ns}-banner--close {
@@ -195,7 +192,7 @@
 
 
 .#{$ns}-banner--message,
-.#{$ns}-banner--action {
+.#{$ns}-banner--actions {
 	display: inline-block;
 }
 
@@ -207,25 +204,18 @@
 	color: $xui-color-secondary-text;
 }
 
-.#{$ns}-banner--action {
-	float: right;
-}
-
+.#{$ns}-banner--actions,
 .#{$ns}-banner--close {
 	float: right;
 }
 
-.#{$ns}-banner--link {
+.#{$ns}-banner--action {
 	display: inline-block;
-
-	&:nth-of-type(n+2) {
-		padding-left: 10px;
-	}
 }
 
 @keyframes xui-banner-animation {
 	0% {
-		margin-top: -20px;
+		margin-top: -$xui-s-large;
 		opacity: 0;
 	}
 

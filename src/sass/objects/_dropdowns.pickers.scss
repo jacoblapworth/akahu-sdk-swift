@@ -107,7 +107,7 @@
 .#{$ns}-datepicker--nextbutton {
 	font-size: inherit;
 	line-height: 3em;
-	min-width: 10px;
+	min-width: $xui-s-small;
 
 	&::before {
 		color: $xui-color-grey-2;
@@ -148,7 +148,7 @@
 
 .#{$ns}-datepicker--body {
 	border: 0;
-	margin: 10px auto;
+	margin: $xui-s-small auto;
 }
 
 .#{$ns}-datepicker--day {

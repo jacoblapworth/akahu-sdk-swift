@@ -147,7 +147,7 @@
 // This is our "Grid" since we want a nice even space between the columns
 .#{$ns}-row-grid {
 	> [class*="xui-column"] {
-		margin: 0 10px;
+		margin: 0 $xui-s-small;
 
 		&:last-child {
 			margin-right: 0;

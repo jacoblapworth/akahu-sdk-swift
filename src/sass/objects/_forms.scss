@@ -15,6 +15,7 @@
 // Styleguide: Forms
 
 %#{$ns}-commoninput {
+	@include xui-state-focus;
 	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
 	background-color: $xui-color-white;
 	border: $xui-border-standard;
@@ -39,12 +40,6 @@
 		background-color: $xui-color-background;
 		border-color: $xui-color-border;
 		color: $xui-color-secondary-text;
-	}
-
-	&:focus {
-		border-color: $xui-color-xero-blue;
-		box-shadow: $xui-shadow-focus;
-		transition: box-shadow $xui-transition-duration-short;
 	}
 
 	&::placeholder {

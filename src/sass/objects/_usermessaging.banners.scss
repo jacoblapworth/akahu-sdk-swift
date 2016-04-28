@@ -174,9 +174,9 @@
 	}
 
 	.#{$ns}-banner--link {
-		@include xui-padding-vertical($xui-s-xsmall);
-		@include xui-padding-horizontal($xui-s-small);
+		@include xui-state-focus-transparent;
 		display: inline-block;
+		padding: $xui-s-actionlink;
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {

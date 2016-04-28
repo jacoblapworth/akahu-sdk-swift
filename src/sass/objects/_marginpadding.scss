@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../vars";
 
 // Margin and Padding
 //
@@ -213,6 +214,9 @@
 // <div class="xui-padding-left-lg">
 //  <div>Left large</div>
 // </div>
+// <div class="xui-padding-actionlink">
+//  <div>Action link padding</div>
+// </div>
 //
 // Styleguide: Margin and Padding.Padding.1
 
@@ -224,4 +228,8 @@
 // scss-lint:disable ImportantRule
 .#{$ns}-padding-none {
 	padding: 0 !important;
+}
+
+.#{$ns}-padding-actionlink {
+	padding: $xui-s-actionlink;
 }

@@ -1,0 +1,15 @@
+@mixin xui-state-focus {
+	&:focus {
+		box-shadow: $xui-shadow-focus;
+		outline: none;
+		transition: box-shadow $xui-transition-duration-short;
+	}
+}
+
+@mixin xui-state-focus-transparent {
+	@include xui-state-focus;
+	&:focus {
+		background-color: $xui-color-shadow-medium;
+		border-radius: $xui-radius;
+	}
+}

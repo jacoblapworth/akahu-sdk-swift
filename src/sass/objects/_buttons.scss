@@ -48,11 +48,9 @@
 	}
 }
 
-@mixin xui-button-focus($border-colour: $xui-color-xero-blue, $outline: none, $outline-offset: 0) {
+@mixin xui-button-focus($fade, $shadow) {
 	&:focus {
-		border-color: $border-colour;
-		outline: $outline;
-		outline-offset: $outline-offset;
+		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade), $shadow;
 	}
 }
 

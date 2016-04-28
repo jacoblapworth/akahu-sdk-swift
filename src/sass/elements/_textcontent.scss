@@ -5,10 +5,13 @@
 //
 // Use the `xui-textcontent` wrapper class to enclose content that is represented by simple HTML elements.
 //
+// HTML elements inside `xui-textcontent` will be basically formatted in a way that makes sense for displaying user generated content.
+//
 // Markup:
-// <div class="xui-textcontent">
+// <div class="xui-panel xui-padding-horizontal xui-textcontent">
 //   <h1>First level heading</h1>
 //   <p>This is a paragraph within text content</p>
+//   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 //   <h2>Second level heading</h2>
 //   <ul>
 //     <li>First list item</li>
@@ -27,9 +30,11 @@
 //   <h4>Fourth level heading</h4>
 // </div>
 //
-// Styleguide: Text Content
+// Styleguide: Text Content.2
 
 .#{$ns}-textcontent {
+	line-height: $xui-line-height-text;
+
 	h1,
 	h2,
 	h3,

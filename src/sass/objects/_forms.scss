@@ -28,10 +28,6 @@
 	padding: 9px 0.5em;
 	width: 100%;
 
-	@include xui-breakpoint-narrow {
-		padding: 12px 0.5em;
-	}
-
 	&:hover {
 		border-color: $xui-color-grey-3;
 	}

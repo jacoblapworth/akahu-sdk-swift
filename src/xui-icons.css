@@ -4,12 +4,7 @@
 
 .xui-icon {
 	fill-rule: evenodd;
-	width: 1em;
-	height: 1em;
+	width: 30px;
+	height: 30px;
 	vertical-align: middle;
-}
-
-.xui-icon-sm {
-	width: 15px;
-	height: 15px;
 }

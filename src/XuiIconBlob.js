@@ -8,7 +8,7 @@ export default function XuiIconBlob (){
 	let iconsJSX = [];
 	for (let key in icons) {
 		iconsJSX.push(
-			<symbol key={key} id={key} viewBox="0 0 20 20" className={'xui-icon-svg' }>
+			<symbol key={key} id={key} viewBox="0 0 30 30" className={'xui-icon-svg' }>
 				<path d = {icons[key]}/>
 			</symbol>
 		);

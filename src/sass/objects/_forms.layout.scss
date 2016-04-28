@@ -1,9 +1,15 @@
-// Forms and Fields
+// Form Layout
 //
-// Use the `.xui-form` class with any `<form>` element to create the default stacked form.
+// Styleguide: Forms.1
+
+// Stacked Forms
+//
+// Use the `.xui-form` class with a `<form>` element to create the default stacked form.
 //
 // Use the `.xui-field` class as a container for related form elements (e.g. `<label>` and `<input>`)
 // to give the suggested spacing between form fields.
+//
+// Stacked forms use the suggested width of `400px` and are responsive by default.
 //
 // Markup:
 // <form class="xui-form">
@@ -19,10 +25,11 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 //
-// Styleguide: Forms.1
+// Styleguide: Forms.1.1
 
 .#{$ns}-form {
-	display: block;
+	margin: auto;
+	max-width: $xui-form-width;
 }
 
 .#{$ns}-field {
@@ -31,15 +38,15 @@
 
 // Inline Forms
 //
-// Use the `.xui-form-inline` class alongside the `.xui-form` class to create an inline form.
+// Use the `.xui-form-inline` class with a `<form>` element to create an inline form.
 //
-// Use the `.xui-u-hidden` utility class if only want screen-readers to see `<label>` elements.
+// Use the `.xui-u-hidden` utility class if you only want screen-readers to see `<label>` elements.
 //
 // Inline forms will stack at the smallest breakpoint by default.
 //
 // Markup:
 // <!-- Inline Form -->
-// <form class="xui-form xui-form-inline">
+// <form class="xui-form-inline">
 //   <p class="xui-text-panelheading">Inline Form</p>
 //   <div class="xui-field">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Field One</label>
@@ -52,7 +59,7 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 // <!-- Hidden Labels -->
-// <form class="xui-form xui-form-inline">
+// <form class="xui-form-inline">
 //   <p class="xui-text-panelheading">Hidden Labels</p>
 //   <div class="xui-field">
 //     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
@@ -65,11 +72,19 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 //
-// Styleguide: Forms.2
+// Styleguide: Forms.1.2
 
 .#{$ns}-form-inline {
-	.#{$ns}-field {
-		@media screen and (min-width: $xui-breakpoint-narrow) {
+	// Narrow-first breakpoint style
+	margin: auto;
+	max-width: $xui-form-width;
+
+	// Medium and wide breakpoint style
+	@media screen and (min-width: $xui-breakpoint-narrow) {
+		padding: 0;
+		max-width: none;
+
+		.#{$ns}-field {
 			display: inline-block;
 		}
 	}

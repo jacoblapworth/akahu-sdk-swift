@@ -94,9 +94,11 @@
 // <div class="xui-banner xui-banner-layout" role="status">
 //   <button class="xui-button xui-button-icon-lg xui-banner--close" title="Close" aria-label="Close">×</button>
 //   <p class="xui-banner--message">Banner Message</p>
-//   <ul class="xui-banner--messagedetail">
-//       <li>We've got this request</li>
-//   </ul>
+//   <div class="xui-banner--messagedetail xui-textcontent">
+//     <ul>
+//         <li>We've got this request</li>
+//     </ul>
+//   </div>
 //   <ul class="xui-banner--actions">
 //     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
 //     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>

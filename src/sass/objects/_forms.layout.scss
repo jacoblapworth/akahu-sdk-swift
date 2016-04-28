@@ -81,8 +81,8 @@
 
 	// Medium and wide breakpoint style
 	@media screen and (min-width: $xui-breakpoint-narrow) {
-		padding: 0;
 		max-width: none;
+		padding: 0;
 
 		.#{$ns}-field {
 			display: inline-block;

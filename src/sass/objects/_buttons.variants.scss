@@ -50,7 +50,7 @@ $xui-button-variants: (
 
 			@include xui-button-active($color, $color) {
 				@include xui-button-shadow(0.1);
-			}
+			};
 
 		}
 

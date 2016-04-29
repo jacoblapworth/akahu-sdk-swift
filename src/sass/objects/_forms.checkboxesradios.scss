@@ -38,16 +38,16 @@
 }
 
 .#{$ns}-checkbox-layout, .#{$ns}-radio-layout {
-	display: block;
-	line-height: $xui-line-height;
-	margin-left: 27px;
-	padding: 10px 0;
-	position: relative;
+	@include xui-padding-vertical($xui-s-small);
+	@include xui-padding-horizontal($xui-s-standard);
+	display: flex;
+	line-height: $xui-line-height-text;
+	text-align: left;
+	text-decoration: none;
 
 	input {
-		margin-left: -24px;
-		position: absolute;
-		top: 5px;
+		flex: none;
+		margin: 1px 7px 0 0;
 	}
 }
 

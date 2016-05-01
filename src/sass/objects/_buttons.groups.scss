@@ -1,64 +1,8 @@
+@import "../mixins";
+
 // Groups
 //
 // Styleguide: Buttons.5
-
-@mixin xui-buttongroup {
-	.#{$ns}-buttongroup {
-		display: inline-flex;
-	}
-}
-
-$xui-button-variants: (
-	main : $xui-color-xero-blue-divider,
-	create : $xui-color-xero-green-divider,
-	negative : $xui-color-xero-red-divider
-);
-
-@mixin xui-button-grouped {
-	.#{$ns}-button-grouped {
-		border-radius: 0;
-		margin-right: -1px; // Prevent double borders
-
-		&:hover {
-			z-index: 2; // show full border on hover
-		}
-
-		&:focus,
-		&:active {
-			z-index: 3; // override full border on focus/active
-		}
-
-		&:first-of-type {
-			border-bottom-left-radius: $xui-radius;
-			border-top-left-radius: $xui-radius;
-		}
-
-		&:last-of-type {
-			border-bottom-right-radius: $xui-radius;
-			border-top-right-radius: $xui-radius;
-		}
-
-		@each $variant, $color in $xui-button-variants {
-			&.#{$ns}-button-#{$variant} {
-				&,
-				&:hover,
-				&:focus,
-				&:active {
-					border-left-color: $color;
-					border-right-color: $color;
-				}
-
-				&:first-of-type {
-					border-left: 0;
-				}
-
-				&:last-of-type {
-					border-right: 0;
-				}
-			}
-		}
-	}
-}
 
 // Groups
 //

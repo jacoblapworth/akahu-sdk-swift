@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Variants
 //
 // Button variants are buttons that look similar with few variations but, are used in different contexts. I.e you might use a negative button for destroy actions.
@@ -6,28 +8,7 @@
 //
 // Styleguide: Buttons.2
 
-@mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue) {
-	@include xui-font-smooth;
-	background-color: $background-color;
-	border: $border;
-	color: $color;
-	border-radius: $xui-radius;
-	font-weight: bold;
-	line-height: $xui-line-height-button;
-	min-width: 80px;
-	padding: 8px $xui-s-small;
-	text-align: center;
-	text-decoration: none;
-}
-
-$xui-button-variants: (
-	standard : null,
-	main : $xui-color-xero-blue,
-	create : $xui-color-xero-green,
-	negative : $xui-color-xero-red
-);
-
-@each $variant, $color in $xui-button-variants {
+@each $variant, $color in $xui-button-variants-background-colors {
 
 	.#{$ns}-button-#{$variant} {
 

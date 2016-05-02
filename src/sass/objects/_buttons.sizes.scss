@@ -2,16 +2,6 @@
 //
 // Styleguide: Buttons.3
 
-@mixin xui-button-size($line-height: 1, $min-width: 60px, $padding: 0.5em 1em) {
-	line-height: $line-height;
-	min-width: $min-width;
-	padding: $padding;
-}
-
-$xui-button-sizes: (
-  small : (line-height: 1, min-width: 60px, padding: 0.5em 1em)
-);
-
 .#{$ns}-button-fullwidth-layout {
 	@include xui-breakpoint-narrow {
 		display: block;

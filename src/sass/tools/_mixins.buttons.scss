@@ -1,0 +1,160 @@
+@import "../vars";
+
+@mixin xui-button-reset {
+	appearance: none;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: $xui-font-size-text;
+	margin: 0;
+	padding: 0;
+}
+
+@mixin xui-button-shadow($fade) {
+	box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
+}
+
+@mixin xui-button-hover {
+	&:hover {
+		text-decoration: inherit;
+		@content;
+	}
+}
+
+@mixin xui-button-focus($fade, $shadow) {
+	&:focus {
+		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade), $shadow;
+	}
+}
+
+@mixin xui-button-active($bg-color: $xui-color-grey-6, $border-color: $xui-color-grey-3) {
+	&:active {
+		background-color: $bg-color;
+		border-color: $border-color;
+		text-decoration: none;
+		@content
+	}
+}
+
+@mixin xui-button-split {
+	.#{$ns}-button-split {
+		min-width: 0;
+		padding-left: $xui-s-xsmall;
+	}
+}
+
+@mixin xui-buttongroup {
+	.#{$ns}-buttongroup {
+		display: inline-flex;
+	}
+}
+
+@mixin xui-button-grouped {
+	.#{$ns}-button-grouped {
+		border-radius: 0;
+		margin-right: -1px; // Prevent double borders
+
+		&:hover {
+			z-index: 2; // show full border on hover
+		}
+
+		&:focus,
+		&:active {
+			z-index: 3; // override full border on focus/active
+		}
+
+		&:first-of-type {
+			border-bottom-left-radius: $xui-radius;
+			border-top-left-radius: $xui-radius;
+		}
+
+		&:last-of-type {
+			border-bottom-right-radius: $xui-radius;
+			border-top-right-radius: $xui-radius;
+		}
+
+		@each $variant, $color in $xui-button-variants-divider-colors {
+			&.#{$ns}-button-#{$variant} {
+				&,
+				&:hover,
+				&:focus,
+				&:active {
+					border-left-color: $color;
+					border-right-color: $color;
+				}
+
+				&:first-of-type {
+					border-left: 0;
+				}
+
+				&:last-of-type {
+					border-right: 0;
+				}
+			}
+		}
+	}
+}
+
+// Base style applied to all xui-button-icon classes
+@mixin xui-button-icon-base {
+	color: $xui-color-grey-3;
+
+	&:hover {
+		color: $xui-color-grey-2;
+	}
+
+	&:focus {
+		background: $xui-color-shadow-light;
+		border-radius: 50%;
+		outline: none;
+	}
+
+	&:active {
+		background: $xui-color-shadow-light;
+		border-radius: 50%;
+		color: $xui-color-grey-2;
+		outline: none;
+	}
+}
+
+// Generate xui-button-icon class variants with given $font-size and $suffix
+@mixin xui-generate-button-icon-sizes($font-size, $suffix) {
+	.#{$ns}-button-icon#{$suffix} {
+		@include xui-button-icon-base;
+		font-size: $font-size;
+		line-height: $font-size * 1.6;
+		width: $font-size * 1.6;
+	}
+}
+
+@mixin xui-button-size($line-height: 1, $min-width: 60px, $padding: 0.5em 1em) {
+	line-height: $line-height;
+	min-width: $min-width;
+	padding: $padding;
+}
+
+@mixin xui-button-is-disabled($bg-color: $xui-color-reversed-text, $color: $xui-color-disabled-text) {
+	background-color: $bg-color;
+	border-color: $xui-color-disabled;
+	box-shadow: none;
+	color: $color;
+	cursor: default;
+	pointer-events: none;
+}
+
+@mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue) {
+	@include xui-font-smooth;
+	background-color: $background-color;
+	border: $border;
+	color: $color;
+	border-radius: $xui-radius;
+	font-weight: bold;
+	line-height: $xui-line-height-button;
+	min-width: 80px;
+	padding: 8px $xui-s-small;
+	text-align: center;
+	text-decoration: none;
+}
+

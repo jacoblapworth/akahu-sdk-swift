@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../mixins";
 
 // Filters
 //
@@ -135,20 +136,6 @@
 //
 // Styleguide: Navigation.4.3
 
-@mixin xui-hide-control() {
-	display: none;
-}
-
-@mixin xui-collapse-list() {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height $xui-transition-duration-medium linear;
-}
-
-@mixin xui-expand-list() {
-	max-height: 100vh; // Set huge, because you most likely will never get this big, but gotta be safe here
-}
-
 .#{$ns}-sidebarfilters {
 	margin: 0;
 	padding: 0;
@@ -159,28 +146,28 @@
 }
 
 .#{$ns}-sidebarfilter--control {
-	@include xui-hide-control();
+	@include xui-navigation-filters-hide-control();
 
 	& + .#{$ns}-sidebarfilters {
-		@include xui-collapse-list();
+		@include xui-navigation-filters-collapse-list();
 	}
 
 	&:checked + .#{$ns}-sidebarfilters {
-		@include xui-expand-list();
+		@include xui-navigation-filters-expand-list();
 	}
 }
 
 .#{$ns}-sidebarsummary--control {
-	@include xui-hide-control();
+	@include xui-navigation-filters-hide-control();
 
 	@include xui-breakpoint-narrow() {
 
 		& + .#{$ns}-sidebarfilters, & + .#{$ns}-sidebarfilters-multiple {
-			@include xui-collapse-list();
+			@include xui-navigation-filters-collapse-list();
 		}
 
 		&:checked + .#{$ns}-sidebarfilters, &:checked + .#{$ns}-sidebarfilters-multiple {
-			@include xui-expand-list();
+			@include xui-navigation-filters-expand-list();
 		}
 
 	}
@@ -199,7 +186,7 @@
 }
 
 .#{$ns}-sidebarsummary {
-	@include xui-hide-control();
+	@include xui-navigation-filters-hide-control();
 
 	@include xui-breakpoint-narrow() {
 		display: flex;

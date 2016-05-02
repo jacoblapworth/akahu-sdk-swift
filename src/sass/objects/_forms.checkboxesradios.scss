@@ -45,7 +45,8 @@
 	text-align: left;
 	text-decoration: none;
 
-	input {
+	input[type=checkbox],
+	input[type=radio] {
 		flex: none;
 		margin: 1px 7px 0 0;
 	}

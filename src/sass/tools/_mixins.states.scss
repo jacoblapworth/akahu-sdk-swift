@@ -7,9 +7,17 @@
 }
 
 @mixin xui-state-focus-transparent {
-	@include xui-state-focus;
+	&:hover {
+		color: darken($xui-color-xero-blue, 10%);
+	}
+
 	&:focus {
-		background-color: $xui-color-shadow-medium;
+		background-color: darken($xui-color-white, 5%);
+		border-radius: $xui-radius;
+	}
+
+	&:active {
+		background-color: darken($xui-color-white, 10%);
 		border-radius: $xui-radius;
 	}
 }

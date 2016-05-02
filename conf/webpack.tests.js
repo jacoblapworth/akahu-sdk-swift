@@ -1,5 +1,4 @@
 require('core-js/es5');
-require('es6-shim');
 
 import 'babel-core/external-helpers.js';
 

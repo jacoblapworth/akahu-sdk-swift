@@ -15,11 +15,11 @@
 // labels.
 //
 // Markup:
-// <label class="xui-checkbox">
+// <label class="xui-checkbox xui-checkbox-layout">
 //  <input type="checkbox" name="checkbox"/>
 //  Tick me!
 // </label>
-// <label class="xui-radio">
+// <label class="xui-radio xui-radio-layout">
 //  <input type="radio" name="radio"/>
 //  Pick me!
 // </label>
@@ -28,17 +28,27 @@
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
-	display: block;
-	line-height: 36px;
-	vertical-align: middle;
 
 	input {
 		box-shadow: none;
 		cursor: pointer;
 		height: 18px;
-		margin: 3px 0.5em 3px 3px;
-		vertical-align: middle;
 		width: 18px;
+	}
+}
+
+.#{$ns}-checkbox-layout, .#{$ns}-radio-layout {
+	@include xui-padding-vertical($xui-s-small);
+	@include xui-padding-horizontal($xui-s-standard);
+	display: flex;
+	line-height: $xui-line-height-text;
+	text-align: left;
+	text-decoration: none;
+
+	input[type=checkbox],
+	input[type=radio] {
+		flex: none;
+		margin: 1px 7px 0 0;
 	}
 }
 
@@ -50,29 +60,29 @@
 //
 // Markup:
 // <div class="xui-checkboxgroup" role="group" aria-label="Checkbox form">
-//   <label class="xui-checkbox">
+//   <label class="xui-checkbox xui-checkbox-layout">
 //     <input type="checkbox" name="checkbox1"/>
 //     Tick me!
 //   </label>
-//   <label class="xui-checkbox">
+//   <label class="xui-checkbox xui-checkbox-layout">
 //     <input type="checkbox" name="checkbox2"/>
 //     No, tick me!
 //   </label>
-//   <label class="xui-checkbox">
+//   <label class="xui-checkbox xui-checkbox-layout">
 //     <input type="checkbox" name="checkbox3"/>
 //     Don't listen to those 2 - tick me instead!
 //   </label>
 // </div>
 // <div class="xui-radiogroup" role="radiogroup" aria-label="Radio form">
-//   <label class="xui-radio">
+//   <label class="xui-radio xui-radio-layout">
 //     <input type="radio" name="radio1"/>
 //     Pick me!
 //   </label>
-//   <label class="xui-radio">
+//   <label class="xui-radio xui-radio-layout">
 //     <input type="radio" name="radio1"/>
 //     No, pick me!
 //   </label>
-//   <label class="xui-radio">
+//   <label class="xui-radio xui-radio-layout">
 //     <input type="radio" name="radio1"/>
 //     Are you insane?  Pick me!
 //   </label>

@@ -15,25 +15,22 @@
 		@if $variant == standard {
 
 			@include xui-button-variant;
-			@include xui-button-hover;
-			@include xui-button-focus(0.05, $xui-shadow-focus);
-			@include xui-button-active;
 
 		} @else {
 
 			@include xui-button-variant($color, 1px solid $color, $xui-color-reversed-text);
 
-			@include xui-button-focus(0.1, $xui-shadow-focus);
-
-			@include xui-button-hover {
-				@include xui-button-shadow(0.05);
-			};
-
-			@include xui-button-active($color, $color) {
-				@include xui-button-shadow(0.1);
-			};
-
 		}
+
+		@include xui-button-focus(0.1, $xui-shadow-focus);
+
+		@include xui-button-hover {
+			@include xui-button-shadow(0.05);
+		};
+
+		@include xui-button-active($color, $color) {
+			@include xui-button-shadow(0.1);
+		};
 
 	}
 

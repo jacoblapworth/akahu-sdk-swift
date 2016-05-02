@@ -18,6 +18,11 @@
 // <span class="xui-text-status xui-text-status-negative">
 //   Red<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-tracking" /></svg>
 // </span>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-desktop" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-mobile" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-print" /></svg></button>
+// </div>
 //
 //
 // Styleguide: Icons.1
@@ -45,8 +50,9 @@
 }
 
 .xui-icon-inline {
-	@include xui-margin-vertical(-9px);
-	@include xui-margin-horizontal(-5px);
+	@include xui-margin-top(-7px);
+	@include xui-margin-horizontal(-8px);
+	@include xui-margin-bottom(-11px);
 }
 
 .xui-icon-lg {

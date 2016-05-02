@@ -7,8 +7,9 @@ import icons from './iconData.js';
 export default function XuiIconBlob (){
 	let iconsJSX = [];
 	for (let key in icons) {
+		const iconName = 'xui-icon-' + key;
 		iconsJSX.push(
-			<symbol key={key} id={key} viewBox="0 0 30 30" className={'xui-icon-svg' }>
+			<symbol key={iconName} id={iconName} viewBox="0 0 30 30" className={'xui-icon-svg' }>
 				<path d = {icons[key]}/>
 			</symbol>
 		);

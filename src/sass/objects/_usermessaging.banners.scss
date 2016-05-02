@@ -80,7 +80,9 @@
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
 //   <p class="xui-banner--message">Banner Message</p>
-//   <button class="xui-button xui-button-icon-lg xui-banner--close" title="Close" aria-label="Close">×</button>
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//       <svg class="xui-icon xui-icon-inline [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//   </button>
 // </div>
 //
 // Styleguide: User Messaging.100.4
@@ -92,7 +94,9 @@
 //
 // Markup:
 // <div class="xui-banner xui-banner-layout" role="status">
-//   <button class="xui-button xui-button-icon-lg xui-banner--close" title="Close" aria-label="Close">×</button>
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//     <svg class="xui-icon xui-icon-inline [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//   </button>
 //   <p class="xui-banner--message">Banner Message</p>
 //   <div class="xui-banner--messagedetail xui-textcontent">
 //     <ul>
@@ -169,6 +173,10 @@
 		@include xui-margin-horizontal($xui-s-small);
 	}
 
+	.#{$ns}-banner--close {
+		@include xui-margin-vertical(-2px);
+	}
+
 	.#{$ns}-banner--actions {
 		margin: 0;
 	}
@@ -180,11 +188,11 @@
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
-		max-width: calc(100% - 80px);
+		max-width: calc(100% - 50px);
 	}
 
 	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
-		max-width: calc(100% - 80px);
+		max-width: calc(100% - 50px);
 	}
 }
 

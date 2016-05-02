@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import XuiIcon from '../XuiIcon.js';
@@ -11,12 +11,18 @@ describe('not found', () => {
 
 	beforeEach(() => {
 		ReactComponent = TestUtils.renderIntoDocument(
-			<XuiIcon />
+			<div>
+				<XuiIcon icon="edit" className="abcd" />
+			</div>
 		);
 	});
 
 	it('should render', () => {
-		expect(ReactComponent).to.exist;
+		assert.isOk(ReactComponent);
+	});
+
+	it('should accept class names via the className prop', () => {
+		assert.isTrue(ReactDOM.findDOMNode(ReactComponent).children[0].classList.contains('abcd'));
 	});
 
 });

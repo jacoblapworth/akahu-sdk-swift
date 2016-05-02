@@ -10,12 +10,13 @@
 // in a consistent cross-browser manner.
 //
 // Markup:
-//  <div class="xui-selectwrapper">
-//    <select class="xui-select" id="group-button-example3">
+//  <div class="xui-select">
+//    <select class="xui-select--control" id="group-button-example3">
 //      <option>Value 1</option>
 //      <option>Value 2</option>
 //      <option>Value 3</option>
 //    </select>
+//    <span class="xui-select--caret"></span>
 //  </div>
 //
 // Styleguide: Forms.8
@@ -24,7 +25,7 @@
 	position: relative;
 }
 
-select.#{$ns}-select {
+.#{$ns}-select--control {
 	@extend %#{$ns}-commoninput;
 
 	cursor: pointer;
@@ -40,29 +41,17 @@ select.#{$ns}-select {
 	}
 }
 
-.#{$ns}-selectwrapper {
-	position: relative;
-
-	&::after {
-		@include xui-caret;
-
-		content: " ";
-		height: 0;
-		pointer-events: none;
-		position: absolute;
-		right: 8px;
-		top: calc(50% - 2px);
-		vertical-align: middle;
-		width: 0;
-	}
-}
-
 .#{$ns}-select--caret {
 	@include xui-caret;
+
+	content: " ";
+	height: 0;
+	pointer-events: none;
 	position: absolute;
-	right: 20px;
+	right: 8px;
 	top: calc(50% - 2px);
 	vertical-align: middle;
+	width: 0;
 }
 
 // Styled Select Boxes
@@ -92,6 +81,7 @@ select.#{$ns}-select {
 //     <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //       Select option 1
 //     </button>
+//     <span class="xui-select--caret"></span>
 //     <div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
 //       <div class="xui-dropdownmenu--body">
 //         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
@@ -123,14 +113,6 @@ select.#{$ns}-select {
 	text-align: left;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-
-	&::after {
-		@include xui-caret;
-		content: " ";
-		position: absolute;
-		right: 20px;
-		top: calc(50% - 2px);
-	}
 }
 
 .#{$ns}-select--button-is-selected {
@@ -159,7 +141,7 @@ select.#{$ns}-select {
 	.#{$ns}-dropdownmenu-select {
 		left: 0;
 		position: absolute;
-		top: 40px;
+		top: 45px;
 		transition: $xui-transition-duration-short all $xui-easing-standard;
 		width: 100%;
 		z-index: 1;

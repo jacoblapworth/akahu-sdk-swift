@@ -121,12 +121,11 @@
 }
 
 // Generate xui-button-icon class variants with given $font-size and $suffix
-@mixin xui-generate-button-icon-sizes($font-size, $suffix) {
+@mixin xui-generate-button-icon-sizes($icon-size, $suffix) {
 	.#{$ns}-button-icon#{$suffix} {
 		@include xui-button-icon-base;
-		font-size: $font-size;
-		line-height: $font-size * 1.6;
-		width: $font-size * 1.6;
+		height: $icon-size;
+		width: $icon-size;
 	}
 }
 

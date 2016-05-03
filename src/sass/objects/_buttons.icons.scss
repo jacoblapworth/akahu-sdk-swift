@@ -4,7 +4,10 @@
 
 // Icon
 //
-// Used for buttons that only use icons. Three size variants are available. Small (`-sm`), standard (no suffix) and large (`-lg`).
+// Used for buttons that only use icons. Two variants are available, standard (no suffix) and large (`-lg`).
+//
+// Note: The `xui-button-icon-sm` has been depricated due to the new icons currently not rendering to a small size correctly.
+//
 // `title` and `aria-label` attributes should be provided to explain the icon.
 // Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
 //
@@ -13,13 +16,11 @@
 // :active - When active
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-icon-sm {{modifier_class}}" title="Close" aria-label="Close">×</button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close">×</button>
-// <button type="button" class="xui-button xui-button-icon-lg {{modifier_class}}" title="Close" aria-label="Close">×</button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon [modifiers]"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-close"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon-lg {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon-lg [modifiers]"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-close"></use></svg></button>
 //
 // Styleguide: Buttons.7.1
 
 // Small, standard and large xui-button-icon classes
-@include xui-generate-button-icon-sizes($xui-font-size-heading-small, $xui-class-suffix-small);
-@include xui-generate-button-icon-sizes($xui-font-size-text, $xui-class-suffix-standard);
-@include xui-generate-button-icon-sizes($xui-font-size-icon-large, $xui-class-suffix-large);
+@include xui-generate-button-icon-sizes($xui-icon-standard, $xui-class-suffix-standard);
+@include xui-generate-button-icon-sizes($xui-icon-large, $xui-class-suffix-large);

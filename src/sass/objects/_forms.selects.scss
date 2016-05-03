@@ -16,7 +16,7 @@
 //      <option>Value 2</option>
 //      <option>Value 3</option>
 //    </select>
-//    <span class="xui-select--caret"></span>
+//    <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 //  </div>
 //
 // Styleguide: Forms.8
@@ -42,16 +42,10 @@
 }
 
 .#{$ns}-select--caret {
-	@include xui-caret;
-
-	content: " ";
-	height: 0;
 	pointer-events: none;
 	position: absolute;
-	right: 8px;
-	top: calc(50% - 2px);
-	vertical-align: middle;
-	width: 0;
+	right: 3px;
+	top: calc(50% - 15px);
 }
 
 // Styled Select Boxes
@@ -81,7 +75,7 @@
 //     <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //       Select option 1
 //     </button>
-//     <span class="xui-select--caret"></span>
+//     <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 //     <div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
 //       <div class="xui-dropdownmenu--body">
 //         <ul class="xui-menugroup xui-menugroup-layout" role="menu">

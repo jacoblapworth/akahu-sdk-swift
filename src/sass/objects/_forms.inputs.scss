@@ -13,10 +13,8 @@
 // <input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
 // <input class="xui-input" type="password" placeholder="Password Input" aria-label="Password"/>
 // <input class="xui-input" type="number" placeholder="0.00" aria-label="Number input"/>
-// <input class="xui-input xui-input-search" type="search" placeholder="Search" aria-label="Search"/>
 // <input class="xui-input" type="tel" placeholder="telephone #" aria-label="Telephone"/>
 // <input class="xui-input" type="email" placeholder="example@xero.com" aria-label="Email"/>
-// <input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
 // <input class="xui-input xui-input-date" type="text" placeholder="13 December 1989" aria-label="Date"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
 // <input class="xui-input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled />
 // <textarea class="xui-textarea" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
@@ -24,20 +22,59 @@
 // Styleguide: Forms.4
 
 
+// Text Icon Prompts
+//
+// Icons may be used to prompt users on what each input is for, or as buttons to allow functionality such as clearing a field.
+//
+// Markup:
+// <div class="xui-input-wrapper xui-margin">
+// 	<svg class="xui-icon xui-input--icon-left [modifiers]"> <use xlink:href="#xui-icon-url" /></svg>
+// 	<input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+// 	<svg class="xui-icon xui-input--icon-right [modifiers]"> <use xlink:href="#xui-icon-search" /></svg>
+// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+// 	<svg class="xui-icon xui-input--icon-left [modifiers]"> <use xlink:href="#xui-icon-search" /></svg>
+// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+// 	<button type="button" class="xui-button xui-button-icon xui-input--icon-right {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon [modifiers]"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-clear"></use></svg></button>
+// </div>
+//
+// Styleguide: Forms.4.1
+
 .#{$ns}-input {
 	@extend %#{$ns}-commoninput;
 }
 
-.#{$ns}-input-search {
-	background: url("#{$xui-images-path}/inputs/search.svg") right 0.8em center / 1.2em no-repeat;
-	background-size: 1.22em 1.24em; // Required for background SVGs in IE11
-	padding-right: 2.8em;
-}
+.#{$ns}-input-wrapper {
+	position: relative;
 
-.#{$ns}-input-date {
-	background: url("#{$xui-images-path}/inputs/calendar.svg") right 0.8em center / 1.2em no-repeat;
-	background-size: 1.22em 1.24em; // Required for background SVGs in IE11
-	padding-right: 2.8em;
+	.#{$ns}-input--icon-right ~ .#{$ns}-input {
+		padding-right: 36px;
+	}
+
+	.#{$ns}-input--icon-left ~ .#{$ns}-input {
+		padding-left: 36px;
+	}
+
+	.#{$ns}-icon {
+		pointer-events: none;
+	}
+
+	.#{$ns}-input--icon-left {
+		color: $xui-color-grey-3;
+		left: 3px;
+		position: absolute;
+		top: calc(50% - #{$xui-icon-standard / 2});
+	}
+
+	.#{$ns}-input--icon-right {
+		color: $xui-color-grey-3;
+		position: absolute;
+		right: 3px;
+		top: calc(50% - #{$xui-icon-standard / 2});
+	}
 }
 
 .#{$ns}-textarea {

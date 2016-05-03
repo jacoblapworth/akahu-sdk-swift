@@ -20,6 +20,6 @@
     "pre-commit.sh"
   ],
   "dependencies": {
-    "icons": "git@github.dev.xero.com:UXE/xui-icon.git#^0.3.0"
+    "icons": "git@github.dev.xero.com:UXE/xui-icon.git#^0.5.0"
   }
 }

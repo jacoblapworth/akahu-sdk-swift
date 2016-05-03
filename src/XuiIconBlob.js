@@ -1,5 +1,4 @@
 import React from 'react';
-import CSSClasses from 'xui-css-classes';
 import icons from './iconData.js';
 
 // You can opt to pull in the base component and compose your component with it
@@ -16,7 +15,7 @@ export default function XuiIconBlob () {
 	});
 
 	return (
-		<svg className={CSSClasses.Utility.Hidden.VISUALLY}>
+		<svg className={'xui-u-hidden-visually'}>
 			{iconsJSX}
 		</svg>
 	);

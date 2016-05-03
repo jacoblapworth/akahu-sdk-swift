@@ -21,8 +21,7 @@
 		"es6"
 	],
 	"dependencies": {
-		"xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^9.7.0",
 		"classnames": "^2.1.0",
-		"react": "~0.14.5 || ^0.15.0"
+		"react": "~0.14.5 || ^15.0.0"
 	}
 }

@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-beta.5/xui.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-beta.5/xui.min.css"/>
 ```
 
 #### Sherlock

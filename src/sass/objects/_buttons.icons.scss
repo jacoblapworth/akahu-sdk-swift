@@ -21,6 +21,27 @@
 //
 // Styleguide: Buttons.7.1
 
-// Small, standard and large xui-button-icon classes
-@include xui-generate-button-icon-sizes($xui-icon-standard, $xui-class-suffix-standard);
-@include xui-generate-button-icon-sizes($xui-icon-large, $xui-class-suffix-large);
+.#{$ns}-button-icon {
+	color: $xui-color-grey-3;
+
+	&:hover {
+		color: $xui-color-grey-2;
+	}
+
+	&:focus {
+		background: $xui-color-shadow-light;
+		border-radius: 50%;
+		outline: none;
+	}
+
+	&:active {
+		background: $xui-color-shadow-light;
+		border-radius: 50%;
+		color: $xui-color-grey-2;
+		outline: none;
+	}
+
+	.#{$ns}-icon {
+		display: block;
+	}
+}

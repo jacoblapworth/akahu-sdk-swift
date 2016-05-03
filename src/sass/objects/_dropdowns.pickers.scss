@@ -18,20 +18,20 @@
 //     </svg>
 //   </div>
 //   <header class="xui-popover--header xui-datepicker--header">
-//     <button type="button" class="xui-button xui-datepicker--prevbutton" aria-label="Go to previous month"></button>
+//     <button type="button" class="xui-button xui-button-icon xui-datepicker--prevbutton {{modifier_class}}" aria-label="Go to previous month" title="Close" aria-label="Close"><svg class="xui-datepicker--arrow-icon xui-icon-rotate-90 [modifiers]"> <use xlink:href="#xui-icon-arrow" /></svg></button>
 //     <h3 class="xui-datepicker--heading" role="heading">October 2015</h3>
-//     <button type="button" class="xui-button xui-datepicker--nextbutton xui-datepicker--button-is-disabled" aria-label="Go to next month" aria-disabled="true"></button>
+//     <button type="button" class="xui-button xui-button-icon xui-datepicker--nextbutton {{modifier_class}}" aria-label="Go to next month" title="Close" aria-label="Close"><svg class="xui-datepicker--arrow-icon xui-icon-rotate-270 [modifiers]"> <use xlink:href="#xui-icon-arrow" /></svg></button>
 //   </header>
 //   <table class="xui-popover--section xui-datepicker--body" role="grid" aria-label="Select a day" aria-activedescendant="day1" tabindex="0">
 //     <thead>
 //       <tr role="row">
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Sunday">Su</th>
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Monday">Mo</th>
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Tuesday">Tu</th>
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Wednesday">We</th>
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Thursday">Th</th>
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Friday">Fr</th>
-//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Saturday">Sa</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Sunday">S</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Monday">M</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Tuesday">T</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Wednesday">W</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Thursday">T</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Friday">F</th>
+//         <th class="xui-datepicker--weekday" role="columnheader" aria-label="Saturday">S</th>
 //       </tr>
 //     </thead>
 //     <tbody>
@@ -100,42 +100,26 @@
 }
 
 .#{$ns}-datepicker--heading {
-	font-size: 1.2em;
+	font-size: 1em;
+}
+
+.#{$ns}-datepicker--arrow-icon {
+	display: block;
+	height: 3em;
+	width: 3em;
 }
 
 .#{$ns}-datepicker--prevbutton,
 .#{$ns}-datepicker--nextbutton {
-	font-size: inherit;
-	line-height: 3em;
-	min-width: $xui-s-small;
-
-	&::before {
-		color: $xui-color-grey-2;
-		display: inline-block;
-		font-size: 2em;
-	}
-
-	&:active {
-		background-color: initial;
-	}
+	@include xui-margin-top($xui-s-xsmall);
 }
 
 .#{$ns}-datepicker--prevbutton {
-	padding-left: 1em;
-
-	&::before {
-		content: "\231c";
-		transform: rotate(-45deg);
-	}
+	@include xui-margin-left($xui-s-xsmall);
 }
 
 .#{$ns}-datepicker--nextbutton {
-	padding-right: 1em;
-
-	&::before {
-		content: "\231c";
-		transform: rotate(135deg);
-	}
+	@include xui-margin-right($xui-s-xsmall);
 }
 
 .#{$ns}-datepicker--button-is-disabled {

@@ -12,12 +12,12 @@
 	}
 
 	&:focus {
-		background-color: darken($xui-color-white, 5%);
+		background-color: rgba($xui-color-grey-1, 0.05);
 		border-radius: $xui-radius;
 	}
 
 	&:active {
-		background-color: darken($xui-color-white, 10%);
+		background-color: rgba($xui-color-grey-1, 0.1);
 		border-radius: $xui-radius;
 	}
 }

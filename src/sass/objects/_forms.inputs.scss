@@ -51,11 +51,11 @@
 	position: relative;
 
 	.#{$ns}-input--icon-right ~ .#{$ns}-input {
-		padding-right: 2.8em;
+		padding-right: 36px;
 	}
 
 	.#{$ns}-input--icon-left ~ .#{$ns}-input {
-		padding-left: 2.8em;
+		padding-left: 36px;
 	}
 
 	.#{$ns}-icon {

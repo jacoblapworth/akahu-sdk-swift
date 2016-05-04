@@ -164,7 +164,7 @@ Contributing to XUI
 -------------------
 
 XUI is "internal open source" at Xero, meaning that we welcome contributions from anyone.
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for details on how to contribute.
+See [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md) for details on how to contribute.
 
 
 Help

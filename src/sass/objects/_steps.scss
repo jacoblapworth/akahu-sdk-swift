@@ -2,165 +2,172 @@
 
 // Steps
 //
-// Styles for the steps in panels. These are for wizard steps or
-// just a status showing the current step in a read-only process.
+// Steps can be used in panel headers for interactive wizards or for just showing the current step in a read-only process.
 //
-// Applied usually to panel headers, removes the bottom padding so that the
-// bottom of the steps are flush with the bottom of the container they sit within.
+// Use the `.xui-steps` class with a `<ol>` element to provide a container for a list of steps.
 //
-// Please note when using this component, since the xui-step class uses flex-box to vertically align, text will not wrap correctly in IE11.
-// If you have a step which you know will need to wrap at all screen sizes, please add a line break.
+// Use the `.xui-step` class with each `<li>` element to provide the base style for steps.
+//
+// Use the `.xui-step-layout` class alongside the `.xui-step` class to provide the recommended padding.
+//
+// Use the `.xui-step-is-complete` class alongside the `.xui-step` class for steps which are complete.
+//
+// Use the `.xui-step-is-selected` class alongside the `.xui-step` class for the step which is currently selected.
+//
+// Use the `.xui-step--body` class to provide the base style to step text.
+// Use `<br />` elements to create multi-line text.
+//
+// Use the `.xui-step--icon` class with an [SVG icon](../section-icons.html) to create arrows between each step.
+// Make sure that the `.xui-step--icon` element comes after the `.xui-step--body` element for correct positioning.
+//
+// Styleguide: Steps
+
+// Interactive Steps
+//
+// Use the `.xui-steps-interactive` class alongside `.xui-steps` to allow the user to navigate between completed steps.
+// Make sure to also wrap the `<ol>` element inside a `<nav>` element for greater accessibility.
+//
+// Use the `.xui-step--body` class with a `<a>` element for completed steps and a `<span>` element for all others.
 //
 // Markup:
-// <div class="xui-panel">
-//   <div class="xui-steps xui-steps-hoverable">
-//     <ul class="xui-stepsgroup">
-//       <li class="xui-step xui-step-layout xui-step-is-complete">
-//         <span class="xui-step--body">Acceptance</span>
-//       </li>
-//       <li class="xui-step xui-step-layout xui-step-is-selected">
-//         <span class="xui-step--body">Contact Information</span>
-//       </li>
-//       <li class="xui-step xui-step-layout">
-//         <span class="xui-step--body">Submitted</span>
-//       </li>
-//       <li class="xui-step xui-step-layout">
-//         <span class="xui-step--body">Registered</span>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
+// <nav class="xui-panel">
+//   <ol class="xui-steps xui-steps-interactive">
+//     <li class="xui-step xui-step-layout xui-step-is-complete">
+//       <a class="xui-step--body" href="#">Denial</a>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout xui-step-is-complete">
+//       <a class="xui-step--body" href="#">Anger</a>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout xui-step-is-selected">
+//       <span class="xui-step--body">Bargaining</span>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout">
+//       <span class="xui-step--body">Depression</span>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout">
+//       <span class="xui-step--body">Acceptance</span>
+//     </li>
+//   </ol>
+// </nav>
 //
 // Styleguide: Steps.1
 
 // Read-only Steps
 //
-// For steps that are read only / not hoverable.
+// An example of read-only steps with multi-line text. Use `<br />` elements to create multi-line text.
 //
 // Markup:
 // <div class="xui-panel">
-//   <div class="xui-steps">
-//     <ul class="xui-stepsgroup">
-//       <li class="xui-step xui-step-layout xui-step-is-complete">
-//         <span class="xui-step--body">Acceptance</span>
-//       </li>
-//       <li class="xui-step xui-step-layout xui-step-is-selected">
-//         <span class="xui-step--body">Contact</span>
-//       </li>
-//       <li class="xui-step xui-step-layout">
-//         <span class="xui-step--body">Submitted</span>
-//       </li>
-//       <li class="xui-step xui-step-layout">
-//         <span class="xui-step--body">Registered</span>
-//       </li>
-//     </ul>
-//   </div>
+//   <ol class="xui-steps">
+//     <li class="xui-step xui-step-layout xui-step-is-complete">
+//       <span class="xui-step--body">Fear<br />leads to anger</span>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout xui-step-is-complete">
+//       <span class="xui-step--body">Anger<br />leads to hate</span>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout xui-step-is-selected">
+//       <span class="xui-step--body">Hate<br />leads to suffering</span>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout">
+//       <span class="xui-step--body">Suffering<br />leads to the dark side</span>
+//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//     </li>
+//     <li class="xui-step xui-step-layout">
+//       <span class="xui-step--body">"Nooooooooooooo!"<br />- Darth Vader</span>
+//     </li>
+//   </ol>
 // </div>
 //
 // Styleguide: Steps.2
 
 .#{$ns}-steps {
-	display: table;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.#{$ns}-stepsgroup {
-	color: $xui-color-xero-blue;
+	color: $xui-color-secondary-text;
+	cursor: default;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.#{$ns}-step--body {
+.#{$ns}-step {
 	align-items: center;
-	color: $xui-color-secondary-text;
-	cursor: default;
 	display: flex;
+	margin-right: 30px; // Offset .xui-step--icon
 	position: relative;
-	text-align: center;
 
+	// Underline highlight
 	&::after {
 		background-color: transparent;
 		bottom: 0;
-		content: " ";
+		content: "";
 		display: block;
 		height: 3px;
-		left: 0;
+		left: 10px; // Offset $xui-s-actionlink
 		position: absolute;
-		right: 0;
+		width: calc(100% - 20px); // (100%) - (20px offset $xui-s-actionlink)
 	}
-
-	&.#{$ns}-step-is-selected:after {
-		background-color: $xui-color-grey-1;
-	}
-}
-
-.#{$ns}-step {
-	display: flex;
 }
 
 .#{$ns}-step-layout {
+	@include xui-padding-vertical($xui-s-standard);
+}
 
+// Step icon
+.#{$ns}-step--icon {
+	position: absolute;
+	right: -30px;
+	top: calc(50% - 15px);
+}
+
+// Step text
+.#{$ns}-step--body {
+	color: currentColor;
+	outline: none;
+	padding: $xui-s-actionlink;
+	text-align: center;
+}
+
+// Completed step
+.#{$ns}-step-is-complete {
 	.#{$ns}-step--body {
-		padding: 23px 1em;
+		color: $xui-color-black;
+	}
+}
 
-		&::after {
-			left: 1em;
-			right: 1em;
-		}
+// Selected step
+.#{$ns}-step-is-selected {
+	.#{$ns}-step--body {
+		color: $xui-color-xero-blue;
 	}
 
 	&::after {
-		margin: 0 7px;
-	}
-}
-
-.#{$ns}-step:after {
-	align-items: center;
-	color: $xui-color-grey-4;
-	content: "›";
-	display: flex;
-	font-family: monospace;
-	font-weight: 600;
-	margin-top: -2px; // Offset for vertical alignment
-}
-
-.#{$ns}-step:last-of-type::after {
-	display: none;
-}
-
-&.#{$ns}-step-is-complete {
-	.#{$ns}-step--body {
-		color: $xui-color-xero-blue;
-	}
-}
-
-&.#{$ns}-step-is-selected {
-	.#{$ns}-step--body {
-		color: $xui-color-xero-blue;
-	}
-
-	.#{$ns}-step--body:after {
 		background-color: $xui-color-xero-blue;
 	}
 }
 
-/* hoverable extensions */
-.#{$ns}-steps-hoverable .#{$ns}-step-is-complete,.#{$ns}-steps-hoverable .#{$ns}-step-is-selected {
+// Interactive completed step
+.#{$ns}-steps-interactive {
+	.#{$ns}-step-is-complete .#{$ns}-step--body {
+		&:hover {
+			color: $xui-color-xero-blue;
+		}
 
-	.#{$ns}-step--body:hover:after {
-		background-color: $xui-color-grey-1;
-	}
+		&:focus {
+			background-color: rgba($xui-color-grey-1, 0.05);
+			border-radius: $xui-radius;
+		}
 
-	.#{$ns}-step--body:hover {
-		color: $xui-color-primary-text;
-		text-decoration: none;
-	}
-
-	.#{$ns}-step--body {
-		cursor: pointer;
+		&:active {
+			background-color: rgba($xui-color-grey-1, 0.1);
+			border-radius: $xui-radius;
+		}
 	}
 }

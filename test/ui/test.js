@@ -3,7 +3,7 @@ import 'babel-core/external-helpers.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import icons from '../../../xui-icon/src/iconData.js';
-import XUIIcon, {XUIIconBlob} from '../../../xui-icon/src/XUIIcon.js';
+import XUIIcon from '../../../xui-icon/src/XUIIcon.js';
 
 (function() {
 	let iconUseTags = [];
@@ -17,7 +17,6 @@ import XUIIcon, {XUIIconBlob} from '../../../xui-icon/src/XUIIcon.js';
 	}
 	ReactDOM.render(
 		<div>
-			<XUIIconBlob/>
 			<div className="xui-layout">
 				{iconUseTags}
 			</div>

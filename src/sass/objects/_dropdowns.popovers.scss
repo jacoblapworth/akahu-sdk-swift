@@ -51,6 +51,8 @@
 .#{$ns}-popover--arrow {
 	display: inline-block;
 	fill: $xui-color-white;
+	//If font-size is set to inherit, when font size is too big the arrow will shift down and out of place
+	font-size: 1px;
 	height: 16px;
 	left: 15px;
 	opacity: 1;

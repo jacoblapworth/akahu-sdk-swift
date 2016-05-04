@@ -10,14 +10,26 @@ const propTypes = {
 	className: PropTypes.string
 };
 
-function XUIIcon(props) {
+let blobRendered = !!document.getElementById('xui-icon-blob');
+
+export default function XUIIcon(props) {
 	const classes = cn('xui-icon', props.className);
+
+	if (!blobRendered) {
+		renderBlob();
+	}
+
 	return(
 		<svg className={classes}><use xlinkHref={'#' + props.icon}/></svg>
 	);
 }
 
-XUIIcon.PropTypes = propTypes;
+function renderBlob() {
+	const blobEl = document.createElement('div');
+	blobEl.setAttribute('id','xui-icon-blob');
+	blobEl.innerHTML = XUIIconBlob;
+	document.body.appendChild(blobEl);
+	blobRendered = true;
+}
 
-export {XUIIconBlob as XUIIconBlob};
-export default XUIIcon;
+XUIIcon.PropTypes = propTypes;

@@ -1,22 +1,13 @@
-import React from 'react';
 import icons from './iconData.js';
 
-// You can opt to pull in the base component and compose your component with it
-// e.g. import Cmp from 'base-component';
+let blob = '';
 
-export default function XUIIconBlob () {
-	const iconsJSX = Object.keys(icons).map(function(name) {
-		const iconName = 'xui-icon-' + name;
-		return (
-			<symbol key={iconName} id={iconName} viewBox="0 0 30 30" className={'xui-icon-svg'}>
-				<path d={icons[name]}/>
-			</symbol>
-		);
-	});
+Object.keys(icons).forEach(function(name) {
+	blob += (`
+		<symbol key="${name}" id="xui-icon-${name}" viewBox="0 0 30 30" class="xui-icon-svg">
+			<path d="${icons[name]}"/>
+		</symbol>
+	`).replace(/[\t\n]/g, '');
+});
 
-	return (
-		<svg className={'xui-u-hidden-visually'}>
-			{iconsJSX}
-		</svg>
-	);
-}
+export default `<svg class="xui-u-hidden-visually">${blob}</svg>`;

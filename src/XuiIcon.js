@@ -3,21 +3,21 @@
  */
 import React, {PropTypes} from 'react';
 import cn from 'classnames';
-import XuiIconBlob from './XuiIconBlob';
+import XUIIconBlob from './XUIIconBlob';
 
 const propTypes = {
 	icon: PropTypes.string.isRequired,
 	className: PropTypes.string
 };
 
-function XuiIcon(props) {
+function XUIIcon(props) {
 	const classes = cn('xui-icon', props.className);
 	return(
 		<svg className={classes}><use xlinkHref={'#' + props.icon}/></svg>
 	);
 }
 
-XuiIcon.PropTypes = propTypes;
+XUIIcon.PropTypes = propTypes;
 
-export {XuiIconBlob as XuiIconBlob};
-export default XuiIcon;
+export {XUIIconBlob as XUIIconBlob};
+export default XUIIcon;

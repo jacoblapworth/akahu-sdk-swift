@@ -4,7 +4,7 @@ import icons from './iconData.js';
 // You can opt to pull in the base component and compose your component with it
 // e.g. import Cmp from 'base-component';
 
-export default function XuiIconBlob () {
+export default function XUIIconBlob () {
 	const iconsJSX = Object.keys(icons).map(function(name) {
 		const iconName = 'xui-icon-' + name;
 		return (

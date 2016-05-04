@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XuiIcon from '../XuiIcon.js';
+import XUIIcon from '../XUIIcon.js';
 
 const TestUtils = React.addons.TestUtils;
 
@@ -12,7 +12,7 @@ describe('not found', () => {
 	beforeEach(() => {
 		ReactComponent = TestUtils.renderIntoDocument(
 			<div>
-				<XuiIcon icon="edit" className="abcd" />
+				<XUIIcon icon="edit" className="abcd" />
 			</div>
 		);
 	});

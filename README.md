@@ -3,11 +3,11 @@ xui-icon
 
 xui-icon is a module for importing and using XUI Icons to you project. Two React JS classes come with xui-icon, and they are intended to be used together. 
 
-They may be imported to your project using `import XuiIcon, {XuiIconBlob} from 'xui-icon'`. `<XuiIconBlob/>` is a hidden element which contains all of the SVG markup for each icon, and `<XuiIcon/>` may be used to reference icons in the blob and display each of them in place. As a result, `XuiIconBlob` must be declared before any icon you wish to display.
+They may be imported to your project using `import XUIIcon, {XUIIconBlob} from 'xui-icon'`. `<XUIIconBlob/>` is a hidden element which contains all of the SVG markup for each icon, and `<XUIIcon/>` may be used to reference icons in the blob and display each of them in place. As a result, `XUIIconBlob` must be declared before any icon you wish to display.
 
 By default, each icon has its fill set to `currentColor`, so it will use the inherited font colour.
 
-`XuiIcon`'s parameters:
+`XUIIcon`'s parameters:
  - `icon` (string, required): specifies which icon you want to use
  - `modifierClasses` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers. 
 

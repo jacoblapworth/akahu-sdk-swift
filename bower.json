@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "Module for using XUI Icons",
 	"main": [
-		"src/XuiIcon.js"
+		"src/XUIIcon.js"
 	],
 	"private": true,
 	"ignore": [

@@ -30,29 +30,33 @@
 // Use the `.xui-step--body` class with a `<a>` element for completed steps and a `<span>` element for all others.
 //
 // Markup:
-// <nav class="xui-panel">
-//   <ol class="xui-steps xui-steps-interactive">
-//     <li class="xui-step xui-step-layout xui-step-is-complete">
-//       <a class="xui-step--body" href="#">Denial</a>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout xui-step-is-complete">
-//       <a class="xui-step--body" href="#">Anger</a>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout xui-step-is-selected">
-//       <span class="xui-step--body">Bargaining</span>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout">
-//       <span class="xui-step--body">Depression</span>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout">
-//       <span class="xui-step--body">Acceptance</span>
-//     </li>
-//   </ol>
-// </nav>
+// <div class="xui-panel">
+//   <header class="xui-panel--header">
+//     <nav>
+//       <ol class="xui-steps xui-steps-interactive">
+//         <li class="xui-step xui-step-layout xui-step-is-complete">
+//           <a class="xui-step--body" href="#">Denial</a>
+//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         </li>
+//         <li class="xui-step xui-step-layout xui-step-is-complete">
+//           <a class="xui-step--body" href="#">Anger</a>
+//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         </li>
+//         <li class="xui-step xui-step-layout xui-step-is-selected">
+//           <span class="xui-step--body">Bargaining</span>
+//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         </li>
+//         <li class="xui-step xui-step-layout">
+//           <span class="xui-step--body">Depression</span>
+//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         </li>
+//         <li class="xui-step xui-step-layout">
+//           <span class="xui-step--body">Acceptance</span>
+//         </li>
+//       </ol>
+//     </nav>
+//   </header>
+// </div>
 //
 // Styleguide: Steps.1
 
@@ -62,27 +66,29 @@
 //
 // Markup:
 // <div class="xui-panel">
-//   <ol class="xui-steps">
-//     <li class="xui-step xui-step-layout xui-step-is-complete">
-//       <span class="xui-step--body">Fear<br />leads to anger</span>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout xui-step-is-complete">
-//       <span class="xui-step--body">Anger<br />leads to hate</span>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout xui-step-is-selected">
-//       <span class="xui-step--body">Hate<br />leads to suffering</span>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout">
-//       <span class="xui-step--body">Suffering<br />leads to the dark side</span>
-//       <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
-//     </li>
-//     <li class="xui-step xui-step-layout">
-//       <span class="xui-step--body">"Nooooooooooooo!"<br />- Darth Vader</span>
-//     </li>
-//   </ol>
+//   <header class="xui-panel--header">
+//     <ol class="xui-steps">
+//       <li class="xui-step xui-step-layout xui-step-is-complete">
+//         <span class="xui-step--body">Fear<br />leads to anger</span>
+//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//       </li>
+//       <li class="xui-step xui-step-layout xui-step-is-complete">
+//         <span class="xui-step--body">Anger<br />leads to hate</span>
+//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//       </li>
+//       <li class="xui-step xui-step-layout xui-step-is-selected">
+//         <span class="xui-step--body">Hate<br />leads to suffering</span>
+//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//       </li>
+//       <li class="xui-step xui-step-layout">
+//         <span class="xui-step--body">Suffering<br />leads to the dark side</span>
+//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//       </li>
+//       <li class="xui-step xui-step-layout">
+//         <span class="xui-step--body">"Nooooooooooooo!"<br />- Darth Vader</span>
+//       </li>
+//     </ol>
+//   </header>
 // </div>
 //
 // Styleguide: Steps.2
@@ -98,12 +104,14 @@
 }
 
 .#{$ns}-step {
+	@include xui-all-but-last() {
+		margin-right: 30px; // Offset .xui-step--icon
+	}
+
 	align-items: center;
 	display: flex;
-	margin-right: 30px; // Offset .xui-step--icon
 	position: relative;
 
-	// Underline highlight
 	&::after {
 		background-color: transparent;
 		bottom: 0;

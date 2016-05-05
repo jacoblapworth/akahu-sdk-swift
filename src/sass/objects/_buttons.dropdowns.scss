@@ -5,9 +5,11 @@
 // Styleguide: Buttons.6
 
 .#{$ns}-button--caret {
-	@include xui-caret;
-	margin-left: $xui-s-xsmall;
-	min-height: 6px;
+	@include xui-margin-top(-7px);
+	@include xui-margin-left(-6px);
+	@include xui-margin-right(-10px);
+	@include xui-margin-bottom(-11px);
+	position: relative;
 }
 
 // Single Button Dropdowns
@@ -21,19 +23,19 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-standard {{modifier_class}}">
 //	 Dropdown
-//   <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-main {{modifier_class}}">
 //	 Dropdown
-//   <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-create {{modifier_class}}">
 //	 Dropdown
-//   <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-negative {{modifier_class}}">
 //	 Dropdown
-//   <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 // </button>
 //
 // Styleguide: Buttons.6.1
@@ -50,25 +52,25 @@
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-standard xui-button-grouped {{modifier_class}}">Dropdown</button>
 //   <button type="button" class="xui-button xui-button-standard xui-button-grouped xui-button-split {{modifier_class}}">
-//     <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 //   </button>
 // </div>
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-main xui-button-grouped {{modifier_class}}">Dropdown</button>
 //   <button type="button" class="xui-button xui-button-main xui-button-grouped xui-button-split {{modifier_class}}">
-//     <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 //   </button>
 // </div>
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-create xui-button-grouped {{modifier_class}}">Dropdown</button>
 //   <button type="button" class="xui-button xui-button-create xui-button-grouped xui-button-split {{modifier_class}}">
-//     <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 //   </button>
 // </div>
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-negative xui-button-grouped {{modifier_class}}">Dropdown</button>
 //   <button type="button" class="xui-button xui-button-negative xui-button-grouped xui-button-split {{modifier_class}}">
-//     <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <svg class="xui-icon xui-button--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
 //   </button>
 // </div>
 //

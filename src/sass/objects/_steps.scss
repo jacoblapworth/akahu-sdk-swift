@@ -104,13 +104,13 @@
 }
 
 .#{$ns}-step {
-	@include xui-all-but-last() {
-		margin-right: 30px; // Offset .xui-step--icon
-	}
-
 	align-items: center;
 	display: flex;
 	position: relative;
+
+	@include xui-all-but-last() {
+		margin-right: 30px; // Offset .xui-step--icon
+	}
 
 	&::after {
 		background-color: transparent;

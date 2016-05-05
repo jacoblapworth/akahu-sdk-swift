@@ -32,10 +32,14 @@
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
+//   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
 //      <ol class="xui-pageheading--breadcrumbs">
-//         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
-//         <li class="xui-breadcrumb active" aria-selected="true">Invoices</li>
+//         <li class="xui-breadcrumb" aria-selected="false">
+//         	<a href="#">Sales</a></li>
+//         	<svg class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         <li class="xui-breadcrumb active" aria-selected="true">
+//         	Invoices
+//         </li>
 //      </ol>
 //      <div class="xui-buttongroup">
 //         <button type="button" class="xui-button xui-button-grouped xui-button-create" style="width:initial">New Invoice</button>
@@ -43,21 +47,27 @@
 //            <span class="xui-button--caret"></span>
 //         </button>
 //      </div>
-//   </div>
+//   </nav>
 // </header>
 // <br />
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
+//   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
 //      <ol class="xui-pageheading--breadcrumbs">
-//         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Sales</a></li>
-//         <li class="xui-breadcrumb" aria-selected="false"><a href="#">Invoices</a></li>
-//         <li class="xui-breadcrumb active" aria-selected="true">INV-001</li>
+//         <li class="xui-breadcrumb" aria-selected="false">
+//         	<a href="#">Sales</a></li>
+//         	<svg class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         <li class="xui-breadcrumb" aria-selected="false">
+//         	<a href="#">Invoices</a></li>
+//         	<svg class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrowSmall" /></svg>
+//         <li class="xui-breadcrumb active" aria-selected="true">
+//         	INV-001
+//        	</li>
 //       </ol>
 //      <button type="button" class="xui-button xui-button-standard" style="width:initial;">
 //         Options
 //         <span class="xui-button--caret"></span>
 //      </button>
-//   </div>
+//   </nav>
 // </header>
 //
 // Styleguide: Navigation.3.1
@@ -86,7 +96,10 @@
 	}
 
 	.#{$ns}-pageheading--breadcrumbs {
+		align-items: center;
+		display: flex;
 		flex: 1 1 auto;
+		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
@@ -129,21 +142,11 @@
 }
 
 
-
 .#{$ns}-breadcrumb {
 	@include xui-bold;
-	display: inline-block;
 	font-size: $xui-font-size-page-title;
-	list-style-type: none;
+}
 
-	&::before {
-		color: $xui-color-placeholder;
-		content: "›";
-		display: inline-block;
-		margin: 0 $xui-s-small;
-	}
-
-	&:first-of-type::before {
-		display: none;
-	}
+.#{$ns}-breadcrumb--icon {
+	color: $xui-color-icon;
 }

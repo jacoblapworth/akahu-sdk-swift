@@ -130,7 +130,7 @@
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
-//     <svg class="xui-icon xui-icon-inline [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//     <svg class="xui-icon [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
 //   </button>
 //   <div class="xui-toast--message">Toast Message</div>
 //   <ul class="xui-toast--actions">
@@ -188,7 +188,7 @@
 // 	</div>
 // 	<div class="xui-toast xui-toast-layout" role="status">
 //    <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
-//      <svg class="xui-icon xui-icon-inline [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//      <svg class="xui-icon [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
 //    </button>
 // 	  <div class="xui-toast--message">Toast Message</div>
 // 	  <ul class="xui-toast--actions">

@@ -24,8 +24,8 @@ module.exports = {
 	},
 	icons: {
 		expand: true,
-		cwd: 'src/',
-		src: 'bower_components/dist/xuiIconBlobES5.js',
+		cwd: 'bower_components/icons/dist',
+		src: 'xuiIconBlobES5.js',
 		dest: 'styleguide'
 	}
 };

@@ -26,13 +26,13 @@
 // <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
 // <abbr class="xui-avatar xui-avatar-large" style="background-color: #C48FDE" role="presentation">Z</abbr>
 // <h3>Multiple avatars</h3>
-// <div class="xui-avatarcontainer">
+// <div class="xui-avatar-group">
 //   <abbr class="xui-avatar xui-avatar-color-1">A</abbr>
 //   <abbr class="xui-avatar xui-avatar-color-2">B</abbr>
 //   <abbr class="xui-avatar xui-avatar-color-3">C</abbr>
 //   <abbr class="xui-avatar xui-avatar-color-4">D</abbr>
 // </div>
-// <div class="xui-avatarcontainer">
+// <div class="xui-avatar-group">
 //   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">A</abbr>
 //   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">B</abbr>
 //   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">C</abbr>
@@ -82,7 +82,7 @@
 	width: 48px;
 }
 
-.#{$ns}-avatarcontainer {
+.#{$ns}-avatar-group {
 	.#{$ns}-avatar {
 		border: 2px solid $xui-color-white;
 

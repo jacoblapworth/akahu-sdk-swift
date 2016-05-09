@@ -157,23 +157,26 @@
 	}
 
 	.#{$ns}-page-layout-sidebar-right--main#{$suffix} {
-		@include xui-column-width-generator(1, 1);
+		@include xui-column-width-generator($columns, $columnmain);
+		float: left;
 
-		@include xui-breakpoint-wide {
-			@include xui-column-width-generator($columns, $columnmain);
-			float: left;
+		@include xui-breakpoint-narrow {
+			@include xui-column-width-generator(1, 1);
+			float: none;
 		}
 	}
 
 	.#{$ns}-page-layout-sidebar-right--sidebar#{$suffix} {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
+		@include xui-margin-left($xui-grid-gutter);
+		@include xui-margin-top(0);
+		@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
+		float: left;
 
-		@include xui-breakpoint-wide {
-			@include xui-margin-left($xui-grid-gutter);
-			@include xui-margin-top(0);
-			@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
-			float: left;
+		@include xui-breakpoint-narrow {
+			@include xui-margin-left(0);
+			@include xui-margin-top($xui-grid-gutter);
+			@include xui-column-width-generator(1, 1);
+			float: none;
 		}
 	}
 
@@ -186,25 +189,28 @@
 	}
 
 	.#{$ns}-page-layout-sidebar-left--sidebar#{$suffix} {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
+		@include xui-margin-right($xui-grid-gutter);
+		@include xui-margin-top(0);
+		@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
+		float: left;
 
-		@include xui-breakpoint-wide {
-			@include xui-margin-right($xui-grid-gutter);
-			@include xui-margin-top(0);
-			@include xui-column-width-generator($columns, ($columns - $columnmain), $xui-grid-gutter);
-			float: left;
+		@include xui-breakpoint-narrow {
+			@include xui-margin-right(0);
+			@include xui-margin-top($xui-grid-gutter);
+			@include xui-column-width-generator(1, 1);
+			float: none;
 		}
 	}
 
 	.#{$ns}-page-layout-sidebar-left--main#{$suffix} {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
+		@include xui-margin-top(0);
+		@include xui-column-width-generator($columns, $columnmain);
+		float: left;
 
-		@include xui-breakpoint-wide {
-			@include xui-margin-top(0);
-			@include xui-column-width-generator($columns, $columnmain);
-			float: left;
+		@include xui-breakpoint-narrow {
+			@include xui-margin-top($xui-grid-gutter);
+			@include xui-column-width-generator(1, 1);
+			float: none;
 		}
 	}
 
@@ -217,24 +223,27 @@
 	}
 
 	.#{$ns}-page-layout-split-left {
-		@include xui-column-width-generator(1, 1);
+		@include xui-margin-right($xui-grid-gutter / 2);
+		@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
+		float: left;
 
-		@include xui-breakpoint-wide {
-			@include xui-margin-right($xui-grid-gutter / 2);
-			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
-			float: left;
+		@include xui-breakpoint-narrow {
+			@include xui-margin-right(0);
+			@include xui-column-width-generator(1, 1);
 		}
 	}
 
 	.#{$ns}-page-layout-split-right {
-		@include xui-margin-top($xui-grid-gutter);
-		@include xui-column-width-generator(1, 1);
+		@include xui-margin-left($xui-grid-gutter / 2);
+		@include xui-margin-top(0);
+		@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
+		float: left;
 
-		@include xui-breakpoint-wide {
-			@include xui-margin-left($xui-grid-gutter / 2);
-			@include xui-margin-top(0);
-			@include xui-column-width-generator(2, 1, $xui-grid-gutter / 2);
-			float: left;
+		@include xui-breakpoint-narrow {
+			@include xui-margin-left(0);
+			@include xui-margin-top($xui-grid-gutter);
+			@include xui-column-width-generator(1, 1);
+			float: none;
 		}
 	}
 

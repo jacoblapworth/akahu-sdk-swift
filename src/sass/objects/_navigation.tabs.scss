@@ -37,43 +37,25 @@
 //       tab section without having to undo existing section padding.
 //
 // Markup:
-// <div class="xui-tabbednav" role="navigation" aria-label="Tertiary">
-//   <ul class="xui-tabgroup xui-tabgroup-layout">
-//     <li class="xui-tab">
-//       <a class="xui-tab--body" href="#default">Default</a>
-//     </li>
-//     <li class="xui-tab xui-tab-is-selected" aria-selected="true">
-//       <a class="xui-tab--body" href="#selected_default">Selected Default</a>
-//     </li>
-//   </ul>
-// </div>
+// <ul class="xui-tabgroup xui-tabgroup-layout" role="navigation" aria-label="Tertiary">
+//   <li class="xui-tab">
+//     <a class="xui-tab--body" href="#default">Default</a>
+//   </li>
+//   <li class="xui-tab xui-tab-is-selected" aria-selected="true">
+//     <a class="xui-tab--body" href="#selected_default">Selected Default</a>
+//   </li>
+// </ul>
 // <br />
-// <div class="xui-tabbednav" role="navigation" aria-label="Secondary">
-//   <ul class="xui-tabgroup xui-tabgroup-layout">
-//     <li class="xui-tab xui-tab-pageheading">
-//       <a class="xui-tab--body" href="#g-header">Page heading</a>
-//     </li>
-//     <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
-//       <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
-//     </li>
-//   </ul>
-// </div>
-// <br />
-// <div class="xui-tabbednav xui-pagenav" role="navigation" aria-label="Primary">
-//   <ul class="xui-tabgroup xui-tabgroup-layout">
-//     <li class="xui-tab xui-tab-pagenav">
-//       <a class="xui-tab--body" href="#g-header">Page nav</a>
-//     </li>
-//     <li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
-//       <a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
-//     </li>
-//   </ul>
-// </div>
+// <ul class="xui-tabgroup xui-tabgroup-layout" role="navigation" aria-label="Secondary">
+//   <li class="xui-tab xui-tab-pageheading">
+//     <a class="xui-tab--body" href="#g-header">Page heading</a>
+//   </li>
+//   <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
+//     <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//   </li>
+// </ul>
 //
 // Styleguide: Navigation.5.1
-.#{$ns}-tabbednav {
-	padding-bottom: 0;
-}
 
 .#{$ns}-tabgroup {
 	color: $xui-color-secondary-text;

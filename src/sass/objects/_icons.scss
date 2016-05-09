@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // Icons
 //
 // The XUI Icons repository may be found [here](https://github.dev.xero.com/UXE/xui-icon). It contains [50+ commonly used icons](https://github.dev.xero.com/pages/UXE/xui-icon/) for consumption through ReactJS, or via ES5 and ES6 javascript without react.
@@ -55,12 +58,12 @@
 	@include xui-margin-bottom(-11px);
 }
 
-.xui-icon-lg {
+.xui-icon-large {
 	height: $xui-icon-large;
 	width: $xui-icon-large;
 }
 
-.xui-icon-xlg {
+.xui-icon-xlarge {
 	height: $xui-icon-xlarge;
 	width: $xui-icon-xlarge;
 }

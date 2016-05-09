@@ -27,13 +27,13 @@
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
 //   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-//     <header class="xui-modal--header xui-padding-left-lg">
+//     <header class="xui-modal--header xui-padding-left-large">
 //       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
-//       <button type="button" class="xui-button xui-button-icon xui-margin-sm" title="Close" aria-label="Close">
+//       <button type="button" class="xui-button xui-button-icon xui-margin-small" title="Close" aria-label="Close">
 //           <svg class="xui-icon [modifiers]" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
 //       </button>
 //     </header>
-//     <div class="xui-modal--body xui-padding-horizontal-lg">
+//     <div class="xui-modal--body xui-padding-horizontal-large">
 //       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
 //       <form class="xui-form-layout">
 //         <p class="xui-field-layout">
@@ -49,7 +49,7 @@
 //         </p>
 //       </form>
 //     </div>
-//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-lg">
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
 //       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
 //       <button type="button" class="xui-actions--secondary xui-button xui-button-negative">Delete</button>
 //     </footer>

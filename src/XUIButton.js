@@ -199,15 +199,27 @@ function handleSpacebarAsClick(event) {
 	}
 }
 
+/**
+ * Checks whether or not the button should have the 'xui-button' class applied.
+ * It should not if the variant is 'unstyled' or the 'xui-unstyledbutton' class is applied
+ *
+ * @private
+ * @param props
+ */
+function isUnstyled(props) {
+	return props.variant === CONSTANTS.VARIANTS.unstyled || props.className.indexOf(ButtonClasses.UNSTYLED) > -1;
+}
+
 export default class XUIButton extends Component {
 	render() {
 		const button = this;
 		const props = button.props;
 		const isLink = props.type === CONSTANTS.TYPES.LINK;
 		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
+		const defaultButtonClass = isUnstyled(props) ? null : ButtonClasses.BASE;
 
 		const classNames = cn(
-			ButtonClasses.BASE,
+			defaultButtonClass,
 			props.className,
 			getVariantClass(props.variant),
 			getDisabledClass(props.isDisabled),

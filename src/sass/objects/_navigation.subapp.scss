@@ -90,11 +90,6 @@
 		justify-content: space-between;
 	}
 
-	.#{$ns}-pageheading--content-layout {
-		flex-flow: row wrap;
-		margin-top: 0;
-	}
-
 	.#{$ns}-pageheading--breadcrumbs {
 		align-items: center;
 		display: flex;
@@ -102,6 +97,24 @@
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+	}
+}
+
+
+.#{$ns}-pageheading--content-layout {
+	@include xui-margin-vertical($xui-s-small);
+	flex-flow: row wrap;
+
+	&.#{$ns}-page-width-standard {
+		@media (max-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+			@include xui-margin-horizontal($xui-s-small);
+		}
+	}
+
+	&.#{$ns}-page-width-large {
+		@media (max-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+			@include xui-margin-horizontal($xui-s-small);
+		}
 	}
 }
 

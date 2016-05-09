@@ -9,7 +9,7 @@
 //
 // Because panels are generic containers panel sections do not provide padding
 // by default. You can add padding using the `xui-padding-*` classes available.
-// It is recommended to use the `xui-padding-lg` class for a panel inset.
+// It is recommended to use the `xui-padding-large` class for a panel inset.
 //
 // Styleguide: Panels
 
@@ -45,7 +45,7 @@
 //       </tr>
 //     </tbody>
 //   </table>
-//   <footer class="xui-panel--footer xui-actions xui-padding-lg">
+//   <footer class="xui-panel--footer xui-actions xui-padding-large">
 //     <a href="#">View All...</a>
 //   </footer>
 // </div>
@@ -133,7 +133,7 @@
 //       </li>
 //     </ol>
 //   </section>
-//   <footer class="xui-panel--footer xui-actions xui-padding-lg">
+//   <footer class="xui-panel--footer xui-actions xui-padding-large">
 //     <a href="#">More</a>
 //   </footer>
 // </div>
@@ -147,10 +147,10 @@
 //   <div class="xui-panel--header xui-padding">
 //     <header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //   </div>
-//   <section class="xui-panel--section xui-padding-lg">
+//   <section class="xui-panel--section xui-padding-large">
 //     <p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
 //   </section>
-//   <div class="xui-panel--section xui-padding-lg">
+//   <div class="xui-panel--section xui-padding-large">
 //     <form class="xui-form-layout">
 //       <div class="xui-field-layout">
 //         <label class="xui-text-label xui-fieldlabel-layout" for="display-name-pf">Display Name</label>
@@ -162,8 +162,8 @@
 //       </div>
 //     </form>
 //   </div>
-//   <div class="xui-panel--footer xui-actions xui-padding-lg">
-//     <div class="xui-actions--primary xui-padding-left-sm">
+//   <div class="xui-panel--footer xui-actions xui-padding-large">
+//     <div class="xui-actions--primary xui-padding-left-small">
 //       <button type="submit" class="xui-button xui-button-main">Save</button>
 //     </div>
 //     <div class="xui-actions--secondary">
@@ -181,7 +181,7 @@
 //   <div class="xui-panel--header xui-padding">
 //     <header class="xui-panel--heading xui-text-panelheading">Current Step</header>
 //   </div>
-//   <div class="xui-panel--section xui-padding-lg">
+//   <div class="xui-panel--section xui-padding-large">
 //     <form class="xui-form-layout">
 //       <div class="xui-field-layout">
 //         <label class="xui-text-label xui-fieldlabel-layout" for="display-name-pf">Display Name</label>
@@ -193,7 +193,7 @@
 //       </div>
 //     </form>
 //   </div>
-//   <div class="xui-panel--footer xui-actions xui-actions-linear xui-padding-lg">
+//   <div class="xui-panel--footer xui-actions xui-actions-linear xui-padding-large">
 //     <div class="xui-actions--primary">
 //       <button type="button" class="xui-button xui-button-main">Continue</button>
 //     </div>
@@ -228,10 +228,10 @@
 //     <div class="xui-panel--header xui-padding">
 //       <header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
 //     </div>
-//     <section class="xui-panel--section xui-padding-lg">
+//     <section class="xui-panel--section xui-padding-large">
 //       <p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
 //     </section>
-//     <div class="xui-panel--section xui-padding-lg">
+//     <div class="xui-panel--section xui-padding-large">
 //       <form class="xui-form-layout">
 //         <div class="xui-field-layout">
 //           <label class="xui-text-label xui-fieldlabel-layout" for="display-name-pf">Display Name</label>
@@ -243,8 +243,8 @@
 //         </div>
 //       </form>
 //     </div>
-//     <div class="xui-panel--footer xui-actions xui-padding-lg">
-//       <div class="xui-actions--primary xui-padding-left-sm">
+//     <div class="xui-panel--footer xui-actions xui-padding-large">
+//       <div class="xui-actions--primary xui-padding-left-small">
 //         <button type="submit" class="xui-button xui-button-main">Save</button>
 //       </div>
 //       <div class="xui-actions--secondary">

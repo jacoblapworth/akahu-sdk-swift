@@ -62,37 +62,37 @@
 // Margin variations
 //
 // All the above primitives  are available at small, standard and large.
-// Standard is as per above, `-sm` and `-lg` suffixes can be used to vary the
+// Standard is as per above, `-small` and `-large` suffixes can be used to vary the
 // margin.
 //
 // Markup:
 // <div class="margin-example">
-//  <div class="xui-margin-vertical-sm">
+//  <div class="xui-margin-vertical-small">
 //   Vertical Small
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-horizontal-sm xui-margin-bottom">
+//  <div class="xui-margin-horizontal-small xui-margin-bottom">
 //   Horizontal small, bottom standard
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-lg">
+//  <div class="xui-margin-large">
 //   All large
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-horizontal-sm xui-margin-vertical-lg">
+//  <div class="xui-margin-horizontal-small xui-margin-vertical-large">
 //   Horizontal small, vertical large
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-right-sm">
+//  <div class="xui-margin-right-small">
 //   Right small
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-right-lg">
+//  <div class="xui-margin-right-large">
 //   Right large
 //  </div>
 // </div>
@@ -192,26 +192,26 @@
 // Padding variations
 //
 // All the above primitives  are available at small, standard and large.
-// Standard is as per above, `-sm` and `-lg` suffixes can be used to vary the
+// Standard is as per above, `-small` and `-large` suffixes can be used to vary the
 // padding.
 //
 // Markup:
-// <div class="xui-padding-vertical-sm">
+// <div class="xui-padding-vertical-small">
 //  <div>Vertical Small</div>
 // </div>
-// <div class="xui-padding-horizontal-sm xui-padding-bottom">
+// <div class="xui-padding-horizontal-small xui-padding-bottom">
 //  <div>Horizontal small, bottom standard</div>
 // </div>
-// <div class="xui-padding-lg">
+// <div class="xui-padding-large">
 //  <div>All large</div>
 // </div>
-// <div class="xui-padding-horizontal-sm xui-padding-vertical-lg">
+// <div class="xui-padding-horizontal-small xui-padding-vertical-large">
 //  <div>Horizontal Small, vertical large</div>
 // </div>
-// <div class="xui-padding-left-sm">
+// <div class="xui-padding-left-small">
 //  <div>Left small</div>
 // </div>
-// <div class="xui-padding-left-lg">
+// <div class="xui-padding-left-large">
 //  <div>Left large</div>
 // </div>
 // <div class="xui-padding-actionlink">

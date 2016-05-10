@@ -207,7 +207,10 @@ function handleSpacebarAsClick(event) {
  * @param props
  */
 function isUnstyled(props) {
-	return props.variant === CONSTANTS.VARIANTS.unstyled || props.className.indexOf(ButtonClasses.UNSTYLED) > -1;
+	return (
+			props.variant === CONSTANTS.VARIANTS.unstyled
+			|| (props.className && props.className.indexOf(ButtonClasses.UNSTYLED) > -1)
+		);
 }
 
 export default class XUIButton extends Component {

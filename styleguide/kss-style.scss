@@ -3,6 +3,7 @@
  */
 
 @import "../src/sass/xui";
+@import "../src/sass/settings/typography";
 
 
 $kss-sidebar-width: 12.5rem;
@@ -199,6 +200,10 @@ body {
 .kss-modifier__name {
 	padding-right: 10px;
 	font-weight: bold;
+}
+
+.kss-description {
+	line-height: $xui-line-height-text;
 }
 
 .kss-style code {

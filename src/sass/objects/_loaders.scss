@@ -25,10 +25,19 @@
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
+// <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled">
+//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
 //
 // Styleguide: Loaders
 
-.#{$ns}-loader {} // Placeholder for future use
+.#{$ns}-loader {
+	color: $xui-color-placeholder;
+}
 
 .#{$ns}-loader-layout {
 	margin-bottom: $xui-s-3xlarge;
@@ -48,7 +57,7 @@
 
 	animation: xui-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
-	background-color: $xui-color-placeholder;
+	background-color: currentColor;
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;

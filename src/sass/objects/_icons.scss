@@ -40,43 +40,43 @@
 // Styleguide: Icons.2
 
 /* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
-.xui-icon-svg {
+.#{$ns}-icon-svg {
 	fill: currentColor;
 	fill-rule: evenodd;
 	shape-rendering: auto;
 }
 
-.xui-icon {
+.#{$ns}-icon {
 	display: inline-block;
 	height: $xui-icon-standard;
 	width: $xui-icon-standard;
 }
 
-.xui-icon-inline {
+.#{$ns}-icon-inline {
 	@include xui-margin-top(-7px);
 	@include xui-margin-horizontal(-8px);
 	@include xui-margin-bottom(-11px);
 }
 
-.xui-icon-large {
+.#{$ns}-icon-large {
 	height: $xui-icon-large;
 	width: $xui-icon-large;
 }
 
-.xui-icon-xlarge {
+.#{$ns}-icon-xlarge {
 	height: $xui-icon-xlarge;
 	width: $xui-icon-xlarge;
 }
 
-.xui-icon-rotate-90 {
+.#{$ns}-icon-rotate-90 {
 	transform: rotate(90deg);
 }
 
-.xui-icon-rotate-180 {
+.#{$ns}-icon-rotate-180 {
 	transform: rotate(180deg);
 }
 
 
-.xui-icon-rotate-270 {
+.#{$ns}-icon-rotate-270 {
 	transform: rotate(270deg);
 }

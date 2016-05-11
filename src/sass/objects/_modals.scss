@@ -35,18 +35,24 @@
 //     </header>
 //     <div class="xui-modal--body xui-padding-horizontal-large">
 //       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
-//       <form class="xui-form-layout">
-//         <p class="xui-field-layout">
-//           <select aria-describedby="modal-text" class="xui-select">
-//             <option>If items are negative</option>
-//           </select>
-//         </p>
-//         <p class="xui-field-layout">
+//       <form class="xui-form-layout xui-margin-top-large xui-padding-top">
+//         <div class="xui-field-layout">
+//           <div class="xui-select" aria-describedby="modal-text">
+//             <select class="xui-select--control" id="group-button-example3">
+//               <option>If items are negative</option>
+//             </select>
+//             <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//           </div>
+//         </div>
+//         <div class="xui-field-layout">
 //           <label class="xui-text-label xui-fieldlabel-layout" for="move-to">Move To</label>
-//           <select id="move-to" class="xui-select">
-//             <option>Current Liabilities</option>
-//           </select>
-//         </p>
+//           <div class="xui-select" aria-describedby="modal-text">
+//             <select id="move-to" class="xui-select--control" id="group-button-example3">
+//               <option>Current Liabilities</option>
+//             </select>
+//             <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//           </div>
+//         </div>
 //       </form>
 //     </div>
 //     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">

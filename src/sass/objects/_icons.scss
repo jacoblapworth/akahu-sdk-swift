@@ -10,21 +10,21 @@
 // Inline placement of icons
 //
 // Markup:
-//  <p class="xui-text-secondary">They'll inherit text colour wherever they're placed <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-text" /></svg></p>
+//  <p class="xui-text-secondary">They'll inherit text colour wherever they're placed <svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-text" /></svg></p>
 //  <a class="xui-button  xui-button-main xui-margin-bottom">
-// 	  Buttons! <svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-view" /></svg>
+// 	  Buttons! <svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-view" /></svg>
 //  </a>
-//  <a>Links!<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-location" /></svg></a>
+//  <a>Links!<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-location" /></svg></a>
 // <span class="xui-text-status xui-text-status-positive">
-//   Green<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-payment" /></svg>
+//   Green<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-payment" /></svg>
 // </span>
 // <span class="xui-text-status xui-text-status-negative">
-//   Red<svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-tracking" /></svg>
+//   Red<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-tracking" /></svg>
 // </span>
 // <div class="xui-buttongroup">
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-desktop" /></svg></button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-mobile" /></svg></button>
-//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline [modifiers]"> <use xlink:href="#xui-icon-print" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-desktop" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-mobile" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-print" /></svg></button>
 // </div>
 //
 //
@@ -35,7 +35,7 @@
 // The classes `xui-icon-rotate-90`, `xui-icon-rotate-180`, and `xui-icon-rotate-270` may be used to rotate the icon to various orientations.
 //
 // Markup:
-//  <svg class="xui-icon xui-icon-rotate-90 [modifiers]"> <use xlink:href="#xui-icon-arrow" /></svg><svg class="xui-icon xui-icon-rotate-270 [modifiers]"> <use xlink:href="#xui-icon-arrow" /></svg>
+//  <svg class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" /></svg><svg class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" /></svg>
 //
 // Styleguide: Icons.2
 

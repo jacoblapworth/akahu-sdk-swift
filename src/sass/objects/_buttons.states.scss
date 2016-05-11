@@ -4,8 +4,11 @@
 //
 // Styleguide: Buttons.4
 
-// We provide both disabled attribute selector for button elements and a custom class for links
-.#{$ns}-button[disabled],
+.#{$ns}-button[disabled] {
+	cursor: default;
+	pointer-events: none;
+}
+
 .#{$ns}-button-is-disabled {
 	@include xui-button-is-disabled;
 

@@ -24,33 +24,35 @@
 // Typical Page Layouts
 //
 // These opinionated component classes are designed to let you easily create typical page layouts used in Xero.
-// They provide both margins and responsive handlers. The reason they exist is because it is impossible
+// They provide both horizontal margins and responsive handlers. The reason they exist is because it is impossible
 // to achieve this type of responsive margin / change layout by composing the current set of utilities
 // provided by XUI.
+// These classes use `display: inline-block`, so the examples below use HTML comments to remove
+// whitespace between the elements.
 //
 // Markup:
 // <div class="xui-page-width-standard">
-//  <div class="xui-panel">Hello</div>
+//  <div class="xui-panel xui-margin-bottom">Hello</div>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-sidebar-right">
-//  <div class="xui-panel xui-page-layout-sidebar-right--main">Hello</div>
-//  <div class="xui-panel xui-page-layout-sidebar-right--sidebar">Hello two</div>
+//  <div class="xui-panel xui-page-layout-sidebar-right--main xui-margin-bottom">Hello</div><!--
+//  --><div class="xui-panel xui-page-layout-sidebar-right--sidebar xui-margin-bottom">Hello two</div>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-sidebar-right-small">
-//  <div class="xui-panel xui-page-layout-sidebar-right--main-small">Hello</div>
-//  <p class="xui-page-layout-sidebar-right--sidebar-small">I'm a bit of text that can exist floating next to my main content, it's pretty easy to replicate this type of display</p>
+//  <div class="xui-panel xui-page-layout-sidebar-right--main-small xui-margin-bottom">Hello</div><!--
+//  --><span class="xui-page-layout-sidebar-right--sidebar-small xui-margin-bottom">I'm a bit of text that can exist floating next to my main content, it's pretty easy to replicate this type of display</span>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-sidebar-left">
-//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar">Hello</div>
-//  <div class="xui-panel xui-page-layout-sidebar-left--main">Hello two</div>
+//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar xui-margin-bottom">Hello</div><!--
+//  --><div class="xui-panel xui-page-layout-sidebar-left--main xui-margin-bottom">Hello two</div>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-sidebar-left-small">
-//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar-small">Hello</div>
-//  <div class="xui-panel xui-page-layout-sidebar-left--main-small">Hello two</div>
+//  <div class="xui-panel xui-page-layout-sidebar-left--sidebar-small xui-margin-bottom">Hello</div><!--
+//  --><div class="xui-panel xui-page-layout-sidebar-left--main-small xui-margin-bottom">Hello two</div>
 // </div>
 // <div class="xui-page-width-standard xui-page-layout-split">
-//  <div class="xui-panel xui-page-layout-split-left">Left Box</div>
-//  <div class="xui-panel xui-page-layout-split-right">Hello two</div>
+//  <div class="xui-panel xui-page-layout-split-left xui-margin-bottom">Left Box</div><!--
+//  --><div class="xui-panel xui-page-layout-split-right xui-margin-bottom">Hello two</div>
 // </div>
 //
 // Styleguide: Grid Layout.1

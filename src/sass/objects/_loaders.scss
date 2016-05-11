@@ -61,7 +61,6 @@
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;
-	margin-right: 2px;
 	width: $dot-size;
 
 	&:nth-child(1) {
@@ -81,8 +80,13 @@
 		width: $dot-size-small;
 	}
 
+	.#{$ns}-loader & {
+		margin-right: $dot-size - $dot-size-small;
+	}
+
 	.#{$ns}-loader-large & {
 		height: $dot-size-large;
+		margin-right: $dot-size-large - $dot-size-small;
 		width: $dot-size-large;
 	}
 }

@@ -368,13 +368,6 @@
 @include xui-column-responsive-generator();
 @include xui-column-responsive-generator(true);
 
-// Parent Utility to stretch the boxes to full height of the box with the biggest height
-.#{$ns}-align-stretch {
-	> [class*='xui-column'] {
-		align-items: stretch;
-	}
-}
-
 // Nesting
 //
 // You can nest any type of column with any responsive variant to achieve a large possible number of layouts

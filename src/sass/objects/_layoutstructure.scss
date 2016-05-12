@@ -30,6 +30,32 @@
 // These classes use `display: inline-block`, so the examples below use HTML comments to remove
 // whitespace between the elements.
 //
+// #### Class Names
+//
+// `xui-page-width-standard`	Container for a standard page
+//
+// `xui-page-width-large`	Container for a large page
+//
+// * `xui-page-layout-sidebar-left`	Container for left sidebar page layout
+//   * `xui-page-layout-sidebar-left--sidebar`	Container for left
+//   * `xui-page-layout-sidebar-left--main`	Container for main
+//
+// * `xui-page-layout-sidebar-left-small`	Container for small left sidebar page layout
+//   * `xui-page-layout-sidebar-left--sidebar-small`	Container for left
+//   * `xui-page-layout-sidebar-left--main-small`	Container for main
+//
+// * `xui-page-layout-sidebar-right`	Container for right sidebar page layout
+//   * `xui-page-layout-sidebar-right--main`	Container for main
+//   * `xui-page-layout-sidebar-right--sidebar`	Container for right
+//
+// * `xui-page-layout-sidebar-right-small`	Container for small right sidebar page layout
+//   * `xui-page-layout-sidebar-right--main-small`	Container for main
+//   * `xui-page-layout-sidebar-right--sidebar-small`	Container for right
+//
+// * `xui-page-layout-split`	Container for split page layout
+//   * `xui-page-layout-split-left`	Container for left
+//   * `xui-page-layout-split-right`	Container for right
+//
 // Markup:
 // <div class="xui-page-width-standard">
 //  <div class="xui-panel xui-margin-bottom">Hello</div>
@@ -83,6 +109,16 @@
 // To begin using these classes you need to use the wrapper `.xui-row` class. The wrapper class provides the
 // clearfix required to properly layout subsequent sections of content.
 //
+// #### Class Names
+//
+// `xui-row`	Container for a fixed 12-column row
+//
+// `xui-column-[1-12]-of-12`	Number of columns to fill at all viewport sizes
+//
+// `xui-column-[1-12]-of-12-medium`	Number of columns to fill at medium breakpoint
+//
+// `xui-column-[1-12]-of-12-wide`	Number of columns to fill at wide breakpoint
+//
 // ### Example
 //
 // Markup:
@@ -124,6 +160,16 @@
 // To begin using these classes you need to use the wrapper `.xui-row-grid` class. The wrapper class provides the
 // clearfix required to properly layout subsequent sections of content. It's important that all elements within
 // `.xui-row-grid` have a `.xui-column-*` class applied to be properly aligned.
+//
+// #### Class Names
+//
+// `xui-row-grid`	Container for a fixed 12-column row with gutters
+//
+// `xui-column-[1-12]-of-12`	Number of columns to fill at all viewport sizes
+//
+// `xui-column-[1-12]-of-12-medium`	Number of columns to fill at medium breakpoint
+//
+// `xui-column-[1-12]-of-12-wide`	Number of columns to fill at wide breakpoint
 //
 // ### Example
 //
@@ -173,17 +219,42 @@
 // To begin using these classes you need to use the wrapper `.xui-row-flex` class. The wrapper class provides the
 // clearfix required to properly layout subsequent sections of content.
 //
+// #### Class Names
+//
+// `xui-row-flex`	Container for a flex 12-column row
+//
+// `xui-column-[1-12]-of-12`	Number of columns to fill at all viewport sizes
+//
+// `xui-column-[1-12]-of-12-medium`	Number of columns to fill at medium breakpoint
+//
+// `xui-column-[1-12]-of-12-wide`	Number of columns to fill at wide breakpoint
+//
 // Additional classes give flavour to the positioning of content.
 //
-// `xui-space-between` : Even space between the columns, takes up the full width of the row container
+// * Even space between the columns, takes up the full width of the row container
+//   * `xui-space-between`	Modifier for all viewport sizes
+//   * `xui-space-between-medium`	Modifier for medium breakpoint
+//   * `xui-space-between-wide`	Modifier for large breakpoint
 //
-// `xui-space-around` : Even space between and around the columns
+// * Even space between and around the columns
+//   * `xui-space-around`	Modifier for all viewport sizes
+//   * `xui-space-around-medium`	Modifier for medium breakpoint
+//   * `xui-space-around-wide`	Modifier for large breakpoint
 //
-// `xui-justify-center` : Group and center the columns within the row container
+// * Group and center the columns within the row container
+//   * `xui-justify-center` Modifier for all viewport sizes
+//   * `xui-justify-center-medium` Modifier for medium breakpoint
+//   * `xui-justify-center-wide` Modifier for large breakpoint
 //
-// `xui-justify-left` : Group and align the columns within the row container to the left hand side
+// * Group and align the columns within the row container to the left hand side
+//   * `xui-justify-left` Modifier for all viewport sizes
+//   * `xui-justify-left-medium` Modifier for medium breakpoint
+//   * `xui-justify-left-wide` Modifier for large breakpoint
 //
-// `xui-justify-right` : Group and align the columns within the row container to the right hand side
+// * Group and align the columns within the row container to the right hand side
+//   * `xui-justify-right` Modifier for all viewport sizes
+//   * `xui-justify-right-medium` Modifier for medium breakpoint
+//   * `xui-justify-right-wide` Modifier for large breakpoint
 //
 // ### Example
 //

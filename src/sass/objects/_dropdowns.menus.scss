@@ -15,6 +15,36 @@
 // An example of applying ARIA attributes to a dropdown is given below, using the roles `menubar`, `menu` and `menuitem`.
 // The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
 //
+// #### Class Names
+//
+// `xui-dropdownmenu`	Container for a drop down menu
+//
+// `xui-dropdownmenu--body`	Container for the body of a drop down menu
+//
+// `xui-dropdownmenu--footer`	Container for the footer of a drop down menu
+//
+// `xui-dropdownmenu--groupheading`	Style for a drop down menu group heading
+//
+// `xui-dropdownmenu--groupheading-layout`	Recommended layout for a drop down menu group heading
+//
+// `xui-dropdownmenu-is-closed`	Hide the drop down menu
+//
+// `xui-dropdownmenu-layout`	Recommended layout for a drop down menu
+//
+// `xui-menugroup`	Container for a group of menu items
+//
+// `xui-menugroup-layout`	Recommended layout for a menu group
+//
+// `xui-menuitem`	Container for a menu item
+//
+// `xui-menuitem--body`	Container for the body of a menu item
+//
+// `xui-menuitem--input`	Style for a menu item input (e.g. checkbox)
+//
+// `xui-menuitem-is-selected`	Modifier for a selected menu item
+//
+// `xui-menuitem-layout`	Recommended layout for a menu item
+//
 // Markup:
 // <div class="xui-dropdownmenu xui-dropdownmenu-layout" role="menubar" aria-label="dropdown menu">
 //   <div class="xui-dropdownmenu--body">

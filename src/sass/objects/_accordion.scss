@@ -1,12 +1,22 @@
 // Accordion
 //
-// Used to display an expandable/collapsible list to users.
+// The accordion is used to display an expandable/collapsible list to users.
 //
-// The `.xui-accordionitem-is-open` class toggles which item is open and includes transition animations.
+// #### Class Names
 //
-// The `.xui-accordionitem-layout` class provides standard padding to collapsed items and large padding to open items.
-// It also provides a responsive story; open items sit flush within the border of the accordion on narrow screens but expand
-// in width to overhang the sides of the accordion on standard and wide screens.
+// `xui-accordion`	Container for an accordion
+//
+// `xui-accordion--header`	Style for an accordion item heading
+//
+// `xui-accordionitem`	Container for an accordion item
+//
+// `xui-accordionitem--collapsed`	Container for collapsed state of an accordion item
+//
+// `xui-accordionitem--expanded`	Container for expanded state of an accordion item
+//
+// `xui-accordionitem-is-open`	Enable the expanded state of an accordion item
+//
+// `xui-accordionitem-layout`	Recommended layout for an accordion item
 //
 // Markup:
 //<ul class="xui-accordion xui-page-width-standard xui-panel" role="tablist" aria-multiselectable="true">

@@ -3,11 +3,34 @@
 
 // Toasts
 //
-// Toast notifications are typically global, they are a system event, and they
-// do not require immediate action. Unless the toast is an error toast, things
-// will not fall apart if a user misses them or takes no action.
+// Toast notifications are typically global. They are a system event which do not require immediate action.
+// Unless the toast is an error toast, things will not fall apart if a user misses them or takes no action.
 //
-// `xui-toast-is-hidden` : An optional class to hide the element, transitions out over 0.1s when the class is applied
+// #### Class Names
+//
+// `xui-toast`	Container for a toast
+//
+// `xui-toast--action`	Container for a toast action
+//
+// `xui-toast--actions`	Container for a group of toast actions
+//
+// `xui-toast--close`	Subcomponent for a toast close button
+//
+// `xui-toast--link`	Subcomponent for a toast link button
+//
+// `xui-toast--message`	Style for a toast message
+//
+// `xui-toast-is-hidden`	Hide the toast
+//
+// `xui-toast-layout`	Recommended layout for a toast
+//
+// `xui-toast-list`	Style for a description toast
+//
+// `xui-toast-negative`	Modifier for a negative highlight toast
+//
+// `xui-toast-positive`	Modifier for a positive highlight toast
+//
+// `xui-toast-wrapper`	Container for a group of toasts
 //
 // Styleguide: User Messaging.200
 

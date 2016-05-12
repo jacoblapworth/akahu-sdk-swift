@@ -14,7 +14,6 @@
 // `href` attribute, or `href="javascript:void(0)"`, or `href="#"`, then you
 // really should be using a `<button>` instead.
 //
-//
 // ### Behaviour
 //
 // #### Keyboard Interaction
@@ -22,6 +21,38 @@
 // Buttons can be activated by either the spacebar or the enter key.
 // Note that if you use the `<a>` element, the spacebar does not activate the link
 // and you will need to implement this behaviour yourself.
+//
+// #### Class Names
+//
+// `xui-button`	Style for a button
+//
+// `xui-button--caret`	Subcomponent for a caret button
+//
+// `xui-button-create`	Modifier for a create button
+//
+// `xui-button-fullwidth-layout`	Modifier for a full-width button at narrow breakpoint
+//
+// `xui-buttongroup`	Container for a group of buttons
+//
+// `xui-button-grouped`	Modifier for a grouped button
+//
+// `xui-button-icon`	Modifier for an icon button
+//
+// `xui-button-is-disabled`	Modifier for a disabled button
+//
+// `xui-button-link`	Modifier for a link button
+//
+// `xui-padding-actionlink`	Recommended padding for an action link button
+//
+// `xui-button-main`	Modifier for a main button
+//
+// `xui-button-negative`	Modifier for a negative button
+//
+// `xui-button-small`	Modifier for a small button
+//
+// `xui-button-split`	Modifier for a split button (eg button and dropdown)
+//
+// `xui-button-standard`	Modifier for a standard button
 //
 // Styleguide: Buttons
 

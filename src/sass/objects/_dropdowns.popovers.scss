@@ -4,20 +4,42 @@
 //
 // A simple popover container styled with an arrow pointing at relevant content.
 //
-// Full list of arrow direction modifier classes:
-//
-// `-topleft` (default), `-topcenter`, `-topright`,
-//
-// `-bottomleft`, `-bottomcenter`, `-bottomright`,
-//
-// `-lefttop`, `-leftcenter`, `-leftbottom`,
-//
-// `-righttop`, `-rightcenter`, `-rightbottom`.
-//
 // ### Accessibility
 // The appropriate role to use for the popover depends on its use in your application. The purpose of the popover should still be clearly stated using `aria-label` and `aria-describedby` attributes.
 // * **`role="tooltip"`** - a contextual popup that displays a description of an element and typically becomes visible in response to a mouse hover or keyboard focus after a short delay. ([W3C Documentation](https://www.w3.org/TR/wai-aria/roles#tooltip))
 // * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
+//
+// #### Class Names
+//
+// `xui-popover`	Container for a popover
+//
+// `xui-popover--arrow`	Container for a popover arrow
+//
+// `xui-popover--arrow--border`	Style for a popover arrow border
+//
+// `xui-popover--arrow-bottomcenter`	Modifier for a bottom-center arrow
+//
+// `xui-popover--arrow-bottomleft`	Modifier for a bottom-left arrow
+//
+// `xui-popover--arrow-bottomright`	Modifier for a bottom-right arrow
+//
+// `xui-popover--arrow-leftbottom`	Modifier for a left-bottom arrow
+//
+// `xui-popover--arrow-leftcenter`	Modifier for a left-center arrow
+//
+// `xui-popover--arrow-lefttop`	Modifier for a left-top arrow
+//
+// `xui-popover--arrow-rightbottom`	Modifier for a right-bottom arrow
+//
+// `xui-popover--arrow-rightcenter`	Modifier for a right-center arrow
+//
+// `xui-popover--arrow-righttop`	Modifier for a right-top arrow
+//
+// `xui-popover--arrow-topcenter`	Modifier for a top-center arrow
+//
+// `xui-popover--arrow-topleft`	Modifier for a top-left arrow
+//
+// `xui-popover--arrow-topright`	Modifier for a top-right arrow
 //
 // .xui-popover--arrow-topcenter  - Top center aligned  arrow
 // .xui-popover--arrow-bottomright  - Bottom right aligned  arrow

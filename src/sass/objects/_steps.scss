@@ -3,31 +3,35 @@
 // Steps
 //
 // Steps can be used in panel headers for interactive wizards or for just showing the current step in a read-only process.
-//
-// Use the `.xui-steps` class with a `<ol>` element to provide a container for a list of steps.
-//
-// Use the `.xui-step` class with each `<li>` element to provide the base style for steps.
-//
-// Use the `.xui-step-layout` class alongside the `.xui-step` class to provide the recommended padding.
-//
-// Use the `.xui-step-is-complete` class alongside the `.xui-step` class for steps which are complete.
-//
-// Use the `.xui-step-is-selected` class alongside the `.xui-step` class for the step which is currently selected.
-//
-// Use the `.xui-step--body` class to provide the base style to step text.
+// Make sure that the `xui-step--icon` element comes after the `xui-step--body` element for correct positioning.
 // Use `<br />` elements to create multi-line text.
 //
-// Use the `.xui-step--icon` class with an [SVG icon](../section-icons.html) to create arrows between each step.
-// Make sure that the `.xui-step--icon` element comes after the `.xui-step--body` element for correct positioning.
+// #### Class Names
+//
+// `xui-step`	Container for a step
+//
+// `xui-step--body`	Container for the body text of a step (inside `xui-step`)
+//
+// `xui-step--icon`	Container for the trailing icon of a step (inside `xui-step`)
+//
+// `xui-step-is-complete`	Modifier for a completed step
+//
+// `xui-step-is-selected`	Modifier for the currently selected step
+//
+// `xui-step-layout`	Recommended layout for a step
+//
+// `xui-steps`	Container for a group of steps
+//
+// `xui-steps-interactive`	Enable navigation between completed steps
 //
 // Styleguide: Steps
 
 // Interactive Steps
 //
-// Use the `.xui-steps-interactive` class alongside `.xui-steps` to allow the user to navigate between completed steps.
+// Use the `xui-steps-interactive` class alongside `xui-steps` to allow the user to navigate between completed steps.
 // Make sure to also wrap the `<ol>` element inside a `<nav>` element for greater accessibility.
 //
-// Use the `.xui-step--body` class with a `<a>` element for completed steps and a `<span>` element for all others.
+// Use the `xui-step--body` class with a `<a>` element for completed steps and a `<span>` element for all others.
 //
 // Markup:
 // <div class="xui-panel">

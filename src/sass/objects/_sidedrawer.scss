@@ -3,7 +3,7 @@
 
 // Side Drawers
 //
-// Side Drawers are used as application layout components. By default they will appear fixed to the right hand side of the browser window.
+// Side Drawers are used as application layout components. By default they will appear fixed to the right-hand side of the browser window.
 //
 // ### Accessibility
 // Depending on the use of the side drawer in your application, the appropriate role (and corresponding attributes) to use can vary.
@@ -12,6 +12,18 @@
 //   * A 'live region' is a region of a web page that is typically updated as a result of an external event when user focus may be elsewhere. ([W3C documentation](https://www.w3.org/TR/wai-aria-practices/#LiveRegions))
 //   * The `aria-live` attribute for this role should be set to `polite` so that users are notified of change at the next graceful opportunity, even when the side drawer isn't in focus. ([W3C documentation](https://www.w3.org/TR/wai-aria/states_and_properties#aria-live))
 //  * **`role="dialog"`** - Acts as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
+//
+// #### Class Names
+//
+// `xui-sidedrawer`	Container for a side drawer
+//
+// `xui-sidedrawer--content`	Container for the body of a side drawer
+//
+// `xui-sidedrawer--footer`	Container for the footer of a side drawer
+//
+// `xui-sidedrawer--header`	Container for the header of a side drawer
+//
+// `xui-sidedrawer-is-closed`	Hide the side drawer
 //
 // Markup:
 // <div class="xui-sidedrawer xui-sidedrawer-layout" role="complementary" aria-labelledby="drawer-header">

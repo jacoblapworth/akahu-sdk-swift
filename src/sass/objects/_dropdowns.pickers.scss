@@ -10,6 +10,34 @@
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also requires each active cell to have an id. Examples of how these attributes can be used are given below.
 // An example of a date picker with aria-attributes and keyboard support can be found [here](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
+// #### Class Names
+//
+// `xui-datepicker`	Container for a date picker
+//
+// `xui-datepicker--arrow-icon`	Modifier for a date picker arrow button icon
+//
+// `xui-datepicker--body`	Container for the body of a date picker
+//
+// `xui-datepicker--button-is-disabled`	Modifier for a disabled date picker button
+//
+// `xui-datepicker--day`	Style for a date picker day
+//
+// `xui-datepicker--day-is-disabled`	Modifier for a disabled day (next month)
+//
+// `xui-datepicker--day-is-selected`	Modifier for a selected day
+//
+// `xui-datepicker--header`	Container for a date picker header
+//
+// `xui-datepicker--heading`	Style for a date picker heading
+//
+// `xui-datepicker--nextbutton`	Style for a date picker next button
+//
+// `xui-datepicker--othermonth`	Subcomponent for a day in a previous month
+//
+// `xui-datepicker--prevbutton`	Style for a date picker previous button
+//
+// `xui-datepicker--weekday`	Style for weekday text
+//
 // Markup:
 // <div class="xui-popover xui-datepicker">
 //   <div class="xui-popover--arrow">

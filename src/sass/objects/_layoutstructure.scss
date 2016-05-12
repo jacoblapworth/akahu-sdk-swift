@@ -375,11 +375,6 @@
 	}
 }
 
-// Parent utility to flip the order of the columns in a row
-.#{$ns}-columns-reverse {
-	flex-direction: row-reverse;
-}
-
 // Nesting
 //
 // You can nest any type of column with any responsive variant to achieve a large possible number of layouts

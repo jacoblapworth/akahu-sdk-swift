@@ -1,0 +1,15 @@
+@import "mixins.layout.breakpoints";
+@import "mixins.layout.marginpadding";
+@import "mixins.layout.grids";
+@import "mixins.layout.utilities";
+
+/**
+ * A collection of mixins for the Xero design.
+ */
+
+// Center components horizontally while allowing them to set
+// their own vertical margins
+@mixin xui-margin-auto-horizontal {
+	margin-left: auto;
+	margin-right: auto;
+}

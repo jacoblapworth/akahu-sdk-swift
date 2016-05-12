@@ -2,10 +2,10 @@
  * Link styles.
  */
 
-@import "../settings/colours";
+@import "../vars";
 
 a {
-	color: $color-xero-blue;
+	color: $xui-color-xero-blue;
 	cursor: pointer;
 	text-decoration: none;
 }

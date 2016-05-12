@@ -1,0 +1,98 @@
+// Form Layout
+//
+// #### Class Names
+//
+// `xui-field-layout`	Recommended layout for a form field (eg label and input)
+//
+// `xui-fieldlabel-layout`	Recommended layout for a form label
+//
+// `xui-form-inline`	Recommended layout for an inline form
+//
+// `xui-form-layout`	Recommended layout for a stacked form
+//
+// Styleguide: Forms.1
+
+// Stacked Forms
+//
+// Use the `xui-form-layout` class with a `<form>` element to create a responsive stacked form with `max-width: 400px;`.
+//
+// Use the `xui-field-layout` class as a container for related form elements (e.g. `<label>` and `<input>`)
+// to give the suggested spacing between form fields.
+//
+// Markup:
+// <form class="xui-form-layout">
+//   <p class="xui-text-panelheading">Stacked Form</p>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Field One</label>
+//     <input class="xui-input" type="text" id="field1" placeholder="Placeholder for field one" />
+//   </div>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">Field Two</label>
+//     <input class="xui-input" type="text" id="field2" placeholder="Placeholder for field two" />
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+//
+// Styleguide: Forms.1.1
+
+.#{$ns}-form-layout {
+	@include xui-margin-auto-horizontal;
+	max-width: $xui-form-width;
+}
+
+.#{$ns}-field-layout {
+	margin-bottom: $xui-s-xxlarge;
+}
+
+// Inline Forms
+//
+// Use the `xui-form-inline` class with a `<form>` element to create an inline form.
+//
+// Inline forms will stack at the smallest breakpoint with `max-width: 400px;` by default.
+//
+// Use the `xui-u-hidden` utility class if you only want screen-readers to see `<label>` elements.
+//
+// Markup:
+// <!-- Inline Form -->
+// <form class="xui-form-inline">
+//   <p class="xui-text-panelheading">Inline Form</p>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Field One</label>
+//     <input class="xui-input" type="text" id="field3" placeholder="Placeholder for field one" />
+//   </div>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field4">Field Two</label>
+//     <input class="xui-input" type="text" id="field4" placeholder="Placeholder for field two" />
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+// <!-- Hidden Labels -->
+// <form class="xui-form-inline">
+//   <p class="xui-text-panelheading">Hidden Labels</p>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
+//     <input class="xui-input" type="text" id="field5" placeholder="Field One" />
+//   </div>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-u-hidden" for="field6">Field Two</label>
+//     <input class="xui-input" type="text" id="field6" placeholder="Field Two" />
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+//
+// Styleguide: Forms.1.2
+
+.#{$ns}-form-inline {
+	// Narrow-first breakpoint style
+	margin: auto;
+	max-width: $xui-form-width;
+
+	// Medium and wide breakpoint style
+	@media screen and (min-width: $xui-breakpoint-narrow) {
+		max-width: none;
+
+		.#{$ns}-field-layout {
+			display: inline-block;
+		}
+	}
+}

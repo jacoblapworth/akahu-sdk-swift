@@ -19,10 +19,11 @@
     "watch": "grunt watch --livereload",
     "bump-major": "bumper major \"Bump to {version}\" --tag \"{version}\"",
     "bump-minor": "bumper minor \"Bump to {version}\" --tag \"{version}\"",
-    "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\""
+    "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\"",
+    "update-readme": "grunt if:readme"
   },
   "devDependencies": {
-    "bower-art-resolver": "^2.0.5",
+    "bower": "^1.7.9",
     "bumper-cli": "git://github.dev.xero.com/XeroJS/bumper-cli.git#1.2.0",
     "check-engines": "^1.2.0",
     "doiuse": "^2.3.0",

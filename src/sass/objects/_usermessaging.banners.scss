@@ -1,8 +1,33 @@
 @import "../vars";
+@import "../mixins";
+
 // Banners
 //
-// Used to display banner notifications to users, typically in the top center
-// of the screen.
+// Banners are used to display notifications to users, typically in the top center of the screen.
+//
+// #### Class Names
+//
+// `xui-banner`	Container for a banner
+//
+// `xui-banner--action`	Container for a banner action
+//
+// `xui-banner--actions`	Container for a group of banner actions
+//
+// `xui-banner--close`	Subcomponent for a banner close button
+//
+// `xui-banner--link`	Subcomponent for a banner link button
+//
+// `xui-banner--message`	Style for a banner message
+//
+// `xui-banner--messagedetail`	Style for additional banner message details
+//
+// `xui-banner-animated`	Recommended animation for a banner
+//
+// `xui-banner-layout`	Recommended layout for a banner
+//
+// `xui-banner-negative`	Modifier for a negative highlight banner
+//
+// `xui-banner-positive`	Modifier for a positive highlight banner
 //
 // Styleguide: User Messaging.100
 
@@ -16,15 +41,17 @@
 // using the alert role. For further information, please refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated" role="status">
+//<div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
 //    <p class="xui-banner--message">Banner Message</p>
 //</div>
 //
 // Styleguide: User Messaging.100.1
 
-// Errors
+// Sentiment
 //
-// Error styling. Useful for page level validation. Should not be dismissable.
+// Positive and negative sentiment can be applied to banners through `xui-banner-positive` and `xui-banner-negative`.
+//
+// Negative sentiment styling is useful for for page level validation, usually they should not be dismissable.
 //
 // ### Accessibility
 //
@@ -34,14 +61,22 @@
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated xui-banner-error" role="alert">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <ul class="xui-banner--action">
-//      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
-//    </ul>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-positive" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
+//   </ul>
+// </div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.100.2
 
@@ -50,14 +85,14 @@
 // Actions will be right aligned
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <ul class="xui-banner--action">
-//      <li class="xui-banner--link"><a href="#BannerLink">Action One</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Two</a></li>
-//      <li class="xui-banner--link"><a href="#BannerLink">Action Three</a></li>
-//    </ul>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link" type="button">Action Three</button></li>
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.100.3
 
@@ -66,12 +101,12 @@
 // Some banners are dismissible and styled with a right aligned close cross.
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <div class="xui-banner--action">
-//      <button class=" xui-iconbutton xui-iconbutton-small xui-toast--close" title="Close" aria-label="Close">✕</button>
-//    </div>
-//</div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//       <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//   </button>
+//   <p class="xui-banner--message">Banner Message</p>
+// </div>
 //
 // Styleguide: User Messaging.100.4
 
@@ -81,69 +116,136 @@
 // styled as left aligned secondary text.
 //
 // Markup:
-//<div class="xui-banner xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//    <div class="xui-banner--action">
-//      <button class=" xui-iconbutton xui-iconbutton-small xui-toast--close" title="Close" aria-label="Close">✕</button>
-//    </div>
-//    <ul class="xui-banner--messagedetail">
-//        <li>We've got this request</li
-//    </ul>
-//</div>
+// <div class="xui-banner xui-banner-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//     <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//   </button>
+//   <p class="xui-banner--message">Banner Message</p>
+//   <div class="xui-banner--messagedetail xui-textcontent">
+//     <ul>
+//         <li>We've got this request</li>
+//     </ul>
+//   </div>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.100.5
 
 .#{$ns}-banner {
-	@include clearfix;
-	background: transparentize($color-white, 0.1);
-	border: $border-standard;
-	border-left: 4px solid $color-xero-blue;
-	border-radius: $radius;
-	box-shadow: $shadow-depth-1;
-	color: $color-primary-text;
-	margin: px-to-rem(20) auto;
-	padding: px-to-rem(10) px-to-rem(14);
+	background-color: $xui-color-white;
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-2;
+	color: $xui-color-primary-text;
+	opacity: 1;
+	position: relative;
+	transition: opacity $xui-transition-duration-short $xui-easing-standard;
 }
 
-.#{$ns}-banner-error {
-	border-left: 4px solid $color-xero-red;
+.#{$ns}-banner::before {
+	background: transparent;
+	border-radius: $xui-radius 0 0 $xui-radius;
+	content: "";
+	height: calc(100% + 2px);
+	left: -1px;
+	position: absolute;
+	top: -1px;
+	width: 4px;
 }
 
-.#{$ns}-banner-animated {
-	animation: animate $transition-duration-quick;
+.#{$ns}-banner-positive::before {
+	background: $xui-color-xero-blue;
 }
 
-.#{$ns}-banner--message {
-	float: left;
-	margin: 0;
+.#{$ns}-banner-negative::before {
+	background: $xui-color-xero-red;
 }
 
-.#{$ns}-banner--messagedetail {
-	clear: both;
-	color: $color-secondary-text;
-	float: left;
-	margin: 0;
-}
+.#{$ns}-banner-layout {
+	@include xui-padding($xui-s-small);
+	@include xui-margin-vertical($xui-s-large);
+	@include xui-margin-horizontal(auto);
 
-.#{$ns}-banner--action {
-	float: right;
-	margin: 0;
-	padding: 0;
-}
+	display: inline-block;
+	width: 100%;
 
-.#{$ns}-banner--link {
-	display: inline;
+	@include xui-breakpoint-narrow {
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+		border-top: 0;
+		margin-top: 0;
+		width: 100%;
 
-	&:nth-of-type(n+2) {
-		border-left: $border-standard;
-		margin-left: px-to-rem(10);
-		padding-left: px-to-rem(10);
+		&::before {
+			border-radius: 0;
+		}
+	}
+
+	.#{$ns}-banner--message {
+		@include xui-margin-vertical($xui-s-xsmall);
+		@include xui-margin-horizontal($xui-s-small);
+	}
+
+	.#{$ns}-banner--messagedetail {
+		@include xui-margin-vertical($xui-s-xsmall);
+		@include xui-margin-horizontal($xui-s-small);
+	}
+
+	.#{$ns}-banner--close {
+		@include xui-margin-vertical(-2px);
+	}
+
+	.#{$ns}-banner--actions {
+		margin: 0;
+	}
+
+	.#{$ns}-banner--link {
+		@include xui-state-focus-transparent;
+		display: inline-block;
+		padding: $xui-s-actionlink;
+	}
+
+	.#{$ns}-banner--close ~ .#{$ns}-banner--message {
+		max-width: calc(100% - 50px);
+	}
+
+	.#{$ns}-banner--close ~ .#{$ns}-banner--messagedetail {
+		max-width: calc(100% - 50px);
 	}
 }
 
-@keyframes animate {
+
+.#{$ns}-banner--message,
+.#{$ns}-banner--actions {
+	display: inline-block;
+}
+
+.#{$ns}-banner-animated {
+	animation: xui-banner-animation $xui-transition-duration-short;
+}
+
+.#{$ns}-banner--messagedetail {
+	color: $xui-color-secondary-text;
+}
+
+.#{$ns}-banner--actions,
+.#{$ns}-banner--close {
+	float: right;
+}
+
+.#{$ns}-banner--action {
+	@include xui-bold;
+	display: inline-block;
+}
+
+@keyframes xui-banner-animation {
 	0% {
-		margin-top: -20px;
+		margin-top: -$xui-s-large;
 		opacity: 0;
 	}
 

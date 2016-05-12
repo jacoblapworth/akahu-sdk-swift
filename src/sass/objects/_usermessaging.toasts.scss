@@ -1,36 +1,134 @@
 @import "../vars";
+@import "../mixins";
+
 // Toasts
 //
-// Toast notifications are typically global, they are a system event, and they
-// do not require immediate action. Unless the toast is an error toast, things
-// will not fall apart if a user misses them or takes no action.
+// Toast notifications are typically global. They are a system event which do not require immediate action.
+// Unless the toast is an error toast, things will not fall apart if a user misses them or takes no action.
 //
-// Placement should be bottom left of the screen.
+// #### Class Names
 //
-// `xui-toast-is-hidden` : An optional class to hide the element, transitions out over 0.1s when the class is applied
+// `xui-toast`	Container for a toast
+//
+// `xui-toast--action`	Container for a toast action
+//
+// `xui-toast--actions`	Container for a group of toast actions
+//
+// `xui-toast--close`	Subcomponent for a toast close button
+//
+// `xui-toast--link`	Subcomponent for a toast link button
+//
+// `xui-toast--message`	Style for a toast message
+//
+// `xui-toast-is-hidden`	Hide the toast
+//
+// `xui-toast-layout`	Recommended layout for a toast
+//
+// `xui-toast-list`	Style for a description toast
+//
+// `xui-toast-negative`	Modifier for a negative highlight toast
+//
+// `xui-toast-positive`	Modifier for a positive highlight toast
+//
+// `xui-toast-wrapper`	Container for a group of toasts
 //
 // Styleguide: User Messaging.200
 
-$color-toast-link: #70bae4;
-
 .#{$ns}-toast {
-	background: transparentize($color-white, 0.1);
-	border-left: 4px solid $color-xero-blue;
-	border-radius: $radius;
-	bottom: 0;
-	box-shadow: $shadow-depth-2;
-	color: $color-primary-text;
-	left: 0;
-	margin: px-to-rem(20);
+	@include xui-clearfix;
+	background: transparentize($xui-color-white, 0.1);
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-2;
+	color: $xui-color-primary-text;
+	max-width: 400px;
 	opacity: 1;
-	padding: px-to-rem(13);
-	position: fixed;
-	transition: opacity $transition-duration-super-quick $easing-standard;
+	position: relative;
+	transition: opacity $xui-transition-duration-short $xui-easing-standard;
 	z-index: 10;
 }
 
-.#{$ns}-toast-error {
-	border-left: 4px solid $color-xero-red;
+.#{$ns}-toast::before {
+	background: transparent;
+	border-radius: $xui-radius 0 0 $xui-radius;
+	bottom: -1px;
+	content: "";
+	left: -1px;
+	position: absolute;
+	top: -1px;
+	width: 4px;
+}
+
+.#{$ns}-toast-positive::before {
+	background: $xui-color-xero-blue;
+}
+
+.#{$ns}-toast-negative::before {
+	background: $xui-color-xero-red;
+}
+
+.#{$ns}-toast-layout {
+	@include xui-margin($xui-s-large);
+	@include xui-padding($xui-s-small);
+	@include xui-breakpoint-narrow {
+		border-bottom: 0;
+		border-left: 0;
+		border-radius: 0;
+		border-right: 0;
+		margin: 0;
+		max-width: none;
+		width: 100%;
+
+		&::before {
+			border-radius: 0;
+		}
+
+		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
+			max-width: calc(100% - 80px);
+		}
+	}
+
+	.#{$ns}-toast--close {
+		@include xui-margin-vertical(-2px);
+	}
+
+	.#{$ns}-toast--message {
+		@include xui-margin-horizontal($xui-s-small);
+		@include xui-margin-vertical($xui-s-xsmall);
+	}
+
+	.#{$ns}-toast--actions {
+		margin: 0;
+		padding: 0;
+	}
+
+	.#{$ns}-toast--link {
+		@include xui-state-focus-transparent;
+		display: inline-block;
+		padding: $xui-s-actionlink;
+	}
+
+	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
+		max-width: 320px;
+	}
+}
+
+@include xui-breakpoint-narrow {
+	.#{$ns}-toast-layout {
+		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
+			max-width: calc(100% - 50px);
+		}
+	}
+}
+
+.#{$ns}-toast-wrapper {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+
+	@include xui-breakpoint-narrow {
+		width: 100%;
+	}
 }
 
 // Single-Action
@@ -41,32 +139,51 @@ $color-toast-link: #70bae4;
 // using the alert role. For further information, please refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
 //
 // Markup:
-//   <div class="xui-toast" role="status">
-//     <p class="xui-toast--message">Toast Message</p>
-//     <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <div class="xui-toast--message">Toast Message</div>
+//   <div class="xui-toast--actions">
+//       <a class="xui-toast--action xui-toast--link" href="#ToastLink">Undo</a>
 //   </div>
+// </div>
 //
 // Styleguide: User Messaging.200.1
 
 // Multi-Action
 //
 // Markup:
-//   <div class="xui-toast" role="status">
-//     <p class="xui-toast--message">Toast Message</p>
-//     <ul class="xui-toast--actionlist">
-//       <li class="xui-toast--action">
-//         <a class="xui-toast--link" href="#ToastLink">Undo</a>
-//       </li>
-//       <li class="xui-toast--action">
-//         <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
-//       </li>
-//     </ul>
-//     <button class="xui-iconbutton xui-iconbutton-small xui-toast--close" title="Close">✕</a>
-//   </div>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Toast Message</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button class="xui-button xui-button-link xui-toast--link" href="#ToastLink">Undo</button>
+//     </li>
+//     <li class="xui-toast--action">
+//       <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
+//     </li>
+//   </ul>
+// </div>
 //
 // Styleguide: User Messaging.200.2
 
-// Error
+// Toast Sentiment
+//
+// Toast sentiment classes should be used sparingly, only used when there is a positive or negative message being conveyed to the user. The classes to apply for adding sentiment are `xui-toast-positive` and `xui-toast-negative`.
+//
+// ### Positive
+//
+// <div class="xui-toast xui-toast-layout xui-toast-positive" role="alert">
+//   <div class="xui-toast--message">Connection successful</div>
+// </div>
+//
+// ### Negative
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout xui-toast-negative" role="alert">
+//   <div class="xui-toast--message">No internet connection</div>
+// </div>
 //
 // ### Accessibility
 //
@@ -75,39 +192,58 @@ $color-toast-link: #70bae4;
 // the users attention to the toast when you require their immediate attention. For further information, please
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
+// Styleguide: User Messaging.200.3.2
+
+// Placement
+//
+// The class `xui-toast-wrapper` is provided to properly position toast elements. It will place them at the bottom-left corner of the screen.
+// For the purpose of unifomity through Xero, it would be best to use this class and keep the standard positioning.
+//
+// To see how this will look on an actual page, toggle off the `position: relative` override which is set on the wrapper for these docs.
+//
 // Markup:
-//   <div class="xui-toast xui-toast-error" role="alert">
-//     <p class="xui-toast--message">No internet connection</p>
-//   </div>
+// <div class="xui-toast-wrapper">
+// 	<div class="xui-toast xui-toast-layout xui-toast-positive" role="alert">
+// 	  <div class="xui-toast--message">Connection successful</div>
+// 	</div>
+// 	<div class="xui-toast xui-toast-layout xui-toast-negative" role="alert">
+// 	  <div class="xui-toast--message">No internet connection</div>
+// 	</div>
+// 	<div class="xui-toast xui-toast-layout" role="status">
+//    <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//      <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//    </button>
+// 	  <div class="xui-toast--message">Toast Message</div>
+// 	  <ul class="xui-toast--actions">
+// 	    <li class="xui-toast--action">
+// 	      <button class="xui-button xui-button-link xui-toast--link" href="#ToastLink">Undo</button>
+// 	    </li>
+// 	    <li class="xui-toast--action">
+// 	      <a class="xui-toast--link" href="#ToastLink">Back to Invoices</a>
+// 	    </li>
+// 	  </ul>
+// 	</div>
+// </div>
 //
 // Styleguide: User Messaging.200.3
 
-.#{$ns}-toast--link {
-	color: $color-toast-link;
+.#{$ns}-toast--action {
+	@include xui-bold;
 }
 
 .#{$ns}-toast--message,
-.#{$ns}-toast--actionlist,
+.#{$ns}-toast--actions,
 .#{$ns}-toast--action {
-	display: inline;
+	display: inline-block;
 }
 
-.#{$ns}-toast--actionlist {
-	padding: 0;
+.#{$ns}-toast--close,
+.#{$ns}-toast--actions {
+	float: right;
 }
 
 .#{$ns}-toast--action {
-	margin-left: px-to-rem(20);
-
-	&:nth-of-type(n+2) {
-		border-left: 1px solid $color-shadow-strong;
-		padding: 2px 0 2px px-to-rem(20);
-	}
-}
-
-.#{$ns}-toast--close {
-	color: $color-grey-3;
-	margin-left: px-to-rem(20);
+	display: inline-block;
 }
 
 .#{$ns}-toast-is-hidden {
@@ -116,15 +252,6 @@ $color-toast-link: #70bae4;
 }
 
 .#{$ns}-toast-list {
-	color: $color-white;
+	color: $xui-color-white;
 	list-style: disc;
-}
-
-@include mobile {
-	.#{$ns}-toast {
-		left: 50%;
-		margin-left: 0;
-		min-width: 70%;
-		transform: translateX(-50%);
-	}
 }

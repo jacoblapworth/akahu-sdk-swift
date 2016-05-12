@@ -2,9 +2,8 @@
  * Global animation-related settings.
  */
 
-$transition-duration-super-quick: 0.1s; // Do we need better names for these?
-$transition-duration-quick: 0.2s;
-$transition-duration-short: 0.4s;
-$transition-duration-long:  0.8s;
+$xui-transition-duration-short: 0.1s;
+$xui-transition-duration-medium: 0.3s;
+$xui-transition-duration-long: 0.8s;
 
-$easing-standard: ease;
+$xui-easing-standard: ease;

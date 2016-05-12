@@ -10,15 +10,15 @@
 	{{{styles}}}
 </head>
 
-<body id="kss-node" class="kss-node">
-
+<body id="kss-node" class="kss-node xui-body">
+	<span id="xui-icon-blob-holder"></span>
 	<nav id="kss-sidebar" class="kss-sidebar">
 		<ul class="kss-nav__menu xui-menugroup title">
 			<li class="kss-nav__menu-item">
 				<h1 class="kss-doc-title">XUI</h1>
 			</li>
 		</ul>
-		<ul class="xui-tabgroup xui-tabgroup-vertical">
+		<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
 			<li class="xui-verticaltab">
 				<a href="./" tabindex="-1" class="xui-verticaltab--body">Overview</a>
 			</li>
@@ -26,7 +26,7 @@
 				<a href="https://github.dev.xero.com/pages/UXE/xui-examples/" tabindex="-1" class="xui-verticaltab--body">Examples</a>
 			</li>
 		</ul>
-		<ul class="xui-tabgroup xui-tabgroup-vertical">
+		<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
 			{{#eachRoot}}
 			<li class="xui-verticaltab {{#ifReference ../rootName}}xui-verticaltab-is-selected{{/ifReference}}">
 				<a href="section-{{referenceURI}}.html" tabindex="-1" class="xui-verticaltab--body">{{header}}</a>
@@ -67,10 +67,10 @@
 		</header>
 
     <div class="xui-tabbed-navigation">
-      <ul class="xui-tabgroup">
+      <ul class="xui-tabgroup xui-tabgroup-layout">
         {{#eachSection reference}}
         {{#ifDepth 2}}
-        <li class="kss-nav__menu-item xui-menugroup--item">
+        <li class="kss-nav__menu-item xui-tab">
           <a class="xui-tab--body" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
         </li>
         {{/ifDepth}}
@@ -138,7 +138,7 @@
 			</div>
 
 			<div class="kss-markup kss-style" style="position: relative;">
-        <button data-clipboard-text="{{markup}}" class="copy-button xui-button xui-button-small" style="position: absolute; right: 0; top: 0;">Copy</button>
+        <button data-clipboard-text="{{markup}}" class="copy-button xui-button xui-button-standard xui-button-small" style="position: absolute; right: 0; top: 0;">Copy</button>
 
         <pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
 
@@ -159,6 +159,8 @@
 	new Clipboard('.copy-button');
 </script>
 <script src="//localhost:35729/livereload.js"></script>
+<script src="styleguide/xuiIconBlobES5.js"></script>
+<script type="text/javascript">(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob-holder')); })();</script>
 {{{scripts}}}
 
 </body>

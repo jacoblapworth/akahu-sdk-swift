@@ -1,0 +1,40 @@
+@import "../mixins";
+
+// Groups
+//
+// Styleguide: Buttons.5
+
+// Groups
+//
+// Button groups are use, when you have room and want to display multiple actions without hiding them behind a dropdown menu.
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-main {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-create {{modifier_class}}">Right</button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-negative {{modifier_class}}">Left</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-negative {{modifier_class}}">Middle</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-negative {{modifier_class}}">Right</button>
+// </div>
+//
+// Styleguide: Buttons.5.1
+
+@include xui-buttongroup;
+@include xui-button-grouped;

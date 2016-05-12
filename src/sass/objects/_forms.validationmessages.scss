@@ -1,0 +1,21 @@
+@import "../vars";
+@import "../mixins";
+
+// Validation Styles
+//
+// We support the use of a manual class, or HTML5 invalid pseudo class
+//
+// Markup:
+// <input type="text" class="xui-input xui-input-is-invalid" aria-label="Text input"/>
+// <textarea class="xui-textarea xui-input-is-invalid" aria-label="Text area field"></textarea>
+//
+// Styleguide: Forms.10
+
+.#{$ns}-input-is-invalid {
+	border-color: $xui-color-xero-red;
+
+	&:focus,
+	&:hover {
+		border-color: $xui-color-xero-red;
+	}
+}

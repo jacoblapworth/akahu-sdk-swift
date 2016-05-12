@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // Panels
 //
 // Panels are bordered containers for other items.  They can contain several
@@ -5,272 +8,279 @@
 // and as many body sections as they need.
 //
 // Because panels are generic containers panel sections do not provide padding
-// by default. You can add `.xui-panel--section-inset` to an element to provide
-// padding.
+// by default. You can add padding using the `xui-padding-*` classes available.
+// It is recommended to use the `xui-padding-large` class for a panel inset.
+//
+// #### Class Names
+//
+// `xui-panel`	Container for a panel
+//
+// `xui-panel--footer`	Container for the footer of a panel
+//
+// `xui-panel--header`	Container for the header of a panel
+//
+// `xui-panel--heading`	Style for a panel heading
+//
+// `xui-panel--section`	Container for a section of a panel
+//
+// `xui-panel--section--header`	Container for the header of a section
+//
+// `xui-sectionheading`	Style for a section heading
+//
+// `xui-sectionheading-layout`	Recommended layout for a section heading
+//
+// `xui-panel--sidebar`	Container for a panel sidebar
 //
 // Styleguide: Panels
-
-@import "../vars";
-@import "../tools/mixins";
-@import "../tools/functions";
 
 // With Table
 //
 // Markup:
-//	<div class="xui-panel">
-//		<header class="xui-panel--header">
-//			<h3 class="xui-panel--heading xui-text-panelheading">57 bills don't have files added</h3>
-//		</header>
-//		<table class="xui-panel--section xui-contentblock">
-//			<thead>
-//				<tr class="xui-sectionheading">
-//					<th class="xui-text-sectionheading xui-sectionheading--cell">Date</th>
-//					<th class="xui-text-sectionheading xui-sectionheading--cell">From</th>
-//					<th class="xui-text-sectionheading xui-sectionheading--cell">Reference</th>
-//					<th class="xui-text-sectionheading xui-sectionheading--cell xui-text-number">Amount</th>
-//				</tr>
-//			</thead>
-//			<tbody>
-//				<tr class="xui-contentblock--item">
-//					<td class="xui-text-cell">20 Sep 2014</td>
-//					<td class="xui-text-cell">Gateway Graphics</td>
-//					<td class="xui-text-cell">Ref - 7276130</td>
-//					<td class="xui-text-cell xui-text-number">7,947.00</td>
-//				</tr>
-//				<tr class="xui-contentblock--item">
-//					<td class="xui-text-cell">20 Sep 2014</td>
-//					<td class="xui-text-cell">Eye Design</td>
-//					<td class="xui-text-cell"></td>
-//					<td class="xui-text-cell xui-text-number">5,718.49</td>
-//				</tr>
-//			</tbody>
-//		</table>
-//		<footer class="xui-panel--footer xui-actions">
-//			<a href="#">View All...</a>
-//		</footer>
-//	</div>
+// <div class="xui-panel">
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">57 bills don't have files added</h3>
+//     <button type="button" class="xui-button xui-button-standard xui-u-flex-col">Button</button>
+//   </header>
+//   <table class="xui-panel--section xui-contentblock">
+//     <thead>
+//       <tr class="xui-sectionheading">
+//         <th class="xui-text-sectionheading xui-sectionheading-layout">Date</th>
+//         <th class="xui-text-sectionheading xui-sectionheading-layout">From</th>
+//         <th class="xui-text-sectionheading xui-sectionheading-layout">Reference</th>
+//         <th class="xui-text-sectionheading xui-sectionheading-layout xui-text-number">Amount</th>
+//       </tr>
+//     </thead>
+//     <tbody>
+//       <tr class="xui-contentblock--item xui-padding">
+//         <td class="xui-text-cell xui-padding">20 Sep 2014</td>
+//         <td class="xui-text-cell xui-padding">Gateway Graphics</td>
+//         <td class="xui-text-cell xui-padding">Ref - 7276130</td>
+//         <td class="xui-text-cell xui-padding xui-text-number">7,947.00</td>
+//       </tr>
+//       <tr class="xui-contentblock--item xui-padding">
+//         <td class="xui-text-cell xui-padding">20 Sep 2014</td>
+//         <td class="xui-text-cell xui-padding">Eye Design</td>
+//         <td class="xui-text-cell xui-padding"></td>
+//         <td class="xui-text-cell xui-padding xui-text-number">5,718.49</td>
+//       </tr>
+//     </tbody>
+//   </table>
+//   <footer class="xui-panel--footer xui-actions xui-padding-large">
+//     <a href="#">View All...</a>
+//   </footer>
+// </div>
 //
 // Styleguide: Panels.1
 
 // With Content Block
 //
-//	Markup:
-//	<div class="xui-panel">
-//		<header class="xui-panel--header">
-//			<h3 class="xui-panel--heading xui-text-panelheading">Needs your attention</h3>
-//		</header>
-//		<section>
-//			<header class="xui-sectionheading xui-text-sectionheading">Due this week</header>
-//			<ol class="xui-contentblock">
-//				<li class="xui-contentblock--item xui-u-flex">
-//					<div class="xui-u-flex-col">
-//						<abbr class="xui-avatar xui-avatar-small">A</abbr>
-//					</div>
-//					<div class="xui-u-flex-col xui-u-flex-grow">
-//						<a href="#">All Good Organics</a>
-//						<div>
-//							GST Return due this week
-//							<div class="xui-text-secondary">162 unreconciled lines, due 21 Aug 2015</div>
-//						</div>
-//					</div>
-//					<div class="xui-u-flex-col">
-//						<button type="button" class="xui-button">Reconcile</button>
-//					</div>
-//				</li>
-//				<li class="xui-contentblock--item xui-u-flex">
-//					<div class="xui-u-flex-col">
-//						<abbr class="xui-avatar xui-avatar-small">C</abbr>
-//					</div>
-//					<div class="xui-u-flex-col xui-u-flex-grow">
-//						<a href="#">Coffee Supreme</a>
-//						<div>
-//							GST Return due this week
-//							<div class="xui-text-secondary">Reconciled up to date, due 21 Aug 2015</div>
-//						</div>
-//					</div>
-//					<div class="xui-u-flex-col">
-//						<button type="button" class="xui-button">Prepare</button>
-//					</div>
-//				</li>
-//			</ol>
-//		</section>
-//		<section>
-//			<header class="xui-sectionheading xui-text-sectionheading">Due this month</header>
-//			<ol class="xui-contentblock">
-//				<li class="xui-contentblock--item xui-u-flex">
-//					<div class="xui-u-flex-col">
-//						<abbr class="xui-avatar xui-avatar-small">B</abbr>
-//					</div>
-//					<div class="xui-u-flex-col xui-u-flex-grow">
-//						<a href="#">Bluebells Cakery</a>
-//						<div>
-//							GST Return due this month
-//							<div class="xui-text-secondary">134 unreconciled lines, 3 comments, due 28 Aug 2015</div>
-//						</div>
-//					</div>
-//					<div class="xui-u-flex-col">
-//						<button type="button" class="xui-button">Reconcile</button>
-//					</div>
-//				</li>
-//				<li class="xui-contentblock--item xui-u-flex">
-//					<div class="xui-u-flex-col">
-//						<img class="xui-avatar xui-avatar-small" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p160x160/10154937_10152887999318438_3131690082284361725_n.png?oh=823be4c396970a7ca4f97fb2c4fd1713&oe=5664EB6A&__gda__=1449098493_9f6b36c34fed7aa5fadf0879964869ce"/>
-//					</div>
-//					<div class="xui-u-flex-col xui-u-flex-grow">
-//						<a href="#">Good as Gold</a>
-//						<div>
-//							GST Return due this week
-//							<div class="xui-text-secondary">Reconciled up to date, due 28 Aug 2015</div>
-//						</div>
-//					</div>
-//					<div class="xui-u-flex-col">
-//						<button type="button" class="xui-button">Prepare</button>
-//					</div>
-//				</li>
-//			</ol>
-//		</section>
-//		<footer class="xui-panel--footer xui-actions">
-//			<a href="#">More</a>
-//		</footer>
-//	</div>
+//  Markup:
+// <div class="xui-panel">
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">Needs your attention</h3>
+//     <label class="xui-switch xui-u-flex-col">
+//       <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
+//       <span class="xui-switch--control"></span>
+//     </label>
+//   </header>
+//   <section>
+//     <header class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Due this week</header>
+//     <ol class="xui-contentblock">
+//       <li class="xui-contentblock--item xui-padding xui-u-flex">
+//         <div class="xui-u-flex-col">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1">A</abbr>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//           <a href="#">All Good Organics</a>
+//           <div>
+//             GST Return due this week
+//             <div class="xui-text-secondary">162 unreconciled lines, due 21 Aug 2015</div>
+//           </div>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left">
+//           <button type="button" class="xui-button xui-button-standard">Reconcile</button>
+//         </div>
+//       </li>
+//       <li class="xui-contentblock--item xui-padding xui-u-flex">
+//         <div class="xui-u-flex-col">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2">C</abbr>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//           <a href="#">Coffee Supreme</a>
+//           <div>
+//             GST Return due this week
+//             <div class="xui-text-secondary">Reconciled up to date, due 21 Aug 2015</div>
+//           </div>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left">
+//           <button type="button" class="xui-button xui-button-standard">Prepare</button>
+//         </div>
+//       </li>
+//     </ol>
+//   </section>
+//   <section>
+//     <header class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Due this month</header>
+//     <ol class="xui-contentblock">
+//       <li class="xui-contentblock--item xui-padding xui-u-flex">
+//         <div class="xui-u-flex-col">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-3">B</abbr>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//           <a href="#">Bluebells Cakery</a>
+//           <div>
+//             GST Return due this month
+//             <div class="xui-text-secondary">134 unreconciled lines, 3 comments, due 28 Aug 2015</div>
+//           </div>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left">
+//           <button type="button" class="xui-button xui-button-standard">Reconcile</button>
+//         </div>
+//       </li>
+//       <li class="xui-contentblock--item xui-padding xui-u-flex">
+//         <div class="xui-u-flex-col">
+//           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-4">G</abbr>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//           <a href="#">Good as Gold</a>
+//           <div>
+//             GST Return due this week
+//             <div class="xui-text-secondary">Reconciled up to date, due 28 Aug 2015</div>
+//           </div>
+//         </div>
+//         <div class="xui-u-flex-col xui-margin-left">
+//           <button type="button" class="xui-button xui-button-standard">Prepare</button>
+//         </div>
+//       </li>
+//     </ol>
+//   </section>
+//   <footer class="xui-panel--footer xui-actions xui-padding-large">
+//     <a href="#">More</a>
+//   </footer>
+// </div>
 //
 // Styleguide: Panels.2
 
 // With Form
 //
-//  Markup:
-//	<div class="xui-panel">
-//		<div class="xui-panel--header">
-//			<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
-//		</div>
-//		<section class="xui-panel--section xui-panel--section-inset">
-//			<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
-//		</section>
-//		<ul class="xui-panel--section">
-//			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label xui-text-label" for="display-name-pf">Display Name</label>
-//				<div class="xui-inputgroup--inputs">
-//					<input class="xui-input" type="text" id="display-name-pf" placeholder="Your name"/>
-//				</div>
-//			</li>
-//			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label xui-text-label" for="legal-name-pf">Legal Name</label>
-//				<div class="xui-inputgroup--inputs">
-//					<input class="xui-input" type="text" id="legal-name-pf" placeholder="If different from above"/>
-//				</div>
-//			</li>
-//		</ul>
-//		<div class="xui-panel--footer xui-actions">
-//			<div class="xui-actions--primary">
-//				<button type="submit" class="xui-button xui-button-main">Save</button>
-//			</div>
-//			<div class="xui-actions--secondary">
-//				<button type="button" class="xui-button">Cancel</button>
-//			</div>
-//		</div>
-//	</div>
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-panel--header xui-padding">
+//     <header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
+//   </div>
+//   <section class="xui-panel--section xui-padding-large">
+//     <p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
+//   </section>
+//   <div class="xui-panel--section xui-padding-large">
+//     <form class="xui-form-layout">
+//       <div class="xui-field-layout">
+//         <label class="xui-text-label xui-fieldlabel-layout" for="display-name-pf">Display Name</label>
+//         <input class="xui-input" type="text" id="display-name-pf" placeholder="Your name"/>
+//       </div>
+//       <div class="xui-field-layout">
+//         <label class="xui-text-label xui-fieldlabel-layout" for="legal-name-pf">Legal Name</label>
+//         <input class="xui-input" type="text" id="legal-name-pf" placeholder="If different from above"/>
+//       </div>
+//     </form>
+//   </div>
+//   <div class="xui-panel--footer xui-actions xui-padding-large">
+//     <div class="xui-actions--primary xui-padding-left-small">
+//       <button type="submit" class="xui-button xui-button-main">Save</button>
+//     </div>
+//     <div class="xui-actions--secondary">
+//       <button type="button" class="xui-button xui-button-standard">Cancel</button>
+//     </div>
+//   </div>
+// </div>
 //
 // Styleguide: Panels.3
 
 // Multi-Step
 //
-//  Markup:
-//	<div class="xui-panel">
-//		<div class="xui-panel--header">
-//			<header class="xui-panel--heading xui-text-panelheading">Current Step</header>
-//		</div>
-//		<ul class="xui-panel--section">
-//			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label xui-text-label" for="display-name">Display Name</label>
-//				<div class="xui-inputgroup--inputs">
-//					<input class="xui-input" type="text" id="display-name" placeholder="Your name"/>
-//				</div>
-//			</li>
-//			<li class="xui-inputgroup">
-//				<label class="xui-inputgroup--label xui-text-label" for="legal-name">Legal Name</label>
-//				<div class="xui-inputgroup--inputs">
-//					<input class="xui-input" type="text" id="legal-name" placeholder="If different from above"/>
-//				</div>
-//			</li>
-//		</ul>
-//		<div class="xui-panel--footer xui-actions xui-actions-linear">
-//			<div class="xui-actions--primary">
-//				<button type="button" class="xui-button xui-button-main">Continue</button>
-//			</div>
-//			<div class="xui-actions--secondary">
-//				<button type="submit" class="xui-button">Back</button>
-//			</div>
-//		</div>
-//	</div>
+// Markup:
+// <div class="xui-panel">
+//   <div class="xui-panel--header xui-padding">
+//     <header class="xui-panel--heading xui-text-panelheading">Current Step</header>
+//   </div>
+//   <div class="xui-panel--section xui-padding-large">
+//     <form class="xui-form-layout">
+//       <div class="xui-field-layout">
+//         <label class="xui-text-label xui-fieldlabel-layout" for="display-name-pf">Display Name</label>
+//         <input class="xui-input" type="text" id="display-name-pf" placeholder="Your name"/>
+//       </div>
+//       <div class="xui-field-layout">
+//         <label class="xui-text-label xui-fieldlabel-layout" for="legal-name-pf">Legal Name</label>
+//         <input class="xui-input" type="text" id="legal-name-pf" placeholder="If different from above"/>
+//       </div>
+//     </form>
+//   </div>
+//   <div class="xui-panel--footer xui-actions xui-actions-linear xui-padding-large">
+//     <div class="xui-actions--primary">
+//       <button type="button" class="xui-button xui-button-main">Continue</button>
+//     </div>
+//     <div class="xui-actions--secondary">
+//       <button type="submit" class="xui-button xui-button-standard">Back</button>
+//     </div>
+//   </div>
+// </div>
 //
 // Styleguide: Panels.4
 
 // With Sidebar
 //
-//  Markup:
-//	<div class="xui-panel xui-u-flex">
-//		<div class="xui-panel--sidebar">
-//			<div class="xui-verticaltabbed-navigation" role="navigation" aria-label="sidebar">
-//				<ul class="xui-tabgroup xui-tabgroup-vertical">
-//					<li class="xui-verticaltab" aria-selected="false">
-//						<a class="xui-verticaltab--body xui-u-flex xui-u-spacebetween" href="#default">Default <span class="xui-text-secondary">ON</span></a>
-//					</li>
-//					<li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
-//						<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
-//					</li>
-//					<li class="xui-verticaltab" aria-selected="false">
-//						<a class="xui-verticaltab--body" href="#">Selected Default</a>
-//					</li>
-//				</ul>
-//			</div>
-//		</div>
-//		<div class="xui-u-flex-grow">
-//			<div class="xui-panel--header">
-//				<header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
-//			</div>
-//			<section class="xui-panel--section xui-panel--section-inset">
-//				<p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
-//			</section>
-//			<ul class="xui-panel--section">
-//				<li class="xui-inputgroup">
-//					<label class="xui-inputgroup--label xui-text-label" for="display-name">Display Name</label>
-//					<div class="xui-inputgroup--inputs">
-//						<input class="xui-input xui-text-label" type="text" id="display-name" placeholder="Your name"/>
-//					</div>
-//				</li>
-//				<li class="xui-inputgroup">
-//					<label class="xui-inputgroup--label" for="legal-name">Legal Name</label>
-//					<div class="xui-inputgroup--inputs">
-//						<input class="xui-input" type="text" id="legal-name" placeholder="If different from above"/>
-//					</div>
-//				</li>
-//			</ul>
-//			<div class="xui-panel--footer xui-actions">
-//				<div class="xui-actions--primary">
-//					<button type="submit" class="xui-button xui-button-main">Save</button>
-//				</div>
-//				<div class="xui-actions--secondary">
-//					<button type="button" class="xui-button">Cancel</button>
-//				</div>
-//			</div>
-//		</div>
-//	</div>
+// Markup:
+// <div class="xui-panel xui-u-flex">
+//   <div class="xui-panel--sidebar">
+//     <div class="xui-verticaltabbed-navigation" role="navigation" aria-label="sidebar">
+//       <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+//         <li class="xui-verticaltab" aria-selected="false">
+//           <a class="xui-verticaltab--body xui-u-flex xui-u-spacebetween" href="#default">Default <span class="xui-text-secondary">ON</span></a>
+//         </li>
+//         <li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
+//           <a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
+//         </li>
+//         <li class="xui-verticaltab" aria-selected="false">
+//           <a class="xui-verticaltab--body" href="#">Selected Default</a>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+//   <div class="xui-u-flex-grow">
+//     <div class="xui-panel--header xui-padding">
+//       <header class="xui-panel--heading xui-text-panelheading">Basic Information</header>
+//     </div>
+//     <section class="xui-panel--section xui-padding-large">
+//       <p>This is a plain paragraph with surrounding spacing provided by its parent section.</p>
+//     </section>
+//     <div class="xui-panel--section xui-padding-large">
+//       <form class="xui-form-layout">
+//         <div class="xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="display-name-pf">Display Name</label>
+//           <input class="xui-input" type="text" id="display-name-pf" placeholder="Your name"/>
+//         </div>
+//         <div class="xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="legal-name-pf">Legal Name</label>
+//           <input class="xui-input" type="text" id="legal-name-pf" placeholder="If different from above"/>
+//         </div>
+//       </form>
+//     </div>
+//     <div class="xui-panel--footer xui-actions xui-padding-large">
+//       <div class="xui-actions--primary xui-padding-left-small">
+//         <button type="submit" class="xui-button xui-button-main">Save</button>
+//       </div>
+//       <div class="xui-actions--secondary">
+//         <button type="button" class="xui-button xui-button-standard">Cancel</button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
 //
 // Styleguide: Panels.5
 
-
 .#{$ns}-panel {
-	background-color: $color-panels;
-	border: $border-standard;
-	border-radius: $radius;
-	box-shadow: $shadow-depth-1;
-	margin: 2em auto;
-
-	@include tablet {
-		border-left: 0;
-		border-radius: 0;
-		border-right: 0;
-	}
+	background-color: $xui-color-panel;
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-1;
 }
 
 // PANEL HEADER
@@ -279,38 +289,28 @@
 .#{$ns}-panel--header {
 }
 
-.#{$ns}-panel--header-standard {
-	padding: $spacing-standard;
-}
-
 .#{$ns}-panel--heading {
 	margin: 0;
-	padding: $spacing-standard;
 }
 
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--section {
-	border-top: $divider-standard;
+	border-top: $xui-divider-standard;
 	margin: 0;
-	padding: 0;
 
 	&:first-child {
 		border-top: 0;
 	}
 }
 
-.#{$ns}-panel--section-inset {
-	padding: px-to-rem(20);
-}
-
 .#{$ns}-panel--section--header {
 	margin: 0;
 	text-align: center;
 
-	@media(min-width: px-to-rem(600)) {
-		@include margin-auto-horizontal;
+	@media(min-width: 600px) {
+		@include xui-margin-auto-horizontal;
 	}
 }
 
@@ -318,21 +318,17 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--footer {
-	border-top: $divider-standard;
+	border-top: $xui-divider-standard;
 
 	&:first-child {
 		border-top: 0;
 	}
 }
 
-.#{$ns}-panel--footer-standard {
-	padding: px-to-rem(20);
-}
-
 // PANEL WITH SIDEBAR
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--sidebar {
-	border-right: $border-standard;
-	flex: 0 0 px-to-rem(200);
+	border-right: $xui-border-standard;
+	flex: 0 0 200px;
 }

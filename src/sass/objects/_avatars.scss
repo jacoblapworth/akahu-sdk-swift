@@ -1,15 +1,25 @@
 @import "../vars";
+@import "../mixins";
+
 // Avatars
 //
-// Avatars can be either an image or text.
-// If no image is available, use the `<abbr>` tag to display the first character of the entity.
-// The background colour should be selected deterministically from a list of colours based on a unique
-// attribute of the entity (not their name). This allows the user to associate a pair of
-// colour and letter with a particular entity. If two entities share the same name, the colour should
-// be different ([Sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa)).
+// Avatars can be either an image or text. If no image is available then the `<abbr>` tag should be used to display the first character of the entity.
+// The background color should be selected deterministically from one of the ten approved colors based on a unique attribute of the entity (not their name).
+// This allows the user to associate a color/letter pair with a particular entity.
+// If two entities share the same name then the color should be different.
+// See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more more detail.
 //
-// There are 10 available background colors. These can be applied using the classes `xui-avatar-color-1` through
-// `xui-avatar-color-10`
+// #### Class Names
+//
+// `xui-avatar`	Style for an avatar
+//
+// `xui-avatar-color-[1-10]`	Modifiers for a color avatar
+//
+// `xui-avatar-group`	Container for a group of avatars
+//
+// `xui-avatar-large`	Modifier for a large avatar
+//
+// `xui-avatar-small`	Modifier for a small avatar
 //
 // Markup:
 // <h3>Small</h3>
@@ -21,85 +31,125 @@
 // <h3>Large</h3>
 // <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
 // <abbr class="xui-avatar xui-avatar-large" style="background-color: #C48FDE" role="presentation">Z</abbr>
+// <h3>Multiple avatars</h3>
+// <div class="xui-avatar-group">
+//   <abbr class="xui-avatar xui-avatar-color-1">A</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-2">B</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-3">C</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-4">D</abbr>
+// </div>
+// <div class="xui-avatar-group">
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">A</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">B</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">C</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-4">D</abbr>
+// </div>
 // <h3>Approved Colours</h3>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-1" role="presentation">1</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-2" role="presentation">2</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-3" role="presentation">3</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-4" role="presentation">4</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-5" role="presentation">5</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-6" role="presentation">6</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-7" role="presentation">7</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-8" role="presentation">8</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-9" role="presentation">9</abbr>
-// <abbr class="xui-avatar xui-avatar-medium xui-avatar-color-10" role="presentation">10</abbr>
+// <abbr class="xui-avatar xui-avatar-color-1" role="presentation">1</abbr>
+// <abbr class="xui-avatar xui-avatar-color-2" role="presentation">2</abbr>
+// <abbr class="xui-avatar xui-avatar-color-3" role="presentation">3</abbr>
+// <abbr class="xui-avatar xui-avatar-color-4" role="presentation">4</abbr>
+// <abbr class="xui-avatar xui-avatar-color-5" role="presentation">5</abbr>
+// <abbr class="xui-avatar xui-avatar-color-6" role="presentation">6</abbr>
+// <abbr class="xui-avatar xui-avatar-color-7" role="presentation">7</abbr>
+// <abbr class="xui-avatar xui-avatar-color-8" role="presentation">8</abbr>
+// <abbr class="xui-avatar xui-avatar-color-9" role="presentation">9</abbr>
+// <abbr class="xui-avatar xui-avatar-color-10" role="presentation">10</abbr>
+// <h3>Avatar with Descriptive Text</h3>
+// <div class="xui-u-flex xui-u-flex-row">
+//   <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+//   <span class="xui-margin-left-small">Sue Denim</span>
+// </div>
 //
 // Styleguide: Avatars
+
 .#{$ns}-avatar {
 	align-items: center;
-	background-color: $color-xero-blue;
 	border-radius: 50%;
-	color: $color-reversed-text;
-	display: flex;
-	font-size: $font-size-text;
-	height: px-to-rem(32);
+	color: $xui-color-reversed-text;
+	display: inline-flex;
+	font-size: $xui-font-size-text;
+	height: 32px;
 	justify-content: center;
 	overflow: hidden;
-	width: px-to-rem(32);
-
-	// FIXME: Remove this in favour of breaking change PR#431
-	&img {
-		background-color: transparent;
-	}
+	vertical-align: middle;
+	width: 32px;
 }
 
 .#{$ns}-avatar-small {
-	font-size: $font-size-avatar-small;
-	height: px-to-rem(24);
-	width: px-to-rem(24);
+	font-size: $xui-font-size-avatar-small;
+	height: 24px;
+	width: 24px;
 }
 
 .#{$ns}-avatar-large {
-	font-size: $font-size-avatar-large;
-	height: px-to-rem(48);
-	width: px-to-rem(48);
+	font-size: $xui-font-size-avatar-large;
+	height: 48px;
+	width: 48px;
+}
+
+.#{$ns}-avatar-group {
+	.#{$ns}-avatar {
+		border: 2px solid $xui-color-white;
+
+		@include xui-all-but-first {
+			margin-left: -$xui-s-standard;
+		}
+	}
+
+	.#{$ns}-avatar-small {
+		border: 1px solid $xui-color-white;
+
+		@include xui-all-but-first {
+			margin-left: -$xui-s-small;
+		}
+	}
+
+	.#{$ns}-avatar-large {
+		border: 4px solid $xui-color-white;
+
+		@include xui-all-but-first {
+			margin-left: -$xui-s-large;
+		}
+	}
 }
 
 .#{$ns}-avatar-color-1 {
-	background-color: $color-avatar-1;
+	background-color: $xui-color-avatar-1;
 }
 
 .#{$ns}-avatar-color-2 {
-	background-color: $color-avatar-2;
+	background-color: $xui-color-avatar-2;
 }
 
 .#{$ns}-avatar-color-3 {
-	background-color: $color-avatar-3;
+	background-color: $xui-color-avatar-3;
 }
 
 .#{$ns}-avatar-color-4 {
-	background-color: $color-avatar-4;
+	background-color: $xui-color-avatar-4;
 }
 
 .#{$ns}-avatar-color-5 {
-	background-color: $color-avatar-5;
+	background-color: $xui-color-avatar-5;
 }
 
 .#{$ns}-avatar-color-6 {
-	background-color: $color-avatar-6;
+	background-color: $xui-color-avatar-6;
 }
 
 .#{$ns}-avatar-color-7 {
-	background-color: $color-avatar-7;
+	background-color: $xui-color-avatar-7;
 }
 
 .#{$ns}-avatar-color-8 {
-	background-color: $color-avatar-8;
+	background-color: $xui-color-avatar-8;
 }
 
 .#{$ns}-avatar-color-9 {
-	background-color: $color-avatar-9;
+	background-color: $xui-color-avatar-9;
 }
 
 .#{$ns}-avatar-color-10 {
-	background-color: $color-avatar-10;
+	background-color: $xui-color-avatar-10;
 }

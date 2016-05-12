@@ -1,0 +1,269 @@
+@import "../mixins";
+@import "../vars";
+
+// Typography
+//
+// Styleguide: Typography
+
+// Text Styles
+//
+// #### Class Names
+//
+// `xui-heading`	Style for a heading
+//
+// `xui-page-title`	Style for a page title
+//
+// `xui-section-title`	Style for a section title
+//
+// `xui-text-panelheading`	Style for a panel heading
+//
+// `xui-text-sectionheading`	Style for a section heading
+//
+// `xui-text-label`	Style for a label
+//
+// `xui-text-secondary`	Style for secondary text
+//
+// `xui-text-placeholder`	Style for placeholder text
+//
+// `xui-heading-mini`	Style for a miniture heading
+//
+// Markup:
+// <p class="xui-heading">Heading</p>
+// <p class="xui-page-title">Page Titles</p>
+// <p class="xui-section-title">Section Title</p>
+// <p class="xui-text-panelheading">Panel Heading</p>
+// <p class="xui-text-sectionheading">Section Heading</p>
+// <p>Some primary text</p>
+// <p class="xui-text-label">Form Label</p>
+// <p class="xui-text-secondary">Some secondary text</p>
+// <p class="xui-text-placeholder">Placeholders</p>
+// <p class="xui-heading-mini">Headers</p>
+// <a>Links</a>
+//
+// Styleguide: Typography.1
+.#{$ns}-heading {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-heading;
+}
+
+.#{$ns}-page-title {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-page-title;
+}
+
+.#{$ns}-section-title {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-section-title;
+}
+
+.#{$ns}-text-label {
+	@include xui-bold;
+	color: $xui-color-secondary-text;
+}
+
+.#{$ns}-text-secondary {
+	color: $xui-color-secondary-text;
+}
+
+.#{$ns}-text-placeholder {
+	color: $xui-color-placeholder;
+}
+
+.#{$ns}-heading-mini {
+	color: $xui-color-secondary-text;
+	font-size: $xui-font-size-heading-small;
+}
+
+.#{$ns}-text-panelheading {
+	@include xui-bold;
+	font-size: $xui-font-size-section-title;
+}
+
+.#{$ns}-text-sectionheading {
+	color: $xui-color-secondary-text;
+	font-size: $xui-font-size-heading-small;
+	font-weight: normal;
+}
+
+
+// Text Alignment
+//
+// Classes that can be added to change the alignment of text.
+//
+// #### Class Names
+//
+// `xui-text-leftaligned`	Modifier for left-aligned text
+//
+// `xui-text-centered`	Modifier for centered text
+//
+// `xui-text-rightaligned`	Modifier for right-aligned text
+//
+// Markup:
+//  <p class="xui-text-leftaligned">Left-aligned text</p>
+//  <p class="xui-text-centered">Centered text</p>
+//  <p class="xui-text-rightaligned">Right aligned text</p>
+//
+// Styleguide: Typography.2
+
+.#{$ns}-text-leftaligned {
+	text-align: left;
+}
+
+.#{$ns}-text-centered {
+	text-align: center;
+}
+
+.#{$ns}-text-number,
+.#{$ns}-text-rightaligned {
+	text-align: right;
+}
+
+// Text Truncation
+//
+// Useful for truncating a single line of text with an ellipsis. To truncate after an arbitrary number of lines,
+// you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
+//
+// #### Class Names
+//
+// `xui-text-truncated`	Modifier for truncated text with an ellipsis
+//
+// Markup:
+//  <p class="xui-text-truncated">Pak n' Save holds the most nuclear-free community in the country. Every time I see those rip-off Monopoly money, from the New Zealand version with Queen Street and stuff it's like the op shop all over again aye, fully. Put the jug on will you bro, all these primo giant wekas can wait till later. Eh, rack off, nek minnit.</p>
+//
+// Styleguide: Typography.3
+
+.#{$ns}-text-truncated {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+//  Statuses
+//
+// #### Class Names
+//
+// `xui-text-status`	Style for status text
+//
+// `xui-text-status-negative`	Modifier for negative status text
+//
+// `xui-text-status-positive`	Modifier for positive status text
+//
+// Markup:
+// <span class="xui-text-status">
+//   DRAFT
+// </span>
+// <span class="xui-text-status xui-text-status-positive">
+//   ACCEPTED
+// </span>
+// <span class="xui-text-status xui-text-status-negative">
+//   DECLINED
+// </span>
+// <p class="xui-heading">
+//   Heading
+//   <span class="xui-text-status">DRAFT</span>
+// </p>
+// <p class="xui-page-title">
+//   Page Titles
+//   <span class="xui-text-status xui-text-status-positive">APPROVED</span>
+// </p>
+// <p class="xui-heading-mini">
+//   Headers
+//   <span class="xui-text-status xui-text-status-negative">OVERDUE</span>
+// </p>
+//
+// Styleguide: Typography.4
+
+// Parent container
+// The coloured background goes full width of the page
+.#{$ns}-text-status {
+	color: $xui-color-secondary-text;
+}
+
+.#{$ns}-text-status-positive {
+	color: $xui-color-xero-light-green;
+}
+
+.#{$ns}-text-status-negative {
+	color: $xui-color-xero-red;
+}
+
+// Carets
+//
+// Simple caret using CSS border tricks. Will inherit it's colour from the text it's placed with.
+//
+// #### Class Names
+//
+// `xui-caret`	Style for a CSS caret
+//
+// Markup:
+//  <p>Text <span class="xui-caret"></span></p>
+//  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
+//  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
+//
+// Styleguide: Typography.5
+
+.#{$ns}-caret {
+	@include xui-caret;
+	vertical-align: middle;
+}
+
+// Line Height
+//
+// Default line height: `line-height: 1.3`
+//
+// The default line height in XUI is set with the intent that most text in an
+// application is used within components e.g. headings, labels and button, etc.
+//
+// This default line height allows text to wrap onto multiple lines either by
+// design or as a consequence of user generated input or string translation
+// and maintain a reasonable layout.
+//
+// Common practice in simple sites and some CSS libraries is to make extensive
+// use of line height for component vertical spacing. We use this default
+// spacing and vertical padding to achieve our overall component height.
+//
+// Markup:
+// <div class="xui-panel xui-padding-horizontal">
+//   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+//
+// Styleguide: Text Content.1
+
+// Text Reset
+//
+// #### Class Names
+//
+// `xui-text-reset`	Modifier to reset `line-height: 1`
+//
+// Markup:
+// <div class="xui-panel xui-padding-horizontal">
+//   <p class="xui-text-reset">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+//
+// Styleguide: Text Content.1.1
+
+.#{$ns}-text-reset {
+	line-height: $xui-line-height-reset;
+}
+// Text Longform
+//
+// Useful for long blocks of text where an increased line height helps with readability.
+//
+// #### Class Names
+//
+// `xui-text-longform`	Modifier to set `line-height: 1.5`
+//
+// Markup:
+// <div class="xui-panel xui-padding-horizontal">
+//   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+//
+// Styleguide: Text Content.1.2
+
+.#{$ns}-text-longform {
+	line-height: $xui-line-height-text;
+}

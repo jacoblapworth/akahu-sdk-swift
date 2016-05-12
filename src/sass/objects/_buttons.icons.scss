@@ -1,0 +1,50 @@
+// Icons
+//
+// Styleguide: Buttons.7
+
+// Icon
+//
+// Used for buttons that only use icons. Two variants are available, standard (no suffix) and large (`-large`).
+//
+// Note: The `xui-button-icon-small has been deprecated due to the new icons currently not rendering to a small size correctly.
+//
+// `title` and `aria-label` attributes should be provided to explain the icon.
+// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-close"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-close"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+//
+// Styleguide: Buttons.7.1
+
+.#{$ns}-button-icon {
+	border-radius: 50%;
+	color: $xui-color-grey-3;
+
+	&:hover {
+		color: $xui-color-grey-2;
+	}
+
+	&:focus {
+		background: $xui-color-shadow-light;
+		outline: none;
+	}
+
+	&:active {
+		background: $xui-color-shadow-medium;
+		color: $xui-color-grey-2;
+		outline: none;
+	}
+
+	.#{$ns}-icon {
+		display: block;
+	}
+}

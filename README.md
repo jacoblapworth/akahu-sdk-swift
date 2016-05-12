@@ -23,7 +23,7 @@ Include the following `link` in your page:
 #### Sherlock
 
 You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range.
-A `sherlock.json` manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
+A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
 
 ### Bower
 
@@ -32,11 +32,6 @@ $ bower install git@github.dev.xero.com:UXE/xui.git --save
 ```
 
 You will need to compile `xui.scss`.
-
-Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using
-xui-build-tools, then use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
-CSS. Otherwise, to avoid having to upload XUI's images with your own deployables, you can set the value to point at S3, e.g.
-`https://edge.xero.com/style/xui/10.0.0/images`.
 
 
 What is XUI For?
@@ -63,67 +58,31 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/platform/header/3.0.0/stylesheets/all.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css" rel="stylesheet" />
     <link href="https://edge.xero.com/style/xui/10.0.0/xui.min.css" rel="stylesheet" />
-    <script src="https://edge.xero.com/platform/header/3.0.0/scripts/header.min.js"></script>
+    <script src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
   </head>
-  <body>
+  <body class="xui-body">
     <header id="header"></header>
-    <!-- Example JSON configuration, typically this would be generated server-side -->
-    <script id="config" type="application/json">
-      {
-        "colour": "blue",
-        "appMenu": {
-          "model": {
-            "type": "header/appmenu/appMenuDropDown",
-            "text": "Page Navigation Title",
-            "collection": []
-          }
-        },
-        "navigation": {
-          "collection": [
-            {
-              "type": "widgets/tab/tabItem",
-              "model": {
-                "text": "Nav 1",
-                "href": "#nav1"
-              }
-            },
-            {
-              "type": "widgets/tab/tabItem",
-              "model": {
-                "text": "Nav 2",
-                "href": "#nav2",
-                "listClass": "selected"
-              }
-            }
-          ]
-        }
-      }
-    </script>
     <script>
-      // TODO: ideally this would be an external script so we can CSP
+      // Ideally this code would live in an external script to enable CSP
       (function () {
         'use strict';
-
-        var configEl = document.getElementById('config');
-        var config = JSON.parse(configEl.innerHTML);
-
-        XERO.Header.init(config, '#header');
+        XERO.Header.init({}, '#header');
       }());
     </script>
     <header class="xui-pageheading">
-      <div class="xui-pageheading--content xui-pagecontainer xui-pagecontainer-spaced xui-pagecontainer-small">
+      <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
         <h1 class="xui-pageheading--title">Title</h1>
       </div>
     </header>
-    <main role="main">
-      <div class="xui-panel xui-pagecontainer xui-pagecontainer-small">
-        <header class="xui-panel--header">
+    <main role="main" class="xui-page-width-standard">
+      <div class="xui-panel">
+        <header class="xui-panel--header xui-padding">
           <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
         </header>
-        <section>
-          <!-- page content -->
+        <section class="xui-panel--section xui-padding">
+          Page Content
         </section>
       </div>
     </main>
@@ -134,6 +93,13 @@ Example Page Markup
 Usage Guidelines
 ----------------
 
+ * Add the `xui-body` class to your `<body>` element, unless you are targeting
+   legacy pages. The `xui-body` class provides background color, baseline font
+   styling and line height. Note that if you use this, you must use at least
+   version 3.0.3 of the Shared Header.
+ * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI via the `xui-body` class.
+   For legacy pages, you will need to set `box-sizing: border-box` on the container that wraps
+   XUI CSS classes.
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.
@@ -147,10 +113,9 @@ Usage Guidelines
    exports. SCSS does not currently dedupe multiple imports of the same code, so
    importing XUI in separate components will at the very least lead to bloated
    files. It may also cause broken styling depending on when the imports occur.
- * If you need XUI's variables and mixins, import them individually:
+ * If you need XUI's variables and mixins, import them via these entry points:
     * For variables, `@import 'xui/src/sass/vars';`
-    * For mixins, `@import 'xui/src/sass/tools/mixins';`
-    * Colours are defined in the [colors repository](https://github.dev.xero.com/UXE/colors) - consult its README for information on how to import colour variables.
+    * For mixins, `@import 'xui/src/sass/mixins';`
 
 
 Updating

@@ -3,6 +3,7 @@
  */
 
 @import "../src/sass/xui";
+@import "../src/sass/settings/typography";
 
 
 $kss-sidebar-width: 12.5rem;
@@ -19,12 +20,17 @@ $kss-sidebar-width: 12.5rem;
 	}
 }
 
+
+body {
+		overflow-x: hidden;
+}
+
 // -----------------------------------------------------------------------------
 // Layout and page background
 // -----------------------------------------------------------------------------
 
 .kss-node {
-	background: $color-white;
+	background: $xui-color-white;
 	box-sizing: border-box;
 
 	.kss-node-is-showing-sidebar & {
@@ -38,8 +44,8 @@ $kss-sidebar-width: 12.5rem;
 // -----------------------------------------------------------------------------
 
 .kss-sidebar {
-	background: $color-white;
-	border-right: $border-standard;
+	background: $xui-color-white;
+	border-right: 1px solid $xui-color-grey-5;
 	height: 100vh;
 	left: calc(-#{$kss-sidebar-width} - 1px);
 	overflow: auto;
@@ -48,7 +54,9 @@ $kss-sidebar-width: 12.5rem;
 	transition: left 0.2s;
 	width: $kss-sidebar-width;
 	z-index: 10;
-
+	a {
+		outline: none;
+	}
 	@include sidebar-hide-breakpoint {
 		left: 0;
 		position: fixed;
@@ -76,7 +84,7 @@ $kss-sidebar-width: 12.5rem;
 
 .kss-main {
 	left: 0;
-	padding-top: 3.75rem;
+	padding-top: 3rem;
 	position: relative;
 	transition: left 0.2s;
 	width: 100vw;
@@ -96,11 +104,11 @@ $kss-sidebar-width: 12.5rem;
 }
 
 .kss-hamburger {
-	background: url('hamburger.png') center center / 2rem auto no-repeat $color-grey-2;
+	background: url('hamburger.png') center center / 2rem auto no-repeat $xui-color-grey-2;
 	width: 3.5rem;
 
 	&:hover {
-		background-color: $color-grey-3;
+		background-color: $xui-color-grey-3;
 	}
 
 	@include sidebar-hide-breakpoint {
@@ -117,7 +125,7 @@ $kss-sidebar-width: 12.5rem;
 }
 
 .kss-section {
-	border-top: $border-standard;
+	border-top: 1px solid $xui-color-grey-5;\
 
 	// dont show top border on title, or on next section
 	&:nth-child(-n+2) {
@@ -129,24 +137,40 @@ $kss-sidebar-width: 12.5rem;
 	}
 
 	.content {
-		margin: 1em;
-		max-width: 1000px;
+		margin: 1em auto;
+		padding: 0 20px;
+		max-width: 740px;
 	}
 }
 
 .kss-section--title {
-	background: $color-grey-1;
-	color: $color-white;
+	background: $xui-color-grey-1;
+	color: $xui-color-white;
 
 	h1 {
 		font-weight: normal;
 		margin: 0;
 		padding: 1em;
 	}
+
+	// This is for the top-level menu in the XUI docs
+	.xui-tab {
+		&:hover {
+			background: $xui-color-white;
+			.xui-tab--body {
+				color: $xui-color-grey-1;
+				background: $xui-color-white;
+			}
+		}
+	}
+
+	.xui-tab--body {
+		color: $xui-color-white;
+	}
 }
 
 .kss-section--header {
-	background-color: $color-grey-1;
+	background-color: $xui-color-grey-1;
 	display: flex;
 	left: 0;
 	position: fixed;
@@ -174,41 +198,65 @@ $kss-sidebar-width: 12.5rem;
 	// margin-bottom: ($kss-vertical-rhythm / 2);
 }
 .kss-modifier__name {
-	float: left;
 	padding-right: 10px;
 	font-weight: bold;
 }
 
+.kss-description {
+	line-height: $xui-line-height-text;
+}
 
+.kss-style code {
+	font-size: 13px;
+}
+
+code {
+	color: $xui-color-grey-2;
+	background: $xui-color-grey-6;
+	border-radius: $xui-radius;
+	padding: 0 3px 2px;
+}
 // ------------------------------------------------------------------------------
 //   $group prettyprint.js styling
 // ------------------------------------------------------------------------------
 
 .kss-markup {
-	border: $border-standard;
-	border-radius: $radius;
 	margin-top: 20px;
+		button {
+				margin: 10px;
+				opacity: 0;
+				transition: all 0.2s ease;
+		}
+		&:hover {
+				button{opacity: 1;}
+
+		}
 }
 
 pre {
 	overflow: auto;
+	border-radius: $xui-radius;
+	@mixin xui-breakpoint-narrow {
+    width: calc(100% + 40px);
+		position: relative;
+		left: -20px;
+  }
 }
 /* Pretty printing styles. Used with prettify.js. */
 
 /* SPAN elements with the classes below are added by prettyprint. */
-.pln { color: #000 }  /* plain text */
-
-.str { color: #080 }  /* string content */
-.kwd { color: #008 }  /* a keyword */
-.com { color: #800 }  /* a comment */
-.typ { color: #606 }  /* a type name */
-.lit { color: #066 }  /* a literal value */
+.pln { color: $xui-color-grey-1 }  /* plain text */
+.str { color: $xui-color-grey-1 }  /* string content */
+.kwd { color: $xui-color-grey-1 }  /* a keyword */
+.com { color: $xui-color-grey-3 }  /* a comment */
+.typ { color: $xui-color-grey-1 }  /* a type name */
+.lit { color: $xui-color-grey-1 }  /* a literal value */
 /* punctuation, lisp open bracket, lisp close bracket */
-.pun, .opn, .clo { color: #660 }
-.tag { color: #008 }  /* a markup tag name */
-.atn { color: #606 }  /* a markup attribute name */
-.atv { color: #080 }  /* a markup attribute value */
-.dec, .var { color: #606 }  /* a declaration; a variable name */
+.pun, .opn, .clo { color: $xui-color-grey-2 }
+.tag { color: $xui-color-grey-2 }  /* a markup tag name */
+.atn { color: $xui-color-xero-light-green }  /* a markup attribute name */
+.atv { color: $xui-color-xero-blue }  /* a markup attribute value */
+.dec, .var { color: $xui-color-grey-2 }  /* a declaration; a variable name */
 .fun { color: red }  /* a function name */
 
 /* Use higher contrast and text-weight for printable form. */
@@ -226,18 +274,16 @@ pre {
 
 
 .prettyprint {
-	background: $color-grey-6;
+	background: $xui-color-grey-6;
 }
 
 .linenums {
 	list-style: none;
 	margin: 0;
-	padding: 0;
-
+	padding: $xui-s-small;
+	border: 0;
 	li {
 		// border-bottom: 1px solid #eee;
-		padding: 0 10px;
-
 		// &:nth-child(2) {
 		//   background-color: #fcfcfc;
 		// }

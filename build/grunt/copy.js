@@ -21,5 +21,11 @@ module.exports = {
 		rename: function(dest, src){
 			return dest + '/' + src.replace('README.md','styleguide.md')
 		}
+	},
+	icons: {
+		expand: true,
+		cwd: 'bower_components/icons/dist',
+		src: 'xuiIconBlobES5.js',
+		dest: 'styleguide'
 	}
 };

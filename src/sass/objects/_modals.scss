@@ -1,19 +1,18 @@
-@import "../tools/functions";
-@import "../tools/mixins";
-@import "../settings/animation";
-@import "../settings/colours";
-@import "../settings/structure";
+@import "../mixins";
+@import "../vars";
 
 // Modals
 //
 // ### Behaviour
 // * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
-// * If the modal can be closed (should be the case for most modals), it can be done in the following ways:
-//   * Clicking the &times; inside the modal
-//   * Pressing ESC while the modal is open
-//   * Clicking on a button in the modal footer can optionally close the modal
-//   * Clicking on the mask should not close the modal
-// * TODO: Define behaviour for multiple modals
+// * The `.xui-mask` class sets `opacity: 0;` which hides the modal by default
+// * Apply the `.xui-mask-is-active` class alongside `.xui-mask` when you wish to display the modal
+// * Use the `.xui-modal-medium` or `.xui-modal-large` classes alongside `.xui-modal` for larger width variations
+// * Closing modals should be handled in the following ways:
+//   * Clicking on the cross in the modal should close the modal
+//   * Pressing ESC while the modal is open should close the modal
+//   * Clicking on a button in the modal footer can optionally close the modal (e.g. 'Submit')
+//   * Clicking on the mask should **not** close the modal
 //
 // ### Accessibility
 // Adding a `dialog` role to the modal is usually not enough to make it accessible. The modal also needs to be labelled appropriately and focus around the modal needs to be managed.
@@ -25,38 +24,66 @@
 //  * When the modal is opened, the keyboard focus should be moved to a default focusable control with the modal. For example, this could be a button in the footer of the modal or the first element in a form within the modal.
 //  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
 //
+// #### Class Names
+//
+// `xui-modal`	Container for a modal
+//
+// `xui-modal--body`	Container for the body of a modal
+//
+// `xui-modal--header`	Container for the header of a modal
+//
+// `xui-modal-large`	Modifier for a large modal
+//
+// `xui-modal-layout`	Recommended layout for a modal
+//
+// `xui-modal-medium`	Modifier for a medium-sized modal
+//
+// `xui-mask`	Mask for a modal
+//
+// `xui-mask-is-active`	Enable the mask
+//
 // Markup:
-// <div class="xui-mask">
-// 	<section class="xui-modal xui-modal-opened xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-// 		<header class="xui-modal--header">
-// 			<h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
-// 			<button type="button" class="xui-iconbutton xui-iconbutton-large xui-modal--header-close" title="Close" aria-label="Close">✕</button>
-// 		</header>
-// 		<div class="xui-modal--body">
-// 			<p id="modal-text">Select which items from your bank should be automatically allocated to which account</p>
-// 			<select aria-describedby="modal-text" class="xui-select">
-// 				<option>If items are negative</option>
-// 			</select>
-// 			<label class="xui-text-label" for="move-to">Move To</label>
-// 			<select id="move-to" class="xui-select">
-// 				<option>Current Liabilities</option>
-// 			</select>
-// 		</div>
-// 		<footer class="xui-modal--footer xui-actions">
-// 			<div class="xui-actions--primary">
-// 				<button type="button" class="xui-button xui-button-main">Done</button>
-// 			</div>
-// 			<div class="xui-actions--secondary">
-// 				<button type="button" class="xui-button">Delete</button>
-// 			</div>
-// 		</footer>
-// 	</section>
+// <div class="xui-mask xui-mask-is-active">
+//   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//     <header class="xui-modal--header xui-padding-left-large">
+//       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
+//       <button type="button" class="xui-button xui-button-icon xui-margin-small" title="Close" aria-label="Close">
+//           <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//       </button>
+//     </header>
+//     <div class="xui-modal--body xui-padding-horizontal-large">
+//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
+//       <form class="xui-form-layout xui-margin-top-large xui-padding-top">
+//         <div class="xui-field-layout">
+//           <div class="xui-select" aria-describedby="modal-text">
+//             <select class="xui-select--control" id="group-button-example3">
+//               <option>If items are negative</option>
+//             </select>
+//             <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//           </div>
+//         </div>
+//         <div class="xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="move-to">Move To</label>
+//           <div class="xui-select" aria-describedby="modal-text">
+//             <select id="move-to" class="xui-select--control" id="group-button-example3">
+//               <option>Current Liabilities</option>
+//             </select>
+//             <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//           </div>
+//         </div>
+//       </form>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
+//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
+//       <button type="button" class="xui-actions--secondary xui-button xui-button-negative">Delete</button>
+//     </footer>
+//   </section>
 // </div>
 //
 // Styleguide: Modals
 .#{$ns}-mask {
 	align-items: center;
-	background-color: transparentize($color-primary-text, 0.3);
+	background-color: transparentize($xui-color-primary-text, 0.3);
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -66,30 +93,37 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: opacity $transition-duration-short $easing-standard;
+	transition: opacity $xui-transition-duration-medium $xui-easing-standard;
 	z-index: 10;
 }
 
-.#{$ns}-modal-opened {
+.#{$ns}-mask-is-active {
 	opacity: 1;
 	pointer-events: auto;
 }
 
 .#{$ns}-modal {
-	background-color: $color-panels;
-	border-radius: $radius;
-	box-shadow: $shadow-depth-3;
-	max-height: calc(100vh - 2.5rem);	// Allows for minimum 20px margin at the top/bottom of modal
-	max-width: calc(100vw - 2.5rem);	// Allows for minimum margin at the left/right of modal
-	width: px-to-rem(360);
+	background-color: $xui-color-panel;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-3;
+}
+
+.#{$ns}-modal-layout {
+	max-height: calc(100vh - 2.5rem); // Allows for minimum 20px margin at the top/bottom of modal
+	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
+	width: 360px;
+
+	.#{$ns}-modal--body {
+		max-height: 45vh;
+	}
 }
 
 .#{$ns}-modal-medium {
-	width: px-to-rem(560);
+	width: 560px;
 }
 
 .#{$ns}-modal-large {
-	width: px-to-rem(860);
+	width: 860px;
 }
 
 // Modal header
@@ -97,37 +131,20 @@
 
 .#{$ns}-modal--header {
 	align-content: stretch;
+	align-items: flex-start;
 	display: flex;
 	justify-content: space-between;
-	padding-left: px-to-rem(20);
-}
 
-.#{$ns}-modal--header-close {
-	margin: px-to-rem(16);
+	.#{$ns}-button-icon {
+		flex: 0 0 30px;
+	}
 }
 
 // Modal body
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--body {
-	max-height: 45vh;
 	overflow-y: auto;
-
-	// Because of how padding is handled in the context of an overflow, we can't
-	// just add padding to the bottom of this container so that the content
-	// doesn't push up to the edge.  Instead, I have to add margins to the inside
-	// elements to push them away from the edges.
-	// See: https://bugzilla.mozilla.org/show_bug.cgi?id=748518
-	padding-left: px-to-rem(20);
-	padding-right: px-to-rem(20);
-
-	> *:first-child {
-		margin-top: px-to-rem(20);
-	}
-
-	> *:last-child {
-		margin-bottom: px-to-rem(20);
-	}
 }
 
 // Modal footer

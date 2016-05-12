@@ -1,16 +1,15 @@
 @import "../vars";
-
-$_section-padding: 8px $spacing-standard;
+@import "../mixins";
 
 .#{$ns}-sectionheading {
-	background-color: $color-backgrounds;
-	border-bottom: $divider-standard;
-	border-top: $divider-standard;
+	background-color: $xui-color-background;
+	border-bottom: $xui-divider-standard;
+	border-top: $xui-divider-standard;
 	margin: 0;
-	padding: $_section-padding;
 	text-align: left;
 }
 
-.#{$ns}-sectionheading--cell {
-	padding: $_section-padding;
+.#{$ns}-sectionheading-layout {
+	@include xui-padding-horizontal($xui-s-standard);
+	@include xui-padding-vertical($xui-s-small);
 }

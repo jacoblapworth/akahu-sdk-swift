@@ -1,0 +1,21 @@
+// Other Mixin utilities
+
+@mixin xui-caret {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid currentColor;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+
+@mixin xui-font-smooth {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin xui-bold {
+	@include xui-font-smooth;
+	font-weight: bold;
+}

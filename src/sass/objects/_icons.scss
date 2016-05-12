@@ -1,0 +1,98 @@
+@import "../vars";
+@import "../mixins";
+
+// Icons
+//
+// The XUI Icons repository may be found [here](https://github.dev.xero.com/UXE/xui-icon). It contains [50+ commonly used icons](https://github.dev.xero.com/pages/UXE/xui-icon/) for consumption through ReactJS, or via ES5 and ES6 javascript without react.
+//
+// #### Class Names
+//
+// `xui-icon`	Style for an icon
+//
+// `xui-icon-inline`	Modifier for an inline icon
+//
+// `xui-icon-large`	Modifier for a large icon
+//
+// `xui-icon-xlarge`	Modifier for an extra-large icon
+//
+// `xui-icon-rotate-90`	Modifier for 90 degree clockwise icon rotation
+//
+// `xui-icon-rotate-180`	Modifier for 180 degree clockwise icon rotation
+//
+// `xui-icon-rotate-270`	Modifier for 270 degree clockwise icon rotation
+//
+// Styleguide: Icons
+
+// Inline placement of icons
+//
+// Markup:
+//  <p class="xui-text-secondary">They'll inherit text colour wherever they're placed <svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-text" /></svg></p>
+//  <a class="xui-button  xui-button-main xui-margin-bottom">
+// 	  Buttons! <svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-view" /></svg>
+//  </a>
+//  <a>Links!<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-location" /></svg></a>
+// <span class="xui-text-status xui-text-status-positive">
+//   Green<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-payment" /></svg>
+// </span>
+// <span class="xui-text-status xui-text-status-negative">
+//   Red<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-tracking" /></svg>
+// </span>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-desktop" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-mobile" /></svg></button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-print" /></svg></button>
+// </div>
+//
+//
+// Styleguide: Icons.1
+
+// Icon rotation
+//
+// The classes `xui-icon-rotate-90`, `xui-icon-rotate-180`, and `xui-icon-rotate-270` may be used to rotate the icon to various orientations.
+//
+// Markup:
+//  <svg class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" /></svg><svg class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" /></svg>
+//
+// Styleguide: Icons.2
+
+/* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
+.#{$ns}-icon-svg {
+	fill: currentColor;
+	fill-rule: evenodd;
+	shape-rendering: auto;
+}
+
+.#{$ns}-icon {
+	display: inline-block;
+	height: $xui-icon-standard;
+	width: $xui-icon-standard;
+}
+
+.#{$ns}-icon-inline {
+	@include xui-margin-top(-7px);
+	@include xui-margin-horizontal(-8px);
+	@include xui-margin-bottom(-11px);
+}
+
+.#{$ns}-icon-large {
+	height: $xui-icon-large;
+	width: $xui-icon-large;
+}
+
+.#{$ns}-icon-xlarge {
+	height: $xui-icon-xlarge;
+	width: $xui-icon-xlarge;
+}
+
+.#{$ns}-icon-rotate-90 {
+	transform: rotate(90deg);
+}
+
+.#{$ns}-icon-rotate-180 {
+	transform: rotate(180deg);
+}
+
+
+.#{$ns}-icon-rotate-270 {
+	transform: rotate(270deg);
+}

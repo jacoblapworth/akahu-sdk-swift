@@ -1,0 +1,79 @@
+@import "../mixins";
+
+// Dropdowns
+//
+// Styleguide: Buttons.6
+
+.#{$ns}-button--caret {
+	@include xui-margin-top(-7px);
+	@include xui-margin-left(-6px);
+	@include xui-margin-right(-10px);
+	@include xui-margin-bottom(-11px);
+	position: relative;
+}
+
+// Single Button Dropdowns
+//
+// These buttons are used when you want to provide a list of primary actions, instead of a single action
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">
+//	 Dropdown
+//   <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+// </button>
+// <button type="button" class="xui-button xui-button-main {{modifier_class}}">
+//	 Dropdown
+//   <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+// </button>
+// <button type="button" class="xui-button xui-button-create {{modifier_class}}">
+//	 Dropdown
+//   <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+// </button>
+// <button type="button" class="xui-button xui-button-negative {{modifier_class}}">
+//	 Dropdown
+//   <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+// </button>
+//
+// Styleguide: Buttons.6.1
+
+// Split Button Dropdowns
+//
+// These buttons are used when you want to provide a primary action, and single or multiple secondary actions
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-standard xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-standard xui-button-grouped xui-button-split {{modifier_class}}">
+//     <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   </button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-main xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-main xui-button-grouped xui-button-split {{modifier_class}}">
+//     <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   </button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-create xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-create xui-button-grouped xui-button-split {{modifier_class}}">
+//     <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   </button>
+// </div>
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-negative xui-button-grouped {{modifier_class}}">Dropdown</button>
+//   <button type="button" class="xui-button xui-button-negative xui-button-grouped xui-button-split {{modifier_class}}">
+//     <svg class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Buttons.6.2
+
+@include xui-button-split; // Creates the class as a standalone component

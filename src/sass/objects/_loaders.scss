@@ -1,3 +1,5 @@
+@import "../vars";
+
 /**
  * Styles for the loader.  These typically sit inside the page
  *  or container prior to loading.
@@ -5,38 +7,86 @@
 
 // Loaders
 //
-// Loaders provide users with feedback that something is happening.
+// Loaders provide users with feedback that something is happening and can be used by themselves or inside other elements.
+//
+// #### Class Names
+//
+// `xui-loader`	Container for a loader
+//
+// `xui-loader--dot`	Style for a loader dot
+//
+// `xui-loader-large`	Modifier for a large loader
+//
+// `xui-loader-layout`	Recommended layout for a loader
+//
+// `xui-loader-small`	Modifier for a small loader
 //
 // Markup:
-// <div class="xui-loader" role="progressbar" aria-label="Content loading" aria-busy="true">
+// <!-- Loader -->
+// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-label="Content loading" aria-busy="true">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 // </div>
+// <br />
+// <!-- Loader inside a button -->
+// <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">
+//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
+// <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled">
+//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
+// <button type="button" disabled class="xui-button xui-button-main">
+//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
+// <button type="button" disabled class="xui-button xui-button-standard">
+//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//     <div class="xui-loader--dot"></div>
+//   </div>
+// </button>
 //
 // Styleguide: Loaders
+
 .#{$ns}-loader {
-	align-items: center;
-	display: flex;
-	height: 75pt;
-	justify-content: center;
+	color: $xui-color-placeholder;
+}
+
+.#{$ns}-loader-layout {
+	margin-bottom: $xui-s-3xlarge;
+	margin-top: $xui-s-3xlarge;
+	text-align: center;
 }
 
 .#{$ns}-loader--dot {
+	$dot-size-small: 10px;
 	$dot-size: 12px;
+	$dot-size-large: 14px;
 	$animation-time: 1.3s;
 	$animation-delay: -0.16s;
 
 	// easeInOutSine
 	$animation-easing: cubic-bezier(0.455, 0.030, 0.515, 0.955);
 
-	animation: pulse $animation-time infinite $animation-easing;
+	animation: xui-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
-	background-color: $color-placeholders;
+	background-color: currentColor;
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;
-	margin-right: 2px;
 	width: $dot-size;
 
 	&:nth-child(1) {
@@ -50,10 +100,24 @@
 	&:nth-child(3) {
 		animation-delay: $animation-delay * 0;
 	}
+
+	.#{$ns}-loader-small & {
+		height: $dot-size-small;
+		width: $dot-size-small;
+	}
+
+	.#{$ns}-loader & {
+		margin-right: $dot-size - $dot-size-small;
+	}
+
+	.#{$ns}-loader-large & {
+		height: $dot-size-large;
+		margin-right: $dot-size-large - $dot-size-small;
+		width: $dot-size-large;
+	}
 }
 
-
-@keyframes pulse {
+@keyframes xui-loader-animation {
 	0%,
 	80%,
 	100% {

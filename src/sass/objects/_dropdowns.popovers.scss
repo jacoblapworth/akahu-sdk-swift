@@ -2,20 +2,44 @@
 
 // Popover
 //
-// Popover container styled with an arrow pointing at relevant content. Supports
-// header, body and footer sections.
-//
-// Full list of modifier classes: `-topleft` (default) `-topcenter`, `-topright`,
-// `-bottomleft`, `-bottomcenter`, `-bottomright`,
-// `-lefttop`, `-leftcenter`, `-leftbottom`,
-// `-righttop`, `-rightcenter`, `-rightbottom`.
-//
-// A sample of the modifiers are shown below.
+// A simple popover container styled with an arrow pointing at relevant content.
 //
 // ### Accessibility
 // The appropriate role to use for the popover depends on its use in your application. The purpose of the popover should still be clearly stated using `aria-label` and `aria-describedby` attributes.
 // * **`role="tooltip"`** - a contextual popup that displays a description of an element and typically becomes visible in response to a mouse hover or keyboard focus after a short delay. ([W3C Documentation](https://www.w3.org/TR/wai-aria/roles#tooltip))
 // * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
+//
+// #### Class Names
+//
+// `xui-popover`	Container for a popover
+//
+// `xui-popover--arrow`	Container for a popover arrow
+//
+// `xui-popover--arrow--border`	Style for a popover arrow border
+//
+// `xui-popover--arrow-bottomcenter`	Modifier for a bottom-center arrow
+//
+// `xui-popover--arrow-bottomleft`	Modifier for a bottom-left arrow
+//
+// `xui-popover--arrow-bottomright`	Modifier for a bottom-right arrow
+//
+// `xui-popover--arrow-leftbottom`	Modifier for a left-bottom arrow
+//
+// `xui-popover--arrow-leftcenter`	Modifier for a left-center arrow
+//
+// `xui-popover--arrow-lefttop`	Modifier for a left-top arrow
+//
+// `xui-popover--arrow-rightbottom`	Modifier for a right-bottom arrow
+//
+// `xui-popover--arrow-rightcenter`	Modifier for a right-center arrow
+//
+// `xui-popover--arrow-righttop`	Modifier for a right-top arrow
+//
+// `xui-popover--arrow-topcenter`	Modifier for a top-center arrow
+//
+// `xui-popover--arrow-topleft`	Modifier for a top-left arrow
+//
+// `xui-popover--arrow-topright`	Modifier for a top-right arrow
 //
 // .xui-popover--arrow-topcenter  - Top center aligned  arrow
 // .xui-popover--arrow-bottomright  - Bottom right aligned  arrow
@@ -23,57 +47,45 @@
 // .xui-popover--arrow-rightbottom   - Right bottom aligned  arrow
 //
 // Markup:
-//	<div class="xui-popover" role="dialog" aria-labelledby="popover-header">
-//    <div class="xui-popover--arrow {{modifier_class}}">
-//      <svg viewbox="0 0 100 100">
-//        <polyline points="0,50 50,0 100, 50" stroke-width="6" class="xui-popover--arrow--border"/>
-//      </svg>
-//    </div>
-//    <header class="xui-popover--header xui-popover--header-standard">
-//      <h3 id="popover-header" class="xui-popover--heading">Notifications</h3>
-//    </header>
-//    <div class="xui-popover--body">
-//    </div>
-//    <footer class="xui-popover--footer xui-popover--footer-standard">
-//      <a class="xui-popover--link" href="#">Mark as read</a>
-//      <a class="xui-popover--link" href="#">Settings</a>
-//    </footer>
-//  </div>
+// <div class="xui-popover" role="dialog" aria-labelledby="popover-header">
+//   <div class="xui-popover--arrow {{modifier_class}}">
+//     <svg viewbox="0 0 100 100">
+//       <polyline points="0,50 50,0 100, 50" stroke-width="7" class="xui-popover--arrow--border"/>
+//     </svg>
+//   </div>
+//   <div class="xui-padding-horizontal">
+//   	<p>Tue Mar 08 2016</p>
+//   	<p class="xui-text-secondary">Active between 6:02 and 6:07</p>
+//   </div>
+// </div>
 //
 // Styleguide: Dropdowns.2
 
 .#{$ns}-popover {
-	background-color: $color-panels;
-	border: $border-standard;
-	border-radius: $radius;
-	box-shadow: $shadow-depth-2;
+	background-color: $xui-color-panel;
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-2;
 	position: relative;
 }
 
-.#{$ns}-popover--header {
-	position: relative;
-	z-index: 1;
- }
-
-.#{$ns}-popover--header-standard {
-	padding: 0.5rem 0.8rem;
-}
-
-.#{$ns}-popover--header-can-scroll-up {
-	box-shadow: 0 2px 3px $color-borders;
-}
-
-.#{$ns}-popover--arrow-topleft,
 .#{$ns}-popover--arrow {
 	display: inline-block;
-	fill: $color-white;
-	height: 20px;
+	fill: $xui-color-white;
+	//If font-size is set to inherit, when font size is too big the arrow will shift down and out of place
+	font-size: 1px;
+	height: 16px;
 	left: 15px;
 	opacity: 1;
 	position: absolute;
-	top: -10px;
+	top: -8px;
 	vertical-align: middle;
-	width: 20px;
+	width: 16px;
+
+	&-topleft {
+		left: 15px;
+		top: -8px;
+	}
 
 	&-topcenter {
 		left: 50%;
@@ -86,20 +98,20 @@
 	}
 
 	&-bottomleft {
-		bottom: -10px;
+		bottom: -8px;
 		top: auto;
 		transform: rotate(180deg);
 	}
 
 	&-bottomcenter {
-		bottom: -10px;
+		bottom: -8px;
 		left: 50%;
 		top: auto;
 		transform: translateX(-50%) rotate(180deg);
 	}
 
 	&-bottomright {
-		bottom: -10px;
+		bottom: -8px;
 		left: auto;
 		right: 15px;
 		top: auto;
@@ -107,34 +119,34 @@
 	}
 
 	&-lefttop {
-		left: -10px;
+		left: -8px;
 		top: 15px;
 		transform: rotate(270deg);
 	}
 
 	&-leftcenter {
-		left: -10px;
+		left: -8px;
 		top: 50%;
 		transform: translateY(-50%) rotate(270deg);
 	}
 
 	&-leftbottom {
 		bottom: 15px;
-		left: -10px;
+		left: -8px;
 		top: auto;
 		transform: rotate(270deg);
 	}
 
 	&-righttop {
 		left: auto;
-		right: -10px;
+		right: -8px;
 		top: 15px;
 		transform: rotate(90deg);
 	}
 
 	&-rightcenter {
 		left: auto;
-		right: -10px;
+		right: -8px;
 		top: 50%;
 		transform: translateY(-50%) rotate(90deg);
 	}
@@ -142,25 +154,19 @@
 	&-rightbottom {
 		bottom: 15px;
 		left: auto;
-		right: -10px;
+		right: -8px;
 		top: auto;
 		transform: rotate(90deg);
 	}
 
 	&--border {
-		stroke: $color-borders;
-
-// FIXME Remove `&-fill` when merged to breaking changes
-		&-fill {
-			stroke: $color-white;
-		}
+		stroke: $xui-color-border;
 	}
 }
 
-.#{$ns}-popover--heading {
-	margin: 0;
-}
-
+// TODO: Remove all header, body, footer and link classes
+// Deprecated in favour of just using popovers as simple containers
+// Note that the date picker currently uses these classes
 .#{$ns}-popover--body {
 	max-height: 400px;
 	overflow: auto;
@@ -168,8 +174,25 @@
 	z-index: 0;
 }
 
+.#{$ns}-popover--header {
+	position: relative;
+	z-index: 1;
+ }
+
+.#{$ns}-popover--header-standard {
+	padding: 0.5rem 0.8rem;
+}
+
+.#{$ns}-popover--header-can-scroll-up {
+	box-shadow: 0 2px 3px $xui-color-border;
+}
+
+.#{$ns}-popover--heading {
+	margin: 0;
+}
+
 .#{$ns}-popover--footer {
-	border-top: $divider-standard;
+	border-top: $xui-divider-standard;
 	position: relative;
 }
 
@@ -178,13 +201,13 @@
 }
 
 .#{$ns}-popover--footer-can-scroll-down {
-	box-shadow: 0 -2px 3px $color-borders;
+	box-shadow: 0 -2px 3px $xui-color-border;
 }
 
 .#{$ns}-popover--link {
 	&:nth-of-type(n+2) {
-		border-left: $border-standard;
-		margin-left: px-to-rem(10);
-		padding: 0 0 0 px-to-rem(10);
+		border-left: $xui-border-standard;
+		margin-left: $xui-s-small;
+		padding: 0 0 0 $xui-s-small;
 	}
 }

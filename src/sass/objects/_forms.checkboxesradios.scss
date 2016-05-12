@@ -1,0 +1,113 @@
+/**
+ * Styles for grouped inputs like checkbox and radio button groups.
+ */
+
+@import "../settings/structure";
+@import "../mixins";
+
+// Checkboxes and Radios
+//
+// Currently XUI supports native checkboxes and radio buttons. If we want to go
+// down the path of XUI styled controls we want to provide full components and
+// not just CSS with bring your own behaviour.
+//
+// The following examples show laying out radio and checkboxes with clickable
+// labels.
+//
+// #### Class Names
+//
+// `xui-checkbox`	Style for a checkbox
+//
+// `xui-checkbox-layout`	Recommended layout for a checkbox
+//
+// `xui-checkboxgroup`	Container for a group of checkboxes
+//
+// `xui-radio`	Style for a radio input
+//
+// `xui-radio-layout`	Recommended layout for a radio input
+//
+// `xui-radiogroup`	Container for a group of radio inputs
+//
+// Markup:
+// <label class="xui-checkbox xui-checkbox-layout">
+//  <input type="checkbox" name="checkbox"/>
+//  Tick me!
+// </label>
+// <label class="xui-radio xui-radio-layout">
+//  <input type="radio" name="radio"/>
+//  Pick me!
+// </label>
+//
+// Styleguide: Forms.5
+
+.#{$ns}-checkbox,
+.#{$ns}-radio {
+
+	input {
+		box-shadow: none;
+		cursor: pointer;
+		height: 18px;
+		width: 18px;
+	}
+}
+
+.#{$ns}-checkbox-layout, .#{$ns}-radio-layout {
+	@include xui-padding-vertical($xui-s-small);
+	@include xui-padding-horizontal($xui-s-standard);
+	display: flex;
+	line-height: $xui-line-height-text;
+	text-align: left;
+	text-decoration: none;
+
+	input[type=checkbox],
+	input[type=radio] {
+		flex: none;
+		margin: 1px 7px 0 0;
+	}
+}
+
+// Checkbox and Radio Groups
+//
+// A collection of checkbox/radio items within a single container, grouped as
+// such so that on mobile, their appearance resembles that of a
+// single-column table to be fat-finger friendly.
+//
+// Markup:
+// <div class="xui-checkboxgroup" role="group" aria-label="Checkbox form">
+//   <label class="xui-checkbox xui-checkbox-layout">
+//     <input type="checkbox" name="checkbox1"/>
+//     Tick me!
+//   </label>
+//   <label class="xui-checkbox xui-checkbox-layout">
+//     <input type="checkbox" name="checkbox2"/>
+//     No, tick me!
+//   </label>
+//   <label class="xui-checkbox xui-checkbox-layout">
+//     <input type="checkbox" name="checkbox3"/>
+//     Don't listen to those 2 - tick me instead!
+//   </label>
+// </div>
+// <div class="xui-radiogroup" role="radiogroup" aria-label="Radio form">
+//   <label class="xui-radio xui-radio-layout">
+//     <input type="radio" name="radio1"/>
+//     Pick me!
+//   </label>
+//   <label class="xui-radio xui-radio-layout">
+//     <input type="radio" name="radio1"/>
+//     No, pick me!
+//   </label>
+//   <label class="xui-radio xui-radio-layout">
+//     <input type="radio" name="radio1"/>
+//     Are you insane?  Pick me!
+//   </label>
+// </div>
+//
+// Styleguide: Forms.6
+
+.#{$ns}-checkboxgroup,
+.#{$ns}-radiogroup {
+	@include xui-breakpoint-narrow {
+		border: $xui-border-standard;
+		border-radius: $xui-radius;
+	}
+}

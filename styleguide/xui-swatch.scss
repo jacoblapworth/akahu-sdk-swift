@@ -1,4 +1,4 @@
-@import "colors/colors";
+@import "../src/sass/settings/colors";
 
 #kssref-colors .kss-markup {
   display: none;
@@ -6,11 +6,11 @@
 
 .kss-flex-grid {
   padding-top: 20px;
-  
-  @include tablet {
+
+  @include xui-breakpoint-medium {
     flex-direction: column-reverse;
   }
-  @include mobile {
+  @include xui-breakpoint-narrow {
     flex-direction: column-reverse;
   }
 }
@@ -26,15 +26,15 @@
 .kss-color--box {
   display: inline-block;
   text-align: center;
-  color: $color-secondary-text;
+  color: $xui-color-secondary-text;
 }
 
 .kss-color--box-dark {
-  color: $color-forms;
+  color: $xui-color-form;
 }
 
 .kss-color--box-swatch {
-  color: $color-forms;
+  color: $xui-color-form;
 }
 
 .kss-color--desc {
@@ -55,57 +55,57 @@
 }
 
 .kss-color-forms {
-	background-color: $color-forms;
+	background-color: $xui-color-form;
 }
 
 .kss-color-backgrounds {
-	background-color: $color-backgrounds;
+	background-color: $xui-color-background;
 }
 
 .kss-color-dividers {
-	background-color: $color-dividers;
+	background-color: $xui-color-divider;
 }
 
 .kss-color-borders {
-	background-color: $color-borders;
+	background-color: $xui-color-border;
 }
 
 .kss-color-placeholders {
-	background-color: $color-placeholders;
+	background-color: $xui-color-placeholder;
 }
 
 .kss-color-secondary-text {
-	background-color: $color-secondary-text;
+	background-color: $xui-color-secondary-text;
 }
 
 .kss-color-primary-text {
-	background-color: $color-primary-text;
+	background-color: $xui-color-primary-text;
 }
 
 .kss-color-blue {
-	background-color: $color-xero-blue;
+	background-color: $xui-color-xero-blue;
 }
 
 .kss-color-light-blue {
-	background-color: $color-xero-light-blue;
+	background-color: $xui-color-xero-light-blue;
 }
 
 .kss-color-green {
-	background-color: $color-xero-green;
+	background-color: $xui-color-xero-green;
 }
 
 .kss-color-light-green {
-	background-color: $color-xero-light-green;
+	background-color: $xui-color-xero-light-green;
 }
 
 .kss-color-yellow {
-	background-color: $color-xero-yellow;
+	background-color: $xui-color-xero-yellow;
 }
 
 .kss-color-orange {
-	background-color: $color-xero-orange;
+	background-color: $xui-color-xero-orange;
 }
 
 .kss-color-red {
-	background-color: $color-xero-red;
+	background-color: $xui-color-xero-red;
 }

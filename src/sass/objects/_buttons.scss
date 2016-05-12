@@ -1,6 +1,5 @@
 @import "../vars";
-@import "../tools/functions";
-@import "../tools/mixins";
+@import "../mixins";
 
 // Buttons
 //
@@ -15,7 +14,6 @@
 // `href` attribute, or `href="javascript:void(0)"`, or `href="#"`, then you
 // really should be using a `<button>` instead.
 //
-//
 // ### Behaviour
 //
 // #### Keyboard Interaction
@@ -24,391 +22,61 @@
 // Note that if you use the `<a>` element, the spacebar does not activate the link
 // and you will need to implement this behaviour yourself.
 //
+// #### Class Names
+//
+// `xui-button`	Style for a button
+//
+// `xui-button--caret`	Subcomponent for a caret button
+//
+// `xui-button-create`	Modifier for a create button
+//
+// `xui-button-fullwidth-layout`	Modifier for a full-width button at narrow breakpoint
+//
+// `xui-buttongroup`	Container for a group of buttons
+//
+// `xui-button-grouped`	Modifier for a grouped button
+//
+// `xui-button-icon`	Modifier for an icon button
+//
+// `xui-button-is-disabled`	Modifier for a disabled button
+//
+// `xui-button-link`	Modifier for a link button
+//
+// `xui-padding-actionlink`	Recommended padding for an action link button
+//
+// `xui-button-main`	Modifier for a main button
+//
+// `xui-button-negative`	Modifier for a negative button
+//
+// `xui-button-small`	Modifier for a small button
+//
+// `xui-button-split`	Modifier for a split button (eg button and dropdown)
+//
+// `xui-button-standard`	Modifier for a standard button
+//
 // Styleguide: Buttons
 
-// Types
+// Unstyled
 //
 // Styleguide: Buttons.1
 
-// Standard
+// Unstyled
 //
-// Your standard button suitable for clicking.
-//
-// :hover - Highlights when hovering
-// :focus - When focused
-// :active - When active
+// This class can be used to undo OS/User Agent styling on buttons so that they can be used in places where anchors would have been used otherwise.
 //
 // Markup:
-// <button type="button" class="xui-button {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button {{modifier_class}}" value="Text" />
-// <a href="https://xero.com" role="button" class="xui-button {{modifier_class}}">Text</a>
-// <button type="button" class="xui-button {{modifier_class}}">A button with longer text</button>
+// <button type="button" class="xui-button">This is an unstyled button</button>
 //
 // Styleguide: Buttons.1.1
 
 .#{$ns}-button {
-	@include xui-bold;
-	-webkit-appearance: none;
-	background-color: $color-forms;
-	border: $border-standard;
-	border-radius: $radius;
-	color: $color-xero-blue;
-	cursor: pointer;
-	display: inline-block;
-	font-family: inherit;
-	font-size: $font-size-text;
-	line-height: 33px; // 35 px total height with borders
-	min-width: px-to-rem(80);
-	padding: 0 px-to-rem(10);
-	text-align: center;
-	text-decoration: none;
-
-	@include mobile {
-		display: block;
-		line-height: 38px; // 40 px total height with borders
-		width: 100%;
-	}
-
-	// NOTE: I'm not fond of having to specify these colours directly...  Need to
-	//       ask design if these are right for the hover and active states.
-	&:hover {
-		border-color: $color-grey-3;
-		text-decoration: none;
-	}
-
-	&:focus {
-		border-color: $color-xero-blue;
-		outline: none;
-	}
-
-	&:active {
-		background-color: $color-grey-6;
-		border-color: $color-grey-3;
-		text-decoration: none;
-	}
+	@include xui-button-reset;
 }
 
-.#{$ns}-button--grouped {
-	@include all-but-first {
-		margin-left: px-to-rem(10);
-
-		@include mobile {
-			margin-left: 0;
-			margin-top: px-to-rem(10);
-		}
-	}
-}
-
-// Primary
-//
-// The primary action of a form or dialog.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="submit" class="xui-button xui-button-main {{modifier_class}}">Text</button>
-// <input type="submit" class="xui-button xui-button-main {{modifier_class}}" value="Text" />
-// <button type="button" class="xui-button xui-button-main {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-main {{modifier_class}}">Text</a>
-//
-// Styleguide: Buttons.1.2
-
-.#{$ns}-button-main {
-	background-color: $color-xero-blue;
-	border-color: $color-xero-blue;
-	color: $color-reversed-text;
-
-	@mixin button-shadow($fade) {
-		border-color: $color-xero-blue;
-		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
-	}
-
-	&:hover {
-		@include button-shadow(0.05);
-	}
-
-	&:focus {
-		border-color: $color-xero-blue;
-		outline: 1px solid $color-white;
-		outline-offset: -3px;
-	}
-
-	&:active {
-		@include button-shadow(0.1);
-		background-color: $color-xero-blue;
-	}
-}
-
-// Create
-//
-// Button to use when creating things.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-create {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button xui-button-create {{modifier_class}}" value="Text"/>
-// <button type="submit" class="xui-button xui-button-create {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-create {{modifier_class}}">Text</a>
-//
-// Styleguide: Buttons.1.3
-
-.#{$ns}-button-create {
-	background-color: $color-xero-green;
-	border-color: $color-xero-green;
-	color: $color-reversed-text;
-
-	@mixin button-shadow($fade) {
-		border-color: $color-xero-green;
-		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
-	}
-
-	&:hover {
-		@include button-shadow(0.05);
-	}
-
-	&:focus {
-		border-color: $color-xero-green;
-		outline: 1px solid $color-white;
-		outline-offset: -3px;
-	}
-
-	&:active {
-		@include button-shadow(0.1);
-		background-color: $color-xero-green;
-	}
-}
-
-// Negative
-//
-// Button for negative actions such as delete and remove.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-negative {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button xui-button-negative {{modifier_class}}" value="Text"/>
-// <button type="submit" class="xui-button xui-button-negative {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-negative {{modifier_class}}">Text</a>
-//
-// Styleguide: Buttons.1.4
-
-.#{$ns}-button-negative {
-	background-color: $color-xero-red;
-	border-color: $color-xero-red;
-	color: $color-reversed-text;
-
-	@mixin button-shadow($fade) {
-		border-color: $color-xero-red;
-		box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);	// TODO: Should just change background colour...
-	}
-
-	&:hover {
-		@include button-shadow(0.05);
-	}
-
-	&:focus {
-		border-color: $color-xero-red;
-		outline: 1px solid $color-white;
-		outline-offset: -3px;
-	}
-
-	&:active {
-		@include button-shadow(0.1);
-		background-color: $color-xero-red;
-	}
-}
-
-// Sizes
-//
-// Styleguide: Buttons.2
-
-// Smaller
-//
-// Button to use when creating smaller more compact things.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-// .xui-button-small
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button xui-button-main xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button xui-button-create xui-button-small {{modifier_class}}">Text</button>
-//
-// Styleguide: Buttons.2.1
-
-.#{$ns}-button-small {
-	line-height: px-to-rem(16);	// Should be an em
-	min-width: px-to-rem(60);
-	padding: 0.5em 1em;
-}
-
-// Full-width
-//
-// Sometimes used when there is a single action.
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-main xui-u-fullwidth">Big Button</button>
-//
-// Styleguide: Buttons.2.2
-
-// States
-//
-// Styleguide: Buttons.3
-
-// Standard Disabled
-//
-// Styling of standard buttons when disabled.
-//
-// Markup:
-// <p>
-//   <button type="button" disabled class="xui-button xui-button-is-disabled {{modifier_class}}">Text</button>
-//   <input type="button" disabled class="xui-button xui-button-is-disabled {{modifier_class}}" value="Text" />
-//   <a href="https://xero.com" aria-disabled="true" role="button" class="xui-button xui-button-is-disabled {{modifier_class}}">Text</a>
-// </p>
-//
-// Styleguide: Buttons.3.1
-
-// Disabled styling for standard buttons
-.#{$ns}-button-is-disabled,
-.#{$ns}-button-is-disabled:focus,
-.#{$ns}-button-is-disabled:hover {
-	background-color: $color-reversed-text;
-	border-color: $color-disabled;
-	box-shadow: none;
-	color: $color-disabled-text;
-	cursor: default;
-	pointer-events: none;
-}
-
-// Primary Disabled
-//
-// Styling of primary buttons when disabled.
-//
-// Markup:
-// <p>
-//   <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</button>
-//   <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled {{modifier_class}}">Text</button>
-//   <input type="submit" disabled class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}" value="Text" />
-//   <a href="https://xero.com" aria-disabled="true" role="button" class="xui-button xui-button-main xui-button-is-disabled {{modifier_class}}">Text</a>
-// </p>
-//
-// Styleguide: Buttons.3.2
-
-// Disabled styling for primary buttons
-.#{$ns}-button-is-disabled {
-	&.#{$ns}-button-main,
-	&.#{$ns}-button-create {
-		background-color: $color-disabled;
-		color: $color-reversed-text;
-	}
-}
-
-// Unstyled
-//
-// Styleguide: Buttons.4
-
-// Unstyled
-//
-// Used to undo OS/User Agent styling on buttons so that they can be used in places where
-// anchors would have been used otherwise. Note that this is completely separate from xui-button
-// styling.
-//
-// Markup:
-// <button type="button" class="xui-unstyledbutton">This is an unstyled button</button>
-//
-// Styleguide: Buttons.4.1
-
-.#{$ns}-unstyledbutton,
-.#{$ns}-inlineaction,
-.#{$ns}-iconbutton {
-	-webkit-appearance: none;
-	background: transparent;
-	border: 1px solid transparent;
-	cursor: pointer;
-	display: inline-block;
-	font-family: inherit;
-	font-size: $font-size-text;
-	margin: 0;
-	padding: 0;
-}
-
-// Icon
-//
-// Used for buttons that only use icons.
-// `title` and `aria-label` attributes should be provided to explain the icon.
-// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
-//
-// :active - When active
-// :hover - When hovered
-// :focus - When focused
-//
-// Markup:
-// <button type="button" class="xui-iconbutton xui-iconbutton-large" title="Close" aria-label="Close">✕</button>
-//
-// Styleguide: Buttons.4.2
-
-.#{$ns}-iconbutton {
-	color: $color-primary-text;
-
-	&:hover {
-		color: $color-grey-2;
-	}
-
-	&:focus {
-		background: $color-shadow-medium;
-		border-radius: 50%;
-		outline: none;
-	}
-}
-
-.#{$ns}-iconbutton-small {
-	font-size: $font-size-text;
-	line-height: px-to-rem(18);
-	width: px-to-rem(18);
-}
-
-.#{$ns}-iconbutton-large {
-	font-size: $font-size-icon-large;
-	line-height: px-to-rem(32);
-	width: px-to-rem(32);
-}
-
-// Inline Action
-//
-// Used for buttons that look like standard buttons when focused and icon buttons when not focused.
-//
-// :focus - When focused
-//
-// Markup:
-// <button type="button" class="xui-inlineaction xui-inlineaction-large" title="Add" aria-label="Add">+</button>
-//
-// Styleguide: Buttons.4.3
-
-.#{$ns}-inlineaction {
-	color: $color-xero-blue;
-	line-height: px-to-rem(32);
-	min-width: px-to-rem(18);
-	transition: $transition-duration-quick all $easing-standard;
-
-	&:focus {
-		background: $color-white;
-		border: 1px solid $color-xero-blue;
-		border-radius: $radius;
-		box-shadow: $shadow-focus;
-		outline: none;
-	}
-}
-
-.#{$ns}-inlineaction-large {
-	font-size: $font-size-icon-large;
-	min-width: px-to-rem(32);
-}
+@import "buttons.variants"; // Section 2
+@import "buttons.sizes"; // Section 3
+@import "buttons.states"; // Section 4
+@import "buttons.groups"; // Section 5
+@import "buttons.dropdowns"; // Section 6
+@import "buttons.icons"; // Section 7
+@import "buttons.link"; // Section 8

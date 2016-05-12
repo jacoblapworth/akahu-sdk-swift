@@ -28,9 +28,7 @@
 // -----------------------------------------------------------------------------
 
 @import "vars";
-
-@import "tools/functions";
-@import "tools/mixins";
+@import "mixins";
 
 // Xero styles as per the Xero UI Toolkit
 // -----------------------------------------------------------------------------
@@ -38,26 +36,23 @@
 @import "elements/body";
 @import "elements/buttons";
 @import "elements/forms";
-@import "elements/headings";
 @import "elements/inputs";
 @import "elements/links";
-@import "elements/lists";
 @import "elements/tables";
-@import "elements/text";
+@import "elements/textcontent";
 
 @import "objects/accordion";
 @import "objects/actions";
 @import "objects/avatars";
 @import "objects/buttons";
-@import "objects/buttongroups";
-@import "objects/buttondropdowns";
 @import "objects/dropdowns";
 @import "objects/contentblocks";
-@import "objects/formelements";
-@import "objects/grid";
+@import "objects/forms";
 @import "objects/globalstates";
-@import "objects/labels";
+@import "objects/icons";
+@import "objects/layoutstructure";
 @import "objects/loaders";
+@import "objects/marginpadding";
 @import "objects/navigation";
 @import "objects/modals";
 @import "objects/panels";
@@ -66,9 +61,6 @@
 @import "objects/steps";
 @import "objects/usermessaging";
 @import "objects/overview";
+@import "objects/text";
 
-// Et cetera...
-// -----------------------------------------------------------------------------
-
-@import "tools/utilities";
-@import "conflicts";
+@import "trumps/utilities";

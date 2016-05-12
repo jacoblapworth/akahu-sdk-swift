@@ -1,3 +1,6 @@
+@import "../mixins";
+@import "../vars";
+
 // Tabs
 //
 // Styles for the tabbed elements.  These typically sit above `<section>`
@@ -26,9 +29,6 @@
 //
 // Styleguide: Navigation.5
 
-@import "../tools/mixins";
-@import "../settings/colours";
-
 // Horizontal
 //
 // Applied to sections that have tabs in them, removes the padding so that the
@@ -36,49 +36,45 @@
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
 //
+// #### Class Names
+//
+// `xui-tabgroup`	Container for a group of tabs
+//
+// `xui-tabgroup-layout`	Recommened layout for a tab group
+//
+// `xui-tab`	Container for a tab
+//
+// `xui-tab--body`	Container for the body of a tab
+//
+// `xui-tab-is-selected`	Modifier for the currently selected tab
+//
+// `xui-tab-pageheading`	Modifier for a page heading tab
+//
+// `xui-tab-pageheading-is-selected`	Modifier for the currently selected page heading tab
+//
 // Markup:
-//	<div class="xui-tabbednav" role="navigation" aria-label="Tertiary">
-//		<ul class="xui-tabgroup">
-//			<li class="xui-tab">
-//				<a class="xui-tab--body" href="#default">Default</a>
-//			</li>
-//			<li class="xui-tab xui-tab-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_default">Selected Default</a>
-//			</li>
-//		</ul>
-//	</div>
-//	<br />
-//	<div class="xui-tabbednav" role="navigation" aria-label="Secondary">
-//		<ul class="xui-tabgroup">
-//			<li class="xui-tab xui-tab-pageheading">
-//				<a class="xui-tab--body" href="#g-header">Page heading</a>
-//			</li>
-//			<li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
-//			</li>
-//		</ul>
-//	</div>
-//	<br />
-//	<div class="xui-tabbednav xui-pagenav" role="navigation" aria-label="Primary">
-//		<ul class="xui-tabgroup">
-//			<li class="xui-tab xui-tab-pagenav">
-//				<a class="xui-tab--body" href="#g-header">Page nav</a>
-//			</li>
-//			<li class="xui-tab xui-tab-pagenav xui-tab-pagenav-is-selected" aria-selected="true">
-//				<a class="xui-tab--body" href="#selected_pagenav">Selected Page nav</a>
-//			</li>
-//		</ul>
-//	</div>
+// <ul class="xui-tabgroup xui-tabgroup-layout" role="navigation" aria-label="Tertiary">
+//   <li class="xui-tab">
+//     <a class="xui-tab--body" href="#default">Default</a>
+//   </li>
+//   <li class="xui-tab xui-tab-is-selected" aria-selected="true">
+//     <a class="xui-tab--body" href="#selected_default">Selected Default</a>
+//   </li>
+// </ul>
+// <br />
+// <ul class="xui-tabgroup xui-tabgroup-layout" role="navigation" aria-label="Secondary">
+//   <li class="xui-tab xui-tab-pageheading">
+//     <a class="xui-tab--body" href="#g-header">Page heading</a>
+//   </li>
+//   <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
+//     <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//   </li>
+// </ul>
 //
 // Styleguide: Navigation.5.1
-.#{$ns}-tabbednav,
-// FIXME: remove .#{$ns}-tabbed-navigation in 10.0.0
-.#{$ns}-tabbed-navigation {
-	padding-bottom: 0;
-}
 
 .#{$ns}-tabgroup {
-	color: $color-secondary-text;
+	color: $xui-color-secondary-text;
 	display: flex;
 	justify-content: flex-start;
 	list-style: none;
@@ -90,77 +86,65 @@
 // Makes for an easy place to store and create new variations of tabs with different colours.
 //
 // (text-color, border-color, hover-text-color, hover-border-color)
-$color-variations: (
-	"#{$ns}-tab-is-selected":($color-primary-text, $color-primary-text, $color-primary-text, $color-primary-text),
-	"#{$ns}-tab-pageheading":($color-primary-text, transparent, $color-xero-blue, $color-xero-blue),
-	"#{$ns}-tab-pageheading-is-selected":($color-xero-blue, $color-xero-blue, $color-xero-blue, $color-xero-blue),
-	"#{$ns}-tab-pagenav":($color-reversed-text, transparent, $color-xero-light-blue, $color-xero-light-blue),
-	"#{$ns}-tab-pagenav-is-selected":($color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue, $color-xero-light-blue)
+$xui-color-variations: (
+	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
+	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
+	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
+	"#{$ns}-tab-pagenav":($xui-color-tab-pagenav, transparent, $xui-color-reversed-text, $xui-color-reversed-text),
+	"#{$ns}-tab-pagenav-is-selected":($xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text)
 );
 
 // Individual tabs
 // -----------------------------------------------------------------------------
-@mixin tab-variation($color, $bg-color, $hover-color, $hover-bg-color) {
-	.#{$ns}-tab--body {
-		color: $color;
-
-		&::after {
-			background-color: $bg-color;
-		}
-
-		&:hover {
-			color: $hover-color;
-		}
-
-		&:hover::after {
-			background-color: $hover-bg-color;
-		}
-	}
-}
 
 .#{$ns}-tab {
 	margin: 0;
+	position: relative;
 
 	.#{$ns}-tab--body {
-		color: $color-secondary-text;
+		border-radius: $xui-radius;
+		color: $xui-color-secondary-text;
 		cursor: pointer;
 		display: inline-block;
-		line-height: 1.2;
-		padding: 0.5em 1em 0;
+		font-weight: bold;
+		outline: none;
 		text-align: center;
 
-		&::after {
-			background-color: transparent;
-			content: " ";
-			display: block;
-			height: 3px;
-			margin: 6px 0 0;
-		}
-
 		&:hover {
-			color: $color-primary-text;
+			color: $xui-color-primary-text;
 			text-decoration: none;
 		}
 
-		&:hover::after {
-			background-color: $color-primary-text;
+		&:focus {
+			background: $xui-color-tab-focus;
+		}
+
+		&:focus:active {
+			background: $xui-color-tab-active;
 		}
 	}
+
+	&::after {
+		background-color: transparent;
+		bottom: 0;
+		content: " ";
+		display: block;
+		height: 3px;
+		position: absolute;
+		width: 100%;
+	}
 }
 
-.#{$ns}-tab {
-	&:first-of-type .#{$ns}-tab--body {
-		padding-left: 0;
-	}
-
-	&:last-of-type .#{$ns}-tab--body {
-		padding-right: 0;
-	}
-}
-
-@each $variation, $colors in $color-variations {
+@each $variation, $colors in $xui-color-variations {
 	.#{$variation} {
-		@include tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
+		@include xui-tab-variation(nth($colors, 1), nth($colors, 2), nth($colors, 3), nth($colors, 4));
+	}
+}
+
+.#{$ns}-tabgroup-layout {
+	.#{$ns}-tab--body {
+		@include xui-padding-horizontal($xui-s-standard);
+		@include xui-padding-vertical($xui-s-small);
 	}
 }
 
@@ -171,23 +155,35 @@ $color-variations: (
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
 //
+// #### Class Names
+//
+// `xui-tabgroup-vertical`	Container for a group of vertical tabs
+//
+// `xui-tabgroup-vertical-layout`	Recommened layout for a vertical tab group
+//
+// `xui-verticaltab`	Container for a vertical tab
+//
+// `xui-verticaltab--body`	Container for the body of a vertical tab
+//
+// `xui-verticaltab-is-selected`	Modifier for the currently selected vertical tab
+//
 // Markup:
-//	<ul class="xui-tabgroup xui-tabgroup-vertical" role="navigation" aria-label="Tertiary">
-//		<li class="xui-verticaltab">
-//			<a class="xui-verticaltab--body" href="#default">Default</a>
-//		</li>
-//		<li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
-//			<a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
-//		</li>
-//		<li class="xui-verticaltab">
-//			<a class="xui-verticaltab--body" href="#other">Other</a>
-//		</li>
-//	</ul>
-//	<ul class="xui-tabgroup xui-tabgroup-vertical">
-//		<li class="xui-verticaltab">
-//			<a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
-//		</li>
-//	</ul>
+// <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout" role="navigation" aria-label="Tertiary">
+//   <li class="xui-verticaltab">
+//     <a class="xui-verticaltab--body" href="#default">Default</a>
+//   </li>
+//   <li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
+//     <a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
+//   </li>
+//   <li class="xui-verticaltab">
+//     <a class="xui-verticaltab--body" href="#other">Other</a>
+//   </li>
+// </ul>
+// <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+//   <li class="xui-verticaltab">
+//     <a class="xui-verticaltab--body" href="#secondgroup">Second Group</a>
+//   </li>
+// </ul>
 //
 // Styleguide: Navigation.5.2
 
@@ -195,7 +191,6 @@ $color-variations: (
 	display: flex;
 	flex-flow: column nowrap;
 	list-style: none;
-	margin: px-to-rem(5) 0;
 	padding: 0;
 }
 
@@ -207,35 +202,47 @@ $color-variations: (
 	https://css-tricks.com/examples/nth-child-tester/
 */
 .#{$ns}-tabgroup-vertical:nth-child(n+2) {
-	border-top: $border-standard;
-	padding-top: px-to-rem(5);
+	border-top: $xui-border-standard;
 }
 
 .#{$ns}-verticaltab {
-	border-left: px-to-rem(4) solid transparent;
+	border-left: 4px solid transparent;
 	position: relative;
 
 	&:hover {
-		background-color: $color-backgrounds;
-		border-left: px-to-rem(4) solid $color-backgrounds;
+		background-color: $xui-color-background;
+		border-left: 4px solid $xui-color-background;
 	}
 }
 
 .#{$ns}-verticaltab-is-selected {
-	border-left: px-to-rem(4) solid $color-xero-blue;
+	border-left: 4px solid $xui-color-xero-blue;
 
 	&:hover {
-		border-left: px-to-rem(4) solid $color-xero-blue;
+		border-left: 4px solid $xui-color-xero-blue;
 	}
 }
 
 .#{$ns}-verticaltab--body {
-	color: $color-primary-text;
+	color: $xui-color-primary-text;
 	display: block;
-	padding: px-to-rem(10);
 	width: 100%;
 
 	&:hover {
 		text-decoration: none;
 	}
 }
+
+.#{$ns}-tabgroup-vertical-layout {
+	@include xui-margin-vertical($xui-s-xsmall);
+
+	&:nth-child(n+2) {
+		@include xui-padding-top($xui-s-xsmall);
+	}
+
+	.#{$ns}-verticaltab--body {
+		@include xui-padding($xui-s-small);
+	}
+}
+
+

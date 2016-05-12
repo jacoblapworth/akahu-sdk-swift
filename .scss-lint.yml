@@ -3,11 +3,11 @@
 
 scss_files: "**/*.scss"
 plugin_directories: ['.scss-linters']
-exclude: "src/sass/tools/_sprites.scss"
+exclude: "src/sass/_conflicts.scss"
 
 # List of gem names to load custom linters from (make sure they are already
 # installed)
-plugin_gems: []
+plugin_gems: ['scss_lint_prefix']
 
 linters:
   BangFormat:
@@ -112,6 +112,13 @@ linters:
 
   PlaceholderInExtend:
     enabled: true
+
+  Prefix:
+    enabled: true
+    prefix: 'xui'
+    ignore_names: ['ns']
+    ignore_types: []
+    ignore_local_variables: true
 
   PropertyCount:
     enabled: false

@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
-	padding: px-to-rem(20);
 }
 
 .#{$ns}-actions-linear {
@@ -11,9 +10,30 @@
 
 .#{$ns}-actions--primary {
 	order: 1;
-	padding-left: px-to-rem(10);
 }
 
 .#{$ns}-actions--secondary {
 	order: 0;
+}
+
+.#{$ns}-actions-layout {
+	.#{$ns}-actions--primary {
+		margin-left: $xui-s-small;
+	}
+}
+
+.#{$ns}-actions-layout {
+	@include xui-breakpoint-narrow {
+		flex-direction: column;
+
+		.#{$ns}-actions--primary {
+			margin: 0;
+			order: 0;
+		}
+
+		.#{$ns}-actions--secondary {
+			margin: $xui-s-standard 0 0;
+			order: 1;
+		}
+	}
 }

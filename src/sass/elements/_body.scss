@@ -2,16 +2,11 @@
  * Styles affecting the entire page.
  */
 
-@import "../settings/colours";
-@import "../settings/typography";
-@import "../tools/mixins";
+@import "../vars";
+@import "../mixins";
 
-// Better best practices for altering the box-sizing property.
-// Here, the code matches the better best practices in this article
-// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 html {
-	box-sizing: border-box;
-	font-size: 16px; // Explicitly set font-size for rems.
+	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
 	// scss-lint:disable VendorPrefix
 	/* doiuse-disable */
 	-webkit-text-size-adjust: 100%; // Prevent font size adjustments from orientation changes in iOS
@@ -33,26 +28,16 @@ form {
 	padding: 0;
 }
 
-body {
-	background-color: $color-backgrounds;
-	color: $color-primary-text;
-	font-family: $font-family;
-	font-size: $font-size-text;
-	// FIXME hardcoding the existing line-height. Have updated `$line-height` var
-	//       to new value: 1.3 so it can be used before the 10.0.0 breaking changes
-	//       is released. Revert to `$line-height` after 10.0.0. comes out.
-	line-height: 24px;
-
-	@include mobile {
-		font-size: $font-size-text-mobile;
-	}
+.#{$ns}-body {
+	background-color: $xui-color-background;
+	box-sizing: border-box;
+	color: $xui-color-primary-text;
+	font-family: $xui-font-family;
+	font-size: $xui-font-size-text;
+	line-height: $xui-line-height;
+	overflow-y: scroll;
 }
 
-// Ideally, this would be in the BODY above, but because of the Xero Header that
-// uses a mix of different sizings, it's far too broad.  This localizes it to
-// just the page 'body'/content part.
-// TODO: Get the header on border-box so everyone can use this :P
 main {
-	box-sizing: border-box;
 	display: block; // Needed for IE11 which thinks it should be inline...
 }

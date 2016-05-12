@@ -1,0 +1,27 @@
+@import "../vars";
+@import "../mixins";
+
+// Link
+//
+// Styleguide: Buttons.8
+
+// Link
+//
+// We consider the use of anchor elements without an `href` to be an anti-pattern, so use this when you need a button to look
+// like a link. By default, no padding is supplied; use `xui-padding-actionlink` to achieve a standardised padding.
+//
+// :hover - Highlights when hovering
+// :focus - When focused
+// :active - When active
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-link {{modifier_class}}">Action</button>
+// <button type="button" class="xui-button xui-button-link xui-padding-actionlink {{modifier_class}}">Action</button>
+//
+// Styleguide: Buttons.8.1
+
+.#{$ns}-button-link {
+	@include xui-state-focus-transparent;
+	color: $xui-color-xero-blue;
+	font-weight: inherit;
+}

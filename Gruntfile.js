@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('install', ['bower-install-simple', 'shell:install']);
 	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
-	grunt.registerTask('build', ['sass', 'autoprefixer:dist', 'copy:images']);
+	grunt.registerTask('build', ['sass', 'autoprefixer:dist', 'copy:images', 'copy:icons']);
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:files']);
 

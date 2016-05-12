@@ -3,17 +3,23 @@
 
 // Avatars
 //
-// Avatars can be either an image or text.
-// If no image is available, use the `<abbr>` tag to display the first character of the entity.
-// The background colour should be selected deterministically from a list of colours based on a unique
-// attribute of the entity (not their name). This allows the user to associate a pair of
-// colour and letter with a particular entity. If two entities share the same name, the colour should
-// be different ([Sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa)).
+// Avatars can be either an image or text. If no image is available then the `<abbr>` tag should be used to display the first character of the entity.
+// The background color should be selected deterministically from one of the ten approved colors based on a unique attribute of the entity (not their name).
+// This allows the user to associate a color/letter pair with a particular entity.
+// If two entities share the same name then the color should be different.
+// See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more more detail.
 //
-// There are 10 available background colors. These can be applied using the classes `.xui-avatar-color-1` through
-// `.xui-avatar-color-10`.
+// #### Class Names
 //
-// Use the `.xui-u-flex` and `.xui-u-flex-row` utility classes to display additional elements alongside an avatar (e.g. descriptive text).
+// `xui-avatar`	Style for an avatar
+//
+// `xui-avatar-color-[1-10]`	Modifiers for a color avatar
+//
+// `xui-avatar-group`	Container for a group of avatars
+//
+// `xui-avatar-large`	Modifier for a large avatar
+//
+// `xui-avatar-small`	Modifier for a small avatar
 //
 // Markup:
 // <h3>Small</h3>

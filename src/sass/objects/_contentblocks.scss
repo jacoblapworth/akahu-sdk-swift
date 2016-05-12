@@ -7,9 +7,17 @@
 
 // Content Block with Actions
 //
-// The `.xui-contentblock--item-negative` class can be used to highlight items which are invalid and need attention.
+// #### Class Names
 //
-// The `.xui-contentblock--item-selected` class can be used to highlight items which are selected.
+// `xui-contentblock`	Container for a content block
+//
+// `xui-contentblock--item`	Container for a content block item
+//
+// `xui-contentblock--item-negative`	Modifier for a negative highlight content block item
+//
+// `xui-contentblock--item-selected`	Modifier for a selected content block item
+//
+// `xui-rowlink`	Modifier for a content block item which acts as a hyperlink
 //
 // Markup:
 // <section>

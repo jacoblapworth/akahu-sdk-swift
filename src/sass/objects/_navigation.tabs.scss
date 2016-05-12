@@ -36,6 +36,22 @@
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
 //
+// #### Class Names
+//
+// `xui-tabgroup`	Container for a group of tabs
+//
+// `xui-tabgroup-layout`	Recommened layout for a tab group
+//
+// `xui-tab`	Container for a tab
+//
+// `xui-tab--body`	Container for the body of a tab
+//
+// `xui-tab-is-selected`	Modifier for the currently selected tab
+//
+// `xui-tab-pageheading`	Modifier for a page heading tab
+//
+// `xui-tab-pageheading-is-selected`	Modifier for the currently selected page heading tab
+//
 // Markup:
 // <ul class="xui-tabgroup xui-tabgroup-layout" role="navigation" aria-label="Tertiary">
 //   <li class="xui-tab">
@@ -138,6 +154,18 @@ $xui-color-variations: (
 // bottom of the tabs are flush with the top of the section they manage.
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
+//
+// #### Class Names
+//
+// `xui-tabgroup-vertical`	Container for a group of vertical tabs
+//
+// `xui-tabgroup-vertical-layout`	Recommened layout for a vertical tab group
+//
+// `xui-verticaltab`	Container for a vertical tab
+//
+// `xui-verticaltab--body`	Container for the body of a vertical tab
+//
+// `xui-verticaltab-is-selected`	Modifier for the currently selected vertical tab
 //
 // Markup:
 // <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout" role="navigation" aria-label="Tertiary">

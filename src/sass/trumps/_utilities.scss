@@ -15,6 +15,14 @@
 //
 // Implementation of rules here are based on the A11Y Project's [How to Hide Content](http://a11yproject.com/posts/how-to-hide-content/).
 //
+// #### Class Names
+//
+// `xui-u-hidden`	Hide the element using `display` and `visibility` properties
+//
+// `xui-u-hidden-mobile`	Hide the element on mobile only using `display` property
+//
+// `xui-u-hidden-visually`	Hide the element using `width` and `height` properties
+//
 // Markup:
 //  <section class="xui-u-container xui-u-hidden">hidden</section>
 //  <section class="xui-u-container xui-u-hidden-visually">hidden visually</section>
@@ -53,11 +61,17 @@
 //
 // Flex classes can be used to create flexible mutli-column layouts.
 //
-// - The `.xui-u-flex` class should be applied to the parent container to enable flexible multi-column layouts
-// - The `.xui-u-flex-row` class can be applied to the parent container to vertically align all children at the center
-// (this is useful for cases when the children have different heights, e.g. panel headings and buttons)
-// - The `.xui-u-flex-col` class should be applied to children to create flexible columns
-// - The `.xui-u-flex-grow` class can be applied to children to fill the remaining horizontal space of the parent container
+// #### Class Names
+//
+// `xui-u-flex`	Container for a flex box parent
+//
+// `xui-u-flex-col`	Container for a flex child (inside `xui-u-flex`)
+//
+// `xui-u-flex-grow`	Modifier for a flex child which fills remaining space
+//
+// `xui-u-flex-row`	Modifier for a vertically centered flex box parent
+//
+// `xui-u-flex-verticalalign-center`	Modifier for a column-orientated flex box parent
 //
 // Markup:
 // <div class="xui-panel">
@@ -117,6 +131,10 @@
 //
 // Sometimes you want an element to have full width.
 //
+// #### Class Names
+//
+// `xui-u-fullwidth`	Modifier for a full-width element
+//
 // Markup:
 // <div>
 //   <span class="xui-button xui-button-standard xui-u-fullwidth">Wide</span>
@@ -132,6 +150,14 @@
 // Transitions
 //
 // May be added to elements to give them a smooth transition between transforms.
+//
+// #### Class Names
+//
+// `xui-u-transition-long`	Modifier for long animation transition between transforms
+//
+// `xui-u-transition-medium`	Modifier for medium animation transition between transforms
+//
+// `xui-u-transition-short`	Modifier for short animation transition between transforms
 //
 // Markup:
 // <div>

@@ -9,7 +9,15 @@
 //
 // When the input is `disabled`, you should use the global `.xui-is-disabled` class on the `.xui-switch` element.
 //
-// Use the `.xui-switch--labeltext` class on an extra `<span>` inside the `<label>` element to include a label for the switch.
+// #### Class Names
+//
+// `xui-switch`	Container for a switch
+//
+// `xui-switch--checkbox`	Subcomponent for a switch checkbox
+//
+// `xui-switch--control`	Container for switch appearance
+//
+// `xui-switch--labeltext`	Container for optioinal switch label
 //
 //  Markup:
 // <label class="xui-switch">

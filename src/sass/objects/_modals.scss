@@ -24,6 +24,24 @@
 //  * When the modal is opened, the keyboard focus should be moved to a default focusable control with the modal. For example, this could be a button in the footer of the modal or the first element in a form within the modal.
 //  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
 //
+// #### Class Names
+//
+// `xui-modal`	Container for a modal
+//
+// `xui-modal--body`	Container for the body of a modal
+//
+// `xui-modal--header`	Container for the header of a modal
+//
+// `xui-modal-large`	Modifier for a large modal
+//
+// `xui-modal-layout`	Recommended layout for a modal
+//
+// `xui-modal-medium`	Modifier for a medium-sized modal
+//
+// `xui-mask`	Mask for a modal
+//
+// `xui-mask-is-active`	Enable the mask
+//
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
 //   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">

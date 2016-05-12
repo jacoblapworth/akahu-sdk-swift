@@ -7,6 +7,25 @@
 
 // Text Styles
 //
+// #### Class Names
+//
+// `xui-heading`	Style for a heading
+//
+// `xui-page-title`	Style for a page title
+//
+// `xui-section-title`	Style for a section title
+//
+// `xui-text-panelheading`	Style for a panel heading
+//
+// `xui-text-sectionheading`	Style for a section heading
+//
+// `xui-text-label`	Style for a label
+//
+// `xui-text-secondary`	Style for secondary text
+//
+// `xui-text-placeholder`	Style for placeholder text
+//
+// `xui-heading-mini`	Style for a miniture heading
 //
 // Markup:
 // <p class="xui-heading">Heading</p>
@@ -74,6 +93,14 @@
 //
 // Classes that can be added to change the alignment of text.
 //
+// #### Class Names
+//
+// `xui-text-leftaligned`	Modifier for left-aligned text
+//
+// `xui-text-centered`	Modifier for centered text
+//
+// `xui-text-rightaligned`	Modifier for right-aligned text
+//
 // Markup:
 //  <p class="xui-text-leftaligned">Left-aligned text</p>
 //  <p class="xui-text-centered">Centered text</p>
@@ -99,6 +126,10 @@
 // Useful for truncating a single line of text with an ellipsis. To truncate after an arbitrary number of lines,
 // you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
 //
+// #### Class Names
+//
+// `xui-text-truncated`	Modifier for truncated text with an ellipsis
+//
 // Markup:
 //  <p class="xui-text-truncated">Pak n' Save holds the most nuclear-free community in the country. Every time I see those rip-off Monopoly money, from the New Zealand version with Queen Street and stuff it's like the op shop all over again aye, fully. Put the jug on will you bro, all these primo giant wekas can wait till later. Eh, rack off, nek minnit.</p>
 //
@@ -112,6 +143,14 @@
 
 
 //  Statuses
+//
+// #### Class Names
+//
+// `xui-text-status`	Style for status text
+//
+// `xui-text-status-negative`	Modifier for negative status text
+//
+// `xui-text-status-positive`	Modifier for positive status text
 //
 // Markup:
 // <span class="xui-text-status">
@@ -156,6 +195,10 @@
 //
 // Simple caret using CSS border tricks. Will inherit it's colour from the text it's placed with.
 //
+// #### Class Names
+//
+// `xui-caret`	Style for a CSS caret
+//
 // Markup:
 //  <p>Text <span class="xui-caret"></span></p>
 //  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
@@ -192,7 +235,9 @@
 
 // Text Reset
 //
-// Reset the line height to: `line-height: 1`
+// #### Class Names
+//
+// `xui-text-reset`	Modifier to reset `line-height: 1`
 //
 // Markup:
 // <div class="xui-panel xui-padding-horizontal">
@@ -206,9 +251,11 @@
 }
 // Text Longform
 //
-// Set the line height to: `line-height: 1.5`
-//
 // Useful for long blocks of text where an increased line height helps with readability.
+//
+// #### Class Names
+//
+// `xui-text-longform`	Modifier to set `line-height: 1.5`
 //
 // Markup:
 // <div class="xui-panel xui-padding-horizontal">

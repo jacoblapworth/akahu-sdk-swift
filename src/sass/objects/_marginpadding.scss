@@ -15,6 +15,32 @@
 // The basic make-up of the margin  is to apply one or more of the
 // margin classes to acheive the desired layout.
 //
+// #### Class Names
+//
+// `xui-margin-top-small`, `xui-margin-top`, `xui-margin-top-large` (top)
+//
+// `xui-margin-right-small`, `xui-margin-right`, `xui-margin-right-large` (right)
+//
+// `xui-margin-bottom-small`, `xui-margin-bottom`, `xui-margin-bottom-large` (bottom)
+//
+// `xui-margin-left-small`, `xui-margin-left`, `xui-margin-left-large` (left)
+//
+// `xui-margin-vertical-small`, `xui-margin-vertical`, `xui-margin-vertical-large` (vertical)
+//
+// `xui-margin-horizontal-small`, `xui-margin-horizontal`, `xui-margin-horizontal-large` (horizontal)
+//
+// `xui-margin-small`, `xui-margin`, `xui-margin-large` (vertical, horizontal)
+//
+// `xui-margin-auto-left` (auto left)
+//
+// `xui-margin-auto-vertical` (auto vertical)
+//
+// `xui-margin-auto-horizontal` (auto horizontal)
+//
+// `xui-margin-auto`	Margin auto (auto vertical, auto horizontal)
+//
+// `xui-margin-none` Margin Xero (0)
+//
 // Markup:
 // <div class="margin-example">
 //  <div class="xui-margin-top">
@@ -159,6 +185,24 @@
 //
 // The basic make-up of the padding primitives is to apply one or more of the
 // padding classes to acheive the desired layout.
+//
+// #### Class Names
+//
+// `xui-padding-top-small`, `xui-padding-top`, `xui-padding-top-large` (top)
+//
+// `xui-padding-right-small`, `xui-padding-right`, `xui-padding-right-large` (right)
+//
+// `xui-padding-bottom-small`, `xui-padding-bottom`, `xui-padding-bottom-large` (bottom)
+//
+// `xui-padding-left-small`, `xui-padding-left`, `xui-padding-left-large` (left)
+//
+// `xui-padding-vertical-small`, `xui-padding-vertical`, `xui-padding-vertical-large` (vertical)
+//
+// `xui-padding-horizontal-small`, `xui-padding-horizontal`, `xui-padding-horizontal-large` (horizontal)
+//
+// `xui-padding-small`, `xui-padding`, `xui-padding-large` (vertical, horizontal)
+//
+// `xui-padding-none` Padding Xero (0)
 //
 // Markup:
 // <div class="xui-padding-top">

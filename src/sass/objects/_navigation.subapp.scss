@@ -8,6 +8,22 @@
 
 // Standard
 //
+// #### Class Names
+//
+// `xui-pageheading`	Container for a page heading (eg navigation)
+//
+// `xui-pageheading--breadcrumbs`	Container for page heading breadcrumbs
+//
+// `xui-pageheading--content`	Container for page heading content (eg headings and buttons)
+//
+// `xui-pageheading--content-layout`	Recommended layout for page heading content
+//
+// `xui-pageheading--title`	Style for a page heading title
+//
+// `xui-breadcrumb`	Style for breadcrumb text
+//
+// `xui-breadcrumb--icon`	Style for icons between breadcrumb text
+//
 // Markup:
 // <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
@@ -120,6 +136,7 @@
 
 // With Tabs
 //
+// `xui-pageheading-has-tabs`	Modifier for a page heading with tab navigation
 //
 // Markup:
 // <header class="xui-pageheading xui-pageheading-has-tabs">

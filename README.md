@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0-rc.4/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.0.0/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -59,13 +59,13 @@ Example Page Markup
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link href="https://edge.xero.com/platform/header/3.0.3/stylesheets/all.css" rel="stylesheet" />
-    <link href="https://edge.xero.com/style/xui/10.0.0-rc.4/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.0.0/xui.min.css" rel="stylesheet" />
     <script src="https://edge.xero.com/platform/header/3.0.3/scripts/header.min.js"></script>
   </head>
   <body class="xui-body">
     <header id="header"></header>
     <script>
-      // TODO: ideally this would be an external script so we can CSP
+      // Ideally this code would live in an external script to enable CSP
       (function () {
         'use strict';
         XERO.Header.init({}, '#header');

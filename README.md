@@ -33,11 +33,6 @@ $ bower install git@github.dev.xero.com:UXE/xui.git --save
 
 You will need to compile `xui.scss`.
 
-Since XUI references images, you will need to set the `$xui-images-path` variable to XUI's images folder. If you are using
-xui-build-tools, use a local value  (e.g. `bower_components/xui/src/images`) so that SVGs can be inlined in the compiled
-CSS. Otherwise, to avoid having to include XUI's images with your own deployables, you can set the value to point at S3, e.g.
-`https://edge.xero.com/style/xui/10.0.0-rc.4/images`.
-
 
 What is XUI For?
 ----------------

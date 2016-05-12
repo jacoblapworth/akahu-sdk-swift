@@ -47,7 +47,6 @@
 	position: relative;
 }
 
-.#{$ns}-popover--arrow-topleft,
 .#{$ns}-popover--arrow {
 	display: inline-block;
 	fill: $xui-color-white;
@@ -60,6 +59,11 @@
 	top: -8px;
 	vertical-align: middle;
 	width: 16px;
+
+	&-topleft {
+		left: 15px;
+		top: -8px;
+	}
 
 	&-topcenter {
 		left: 50%;

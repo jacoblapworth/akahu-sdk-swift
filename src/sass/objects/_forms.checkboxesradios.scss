@@ -42,6 +42,7 @@
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
+	user-select: none;
 
 	input {
 		box-shadow: none;

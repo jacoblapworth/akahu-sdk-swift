@@ -57,6 +57,7 @@
 .#{$ns}-switch--labeltext {
 	display: inline-block;
 	margin-left: 5px;
+	user-select: none;
 	vertical-align: middle;
 }
 

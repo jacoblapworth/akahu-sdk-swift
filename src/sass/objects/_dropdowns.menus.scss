@@ -179,6 +179,7 @@
 
 .#{$ns}-menuitem {
 	list-style-type: none;
+	user-select: none;
 
 	&:hover {
 		background-color: $xui-color-hover;

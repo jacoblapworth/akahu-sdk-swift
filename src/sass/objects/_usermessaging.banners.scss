@@ -167,7 +167,7 @@
 
 .#{$ns}-banner-layout {
 	@include xui-padding($xui-s-small);
-	@include xui-margin-vertical($xui-s-large);
+	@include xui-margin-bottom($xui-s-large);
 	@include xui-margin-horizontal(auto);
 
 	display: inline-block;

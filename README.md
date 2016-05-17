@@ -42,5 +42,5 @@ xuiIconBlob(document.getElementById('iconblob'));
 ### Using the icons
 The icons may be referenced using the following markup:
  ```js
- <svg class="xui-icon [modifiers]"> <use xlink:href="#[icon-name]" /> </svg>
+ <svg class="xui-icon"> <use xlink:href="#[icon-name]" /> </svg>
  ```

@@ -54,6 +54,16 @@
 //
 // `xui-button-standard`	Modifier for a standard button
 //
+// `xui-actions`	Container to be used when creating layouts with a primary and secondary button
+//
+// `xui-actions-layout`	Provides spacing between primary and secondary buttons as well as a mobile responsive layout
+//
+// `xui-actions-linear`	Places primary and secondary buttons at opposite sides of the container
+//
+// `xui-actions--primary`	Subcomponent to be applied directly to the primary button
+//
+// `xui-actions--secondary`	Subcomponent to be applied directly to the secondary button
+//
 // Styleguide: Buttons
 
 // Unstyled
@@ -80,3 +90,4 @@
 @import "buttons.dropdowns"; // Section 6
 @import "buttons.icons"; // Section 7
 @import "buttons.link"; // Section 8
+//Section 9 is _actions.scss - is included to the styleguide directly in xui.scss

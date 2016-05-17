@@ -147,6 +147,25 @@
 	width: 100%;
 }
 
+// Preventing Selection
+//
+// For textual elements where the user could perform multiple clicks in quick succession, the browser
+// may end up highlighting the text (interpreting a double click as an instruction to select
+// the surrounding text). If this behaviour is undesirable, use `xui-u-noselect`.
+//
+// #### Class Names
+//
+// `xui-u-noselect`		Modifier for an element that should not allow user selection
+//
+// Markup:
+// <p class="xui-u-noselect">Text <span class="xui-caret"></span></p>
+//
+// Styleguide: Utilities.4
+
+.#{$ns}-u-noselect {
+	user-select: none;
+}
+
 // Transitions
 //
 // May be added to elements to give them a smooth transition between transforms.
@@ -166,7 +185,7 @@
 // 	<div><span class="xui-text-panelheading">Long transition</span><svg class="xui-icon xui-icon xui-icon-rotate-right xui-u-transition-long"> <use xlink:href="#arrow" /></svg></div>
 // </div>
 //
-// Styleguide: Utilities.4
+// Styleguide: Utilities.5
 
 .#{$ns}-u-transition-short {
 	transition: $xui-transition-duration-short;

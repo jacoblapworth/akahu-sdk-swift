@@ -85,6 +85,33 @@
 // `xui-dropdownmenu-select`	Style for a drop down select box
 //
 // Markup:
+// <!-- Dropdown closed -->
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
+//   <div class="xui-select xui-select-layout">
+//     <input type="hidden" value="Select option 1"/>
+//     <button type="button" class="xui-button xui-select--button" aria-haspopup="true">
+//       Select option 1
+//     </button>
+//     <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <div class="xui-dropdownmenu xui-dropdownmenu-select xui-dropdownmenu-is-closed" aria-hidden="true">
+//       <div class="xui-dropdownmenu--body">
+//         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
+//           <li class="xui-menuitem xui-menuitem-layout xui-menuitem-is-selected" role="menuitem">
+//             <button type="button" class="xui-button xui-menuitem--body">Select option 1</button>
+//           </li>
+//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
+//             <button type="button" class="xui-button xui-menuitem--body">Select option 2</button>
+//           </li>
+//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
+//             <a href="https://google.com" class="xui-menuitem--body">Select option 3</a>
+//           </li>
+//         </ul>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+// <!-- Dropdown open -->
 // <div class="xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
 //   <div class="xui-select xui-select-layout">
@@ -97,13 +124,13 @@
 //       <div class="xui-dropdownmenu--body">
 //         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
 //           <li class="xui-menuitem xui-menuitem-layout xui-menuitem-is-selected" role="menuitem">
-//             <a href="#" class="xui-menuitem--body">Select option 1</a>
+//             <button type="button" class="xui-button xui-menuitem--body">Select option 1</button>
 //           </li>
 //           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
-//             <a href="#" class="xui-menuitem--body">Select option 2</a>
+//             <button type="button" class="xui-button xui-menuitem--body">Select option 2</button>
 //           </li>
 //           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
-//             <a href="#" class="xui-menuitem--body">Select option 3</a>
+//             <a href="https://google.com" class="xui-menuitem--body">Select option 3</a>
 //           </li>
 //         </ul>
 //       </div>
@@ -115,12 +142,13 @@
 
 .#{$ns}-select--button {
 	background-color: transparent;
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
 	color: $xui-color-primary-text;
 	display: block;
 	font-weight: normal;
-	line-height: 33px;
 	overflow: hidden;
-	padding: $xui-s-xsmall $xui-s-xxlarge $xui-s-xsmall $xui-s-standard;
+	padding: $xui-s-small $xui-s-xxlarge $xui-s-small $xui-s-standard;
 	text-align: left;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -151,8 +179,8 @@
 
 	.#{$ns}-dropdownmenu-select {
 		left: 0;
+		margin-top: -1px; // Ensures a seamless border
 		position: absolute;
-		top: 45px;
 		transition: $xui-transition-duration-short all $xui-easing-standard;
 		width: 100%;
 		z-index: 1;

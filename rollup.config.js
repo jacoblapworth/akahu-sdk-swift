@@ -4,10 +4,10 @@ let babel = require("rollup-plugin-babel"),
     lpb = require('list-bower-paths');
 
 module.exports = {
-    entry: "./src/XuiIconBlob.js",
+    entry: "./src/XUIIconBlob.js",
     format: 'umd',
     dest: './build/bundle.js',
-    moduleName: 'XuiIcons',
+    moduleName: 'XUIIconBlob',
     plugins: [
         babel({
             exclude: "node_modules/**",

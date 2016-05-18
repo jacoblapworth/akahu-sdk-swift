@@ -26,6 +26,10 @@ Adds a `data-automationid` attribute to the loader for QA
 
 Adds an `aria-label` attribute to the loader.
 
+####`defaultLayout`: (Boolean, default = true)
+
+Whether to use the layout class for the loader which provides spacing and centers the component. Only works with XUI 10 (can be ignored for XUI 9)
+
 ## Example
 ```js
 import XUILoader from 'xui-loader';

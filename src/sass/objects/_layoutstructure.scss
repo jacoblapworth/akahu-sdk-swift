@@ -323,7 +323,7 @@
 // Styleguide: Grid Layout.4
 
 // Flex row utilities
-// Should these live in a utility somewhere?
+// TODO: These should all be converted into utility classes in XUI 11
 .#{$ns}-space-between {
 	justify-content: space-between;
 }

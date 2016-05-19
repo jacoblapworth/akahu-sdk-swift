@@ -15,6 +15,8 @@
 //
 // `xui-sidebarfilter`	Container for a sidebar filter
 //
+// `xui-sidebarfilter-is-selected`	Selected state for a sidebar filter
+//
 // `xui-sidebarfilter--body`	Container for the body of a sidebar filter
 //
 // `xui-sidebarfilter--control`	Subcomponent for a sidebar control using a checkbox
@@ -45,15 +47,13 @@
 //             <span class="xui-column-2-of-12 xui-text-secondary xui-text-rightaligned">10</span>
 //           </a>
 //         </li>
-//         <li class="xui-sidebarfilter" aria-selected="false">
+//         <li class="xui-sidebarfilter xui-sidebarfilter-is-selected" aria-selected="true">
 //           <a class="xui-sidebarfilter--body" href="#Filter3">Another filter</a>
 //           <ul class="xui-sidebarfilters">
 //             <li class="xui-sidebarfilter" aria-selected="false">
 //               <a class="xui-sidebarfilter--body" href="#Filter1">
 //                 <span class="xui-column-2-of-12"></span>
-//                 <span class="xui-column-10-of-12">
-//                   <strong>Sub filters!</strong>
-//                 </span>
+//                 <span class="xui-column-10-of-12">Sub filters!</span>
 //               </a>
 //             </li>
 //             <li class="xui-sidebarfilter" aria-selected="false">
@@ -201,7 +201,8 @@
 }
 
 .#{$ns}-sidebarfilter--body {
-	@include xui-padding($xui-s-small / 2);
+	@include xui-padding-vertical($xui-s-small);
+	@include xui-padding-horizontal($xui-s-small / 2);
 }
 
 .#{$ns}-sidebarsummary {
@@ -226,4 +227,8 @@
 		@include xui-padding-top($xui-s-small);
 		border-top: $xui-border-standard;
 	}
+}
+
+.#{$ns}-sidebarfilter-is-selected > .#{$ns}-sidebarfilter--body {
+	@include xui-bold;
 }

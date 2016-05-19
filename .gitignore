@@ -7,6 +7,10 @@
 /styleguide/styleguide.md
 npm-debug.log
 
+# gh-pages branch stuff
+/docs
+/origin
+
 # Build/Output files/directories
 /*.html
 /dist

@@ -1,4 +1,3 @@
-import 'babel-core/external-helpers.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import XUIAvatar from '../../src/XUIAvatar.js';

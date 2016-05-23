@@ -74,12 +74,4 @@ describe('XUIAvatar', function () {
 		assert.isTrue(node2.className !== node3.className);
 		assert.isTrue(node3.className !== node1.className);
 	});
-
-	it('should throw if neither a value nor an imageUrl is passed in', function () {
-		assert.throws(function() {
-			const component = TestUtils.renderIntoDocument(
-				<XUIAvatar />
-			);
-		});
-	});
 });

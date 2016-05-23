@@ -28,12 +28,12 @@ import XUIAvatar from 'xui-avatar';
                 value="Donald Trump"
                 identifier="m4k34m4r1c4gr84g41n"
             />
-            
+
             <XUIAvatar
                 size="large"
                 imageUrl="logo.png"
             />
-		</div>, 
+		</div>,
 		document.getElementById('app')
 	);
 })();
@@ -57,6 +57,8 @@ Although all the properties are marked as optional, one of either `value` or `im
 
 `size`: (One of: ['small', 'medium', 'large'], Optional, default: 'medium') The size of the avatar.
 
-`identifier`: (String, Optional) A unique string that will be used to generate the colour of the avatar. Note that if `identifier` is not supplied, `value` will be used in its place. Doing this is not recommended since if different entities with the same value exist, they will end up looking identical. 
+`identifier`: (String, Optional) A unique string that will be used to generate the colour of the avatar. Note that if `identifier` is not supplied, `value` will be used in its place. Doing this is not recommended since if different entities with the same value exist, they will end up looking identical.
 
 `className`: (String, Optional) Any custom CSS class(es) you want to add to this component
+
+`onError`: (Function, Optional) Error handler if the image does not load. If no `imageUrl` prop is provided but `onError` is, then the `onError` function will be ignored.

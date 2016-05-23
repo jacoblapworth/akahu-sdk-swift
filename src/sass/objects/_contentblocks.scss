@@ -13,6 +13,8 @@
 //
 // `xui-contentblock--item`	Container for a content block item
 //
+// `xui-contentblock--item-layout`	Modifier to provide content block item layout
+//
 // `xui-contentblock--item-negative`	Modifier for a negative highlight content block item
 //
 // `xui-contentblock--item-selected`	Modifier for a selected content block item
@@ -23,7 +25,7 @@
 // <section>
 //   <h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Today</h2>
 //   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-contentblock--item-negative xui-padding xui-u-flex">
+//     <li class="xui-contentblock--item xui-contentblock--item-negative xui-contentblock--item-layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-col">
 //         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 //       </div>
@@ -35,7 +37,7 @@
 //         <button type="button" class="xui-button xui-button-standard">Action</button>
 //       </div>
 //     </li>
-//     <li class="xui-contentblock--item xui-contentblock--item-selected xui-padding xui-u-flex">
+//     <li class="xui-contentblock--item xui-contentblock--item-selected xui-contentblock--item-layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-col">
 //         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 //       </div>
@@ -50,7 +52,7 @@
 //   </ol>
 //   <h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Tomorrow</h2>
 //   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-padding xui-u-flex">
+//     <li class="xui-contentblock--item xui-contentblock--item--layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-col">
 //         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
 //       </div>
@@ -76,7 +78,7 @@
 // <section>
 //   <header class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Account Number: 12345678</header>
 //   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item">
+//     <li class="xui-contentblock--item xui-contentblock--item-layout">
 //       <a href="/Contacts/View/b8942fdc-ad0f-4cc0-967e-9a6f619a992d" class="xui-layout-fixed xui-padding xui-rowlink">
 //         <div class="xui-layout-column-5-of-12">Arya Stark</div>
 //         <div class="xui-layout-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
@@ -84,7 +86,7 @@
 //         </div>
 //       </a>
 //     </li>
-//     <li class="xui-contentblock--item">
+//     <li class="xui-contentblock--item xui-contentblock--item-layout">
 //       <a href="/Contacts/View/3e057826-6a71-4567-bae0-8834db2b6c71" class="xui-layout-fixed xui-padding xui-rowlink">
 //         <div class="xui-layout-column-5-of-12">Basil Cafe</div>
 //         <div class="xui-layout-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
@@ -116,6 +118,10 @@
 	&:first-of-type {
 		border-top: 0;
 	}
+
+	&-layout {
+		line-height: $xui-line-height-text;
+	}
 }
 
 .#{$ns}-contentblock--item-negative::before {
@@ -146,13 +152,13 @@
 //    </tr>
 //  </thead>
 //  <tbody>
-//    <tr class="xui-contentblock--item">
+//    <tr class="xui-contentblock--item xui-contentblock--item-layout">
 //      <td class="xui-text-cell xui-padding">300</td>
 //      <td class="xui-text-cell xui-padding">Bank Account 01</td>
 //      <td class="xui-text-cell xui-padding">3</td>
 //      <td class="xui-text-cell xui-padding xui-text-number">400.00</td>
 //    </tr>
-//    <tr class="xui-contentblock--item">
+//    <tr class="xui-contentblock--item xui-contentblock--item-layout">
 //      <td class="xui-text-cell xui-padding">301</td>
 //      <td class="xui-text-cell xui-padding">Bank Account 01</td>
 //      <td class="xui-text-cell xui-padding">3</td>

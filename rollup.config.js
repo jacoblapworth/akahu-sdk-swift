@@ -1,7 +1,6 @@
 let babel = require("rollup-plugin-babel"),
     commonjs = require("rollup-plugin-commonjs"),
-    npm = require("rollup-plugin-npm"),
-    lpb = require('list-bower-paths');
+    npm = require("rollup-plugin-npm");
 
 module.exports = {
     entry: "./src/XUIIconBlob.js",

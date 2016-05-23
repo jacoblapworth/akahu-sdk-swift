@@ -1,4 +1,5 @@
 import icons from './iconData.js';
+import Classes from '../bower_components/xui-css-classes/dist/xui-css-classes';
 
 let blob = '';
 
@@ -10,4 +11,4 @@ Object.keys(icons).forEach(function(name) {
 	`).replace(/[\t\n]/g, '');
 });
 
-export default `<svg class="xui-u-hidden-visually">${blob}</svg>`;
+export default `<svg class="${Classes.Utility.Hidden.VISUALLY}">${blob}</svg>`;

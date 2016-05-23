@@ -1,5 +1,8 @@
 xui-icon
 ========
+[![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_XuiIcon)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_XuiIcon)
+![](https://img.shields.io/badge/XUI-^10.0.0-blue.svg)
+![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
 
 xui-icon is a module for importing and using XUI Icons to you project. The full list of existing icons may be found [here](https://github.dev.xero.com/pages/UXE/xui-icon/).
 
@@ -16,11 +19,16 @@ import XUIIcon from 'xui-icon';
 
 `XUIIcon`'s parameters:
  - `icon` (string, required): specifies which icon you want to use
- - `modifierClasses` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers. 
+ - `className` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers. 
+ - `size` (['large','xlarge'], optional): specifies a size modifier
+ - `title` (string, optional): sets a title to be read by screen readers
+ - `desc` (string, optional): sets a description to be read by screen readers
+ - `role` (string, optional): sets a role for screen reader compatibility, defaults to `presentation`
+ - `rotation` ([90,180,270], optional): specifies a rotation modifier of `90`, `180`, or `270` degrees clockwise
 
 For example, to add an arrow rotated to the right
 ```jsx
-<XUIIcon icon="xui-icon-arrow" modifierClasses="xui-icon-rotate-270" />
+<XUIIcon icon="xui-icon-arrow" rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
 ```
 Using the icons without React
 =============================

@@ -1,7 +1,7 @@
 import icons from './iconData.js';
-import Classes from '../bower_components/xui-css-classes/dist/xui-css-classes';
 
 let blob = '';
+const hiddenVisually = 'xui-u-hidden-visually';
 
 Object.keys(icons).forEach(function(name) {
 	blob += (`
@@ -11,4 +11,4 @@ Object.keys(icons).forEach(function(name) {
 	`).replace(/[\t\n]/g, '');
 });
 
-export default `<svg class="${Classes.Utility.Hidden.VISUALLY}">${blob}</svg>`;
+export default `<svg class="${hiddenVisually}">${blob}</svg>`;

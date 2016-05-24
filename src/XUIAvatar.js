@@ -27,7 +27,10 @@ const propTypes = {
 	size: React.PropTypes.oneOf(['small', 'medium', 'large']),
 
 	/** @property {String} [identifier] A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
-	identifier: React.PropTypes.string
+	identifier: React.PropTypes.string,
+
+	/** @property {Function} [onError] Error handler if the avatar image fails to load */
+	onError: React.PropTypes.fn
 };
 
 /**
@@ -72,7 +75,7 @@ function getAvatarColorClass(identifier) {
 }
 
 export default function Avatar(props) {
-	const { qaHook, imageUrl, size, identifier, value } = props;
+	const { qaHook, imageUrl, size, identifier, value, onError } = props;
 
 	const avatarClassNames = cn(
 		props.className,
@@ -82,7 +85,7 @@ export default function Avatar(props) {
 	);
 
 	if (imageUrl) {
-		return <img data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;
+		return <img onError={onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;
 	} else {
 		return <abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{props.value.at(0)}</abbr>;
 	}

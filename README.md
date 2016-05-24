@@ -14,14 +14,25 @@ A React UI component that creates buttons from the [XUI UI library](https://gith
 $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 ```
 
-### XUI Button Properties
+### XUIButton Properties
+
+`className`: (String, Optional)
+
+`qaHook`: (String, Optional)
+
+`children`: (Node, Optional)
+
 `isDisabled`: (Boolean, Optional) Determines if the button is disabled or not. Set to false by default
 
 `isExternalLink` (Boolean, Optional) If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites.
 
+`isLoading`: (Boolean, Optional) Whether the button should show a loader inside. If true, this disables the button to prevent clicking.
+
 `isGrouped`: (Boolean, Optional) Automatically set to true when it's a child of XUIButtonGroup. Set to false by default otherwise
 
-`onClick`: (Function, Required) Bind a function to fire when the button is clicked
+`onClick`: (Function, Required) A function to fire when the button is clicked
+
+`onSecondaryClick`: (Function, Optional) A function to fire when the secondary button is clicked (used in conjunction with `split`)
 
 `variant`: (String, Optional) Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button
 
@@ -29,9 +40,9 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `type`: (String, Optional) The HTML type of this button. `button`, or `link`. Defaults to `button`
 
-`buttonType` (String, Optional} The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`
+`split`: (Boolean, Optional) Whether to render a split button. If you use this, you should also provide `onSecondaryClick`
 
-`className`: (String, Optional) Any extra modifier classes you want on the button
+`buttonType` (String, Optional} The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`
 
 `href`: (String, Optional) If this button is type `link` then this will be the hyperlink reference. Else ignored
 
@@ -41,8 +52,13 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `tabIndex`: (Boolean, Optional) The HTML `tabIndex` attribute which will go on the node.  Default `0`
 
-### XUI Button Caret Properties
+### XUIButtonCaret Properties
 `isSelect`: (Boolean, Optional) Determines if the caret has select styles. Defaults to false.
+
+### XUIButtonGroup Properties
+`children`: (Node, Optional)
+
+`className`: (Node, Optional)
 
 ### Example
 ```js

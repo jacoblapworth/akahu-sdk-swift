@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import Component from 'xui-base-component';
 import Classes from 'xui-css-classes';
 import cn from 'classnames';
 import XUIIcon from 'xui-icon';
+import XUILoader from 'xui-loader';
 
 // general helpers
 const keys = Object.keys;
@@ -46,13 +46,21 @@ const CONSTANTS = {
 };
 
 const propTypes = {
-	/** @property {boolean} [isDisabled=false] Determines if the button is disabled or not. Set to false by default */
+
+	className: PropTypes.string,
+	children: PropTypes.node,
+	qaHook: PropTypes.string,
+
+	/** @property {boolean} [isDisabled] Determines if the button is disabled or not. */
 	isDisabled: PropTypes.bool,
 
 	/** @property {string} [isExternalLink] If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
 	isExternalLink: PropTypes.bool,
 
-	/** @property {boolean} [isGrouped=false] If this button is part of a parent button group */
+	/** @property {boolean} [isLoading] If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+	isLoading: PropTypes.bool,
+
+	/** @property {boolean} [isGrouped] If this button is part of a parent button group */
 	isGrouped: PropTypes.bool,
 
 	/** @property {function} onClick Bind a function to fire when the button is clicked */
@@ -72,7 +80,7 @@ const propTypes = {
 	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
 	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
 
-	/** @property {string} [size='default'] Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. Else ignored */
+	/** @property {string} [size='default'] Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
 	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
 
 	/** @property {string} [type='button'] The HTML type of this button. `button`, or `link`. Defaults to `button` */
@@ -81,23 +89,20 @@ const propTypes = {
 	/** @property {string} [buttonType='submit'] The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
 	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
 
-	/** @property {string} [className] Any extra modifier classes you want on the button */
-	className: PropTypes.string,
-
-	/** @property {string} [href] The `href` attribute to use on the anchor element (Ignored unless `type` is `link`) */
+	/** @property {string} [href] The `href` attribute to use on the anchor element (ignored unless `type` is `link`) */
 	href: function (props) {
 		if (props.type === CONSTANTS.LINK && !props.onClick && !props.href) {
 			throw new Error('Link buttons without an onClick handler require an href.');
 		}
 	},
 
-	/** @property {string} [rel] The `rel` attribute to use on the anchor element (Ignored unless `type` is `link`) */
+	/** @property {string} [rel] The `rel` attribute to use on the anchor element (ignored unless `type` is `link`) */
 	rel: PropTypes.string,
 
 	/** @property {number} [tabIndex=0] The HTML tabIndex property to put on the component */
 	tabIndex: PropTypes.number,
 
-	/** @property {string} [target] The `target` attribute to use on the anchor element (Ignored unless `type` is `link`) */
+	/** @property {string} [target] The `target` attribute to use on the anchor element (ignored unless `type` is `link`) */
 	target: PropTypes.string,
 
 	/** @property {string} [title] The `title` attribute for this button */
@@ -114,8 +119,6 @@ const propTypes = {
  */
 const defaultProps = {
 	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
-	isGrouped: false,
-	isDisabled: false,
 	tabIndex: 0,
 	type: CONSTANTS.ELEMENT_TYPES.BUTTON,
 	variant: 'standard'
@@ -176,10 +179,10 @@ const getHref = href => (!href || href === '#') ? 'javascript:void(0)' : href;
  *
  * @private
  * @param {KeyboardEvent} event
+ * @param {Object} props
  */
-function handleSpacebarAsClick(event) {
-	const button = this;
-	if (!button.props.isDisabled) {
+function handleSpacebarAsClick(event, props) {
+	if (props.isDisabled || props.isLoading) {
 		let shouldClick;
 		if (event.key) {
 			shouldClick = event.key === ' ' || event.key === 'Spacebar';
@@ -223,90 +226,97 @@ function handleSpacebarAsClick(event) {
 	}
 }
 
-export default class XUIButton extends Component {
-	render() {
-		const button = this;
-		const props = button.props;
-		const isLink = props.type === CONSTANTS.TYPES.LINK;
-		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
-		const variantClass = getVariantClass(props.variant);
-		const isSplit = props.split && props.hasOwnProperty('onSecondaryClick');
+const setupLinkProps = (props, elementProps) => {
+	elementProps.role = 'button';
+	elementProps.onKeyPress = function(e) {
+		handleSpacebarAsClick(e, props);
+	};
+	elementProps.href = getHref(props.href);
+	elementProps.target = props.target;
+	elementProps.rel = props.rel;
 
-		const classNames = cn(
-			ButtonClasses.BASE,
-			props.className,
-			variantClass,
-			getDisabledClass(props.isDisabled),
-			getSizeClass(props.size),
-			getGroupClass(props.isGrouped)
-		);
-
-		// Only call the click event if the element isn't disabled.
-		const clickHandler = function (event) {
-			if (isLink && props.isDisabled) {
-				event.preventDefault();
-			} else {
-				if (props.onSecondaryClick) {
-					props.onSecondaryClick.apply(button, arguments);
-				} else if (props.onClick) {
-					props.onClick.apply(button, arguments);
-				}
-			}
-		};
-
-		// Standard props for all element types
-		const elementProps = {
-			title: props.title,
-			onClick: clickHandler,
-			disabled: props.isDisabled,
-			className: classNames,
-			tabIndex: props.isDisabled ? -1 : props.tabIndex
-		};
-
-		// Element type specific props
-		if (isLink) {
-			elementProps.role = 'button';
-			elementProps.onKeyPress = handleSpacebarAsClick.bind(button);
-			elementProps.href = getHref(props.href);
-			elementProps.target = props.target;
-			elementProps.rel = props.rel;
-
-			if(props.isExternalLink) {
-				elementProps.rel = (elementProps.rel ? elementProps.rel + ' ' : '') + 'external noopener noreferrer'
-			}
-
-			if (props.isDisabled) {
-				elementProps['aria-disabled'] = true;
-			}
-		} else {
-			elementProps.type = props.buttonType;
-		}
-
-		if (isSplit) {
-			elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
-		}
-
-		let Button = (
-			<ElementType {...elementProps}>
-				{props.children}
-			</ElementType>
-		);
-
-		if (isSplit) {
-
-			Button = (
-				<div className={ButtonClasses.GROUPED}>
-					{Button}
-					<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={clickHandler}>
-						<XUIIcon icon="xui-icon-chevron" className={ButtonClasses.CARET}/>
-					</ElementType>
-				</div>
-			);
-
-		}
-
-		return Button;
+	if(props.isExternalLink) {
+		elementProps.rel = (elementProps.rel ? elementProps.rel + ' ' : '') + 'external noopener noreferrer'
 	}
+
+	if (props.isDisabled || props.isLoading) {
+		elementProps['aria-disabled'] = true;
+	}
+};
+
+export default function XUIButton(props) {
+	const isLink = props.type === CONSTANTS.TYPES.LINK;
+	const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
+	const variantClass = getVariantClass(props.variant);
+	const isSplit = props.split && props.onSecondaryClick;
+	const isDisabled = props.isDisabled || props.isLoading;
+	const children = props.isLoading ? <XUILoader size="small" defaultLayout={false} className={ButtonClasses.LOADER} /> : props.children;
+
+	const classNames = cn(
+		ButtonClasses.BASE,
+		props.className,
+		variantClass,
+		getDisabledClass(props.isDisabled),
+		getSizeClass(props.size),
+		getGroupClass(props.isGrouped)
+	);
+
+	const clickHandler = function() {
+		if (isLink && isDisabled) {
+			event.preventDefault();
+		} else {
+			props.onClick.apply(arguments);
+		}
+	};
+
+	const secondaryClickHandler = function() {
+		if (isLink && isDisabled) {
+			event.preventDefault();
+		} else {
+			props.onSecondaryClick.apply(arguments);
+		}
+	};
+
+	// Standard props for all element types
+	const elementProps = {
+		title: props.title,
+		onClick: clickHandler,
+		disabled: isDisabled,
+		className: classNames,
+		tabIndex: isDisabled ? -1 : props.tabIndex
+	};
+
+	// Element type specific props
+	if (isLink) {
+		setupLinkProps(props, elementProps);
+	} else {
+		elementProps.type = props.buttonType;
+	}
+
+	if (isSplit) {
+		elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
+	}
+
+	let Button = (
+		<ElementType {...elementProps} data-automationid={props.qaHook}>
+			{children}
+		</ElementType>
+	);
+
+	if (isSplit) {
+
+		Button = (
+			<div className={ButtonClasses.GROUPED}>
+				{Button}
+				<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={secondaryClickHandler}>
+					<XUIIcon icon="xui-icon-chevron" className={ButtonClasses.CARET}/>
+				</ElementType>
+			</div>
+		);
+
+	}
+
+	return Button;
 }
 
 XUIButton.propTypes = propTypes;

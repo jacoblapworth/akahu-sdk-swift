@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0",
   "name": "xui-button",
   "main": "index.js",
   "description": "A button. That clicks",
@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "bower": "^1.6.3",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.0"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.3"
   }
 }

@@ -48,6 +48,9 @@ const propTypes = {
 	/** @property {boolean} [isDisabled=false] Determines if the button is disabled or not. Set to false by default */
 	isDisabled: PropTypes.bool,
 
+	/** @property {string} [isExternalLink] If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
+	isExternalLink: PropTypes.bool,
+
 	/** @property {boolean} [isGrouped=false] If this button is part of a parent button group */
 	isGrouped: PropTypes.bool,
 
@@ -58,32 +61,35 @@ const propTypes = {
 		}
 	},
 
-	/** @property {string} [variant='standard'] variant Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
+	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
 	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
 
-	/** @property {string} [size='default'] size Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. Else ignored */
+	/** @property {string} [size='default'] Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. Else ignored */
 	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
 
-	/** @property {string} [type='button'] type The HTML type of this button. `button`, or `link`. Defaults to `button` */
+	/** @property {string} [type='button'] The HTML type of this button. `button`, or `link`. Defaults to `button` */
 	type: PropTypes.oneOf(values(CONSTANTS.TYPES)),
 
-	/** @property {string} [buttonType='submit'] type The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
+	/** @property {string} [buttonType='submit'] The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
 	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
 
 	/** @property {string} [className] Any extra modifier classes you want on the button */
 	className: PropTypes.string,
 
-	/** @property {string} [href] If this button is type `link` then this will be the hyperlink reference. Else ignored */
+	/** @property {string} [href] The `href` attribute to use on the anchor element (Ignored unless `type` is `link`) */
 	href: function (props) {
 		if (props.type === CONSTANTS.LINK && !props.onClick && !props.href) {
 			throw new Error('Link buttons without an onClick handler require an href.');
 		}
 	},
 
-	/** @property {number} [tabIndex=0] - The HTML tabIndex property to put on the component */
+	/** @property {string} [rel] The `rel` attribute to use on the anchor element (Ignored unless `type` is `link`) */
+	rel: PropTypes.string,
+
+	/** @property {number} [tabIndex=0] The HTML tabIndex property to put on the component */
 	tabIndex: PropTypes.number,
 
-	/** @property {string} [target] The `target` attribute for the button if the type is `link`. Ignored otherwise */
+	/** @property {string} [target] The `target` attribute to use on the anchor element (Ignored unless `type` is `link`) */
 	target: PropTypes.string,
 
 	/** @property {string} [title] The `title` attribute for this button */
@@ -248,6 +254,12 @@ export default class XUIButton extends Component {
 			elementProps.onKeyPress = handleSpacebarAsClick.bind(button);
 			elementProps.href = getHref(props.href);
 			elementProps.target = props.target;
+			elementProps.rel = props.rel;
+
+			if(props.isExternalLink) {
+				elementProps.rel = (elementProps.rel ? elementProps.rel + ' ' : '') + 'external noopener noreferrer'
+			}
+
 			if (props.isDisabled) {
 				elementProps['aria-disabled'] = true;
 			}

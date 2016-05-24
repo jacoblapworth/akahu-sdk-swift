@@ -2,36 +2,72 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import chai from 'chai';
 import XUILoader from '../XUILoader.js';
+import Classes from 'xui-css-classes';
 
 const assert = chai.assert;
 const TestUtils = React.addons.TestUtils;
 
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {
-
 		const testString = 'Something is loading, please wait';
-
 		const component = TestUtils.renderIntoDocument(
 			<div>
 				<XUILoader label="Something is loading, please wait" />
 			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component).children[0];
-		assert.strictEqual(node.getAttribute('aria-label'), testString, testString);
+		const node = ReactDOM.findDOMNode(component).firstChild;
+		assert.strictEqual(node.getAttribute('aria-label'), testString);
 	});
 
 	it('should add extra classes when defined', function () {
-
 		const testClass = 'test-class';
-
 		const component = TestUtils.renderIntoDocument(
 			<div>
 				<XUILoader className={testClass} label="Something is loading, please wait" />
 			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component).children[0];
-		assert.strictEqual(node.classList[1], testClass, testClass);
+		const node = ReactDOM.findDOMNode(component).firstChild;
+		assert.isTrue(node.classList.contains(testClass));
+	});
+
+	it('should add the layout class by default', function () {
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUILoader label="Something is loading, please wait" />
+			</div>
+		);
+
+		const node = ReactDOM.findDOMNode(component).firstChild;
+		assert.isTrue(node.classList.contains(Classes.Loader.LAYOUT));
+	});
+
+	it('should not add the layout class if `defaultLayout` is set to `false`', function () {
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUILoader defaultLayout={false} label="Something is loading, please wait" />
+			</div>
+		);
+
+		const node = ReactDOM.findDOMNode(component).firstChild;
+		assert.isFalse(node.classList.contains(Classes.Loader.LAYOUT));
+	});
+
+	it('should add appropriate size classes', function () {
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUILoader label="Something is loading, please wait" />
+				<XUILoader size="small" label="Something is loading, please wait" />
+				<XUILoader size="large" label="Something is loading, please wait" />
+			</div>
+		);
+
+		const node1 = ReactDOM.findDOMNode(component).children[0];
+		const node2 = ReactDOM.findDOMNode(component).children[1];
+		const node3 = ReactDOM.findDOMNode(component).children[2];
+		assert.isTrue(node1.classList.contains(Classes.Loader.BASE));
+		assert.isTrue(node2.classList.contains(Classes.Loader.SMALL));
+		assert.isTrue(node3.classList.contains(Classes.Loader.LARGE));
 	});
 });

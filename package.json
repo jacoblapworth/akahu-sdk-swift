@@ -1,9 +1,9 @@
 {
-  "version": "1.8.0",
+  "version": "2.0.0",
   "name": "xui-button",
   "main": "index.js",
   "description": "A button. That clicks",
-  "author": "a person who could not configure their git properly :) (TODO: fix this)",
+  "author": "James Macfie <james.macfie@xero.com>",
   "license": "Copyright Xero Ltd",
   "private": true,
   "scripts": {

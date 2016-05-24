@@ -1,7 +1,5 @@
 import React from 'react';
-import XUIClasses from 'xui-css-classes';
-
-const ButtonClasses = XUIClasses.Button;
+import Classes from 'xui-css-classes';
 
 const PropTypes = {
 	/** @property {boolean} [isSelect=false] signal if the caret has select styles */
@@ -9,7 +7,7 @@ const PropTypes = {
 };
 
 const XUIButtonCaret = ({ isSelect }) => (
-	<span className={isSelect ? 'xui-select--caret' : ButtonClasses.CARET}></span>
+	<span className={isSelect ? Classes : `${Classes.Button.CARET} ${Classes.Margin.LEFT}`}></span>
 );
 
 XUIButtonCaret.propTypes = PropTypes;

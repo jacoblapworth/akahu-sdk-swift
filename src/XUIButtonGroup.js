@@ -1,5 +1,5 @@
 import React from 'react';
-import XUIClasses from 'xui-css-classes';
+import Classes from 'xui-css-classes';
 
 const withProp = (prop, value) => element => ({
 	...element,
@@ -10,7 +10,7 @@ const withProp = (prop, value) => element => ({
 });
 
 const XUIButtonGroup = ({ children }) => (
-	<div className={XUIClasses.BUTTON_GROUP}>
+	<div className={Classes.BUTTON_GROUP}>
 		{children.map(withProp('isGrouped', true))}
 	</div>
 );

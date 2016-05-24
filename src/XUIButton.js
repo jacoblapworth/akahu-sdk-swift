@@ -1,14 +1,13 @@
 import React, {PropTypes} from 'react';
 import Component from 'xui-base-component';
+import Classes from 'xui-css-classes';
 import cn from 'classnames';
-
-import XUIClasses from 'xui-css-classes';
-
-const ButtonClasses = XUIClasses.Button;
 
 // general helpers
 const keys = Object.keys;
 const values = x => keys(x).map(k => x[k]);
+
+const ButtonClasses = Classes.Button;
 
 /**
  * String constants
@@ -33,12 +32,15 @@ const CONSTANTS = {
 	VARIANTS: {
 		'primary': ButtonClasses.MAIN,
 		'create': ButtonClasses.CREATE,
+		'link': ButtonClasses.LINK,
 		'negative': ButtonClasses.NEGATIVE,
-		'unstyled': ButtonClasses.UNSTYLED
+		'standard': ButtonClasses.STANDARD,
+		'unstyled': ''
 	},
 	SIZES: {
 		'small': ButtonClasses.SMALL,
-		'full-width': ButtonClasses.FULL_WIDTH
+		'full-width': Classes.Utility.FULL_WIDTH,
+		'full-width-mobile': ButtonClasses.FULL_WIDTH
 	}
 };
 
@@ -56,10 +58,10 @@ const propTypes = {
 		}
 	},
 
-	/** @property {string} [isDisabled='default'] variant Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button */
+	/** @property {string} [variant='standard'] variant Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
 	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
 
-	/** @property {string} [size='default'] size Modifier for the size of the button. `small`, or `full-width`. Else ignored */
+	/** @property {string} [size='default'] size Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. Else ignored */
 	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
 
 	/** @property {string} [type='button'] type The HTML type of this button. `button`, or `link`. Defaults to `button` */
@@ -98,7 +100,8 @@ const defaultProps = {
 	isGrouped: false,
 	isDisabled: false,
 	tabIndex: 0,
-	type: 'button'
+	type: CONSTANTS.ELEMENT_TYPES.BUTTON,
+	variant: 'standard'
 };
 
 /**
@@ -109,7 +112,10 @@ const defaultProps = {
  * @param {string} variant - The button variant
  * @return {string} The variant specific classname
  */
-const getVariantClass = variant => CONSTANTS.VARIANTS[variant];
+const getVariantClass = variant => {
+	const variants = CONSTANTS.VARIANTS;
+	return variants.hasOwnProperty(variant) ? variants[variant] : ButtonClasses.STANDARD;
+};
 
 /**
  * Returns a classname for the button depending on it's disabled state
@@ -199,32 +205,18 @@ function handleSpacebarAsClick(event) {
 	}
 }
 
-/**
- * Checks whether or not the button should have the 'xui-button' class applied.
- * It should not if the variant is 'unstyled' or the 'xui-unstyledbutton' class is applied
- *
- * @private
- * @param props
- */
-function isUnstyled(props) {
-	return (
-			props.variant === CONSTANTS.VARIANTS.unstyled
-			|| (props.className && props.className.indexOf(ButtonClasses.UNSTYLED) > -1)
-		);
-}
-
 export default class XUIButton extends Component {
 	render() {
 		const button = this;
 		const props = button.props;
 		const isLink = props.type === CONSTANTS.TYPES.LINK;
 		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
-		const defaultButtonClass = isUnstyled(props) ? null : ButtonClasses.BASE;
+		const variantClass = getVariantClass(props.variant);
 
 		const classNames = cn(
-			defaultButtonClass,
+			ButtonClasses.BASE,
 			props.className,
-			getVariantClass(props.variant),
+			variantClass,
 			getDisabledClass(props.isDisabled),
 			getSizeClass(props.size),
 			getGroupClass(props.isGrouped)

@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import Component from 'xui-base-component';
 import Classes from 'xui-css-classes';
 import cn from 'classnames';
+import XUIIcon from 'xui-icon';
 
 // general helpers
 const keys = Object.keys;
@@ -61,6 +62,13 @@ const propTypes = {
 		}
 	},
 
+	/** @property {function} [onSecondaryClick] Bind a function to fire when the second button in a split button is clicked */
+	onSecondaryClick: function (props) {
+		if (props.split && !(typeof props.onSecondaryClick === 'function')) {
+			throw new Error('Split buttons require a secondary click handler');
+		}
+	},
+
 	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
 	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
 
@@ -93,7 +101,10 @@ const propTypes = {
 	target: PropTypes.string,
 
 	/** @property {string} [title] The `title` attribute for this button */
-	title: PropTypes.string
+	title: PropTypes.string,
+
+	/** @property {boolean} [split] Changes the button to a split button. Use `onSecondaryClick` with this to create dropdown experiences */
+	split: PropTypes.bool
 };
 
 /**
@@ -204,6 +215,7 @@ function handleSpacebarAsClick(event) {
 				});
 			} else {
 				clickEvent = document.createEvent('MouseEvents');
+				// If you're seeing a line through initMouseEvent because WebStorm, read the comment above the if statement
 				clickEvent.initMouseEvent('click', true, true, 'window', 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 			}
 			event.target.dispatchEvent(clickEvent);
@@ -218,6 +230,7 @@ export default class XUIButton extends Component {
 		const isLink = props.type === CONSTANTS.TYPES.LINK;
 		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
 		const variantClass = getVariantClass(props.variant);
+		const isSplit = props.split && props.hasOwnProperty('onSecondaryClick');
 
 		const classNames = cn(
 			ButtonClasses.BASE,
@@ -229,14 +242,18 @@ export default class XUIButton extends Component {
 		);
 
 		// Only call the click event if the element isn't disabled.
-		const clickHandler = function (event) {
+		const clickHandler = function (event, secondaryClick) {
+
 			if (isLink && props.isDisabled) {
 				event.preventDefault();
 			} else {
-				if (props.onClick) {
+				if (secondaryClick) {
+					props.onSecondaryClick.apply(button, arguments);
+				} else if (props.onClick) {
 					props.onClick.apply(button, arguments);
 				}
 			}
+
 		};
 
 		// Standard props for all element types
@@ -267,11 +284,30 @@ export default class XUIButton extends Component {
 			elementProps.type = props.buttonType;
 		}
 
-		return (
+		if (isSplit) {
+			elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
+		}
+
+		let Button = (
 			<ElementType {...elementProps}>
 				{props.children}
 			</ElementType>
 		);
+
+		if (isSplit) {
+
+			Button = (
+				<div className={ButtonClasses.GROUPED}>
+					{Button}
+					<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={clickHandler.bind(this, true)}>
+						<XUIIcon icon="xui-icon-chevron" className={ButtonClasses.CARET}/>
+					</ElementType>
+				</div>
+			);
+
+		}
+
+		return Button;
 	}
 }
 

@@ -9,6 +9,10 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 		alert('I was clicked'); //eslint-disable-line no-alert
 	};
 
+	const secondaryClickHandler = function() {
+		alert('I was clicked too'); //eslint-disable-line no-alert
+	};
+
 	const examples = (
 		<div>
 			<div className="testButtonContainer">
@@ -104,6 +108,9 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 				<XUIButton onClick={clickHandler} variant="unstyled">Unstyled button</XUIButton>
 				&nbsp;
 				<XUIButton onClick={clickHandler} variant="unstyled" isDisabled>Unstyled button (disabled)</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton onClick={clickHandler} onSecondaryClick={secondaryClickHandler} split={true} variant="primary">Split button</XUIButton>
 			</div>
 		</div>
 	);

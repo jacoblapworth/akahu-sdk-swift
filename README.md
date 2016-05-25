@@ -17,6 +17,8 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 ### XUI Button Properties
 `isDisabled`: (Boolean, Optional) Determines if the button is disabled or not. Set to false by default
 
+`isExternalLink` (Boolean, Optional) If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites.
+
 `isGrouped`: (Boolean, Optional) Automatically set to true when it's a child of XUIButtonGroup. Set to false by default otherwise
 
 `onClick`: (Function, Required) Bind a function to fire when the button is clicked

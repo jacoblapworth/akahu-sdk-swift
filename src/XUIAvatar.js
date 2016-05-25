@@ -30,7 +30,7 @@ const propTypes = {
 	identifier: React.PropTypes.string,
 
 	/** @property {Function} [onError] Error handler if the avatar image fails to load */
-	onError: React.PropTypes.fn
+	onError: React.PropTypes.func
 };
 
 /**

@@ -1,6 +1,6 @@
 xui-icon
 ========
-[![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_XuiIcon)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_XuiIcon)
+[![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_SharedReactComponents_UxeXuiIcon)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_XuiIcon)
 ![](https://img.shields.io/badge/XUI-^10.0.0-blue.svg)
 ![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
 

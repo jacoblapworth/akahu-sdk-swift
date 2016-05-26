@@ -242,18 +242,16 @@ export default class XUIButton extends Component {
 		);
 
 		// Only call the click event if the element isn't disabled.
-		const clickHandler = function (event, secondaryClick) {
-
+		const clickHandler = function (event) {
 			if (isLink && props.isDisabled) {
 				event.preventDefault();
 			} else {
-				if (secondaryClick) {
+				if (props.onSecondaryClick) {
 					props.onSecondaryClick.apply(button, arguments);
 				} else if (props.onClick) {
 					props.onClick.apply(button, arguments);
 				}
 			}
-
 		};
 
 		// Standard props for all element types
@@ -299,7 +297,7 @@ export default class XUIButton extends Component {
 			Button = (
 				<div className={ButtonClasses.GROUPED}>
 					{Button}
-					<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={clickHandler.bind(this, true)}>
+					<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={clickHandler}>
 						<XUIIcon icon="xui-icon-chevron" className={ButtonClasses.CARET}/>
 					</ElementType>
 				</div>

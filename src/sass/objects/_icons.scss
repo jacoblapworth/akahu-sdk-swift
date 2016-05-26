@@ -55,15 +55,28 @@
 //
 // Styleguide: Icons.2
 
+// Icon colours
+//
+// The colours may be applied to the icons with `xui-icon-color-standard`, `xui-icon-color-blue`, `xui-icon-color-red`, `xui-icon-color-green` and `xui-icon-color-white`
+//
+// Markup:
+//	<svg class="xui-icon xui-icon-color-standard"> <use xlink:href="#xui-icon-print" /></svg>
+//	<svg class="xui-icon xui-icon-color-blue"> <use xlink:href="#xui-icon-print" /></svg>
+//	<svg class="xui-icon xui-icon-color-red"> <use xlink:href="#xui-icon-print" /></svg>
+//	<svg class="xui-icon xui-icon-color-green"> <use xlink:href="#xui-icon-print" /></svg>
+//	<svg class="xui-icon xui-icon-color-white" style="background-color: grey; border-radius: 50%"> <use xlink:href="#xui-icon-print" /></svg>
+//
+// Styleguide: Icons.3
+
 /* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
 .#{$ns}-icon-svg {
-	fill: currentColor;
 	fill-rule: evenodd;
 	shape-rendering: auto;
 }
 
 .#{$ns}-icon {
 	display: inline-block;
+	fill: currentColor;
 	height: $xui-icon-standard;
 	width: $xui-icon-standard;
 }
@@ -95,4 +108,24 @@
 
 .#{$ns}-icon-rotate-270 {
 	transform: rotate(270deg);
+}
+
+.#{$ns}-icon-color-standard {
+	fill: $xui-color-icon;
+}
+
+.#{$ns}-icon-color-white {
+	fill: $xui-color-white;
+}
+
+.#{$ns}-icon-color-blue {
+	fill: $xui-color-xero-blue;
+}
+
+.#{$ns}-icon-color-green {
+	fill: $xui-color-xero-green;
+}
+
+.#{$ns}-icon-color-red {
+	fill: $xui-color-xero-red;
 }

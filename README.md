@@ -39,16 +39,10 @@ What is XUI For?
 
 XUI provides a CSS base that implements the Xero Pattern Library.
 
-The approach is heavily inspired by Stripe's approach, which is discussed in
-this video:
+It is heavily [inspired by Stripe's approach](http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ).
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ" target="_blank">
-  <img src="http://img.youtube.com/vi/NHpSmJrEvRQ/0.jpg" alt="Thumbnail of Michelle Bu's TXJS 2015 talk" width="480" height="360">
-</a>
-
-In the near future we aim to provide JavaScript components that target XUI and
-when those components are available developers should prefer those components
-over using XUI directly.
+We also provide React components that target XUI in the [UXE Github org](https://github.dev.xero.com/UXE). 
+When appropriate components exist, developers should use those components over using XUI directly.
 
 Example Page Markup
 -------------------
@@ -90,8 +84,8 @@ Example Page Markup
 </html>
 ```
 
-Usage Guidelines
-----------------
+Using XUI
+---------
 
  * Add the `xui-body` class to your `<body>` element, unless you are targeting
    legacy pages. The `xui-body` class provides background color, baseline font
@@ -105,18 +99,27 @@ Usage Guidelines
  * Namespace your project's classes appropriately and separately to XUI.
  * Avoid writing your own CSS as much as possible, particularly if your CSS
    overrides XUI's styling. The less custom CSS you have, the easier it will be
-   to upgrade to new versions of XUI.
+   to upgrade to future versions of XUI.
  * In your main application, make sure XUI is loaded or imported before any of
    your other stylesheets.
- * When developing components, import XUI as a devDependency. Do not import XUI,
-   or any SCSS file containing shared classes, in any code that your component
-   exports. SCSS does not currently dedupe multiple imports of the same code, so
-   importing XUI in separate components will at the very least lead to bloated
-   files. It may also cause broken styling depending on when the imports occur.
- * If you need XUI's variables and mixins, import them via these entry points:
-    * For variables, `@import 'xui/src/sass/vars';`
-    * For mixins, `@import 'xui/src/sass/mixins';`
 
+Developing XUI Components
+-------------------------
+
+When developing components, import XUI as a dependency. Do not import XUI,
+or any SCSS file containing shared classes, in any code that your component
+exports. SCSS does not currently dedupe multiple imports of the same code, so
+importing XUI in separate components will at the very least result in bloated
+files. It may also cause broken styling depending on when the imports occur.
+
+Using XUI's Variables and Mixins
+--------------------------------
+
+If you want access to XUI's variables and mixins, you can import XUI as a dependency, and then import these individual files
+  * For variables, `@import 'xui/src/sass/vars';`
+  * For mixins, `@import 'xui/src/sass/mixins';`
+
+We do not recommend importing any other files as they are not considered a part of XUI's public API; they might move around between versions, which could end up breaking your project.
 
 Updating
 --------

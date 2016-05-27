@@ -12,13 +12,19 @@ By default, each icon has its fill set to `currentColor`, so it will use the inh
 
 React Usage
 ===========
-To import the module:
+### Modules
+`xui-icon` exports two modules:
+ - `XUIIcon` - The main icon component
+ - `XUIIcons` - Object containing names for all of the icons provided.
+
+### Usage
 ```js
-import XUIIcon from 'xui-icon';
+import XUIIcon, { XUIIcons } from 'xui-icon';
 ```
 
 `XUIIcon`'s parameters:
  - `icon` (string, required): specifies which icon you want to use
+  - Either a `XUIIcons` property, or by explicitly naming the icon. (`XUIIcons.ARROW_SMALL` or `'arrow-small'`)
  - `className` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers. 
  - `size` (['large','xlarge'], optional): specifies a size modifier
  - `title` (string, optional): sets a title to be read by screen readers

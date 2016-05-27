@@ -7,6 +7,12 @@ import XUIIconBlob from './XUIIconBlob';
 import Classes from 'xui-css-classes';
 import icons from './iconData';
 
+const iconNames = Object.keys(icons).reduce((object, icon, i) => {
+		object[icon.replace('-','_').toUpperCase()] = icon;
+		return object;
+	}, {});
+export const XUIIcons = iconNames;
+
 const iconSizes = {
 	standard: '',
 	large: Classes.Icon.LARGE,
@@ -18,12 +24,9 @@ const rotations = [
 	180,
 	270
 ];
-const iconNames = Object.keys(icons).map(icon => {
-	return 'xui-icon-' + icon;
-});
 const propTypes = {
 	/** @property {string} Defines the icon to be rendered */
-	icon: PropTypes.oneOf(iconNames).isRequired,
+	icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
 	/** @property {string} [className=''] Additional classes to be applied to the icon */
 	className: PropTypes.string,
 	/** @property {string} [size=''] Adds a size modifier to the icon */
@@ -37,6 +40,7 @@ const propTypes = {
 	/** @property {string} [rotation=0] Adds a rotation modifier to the icon */
 	rotation: PropTypes.oneOf(rotations)
 };
+
 const defaultProps = {
 	size: 'standard',
 	role: 'presentation'
@@ -57,7 +61,7 @@ export default function XUIIcon(props) {
 		<svg className={ classes }>
 			{ optionalTitle }
 			{ optionalDescription }
-			<use xlinkHref={'#' + icon } role={ role }/>
+			<use xlinkHref={'#xui-icon-' + icon } role={ role }/>
 		</svg>
 	);
 }

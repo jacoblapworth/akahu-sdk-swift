@@ -1,7 +1,8 @@
 import { assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XUIIcon from '../XUIIcon.js';
+import iconData from '../../src/iconData';
+import XUIIcon, { XUIIcons } from '../XUIIcon';
 import Classes from 'xui-css-classes';
 
 const TestUtils = React.addons.TestUtils;
@@ -12,7 +13,7 @@ describe('XUIIcon', () => {
 	it('Should render with any additional classes provided through the className prop', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon="xui-icon-search" className={'classyMcClassFace'} />
+				<XUIIcon icon={ XUIIcons.SEARCH } className={'classyMcClassFace'} />
 			</div>
 		);
 
@@ -24,9 +25,9 @@ describe('XUIIcon', () => {
 	it('Should render with the correct size classes when modifiers are provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon="xui-icon-search" />
-				<XUIIcon icon="xui-icon-search" size="large" />
-				<XUIIcon icon="xui-icon-search" size="xlarge" />
+				<XUIIcon icon={ XUIIcons.SEARCH } />
+				<XUIIcon icon={ XUIIcons.SEARCH } size="large" />
+				<XUIIcon icon={ XUIIcons.SEARCH } size="xlarge" />
 			</div>
 		);
 
@@ -45,10 +46,10 @@ describe('XUIIcon', () => {
 	it('Should render with the correct rotation classes when rotations are provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon="xui-icon-search" />
-				<XUIIcon icon="xui-icon-search" rotation={90} />
-				<XUIIcon icon="xui-icon-search" rotation={180} />
-				<XUIIcon icon="xui-icon-search" rotation={270} />
+				<XUIIcon icon={ XUIIcons.SEARCH } />
+				<XUIIcon icon={ XUIIcons.SEARCH } rotation={90} />
+				<XUIIcon icon={ XUIIcons.SEARCH } rotation={180} />
+				<XUIIcon icon={ XUIIcons.SEARCH } rotation={270} />
 			</div>
 		);
 
@@ -72,7 +73,7 @@ describe('XUIIcon', () => {
 		const component = TestUtils.renderIntoDocument(
 			<div>
 				<XUIIcon 
-					icon="xui-icon-search" 
+					icon={ XUIIcons.SEARCH } 
 					title="Happy poop title 💩"
 					desc="Happy poop desc 💩" />
 			</div>
@@ -104,7 +105,7 @@ describe('XUIIcon', () => {
 	it('Should render with role="presentation" on the use element by default', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon="xui-icon-search" />
+				<XUIIcon icon={ XUIIcons.SEARCH } />
 			</div>
 		);
 		const domNode = ReactDOM.findDOMNode(component).children[0];
@@ -114,10 +115,29 @@ describe('XUIIcon', () => {
 	it('Should render with the given role applied to the use element', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon="xui-icon-search" role="img" />
+				<XUIIcon icon={ XUIIcons.SEARCH } role="img" />
 			</div>
 		);
 		const domNode = ReactDOM.findDOMNode(component).children[0];
 		expect(domNode.getElementsByTagName("use")[0].getAttribute("role")).to.equal("img");
 	});
+
+	const iconNames = Object.keys(iconData);
+	it('Should render each icon within the icon data json file correctly', function() {
+
+		const component = TestUtils.renderIntoDocument(
+			<div>
+			{
+				iconNames.map((icon, i) => {
+					return <XUIIcon key={i} icon={ XUIIcons[icon.replace('-','_').toUpperCase()] } role="img" />
+				})
+			}
+			</div>
+		);
+
+		for (let i = 0; i < iconNames.length; i++) {
+			const domNode = ReactDOM.findDOMNode(component).children[i];
+			expect(domNode.getElementsByTagName("use")[0].getAttribute("xlink:href")).to.equal('#xui-icon-' + iconNames[i]);
+		}
+	})
 });

@@ -20,8 +20,5 @@
     "Gruntfile.js",
     "package.json",
     "pre-commit.sh"
-  ],
-  "dependencies": {
-    "xui-icon": "git@github.dev.xero.com:UXE/xui-icon.git#^2.0.0"
-  }
+  ]
 }

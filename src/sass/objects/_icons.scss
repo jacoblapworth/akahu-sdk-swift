@@ -95,9 +95,9 @@
 }
 
 .#{$ns}-icon-inline {
-	@include xui-margin-top(-7px);
+	@include xui-margin-vertical(-10px);
 	@include xui-margin-horizontal(-8px);
-	@include xui-margin-bottom(-11px);
+	vertical-align: middle;
 }
 
 .#{$ns}-icon-large {

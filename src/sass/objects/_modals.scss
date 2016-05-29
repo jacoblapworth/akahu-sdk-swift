@@ -48,7 +48,7 @@
 //     <header class="xui-modal--header xui-padding-left-large">
 //       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
 //       <button type="button" class="xui-button xui-button-icon xui-margin-small" title="Close" aria-label="Close">
-//           <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//           <svg class="xui-icon"> <use xlink:href="#xui-icon-close" role="presentation" /></svg>
 //       </button>
 //     </header>
 //     <div class="xui-modal--body xui-padding-horizontal-large">
@@ -59,7 +59,7 @@
 //             <select class="xui-select--control" id="group-button-example3">
 //               <option>If items are negative</option>
 //             </select>
-//             <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//             <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" role="presentation" /></svg>
 //           </div>
 //         </div>
 //         <div class="xui-field-layout">
@@ -68,7 +68,7 @@
 //             <select id="move-to" class="xui-select--control" id="group-button-example3">
 //               <option>Current Liabilities</option>
 //             </select>
-//             <svg class="xui-icon xui-select--caret [modifiers]"> <use xlink:href="#xui-icon-chevron" /></svg>
+//             <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" role="presentation" /></svg>
 //           </div>
 //         </div>
 //       </form>

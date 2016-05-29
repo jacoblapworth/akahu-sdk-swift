@@ -23,7 +23,7 @@
 //      <option>Value 2</option>
 //      <option>Value 3</option>
 //    </select>
-//    <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//    <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" role="presentation" /></svg>
 //  </div>
 //
 // Styleguide: Forms.8
@@ -93,7 +93,7 @@
 //     <button type="button" class="xui-button xui-select--button" aria-haspopup="true">
 //       Select option 1
 //     </button>
-//     <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" role="presentation" /></svg>
 //     <div class="xui-dropdownmenu xui-dropdownmenu-select xui-dropdownmenu-is-closed" aria-hidden="true">
 //       <div class="xui-dropdownmenu--body">
 //         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
@@ -119,7 +119,7 @@
 //     <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
 //       Select option 1
 //     </button>
-//     <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" /></svg>
+//     <svg class="xui-icon xui-select--caret"> <use xlink:href="#xui-icon-chevron" role="presentation" /></svg>
 //     <div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
 //       <div class="xui-dropdownmenu--body">
 //         <ul class="xui-menugroup xui-menugroup-layout" role="menu">

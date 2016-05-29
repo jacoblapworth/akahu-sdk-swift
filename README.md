@@ -39,6 +39,18 @@ For example, to add an arrow rotated to the right
 Using the icons without React
 =============================
 This package uses Babel & Rollup to create a standard JS distributable which has a function that can be used to inject the icon blob into your project. At this point in time you are responsible for ensuring the icon blob is available in any application that you want to use icons in.
+
+### CDN
+
+The ES5 icon blob is available via edge.xero.com and can be included directly into any page:
+```html
+<div id="xui-icon-blob-holder"></div>
+<script src="https://edge.xero.com/style/xui-icon/2.3.0/xuiIconBlobES5.js"></script>
+<script type="text/javascript">
+	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob-holder')); })();
+</script>
+```
+
 ### Importing the blob in...
 #### ES6
  ```js

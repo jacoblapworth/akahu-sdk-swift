@@ -403,8 +403,8 @@
 
 	// TODO: Overrides !!!
 	&.#{$ns}-is-disabled {
-		color: $xui-color-disabled-text;
 		cursor: default;
+		fill: $xui-color-disabled-text;
 		opacity: 1;
 		pointer-events: none;
 	}
@@ -428,14 +428,14 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: $xui-color-white;
+		fill: $xui-color-white;
 		stroke: $xui-color-border;
 		stroke-linejoin: round;
 	}
 
 	.#{$ns}-styledcheckbox--check,
 	.#{$ns}-styledradio--check {
-		opacity: 0; // Hide checkmark
+		fill: transparent; // Hide checkmark
 	}
 }
 
@@ -483,7 +483,7 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: darken($xui-color-white, 7%);
+		fill: darken($xui-color-white, 7%);
 	}
 }
 
@@ -497,14 +497,13 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: $xui-color-xero-blue;
+		fill: $xui-color-xero-blue;
 		stroke: $xui-color-xero-blue;
 	}
 
 	.#{$ns}-styledcheckbox--check,
 	.#{$ns}-styledradio--check {
-		color: $xui-color-white;
-		opacity: 1; // Show checkmark
+		fill: $xui-color-white; // Show checkmark
 	}
 }
 
@@ -514,7 +513,7 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: darken($xui-color-xero-blue, 7%);
+		fill: darken($xui-color-xero-blue, 7%);
 		stroke: darken($xui-color-xero-blue, 7%);
 	}
 }
@@ -525,7 +524,7 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: darken($xui-color-xero-blue, 7%);
+		fill: darken($xui-color-xero-blue, 7%);
 		stroke: darken($xui-color-xero-blue, 7%);
 	}
 }
@@ -536,7 +535,7 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: $xui-color-xero-blue;
+		fill: $xui-color-xero-blue;
 		stroke: darken($xui-color-xero-blue, 7%);
 	}
 }
@@ -549,12 +548,12 @@
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		color: $xui-color-grey-6; // TODO: Update $xui-color-disabled to use $xui-color-grey-6
+		fill: $xui-color-grey-6; // TODO: Update $xui-color-disabled to use $xui-color-grey-6
 		stroke: $xui-color-border;
 	}
 
 	.#{$ns}-styledcheckbox--check,
 	.#{$ns}-styledradio--check {
-		color: $xui-color-grey-4; // TODO: Update $xui-color-disabled-text to use $xui-color-grey-4
+		fill: $xui-color-grey-4; // TODO: Update $xui-color-disabled-text to use $xui-color-grey-4
 	}
 }

@@ -328,16 +328,18 @@
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
 //     <svg class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-email"/>
-//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-email"/>
+//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
+//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
+//       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-contact"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">Spam my colleagues with dank memes</span>
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
 //     <svg class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-url"/>
-//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-url"/>
+//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
+//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
+//       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-url"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">Take over the world</span>
 //   </label>
@@ -384,7 +386,7 @@
 }
 
 
-// main styles
+// Main styles
 // ===========
 .#{$ns}-styledcheckbox,
 .#{$ns}-styledradio {

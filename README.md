@@ -34,7 +34,7 @@ import XUIIcon, { XUIIcons } from 'xui-icon';
 
 For example, to add an arrow rotated to the right
 ```jsx
-<XUIIcon icon="xui-icon-arrow" rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
+<XUIIcon icon="arrow" rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
 ```
 Using the icons without React
 =============================
@@ -68,5 +68,5 @@ xuiIconBlob(document.getElementById('iconblob'));
 ### Using the icons
 The icons may be referenced using the following markup:
  ```js
- <svg class="xui-icon"> <use xlink:href="#[icon-name]" /> </svg>
+ <svg class="xui-icon"> <use xlink:href="#xui-icon-[icon name]" /> </svg>
  ```

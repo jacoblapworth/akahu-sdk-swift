@@ -1,5 +1,5 @@
 {
-  "version": "3.2.1",
+  "version": "4.0.0",
   "name": "xui-loader",
   "main": "src/XUILoader.js",
   "description": "Display a loader",
@@ -14,7 +14,7 @@
     "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage"
   },
   "devDependencies": {
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#5.1.0"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.3"
   },
   "dependencies": {
     "bower": "^1.7.7"

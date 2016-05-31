@@ -94,12 +94,14 @@
 	right: 0;
 	top: 0;
 	transition: opacity $xui-transition-duration-medium $xui-easing-standard;
+	visibility: hidden;
 	z-index: 10;
 }
 
 .#{$ns}-mask-is-active {
 	opacity: 1;
 	pointer-events: auto;
+	visibility: visible;
 }
 
 .#{$ns}-modal {

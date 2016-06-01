@@ -1,5 +1,6 @@
 import React from 'react';
 import Classes from 'xui-css-classes';
+import cn from 'classnames';
 
 const withProp = (prop, value) => element => ({
 	...element,
@@ -9,10 +10,18 @@ const withProp = (prop, value) => element => ({
 	}
 });
 
-const XUIButtonGroup = ({ children }) => (
-	<div className={Classes.BUTTON_GROUP}>
-		{children.map(withProp('isGrouped', true))}
-	</div>
-);
+const propTypes = {
+	children: React.PropTypes.node,
+	className: React.PropTypes.string
+};
 
-export default XUIButtonGroup;
+export default function XUIButtonGroup(props) {
+	const className = cn(props.className, Classes.BUTTON_GROUP);
+	return (
+		<div className={className}>
+			{props.children.map(withProp('isGrouped', true))}
+		</div>
+	);
+}
+
+XUIButtonGroup.propTypes = propTypes;

@@ -17,19 +17,30 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 		<div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler}>Default button</XUIButton>
-				&nbsp;
+				{" "}
 				<XUIButton onClick={clickHandler} isDisabled>Default button (disabled)</XUIButton>
-				&nbsp; Same as standard button
+				{" "}
+				<XUIButton onClick={clickHandler} isLoading>Default button (loading)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} isLoading isDisabled>Default button (loading and disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="primary">Primary button</XUIButton>
 				{" "}
 				<XUIButton onClick={clickHandler} variant="primary" isDisabled>Primary button (disabled)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="primary" isLoading>Primary button (loading)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="primary" isLoading isDisabled>Primary button (loading and disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="create">Create button</XUIButton>
 				{" "}
 				<XUIButton onClick={clickHandler} variant="create" isDisabled>Create button (disabled)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="create" isLoading>Create button (loading)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="create" isLoading isDisabled>Create button (loading and disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="link">Link button</XUIButton>
@@ -38,6 +49,10 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 				<XUIButton onClick={clickHandler} variant="negative">Negative button</XUIButton>
 				{" "}
 				<XUIButton onClick={clickHandler} variant="negative" isDisabled>Negative button (disabled)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="negative" isLoading>Negative button (loading)</XUIButton>
+				{" "}
+				<XUIButton onClick={clickHandler} variant="negative" isLoading isDisabled>Negative button (loading and disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="standard">Standard Button</XUIButton>
@@ -103,6 +118,14 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 					variant="standard"
 					onClick={clickHandler}
 					qaHook="buttonQAHook">Button with a QA hook class</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton
+					variant="link"
+					type="link"
+					isLoading={true}
+					onClick={clickHandler}
+					qaHook="buttonQAHook">Loading link</XUIButton>
 			</div>
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} variant="unstyled">Unstyled button</XUIButton>

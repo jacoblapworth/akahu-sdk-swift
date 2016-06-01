@@ -21,11 +21,9 @@
   "dependencies": {
     "classnames": "^2.1.0",
     "react": "~0.14.2 || ^15.0.0",
-    "xui-base-component": "git@github.dev.xero.com:ReactLabs/xui-base-component.git#^2.1.0",
-    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^10.0.0",
-    "xui-icon": "https://github.dev.xero.com/UXE/xui-icon.git#^2.3.0"
-  },
-  "devDependencies": {
-    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.0.0"
+    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^10.2.0",
+    "xui-loader": "git@github.dev.xero.com:UXE/xui-loader.git#^4.0.0",
+    "xui-icon": "https://github.dev.xero.com/UXE/xui-icon.git#^2.3.0",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.2.0"
   }
 }

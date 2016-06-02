@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import chai from 'chai';
-import XUIAvatar from '../XUIAvatar.js';
+import CSSClasses from 'xui-css-classes';
+
+import XUIAvatar from '../XUIAvatar';
 
 const assert = chai.assert;
 const TestUtils = React.addons.TestUtils;
@@ -14,13 +16,32 @@ describe('XUIAvatar', function () {
 
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIAvatar imageUrl={imageUrl} />
+				<XUIAvatar value="123" imageUrl={imageUrl} />
 			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component).children[0];
+		const node = ReactDOM.findDOMNode(component).firstChild;
 		assert.strictEqual(node.tagName, 'IMG', 'Avatar has been rendered with an IMG element');
 		assert.strictEqual(node.src, imageUrl, 'IMG element src attribute is the same as the imageUrl prop');
+	});
+
+	it('should render with the correct class given the size prop', function () {
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUIAvatar value="123" />
+				<XUIAvatar size="small" value="123" />
+				<XUIAvatar size="large" value="123" />
+			</div>
+		);
+
+		const node1 = ReactDOM.findDOMNode(component).children[0];
+		const node2 = ReactDOM.findDOMNode(component).children[1];
+		const node3 = ReactDOM.findDOMNode(component).children[2];
+		assert.isTrue(node1.classList.contains(CSSClasses.Avatar.BASE), 'Avatar has the base class');
+		assert.isTrue(node2.classList.contains(CSSClasses.Avatar.BASE), 'Avatar with size="small" has the base class');
+		assert.isTrue(node2.classList.contains(CSSClasses.Avatar.SMALL), 'Avatar with size="small" has the small class');
+		assert.isTrue(node3.classList.contains(CSSClasses.Avatar.BASE), 'Avatar with size="large" has the base class');
+		assert.isTrue(node3.classList.contains(CSSClasses.Avatar.LARGE), 'Avatar with size="large" has the large class');
 	});
 
 	it('should render as an abbreviation element if no imageUrl prop is provided', function () {
@@ -30,7 +51,7 @@ describe('XUIAvatar', function () {
 			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component).children[0];
+		const node = ReactDOM.findDOMNode(component).firstChild;
 		assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been rendered with an ABBR element');
 		assert.strictEqual(node.innerHTML, 'D', 'ABBR innerHTML contains the first character of the value');
 	});
@@ -42,7 +63,7 @@ describe('XUIAvatar', function () {
 			</div>
 		);
 
-		const node = ReactDOM.findDOMNode(component).children[0];
+		const node = ReactDOM.findDOMNode(component).firstChild;
 		assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been rendered with an ABBR element');
 		assert.strictEqual(node.innerHTML, '💩', 'ABBR innerHTML contains the first character of the value');
 	});
@@ -74,4 +95,25 @@ describe('XUIAvatar', function () {
 		assert.isTrue(node2.className !== node3.className);
 		assert.isTrue(node3.className !== node1.className);
 	});
+
+	it('should render an avatar with an image that does not exist as an abbreviation', function(done) {
+		const imageUrl = "https://example.com/non-existent-image.png";
+
+		function onErrorHandler() {
+			// Give React a chance to render async
+			setTimeout(function() {
+				const node = ReactDOM.findDOMNode(component);
+				assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been re-rendered with an ABBR element');
+				done();
+			}, 10);
+		}
+
+		const component = TestUtils.renderIntoDocument(
+			<XUIAvatar imageUrl={imageUrl} onError={onErrorHandler} value="Something something" />
+		);
+
+		const node = ReactDOM.findDOMNode(component);
+		assert.strictEqual(node.tagName, 'IMG', 'Avatar has been rendered with an IMG element initially');
+	});
+
 });

@@ -9,6 +9,8 @@ A React implementation of the [XUI Avatar component](https://github.dev.xero.com
 
 Renders an avatar either as an image (with the image URL provided) or as the first character of the value representing the entity in a coloured circle.
 
+It can also render avatars in a group.
+
 ## Installation
 
 ```
@@ -47,9 +49,23 @@ import XUIAvatar from 'xui-avatar';
 
 ![](example/avatar_imageUrl.PNG)
 
-## Properties
+## Components
+
+### XUIAvatar
+
+A higher order component wrapping `XUISimpleAvatar` (see below) which falls back to a text avatar if the image provided cannot load.
+
+This component transparently passes its props to `XUISimpleAvatar`, with the exception that the `value` prop is required (in order to have a fallback)
+
+### XUISimpleAvatar
+
+A simple, stateless avatar
 
 Although all the properties are marked as optional, one of either `value` or `imageUrl` must be provided. The component will throw if neither are provided, or if either is falsy (e.g. empty string).
+
+`className`: (String, Optional)
+
+`qaHook`: (String, Optional)
 
 `value`: (String, Optional) The text that represents the entity for which the avatar is being shown. If no `imageUrl` is supplied, the first character from the value will be used.
 
@@ -62,3 +78,29 @@ Although all the properties are marked as optional, one of either `value` or `im
 `className`: (String, Optional) Any custom CSS class(es) you want to add to this component
 
 `onError`: (Function, Optional) Error handler if the image does not load. If no `imageUrl` prop is provided but `onError` is, then the `onError` function will be ignored.
+
+### XUIAvatarGroup
+
+A container for many avatars.
+
+`className`: (String, Optional)
+
+`qaHook`: (String, Optional)
+
+`children`: (Node, Optional)
+
+`maxAvatars`: (Number, Optional) The maximum number of avatars to show
+
+`avatarSize`: (One of: ['small', 'medium', 'large'], Optional) The size to apply to all avatars contained within the group. This will override any individual avatar's size settings.
+
+### XUIAvatarCounter
+
+An avatar-like component intended to display the count of additional avatars in a confined space.
+
+`className`: (String, Optional)
+
+`qaHook`: (String, Optional)
+
+`size`: (One of: ['small', 'medium', 'large'], Optional, default: 'medium') The size of the avatar.
+
+`count`: (String or Number, Required) The value to display inside the counter avatar. If this is a positive number (not a string), the number will be shown prefixed with a '+'. If this is a string, the string value will be used directly.

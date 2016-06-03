@@ -45,11 +45,11 @@
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
 //   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//     <button type="button" class="xui-button xui-button-icon xui-margin-small xui-modal--close" title="Close" aria-label="Close">
+//       <svg class="xui-icon"> <use xlink:href="#xui-icon-close" role="presentation" /></svg>
+//     </button>
 //     <header class="xui-modal--header xui-padding-left-large">
 //       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
-//       <button type="button" class="xui-button xui-button-icon xui-margin-small" title="Close" aria-label="Close">
-//           <svg class="xui-icon"> <use xlink:href="#xui-icon-close" role="presentation" /></svg>
-//       </button>
 //     </header>
 //     <div class="xui-modal--body xui-padding-horizontal-large">
 //       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
@@ -118,6 +118,14 @@
 	.#{$ns}-modal--body {
 		max-height: 45vh;
 	}
+
+	.#{$ns}-modal--close ~ .#{$ns}-modal--header {
+		max-width: calc(100% - 50px);
+	}
+
+	.#{$ns}-modal--close {
+		margin: $xui-s-small;
+	}
 }
 
 .#{$ns}-modal-medium {
@@ -130,7 +138,7 @@
 
 // Modal header
 // -----------------------------------------------------------------------------
-
+//TODO: Depricate flex styling in XUI11 - No longer required as close button is being applied in similar way to Banner & Toast
 .#{$ns}-modal--header {
 	align-content: stretch;
 	align-items: flex-start;
@@ -153,4 +161,8 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-modal--footer {
+}
+
+.#{$ns}-modal--close {
+	float: right;
 }

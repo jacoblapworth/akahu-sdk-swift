@@ -47,7 +47,7 @@ The ES5 icon blob is available via edge.xero.com and can be included directly in
 <div id="xui-icon-blob-holder"></div>
 <script src="https://edge.xero.com/style/xui-icon/3.0.0/xuiIconBlobES5.js"></script>
 <script type="text/javascript">
-	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob-holder')); })();
+	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob')); })();
 </script>
 ```
 
@@ -62,7 +62,7 @@ xuiIconBlob(document.getElementById('iconblob'));
 ```html
 <script src="bower_components/icons/dist/xuiIconBlobES5.js"></script>
 <script type="text/javascript">
-	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob-holder')); })();
+	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob')); })();
 </script>
 ```
 ### Using the icons

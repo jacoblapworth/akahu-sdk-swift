@@ -41,15 +41,17 @@
 @import "elements/tables";
 @import "elements/textcontent";
 
+// Base components which other components build on
+@import "objects/icons";
+@import "objects/buttons";
+
 @import "objects/accordion";
 @import "objects/actions";
 @import "objects/avatars";
-@import "objects/buttons";
 @import "objects/dropdowns";
 @import "objects/contentblocks";
 @import "objects/forms";
 @import "objects/globalstates";
-@import "objects/icons";
 @import "objects/layoutstructure";
 @import "objects/loaders";
 @import "objects/marginpadding";

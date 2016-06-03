@@ -12,7 +12,7 @@ const iconNames = Object.keys(icons).reduce((object, icon, i) => {
 		return object;
 	}, {});
 export const XUIIcons = iconNames;
-
+const iconBlobId = 'xui-icon-blob-auto';
 const iconSizes = {
 	standard: '',
 	large: Classes.Icon.LARGE,
@@ -48,11 +48,14 @@ const defaultProps = {
 
 export default function XUIIcon(props) {
 	const { icon, className, size, title, desc, role, rotation } = props;
-	const classes = cn(Classes.Icon.BASE, className, iconSizes[size], Classes.Icon.ROTATE[rotation]);
+	const classes = cn(
+		Classes.Icon.BASE,
+		className,
+		iconSizes[size],
+		{ [Classes.Icon.ROTATE[rotation]] : rotation }
+		);
 
-	if (!document.getElementById('xui-icon-blob')) {
-		renderBlob();
-	}
+	renderBlob();
 
 	const optionalTitle = title? <title>{ title }</title> : null;
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
@@ -66,11 +69,13 @@ export default function XUIIcon(props) {
 	);
 }
 
-function renderBlob() {
-	const blobEl = document.createElement('div');
-	blobEl.setAttribute('id','xui-icon-blob');
-	blobEl.innerHTML = XUIIconBlob;
-	document.body.appendChild(blobEl);
+export function renderBlob() {
+	if (!document.getElementById(iconBlobId)) {
+		const blobEl = document.createElement('div');
+		blobEl.id = iconBlobId;
+		blobEl.innerHTML = XUIIconBlob;
+		document.body.appendChild(blobEl);
+	}
 }
 
 XUIIcon.propTypes = propTypes;

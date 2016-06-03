@@ -55,7 +55,9 @@ export default function XUIIcon(props) {
 		{ [Classes.Icon.ROTATE[rotation]] : rotation }
 		);
 
-	renderBlob();
+	if (!document.getElementById(iconBlobId)) {
+		renderBlob();
+	}
 
 	const optionalTitle = title? <title>{ title }</title> : null;
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
@@ -69,13 +71,11 @@ export default function XUIIcon(props) {
 	);
 }
 
-export function renderBlob() {
-	if (!document.getElementById(iconBlobId)) {
-		const blobEl = document.createElement('div');
-		blobEl.id = iconBlobId;
-		blobEl.innerHTML = XUIIconBlob;
-		document.body.appendChild(blobEl);
-	}
+function renderBlob() {
+	const blobEl = document.createElement('div');
+	blobEl.id = iconBlobId;
+	blobEl.innerHTML = XUIIconBlob;
+	document.body.appendChild(blobEl);
 }
 
 XUIIcon.propTypes = propTypes;

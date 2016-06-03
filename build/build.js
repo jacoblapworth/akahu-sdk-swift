@@ -9,4 +9,4 @@ fs.writeFileSync('./dist/xuiIconBlob.js',
 	`export default function() {if (!document.getElementById('xui-icon-blob-auto')) {document.body.innerHTML += '<div id="xui-icon-blob-auto">${iconBlob}</div>';}}`);
 
 fs.writeFileSync('./dist/xuiIconBlobES5.js', 
-	`function xuiIconBlobES5() {if (!document.getElementById('xui-icon-blob-auto')) {document.body.innerHTML += '<div id="xui-icon-blob-auto">${iconBlob}</div>';}}`);
+	`if (!document.getElementById('xui-icon-blob-auto')) {document.body.innerHTML += '<div id="xui-icon-blob-auto">${iconBlob}</div>';}`);

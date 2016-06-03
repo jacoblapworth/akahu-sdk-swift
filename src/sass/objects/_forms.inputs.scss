@@ -32,7 +32,12 @@
 
 // Text Icon Prompts
 //
-// Icons may be used to prompt users on what each input is for, or as buttons to allow functionality such as clearing a field.
+// Icons may be used to prompt users on what each input is for, or as buttons to enable functionality such as clearing a field.
+//
+// #### Usage Requirements
+//  - Icon prompt `svg` tags should be placed within the `xui-input-wrapper` at the same level as `xui-input`
+//  - Buttons should be formatted like the icon buttons [shown in the docs](https://github.dev.xero.com/pages/UXE/xui/docs/10.2.0/section-buttons.html#kssref-buttons-7)
+//  - Both prompts and buttons should be placed before the `input` tag to ensure the correct padding is applied to `xui-input` due to our implementation using sibling selectors
 //
 // #### Class Names
 //
@@ -53,10 +58,10 @@
 // </div>
 // <div class="xui-input-wrapper xui-margin">
 // 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
-// 	<button type="button" class="xui-button xui-button-icon xui-input--icon-right {{modifier_class}}" title="Close" aria-label="Close">
-// 		<svg class="xui-icon"> <use xlink:href="#xui-icon-clear role="presentation""/></svg>
+// 	<button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
+// 		<svg class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
 // 	</button>
+// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 //
 // Styleguide: Forms.4.1

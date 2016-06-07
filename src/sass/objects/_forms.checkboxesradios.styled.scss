@@ -421,9 +421,10 @@
 
 	.#{$ns}-styledcheckbox--focus,
 	.#{$ns}-styledradio--focus {
-		stroke: transparent; // Hide focus
+		stroke: transparent;
 		stroke-linejoin: round;
 		stroke-width: 6;
+		opacity: 0; // Hide focus
 	}
 
 	.#{$ns}-styledcheckbox--main,
@@ -435,7 +436,8 @@
 
 	.#{$ns}-styledcheckbox--check,
 	.#{$ns}-styledradio--check {
-		fill: transparent; // Hide checkmark
+		fill: transparent;
+		opacity: 0; // Hide checkmark
 	}
 }
 
@@ -463,7 +465,8 @@
 	// 			 https://developer.mozilla.org/en/docs/Web/CSS/filter
 	.#{$ns}-styledcheckbox--focus,
 	.#{$ns}-styledradio--focus {
-		stroke: $xui-color-shadow-medium; // Show focus
+		stroke: $xui-color-shadow-medium;
+		opacity: 1; // Show focus
 	}
 
 	.#{$ns}-styledcheckbox--main,
@@ -478,7 +481,8 @@
 
 	.#{$ns}-styledcheckbox--focus,
 	.#{$ns}-styledradio--focus {
-		stroke: transparent; // Hide focus
+		stroke: transparent;
+		opacity: 0; // Hide focus
 	}
 
 	.#{$ns}-styledcheckbox--main,
@@ -503,7 +507,8 @@
 
 	.#{$ns}-styledcheckbox--check,
 	.#{$ns}-styledradio--check {
-		fill: $xui-color-white; // Show checkmark
+		fill: $xui-color-white;
+		opacity: 1; // Show checkmark
 	}
 }
 

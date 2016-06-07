@@ -38,35 +38,27 @@ For example, to add an arrow rotated to the right
 ```
 Using the icons without React
 =============================
-This package uses Babel & Rollup to create a standard JS distributable which has a function that can be used to inject the icon blob into your project. At this point in time you are responsible for ensuring the icon blob is available in any application that you want to use icons in.
+This package uses Babel & Rollup to create ES5 and Common JS distributables which when imported will add the icon blob to your page.
 
-### CDN
-
-The ES5 icon blob is available via edge.xero.com and can be included directly into any page:
-```html
-<div id="xui-icon-blob-holder"></div>
-<script src="https://edge.xero.com/style/xui-icon/3.0.0/xuiIconBlobES5.js"></script>
-<script type="text/javascript">
-	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob')); })();
-</script>
-```
-
-### Importing the blob in...
-#### ES6
- ```js
-import xuiIconBlob from 'xui-icon/dist/xuiIconBlob.js';
-
-xuiIconBlob(document.getElementById('iconblob'));
-```
-#### ES5
-```html
-<script src="bower_components/icons/dist/xuiIconBlobES5.js"></script>
-<script type="text/javascript">
-	(function () { xuiIconBlobES5(document.getElementById('xui-icon-blob')); })();
-</script>
-```
-### Using the icons
+## Using the icons
 The icons may be referenced using the following markup:
  ```js
  <svg class="xui-icon"> <use xlink:href="#xui-icon-[icon name]" /> </svg>
  ```
+## Importing the icons
+### Via CDN
+
+The ES5 icon blob is available via edge.xero.com and can be included directly into any page:
+```html
+<script src="https://edge.xero.com/style/xui-icon/4.0.0/xuiIconBlobES5.js"></script>
+```
+
+### Via the Bower component
+#### ES6
+ ```js
+import xuiIconBlob from 'xui-icon/dist/xuiIconBlob.js';
+```
+#### ES5
+```html
+<script src="xui-icon/dist/xuiIconBlobES5.js"></script>
+```

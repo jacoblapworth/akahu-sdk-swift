@@ -6,7 +6,7 @@ if (!fs.existsSync('dist')){
 }
 
 fs.writeFileSync('./dist/xuiIconBlob.js', 
-	`export default function() {if (!document.getElementById('xui-icon-blob-auto')) {document.body.innerHTML += '<div id="xui-icon-blob-auto">${iconBlob}</div>';}}`);
+	`export default function() {if (!document.getElementById('xui-icon-blob-auto')) {var div = document.createElement('div'); div.id = 'xui-icon-blob-auto'; div.innerHTML='${iconBlob}'; document.body.appendChild(div);}}`);
 
 fs.writeFileSync('./dist/xuiIconBlobES5.js', 
-	`if (!document.getElementById('xui-icon-blob-auto')) {document.body.innerHTML += '<div id="xui-icon-blob-auto">${iconBlob}</div>';}`);
+	`if (!document.getElementById('xui-icon-blob-auto')) {var div = document.createElement('div'); div.id = 'xui-icon-blob-auto'; div.innerHTML='${iconBlob}'; document.body.appendChild(div);}`);

@@ -121,6 +121,7 @@
 
 	.#{$ns}-modal--close ~ .#{$ns}-modal--header {
 		max-width: calc(100% - 50px);
+		min-height: 50px;
 	}
 
 	.#{$ns}-modal--close {

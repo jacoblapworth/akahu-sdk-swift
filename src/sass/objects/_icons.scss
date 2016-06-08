@@ -31,12 +31,7 @@
 // about this, and can just consume the [`XUIIcon` module](https://github.dev.xero.com/uxe/xui-icon#react-usage). Otherwise, you will need to [import the icon blob into your
 // page](https://github.dev.xero.com/uxe/xui-icon#using-the-icons-without-react). Preferably using the CDN:
 //
-// Markup:
-// <div id="xui-icon-blob-holder"></div>
-// <script src="https://edge.xero.com/style/xui-icon/3.0.0/xuiIconBlobES5.js"></script>
-// <script type="text/javascript">
-//     (function () { xuiIconBlobES5(document.getElementById('xui-icon-blob')); })();
-// </script>
+// <code>&lt;script src=&quot;https://edge.xero.com/style/xui-icon/4.0.0/xuiIconBlobES5.js &quot;&gt;&lt;/script&gt;</code>
 //
 // Styleguide: Icons.1
 
@@ -52,7 +47,7 @@
 // 	Green<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-payment" role="presentation"/></svg>
 // </span>
 // <span class="xui-text-status xui-text-status-negative">
-// 	Red<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-tracking" role="presentation"/></svg>
+// 	Red<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 // </span>
 // <div class="xui-buttongroup">
 // 	<button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-desktop" role="presentation"/></svg></button>

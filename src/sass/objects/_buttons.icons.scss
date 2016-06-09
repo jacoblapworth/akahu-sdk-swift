@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Icons
 //
 // Styleguide: Buttons.7
@@ -20,12 +22,21 @@
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+// <br />
+// <div class="xui-text-inverted">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+// </div>
 //
 // Styleguide: Buttons.7.1
 
 .#{$ns}-button-icon {
 	border-radius: 50%;
-	color: $xui-color-grey-3;
+	color: $xui-color-icon;
 
 	&:hover {
 		color: $xui-color-grey-2;
@@ -44,5 +55,22 @@
 
 	.#{$ns}-icon {
 		display: block;
+	}
+
+	&-inverted {
+		color: $xui-color-icon;
+
+		&:hover {
+			color: $xui-color-grey-4;
+		}
+
+		&:focus {
+			background: $xui-color-shadow-inverted-light;
+		}
+
+		&:active {
+			background: $xui-color-shadow-inverted-medium;
+			color: $xui-color-grey-4;
+		}
 	}
 }

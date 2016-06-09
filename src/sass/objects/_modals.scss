@@ -32,6 +32,8 @@
 //
 // `xui-modal--header`	Container for the header of a modal
 //
+// `xui-modal--heading` Style for the modal heading
+//
 // `xui-modal-large`	Modifier for a large modal
 //
 // `xui-modal-layout`	Recommended layout for a modal
@@ -44,14 +46,18 @@
 //
 // `xui-mask-is-active`	Enable the mask
 //
+// Styleguide: Modals
+
+// Standard Modal
+//
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
 //   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-//     <button type="button" class="xui-button xui-button-icon xui-margin-small xui-modal--close" title="Close" aria-label="Close">
+//     <button type="button" class="xui-button xui-button-icon xui-modal--close" title="Close" aria-label="Close">
 //       <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
 //     <header class="xui-modal--header xui-padding-left-large">
-//       <h3 id="modal-heading" class="xui-text-panelheading">Smart Rule: Bank</h3>
+//       <h3 id="modal-heading" class="xui-modal--heading">Smart Rule: Bank</h3>
 //     </header>
 //     <div class="xui-modal--body xui-padding-horizontal-large">
 //       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
@@ -82,7 +88,8 @@
 //   </section>
 // </div>
 //
-// Styleguide: Modals
+// Styleguide: Modals.1
+
 .#{$ns}-mask {
 	align-items: center;
 	background-color: transparentize($xui-color-primary-text, 0.3);
@@ -122,7 +129,6 @@
 	}
 
 	.#{$ns}-modal--close ~ .#{$ns}-modal--header {
-		max-width: calc(100% - 50px);
 		min-height: 50px;
 	}
 
@@ -150,16 +156,23 @@
 
 // Modal header
 // -----------------------------------------------------------------------------
-//TODO: Depricate flex styling in XUI11 - No longer required as close button is being applied in similar way to Banner & Toast
 .#{$ns}-modal--header {
 	align-content: stretch;
 	align-items: flex-start;
+	// If a background color is specified, ensure the border radius stays
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
 	display: flex;
 	justify-content: space-between;
 
 	.#{$ns}-button-icon {
 		flex: 0 0 30px;
 	}
+}
+
+.#{$ns}-modal--heading {
+	@include xui-bold;
+	font-size: $xui-font-size-section-title;
 }
 
 // Modal body
@@ -178,3 +191,30 @@
 .#{$ns}-modal--close {
 	float: right;
 }
+
+// Dark Modal
+//
+// Useful when showing dynamic content in the modal body and want the modal chrome to get out of the way.
+//
+// Markup:
+// <div class="xui-mask xui-mask-is-active">
+//   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
+//     <div class="xui-u-flex xui-text-inverted xui-modal--header">
+//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-margin-small" title="Settings" aria-label="Settings">
+//         <svg class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>
+//       </button>
+//       <h3 id="dark-modal-heading" class="xui-margin-auto-horizontal xui-modal--heading">Preview</h3>
+//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-modal--close" title="Close" aria-label="Close">
+//         <svg class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//       </button>
+//     </div>
+//     <div id="dark-modal-text" class="xui-modal--body xui-padding-horizontal-large">
+//       <p>Something to preview here</p>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
+//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
+//     </footer>
+//   </section>
+// </div>
+//
+// Styleguide: Modals.2

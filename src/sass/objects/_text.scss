@@ -264,6 +264,24 @@
 	vertical-align: middle;
 }
 
+// Inverted text
+//
+// Inverts the text to provide a dark background and white text.
+//
+// #### Class Names
+//
+// `xui-text-inverted`	Style for inverted text
+//
+// Markup:
+//  <h3 class="xui-text-inverted xui-padding">Inverted text</h3>
+//
+// Styleguide: Typography.7
+
+.#{$ns}-text-inverted {
+	background-color: $xui-color-grey-1;
+	color: $xui-color-white;
+}
+
 // Line Height
 //
 // Default line height: `line-height: 1.3`

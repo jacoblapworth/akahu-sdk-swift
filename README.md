@@ -41,14 +41,14 @@ XUI provides a CSS base that implements the Xero Pattern Library.
 
 It is heavily [inspired by Stripe's approach](http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ).
 
-We also provide React components that target XUI in the [UXE Github org](https://github.dev.xero.com/UXE). 
+We also provide React components that target XUI in the [UXE Github org](https://github.dev.xero.com/UXE).
 When appropriate components exist, developers should use those components over using XUI directly.
 
 Example Page Markup
 -------------------
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html class="xui-html" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
@@ -87,10 +87,13 @@ Example Page Markup
 Using XUI
 ---------
 
- * Add the `xui-body` class to your `<body>` element, unless you are targeting
-   legacy pages. The `xui-body` class provides background color, baseline font
+ * Add the `xui-body` class to your `<body>` element and `xui-html` to your
+   `<html>` element, unless you are targeting legacy pages.
+   The `xui-body` class provides background color, baseline font
    styling and line height. Note that if you use this, you must use at least
    version 3.0.3 of the Shared Header.
+   The `xui-html` class sets the height of the `html` element to 100%, and
+   the body element with `xui-body` directly under it.
  * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI via the `xui-body` class.
    For legacy pages, you will need to set `box-sizing: border-box` on the container that wraps
    XUI CSS classes.

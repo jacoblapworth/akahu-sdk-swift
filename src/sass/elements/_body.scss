@@ -38,6 +38,14 @@ form {
 	overflow-y: scroll;
 }
 
+.#{$ns}-html {
+	height: 100%;
+
+	> .#{$ns}-body {
+		height: 100%;
+	}
+}
+
 main {
 	display: block; // Needed for IE11 which thinks it should be inline...
 }

@@ -191,6 +191,59 @@
 	color: $xui-color-xero-red;
 }
 
+// Tags
+//
+// Used to display read-only, categorical information. For example, assigning contacts to a particular group.
+//
+// Markup:
+// <span class="xui-text-tag xui-text-tag-solid">Dark tag</span>
+// <span class="xui-text-tag xui-text-tag-outline">Light tag</span>
+// <div class="xui-margin-top-large xui-dropdownmenu xui-dropdownmenu-large" role="menubar" aria-label="dropdown menu">
+//   <div class="xui-dropdownmenu--body">
+//      <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">All Investments</h3>
+//      <ul class="xui-menugroup xui-menugroup-layout" role="menu">
+//        <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//          <button type="button" class="xui-button xui-menuitem--body">
+//            <span>Erlich Bachman<br />
+//              <span class="xui-text-secondary">erlich@bachmanity.com</span>
+//            </span>
+//            <span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Bachmanity Capital</span>
+//          </button>
+//        </li>
+//        <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//          <button type="button" class="xui-button xui-menuitem--body">
+//             <span>Donald J Trump<br />
+//               <span class="xui-text-secondary">thedon@trump.com</span>
+//             </span>
+//             <span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Trump University</span>
+//          </button>
+//        </li>
+//      </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Typography.5
+
+.#{$ns}-text-tag {
+	border-radius: $xui-radius;
+	color: $xui-color-secondary-text;
+	display: inline-block;
+	font-size: $xui-font-size-heading-small;
+	line-height: $xui-font-size-heading-small;
+	padding: 3px $xui-s-xsmall;
+	vertical-align: middle;
+}
+
+.#{$ns}-text-tag-outline {
+	background-color: $xui-color-white;
+	border: 1px solid $xui-color-border;
+}
+
+.#{$ns}-text-tag-solid {
+	background-color: $xui-color-background;
+	border: 1px solid $xui-color-background;
+}
+
 // Carets
 //
 // Simple caret using CSS border tricks. Will inherit it's colour from the text it's placed with.
@@ -204,7 +257,7 @@
 //  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
 //  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
 //
-// Styleguide: Typography.5
+// Styleguide: Typography.6
 
 .#{$ns}-caret {
 	@include xui-caret;
@@ -249,6 +302,7 @@
 .#{$ns}-text-reset {
 	line-height: $xui-line-height-reset;
 }
+
 // Text Longform
 //
 // Useful for long blocks of text where an increased line height helps with readability.

@@ -107,8 +107,7 @@
 }
 
 .#{$ns}-icon-inline {
-	@include xui-margin-vertical(-10px);
-	@include xui-margin-horizontal(-8px);
+	margin: -10px -8px -6px;
 	vertical-align: middle;
 }
 

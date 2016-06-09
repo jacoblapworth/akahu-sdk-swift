@@ -29,7 +29,11 @@
 //
 // `xui-dropdownmenu-is-closed`	Hide the drop down menu
 //
-// `xui-dropdownmenu-layout`	Recommended layout for a drop down menu
+// `xui-dropdownmenu-small` Modifier for a small dropdown menu
+//
+// `xui-dropdownmenu-medium` Modifier for a medium dropdown menu
+//
+// `xui-dropdownmenu-large` Modifier for a large  dropdown menu
 //
 // `xui-menugroup`	Container for a group of menu items
 //
@@ -46,7 +50,7 @@
 // `xui-menuitem-layout`	Recommended layout for a menu item
 //
 // Markup:
-// <div class="xui-dropdownmenu xui-dropdownmenu-layout" role="menubar" aria-label="dropdown menu">
+// <div class="xui-dropdownmenu xui-dropdownmenu-small" role="menubar" aria-label="dropdown menu">
 //   <div class="xui-dropdownmenu--body">
 //     <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">Group Title</h3>
 //     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 1 label">
@@ -144,8 +148,18 @@
 	transition: $xui-transition-duration-short opacity $xui-easing-standard;
 }
 
-.#{$ns}-dropdownmenu-layout {
-	width: 180px;
+// TODO: Deprecate layout
+.#{$ns}-dropdownmenu-layout,
+.#{$ns}-dropdownmenu-small {
+	width: 220px;
+}
+
+.#{$ns}-dropdownmenu-medium {
+	width: 300px;
+}
+
+.#{$ns}-dropdownmenu-large {
+	width: 380px;
 }
 
 .#{$ns}-dropdownmenu-is-closed {

@@ -38,6 +38,8 @@
 //
 // `xui-modal-medium`	Modifier for a medium-sized modal
 //
+// `xui-modal-fullscreen`	Modifier for a full screen modal (like an overlay)
+//
 // `xui-mask`	Mask for a modal
 //
 // `xui-mask-is-active`	Enable the mask
@@ -135,6 +137,15 @@
 
 .#{$ns}-modal-large {
 	width: 860px;
+}
+
+.#{$ns}-modal-fullscreen {
+	border-radius: 0;
+	height: 100vh;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
 }
 
 // Modal header

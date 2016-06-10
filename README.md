@@ -50,7 +50,7 @@ The icons may be referenced using the following markup:
 
 The ES5 icon blob is available via edge.xero.com and can be included directly into any page:
 ```html
-<script src="https://edge.xero.com/style/xui-icon/4.0.0/xuiIconBlobES5.js"></script>
+<script src="https://edge.xero.com/style/xui-icon/4.0.1/xuiIconBlobES5.js"></script>
 ```
 
 ### Via the Bower component

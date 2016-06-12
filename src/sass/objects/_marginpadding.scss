@@ -35,6 +35,8 @@
 //
 // `xui-margin-auto-right` (auto right)
 //
+// `xui-margin-auto-top` (auto top)
+//
 // `xui-margin-auto-vertical` (auto vertical)
 //
 // `xui-margin-auto-horizontal` (auto horizontal)
@@ -140,6 +142,11 @@
 //  </div>
 // </div>
 // <div class="margin-example xui-u-flex" style="height: 100px">
+//  <div class="xui-margin-auto-top">
+//   Auto top (arbitrary height demo; useful for bottom alignment with flexbox)
+//  </div>
+// </div>
+// <div class="margin-example xui-u-flex" style="height: 100px">
 //  <div class="xui-margin-auto-vertical">
 //   Auto vertical (arbitrary height demo; useful for vertical centering with flexbox)
 //  </div>
@@ -168,6 +175,10 @@
 
 .#{$ns}-margin-auto-right {
 	margin-right: auto;
+}
+
+.#{$ns}-margin-auto-top {
+	margin-top: auto;
 }
 
 .#{$ns}-margin-auto-horizontal {

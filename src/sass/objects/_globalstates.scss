@@ -44,7 +44,9 @@
 //
 // Styleguide: Global States.1
 .#{$ns}-is-disabled {
+	cursor: default;
 	opacity: 0.4;
+	pointer-events: none;
 
 	&:hover,
 	&:active,

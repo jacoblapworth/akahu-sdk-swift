@@ -401,12 +401,10 @@
 		position: absolute;
 	}
 
-	// TODO: Overrides !!!
+	// TODO: Opacity override
 	&.#{$ns}-is-disabled {
-		cursor: default;
 		fill: $xui-color-disabled-text;
 		opacity: 1;
-		pointer-events: none;
 	}
 }
 

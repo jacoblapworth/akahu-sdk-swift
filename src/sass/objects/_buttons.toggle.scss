@@ -191,13 +191,9 @@
 	align-items: stretch;
 	display: flex;
 
-	// TODO: Overrides !!!
-	//       `opacity` should remain at 100% when toggles are disabled
-	//       `xui-is-disabled` should apply `cursor` and `pointer-events` styles to root element as well as children
+	// Disabled toggles should not appear semi-transparent
 	.#{$ns}-is-disabled {
-		cursor: default;
 		opacity: 1;
-		pointer-events: none;
 	}
 }
 

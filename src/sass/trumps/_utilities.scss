@@ -198,3 +198,30 @@
 .#{$ns}-u-transition-long {
 	transition: $xui-transition-duration-long;
 }
+
+// Resizing
+//
+// May be applied to elements to disable resize attributes. The primary use for this is for textarea, but has been added as a utility as resize can be applied to several other
+// elements.
+//
+// #### Class Names
+//
+// `xui-u-resize-none` Modifier to disable resizing completely
+//
+// `xui-u-resize-vertical` Modifier to enable vertical resizing and disable horizontal resizing
+//
+// Markup:
+// <div>
+//		<textarea class="xui-input xui-u-resize-none">Not resizable</textarea>
+//		<textarea class="xui-input xui-u-resize-vertical">Vertically resizable</textarea>
+// </div>
+//
+// Styleguide: Utilities.6
+
+.#{$ns}-u-resize-none {
+	resize: none;
+}
+
+.#{$ns}-u-resize-vertical {
+	resize: vertical;
+}

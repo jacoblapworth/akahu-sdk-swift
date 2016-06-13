@@ -13,8 +13,6 @@
 //
 // `xui-input`	Style for a text input
 //
-// `xui-textarea`	Style for a textarea input
-//
 // `xui-input-is-invalid`	Modifier for an invalid text input
 //
 // Markup:
@@ -25,7 +23,7 @@
 // <input class="xui-input" type="email" placeholder="example@xero.com" aria-label="Email"/>
 // <input class="xui-input" type="text" placeholder="13 December 1989" aria-label="Date"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
 // <input class="xui-input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled />
-// <textarea class="xui-textarea" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
+// <textarea class="xui-input xui-u-resize-none" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
 //
 // Styleguide: Forms.4
 
@@ -100,6 +98,7 @@
 	}
 }
 
+//TODO: This is depricated, text areas should use xui-input
 .#{$ns}-textarea {
 	@extend %#{$ns}-commoninput;
 

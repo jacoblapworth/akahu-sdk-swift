@@ -1,0 +1,336 @@
+@import "../vars";
+@import "../mixins";
+
+
+// Toggles
+//
+// Toggles can be made using either `radio` or `checkbox` inputs and come in two colorways:
+// * `xui-toggle-standard` (dark text on light background)
+// * `xui-toggle-inverted` (light text on dark background)
+//
+// The colorway classes should be applied alongside `xui-toggle`.
+// Note that `xui-toggle-inverted` must be used with `xui-text-inverted` to achieve the correct style.
+// See [Typography](./section-typography.html) for more details.
+//
+// Toggle labels can contain any combination of images, multiline text and [SVG icons](./section-icons.html).
+// Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
+//
+// #### Class Names
+//
+// `xui-toggle` Container for one or more toggle buttons
+//
+// `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
+//
+// `xui-toggle-icon-layout` Recommended layout for an icon toolbar
+//
+// `xui-toggle-standard` Style for a dark on light toggle container
+//
+// `xui-toggle-inverted` Style for a light on dark toggle container (use with `xui-text-inverted`)
+//
+// `xui-toggle--input` Style for a toggle input (hides HTML control)
+//
+// `xui-toggle--label` Style for a toggle label
+//
+// `xui-is-disabled` Style for a disabled toggle
+//
+// Styleguide: Buttons.10
+
+
+// Full-Width Layout
+//
+// The recommended full-width layout can be achieved using `xui-toggle-fullwidth-layout` alongside `xui-toggle`
+// and is suitable for mixed label content.
+//
+// Styleguide: Buttons.10.Full
+
+
+// Checkbox (Full-Width, Standard)
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding">
+//   <div class="xui-toggle xui-toggle-standard xui-toggle-fullwidth-layout">
+//     <input class="xui-toggle--input" type="checkbox" name="a" id="a1" checked/>
+//     <label class="xui-toggle--label" for="a1">
+//       Checkbox<br/>Checkbox<br/>Checkbox
+//     </label>
+//     <input class="xui-toggle--input" type="checkbox" name="a" id="a2"/>
+//     <label class="xui-toggle--label" for="a2">
+//       Pajamas
+//     </label>
+//     <input class="xui-toggle--input" type="checkbox" name="a" id="a3" disabled/>
+//     <label class="xui-toggle--label xui-is-disabled" for="a3">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//     </label>
+//     <input class="xui-toggle--input" type="checkbox" name="a" id="a4" checked disabled/>
+//     <label class="xui-toggle--label xui-is-disabled" for="a4">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//       Checked and<br/>disabled
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Buttons.10.Full.Checkbox
+
+
+// Radio (Full-Width, Inverted, Disabled)
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding xui-text-inverted">
+//   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
+//     <input class="xui-toggle--input" type="radio" name="b" id="b1" disabled/>
+//     <label class="xui-toggle--label xui-is-disabled" for="b1">
+//       Radio<br/>Radio<br/>Radio
+//     </label>
+//     <input class="xui-toggle--input" type="radio" name="b" id="b2" disabled/>
+//     <label class="xui-toggle--label xui-is-disabled" for="b2">
+//       Pajamas
+//     </label>
+//     <input class="xui-toggle--input" type="radio" name="b" id="b3" disabled/>
+//     <label class="xui-toggle--label xui-is-disabled" for="b3">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//     </label>
+//     <input class="xui-toggle--input" type="radio" name="b" id="b4" checked disabled/>
+//     <label class="xui-toggle--label xui-is-disabled" for="b4">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//       Checked and<br/>disabled
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Buttons.10.Full.Radio
+
+
+// Icon Toolbar Layout
+//
+// The recommended icon toolbar layout can be achieved using `xui-toggle-icon-layout` alongside `xui-toggle`.
+// This layout class is only suitable for icons and will not accomodate mixed label content.
+//
+// Styleguide: Buttons.10.Icon
+
+
+// Checkbox (Icon Toolbar, Standard)
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding">
+//   <div class="xui-toggle xui-toggle-standard xui-toggle-icon-layout">
+//     <input class="xui-toggle--input" type="checkbox" name="c" id="c1" checked/>
+//     <label class="xui-toggle--label" for="c1">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-bold" role="presentation"/>
+//       </svg>
+//     </label>
+//     <input class="xui-toggle--input" type="checkbox" name="c" id="c2"/>
+//     <label class="xui-toggle--label" for="c2">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-italic" role="presentation"/>
+//       </svg>
+//     </label>
+//     <input class="xui-toggle--input" type="checkbox" name="c" id="c3"/>
+//     <label class="xui-toggle--label" for="c3">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-underline" role="presentation"/>
+//       </svg>
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Buttons.10.Icon.Checkbox
+
+
+// Radio (Icon Toolbar, Inverted)
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding xui-text-inverted">
+//   <div class="xui-toggle xui-toggle-inverted xui-toggle-icon-layout">
+//     <input class="xui-toggle--input" type="radio" name="d" id="d1" checked/>
+//     <label class="xui-toggle--label" for="d1">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//     </label>
+//     <input class="xui-toggle--input" type="radio" name="d" id="d2"/>
+//     <label class="xui-toggle--label" for="d2">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-mobile" role="presentation"/>
+//       </svg>
+//     </label>
+//     <input class="xui-toggle--input" type="radio" name="d" id="d3"/>
+//     <label class="xui-toggle--label" for="d3">
+//       <svg class="xui-icon">
+//         <use xlink:href="#xui-icon-print" role="presentation"/>
+//       </svg>
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Buttons.10.Icon.Radio
+
+
+// Icon toolbar layout
+.#{$ns}-toggle-icon-layout .#{$ns}-toggle--label {
+	height: 36px;
+	width: 44px;
+}
+
+
+// Full-width layout
+.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label {
+	flex-grow: 1;
+}
+
+// Group styles
+.#{$ns}-toggle {
+	align-items: stretch;
+	display: flex;
+
+	// TODO: Overrides !!!
+	//       `opacity` should remain at 100% when toggles are disabled
+	//       `xui-is-disabled` should apply `cursor` and `pointer-events` styles to root element as well as children
+	.#{$ns}-is-disabled {
+		cursor: default;
+		opacity: 1;
+		pointer-events: none;
+	}
+}
+
+
+// Toggle input styles
+.#{$ns}-toggle--input {
+	left: -9999em;
+	position: absolute;
+}
+
+
+// Toggle label styles
+.#{$ns}-toggle--label {
+	align-items: center;
+	border: $xui-border-standard;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: -1px;
+	position: relative; // For z-index
+	text-align: center;
+	transition: all 0.1s ease;
+
+	// Border radius
+	&:first-of-type {
+		border-bottom-left-radius: $xui-radius;
+		border-top-left-radius: $xui-radius;
+	}
+
+	&:last-of-type {
+		border-bottom-right-radius: $xui-radius;
+		border-top-right-radius: $xui-radius;
+	}
+}
+
+
+// Standard styles
+.#{$ns}-toggle-standard {
+	// Hover
+	.#{$ns}-toggle--label:hover {
+		background-color: $xui-color-shadow-light;
+	}
+
+	// Focus, not hover
+	.#{$ns}-toggle--input:focus:not(:hover) + .#{$ns}-toggle--label {
+		box-shadow: $xui-shadow-focus;
+	}
+
+	// Active
+	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-medium;
+	}
+
+	// Checked
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
+		background-color: $xui-color-grey-1;
+		border-color: $xui-color-grey-1;
+		color: $xui-color-white;
+		z-index: 1;
+	}
+
+	// Checked, hover
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
+		background-color: $xui-color-highlight-light;
+	}
+
+	// Checked, active
+	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-highlight-medium;
+	}
+
+	// Checked, disabled
+	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-highlight-medium;
+		border: $xui-color-highlight-medium;
+		color: $xui-color-disabled-text;
+	}
+
+	// Disabled
+	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-light;
+		border: $xui-border-standard;
+		color: $xui-color-disabled-text;
+	}
+}
+
+
+// Inverted styles
+.#{$ns}-toggle-inverted {
+	// Hover
+	.#{$ns}-toggle--label:hover {
+		background-color: $xui-color-shadow-inverted-light;
+	}
+
+	// Focus, not hover
+	.#{$ns}-toggle--input:focus:not(:hover) + .#{$ns}-toggle--label {
+		box-shadow: $xui-shadow-focus-inverted;
+	}
+
+	// Active
+	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-inverted-medium;
+	}
+
+	// Checked
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
+		background-color: $xui-color-white;
+		border-color: $xui-color-white;
+		color: $xui-color-grey-1;
+		z-index: 1;
+	}
+
+	// Checked, hover
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
+		background-color: $xui-color-highlight-inverted-light;
+	}
+
+	// Checked, active
+	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-highlight-inverted-medium;
+	}
+
+	// Checked, disabled
+	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-highlight-inverted-medium;
+		border: $xui-color-highlight-inverted-medium;
+		color: $xui-color-disabled-text;
+	}
+
+	// Disabled
+	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-inverted-light;
+		border: $xui-border-standard;
+		color: $xui-color-disabled-text;
+	}
+}

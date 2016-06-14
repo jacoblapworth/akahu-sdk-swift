@@ -19,7 +19,7 @@
 		}
 	}
 
-	[class*="column"] {
+	[id*="kssref-grid-layout"] [class*="column"] {
 		background: rgba($xui-color-xero-blue, 0.5);
 		color: inherit;
 		text-transform: uppercase;

@@ -11,3 +11,9 @@ label {
 		cursor: pointer;
 	}
 }
+
+// There is a bug in Mozilla which causes it to render 1 more row than specified at all heights http://stackoverflow.com/questions/7695945/height-of-textarea-does-not-match-the-rows-in-firefox
+// This additional space is added to preserve space for scroll-bars, which isn't ideal.
+textarea {
+	overflow-x: hidden;
+}

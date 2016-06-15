@@ -98,6 +98,62 @@
 	}
 }
 
+// Grouped Inputs
+//
+// `xui-input-group` may be used to merge a group of inputs together. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+//
+// #### Class Names
+//
+// `xui-input-group`	Container for the inputs you wish to join
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Form label 1</label>
+//   <div class="xui-input-group">
+//     <input class="xui-input xui-column-2-of-12" placeholder="2 columns"/>
+//     <input class="xui-input xui-column-5-of-12" placeholder="5 columns"/>
+//     <input class="xui-input xui-column-5-of-12" placeholder="5 columns"/>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Form label 2</label>
+//   <div class="xui-input-group">
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//   </div>
+// </div>
+//
+// Styleguide: Forms.4.2
+
+.#{$ns}-input-group {
+	@include xui-clearfix;
+}
+
+.#{$ns}-input-group > .#{$ns}-input {
+	border-radius: 0;
+	border-right: 0;
+	position: relative;
+
+	&:focus {
+		z-index: 1;
+	}
+}
+
+.#{$ns}-input-group :first-child {
+	border-bottom-left-radius: $xui-radius;
+	border-top-left-radius: $xui-radius;
+}
+
+.#{$ns}-input-group :last-child {
+	border-bottom-right-radius: $xui-radius;
+	border-right: $xui-border-standard;
+	border-top-right-radius: $xui-radius;
+}
+
 //TODO: This is depricated, text areas should use xui-input
 .#{$ns}-textarea {
 	@extend %#{$ns}-commoninput;

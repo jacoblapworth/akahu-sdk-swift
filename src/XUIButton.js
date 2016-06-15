@@ -309,7 +309,7 @@ export default function XUIButton(props) {
 			<div className={ButtonClasses.GROUPED}>
 				{Button}
 				<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={secondaryClickHandler}>
-					<XUIIcon icon="chevron" className={ButtonClasses.CARET}/>
+					<XUIIcon icon="caret" className={ButtonClasses.CARET}/>
 				</ElementType>
 			</div>
 		);

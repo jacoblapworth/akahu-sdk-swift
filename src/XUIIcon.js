@@ -24,6 +24,7 @@ const rotations = [
 	180,
 	270
 ];
+const colors = ['',...Object.keys(Classes.Icon.Color).map(key=>{return key.toLowerCase()})];
 const propTypes = {
 	/** @property {string} Defines the icon to be rendered */
 	icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
@@ -38,7 +39,9 @@ const propTypes = {
 	/** @property {string} [desc=''] Role to be applied to the SVG for screen readers */
 	role: PropTypes.string,
 	/** @property {string} [rotation=0] Adds a rotation modifier to the icon */
-	rotation: PropTypes.oneOf(rotations)
+	rotation: PropTypes.oneOf(rotations),
+	/** @property {string} [color] Adds a color modifier to the icon */
+	color: PropTypes.oneOf(colors)
 };
 
 const defaultProps = {
@@ -47,12 +50,13 @@ const defaultProps = {
 };
 
 export default function XUIIcon(props) {
-	const { icon, className, size, title, desc, role, rotation } = props;
+	const { icon, className, size, title, desc, role, rotation, color } = props;
 	const classes = cn(
 		Classes.Icon.BASE,
 		className,
 		iconSizes[size],
-		{ [Classes.Icon.ROTATE[rotation]] : rotation }
+		{ [Classes.Icon.ROTATE[rotation]] : rotation },
+		color ? Classes.Icon.Color[color.toUpperCase()] : null
 		);
 
 	if (!document.getElementById(iconBlobId)) {

@@ -411,32 +411,32 @@
 .#{$ns}-styledcheckbox svg,
 .#{$ns}-styledradio svg {
 	flex-shrink: 0; // Prevent SVG from shrinking when label text is long
+}
 
-	.#{$ns}-styledcheckbox--focus, .#{$ns}-styledcheckbox--main, .#{$ns}-styledcheckbox--check,
-	.#{$ns}-styledradio--focus, .#{$ns}-styledradio--main, .#{$ns}-styledradio--check {
-		transition: all 0.1s ease;
-	}
+.#{$ns}-styledcheckbox--focus, .#{$ns}-styledcheckbox--main, .#{$ns}-styledcheckbox--check,
+.#{$ns}-styledradio--focus, .#{$ns}-styledradio--main, .#{$ns}-styledradio--check {
+	transition: all 0.1s ease;
+}
 
-	.#{$ns}-styledcheckbox--focus,
-	.#{$ns}-styledradio--focus {
-		opacity: 0; // Hide focus
-		stroke: transparent;
-		stroke-linejoin: round;
-		stroke-width: 6;
-	}
+.#{$ns}-styledcheckbox--focus,
+.#{$ns}-styledradio--focus {
+	opacity: 0; // Hide focus
+	stroke: transparent;
+	stroke-linejoin: round;
+	stroke-width: 6;
+}
 
-	.#{$ns}-styledcheckbox--main,
-	.#{$ns}-styledradio--main {
-		fill: $xui-color-white;
-		stroke: $xui-color-border;
-		stroke-linejoin: round;
-	}
+.#{$ns}-styledcheckbox--main,
+.#{$ns}-styledradio--main {
+	fill: $xui-color-white;
+	stroke: $xui-color-border;
+	stroke-linejoin: round;
+}
 
-	.#{$ns}-styledcheckbox--check,
-	.#{$ns}-styledradio--check {
-		fill: transparent;
-		opacity: 0; // Hide checkmark
-	}
+.#{$ns}-styledcheckbox--check,
+.#{$ns}-styledradio--check {
+	fill: transparent;
+	opacity: 0; // Hide checkmark
 }
 
 
@@ -444,8 +444,7 @@
 // ================
 
 // Hover
-.#{$ns}-styledcheckbox input:hover + svg,
-.#{$ns}-styledradio input:hover + svg {
+input:hover + svg {
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
@@ -454,8 +453,7 @@
 }
 
 // Focus, not hover
-.#{$ns}-styledcheckbox input:focus:not(:hover) + svg,
-.#{$ns}-styledradio input:focus:not(:hover) + svg {
+input:focus:not(:hover) + svg {
 
 	// Focus layer to match box-shadow on standard HTML inputs ($xui-shadow-focus)
 	// TODO: Remove focus layer and use CSS filters on main layer instead
@@ -474,8 +472,7 @@
 }
 
 // Active
-.#{$ns}-styledcheckbox input:active + svg,
-.#{$ns}-styledradio input:active + svg {
+input:active + svg {
 
 	.#{$ns}-styledcheckbox--focus,
 	.#{$ns}-styledradio--focus {
@@ -494,8 +491,7 @@
 // ==============
 
 // Checked
-.#{$ns}-styledcheckbox input:checked + svg,
-.#{$ns}-styledradio input:checked + svg {
+input:checked + svg {
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
@@ -510,20 +506,9 @@
 	}
 }
 
-// Checked, hover
-.#{$ns}-styledcheckbox input:checked:hover + svg,
-.#{$ns}-styledradio input:checked:hover + svg {
-
-	.#{$ns}-styledcheckbox--main,
-	.#{$ns}-styledradio--main {
-		fill: darken($xui-color-xero-blue, 7%);
-		stroke: darken($xui-color-xero-blue, 7%);
-	}
-}
-
-// Checked, focus
-.#{$ns}-styledcheckbox input:checked:focus + svg,
-.#{$ns}-styledradio input:checked:focus + svg {
+// Checked, hover/focus
+input:checked:hover + svg,
+input:checked:focus + svg {
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
@@ -533,8 +518,7 @@
 }
 
 // Checked, active
-.#{$ns}-styledcheckbox input:checked:active + svg,
-.#{$ns}-styledradio input:checked:active + svg {
+input:checked:active + svg {
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
@@ -546,8 +530,8 @@
 
 // Disabled styles
 // ===============
-.#{$ns}-styledcheckbox input:disabled + svg, .#{$ns}-styledcheckbox input:disabled:hover + svg,
-.#{$ns}-styledradio input:disabled + svg, .#{$ns}-styledradio input:disabled:hover + svg {
+input:disabled + svg,
+input:disabled:hover + svg {
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {

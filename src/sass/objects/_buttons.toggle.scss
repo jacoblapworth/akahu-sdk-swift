@@ -17,7 +17,7 @@
 //
 // #### Class Names
 //
-// `xui-toggle` Container for one or more toggle buttons
+// `xui-toggle` Container for one or more toggle options
 //
 // `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
 //
@@ -26,6 +26,8 @@
 // `xui-toggle-standard` Style for a dark on light toggle container
 //
 // `xui-toggle-inverted` Style for a light on dark toggle container (use with `xui-text-inverted`)
+//
+// `xui-toggle-option` Container for a toggle option
 //
 // `xui-toggle--input` Style for a toggle input (hides HTML control)
 //
@@ -49,26 +51,34 @@
 // Markup:
 // <div class="xui-panel xui-margin xui-padding">
 //   <div class="xui-toggle xui-toggle-standard xui-toggle-fullwidth-layout">
-//     <input class="xui-toggle--input" type="checkbox" name="a" id="a1" checked/>
-//     <label class="xui-toggle--label" for="a1">
-//       Checkbox<br/>Checkbox<br/>Checkbox
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input" checked/>
+//       <span class="xui-toggle--label">
+//         Checkbox<br/>Checkbox<br/>Checkbox
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="checkbox" name="a" id="a2"/>
-//     <label class="xui-toggle--label" for="a2">
-//       Pajamas
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input" />
+//       <span class="xui-toggle--label">
+//         Pajamas
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="checkbox" name="a" id="a3" disabled/>
-//     <label class="xui-toggle--label xui-is-disabled" for="a3">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="checkbox" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="checkbox" name="a" id="a4" checked disabled/>
-//     <label class="xui-toggle--label xui-is-disabled" for="a4">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
-//       </svg>
-//       Checked and<br/>disabled
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="checkbox" class="xui-toggle--input" checked disabled/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//         Checked<br/>and disabled
+//       </span>
 //     </label>
 //   </div>
 // </div>
@@ -81,26 +91,34 @@
 // Markup:
 // <div class="xui-panel xui-margin xui-padding xui-text-inverted">
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
-//     <input class="xui-toggle--input" type="radio" name="b" id="b1" disabled/>
-//     <label class="xui-toggle--label xui-is-disabled" for="b1">
-//       Radio<br/>Radio<br/>Radio
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         Radio<br/>Radio<br/>Radio
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="radio" name="b" id="b2" disabled/>
-//     <label class="xui-toggle--label xui-is-disabled" for="b2">
-//       Pajamas
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         Pajamas
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="radio" name="b" id="b3" disabled/>
-//     <label class="xui-toggle--label xui-is-disabled" for="b3">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="radio" name="b" id="b4" checked disabled/>
-//     <label class="xui-toggle--label xui-is-disabled" for="b4">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
-//       </svg>
-//       Checked and<br/>disabled
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" checked disabled/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//         Checked<br/>and disabled
+//       </span>
 //     </label>
 //   </div>
 // </div>
@@ -121,23 +139,29 @@
 // Markup:
 // <div class="xui-panel xui-margin xui-padding">
 //   <div class="xui-toggle xui-toggle-standard xui-toggle-icon-layout">
-//     <input class="xui-toggle--input" type="checkbox" name="c" id="c1" checked/>
-//     <label class="xui-toggle--label" for="c1">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-bold" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input" checked/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-bold" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="checkbox" name="c" id="c2"/>
-//     <label class="xui-toggle--label" for="c2">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-italic" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input" />
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-italic" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="checkbox" name="c" id="c3"/>
-//     <label class="xui-toggle--label" for="c3">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-underline" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input"/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-underline" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
 //   </div>
 // </div>
@@ -150,23 +174,29 @@
 // Markup:
 // <div class="xui-panel xui-margin xui-padding xui-text-inverted">
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-icon-layout">
-//     <input class="xui-toggle--input" type="radio" name="d" id="d1" checked/>
-//     <label class="xui-toggle--label" for="d1">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option">
+//       <input type="radio" name="tg0" class="xui-toggle--input" checked/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="radio" name="d" id="d2"/>
-//     <label class="xui-toggle--label" for="d2">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-mobile" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option">
+//       <input type="radio" name="tg0" class="xui-toggle--input" />
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-mobile" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
-//     <input class="xui-toggle--input" type="radio" name="d" id="d3"/>
-//     <label class="xui-toggle--label" for="d3">
-//       <svg class="xui-icon">
-//         <use xlink:href="#xui-icon-print" role="presentation"/>
-//       </svg>
+//     <label class="xui-toggle-option">
+//       <input type="radio" name="tg0" class="xui-toggle--input"/>
+//       <span class="xui-toggle--label">
+//         <svg class="xui-icon">
+//           <use xlink:href="#xui-icon-print" role="presentation"/>
+//         </svg>
+//       </span>
 //     </label>
 //   </div>
 // </div>
@@ -182,9 +212,11 @@
 
 
 // Full-width layout
-.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label {
+.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
+.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
 	flex-grow: 1;
 }
+
 
 // Group styles
 .#{$ns}-toggle {
@@ -198,14 +230,14 @@
 }
 
 
-// Toggle input styles
+// Input styles
 .#{$ns}-toggle--input {
 	left: -9999em;
 	position: absolute;
 }
 
 
-// Toggle label styles
+// Label styles
 .#{$ns}-toggle--label {
 	align-items: center;
 	border: $xui-border-standard;
@@ -218,12 +250,33 @@
 	transition: all 0.1s ease;
 
 	// Border radius
-	&:first-of-type {
+	&:first-of-type { // TODO: Remove this style on next breaking-changes release
 		border-bottom-left-radius: $xui-radius;
 		border-top-left-radius: $xui-radius;
 	}
 
-	&:last-of-type {
+	&:last-of-type { // TODO: Remove this style on next breaking-changes release
+		border-bottom-right-radius: $xui-radius;
+		border-top-right-radius: $xui-radius;
+	}
+}
+
+
+// Option styles
+.#{$ns}-toggle-option {
+	display: flex;
+
+	// Border radius
+	.#{$ns}-toggle--label { // TODO: Remove this override on next breaking-changes release
+		border-radius: 0;
+	}
+
+	&:first-of-type .#{$ns}-toggle--label {
+		border-bottom-left-radius: $xui-radius;
+		border-top-left-radius: $xui-radius;
+	}
+
+	&:last-of-type .#{$ns}-toggle--label {
 		border-bottom-right-radius: $xui-radius;
 		border-top-right-radius: $xui-radius;
 	}

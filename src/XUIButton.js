@@ -244,79 +244,82 @@ const setupLinkProps = (props, elementProps) => {
 	}
 };
 
-export default function XUIButton(props) {
-	const isLink = props.type === CONSTANTS.TYPES.LINK;
-	const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
-	const variantClass = getVariantClass(props.variant);
-	const isSplit = props.split && props.onSecondaryClick;
-	const isDisabled = props.isDisabled || props.isLoading;
-	const children = props.isLoading ? <XUILoader size="small" defaultLayout={false} className={ButtonClasses.LOADER} /> : props.children;
+export default class XUIButton extends React.Component {
+	render () {
+		const props = this.props;
+		const isLink = props.type === CONSTANTS.TYPES.LINK;
+		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
+		const variantClass = getVariantClass(props.variant);
+		const isSplit = props.split && props.onSecondaryClick;
+		const isDisabled = props.isDisabled || props.isLoading;
+		const children = props.isLoading ? <XUILoader size="small" defaultLayout={false} className={ButtonClasses.LOADER} /> : props.children;
 
-	const classNames = cn(
-		ButtonClasses.BASE,
-		props.className,
-		variantClass,
-		getDisabledClass(props.isDisabled),
-		getSizeClass(props.size),
-		getGroupClass(props.isGrouped)
-	);
-
-	const clickHandler = function() {
-		if (isLink && isDisabled) {
-			event.preventDefault();
-		} else {
-			props.onClick.apply(arguments);
-		}
-	};
-
-	const secondaryClickHandler = function() {
-		if (isLink && isDisabled) {
-			event.preventDefault();
-		} else {
-			props.onSecondaryClick.apply(arguments);
-		}
-	};
-
-	// Standard props for all element types
-	const elementProps = {
-		title: props.title,
-		onClick: clickHandler,
-		disabled: isDisabled,
-		className: classNames,
-		tabIndex: isDisabled ? -1 : props.tabIndex
-	};
-
-	// Element type specific props
-	if (isLink) {
-		setupLinkProps(props, elementProps);
-	} else {
-		elementProps.type = props.buttonType;
-	}
-
-	if (isSplit) {
-		elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
-	}
-
-	let Button = (
-		<ElementType {...elementProps} data-automationid={props.qaHook}>
-			{children}
-		</ElementType>
-	);
-
-	if (isSplit) {
-
-		Button = (
-			<div className={ButtonClasses.GROUPED}>
-				{Button}
-				<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={secondaryClickHandler}>
-					<XUIIcon icon="caret" className={ButtonClasses.CARET}/>
-				</ElementType>
-			</div>
+		const classNames = cn(
+			ButtonClasses.BASE,
+			props.className,
+			variantClass,
+			getDisabledClass(props.isDisabled),
+			getSizeClass(props.size),
+			getGroupClass(props.isGrouped)
 		);
 
-	}
+		const clickHandler = function() {
+			if (isLink && isDisabled) {
+				event.preventDefault();
+			} else {
+				props.onClick.apply(arguments);
+			}
+		};
 
-	return Button;
+		const secondaryClickHandler = function() {
+			if (isLink && isDisabled) {
+				event.preventDefault();
+			} else {
+				props.onSecondaryClick.apply(arguments);
+			}
+		};
+
+		// Standard props for all element types
+		const elementProps = {
+			title: props.title,
+			onClick: clickHandler,
+			disabled: isDisabled,
+			className: classNames,
+			tabIndex: isDisabled ? -1 : props.tabIndex
+		};
+
+		// Element type specific props
+		if (isLink) {
+			setupLinkProps(props, elementProps);
+		} else {
+			elementProps.type = props.buttonType;
+		}
+
+		if (isSplit) {
+			elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
+		}
+
+		let Button = (
+			<ElementType {...elementProps} data-automationid={props.qaHook}>
+				{children}
+			</ElementType>
+		);
+
+		if (isSplit) {
+
+			Button = (
+				<div className={ButtonClasses.GROUPED}>
+					{Button}
+					<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={secondaryClickHandler}>
+						<XUIIcon icon="caret" className={ButtonClasses.CARET}/>
+					</ElementType>
+				</div>
+			);
+
+		}
+
+		return Button;
+	}
 }
 
 XUIButton.propTypes = propTypes;

@@ -27,7 +27,7 @@ $ bower install --save git@github.dev.xero.com:UXE/xui-switch.git
 
 ### Example
 ```js
-import { XUISwitch } from 'xui-switch';
+import XUISwitch from 'xui-switch';
 
 <XUISwitch
 	disabled={false}

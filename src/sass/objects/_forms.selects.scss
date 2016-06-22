@@ -156,18 +156,18 @@
 
 .#{$ns}-select--button-is-selected {
 	border: $xui-border-standard;
-	border-color: $xui-color-xero-blue $xui-color-xero-blue transparent;
+	border-color: $xui-color-border $xui-color-border transparent;
 	border-radius: $xui-radius $xui-radius 0 0;
 
 	&:hover,
 	&:focus,
 	&:active {
-		border-color: $xui-color-xero-blue $xui-color-xero-blue transparent;
+		border-color: $xui-color-border $xui-color-border transparent;
 	}
 }
 
 .#{$ns}-dropdownmenu-select {
-	border-color: $xui-color-xero-blue;
+	border-color: $xui-color-border;
 	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
 }

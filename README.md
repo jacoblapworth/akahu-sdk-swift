@@ -25,7 +25,7 @@ import XUIIcon, { XUIIcons } from 'xui-icon';
 `XUIIcon`'s parameters:
  - `icon` (string, required): specifies which icon you want to use
   - Either a `XUIIcons` property, or by explicitly naming the icon. (`XUIIcons.ARROW_SMALL` or `'arrow-small'`)
- - `className` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers. 
+ - `className` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers.
  - `size` (['large','xlarge'], optional): specifies a size modifier
  - `title` (string, optional): sets a title to be read by screen readers
  - `desc` (string, optional): sets a description to be read by screen readers
@@ -50,7 +50,7 @@ The icons may be referenced using the following markup:
 
 The ES5 icon blob is available via edge.xero.com and can be included directly into any page:
 ```html
-<script src="https://edge.xero.com/style/xui-icon/4.0.1/xuiIconBlobES5.js"></script>
+<script src="https://edge.xero.com/style/xui-icon/4.1.0/xuiIconBlobES5.js"></script>
 ```
 
 ### Via the Bower component

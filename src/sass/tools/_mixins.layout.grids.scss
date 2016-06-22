@@ -88,56 +88,6 @@
 
 }
 
-
-/*
- * Helper mixin for specifying the layout class once but have it also spit out the device
- * specific classes
- */
-@mixin xui-fixed-column-generator($suffix, $numofcols, $columnpercentage : 1, $gutter: 0) {
-
-	.#{$ns}-layout-column-#{$suffix} {
-		@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-		float: left;
-	}
-
-	@include xui-breakpoint-narrow {
-		.#{$ns}-layout-column-#{$suffix}-narrow {
-			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-			float: left;
-		}
-	}
-
-	@include xui-breakpoint-medium {
-		.#{$ns}-layout-column-#{$suffix}-medium {
-			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-			float: left;
-		}
-	}
-
-	@include xui-breakpoint-wide {
-		.#{$ns}-layout-column-#{$suffix}-wide {
-			@include xui-column-width-generator($numofcols, $columnpercentage, $gutter);
-			float: left;
-		}
-	}
-}
-
-@mixin xui-layout-fluid {
-	align-content: flex-start;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-@mixin xui-fluid-column-generator {
-	.#{$ns}-layout-fluid {
-		@include xui-layout-fluid;
-	}
-
-	.#{$ns}-layout-column-fluid {
-		flex: 1 1 auto;
-	}
-}
-
 @mixin xui-page-width-and-spacing-standard {
 	max-width: $xui-page-width-small;
 	@include xui-margin-horizontal(auto);

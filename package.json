@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "name": "xui-textarea",
+  "main": "src/XUITextArea.js",
+  "description": "ReactJS text area component for xui pages",
+  "author": "Kirk Holloway <kirk.holloway@xero.com>",
+  "license": "Copyright Xero Ltd",
+  "private": true,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "xui-component",
+    "ui"
+  ],
+  "scripts": {
+    "prepublish": "bower install",
+    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
+    "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage",
+    "test-ui": "env UV_THREADPOOL_SIZE=100 xui-webpack --config conf/build.js --progress --colors --watch"
+  },
+  "devDependencies": {
+    "bower": "^1.7.0",
+    "xui-webpack-build-tools": "git://github.dev.xero.com/FutureRobot/xui-webpack-build-tools.git#6.0.3"
+  }
+}

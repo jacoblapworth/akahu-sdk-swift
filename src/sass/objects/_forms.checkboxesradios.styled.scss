@@ -11,6 +11,11 @@
 // The `xui-styledcheckbox--check` and `xui-styledradio-check` classes provide the checkmark layer for a styled input.
 // They are intended for use with the `xui-icon-checkbox-check` and `xui-icon-radio-check` icons.
 //
+// The `xui-styledcheckbox--indeterminate` class provides the indeterminate layer for a styled checkbox.
+// It is intended to be used with the `xui-icon-checkbox-indeterminate` icon.
+// Note that JavaScript is required to [toggle the indeterminate state of a checkbox](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate)
+// (i.e. there is no indeterminate HTML attribute).
+//
 // Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
 //
 // #### Common XUI-Icon IDs
@@ -18,6 +23,8 @@
 // `xui-icon-checkbox-main` styled checkbox main icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-main"/></svg>
 //
 // `xui-icon-checkbox-check` styled checkbox checkmark icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-check"/></svg>
+//
+// `xui-icon-checkbox-indeterminate` styled checkbox indeterminate icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-indeterminate"/></svg>
 //
 // `xui-icon-radio-main` styled radio main icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-main"/></svg>
 //
@@ -38,6 +45,8 @@
 // `xui-styledcheckbox--main` Subcomponent for main layer of a styled checkbox
 //
 // `xui-styledcheckbox--check` Subcomponent for checkmark layer of a styled checkbox
+//
+// `xui-styledcheckbox--indeterminate` Subcomponent for indeterminate layer of a styled checkbox
 //
 // `xui-styledcheckbox--label` Subcomponent for label text of a styled checkbox
 //
@@ -71,6 +80,7 @@
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//     <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //   </svg>
 //   <span class="xui-styledcheckbox--label">Unchecked</span>
 // </label>
@@ -80,6 +90,7 @@
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//     <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //   </svg>
 //   <span class="xui-styledcheckbox--label">Checked</span>
 // </label>
@@ -89,6 +100,7 @@
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//     <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //   </svg>
 //   <span class="xui-styledcheckbox--label">Disabled</span>
 // </label>
@@ -98,6 +110,7 @@
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//     <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //   </svg>
 //   <span class="xui-styledcheckbox--label">Checked and disabled</span>
 // </label>
@@ -157,6 +170,7 @@
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//       <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">So lonely...</span>
 //   </label>
@@ -175,6 +189,7 @@
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//       <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">Stick this in your checkbox<br>and wrap it!</span>
 //   </label>
@@ -193,6 +208,7 @@
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//       <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">Milk</span>
 //   </label>
@@ -202,6 +218,7 @@
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//       <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">Cookies</span>
 //   </label>
@@ -211,6 +228,7 @@
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
+//       <use role="presentation" class="xui-styledcheckbox--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
 //     </svg>
 //     <span class="xui-styledcheckbox--label">View-Master!</span>
 //   </label>
@@ -413,8 +431,13 @@
 	flex-shrink: 0; // Prevent SVG from shrinking when label text is long
 }
 
-.#{$ns}-styledcheckbox--focus, .#{$ns}-styledcheckbox--main, .#{$ns}-styledcheckbox--check,
-.#{$ns}-styledradio--focus, .#{$ns}-styledradio--main, .#{$ns}-styledradio--check {
+.#{$ns}-styledcheckbox--focus,
+.#{$ns}-styledcheckbox--main,
+.#{$ns}-styledcheckbox--check,
+.#{$ns}-styledcheckbox--indeterminate,
+.#{$ns}-styledradio--focus,
+.#{$ns}-styledradio--main,
+.#{$ns}-styledradio--check {
 	transition: all 0.1s ease;
 }
 
@@ -434,6 +457,7 @@
 }
 
 .#{$ns}-styledcheckbox--check,
+.#{$ns}-styledcheckbox--indeterminate,
 .#{$ns}-styledradio--check {
 	fill: transparent;
 	opacity: 0; // Hide checkmark
@@ -528,6 +552,49 @@ input:checked:active + svg {
 }
 
 
+
+// Indeterminate checkbox styles
+// =============================
+
+// Indeterminate
+input:indeterminate + svg {
+
+	.#{$ns}-styledcheckbox--main {
+		fill: $xui-color-xero-blue;
+		stroke: $xui-color-xero-blue;
+	}
+
+	.#{$ns}-styledcheckbox--check {
+		fill: transparent;
+		opacity: 0; // Hide checkmark
+	}
+
+	.#{$ns}-styledcheckbox--indeterminate {
+		fill: $xui-color-white;
+		opacity: 1; // Show indeterminate
+	}
+}
+
+// Indeterminate, hover/focus
+input:indeterminate:hover + svg,
+input:indeterminate:focus + svg {
+
+	.#{$ns}-styledcheckbox--main {
+		fill: darken($xui-color-xero-blue, 7%);
+		stroke: darken($xui-color-xero-blue, 7%);
+	}
+}
+
+// Indeterminate, active
+input:indeterminate:active + svg {
+
+	.#{$ns}-styledcheckbox--main {
+		fill: $xui-color-xero-blue;
+		stroke: darken($xui-color-xero-blue, 7%);
+	}
+}
+
+
 // Disabled styles
 // ===============
 input:disabled + svg,
@@ -540,6 +607,7 @@ input:disabled:hover + svg {
 	}
 
 	.#{$ns}-styledcheckbox--check,
+	.#{$ns}-styledcheckbox--indeterminate,
 	.#{$ns}-styledradio--check {
 		fill: $xui-color-grey-4; // TODO: Update $xui-color-disabled-text to use $xui-color-grey-4
 	}

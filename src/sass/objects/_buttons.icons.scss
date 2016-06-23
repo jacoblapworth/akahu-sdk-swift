@@ -8,28 +8,31 @@
 //
 // Used for buttons that only use icons. Two variants are available, standard (no suffix) and large (`-large`).
 //
-// `title` and `aria-label` attributes should be provided to explain the icon.
-// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+// Your icon button should provide:
+// - `title`: This provides additional information about your button to users in a tooltip
+// - `aria-label`: This provides a description of the button to screen readers to improve accessibility
+//
+// [Unfortunately, `title` is not a substitute for `aria-label`.](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
 //
 // :hover - Highlights when hovering
 // :focus - When focused
 // :active - When active
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Apply discount" aria-label="Apply discount"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Apply discount" aria-label="Apply discount"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Make a suggestion" aria-label="Make a suggestion"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Make a suggestion" aria-label="Make a suggestion"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
 // <br />
 // <div class="xui-text-inverted">
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Apply discount" aria-label="Apply discount"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Apply discount" aria-label="Apply discount"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Make a suggestion" aria-label="Make a suggestion"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Make a suggestion" aria-label="Make a suggestion"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
 // </div>
 //
 // Styleguide: Buttons.7.1

@@ -7,7 +7,6 @@ import CSSClasses from 'xui-css-classes';
 const TestUtils = React.addons.TestUtils;
 
 let component = {};
-let type = 'text';
 let changed = false;
 
 // Note: The height change functionality of this component has not been tested due to the styling issues that come with headless browsers. Height tested at any size will come up as
@@ -16,7 +15,7 @@ describe('XUITextArea basic functionality:', () => {
 	beforeEach(() => {
 		const changeHandler = function(){
 			changed = true;
-		}
+		};
 
 		component = TestUtils.renderIntoDocument(
 			<XUITextArea

@@ -21,7 +21,7 @@ import XUITextArea from '../../src/XUITextArea.js';
 				</XUITextArea>
 				<XUITextArea rows={3} maxCharacters={400}
 					defaultValue="Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim." >
-					<label className="xui-text-label">{"This textarea has a set number of 3 rows and has exceeded it's size limit"}</label>
+					<label className="xui-text-label">{"This textarea has a set number of 3 rows and has exceeded its size limit"}</label>
 				</XUITextArea>
 				<XUITextArea rows={2} defaultValue="This one has a default value and is readonly" readOnly={true} onChange={onChange} />
 				<XUITextArea minRows={5}

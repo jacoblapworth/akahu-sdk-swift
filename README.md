@@ -57,6 +57,7 @@ The ES5 icon blob is available via edge.xero.com and can be included directly in
 #### ES6
  ```js
 import xuiIconBlob from 'xui-icon/dist/xuiIconBlob.js';
+xuiIconBlob();
 ```
 #### ES5
 ```html

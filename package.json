@@ -7,7 +7,8 @@
   "license": "Copyright Xero Ltd",
   "private": true,
   "scripts": {
-    "build": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors && rollup -c && node ./build/build.js",
+    "build": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors && npm run rollup",
+    "rollup": "rollup -c && rollup -c rollup.config.docs.js && node ./build/build.js",
     "lint": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/eslint -c .eslintrc ./src",
     "prepublish": "bower install",
     "test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js",

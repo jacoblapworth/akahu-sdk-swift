@@ -1,6 +1,7 @@
 #project
 coverage
 build/bundle.js
+build/docs.bundle.js
 test/ui/test.bundle.js
 
 #node

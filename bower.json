@@ -1,0 +1,22 @@
+{
+  "name": "xui-toggle",
+  "version": "1.0.0",
+  "description": "React components to render xui styled toggles",
+  "main": "index.js",
+  "license": "Copyright Xero Ltd",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.1.0"
+  }
+}

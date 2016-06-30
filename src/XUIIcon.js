@@ -24,7 +24,7 @@ const rotations = [
 	180,
 	270
 ];
-const colors = ['',...Object.keys(Classes.Icon.Color).map(key=>{return key.toLowerCase()})];
+const colors = Object.keys(Classes.Icon.Color).map(key=>{return key.toLowerCase()});
 const propTypes = {
 	/** @property {string} Defines the icon to be rendered */
 	icon: PropTypes.oneOf(Object.keys(icons)).isRequired,

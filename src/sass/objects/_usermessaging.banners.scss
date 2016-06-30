@@ -146,22 +146,13 @@
 	transition: opacity $xui-transition-duration-short $xui-easing-standard;
 }
 
-.#{$ns}-banner::before {
-	background: transparent;
-	border-radius: $xui-radius 0 0 $xui-radius;
-	content: "";
-	height: calc(100% + 2px);
-	left: -1px;
-	position: absolute;
-	top: -1px;
-	width: 4px;
-}
-
 .#{$ns}-banner-positive::before {
+	@include xui-highlight-left($xui-radius, true);
 	background: $xui-color-xero-light-green;
 }
 
 .#{$ns}-banner-negative::before {
+	@include xui-highlight-left($xui-radius, true);
 	background: $xui-color-xero-red;
 }
 

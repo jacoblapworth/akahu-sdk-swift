@@ -1,0 +1,18 @@
+@import "../vars";
+
+@mixin xui-highlight-left($left-border-radius: 0, $has-border: false) {
+	@if $left-border-radius != 0 {
+		border-radius: $left-border-radius 0 0 $left-border-radius;
+	}
+	@if $has-border {
+		$alignment: -1px;
+	} @else {
+		$alignment: 0;
+	}
+	bottom: $alignment;
+	content: "";
+	left: $alignment;
+	position: absolute;
+	top: $alignment;
+	width: 4px;
+}

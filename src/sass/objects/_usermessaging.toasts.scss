@@ -48,22 +48,13 @@
 	z-index: 10;
 }
 
-.#{$ns}-toast::before {
-	background: transparent;
-	border-radius: $xui-radius 0 0 $xui-radius;
-	bottom: -1px;
-	content: "";
-	left: -1px;
-	position: absolute;
-	top: -1px;
-	width: 4px;
-}
-
 .#{$ns}-toast-positive::before {
+	@include xui-highlight-left($xui-radius, true);
 	background: $xui-color-xero-light-green;
 }
 
 .#{$ns}-toast-negative::before {
+	@include xui-highlight-left($xui-radius, true);
 	background: $xui-color-xero-red;
 }
 

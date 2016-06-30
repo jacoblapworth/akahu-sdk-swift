@@ -60,13 +60,49 @@ describe('XUIIcon', () => {
 		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['270']);
 
 		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['90']);
+		expect(domNode1.getAttribute("class")).to.contain(Classes.Icon.ROTATE['90']);
 
 		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['180']);
+		expect(domNode2.getAttribute("class")).to.contain(Classes.Icon.ROTATE['180']);
 
 		const domNode3 = ReactDOM.findDOMNode(component).children[3];
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['270']);
+		expect(domNode3.getAttribute("class")).to.contain(Classes.Icon.ROTATE['270']);
+	});
+
+	it('Should render with the correct color class when color is provided', function () {
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUIIcon icon={ XUIIcons.SEARCH } />
+				<XUIIcon icon={ XUIIcons.SEARCH } color={'standard'} />
+				<XUIIcon icon={ XUIIcons.SEARCH } color={'red'} />
+				<XUIIcon icon={ XUIIcons.SEARCH } color={'green'} />
+				<XUIIcon icon={ XUIIcons.SEARCH } color={'white'} />
+				<XUIIcon icon={ XUIIcons.SEARCH } color={'blue'} />
+			</div>
+		);
+
+		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
+		const domNode = ReactDOM.findDOMNode(component).children[0];
+		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['STANDARD']);
+		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['RED']);
+		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['GREEN']);
+		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['WHITE']);
+		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['BLUE']);
+
+		const domNode1 = ReactDOM.findDOMNode(component).children[1];
+		expect(domNode1.getAttribute("class")).to.contain(Classes.Icon.Color['STANDARD']);
+
+		const domNode2 = ReactDOM.findDOMNode(component).children[2];
+		expect(domNode2.getAttribute("class")).to.contain(Classes.Icon.Color['RED']);
+
+		const domNode3 = ReactDOM.findDOMNode(component).children[3];
+		expect(domNode3.getAttribute("class")).to.contain(Classes.Icon.Color['GREEN']);
+
+		const domNode4 = ReactDOM.findDOMNode(component).children[4];
+		expect(domNode4.getAttribute("class")).to.contain(Classes.Icon.Color['WHITE']);
+
+		const domNode5 = ReactDOM.findDOMNode(component).children[5];
+		expect(domNode5.getAttribute("class")).to.contain(Classes.Icon.Color['BLUE']);
 	});
 
 	it('Should render title and desc elements within the SVG element based on the props provided', function () {

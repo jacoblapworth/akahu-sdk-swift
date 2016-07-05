@@ -8,6 +8,6 @@ module.exports = {
         cwd: './node_modules/.bin'
       }
     },
-    command: 'kss-node --config ../../kss-config.json'
+    command: 'kss-node --config ../../kss/config.json'
   }
 };

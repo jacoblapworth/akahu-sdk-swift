@@ -1,0 +1,12 @@
+{
+	"source": "../src/sass",
+	"destination": "../docs",
+	"css": [
+		"./kss-style.css"
+	],
+	"js": [
+		"./public/kss-script.js"
+	],
+	"homepage": "../../kss/styleguide/styleguide.md",
+	"template": "./template"
+}

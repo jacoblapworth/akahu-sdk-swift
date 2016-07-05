@@ -2,8 +2,8 @@
  * Our customizations to the KSS style sheet.
  */
 
-@import "../src/sass/xui";
-@import "../src/sass/settings/typography";
+@import "../../src/sass/xui";
+@import "../../src/sass/settings/typography";
 
 
 $kss-sidebar-width: 12.5rem;
@@ -71,7 +71,7 @@ body {
 }
 
 .kss-doc-title {
-	background: url(xero.svg) 0.85em center no-repeat;
+	background: url('public/xero.svg') 0.85em center no-repeat;
 	font-weight: normal;
 	margin: 0;
 	padding: 0.5em 0 0.5em 3em;
@@ -104,7 +104,7 @@ body {
 }
 
 .kss-hamburger {
-	background: url('hamburger.png') center center / 2rem auto no-repeat $xui-color-grey-2;
+	background: url('public/hamburger.png') center center / 2rem auto no-repeat $xui-color-grey-2;
 	width: 3.5rem;
 
 	&:hover {

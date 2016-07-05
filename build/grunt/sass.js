@@ -8,7 +8,7 @@ module.exports = {
   dist: {
     files: {
       'dist/xui.css': 'src/sass/xui.scss',
-      'styleguide/kss-style.css': 'styleguide/kss-style.scss'
+      'docs/kss-style.css': 'kss/styleguide/kss-style.scss'
     }
   }
 };

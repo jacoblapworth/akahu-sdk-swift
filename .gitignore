@@ -4,7 +4,6 @@
 /.bundle
 /node_modules
 /vendor/bundle/
-/styleguide/styleguide.md
 npm-debug.log
 
 # gh-pages branch stuff
@@ -12,12 +11,8 @@ npm-debug.log
 /origin
 
 # Build/Output files/directories
-/*.html
 /dist
-/public
-/styleguide/images
-/styleguide/kss-style.css
-/styleguide/kss-style.css.map
+/kss/styleguide/styleguide.md
 
 # IDE files/directores
 /.idea

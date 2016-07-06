@@ -28,7 +28,13 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 ### Bower
 
 ```bash
-$ bower install git@github.dev.xero.com:UXE/xui.git --save
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.7.0 --save
+```
+
+### npm
+
+```bash
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.7.0 --save
 ```
 
 You will need to compile `xui.scss`.

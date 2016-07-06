@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 					var newContents = originalContents.replace(edgeRegex, function () {
 						return arguments[1] + packageJson.version + arguments[3];
 					}).replace(githubRegex, function() {
-						return arguments[1] + arguments[2] + arguments[3] + packageJson.version + arguments[5];
+						return arguments[1] + packageJson.version + arguments[5];
 					});
 
 					if (newContents !== originalContents) {

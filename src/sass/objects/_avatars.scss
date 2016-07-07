@@ -93,7 +93,8 @@
 }
 
 // TODO: remove avatar-group in breaking change
-.#{$ns}-avatar-group, .#{$ns}-avatargroup {
+.#{$ns}-avatar-group,
+.#{$ns}-avatargroup {
 	.#{$ns}-avatar {
 		background-clip: content-box;
 		box-sizing: content-box;

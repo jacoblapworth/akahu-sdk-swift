@@ -9,7 +9,6 @@
 // Styleguide: Buttons.2
 
 @each $variant, $color in $xui-button-variants-background-colors {
-
 	.#{$ns}-button-#{$variant} {
 
 		@if $variant == standard {

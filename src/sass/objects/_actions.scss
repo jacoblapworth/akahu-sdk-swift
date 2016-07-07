@@ -51,12 +51,7 @@
 }
 
 .#{$ns}-actions-layout {
-	.#{$ns}-actions--primary {
-		margin-left: $xui-s-small;
-	}
-}
 
-.#{$ns}-actions-layout {
 	@include xui-breakpoint-narrow {
 		flex-direction: column;
 
@@ -70,4 +65,9 @@
 			order: 1;
 		}
 	}
+
+	.#{$ns}-actions--primary {
+		margin-left: $xui-s-small;
+	}
+
 }

@@ -27,7 +27,7 @@
 		</ul>
 		<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
 			{{#eachRoot}}
-			<li class="xui-verticaltab {{#ifReference ../rootName}}xui-verticaltab-is-selected{{/ifReference}}">
+			<li class="xui-verticaltab {{#ifReference ../rootName}}xui-verticaltab-is-selected{{/ifReference}} {{#if heading}}kss-sidebar-heading{{else}}xui-padding-left{{/if}}">
 				<a href="section-{{referenceURI}}.html" tabindex="-1" class="xui-verticaltab--body">{{header}}</a>
 			</li>
 			{{/eachRoot}}

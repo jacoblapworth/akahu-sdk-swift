@@ -77,6 +77,11 @@ body {
 	padding: 0.5em 0 0.5em 3em;
 }
 
+.kss-sidebar-heading {
+	pointer-events: none;
+	font-weight: bold;
+	background: transparent;
+}
 
 // -----------------------------------------------------------------------------
 // Content-area

@@ -3,6 +3,8 @@
 
 // Typography
 //
+// Weight: 2.4
+//
 // Styleguide: Typography
 
 // Text Styles
@@ -302,7 +304,7 @@
 //   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Text Content.1
+// Styleguide: Typography.8
 
 // Text Reset
 //
@@ -315,7 +317,7 @@
 //   <p class="xui-text-reset">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Text Content.1.1
+// Styleguide: Typography.8.1
 
 .#{$ns}-text-reset {
 	line-height: $xui-line-height-reset;
@@ -334,7 +336,7 @@
 //   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Text Content.1.2
+// Styleguide: Typography.8.2
 
 .#{$ns}-text-longform {
 	line-height: $xui-line-height-text;

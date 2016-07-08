@@ -79,13 +79,15 @@
 		padding-left: 36px;
 	}
 
+
+
 	.#{$ns}-icon {
 		pointer-events: none;
 	}
 
 	.#{$ns}-input--icon-left {
 		color: $xui-color-grey-3;
-		left: 3px;
+		left: $xui-s-xsmall;
 		position: absolute;
 		top: calc(50% - #{$xui-icon-standard / 2});
 	}
@@ -93,10 +95,67 @@
 	.#{$ns}-input--icon-right {
 		color: $xui-color-grey-3;
 		position: absolute;
-		right: 3px;
+		right: $xui-s-xsmall;
 		top: calc(50% - #{$xui-icon-standard / 2});
 	}
 }
+
+// Borderless Text Inputs
+//
+// Borderless styling of inputs for usage in modal style forms or narrow views.
+//
+// #### Class Names
+//
+// `xui-input-wrapper--borderless` Modifier for the borderless inputs container
+//
+// `xui-input--borderless` Modifier for borderless input fields
+//
+// Markup:
+//<div style="background-color: #284664;" class="xui-padding">
+// <input class="xui-input xui-input-borderless" type="text" placeholder="Standard Input, No Layout" aria-label="Standard input"/>
+// <input class="xui-input xui-input-borderless xui-input-borderless-layout xui-margin-top" type="text" placeholder="Standard Input, With Layout" aria-label="Standard input"/>
+// <div class="xui-input-wrapper xui-input-wrapper--borderless xui-input-wrapper-borderless-layout xui-margin-top">
+// 	<svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+// 	<input class="xui-input xui-input-borderless xui-input-borderless-layout" type="search" placeholder="Search" aria-label="Search"/>
+// </div>
+// <div class="xui-input-wrapper xui-input-wrapper-borderless xui-input-wrapper-borderless-layout xui-margin-top">
+// 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+// 	<input class="xui-input xui-input-borderless xui-input-borderless-layout" type="search" placeholder="Search" aria-label="Search"/>
+// </div>
+//</div>
+//
+// Styleguide: Forms.4.2
+
+.#{$ns}-input-borderless {
+	border: 0;
+	border-radius: 0;
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.#{$ns}-input-borderless-layout {
+	@include xui-padding($xui-s-standard);
+}
+
+.#{$ns}-input-wrapper-borderless {
+
+	.#{$ns}-input--icon-left {
+		left: $xui-s-small;
+	}
+
+	.#{$ns}-input--icon-right {
+		right: $xui-s-small;
+	}
+}
+
+.#{$ns}-input-wrapper-borderless-layout {
+	.#{$ns}-input--icon-left ~ .#{$ns}-input {
+		@include xui-padding-left($xui-s-5xlarge);
+	}
+}
+
 
 // Grouped Inputs
 //
@@ -127,7 +186,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Forms.4.2
+// Styleguide: Forms.4.3
 
 .#{$ns}-input-group {
 	@include xui-clearfix;

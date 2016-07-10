@@ -96,6 +96,14 @@
 }
 
 .#{$ns}-accordionitem-is-open {
+	border-bottom: $xui-divider-standard;
+	border-top: $xui-divider-standard;
+	box-shadow: $xui-shadow-depth-2;
+	height: auto;
+	margin: 0;
+	max-width: 100vw;
+	transform: translateY(-1px); /** hides the border-bottom of the accordion--collapsed above it **/
+
 	&.#{$ns}-accordionitem-layout {
 		@include xui-breakpoint-wide { /** increase width of open accordion item by 40px on larger screen sizes **/
 			border-left: $xui-divider-standard;
@@ -109,17 +117,6 @@
 	.#{$ns}-accordionitem--expanded {
 		padding: $xui-s-xxlarge;
 	}
-}
-
-.#{$ns}-accordionitem-is-open {
-	border-bottom: $xui-divider-standard;
-	border-top: $xui-divider-standard;
-	box-shadow: $xui-shadow-depth-2;
-	height: auto;
-	margin: 0;
-	max-width: 100vw;
-	transform: translateY(-1px); /** hides the border-bottom of the accordion--collapsed above it **/
-
 
 	> .#{$ns}-accordionitem--collapsed {
 		border: 0;

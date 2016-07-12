@@ -266,7 +266,7 @@ export default class XUIButton extends React.Component {
 		const clickHandler = function() {
 			if (isLink && isDisabled) {
 				event.preventDefault();
-			} else {
+			} else if (!isLink || isLink && props.onClick){
 				props.onClick.apply(arguments);
 			}
 		};
@@ -315,7 +315,6 @@ export default class XUIButton extends React.Component {
 					</ElementType>
 				</div>
 			);
-
 		}
 
 		return Button;

@@ -108,4 +108,24 @@ describe('<XUIButton/>', () => {
 
 		assert.isFalse(onClick.calledOnce);
 	});
+
+	it('should work even if the button is a link and no click handler has been defined', () => {
+		const button = renderIntoDocument(
+			<div>
+				<XUIButton href="https://google.com" type="link">Action</XUIButton>
+			</div>
+		);
+		assert.doesNotThrow(() => {Simulate.click(findDOMNode(button).firstChild)}, Error);
+	});
+
+	it('links with an onclick handler should be able to handle click events with the handler', () => {
+		const onClick = sinon.spy();
+		const button = renderIntoDocument(
+			<div>
+				<XUIButton type="link" onClick={onClick}>test</XUIButton>
+			</div>
+		);
+		Simulate.click(findDOMNode(button).firstChild);
+		assert.isTrue(onClick.calledOnce);
+	});
 });

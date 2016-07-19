@@ -41,7 +41,9 @@ const propTypes = {
 	/** @property {string} [rotation=0] Adds a rotation modifier to the icon */
 	rotation: PropTypes.oneOf(rotations),
 	/** @property {string} [color] Adds a color modifier to the icon */
-	color: PropTypes.oneOf(colors)
+	color: PropTypes.oneOf(colors),
+	/** @property {bool} [inline] Whether the inline class modifier should be added */
+	inline: PropTypes.bool
 };
 
 const defaultProps = {
@@ -50,13 +52,16 @@ const defaultProps = {
 };
 
 export default function XUIIcon(props) {
-	const { icon, className, size, title, desc, role, rotation, color } = props;
+	const { icon, className, size, title, desc, role, rotation, color, inline } = props;
 	const classes = cn(
 		Classes.Icon.BASE,
 		className,
 		iconSizes[size],
-		{ [Classes.Icon.ROTATE[rotation]] : rotation },
-		color ? Classes.Icon.Color[color.toUpperCase()] : null
+		Classes.Icon.Color[color ? color.toUpperCase() : null],
+		{
+			[Classes.Icon.ROTATE[rotation]] : rotation,
+			[Classes.Icon.INLINE] : inline
+		}
 		);
 
 	if (!document.getElementById(iconBlobId)) {

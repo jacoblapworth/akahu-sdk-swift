@@ -32,6 +32,7 @@ import XUIIcon, { XUIIcons } from 'xui-icon';
  - `role` (string, optional): sets a role for screen reader compatibility, defaults to `presentation`
  - `rotation` ([90,180,270], optional): specifies a rotation modifier of `90`, `180`, or `270` degrees clockwise
  - `color` (['standard','red','green','blue','white'], optional): Specifies a color modifier class
+ - `inline` (boolean, optional): whether the inline class modifier should be added
 
 For example, to add an arrow rotated to the right
 ```jsx

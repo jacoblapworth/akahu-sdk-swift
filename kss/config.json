@@ -6,8 +6,9 @@
 		"./kss-style.css"
 	],
 	"js": [
-		"./public/kss-script.js"
+		"./kss-assets/kss-script.js"
 	],
 	"homepage": "../../kss/styleguide/styleguide.md",
-	"template": "./template"
+	"builder": "./builder",
+	"extend": "./builder/extend"
 }

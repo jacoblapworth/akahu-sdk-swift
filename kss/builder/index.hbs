@@ -95,12 +95,12 @@
 
 				{{#if parameters}}
 				<ul class="kss-parameters">
-					{{#eachParameter}}
+					{{#each parameters}}
 					<li class="kss-parameters__item">
 						<code class="kss-parameters__name">{{name}}</code>
 						<div class="kss-parameters__description">{{{description}}}</div>
 					</li>
-					{{/eachParameter}}
+					{{/each}}
 				</ul>
 				{{/if}}
 
@@ -121,7 +121,7 @@
 				<div class="kss-modifier__example">
 					{{{markup}}}
 				</div>
-				{{#eachModifier}}
+				{{#each modifiers}}
 				<div class="kss-modifier__name kss-style">
 					{{name}}
 				</div>
@@ -131,7 +131,7 @@
 				<div class="kss-modifier__example">
 					{{{markup}}}
 				</div>
-				{{/eachModifier}}
+				{{/each}}
 			</div>
 
 			<div class="kss-markup kss-style" style="position: relative;">
@@ -149,7 +149,7 @@
 --}}
 
 <!-- SCRIPTS -->
-<script src="kss-assets//kss.js"></script>
+<script src="kss-assets/kss.js"></script>
 <script src="kss-assets/prettify.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
 <script>

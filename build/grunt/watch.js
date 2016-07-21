@@ -16,7 +16,7 @@ module.exports = function(grunt, opts) {
 		options: {
 			livereload: livereload
 		},
-		files: ['**/*.scss', 'template/*'],
+		files: ['**/*.scss', 'builder/*'],
 		tasks: ['lint', 'build', 'kss']
 	}
 };

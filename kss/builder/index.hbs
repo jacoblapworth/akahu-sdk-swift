@@ -26,11 +26,11 @@
 			</li>
 		</ul>
 		<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-			{{#eachRoot}}
-			<li class="xui-verticaltab {{#ifReference ../rootName}}xui-verticaltab-is-selected{{/ifReference}} {{#if heading}}kss-sidebar-heading{{else}}xui-padding-left{{/if}}">
+			{{#each menu}}
+			<li class="xui-verticaltab {{#isEqual header @root.sections.0.header}}xui-verticaltab-is-selected{{/isEqual}} {{#if heading}}kss-sidebar-heading{{else}}xui-padding-left{{/if}}">
 				<a href="section-{{referenceURI}}.html" tabindex="-1" class="xui-verticaltab--body">{{header}}</a>
 			</li>
-			{{/eachRoot}}
+			{{/each}}
 		</ul>
 	</nav>
 
@@ -54,7 +54,7 @@
 	The "root" element comes first in this loop, and can be detected using
 	the "#ifDepth 1" block as seen below.
 	}}
-	{{#eachSection rootName}}
+	{{#each sections}}
 
   {{#ifDepth 1}}
   <section class="kss-section kss-section--title">
@@ -70,7 +70,7 @@
         {{#eachSection reference}}
         {{#ifDepth 2}}
         <li class="kss-nav__menu-item xui-tab">
-          <a class="xui-tab--body" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
+          <a class="xui-tab--body" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
         </li>
         {{/ifDepth}}
         {{/eachSection}}
@@ -92,8 +92,6 @@
           <!-- <a class="kss-title__permalink" href="#kssref-{{referenceURI}}"></a> -->
 				</h{{depth}}>
         {{/ifDepth}}
-
-
 
 				{{#if parameters}}
 				<ul class="kss-parameters">
@@ -145,13 +143,14 @@
 			{{/if}}
     </div>
 	</section>
-	{{/eachSection}}
+	{{/each}}
 	{{/if}}
 </article>
+--}}
 
 <!-- SCRIPTS -->
-<script src="public/kss.js"></script>
-<script src="public/prettify.js"></script>
+<script src="kss-assets//kss.js"></script>
+<script src="kss-assets/prettify.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
 <script>
 	prettyPrint();

@@ -1,0 +1,148 @@
+@import "../vars";
+@import "../mixins";
+
+// Pills
+//
+// Pill are used for signifying a selection has been made, either single or multiple. Typically used within an input box but potentially can be used elsewhere.
+//
+// Weight: 4.1
+//
+// Styleguide: Pills
+
+
+
+// Pills Used in Multi Selections
+//
+// Used to highlight that more than one selection can be made.
+//
+// #### Class Names
+//
+// `.xui-pill` Pill container class
+//
+// `.xui-pill-layout` Layout assumption s for Pill's, mainly max-width restrictions.
+//
+// `.xui-pill--text` The text inside the pill should truncate when it reaches it max width, and adds some extra horizontal padding to make the clickable area easier to target.
+//
+// `.xui-pill--avatar` Adds an extra small horizontal margin to the avatar inside a pill
+//
+// `.xui-pill-invalid` Invalid state of a pill.
+//
+// Markup:
+//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+//   <span class="xui-pill--text">Pill Value</span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//   </button>
+//  </div>
+//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+//   <span class="xui-pill--text">Pill with a really long piece of text, for example you might have a long name</span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//   </button>
+//  </div>
+//  <div class="xui-pill xui-pill-layout xui-margin-top">
+//	 <span>
+//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+//     <span class="xui-pill--text">pill@withemailaddress.com</span>
+//   </span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//   </button>
+//  </div>
+//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
+//   <span class="xui-pill--text" class="xui-pill--text">Invalid</span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//   </button>
+//  </div>
+//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+//   <a href='#kssref-pills-2' class="xui-pill--text">With a destination</a>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//   </button>
+//  </div>
+//
+// Weight: 4.1
+//
+// Styleguide: Pills.1
+
+
+.#{$ns}-pill {
+	align-items: center;
+	background-color: $xui-color-background;
+	border-radius: $xui-s-large;
+	cursor: default;
+	display: inline-flex;
+
+	.#{$ns}-pill--avatar {
+		@include xui-margin-horizontal($xui-s-xsmall);
+	}
+
+	.#{$ns}-pill--text {
+		overflow: hidden;
+		padding: $xui-s-xsmall 0;
+		text-overflow: ellipsis;
+	}
+}
+
+.#{$ns}-pill-layout {
+	max-width: 200px;
+	white-space: nowrap;
+}
+
+.#{$ns}-pill-invalid {
+	color: $xui-color-xero-red;
+}
+
+// Pills Used in Single Selection
+//
+// Signifies only one selection can be made here rather than multiple, typically will live inside an input field.
+//
+// #### Class Names
+//
+// `.xui-pill-single` Class for the case when only one selection can be made
+//
+// Markup:
+//<div class="xui-input xui-margin-top">
+//  <div class="xui-pill xui-pill-single xui-space-between">
+//	 <span>
+//     <abbr class="xui-avatar xui-avatar-small xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+//      pill@withemailaddress.com
+//   </span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//  </div>
+//</div>
+//<div class="xui-input xui-margin-top">
+//  <div class="xui-pill xui-pill-single xui-space-between xui-pill-invalid">
+//	 <span>
+//    <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-5">M</abbr>
+//      Invalid Content
+//   </span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//  </div>
+//</div>
+//<div class="xui-input xui-margin-top">
+//  <div class="xui-pill xui-pill-single xui-space-between">
+//	 <span>
+//     <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1">C</abbr>
+//     <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
+//   </span>
+//   <button class="xui-button xui-button-icon">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//  </div>
+//</div>
+//
+//
+// Weight: 4.2
+//
+// Styleguide: Pills.2
+
+.#{$ns}-pill-single {
+	background-color: $xui-color-white;
+	width: 100%;
+}

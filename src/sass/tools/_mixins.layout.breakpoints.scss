@@ -16,6 +16,7 @@ $xui-breakpoint-wide: 1160px;
 }
 
 // This is an effective alias to what I think the medium-and-wide should be but isn't currently.
+
 @mixin xui-breakpoint-narrow-up {
 	@media screen and (min-width: $xui-breakpoint-narrow) {
 		@content;

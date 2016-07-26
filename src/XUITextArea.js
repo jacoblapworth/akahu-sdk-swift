@@ -189,7 +189,7 @@ export default class XUITextArea extends Component {
 
 	render() {
 		const textComponent = this;
-		const { className, fieldClassName, rows, minRows, children, maxCharacters, maxRows, defaultLayout, error, manualResize, isDisabled, textareaId, ...other } = textComponent.props;
+		const { className, fieldClassName, rows, minRows, children, maxCharacters, maxRows, defaultLayout, error, manualResize, isDisabled, textareaId, qaHook, ...other } = textComponent.props;
 		const classNameFormated = cn(
 				CSSClasses.Form.Input.BASE,
 				{ [CSSClasses.Form.Input.IS_INVALID] : textComponent.state.characterCountError || error },
@@ -213,10 +213,11 @@ export default class XUITextArea extends Component {
 				onChange={textComponent._changeHandler}
 				onMouseUp={textComponent._detectResize}
 				disabled={isDisabled}
-				id={textareaId} />
+				id={textareaId}
+				data-automationid={`${qaHook}-textarea`} />
 		);
 
-		const counter = maxCharacters? <span ref={c => textComponent._counter = c } className={CSSClasses.Typography.Text.SECONDARY}>{textComponent.state.charactersLeft}</span> : null;
+		const counter = maxCharacters? <span ref={c => textComponent._counter = c } className={CSSClasses.Typography.Text.SECONDARY} data-automationid={`${qaHook}-counter`}>{textComponent.state.charactersLeft}</span> : null;
 
 		return (
 			<div className={fieldClasses}>

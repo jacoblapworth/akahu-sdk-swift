@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "name": "xui-textarea",
   "main": "src/XUITextArea.js",
   "description": "ReactJS text area component for xui pages",

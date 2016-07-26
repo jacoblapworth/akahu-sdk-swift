@@ -25,7 +25,7 @@ import XUITextArea from '../../src/XUITextArea.js';
 				</XUITextArea>
 				<XUITextArea rows={2} defaultValue="This one has a default value and is readonly" readOnly={true} onChange={onChange} />
 				<XUITextArea minRows={5}
-					ariaLabelledBy="test-text-label-1"
+					aria-labelledby="test-text-label-1"
 					manualResize={true}
 					defaultValue="Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit nisi, pretium ut lacinia in, elementum id enim." >
 					<label className="xui-text-label">This text area has no maximum number of rows, and no character limit</label>

@@ -1,6 +1,3 @@
-/**
- * Created by kirk.holloway on 18/04/2016.
- */
 import React, {PropTypes} from 'react';
 import cn from 'classnames';
 import XUIIconBlob from './XUIIconBlob';

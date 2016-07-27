@@ -1,5 +1,5 @@
 {
-  "version": "4.6.2",
+  "version": "4.7.0",
   "name": "xui-icon",
   "main": "src/XUIIcon.js",
   "description": "Module for using XUI Icons",
@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "build": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/webpack --config conf/build.js --progress --colors && npm run rollup",
-    "rollup": "rollup -c && rollup -c rollup.config.docs.js && node ./build/build.js",
+    "rollup": "rollup -c && rollup -c rollup.config.docs.js && rollup src/iconData.js --output dist/iconData.js --format cjs && node ./build/build.js",
     "lint": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/eslint -c .eslintrc ./src",
     "prepublish": "bower install",
     "test": "env UV_THREADPOOL_SIZE=100 ./node_modules/xui-webpack-build-tools/node_modules/.bin/karma start conf/test.js",
@@ -20,6 +20,7 @@
     "babel-preset-es2015-rollup": "^1.1.1",
     "babel-preset-react": "^6.5.0",
     "bower": "^1.7.0",
+    "json-loader": "^0.5.4",
     "react": "^15.0.0",
     "react-dom": "^15.0.1",
     "rollup": "~0.25.8",

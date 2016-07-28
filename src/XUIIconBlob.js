@@ -1,7 +1,7 @@
 import icons from './iconData.js';
 
 let blob = '';
-const hiddenVisually = 'xui-u-hidden-visually';
+const hiddenVisually = 'xui-u-hidden';
 
 Object.keys(icons).forEach(function(name) {
 	blob += (`

@@ -8,7 +8,7 @@ mkdir('dist');
 mkdir('icons');
 
 Object.keys(icons).forEach(function(key) {
-	writeFile(path.join('icons', key + '.js'), `export default ${JSON.stringify(icons[key])};`);
+	writeFile(path.join('icons', key + '.js'), `export default '${icons[key]}';`);
 });
 
 writeFile(path.join('dist', 'xuiIconBlob.js'),

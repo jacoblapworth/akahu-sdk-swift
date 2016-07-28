@@ -6,7 +6,12 @@ xui-icon
 
 xui-icon is a module for importing and using XUI Icons to you project. The full list of existing icons may be found [here](https://github.dev.xero.com/pages/UXE/xui-icon/).
 
-The current implementation is similar to the process described in [css-tricks](https://css-tricks.com/svg-symbol-good-choice-icons/) where the SVG paths are added to a hidden element within the page, and all icon usages reference the SVGs in this blob. When using react, the blob is added by `XUIIcon`, so React users do not need to worry about this.
+The icons can be consumed in 3 ways:
+* Using the `XUIIcon` module as a React component. Use this for React-based single page apps.
+* Using the ES5 artifact available on edge.xero.com. Use this for non-React-based single page apps.
+* The SVG path of each individual icon can be imported from the `icon` folder. Use this for apps that are shared across various pages (e.g. the header)
+
+The main implementation is similar to the process described in [css-tricks](https://css-tricks.com/svg-symbol-good-choice-icons/) where the SVG paths are added to a hidden element within the page, and all icon usages reference the SVGs in this blob. When using react, the blob is added by `XUIIcon`, so React users do not need to worry about this.
 
 By default, each icon has its fill set to `currentColor`, so it will use the inherited font colour.
 
@@ -38,9 +43,10 @@ For example, to add an arrow rotated to the right
 ```jsx
 <XUIIcon icon="arrow" rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
 ```
+
 Using the icons without React
 =============================
-This package uses Babel & Rollup to create ES5 and Common JS distributables which when imported will add the icon blob to your page.
+This package uses Babel & Rollup to create ES5 and Common JS distributables which, when imported, will add the icon blob to your page.
 
 ## Using the icons
 The icons may be referenced using the following markup:
@@ -64,4 +70,20 @@ xuiIconBlob();
 #### ES5
 ```html
 <script src="xui-icon/dist/xuiIconBlobES5.js"></script>
+```
+
+Using the icons individually
+============================
+
+You can import individual icon paths from the `icons` directory and use the `createSVGElement` utility function to render them to the DOM if you're not using a library like React.
+Other options that can be used to set attributes on the SVG element are `viewBox` and `class`.
+
+```js
+import menu from 'xui-icon/icons/menu';
+import createSVGElement from 'xui-icon/src/createSVGElement';
+
+const svg = createSVGElement({
+	path: menu
+});
+document.body.appendChild(svg);
 ```

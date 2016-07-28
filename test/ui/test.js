@@ -2,7 +2,9 @@ import 'babel-core/external-helpers.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XUIIcon, { XUIIcons } from '../../../xui-icon/src/XUIIcon.js';
+import XUIIcon, { XUIIcons } from '../../src/XUIIcon';
+import menu from '../../icons/menu';
+import createSVGElement from '../../src/createSVGElement';
 
 (function() {
 	const iconUseTags = Object.keys(XUIIcons).map((iconLabel, i) => {
@@ -22,4 +24,10 @@ import XUIIcon, { XUIIcons } from '../../../xui-icon/src/XUIIcon.js';
 			</div>
 		</div>, document.getElementById('iconShowcase')
 	);
+
+	const svg = createSVGElement({
+		path: menu
+	});
+
+	document.body.appendChild(svg);
 })();

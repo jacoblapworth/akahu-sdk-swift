@@ -1,1 +1,1 @@
-export default "M10,13L15 18 20 13z";
+export default 'M10,13L15 18 20 13z';

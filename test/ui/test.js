@@ -10,7 +10,7 @@ import createSVGElement from '../../src/createSVGElement';
 	const iconUseTags = Object.keys(XUIIcons).map((iconLabel, i) => {
 		const label = XUIIcons[iconLabel];
 		return(
-			<div key={label} className="xui-text-centered" style={{width:'100px'}}>
+			<div key={label} className="xui-text-centered xui-padding-vertical-small" style={{width:'100px'}}>
 				<XUIIcon icon={label} title={label} />
 				<div>{label}</div>
 			</div>
@@ -19,9 +19,10 @@ import createSVGElement from '../../src/createSVGElement';
 
 	ReactDOM.render(
 		<div>
-			<div className="xui-row-flex xui-space-around">
+			<div className="xui-row-flex">
 				{iconUseTags}
 			</div>
+			<p className="xui-text-centered"><strong>Note:</strong> The download icon has been deprecated and will be removed in the next major version. Use import instead.</p>
 		</div>, document.getElementById('iconShowcase')
 	);
 

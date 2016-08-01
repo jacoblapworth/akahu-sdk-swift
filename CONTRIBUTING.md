@@ -1,7 +1,10 @@
 Contributing Icons
 ==================
 
-This project pulls in it's icon data from `src/iconData.js`. If you wish to add an icon to the set, they may be added here. Simply add a new entry into the json with the icon name and path value for drawing the icon.
+If you want to add a new icon or modify an existing icon, the source file from which all other files are built is `src/iconData.js`.
+Simply add a new entry with the icon name and path value for drawing the icon.
+
+Be sure to run `npm run build` prior to committing, as built artifacts make up the public source of this repository.
 
 ### Pre-commit hook
 You can add a pre-commit hook to ensure you're building the javascript files before making your PR by running the following command:

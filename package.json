@@ -1,5 +1,5 @@
 {
-  "version": "4.8.0",
+  "version": "4.9.0",
   "name": "xui-icon",
   "main": "src/XUIIcon.js",
   "description": "Module for using XUI Icons",

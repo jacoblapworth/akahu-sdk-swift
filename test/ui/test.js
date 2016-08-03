@@ -30,6 +30,14 @@ ReactDOM.render(
 		<br />
 
 		<XUIAvatar
+			value="Fat Louie"
+			size="xlarge"
+			identifier="quack-a-thing"
+		/>
+
+		<br />
+
+		<XUIAvatar
 			value="💩"
 			size="medium"
 		/>

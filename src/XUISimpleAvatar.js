@@ -24,8 +24,8 @@ const propTypes = {
 	/** @property {String} [imageUrl] the image the component should render. Initials rendered otherwise */
 	imageUrl: React.PropTypes.string,
 
-	/** @property {String} [size=medium] The size of the avatar. Can be small, medium or large */
-	size: React.PropTypes.oneOf(['small', 'medium', 'large']),
+	/** @property {String} [size=medium] The size of the avatar. Can be small, medium, large or xlarge */
+	size: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
 	/** @property {String} [identifier] A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
 	identifier: React.PropTypes.string,

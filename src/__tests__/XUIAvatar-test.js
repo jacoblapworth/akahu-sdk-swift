@@ -31,17 +31,21 @@ describe('XUIAvatar', function () {
 				<XUIAvatar value="123" />
 				<XUIAvatar size="small" value="123" />
 				<XUIAvatar size="large" value="123" />
+				<XUIAvatar size="xlarge" value="123" />
 			</div>
 		);
 
 		const node1 = ReactDOM.findDOMNode(component).children[0];
 		const node2 = ReactDOM.findDOMNode(component).children[1];
 		const node3 = ReactDOM.findDOMNode(component).children[2];
+		const node4 = ReactDOM.findDOMNode(component).children[3];
 		assert.isTrue(node1.classList.contains(CSSClasses.Avatar.BASE), 'Avatar has the base class');
 		assert.isTrue(node2.classList.contains(CSSClasses.Avatar.BASE), 'Avatar with size="small" has the base class');
 		assert.isTrue(node2.classList.contains(CSSClasses.Avatar.SMALL), 'Avatar with size="small" has the small class');
 		assert.isTrue(node3.classList.contains(CSSClasses.Avatar.BASE), 'Avatar with size="large" has the base class');
 		assert.isTrue(node3.classList.contains(CSSClasses.Avatar.LARGE), 'Avatar with size="large" has the large class');
+		assert.isTrue(node4.classList.contains(CSSClasses.Avatar.BASE), 'Avatar with size="xlarge" has the base class');
+		assert.isTrue(node4.classList.contains(CSSClasses.Avatar.XLARGE), 'Avatar with size="xlarge" has the xlarge class');
 	});
 
 	it('should render as an abbreviation element if no imageUrl prop is provided', function () {

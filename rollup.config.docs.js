@@ -3,9 +3,9 @@ let babel = require("rollup-plugin-babel"),
     npm = require("rollup-plugin-npm");
 
 module.exports = {
-    entry: "./build/docs.js",
+    entry: "build/docs.js",
     format: 'umd',
-    dest: './build/docs.bundle.js',
+    dest: 'build/docs.bundle.js',
     moduleName: 'XUIIconBlob',
     plugins: [
         babel({

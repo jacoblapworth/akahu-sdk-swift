@@ -2,8 +2,11 @@
  * Our customizations to the KSS style sheet.
  */
 
-@import "../../src/sass/xui";
-@import "../../src/sass/settings/typography";
+//@import "../../src/sass/xui";
+//@import "../../src/sass/settings/typography";
+
+@import "../../src/sass/_mixins.scss";
+@import "../../src/sass/_vars.scss";
 
 
 $kss-sidebar-width: 12.5rem;

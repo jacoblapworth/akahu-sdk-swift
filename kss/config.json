@@ -3,6 +3,7 @@
 	"custom": ["heading"],
 	"destination": "../docs",
 	"css": [
+		"../dist/xui.min.css",
 		"./kss-style.css"
 	],
 	"js": [

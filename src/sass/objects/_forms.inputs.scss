@@ -41,25 +41,43 @@
 //
 // `xui-input-wrapper`	Container for a text input with an icon
 //
+// `xui-input--iconwrapper`  Wrapper around the icon (use only if you want to apply a background color to the icon).
+//
+// `xui-input--iconwrapper-left`  Left-aligned icon wrapper
+//
+// `xui-input--iconwrapper-right`  Right-aligned icon wrapper
+//
 // `xui-input--icon-left`	Modifier for a left-aligned input icon
 //
 // `xui-input--icon-right`	Modifier for a right-aligned input icon
 //
 // Markup:
 // <div class="xui-input-wrapper xui-margin">
-// 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
-// 	<input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
+//   <svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
+//   <input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-// 	<svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+//   <svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-// 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	<button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
-// 		<svg class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
-// 	</button>
-// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+//   <svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//   <button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
+//   </button>
+//   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left" style="background-color: #1dadea">
+//     <svg class="xui-icon xui-icon-color-white xui-input--icon-left"> <use xlink:href="#xui-icon-social-twitter" role="presentation" /></svg>
+//   </div>
+//   <input class="xui-input" type="text" placeholder="@username" aria-label="Twitter username"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right" style="background-color: #3c5a96">
+//     <svg class="xui-icon xui-icon-color-white xui-input--icon-right"> <use xlink:href="#xui-icon-social-facebook" role="presentation" /></svg>
+//   </div>
+//   <input class="xui-input" type="text" placeholder="Facebook URL" aria-label="Facebook URL"/>
 // </div>
 //
 // Styleguide: Forms.4.1
@@ -71,15 +89,15 @@
 .#{$ns}-input-wrapper {
 	position: relative;
 
-	.#{$ns}-input--icon-right ~ .#{$ns}-input {
-		padding-right: 36px;
+	.#{$ns}-input--icon-right ~ .#{$ns}-input,
+	.#{$ns}-input--iconwrapper-right ~ .#{$ns}-input {
+		padding-right: $xui-input-height + 1;
 	}
 
-	.#{$ns}-input--icon-left ~ .#{$ns}-input {
-		padding-left: 36px;
+	.#{$ns}-input--icon-left ~ .#{$ns}-input,
+	.#{$ns}-input--iconwrapper-left ~ .#{$ns}-input {
+		padding-left: $xui-input-height + 1;
 	}
-
-
 
 	.#{$ns}-icon {
 		pointer-events: none;
@@ -87,17 +105,36 @@
 
 	.#{$ns}-input--icon-left {
 		color: $xui-color-grey-3;
-		left: $xui-s-xsmall;
+		height: $xui-input-height - 2; // Factor in vertical borders
+		left: 1px; // Factor in left border
 		position: absolute;
-		top: calc(50% - #{$xui-icon-standard / 2});
+		top: 1px; // Factor in top border
 	}
 
 	.#{$ns}-input--icon-right {
 		color: $xui-color-grey-3;
+		height: $xui-input-height - 2; // Factor in vertical borders
 		position: absolute;
-		right: $xui-s-xsmall;
-		top: calc(50% - #{$xui-icon-standard / 2});
+		right: 1px;
+		top: 1px; // Factor in top border
 	}
+}
+
+.#{$ns}-input--iconwrapper {
+	height: $xui-input-height;
+	position: absolute;
+	top: 0;
+	width: 32px;
+}
+
+.#{$ns}-input--iconwrapper-left {
+	border-radius: $xui-radius 0 0 $xui-radius;
+	left: 0;
+}
+
+.#{$ns}-input--iconwrapper-right {
+	border-radius: 0 $xui-radius $xui-radius 0;
+	right: 0;
 }
 
 // Borderless Text Inputs

@@ -2,6 +2,7 @@
 @import "mixins.layout.marginpadding";
 @import "mixins.layout.grids";
 @import "mixins.layout.utilities";
+@import "../vars";
 
 /**
  * A collection of mixins for the Xero design.
@@ -12,4 +13,12 @@
 @mixin xui-margin-auto-horizontal {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+@mixin xui-container {
+	box-sizing: border-box;
+	color: $xui-color-primary-text;
+	font-family: $xui-font-family;
+	font-size: $xui-font-size-text;
+	line-height: $xui-line-height;
 }

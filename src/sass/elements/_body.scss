@@ -28,13 +28,13 @@ form {
 	padding: 0;
 }
 
+.#{$ns}-container {
+	@include xui-container;
+}
+
 .#{$ns}-body {
+	@include xui-container;
 	background-color: $xui-color-background;
-	box-sizing: border-box;
-	color: $xui-color-primary-text;
-	font-family: $xui-font-family;
-	font-size: $xui-font-size-text;
-	line-height: $xui-line-height;
 	overflow-y: scroll;
 }
 

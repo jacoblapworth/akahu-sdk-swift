@@ -7,7 +7,7 @@
 // The background color should be selected deterministically from one of the ten approved colors based on a unique attribute of the entity (not their name).
 // This allows the user to associate a color/letter pair with a particular entity.
 // If two entities share the same name then the color should be different.
-// See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more more detail.
+// See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more detail.
 //
 // #### Class Names
 //
@@ -16,6 +16,8 @@
 // `xui-avatar-color-[1-10]`	Modifiers for a color avatar
 //
 // `xui-avatargroup`	Container for a group of avatars
+//
+// `xui-avatar-xlarge`	Modifier for an extra large avatar
 //
 // `xui-avatar-large`	Modifier for a large avatar
 //
@@ -26,13 +28,16 @@
 // Markup:
 // <h3>Small</h3>
 // <img class="xui-avatar xui-avatar-small" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
-// <abbr class="xui-avatar xui-avatar-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+// <abbr class="xui-avatar xui-avatar-small" style="background-color: #FCAD59" role="presentation">W</abbr>
 // <h3>Medium</h3>
 // <img class="xui-avatar" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar" style="background-color: #75C8F4" role="presentation">Y</abbr>
+// <abbr class="xui-avatar" style="background-color: #75C8F4" role="presentation">X</abbr>
 // <h3>Large</h3>
 // <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-large" style="background-color: #C48FDE" role="presentation">Z</abbr>
+// <abbr class="xui-avatar xui-avatar-large" style="background-color: #C48FDE" role="presentation">Y</abbr>
+// <h3>Extra Large</h3>
+// <img class="xui-avatar xui-avatar-xlarge" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar xui-avatar-xlarge" style="background-color: #92D960" role="presentation">Z</abbr>
 // <h3>Multiple avatars</h3>
 // <div class="xui-avatargroup">
 //   <abbr class="xui-avatar xui-avatar-color-1">A</abbr>
@@ -77,6 +82,7 @@
 	font-size: $xui-font-size-text;
 	height: 32px;
 	justify-content: center;
+	line-height: $xui-font-size-text;
 	overflow: hidden;
 	vertical-align: middle;
 	width: 32px;
@@ -85,13 +91,22 @@
 .#{$ns}-avatar-small {
 	font-size: $xui-font-size-avatar-small;
 	height: 24px;
+	line-height: $xui-font-size-avatar-small;
 	width: 24px;
 }
 
 .#{$ns}-avatar-large {
 	font-size: $xui-font-size-avatar-large;
 	height: 48px;
+	line-height: $xui-font-size-avatar-large;
 	width: 48px;
+}
+
+.#{$ns}-avatar-xlarge {
+	font-size: $xui-font-size-avatar-xlarge;
+	height: 80px;
+	line-height: $xui-font-size-avatar-xlarge;
+	width: 80px;
 }
 
 // TODO: remove avatar-group in breaking change

@@ -5,5 +5,6 @@
 export const sizeMap = {
 	'small': 'SMALL',
 	'medium': '',
-	'large': 'LARGE'
+	'large': 'LARGE',
+	'xlarge': 'XLARGE'
 };

@@ -10,7 +10,7 @@ const propTypes = {
 	/** @property {Number|String} [count] The count to display. If this is a string, it is passed through transparently. If it is a number, it will render with a + prefix */
 	count: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
 
-	/** @property {String} [size=medium] The size of the counter. Can be small, medium or large */
+	/** @property {String} [size=medium] The size of the counter. Can be small, medium, large or xlarge */
 	size: React.PropTypes.oneOf(Object.keys(sizeMap))
 };
 

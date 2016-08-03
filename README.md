@@ -71,7 +71,7 @@ Although all the properties are marked as optional, one of either `value` or `im
 
 `imageUrl`: (String, Optional) The image URL to use in the avatar. If a `value` is supplied in addition to the `imageUrl`, it will be ignored (as will `identifier`)
 
-`size`: (One of: ['small', 'medium', 'large'], Optional, default: 'medium') The size of the avatar.
+`size`: (One of: ['small', 'medium', 'large', 'xlarge'], Optional, default: 'medium') The size of the avatar.
 
 `identifier`: (String, Optional) A unique string that will be used to generate the colour of the avatar. Note that if `identifier` is not supplied, `value` will be used in its place. Doing this is not recommended since if different entities with the same value exist, they will end up looking identical.
 
@@ -91,7 +91,7 @@ A container for many avatars.
 
 `maxAvatars`: (Number, Optional) The maximum number of avatars to show
 
-`avatarSize`: (One of: ['small', 'medium', 'large'], Optional) The size to apply to all avatars contained within the group. This will override any individual avatar's size settings.
+`avatarSize`: (One of: ['small', 'medium', 'large', 'xlarge'], Optional) The size to apply to all avatars contained within the group. This will override any individual avatar's size settings.
 
 ### XUIAvatarCounter
 
@@ -101,6 +101,6 @@ An avatar-like component intended to display the count of additional avatars in 
 
 `qaHook`: (String, Optional)
 
-`size`: (One of: ['small', 'medium', 'large'], Optional, default: 'medium') The size of the avatar.
+`size`: (One of: ['small', 'medium', 'large', 'xlarge'], Optional, default: 'medium') The size of the avatar.
 
 `count`: (String or Number, Required) The value to display inside the counter avatar. If this is a positive number (not a string), the number will be shown prefixed with a '+'. If this is a string, the string value will be used directly.

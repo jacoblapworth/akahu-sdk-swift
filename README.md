@@ -100,9 +100,11 @@ Using XUI
    version 3.0.3 of the Shared Header.
    The `xui-html` class sets the height of the `html` element to 100%, and
    the body element with `xui-body` directly under it.
- * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI via the `xui-body` class.
-   For legacy pages, you will need to set `box-sizing: border-box` on the container that wraps
-   XUI CSS classes.
+ * For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
+   which has the `xui-container` class applied. This sets properties that XUI relies on,
+   such as `box-sizing: border-box`, its default line-height, fonts, etc.
+   For tricky legacy CSS that might override those rules, you can also use the
+   `xui-container` mixin to apply these rules to more specific selectors in your own CSS.
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.

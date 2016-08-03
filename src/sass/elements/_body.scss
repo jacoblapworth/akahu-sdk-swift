@@ -28,10 +28,6 @@ form {
 	padding: 0;
 }
 
-.#{$ns}-container {
-	@include xui-container;
-}
-
 .#{$ns}-body {
 	@include xui-container;
 	background-color: $xui-color-background;
@@ -44,6 +40,11 @@ form {
 	> .#{$ns}-body {
 		height: 100%;
 	}
+}
+
+// Alternative to xui-body for legacy pages
+.#{$ns}-container {
+	@include xui-container;
 }
 
 main {

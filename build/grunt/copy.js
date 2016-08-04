@@ -9,5 +9,11 @@ module.exports = {
 		rename: function(dest, src){
 			return dest + '/' + src.replace('README.md','styleguide.md')
 		}
+	},
+	'xui': {
+		expand: true,
+		src: 'xui.css',
+		cwd: 'dist',
+		dest: 'docs/kss-assets'
 	}
 };

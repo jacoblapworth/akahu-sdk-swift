@@ -304,3 +304,52 @@ pre {
 
 @import 'xui-overrides';
 @import 'xui-swatch';
+
+
+// -----------------------------------------------------------------------------
+// Variables
+// -----------------------------------------------------------------------------
+
+.xuidocs-box {
+	width: 100%;
+	height: 30px;
+	background-color: $xui-color-white;
+	border: $xui-border-standard;
+}
+
+.xuidocs-table {
+	width: 700px;
+}
+
+.xuidocs-table--header {
+	border-bottom: $xui-border-standard;
+	width: 45%;
+
+	&:nth-child(2) {
+		width: 55%;
+	}
+}
+
+.xuidocs-text {
+	background: none;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-section-title;
+}
+
+.xuidocs-inverted-text {
+	color: $xui-color-grey-5;
+}
+
+.xuidocs-table--cell {
+	padding: $xui-s-small;
+}
+
+.xuidocs-table-inverted-cell {
+	background: $xui-color-black;
+}
+
+.xuidocs-table--row {
+	&:hover {
+		background-color: $xui-color-shadow-light;
+	}
+}

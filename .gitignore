@@ -20,3 +20,6 @@ npm-debug.log
 
 #OSX
 .DS_Store
+
+# Generated Colours Page
+src/sass/tmp

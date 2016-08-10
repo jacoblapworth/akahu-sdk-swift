@@ -38,21 +38,6 @@
 // <h3>Extra Large</h3>
 // <img class="xui-avatar xui-avatar-xlarge" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
 // <abbr class="xui-avatar xui-avatar-xlarge" style="background-color: #92D960" role="presentation">Z</abbr>
-// <h3>Multiple avatars</h3>
-// <div class="xui-avatargroup">
-//   <abbr class="xui-avatar xui-avatar-color-1">A</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-2">B</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-3">C</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-4">D</abbr>
-//   <span class="xui-avatar xui-avatar-counter">+1</span>
-// </div>
-// <div class="xui-avatargroup">
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">A</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">B</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">C</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-4">D</abbr>
-//   <span class="xui-avatar xui-avatar-large xui-avatar-counter">+2</span>
-// </div>
 // <h3>Approved Colours</h3>
 // <abbr class="xui-avatar xui-avatar-color-1" role="presentation">1</abbr>
 // <abbr class="xui-avatar xui-avatar-color-2" role="presentation">2</abbr>
@@ -72,7 +57,7 @@
 //
 // Weight: 4.1
 //
-// Styleguide: Avatars
+// Styleguide: Avatars.1
 
 .#{$ns}-avatar {
 	align-items: center;
@@ -107,26 +92,6 @@
 	height: 80px;
 	line-height: $xui-font-size-avatar-xlarge;
 	width: 80px;
-}
-
-// TODO: remove avatar-group in breaking change
-.#{$ns}-avatar-group,
-.#{$ns}-avatargroup {
-	.#{$ns}-avatar {
-		background-clip: content-box;
-		box-sizing: content-box;
-
-		@include xui-all-but-first {
-			border-left: 0.25em solid $xui-color-shadow-medium;
-			margin-left: -1.25em;
-		}
-
-	}
-
-	.#{$ns}-avatar-counter {
-		background-color: $xui-color-grey-5;
-		color: $xui-color-grey-2;
-	}
 }
 
 .#{$ns}-avatar-color-1 {

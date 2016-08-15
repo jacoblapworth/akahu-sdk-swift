@@ -5,6 +5,8 @@
 @import "../vars";
 @import "../mixins";
 
+$xui-radius-iconwrapper: 2px;
+
 // Text Inputs
 //
 // The number inputs have had their up and down arrows removed to sync browser styles
@@ -128,22 +130,22 @@
 }
 
 .#{$ns}-input--iconwrapper {
-	height: $xui-input-height;
+	height: $xui-input-height - 1px;
 	line-height: $xui-input-height;
 	position: absolute;
 	text-align: center;
-	top: 0;
+	top: 1px;
 	width: 32px;
 }
 
 .#{$ns}-input--iconwrapper-left {
-	border-radius: $xui-radius 0 0 $xui-radius;
-	left: 0;
+	border-radius: $xui-radius-iconwrapper 0 0 $xui-radius-iconwrapper;
+	left: 1px;
 }
 
 .#{$ns}-input--iconwrapper-right {
-	border-radius: 0 $xui-radius $xui-radius 0;
-	right: 0;
+	border-radius: 0 $xui-radius-iconwrapper $xui-radius-iconwrapper 0;
+	right: 1px;
 }
 
 // Borderless Text Inputs
@@ -164,7 +166,7 @@
 //<div style="background-color: #284664;" class="xui-padding">
 // <input class="xui-input xui-input-borderless" type="text" placeholder="Standard Input, No Layout" aria-label="Standard input"/>
 // <input class="xui-input xui-input-borderless xui-input-borderless-layout xui-margin-top" type="text" placeholder="Standard Input, With Layout" aria-label="Standard input"/>
-// <div class="xui-input-wrapper xui-input-wrapper--borderless xui-input-wrapper-borderless-layout xui-margin-top">
+// <div class="xui-input-wrapper xui-input-wrapper-borderless xui-input-wrapper-borderless-layout xui-margin-top">
 // 	<svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
 // 	<input class="xui-input xui-input-borderless xui-input-borderless-layout" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
@@ -203,6 +205,10 @@
 .#{$ns}-input-wrapper-borderless-layout {
 	.#{$ns}-input--icon-left ~ .#{$ns}-input {
 		@include xui-padding-left($xui-s-5xlarge);
+	}
+
+	.#{$ns}-icon {
+		top: 6px;
 	}
 }
 

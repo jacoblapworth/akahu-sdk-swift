@@ -246,7 +246,8 @@ const setupLinkProps = (props, elementProps) => {
 
 export default class XUIButton extends React.Component {
 	render () {
-		const props = this.props;
+		const _this = this;
+		const props = _this.props;
 		const isLink = props.type === CONSTANTS.TYPES.LINK;
 		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
 		const variantClass = getVariantClass(props.variant);
@@ -267,7 +268,7 @@ export default class XUIButton extends React.Component {
 			if (isLink && isDisabled) {
 				event.preventDefault();
 			} else if (!isLink || isLink && props.onClick){
-				props.onClick.apply(arguments);
+				props.onClick.call(_this, ...arguments);
 			}
 		};
 
@@ -275,7 +276,7 @@ export default class XUIButton extends React.Component {
 			if (isLink && isDisabled) {
 				event.preventDefault();
 			} else {
-				props.onSecondaryClick.apply(arguments);
+				props.onSecondaryClick.call(_this, ...arguments);
 			}
 		};
 

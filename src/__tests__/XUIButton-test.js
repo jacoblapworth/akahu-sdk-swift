@@ -86,7 +86,7 @@ describe('<XUIButton/>', () => {
 	it('should render a loader if the `isLoading` prop is true', () => {
 		const button = renderIntoDocument(
 			<div>
-				<XUIButton type="button" isLoading>Hai</XUIButton>
+				<XUIButton type="button" onClick={noop} isLoading>Hai</XUIButton>
 			</div>
 		);
 

@@ -3,6 +3,12 @@
 
 // Avatars
 //
+// Weight: 4.1
+//
+// Styleguide: Avatars
+
+// Avatars
+//
 // Avatars can be either an image or text. If no image is available then the `<abbr>` tag should be used to display the first character of the entity.
 // The background color should be selected deterministically from one of the ten approved colors based on a unique attribute of the entity (not their name).
 // This allows the user to associate a color/letter pair with a particular entity.
@@ -14,8 +20,6 @@
 // `xui-avatar`	Style for an avatar
 //
 // `xui-avatar-color-[1-10]`	Modifiers for a color avatar
-//
-// `xui-avatargroup`	Container for a group of avatars
 //
 // `xui-avatar-xlarge`	Modifier for an extra large avatar
 //
@@ -54,8 +58,6 @@
 //   <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
 //   <span class="xui-margin-left-small">Sue Denim</span>
 // </div>
-//
-// Weight: 4.1
 //
 // Styleguide: Avatars.1
 

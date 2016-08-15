@@ -244,23 +244,27 @@
 
 .#{$ns}-input-group > .#{$ns}-input {
 	border-radius: 0;
-	border-right: 0;
 	position: relative;
 
 	&:focus {
 		z-index: 1;
 	}
+
+	&:nth-last-child(n+2) {
+		border-right: 0;
+	}
 }
 
 .#{$ns}-input-group :first-child {
-	border-bottom-left-radius: $xui-radius;
-	border-top-left-radius: $xui-radius;
+	border-radius: $xui-radius 0 0 $xui-radius;
 }
 
 .#{$ns}-input-group :last-child {
-	border-bottom-right-radius: $xui-radius;
-	border-right: $xui-border-standard;
-	border-top-right-radius: $xui-radius;
+	border-radius: 0 $xui-radius $xui-radius 0;
+
+	&.#{$ns}-input-is-invalid {
+		border-right: 1px solid $xui-color-xero-red;
+	}
 }
 
 //TODO: This is depricated, text areas should use xui-input

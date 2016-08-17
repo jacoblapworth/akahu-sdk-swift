@@ -9,7 +9,7 @@
 	"js": [
 		"./kss-assets/kss-script.js"
 	],
-	"homepage": "../../kss/styleguide/styleguide.md",
+	"homepage": "../../README.md",
 	"builder": "./builder",
 	"extend": "./builder/extend"
 }

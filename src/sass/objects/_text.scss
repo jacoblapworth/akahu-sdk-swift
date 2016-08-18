@@ -46,19 +46,19 @@
 .#{$ns}-heading {
 	@include xui-bold;
 	color: $xui-color-primary-text;
-	font-size: $xui-font-size-heading;
+	font-size: $xui-font-size-xlarge;
 }
 
 .#{$ns}-page-title {
 	@include xui-bold;
 	color: $xui-color-primary-text;
-	font-size: $xui-font-size-page-title;
+	font-size: $xui-font-size-large;
 }
 
 .#{$ns}-section-title {
 	@include xui-bold;
 	color: $xui-color-primary-text;
-	font-size: $xui-font-size-section-title;
+	font-size: $xui-font-size-medium;
 }
 
 .#{$ns}-text-label {
@@ -76,17 +76,17 @@
 
 .#{$ns}-heading-mini {
 	color: $xui-color-secondary-text;
-	font-size: $xui-font-size-heading-small;
+	font-size: $xui-font-size-small;
 }
 
 .#{$ns}-text-panelheading {
 	@include xui-bold;
-	font-size: $xui-font-size-section-title;
+	font-size: $xui-font-size-medium;
 }
 
 .#{$ns}-text-sectionheading {
 	color: $xui-color-secondary-text;
-	font-size: $xui-font-size-heading-small;
+	font-size: $xui-font-size-small;
 	font-weight: normal;
 }
 
@@ -230,8 +230,8 @@
 	border-radius: $xui-radius;
 	color: $xui-color-secondary-text;
 	display: inline-block;
-	font-size: $xui-font-size-heading-small;
-	line-height: $xui-font-size-heading-small;
+	font-size: $xui-font-size-small;
+	line-height: $xui-font-size-small;
 	padding: 3px $xui-s-xsmall;
 	vertical-align: middle;
 }

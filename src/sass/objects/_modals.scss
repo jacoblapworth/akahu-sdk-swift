@@ -119,6 +119,7 @@
 	background-color: $xui-color-panel;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-3;
+	outline: none;
 }
 
 .#{$ns}-modal-layout {

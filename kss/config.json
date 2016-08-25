@@ -3,12 +3,13 @@
 	"custom": ["heading"],
 	"destination": "../docs",
 	"css": [
+		"./kss-assets/xui.css",
 		"./kss-style.css"
 	],
 	"js": [
 		"./kss-assets/kss-script.js"
 	],
-	"homepage": "../../kss/styleguide/styleguide.md",
+	"homepage": "../../README.md",
 	"builder": "./builder",
 	"extend": "./builder/extend"
 }

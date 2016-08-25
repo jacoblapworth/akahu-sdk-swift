@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.8.0/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.9.1/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -28,13 +28,13 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 ### Bower
 
 ```bash
-$ bower install git@github.dev.xero.com:UXE/xui.git#^10.8.0 --save
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.9.1 --save
 ```
 
 ### npm
 
 ```bash
-$ npm install git://github.dev.xero.com/UXE/xui.git#10.8.0 --save
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.9.1 --save
 ```
 
 You will need to compile `xui.scss`.
@@ -59,7 +59,7 @@ Example Page Markup
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css" rel="stylesheet" />
-    <link href="https://edge.xero.com/style/xui/10.8.0/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.9.1/xui.min.css" rel="stylesheet" />
     <script src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
   </head>
   <body class="xui-body">
@@ -100,9 +100,11 @@ Using XUI
    version 3.0.3 of the Shared Header.
    The `xui-html` class sets the height of the `html` element to 100%, and
    the body element with `xui-body` directly under it.
- * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI via the `xui-body` class.
-   For legacy pages, you will need to set `box-sizing: border-box` on the container that wraps
-   XUI CSS classes.
+ * For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
+   which has the `xui-container` class applied. This sets properties that XUI relies on,
+   such as `box-sizing: border-box`, its default line-height, fonts, etc.
+   For tricky legacy CSS that might override those rules, you can also use the
+   `xui-container` mixin to apply these rules to more specific selectors in your own CSS.
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.

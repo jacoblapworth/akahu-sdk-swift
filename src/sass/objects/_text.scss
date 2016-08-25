@@ -193,6 +193,38 @@
 	color: $xui-color-xero-red;
 }
 
+//  Text colors
+//
+// #### Class Names
+//
+// `xui-text-color-black`	Black text
+//
+// `xui-text-color-icon` Icon color text
+//
+// `xui-text-color-white`	White text
+//
+// Markup:
+// <span class="xui-text-color-black">
+//   Black
+// </span>
+// <span class="xui-text-color-white">
+//   White
+// </span>
+//
+// Styleguide: Typography.5
+
+.#{$ns}-text-color-black {
+	color: $xui-color-black;
+}
+
+.#{$ns}-text-color-icon {
+	color: $xui-color-icon;
+}
+
+.#{$ns}-text-color-white {
+	color: $xui-color-white;
+}
+
 // Tags
 //
 // Used to display read-only, categorical information. For example, assigning contacts to a particular group.
@@ -224,7 +256,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Typography.5
+// Styleguide: Typography.6
 
 .#{$ns}-text-tag {
 	border-radius: $xui-radius;
@@ -259,7 +291,7 @@
 //  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
 //  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
 //
-// Styleguide: Typography.6
+// Styleguide: Typography.7
 
 .#{$ns}-caret {
 	@include xui-caret;
@@ -277,7 +309,7 @@
 // Markup:
 //  <h3 class="xui-text-inverted xui-padding">Inverted text</h3>
 //
-// Styleguide: Typography.7
+// Styleguide: Typography.8
 
 .#{$ns}-text-inverted {
 	background-color: $xui-color-grey-1;
@@ -304,7 +336,7 @@
 //   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.8
+// Styleguide: Typography.9
 
 // Text Reset
 //
@@ -317,7 +349,7 @@
 //   <p class="xui-text-reset">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.8.1
+// Styleguide: Typography.9.1
 
 .#{$ns}-text-reset {
 	line-height: $xui-line-height-reset;
@@ -336,7 +368,7 @@
 //   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.8.2
+// Styleguide: Typography.9.2
 
 .#{$ns}-text-longform {
 	line-height: $xui-line-height-text;

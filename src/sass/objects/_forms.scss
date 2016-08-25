@@ -26,8 +26,9 @@
 	color: inherit;
 	font-family: inherit;
 	font-size: inherit;
+	line-height: $xui-line-height;
 	outline: none;
-	padding: 9px 0.5em;
+	padding: 9px 0.5em; // 35 px height
 	width: 100%;
 
 	&:hover {

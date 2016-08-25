@@ -90,8 +90,8 @@ $xui-color-variations: (
 	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
 	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
 	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
-	"#{$ns}-tab-pagenav":($xui-color-tab-pagenav, transparent, $xui-color-reversed-text, $xui-color-reversed-text),
-	"#{$ns}-tab-pagenav-is-selected":($xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text)
+	"#{$ns}-tab-inlinenav":($xui-color-primary-text, transparent, $xui-color-xero-light-green, $xui-color-xero-blue),
+	"#{$ns}-tab-inlinenav-is-selected":($xui-color-primary-text, $xui-color-xero-light-green, $xui-color-xero-light-green, $xui-color-xero-blue)
 );
 
 // Individual tabs
@@ -147,6 +147,22 @@ $xui-color-variations: (
 	}
 }
 
+.#{$ns}-tabgroup-layout-inline {
+	height: 100%;
+}
+
+.#{$ns}-tab-inlinenav {
+	align-items: center;
+	display: flex;
+}
+
+// fix the issue where ::after appears on the next tab
+.#{$ns}-tab-inlinenav-is-selected {
+	&::after {
+		left: 0;
+		right: 0;
+	}
+}
 // Vertical
 //
 // Applied to sections that have tabs in them, removes the padding so that the

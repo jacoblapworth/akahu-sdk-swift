@@ -5,6 +5,8 @@
 @import "../vars";
 @import "../mixins";
 
+$xui-radius-iconwrapper: 2px;
+
 // Text Inputs
 //
 // The number inputs have had their up and down arrows removed to sync browser styles
@@ -33,7 +35,8 @@
 // Icons may be used to prompt users on what each input is for, or as buttons to enable functionality such as clearing a field.
 //
 // #### Usage Requirements
-//  - Icon prompt `svg` tags should be placed within the `xui-input-wrapper` at the same level as `xui-input`
+//  - Icon prompt `svg` tags should be placed within the `xui-input-wrapper` at the same level as `xui-input` (if no background color is required) or within
+//    `xui-input--iconwrapper` (if a background color is required). You can also use text in place of an icon, but it must be wrapped with `xui-input--iconwrapper`
 //  - Buttons should be formatted like the icon buttons [shown in the docs](https://github.dev.xero.com/pages/UXE/xui/docs/10.2.0/section-buttons.html#kssref-buttons-7)
 //  - Both prompts and buttons should be placed before the `input` tag to ensure the correct padding is applied to `xui-input` due to our implementation using sibling selectors
 //
@@ -41,25 +44,49 @@
 //
 // `xui-input-wrapper`	Container for a text input with an icon
 //
+// `xui-input--iconwrapper`  Wrapper around the icon (use only if you want to apply a background color to the icon).
+//
+// `xui-input--iconwrapper-left`  Left-aligned icon wrapper
+//
+// `xui-input--iconwrapper-right`  Right-aligned icon wrapper
+//
 // `xui-input--icon-left`	Modifier for a left-aligned input icon
 //
 // `xui-input--icon-right`	Modifier for a right-aligned input icon
 //
 // Markup:
 // <div class="xui-input-wrapper xui-margin">
-// 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
-// 	<input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
+//   <svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
+//   <input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-// 	<svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+//   <svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-// 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	<button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
-// 		<svg class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
-// 	</button>
-// 	<input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+//   <svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//   <button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
+//     <svg class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
+//   </button>
+//   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left" style="background-color: #1dadea">
+//     <svg class="xui-icon xui-icon-color-white xui-input--icon-left"> <use xlink:href="#xui-icon-social-twitter" role="presentation" /></svg>
+//   </div>
+//   <input class="xui-input" type="text" placeholder="@username" aria-label="Twitter username"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right" style="background-color: #3c5a96">
+//     <svg class="xui-icon xui-icon-color-white xui-input--icon-right"> <use xlink:href="#xui-icon-social-facebook" role="presentation" /></svg>
+//   </div>
+//   <input class="xui-input" type="text" placeholder="Facebook URL" aria-label="Facebook URL"/>
+// </div>
+// <div class="xui-input-wrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
+//     €
+//   </div>
+//   <input class="xui-input" type="text" placeholder="X.XX" aria-label="Amount"/>
 // </div>
 //
 // Styleguide: Forms.4.1
@@ -71,15 +98,15 @@
 .#{$ns}-input-wrapper {
 	position: relative;
 
-	.#{$ns}-input--icon-right ~ .#{$ns}-input {
-		padding-right: 36px;
+	.#{$ns}-input--icon-right ~ .#{$ns}-input,
+	.#{$ns}-input--iconwrapper-right ~ .#{$ns}-input {
+		padding-right: $xui-input-height + 1;
 	}
 
-	.#{$ns}-input--icon-left ~ .#{$ns}-input {
-		padding-left: 36px;
+	.#{$ns}-input--icon-left ~ .#{$ns}-input,
+	.#{$ns}-input--iconwrapper-left ~ .#{$ns}-input {
+		padding-left: $xui-input-height + 1;
 	}
-
-
 
 	.#{$ns}-icon {
 		pointer-events: none;
@@ -87,17 +114,38 @@
 
 	.#{$ns}-input--icon-left {
 		color: $xui-color-grey-3;
-		left: $xui-s-xsmall;
+		height: $xui-input-height - 2; // Factor in vertical borders
+		left: 1px; // Factor in left border
 		position: absolute;
-		top: calc(50% - #{$xui-icon-standard / 2});
+		top: 1px; // Factor in top border
 	}
 
 	.#{$ns}-input--icon-right {
 		color: $xui-color-grey-3;
+		height: $xui-input-height - 2; // Factor in vertical borders
 		position: absolute;
-		right: $xui-s-xsmall;
-		top: calc(50% - #{$xui-icon-standard / 2});
+		right: 1px;
+		top: 1px; // Factor in top border
 	}
+}
+
+.#{$ns}-input--iconwrapper {
+	height: $xui-input-height - 1px;
+	line-height: $xui-input-height;
+	position: absolute;
+	text-align: center;
+	top: 1px;
+	width: 32px;
+}
+
+.#{$ns}-input--iconwrapper-left {
+	border-radius: $xui-radius-iconwrapper 0 0 $xui-radius-iconwrapper;
+	left: 1px;
+}
+
+.#{$ns}-input--iconwrapper-right {
+	border-radius: 0 $xui-radius-iconwrapper $xui-radius-iconwrapper 0;
+	right: 1px;
 }
 
 // Borderless Text Inputs
@@ -118,7 +166,7 @@
 //<div style="background-color: #284664;" class="xui-padding">
 // <input class="xui-input xui-input-borderless" type="text" placeholder="Standard Input, No Layout" aria-label="Standard input"/>
 // <input class="xui-input xui-input-borderless xui-input-borderless-layout xui-margin-top" type="text" placeholder="Standard Input, With Layout" aria-label="Standard input"/>
-// <div class="xui-input-wrapper xui-input-wrapper--borderless xui-input-wrapper-borderless-layout xui-margin-top">
+// <div class="xui-input-wrapper xui-input-wrapper-borderless xui-input-wrapper-borderless-layout xui-margin-top">
 // 	<svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
 // 	<input class="xui-input xui-input-borderless xui-input-borderless-layout" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
@@ -157,6 +205,10 @@
 .#{$ns}-input-wrapper-borderless-layout {
 	.#{$ns}-input--icon-left ~ .#{$ns}-input {
 		@include xui-padding-left($xui-s-5xlarge);
+	}
+
+	.#{$ns}-icon {
+		top: 6px;
 	}
 }
 
@@ -198,23 +250,27 @@
 
 .#{$ns}-input-group > .#{$ns}-input {
 	border-radius: 0;
-	border-right: 0;
 	position: relative;
 
 	&:focus {
 		z-index: 1;
 	}
+
+	&:nth-last-child(n+2) {
+		border-right: 0;
+	}
 }
 
 .#{$ns}-input-group :first-child {
-	border-bottom-left-radius: $xui-radius;
-	border-top-left-radius: $xui-radius;
+	border-radius: $xui-radius 0 0 $xui-radius;
 }
 
 .#{$ns}-input-group :last-child {
-	border-bottom-right-radius: $xui-radius;
-	border-right: $xui-border-standard;
-	border-top-right-radius: $xui-radius;
+	border-radius: 0 $xui-radius $xui-radius 0;
+
+	&.#{$ns}-input-is-invalid {
+		border-right: 1px solid $xui-color-xero-red;
+	}
 }
 
 //TODO: This is depricated, text areas should use xui-input

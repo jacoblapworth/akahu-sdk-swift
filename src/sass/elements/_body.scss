@@ -29,12 +29,8 @@ form {
 }
 
 .#{$ns}-body {
+	@include xui-container;
 	background-color: $xui-color-background;
-	box-sizing: border-box;
-	color: $xui-color-primary-text;
-	font-family: $xui-font-family;
-	font-size: $xui-font-size-regular;
-	line-height: $xui-line-height;
 	overflow-y: scroll;
 }
 
@@ -44,6 +40,11 @@ form {
 	> .#{$ns}-body {
 		height: 100%;
 	}
+}
+
+// Alternative to xui-body for legacy pages
+.#{$ns}-container {
+	@include xui-container;
 }
 
 main {

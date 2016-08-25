@@ -6,6 +6,7 @@
 @import "../mixins";
 
 $xui-radius-iconwrapper: 2px;
+$xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
 
 // Text Inputs
 //
@@ -109,29 +110,29 @@ $xui-radius-iconwrapper: 2px;
 	}
 
 	.#{$ns}-icon {
+		height: $xui-input-height;
 		pointer-events: none;
 	}
 
-	.#{$ns}-input--icon-left {
+	.#{$ns}-input--icon-left,
+	.#{$ns}-input--icon-right {
 		color: $xui-color-grey-3;
-		height: $xui-input-height - 2; // Factor in vertical borders
-		left: 1px; // Factor in left border
+		height: $xui-input-icon-height;
 		position: absolute;
-		top: 1px; // Factor in top border
+	}
+
+	.#{$ns}-input--icon-left {
+		left: 0;
 	}
 
 	.#{$ns}-input--icon-right {
-		color: $xui-color-grey-3;
-		height: $xui-input-height - 2; // Factor in vertical borders
-		position: absolute;
-		right: 1px;
-		top: 1px; // Factor in top border
+		right: 0;
 	}
 }
 
 .#{$ns}-input--iconwrapper {
-	height: $xui-input-height - 1px;
-	line-height: $xui-input-height;
+	height: $xui-input-icon-height;
+	line-height: $xui-input-icon-height;
 	position: absolute;
 	text-align: center;
 	top: 1px;

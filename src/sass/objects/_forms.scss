@@ -27,8 +27,10 @@
 	font-family: inherit;
 	font-size: inherit;
 	line-height: $xui-line-height;
+	margin: 0; // Safari's default UA styles set 2px vertical padding
+	min-height: $xui-input-height;
 	outline: none;
-	padding: 9px 0.5em; // 35 px height
+	padding: 8px 0.5em;
 	width: 100%;
 
 	&:hover {

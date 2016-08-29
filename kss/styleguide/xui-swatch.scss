@@ -1,6 +1,6 @@
 @import "../src/sass/settings/colors";
 
-#kssref-colors .kss-markup {
+[id*="kssref-colors"] .kss-markup {
   display: none;
 }
 

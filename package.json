@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "name": "xui-avatar",
   "main": "index.js",
   "description": "React UI component that renders an avatar, either based on the user's name or profile image",

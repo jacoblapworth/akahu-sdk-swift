@@ -60,6 +60,19 @@ describe('XUIAvatar', function () {
 		assert.strictEqual(node.innerHTML, 'D', 'ABBR innerHTML contains the first character of the value');
 	});
 
+	it('should render as an abbreviation element with the first non-whitespace character if no imageUrl prop is provided', function () {
+		const value = " \t\nDonald Duck Trump";
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUIAvatar value={value} />
+			</div>
+		);
+
+		const node = ReactDOM.findDOMNode(component).firstChild;
+		assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been rendered with an ABBR element');
+		assert.strictEqual(node.innerHTML, 'D', 'ABBR innerHTML contains the first character of the value');
+	});
+
 	it('should render values starting with a unicode astral symbol correctly', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>

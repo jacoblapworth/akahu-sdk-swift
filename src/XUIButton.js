@@ -36,8 +36,8 @@ const CONSTANTS = {
 		'link': ButtonClasses.LINK,
 		'negative': ButtonClasses.NEGATIVE,
 		'standard': ButtonClasses.STANDARD,
-		'icon':	ButtonClasses.ICON.BASE,
-		'icon-inverted': ButtonClasses.ICON.INVERTED,
+		'icon':	ButtonClasses.Icon.BASE,
+		'icon-inverted': ButtonClasses.Icon.INVERTED,
 		'unstyled': ''
 	},
 	SIZES: {

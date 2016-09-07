@@ -11,11 +11,15 @@ const propTypes = {
 	qaHook: React.PropTypes.string,
 	children: React.PropTypes.node,
 
-	/** @property {String} [avatarSize] The size of all avatars in this group. This will override any individual avatar sizes */
+	/** @property {String} [avatarSize] The size to apply to all avatars contained within the group. This will override any individual avatar's size settings. */
 	avatarSize: React.PropTypes.oneOf(Object.keys(sizeMap)),
 
 	/** @property {Number} [maxAvatars] The maximum number of avatars to show. Must be greater than 0 to take effect */
-	maxAvatars: React.PropTypes.number
+	maxAvatars: function(props, propName) {
+		if(!Number.isFinite(props[propName]) || props[propName] > 0) {
+			return new Error('maxAvatars prop must be a positive integer greater than zero');
+		}
+	}
 };
 
 export default function XUIAvatarGroup(props) {

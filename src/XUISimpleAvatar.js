@@ -78,7 +78,7 @@ export default function XUISimpleAvatar(props) {
 	if (imageUrl) {
 		return <img onError={onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;
 	} else {
-		return <abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{props.value.at(0)}</abbr>;
+		return <abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{props.value.trim().at(0)}</abbr>;
 	}
 }
 

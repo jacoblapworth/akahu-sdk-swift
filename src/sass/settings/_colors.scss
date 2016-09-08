@@ -86,6 +86,9 @@ $xui-color-xero-red-divider: mix(rgba($xui-color-xero-red, 0.35), $xui-color-whi
 $xui-border-standard:  1px solid $xui-color-border;
 $xui-divider-standard: 1px solid $xui-color-divider;
 
+$xui-border-transparent: 4px solid transparent;
+$xui-border-is-selected: 4px solid $xui-color-xero-blue;
+
 $xui-shadow-depth-1: 0 2px 0 0 $xui-color-shadow-light;
 $xui-shadow-depth-1-upward: 0 -2px 0 0 $xui-color-shadow-light;
 $xui-shadow-depth-2: 0 2px 0 0 $xui-color-shadow-light, 0 0 15px 0 $xui-color-shadow-medium;

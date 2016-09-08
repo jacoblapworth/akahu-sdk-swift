@@ -194,6 +194,7 @@
 }
 
 .#{$ns}-menuitem {
+	border-left: $xui-border-transparent;
 	list-style-type: none;
 	user-select: none;
 
@@ -249,8 +250,7 @@
 }
 
 .#{$ns}-menuitem-is-selected {
-	background-color: $xui-color-xero-blue;
-	color: $xui-color-reversed-text;
+	border-left: $xui-border-is-selected;
 
 	.#{$ns}-menuitem--body {
 		color: inherit;
@@ -258,5 +258,7 @@
 
 	&:hover {
 		background-color: $xui-color-xero-blue;
+		color: $xui-color-reversed-text;
+
 	}
 }

@@ -3,7 +3,7 @@
 
 scss_files: "**/*.scss"
 plugin_directories: ['.scss-linters']
-exclude: "src/sass/_conflicts.scss"
+exclude: ['src/sass/_conflicts.scss', 'src/sass/tmp/*']
 
 # List of gem names to load custom linters from (make sure they are already
 # installed)

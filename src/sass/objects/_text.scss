@@ -29,6 +29,10 @@
 //
 // `xui-heading-mini`	Style for a miniture heading
 //
+// `xui-text-minorlink`	Style for a minor link
+//
+// **Note**: `xui-text-minorlink` CSSclass inherits it's parent text colour, but has standard link hover and focus highlighting
+//
 // Markup:
 // <p class="xui-heading">Heading</p>
 // <p class="xui-page-title">Page Titles</p>
@@ -41,6 +45,10 @@
 // <p class="xui-text-placeholder">Placeholders</p>
 // <p class="xui-heading-mini">Headers</p>
 // <a>Links</a>
+// <p class="xui-text-secondary">
+//  <a class="xui-text-minorlink">Minor Links inside a coloured parent</a>
+// </p>
+// <a class="xui-text-minorlink">Minor Links by themselves</a>
 //
 // Styleguide: Typography.1
 .#{$ns}-heading {
@@ -88,6 +96,16 @@
 	color: $xui-color-secondary-text;
 	font-size: $xui-font-size-small;
 	font-weight: normal;
+}
+
+.#{$ns}-text-minorlink {
+	color: inherit;
+
+	&:hover,
+	&:focus {
+		color: $xui-color-xero-blue;
+		text-decoration: underline;
+	}
 }
 
 

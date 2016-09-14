@@ -55,8 +55,8 @@
 .#{$ns}-checkbox-layout, .#{$ns}-radio-layout {
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-padding-horizontal($xui-s-standard);
-	display: flex;
 	@include xui-text-line-height; // 1.5
+	display: flex;
 	text-align: left;
 	text-decoration: none;
 

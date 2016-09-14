@@ -408,9 +408,9 @@
 // ===========
 .#{$ns}-styledcheckbox,
 .#{$ns}-styledradio {
+	@include xui-text-line-height; // 1.5
 	align-items: flex-start;
 	display: inline-flex; // Inline inputs
-	@include xui-text-line-height; // 1.5
 	user-select: none;
 
 	// Hide HTML input

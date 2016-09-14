@@ -7,7 +7,7 @@
 // * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
 // * The `.xui-mask` class sets `opacity: 0;` which hides the modal by default
 // * Apply the `.xui-mask-is-active` class alongside `.xui-mask` when you wish to display the modal
-// * Use the `.xui-modal-medium` or `.xui-modal-large` classes alongside `.xui-modal` for larger width variations
+// * There are several different classes for modal width variations eg. `.xui-modal-tiny`, `.xui--modal-standard`, `.xui-modal-large`
 // * Closing modals should be handled in the following ways:
 //   * Clicking on the cross in the modal should close the modal
 //   * Pressing ESC while the modal is open should close the modal
@@ -34,11 +34,23 @@
 //
 // `xui-modal--heading` Style for the modal heading
 //
-// `xui-modal-large`	Modifier for a large modal
-//
 // `xui-modal-layout`	Recommended layout for a modal
 //
-// `xui-modal-medium`	Modifier for a medium-sized modal
+// `xui-modal-tiny`	Modifier for a tiny modal
+//
+// `xui-modal-xsmall`	 Modifier for a extra small modal
+//
+// `xui-modal-small`	Modifier for a small modal
+//
+// `xui-modal-standard` Modifier for a standard sized modal
+//
+// `xui-modal-medium`	Modifier for a medium sized modal
+//
+// `xui-modal-large`	Modifier for a large modal
+//
+// `xui-modal-xlarge`	Modifier for an extra large modal
+//
+// `xui-modal-huge`	Modifier for a ginormous modal
 //
 // `xui-modal-fullscreen`	Modifier for a full screen modal (like an overlay)
 //
@@ -123,7 +135,7 @@
 }
 
 .#{$ns}-modal-layout {
-	max-height: calc(100vh - 2.5rem); // Allows for minimum 20px margin at the top/bottom of modal
+	max-height: 100vh;
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
 	width: 360px;
 
@@ -140,12 +152,15 @@
 	}
 }
 
-.#{$ns}-modal-medium {
-	width: 560px;
-}
+$xui-base-width: 80px;
+$xui-starting-width: 140px;
 
-.#{$ns}-modal-large {
-	width: 860px;
+$xui-modal-size-variants: (0, "tiny"), (1, "xsmall"), (2, "small"), (3, "standard"), (4, "medium"), (5, "large"), (6, "xlarge"), (7, "huge");
+
+@each $number, $variant in $xui-modal-size-variants {
+	.#{$ns}-modal-#{$variant} {
+		width: $xui-starting-width + ($xui-base-width * $number);
+	}
 }
 
 .#{$ns}-modal-fullscreen {

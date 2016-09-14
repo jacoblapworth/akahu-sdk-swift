@@ -4,7 +4,7 @@
 
 // Base Colours
 $xui-color-white: #fff;
-$xui-color-black: #284664; // We refuse to use #000
+$xui-color-black: #32465a; // We refuse to use #000
 $xui-color-xero-blue: #2baaed;
 $xui-color-xero-light-blue: #3adcf6;
 $xui-color-xero-green: #57c40a;
@@ -18,11 +18,12 @@ $xui-color-xero-dark-blue: #643cfa;
 
 //Base Greys
 $xui-color-grey-1: $xui-color-black;
-$xui-color-grey-2: #7e90a2;
-$xui-color-grey-3: #9facba;
-$xui-color-grey-4: #bfc8d1;
-$xui-color-grey-5: #d4dae0;
-$xui-color-grey-6: #eff1f3;
+$xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
+$xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 50%);
+$xui-color-grey-4: mix($xui-color-grey-1, $xui-color-white, 35%);
+$xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 20%);
+$xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
+$xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 
 // Component Greys
 $xui-color-primary-text: $xui-color-grey-1;

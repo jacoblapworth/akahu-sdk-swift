@@ -56,7 +56,7 @@
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-padding-horizontal($xui-s-standard);
 	display: flex;
-	line-height: $xui-line-height-text;
+	@include xui-text-line-height; // 1.5
 	text-align: left;
 	text-decoration: none;
 

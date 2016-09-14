@@ -122,7 +122,7 @@
 	}
 
 	&-layout {
-		line-height: $xui-line-height-text;
+		@include xui-text-line-height; // 1.5
 	}
 }
 

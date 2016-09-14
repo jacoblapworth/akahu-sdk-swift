@@ -118,7 +118,7 @@
 	color: $color;
 	border-radius: $xui-radius;
 	font-weight: bold;
-	line-height: $xui-line-height-button;
+	@include xui-text-line-height-compact; // 1.3077
 	padding: $xui-s-small $xui-s-standard;
 	text-align: center;
 	text-decoration: none;
@@ -141,4 +141,3 @@
 		outline: none;
 	}
 }
-

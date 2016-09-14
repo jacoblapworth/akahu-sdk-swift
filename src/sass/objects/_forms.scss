@@ -26,7 +26,7 @@
 	color: inherit;
 	font-family: inherit;
 	font-size: inherit;
-	line-height: $xui-line-height;
+	line-height: $xui-line-height; // 1.5
 	margin: 0; // Safari's default UA styles set 2px vertical padding
 	min-height: $xui-input-height;
 	outline: none;

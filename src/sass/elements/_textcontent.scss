@@ -33,7 +33,7 @@
 // Styleguide: Typography.10
 
 .#{$ns}-textcontent {
-	line-height: $xui-line-height-text;
+	@include xui-text-line-height; // 1.5
 
 	h1,
 	h2,

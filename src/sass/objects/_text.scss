@@ -281,7 +281,7 @@
 	color: $xui-color-secondary-text;
 	display: inline-block;
 	font-size: $xui-font-size-small;
-	line-height: $xui-font-size-small;
+	line-height: $xui-font-size-small; // Should this just be 1 ?
 	padding: 3px $xui-s-xsmall;
 	vertical-align: middle;
 }
@@ -370,7 +370,7 @@
 // Styleguide: Typography.9.1
 
 .#{$ns}-text-reset {
-	line-height: $xui-line-height-reset;
+	@include xui-text-line-height-reset; // 1
 }
 
 // Text Longform
@@ -389,5 +389,5 @@
 // Styleguide: Typography.9.2
 
 .#{$ns}-text-longform {
-	line-height: $xui-line-height-text;
+	@include xui-text-line-height; // 1.5
 }

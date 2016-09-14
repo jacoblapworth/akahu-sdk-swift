@@ -410,7 +410,7 @@
 .#{$ns}-styledradio {
 	align-items: flex-start;
 	display: inline-flex; // Inline inputs
-	line-height: $xui-line-height-text;
+	@include xui-text-line-height; // 1.5
 	user-select: none;
 
 	// Hide HTML input

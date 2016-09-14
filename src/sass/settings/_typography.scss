@@ -47,12 +47,11 @@ $xui-font-size-icon-xlarge:   2rem; // 32/16
 
 //  Line heights
 $xui-line-height-reset: 1;
-$xui-line-height: 1.3077;
-$xui-line-height-button: 1.3077; // Custom line height for buttons to achieve the current 17px (1.3077... of 13px)
-$xui-line-height-text: 1.5; // Text line height for longform text.
+$xui-line-height-tight: 1.15;
+$xui-line-height-compact: 1.3077;
+$xui-line-height: 1.5;
 
 // Sizing for icons within xui
 $xui-icon-standard: 30px;
 $xui-icon-large: 45px;
 $xui-icon-xlarge: 60px;
-

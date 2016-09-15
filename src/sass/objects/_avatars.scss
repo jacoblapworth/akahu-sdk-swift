@@ -69,30 +69,28 @@
 	font-size: $xui-font-size-regular;
 	height: 32px;
 	justify-content: center;
-	line-height: $xui-font-size-text;
+	line-height: 1;
 	overflow: hidden;
 	vertical-align: middle;
 	width: 32px;
+
 }
 
 .#{$ns}-avatar-small {
 	font-size: $xui-font-size-avatar-small;
 	height: 24px;
-	line-height: $xui-font-size-avatar-small;
 	width: 24px;
 }
 
 .#{$ns}-avatar-large {
 	font-size: $xui-font-size-avatar-large;
 	height: 48px;
-	line-height: $xui-font-size-avatar-large;
 	width: 48px;
 }
 
 .#{$ns}-avatar-xlarge {
 	font-size: $xui-font-size-avatar-xlarge;
 	height: 80px;
-	line-height: $xui-font-size-avatar-xlarge;
 	width: 80px;
 }
 

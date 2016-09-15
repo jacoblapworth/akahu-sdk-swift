@@ -1,0 +1,28 @@
+/*
+	Mixins for line-heights
+
+	Dev notes: Multiple mixins have been chosen due to the cognitive burden of
+	a single mixin and a map.
+
+	To use these, an example
+
+	.#{$ns}-some-class {
+		@include @xui-text-lineheight-tight;
+	}
+*/
+
+@mixin xui-text-line-height-reset {
+	line-height: $xui-line-height-reset;
+}
+
+@mixin xui-text-line-height-tight {
+	line-height: $xui-line-height-tight;
+}
+
+@mixin xui-text-line-height-compact {
+	line-height: $xui-line-height-compact;
+}
+
+@mixin xui-text-line-height {
+	line-height: $xui-line-height;
+}

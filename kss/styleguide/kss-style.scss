@@ -211,7 +211,7 @@ body {
 }
 
 .kss-description {
-	line-height: $xui-line-height-text;
+	@include xui-text-line-height; // 1.5
 }
 
 .kss-style code {

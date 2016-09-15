@@ -18,6 +18,7 @@
 
 %#{$ns}-commoninput {
 	@include xui-state-focus;
+	@include xui-text-line-height; // 1.5
 	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
 	background-color: $xui-color-white;
 	border: $xui-border-standard;
@@ -26,7 +27,6 @@
 	color: inherit;
 	font-family: inherit;
 	font-size: inherit;
-	line-height: $xui-line-height;
 	margin: 0; // Safari's default UA styles set 2px vertical padding
 	min-height: $xui-input-height;
 	outline: none;

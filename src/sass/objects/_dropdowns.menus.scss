@@ -210,7 +210,7 @@
 
 		color: $xui-color-primary-text;
 		display: flex;
-		line-height: 20px;
+		line-height: 20px; // Why does this have a specific line height?
 		text-align: left;
 		text-decoration: none;
 		width: 100%;

@@ -23,10 +23,10 @@ const regexDictionary = {
 	border: /^[-]?\d+px\s[\w]\s*/,
 	colorHash: /^#[\w\d]+$/,
 	colorRgba: /^rgba\(.*\)$/,
+	compiledSass: '\.abc{border:(.*)\}',
 	isInverted: /inverted/,
 	mixedFunction: /mix\(.*\)/,
 	repeatedCharacter: /(.)\1{4,}/,
-	rgba: /rgba\(.*\)/,
 	rgbaWithHex: /rgba\(#([a-f\d]){3,6}/,
 	sassVariables: /(\$[^\s,;)]*)/g,
 	shadow: /^([-]?[0-9px]+\s){4}(rgba(.*)$|#(.*)$)/,
@@ -99,11 +99,11 @@ function parseCss(template, nodes) {
 
 function compileSass(expression) {
 	var result = sass.renderSync({
-		data: '.abc { border: ' + expression + ' }',
+		data: '.abc{border:' + expression + '}',
 		outputStyle: 'compressed',
 		sourceMap: false
 	});
-	return result.css.toString().match(regexDictionary.rgba)[0];
+	return result.css.toString().match(regexDictionary.compiledSass)[1];
 }
 
 function renderRow(name, value, isSubsection=false) {

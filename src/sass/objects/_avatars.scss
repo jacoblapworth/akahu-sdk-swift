@@ -69,30 +69,28 @@
 	font-size: $xui-font-size-regular;
 	height: 32px;
 	justify-content: center;
-	line-height: $xui-font-size-text; // This is actually the same as regular, should it just be 1 ?
+	line-height: 1;
 	overflow: hidden;
 	vertical-align: middle;
 	width: 32px;
+
 }
 
 .#{$ns}-avatar-small {
 	font-size: $xui-font-size-avatar-small;
 	height: 24px;
-	line-height: $xui-font-size-avatar-small; // should this just be 1 ?
 	width: 24px;
 }
 
 .#{$ns}-avatar-large {
 	font-size: $xui-font-size-avatar-large;
 	height: 48px;
-	line-height: $xui-font-size-avatar-large; // should this just be 1 ?
 	width: 48px;
 }
 
 .#{$ns}-avatar-xlarge {
 	font-size: $xui-font-size-avatar-xlarge;
 	height: 80px;
-	line-height: $xui-font-size-avatar-xlarge; // should this just be 1 ?
 	width: 80px;
 }
 

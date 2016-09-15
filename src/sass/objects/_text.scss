@@ -281,7 +281,7 @@
 	color: $xui-color-secondary-text;
 	display: inline-block;
 	font-size: $xui-font-size-small;
-	line-height: $xui-font-size-small; // Should this just be 1 ?
+	line-height: 1;
 	padding: 3px $xui-s-xsmall;
 	vertical-align: middle;
 }

@@ -133,7 +133,7 @@ linters:
 
   PropertySpelling:
     enabled: true
-    extra_properties: []
+    extra_properties: [font-variant-numeric]
     disabled_properties: []
 
   PropertyUnits:

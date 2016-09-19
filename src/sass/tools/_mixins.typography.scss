@@ -26,3 +26,13 @@
 @mixin xui-text-line-height {
 	line-height: $xui-line-height;
 }
+
+@mixin xui-text-proportional-nums {
+	font-variant-numeric: proportional-nums;
+	font-feature-settings: "pnum" 1;
+}
+
+@mixin xui-text-tabular-nums {
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum" 1;
+}

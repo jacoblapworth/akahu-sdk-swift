@@ -143,6 +143,8 @@
 
 // Step text
 .#{$ns}-step--body {
+	@include xui-text-line-height-compact;
+
 	color: currentColor;
 	outline: none;
 	padding: $xui-s-actionlink;

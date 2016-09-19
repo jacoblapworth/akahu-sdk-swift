@@ -53,24 +53,28 @@
 // Styleguide: Typography.1
 .#{$ns}-heading {
 	@include xui-bold;
+	@include xui-text-line-height-compact;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-xlarge;
 }
 
 .#{$ns}-page-title {
 	@include xui-bold;
+	@include xui-text-line-height-compact;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-large;
 }
 
 .#{$ns}-section-title {
 	@include xui-bold;
+	@include xui-text-line-height-compact;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-medium;
 }
 
 .#{$ns}-text-label {
 	@include xui-bold;
+	@include xui-text-line-height-compact;
 	color: $xui-color-secondary-text;
 }
 
@@ -89,6 +93,7 @@
 
 .#{$ns}-text-panelheading {
 	@include xui-bold;
+	@include xui-text-line-height-compact;
 	font-size: $xui-font-size-medium;
 }
 

@@ -207,10 +207,10 @@
 	.#{$ns}-menuitem--body {
 		@include xui-padding-horizontal($xui-s-standard);
 		@include xui-padding-vertical($xui-s-small);
+		@include xui-text-line-height-compact;
 
 		color: $xui-color-primary-text;
 		display: flex;
-		line-height: 20px; // Why does this have a specific line height?
 		text-align: left;
 		text-decoration: none;
 		width: 100%;

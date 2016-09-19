@@ -102,6 +102,8 @@ $xui-color-variations: (
 	position: relative;
 
 	.#{$ns}-tab--body {
+		@include xui-text-line-height-compact;
+
 		border-radius: $xui-radius;
 		color: $xui-color-secondary-text;
 		cursor: pointer;
@@ -239,6 +241,8 @@ $xui-color-variations: (
 }
 
 .#{$ns}-verticaltab--body {
+	@include xui-text-line-height-compact;
+
 	color: $xui-color-primary-text;
 	display: block;
 	width: 100%;
@@ -259,5 +263,3 @@ $xui-color-variations: (
 		@include xui-padding($xui-s-small);
 	}
 }
-
-

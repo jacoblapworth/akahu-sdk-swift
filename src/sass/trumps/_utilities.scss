@@ -149,6 +149,39 @@
 	width: 100%;
 }
 
+// Max Widths
+//
+// For any element where you would like to set a max-width.
+//
+// #### Class Names
+//
+// `xui-u-maxwidth-tiny`	Modifier for a tiny width element
+//
+// `xui-u-maxwidth-xsmall`	Modifier for an extra small element
+//
+// `xui-u-maxwidth-small`	Modifier for a small width element
+//
+// `xui-u-maxwidth-standard`	Modifier for a standard width element
+//
+// `xui-u-maxwidth-medium`	Modifier for a medium width element
+//
+// `xui-u-maxwidth-large`	Modifier for a large width element
+//
+// `xui-u-maxwidth-xlarge`	Modifier for an extra large element
+//
+// `xui-u-maxwidth-huge`	Modifier for a hugely wide element
+//
+// Markup:
+//   <div class="xui-u-maxwidth-tiny">Tiny Max-Width - This is a teeny tiny max width for you to enjoy.</div>
+//
+// Styleguide: Utilities.4
+
+@each $number, $variant in $xui-width-variants {
+	.xui-u-maxwidth-#{$variant} {
+		max-width: $xui-starting-width + ($xui-base-width * $number);
+	}
+}
+
 // Preventing Selection
 //
 // For textual elements where the user could perform multiple clicks in quick succession, the browser
@@ -162,7 +195,7 @@
 // Markup:
 // <p class="xui-u-noselect">Text <span class="xui-caret"></span></p>
 //
-// Styleguide: Utilities.4
+// Styleguide: Utilities.5
 
 .#{$ns}-u-noselect {
 	user-select: none;
@@ -187,7 +220,7 @@
 // 	<div><span class="xui-text-panelheading">Long transition</span><svg class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-long"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
 // </div>
 //
-// Styleguide: Utilities.5
+// Styleguide: Utilities.6
 
 .#{$ns}-u-transition-short {
 	transition: $xui-transition-duration-short;
@@ -218,7 +251,7 @@
 //		<textarea class="xui-input xui-u-resize-vertical">Vertically resizable</textarea>
 // </div>
 //
-// Styleguide: Utilities.6
+// Styleguide: Utilities.7
 
 .#{$ns}-u-resize-none {
 	resize: none;

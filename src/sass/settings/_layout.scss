@@ -24,3 +24,8 @@ $xui-input-height: 35px;
 $xui-class-suffix-small: "-small";
 $xui-class-suffix-standard: "";
 $xui-class-suffix-large: "-large";
+
+$xui-base-width: 80px;
+$xui-starting-width: 140px;
+
+$xui-width-variants: (0, "tiny"), (1, "xsmall"), (2, "small"), (3, "standard"), (4, "medium"), (5, "large"), (6, "xlarge"), (7, "huge");

@@ -152,12 +152,7 @@
 	}
 }
 
-$xui-base-width: 80px;
-$xui-starting-width: 140px;
-
-$xui-modal-size-variants: (0, "tiny"), (1, "xsmall"), (2, "small"), (3, "standard"), (4, "medium"), (5, "large"), (6, "xlarge"), (7, "huge");
-
-@each $number, $variant in $xui-modal-size-variants {
+@each $number, $variant in $xui-width-variants {
 	.#{$ns}-modal-#{$variant} {
 		width: $xui-starting-width + ($xui-base-width * $number);
 	}

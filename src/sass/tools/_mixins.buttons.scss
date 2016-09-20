@@ -98,7 +98,7 @@
 	}
 }
 
-@mixin xui-button-size($padding: $xui-s-xsmall $xui-s-small) {
+@mixin xui-button-size($padding: 6px $xui-s-small $xui-s-xsmall) {
 	padding: $padding;
 }
 
@@ -118,8 +118,8 @@
 	color: $color;
 	border-radius: $xui-radius;
 	font-weight: bold;
-	@include xui-text-line-height-compact; // 1.3077
-	padding: $xui-s-small $xui-s-standard;
+	line-height: 16px; // CUSTOM FOR HEIGHT REASONS
+	padding: 11px $xui-s-standard;
 	text-align: center;
 	text-decoration: none;
 }

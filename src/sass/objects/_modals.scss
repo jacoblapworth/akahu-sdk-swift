@@ -140,6 +140,7 @@
 	width: 360px;
 
 	.#{$ns}-modal--body {
+		@include xui-overflow-shadow;
 		max-height: 45vh;
 	}
 

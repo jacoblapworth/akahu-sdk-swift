@@ -81,6 +81,8 @@ $xui-shadow-depth-1: 0 2px 0 0 $xui-color-shadow-light;
 $xui-shadow-depth-1-upward: 0 -2px 0 0 $xui-color-shadow-light;
 $xui-shadow-depth-2: 0 2px 0 0 $xui-color-shadow-light, 0 0 15px 0 $xui-color-shadow-medium;
 $xui-shadow-depth-3: 0 2px 0 0 $xui-color-shadow-light, 0 0 15px 0 $xui-color-shadow-medium, 0 0 30px 0 $xui-color-shadow-strong;
+$xui-color-overflow-shadow: rgba(0, 0, 0, 0.05);
+$xui-color-overflow-shadow-grey: #d4dae0;
 
 // Shadows Components
 $xui-shadow-panel: $xui-shadow-depth-1;

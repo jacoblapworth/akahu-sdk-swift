@@ -1,1 +1,1 @@
-export default 'M11 14h8v2h-8z';
+export default 'M11.5 14.5h8v2h-8z';

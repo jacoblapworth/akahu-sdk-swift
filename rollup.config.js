@@ -6,6 +6,13 @@ module.exports = {
     dest: 'build/bundle.js',
     moduleName: 'XUIIconBlob',
     plugins: [
-        babel()
+        babel({
+            exclude: "node_modules/**",
+            presets: [
+                ["es2015", { "modules": false }],
+                "react"
+                ],
+            babelrc: false
+        })
     ]
 };

@@ -1,1 +1,1 @@
-export default 'M11,15a4,4 0 1,0 8,0a4,4 0 1,0 -8,0 Z';
+export default 'M11.5 15.5a4 4 0 1 0 8 0 4 4 0 1 0-8 0z';

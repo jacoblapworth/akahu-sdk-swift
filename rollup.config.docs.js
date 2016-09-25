@@ -11,8 +11,9 @@ module.exports = {
         babel({
             exclude: "node_modules/**",
             presets: [
-                "es2015-rollup",
-                "react"],
+                ["es2015", { "modules": false }],
+                "react"
+                ],
             babelrc: false
         }),
         npm({

@@ -61,7 +61,7 @@ export default function XUIIcon(props) {
 		}
 		);
 
-	if (!document.getElementById(iconBlobId)) {
+	if (typeof(document) !== 'undefined' && !document.getElementById(iconBlobId)) {
 		renderBlob();
 	}
 

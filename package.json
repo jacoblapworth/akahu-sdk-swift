@@ -1,5 +1,5 @@
 {
-  "version": "4.10.1",
+  "version": "4.11.0",
   "name": "xui-icon",
   "main": "src/XUIIcon.js",
   "description": "Module for using XUI Icons",
@@ -16,13 +16,12 @@
     "watch": "env UV_THREADPOOL_SIZE=100 xui-webpack --config ./conf/build.js --progress --colors --watch"
   },
   "devDependencies": {
-    "babel-preset-es2015-rollup": "^1.1.1",
     "babel-preset-react": "^6.5.0",
     "bower": "^1.7.0",
     "json-loader": "^0.5.4",
     "react": "^15.0.0",
     "react-dom": "^15.0.1",
-    "rollup": "~0.25.8",
+    "rollup": "~0.36.0",
     "rollup-plugin-babel": "^2.4.0",
     "rollup-plugin-commonjs": "^2.2.1",
     "rollup-plugin-npm": "^1.4.0",

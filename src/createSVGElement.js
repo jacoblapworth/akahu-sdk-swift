@@ -9,6 +9,7 @@ export default function(options) {
 	const svg = document.createElementNS(SVG_NS, 'svg');
 	const path = document.createElementNS(SVG_NS, 'path');
 	svg.setAttribute('viewBox', options.viewBox);
+	svg.setAttribute('focusable', 'false');
 	svg.setAttribute('class', options.class);
 	path.setAttribute('d', options.path);
 	svg.appendChild(path);

@@ -69,7 +69,7 @@ export default function XUIIcon(props) {
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
 
 	return(
-		<svg className={ classes }>
+		<svg focusable="false" className={ classes }>
 			{ optionalTitle }
 			{ optionalDescription }
 			<use xlinkHref={'#xui-icon-' + icon } role={ role }/>

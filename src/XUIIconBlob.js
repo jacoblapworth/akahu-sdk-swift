@@ -11,4 +11,4 @@ Object.keys(icons).forEach(function(name) {
 	`).replace(/[\t\n]/g, '');
 });
 
-export default `<svg class="${hiddenVisually}">${blob}</svg>`;
+export default `<svg focusable="false" class="${hiddenVisually}">${blob}</svg>`;

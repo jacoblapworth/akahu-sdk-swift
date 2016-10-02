@@ -144,6 +144,7 @@
 	font-size: $xui-font-size-regular;
 	list-style-type: none;
 	margin: 0;
+	outline: none;
 	overflow: hidden;
 	transition: $xui-transition-duration-short opacity $xui-easing-standard;
 }

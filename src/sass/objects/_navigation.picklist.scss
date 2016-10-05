@@ -364,6 +364,7 @@
 	margin: 0 $xui-s-standard;
 	padding: 0;
 	position: absolute;
+	top: calc(50% - 15px);
 }
 
 .#{$ns}-pickitem--multiselect-label {

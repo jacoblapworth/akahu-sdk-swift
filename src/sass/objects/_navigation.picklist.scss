@@ -25,7 +25,7 @@
 //     <a href="#" class="xui-pickitem--body" tabindex="-1">Item one - Is Selected</a>
 //   </li>
 //   <li class="xui-pickitem" tabindex="0">
-//     <a href="#" class="xui-pickitem--body" tabindex="-1">Item two</a>
+//     <button class="xui-pickitem--body" tabindex="-1">Item two</button>
 //   </li>
 // </ul>
 //
@@ -228,7 +228,7 @@
 //         </button>
 //       </div>
 //       <div class="xui-submenu-uicontrol">
-//         <label for="submenu-label" class="xui-submenu-uicontrol--label" title="Open|close submenu" aria-label="Open|Close submenu">
+//         <label for="submenu-label" class="xui-pickitem--uicontrol" title="Open|close submenu" aria-label="Open|Close submenu">
 //           <svg class="xui-icon xui-submenu-uicontrol--icon">
 //             <use xlink:href="#xui-icon-arrow-small"></use>
 //           </svg>
@@ -364,7 +364,8 @@
 	margin: 0 $xui-s-standard;
 	padding: 0;
 	position: absolute;
-	top: calc(50% - 15px);
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .#{$ns}-pickitem--multiselect-label {

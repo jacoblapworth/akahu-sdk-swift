@@ -21,6 +21,9 @@
 // If two entities share the same name then the color should be different.
 // See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more detail.
 //
+// The experimental `object-fit` property is used to scale up/down images appropriately, however support in IE/Edge is limited so as a best
+// practice we recommend using pre-processed images that have been scaled and resized appropriately.
+//
 // #### Class Names
 //
 // `xui-avatar`	Style for an avatar

@@ -10,10 +10,19 @@
 // Avatars
 //
 // Avatars can be either an image or text. If no image is available then the `<abbr>` tag should be used to display the first character of the entity.
-// The background color should be selected deterministically from one of the ten approved colors based on a unique attribute of the entity (not their name).
+//
+// There are 2 styles of avatars:
+// * Circular - used to represent people: a user, an employee, etc. This is the default when using `xui-avatar`. May contain 1 - 2 characters.
+// * Rectangular - used to represent businesses: a company, an org, a practice, etc. Use the `xui-avatar-business` modifier for this. May contain 1 - 3 characters.
+//
+// If the avatar is not an image, then its background color should be selected deterministically from one of the ten approved colors
+// based on a unique attribute of the entity (not their name, as there may be more than one entity with the same name).
 // This allows the user to associate a color/letter pair with a particular entity.
 // If two entities share the same name then the color should be different.
 // See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more detail.
+//
+// The experimental `object-fit` property is used to scale up/down images appropriately, however support in IE/Edge is limited so as a best
+// practice we recommend using pre-processed images that have been scaled and resized appropriately.
 //
 // #### Class Names
 //
@@ -29,20 +38,30 @@
 //
 // `xui-avatar-counter` Modifier for an avatar counter (e.g. +3)
 //
+// `xui-avatar-business` Modifier for an avatar representing a business
+//
 // Markup:
 // <h3>Small</h3>
 // <img class="xui-avatar xui-avatar-small" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
-// <abbr class="xui-avatar xui-avatar-small" style="background-color: #FCAD59" role="presentation">W</abbr>
+// <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-small" role="presentation">IM</abbr>
+// <img class="xui-avatar xui-avatar-small xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-small xui-avatar-business" role="presentation">ABC</abbr>
 // <h3>Medium</h3>
 // <img class="xui-avatar" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar" style="background-color: #75C8F4" role="presentation">X</abbr>
+// <abbr class="xui-avatar xui-avatar-color-3" role="presentation">JM</abbr>
+// <img class="xui-avatar xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business" role="presentation">CNN</abbr>
 // <h3>Large</h3>
 // <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-large" style="background-color: #C48FDE" role="presentation">Y</abbr>
+// <abbr class="xui-avatar xui-avatar-color-5 xui-avatar-large" role="presentation">TR</abbr>
+// <img class="xui-avatar xui-avatar-large xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-6 xui-avatar-large xui-avatar-business" role="presentation">NBC</abbr>
 // <h3>Extra Large</h3>
 // <img class="xui-avatar xui-avatar-xlarge" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-xlarge" style="background-color: #92D960" role="presentation">Z</abbr>
-// <h3>Approved Colours</h3>
+// <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xlarge" role="presentation">FP</abbr>
+// <img class="xui-avatar xui-avatar-business xui-avatar-xlarge" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-8 xui-avatar-xlarge xui-avatar-business" role="presentation">CBS</abbr>
+// <h3>Avatar Colours</h3>
 // <abbr class="xui-avatar xui-avatar-color-1" role="presentation">1</abbr>
 // <abbr class="xui-avatar xui-avatar-color-2" role="presentation">2</abbr>
 // <abbr class="xui-avatar xui-avatar-color-3" role="presentation">3</abbr>
@@ -61,6 +80,7 @@
 //
 // Styleguide: Avatars.1
 
+/* doiuse-disable object-fit*/
 .#{$ns}-avatar {
 	align-items: center;
 	border-radius: 50%;
@@ -70,11 +90,13 @@
 	height: 32px;
 	justify-content: center;
 	line-height: 1;
+	object-fit: contain;
 	overflow: hidden;
 	vertical-align: middle;
 	width: 32px;
 
 }
+/* doiuse-enable object-fit*/
 
 .#{$ns}-avatar-small {
 	font-size: $xui-font-size-avatar-small;
@@ -92,6 +114,10 @@
 	font-size: $xui-font-size-avatar-xlarge;
 	height: 80px;
 	width: 80px;
+}
+
+.#{$ns}-avatar-business {
+	border-radius: $xui-radius;
 }
 
 .#{$ns}-avatar-color-1 {

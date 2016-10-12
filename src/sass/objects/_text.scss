@@ -166,6 +166,42 @@
 	white-space: nowrap;
 }
 
+// Word Breaking
+//
+// Long words without hyphens won't automatically break when they reach the edge of their container.
+// They either enlarge the container, overflow or a scrollbar is created.
+// Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
+// and losing some information.
+//
+// #### Class Names
+//
+// `xui-text-word-break`	Modifier for breaking long words to the next line
+//
+// Markup:
+//  <p class="xui-text-word-break">pneumonoultramicroscopicsilicovolcanoconiosisIsALungDiseaseCausedBySilicaDustFromVolcanoesSometimesCitedAsOneOfTheLongestWordsInTheEnglishLanguage</p>
+//
+// Styleguide: Typography.3
+
+/* doiuse-disable */
+.#{$ns}-text-wordbreak {
+	// chrome doesn't support this but what can you do ¯\_(ツ)_/¯
+	hyphens: auto;
+
+	// This is technically the same as word-wrap, but use both for maximum support
+	overflow-wrap: break-word;
+
+	// auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
+	-ms-word-break: break-all;
+
+	// This is for firefox support however it breaks mid word when spaces are present in firefox
+	// so be aware of this
+	word-break: break-all;
+
+	// We want this to take precedence over word-break: break-all or words will break without
+	// moving to the next line when they're separated by spaces
+	word-wrap: break-word;
+}
+/* doiuse-enable */
 
 //  Statuses
 //

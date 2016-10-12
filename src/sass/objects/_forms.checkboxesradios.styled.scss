@@ -415,8 +415,7 @@
 
 	// Hide HTML input
 	input {
-		left: -9999em;
-		position: absolute;
+		@include xui-position-offscreen;
 	}
 
 	// TODO: Opacity override

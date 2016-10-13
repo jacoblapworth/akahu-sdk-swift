@@ -86,33 +86,35 @@
 	border-radius: 50%;
 	color: $xui-color-reversed-text;
 	display: inline-flex;
-	font-size: $xui-font-size-regular;
+	font-size: $xui-font-size-avatar;
 	height: 32px;
 	justify-content: center;
-	line-height: 1;
+	line-height: $xui-font-size-text;
 	object-fit: contain;
 	overflow: hidden;
 	vertical-align: middle;
 	width: 32px;
-
 }
 /* doiuse-enable object-fit*/
 
 .#{$ns}-avatar-small {
 	font-size: $xui-font-size-avatar-small;
 	height: 24px;
+	line-height: $xui-font-size-avatar-small;
 	width: 24px;
 }
 
 .#{$ns}-avatar-large {
 	font-size: $xui-font-size-avatar-large;
 	height: 48px;
+	line-height: $xui-font-size-avatar-large;
 	width: 48px;
 }
 
 .#{$ns}-avatar-xlarge {
 	font-size: $xui-font-size-avatar-xlarge;
 	height: 80px;
+	line-height: $xui-font-size-avatar-xlarge;
 	width: 80px;
 }
 

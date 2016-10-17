@@ -50,6 +50,7 @@
 	padding: 0 !important;
 	position: absolute !important;
 	top: 0 !important;
+	white-space: nowrap !important; // See https://css-tricks.com/beware-smushed-off-screen-accessible-text/
 	width: 1px !important;
 }
 

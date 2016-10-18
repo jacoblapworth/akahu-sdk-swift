@@ -21,7 +21,7 @@
     "bump-minor": "bumper minor \"Bump to {version}\" --tag \"{version}\"",
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\"",
     "update-readme": "grunt if:readme",
-    "vars": "grunt postcss"
+    "tokens": "grunt postcss"
   },
   "devDependencies": {
     "bower": "^1.7.9",

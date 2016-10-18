@@ -85,6 +85,7 @@
 // Colours
 //
 // The colours may be applied to the icons with `xui-icon-color-standard`, `xui-icon-color-blue`, `xui-icon-color-red`, `xui-icon-color-green` and `xui-icon-color-white`
+// For specific file types, you can also use `xui-icon-color-file-pdf` and `xui-icon-color-file-spreadsheet`
 //
 // Markup:
 //	<svg class="xui-icon xui-icon-color-standard"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
@@ -92,6 +93,9 @@
 //	<svg class="xui-icon xui-icon-color-red"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
 //	<svg class="xui-icon xui-icon-color-green"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
 //	<svg class="xui-icon xui-icon-color-white" style="background-color: grey; border-radius: 50%"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
+//	<svg class="xui-icon xui-icon-color-file-pdf"> <use xlink:href="#xui-icon-file-pdf" role="presentation"/></svg>
+//	<svg class="xui-icon xui-icon-color-file-spreadsheet"> <use xlink:href="#xui-icon-file-excel" role="presentation"/></svg>
+//	<svg class="xui-icon xui-icon-color-file-spreadsheet"> <use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/></svg>
 //
 // Styleguide: Icons.5
 
@@ -167,4 +171,12 @@
 
 .#{$ns}-icon-color-red {
 	fill: $xui-color-xero-red;
+}
+
+.#{$ns}-icon-color-file-spreadsheet {
+	fill: $xui-color-file-spreadsheet;
+}
+
+.#{$ns}-icon-color-file-pdf {
+	fill: $xui-color-file-pdf;
 }

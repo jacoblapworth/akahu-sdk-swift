@@ -228,8 +228,20 @@ function handleSpacebarAsClick(event, props) {
 	}
 }
 
+/**
+ * Links styled as buttons require a specific set of attributes to ensure proper functionality and accessibility.
+ * This function ensures that those props will be added to the element.
+ *
+ * @private
+ * @param {Object} props
+ * @param {Object} elementProps
+ */
 const setupLinkProps = (props, elementProps) => {
-	elementProps.role = 'button';
+	// If this is just a plain link styled to be a button, the button role is not needed.  However, if this is a link
+	// which is styled to look AND function like a button, then we'll need the role.
+	if (!props.href || props.onClick) {
+		elementProps.role = 'button';
+	}
 	elementProps.onKeyPress = function(e) {
 		handleSpacebarAsClick(e, props);
 	};

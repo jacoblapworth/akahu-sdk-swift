@@ -128,4 +128,14 @@ describe('<XUIButton/>', () => {
 		Simulate.click(findDOMNode(button).firstChild);
 		assert.isTrue(onClick.calledOnce);
 	});
+
+	it('has a role attribute for links which are function like buttons', () => {
+		const button = renderIntoDocument(<XUIButton type="link" href="https://www.xero.com/" onClick={() => console.log('click')} />);
+		assert.strictEqual(findDOMNode(button).getAttribute('role'), 'button');
+	});
+
+	it('does not have a role attribute for links which are just styled like buttons', () => {
+		const button = renderIntoDocument(<XUIButton type="link" href="https://www.xero.com/" />);
+		assert.isNull(findDOMNode(button).getAttribute('role'));
+	});
 });

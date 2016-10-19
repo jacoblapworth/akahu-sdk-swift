@@ -20,6 +20,8 @@
 //
 // `xui-toggle` Container for one or more toggle options
 //
+// `xui-toggle-form-layout` Recommended layout for form based toggles
+//
 // `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
 //
 // `xui-toggle-icon-layout` Recommended layout for an icon toolbar
@@ -39,6 +41,55 @@
 // `xui-is-disabled` Style for a disabled toggle
 //
 // Styleguide: Buttons.10
+
+
+// Form Layout
+//
+// The recommended form layout can be achieved using `xui-toggle-form-layout` alongside `xui-toggle`
+// and is suitable for mixed label content.
+//
+// Styleguide: Buttons.10.Form
+
+
+// Radio (Form Layout, Form)
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding">
+//   <form class="xui-form-layout">
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled</label>
+//       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
+//           <span class="xui-toggle--label">Bananas</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label">In</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label">Pyjamas</span>
+//         </label>
+//       </div>
+//     </div>
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field2">Disabled</label>
+//       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled/>
+//           <span class="xui-toggle--label">B1</span>
+//         </label>
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" checked disabled/>
+//           <span class="xui-toggle--label">B2</span>
+//         </label>
+//       </div>
+//     </div>
+//   </form>
+// </div>
+//
+// Styleguide: Buttons.10.Form.Layout
 
 
 // Full-Width Layout
@@ -217,6 +268,20 @@
 // Full-width layout
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
+	flex-grow: 1;
+}
+
+
+// Form Layout
+.#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
+	line-height: $xui-line-height-button;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+
+.#{$ns}-toggle-form-layout .#{$ns}-toggle-option,
+.#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
 	flex-grow: 1;
 }
 

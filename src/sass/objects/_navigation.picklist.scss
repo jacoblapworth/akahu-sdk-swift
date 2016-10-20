@@ -24,8 +24,11 @@
 //   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
 //     <a href="#" class="xui-pickitem--body" tabindex="-1">Item one - Is Selected</a>
 //   </li>
+//   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="0">
+//     <button class="xui-pickitem--body" tabindex="-1">Item two - Has Hover class</button>
+//   </li>
 //   <li class="xui-pickitem" tabindex="0">
-//     <button class="xui-pickitem--body" tabindex="-1">Item two</button>
+//     <button class="xui-pickitem--body" tabindex="-1">Item three</button>
 //   </li>
 // </ul>
 //
@@ -87,7 +90,16 @@
 }
 
 // Specificity exists to encapsulate the style update and eliminate nested menus
-// also receiving this style.
+// also receiving these styles.
+.#{$ns}-pickitem-is-hovered > .#{$ns}-pickitem--body {
+	background: rgba($xui-color-black, 0.05);
+
+	&:active,
+	&:focus {
+		background: rgba($xui-color-black, 0.1);
+	}
+}
+
 .#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body {
 	color: $xui-color-xero-blue;
 

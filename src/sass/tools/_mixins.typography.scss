@@ -11,6 +11,15 @@
 	}
 */
 
+
+@mixin xui-text-small {
+	font-size: $xui-font-size-small;
+}
+
+@mixin xui-text-xsmall {
+	font-size: $xui-font-size-xsmall;
+}
+
 @mixin xui-text-line-height-reset {
 	line-height: $xui-line-height-reset;
 }
@@ -36,3 +45,53 @@
 	font-variant-numeric: tabular-nums;
 	font-feature-settings: "tnum" 1;
 }
+
+@mixin xui-heading-primary {
+	font-size: $xui-font-size-xlarge;
+	font-weight: bold;
+	color: $xui-color-grey-1;
+}
+
+@mixin xui-heading-secondary {
+	font-size: $xui-font-size-large;
+	font-weight: bold;
+	color: $xui-color-grey-1;
+}
+
+@mixin xui-heading-tertiary {
+	font-size: $xui-font-size-medium;
+	font-weight: bold;
+	color: $xui-color-grey-1;
+}
+
+// Font-weight
+@mixin xui-text-emphasis {
+	font-weight: $xui-font-weight-emphasis;
+}
+
+@mixin xui-text-deemphasis {
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Text color
+@mixin xui-text-muted {
+	color: $xui-color-grey-2;
+}
+
+@mixin xui-text-positive {
+	color: $xui-color-xero-green;
+}
+
+@mixin xui-text-negative {
+	color: $xui-color-xero-red;
+}
+
+// Letter spacing
+@mixin xui-text-spacing-tight {
+	letter-spacing: $xui-letter-spacing-tight;
+}
+
+@mixin xui-text-spacing-loose {
+	letter-spacing: $xui-letter-spacing-loose;
+}
+

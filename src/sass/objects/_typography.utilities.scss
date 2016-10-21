@@ -1,0 +1,160 @@
+@import "../mixins";
+@import "../vars";
+
+// Utilities
+//
+// Text utilities provide single specific rules to modify the style of text based
+// content.
+//
+// Styleguide: Typography.3
+
+// Alignment
+//
+// Classes that can be added to change the alignment of text.
+//
+// #### Class Names
+//
+// `xui-text-leftaligned`	Modifier for left-aligned text
+//
+// `xui-text-centered`	Modifier for centered text
+//
+// `xui-text-rightaligned`	Modifier for right-aligned text
+//
+// Markup:
+//  <p class="xui-text-leftaligned">Left-aligned text</p>
+//  <p class="xui-text-centered">Centered text</p>
+//  <p class="xui-text-rightaligned">Right aligned text</p>
+//
+// Styleguide: Typography.3.1
+
+.#{$ns}-text-leftaligned {
+	text-align: left;
+}
+
+.#{$ns}-text-centered {
+	text-align: center;
+}
+
+.#{$ns}-text-number,
+.#{$ns}-text-rightaligned {
+	text-align: right;
+}
+
+// Truncation
+//
+// Useful for truncating a single line of text with an ellipsis. To truncate after an arbitrary number of lines,
+// you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
+//
+// #### Class Names
+//
+// `xui-text-truncated`	Modifier for truncated text with an ellipsis
+//
+// Markup:
+//  <p class="xui-text-truncated">Pak n' Save holds the most nuclear-free community in the country. Every time I see those rip-off Monopoly money, from the New Zealand version with Queen Street and stuff it's like the op shop all over again aye, fully. Put the jug on will you bro, all these primo giant wekas can wait till later. Eh, rack off, nek minnit.</p>
+//
+// Styleguide: Typography.3.2
+
+.#{$ns}-text-truncated {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Word Breaking
+//
+// Long words without hyphens won't automatically break when they reach the edge of their container.
+// They either enlarge the container, overflow or a scrollbar is created.
+// Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
+// and losing some information.
+//
+// #### Class Names
+//
+// `xui-text-word-break`	Modifier for breaking long words to the next line
+//
+// Markup:
+//  <p class="xui-text-wordbreak">pneumonoultramicroscopicsilicovolcanoconiosisIsALungDiseaseCausedBySilicaDustFromVolcanoesSometimesCitedAsOneOfTheLongestWordsInTheEnglishLanguage</p>
+//
+// Styleguide: Typography.3.3
+
+/* doiuse-disable */
+.#{$ns}-text-wordbreak {
+	// chrome doesn't support this but what can you do ¯\_(ツ)_/¯
+	hyphens: auto;
+
+	// This is technically the same as word-wrap, but use both for maximum support
+	overflow-wrap: break-word;
+
+	// auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
+	-ms-word-break: break-all;
+
+	// This is for firefox support however it breaks mid word when spaces are present in firefox
+	// so be aware of this
+	word-break: break-all;
+
+	// We want this to take precedence over word-break: break-all or words will break without
+	// moving to the next line when they're separated by spaces
+	word-wrap: break-word;
+}
+/* doiuse-enable */
+
+//  Colors
+//
+// #### Class Names
+//
+// `xui-text-color-black`	Black text
+//
+// `xui-text-color-icon` Icon color text
+//
+// `xui-text-color-white`	White text
+//
+// Markup:
+// <p class="xui-text-color-black">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-color-white">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-color-icon">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-muted">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-positive">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-negative">The quick brown fox jumps over the lazy dog</p>
+//
+// Styleguide: Typography.3.4
+
+.#{$ns}-text-color-black {
+	color: $xui-color-black;
+}
+
+.#{$ns}-text-color-white {
+	color: $xui-color-white;
+}
+
+.#{$ns}-text-color-icon {
+	color: $xui-color-icon;
+}
+
+.#{$ns}-text-muted {
+	@include xui-text-muted;
+}
+
+.#{$ns}-text-positive {
+	@include xui-text-positive;
+}
+
+.#{$ns}-text-negative {
+	@include xui-text-negative;
+}
+
+// Inverted text
+//
+// Inverts the text to provide a dark background and white text.
+//
+// #### Class Names
+//
+// `xui-text-inverted`	Style for inverted text
+//
+// Markup:
+//  <h3 class="xui-text-inverted xui-padding">Inverted text</h3>
+//
+// Styleguide: Typography.3.5
+
+.#{$ns}-text-inverted {
+	background-color: $xui-color-grey-1;
+	color: $xui-color-white;
+}

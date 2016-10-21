@@ -39,7 +39,6 @@
 @import "elements/inputs";
 @import "elements/links";
 @import "elements/tables";
-@import "elements/textcontent";
 
 // Base components which other components build on
 @import "objects/icons";
@@ -63,9 +62,9 @@
 @import "objects/sections";
 @import "objects/sidedrawer";
 @import "objects/steps";
+@import "objects/typography";
 @import "objects/usermessaging";
 @import "objects/overview";
-@import "objects/text";
 
 @import "trumps/utilities";
 

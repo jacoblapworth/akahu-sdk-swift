@@ -1,0 +1,208 @@
+// Headings
+//
+// We’ve got a few standardised classes to deal with the different types of content across our app. At surface level they bear some similarities, but the separation has been done so to anticipate future changes at a component level. When choosing the right class to use, a good rule of thumb is to ask yourself, ‘what kind of content is this’ and then apply the one that best fits that use case.
+//
+// #### Class Names
+//
+// `xui-panel-title` for top-level headings in page headers & panels (usually only one per page)
+//
+// `xui-section-title` for second-tier headings that provide vertical separation of content (there may be several per page)
+//
+// `xui-modal-title` for consistent application across all modal headers
+//
+// `xui-lineitem-title` for consistent application across all content blocks & line items
+//
+// `xui-separator-title`  for consistent application across all table & dropdown vertical separators
+//
+// Markup:
+// <div class="xui-panel-title"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-section-title"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-modal-title"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-lineitem-title"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-separator-title"> The quick brown fox jumps over the lazy dog</div>
+//
+// Styleguide: Typography.1
+
+.#{$ns}-panel-title {
+	@include xui-heading-secondary;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-section-title,
+.#{$ns}-text-sectionheading {
+	color: $xui-color-grey-1;
+	font-size: $xui-font-size-medium;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+.#{$ns}-modal-title {
+	@include xui-heading-secondary;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-lineitem-title {
+	@include xui-heading-tertiary;
+	// other specific stuff to this element might go here???
+}
+
+
+// Generic Headings
+//
+// For other contexts that don’t quite fit the examples above, we offer a few other classes to provide some flexibility while still conforming to XUI proportions and style.
+//
+// #### Class Names
+//
+// `xui-heading-primary` for large in-page headings such as form titles
+//
+// `xui-heading-secondary` for top-level headings that aren’t strictly panel headers
+//
+// `xui-heading-tertiary`  for second-tier headings that aren’t strictly modals or content blocks
+//
+// `xui-heading-mini` for minute headings that group content but aren’t strictly within tables or dropdowns
+//
+// Markup:
+// <div class="xui-heading-primary"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-heading-secondary"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-heading-tertiary"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-heading-mini"> The quick brown fox jumps over the lazy dog</div>
+//
+// Styleguide: Typography.1.1
+
+.#{$ns}-heading-primary {
+	@include xui-heading-primary;
+}
+
+.#{$ns}-heading-secondary,
+.#{$ns}-textcontent h3 {
+	@include xui-heading-secondary;
+}
+
+.#{$ns}-heading-tertiary,
+.#{$ns}-textcontent h4 {
+	@include xui-heading-tertiary;
+}
+
+.#{$ns}-separator-title,
+.#{$ns}-heading-mini,
+.#{$ns}-textcontent h5 {
+	color: $xui-color-grey-2;
+	font-size: $xui-font-size-small;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+
+// Display headings
+//
+// We also provide a few classes for more deliberate display typography. These scale relative to the viewport, and are particularly useful for highlighting small pieces of information like key financials in overview pages.
+//
+// #### Class Names
+//
+// `xui-heading-display` for relatively dense display text
+//
+// `xui-heading-display-xl` for short amounts of display text
+//
+// `xui-heading-display-xxl` for only a few digits of display text
+//
+// Markup:
+// <div class="xui-heading-display xui-text-truncated"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-heading-display-xl xui-text-truncated"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-heading-display-xxl xui-text-truncated"> The quick brown fox jumps over the lazy dog</div>
+//
+// Styleguide: Typography.1.2
+
+.#{$ns}-heading-display,
+.#{$ns}-textcontent h2 {
+	font-size: $xui-font-size-extended-2xlarge;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: $xui-font-size-extended-4xlarge;
+	}
+
+	@include xui-breakpoint-huge {
+		font-size: $xui-font-size-extended-5xlarge;
+	}
+}
+
+.#{$ns}-heading-display-xl,
+.#{$ns}-textcontent h1 {
+	font-size: $xui-font-size-extended-4xlarge;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: $xui-font-size-extended-5xlarge;
+	}
+
+	@include xui-breakpoint-huge {
+		font-size: 48px;
+	}
+}
+
+.#{$ns}-heading-display-xxl {
+	font-size: 48px;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: 5vw;
+	}
+}
+
+// This doesn't really feel like a 'heading' might belong elsewhere
+// Not documented. So it doesn't exist yet
+.#{$ns}-thead-title {
+	color: $xui-color-grey-2;
+	font-size: $xui-font-size-xsmall;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Deprecated Heading Styles
+//
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
+// The following heading styles have been deprecated and will be removed in a future version of XUI.
+// </div>
+//
+// #### Class Names
+//
+// `xui-heading`	Style for a heading
+//
+// `xui-page-title`	Style for a page title
+//
+// `xui-section-title`	Style for a section title
+//
+// `xui-text-panelheading`	Style for a panel heading
+//
+// `xui-text-sectionheading`	Style for a section heading
+//
+// Markup:
+// <p class="xui-heading">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-page-title">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-section-title">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-panelheading">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-sectionheading">The quick brown fox jumps over the lazy dog</p>
+//
+// Styleguide: Typography.1.3
+.#{$ns}-heading {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-extended-xlarge;
+}
+
+.#{$ns}-page-title {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-extended-large;
+}
+
+.#{$ns}-section-title {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-medium;
+}
+
+.#{$ns}-text-panelheading {
+	@include xui-bold;
+	font-size: $xui-font-size-medium;
+}
+
+.#{$ns}-text-sectionheading {
+	color: $xui-color-secondary-text;
+	font-size: $xui-font-size-xsmall;
+	font-weight: normal;
+}

@@ -1,0 +1,101 @@
+@import "../mixins";
+@import "../vars";
+
+// Text
+//
+// `xui-text-label`
+//
+// `xui-text-secondary`
+//
+// `xui-text-minor`
+//
+// `xui-text-placeholder`
+//
+// Markup:
+// <p>The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-label">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-secondary">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-minor">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-placeholder">The quick brown fox jumps over the lazy dog</p>
+//
+// Styleguide: Typography.2
+
+.#{$ns}-text-label {
+	@include xui-text-emphasis;
+	@include xui-text-muted;
+	@include xui-text-small;
+}
+
+.#{$ns}-text-secondary {
+	@include xui-text-muted;
+	@include xui-text-small;
+}
+
+// New tiny muted text helper
+.#{$ns}-text-minor {
+	@include xui-text-muted;
+	@include xui-text-xsmall;
+}
+
+.#{$ns}-text-placeholder {
+	color: $xui-color-placeholder;
+}
+
+// Links
+//
+// Default link styling is applied to the `<a>` element. Minor link styling is
+// provided for suplimentry links that are clickable but for which we do not
+// want to draw attention to. This could be for secondary links or lists of links.
+//
+// `xui-text-minorlink` inherits it's parent text colour, but has standard link hover and focus highlighting
+//
+// Markup:
+// <p><a>The quick brown fox jumps over the lazy dog</a></p>
+// <p><a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a></p>
+// <p class="xui-text-secondary">
+//   <a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a>
+// </p>
+//
+// Styleguide: Typography.2.1
+
+.#{$ns}-text-minorlink {
+	color: inherit;
+
+	&:hover,
+	&:focus {
+		color: $xui-color-xero-blue;
+		text-decoration: underline;
+	}
+}
+
+// Font Weight
+//
+// Markup:
+// <p>The quick brown fox <span class="xui-text-emphasis">jumps</span> over the lazy dog</p>
+// <p class="xui-text-emphasis">The quick brown fox <span class="xui-text-deemphasis">jumps over the lazy dog</span></p>
+//
+// Styleguide: Typography.2.2
+
+.#{$ns}-text-emphasis {
+	font-weight: $xui-font-weight-emphasis;
+}
+
+.#{$ns}-text-deemphasis {
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Letter Spacing
+//
+// Markup:
+// <p class="xui-text-spacing-tight">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-spacing-loose">The quick brown fox jumps over the lazy dog</p>
+//
+// Styleguide: Typography.2.3
+
+.#{$ns}-text-spacing-tight {
+	@include xui-text-spacing-tight;
+}
+
+.#{$ns}-text-spacing-loose {
+	@include xui-text-spacing-loose;
+}

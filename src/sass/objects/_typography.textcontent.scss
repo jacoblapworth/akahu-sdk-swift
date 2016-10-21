@@ -30,7 +30,7 @@
 //   <h4>Fourth level heading</h4>
 // </div>
 //
-// Styleguide: Typography.10
+// Styleguide: Typography.50
 
 .#{$ns}-textcontent {
 	@include xui-text-line-height; // 1.5
@@ -41,24 +41,9 @@
 	h4,
 	h5,
 	h6 {
-		@include xui-bold;
 		margin: 1.25em 0;
 	}
 
-	h1 {
-		font-size: $xui-font-size-xlarge;
-	}
-
-	h2 {
-		font-size: $xui-font-size-large;
-	}
-
-	h3 {
-		font-size: $xui-font-size-medium;
-	}
-
-	h4,
-	h5,
 	h6 {
 		font-size: $xui-font-size-small;
 	}

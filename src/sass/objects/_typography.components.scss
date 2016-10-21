@@ -1,0 +1,188 @@
+
+// Text Components
+//
+// Text based components
+//
+// Styleguide: Typography.4
+
+//  Statuses
+//
+// #### Class Names
+//
+// `xui-text-status`	Style for status text
+//
+// `xui-text-status-negative`	Modifier for negative status text
+//
+// `xui-text-status-positive`	Modifier for positive status text
+//
+// Markup:
+// <span class="xui-text-status">
+//   DRAFT
+// </span>
+// <span class="xui-text-status xui-text-status-positive">
+//   ACCEPTED
+// </span>
+// <span class="xui-text-status xui-text-status-negative">
+//   DECLINED
+// </span>
+// <p class="xui-heading">
+//   Heading
+//   <span class="xui-text-status">DRAFT</span>
+// </p>
+// <p class="xui-page-title">
+//   Page Titles
+//   <span class="xui-text-status xui-text-status-positive">APPROVED</span>
+// </p>
+// <p class="xui-heading-mini">
+//   Headers
+//   <span class="xui-text-status xui-text-status-negative">OVERDUE</span>
+// </p>
+//
+// Styleguide: Typography.4.1
+
+// Parent container
+// The coloured background goes full width of the page
+.#{$ns}-text-status {
+	color: $xui-color-secondary-text;
+}
+
+.#{$ns}-text-status-positive {
+	color: $xui-color-xero-light-green;
+}
+
+.#{$ns}-text-status-negative {
+	color: $xui-color-xero-red;
+}
+
+// Tags
+//
+// Used to display read-only, categorical information. For example, assigning contacts to a particular group.
+//
+// Markup:
+// <span class="xui-text-tag xui-text-tag-solid">Dark tag</span>
+// <span class="xui-text-tag xui-text-tag-outline">Light tag</span>
+// <div class="xui-margin-top-large xui-dropdownmenu xui-dropdownmenu-large" role="menubar" aria-label="dropdown menu">
+//   <div class="xui-dropdownmenu--body">
+//      <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">All Investments</h3>
+//      <ul class="xui-menugroup xui-menugroup-layout" role="menu">
+//        <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//          <button type="button" class="xui-button xui-menuitem--body">
+//            <span>Erlich Bachman<br />
+//              <span class="xui-text-secondary">erlich@bachmanity.com</span>
+//            </span>
+//            <span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Bachmanity Capital</span>
+//          </button>
+//        </li>
+//        <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//          <button type="button" class="xui-button xui-menuitem--body">
+//             <span>Donald J Trump<br />
+//               <span class="xui-text-secondary">thedon@trump.com</span>
+//             </span>
+//             <span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Trump University</span>
+//          </button>
+//        </li>
+//      </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Typography.4.2
+
+.#{$ns}-text-tag {
+	border-radius: $xui-radius;
+	color: $xui-color-secondary-text;
+	display: inline-block;
+	font-size: $xui-font-size-xsmall;
+	line-height: $xui-font-size-xsmall;
+	padding: 3px $xui-s-xsmall;
+	vertical-align: middle;
+}
+
+.#{$ns}-text-tag-outline {
+	background-color: $xui-color-white;
+	border: 1px solid $xui-color-border;
+}
+
+.#{$ns}-text-tag-solid {
+	background-color: $xui-color-background;
+	border: 1px solid $xui-color-background;
+}
+
+// Carets
+//
+// Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
+//
+// #### Class Names
+//
+// `xui-caret`	Style for a CSS caret
+//
+// Markup:
+//  <p>Text <span class="xui-caret"></span></p>
+//  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
+//  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
+//
+// Styleguide: Typography.4.3
+
+.#{$ns}-caret {
+	@include xui-caret;
+	vertical-align: middle;
+}
+
+// Line Height
+//
+// Default line height: `line-height: 1.3`
+//
+// The default line height in XUI is set with the intent that most text in an
+// application is used within components e.g. headings, labels and button, etc.
+//
+// This default line height allows text to wrap onto multiple lines either by
+// design or as a consequence of user generated input or string translation
+// and maintain a reasonable layout.
+//
+// Common practice in simple sites and some CSS libraries is to make extensive
+// use of line height for component vertical spacing. We use this default
+// spacing and vertical padding to achieve our overall component height.
+//
+// #### Class Names
+//
+// `xui-text-reset`	Modifier to reset `line-height: 1`
+//
+// `xui-text-tight`	Modifier to set `line-height: 1.15`
+//
+// `xui-text-compact`	Modifier to set `line-height: 1.307`
+//
+// `xui-text-longform`	Modifier to set `line-height: 1.5`
+//
+// Markup:
+// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
+//   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
+//   <p class="xui-text-reset">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
+//   <p class="xui-text-tight">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
+//   <p class="xui-text-compact">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
+//   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// </div>
+//
+// Styleguide: Typography.11
+
+.#{$ns}-text-reset {
+	@include xui-text-line-height-reset;
+}
+
+.#{$ns}-text-tight {
+	@include xui-text-line-height-tight;
+}
+
+.#{$ns}-text-compact {
+	@include xui-text-line-height-compact;
+}
+
+.#{$ns}-text-longform {
+	@include xui-text-line-height;
+}

@@ -152,12 +152,12 @@
 //
 // #### Class Names
 //
-// `xui-text-word-break`	Modifier for breaking long words to the next line
+// `xui-text-wordbreak`	Modifier for breaking long words to the next line
 //
 // Markup:
-//  <p class="xui-text-word-break">pneumonoultramicroscopicsilicovolcanoconiosisIsALungDiseaseCausedBySilicaDustFromVolcanoesSometimesCitedAsOneOfTheLongestWordsInTheEnglishLanguage</p>
+//  <p class="xui-text-wordbreak">pneumonoultramicroscopicsilicovolcanoconiosisIsALungDiseaseCausedBySilicaDustFromVolcanoesSometimesCitedAsOneOfTheLongestWordsInTheEnglishLanguage</p>
 //
-// Styleguide: Typography.3
+// Styleguide: Typography.4
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
@@ -213,7 +213,7 @@
 //   <span class="xui-text-status xui-text-status-negative">OVERDUE</span>
 // </p>
 //
-// Styleguide: Typography.4
+// Styleguide: Typography.5
 
 // Parent container
 // The coloured background goes full width of the page
@@ -247,7 +247,7 @@
 //   White
 // </span>
 //
-// Styleguide: Typography.5
+// Styleguide: Typography.6
 
 .#{$ns}-text-color-black {
 	color: $xui-color-black;
@@ -292,7 +292,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Typography.6
+// Styleguide: Typography.7
 
 .#{$ns}-text-tag {
 	border-radius: $xui-radius;
@@ -327,7 +327,7 @@
 //  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
 //  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
 //
-// Styleguide: Typography.7
+// Styleguide: Typography.8
 
 .#{$ns}-caret {
 	@include xui-caret;
@@ -345,7 +345,7 @@
 // Markup:
 //  <h3 class="xui-text-inverted xui-padding">Inverted text</h3>
 //
-// Styleguide: Typography.8
+// Styleguide: Typography.9
 
 .#{$ns}-text-inverted {
 	background-color: $xui-color-grey-1;
@@ -372,7 +372,7 @@
 //   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.9
+// Styleguide: Typography.10
 
 // Text Reset
 //
@@ -385,7 +385,7 @@
 //   <p class="xui-text-reset">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.9.1
+// Styleguide: Typography.10.1
 
 .#{$ns}-text-reset {
 	line-height: $xui-line-height-reset;
@@ -404,7 +404,7 @@
 //   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.9.2
+// Styleguide: Typography.10.2
 
 .#{$ns}-text-longform {
 	line-height: $xui-line-height-text;

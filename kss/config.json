@@ -1,14 +1,16 @@
 {
 	"source": "../src/sass",
-	"custom": ["heading"],
+	"custom": ["heading", "tokens", "colorTokens", "noExample"],
 	"destination": "../docs",
 	"css": [
 		"./kss-assets/xui.css",
-		"./kss-style.css"
+		"./style.css"
 	],
 	"js": [
-		"./kss-assets/kss-script.js"
+		"./kss-assets/kss-script.js",
+		"./kss-assets/menu.js"
 	],
+	"title": "XUI",
 	"homepage": "../../README.md",
 	"builder": "./builder",
 	"extend": "./builder/extend"

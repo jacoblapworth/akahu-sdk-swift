@@ -3,6 +3,7 @@
  */
 
 // Base Colours
+//
 $xui-color-white: #fff;
 $xui-color-black: #32465a; // We refuse to use #000
 $xui-color-xero-blue: #2baaed;
@@ -18,6 +19,7 @@ $xui-color-xero-purple: #b450c8;
 $xui-color-xero-dark-purple: #643cfa;
 
 //Base Greys
+//
 $xui-color-grey-1: $xui-color-black;
 $xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
 $xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 50%);
@@ -27,6 +29,7 @@ $xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
 $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 
 // Component Greys
+//
 $xui-color-primary-text: $xui-color-grey-1;
 $xui-color-tooltip: $xui-color-grey-1;
 $xui-color-secondary-text: $xui-color-grey-2;
@@ -43,6 +46,7 @@ $xui-color-form: $xui-color-white;
 $xui-color-panel: $xui-color-white;
 
 // Inverted Colours
+//
 $xui-color-shadow-inverted-light: rgba($xui-color-white, 0.05);
 $xui-color-shadow-inverted-medium: rgba($xui-color-white, 0.1);
 $xui-color-shadow-inverted-strong: rgba($xui-color-white, 0.2);
@@ -52,6 +56,7 @@ $xui-color-highlight-inverted-strong: rgba($xui-color-white, 0.80);
 $xui-shadow-focus-inverted: 0 0 0 3px $xui-color-shadow-inverted-medium;
 
 // Avatars
+//
 $xui-color-avatar-1: $xui-color-xero-red;
 $xui-color-avatar-2: $xui-color-xero-orange;
 $xui-color-avatar-3: $xui-color-xero-yellow;
@@ -64,20 +69,24 @@ $xui-color-avatar-9: $xui-color-xero-purple;
 $xui-color-avatar-10: $xui-color-xero-pink;
 
 // Highlights
+//
 $xui-color-highlight-light: rgba($xui-color-black, 0.95);
 $xui-color-highlight-medium: rgba($xui-color-black, 0.90);
 $xui-color-highlight-strong: rgba($xui-color-black, 0.80);
 
 // Social
+//
 $xui-color-twitter: #1dadea;
 $xui-color-facebook: #3c5a96;
 $xui-color-linkedin: #1178b3;
 
-// File
+// Files
+//
 $xui-color-file-spreadsheet: #0f9d58;
 $xui-color-file-pdf: #db4437;
 
 // Shadows Colours and Depths
+//
 $xui-color-shadow-light: rgba($xui-color-black, 0.05);
 $xui-color-shadow-medium: rgba($xui-color-black, 0.1);
 $xui-color-shadow-strong: rgba($xui-color-black, 0.2);
@@ -89,6 +98,7 @@ $xui-color-overflow-shadow: rgba(0, 0, 0, 0.05);
 $xui-color-overflow-shadow-grey: #d4dae0;
 
 // Shadows Components
+//
 $xui-shadow-panel: $xui-shadow-depth-1;
 $xui-shadow-banners: $xui-shadow-depth-1;
 $xui-shadow-dropdown: $xui-shadow-depth-2;
@@ -98,17 +108,20 @@ $xui-shadow-modal: $xui-shadow-depth-3;
 $xui-shadow-focus: 0 0 0 3px $xui-color-shadow-medium;
 
 // Borders
+//
 $xui-border-standard:  1px solid $xui-color-border;
 $xui-divider-standard: 1px solid $xui-color-divider;
 $xui-border-transparent: 4px solid transparent;
 $xui-border-is-selected: 4px solid $xui-color-xero-blue;
 
 // Navigation
+//
 $xui-color-tab-pagenav: rgba($xui-color-reversed-text, 0.8);
 $xui-color-tab-focus: rgba($xui-color-primary-text, 0.1);
 $xui-color-tab-active: rgba($xui-color-primary-text, 0.15);
 
 // Dividers and Toast Links
+//
 $xui-color-xero-blue-divider: mix(rgba($xui-color-xero-blue, 0.35), $xui-color-white);
 $xui-color-xero-green-divider: mix(rgba($xui-color-xero-green, 0.35), $xui-color-white);
 $xui-color-xero-red-divider: mix(rgba($xui-color-xero-red, 0.35), $xui-color-white);

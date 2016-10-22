@@ -5,3 +5,9 @@
 		display: table;
 	}
 }
+
+@mixin xui-position-offscreen {
+	// position: fixed is more robust than position: absolute. See #1343.
+	position: fixed;
+	left: -9999em;
+}

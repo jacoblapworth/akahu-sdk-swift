@@ -41,6 +41,7 @@
 		background-color: $xui-color-background;
 		border-color: $xui-color-border;
 		color: $xui-color-secondary-text;
+		-webkit-text-fill-color: $xui-color-secondary-text;
 	}
 
 	&::placeholder {

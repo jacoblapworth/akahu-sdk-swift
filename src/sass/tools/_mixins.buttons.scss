@@ -118,7 +118,7 @@
 	color: $color;
 	border-radius: $xui-radius;
 	font-weight: bold;
-	line-height: 16px; // CUSTOM FOR HEIGHT REASONS
+	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
 	padding: 11px $xui-s-standard;
 	text-align: center;
 	text-decoration: none;

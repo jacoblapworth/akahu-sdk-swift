@@ -1,5 +1,9 @@
-// Spacing constants
+/**
+ * This source is pre-parsed and looks similar to KSS but is not the same.
+ */
 
+// Spacing constants
+//
 $xui-s-xsmall: 5px;
 $xui-s-small: 10px;
 $xui-s-standard: 15px;
@@ -12,6 +16,8 @@ $xui-s-4xlarge: 40px;
 $xui-s-5xlarge: 50px;
 $xui-s-6xlarge: 60px;
 
+
+// TokenParserIgnore
 $xui-s-actionlink: $xui-s-xsmall $xui-s-small;
 
 $xui-grid-gutter: $xui-s-large;
@@ -29,3 +35,4 @@ $xui-base-width: 80px;
 $xui-starting-width: 140px;
 
 $xui-width-variants: (0, "tiny"), (1, "xsmall"), (2, "small"), (3, "standard"), (4, "medium"), (5, "large"), (6, "xlarge"), (7, "huge");
+// TokenParserEndIgnore

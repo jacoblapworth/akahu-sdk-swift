@@ -19,3 +19,9 @@
 	@include xui-font-smooth;
 	font-weight: bold;
 }
+
+@mixin xui-listreset {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

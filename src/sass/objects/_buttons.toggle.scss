@@ -4,8 +4,9 @@
 
 // Toggles
 //
-// Toggles can be made using either `radio` or `checkbox` inputs and come in two colorways:
+// Toggles can be made using either `radio` or `checkbox` inputs and come in three colorways:
 // * `xui-toggle-standard` (dark text on light background)
+// * `xui-toggle-form` (white text on blue background)
 // * `xui-toggle-inverted` (light text on dark background)
 //
 // The colorway classes should be applied alongside `xui-toggle`.
@@ -19,11 +20,15 @@
 //
 // `xui-toggle` Container for one or more toggle options
 //
+// `xui-toggle-form-layout` Recommended layout for form based toggles
+//
 // `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
 //
 // `xui-toggle-icon-layout` Recommended layout for an icon toolbar
 //
 // `xui-toggle-standard` Style for a dark on light toggle container
+//
+// `xui-toggle-form` Style for white on blue toggle container
 //
 // `xui-toggle-inverted` Style for a light on dark toggle container (use with `xui-text-inverted`)
 //
@@ -36,6 +41,55 @@
 // `xui-is-disabled` Style for a disabled toggle
 //
 // Styleguide: Buttons.10
+
+
+// Form Layout
+//
+// The recommended form layout can be achieved using `xui-toggle-form-layout` alongside `xui-toggle`
+// and is suitable for mixed label content.
+//
+// Styleguide: Buttons.10.Form
+
+
+// Radio (Form Layout, Form)
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding">
+//   <form class="xui-form-layout">
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled</label>
+//       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
+//           <span class="xui-toggle--label">Bananas</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label">In</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label">Pyjamas</span>
+//         </label>
+//       </div>
+//     </div>
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field2">Disabled</label>
+//       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled/>
+//           <span class="xui-toggle--label">B1</span>
+//         </label>
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" checked disabled/>
+//           <span class="xui-toggle--label">B2</span>
+//         </label>
+//       </div>
+//     </div>
+//   </form>
+// </div>
+//
+// Styleguide: Buttons.10.Form.Layout
 
 
 // Full-Width Layout
@@ -60,7 +114,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" />
 //       <span class="xui-toggle--label">
-//         Pajamas
+//         Pyjamas
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
@@ -218,6 +272,20 @@
 }
 
 
+// Form Layout
+.#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
+	line-height: $xui-line-height-button;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+
+.#{$ns}-toggle-form-layout .#{$ns}-toggle-option,
+.#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
+	flex-grow: 1;
+}
+
+
 // Group styles
 .#{$ns}-toggle {
 	align-items: stretch;
@@ -232,8 +300,7 @@
 
 // Input styles
 .#{$ns}-toggle--input {
-	left: -9999em;
-	position: absolute;
+	@include xui-position-offscreen;
 }
 
 
@@ -328,6 +395,47 @@
 	// Disabled
 	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
 		background-color: $xui-color-shadow-light;
+		border: $xui-border-standard;
+		color: $xui-color-disabled-text;
+	}
+}
+
+
+// Form styles
+.#{$ns}-toggle-form {
+	// Hover
+	.#{$ns}-toggle--label:hover {
+		background-color: $xui-color-shadow-light;
+	}
+
+	// Focus, not hover
+	.#{$ns}-toggle--input:focus:not(:hover) + .#{$ns}-toggle--label {
+		box-shadow: $xui-shadow-focus;
+	}
+
+	// Active
+	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-medium;
+	}
+
+	// Checked
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
+		background-color: $xui-color-xero-blue;
+		border-color: $xui-color-xero-blue;
+		color: $xui-color-white;
+		z-index: 1;
+	}
+
+	// Checked, disabled
+	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-light;
+		border: $xui-border-standard;
+		color: $xui-color-disabled-text;
+	}
+
+	// Disabled
+	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-inverted-light;
 		border: $xui-border-standard;
 		color: $xui-color-disabled-text;
 	}

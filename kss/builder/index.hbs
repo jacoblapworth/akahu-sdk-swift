@@ -3,162 +3,268 @@
 <html class="no-js xui-html" lang="en">
 
 <head>
-	<title>XUI</title>
-	<meta charset="utf-8">
-	<meta name="generator" content="kss-node">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{{{styles}}}
+<title>{{options.title}} {{#unless homepage}} – {{sections.0.header}}{{/unless}} </title>
+<meta charset="utf-8">
+<meta name="generator" content="kss-node">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{{styles}}}
 </head>
 
-<body id="kss-node" class="kss-node xui-body">
-	<nav id="kss-sidebar" class="kss-sidebar">
-		<ul class="kss-nav__menu xui-menugroup title">
-			<li class="kss-nav__menu-item">
-				<h1 class="kss-doc-title">XUI</h1>
-			</li>
-		</ul>
-		<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-			<li class="xui-verticaltab">
-				<a href="./" tabindex="-1" class="xui-verticaltab--body">Overview</a>
-			</li>
-			<li class="xui-verticaltab">
-				<a href="https://github.dev.xero.com/pages/UXE/xui-examples/" tabindex="-1" class="xui-verticaltab--body">Examples</a>
-			</li>
-		</ul>
-		<ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-			{{#each menu}}
-			<li class="xui-verticaltab {{#isEqual header @root.sections.0.header}}xui-verticaltab-is-selected{{/isEqual}} {{#if heading}}kss-sidebar-heading{{else}}xui-padding-left{{/if}}">
-				<a href="section-{{referenceURI}}.html" tabindex="-1" class="xui-verticaltab--body">{{header}}</a>
-			</li>
-			{{/each}}
-		</ul>
-	</nav>
+<header class="ds-nav--responsive ds-nav--header xui-padding xui-text-inverted">
+	<a href="#navigation-primary" class="ds-hamburger"></a>
+	<span class="ds-nav--header-title xui-padding-small">{{options.title}}</span>
+</header>
+
+<body id="kss-node" class="ds-node xui-body">
 
 
-<article id="kss-main" role="main" class="kss-main">
+<article role="main" class="ds-main">
+
+	<div class="ds-section-wrap">
+
 	{{#if homepage}}
-	<section class="kss-section kss-section--title">
-		<header class="kss-section--header">
-			<a href="#kss-sidebar" class="kss-hamburger"></a>
-			<h1 class="kss-title">XUI</h1>
-		</header>
-	</section>
-	<div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
+	<div id="home" class="kss-style ds-section-part">
 		{{{homepage}}}
 	</div>
 	{{else}}
+
 
 	{{!
 	Display each section, in order.
 
 	The "root" element comes first in this loop, and can be detected using
-	the "#ifDepth 1" block as seen below.
+	the "#if @first" block as seen below.
 	}}
-	{{#each sections}}
 
-  {{#ifDepth 1}}
-  <section class="kss-section kss-section--title">
-		<header class="kss-section--header">
-			<a href="#kss-sidebar" class="kss-hamburger"></a>
-			<h{{depth}} class="kss-title kss-title--level-{{depth}}">
-			{{header}}
+
+		{{#each sections}}
+
+		<{{#if @first}}div{{else}}section{{/if}} id="{{referenceURI}}" class="kss-section--depth-{{depth}}">
+
+		<div class="kss-style ds-section-part">
+			<h{{depth}} class="ds-title ds-title--level-{{depth}}">
+				{{#ifDepth 3}}
+				{{else}}
+				<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}">
+					<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
+				</a>
+				{{/ifDepth}}
+				{{header}}
 			</h{{depth}}>
-		</header>
 
-    <div class="xui-tabbed-navigation">
-      <ul class="xui-tabgroup xui-tabgroup-layout">
-        {{#eachSection reference}}
-        {{#ifDepth 2}}
-        <li class="kss-nav__menu-item xui-tab">
-          <a class="xui-tab--body" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}" tabindex="-1">{{header}}</a>
-        </li>
-        {{/ifDepth}}
-        {{/eachSection}}
-      </ul>
-    </div>
-  </section>
-  {{/ifDepth}}
-
-
-	<section id="kssref-{{referenceURI}}" class="kss-section kss-section--depth-{{depth}}">
-    <div class="content">
-
-			<div class="kss-style">
-
-        {{#ifDepth 1}}
-        {{else}}
-				<h{{depth}} class="kss-title kss-title--level-{{depth}}">
-          {{header}}
-          <!-- <a class="kss-title__permalink" href="#kssref-{{referenceURI}}"></a> -->
-				</h{{depth}}>
-        {{/ifDepth}}
-
-				{{#if parameters}}
-				<ul class="kss-parameters">
-					{{#each parameters}}
-					<li class="kss-parameters__item">
-						<code class="kss-parameters__name">{{name}}</code>
-						<div class="kss-parameters__description">{{{description}}}</div>
-					</li>
-					{{/each}}
-				</ul>
-				{{/if}}
-
-				{{#if description}}
-				<div class="kss-description">
-					{{{description}}}
-				</div>
-				{{/if}}
-			</div>
-
-			{{#if markup}}
-			<div class="kss-modifier__wrapper">
-				{{#if modifiers}}
-				<div class="kss-modifier__default-name kss-style">
-					Default styling
-				</div>
-				{{/if}}
-				<div class="kss-modifier__example">
-					{{{markup}}}
-				</div>
-				{{#each modifiers}}
-				<div class="kss-modifier__name kss-style">
-					{{name}}
-				</div>
-				<div class="kss-modifier__description kss-style">
-					{{{description}}}
-				</div>
-				<div class="kss-modifier__example">
-					{{{markup}}}
-				</div>
-				{{/each}}
-			</div>
-
-			<div class="kss-markup kss-style" style="position: relative;">
-        <button data-clipboard-text="{{markup}}" class="copy-button xui-button xui-button-standard xui-button-small" style="position: absolute; right: 0; top: 0;">Copy</button>
-
-        <pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
-
+			{{#if description}}
+			<div class="ds-description">
+				{{{description}}}
 			</div>
 			{{/if}}
-    </div>
-	</section>
-	{{/each}}
-	{{/if}}
+
+			{{#if parameters}}
+			<div class="kss-parameters__title">Parameters:</div>
+			<ul class="kss-parameters">
+				{{#each parameters}}
+				<li class="kss-parameters__item">
+				<div class="kss-parameters__name"><code>{{name}}</code></div>
+				<div class="kss-parameters__description">
+					{{{description}}}
+					{{#if defaultValue}}
+					<div class="kss-parameters__default-value">
+						Defaults to: <code>{{defaultValue}}</code>
+					</div>
+					{{/if}}
+				</div>
+				</li>
+				{{/each}}
+			</ul>
+			{{/if}}
+		</div>
+
+		{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
+		<nav class="ds-section-part">
+			<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+				{{#each children}} {{#ifDepth 2}}
+				<li>
+				<a class="ds-nav-item xui-verticaltab" href="section-{{../referenceURI}}.html#{{referenceURI}}">
+					<span>{{header}}</span>
+				</a>
+				</li>
+				{{/ifDepth}} {{/each}}
+			</ul>
+		</nav>
+		{{/if}} {{/if}} {{/each}} {{/if}}
+
+		{{#if tokens}}
+		<div class="kss-modifier__example ds-section-part">
+			<div class="ds-token-wrap">
+			<div class="ds-token-table xui-row-flex xui-justify-left">
+				<div class="xui-column-12-of-12 xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">
+					<div class="xui-column-5-of-12">Token</div>
+					<div class="xui-column-3-of-12">Value</div>
+					{{#unless noexample}}<div class="xui-column-3-of-12">Example</div>{{/unless}}
+				</div>
+				{{#renderTokens tokens}}
+				<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
+					<div class="xui-column-5-of-12"><code class="ds-token-text">{{token.name}}</code></div>
+						<div {{#if token.example}}class="xui-column-3-of-12"{{/if}}>
+								<code class="ds-token-text">{{token.value}}</code></div>
+						{{#if token.example}}
+						<div class="xui-column-4-of-12">{{{token.example}}}</div>
+						{{/if}}
+				</div>
+				{{/renderTokens}}
+			</div>
+			</div>
+		</div>
+		{{/if}}
+
+		{{#if colortokens}}
+		<div class="kss-modifier__example ds-section-part">
+			<div class="ds-token-wrap {{#isInverted header}}xui-text-inverted{{/isInverted}}">
+			<div class="ds-token-table ds-token-table-color xui-row-flex xui-justify-left">
+			{{#renderTokens colortokens}}
+			<div class="ds-token-table--row xui-column-3-of-12">
+				<div class="ds-token-grid--cell">
+						<code class="ds-token-text">{{token.name}}</code>
+				</div>
+				<div class="ds-token-grid--cell">
+					{{{token.example}}}
+					<code class="ds-token-text--floating">{{token.value}}</code>
+				</div>
+			</div>
+			{{/renderTokens}}
+			</div>
+			</div>
+		</div>
+		{{/if}}
+
+		{{#if example}}
+		<div class="ds-markup-example-switcher ds-section-part" data-sectionid="{{referenceNumber}}">
+				<!-- These come first because they are used for styling siblings -->
+				<input type="radio" id="markup-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-markup" />
+				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
+				<input type="radio" id="all-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-all" />
+
+				<!-- hide markup switcher if it is only an example -->
+
+				<div>
+					<label for="markup-{{referenceNumber}}" class="ds-markup-label">Markup </label>
+					<label for="example-{{referenceNumber}}" class="ds-example-label">Demo</label>
+					<label for="all-{{referenceNumber}}" class="ds-all-label">Both</label>
+				</div>
+
+
+				<div class="ds-example-wrap">
+					{{#if modifiers}}
+					<div class="kss-modifier__default-name kss-style ds-section-part">
+						Default styling
+					</div>
+					{{/if}}
+
+					<div class="kss-modifier__example ds-section-part">
+						{{{example}}}
+					</div>
+
+					{{#each modifiers}}
+					<div class="kss-modifier__name kss-style ds-section-part">
+						{{name}}
+					</div>
+					<div class="kss-modifier__description kss-style ds-section-part">
+						{{{description}}}
+					</div>
+					<div class="kss-modifier__example ds-section-part">
+						{{{markup}}}
+					</div>
+					{{/each}}
+					<!--</div>-->
+
+				</div> <!--ds example  wrap-->
+
+				{{#if example}}
+				<div class="ds-markup-wrap">
+					<div class="kss-markup kss-style ds-section-part">
+						<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
+					</div>
+
+				{{#if sourceFile.name}}
+				<div class="kss-source kss-style ds-section-part">
+					Source: <a class="xui-text-minorlink" href="https://github.dev.xero.com/UXE/xui/blob/{{version}}/src/sass/{{sourceFile.name}}#L{{sourceFile.line}}">{{sourceFile.name}}</a></code>, line {{sourceFile.line}}
+				</div>
+				{{/if}}
+						</div>
+						{{/if}}
+
+		</div>
+
+		{{/if}}
+
+		</{{#if @first}}div{{else}}section{{/if}}>
+		{{/each}}
+		{{/if}}
+	</div>
 </article>
---}}
+
+<nav id="navigation-primary" class="ds-nav ds-nav--menu">
+	<ul class="xui-u-hidden ds-nav--container xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+    <li class="xui-menugroup xui-padding ds-nav--header xui-text-inverted">
+			<img class="ds-xero-icon" src="https://edge.xero.com/images/1.0.0/logo/xero-logo-100.png" />
+			<span class="ds-nav--header-title xui-padding">{{@root.options.title}}</span>
+    </li>
+		<li class="ds-nav--title xui-padding-vertical-large">
+			<a class="ds-nav--link xui-padding-horizontal-large xui-section-title xui-verticaltab xui-padding-vertical-small {{#isEqual header @root.sections.0.header}} xui-verticaltab-is-selected{{/isEqual}}" href="./index.html">
+					Overview
+			</a>
+		</li>
+		{{#each menu}}
+		{{! close previous section }}
+		{{#if heading}}{{#unless @first}}</li></ul>{{/unless}}
+			{{! section headings }}
+    <li class="ds-nav--title xui-padding-vertical">
+			<label class="ds-nav--link xui-section-title xui-padding-horizontal-large xui-padding-vertical-small xui-verticaltab" for="ds-input-{{referenceURI}}">
+				{{header}}
+			</label>
+			<input id="ds-input-{{referenceURI}}" type="checkbox" class="ds-input" checked data-persistedmenu/>
+			<svg class="ds-nav--icon xui-icon xui-icon-rotate-270 xui-button-icon-inverted"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+
+		{{else}}
+			{{! else li for the leaf nodes }}
+		<li class="xui-verticaltab {{#isEqual header @root.sections.0.header}} xui-verticaltab-is-selected{{/isEqual}}">
+			<a class="ds-nav__menu-link ds-nav--link xui-padding-horizontal-large xui-padding-vertical-small" href="section-{{referenceURI}}.html"> {{header}} </a>
+		{{/if}}
+
+		{{#if heading}}<ul class="ds-nav--submenu xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">{{else}}</li>{{/if}}
+		{{/each}}
+	</ul>
+</nav>
+
+<div class = "ds-footer xui-padding" aria-label = "Default example settings">
+	<span class="xui-text-status xui-padding">
+		<svg class="xui-icon xui-icon-inline">
+			<use xlink:href="#xui-icon-view" role="presentation"/>
+		</svg>
+		<span class="xui-padding-horizontal-small">Set Default View:</span>
+	</span>
+
+	<button class="xui-button ds-defaultexample-label xui-padding-horizontal" onclick="changeExampleView(this)" data-statetype="markup">Markup</button>
+	<button class="xui-button ds-defaultexample-label xui-padding-horizontal" onclick="changeExampleView(this)" data-statetype="example">Demo</button>
+	<button class="xui-button ds-defaultexample-label xui-padding-horizontal" onclick="changeExampleView(this)" data-statetype="all">Both</button>
+</div>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
+<script src="kss-assets/scrollspy.js"></script>
 <script src="kss-assets/prettify.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
 <script>
-	prettyPrint();
-	new Clipboard('.copy-button');
+prettyPrint();
+var spy = new ScrollSpy('#kss-node', {
+nav: '#ds-nav-section > li > a',
+className: 'xui-verticaltab-is-selected'
+});
 </script>
-<script src="https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
 <script src="//localhost:35729/livereload.js"></script>
+<script src="https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js"></script>
 {{{scripts}}}
+
 
 </body>
 

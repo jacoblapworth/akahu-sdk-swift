@@ -5,6 +5,7 @@ module.exports = {
     config: '.scss-lint.yml'
   },
   src: [
-    'src/sass/**/*.scss'
+    'src/sass/**/*.scss',
+    'kss/scss/**/*.scss'
   ]
 };

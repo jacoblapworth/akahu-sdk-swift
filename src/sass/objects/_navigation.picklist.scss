@@ -1,0 +1,459 @@
+@import "../mixins";
+@import "../vars";
+
+// Picklist
+//
+// Styles for vertical menus / picklists.
+//
+// Styleguide: Navigation.6
+
+// Simple
+//
+// #### Class Names
+//
+// `xui-picklist`	Container for a vertical menu
+//
+// `xui-pickitem`	Container for a picklist item
+//
+// `xui-pickitem-is-selected`	Indicate the currently selected picklist item
+//
+// `xui-pickitem--body`	Container for typically text content in a pick item
+//
+// Markup:
+// <ul class="xui-picklist">
+//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//     <a href="#" class="xui-pickitem--body" tabindex="-1">Item one - Is Selected</a>
+//   </li>
+//   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="0">
+//     <button class="xui-pickitem--body" tabindex="-1">Item two - Has Hover class</button>
+//   </li>
+//   <li class="xui-pickitem" tabindex="0">
+//     <button class="xui-pickitem--body" tabindex="-1">Item three</button>
+//   </li>
+// </ul>
+//
+// Styleguide: Navigation.6.1
+
+.#{$ns}-picklist {
+	@include xui-listreset;
+	padding: $xui-s-small 0;
+	position: relative;
+
+	& + .#{$ns}-picklist {
+		border-top: 1px solid rgba($xui-color-black, 0.1);
+	}
+}
+
+.#{$ns}-pickitem {
+	position: relative;
+
+	&:hover {
+		background: transparent;
+	}
+
+	&:focus {
+		background: rgba($xui-color-black, 0.1);
+		outline: none;
+	}
+}
+
+.#{$ns}-pickitem--body {
+	align-items: center;
+	background: transparent;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	display: flex;
+	font-size: $xui-font-size-text;
+	justify-content: space-between;
+	line-height: 1.3;
+	min-height: 40px;
+	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-large;
+	text-align: left;
+	width: 100%;
+
+	&:hover {
+		background: rgba($xui-color-black, 0.05);
+	}
+
+	&:active,
+	&:focus {
+		background: rgba($xui-color-black, 0.1);
+		outline: none;
+	}
+
+	// Fixes an alignment issue with the arrow icon indicators in non-split menuitems
+	> .#{$ns}-submenu-uicontrol--icon {
+		align-self: center;
+		flex: 0 0 30px;
+	}
+}
+
+// Specificity exists to encapsulate the style update and eliminate nested menus
+// also receiving these styles.
+.#{$ns}-pickitem-is-hovered > .#{$ns}-pickitem--body {
+	background: rgba($xui-color-black, 0.05);
+
+	&:active,
+	&:focus {
+		background: rgba($xui-color-black, 0.1);
+	}
+}
+
+.#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body {
+	color: $xui-color-xero-blue;
+
+	&::before {
+		border-left: 3px solid $xui-color-xero-blue;
+		bottom: 0;
+		content: " ";
+		display: block;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 3px;
+		z-index: 1;
+	}
+}
+
+// Submenus
+//
+// #### Class Names
+//
+// `xui-submenu`	Container for a vertical submenu
+//
+// `xui-pickitem--submenucontrol`	Hidden input to control the open and closed state of the sub menu
+//
+// `xui-submenu-uicontrol--label`	UI Control, clicking on this changes state of the control opening and closing the menu
+//
+// `xui-submenu-uicontrol--icon`	Additional class for the arrow icon indicator. Provides layout and animation.
+//
+// Markup:
+// <ul class="xui-picklist">
+//   <li class="xui-pickitem">
+//     <input class="xui-pickitem--submenucontrol" id="submenu-sidebar-1" type="checkbox" tabindex="-1"/>
+//     <label class="xui-pickitem--body xui-submenu-uicontrol--label" for="submenu-sidebar-1" tabindex="0" title="Open|close submenu" aria-label="Open|Close submenu">
+//       Item one has a submenu
+//       <svg class="xui-icon xui-icon-inline xui-submenu-uicontrol--icon">
+//         <use xlink:href="#xui-icon-arrow-small"></use>
+//       </svg>
+//     </label>
+//     <ul class="xui-submenu">
+//       <li class="xui-pickitem xui-pickitem-is-selected">
+//         <button class="xui-pickitem--body">Submenu item 1 is selected</button>
+//       </li>
+//       <li class="xui-pickitem">
+//         <button class="xui-pickitem--body">Submenu item 2</button>
+//       </li>
+//     </ul>
+//   </li>
+//   <li class="xui-pickitem">
+//     <button class="xui-pickitem--body">Item two</button>
+//   </li>
+// </ul>
+//
+// Styleguide: Navigation.6.2
+
+// Submenu more specificity for layout adjustments
+.#{$ns}-submenu {
+	@include xui-listreset;
+	flex: none;
+	max-height: 0;
+	overflow: hidden;
+	transition: all $xui-transition-duration-short $xui-easing-standard;
+
+	.#{$ns}-pickitem--body {
+		padding-left: $xui-s-3xlarge;
+	}
+
+	.#{$ns}-pickitem--icon + .#{$ns}-pickitem--body {
+		padding-left: $xui-s-5xlarge + $xui-s-5xlarge + $xui-s-xsmall;
+	}
+
+	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-label {
+		padding-left: $xui-s-6xlarge + $xui-s-small;
+	}
+
+	.#{$ns}-pickitem--icon,
+	.#{$ns}-pickitem--input {
+		left: $xui-s-4xlarge + $xui-s-xsmall;
+	}
+
+}
+
+.#{$ns}-submenu-uicontrol--label {
+	display: flex;
+
+	&:hover {
+		background: rgba($xui-color-black, 0.05);
+	}
+
+	&:active,
+	&:focus {
+		background: rgba($xui-color-black, 0.1);
+		outline: none;
+	}
+}
+
+.#{$ns}-submenu-uicontrol--icon {
+	align-self: center;
+	transition: all $xui-transition-duration-short $xui-easing-standard;
+}
+
+.#{$ns}-pickitem--submenucontrol {
+	@include xui-utility-hidden-visually;
+
+	&:checked {
+
+		& + .#{$ns}-pickitem--split .#{$ns}-submenu-uicontrol--icon {
+			transform: rotate(180deg);
+		}
+
+		& + .#{$ns}-submenu-uicontrol--label .#{$ns}-submenu-uicontrol--icon {
+			transform: rotate(180deg);
+		}
+
+		& ~ .#{$ns}-submenu {
+			max-height: 100vh;
+			overflow: auto;
+			padding: $xui-s-small 0;
+		}
+
+	}
+}
+
+// Split Submenus
+//
+// #### Class Names
+//
+// `xui-pickitem--split`	Container for split components.
+//
+// Markup:
+// <ul class="xui-picklist">
+//   <li>
+//     <input class="xui-pickitem--submenucontrol" id="submenu-label" type="checkbox" />
+//     <div class="xui-pickitem--split">
+//       <div class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">
+//           Item 1 has a split menu
+//         </button>
+//       </div>
+//       <div class="xui-submenu-uicontrol">
+//         <label for="submenu-label" class="xui-pickitem--uicontrol" title="Open|close submenu" aria-label="Open|Close submenu">
+//           <svg class="xui-icon xui-submenu-uicontrol--icon">
+//             <use xlink:href="#xui-icon-arrow-small"></use>
+//           </svg>
+//         </label>
+//       </div>
+//     </div>
+//     <ul class="xui-submenu">
+//       <li class="xui-pickitem" tabindex="0">
+//         <a class="xui-pickitem--body" href="#" tabindex="-1">Submenu item 1</a>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Submenu item 2</button>
+//       </li>
+//     </ul>
+//   </li>
+//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//     <button class="xui-pickitem--body" tabindex="-1">Item 2 is selected</button>
+//   </li>
+// </ul>
+//
+// Styleguide: Navigation.6.3
+
+.#{$ns}-pickitem--split {
+	align-items: stretch;
+	display: flex;
+	flex-flow: row nowrap;
+
+	.#{$ns}-pickitem {
+		border-right: 1px solid rgba($xui-color-black, 0.1);
+		flex: 1 1 auto;
+	}
+
+}
+
+.#{$ns}-submenu-uicontrol {
+	display: flex;
+	flex: 0 0 auto;
+}
+
+// Multiple choice menus
+//
+// #### Class Names
+//
+// `xui-pickitem--multiselect-label`	Additional class to be put on the checkbox label for positioning purposes.
+//
+// Markup:
+// <ul class="xui-picklist">
+//   <li>
+//     <input class="xui-pickitem--submenucontrol" id="submenu-check" type="checkbox" />
+//     <div class="xui-pickitem--split">
+//       <label class="xui-pickitem xui-pickitem--body xui-styledcheckbox">
+//         <input type="checkbox">
+//         <svg class="xui-icon xui-pickitem--input">
+//           <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//           <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"></use>
+//           <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"></use>
+//         </svg>
+//         <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label">
+//           This is how long text looks with split menu
+//         </span>
+//       </label>
+//       <label for="submenu-check" class="xui-pickitem--uicontrol" title="Close" aria-label="Close">
+//         <svg class="xui-icon xui-submenu-uicontrol--icon">
+//           <use xlink:href="#xui-icon-arrow-small"></use>
+//         </svg>
+//       </label>
+//     </div>
+//     <ul class="xui-submenu">
+//       <li class="xui-pickitem">
+//         <label class="xui-pickitem--body xui-styledcheckbox">
+//           <input type="checkbox">
+//             <svg class="xui-icon xui-pickitem--input">
+//               <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//               <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//               <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
+//             </svg>
+//             <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label">
+//               This is how long text looks in a submenu
+//             </span>
+//           </label>
+//         </li>
+//         <li class="xui-pickitem">
+//           <label class="xui-pickitem--body xui-styledcheckbox">
+//             <input type="checkbox" checked="checked">
+//               <svg class="xui-icon xui-pickitem--input">
+//                 <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//                 <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//                 <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
+//               </svg>
+//               <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label">
+//                 two two
+//               </span>
+//             </label>
+//           </li>
+//         </ul>
+//       </li>
+//       <li class="xui-pickitem">
+//         <label class="xui-pickitem--body xui-styledcheckbox">
+//           <input type="checkbox" checked="checked" />
+//           <svg class="xui-icon xui-pickitem--input">
+//             <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
+//           </svg>
+//           <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label">
+//             This is how long text looks normally
+//           </span>
+//         </label>
+//       </li>
+//     </ul>
+//   </li>
+// </ul>
+//
+// Styleguide: Navigation.6.4
+
+.#{$ns}-pickitem--uicontrol {
+	align-items: center;
+	display: flex;
+	padding: 3px;
+
+	&:hover {
+		background: rgba($xui-color-black, 0.05);
+	}
+
+	&:active {
+		background: rgba($xui-color-black, 0.1);
+	}
+}
+
+.#{$ns}-pickitem--input {
+	flex: none;
+	left: 0;
+	margin: 0 $xui-s-standard;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.#{$ns}-pickitem--multiselect-label {
+	display: inline-block;
+	padding: 0 $xui-s-small 0 $xui-s-4xlarge;
+	width: 100%;
+}
+
+// Icon menus
+//
+// #### Class Names
+//
+// `xui-pickitem--icon` positions the icon within the container and pads the content to the correct dimensions
+//
+// Markup:
+// <ul class="xui-picklist">
+//   <li class="xui-pickitem">
+//     <input class="xui-pickitem--submenucontrol" id="submenu-icon" type="checkbox" />
+//     <div class="xui-pickitem--split">
+//       <div class="xui-pickitem">
+//         <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-attach" role="presentation"></use>
+//         </svg>
+//         <span class="xui-pickitem--body">
+//           Attach files
+//         </span>
+//       </div>
+//      <label for="submenu-icon" class="xui-pickitem--uicontrol" title="Close" aria-label="Close">
+//        <svg class="xui-icon xui-submenu-uicontrol--icon">
+//          <use xlink:href="#xui-icon-arrow-small"></use>
+//        </svg>
+//      </label>
+//    </div>
+//    <ul class="xui-submenu">
+//      <li class="xui-pickitem">
+//        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-image" role="presentation"></use>
+//        </svg>
+//        <span class="xui-pickitem--body">Image</span>
+//      </li>
+//      <li class="xui-pickitem">
+//        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-pdf" role="presentation"></use>
+//        </svg>
+//        <span class="xui-pickitem--body">PDF</span>
+//      </li>
+//      <li class="xui-pickitem">
+//        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-document" role="presentation"></use>
+//        </svg>
+//        <span class="xui-pickitem--body">Document</span>
+//      </li>
+//     </ul>
+//   </li>
+//   <li class="xui-pickitem">
+//     <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-payment" role="presentation"></use>
+//     </svg>
+//     <span class="xui-pickitem--body">
+//       Add payment details
+//     </span>
+//   </li>
+// </ul>
+//
+// Styleguide: Navigation.6.5
+
+.#{$ns}-pickitem--icon {
+	cursor: pointer;
+	display: inline;
+	flex: 0 0 30px;
+	float: left;
+	margin: 0 $xui-s-standard;
+	pointer-events: none;
+	position: absolute;
+	top: 3px;
+
+	+ .#{$ns}-pickitem--body {
+		padding-left: $xui-s-6xlarge;
+	}
+}

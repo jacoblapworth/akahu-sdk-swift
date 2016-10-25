@@ -165,6 +165,10 @@ $xui-color-variations: (
 }
 // Vertical
 //
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="status">
+//   <p class="xui-banner--message">This component is deprecated, alternatively, usse <a href="#navigation-6">picklists</a></p>
+// </div>
+//
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
 // NOTE: Keep an eye on this one... there might be a better way to declare a
@@ -259,5 +263,3 @@ $xui-color-variations: (
 		@include xui-padding($xui-s-small);
 	}
 }
-
-

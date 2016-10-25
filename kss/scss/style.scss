@@ -41,6 +41,14 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-title--level-2 {
 	margin-top: 0;
+	padding-top: 2em;
+
+	@include xui-breakpoint-wide {
+		padding-top: 3em;
+	}
+}
+
+.ds-title--level-3 {
 	padding-top: 1em;
 
 	@include xui-breakpoint-wide {

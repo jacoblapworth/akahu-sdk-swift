@@ -22,182 +22,179 @@
 
 	<div class="ds-section-wrap">
 
-	{{#if homepage}}
-	<div id="home" class="kss-style ds-section-part">
-		{{{homepage}}}
-	</div>
-	{{else}}
+		{{#if homepage}}
+		<div id="home" class="kss-style ds-section-part">
+			{{{homepage}}}
+		</div>
+		{{else}}
 
+		{{!
+		Display each section, in order.
 
-	{{!
-	Display each section, in order.
-
-	The "root" element comes first in this loop, and can be detected using
-	the "#if @first" block as seen below.
-	}}
-
+		The "root" element comes first in this loop, and can be detected using
+		the "#if @first" block as seen below.
+		}}
 
 		{{#each sections}}
+		{{#wrapSection referenceURI}}
 
-		<{{#if @first}}div{{else}}section{{/if}} id="{{referenceURI}}" class="kss-section--depth-{{depth}}">
+			<div class="kss-style ds-section-part">
+				<h{{depth}} class="ds-title ds-title--level-{{depth}}">
+					{{#ifDepth 3}}
+					{{else}}
+					<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}">
+						<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
+					</a>
+					{{/ifDepth}}
+					{{header}}
+				</h{{depth}}>
 
-		<div class="kss-style ds-section-part">
-			<h{{depth}} class="ds-title ds-title--level-{{depth}}">
-				{{#ifDepth 3}}
-				{{else}}
-				<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}">
-					<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
-				</a>
-				{{/ifDepth}}
-				{{header}}
-			</h{{depth}}>
-
-			{{#if description}}
-			<div class="ds-description">
-				{{{description}}}
-			</div>
-			{{/if}}
-
-			{{#if parameters}}
-			<div class="kss-parameters__title">Parameters:</div>
-			<ul class="kss-parameters">
-				{{#each parameters}}
-				<li class="kss-parameters__item">
-				<div class="kss-parameters__name"><code>{{name}}</code></div>
-				<div class="kss-parameters__description">
+				{{#if description}}
+				<div class="ds-description">
 					{{{description}}}
-					{{#if defaultValue}}
-					<div class="kss-parameters__default-value">
-						Defaults to: <code>{{defaultValue}}</code>
-					</div>
-					{{/if}}
-				</div>
-				</li>
-				{{/each}}
-			</ul>
-			{{/if}}
-		</div>
-
-		{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
-		<nav class="ds-section-part">
-			<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-				{{#each children}} {{#ifDepth 2}}
-				<li>
-				<a class="ds-nav-item xui-verticaltab" href="section-{{../referenceURI}}.html#{{referenceURI}}">
-					<span>{{header}}</span>
-				</a>
-				</li>
-				{{/ifDepth}} {{/each}}
-			</ul>
-		</nav>
-		{{/if}} {{/if}} {{/each}} {{/if}}
-
-		{{#if tokens}}
-		<div class="kss-modifier__example ds-section-part">
-			<div class="ds-token-wrap">
-			<div class="ds-token-table xui-row-flex xui-justify-left">
-				<div class="xui-column-12-of-12 xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">
-					<div class="xui-column-5-of-12">Token</div>
-					<div class="xui-column-3-of-12">Value</div>
-					{{#unless noexample}}<div class="xui-column-3-of-12">Example</div>{{/unless}}
-				</div>
-				{{#renderTokens tokens}}
-				<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
-					<div class="xui-column-5-of-12"><code class="ds-token-text">{{token.name}}</code></div>
-						<div {{#if token.example}}class="xui-column-3-of-12"{{/if}}>
-								<code class="ds-token-text">{{token.value}}</code></div>
-						{{#if token.example}}
-						<div class="xui-column-4-of-12">{{{token.example}}}</div>
-						{{/if}}
-				</div>
-				{{/renderTokens}}
-			</div>
-			</div>
-		</div>
-		{{/if}}
-
-		{{#if colortokens}}
-		<div class="kss-modifier__example ds-section-part">
-			<div class="ds-token-wrap {{#isInverted header}}xui-text-inverted{{/isInverted}}">
-			<div class="ds-token-table ds-token-table-color xui-row-flex xui-justify-left">
-			{{#renderTokens colortokens}}
-			<div class="ds-token-table--row xui-column-3-of-12">
-				<div class="ds-token-grid--cell">
-						<code class="ds-token-text">{{token.name}}</code>
-				</div>
-				<div class="ds-token-grid--cell">
-					{{{token.example}}}
-					<code class="ds-token-text--floating">{{token.value}}</code>
-				</div>
-			</div>
-			{{/renderTokens}}
-			</div>
-			</div>
-		</div>
-		{{/if}}
-
-		{{#if example}}
-		<div class="ds-markup-example-switcher ds-section-part" data-sectionid="{{referenceNumber}}">
-				<!-- These come first because they are used for styling siblings -->
-				<input type="radio" id="markup-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-markup" />
-				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
-				<input type="radio" id="all-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-all" />
-
-				<!-- hide markup switcher if it is only an example -->
-
-				<div>
-					<label for="markup-{{referenceNumber}}" class="ds-markup-label">Markup </label>
-					<label for="example-{{referenceNumber}}" class="ds-example-label">Demo</label>
-					<label for="all-{{referenceNumber}}" class="ds-all-label">Both</label>
-				</div>
-
-
-				<div class="ds-example-wrap">
-					{{#if modifiers}}
-					<div class="kss-modifier__default-name kss-style ds-section-part">
-						Default styling
-					</div>
-					{{/if}}
-
-					<div class="kss-modifier__example ds-section-part">
-						{{{example}}}
-					</div>
-
-					{{#each modifiers}}
-					<div class="kss-modifier__name kss-style ds-section-part">
-						{{name}}
-					</div>
-					<div class="kss-modifier__description kss-style ds-section-part">
-						{{{description}}}
-					</div>
-					<div class="kss-modifier__example ds-section-part">
-						{{{markup}}}
-					</div>
-					{{/each}}
-					<!--</div>-->
-
-				</div> <!--ds example  wrap-->
-
-				{{#if example}}
-				<div class="ds-markup-wrap">
-					<div class="kss-markup kss-style ds-section-part">
-						<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
-					</div>
-
-				{{#if sourceFile.name}}
-				<div class="kss-source kss-style ds-section-part">
-					Source: <a class="xui-text-minorlink" href="https://github.dev.xero.com/UXE/xui/blob/{{version}}/src/sass/{{sourceFile.name}}#L{{sourceFile.line}}">{{sourceFile.name}}</a></code>, line {{sourceFile.line}}
 				</div>
 				{{/if}}
+
+				{{#if parameters}}
+				<div class="kss-parameters__title">Parameters:</div>
+				<ul class="kss-parameters">
+					{{#each parameters}}
+					<li class="kss-parameters__item">
+					<div class="kss-parameters__name"><code>{{name}}</code></div>
+					<div class="kss-parameters__description">
+						{{{description}}}
+						{{#if defaultValue}}
+						<div class="kss-parameters__default-value">
+							Defaults to: <code>{{defaultValue}}</code>
+						</div>
+						{{/if}}
+					</div>
+					</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+			</div>
+
+			{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
+			<nav class="ds-section-part">
+				<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+					{{#each children}} {{#ifDepth 2}}
+					<li>
+					<a class="ds-nav-item xui-verticaltab" href="section-{{../referenceURI}}.html#{{referenceURI}}">
+						<span>{{header}}</span>
+					</a>
+					</li>
+					{{/ifDepth}} {{/each}}
+				</ul>
+			</nav>
+			{{/if}} {{/if}} {{/each}} {{/if}}
+
+			{{#if tokens}}
+			<div class="kss-modifier__example ds-section-part">
+				<div class="ds-token-wrap">
+				<div class="ds-token-table xui-row-flex xui-justify-left">
+					<div class="xui-column-12-of-12 xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">
+						<div class="xui-column-5-of-12">Token</div>
+						<div class="xui-column-3-of-12">Value</div>
+						{{#unless noexample}}<div class="xui-column-3-of-12">Example</div>{{/unless}}
+					</div>
+					{{#renderTokens tokens}}
+					<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
+						<div class="xui-column-5-of-12"><code class="ds-token-text">{{token.name}}</code></div>
+							<div {{#if token.example}}class="xui-column-3-of-12"{{/if}}>
+									<code class="ds-token-text">{{token.value}}</code></div>
+							{{#if token.example}}
+							<div class="xui-column-4-of-12">{{{token.example}}}</div>
+							{{/if}}
+					</div>
+					{{/renderTokens}}
+				</div>
+				</div>
+			</div>
+			{{/if}}
+
+			{{#if colortokens}}
+			<div class="kss-modifier__example ds-section-part">
+				<div class="ds-token-wrap {{#isInverted header}}xui-text-inverted{{/isInverted}}">
+				<div class="ds-token-table ds-token-table-color xui-row-flex xui-justify-left">
+				{{#renderTokens colortokens}}
+				<div class="ds-token-table--row xui-column-3-of-12">
+					<div class="ds-token-grid--cell">
+							<code class="ds-token-text">{{token.name}}</code>
+					</div>
+					<div class="ds-token-grid--cell">
+						{{{token.example}}}
+						<code class="ds-token-text--floating">{{token.value}}</code>
+					</div>
+				</div>
+				{{/renderTokens}}
+				</div>
+				</div>
+			</div>
+			{{/if}}
+
+			{{#if example}}
+			<div class="ds-markup-example-switcher ds-section-part" data-sectionid="{{referenceNumber}}">
+					<!-- These come first because they are used for styling siblings -->
+					<input type="radio" id="markup-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-markup" />
+					<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
+					<input type="radio" id="all-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-all" />
+
+					<!-- hide markup switcher if it is only an example -->
+
+					<div>
+						<label for="markup-{{referenceNumber}}" class="ds-markup-label">Markup </label>
+						<label for="example-{{referenceNumber}}" class="ds-example-label">Demo</label>
+						<label for="all-{{referenceNumber}}" class="ds-all-label">Both</label>
+					</div>
+
+
+					<div class="ds-example-wrap">
+						{{#if modifiers}}
+						<div class="kss-modifier__default-name kss-style ds-section-part">
+							Default styling
 						</div>
 						{{/if}}
 
-		</div>
+						<div class="kss-modifier__example ds-section-part">
+							{{{example}}}
+						</div>
 
-		{{/if}}
+						{{#each modifiers}}
+						<div class="kss-modifier__name kss-style ds-section-part">
+							{{name}}
+						</div>
+						<div class="kss-modifier__description kss-style ds-section-part">
+							{{{description}}}
+						</div>
+						<div class="kss-modifier__example ds-section-part">
+							{{{markup}}}
+						</div>
+						{{/each}}
+						<!--</div>-->
 
-		</{{#if @first}}div{{else}}section{{/if}}>
+					</div> <!--ds example  wrap-->
+
+					{{#if example}}
+					<div class="ds-markup-wrap">
+						<div class="kss-markup kss-style ds-section-part">
+							<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
+						</div>
+
+					{{#if sourceFile.name}}
+					<div class="kss-source kss-style ds-section-part">
+						Source: <a class="xui-text-minorlink" href="https://github.dev.xero.com/UXE/xui/blob/{{version}}/src/sass/{{sourceFile.name}}#L{{sourceFile.line}}">{{sourceFile.name}}</a></code>, line {{sourceFile.line}}
+					</div>
+					{{/if}}
+							</div>
+							{{/if}}
+
+			</div>
+			{{/if}}
+
+		{{/wrapSection}}
 		{{/each}}
+
 		{{/if}}
 	</div>
 </article>
@@ -249,6 +246,7 @@
 </div>
 
 <!-- SCRIPTS -->
+{{{scripts}}}
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
 <script src="kss-assets/prettify.js"></script>
@@ -261,10 +259,7 @@ className: 'xui-verticaltab-is-selected'
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
-<script src="//localhost:35729/livereload.js"></script>
 <script src="https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js"></script>
-{{{scripts}}}
-
 
 </body>
 

@@ -1,22 +1,25 @@
-var menuHeadings = Array.prototype.slice.call(document.querySelectorAll('[data-persistedmenu]'));
 var storageKey = 'xui';
+
+var menuHeadings = Array.prototype.slice.call(document.querySelectorAll('#navigation-primary [data-persistedmenu]'));
+
+menuHeadings.forEach(function (input) {
+	var checked = localStorage.getItem(`${storageKey}-${input.id}`);
+	if (checked !== null) {
+		input.checked = JSON.parse(checked);
+	}
+});
+
+document.querySelector('#navigation-primary ul.xui-u-hidden').classList.remove('xui-u-hidden');
+
+document.getElementById('navigation-primary').addEventListener('change', (e) => {
+  if (e.target.dataset.hasOwnProperty('persistedmenu')) {
+    localStorage.setItem(`${storageKey}-${e.target.id}`, e.target.checked);
+  }
+});
+
 var states = JSON.parse(localStorage.getItem(`xui-states`));
 
-
 document.addEventListener("DOMContentLoaded", function(event) {
-	console.log("DOM fully loaded and parsed");
-
-	menuHeadings.forEach(function (input) {
-		input.addEventListener('click', function (e) {
-			localStorage.setItem(`${storageKey}-${e.target.id}`, e.target.checked);
-		});
-
-		var checked = localStorage.getItem(`${storageKey}-${input.id}`);
-		if (checked !== null) {
-			input.checked = JSON.parse(checked);
-		}
-	});
-	document.querySelectorAll('ul.xui-u-hidden')[0].classList.remove('xui-u-hidden');
 	setDefaultExampleStates();
 	loadExamples();
 });

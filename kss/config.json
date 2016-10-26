@@ -7,8 +7,8 @@
 		"./style.css"
 	],
 	"js": [
-		"./kss-assets/kss-script.js",
-		"./kss-assets/menu.js"
+		"./kss-assets/menu.js",
+		"./kss-assets/kss-script.js"
 	],
 	"title": "XUI",
 	"homepage": "../../README.md",

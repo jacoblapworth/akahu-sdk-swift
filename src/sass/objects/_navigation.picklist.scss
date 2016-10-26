@@ -56,6 +56,9 @@
 	&:focus {
 		background: rgba($xui-color-black, 0.1);
 		outline: none;
+		> .#{$ns}-pickitem--body {
+			background: transparent;
+		}
 	}
 }
 

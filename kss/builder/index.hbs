@@ -178,8 +178,9 @@
 					{{#if example}}
 					<div class="ds-markup-wrap">
 						<div class="kss-markup kss-style ds-section-part">
+							<button data-clipboard-text="{{markup}}" class="ds-copy-button xui-button xui-button-standard xui-button-small">Copy</button>
 							<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
-						</div>
+					</div>
 
 					{{#if sourceFile.name}}
 					<div class="kss-source kss-style ds-section-part">
@@ -247,20 +248,6 @@
 
 <!-- SCRIPTS -->
 {{{scripts}}}
-<script src="kss-assets/kss.js"></script>
-<script src="kss-assets/scrollspy.js"></script>
-<script src="kss-assets/prettify.js"></script>
-<script>
-prettyPrint();
-var spy = new ScrollSpy('#kss-node', {
-nav: '#ds-nav-section > li > a',
-className: 'xui-verticaltab-is-selected'
-});
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
-<script src="https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js"></script>
-
 </body>
 
 </html>

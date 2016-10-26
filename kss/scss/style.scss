@@ -131,6 +131,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	display: none;
 	padding-bottom: 15px;
 	padding-top: 15px;
+	position: relative;
 	width: 100%;
 
 	.xui-toast-wrapper {
@@ -248,6 +249,12 @@ $kss-color-padding: #eeebff;
 	@include xui-breakpoint-wide {
 		width: 16.66%;
 	}
+}
+
+.ds-copy-button {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 // -----------------------------------------------------------------------------

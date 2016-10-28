@@ -73,7 +73,8 @@
 
 .#{$ns}-accordionitem {
 	background-color: $xui-color-white;
-	transition: width 0.3s, margin 0.3s;
+	transition-duration: $xui-transition-duration-short;
+	transition-property: width, margin;
 	width: 100%;
 }
 
@@ -86,7 +87,7 @@
 	opacity: 0;
 	padding: 0;
 	transform: scaleY(0);
-	transition: padding 0.3s;
+	transition: padding $xui-transition-duration-medium;
 }
 
 .#{$ns}-accordionitem-layout {
@@ -130,7 +131,8 @@
 		height: auto;
 		opacity: 1;
 		transform: scaleY(1);
-		transition: opacity 0.2s, padding 0.3s, transform 0.3s;
-		transition-delay: 0.1s, 0s, -2s;
+		transition-duration: $xui-transition-duration-medium;
+		transition-property: opacity, padding, transform;
+		transition-delay: $xui-transition-duration-short, 0s, -2s;
 	}
 }

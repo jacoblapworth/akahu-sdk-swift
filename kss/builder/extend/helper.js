@@ -60,4 +60,40 @@ module.exports = function(handlebars) {
 		return '';
 	});
 
+	/**
+	 * Determines which the html prefixes and suffixes to wrap each of the sections
+	 * - Sections of depth 3 or more should be nested in their parent section
+	 *
+	 * e.g.
+	 * {{#wrapSection id}}
+	 * 		if depth < 3 {
+	 * 			closes previous section tag and opens a new the section tags
+	 * 		} else {
+	 * 			opens and closes section in a div.
+	 * 		}
+	 * {{/wrapSection}}
+	 */
+	handlebars.registerHelper('wrapSection', function (sectionId, body) {
+		const depth = this.depth,
+			isLast = body.data.last;
+
+		var openSection = ``,
+			closeSection = ``;
+
+		if (depth < 3) {
+			if (depth === 2) {
+				openSection = `</section>`;
+			}
+			openSection += `<section id=${sectionId} class="kss-section--depth-${depth}">`;
+
+		} else {
+			openSection = `<div id=${sectionId} class="kss-section--depth-${depth}">`;
+			closeSection = `</div>`;
+		}
+
+		if (isLast) {
+			closeSection += `</section>`;
+		}
+		return openSection + body.fn(this) + closeSection;
+	})
 };

@@ -3,7 +3,9 @@
 
 // Picklist
 //
-// Styles for vertical menus / picklists.
+// Picklists are vertical menus. They are a list of actionable items.
+// They can have child picklists and can either have parent selectable, or not selectable variants.
+// Picklists can also have multiple items selected, or display icons.
 //
 // Styleguide: Navigation.6
 
@@ -54,6 +56,9 @@
 	&:focus {
 		background: rgba($xui-color-black, 0.1);
 		outline: none;
+		> .#{$ns}-pickitem--body {
+			background: transparent;
+		}
 	}
 }
 
@@ -65,8 +70,9 @@
 	cursor: pointer;
 	display: flex;
 	font-size: $xui-font-size-text;
+	font-family: $xui-font-family;
 	justify-content: space-between;
-	line-height: 1.3;
+	line-height: $xui-line-height;
 	min-height: 40px;
 	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-large;
 	text-align: left;
@@ -128,6 +134,8 @@
 //
 // `xui-submenu-uicontrol--icon`	Additional class for the arrow icon indicator. Provides layout and animation.
 //
+// `xui-submenu-layout`	This class provides max-height rules to allow the menu to transition. The max height has been set to 100vh (100% of the viewport height) in this case and may not be suitable for all use cases.
+//
 // Markup:
 // <ul class="xui-picklist">
 //   <li class="xui-pickitem">
@@ -138,7 +146,7 @@
 //         <use xlink:href="#xui-icon-arrow-small"></use>
 //       </svg>
 //     </label>
-//     <ul class="xui-submenu">
+//     <ul class="xui-submenu xui-submenu-layout">
 //       <li class="xui-pickitem xui-pickitem-is-selected">
 //         <button class="xui-pickitem--body">Submenu item 1 is selected</button>
 //       </li>
@@ -158,8 +166,6 @@
 .#{$ns}-submenu {
 	@include xui-listreset;
 	flex: none;
-	max-height: 0;
-	overflow: hidden;
 	transition: all $xui-transition-duration-short $xui-easing-standard;
 
 	.#{$ns}-pickitem--body {
@@ -179,6 +185,11 @@
 		left: $xui-s-4xlarge + $xui-s-xsmall;
 	}
 
+}
+
+.#{$ns}-submenu-layout {
+	max-height: 0;
+	overflow: hidden;
 }
 
 .#{$ns}-submenu-uicontrol--label {
@@ -213,7 +224,7 @@
 			transform: rotate(180deg);
 		}
 
-		& ~ .#{$ns}-submenu {
+		& ~ .#{$ns}-submenu-layout {
 			max-height: 100vh;
 			overflow: auto;
 			padding: $xui-s-small 0;
@@ -246,7 +257,7 @@
 //         </label>
 //       </div>
 //     </div>
-//     <ul class="xui-submenu">
+//     <ul class="xui-submenu xui-submenu-layout">
 //       <li class="xui-pickitem" tabindex="0">
 //         <a class="xui-pickitem--body" href="#" tabindex="-1">Submenu item 1</a>
 //       </li>
@@ -307,7 +318,7 @@
 //         </svg>
 //       </label>
 //     </div>
-//     <ul class="xui-submenu">
+//     <ul class="xui-submenu xui-submenu-layout">
 //       <li class="xui-pickitem">
 //         <label class="xui-pickitem--body xui-styledcheckbox">
 //           <input type="checkbox">
@@ -380,7 +391,6 @@
 }
 
 .#{$ns}-pickitem--multiselect-label {
-	display: inline-block;
 	padding: 0 $xui-s-small 0 $xui-s-4xlarge;
 	width: 100%;
 }
@@ -410,7 +420,7 @@
 //        </svg>
 //      </label>
 //    </div>
-//    <ul class="xui-submenu">
+//    <ul class="xui-submenu xui-submenu-layout">
 //      <li class="xui-pickitem">
 //        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
 //          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-image" role="presentation"></use>
@@ -444,10 +454,7 @@
 // Styleguide: Navigation.6.5
 
 .#{$ns}-pickitem--icon {
-	cursor: pointer;
 	display: inline;
-	flex: 0 0 30px;
-	float: left;
 	margin: 0 $xui-s-standard;
 	pointer-events: none;
 	position: absolute;

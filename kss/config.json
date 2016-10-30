@@ -7,8 +7,13 @@
 		"./style.css"
 	],
 	"js": [
+		"./kss-assets/menu.js",
 		"./kss-assets/kss-script.js",
-		"./kss-assets/menu.js"
+		"./kss-assets/kss.js",
+		"./kss-assets/scrollspy.js",
+		"./kss-assets/prettify.js",
+		"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js",
+		"https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js"
 	],
 	"title": "XUI",
 	"homepage": "../../README.md",

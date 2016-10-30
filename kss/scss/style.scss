@@ -41,6 +41,14 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-title--level-2 {
 	margin-top: 0;
+	padding-top: 2em;
+
+	@include xui-breakpoint-wide {
+		padding-top: 3em;
+	}
+}
+
+.ds-title--level-3 {
 	padding-top: 1em;
 
 	@include xui-breakpoint-wide {
@@ -123,6 +131,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	display: none;
 	padding-bottom: 15px;
 	padding-top: 15px;
+	position: relative;
 	width: 100%;
 
 	.xui-toast-wrapper {
@@ -240,6 +249,12 @@ $kss-color-padding: #eeebff;
 	@include xui-breakpoint-wide {
 		width: 16.66%;
 	}
+}
+
+.ds-copy-button {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 // -----------------------------------------------------------------------------

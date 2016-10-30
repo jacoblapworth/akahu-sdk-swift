@@ -1,6 +1,6 @@
 @import "../vars";
 
-// Popover
+// Popovers
 //
 // A simple popover container styled with an arrow pointing at relevant content.
 //
@@ -59,7 +59,9 @@
 //   </div>
 // </div>
 //
-// Styleguide: Dropdowns.2
+// Weight: 4.1
+//
+// Styleguide: Popovers
 
 .#{$ns}-popover {
 	background-color: $xui-color-panel;

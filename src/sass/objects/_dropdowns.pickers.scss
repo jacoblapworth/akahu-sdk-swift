@@ -160,6 +160,10 @@
 .#{$ns}-datepicker--body {
 	border: 0;
 	margin: $xui-s-small auto;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 .#{$ns}-datepicker--day {

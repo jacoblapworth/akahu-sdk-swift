@@ -290,6 +290,7 @@
 .#{$ns}-toggle {
 	align-items: stretch;
 	display: flex;
+	position: relative;
 
 	// Disabled toggles should not appear semi-transparent
 	.#{$ns}-is-disabled {
@@ -327,7 +328,6 @@
 		border-top-right-radius: $xui-radius;
 	}
 }
-
 
 // Option styles
 .#{$ns}-toggle-option {

@@ -7,7 +7,9 @@
 }
 
 @mixin xui-position-offscreen {
-	// position: fixed is more robust than position: absolute. See #1343.
-	position: fixed;
+	// If you use this, ensure parent has position: relative.
+	// At one point we use position: fixed here but that affected browsers'
+	// auto-scrolling behaviour on focus.
+	position: absolute;
 	left: -9999em;
 }

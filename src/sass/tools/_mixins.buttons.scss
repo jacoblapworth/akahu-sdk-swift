@@ -19,7 +19,7 @@
 
 @mixin xui-button-hover {
 	&:hover {
-		text-decoration: inherit;
+		text-decoration: none;
 		@content;
 	}
 }
@@ -27,6 +27,7 @@
 @mixin xui-button-focus($fade, $shadow) {
 	&:focus {
 		box-shadow: $shadow;
+		text-decoration: none;
 	}
 }
 

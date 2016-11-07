@@ -36,21 +36,21 @@
 //
 // `xui-modal-layout`	Recommended layout for a modal
 //
-// `xui-modal-tiny`	Modifier for a tiny modal
+// `xui-modal-width-tiny`	Modifier for a tiny modal
 //
-// `xui-modal-xsmall`	 Modifier for a extra small modal
+// `xui-modal-width-xsmall`	 Modifier for a extra small modal
 //
-// `xui-modal-small`	Modifier for a small modal
+// `xui-modal-width-small`	Modifier for a small modal
 //
-// `xui-modal-standard` Modifier for a standard sized modal
+// `xui-modal-width-standard` Modifier for a standard sized modal
 //
-// `xui-modal-medium`	Modifier for a medium sized modal
+// `xui-modal-width-medium`	Modifier for a medium sized modal
 //
-// `xui-modal-large`	Modifier for a large modal
+// `xui-modal-width-large`	Modifier for a large modal
 //
-// `xui-modal-xlarge`	Modifier for an extra large modal
+// `xui-modal-width-xlarge`	Modifier for an extra large modal
 //
-// `xui-modal-huge`	Modifier for a ginormous modal
+// `xui-modal-width-huge`	Modifier for a ginormous modal
 //
 // `xui-modal-fullscreen`	Modifier for a full screen modal (like an overlay)
 //
@@ -154,9 +154,17 @@
 }
 
 @each $number, $variant in $xui-width-variants {
-	.#{$ns}-modal-#{$variant} {
+	.#{$ns}-modal-width-#{$variant} {
 		width: $xui-starting-width + ($xui-base-width * $number);
 	}
+}
+
+.#{$ns}-modal-medium {
+	width: 560px;
+}
+
+.#{$ns}-modal-large {
+	width: 860px;
 }
 
 .#{$ns}-modal-fullscreen {
@@ -234,3 +242,13 @@
 // </div>
 //
 // Styleguide: Modals.2
+
+// Deprecated Modal Widths
+//
+// The following modal widths will be removed in the next major release version of XUI.
+//
+// `xui-modal-medium`
+//
+// `xui-modal-large`
+//
+// Styleguide: Modals.99

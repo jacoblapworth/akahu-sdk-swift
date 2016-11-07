@@ -175,9 +175,9 @@
 //
 // Markup:
 // <div>
-// 	<div><span class="xui-text-panelheading">Short transition</span><svg class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-short"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// 	<div><span class="xui-text-panelheading">Medium transition</span><svg class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-medium"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// 	<div><span class="xui-text-panelheading">Long transition</span><svg class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-long"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
+// 	<div><span class="xui-text-panelheading">Short transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-short"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
+// 	<div><span class="xui-text-panelheading">Medium transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-medium"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
+// 	<div><span class="xui-text-panelheading">Long transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-long"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
 // </div>
 //
 // Styleguide: Utilities.5

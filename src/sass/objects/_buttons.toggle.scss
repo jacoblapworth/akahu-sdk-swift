@@ -120,7 +120,7 @@
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="checkbox" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
 //       </span>
@@ -128,7 +128,7 @@
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="checkbox" class="xui-toggle--input" checked disabled/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
 //         Checked<br/>and disabled
@@ -160,7 +160,7 @@
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
 //       </span>
@@ -168,7 +168,7 @@
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" class="xui-toggle--input" checked disabled/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
 //         Checked<br/>and disabled
@@ -196,7 +196,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" checked/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-bold" role="presentation"/>
 //         </svg>
 //       </span>
@@ -204,7 +204,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" />
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-italic" role="presentation"/>
 //         </svg>
 //       </span>
@@ -212,7 +212,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input"/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-underline" role="presentation"/>
 //         </svg>
 //       </span>
@@ -231,7 +231,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="radio" name="tg0" class="xui-toggle--input" checked/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
 //       </span>
@@ -239,7 +239,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="radio" name="tg0" class="xui-toggle--input" />
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-mobile" role="presentation"/>
 //         </svg>
 //       </span>
@@ -247,7 +247,7 @@
 //     <label class="xui-toggle-option">
 //       <input type="radio" name="tg0" class="xui-toggle--input"/>
 //       <span class="xui-toggle--label">
-//         <svg class="xui-icon">
+//         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-print" role="presentation"/>
 //         </svg>
 //       </span>
@@ -290,7 +290,6 @@
 .#{$ns}-toggle {
 	align-items: stretch;
 	display: flex;
-	position: relative;
 
 	// Disabled toggles should not appear semi-transparent
 	.#{$ns}-is-disabled {
@@ -301,7 +300,7 @@
 
 // Input styles
 .#{$ns}-toggle--input {
-	@include xui-position-offscreen;
+	@include xui-position-offscreen-input;
 }
 
 

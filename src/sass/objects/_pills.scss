@@ -31,13 +31,13 @@
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
 //   <span class="xui-pill--text">Pill Value</span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
 //   <span class="xui-pill--text">Pill with a really long piece of text, for example you might have a long name</span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top">
@@ -46,19 +46,19 @@
 //     <span class="xui-pill--text">pill@withemailaddress.com</span>
 //   </span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
 //   <span class="xui-pill--text" class="xui-pill--text">Invalid</span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
 //   <a href='#kssref-pills-2' class="xui-pill--text">With a destination</a>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //
@@ -110,7 +110,7 @@
 //      pill@withemailaddress.com
 //   </span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //  </div>
 //</div>
@@ -121,7 +121,7 @@
 //      Invalid Content
 //   </span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //  </div>
 //</div>
@@ -132,7 +132,7 @@
 //     <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
 //   </span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //  </div>
 //</div>

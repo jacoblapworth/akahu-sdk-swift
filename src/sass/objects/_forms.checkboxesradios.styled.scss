@@ -20,17 +20,17 @@
 //
 // #### Common XUI-Icon IDs
 //
-// `xui-icon-checkbox-main` styled checkbox main icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-main"/></svg>
+// `xui-icon-checkbox-main` styled checkbox main icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-main"/></svg>
 //
-// `xui-icon-checkbox-check` styled checkbox checkmark icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-check"/></svg>
+// `xui-icon-checkbox-check` styled checkbox checkmark icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-check"/></svg>
 //
-// `xui-icon-checkbox-indeterminate` styled checkbox indeterminate icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-indeterminate"/></svg>
+// `xui-icon-checkbox-indeterminate` styled checkbox indeterminate icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-indeterminate"/></svg>
 //
-// `xui-icon-radio-main` styled radio main icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-main"/></svg>
+// `xui-icon-radio-main` styled radio main icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-main"/></svg>
 //
-// `xui-icon-radio-check` styled radio checkmark icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-check"/></svg>
+// `xui-icon-radio-check` styled radio checkmark icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-check"/></svg>
 //
-// `xui-icon-star` styled star icon <svg class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-star"/></svg>
+// `xui-icon-star` styled star icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-star"/></svg>
 //
 // #### Checkbox Class Names
 //
@@ -76,7 +76,7 @@
 // Markup:
 // <label class="xui-styledcheckbox">
 //   <input type="checkbox">
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -86,7 +86,7 @@
 // </label>
 // <label class="xui-styledcheckbox">
 //   <input type="checkbox" checked>
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -96,7 +96,7 @@
 // </label>
 // <label class="xui-styledcheckbox xui-is-disabled">
 //   <input type="checkbox" disabled>
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -106,7 +106,7 @@
 // </label>
 // <label class="xui-styledcheckbox xui-is-disabled">
 //   <input type="checkbox" checked disabled>
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //     <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -122,7 +122,7 @@
 // Markup:
 // <label class="xui-styledradio xui-styledradio-reversed">
 //   <input type="radio" id="r0" name="rg0">
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -131,7 +131,7 @@
 // </label>
 // <label class="xui-styledradio xui-styledradio-reversed">
 //   <input type="radio" id="r1" name="rg0" checked>
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -140,7 +140,7 @@
 // </label>
 // <label class="xui-styledradio xui-styledradio-reversed xui-is-disabled">
 //   <input type="radio" disabled>
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -149,7 +149,7 @@
 // </label>
 // <label class="xui-styledradio xui-styledradio-reversed xui-is-disabled">
 //   <input type="radio" checked disabled>
-//   <svg class="xui-icon">
+//   <svg focusable="false" class="xui-icon">
 //     <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //     <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -166,7 +166,7 @@
 // <div class="xui-styledcheckbox-group">
 //   <label class="xui-styledcheckbox">
 //     <input type="checkbox" checked>
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -185,7 +185,7 @@
 // <div class="xui-styledcheckbox-group">
 //   <label class="xui-styledcheckbox">
 //     <input type="checkbox" checked>
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -204,7 +204,7 @@
 // <div class="xui-styledcheckbox-group">
 //   <label class="xui-styledcheckbox">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -214,7 +214,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -224,7 +224,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"/>
@@ -243,7 +243,7 @@
 // <div class="xui-styledradio-group">
 //   <label class="xui-styledradio">
 //     <input type="radio" id="r2" name="rg1">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -252,7 +252,7 @@
 //   </label>
 //   <label class="xui-styledradio">
 //     <input type="radio" id="r3" name="rg1" checked>
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -261,7 +261,7 @@
 //   </label>
 //   <label class="xui-styledradio">
 //     <input type="radio" id="r4" name="rg1">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -270,7 +270,7 @@
 //   </label>
 //   <label class="xui-styledradio xui-is-disabled">
 //     <input type="radio" disabled>
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledradio--focus" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--main" xlink:href="#xui-icon-radio-main"/>
 //       <use role="presentation" class="xui-styledradio--check" xlink:href="#xui-icon-radio-check"/>
@@ -288,7 +288,7 @@
 // <div class="xui-styledcheckbox-group">
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-star"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-star"/>
 //     </svg>
@@ -296,7 +296,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-star"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-star"/>
 //     </svg>
@@ -304,7 +304,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-star"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-star"/>
 //     </svg>
@@ -312,7 +312,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-star"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-star"/>
 //     </svg>
@@ -329,7 +329,7 @@
 // <div class="xui-styledcheckbox-group">
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-notification"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-notification"/>
 //     </svg>
@@ -337,7 +337,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-shipping"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-shipping"/>
 //     </svg>
@@ -345,7 +345,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-contact"/>
@@ -354,7 +354,7 @@
 //   </label>
 //   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
 //     <input type="checkbox">
-//     <svg class="xui-icon">
+//     <svg focusable="false" class="xui-icon">
 //       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
 //       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-url"/>
@@ -412,11 +412,10 @@
 	display: inline-flex; // Inline inputs
 	line-height: $xui-line-height-text;
 	user-select: none;
-	position: relative;
 
 	// Hide HTML input
 	input {
-		@include xui-position-offscreen;
+		@include xui-position-offscreen-input;
 	}
 
 	// TODO: Opacity override

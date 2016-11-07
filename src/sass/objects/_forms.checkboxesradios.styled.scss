@@ -412,6 +412,7 @@
 	display: inline-flex; // Inline inputs
 	line-height: $xui-line-height-text;
 	user-select: none;
+	position: relative;
 
 	// Hide HTML input
 	input {

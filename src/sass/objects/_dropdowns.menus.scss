@@ -233,9 +233,6 @@
 .#{$ns}-dropdownmenu--groupheading {
 	background-color: $xui-color-grey-6;
 	border-bottom: $xui-divider-standard;
-	color: $xui-color-secondary-text;
-	font-size: $xui-font-size-small;
-	font-weight: normal;
 	margin: 0;
 
 	&:nth-of-type(n+2) {

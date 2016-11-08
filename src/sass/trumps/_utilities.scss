@@ -68,6 +68,9 @@
 //
 // `xui-u-flex-verticalalign-center`	Modifier for a column-orientated flex box parent
 //
+// `xui-u-flex-inherit`  Inherit flex properties. Firefox does not handle display: flex on buttons,
+//  so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
+//
 // Markup:
 // <div class="xui-panel">
 //   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
@@ -119,6 +122,14 @@
 .#{$ns}-u-flex-verticalalign-center {
 	flex-direction: column;
 	justify-content: center;
+}
+
+.#{$ns}-u-flex-inherit {
+	align-items: inherit;
+	display: inherit;
+	justify-content: inherit;
+	flex-direction: inherit;
+	width: inherit; // For IE11 and Chrome
 }
 
 

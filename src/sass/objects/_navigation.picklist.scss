@@ -27,10 +27,10 @@
 //     <a href="#" class="xui-pickitem--body" tabindex="-1">Item one - Is Selected</a>
 //   </li>
 //   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="0">
-//     <button class="xui-pickitem--body" tabindex="-1">Item two - Has Hover class</button>
+//     <button type="button" class="xui-pickitem--body" tabindex="-1">Item two - Has Hover class</button>
 //   </li>
 //   <li class="xui-pickitem" tabindex="0">
-//     <button class="xui-pickitem--body" tabindex="-1">Item three</button>
+//     <button type="button" class="xui-pickitem--body" tabindex="-1">Item three</button>
 //   </li>
 // </ul>
 //
@@ -148,15 +148,15 @@
 //     </label>
 //     <ul class="xui-submenu xui-submenu-layout">
 //       <li class="xui-pickitem xui-pickitem-is-selected">
-//         <button class="xui-pickitem--body">Submenu item 1 is selected</button>
+//         <button type="button" class="xui-pickitem--body">Submenu item 1 is selected</button>
 //       </li>
 //       <li class="xui-pickitem">
-//         <button class="xui-pickitem--body">Submenu item 2</button>
+//         <button type="button" class="xui-pickitem--body">Submenu item 2</button>
 //       </li>
 //     </ul>
 //   </li>
 //   <li class="xui-pickitem">
-//     <button class="xui-pickitem--body">Item two</button>
+//     <button type="button" class="xui-pickitem--body">Item two</button>
 //   </li>
 // </ul>
 //
@@ -245,7 +245,7 @@
 //     <input class="xui-pickitem--submenucontrol" id="submenu-label" type="checkbox" />
 //     <div class="xui-pickitem--split">
 //       <div class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">
+//         <button type="button" class="xui-pickitem--body" tabindex="-1">
 //           Item 1 has a split menu
 //         </button>
 //       </div>
@@ -262,12 +262,12 @@
 //         <a class="xui-pickitem--body" href="#" tabindex="-1">Submenu item 1</a>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Submenu item 2</button>
+//         <button type="button" class="xui-pickitem--body" tabindex="-1">Submenu item 2</button>
 //       </li>
 //     </ul>
 //   </li>
 //   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//     <button class="xui-pickitem--body" tabindex="-1">Item 2 is selected</button>
+//     <button type="button" class="xui-pickitem--body" tabindex="-1">Item 2 is selected</button>
 //   </li>
 // </ul>
 //
@@ -464,3 +464,52 @@
 		padding-left: $xui-s-6xlarge;
 	}
 }
+
+// Filters
+//
+// In these examples, buttons have a child wrapper node with the `xui-u-flex-inherit` utility class to
+// enable Firefox to handle `display: flex` inside `<button>` elements.
+//
+// Markup:
+// <ul class="xui-picklist">
+//   <li class="xui-pickitem xui-pickitem-is-selected">
+//     <input class="xui-pickitem--submenucontrol" type="checkbox" />
+//     <button type="button" class="xui-pickitem--body">
+//       <div class="xui-u-flex-inherit">
+//         <span class="xui-u-flex-grow">All</span>
+//         <span class="xui-text-secondary">31</span>
+//       </div>
+//     </button>
+//   </li>
+//   <li class="xui-pickitem">
+//     <input class="xui-pickitem--submenucontrol" type="checkbox" />
+//     <button type="button" class="xui-pickitem--body">
+//       <div class="xui-u-flex-inherit">
+//         <span class="xui-u-flex-grow">Overdue</span>
+//         <span class="xui-text-secondary">10</span>
+//       </div>
+//     </button>
+//   </li>
+// </ul>
+// <ul class="xui-picklist">
+//   <li class="xui-pickitem">
+//     <input class="xui-pickitem--submenucontrol" type="checkbox" />
+//     <button type="button" class="xui-pickitem--body">
+//       <div class="xui-u-flex-inherit">
+//         <span class="xui-u-flex-grow">Activity statements</span>
+//         <span class="xui-text-secondary">3</span>
+//       </div>
+//     </button>
+//   </li>
+//   <li class="xui-pickitem">
+//     <input class="xui-pickitem--submenucontrol" type="checkbox" />
+//     <button type="button" class="xui-pickitem--body">
+//       <div class="xui-u-flex-inherit">
+//         <span class="xui-u-flex-grow">GST</span>
+//         <span class="xui-text-secondary">18</span>
+//       </div>
+//     </button>
+//   </li>
+// </ul>
+//
+// Styleguide: Navigation.6.6

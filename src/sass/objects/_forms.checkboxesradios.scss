@@ -52,7 +52,8 @@
 	}
 }
 
-.#{$ns}-checkbox-layout, .#{$ns}-radio-layout {
+.#{$ns}-checkbox-layout,
+.#{$ns}-radio-layout {
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-padding-horizontal($xui-s-standard);
 	display: flex;

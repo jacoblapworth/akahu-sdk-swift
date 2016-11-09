@@ -1,3 +1,5 @@
+@import "../vars";
+
 @mixin xui-clearfix {
 	&::after {
 		clear: both;
@@ -7,9 +9,19 @@
 }
 
 @mixin xui-position-offscreen {
-	// If you use this, ensure parent has position: relative.
-	// At one point we use position: fixed here but that affected browsers'
-	// auto-scrolling behaviour on focus.
-	position: absolute;
-	left: -9999em;
+	display: inline;
+	height: 1px;
+	left: 0 !important;
+	margin: 0 -1px 0 0;
+	opacity: 0.01;
+	padding: 0;
+	position: relative !important;
+	width: 1px;
+	z-index: -1;
+}
+
+@mixin xui-position-offscreen-input {
+	@include xui-position-offscreen;
+
+	height: $xui-icon-standard;
 }

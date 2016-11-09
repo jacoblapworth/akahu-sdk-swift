@@ -57,29 +57,29 @@ $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom 
 //
 // Markup:
 // <div class="xui-input-wrapper xui-margin">
-//   <svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
+//   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
 //   <input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-//   <svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//   <svg focusable="false" class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
 //   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-//   <svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
 //   <button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
 //   </button>
 //   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
 //   <div class="xui-input--iconwrapper xui-input--iconwrapper-left" style="background-color: #1dadea">
-//     <svg class="xui-icon xui-icon-color-white xui-input--icon-left"> <use xlink:href="#xui-icon-social-twitter" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-left"> <use xlink:href="#xui-icon-social-twitter" role="presentation" /></svg>
 //   </div>
 //   <input class="xui-input" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
 //   <div class="xui-input--iconwrapper xui-input--iconwrapper-right" style="background-color: #3c5a96">
-//     <svg class="xui-icon xui-icon-color-white xui-input--icon-right"> <use xlink:href="#xui-icon-social-facebook" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-right"> <use xlink:href="#xui-icon-social-facebook" role="presentation" /></svg>
 //   </div>
 //   <input class="xui-input" type="text" placeholder="Facebook URL" aria-label="Facebook URL"/>
 // </div>
@@ -168,11 +168,11 @@ $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom 
 // <input class="xui-input xui-input-borderless" type="text" placeholder="Standard Input, No Layout" aria-label="Standard input"/>
 // <input class="xui-input xui-input-borderless xui-input-borderless-layout xui-margin-top" type="text" placeholder="Standard Input, With Layout" aria-label="Standard input"/>
 // <div class="xui-input-wrapper xui-input-wrapper-borderless xui-input-wrapper-borderless-layout xui-margin-top">
-// 	<svg class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+// 	<svg focusable="false" class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
 // 	<input class="xui-input xui-input-borderless xui-input-borderless-layout" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-input-wrapper xui-input-wrapper-borderless xui-input-wrapper-borderless-layout xui-margin-top">
-// 	<svg class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
+// 	<svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
 // 	<input class="xui-input xui-input-borderless xui-input-borderless-layout" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 //</div>

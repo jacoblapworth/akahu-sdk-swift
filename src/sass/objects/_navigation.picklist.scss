@@ -142,7 +142,7 @@
 //     <input class="xui-pickitem--submenucontrol" id="submenu-sidebar-1" type="checkbox" tabindex="-1"/>
 //     <label class="xui-pickitem--body xui-submenu-uicontrol--label" for="submenu-sidebar-1" tabindex="0" title="Open|close submenu" aria-label="Open|Close submenu">
 //       Item one has a submenu
-//       <svg class="xui-icon xui-icon-inline xui-submenu-uicontrol--icon">
+//       <svg focusable="false" class="xui-icon xui-icon-inline xui-submenu-uicontrol--icon">
 //         <use xlink:href="#xui-icon-arrow-small"></use>
 //       </svg>
 //     </label>
@@ -251,7 +251,7 @@
 //       </div>
 //       <div class="xui-submenu-uicontrol">
 //         <label for="submenu-label" class="xui-pickitem--uicontrol" title="Open|close submenu" aria-label="Open|Close submenu">
-//           <svg class="xui-icon xui-submenu-uicontrol--icon">
+//           <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
 //             <use xlink:href="#xui-icon-arrow-small"></use>
 //           </svg>
 //         </label>
@@ -303,7 +303,7 @@
 //     <div class="xui-pickitem--split">
 //       <label class="xui-pickitem xui-pickitem--body xui-styledcheckbox">
 //         <input type="checkbox">
-//         <svg class="xui-icon xui-pickitem--input">
+//         <svg focusable="false" class="xui-icon xui-pickitem--input">
 //           <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"></use>
 //           <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"></use>
 //           <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"></use>
@@ -313,7 +313,7 @@
 //         </span>
 //       </label>
 //       <label for="submenu-check" class="xui-pickitem--uicontrol" title="Close" aria-label="Close">
-//         <svg class="xui-icon xui-submenu-uicontrol--icon">
+//         <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
 //           <use xlink:href="#xui-icon-arrow-small"></use>
 //         </svg>
 //       </label>
@@ -322,7 +322,7 @@
 //       <li class="xui-pickitem">
 //         <label class="xui-pickitem--body xui-styledcheckbox">
 //           <input type="checkbox">
-//             <svg class="xui-icon xui-pickitem--input">
+//             <svg focusable="false" class="xui-icon xui-pickitem--input">
 //               <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
 //               <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
 //               <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
@@ -335,7 +335,7 @@
 //         <li class="xui-pickitem">
 //           <label class="xui-pickitem--body xui-styledcheckbox">
 //             <input type="checkbox" checked="checked">
-//               <svg class="xui-icon xui-pickitem--input">
+//               <svg focusable="false" class="xui-icon xui-pickitem--input">
 //                 <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
 //                 <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
 //                 <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
@@ -350,7 +350,7 @@
 //       <li class="xui-pickitem">
 //         <label class="xui-pickitem--body xui-styledcheckbox">
 //           <input type="checkbox" checked="checked" />
-//           <svg class="xui-icon xui-pickitem--input">
+//           <svg focusable="false" class="xui-icon xui-pickitem--input">
 //             <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
 //             <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
 //             <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
@@ -407,7 +407,7 @@
 //     <input class="xui-pickitem--submenucontrol" id="submenu-icon" type="checkbox" />
 //     <div class="xui-pickitem--split">
 //       <div class="xui-pickitem">
-//         <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//         <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
 //           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-attach" role="presentation"></use>
 //         </svg>
 //         <span class="xui-pickitem--body">
@@ -415,26 +415,26 @@
 //         </span>
 //       </div>
 //      <label for="submenu-icon" class="xui-pickitem--uicontrol" title="Close" aria-label="Close">
-//        <svg class="xui-icon xui-submenu-uicontrol--icon">
+//        <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
 //          <use xlink:href="#xui-icon-arrow-small"></use>
 //        </svg>
 //      </label>
 //    </div>
 //    <ul class="xui-submenu xui-submenu-layout">
 //      <li class="xui-pickitem">
-//        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//        <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
 //          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-image" role="presentation"></use>
 //        </svg>
 //        <span class="xui-pickitem--body">Image</span>
 //      </li>
 //      <li class="xui-pickitem">
-//        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//        <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
 //          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-pdf" role="presentation"></use>
 //        </svg>
 //        <span class="xui-pickitem--body">PDF</span>
 //      </li>
 //      <li class="xui-pickitem">
-//        <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//        <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
 //          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-document" role="presentation"></use>
 //        </svg>
 //        <span class="xui-pickitem--body">Document</span>
@@ -442,7 +442,7 @@
 //     </ul>
 //   </li>
 //   <li class="xui-pickitem">
-//     <svg class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//     <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
 //       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-payment" role="presentation"></use>
 //     </svg>
 //     <span class="xui-pickitem--body">

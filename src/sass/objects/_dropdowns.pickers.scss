@@ -41,17 +41,17 @@
 // Markup:
 // <div class="xui-popover xui-datepicker">
 //   <div class="xui-popover--arrow">
-//     <svg viewbox="0 0 100 100">
+//     <svg focusable="false" viewbox="0 0 100 100">
 //       <polyline points="0,50 50,0 100, 50" stroke-width="6" class="xui-popover--arrow--border"/>
 //     </svg>
 //   </div>
 //   <header class="xui-popover--header xui-datepicker--header">
 //     <button type="button" class="xui-button xui-button-icon xui-datepicker--prevbutton {{modifier_class}}" aria-label="Go to previous month" title="Go to previous month">
-//       <svg class="xui-icon xui-datepicker--arrow-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//       <svg focusable="false" class="xui-icon xui-datepicker--arrow-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //     <h3 class="xui-datepicker--heading" role="heading">October 2015</h3>
 //     <button type="button" class="xui-button xui-button-icon xui-datepicker--nextbutton {{modifier_class}}" aria-label="Go to next month" title="Go to next month">
-//       <svg class="xui-icon xui-datepicker--arrow-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//       <svg focusable="false" class="xui-icon xui-datepicker--arrow-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //     </button>
 //   </header>
 //   <table class="xui-popover--section xui-datepicker--body" role="grid" aria-label="Select a day" aria-activedescendant="day1" tabindex="0">

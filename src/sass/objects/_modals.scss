@@ -56,7 +56,7 @@
 // <div class="xui-mask xui-mask-is-active">
 //   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 //     <button type="button" class="xui-button xui-button-icon xui-modal--close" title="Close" aria-label="Close">
-//       <svg class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
 //     <header class="xui-modal--header xui-padding-left-large">
 //       <h3 id="modal-heading" class="xui-modal--heading">Smart Rule: Bank</h3>
@@ -69,7 +69,7 @@
 //             <select class="xui-select--control" id="group-button-example3">
 //               <option>If items are negative</option>
 //             </select>
-//             <svg class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 //           </div>
 //         </div>
 //         <div class="xui-field-layout">
@@ -78,7 +78,7 @@
 //             <select id="move-to" class="xui-select--control" id="group-button-example3">
 //               <option>Current Liabilities</option>
 //             </select>
-//             <svg class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 //           </div>
 //         </div>
 //       </form>
@@ -206,11 +206,11 @@
 //   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
 //     <div class="xui-u-flex xui-text-inverted xui-modal--header">
 //       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-margin-small" title="Settings" aria-label="Settings">
-//         <svg class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>
+//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>
 //       </button>
 //       <h3 id="dark-modal-heading" class="xui-margin-auto-horizontal xui-modal--heading">Preview</h3>
 //       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-modal--close" title="Close" aria-label="Close">
-//         <svg class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //       </button>
 //     </div>
 //     <div id="dark-modal-text" class="xui-modal--body xui-padding-horizontal-large">

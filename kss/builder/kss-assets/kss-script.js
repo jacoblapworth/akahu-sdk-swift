@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // =============================================================
 // Default Example Settings
 // =============================================================
-var states = JSON.parse(localStorage.getItem(`xui-states`));
+var states = JSON.parse(localStorage.getItem('xui-states'));
 
 var setDefaultExampleStates = function() {
 	// if this is the first time they have opened xui, then show both by default
@@ -41,14 +41,14 @@ var setDefaultExampleStates = function() {
 
 	// Stores new state if user changes a specific sections layout view
 	var markupOptions = document.querySelectorAll('[name^=a-]');
-	markupOptions.forEach(function(option) {
-		option.addEventListener('click', function (el) {
+	for(var i = 0; i < markupOptions.length; i++) {
+		markupOptions[i].addEventListener('click', function (e) {
 			// matches type and section id
-			var matches = /(.*)\-(.*)/.exec(el.target.id);
+			var matches = /(.*)\-(.*)/.exec(e.target.id);
 			states[matches[2]] = matches[1];
 			localStorage.setItem('xui-states', JSON.stringify(states));
-		})
-	});
+		});
+	}
 	loadExamples();
 };
 
@@ -62,12 +62,11 @@ function changeExampleView(el) {
 
 var loadExamples = function() {
 	const examples = document.querySelectorAll('[data-sectionid]');
-
-	examples.forEach(function(example) {
-		var sectionId = example.attributes['data-sectionid'].value;
+	for(var i = 0; i < examples.length; i++) {
+		var sectionId = examples[i].attributes['data-sectionid'].value;
 		var state = states[sectionId] ? states[sectionId] : states.default;
 		document.getElementById(state + '-' + sectionId).checked = true;
-	});
+	}
 };
 
 setDefaultExampleStates();

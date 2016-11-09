@@ -1,3 +1,5 @@
+@import "../vars";
+
 @mixin xui-clearfix {
 	&::after {
 		clear: both;
@@ -7,7 +9,19 @@
 }
 
 @mixin xui-position-offscreen {
-	// position: fixed is more robust than position: absolute. See #1343.
-	position: fixed;
-	left: -9999em;
+	display: inline;
+	height: 1px;
+	left: 0 !important;
+	margin: 0 -1px 0 0;
+	opacity: 0.01;
+	padding: 0;
+	position: relative !important;
+	width: 1px;
+	z-index: -1;
+}
+
+@mixin xui-position-offscreen-input {
+	@include xui-position-offscreen;
+
+	height: $xui-icon-standard;
 }

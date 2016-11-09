@@ -138,7 +138,8 @@
 //
 // Styleguide: Grid Layout.2
 
-.#{$ns}-row, .#{$ns}-row-grid {
+.#{$ns}-row,
+.#{$ns}-row-grid {
 	@include xui-clearfix;
 }
 

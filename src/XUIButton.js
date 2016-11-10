@@ -65,6 +65,12 @@ const propTypes = {
 	/** @property {boolean} [isGrouped] If this button is part of a parent button group */
 	isGrouped: PropTypes.bool,
 
+	/** @property {function} [onKeyDown] A keydown event handler for the button */
+	onKeyDown: PropTypes.func,
+
+	/** @property {function} [onSecondaryKeyDown] A keydown event handler for the secondary button */
+	onSecondaryKeyDown: PropTypes.func,
+
 	/** @property {function} onClick Bind a function to fire when the button is clicked */
 	onClick: function (props) {
 		if (props.type === 'button' && !(typeof props.onClick === 'function')) {
@@ -260,8 +266,8 @@ const setupLinkProps = (props, elementProps) => {
 
 export default class XUIButton extends React.Component {
 	render () {
-		const _this = this;
-		const props = _this.props;
+		const xuiButton = this;
+		const props = xuiButton.props;
 		const isLink = props.type === CONSTANTS.TYPES.LINK;
 		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
 		const variantClass = getVariantClass(props.variant);
@@ -282,7 +288,7 @@ export default class XUIButton extends React.Component {
 			if (isLink && isDisabled) {
 				event.preventDefault();
 			} else if (!isLink || isLink && props.onClick){
-				props.onClick.call(_this, ...arguments);
+				props.onClick.call(xuiButton, ...arguments);
 			}
 		};
 
@@ -290,7 +296,7 @@ export default class XUIButton extends React.Component {
 			if (isLink && isDisabled) {
 				event.preventDefault();
 			} else {
-				props.onSecondaryClick.call(_this, ...arguments);
+				props.onSecondaryClick.call(xuiButton, ...arguments);
 			}
 		};
 
@@ -298,6 +304,7 @@ export default class XUIButton extends React.Component {
 		const elementProps = {
 			title: props.title,
 			onClick: clickHandler,
+			onKeyDown: isDisabled ? null : props.onKeyDown,
 			disabled: isDisabled,
 			className: classNames,
 			tabIndex: isDisabled ? -1 : props.tabIndex
@@ -325,7 +332,11 @@ export default class XUIButton extends React.Component {
 			Button = (
 				<div className={ButtonClasses.GROUPED}>
 					{Button}
-					<ElementType className={cn(elementProps.className, ButtonClasses.SPLIT)} onClick={secondaryClickHandler}>
+					<ElementType
+						className={cn(elementProps.className, ButtonClasses.SPLIT)}
+						onClick={secondaryClickHandler}
+						onKeyPress={isDisabled ? null : props.onSecondaryKeyDown}
+					>
 						<XUIIcon icon="caret" className={ButtonClasses.CARET}/>
 					</ElementType>
 				</div>

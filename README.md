@@ -30,6 +30,10 @@ $ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
 
 `isGrouped`: (Boolean, Optional) Automatically set to true when it's a child of XUIButtonGroup. Set to false by default otherwise
 
+`onKeyDown`: (Function, Optional) A keydown event handler for the generated element.
+
+`onSecondaryKeyDown`: (Function, Optional) A keydown event handler for the secondary button.
+
 `onClick`: (Function, Required) A function to fire when the button is clicked
 
 `onSecondaryClick`: (Function, Optional) A function to fire when the secondary button is clicked (used in conjunction with `split`)

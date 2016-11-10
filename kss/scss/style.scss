@@ -123,6 +123,13 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-description {
 	line-height: 1.8;
+
+	pre {
+		width: 100%;
+		padding: 15px 25px;
+		border: 1px solid $xui-color-border;
+		background: $xui-color-background;
+	}
 }
 
 .ds-markup-wrap,

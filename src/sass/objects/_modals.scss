@@ -24,11 +24,46 @@
 //  * When the modal is opened, the keyboard focus should be moved to a default focusable control with the modal. For example, this could be a button in the footer of the modal or the first element in a form within the modal.
 //  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
 //
+// ### Usage
+//
+// Modals longer than the viewport height should use one of the following patterns
+// to correctly manage overflow.
+//
+// #### Scroll the mask
+// The recommended pattern is to vertically scroll the modal's overflow on the mask.
+// This provides the best responsive pattern from narrow to wide displays.
+// When using this pattern, a class should be toggled on the document's body
+// element that sets `overflow: hidden;` this will prevent two scroll bars on the page.
+//
+// ```html
+//<body class="xui-u-overflow-hidden">
+//  ...
+//  <div class="xui-mask xui-mask-is-active">
+//    ...
+// ```
+//
+// #### Scroll the modal body
+// Alternately  we support applying a max-height on the body of the modal that
+// provides inner scroll on the modal. Long pages should still add the
+// `xui-u-overflow-hidden` class to the document's body, this will prevent a
+// double scroll effect when the inner scroll reaches its end.
+//
+//```html
+//<body class="xui-u-overflow-hidden">
+//  ...
+//  <div class="xui-mask xui-mask-is-active">
+//    ...
+//    <div class="xui-modal--body xui-modal--body-layout">
+//      ...
+//```
+//
 // #### Class Names
 //
 // `xui-modal`	Container for a modal
 //
 // `xui-modal--body`	Container for the body of a modal
+//
+// `xui-modal--body-layout`	For long modals when mask scrolling is not desired. Adds a max-height and overflow-y to the modal body.
 //
 // `xui-modal--header`	Container for the header of a modal
 //
@@ -66,7 +101,7 @@
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
-//   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 //     <button type="button" class="xui-button xui-button-icon xui-modal--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
@@ -112,6 +147,8 @@
 	justify-content: center;
 	left: 0;
 	opacity: 0;
+	overflow-y: auto;
+	padding: $xui-s-standard;
 	pointer-events: none;
 	position: fixed;
 	right: 0;
@@ -135,14 +172,9 @@
 }
 
 .#{$ns}-modal-layout {
-	max-height: 100vh;
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
 	width: 360px;
-
-	.#{$ns}-modal--body {
-		@include xui-overflow-shadow;
-		max-height: 45vh;
-	}
+	margin: auto; // This is required to fix flex > align-items: center for children bigger than the container.
 
 	.#{$ns}-modal--close ~ .#{$ns}-modal--header {
 		min-height: 50px;
@@ -151,6 +183,11 @@
 	.#{$ns}-modal--close {
 		margin: $xui-s-small;
 	}
+}
+
+.#{$ns}-modal--body-layout {
+	@include xui-overflow-shadow;
+	max-height: 45vh;
 }
 
 @each $number, $variant in $xui-width-variants {
@@ -222,7 +259,7 @@
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
-//   <section class="xui-modal xui-modal-layout xui-modal-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
+//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
 //     <div class="xui-u-flex xui-text-inverted xui-modal--header">
 //       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-margin-small" title="Settings" aria-label="Settings">
 //         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>

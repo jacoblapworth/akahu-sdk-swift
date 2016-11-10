@@ -47,16 +47,28 @@
 // provided for suplimentry links that are clickable but for which we do not
 // want to draw attention to. This could be for secondary links or lists of links.
 //
+// #### Class Names
+//
+// `xui-link`, `xui-text-link` adds link hover and focus highlighting.
+//
 // `xui-text-minorlink` inherits it's parent text colour, but has standard link hover and focus highlighting
 //
 // Markup:
-// <p><a>The quick brown fox jumps over the lazy dog</a></p>
+// <p><a class="xui-link">The quick brown fox jumps over the lazy dog</a></p>
 // <p><a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a></p>
 // <p class="xui-text-secondary">
 //   <a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a>
 // </p>
 //
 // Styleguide: Typography.2.1
+
+.#{$ns}-link,
+.#{$ns}-text-link {
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
 
 .#{$ns}-text-minorlink {
 	color: inherit;

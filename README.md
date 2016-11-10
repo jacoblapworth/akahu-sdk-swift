@@ -17,7 +17,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.13.0/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.14.0/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -28,13 +28,13 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 ### Bower
 
 ```bash
-$ bower install git@github.dev.xero.com:UXE/xui.git#^10.13.0 --save
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.14.0 --save
 ```
 
 ### npm
 
 ```bash
-$ npm install git://github.dev.xero.com/UXE/xui.git#10.13.0 --save
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.14.0 --save
 ```
 
 You will need to compile `xui.scss`.
@@ -59,7 +59,7 @@ Example Page Markup
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css" rel="stylesheet" />
-    <link href="https://edge.xero.com/style/xui/10.13.0/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.14.0/xui.min.css" rel="stylesheet" />
     <script src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
   </head>
   <body class="xui-body">

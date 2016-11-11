@@ -82,6 +82,12 @@
 
 // Font Weight
 //
+// #### Class Names
+//
+// `xui-text-emphasis` Emphasise, make bold
+//
+// `xui-text-deemphasis` Deemphasise, make normal
+//
 // Markup:
 // <p>The quick brown fox <span class="xui-text-emphasis">jumps</span> over the lazy dog</p>
 // <p class="xui-text-emphasis">The quick brown fox <span class="xui-text-deemphasis">jumps over the lazy dog</span></p>
@@ -97,6 +103,12 @@
 }
 
 // Letter Spacing
+//
+// #### Class Names
+//
+// `xui-text-spacing-tight` Reserve for large type only due to Windows font rendering
+//
+// `xui-text-spacing-loose` Use  to increase legibility of small type
 //
 // Markup:
 // <p class="xui-text-spacing-tight">The quick brown fox jumps over the lazy dog</p>

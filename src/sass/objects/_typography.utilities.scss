@@ -109,9 +109,9 @@
 //
 // `xui-text-muted`	Disabled / muted text
 //
-// `xui-text-positive`	Positive sentiment text
+// `xui-text-positive`, `xui-text-completed`	Positive sentiment text
 //
-// `xui-text-negative`	Negative sentiment text
+// `xui-text-negative`, `xui-text-urgent`	Negative sentiment text
 //
 // Markup:
 // <p class="xui-text-color-black">The quick brown fox jumps over the lazy dog</p>
@@ -139,11 +139,13 @@
 	@include xui-text-muted;
 }
 
-.#{$ns}-text-positive {
+.#{$ns}-text-positive ,
+.#{$ns}-text-completed {
 	@include xui-text-positive;
 }
 
-.#{$ns}-text-negative {
+.#{$ns}-text-negative ,
+.#{$ns}-text-urgent {
 	@include xui-text-negative;
 }
 

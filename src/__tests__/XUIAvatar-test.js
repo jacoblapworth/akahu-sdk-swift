@@ -133,4 +133,22 @@ describe('XUIAvatar', function () {
 		assert.strictEqual(node.tagName, 'IMG', 'Avatar has been rendered with an IMG element initially');
 	});
 
+	it('should render business avatars with uppercased acronyms of up to 3 characters based on the first letter of each word in the value', function () {
+
+		const component = TestUtils.renderIntoDocument(
+			<div>
+				<XUIAvatar variant="business" value="Rod Drury Paddleboards Inc" />
+				<XUIAvatar variant="business" value="Keynesian Stimulants" />
+				<XUIAvatar variant="business" value="hipsterlowercaseonewordcompany" />
+			</div>
+		);
+
+		const node1 = ReactDOM.findDOMNode(component).children[0];
+		const node2 = ReactDOM.findDOMNode(component).children[1];
+		const node3 = ReactDOM.findDOMNode(component).children[2];
+		assert.strictEqual(node1.textContent, 'RDP', 'Avatar whose value consists of 4 words should render the first letters from the first 3 words');
+		assert.strictEqual(node2.textContent, 'KS', 'Avatar whose value consists of 2 words should render the first letters from each of the 2 words');
+		assert.strictEqual(node3.textContent, 'H', 'Avatar whose value consists of 1 lowercase word should render the first letter uppercased');
+	});
+
 });

@@ -21,6 +21,10 @@
 //
 // `xui-dropdown-is-open` Style for an open, visible dropdown
 //
+// `xui-dropdown-is-opening` Style for animating the opening of a dropdown
+//
+// `xui-dropdown-is-closing` Style for animating the closing of a dropdown
+//
 // `xui-dropdown-tiny` Style for a tiny width dropdown
 //
 // `xui-dropdown-xsmall` Style for an extra small width dropdown
@@ -37,18 +41,26 @@
 //
 // `xui-dropdown-huge` Style for a huge width dropdown
 //
+// `xui-dropdown-positionright` Style for aligning the right of dropdown with the right of its nearest explictly positioned parent
+//
+// `xui-dropdown-positionleft` Style for aligning the left of the dropdown to the left of its nearest explictly positioned parent
+//
+// `xui-dropdown-positionabove` Style for positioning the dropdown above its nearest explictly positioned parent
+//
+// `xui-dropdown-positionbelow` Style for positioning the dropdown below its nearest explictly positioned parent
+//
 // Markup:
-// <div class="xui-dropdown-layout xui-dropdown-small xui-dropdown-is-open">
+// <div class="xui-dropdown-layout xui-dropdown-standard xui-dropdown-is-open xui-dropdown-is-opening">
 //   <div class="xui-dropdown--mask"></div>
 //   <div class="xui-dropdown--body">
 //     <ul class="xui-picklist">
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//       <li class="xui-pickitem" tabindex="0">
 //         <button class="xui-pickitem--body" tabindex="-1">Cattle</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
 //         <button class="xui-pickitem--body" tabindex="-1">Dogs</button>
 //       </li>
-//       <li class="xui-pickitem" tabindex="0">
+//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
 //         <button class="xui-pickitem--body" tabindex="-1">Sheep</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
@@ -60,6 +72,15 @@
 //       <li class="xui-pickitem" tabindex="0">
 //         <button class="xui-pickitem--body" tabindex="-1">Deer</button>
 //       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Goats</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Ducks</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Gorillas</button>
+//       </li>
 //     </ul>
 //   </div>
 // </div>
@@ -68,24 +89,25 @@
 
 
 .#{$ns}-dropdown-layout {
-	position: relative;
+	display: none;
+	position: absolute;
 
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-narrow-up {
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
-			max-height: 100vh;
+			transform: scaleY(0);
+			transform-origin: top;
 		}
 	}
 
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-narrow {
 		z-index: 9999;
 
 		.#{$ns}-dropdown--body {
-			bottom: 0;
 			left: 0;
-			max-height: 75vh;
 			position: fixed;
+			top: 100vh;
 			width: 100vw;
 		}
 	}
@@ -97,20 +119,23 @@
 		right: 0;
 		top: 0;
 	}
+
+	.#{$ns}-dropdown--body {
+		max-height: 80vh;
+	}
 }
 
 .#{$ns}-dropdown--mask {
 	background-color: transparentize($xui-color-grey-1, 0.5);
+	opacity: 0;
 	pointer-events: none;
-	visibility: hidden;
 }
 
 .#{$ns}-dropdown--body {
 	background-color: $xui-color-white;
-	display: none;
 	overflow: auto;
 
-	@include xui-breakpoint-medium-and-wide {
+	@include xui-breakpoint-narrow-up {
 		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-depth-2;
 	}
@@ -118,15 +143,77 @@
 
 .#{$ns}-dropdown-is-open {
 
-	@include xui-breakpoint-medium-and-narrow {
+	@include xui-breakpoint-narrow-up {
 
-		.#{$ns}-dropdown--mask {
-			pointer-events: auto;
-			visibility: visible;
+		.#{$ns}-dropdown--body {
+			transform: scaleY(1);
 		}
 	}
 
-	.#{$ns}-dropdown--body {
+	@include xui-breakpoint-narrow {
+
+		.#{$ns}-dropdown--mask {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		.#{$ns}-dropdown--body {
+			bottom: 0;
+			top: auto;
+		}
+	}
+
+	&.#{$ns}-dropdown-layout {
+		display: block;
+	}
+}
+
+.#{$ns}-dropdown-is-opening {
+
+	@include xui-breakpoint-narrow-up {
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-show $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	@include xui-breakpoint-narrow {
+
+		.#{$ns}-dropdown--mask {
+			animation: xui-animation-fadein $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-slideup $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	&.#{$ns}-dropdown-layout {
+		display: block;
+	}
+}
+
+.#{$ns}-dropdown-is-closing {
+
+	@include xui-breakpoint-narrow-up {
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-hide $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	@include xui-breakpoint-narrow {
+
+		.#{$ns}-dropdown--mask {
+			animation: xui-animation-fadeout $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-slidedown $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	&.#{$ns}-dropdown-layout {
 		display: block;
 	}
 }
@@ -135,4 +222,20 @@
 	.#{$ns}-dropdown-#{$variant} {
 		width: $xui-starting-width + ($xui-base-width * $number);
 	}
+}
+
+.#{$ns}-dropdown-positionright {
+	right: 0;
+}
+
+.#{$ns}-dropdown-positionleft {
+	left: 0;
+}
+
+.#{$ns}-dropdown-positionabove {
+	bottom: 100%;
+}
+
+.#{$ns}-dropdown-positionunder {
+	top: 100%;
 }

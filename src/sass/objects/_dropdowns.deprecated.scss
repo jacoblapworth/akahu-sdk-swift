@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Menu
+// Deprecated
 //
 // ### Behaviour
 //
@@ -10,10 +10,6 @@
 // is more space above than below the dropdown trigger, the menu should be positioned above the
 // trigger. The same applies for whether the menu should be left-aligned or right-aligned against
 // the trigger.
-//
-// ### Accessibility
-// An example of applying ARIA attributes to a dropdown is given below, using the roles `menubar`, `menu` and `menuitem`.
-// The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
 //
 // #### Class Names
 //

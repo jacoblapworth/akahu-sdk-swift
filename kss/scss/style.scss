@@ -223,6 +223,11 @@ $kss-color-padding: #eeebff;
 	position: inherit;
 }
 
+// Dropdowns
+[id="dropdowns-1"] .xui-dropdown-layout {
+	position: relative;
+}
+
 // Grid Layouts
 [id*="grid-layout"] .xui-row,
 [id*="grid-layout"] .xui-row-grid,

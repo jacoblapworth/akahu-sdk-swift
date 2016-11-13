@@ -16,7 +16,8 @@ const propTypes = {
 
 	/** @property {Number} [maxAvatars] The maximum number of avatars to show. Must be greater than 0 to take effect */
 	maxAvatars: function(props, propName) {
-		if(!Number.isFinite(props[propName]) || props[propName] > 0) {
+		const maxAvatars = props[propName];
+		if(maxAvatars != null && (typeof maxAvatars !== 'number' || !isFinite(maxAvatars) || maxAvatars <= 0)) {
 			return new Error('maxAvatars prop must be a positive integer greater than zero');
 		}
 	}
@@ -34,12 +35,10 @@ export default function XUIAvatarGroup(props) {
 
 	if(avatarSize) {
 		children = React.Children.map(children, function(child) {
-			const type = child.type;
+			const Type = child.type;
 
-			if(type === XUIAvatar || type === XUISimpleAvatar || type === XUIAvatarCounter) {
-				return React.cloneElement(child, {
-					size: avatarSize
-				});
+			if(Type === XUIAvatar || Type === XUISimpleAvatar || Type === XUIAvatarCounter) {
+				return <Type {...child.props} size={avatarSize} />;
 			} else {
 				return child;
 			}

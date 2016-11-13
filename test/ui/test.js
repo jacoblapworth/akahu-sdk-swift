@@ -6,7 +6,7 @@ ReactDOM.render(
 	<div>
 		<XUIAvatar
 			className="my-custom-class"
-			value="Huey"
+			value="Huey Duck"
 			size="small"
 			identifier="quack"
 		/>
@@ -14,7 +14,7 @@ ReactDOM.render(
 		<br />
 
 		<XUIAvatar
-			value="Dewey"
+			value="Dewey Duck"
 			size="medium"
 			identifier="decimal"
 		/>
@@ -22,7 +22,7 @@ ReactDOM.render(
 		<br />
 
 		<XUIAvatar
-			value="Louie"
+			value="Louie Duck"
 			size="large"
 			identifier="quack-a-rooney"
 		/>
@@ -33,6 +33,42 @@ ReactDOM.render(
 			value="Fat Louie"
 			size="xlarge"
 			identifier="quack-a-thing"
+		/>
+
+		<br />
+
+		<XUIAvatar
+			value="Madrigal Elektromotoren GmBH"
+			variant="business"
+			size="small"
+			identifier="123"
+		/>
+
+		<br />
+
+		<XUIAvatar
+			value="A1A Car Wash"
+			variant="business"
+			size="medium"
+			identifier="456"
+		/>
+
+		<br />
+
+		<XUIAvatar
+			value="Hornblower Enterprises"
+			variant="business"
+			size="large"
+			identifier="789"
+		/>
+
+		<br />
+
+		<XUIAvatar
+			value="Vamonos Pest Control"
+			variant="business"
+			size="xlarge"
+			identifier="000"
 		/>
 
 		<br />

@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import CSSClasses from 'xui-css-classes';
 import 'String.prototype.at';
-import {sizeMap} from './constants';
+import {sizeMap, variantClassNames} from './constants';
 
 /**
  * @public
@@ -13,6 +13,9 @@ const propTypes = {
 
 	className: React.PropTypes.string,
 	qaHook: React.PropTypes.string,
+
+	/** @property {String} [variant] The avatar variant */
+	variant: React.PropTypes.oneOf(['business']),
 
 	/** @property {String} [value] The text to display in the avatar */
 	value: function(props, propName) {
@@ -66,19 +69,35 @@ function getAvatarColorClass(identifier) {
 }
 
 export default function XUISimpleAvatar(props) {
-	const { qaHook, imageUrl, size, identifier, value, onError } = props;
+	const { qaHook, imageUrl, size, identifier, value, variant, onError } = props;
 
 	const avatarClassNames = cn(
 		props.className,
 		CSSClasses.Avatar.BASE,
 		CSSClasses.Avatar[sizeMap[size]],
+		variantClassNames[variant],
 		imageUrl ? null : getAvatarColorClass(identifier || value)
 	);
+
+	let displayValue = '';
+	if(variant === 'business') {
+		// An acronym up to 3 characters long based on the business name
+		const segments = value.trim().split(' ');
+		for(var i = 0; i < 3; i++) {
+			if(segments[i]) {
+				displayValue += [...segments[i]][0].toLocaleUpperCase();
+			} else {
+				break;
+			}
+		}
+	} else {
+		displayValue = [...value.trim()][0].toLocaleUpperCase();
+	}
 
 	if (imageUrl) {
 		return <img onError={onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;
 	} else {
-		return <abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{props.value.trim().at(0)}</abbr>;
+		return <abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{displayValue}</abbr>;
 	}
 }
 

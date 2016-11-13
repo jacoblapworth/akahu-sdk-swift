@@ -1,5 +1,7 @@
+import CSSClasses from 'xui-css-classes';
+
 /**
- * @private
+ * @public
  * Map of sizes to XUI Classes properties
  */
 export const sizeMap = {
@@ -7,4 +9,12 @@ export const sizeMap = {
 	'medium': '',
 	'large': 'LARGE',
 	'xlarge': 'XLARGE'
+};
+
+/**
+ * @public
+ * Map of variants to class names
+ */
+export const variantClassNames = {
+	'business': CSSClasses.Avatar.BUSINESS
 };

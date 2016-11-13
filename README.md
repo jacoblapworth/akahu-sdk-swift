@@ -55,7 +55,9 @@ import XUIAvatar from 'xui-avatar';
 
 A higher order component wrapping `XUISimpleAvatar` (see below) which falls back to a text avatar if the image provided cannot load.
 
-This component transparently passes its props to `XUISimpleAvatar`, with the exception that the `value` prop is required (in order to have a fallback)
+This component transparently passes its props to `XUISimpleAvatar`.
+
+The only exception is that the `value` prop is required (in order to have a fallback)
 
 ### XUISimpleAvatar
 
@@ -75,7 +77,7 @@ Although all the properties are marked as optional, one of either `value` or `im
 
 `identifier`: (String, Optional) A unique string that will be used to generate the colour of the avatar. Note that if `identifier` is not supplied, `value` will be used in its place. Doing this is not recommended since if different entities with the same value exist, they will end up looking identical.
 
-`className`: (String, Optional) Any custom CSS class(es) you want to add to this component
+`variant`: (String, Optional) The kind of entity the avatar represents. If unspecified, the avatar is circular and represents a person. If specified as `business`, the avatar becomes rectangular and can contain up to 3 letters.
 
 `onError`: (Function, Optional) Error handler if the image does not load. If no `imageUrl` prop is provided but `onError` is, then the `onError` function will be ignored.
 

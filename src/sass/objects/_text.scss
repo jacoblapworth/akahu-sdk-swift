@@ -44,26 +44,26 @@
 //
 // Styleguide: Typography.1
 .#{$ns}-heading {
-	@include xui-bold;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-heading;
+	font-weight: bold;
 }
 
 .#{$ns}-page-title {
-	@include xui-bold;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-page-title;
+	font-weight: bold;
 }
 
 .#{$ns}-section-title {
-	@include xui-bold;
 	color: $xui-color-primary-text;
 	font-size: $xui-font-size-section-title;
+	font-weight: bold;
 }
 
 .#{$ns}-text-label {
-	@include xui-bold;
 	color: $xui-color-secondary-text;
+	font-weight: bold;
 }
 
 .#{$ns}-text-secondary {
@@ -80,8 +80,8 @@
 }
 
 .#{$ns}-text-panelheading {
-	@include xui-bold;
 	font-size: $xui-font-size-section-title;
+	font-weight: bold;
 }
 
 .#{$ns}-text-sectionheading {

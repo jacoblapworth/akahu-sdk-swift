@@ -176,8 +176,8 @@
 }
 
 .#{$ns}-modal--heading {
-	@include xui-bold;
 	font-size: $xui-font-size-section-title;
+	font-weight: bold;
 }
 
 // Modal body

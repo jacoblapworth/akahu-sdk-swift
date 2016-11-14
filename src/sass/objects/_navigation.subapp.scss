@@ -135,8 +135,8 @@
 }
 
 .#{$ns}-breadcrumb {
-	@include xui-bold;
 	font-size: $xui-font-size-page-title;
+	font-weight: bold;
 }
 
 .#{$ns}-breadcrumb--icon {
@@ -174,8 +174,8 @@
 }
 
 .#{$ns}-pageheading--title {
-	@include xui-bold;
 	flex: 1 1 auto;
 	font-size: $xui-font-size-page-title;
+	font-weight: bold;
 	margin: 0 $xui-s-small 0 0;
 }

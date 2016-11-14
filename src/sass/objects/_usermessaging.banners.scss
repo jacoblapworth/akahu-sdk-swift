@@ -230,8 +230,8 @@
 }
 
 .#{$ns}-banner--action {
-	@include xui-bold;
 	display: inline-block;
+	font-weight: bold;
 }
 
 @keyframes xui-banner-animation {

@@ -7,6 +7,8 @@
 
 $xui-radius-iconwrapper: 2px;
 $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
+$xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
+$xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 
 // Text Inputs
 //
@@ -117,16 +119,16 @@ $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom 
 	.#{$ns}-input--icon-left,
 	.#{$ns}-input--icon-right {
 		color: $xui-color-grey-3;
-		height: $xui-input-icon-height;
+		height: $xui-input-icon-height; // Do not supply width so that the icon does not scale (achieves vertical centering)
 		position: absolute;
 	}
 
 	.#{$ns}-input--icon-left {
-		left: 0;
+		left: $xui-input-icon-offset;
 	}
 
 	.#{$ns}-input--icon-right {
-		right: 0;
+		right: $xui-input-icon-offset;
 	}
 }
 
@@ -134,9 +136,9 @@ $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom 
 	height: $xui-input-icon-height;
 	line-height: $xui-input-icon-height;
 	position: absolute;
-	text-align: center;
+	text-align: center; // If text is used instead of an icon, center it
 	top: 1px;
-	width: 32px;
+	width: $xui-input-icon-width;
 }
 
 .#{$ns}-input--iconwrapper-left {

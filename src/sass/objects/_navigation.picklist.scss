@@ -143,7 +143,7 @@
 //     <label class="xui-pickitem--body xui-submenu-uicontrol--label" for="submenu-sidebar-1" tabindex="0" title="Open|close submenu" aria-label="Open|Close submenu">
 //       Item one has a submenu
 //       <svg focusable="false" class="xui-icon xui-icon-inline xui-submenu-uicontrol--icon">
-//         <use xlink:href="#xui-icon-arrow-small"></use>
+//         <use xlink:href="#xui-icon-arrow"></use>
 //       </svg>
 //     </label>
 //     <ul class="xui-submenu xui-submenu-layout">
@@ -208,6 +208,7 @@
 
 .#{$ns}-submenu-uicontrol--icon {
 	align-self: center;
+	color: $xui-color-icon;
 	transition: all $xui-transition-duration-short $xui-easing-standard;
 }
 
@@ -252,7 +253,7 @@
 //       <div class="xui-submenu-uicontrol">
 //         <label for="submenu-label" class="xui-pickitem--uicontrol" title="Open|close submenu" aria-label="Open|Close submenu">
 //           <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//             <use xlink:href="#xui-icon-arrow-small"></use>
+//             <use xlink:href="#xui-icon-arrow"></use>
 //           </svg>
 //         </label>
 //       </div>
@@ -314,7 +315,7 @@
 //       </label>
 //       <label for="submenu-check" class="xui-pickitem--uicontrol" title="Close" aria-label="Close">
 //         <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//           <use xlink:href="#xui-icon-arrow-small"></use>
+//           <use xlink:href="#xui-icon-arrow"></use>
 //         </svg>
 //       </label>
 //     </div>
@@ -416,7 +417,7 @@
 //       </div>
 //      <label for="submenu-icon" class="xui-pickitem--uicontrol" title="Close" aria-label="Close">
 //        <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//          <use xlink:href="#xui-icon-arrow-small"></use>
+//          <use xlink:href="#xui-icon-arrow"></use>
 //        </svg>
 //      </label>
 //    </div>

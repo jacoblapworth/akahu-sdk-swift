@@ -129,10 +129,10 @@
 
 // Line Height
 //
-// Default line height: `line-height: 1.3`
+// Default line height: `line-height: 1.5`
 //
 // The default line height in XUI is set with the intent that most text in an
-// application is used within components e.g. headings, labels and button, etc.
+// application is used within components.
 //
 // This default line height allows text to wrap onto multiple lines either by
 // design or as a consequence of user generated input or string translation
@@ -141,6 +141,9 @@
 // Common practice in simple sites and some CSS libraries is to make extensive
 // use of line height for component vertical spacing. We use this default
 // spacing and vertical padding to achieve our overall component height.
+//
+// Common components should declare their own line height and these classes
+// should not be used very often.
 //
 // #### Class Names
 //

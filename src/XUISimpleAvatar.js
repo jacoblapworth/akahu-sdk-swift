@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 import CSSClasses from 'xui-css-classes';
-import 'String.prototype.at';
 import {sizeMap, variantClassNames} from './constants';
 
 /**

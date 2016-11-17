@@ -147,6 +147,9 @@ Breaking Changes
 
 Determining what constitutes a breaking change in CSS can be tricky.
 
+We want product design to evolve for free over time which may include layout changes that are predictable and which should
+have low impact on apps provided they have not used fixed sizes on elements.
+
 The general rule is: **if it requires consumers to make changes to their code, then it's a breaking change**.
 
 This includes:
@@ -154,9 +157,8 @@ This includes:
 * Removing or renaming existing classes. All our classes are public and should be considered XUI's "API"
 * Removing or renaming existing mixins, variables or anything else that would be available if XUI's individual
 SCSS files were imported by a project
-* Modifying properties of existing classes in a way that could break layouts implementing those classes.
-Since projects may subscribe to a semver range (either patch or minor), we do not want layouts
-breaking unexpectedly.
+* Modifying properties of existing classes in a way that could break standard web layouts implemented with those classes.
+Since projects may subscribe to a semver range (either patch or minor), we do not want layouts breaking unexpectedly.
 
 New CSS classes are not considered breaking changes. Changes to existing classes that do not impact
 layout are also not considered breaking changes (e.g. font-weight, color, border-color, box-shadow, etc)

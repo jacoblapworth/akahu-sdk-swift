@@ -4,19 +4,19 @@
 //
 // #### Class Names
 //
-// `xui-panel-title` for top-level headings in page headers & panels (usually only one per page)
+// `xui-panel-title` Standard title for each block of content within a page. Should only be used once per panel
 //
 // `xui-modal-title` for consistent application across all modal headers
 //
-// `xui-lineitem-title` for consistent application across all content blocks & line items
+// `xui-item-title` for consistent application across all content blocks & line items
 //
 // `xui-separator-title`  for consistent application across all table & dropdown vertical separators
 //
 // Markup:
-// <div class="xui-panel-title"> The quick brown fox jumps over the lazy dog</div>
-// <div class="xui-modal-title"> The quick brown fox jumps over the lazy dog</div>
-// <div class="xui-lineitem-title"> The quick brown fox jumps over the lazy dog</div>
-// <div class="xui-separator-title"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-panel-title">All tasks</div>
+// <div class="xui-modal-title">Assign task</div>
+// <div class="xui-item-title">Homepage redesign</div>
+// <div class="xui-separator-title">Export options</div>
 //
 // Styleguide: Typography.1
 
@@ -37,7 +37,7 @@
 	// other specific stuff to this element might go here???
 }
 
-.#{$ns}-lineitem-title {
+.#{$ns}-item-title {
 	@include xui-heading-tertiary;
 	// other specific stuff to this element might go here???
 }

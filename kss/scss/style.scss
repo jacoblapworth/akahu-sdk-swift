@@ -226,6 +226,23 @@ $kss-color-padding: #eeebff;
 // Dropdowns
 [id="dropdowns-1"] .xui-dropdown-layout {
 	position: relative;
+
+	@include xui-breakpoint-narrow {
+		margin: -15px -25px;
+		min-height: 50vh;
+		overflow: hidden;
+		width: initial;
+
+		.#{$ns}-dropdown--mask {
+			position: absolute;
+		}
+
+		.#{$ns}-dropdown--body {
+			max-height: 80%;
+			position: absolute;
+			width: 100%;
+		}
+	}
 }
 
 // Grid Layouts

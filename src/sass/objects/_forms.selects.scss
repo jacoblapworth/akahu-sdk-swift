@@ -61,18 +61,11 @@
 // It requires a JS implementation / framework on top to take the selected item and
 // insert it into the input. Inputs should be hidden.
 //
-// Rules for the `<button>`
+// Rules for the `<button>`:
 //
 // Dropdown Hidden state : Remove class `xui-select--button-is-selected`
 //
 // Dropdown Not hidden state : Add class `xui-select--button-is-selected`
-//
-//
-// Rules for the `<div class="xui-dropdownmenu-select">`
-//
-// Dropdown Hidden state : Add class `xui-dropdownmenu-is-closed`
-//
-// Dropdown Not hidden state : Remove class `xui-dropdownmenu-is-closed`
 //
 // #### Class Names
 //
@@ -82,58 +75,27 @@
 //
 // `xui-select--button-is-selected`	Modifier for a selected select box button
 //
-// `xui-dropdownmenu-select`	Style for a drop down select box
-//
 // Markup:
-// <!-- Dropdown closed -->
-// <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
-//   <div class="xui-select xui-select-layout">
-//     <input type="hidden" value="Select option 1"/>
-//     <button type="button" class="xui-button xui-select--button" aria-haspopup="true">
-//       Select option 1
-//     </button>
-//     <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//     <div class="xui-dropdownmenu xui-dropdownmenu-select xui-dropdownmenu-is-closed" aria-hidden="true">
-//       <div class="xui-dropdownmenu--body">
-//         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
-//           <li class="xui-menuitem xui-menuitem-layout xui-menuitem-is-selected" role="menuitem">
-//             <button type="button" class="xui-button xui-menuitem--body">Select option 1</button>
-//           </li>
-//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
-//             <button type="button" class="xui-button xui-menuitem--body">Select option 2</button>
-//           </li>
-//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
-//             <a href="https://google.com" class="xui-menuitem--body">Select option 3</a>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-// <!-- Dropdown open -->
-// <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
-//   <div class="xui-select xui-select-layout">
-//     <input type="hidden" value="Select option 1"/>
-//     <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
-//       Select option 1
-//     </button>
-//     <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//     <div class="xui-dropdownmenu xui-dropdownmenu-select" aria-hidden="true">
-//       <div class="xui-dropdownmenu--body">
-//         <ul class="xui-menugroup xui-menugroup-layout" role="menu">
-//           <li class="xui-menuitem xui-menuitem-layout xui-menuitem-is-selected" role="menuitem">
-//             <button type="button" class="xui-button xui-menuitem--body">Select option 1</button>
-//           </li>
-//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
-//             <button type="button" class="xui-button xui-menuitem--body">Select option 2</button>
-//           </li>
-//           <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
-//             <a href="https://google.com" class="xui-menuitem--body">Select option 3</a>
-//           </li>
-//         </ul>
-//       </div>
+// <div class="xui-select xui-select-layout">
+//   <input type="hidden" value="Select option 1"/>
+//   <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
+//     Select option 3
+//   </button>
+//   <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
+//     <div class="xui-dropdown--mask"></div>
+//     <div class="xui-dropdown--body">
+//       <ul class="xui-picklist">
+//         <li class="xui-pickitem" tabindex="0">
+//           <button class="xui-pickitem--body" tabindex="-1">Select option 1</button>
+//         </li>
+//         <li class="xui-pickitem" tabindex="0">
+//           <button class="xui-pickitem--body" tabindex="-1">Select option 2</button>
+//         </li>
+//         <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//           <button class="xui-pickitem--body" tabindex="-1">Select option 3</button>
+//         </li>
+//       </ul>
 //     </div>
 //   </div>
 // </div>
@@ -156,14 +118,17 @@
 }
 
 .#{$ns}-select--button-is-selected {
-	border: $xui-border-standard;
-	border-color: $xui-color-border $xui-color-border transparent;
-	border-radius: $xui-radius $xui-radius 0 0;
 
-	&:hover,
-	&:focus,
-	&:active {
+	@include xui-breakpoint-narrow-up {
+		border: $xui-border-standard;
 		border-color: $xui-color-border $xui-color-border transparent;
+		border-radius: $xui-radius $xui-radius 0 0;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: $xui-color-border $xui-color-border transparent;
+		}
 	}
 }
 
@@ -174,16 +139,18 @@
 }
 
 .#{$ns}-select-layout {
-	.#{$ns}-select--button {
-		width: 100%;
+
+	@include xui-breakpoint-narrow-up {
+
+		.#{$ns}-dropdown--body {
+			border: $xui-border-standard;
+			border-radius: 0 0 $xui-radius $xui-radius;
+			border-top: 0;
+			margin-top: -1px;
+		}
 	}
 
-	.#{$ns}-dropdownmenu-select {
-		left: 0;
-		margin-top: -1px; // Ensures a seamless border
-		position: absolute;
-		transition: $xui-transition-duration-short all $xui-easing-standard;
+	.#{$ns}-select--button {
 		width: 100%;
-		z-index: 1;
 	}
 }

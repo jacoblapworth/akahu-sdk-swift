@@ -20,8 +20,8 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 }
 
 .ds-anchor {
-	visibility: hidden;
 	margin-left: -21px;
+	visibility: hidden;
 }
 
 .ds-title:hover > .ds-anchor {
@@ -125,10 +125,10 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	line-height: 1.8;
 
 	pre {
-		width: 100%;
-		padding: 15px 25px;
-		border: 1px solid $xui-color-border;
 		background: $xui-color-background;
+		border: 1px solid $xui-color-border;
+		padding: 15px 25px;
+		width: 100%;
 	}
 }
 
@@ -219,12 +219,12 @@ $kss-color-padding: #eeebff;
 	top: 2px;
 }
 
-[id*="forms-9"] .xui-dropdownmenu-select {
-	position: inherit;
+[id*="forms-9"] .xui-select {
+	position: relative;
 }
 
 // Dropdowns
-[id="dropdowns-1"] .xui-dropdown-layout {
+.xui-dropdown-layout {
 	position: relative;
 
 	@include xui-breakpoint-narrow {
@@ -232,6 +232,10 @@ $kss-color-padding: #eeebff;
 		min-height: 50vh;
 		overflow: hidden;
 		width: initial;
+
+		.#{$ns}-select & {
+			margin-top: -55px;
+		}
 
 		.#{$ns}-dropdown--mask {
 			position: absolute;
@@ -413,8 +417,8 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--header-title {
 	display: inline-block;
-	font-weight: bold;
 	font-size: $xui-font-size-heading;
+	font-weight: bold;
 	margin-left: 60px;
 	vertical-align: middle;
 }

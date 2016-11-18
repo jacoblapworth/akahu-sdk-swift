@@ -91,6 +91,7 @@
 .#{$ns}-dropdown-layout {
 	display: none;
 	position: absolute;
+	width: 100%;
 
 	@include xui-breakpoint-narrow-up {
 		z-index: 1000;

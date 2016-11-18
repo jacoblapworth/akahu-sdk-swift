@@ -1,4 +1,4 @@
-// Headings
+// Presets
 //
 // We’ve got a few standardised classes to deal with the different types of content across our app. At surface level they bear some similarities, but the separation has been done so to anticipate future changes at a component level. When choosing the right class to use, a good rule of thumb is to ask yourself, ‘what kind of content is this’ and then apply the one that best fits that use case.
 //
@@ -58,10 +58,10 @@
 // `xui-heading-mini` for minute headings that group content but aren’t strictly within tables or dropdowns
 //
 // Markup:
-// <div class="xui-heading-primary"> The quick brown fox jumps over the lazy dog</div>
-// <div class="xui-heading-secondary"> The quick brown fox jumps over the lazy dog</div>
-// <div class="xui-heading-tertiary"> The quick brown fox jumps over the lazy dog</div>
-// <div class="xui-heading-mini"> The quick brown fox jumps over the lazy dog</div>
+// <div class="xui-heading-primary">Directory Listing</div>
+// <div class="xui-heading-secondary">Location</div>
+// <div class="xui-heading-tertiary">Street Address</div>
+// <div class="xui-heading-mini">Map</div>
 //
 // Styleguide: Typography.1.1
 

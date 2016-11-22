@@ -78,7 +78,7 @@
 // Markup:
 // <div class="xui-select xui-select-layout">
 //   <input type="hidden" value="Select option 1"/>
-//   <button type="button" class="xui-button xui-select--button xui-select--button-is-selected" aria-haspopup="true">
+//   <button type="button" class="xui-button xui-select--button xui-select--button-is-selected pseudo-class-active" aria-haspopup="true">
 //     Select option 3
 //   </button>
 //   <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
@@ -119,16 +119,12 @@
 
 .#{$ns}-select--button-is-selected {
 
-	@include xui-breakpoint-narrow-up {
-		border: $xui-border-standard;
-		border-color: $xui-color-border $xui-color-border transparent;
-		border-radius: $xui-radius $xui-radius 0 0;
+	border: $xui-border-standard;
+	border-color: $xui-color-border;
+	border-radius: $xui-radius $xui-radius 0 0;
 
-		&:hover,
-		&:focus,
-		&:active {
-			border-color: $xui-color-border $xui-color-border transparent;
-		}
+	@include xui-breakpoint-narrow {
+		border-radius: $xui-radius;
 	}
 }
 
@@ -140,13 +136,15 @@
 
 .#{$ns}-select-layout {
 
-	@include xui-breakpoint-narrow-up {
+	.#{$ns}-dropdown--body {
+		border: $xui-border-standard;
+		border-radius: 0 0 $xui-radius $xui-radius;
+		border-top: 0;
+		margin-top: -1px;
 
-		.#{$ns}-dropdown--body {
-			border: $xui-border-standard;
-			border-radius: 0 0 $xui-radius $xui-radius;
-			border-top: 0;
-			margin-top: -1px;
+		@include xui-breakpoint-narrow {
+			border: 0;
+			border-radius: 0;
 		}
 	}
 

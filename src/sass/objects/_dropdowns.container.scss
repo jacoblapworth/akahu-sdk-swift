@@ -133,12 +133,14 @@
 }
 
 .#{$ns}-dropdown--body {
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-2;
 	background-color: $xui-color-white;
-	overflow: auto;
 
-	@include xui-breakpoint-narrow-up {
-		border-radius: $xui-radius;
-		box-shadow: $xui-shadow-depth-2;
+	@include xui-breakpoint-narrow {
+		border-radius: 0;
+		box-shadow: none;
+		overflow: auto;
 	}
 }
 

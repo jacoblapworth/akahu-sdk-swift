@@ -11,7 +11,7 @@ A React UI component that creates buttons from the [XUI UI library](https://gith
 ## Installation
 
 ```bash
-$ bower install --save git@github.dev.xero.com:FutureRobot/xui-button.git
+$ bower install --save git://github.dev.xero.com/UXE/xui-button.git
 ```
 
 ### XUIButton Properties

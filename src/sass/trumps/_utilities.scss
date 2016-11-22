@@ -127,8 +127,8 @@
 .#{$ns}-u-flex-inherit {
 	align-items: inherit;
 	display: inherit;
-	justify-content: inherit;
 	flex-direction: inherit;
+	justify-content: inherit;
 	width: inherit; // For IE11 and Chrome
 }
 

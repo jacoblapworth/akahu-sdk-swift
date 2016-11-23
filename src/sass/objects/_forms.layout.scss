@@ -65,13 +65,13 @@
 }
 
 .#{$ns}-validation-layout {
-		margin-bottom: $xui-s-small;
-		min-height: $xui-s-large;
-		padding-top: $xui-s-xsmall;
+	margin-bottom: $xui-s-small;
+	min-height: $xui-s-large;
+	padding-top: $xui-s-xsmall;
 }
 
 .#{$ns}-validation-is-invalid {
-		color: $xui-color-xero-red;
+	color: $xui-color-xero-red;
 }
 
 // Inline Forms

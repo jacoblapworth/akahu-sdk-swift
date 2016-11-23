@@ -133,9 +133,9 @@
 }
 
 .#{$ns}-dropdown--body {
+	background-color: $xui-color-white;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-2;
-	background-color: $xui-color-white;
 
 	@include xui-breakpoint-narrow {
 		border-radius: 0;

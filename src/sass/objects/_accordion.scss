@@ -131,8 +131,8 @@
 		height: auto;
 		opacity: 1;
 		transform: scaleY(1);
+		transition-delay: $xui-transition-duration-short, 0s, -2s;
 		transition-duration: $xui-transition-duration-medium;
 		transition-property: opacity, padding, transform;
-		transition-delay: $xui-transition-duration-short, 0s, -2s;
 	}
 }

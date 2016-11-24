@@ -14,16 +14,17 @@
 //
 // #### Class Names
 //
-// `xui-text-leftaligned`	Modifier for left-aligned text
+// `xui-text-leftaligned`	The default alignment for most other UI elements and body copy
 //
-// `xui-text-centered`	Modifier for centered text
+// `xui-text-centered`	Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
 //
-// `xui-text-rightaligned`	Modifier for right-aligned text
+// `xui-text-rightaligned`	Mostly for numeric data, to assist with scanning via the decimal place
 //
 // Markup:
-//  <p class="xui-text-leftaligned">Left-aligned text</p>
-//  <p class="xui-text-centered">Centered text</p>
-//  <p class="xui-text-rightaligned">Right aligned text</p>
+//  <p class="xui-text-leftaligned xui-text-emphasis">Email Address</p>
+//  <p class="xui-text-centered xui-text-muted">No Results Found</p>
+//  <p class="xui-text-rightaligned xui-heading-large xui-margin-none">100.00</p>
+//  <p class="xui-text-rightaligned xui-heading-large xui-margin-none">10.00</p>
 //
 // Styleguide: Typography.3.1
 

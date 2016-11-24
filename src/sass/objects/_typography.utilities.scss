@@ -1,13 +1,6 @@
 @import "../mixins";
 @import "../vars";
 
-// Utilities
-//
-// Text utilities provide single specific rules to modify the style of text based
-// content.
-//
-// Styleguide: Typography.3
-
 // Alignment
 //
 // Classes that can be added to change the alignment of text.
@@ -26,7 +19,7 @@
 //  <p class="xui-text-rightaligned xui-heading-large xui-margin-none">100.00</p>
 //  <p class="xui-text-rightaligned xui-heading-large xui-margin-none">10.00</p>
 //
-// Styleguide: Typography.3.1
+// Styleguide: Typography.52
 
 .#{$ns}-text-leftaligned {
 	text-align: left;
@@ -56,7 +49,7 @@
 //    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
 //  </div>
 //
-// Styleguide: Typography.3.2
+// Styleguide: Typography.53
 
 .#{$ns}-text-truncated {
 	overflow: hidden;
@@ -78,7 +71,7 @@
 // Markup:
 //  <p class="xui-text-wordbreak">pneumonoultramicroscopicsilicovolcanoconiosisIsALungDiseaseCausedBySilicaDustFromVolcanoesSometimesCitedAsOneOfTheLongestWordsInTheEnglishLanguage</p>
 //
-// Styleguide: Typography.3.3
+// Styleguide: Typography.54
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
@@ -125,7 +118,7 @@
 // <p class="xui-text-positive">The quick brown fox jumps over the lazy dog</p>
 // <p class="xui-text-negative">The quick brown fox jumps over the lazy dog</p>
 //
-// Styleguide: Typography.3.4
+// Styleguide: Typography.58
 
 .#{$ns}-text-color-black {
 	color: $xui-color-black;
@@ -153,6 +146,8 @@
 	@include xui-text-negative;
 }
 
+
+
 // Inverted text
 //
 // Inverts the text to provide a dark background and white text.
@@ -164,7 +159,7 @@
 // Markup:
 //  <h3 class="xui-text-inverted xui-padding">Inverted text</h3>
 //
-// Styleguide: Typography.3.5
+// Styleguide: Typography.58.2
 
 .#{$ns}-text-inverted {
 	background-color: $xui-color-grey-1;

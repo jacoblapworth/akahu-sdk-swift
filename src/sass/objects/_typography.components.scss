@@ -1,10 +1,4 @@
 
-// Text Components
-//
-// Text based components
-//
-// Styleguide: Typography.4
-
 //  Statuses
 //
 // #### Class Names
@@ -38,7 +32,7 @@
 //   <span class="xui-text-status xui-text-status-negative">OVERDUE</span>
 // </p>
 //
-// Styleguide: Typography.4.1
+// Styleguide: Typography.60
 
 // Parent container
 // The coloured background goes full width of the page
@@ -85,7 +79,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Typography.4.2
+// Styleguide: Pills.3
 
 .#{$ns}-text-tag {
 	border-radius: $xui-radius;
@@ -109,6 +103,9 @@
 
 // Carets
 //
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
 // Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
 //
 // #### Class Names
@@ -120,7 +117,7 @@
 //  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
 //  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
 //
-// Styleguide: Typography.4.3
+// Styleguide: Icons.1.1
 
 .#{$ns}-caret {
 	@include xui-caret;
@@ -172,7 +169,7 @@
 //   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
 // </div>
 //
-// Styleguide: Typography.11
+// Styleguide: Typography.70
 
 .#{$ns}-text-reset {
 	@include xui-text-line-height-reset;

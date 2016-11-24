@@ -86,13 +86,13 @@
 //
 // #### Class Names
 //
-// `xui-text-emphasis` Emphasise, make bold
+// `xui-text-emphasis` To emphasise a particular piece of text when the default parent is set to normal (via a span element)
 //
-// `xui-text-deemphasis` Deemphasise, make normal
+// `xui-text-deemphasis` To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
 //
 // Markup:
-// <p>The quick brown fox <span class="xui-text-emphasis">jumps</span> over the lazy dog</p>
-// <p class="xui-text-emphasis">The quick brown fox <span class="xui-text-deemphasis">jumps over the lazy dog</span></p>
+// <p>Please add a <span class="xui-text-emphasis">minimum of 3</span> employees</p>
+// <p class="xui-text-emphasis">Edit Invoice <span class="xui-text-deemphasis">INV0001</span></p>
 //
 // Styleguide: Typography.56
 

@@ -43,15 +43,18 @@
 
 // Truncation
 //
-// Useful for truncating a single line of text with an ellipsis. To truncate after an arbitrary number of lines,
-// you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
+// Forces text to truncate after a single line of text, to suggest overflow, whilst still remaining within the bounds of the parent container.
+//
+// To truncate after an arbitrary number of lines, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
 //
 // #### Class Names
 //
 // `xui-text-truncated`	Modifier for truncated text with an ellipsis
 //
 // Markup:
-//  <p class="xui-text-truncated">Pak n' Save holds the most nuclear-free community in the country. Every time I see those rip-off Monopoly money, from the New Zealand version with Queen Street and stuff it's like the op shop all over again aye, fully. Put the jug on will you bro, all these primo giant wekas can wait till later. Eh, rack off, nek minnit.</p>
+//  <div style="width: 250px;">
+//    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
+//  </div>
 //
 // Styleguide: Typography.3.2
 

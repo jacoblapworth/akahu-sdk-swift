@@ -21,7 +21,7 @@
 // Styleguide: Typography.1
 
 .#{$ns}-panel-title {
-	@include xui-heading-secondary;
+	@include xui-heading-medium;
 	// other specific stuff to this element might go here???
 }
 
@@ -33,15 +33,18 @@
 }
 
 .#{$ns}-modal-title {
-	@include xui-heading-secondary;
+	@include xui-heading-medium;
 	// other specific stuff to this element might go here???
 }
 
 .#{$ns}-item-title {
-	@include xui-heading-tertiary;
+	@include xui-heading-small;
 	// other specific stuff to this element might go here???
 }
 
+.#{$ns}-separator-title {
+	@include xui-heading-xsmall;
+}
 
 // Generic Headings
 //
@@ -66,26 +69,23 @@
 // Styleguide: Typography.1.1
 
 .#{$ns}-heading-primary {
-	@include xui-heading-primary;
+	@include xui-heading-large;
 }
 
 .#{$ns}-heading-secondary,
 .#{$ns}-textcontent h3 {
-	@include xui-heading-secondary;
+	@include xui-heading-medium;
 }
 
 .#{$ns}-heading-tertiary,
 .#{$ns}-textcontent h4 {
-	@include xui-heading-tertiary;
+	@include xui-heading-small;
 }
 
-.#{$ns}-separator-title,
 .#{$ns}-heading-mini,
 .#{$ns}-dropdownmenu--groupheading,
 .#{$ns}-textcontent h5 {
-	color: $xui-color-grey-2;
-	font-size: $xui-font-size-small;
-	font-weight: $xui-font-weight-deemphasis;
+	@include xui-heading-xsmall;
 }
 
 

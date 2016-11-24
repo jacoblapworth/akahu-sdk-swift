@@ -52,37 +52,37 @@
 //
 // #### Class Names
 //
-// `xui-heading-primary` for large in-page headings such as form titles
+// `xui-heading-large` for large in-page headings such as form titles
 //
-// `xui-heading-secondary` for top-level headings that aren’t strictly panel headers
+// `xui-heading-medium` for top-level headings that aren’t strictly panel headers
 //
-// `xui-heading-tertiary`  for second-tier headings that aren’t strictly modals or content blocks
+// `xui-heading-small`  for second-tier headings that aren’t strictly modals or content blocks
 //
-// `xui-heading-mini` for minute headings that group content but aren’t strictly within tables or dropdowns
+// `xui-heading-xsmall` for minute headings that group content but aren’t strictly within tables or dropdowns
 //
 // Markup:
-// <div class="xui-heading-primary">Directory Listing</div>
-// <div class="xui-heading-secondary">Location</div>
-// <div class="xui-heading-tertiary">Street Address</div>
-// <div class="xui-heading-mini">Map</div>
+// <div class="xui-heading-large">Directory Listing</div>
+// <div class="xui-heading-medium">Location</div>
+// <div class="xui-heading-small">Street Address</div>
+// <div class="xui-heading-xsmall">Map</div>
 //
 // Styleguide: Typography.1.1
 
-.#{$ns}-heading-primary {
+.#{$ns}-heading-large {
 	@include xui-heading-large;
 }
 
-.#{$ns}-heading-secondary,
+.#{$ns}-heading-medium,
 .#{$ns}-textcontent h3 {
 	@include xui-heading-medium;
 }
 
-.#{$ns}-heading-tertiary,
+.#{$ns}-heading-small,
 .#{$ns}-textcontent h4 {
 	@include xui-heading-small;
 }
 
-.#{$ns}-heading-mini,
+.#{$ns}-heading-xsmall,
 .#{$ns}-dropdownmenu--groupheading,
 .#{$ns}-textcontent h5 {
 	@include xui-heading-xsmall;

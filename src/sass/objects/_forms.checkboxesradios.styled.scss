@@ -428,6 +428,7 @@
 .#{$ns}-styledcheckbox svg,
 .#{$ns}-styledradio svg {
 	flex-shrink: 0; // Prevent SVG from shrinking when label text is long
+	pointer-events: none;
 }
 
 .#{$ns}-styledcheckbox--focus,

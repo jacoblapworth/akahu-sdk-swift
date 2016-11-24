@@ -24,4 +24,6 @@
 	@include xui-position-offscreen;
 
 	height: $xui-icon-standard;
+	margin: 0 -4px 0 0; // Undo the width below so the element does not take up extra space
+	width: 4px; // Min width of radios/checkboxes on Firefox, which sets 2px borders that cannot be undone
 }

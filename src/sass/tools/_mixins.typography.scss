@@ -49,19 +49,16 @@
 @mixin xui-heading-primary {
 	font-size: $xui-font-size-xlarge;
 	font-weight: bold;
-	color: $xui-color-grey-1;
 }
 
 @mixin xui-heading-secondary {
 	font-size: $xui-font-size-large;
 	font-weight: bold;
-	color: $xui-color-grey-1;
 }
 
 @mixin xui-heading-tertiary {
 	font-size: $xui-font-size-medium;
 	font-weight: bold;
-	color: $xui-color-grey-1;
 }
 
 // Font-weight

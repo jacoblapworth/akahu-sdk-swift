@@ -47,21 +47,29 @@
 }
 
 @mixin xui-heading-large {
+	@include xui-text-line-height-compact;
+
 	font-size: $xui-font-size-xlarge;
 	font-weight: bold;
 }
 
 @mixin xui-heading-medium {
+	@include xui-text-line-height-compact;
+
 	font-size: $xui-font-size-large;
 	font-weight: bold;
 }
 
 @mixin xui-heading-small {
+	@include xui-text-line-height-compact;
+
 	font-size: $xui-font-size-medium;
 	font-weight: bold;
 }
 
 @mixin xui-heading-xsmall {
+	@include xui-text-line-height-compact;
+
 	font-size: $xui-font-size-small;
 	color: $xui-color-grey-2;
 	font-weight: $xui-font-weight-deemphasis;

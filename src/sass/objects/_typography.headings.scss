@@ -18,7 +18,7 @@
 // <div class="xui-item-title">Homepage redesign</div>
 // <div class="xui-separator-title">Export options</div>
 //
-// Styleguide: Typography.1
+// Styleguide: Typography.10
 
 .#{$ns}-panel-title {
 	@include xui-heading-medium;
@@ -66,7 +66,7 @@
 // <div class="xui-heading-small">Street Address</div>
 // <div class="xui-heading-xsmall">Map</div>
 //
-// Styleguide: Typography.1.1
+// Styleguide: Typography.20
 
 .#{$ns}-heading-large {
 	@include xui-heading-large;
@@ -113,7 +113,7 @@
 // <div class="xui-heading-display-xl xui-text-truncated">$3,724.00</div>
 // <div class="xui-heading-display-xxl xui-text-truncated">82.1%</div>
 //
-// Styleguide: Typography.1.2
+// Styleguide: Typography.30
 
 .#{$ns}-heading-display,
 .#{$ns}-textcontent h2 {
@@ -171,7 +171,7 @@
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
 //
-// *The following heading styles have been replaced with a new set of [presets](#typography-1).*
+// *The following heading styles have been replaced with a new set of [Presets](#typography-10) and [Standard Text](#typography-50).*
 //
 // #### Class Names
 //
@@ -192,7 +192,7 @@
 // <p class="xui-text-panelheading">The quick brown fox jumps over the lazy dog</p>
 // <p class="xui-text-sectionheading">The quick brown fox jumps over the lazy dog</p>
 //
-// Styleguide: Typography.1.3
+// Styleguide: Typography.39
 .#{$ns}-heading {
 	@include xui-bold;
 	color: $xui-color-primary-text;

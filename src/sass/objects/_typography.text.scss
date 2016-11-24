@@ -1,24 +1,26 @@
 @import "../mixins";
 @import "../vars";
 
-// Text
+// Standard Text
+//
+// Labels and placeholder clasees should only be used for forms. See [Labels](file:///Users/james/dev/uxe/xui/docs/section-forms.html#forms-3) in Forms for full demos.
 //
 // `xui-text-label`
+//
+// `xui-text-placeholder`
 //
 // `xui-text-secondary`
 //
 // `xui-text-minor`
 //
-// `xui-text-placeholder`
-//
 // Markup:
-// <p>The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-label">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-secondary">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-minor">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-placeholder">The quick brown fox jumps over the lazy dog</p>
+// <p>Plain old paragraph</p>
+// <p class="xui-text-label">Form Labels</p>
+// <p class="xui-text-placeholder">Placeholder</p>
+// <p class="xui-text-secondary">Secondary text</p>
+// <p class="xui-text-minor">Minor text</p>
 //
-// Styleguide: Typography.2
+// Styleguide: Typography.50
 
 .#{$ns}-text-label {
 	@include xui-text-emphasis;
@@ -60,7 +62,7 @@
 //   <a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a>
 // </p>
 //
-// Styleguide: Typography.2.1
+// Styleguide: Typography.51
 
 .#{$ns}-link,
 .#{$ns}-text-link {
@@ -80,7 +82,7 @@
 	}
 }
 
-// Font Weight
+// Emphasis
 //
 // #### Class Names
 //
@@ -92,7 +94,7 @@
 // <p>The quick brown fox <span class="xui-text-emphasis">jumps</span> over the lazy dog</p>
 // <p class="xui-text-emphasis">The quick brown fox <span class="xui-text-deemphasis">jumps over the lazy dog</span></p>
 //
-// Styleguide: Typography.2.2
+// Styleguide: Typography.56
 
 .#{$ns}-text-emphasis {
 	font-weight: $xui-font-weight-emphasis;
@@ -114,7 +116,7 @@
 // <p class="xui-text-spacing-tight">The quick brown fox jumps over the lazy dog</p>
 // <p class="xui-text-spacing-loose">The quick brown fox jumps over the lazy dog</p>
 //
-// Styleguide: Typography.2.3
+// Styleguide: Typography.57
 
 .#{$ns}-text-spacing-tight {
 	@include xui-text-spacing-tight;

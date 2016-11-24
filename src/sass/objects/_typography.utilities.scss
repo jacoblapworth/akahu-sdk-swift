@@ -57,7 +57,7 @@
 	white-space: nowrap;
 }
 
-// Word Breaking
+// Word-break
 //
 // Long words without hyphens won't automatically break when they reach the edge of their container.
 // They either enlarge the container, overflow or a scrollbar is created.
@@ -66,10 +66,12 @@
 //
 // #### Class Names
 //
-// `xui-text-word-break`	Modifier for breaking long words to the next line
+// `xui-text-word-break`	Helps long words like URLs not break out of their parent container
 //
 // Markup:
-//  <p class="xui-text-wordbreak">pneumonoultramicroscopicsilicovolcanoconiosisIsALungDiseaseCausedBySilicaDustFromVolcanoesSometimesCitedAsOneOfTheLongestWordsInTheEnglishLanguage</p>
+//  <div style="width: 200px;">
+//    <p class="xui-text-wordbreak">https://github.dev.xero.com/pages/UXE/xui/#10.14.0/index.html</p>
+//  </div>
 //
 // Styleguide: Typography.54
 

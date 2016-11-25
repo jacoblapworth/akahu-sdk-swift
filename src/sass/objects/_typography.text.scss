@@ -56,11 +56,8 @@
 // `xui-text-minorlink` inherits it's parent text colour, but has standard link hover and focus highlighting
 //
 // Markup:
-// <p><a class="xui-link">The quick brown fox jumps over the lazy dog</a></p>
-// <p><a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a></p>
-// <p class="xui-text-secondary">
-//   <a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a>
-// </p>
+// <p><a class="xui-link">Standard links</a> are blue and underline on hover and focus</p>
+// <p><a class="xui-text-minorlink">Minor links</a> inherit colour. Use only for inconsequential ‘nice-to-have’ links - never use them in a string of text like this example.</p>
 //
 // Styleguide: Typography.51
 

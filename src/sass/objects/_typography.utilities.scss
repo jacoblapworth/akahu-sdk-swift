@@ -98,31 +98,37 @@
 
 //  Colors
 //
-// #### Class Names
+// Styleguide: Typography.58
+
+// Common colors
 //
-// `xui-text-color-black`	Black text
+// `xui-text-color-standard`, `xui-text-color-black`
 //
-// `xui-text-color-icon` Icon color text
+// `xui-text-color-muted`, `xui-text-muted`
 //
-// `xui-text-color-white`	White text
-//
-// `xui-text-muted`	Disabled / muted text
-//
-// `xui-text-positive`, `xui-text-completed`	Positive sentiment text
-//
-// `xui-text-negative`, `xui-text-urgent`	Negative sentiment text
+// `xui-text-color-faint`
 //
 // Markup:
-// <p class="xui-text-color-black">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-color-white">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-color-icon">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-muted">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-color-standard">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-color-muted">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-color-faint">The quick brown fox jumps over the lazy dog</p>
+//
+// Styleguide: Typography.58.1
+
+// Text colors
+//
+// `xui-text-positive`	Positive sentiment text
+//
+// `xui-text-negative`	Negative sentiment text
+//
+// Markup:
 // <p class="xui-text-positive">The quick brown fox jumps over the lazy dog</p>
 // <p class="xui-text-negative">The quick brown fox jumps over the lazy dog</p>
 //
-// Styleguide: Typography.58
+// Styleguide: Typography.58.2
 
-.#{$ns}-text-color-black {
+.#{$ns}-text-color-black,
+.#{$ns}-text-color-standard {
 	color: $xui-color-black;
 }
 
@@ -134,36 +140,79 @@
 	color: $xui-color-icon;
 }
 
-.#{$ns}-text-muted {
+.#{$ns}-text-muted,
+.#{$ns}-text-color-muted {
 	@include xui-text-muted;
 }
 
-.#{$ns}-text-positive ,
-.#{$ns}-text-completed {
+.#{$ns}-text-color-faint {
+	color: $xui-color-grey-3;
+}
+
+.#{$ns}-text-positive {
 	@include xui-text-positive;
 }
 
-.#{$ns}-text-negative ,
-.#{$ns}-text-urgent {
+.#{$ns}-text-negative {
 	@include xui-text-negative;
 }
 
-
-
 // Inverted text
 //
-// Inverts the text to provide a dark background and white text.
+// Inverts the text to provide a dark background and white text. These are most
+// generic types for inverted colors. For inverted buttons please see [Icons](section-buttons.html#buttons-7) and [Toggles](section-buttons.html#buttons-10) in Buttons.
 //
 // #### Class Names
 //
-// `xui-text-inverted`	Style for inverted text
+// `xui-text-inverted`	Style for inverted text, includes background color and text color
+//
+// `xui-text-color-white`	explicit color for text
+//
+// `xui-text-color-white-muted` white at 80% used for ...
+//
+// `xui-text-color-white-faint` white at 50% used for ...
 //
 // Markup:
-//  <h3 class="xui-text-inverted xui-padding">Inverted text</h3>
+// <div class="xui-row xui-text-inverted xui-padding">
+//  <div class="xui-column-4-of-12 xui-heading-medium">
+//    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
+//  </div>
+//  <div class="xui-column-4-of-12 xui-text-color-white-faint xui-text-centered">
+//    Saving...
+//  </div>
+//  <div class="xui-column-4-of-12 xui-text-rightaligned xui-text-color-white-muted">
+//  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
+//  Edit
+//  </div>
+// </div>
 //
-// Styleguide: Typography.58.2
+// Styleguide: Typography.58.3
 
 .#{$ns}-text-inverted {
 	background-color: $xui-color-grey-1;
 	color: $xui-color-white;
 }
+
+.#{$ns}-text-color-white-muted {
+	color: $xui-color-white-muted;
+}
+
+.#{$ns}-text-color-white-faint {
+	color: $xui-color-white-faint;
+}
+
+// Other colors
+//
+// #### Class Names
+//
+// `xui-text-color-icon` used for styling characters for use in place of icons
+//
+// Markup:
+// <div class="xui-input-wrapper xui-margin">
+//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
+//    €
+//  </div>
+//  <input class="xui-input" aria-label="Amount"/>
+//</div>
+//
+// Styleguide: Typography.58.4

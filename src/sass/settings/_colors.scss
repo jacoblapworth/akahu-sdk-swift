@@ -47,12 +47,14 @@ $xui-color-panel: $xui-color-white;
 
 // Inverted Colours
 //
+$xui-color-white-muted: rgba($xui-color-white, 0.8);
+$xui-color-white-faint: rgba($xui-color-white, 0.5);
 $xui-color-shadow-inverted-light: rgba($xui-color-white, 0.05);
 $xui-color-shadow-inverted-medium: rgba($xui-color-white, 0.1);
 $xui-color-shadow-inverted-strong: rgba($xui-color-white, 0.2);
 $xui-color-highlight-inverted-light: rgba($xui-color-white, 0.95);
 $xui-color-highlight-inverted-medium: rgba($xui-color-white, 0.90);
-$xui-color-highlight-inverted-strong: rgba($xui-color-white, 0.80);
+$xui-color-highlight-inverted-strong: $xui-color-white-muted;
 $xui-shadow-focus-inverted: 0 0 0 3px $xui-color-shadow-inverted-medium;
 
 // Avatars

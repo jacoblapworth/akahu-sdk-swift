@@ -48,6 +48,7 @@
 
 @mixin xui-heading-large {
 	@include xui-text-line-height-compact;
+	@include xui-text-proportional-nums;
 
 	font-size: $xui-font-size-xlarge;
 	font-weight: bold;

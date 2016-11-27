@@ -120,6 +120,7 @@
 	@include xui-text-spacing-tight;
 	@include xui-text-emphasis;
 	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
 	font-size: $xui-font-size-extended-2xlarge;
 
 	@include xui-breakpoint-medium-and-wide {
@@ -136,6 +137,7 @@
 	@include xui-text-spacing-tight;
 	@include xui-text-emphasis;
 	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
 	font-size: $xui-font-size-extended-4xlarge;
 
 	@include xui-breakpoint-medium-and-wide {
@@ -151,6 +153,7 @@
 	@include xui-text-spacing-tight;
 	@include xui-text-emphasis;
 	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
 	font-size: 48px;
 
 	@include xui-breakpoint-medium-and-wide {

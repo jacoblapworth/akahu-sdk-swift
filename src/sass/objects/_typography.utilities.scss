@@ -102,11 +102,11 @@
 
 // Common colors
 //
-// `xui-text-color-standard`, `xui-text-color-black`
+// `xui-text-color-standard`, `xui-text-color-black` the primary text color in XUI.
 //
-// `xui-text-color-muted`, `xui-text-muted`
+// `xui-text-color-muted`, `xui-text-muted` for text that requires reduced hierarchy. It can be used independently or via `.xui-text-secondary`
 //
-// `xui-text-color-faint`
+// `xui-text-color-faint` should be used very sparingly for inconsequential things due to it's poor accessibility
 //
 // Markup:
 // <p class="xui-text-color-standard">The quick brown fox jumps over the lazy dog</p>

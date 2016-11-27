@@ -3,22 +3,24 @@
 
 // Standard Text
 //
+// #### Class Names
+//
+// `xui-text-secondary` for supporting copy like extra meta data
+//
+// `xui-text-minor` use sparingly for fine-print and inconsequential labelling
+//
 // Labels and placeholder clasees should only be used for forms. See [Labels](file:///Users/james/dev/uxe/xui/docs/section-forms.html#forms-3) in Forms for full demos.
 //
 // `xui-text-label` for labeling form fields
 //
 // `xui-text-placeholder` for showing placeholder content on readonly forms
 //
-// `xui-text-secondary`
-//
-// `xui-text-minor`
-//
 // Markup:
 // <p>Plain old paragraph</p>
-// <p class="xui-text-label">Form Labels</p>
-// <p class="xui-text-placeholder">Placeholder</p>
 // <p class="xui-text-secondary">Secondary text</p>
 // <p class="xui-text-minor">Minor text</p>
+// <p class="xui-text-label">Form Labels</p>
+// <p class="xui-text-placeholder">Placeholder</p>
 //
 // Styleguide: Typography.50
 

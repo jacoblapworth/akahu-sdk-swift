@@ -41,7 +41,7 @@
 	h4,
 	h5,
 	h6 {
-		@include xui-bold;
+		font-weight: bold;
 		margin: 1.25em 0;
 	}
 
@@ -88,7 +88,7 @@
 	}
 
 	dt {
-		@include xui-bold;
+		font-weight: bold;
 
 		&::after {
 			content: ":";

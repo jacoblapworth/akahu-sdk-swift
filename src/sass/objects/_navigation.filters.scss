@@ -237,5 +237,5 @@
 }
 
 .#{$ns}-sidebarfilter-is-selected > .#{$ns}-sidebarfilter--body {
-	@include xui-bold;
+	font-weight: bold;
 }

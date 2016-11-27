@@ -1,6 +1,8 @@
 
 //  Statuses
 //
+// Statuses provide text colors that match the sentiment used for banner and toast components.
+//
 // #### Class Names
 //
 // `xui-text-status`	Style for status text
@@ -11,25 +13,25 @@
 //
 // Markup:
 // <span class="xui-text-status">
-//   DRAFT
+//   Draft
 // </span>
 // <span class="xui-text-status xui-text-status-positive">
-//   ACCEPTED
+//   Accepted
 // </span>
 // <span class="xui-text-status xui-text-status-negative">
-//   DECLINED
+//   Declined
 // </span>
 // <p class="xui-heading">
 //   Heading
-//   <span class="xui-text-status">DRAFT</span>
+//   <span class="xui-text-status">Draft</span>
 // </p>
 // <p class="xui-page-title">
 //   Page Titles
-//   <span class="xui-text-status xui-text-status-positive">APPROVED</span>
+//   <span class="xui-text-status xui-text-status-positive">Approved</span>
 // </p>
 // <p class="xui-heading-mini">
 //   Headers
-//   <span class="xui-text-status xui-text-status-negative">OVERDUE</span>
+//   <span class="xui-text-status xui-text-status-negative">Overdue</span>
 // </p>
 //
 // Styleguide: Typography.60

@@ -11,11 +11,13 @@
 //
 // `xui-button-icon` - Class for an icon button as large as the underlying icon
 //
-// `xui-button-icon-large` - Class for a 40x40 button.
+// `xui-button-icon-large` - Class for a button with a 40x40 touch target.
 //
 // You can use `xui-button-icon-large` without using `xui-icon-large`. The icon will
 // stay 30x30, but the button will be 40x40. The icon will be horizontally and vertically
-// centered within the button. This allows you to provide a larger touch target
+// centered within the button, which allows you to provide a larger touch target.
+// As this uses flexbox, ensure you add `xui-u-flex-inherit` to the `<svg>` element
+// for Firefox compatibility.
 //
 // Your icon button should provide:
 // - `title`: This provides additional information about your button to users in a tooltip
@@ -29,18 +31,18 @@
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon xui-button-icon-large {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-large {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon xui-button-icon-large {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-large {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // <br />
 // <div class="xui-text-inverted">
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // </div>
 //

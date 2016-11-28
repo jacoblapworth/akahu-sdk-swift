@@ -200,19 +200,3 @@
 .#{$ns}-text-color-white-faint {
 	color: $xui-color-white-faint;
 }
-
-// Other colors
-//
-// #### Class Names
-//
-// `xui-text-color-icon` used for styling characters for use in place of icons
-//
-// Markup:
-// <div class="xui-input-wrapper xui-margin">
-//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
-//    €
-//  </div>
-//  <input class="xui-input" aria-label="Amount"/>
-//</div>
-//
-// Styleguide: Typography.58.4

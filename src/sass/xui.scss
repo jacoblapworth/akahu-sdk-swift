@@ -29,6 +29,7 @@
 
 @import "vars";
 @import "mixins";
+@import "settings/animation-keyframes"; // XUI keyframes. Should only be imported once.
 
 // Xero styles as per the Xero UI Toolkit
 // -----------------------------------------------------------------------------

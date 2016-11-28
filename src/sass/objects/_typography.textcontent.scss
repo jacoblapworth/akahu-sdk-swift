@@ -8,32 +8,37 @@
 // HTML elements inside `xui-textcontent` will be basically formatted in a way that makes sense for displaying user generated content.
 //
 // Markup:
-// <div class="xui-panel xui-padding-horizontal xui-textcontent">
-//   <h1>First level heading</h1>
-//   <p>This is a paragraph within text content</p>
-//   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
-//   <h2>Second level heading</h2>
+// <div class="xui-panel xui-padding-horizontal xui-padding-bottom xui-textcontent">
+//   <h1>Getting started with Xero Payroll</h1>
+//   <p>Here's what you'll need to sign up to Xero, how to set up your organisation, and links to pages that'll help you get started using Xero.</p>
+//   <hr>
+//   <h2>What you'll need</h2>
+//   <p >You'll need a browser and a Xero account to get started with Xero.</p>
 //   <ul>
-//     <li>First list item</li>
-//     <li>A second list item
-//       <ul>
-//         <li>With a secondary list item</li>
-//       </ul>
-//     </li>
-//     <li>Third list item</li>
+//     <li><a>System requirements</a></li>
+//     <li><a>Sign up for a free Xero account</a></li>
 //   </ul>
-//   <h3>Third level heading</h3>
-//   <dl>
-//     <dt>XUI</dt>
-//     <dd>A shared stylesheet for Xero applications that implements the Xero Pattern Library.</dd>
-//   </dl>
-//   <h4>Fourth level heading</h4>
+//   <h3>Converting from another system</h3>
+//   <h4>MYOB</h4>
+//   <h5>Initial steps</h5>
+//   <ul>
+//     <li><a>Import MYOB Practice chart of accounts</a></li>
+//   </ul>
+//   <h5>Final steps</h5>
+//   <ul>
+//     <li><a href="http://giphy.com/search/happy">Be happy</a></li>
+//   </ul>
 // </div>
 //
 // Styleguide: Typography.80
 
 .#{$ns}-textcontent {
 	@include xui-text-line-height; // 1.5
+	font-size: $xui-font-size-medium;
+
+	* {
+		margin: 1em 0 0;
+	}
 
 	h1,
 	h2,
@@ -41,35 +46,41 @@
 	h4,
 	h5,
 	h6 {
-		margin: 1.25em 0;
+		margin-top: 2em;
+	}
+
+	h1 {
+		@include xui-heading-large;
+		font-size: $xui-font-size-extended-4xlarge;
+	}
+
+	h2 {
+		@include xui-heading-large;
+	}
+
+	h3 {
+		@include xui-heading-medium;
+	}
+
+	h4 {
+		@include xui-heading-small;
+	}
+
+	h5 {
+		@include xui-heading-small;
+		font-weight: normal;
 	}
 
 	h6 {
-		font-size: $xui-font-size-small;
+		@include xui-heading-xsmall;
 	}
 
-	p {
-		margin: 0 0 1em;
-	}
-
-	ol,
-	ul {
-		margin: 0 0 1em;
-		padding: 0 0 0 1.5em;
-	}
-
-	// scss-lint:disable SelectorDepth
-	ul ul {
-		margin: 0;
-	}
-
-	li {
-		display: list-item;
-	}
-
-	dl {
-		margin: 1em 0;
-		padding: 0;
+	hr {
+		background: $xui-color-grey-5;
+		border: 0;
+		height: 1px;
+		margin: 3rem 0;
+		width: 100%;
 	}
 
 	dt {

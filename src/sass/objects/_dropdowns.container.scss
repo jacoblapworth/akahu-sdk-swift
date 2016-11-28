@@ -49,37 +49,42 @@
 //
 // `xui-dropdown-positionbelow` Style for positioning the dropdown below its nearest explictly positioned parent
 //
+// ### Extra small dropdown
+//
 // Markup:
-// <div class="xui-dropdown-layout xui-dropdown-standard xui-dropdown-is-open xui-dropdown-is-opening">
+// <div class="xui-dropdown-layout xui-dropdown-xsmall xui-dropdown-is-open xui-dropdown-is-opening">
 //   <div class="xui-dropdown--mask"></div>
 //   <div class="xui-dropdown--body">
 //     <ul class="xui-picklist">
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Cattle</button>
+//         <button class="xui-pickitem--body" tabindex="-1">All Reports</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Dogs</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
 //       </li>
 //       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Sheep</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Pigs</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Chickens</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Deer</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Goats</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Ducks</button>
+//         <button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
 //       </li>
 //       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Gorillas</button>
+//         <button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">GST Return</button>
 //       </li>
 //     </ul>
 //   </div>
@@ -87,11 +92,32 @@
 //
 // Styleguide: Dropdowns.1
 
+// Full width dropdown
+//
+// Markup:
+// <div class="xui-dropdown-layout xui-u-fullwidth xui-dropdown-is-open xui-dropdown-is-opening">
+//   <div class="xui-dropdown--mask"></div>
+//   <div class="xui-dropdown--body">
+//     <ul class="xui-picklist">
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Monthly</button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Two-monthly</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Six-monthly</button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Dropdowns.1.2
+
 
 .#{$ns}-dropdown-layout {
 	display: none;
 	position: absolute;
-	width: 100%;
 
 	@include xui-breakpoint-narrow-up {
 		z-index: 1000;

@@ -148,27 +148,23 @@
 //
 // `xui-text-reset`	Modifier to reset `line-height: 1`
 //
-// `xui-text-tight`	Modifier to set `line-height: 1.15`
+// `xui-text-tight`	use to retain impact of large copy
 //
-// `xui-text-compact`	Modifier to set `line-height: 1.307`
+// `xui-text-compact`	group UI text when it wraps
 //
-// `xui-text-longform`	Modifier to set `line-height: 1.5`
+// `xui-text-longform`	slightly larger than default, to assist readability for body copy.
 //
 // Markup:
-// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
-//   <p >Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// <div style="max-width: 200px" class="xui-text-tight">
+//   <p class="xui-heading-display">Display Typography</p>
 // </div>
-// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
-//   <p class="xui-text-reset">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// <div style="max-width: 100px" class="xui-text-compact">
+//   <p class="xui-text-emphasis">Hornblower Enterprises
+//   <span class="xui-text-deemphasis">Due 3 Mar, 2017</span>
+//   <span class="xui-text-deemphasis">INV00021</span></p>
 // </div>
-// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
-//   <p class="xui-text-tight">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
-// </div>
-// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
-//   <p class="xui-text-compact">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
-// </div>
-// <div class="xui-panel xui-padding-horizontal xui-margin-bottom">
-//   <p class="xui-text-longform">Xero is great for your clients and great for you. It has everything your clients need - invoicing, bank reconciliation, reporting, contacts and more. And everything you need to run an efficient practice online.</p>
+// <div style="max-width: 200px" class="xui-text-longform">
+//   <p >Find clients and their contact information on a single list.</p>
 // </div>
 //
 // Styleguide: Typography.70

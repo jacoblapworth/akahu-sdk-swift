@@ -15,8 +15,8 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+// TODO: remove this
 @mixin xui-bold {
-	@include xui-font-smooth;
 	font-weight: bold;
 }
 

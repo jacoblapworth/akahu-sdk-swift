@@ -74,6 +74,21 @@
 	color: $xui-color-xero-red;
 }
 
+.#{$ns}-validation {
+	color: $xui-color-grey-2;
+	font-size: $xui-font-size-heading-small;
+}
+
+.#{$ns}-validation-layout {
+		margin-bottom: $xui-s-small;
+		min-height: $xui-s-large;
+		padding-top: $xui-s-xsmall;
+}
+
+.#{$ns}-validation-is-invalid {
+		color: $xui-color-xero-red;
+}
+
 // Inline Forms
 //
 // Use the `xui-form-inline` class with a `<form>` element to create an inline form.

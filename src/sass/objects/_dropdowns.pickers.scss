@@ -21,12 +21,6 @@
 //
 // `xui-datepicker--button-is-disabled`	Modifier for a disabled date picker button
 //
-// `xui-datepicker--day`	Style for a date picker day
-//
-// `xui-datepicker--day-is-disabled`	Modifier for a disabled day (next month)
-//
-// `xui-datepicker--day-is-selected`	Modifier for a selected day
-//
 // `xui-datepicker--header`	Container for a date picker header
 //
 // `xui-datepicker--heading`	Style for a date picker heading
@@ -37,7 +31,74 @@
 //
 // `xui-datepicker--prevbutton`	Style for a date picker previous button
 //
-// `xui-datepicker--weekday`	Style for weekday text
+// <table class="xui-contentblock">
+//   <thead>
+//     <tr class="xui-sectionheading">
+//       <th class="xui-text-sectionheading xui-sectionheading-layout">Day Classes</th>
+//       <th class="xui-text-sectionheading xui-sectionheading-layout">Description</th>
+//       <th class="xui-text-sectionheading xui-sectionheading-layout">Example</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day`</td>
+//       <td class="xui-text-cell xui-padding">Style for a date picker day</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-u-flex xui-u-flex-verticalalign-center">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-disabled`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a disabled day</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-disabled xui-u-flex xui-u-flex-verticalalign-center">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected day</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected xui-u-flex xui-u-flex-verticalalign-center">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-start`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the first date. <br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-start xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-middle`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the dates between the first and last dates.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-middle xui-u-flex xui-u-flex-verticalalign-center">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-end`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the last date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-end xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-hovered-start`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is after the selected date. This should be applied to the selected date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-start xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-end`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is after the selected date. This should be applied to the hovered date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-end xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-middle`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and a hovered start, or end date exists. This should be applied to the dates between start and end dates.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-start`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is before the selected date. This should be applied to the hovered date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-start xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-hovered-end`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is before the selected date. This should be applied to the selected date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-end xui-u-flex xui-u-flex-verticalalign-center" data-content="1">1</div></td>
+//     </tr>
+//   </tbody>
+// </table>
+//
+// `xui-datepicker--weekday`	**Deprecated** Style for weekday text
 //
 // Markup:
 // <div class="xui-popover xui-datepicker">
@@ -73,40 +134,40 @@
 //         <td class="xui-datepicker--day xui-datepicker--othermonth xui-datepicker--day-is-selected" role="gridcell" aria-disabled="true">28</td>
 //         <td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">29</td>
 //         <td class="xui-datepicker--day xui-datepicker--othermonth" role="gridcell" aria-disabled="true">30</td>
-//         <td id="day1" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">1</td>
-//         <td id="day2" class="xui-datepicker--day" role="gridcell" aria-selected="true" tabindex="-1">2</td>
-//         <td id="day3" class="xui-datepicker--day" role="gridcell" tabindex="-1">3</td>
+//         <td id="day1" class="xui-datepicker--day" role="gridcell" tabindex="-1">1</td>
+//         <td id="day2" class="xui-datepicker--day" role="gridcell" aria-selected="true">2</td>
+//         <td id="day3" class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-start" role="gridcell" data-content="3">3</td>
 //       </tr>
 //       <tr role="row">
-//         <td id="day4" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">4</td>
-//         <td id="day5" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">5</td>
-//         <td id="day6" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">6</td>
-//         <td id="day7" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">7</td>
-//         <td id="day8" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">8</td>
-//         <td id="day9" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">9</td>
-//         <td id="day10" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">10</td>
+//         <td id="day4" class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">4</td>
+//         <td id="day5" class="xui-datepicker--day xui-datepicker--day-is-hovered-end" role="gridcell" data-content="5">5</td>
+//         <td id="day6" class="xui-datepicker--day xui-datepicker--day-is-today" role="gridcell">6</td>
+//         <td id="day7" class="xui-datepicker--day xui-datepicker--day-is-hovered-start" role="gridcell" data-content="7">7</td>
+//         <td id="day8" class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">8</td>
+//         <td id="day9" class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">9</td>
+//         <td id="day10" class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-end" role="gridcell" data-content="10">10</td>
 //       </tr>
 //       <tr role="row">
-//         <td id="day11" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">11</td>
-//         <td id="day12" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">12</td>
-//         <td id="day13" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">13</td>
-//         <td id="day14" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">14</td>
-//         <td id="day15" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">15</td>
-//         <td id="day16" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">16</td>
-//         <td id="day17" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">17</td>
+//         <td id="day11" class="xui-datepicker--day" role="gridcell">11</td>
+//         <td id="day12" class="xui-datepicker--day xui-datepicker--day-is-selected-start" role="gridcell" data-content="12">12</td>
+//         <td id="day13" class="xui-datepicker--day xui-datepicker--day-is-selected-middle" role="gridcell">13</td>
+//         <td id="day14" class="xui-datepicker--day xui-datepicker--day-is-selected-middle" role="gridcell">14</td>
+//         <td id="day15" class="xui-datepicker--day xui-datepicker--day-is-selected-end" role="gridcell" data-content="15">15</td>
+//         <td id="day16" class="xui-datepicker--day" role="gridcell">16</td>
+//         <td id="day17" class="xui-datepicker--day" role="gridcell">17</td>
 //       </tr>
 //       <tr role="row">
-//         <td id="day18" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">18</td>
-//         <td id="day19" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">19</td>
-//         <td id="day20" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">20</td>
-//         <td id="day21" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">21</td>
-//         <td id="day22" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">22</td>
-//         <td id="day23" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">23</td>
-//         <td id="day24" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">24</td>
+//         <td id="day18" class="xui-datepicker--day" role="gridcell">18</td>
+//         <td id="day19" class="xui-datepicker--day" role="gridcell">19</td>
+//         <td id="day20" class="xui-datepicker--day" role="gridcell">20</td>
+//         <td id="day21" class="xui-datepicker--day" role="gridcell">21</td>
+//         <td id="day22" class="xui-datepicker--day" role="gridcell">22</td>
+//         <td id="day23" class="xui-datepicker--day" role="gridcell">23</td>
+//         <td id="day24" class="xui-datepicker--day" role="gridcell">24</td>
 //       </tr>
 //       <tr role="row">
-//         <td id="day25" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">25</td>
-//         <td id="day26" class="xui-datepicker--day" role="gridcell" tabindex="-1" aria-selected="false">26</td>
+//         <td id="day25" class="xui-datepicker--day" role="gridcell">25</td>
+//         <td id="day26" class="xui-datepicker--day" role="gridcell">26</td>
 //         <td id="day27" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">27</td>
 //         <td id="day28" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">28</td>
 //         <td id="day29" class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">29</td>
@@ -118,6 +179,25 @@
 // </div>
 //
 // Styleguide: Dropdowns.3
+
+@mixin xui-datepicker-selection-bubble($color : $xui-color-xero-blue) {
+	&::before {
+    position: absolute;
+    content: attr(data-content);
+    background: $color;
+    margin-left: 50%;
+    border-radius: 50%;
+    line-height: 2.4em;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+    transition: all 0.1s ease;
+    vertical-align: middle;
+  }
+}
 
 .#{$ns}-datepicker {
 	font-size: 0.9375rem;
@@ -167,12 +247,13 @@
 
 .#{$ns}-datepicker--day {
 	@include xui-button-icon-states($hover-bg-color: $xui-color-background);
-	border: 1px solid transparent;
+	border: 0;
 	border-radius: 50%;
 	box-sizing: content-box;
 	cursor: pointer;
 	font-size: inherit;
 	height: 2.2em;
+	position: relative;
 	text-align: center;
 	width: 2.2em;
 }
@@ -204,4 +285,63 @@
 	&:hover {
 		background-color: inherit;
 	}
+}
+
+.#{$ns}-datepicker--day-is-today {
+	color: $xui-color-xero-blue;
+}
+
+.#{$ns}-datepicker--day-is-selected-hovered-start {
+	@include xui-datepicker-selection-bubble;
+	background: linear-gradient(90deg, $xui-color-white 50%, $xui-color-grey-6 50%);
+	border-radius: 0;
+	color: $xui-color-white;
+}
+
+.#{$ns}-datepicker--day-is-selected-hovered-end {
+	@include xui-datepicker-selection-bubble;
+	background: linear-gradient(90deg, $xui-color-grey-6 50%, $xui-color-white 50%);
+	border-radius: 0;
+	color: $xui-color-white;
+}
+
+.#{$ns}-datepicker--day-is-hovered-start {
+	@include xui-datepicker-selection-bubble($xui-color-grey-6);
+	background: linear-gradient(90deg, $xui-color-white 50%, $xui-color-grey-6 50%);
+	border-radius: 0;
+}
+
+.#{$ns}-datepicker--day-is-hovered-middle {
+  background: $xui-color-grey-6;
+  border-radius: 0;
+}
+
+.#{$ns}-datepicker--day-is-hovered-end {
+	@include xui-datepicker-selection-bubble($xui-color-grey-6);
+	background: linear-gradient(90deg, $xui-color-grey-6 50%, $xui-color-white 50%);
+	border-radius: 0;
+}
+
+.#{$ns}-datepicker--day-is-selected-start {
+	@include xui-datepicker-selection-bubble;
+	background: linear-gradient(90deg, $xui-color-white 50%, $xui-color-xero-blue 50%);
+	border-radius: 0;
+	color: $xui-color-white;
+}
+
+.#{$ns}-datepicker--day-is-selected-middle {
+  background: $xui-color-xero-blue;
+  border-radius: 0;
+  color: $xui-color-white;
+
+	&:hover {
+		background: $xui-color-xero-blue;
+	}
+}
+
+.#{$ns}-datepicker--day-is-selected-end {
+	@include xui-datepicker-selection-bubble;
+	background: linear-gradient(90deg, $xui-color-xero-blue 50%, $xui-color-white 50%);
+	border-radius: 0;
+	color: $xui-color-white;
 }

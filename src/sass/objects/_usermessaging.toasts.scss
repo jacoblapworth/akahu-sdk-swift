@@ -66,7 +66,6 @@
 		border-left: 0;
 		border-radius: 0;
 		border-right: 0;
-		display: flex; // IE11 requires this, otherwise toasts will stack oddly
 		margin: 0;
 		max-width: none;
 		width: 100%;
@@ -220,7 +219,7 @@
 // Styleguide: User Messaging.200.3
 
 .#{$ns}-toast--action {
-	@include xui-bold;
+	font-weight: bold;
 }
 
 .#{$ns}-toast--message,

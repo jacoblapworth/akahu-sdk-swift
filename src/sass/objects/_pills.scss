@@ -21,42 +21,57 @@
 //
 // `.xui-pill-layout` Layout assumption s for Pill's, mainly max-width restrictions.
 //
-// `.xui-pill--text` The text inside the pill should truncate when it reaches it max width, and adds some extra horizontal padding to make the clickable area easier to target.
+// `.xui-pill--content` Any content inside the pill should truncate when it reaches it max width, and adds some extra horizontal padding to make the clickable area easier to target.
 //
-// `.xui-pill--avatar` Adds an extra small horizontal margin to the avatar inside a pill
+// `.xui-pill--secondary` Adds an extra small horizontal margin to the secondary items inside a pill
 //
 // `.xui-pill-invalid` Invalid state of a pill.
 //
+//	#### Deprecated Class Names
+//
+// `.xui-pill--text` Has now changed to `.xui-pill--content` to imply more flexibility with this class outside of text.
+//
+// `.xui-pill--avatar` Is now `.xui-pill--secondary` as we allow other secondary options and not just avatars.
+//
+//
 // Markup:
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <span class="xui-pill--text">Pill Value</span>
+//   <span class="xui-pill--content">Pill Value</span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <span class="xui-pill--text">Pill with a really long piece of text, for example you might have a long name</span>
+//   <span class="xui-pill--content">Pill with a really long piece of text, for example you might have a long name</span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top">
-//	 <span>
-//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
-//     <span class="xui-pill--text">pill@withemailaddress.com</span>
+//   <span class="xui-pill--content">
+//     <abbr class="xui-avatar xui-avatar-small xui-pill--secondary xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+//     <span>pill@withemailaddress.com</span>
 //   </span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
-//   <span class="xui-pill--text" class="xui-pill--text">Invalid</span>
+//   <span class="xui-pill--content" class="xui-pill--content">Invalid</span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 //  </div>
 //  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <a href='#kssref-pills-2' class="xui-pill--text">With a destination</a>
+//   <a href='#kssref-pills-2' class="xui-pill--content">With a destination</a>
+//   <button class="xui-button xui-button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//   </button>
+//  </div>
+//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+//    <button class="xui-button xui-pill--content">
+//     <span class="xui-text-placeholder">Status</span>
+//     <span>Draft</span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
@@ -72,14 +87,18 @@
 	cursor: default;
 	display: inline-flex;
 
-	.#{$ns}-pill--avatar {
-		@include xui-margin-horizontal($xui-s-xsmall);
+	.#{$ns}-pill--avatar, .#{$ns}-pill--secondary {
+		@include xui-margin-left($xui-s-xsmall);
 	}
 
-	.#{$ns}-pill--text {
+	.#{$ns}-pill--text, .#{$ns}-pill--content {
 		overflow: hidden;
-		padding: $xui-s-xsmall 0;
+		padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
 		text-overflow: ellipsis;
+
+		:not(:last-child) {
+			@include xui-margin-right($xui-s-xsmall);
+		}
 	}
 }
 

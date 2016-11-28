@@ -61,7 +61,7 @@ function changeExampleView(el) {
 }
 
 var loadExamples = function() {
-	const examples = document.querySelectorAll('[data-sectionid]');
+	var examples = document.querySelectorAll('[data-sectionid]');
 	for(var i = 0; i < examples.length; i++) {
 		var sectionId = examples[i].attributes['data-sectionid'].value;
 		var state = states[sectionId] ? states[sectionId] : states.default;

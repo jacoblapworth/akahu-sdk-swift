@@ -16,6 +16,7 @@
 }
 
 @mixin xui-container {
+	@include xui-font-smooth;
 	box-sizing: border-box;
 	color: $xui-color-primary-text;
 	font-family: $xui-font-family;

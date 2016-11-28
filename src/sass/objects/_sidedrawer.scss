@@ -66,10 +66,10 @@ $xui-drawer-width: 350px;
 }
 
 .#{$ns}-sidedrawer--header {
-	@include xui-bold;
 	background: $xui-color-panel;
 	border-bottom: 1px solid $xui-color-border;
 	box-sizing: border-box;
+	font-weight: bold;
 	text-align: center;
 	width: 100%;
 	z-index: 5;

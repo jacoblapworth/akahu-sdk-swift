@@ -18,6 +18,9 @@
 //
 // `xui-pageheading--content-layout`	Recommended layout for page heading content
 //
+// `xui-pageheading--content-layout-titleonly`	Layout class for page heading content that only has a title (includes IE11 fix).
+// Use in conjunction with `xui-pageheading--content-layout`.
+//
 // `xui-pageheading--title`	Style for a page heading title
 //
 // `xui-breadcrumb`	Style for breadcrumb text
@@ -26,7 +29,7 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-pageheading--content-layout-titleonly xui-page-width-standard">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
 // </header>
@@ -98,24 +101,23 @@
 	flex-wrap: no-wrap;
 	min-height: 60px;
 	overflow: hidden;
-
-	// Content container
-	.#{$ns}-pageheading--content {
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.#{$ns}-pageheading--breadcrumbs {
-		align-items: center;
-		display: flex;
-		flex: 1 1 auto;
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
 }
 
+// Content container
+.#{$ns}-pageheading--content {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.#{$ns}-pageheading--breadcrumbs {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
 
 .#{$ns}-pageheading--content-layout {
 	@include xui-margin-vertical($xui-s-small);
@@ -132,6 +134,10 @@
 			@include xui-margin-horizontal($xui-s-small);
 		}
 	}
+}
+
+.#{$ns}-pageheading--content-layout-titleonly {
+	height: 40px;
 }
 
 .#{$ns}-breadcrumb {

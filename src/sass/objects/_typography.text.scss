@@ -47,9 +47,11 @@
 
 // Links
 //
-// Default link styling is applied to the `<a>` element. Minor link styling is
-// provided for suplimentry links that are clickable but for which we do not
+// Default link styling is applied to the `<a>` element. `.xui-text-link` can be
+// used to provide full underline on hover and focus behaviour. Minor link styling is
+// provided for supplementary links that are clickable but for which we do not
 // want to draw attention to. This could be for secondary links or lists of links.
+// Minor links should not be used in strings of text.
 //
 // #### Class Names
 //
@@ -58,11 +60,27 @@
 // `xui-text-minorlink` inherits it's parent text colour, but has standard link hover and focus highlighting
 //
 // Markup:
-// <p><a class="xui-link">The quick brown fox jumps over the lazy dog</a></p>
-// <p><a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a></p>
-// <p class="xui-text-secondary">
-//   <a class="xui-text-minorlink">The quick brown fox jumps over the lazy dog</a>
-// </p>
+// <div class="xui-panel xui-padding" style="display:inline-block">
+// <table ><tbody>
+// <tr>
+// <th class="xui-text-leftaligned">Account</th><th class="xui-text-rightaligned xui-padding-left-large">This month</th><th class="xui-text-rightaligned xui-padding-left-large">Year to date</th></tr>
+// <tr>
+//  <td class="xui-text-leftaligned"><a class="xui-text-link">Advertising (600)</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >10,453.75</a></td>
+// </tr>
+// <tr>
+//  <td class="xui-text-leftaligned"><a class="xui-text-link">Entertainment (620)</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >53.60</a></td>
+// </tr>
+// <tr>
+//  <td class="xui-text-leftaligned"><a class="xui-text-link">Inventory (140)</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+// </tr>
+// </tbody></table>
+// </div>
 //
 // Styleguide: Typography.51
 

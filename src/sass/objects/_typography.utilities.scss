@@ -102,11 +102,11 @@
 
 // Common colors
 //
-// `xui-text-color-standard`, `xui-text-color-black`
+// `xui-text-color-standard`, `xui-text-color-black` the primary text color in XUI.
 //
-// `xui-text-color-muted`, `xui-text-muted`
+// `xui-text-color-muted`, `xui-text-muted` for text that requires reduced hierarchy. It can be used independently or via `.xui-text-secondary`
 //
-// `xui-text-color-faint`
+// `xui-text-color-faint` should be used very sparingly for inconsequential things due to it's poor accessibility
 //
 // Markup:
 // <p class="xui-text-color-standard">The quick brown fox jumps over the lazy dog</p>
@@ -200,19 +200,3 @@
 .#{$ns}-text-color-white-faint {
 	color: $xui-color-white-faint;
 }
-
-// Other colors
-//
-// #### Class Names
-//
-// `xui-text-color-icon` used for styling characters for use in place of icons
-//
-// Markup:
-// <div class="xui-input-wrapper xui-margin">
-//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
-//    €
-//  </div>
-//  <input class="xui-input" aria-label="Amount"/>
-//</div>
-//
-// Styleguide: Typography.58.4

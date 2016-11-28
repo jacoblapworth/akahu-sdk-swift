@@ -99,6 +99,24 @@
 //
 // Styleguide: Icons.5
 
+// Text color
+//
+// XUI supports styling a character to look like an icon.
+//
+// #### Class Names
+//
+// `xui-text-color-icon` used for styling characters for use in place of icons
+//
+// Markup:
+// <div class="xui-input-wrapper xui-margin">
+//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
+//    €
+//  </div>
+//  <input class="xui-input" aria-label="Amount"/>
+//</div>
+//
+// Styleguide: Icons.5.1
+
 // Accessibility
 //
 // You can easily add screen reader information to an SVG using the `<title>` and `<desc>` tags.

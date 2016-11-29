@@ -107,19 +107,9 @@
 }
 
 .#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body {
+	border-left: $xui-selected-item-border-width solid currentColor;
 	color: $xui-color-xero-blue;
-
-	&::before {
-		border-left: 3px solid $xui-color-xero-blue;
-		bottom: 0;
-		content: " ";
-		display: block;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 3px;
-		z-index: 1;
-	}
+	padding-left: $xui-s-large - $xui-selected-item-border-width;
 }
 
 // Submenus

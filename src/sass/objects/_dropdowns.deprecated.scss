@@ -6,7 +6,9 @@
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
 //
-// The following dropdown classes have been deprecated and will removed in a future version of XUI.
+// *The following dropdown classes have been deprecated and will removed in a future version of XUI.*
+//
+// *To recreate this behaviour use <a href="#dropdowns-1">dropdowns</a> and <a href="#navigation-6">picklists</a>*
 //
 // ### Behaviour
 //
@@ -18,9 +20,9 @@
 //
 // #### Class Names
 //
-// `xui-dropdownmenu`	Container for a drop down menu
+// `xui-dropdownmenu`	Container for a drop down menu, replaced by `xui-dropdown-layout`
 //
-// `xui-dropdownmenu--body`	Container for the body of a drop down menu
+// `xui-dropdownmenu--body`	Container for the body of a drop down menu, replaced by `xui-dropdown--body`
 //
 // `xui-dropdownmenu--footer`	Container for the footer of a drop down menu
 //
@@ -28,7 +30,7 @@
 //
 // `xui-dropdownmenu--groupheading-layout`	Recommended layout for a drop down menu group heading
 //
-// `xui-dropdownmenu-is-closed`	Hide the drop down menu
+// `xui-dropdownmenu-is-closed`	Hide the drop down menu, replaced by `xui-dropdown-is-closed`
 //
 // `xui-dropdownmenu-small` Modifier for a small dropdown menu
 //
@@ -36,15 +38,15 @@
 //
 // `xui-dropdownmenu-large` Modifier for a large  dropdown menu
 //
-// `xui-menugroup`	Container for a group of menu items
+// `xui-menugroup`	Container for a group of menu items, replaced by `xui-picklist`
 //
 // `xui-menugroup-layout`	Recommended layout for a menu group
 //
-// `xui-menuitem`	Container for a menu item
+// `xui-menuitem`	Container for a menu item, replaced by `xui-pickitem`
 //
-// `xui-menuitem--body`	Container for the body of a menu item
+// `xui-menuitem--body`	Container for the body of a menu item, replaced by `xui-pickitem--body`
 //
-// `xui-menuitem--input`	Style for a menu item input (e.g. checkbox)
+// `xui-menuitem--input` Style for a menu item input (e.g. checkbox)
 //
 // `xui-menuitem-is-selected`	Modifier for a selected menu item
 //

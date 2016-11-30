@@ -173,7 +173,7 @@ $xui-color-variations: (
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
 //
-// This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>
+// *This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>*
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
@@ -182,13 +182,13 @@ $xui-color-variations: (
 //
 // #### Class Names
 //
-// `xui-tabgroup-vertical`	Container for a group of vertical tabs
+// `xui-tabgroup-vertical`	Container for a group of vertical tabs, replaced by `xui-picklist`
 //
-// `xui-tabgroup-vertical-layout`	Recommened layout for a vertical tab group
+// `xui-tabgroup-vertical-layout`	Recommended layout for a vertical tab group
 //
-// `xui-verticaltab`	Container for a vertical tab
+// `xui-verticaltab`	Container for a vertical tab, replaced by `xui-pickitem`
 //
-// `xui-verticaltab--body`	Container for the body of a vertical tab
+// `xui-verticaltab--body`	Container for the body of a vertical tab, replaced by `xui-pickitem--body`
 //
 // `xui-verticaltab-is-selected`	Modifier for the currently selected vertical tab
 //

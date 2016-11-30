@@ -108,11 +108,13 @@
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
 //
+// *This component has been deprecated, alternatively, use use <a href="#icons-1">icons</a>*
+//
 // Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
 //
 // #### Class Names
 //
-// `xui-caret`	Style for a CSS caret
+// `xui-caret`	Style for a CSS caret, replaced by `xui-icon-inline`
 //
 // Markup:
 //  <p>Text <span class="xui-caret"></span></p>

@@ -31,8 +31,8 @@
 //  <section class="xui-u-container xui-u-hidden-mobile">hidden on mobile</section>
 //
 // Styleguide: Utilities.1
-// scss-lint:disable ImportantRule
 
+// scss-lint:disable ImportantRule
 .#{$ns}-u-hidden {
 	display: none !important;
 	// Screen readers sometimes ignore display:none as per
@@ -51,6 +51,25 @@
 	}
 }
 
+// Overflow
+//
+// The overflow property specifies whether to clip content, render scrollbars or just display content when it overflows its block level container.
+//
+// #### Class Names
+//
+// `xui-u-overflow-hidden`	Content is clipped, with no scrollbars
+//
+// Markup:
+// <section class="xui-u-overflow-hidden" style="height:62px">
+//   <p>The utility classes, like the grid system and now the margin/padding classes, provide atomic control but don't come with (and can't come with) any consideration for a consistent approach to responsive design. You end up with needing extra classes to define when and how the grid should decompose and extra classes to define when and how margins and padding should shift for various viewports.</p>
+//   <p>Any design changes can also no longer be easily updated across all parts of the app that use XUI since layout and margin/padding decisions have been pushed off to individual teams/pages. (I'm also unsure how this works when implementing React components. Is there configuration in each component to determine which margin/padding to use?)</p>
+// </section>
+//
+// Styleguide: Utilities.1.1
+
+.#{$ns}-u-overflow-hidden {
+	overflow: hidden !important;
+}
 
 // Flex
 //
@@ -153,6 +172,39 @@
 	width: 100%;
 }
 
+// Max Widths
+//
+// For any element where you would like to set a max-width.
+//
+// #### Class Names
+//
+// `xui-u-maxwidth-tiny`	Modifier for a tiny width element
+//
+// `xui-u-maxwidth-xsmall`	Modifier for an extra small element
+//
+// `xui-u-maxwidth-small`	Modifier for a small width element
+//
+// `xui-u-maxwidth-standard`	Modifier for a standard width element
+//
+// `xui-u-maxwidth-medium`	Modifier for a medium width element
+//
+// `xui-u-maxwidth-large`	Modifier for a large width element
+//
+// `xui-u-maxwidth-xlarge`	Modifier for an extra large element
+//
+// `xui-u-maxwidth-huge`	Modifier for a hugely wide element
+//
+// Markup:
+//   <div class="xui-u-maxwidth-tiny">Tiny Max-Width - This is a teeny tiny max width for you to enjoy.</div>
+//
+// Styleguide: Utilities.4
+
+@each $number, $variant in $xui-width-variants {
+	.xui-u-maxwidth-#{$variant} {
+		max-width: $xui-starting-width + ($xui-base-width * $number);
+	}
+}
+
 // Preventing Selection
 //
 // For textual elements where the user could perform multiple clicks in quick succession, the browser
@@ -166,7 +218,7 @@
 // Markup:
 // <p class="xui-u-noselect">Text <span class="xui-caret"></span></p>
 //
-// Styleguide: Utilities.4
+// Styleguide: Utilities.5
 
 .#{$ns}-u-noselect {
 	user-select: none;
@@ -191,7 +243,7 @@
 // 	<div><span class="xui-text-panelheading">Long transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-long"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
 // </div>
 //
-// Styleguide: Utilities.5
+// Styleguide: Utilities.6
 
 .#{$ns}-u-transition-short {
 	transition: $xui-transition-duration-short;
@@ -218,11 +270,11 @@
 //
 // Markup:
 // <div>
-//		<textarea class="xui-input xui-u-resize-none">Not resizable</textarea>
-//		<textarea class="xui-input xui-u-resize-vertical">Vertically resizable</textarea>
+//   <textarea class="xui-input xui-u-resize-none">Not resizable</textarea>
+//   <textarea class="xui-input xui-u-resize-vertical">Vertically resizable</textarea>
 // </div>
 //
-// Styleguide: Utilities.6
+// Styleguide: Utilities.7
 
 .#{$ns}-u-resize-none {
 	resize: none;

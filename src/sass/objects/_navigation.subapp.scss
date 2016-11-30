@@ -18,6 +18,9 @@
 //
 // `xui-pageheading--content-layout`	Recommended layout for page heading content
 //
+// `xui-pageheading--content-layout-titleonly`	Layout class for page heading content that only has a title (includes IE11 fix).
+// Use in conjunction with `xui-pageheading--content-layout`.
+//
 // `xui-pageheading--title`	Style for a page heading title
 //
 // `xui-breadcrumb`	Style for breadcrumb text
@@ -26,7 +29,7 @@
 //
 // Markup:
 // <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-pageheading--content-layout-titleonly xui-page-width-standard">
 //     <h1 class="xui-pageheading--title">Sales</h1>
 //   </div>
 // </header>
@@ -68,21 +71,21 @@
 // <br />
 // <header class="xui-pageheading">
 //   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
-//      <ol class="xui-pageheading--breadcrumbs">
-//         <li class="xui-breadcrumb" aria-selected="false">
-//         	<a href="#">Sales</a></li>
-//         	<svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
-//         <li class="xui-breadcrumb" aria-selected="false">
-//         	<a href="#">Invoices</a></li>
-//         	<svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
-//         <li class="xui-breadcrumb" aria-selected="true">
-//         	INV-001
-//        	</li>
-//       </ol>
-//      <button type="button" class="xui-button xui-button-standard" style="width:initial;">
-//         Options
-//         <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//      </button>
+//     <ol class="xui-pageheading--breadcrumbs">
+//       <li class="xui-breadcrumb" aria-selected="false">
+//       	 <a href="#">Sales</a></li>
+//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+//       <li class="xui-breadcrumb" aria-selected="false">
+//       	 <a href="#">Invoices</a></li>
+//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+//       <li class="xui-breadcrumb" aria-selected="true">
+//       	 INV-001
+//       </li>
+//     </ol>
+//     <button type="button" class="xui-button xui-button-standard" style="width:initial;">
+//       Options
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </button>
 //   </nav>
 // </header>
 //
@@ -98,24 +101,23 @@
 	flex-wrap: no-wrap;
 	min-height: 60px;
 	overflow: hidden;
-
-	// Content container
-	.#{$ns}-pageheading--content {
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.#{$ns}-pageheading--breadcrumbs {
-		align-items: center;
-		display: flex;
-		flex: 1 1 auto;
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
 }
 
+// Content container
+.#{$ns}-pageheading--content {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.#{$ns}-pageheading--breadcrumbs {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
 
 .#{$ns}-pageheading--content-layout {
 	@include xui-margin-vertical($xui-s-small);
@@ -134,8 +136,12 @@
 	}
 }
 
+.#{$ns}-pageheading--content-layout-titleonly {
+	height: 40px;
+}
+
 .#{$ns}-breadcrumb {
-	font-size: $xui-font-size-page-title;
+	font-size: $xui-font-size-large;
 	font-weight: bold;
 }
 
@@ -175,7 +181,7 @@
 
 .#{$ns}-pageheading--title {
 	flex: 1 1 auto;
-	font-size: $xui-font-size-page-title;
+	font-size: $xui-font-size-large;
 	font-weight: bold;
 	margin: 0 $xui-s-small 0 0;
 }

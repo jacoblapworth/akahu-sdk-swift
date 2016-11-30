@@ -102,6 +102,8 @@ $xui-color-variations: (
 	position: relative;
 
 	.#{$ns}-tab--body {
+		@include xui-text-line-height-compact;
+
 		border-radius: $xui-radius;
 		color: $xui-color-secondary-text;
 		cursor: pointer;
@@ -130,6 +132,7 @@ $xui-color-variations: (
 		content: " ";
 		display: block;
 		height: 3px;
+		left: 0;
 		position: absolute;
 		width: 100%;
 	}
@@ -164,11 +167,13 @@ $xui-color-variations: (
 		right: 0;
 	}
 }
+
 // Vertical
 //
-// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="status">
-//   <p class="xui-banner--message">This component is deprecated, alternatively, usse <a href="#navigation-6">picklists</a></p>
-// </div>
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// *This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>*
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
@@ -177,13 +182,13 @@ $xui-color-variations: (
 //
 // #### Class Names
 //
-// `xui-tabgroup-vertical`	Container for a group of vertical tabs
+// `xui-tabgroup-vertical`	Container for a group of vertical tabs, replaced by `xui-picklist`
 //
-// `xui-tabgroup-vertical-layout`	Recommened layout for a vertical tab group
+// `xui-tabgroup-vertical-layout`	Recommended layout for a vertical tab group
 //
-// `xui-verticaltab`	Container for a vertical tab
+// `xui-verticaltab`	Container for a vertical tab, replaced by `xui-pickitem`
 //
-// `xui-verticaltab--body`	Container for the body of a vertical tab
+// `xui-verticaltab--body`	Container for the body of a vertical tab, replaced by `xui-pickitem--body`
 //
 // `xui-verticaltab-is-selected`	Modifier for the currently selected vertical tab
 //
@@ -244,6 +249,8 @@ $xui-color-variations: (
 }
 
 .#{$ns}-verticaltab--body {
+	@include xui-text-line-height-compact;
+
 	color: $xui-color-primary-text;
 	display: block;
 	width: 100%;

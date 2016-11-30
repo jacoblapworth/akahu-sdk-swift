@@ -1,7 +1,14 @@
 @import "../vars";
 @import "../mixins";
 
-// Menu
+// Deprecated
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// *The following dropdown classes have been deprecated and will removed in a future version of XUI.*
+//
+// *To recreate this behaviour use <a href="#dropdowns-1">dropdowns</a> and <a href="#navigation-6">picklists</a>*
 //
 // ### Behaviour
 //
@@ -11,15 +18,11 @@
 // trigger. The same applies for whether the menu should be left-aligned or right-aligned against
 // the trigger.
 //
-// ### Accessibility
-// An example of applying ARIA attributes to a dropdown is given below, using the roles `menubar`, `menu` and `menuitem`.
-// The dropdown must also provide keyboard support to be accessible, as described in the [W3C documentation on managing focus](https://www.w3.org/TR/wai-aria/usage#managingfocus).
-//
 // #### Class Names
 //
-// `xui-dropdownmenu`	Container for a drop down menu
+// `xui-dropdownmenu`	Container for a drop down menu, replaced by `xui-dropdown-layout`
 //
-// `xui-dropdownmenu--body`	Container for the body of a drop down menu
+// `xui-dropdownmenu--body`	Container for the body of a drop down menu, replaced by `xui-dropdown--body`
 //
 // `xui-dropdownmenu--footer`	Container for the footer of a drop down menu
 //
@@ -27,7 +30,7 @@
 //
 // `xui-dropdownmenu--groupheading-layout`	Recommended layout for a drop down menu group heading
 //
-// `xui-dropdownmenu-is-closed`	Hide the drop down menu
+// `xui-dropdownmenu-is-closed`	Hide the drop down menu, replaced by `xui-dropdown-is-closed`
 //
 // `xui-dropdownmenu-small` Modifier for a small dropdown menu
 //
@@ -35,15 +38,15 @@
 //
 // `xui-dropdownmenu-large` Modifier for a large  dropdown menu
 //
-// `xui-menugroup`	Container for a group of menu items
+// `xui-menugroup`	Container for a group of menu items, replaced by `xui-picklist`
 //
 // `xui-menugroup-layout`	Recommended layout for a menu group
 //
-// `xui-menuitem`	Container for a menu item
+// `xui-menuitem`	Container for a menu item, replaced by `xui-pickitem`
 //
-// `xui-menuitem--body`	Container for the body of a menu item
+// `xui-menuitem--body`	Container for the body of a menu item, replaced by `xui-pickitem--body`
 //
-// `xui-menuitem--input`	Style for a menu item input (e.g. checkbox)
+// `xui-menuitem--input` Style for a menu item input (e.g. checkbox)
 //
 // `xui-menuitem-is-selected`	Modifier for a selected menu item
 //
@@ -134,16 +137,17 @@
 //   </footer>
 // </div>
 //
-// Styleguide: Dropdowns.1
+// Styleguide: Dropdowns.99
 
 .#{$ns}-dropdownmenu {
 	background-color: $xui-color-panel;
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-2;
-	font-size: $xui-font-size-text;
+	font-size: $xui-font-size-small;
 	list-style-type: none;
 	margin: 0;
+	outline: none;
 	overflow: hidden;
 	transition: $xui-transition-duration-short opacity $xui-easing-standard;
 }
@@ -174,6 +178,8 @@
 }
 
 .#{$ns}-dropdownmenu--body {
+	@include xui-overflow-shadow;
+
 	overflow: auto;
 	-ms-scroll-chaining: none;
 }
@@ -194,6 +200,7 @@
 }
 
 .#{$ns}-menuitem {
+	border-left: $xui-border-transparent;
 	list-style-type: none;
 	user-select: none;
 
@@ -206,10 +213,10 @@
 	.#{$ns}-menuitem--body {
 		@include xui-padding-horizontal($xui-s-standard);
 		@include xui-padding-vertical($xui-s-small);
+		@include xui-text-line-height-compact;
 
 		color: $xui-color-primary-text;
 		display: flex;
-		line-height: 20px;
 		text-align: left;
 		text-decoration: none;
 		width: 100%;
@@ -229,9 +236,6 @@
 .#{$ns}-dropdownmenu--groupheading {
 	background-color: $xui-color-grey-6;
 	border-bottom: $xui-divider-standard;
-	color: $xui-color-secondary-text;
-	font-size: $xui-font-size-heading-small;
-	font-weight: normal;
 	margin: 0;
 
 	&:nth-of-type(n+2) {
@@ -249,8 +253,7 @@
 }
 
 .#{$ns}-menuitem-is-selected {
-	background-color: $xui-color-xero-blue;
-	color: $xui-color-reversed-text;
+	border-left: $xui-border-is-selected;
 
 	.#{$ns}-menuitem--body {
 		color: inherit;
@@ -258,5 +261,7 @@
 
 	&:hover {
 		background-color: $xui-color-xero-blue;
+		color: $xui-color-reversed-text;
+
 	}
 }

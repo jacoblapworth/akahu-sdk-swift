@@ -46,3 +46,9 @@ $xui-breakpoint-wide: 1160px;
 		@content;
 	}
 }
+
+@mixin xui-breakpoint-huge {
+	@media screen and (min-width: $xui-breakpoint-wide){
+		@content;
+	}
+}

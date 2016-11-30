@@ -167,11 +167,13 @@ $xui-color-variations: (
 		right: 0;
 	}
 }
+
 // Vertical
 //
-// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="status">
-//   <p class="xui-banner--message">This component is deprecated, alternatively, usse <a href="#navigation-6">picklists</a></p>
-// </div>
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.

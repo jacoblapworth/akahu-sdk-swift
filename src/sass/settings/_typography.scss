@@ -65,10 +65,11 @@ $xui-font-size-icon-xlarge: 2rem; // 32/16
 
 // Deprecated Tokens
 //
-// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
-// The folowing tokens have been deprecated and will removed in a future version of XUI.
-// </div>
-// Usages of these should be updated to an apropriate new token.
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// The following tokens have been deprecated and will removed in a future version of XUI.
+// Usages of these should be updated to an appropriate new token.
 //
 $xui-font-size-heading:       $xui-font-size-extended-xlarge; // 22/16
 $xui-font-size-page-title:    $xui-font-size-extended-large; // 18/16

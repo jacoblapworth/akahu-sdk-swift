@@ -60,7 +60,8 @@ module.exports = function (grunt) {
 				ignore: [
 					'css-appearance',
 					'css-resize',
-					'viewport-units'
+					'viewport-units',
+					'font-feature'
 				],
 				onFeatureUsage: function(usageInfo) {
 					if (usageInfo.feature === 'flexbox'){

@@ -1,0 +1,149 @@
+@import "../mixins";
+@import "../vars";
+
+// Standard Text
+//
+// #### Class Names
+//
+// `xui-text-secondary` for supporting copy like extra meta data
+//
+// `xui-text-minor` use sparingly for fine-print and inconsequential labelling
+//
+// Labels and placeholder clasees should only be used for forms. See [Labels](file:///Users/james/dev/uxe/xui/docs/section-forms.html#forms-3) in Forms for full demos.
+//
+// `xui-text-label` for labeling form fields
+//
+// `xui-text-placeholder` for showing placeholder content on readonly forms
+//
+// Markup:
+// <p>Plain old paragraph</p>
+// <p class="xui-text-secondary">Secondary text</p>
+// <p class="xui-text-minor">Minor text</p>
+// <p class="xui-text-label">Form Labels</p>
+// <p class="xui-text-placeholder">Placeholder</p>
+//
+// Styleguide: Typography.50
+
+.#{$ns}-text-label {
+	@include xui-text-emphasis;
+	@include xui-text-muted;
+	@include xui-text-small;
+}
+
+.#{$ns}-text-secondary {
+	@include xui-text-muted;
+	@include xui-text-small;
+}
+
+// New tiny muted text helper
+.#{$ns}-text-minor {
+	@include xui-text-muted;
+	@include xui-text-xsmall;
+}
+
+.#{$ns}-text-placeholder {
+	color: $xui-color-placeholder;
+}
+
+// Links
+//
+// Default link styling is applied to the `<a>` element. `.xui-text-link` can be
+// used to provide full underline on hover and focus behaviour. Minor link styling is
+// provided for supplementary links that are clickable but for which we do not
+// want to draw attention to. This could be for secondary links or lists of links.
+// Minor links should not be used in strings of text.
+//
+// #### Class Names
+//
+// `xui-link`, `xui-text-link` adds link hover and focus highlighting.
+//
+// `xui-text-minorlink` inherits it's parent text colour, but has standard link hover and focus highlighting
+//
+// Markup:
+// <div class="xui-panel xui-padding" style="display:inline-block">
+// <table ><tbody>
+// <tr>
+// <th class="xui-text-leftaligned">Account</th><th class="xui-text-rightaligned xui-padding-left-large">This month</th><th class="xui-text-rightaligned xui-padding-left-large">Year to date</th></tr>
+// <tr>
+//  <td class="xui-text-leftaligned"><a class="xui-text-link">Advertising (600)</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >10,453.75</a></td>
+// </tr>
+// <tr>
+//  <td class="xui-text-leftaligned"><a class="xui-text-link">Entertainment (620)</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >53.60</a></td>
+// </tr>
+// <tr>
+//  <td class="xui-text-leftaligned"><a class="xui-text-link">Inventory (140)</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+//  <td class="xui-text-rightaligned"><a class="xui-text-minorlink" >0.00</a></td>
+// </tr>
+// </tbody></table>
+// </div>
+//
+// Styleguide: Typography.51
+
+.#{$ns}-link,
+.#{$ns}-text-link {
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.#{$ns}-text-minorlink {
+	color: inherit;
+
+	&:hover,
+	&:focus {
+		color: $xui-color-xero-blue;
+		text-decoration: underline;
+	}
+}
+
+// Emphasis
+//
+// #### Class Names
+//
+// `xui-text-emphasis` To emphasise a particular piece of text when the default parent is set to normal (via a span element)
+//
+// `xui-text-deemphasis` To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
+//
+// Markup:
+// <p>Please add a <span class="xui-text-emphasis">minimum of 3</span> employees</p>
+// <p class="xui-text-emphasis">Edit Invoice <span class="xui-text-deemphasis">INV0001</span></p>
+//
+// Styleguide: Typography.56
+
+.#{$ns}-text-emphasis {
+	font-weight: $xui-font-weight-emphasis;
+}
+
+.#{$ns}-text-deemphasis {
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Letter Spacing
+//
+// #### Class Names
+//
+// `xui-text-spacing-tight` Tight letterspacing helps retain the impact of large copy
+//
+// `xui-text-spacing-loose` Loose letterspacing assists legibility for letterforms in
+// smaller text blocks, especially those in uppercase
+//
+// Markup:
+// <p>Default letterspacing</p>
+// <p class="xui-heading-display xui-text-spacing-tight">3 March</p>
+// <p class="xui-text-minor xui-text-spacing-loose">ABC</p>
+//
+// Styleguide: Typography.57
+
+.#{$ns}-text-spacing-tight {
+	@include xui-text-spacing-tight;
+}
+
+.#{$ns}-text-spacing-loose {
+	@include xui-text-spacing-loose;
+}

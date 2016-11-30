@@ -83,6 +83,8 @@
 	$dot-size-small: 10px;
 	$dot-size: 12px;
 	$dot-size-large: 14px;
+	$dot-margin: 1px;
+	$dot-margin-large: 2px;
 	$animation-time: 1.3s;
 	$animation-delay: -0.16s;
 
@@ -95,6 +97,7 @@
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;
+	vertical-align: middle;
 	width: $dot-size;
 
 	&:nth-child(1) {
@@ -115,12 +118,12 @@
 	}
 
 	.#{$ns}-loader & {
-		margin-right: $dot-size - $dot-size-small;
+		margin-right: $dot-margin;
 	}
 
 	.#{$ns}-loader-large & {
 		height: $dot-size-large;
-		margin-right: $dot-size-large - $dot-size-small;
+		margin-right: $dot-margin-large;
 		width: $dot-size-large;
 	}
 }
@@ -129,7 +132,7 @@
 	0%,
 	80%,
 	100% {
-		transform: scale(0);
+		transform: scale(0.5);
 	}
 
 	40% {

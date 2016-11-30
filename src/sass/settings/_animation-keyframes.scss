@@ -1,0 +1,81 @@
+// This is a stand-alone file and should only be imported once per project at the top level SCSS file
+// as these translate directly to global CSS keyframes. Importing this file more than once will lead to
+// these keyframes appearing numerous times in the compiled CSS.
+
+@keyframes xui-animation-show {
+
+	0% {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+
+	15% {
+		opacity: 0;
+		transform: scaleY(0.7);
+	}
+
+	100% {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes xui-animation-hide {
+
+	0% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+}
+
+@keyframes xui-animation-slideup {
+
+	0% {
+		transform: translateY(100%);
+	}
+
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes xui-animation-slidedown {
+
+	0% {
+		transform: translateY(-100%);
+	}
+
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes xui-animation-fadein {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes xui-animation-fadeout {
+
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

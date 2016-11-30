@@ -1,4 +1,5 @@
 @import "../vars";
+@import "../mixins";
 
 // Date Picker
 //
@@ -217,8 +218,6 @@
 
 .#{$ns}-datepicker--arrow-icon {
 	display: block;
-	height: 3em;
-	width: 3em;
 }
 
 .#{$ns}-datepicker--prevbutton {
@@ -247,6 +246,7 @@
 }
 
 .#{$ns}-datepicker--day {
+	@include xui-button-icon-states($hover-bg-color: $xui-color-background);
 	border: 0;
 	border-radius: 50%;
 	box-sizing: content-box;
@@ -256,15 +256,12 @@
 	position: relative;
 	text-align: center;
 	width: 2.2em;
-
-	&:hover {
-		background-color: $xui-color-background;
-	}
 }
 
 .#{$ns}-datepicker--weekday {
 	color: $xui-color-disabled-text;
 	font-size: 0.75em;
+	font-weight: normal;
 	text-align: center;
 }
 

@@ -1,4 +1,6 @@
 @import "./colors";
+@import "./layout";
+@import "./typography";
 
 $xui-button-variants-divider-colors: (
 		main : $xui-color-xero-blue-divider,
@@ -14,5 +16,5 @@ $xui-button-variants-background-colors: (
 );
 
 $xui-button-sizes: (
-		small : (line-height: 1, min-width: 60px, padding: 0.5em 1em)
+		small : (padding: 6px $xui-s-small)
 );

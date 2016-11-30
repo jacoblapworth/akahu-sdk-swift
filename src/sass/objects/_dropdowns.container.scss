@@ -1,0 +1,270 @@
+@import "../vars";
+@import "../mixins";
+
+// Dropdowns
+//
+// ### Behaviour
+//
+// Implementations should make the most of the screen space available when showing dropdowns.
+// Scrollbars can be used when there is not enough screen space to fit all menu items. When there
+// is more space above than below the dropdown trigger, the menu should be positioned above the
+// trigger. The same applies for whether the menu should be left-aligned or right-aligned against
+// the trigger.
+//
+// #### Class Names
+//
+// `xui-dropdown-layout` Parent dropdown layout container
+//
+// `xui-dropdown--mask` Mask that is displayed when dropdown takes on narrow screen responsive behaviour.
+//
+// `xui-dropdown--body` Container for the content section of a drop down
+//
+// `xui-dropdown-is-open` Style for an open, visible dropdown
+//
+// `xui-dropdown-is-opening` Style for animating the opening of a dropdown
+//
+// `xui-dropdown-is-closing` Style for animating the closing of a dropdown
+//
+// `xui-dropdown-tiny` Style for a tiny width dropdown
+//
+// `xui-dropdown-xsmall` Style for an extra small width dropdown
+//
+// `xui-dropdown-small` Style for a small width dropdown
+//
+// `xui-dropdown-standard` Style for a standard width dropdown
+//
+// `xui-dropdown-medium` Style for a medium width dropdown
+//
+// `xui-dropdown-large` Style for a large width dropdown
+//
+// `xui-dropdown-xlarge` Style for an extra large width dropdown
+//
+// `xui-dropdown-huge` Style for a huge width dropdown
+//
+// `xui-dropdown-positionright` Style for aligning the right of dropdown with the right of its nearest explictly positioned parent
+//
+// `xui-dropdown-positionleft` Style for aligning the left of the dropdown to the left of its nearest explictly positioned parent
+//
+// `xui-dropdown-positionabove` Style for positioning the dropdown above its nearest explictly positioned parent
+//
+// `xui-dropdown-positionbelow` Style for positioning the dropdown below its nearest explictly positioned parent
+//
+// ### Extra small dropdown
+//
+// Markup:
+// <div class="xui-dropdown-layout xui-dropdown-xsmall xui-dropdown-is-open xui-dropdown-is-opening">
+//   <div class="xui-dropdown--mask"></div>
+//   <div class="xui-dropdown--body">
+//     <ul class="xui-picklist">
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">All Reports</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">GST Return</button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Dropdowns.1
+
+// Full width dropdown
+//
+// Markup:
+// <div class="xui-dropdown-layout xui-u-fullwidth xui-dropdown-is-open xui-dropdown-is-opening">
+//   <div class="xui-dropdown--mask"></div>
+//   <div class="xui-dropdown--body">
+//     <ul class="xui-picklist">
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Monthly</button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Two-monthly</button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="0">
+//         <button class="xui-pickitem--body" tabindex="-1">Six-monthly</button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Dropdowns.1.2
+
+
+.#{$ns}-dropdown-layout {
+	display: none;
+	position: absolute;
+
+	@include xui-breakpoint-narrow-up {
+		z-index: 1000;
+
+		.#{$ns}-dropdown--body {
+			transform: scaleY(0);
+			transform-origin: top;
+		}
+	}
+
+	@include xui-breakpoint-narrow {
+		z-index: 9999;
+
+		.#{$ns}-dropdown--body {
+			left: 0;
+			position: fixed;
+			top: 100vh;
+			width: 100vw;
+		}
+	}
+
+	.#{$ns}-dropdown--mask {
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+
+	.#{$ns}-dropdown--body {
+		max-height: 80vh;
+	}
+}
+
+.#{$ns}-dropdown--mask {
+	background-color: transparentize($xui-color-grey-1, 0.5);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.#{$ns}-dropdown--body {
+	background-color: $xui-color-white;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-2;
+
+	@include xui-breakpoint-narrow {
+		border-radius: 0;
+		box-shadow: none;
+		overflow: auto;
+	}
+}
+
+.#{$ns}-dropdown-is-open {
+
+	@include xui-breakpoint-narrow-up {
+
+		.#{$ns}-dropdown--body {
+			transform: scaleY(1);
+		}
+	}
+
+	@include xui-breakpoint-narrow {
+
+		.#{$ns}-dropdown--mask {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		.#{$ns}-dropdown--body {
+			bottom: 0;
+			top: auto;
+		}
+	}
+
+	&.#{$ns}-dropdown-layout {
+		display: block;
+	}
+}
+
+.#{$ns}-dropdown-is-opening {
+
+	@include xui-breakpoint-narrow-up {
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-show $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	@include xui-breakpoint-narrow {
+
+		.#{$ns}-dropdown--mask {
+			animation: xui-animation-fadein $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-slideup $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	&.#{$ns}-dropdown-layout {
+		display: block;
+	}
+}
+
+.#{$ns}-dropdown-is-closing {
+
+	@include xui-breakpoint-narrow-up {
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-hide $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	@include xui-breakpoint-narrow {
+
+		.#{$ns}-dropdown--mask {
+			animation: xui-animation-fadeout $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+
+		.#{$ns}-dropdown--body {
+			animation: xui-animation-slidedown $xui-transition-duration-short $xui-easing-standard forwards;
+		}
+	}
+
+	&.#{$ns}-dropdown-layout {
+		display: block;
+	}
+}
+
+@each $number, $variant in $xui-width-variants {
+	.#{$ns}-dropdown-#{$variant} {
+		width: $xui-starting-width + ($xui-base-width * $number);
+	}
+}
+
+.#{$ns}-dropdown-positionright {
+	right: 0;
+}
+
+.#{$ns}-dropdown-positionleft {
+	left: 0;
+}
+
+.#{$ns}-dropdown-positionabove {
+	bottom: 100%;
+}
+
+.#{$ns}-dropdown-positionunder {
+	top: 100%;
+}

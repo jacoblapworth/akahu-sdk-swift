@@ -35,50 +35,48 @@
 //
 //
 // Markup:
-//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
 //   <span class="xui-pill--content">Pill Value</span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//  </div>
-//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+// </div>
+// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
 //   <span class="xui-pill--content">Pill with a really long piece of text, for example you might have a long name</span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//  </div>
-//  <div class="xui-pill xui-pill-layout xui-margin-top">
-//	 <span class="xui-pill--content">
+// </div>
+// <div class="xui-pill xui-pill-layout xui-margin-top">
+//   <span class="xui-pill--content">
 //     <abbr class="xui-avatar xui-avatar-small xui-pill--secondary xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
 //     <span>pill@withemailaddress.com</span>
 //   </span>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//  </div>
-//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
+// </div>
+// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
 //   <span class="xui-pill--content" class="xui-pill--content">Invalid</span>
 //   <button class="xui-button xui-button-icon">
-//     <svg class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//  </div>
-//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+// </div>
+// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
 //   <a href='#kssref-pills-2' class="xui-pill--content">With a destination</a>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//  </div>
-//  <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//	 <button class="xui-button xui-pill--content">
+// </div>
+// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
+//   <button class="xui-button xui-pill--content">
 //     <span class="xui-text-placeholder">Status</span>
 //     <span>Draft</span>
-//   </span>
+//   </button>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//  </div>
-//
-// Weight: 4.1
+// </div>
 //
 // Styleguide: Pills.1
 
@@ -123,42 +121,40 @@
 // `.xui-pill-single` Class for the case when only one selection can be made
 //
 // Markup:
-//<div class="xui-input xui-margin-top">
-//  <div class="xui-pill xui-pill-single xui-space-between">
-//	 <span>
-//     <abbr class="xui-avatar xui-avatar-small xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
-//      pill@withemailaddress.com
-//   </span>
-//   <button class="xui-button xui-button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//   </button>
-//  </div>
-//</div>
-//<div class="xui-input xui-margin-top">
-//  <div class="xui-pill xui-pill-single xui-space-between xui-pill-invalid">
-//	 <span>
-//    <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-5">M</abbr>
-//      Invalid Content
-//   </span>
-//   <button class="xui-button xui-button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//   </button>
-//  </div>
-//</div>
-//<div class="xui-input xui-margin-top">
-//  <div class="xui-pill xui-pill-single xui-space-between">
-//	 <span>
-//     <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1">C</abbr>
-//     <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
-//   </span>
-//   <button class="xui-button xui-button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//   </button>
-//  </div>
-//</div>
+// <div class="xui-input xui-margin-top">
+//   <div class="xui-pill xui-pill-single xui-space-between">
+//     <span>
+//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+//       pill@withemailaddress.com
+//     </span>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-input xui-margin-top">
+//   <div class="xui-pill xui-pill-single xui-space-between xui-pill-invalid">
+//     <span>
+//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-5">M</abbr>
+//       Invalid Content
+//     </span>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-input xui-margin-top">
+//   <div class="xui-pill xui-pill-single xui-space-between">
+//     <span>
+//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1">C</abbr>
+//       <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
+//     </span>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
 //
-//
-// Weight: 4.2
 //
 // Styleguide: Pills.2
 

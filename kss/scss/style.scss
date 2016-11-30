@@ -20,8 +20,8 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 }
 
 .ds-anchor {
-	visibility: hidden;
 	margin-left: -21px;
+	visibility: hidden;
 }
 
 .ds-title:hover > .ds-anchor {
@@ -123,6 +123,13 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-description {
 	line-height: 1.8;
+
+	pre {
+		background: $xui-color-background;
+		border: 1px solid $xui-color-border;
+		padding: 15px 25px;
+		width: 100%;
+	}
 }
 
 .ds-markup-wrap,
@@ -212,8 +219,34 @@ $kss-color-padding: #eeebff;
 	top: 2px;
 }
 
-[id*="forms-9"] .xui-dropdownmenu-select {
-	position: inherit;
+[id*="forms-9"] .xui-select {
+	position: relative;
+}
+
+// Dropdowns
+.xui-dropdown-layout {
+	position: relative;
+
+	@include xui-breakpoint-narrow {
+		margin: -15px -25px;
+		min-height: 50vh;
+		overflow: hidden;
+		width: initial;
+
+		.#{$ns}-select & {
+			margin-top: -55px;
+		}
+
+		.#{$ns}-dropdown--mask {
+			position: absolute;
+		}
+
+		.#{$ns}-dropdown--body {
+			max-height: 80%;
+			position: absolute;
+			width: 100%;
+		}
+	}
 }
 
 // Grid Layouts
@@ -384,8 +417,8 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--header-title {
 	display: inline-block;
-	font-weight: bold;
 	font-size: $xui-font-size-heading;
+	font-weight: bold;
 	margin-left: 60px;
 	vertical-align: middle;
 }

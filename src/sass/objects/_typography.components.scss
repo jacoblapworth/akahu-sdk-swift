@@ -132,17 +132,6 @@
 //
 // Default line height: `line-height: 1.5`
 //
-// The default line height in XUI is set with the intent that most text in an
-// application is used within components.
-//
-// This default line height allows text to wrap onto multiple lines either by
-// design or as a consequence of user generated input or string translation
-// and maintain a reasonable layout.
-//
-// Common practice in simple sites and some CSS libraries is to make extensive
-// use of line height for component vertical spacing. We use this default
-// spacing and vertical padding to achieve our overall component height.
-//
 // Common components should declare their own line height and these classes
 // should not be used very often.
 //
@@ -153,8 +142,6 @@
 // `xui-text-tight`	use to retain impact of large copy
 //
 // `xui-text-compact`	group UI text when it wraps
-//
-// `xui-text-longform`	slightly larger than default, to assist readability for body copy.
 //
 // Markup:
 // <div style="max-width: 200px" class="xui-text-tight">
@@ -181,8 +168,4 @@
 
 .#{$ns}-text-compact {
 	@include xui-text-line-height-compact;
-}
-
-.#{$ns}-text-longform {
-	@include xui-text-line-height;
 }

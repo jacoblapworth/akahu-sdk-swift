@@ -10,7 +10,7 @@
 //
 // `xui-item-title` for consistent application across all content blocks & line items
 //
-// `xui-separator-title`  for consistent application across all table & dropdown vertical separators
+// `xui-separator-title`  for consistent application across all dropdown vertical separators
 //
 // Markup:
 // <div class="xui-panel-title">All tasks</div>
@@ -52,11 +52,11 @@
 //
 // #### Class Names
 //
-// `xui-heading-large` for large in-page headings such as form titles
+// `xui-heading-large` for large in-page headings
 //
-// `xui-heading-medium` for top-level headings that aren’t strictly panel headers
+// `xui-heading-medium` mid-weight heading useful for breaking up long forms etc.
 //
-// `xui-heading-small`  for second-tier headings that aren’t strictly modals or content blocks
+// `xui-heading-small`  for second-tier headings
 //
 // `xui-heading-xsmall` for minute headings that group content but aren’t strictly within tables or dropdowns
 //
@@ -178,11 +178,11 @@
 //
 // #### Class Names
 //
-// `xui-heading`	replaced with `xui-heading-large`
+// `xui-heading` replaced with `xui-heading-large`
 //
-// `xui-page-title`	replaced with `xui-heading-large` or `xui-heading-medium`
+// `xui-page-title`
 //
-// `xui-section-title`	replaced with `xui-item-title`
+// `xui-section-title`
 //
 // `xui-text-panelheading`	replaced with `xui-panel-title`
 //

@@ -25,21 +25,13 @@
 //
 // `xui-dropdown-is-closing` Style for animating the closing of a dropdown
 //
-// `xui-dropdown-tiny` Style for a tiny width dropdown
-//
-// `xui-dropdown-xsmall` Style for an extra small width dropdown
-//
 // `xui-dropdown-small` Style for a small width dropdown
-//
-// `xui-dropdown-standard` Style for a standard width dropdown
 //
 // `xui-dropdown-medium` Style for a medium width dropdown
 //
 // `xui-dropdown-large` Style for a large width dropdown
 //
 // `xui-dropdown-xlarge` Style for an extra large width dropdown
-//
-// `xui-dropdown-huge` Style for a huge width dropdown
 //
 // `xui-dropdown-positionright` Style for aligning the right of dropdown with the right of its nearest explictly positioned parent
 //
@@ -49,10 +41,10 @@
 //
 // `xui-dropdown-positionbelow` Style for positioning the dropdown below its nearest explictly positioned parent
 //
-// ### Extra small dropdown
+// ### Small dropdown
 //
 // Markup:
-// <div class="xui-dropdown-layout xui-dropdown-xsmall xui-dropdown-is-open xui-dropdown-is-opening">
+// <div class="xui-dropdown-layout xui-dropdown-small xui-dropdown-is-open xui-dropdown-is-opening">
 //   <div class="xui-dropdown--mask"></div>
 //   <div class="xui-dropdown--body">
 //     <ul class="xui-picklist">
@@ -247,7 +239,7 @@
 	}
 }
 
-@each $number, $variant in $xui-width-variants {
+@each $number, $variant in $xui-width-variants-dropdown{
 	.#{$ns}-dropdown-#{$variant} {
 		width: $xui-starting-width + ($xui-base-width * $number);
 	}

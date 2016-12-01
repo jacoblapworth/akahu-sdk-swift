@@ -28,21 +28,13 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 ### Bower
 
 ```bash
-<<<<<<< HEAD
-$ bower install git@github.dev.xero.com:UXE/xui.git#^10.15.0-beta.2 --save
-=======
-$ bower install git@github.dev.xero.com:UXE/xui.git#^10.15.0-beta.2 --save
->>>>>>> finding-dory
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.14.0 --save
 ```
 
 ### npm
 
 ```bash
-<<<<<<< HEAD
-$ npm install git://github.dev.xero.com/UXE/xui.git#10.15.0-beta.2 --save
-=======
-$ npm install git://github.dev.xero.com/UXE/xui.git#10.15.0-beta.2 --save
->>>>>>> finding-dory
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.14.0 --save
 ```
 
 You will need to compile `xui.scss`.
@@ -67,11 +59,7 @@ Example Page Markup
     <meta charset="utf-8" />
     <title>Page Title</title>
     <link href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css" rel="stylesheet" />
-<<<<<<< HEAD
-    <link href="https://edge.xero.com/style/xui/10.15.0-beta.2/xui.min.css" rel="stylesheet" />
-=======
-    <link href="https://edge.xero.com/style/xui/10.15.0-beta.2/xui.min.css" rel="stylesheet" />
->>>>>>> finding-dory
+    <link href="https://edge.xero.com/style/xui/10.14.0/xui.min.css" rel="stylesheet" />
     <script src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
   </head>
   <body class="xui-body">

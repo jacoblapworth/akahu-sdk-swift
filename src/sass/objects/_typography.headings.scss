@@ -1,6 +1,10 @@
 // Presets
 //
-// We’ve got a few standardised classes to deal with the different types of content across our app. At surface level they bear some similarities, but the separation has been done so to anticipate future changes at a component level. When choosing the right class to use, a good rule of thumb is to ask yourself, ‘what kind of content is this’ and then apply the one that best fits that use case.
+// We’ve got a few standardised classes to deal with the different types of content across our app.
+// At surface level they bear some similarities, but the separation has been done so to anticipate future changes at a component level.
+// When choosing the right class to use, a good rule of thumb is to ask yourself, ‘what kind of content is this’ and then apply the one that best fits that use case.
+//
+// XUI does not provide a CSS reset for semantic heading elements (e.g. `<h2>`). Use these classes in conjunction with XUI's spacing classes.
 //
 // #### Class Names
 //
@@ -13,10 +17,10 @@
 // `xui-separator-title`  for consistent application across all dropdown vertical separators
 //
 // Markup:
-// <div class="xui-panel-title">All tasks</div>
-// <div class="xui-modal-title">Assign task</div>
-// <div class="xui-item-title">Homepage redesign</div>
-// <div class="xui-separator-title">Export options</div>
+// <h2 class="xui-panel-title xui-margin-none">All tasks</h2>
+// <h2 class="xui-modal-title xui-margin-none">Assign task</h2>
+// <h2 class="xui-item-title xui-margin-none">Homepage redesign</h2>
+// <h2 class="xui-separator-title xui-margin-none">Export options</h2>
 //
 // Styleguide: Typography.10
 
@@ -61,10 +65,10 @@
 // `xui-heading-xsmall` for minute headings that group content but aren’t strictly within tables or dropdowns
 //
 // Markup:
-// <div class="xui-heading-large">Directory Listing</div>
-// <div class="xui-heading-medium">Location</div>
-// <div class="xui-heading-small">Street Address</div>
-// <div class="xui-heading-xsmall">Map</div>
+// <h1 class="xui-heading-large xui-margin-none">Directory Listing</h1>
+// <h2 class="xui-heading-medium xui-margin-none">Location</h2>
+// <h3 class="xui-heading-small xui-margin-none">Street Address</h3>
+// <h4 class="xui-heading-xsmall xui-margin-none">Map</h4>
 //
 // Styleguide: Typography.20
 
@@ -109,9 +113,9 @@
 // `xui-heading-display-xxl` for only a few digits of display text
 //
 // Markup:
-// <div class="xui-heading-display xui-text-truncated">Welcome aboard</div>
-// <div class="xui-heading-display-xl xui-text-truncated">$3,724.00</div>
-// <div class="xui-heading-display-xxl xui-text-truncated">82.1%</div>
+// <h2 class="xui-heading-display xui-text-truncated xui-margin-none">Welcome aboard</h2>
+// <h1 class="xui-heading-display-xl xui-text-truncated xui-margin-none">$3,724.00</h1>
+// <h1 class="xui-heading-display-xxl xui-text-truncated xui-margin-none">82.1%</h1>
 //
 // Styleguide: Typography.30
 

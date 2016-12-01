@@ -1,5 +1,5 @@
 {
-  "version": "2.7.0",
+  "version": "2.8.0",
   "name": "xui-button",
   "main": "index.js",
   "description": "A button. That clicks",
@@ -8,13 +8,13 @@
   "private": true,
   "scripts": {
     "prepublish": "bower install",
-    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --single-run",
-    "watch": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
-    "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage",
-    "test-ui": "env UV_THREADPOOL_SIZE=100 xui-webpack --config conf/build.js --progress --colors --watch"
+    "test": "xui-karma start conf/test.js",
+    "watch": "xui-karma start conf/test.js --watch",
+    "test-coverage": "xui-karma start conf/test.js --coverage",
+    "test-ui": "xui-webpack --config conf/build.js --progress --colors --watch"
   },
   "devDependencies": {
-    "bower": "^1.6.3",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.3"
+    "bower": "^1.7.0",
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
   }
 }

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import XUIIcon from 'xui-icon';
 import XUILoader from 'xui-loader';
 
-// general helpers
+// General Helpers
 const keys = Object.keys;
 const values = x => keys(x).map(k => x[k]);
 
@@ -45,91 +45,6 @@ const CONSTANTS = {
 		'full-width': Classes.Utility.FULL_WIDTH,
 		'full-width-mobile': ButtonClasses.FULL_WIDTH
 	}
-};
-
-const propTypes = {
-
-	className: PropTypes.string,
-	children: PropTypes.node,
-	qaHook: PropTypes.string,
-
-	/** @property {boolean} [isDisabled] Determines if the button is disabled or not. */
-	isDisabled: PropTypes.bool,
-
-	/** @property {string} [isExternalLink] If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
-	isExternalLink: PropTypes.bool,
-
-	/** @property {boolean} [isLoading] If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
-	isLoading: PropTypes.bool,
-
-	/** @property {boolean} [isGrouped] If this button is part of a parent button group */
-	isGrouped: PropTypes.bool,
-
-	/** @property {function} [onKeyDown] A keydown event handler for the button */
-	onKeyDown: PropTypes.func,
-
-	/** @property {function} [onSecondaryKeyDown] A keydown event handler for the secondary button */
-	onSecondaryKeyDown: PropTypes.func,
-
-	/** @property {function} onClick Bind a function to fire when the button is clicked */
-	onClick: function (props) {
-		if (props.type === 'button' && !(typeof props.onClick === 'function')) {
-			throw new Error('Non-link buttons require an onClick function.');
-		}
-	},
-
-	/** @property {function} [onSecondaryClick] Bind a function to fire when the second button in a split button is clicked */
-	onSecondaryClick: function (props) {
-		if (props.split && !(typeof props.onSecondaryClick === 'function')) {
-			throw new Error('Split buttons require a secondary click handler');
-		}
-	},
-
-	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
-	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
-
-	/** @property {string} [size='default'] Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
-	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
-
-	/** @property {string} [type='button'] The HTML type of this button. `button`, or `link`. Defaults to `button` */
-	type: PropTypes.oneOf(values(CONSTANTS.TYPES)),
-
-	/** @property {string} [buttonType='submit'] The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
-	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
-
-	/** @property {string} [href] The `href` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	href: function (props) {
-		if (props.type === CONSTANTS.LINK && !props.onClick && !props.href) {
-			throw new Error('Link buttons without an onClick handler require an href.');
-		}
-	},
-
-	/** @property {string} [rel] The `rel` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	rel: PropTypes.string,
-
-	/** @property {number} [tabIndex=0] The HTML tabIndex property to put on the component */
-	tabIndex: PropTypes.number,
-
-	/** @property {string} [target] The `target` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	target: PropTypes.string,
-
-	/** @property {string} [title] The `title` attribute for this button */
-	title: PropTypes.string,
-
-	/** @property {boolean} [split] Changes the button to a split button. Use `onSecondaryClick` with this to create dropdown experiences */
-	split: PropTypes.bool
-};
-
-/**
- * Default property values for this component.
- *
- * @public
- */
-const defaultProps = {
-	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
-	tabIndex: 0,
-	type: CONSTANTS.ELEMENT_TYPES.BUTTON,
-	variant: 'standard'
 };
 
 /**
@@ -265,6 +180,14 @@ const setupLinkProps = (props, elementProps) => {
 };
 
 export default class XUIButton extends React.Component {
+	focus() {
+		this.buttonNode && this.buttonNode.focus();
+	}
+
+	hasFocus() {
+		return !!this.buttonNode && this.buttonNode.contains(document.activeElement);
+	}
+
 	render () {
 		const xuiButton = this;
 		const props = xuiButton.props;
@@ -322,7 +245,7 @@ export default class XUIButton extends React.Component {
 		}
 
 		let Button = (
-			<ElementType {...elementProps} data-automationid={props.qaHook}>
+			<ElementType ref={n => xuiButton.buttonNode = n} {...elementProps} data-automationid={props.qaHook}>
 				{children}
 			</ElementType>
 		);
@@ -347,5 +270,81 @@ export default class XUIButton extends React.Component {
 	}
 }
 
-XUIButton.propTypes = propTypes;
-XUIButton.defaultProps = defaultProps;
+XUIButton.propTypes = {
+	className: PropTypes.string,
+	children: PropTypes.node,
+	qaHook: PropTypes.string,
+
+	/** @property {boolean} [isDisabled] Determines if the button is disabled or not. */
+	isDisabled: PropTypes.bool,
+
+	/** @property {string} [isExternalLink] If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
+	isExternalLink: PropTypes.bool,
+
+	/** @property {boolean} [isLoading] If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+	isLoading: PropTypes.bool,
+
+	/** @property {boolean} [isGrouped] If this button is part of a parent button group */
+	isGrouped: PropTypes.bool,
+
+	/** @property {function} [onKeyDown] A keydown event handler for the button */
+	onKeyDown: PropTypes.func,
+
+	/** @property {function} [onSecondaryKeyDown] A keydown event handler for the secondary button */
+	onSecondaryKeyDown: PropTypes.func,
+
+	/** @property {function} onClick Bind a function to fire when the button is clicked */
+	onClick: function (props) {
+		if (props.type === 'button' && !(typeof props.onClick === 'function')) {
+			throw new Error('Non-link buttons require an onClick function.');
+		}
+	},
+
+	/** @property {function} [onSecondaryClick] Bind a function to fire when the second button in a split button is clicked */
+	onSecondaryClick: function (props) {
+		if (props.split && !(typeof props.onSecondaryClick === 'function')) {
+			throw new Error('Split buttons require a secondary click handler');
+		}
+	},
+
+	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
+	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
+
+	/** @property {string} [size='default'] Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
+	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
+
+	/** @property {string} [type='button'] The HTML type of this button. `button`, or `link`. Defaults to `button` */
+	type: PropTypes.oneOf(values(CONSTANTS.TYPES)),
+
+	/** @property {string} [buttonType='submit'] The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
+	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
+
+	/** @property {string} [href] The `href` attribute to use on the anchor element (ignored unless `type` is `link`) */
+	href: function (props) {
+		if (props.type === CONSTANTS.LINK && !props.onClick && !props.href) {
+			throw new Error('Link buttons without an onClick handler require an href.');
+		}
+	},
+
+	/** @property {string} [rel] The `rel` attribute to use on the anchor element (ignored unless `type` is `link`) */
+	rel: PropTypes.string,
+
+	/** @property {number} [tabIndex=0] The HTML tabIndex property to put on the component */
+	tabIndex: PropTypes.number,
+
+	/** @property {string} [target] The `target` attribute to use on the anchor element (ignored unless `type` is `link`) */
+	target: PropTypes.string,
+
+	/** @property {string} [title] The `title` attribute for this button */
+	title: PropTypes.string,
+
+	/** @property {boolean} [split] Changes the button to a split button. Use `onSecondaryClick` with this to create dropdown experiences */
+	split: PropTypes.bool
+};
+
+XUIButton.defaultProps = {
+	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
+	tabIndex: 0,
+	type: CONSTANTS.ELEMENT_TYPES.BUTTON,
+	variant: 'standard'
+};

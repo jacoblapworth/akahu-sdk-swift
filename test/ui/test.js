@@ -1,5 +1,3 @@
-import 'babel-core/external-helpers.js';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
@@ -12,11 +10,12 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 	const secondaryClickHandler = function() {
 		alert('I was clicked too'); //eslint-disable-line no-alert
 	};
+	let firstButton;
 
 	const examples = (
 		<div>
 			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler}>Default button</XUIButton>
+				<XUIButton ref={c => firstButton = c} onClick={clickHandler}>Default button</XUIButton>
 				{" "}
 				<XUIButton onClick={clickHandler} isDisabled>Default button (disabled)</XUIButton>
 				{" "}
@@ -135,6 +134,7 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 			<div className="testButtonContainer">
 				<XUIButton onClick={clickHandler} onSecondaryClick={secondaryClickHandler} split={true} variant="primary">Split button</XUIButton>
 			</div>
+			<XUIButton onClick={() => firstButton.focus()}>Focus first button</XUIButton>
 		</div>
 	);
 

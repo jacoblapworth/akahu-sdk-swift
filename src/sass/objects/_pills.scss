@@ -57,7 +57,7 @@
 //   </button>
 // </div>
 // <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
-//   <span class="xui-pill--content" class="xui-pill--content">Invalid</span>
+//   <button class="xui-pill--content xui-button xui-pill--button">Invalid</button>
 //   <button class="xui-button xui-button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
@@ -88,11 +88,13 @@
 	cursor: default;
 	display: inline-flex;
 
-	.#{$ns}-pill--avatar, .#{$ns}-pill--secondary {
+	.#{$ns}-pill--avatar,
+	.#{$ns}-pill--secondary {
 		@include xui-margin-left($xui-s-xsmall);
 	}
 
-	.#{$ns}-pill--text, .#{$ns}-pill--content {
+	.#{$ns}-pill--text,
+	.#{$ns}-pill--content {
 		overflow: hidden;
 		padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
 		text-overflow: ellipsis;
@@ -110,6 +112,10 @@
 
 .#{$ns}-pill-invalid {
 	color: $xui-color-xero-red;
+}
+
+.#{$ns}-pill--button {
+	color: inherit;
 }
 
 // Pills Used in Single Selection

@@ -25,3 +25,9 @@
 	linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 0 100% / 100% 3px scroll no-repeat,
 	$xui-color-white;
 }
+
+@mixin xui-flex-children($align:center, $justify:center) {
+	align-items: $align;
+	display: flex;
+	justify-content: $justify;
+}

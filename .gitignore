@@ -1,5 +1,6 @@
 #project
 dist
+.happypack
 
 #node
 node_modules

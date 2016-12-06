@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import cn from 'classnames';
-import CSSClasses from 'xui-css-classes';
-import {sizeMap} from './constants';
+import { sizeClassNames, classNames } from './constants';
 
-const propTypes = {
+export default class XUIAvatarCounter extends PureComponent {
+	render() {
+		const { count, size, qaHook, className } = this.props;
+		const counterClassNames = cn(
+			classNames.base,
+			classNames.counter,
+			sizeClassNames[size],
+			className
+		);
+
+		let value;
+
+		if(typeof count === 'string') {
+			value = count;
+		} else if(count > 0) {
+			value = '+' + count;
+		} else {
+			value = String(count);
+		}
+
+		return value ? <span data-automationid={qaHook} className={counterClassNames}>{value}</span> : null;
+	}
+}
+
+XUIAvatarCounter.propTypes = {
 	qaHook: React.PropTypes.string,
 	className: React.PropTypes.string,
 
@@ -11,34 +34,9 @@ const propTypes = {
 	count: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
 
 	/** @property {String} [size=medium] The size of the counter. Can be small, medium, large or xlarge */
-	size: React.PropTypes.oneOf(Object.keys(sizeMap))
+	size: React.PropTypes.oneOf(Object.keys(sizeClassNames))
 };
 
-const defaultProps = {
+XUIAvatarCounter.defaultProps = {
 	size: 'medium'
 };
-
-export default function XUIAvatarCounter(props) {
-	const { count } = props;
-	const className = cn(
-		CSSClasses.Avatar.BASE,
-		CSSClasses.Avatar.COUNTER,
-		CSSClasses.Avatar[sizeMap[props.size]],
-		props.className
-	);
-
-	let value;
-
-	if(typeof count === 'string') {
-		value = count;
-	} else if(count > 0) {
-		value = '+' + count;
-	} else {
-		value = String(count);
-	}
-
-	return value ? <span data-automationid={props.qaHook} className={className}>{value}</span> : null;
-}
-
-XUIAvatarCounter.propTypes = propTypes;
-XUIAvatarCounter.defaultProps = defaultProps;

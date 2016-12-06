@@ -1,6 +1,6 @@
-var path = require('path');
-var buildTools = require('xui-webpack-build-tools');
-var basePath = path.resolve(__dirname, '..');
+const path = require('path');
+const buildTools = require('xui-webpack-build-tools');
+const basePath = path.resolve(__dirname, '..');
 
 module.exports =  buildTools.makeWebpack({
 	basePath: basePath,

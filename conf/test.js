@@ -1,7 +1,7 @@
-var path = require('path');
-var buildTools = require('xui-webpack-build-tools');
+const path = require('path');
+const buildTools = require('xui-webpack-build-tools');
 
-var basePath = path.resolve(__dirname, '..');
+const basePath = path.resolve(__dirname, '..');
 
 module.exports =  function (config) {
 	config.set(buildTools.makeKarma({

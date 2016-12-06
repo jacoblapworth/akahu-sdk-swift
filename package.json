@@ -1,5 +1,5 @@
 {
-  "version": "5.2.1",
+  "version": "6.0.0",
   "name": "xui-avatar",
   "main": "index.js",
   "description": "React UI component that renders an avatar, either based on the user's name or profile image",
@@ -8,12 +8,12 @@
   "private": true,
   "scripts": {
     "prepublish": "bower install",
-    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
-    "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage",
-    "test-ui": "env UV_THREADPOOL_SIZE=100 xui-webpack --config conf/build.js --progress --colors --watch"
+    "test": "xui-karma start conf/test.js",
+    "test-coverage": "xui-karma start conf/test.js --coverage",
+    "test-ui": "xui-webpack --config conf/build.js --progress --colors --watch"
   },
   "devDependencies": {
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.3"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
   },
   "dependencies": {
     "bower": "^1.7.7"

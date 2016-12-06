@@ -2,8 +2,8 @@ xui-avatar
 ===========
 
 [![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_UxeXuiAvatar)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_UxeXuiAvatar)
-![](https://img.shields.io/badge/XUI-%5E10.0.0-blue.svg)
-![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
+![](https://img.shields.io/badge/XUI-^10.15.0-blue.svg)
+![](https://img.shields.io/badge/React-^15.3.0-blue.svg)
 
 A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html).
 
@@ -27,8 +27,8 @@ import XUIAvatar from 'xui-avatar';
 		<div>
             <XUIAvatar
                 size="small"
-                value="Donald Trump"
-                identifier="m4k34m4r1c4gr84g41n"
+                value="Joe the Plumber"
+                identifier="12345"
             />
 
             <XUIAvatar
@@ -41,13 +41,9 @@ import XUIAvatar from 'xui-avatar';
 })();
 ```
 
-### Avatar with identifier
+### Example
 
-![](example/avatar_identifier.PNG)
-
-### Avatar with imageUrl
-
-![](example/avatar_imageUrl.PNG)
+![](example/example.png)
 
 ## Components
 

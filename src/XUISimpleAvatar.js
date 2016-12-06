@@ -37,18 +37,20 @@ export default class XUISimpleAvatar extends PureComponent {
 		);
 
 		let displayValue = '';
-		if(variant === 'business') {
-			// An acronym up to 3 characters long based on the business name
-			const segments = value.trim().split(' ');
-			for(let i = 0; i < 3; i++) {
-				if(segments[i]) {
-					displayValue += [...segments[i]][0].toLocaleUpperCase();
-				} else {
-					break;
+		if (value) {
+			if(variant === 'business') {
+				// An acronym up to 3 characters long based on the business name
+				const segments = value.trim().split(' ');
+				for(let i = 0; i < 3; i++) {
+					if(segments[i]) {
+						displayValue += [...segments[i]][0].toLocaleUpperCase();
+					} else {
+						break;
+					}
 				}
+			} else {
+				displayValue = [...value.trim()][0].toLocaleUpperCase();
 			}
-		} else {
-			displayValue = [...value.trim()][0].toLocaleUpperCase();
 		}
 
 		if (imageUrl) {

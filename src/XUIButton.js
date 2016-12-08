@@ -142,7 +142,7 @@ function handleSpacebarAsClick(event, props) {
 			} else {
 				clickEvent = document.createEvent('MouseEvents');
 				// If you're seeing a line through initMouseEvent because WebStorm, read the comment above the if statement
-				clickEvent.initMouseEvent('click', true, true, 'window', 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+				clickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 			}
 			event.target.dispatchEvent(clickEvent);
 		}
@@ -170,7 +170,7 @@ const setupLinkProps = (props, elementProps) => {
 	elementProps.target = props.target;
 	elementProps.rel = props.rel;
 
-	if(props.isExternalLink) {
+	if (props.isExternalLink) {
 		elementProps.rel = (elementProps.rel ? elementProps.rel + ' ' : '') + 'external noopener noreferrer'
 	}
 
@@ -190,54 +190,77 @@ export default class XUIButton extends React.Component {
 
 	render () {
 		const xuiButton = this;
-		const props = xuiButton.props;
-		const isLink = props.type === CONSTANTS.TYPES.LINK;
+		const {
+			type,
+			variant,
+			split,
+			onSecondaryClick,
+			onClick,
+			isDisabled,
+			isLoading,
+			children,
+			className,
+			onKeyDown,
+			buttonType,
+			tabIndex,
+			onSecondaryKeyDown,
+			secondaryProps,
+			size,
+			isGrouped,
+			qaHook,
+			isExternalLink,
+			href,
+			target,
+			rel,
+			...buttonProps
+		} = xuiButton.props;
+		const isLink = type === CONSTANTS.TYPES.LINK;
 		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
-		const variantClass = getVariantClass(props.variant);
-		const isSplit = props.split && props.onSecondaryClick;
-		const isDisabled = props.isDisabled || props.isLoading;
-		const children = props.isLoading ? <XUILoader size="small" defaultLayout={false} className={ButtonClasses.LOADER} /> : props.children;
+		const variantClass = getVariantClass(variant);
+		const isSplit = split && onSecondaryClick;
+		const buttonDisabled = isDisabled || isLoading;
+		const buttonChildren = isLoading ? <XUILoader size="small" defaultLayout={false} className={ButtonClasses.LOADER} /> : children;
 
-		const classNames = cn(
+		const buttonClassNames = cn(
 			ButtonClasses.BASE,
-			props.className,
+			className,
 			variantClass,
-			getDisabledClass(props.isDisabled),
-			getSizeClass(props.size),
-			getGroupClass(props.isGrouped)
+			getDisabledClass(isDisabled),
+			getSizeClass(size),
+			getGroupClass(isGrouped)
 		);
 
 		const clickHandler = function() {
-			if (isLink && isDisabled) {
+			if (isLink && buttonDisabled) {
 				event.preventDefault();
-			} else if (!isLink || isLink && props.onClick){
-				props.onClick.call(xuiButton, ...arguments);
+			} else if (!isLink || isLink && onClick){
+				onClick.call(xuiButton, ...arguments);
 			}
 		};
 
 		const secondaryClickHandler = function() {
-			if (isLink && isDisabled) {
+			if (isLink && buttonDisabled) {
 				event.preventDefault();
 			} else {
-				props.onSecondaryClick.call(xuiButton, ...arguments);
+				onSecondaryClick.call(xuiButton, ...arguments);
 			}
 		};
 
 		// Standard props for all element types
 		const elementProps = {
-			title: props.title,
+			...buttonProps,
 			onClick: clickHandler,
-			onKeyDown: isDisabled ? null : props.onKeyDown,
-			disabled: isDisabled,
-			className: classNames,
-			tabIndex: isDisabled ? -1 : props.tabIndex
+			onKeyDown: buttonDisabled ? null : onKeyDown,
+			disabled: buttonDisabled,
+			className: buttonClassNames,
+			tabIndex: buttonDisabled ? -1 : tabIndex
 		};
 
 		// Element type specific props
 		if (isLink) {
-			setupLinkProps(props, elementProps);
+			setupLinkProps({ href, onClick, isExternalLink, target, rel, isDisabled, isLoading }, elementProps);
 		} else {
-			elementProps.type = props.buttonType;
+			elementProps.type = buttonType;
 		}
 
 		if (isSplit) {
@@ -245,8 +268,8 @@ export default class XUIButton extends React.Component {
 		}
 
 		let Button = (
-			<ElementType ref={n => xuiButton.buttonNode = n} {...elementProps} data-automationid={props.qaHook}>
-				{children}
+			<ElementType ref={n => xuiButton.buttonNode = n} {...elementProps} data-automationid={qaHook}>
+				{buttonChildren}
 			</ElementType>
 		);
 
@@ -256,9 +279,10 @@ export default class XUIButton extends React.Component {
 				<div className={ButtonClasses.GROUPED}>
 					{Button}
 					<ElementType
+						{...secondaryProps}
 						className={cn(elementProps.className, ButtonClasses.SPLIT)}
 						onClick={secondaryClickHandler}
-						onKeyPress={isDisabled ? null : props.onSecondaryKeyDown}
+						onKeyPress={buttonDisabled ? null : onSecondaryKeyDown}
 					>
 						<XUIIcon icon="caret" className={ButtonClasses.CARET}/>
 					</ElementType>
@@ -339,12 +363,15 @@ XUIButton.propTypes = {
 	title: PropTypes.string,
 
 	/** @property {boolean} [split] Changes the button to a split button. Use `onSecondaryClick` with this to create dropdown experiences */
-	split: PropTypes.bool
+	split: PropTypes.bool,
+
+	secondaryProps: PropTypes.object
 };
 
 XUIButton.defaultProps = {
 	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
 	tabIndex: 0,
 	type: CONSTANTS.ELEMENT_TYPES.BUTTON,
-	variant: 'standard'
+	variant: 'standard',
+	secondaryProps: {}
 };

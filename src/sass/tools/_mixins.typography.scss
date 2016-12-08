@@ -107,3 +107,8 @@
 	letter-spacing: $xui-letter-spacing-loose;
 }
 
+@mixin xui-text-truncated {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

@@ -52,9 +52,7 @@
 // Styleguide: Typography.53
 
 .#{$ns}-text-truncated {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	@include xui-text-truncated;
 }
 
 // Word-break

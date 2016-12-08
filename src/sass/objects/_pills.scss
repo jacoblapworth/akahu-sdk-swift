@@ -17,63 +17,86 @@
 //
 // #### Class Names
 //
-// `.xui-pill` Pill container class
+// `.xui-newpill` pill container class
 //
-// `.xui-pill-layout` Layout assumption s for Pill's, mainly max-width restrictions.
+// `.xui-newpill-layout` Layout assumptions for pills, both internally and externally.
 //
-// `.xui-pill--content` Any content inside the pill should truncate when it reaches it max width, and adds some extra horizontal padding to make the clickable area easier to target.
+// `.xui-newpill--content` Any content inside the pill should truncate when it reaches it max width.
 //
-// `.xui-pill--secondary` Adds an extra small horizontal margin to the secondary items inside a pill
+// `.xui-newpill--secondary` Adds an extra small horizontal margin to the secondary items within the pill.
 //
-// `.xui-pill-invalid` Invalid state of a pill.
+// `.xui-newpill--avatar` Allows avatars to sit nicely in the initial curve of the pill.
+//
+// `.xui-newpill-is-invalid` Invalid state of a pill.
+//
+// `.xui-newpill-is-focussed` Focus state of a pill.
+//
+// `.xui-newpill-is-deleteable` Allows the pill to house a delete icon button.
+//
+// `.xui-newpill--button` Allows buttons within pills to inherit colors from their containing element.
+//
+// `.xui-newpill--button-icon` Allows the delete icon button to be positioned on top of other content within the pill.
 //
 //	#### Deprecated Class Names
 //
-// `.xui-pill--text` Has now changed to `.xui-pill--content` to imply more flexibility with this class outside of text.
+// `.xui-pill` Deprecated in favour of `.xui-newpill`.
 //
-// `.xui-pill--avatar` Is now `.xui-pill--secondary` as we allow other secondary options and not just avatars.
+// `.xui-pill-layout` Deprecated in favour of `.xui-newpill-layout`.
+//
+// `.xui-pill--content` Deprecated in favour of `.xui-newpill--content`.
+//
+// `.xui-pill--secondary` Deprecated in favour of `.xui-newpill--secondary`.
+//
+// `.xui-pill--avatar` Deprecated in favour of `.xui-newpill--avatar`.
+//
+// `.xui-pill--text` Has now changed to `.xui-newpill--content` to imply more flexibility with this class outside of text.
+//
+// `.xui-pill-invalid` Deprecated in favour of `xui-newpill-is-invalid`.
 //
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <span class="xui-pill--content">Pill Value</span>
-//   <button class="xui-button xui-button-icon">
+// <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-margin-top-small">
+//   <button class="xui-button xui-newpill--content xui-newpill--button">
+//     <span class="xui-text-color-muted xui-newpill--secondary">Status</span>
+//     Draft
+//   </button>
+//   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 // </div>
-// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <span class="xui-pill--content">Pill with a really long piece of text, for example you might have a long name</span>
-//   <button class="xui-button xui-button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-margin-top">
-//   <span class="xui-pill--content">
-//     <abbr class="xui-avatar xui-avatar-small xui-pill--secondary xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
-//     <span>pill@withemailaddress.com</span>
+// <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-margin-top-small">
+//   <span class="xui-newpill--content">
+//     <abbr class="xui-avatar xui-avatar-small xui-newpill--avatar" style="background-color: #FCAD59" role="presentation">PE</abbr>
+//     pill@withemailaddress.com
 //   </span>
-//   <button class="xui-button xui-button-icon">
+//   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 // </div>
-// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left xui-pill-invalid">
-//   <button class="xui-pill--content xui-button xui-pill--button">Invalid</button>
-//   <button class="xui-button xui-button-icon">
+// <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-margin-top-small">
+//   <span class="xui-newpill--content">Pill with a really long piece of text, for example you might have a long name</span>
+//   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 // </div>
-// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <a href='#kssref-pills-2' class="xui-pill--content">With a destination</a>
-//   <button class="xui-button xui-button-icon">
+// <div class="xui-newpill xui-newpill-layout xui-newpill-is-invalid xui-newpill-is-deleteable xui-margin-top-small">
+//   <button class="xui-newpill--content xui-button xui-newpill--button">Invalid</button>
+//   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 // </div>
-// <div class="xui-pill xui-pill-layout xui-margin-top xui-padding-left">
-//   <button class="xui-button xui-pill--content">
-//     <span class="xui-text-placeholder">Status</span>
-//     <span>Draft</span>
+// <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-margin-top-small">
+//   <a href='#kssref-pills-2' class="xui-newpill--content">With a destination</a>
+//   <button class="xui-button xui-button-icon xui-newpill--button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
-//   <button class="xui-button xui-button-icon">
+// </div>
+// <div class="xui-newpill xui-newpill-layout xui-margin-top-small">
+//   <span class="xui-newpill--content">Readonly</span>
+// </div>
+// <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-newpill-is-focussed xui-margin-top-small">
+//   <button class="xui-newpill--content xui-button xui-newpill--button">Focussed</button>
+//   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
 // </div>
@@ -110,13 +133,64 @@
 	white-space: nowrap;
 }
 
+.#{$ns}-pill--text,
+.#{$ns}-pill--content {
+	@include xui-text-truncated;
+}
+
+.#{$ns}-newpill-layout {
+	max-height: 30px;
+	max-width: 200px;
+	padding-right: 10px;
+	position: relative;
+}
+
+&.#{$ns}-newpill {
+	align-items: center;
+	background-color: $xui-color-background;
+	border-radius: $xui-s-large;
+	cursor: default;
+	display: inline-flex;
+}
+
+.#{$ns}-newpill--content {
+	@include xui-text-truncated;
+	min-height: $xui-icon-standard;
+	padding: 5px 5px 5px 15px;
+}
+
+.#{$ns}-newpill--secondary {
+	margin-right: 5px;
+}
+
+.#{$ns}-newpill--avatar {
+	margin-left: -12px;
+	margin-right: 10px;
+}
+
+.#{$ns}-newpill--button-icon {
+	position: absolute;
+	right: 0;
+}
+
+&.#{$ns}-newpill-is-focussed {
+	background-color: rgba($xui-color-black, 0.15);
+}
+
+.#{$ns}-newpill-is-deleteable {
+	padding-right: $xui-icon-standard;
+}
+
+.#{$ns}-newpill-is-invalid,
 .#{$ns}-pill-invalid {
 	color: $xui-color-xero-red;
 }
 
-.#{$ns}-pill--button {
+.#{$ns}-newpill--button {
+	border-radius: $xui-s-large;
 	color: inherit;
 }
+
 
 // Pills Used in Single Selection
 //

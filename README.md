@@ -3,7 +3,7 @@
 A React text area which provides basic XUI styling, autosizing (within a min/max number of rows), and a counter which shows characters remaining (if maximum number of characters is set).
 
 ## Installation
-`bower install --save git@github.dev.xero.com:ReactLabs/xui-avatar.git`
+`bower install --save git@github.dev.xero.com:UXE/xui-textarea.git`
 
 ## Auto-resize
 This component provides an auto-resizing capability. This behaviour is enabled whenever `minRows` and/or `maxRows` is set to a value other than 0. To disable this behaviour, either exclude these props or set them to 0. 

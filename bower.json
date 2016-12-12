@@ -22,7 +22,6 @@
 	"dependencies": {
 		"classnames": "^2.1.0",
 		"react": "~0.14.5 || ^15.0.0",
-		"xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^10.4.0",
-		"xui": "git@github.dev.xero.com:UXE/xui.git#^10.4.0"
+		"xui": "git@github.dev.xero.com:UXE/xui.git#^10.16.0"
 	}
 }

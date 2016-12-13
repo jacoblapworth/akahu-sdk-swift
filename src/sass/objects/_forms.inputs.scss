@@ -57,6 +57,12 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 //
 // `xui-input--icon-right`	Modifier for a right-aligned input icon
 //
+// `xui-input--iconwrapper-facebook`  Facebook color for icon wrapper
+//
+// `xui-input--iconwrapper-twitter`  Twitter background color for icon wrapper
+//
+// `xui-input--iconwrapper-linkedin`  LinkedIn background color for icon wrapper
+//
 // Markup:
 // <div class="xui-input-wrapper xui-margin">
 //   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
@@ -74,13 +80,13 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 //   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left" style="background-color: #1dadea">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-input--iconwrapper-twitter">
 //     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-left"> <use xlink:href="#xui-icon-social-twitter" role="presentation" /></svg>
 //   </div>
 //   <input class="xui-input" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 // <div class="xui-input-wrapper xui-margin">
-//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right" style="background-color: #3c5a96">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right xui-input--iconwrapper-facebook" >
 //     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-right"> <use xlink:href="#xui-icon-social-facebook" role="presentation" /></svg>
 //   </div>
 //   <input class="xui-input" type="text" placeholder="Facebook URL" aria-label="Facebook URL"/>
@@ -149,6 +155,18 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 .#{$ns}-input--iconwrapper-right {
 	border-radius: 0 $xui-radius-iconwrapper $xui-radius-iconwrapper 0;
 	right: 1px;
+}
+
+.#{$ns}-input--iconwrapper-twitter {
+	background-color: $xui-color-twitter;
+}
+
+.#{$ns}-input--iconwrapper-facebook {
+	background-color: $xui-color-facebook;
+}
+
+.#{$ns}-input--iconwrapper-linkedin {
+	background-color: $xui-color-linkedin;
 }
 
 // Borderless Text Inputs

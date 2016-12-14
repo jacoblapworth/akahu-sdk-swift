@@ -164,7 +164,8 @@
 }
 
 .#{$ns}-modal-layout {
-	margin: auto; // This is required to fix flex > align-items: center for children bigger than the container.
+	margin-bottom: auto; // Margin top & bottom required to fix flex > align-items: center for children taller than the container.
+	margin-top: auto;
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
 	width: 360px;
 

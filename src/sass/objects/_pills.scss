@@ -139,7 +139,7 @@
 }
 
 .#{$ns}-newpill-layout {
-	max-height: 30px;
+	height: $xui-icon-standard;
 	max-width: 200px;
 	padding-right: 10px;
 	position: relative;
@@ -169,6 +169,7 @@
 }
 
 .#{$ns}-newpill--button-icon {
+	bottom: 0;
 	position: absolute;
 	right: 0;
 }

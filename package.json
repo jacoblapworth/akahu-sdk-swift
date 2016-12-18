@@ -1,7 +1,7 @@
 {
   "version": "4.13.0",
   "name": "xui-icon",
-  "main": "src/XUIIcon.js",
+  "main": "index.js",
   "description": "Module for using XUI Icons",
   "author": "Kirk Holloway <kirk.holloway@xero.com>",
   "license": "Copyright Xero Ltd",

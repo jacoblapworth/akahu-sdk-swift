@@ -3,29 +3,30 @@ import cn from 'classnames';
 import XUIIconBlob from './XUIIconBlob';
 import icons from './iconData';
 
+// TODO: Remove this logic in a future version
 const names = Object.keys(icons).reduce((object, icon) => {
 		object[icon.replace('-','_').toUpperCase()] = icon;
 		return object;
 	}, {});
 
-export const XUIIcons = names;
+export { names as XUIICons };
 
 const blobId = 'xui-icon-blob-auto';
 
-const sizes = {
+const sizeClasses = {
 	standard: '',
 	large: 'xui-icon-large',
 	xlarge: 'xui-icon-xlarge'
 };
 
-const rotations = {
+const rotationClasses = {
 	'90': 'xui-icon-rotate-90',
 	'180': 'xui-icon-rotate-180',
 	'270': 'xui-icon-rotate-270'
 };
 
 /* eslint-disable camelcase */
-const colors = {
+const colorClasses = {
 	standard: 'xui-icon-color-standard',
 	white: 'xui-icon-color-white',
 	blue: 'xui-icon-color-blue',
@@ -42,7 +43,7 @@ const propTypes = {
 	/** @property {string} [className=''] Additional classes to be applied to the icon */
 	className: PropTypes.string,
 	/** @property {string} [size=''] Adds a size modifier to the icon */
-	size: PropTypes.oneOf(Object.keys(sizes)),
+	size: PropTypes.oneOf(Object.keys(sizeClasses)),
 	/** @property {string} [title=''] Title to be read by screen readers */
 	title: PropTypes.string,
 	/** @property {string} [desc=''] Description to be read by screen readers */
@@ -50,9 +51,9 @@ const propTypes = {
 	/** @property {string} [desc=''] Role to be applied to the SVG for screen readers */
 	role: PropTypes.string,
 	/** @property {string} [rotation=0] Adds a rotation modifier to the icon */
-	rotation: PropTypes.oneOf(Object.keys(rotations)),
+	rotation: PropTypes.oneOf(Object.keys(rotationClasses)),
 	/** @property {string} [color] Adds a color modifier to the icon */
-	color: PropTypes.oneOf(Object.keys(colors)),
+	color: PropTypes.oneOf(Object.keys(colorClasses)),
 	/** @property {bool} [inline] Whether the inline class modifier should be added */
 	inline: PropTypes.bool
 };
@@ -79,9 +80,9 @@ export default function XUIIcon(props) {
 	const classes = cn(
 		'xui-icon',
 		className,
-		sizes[size],
-		colors[color],
-		rotations[rotation],
+		sizeClasses[size],
+		colorClasses[color],
+		rotationClasses[rotation],
 		{
 			'xui-icon-inline' : inline
 		}

@@ -2,7 +2,7 @@
 
 // Dropdowns
 //
-// Styleguide: Buttons.6
+// Styleguide: Buttons.5
 
 .#{$ns}-button--caret {
 	@include xui-margin-top(-7px);
@@ -38,7 +38,7 @@
 //   <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 //
-// Styleguide: Buttons.6.1
+// Styleguide: Buttons.5.1
 
 // Split Button Dropdowns
 //
@@ -74,6 +74,6 @@
 //   </button>
 // </div>
 //
-// Styleguide: Buttons.6.2
+// Styleguide: Buttons.5.2
 
 @include xui-button-split; // Creates the class as a standalone component

@@ -48,6 +48,13 @@
 		color: $xui-color-placeholder;
 		opacity: 1;
 	}
+
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none;
+		height: 0;
+		width: 0;
+	}
 }
 
 @import "forms.layout";

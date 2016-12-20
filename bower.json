@@ -1,7 +1,7 @@
 {
   "name": "xui-textarea",
-  "description": "dumb component, textarea for xui pages",
-  "main": "src/XUITextArea.js",
+  "description": "ReactJS text area component for xui pages",
+  "main": "index.js",
   "private": true,
   "ignore": [
     "**/.*",
@@ -19,10 +19,8 @@
     "es6"
   ],
   "dependencies": {
-    "xui": "git://github.dev.xero.com/UXE/xui.git#^10.5.0",
-    "xui-base-component": "git://github.dev.xero.com/FutureRobot/xui-base-component.git#^2.2.1",
+    "xui": "git://github.dev.xero.com/UXE/xui.git#^10.17.1",
     "classnames": "^2.1.0",
-    "react": "~0.14.2 || ^15.0.0",
-    "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^10.5.0"
+    "react": "~0.14.2 || ^15.3.1"
   }
 }

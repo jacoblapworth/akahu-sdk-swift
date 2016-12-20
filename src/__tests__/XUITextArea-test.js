@@ -1,8 +1,6 @@
 import { assert, expect } from 'chai';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import XUITextArea from '../XUITextArea.js';
-import CSSClasses from 'xui-css-classes';
 
 const TestUtils = React.addons.TestUtils;
 
@@ -13,77 +11,107 @@ let changed = false;
 // 0 or auto, so cannot be tested.
 describe('XUITextArea basic functionality:', () => {
 	beforeEach(() => {
-		const changeHandler = function(){
+		const changeHandler = () => {
 			changed = true;
 		};
 
 		component = TestUtils.renderIntoDocument(
-			<XUITextArea
-				className='test-hello-world'
-				fieldClassName='classyMcClassFace'
-				onChange={changeHandler}
-				qaHook={'xui-input'}
-				maxCharacters={10}
-				/>
+			<div>
+				<XUITextArea
+					className='classyMcClassFace'
+					fieldClassName='fieldClassyMcClassFace'
+					onChange={changeHandler}
+					qaHook={'xui-input'}
+					maxCharacters={10}
+					/>
+			</div>
 		);
 	});
 
 	it('should call onChange when the value of the input changes', () => {
-		const domNode = ReactDOM.findDOMNode(component).lastChild;
-		TestUtils.Simulate.change(domNode, { target: { value: 'a' }});
+		const inputNode = component.querySelector('.xui-input');
+		TestUtils.Simulate.change(inputNode);
 		expect(changed).to.be.true;
 	});
 
 	it('should apply className and fieldClassName props to the textarea and containing div', () => {
-		const domNode = ReactDOM.findDOMNode(component);
-		expect(domNode.getAttribute('class')).to.contain('classyMcClassFace');
-		expect(domNode.lastChild.getAttribute('class')).to.contain('test-hello-world')
+		const fieldNode = component.querySelector('.xui-field-layout');
+		expect(fieldNode.getAttribute('class')).to.contain('fieldClassyMcClassFace');
+		const inputNode = component.querySelector('.xui-input');
+		expect(inputNode.getAttribute('class')).to.contain('classyMcClassFace')
 	});
 });
 
-
-
 describe('XUITextArea additional functionality:', () => {
+
 	it('should apply error styling if maxCharacters is exceeded', () => {
+
 		component = TestUtils.renderIntoDocument(
 			<div>
 				<XUITextArea
+					className="textarea-1"
 					qaHook={'xui-input'}
 					maxCharacters={10}
 					defaultValue={'12345678910'}
 					/>
 				<XUITextArea
+					className="textarea-2"
 					qaHook={'xui-input'}
 					maxCharacters={10}
 					defaultValue={'123456789'}
 					/>
 			</div>
 		);
-		const invalidNode = ReactDOM.findDOMNode(component).firstChild.lastChild;
-		const validNode = ReactDOM.findDOMNode(component).lastChild.lastChild;
-		expect(invalidNode.getAttribute('class')).to.contain(CSSClasses.Form.Input.IS_INVALID);
-		expect(validNode.getAttribute('class')).to.not.contain(CSSClasses.Form.Input.IS_INVALID);
+
+		const invalidNode = component.querySelector('.textarea-1');
+		const validNode = component.querySelector('.textarea-2');
+		expect(invalidNode.getAttribute('class')).to.contain('xui-input-is-invalid');
+		expect(validNode.getAttribute('class')).to.not.contain('xui-input-is-invalid');
 	});
 
 	it('should update the counter when text is entered', () => {
+
 		component = TestUtils.renderIntoDocument(
 			<div>
 				<XUITextArea
+					fieldClassName="field-1"
 					qaHook={'xui-input'}
 					maxCharacters={10}
 					/>
 				<XUITextArea
+					fieldClassName="field-2"
 					qaHook={'xui-input'}
 					maxCharacters={10}
 					defaultValue={'a'}
 					/>
 			</div>
 		);
-		const firstField = ReactDOM.findDOMNode(component).firstChild;
-		const secondField = ReactDOM.findDOMNode(component).lastChild;
+
+		const firstField = component.querySelector('.field-1');
+		const secondField = component.querySelector('.field-2');
 		const firstCounter = firstField.getElementsByClassName('xui-margin-auto-top')[0];
 		const secondCounter = secondField.getElementsByClassName('xui-margin-auto-top')[0];
 		expect(firstCounter.innerText).to.equal('10');
 		expect(secondCounter.innerText).to.equal('9');
 	});
+
+	it('should pass back a reference to the inner textarea element to the textareaRef callback', () => {
+
+		var textAreaNode = null;
+
+		const textareaRef = (node) => {
+			textAreaNode = node;
+		};
+
+		component = TestUtils.renderIntoDocument(
+			<XUITextArea
+				textareaRef={textareaRef}
+				fieldClassName="field-1"
+				qaHook={'xui-input'}
+				maxCharacters={10}
+			/>
+		);
+
+		expect(textAreaNode.getAttribute('class')).to.contain('xui-input');
+	})
 });

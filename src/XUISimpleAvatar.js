@@ -2,6 +2,36 @@ import React, { PureComponent } from 'react';
 import cn from 'classnames';
 import {sizeClassNames, classNames, colorClassNames, variantClassNames} from './constants';
 
+const ignoreChars = /[(){}\[\]]/; // ignore braces
+
+/**
+ * @private
+ * Generate an abbreviation for an avatar based on its value. This takes the first character of each word
+ * (non-whitespace, not brackets or one of the ignored characters, destructured for unicode handling)
+ * @param {String} name The string to abbreviate
+ * @param {Number} maxChars The max number of chars desired in the resulting abbreviation
+ * @returns {String} The abbreviation
+ */
+function abbreviateAvatar(name='', maxChars=1) {
+	let destructuredName = [...name];
+	let nextChar;
+	let newName = '';
+	let includeNextNonWhitespaceChar = true;
+
+	for(let i = 0; (i < destructuredName.length && newName.length < maxChars); i++) {
+		nextChar = destructuredName[i];
+
+		if(/\s/.test(nextChar)) {
+			includeNextNonWhitespaceChar = true;
+		} else if(includeNextNonWhitespaceChar && !ignoreChars.test(nextChar)) {
+			newName += nextChar.toLocaleUpperCase();
+			includeNextNonWhitespaceChar = false;
+		}
+	}
+
+	return newName;
+}
+
 /**
  * @private
  * Gets the avatar color class based on the identifier
@@ -36,22 +66,7 @@ export default class XUISimpleAvatar extends PureComponent {
 			imageUrl ? null : getAvatarColorClass(identifier || value)
 		);
 
-		let displayValue = '';
-		if (value) {
-			if(variant === 'business') {
-				// An acronym up to 3 characters long based on the business name
-				const segments = value.trim().split(' ');
-				for(let i = 0; i < 3; i++) {
-					if(segments[i]) {
-						displayValue += [...segments[i]][0].toLocaleUpperCase();
-					} else {
-						break;
-					}
-				}
-			} else {
-				displayValue = [...value.trim()][0].toLocaleUpperCase();
-			}
-		}
+		const displayValue = value ? abbreviateAvatar(value, variant === 'business' ? 3 : 1) : '';
 
 		if (imageUrl) {
 			return <img onError={onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;

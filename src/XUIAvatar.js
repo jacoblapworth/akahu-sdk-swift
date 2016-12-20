@@ -9,6 +9,11 @@ const propTypes = {
 	value: React.PropTypes.string.isRequired
 };
 
+/**
+ * @private
+ * onError handler for the image element
+ * @param {Object} e Error object
+ */
 function onError(e) {
 	const { props } = this;
 

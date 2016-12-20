@@ -125,22 +125,25 @@ describe('XUIAvatar', function () {
 		assert.strictEqual(node.tagName, 'IMG', 'Avatar has been rendered with an IMG element initially');
 	});
 
-	it('should render business avatars with uppercased acronyms of up to 3 characters based on the first letter of each word in the value', function () {
+	it('should render business avatars with uppercased acronyms of up to 3 characters based on the first letter of each word in the value, excluding brackets', function () {
 
 		const dom = TestUtils.renderIntoDocument(
 			<div>
 				<XUIAvatar variant="business" value="Rod Drury Paddleboards Inc" />
 				<XUIAvatar variant="business" value="Keynesian Stimulants" />
 				<XUIAvatar variant="business" value="hipsterlowercaseonewordcompany" />
+				<XUIAvatar variant="business" value="  [This] (Long) {Company} Name" />
 			</div>
 		);
 
 		const node1 = dom.children[0];
 		const node2 = dom.children[1];
 		const node3 = dom.children[2];
+		const node4 = dom.children[3];
 		assert.strictEqual(node1.textContent, 'RDP', 'Avatar whose value consists of 4 words should render the first letters from the first 3 words');
 		assert.strictEqual(node2.textContent, 'KS', 'Avatar whose value consists of 2 words should render the first letters from each of the 2 words');
 		assert.strictEqual(node3.textContent, 'H', 'Avatar whose value consists of 1 lowercase word should render the first letter uppercased');
+		assert.strictEqual(node4.textContent, 'TLC', 'Avatar containing leading spaces, words surrounded in braces of various kinds, should abbreviate to non-spaces, non-brace characters');
 	});
 
 });

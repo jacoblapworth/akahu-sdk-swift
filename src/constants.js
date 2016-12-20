@@ -2,7 +2,6 @@
  * @public
  * Map of sizes to XUI Classes properties
  */
-
 export const sizeClassNames = {
 	small: 'xui-avatar-small',
 	medium: '',

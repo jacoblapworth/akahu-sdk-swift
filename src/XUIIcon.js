@@ -1,34 +1,49 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import cn from 'classnames';
 import XUIIconBlob from './XUIIconBlob';
-import Classes from 'xui-css-classes';
 import icons from './iconData';
 
-const iconNames = Object.keys(icons).reduce((object, icon, i) => {
+// TODO: Remove this logic in a future version
+const names = Object.keys(icons).reduce((object, icon) => {
 		object[icon.replace('-','_').toUpperCase()] = icon;
 		return object;
 	}, {});
-export const XUIIcons = iconNames;
-const iconBlobId = 'xui-icon-blob-auto';
-const iconSizes = {
+
+export { names as XUIICons };
+
+const blobId = 'xui-icon-blob-auto';
+
+const sizeClasses = {
 	standard: '',
-	large: Classes.Icon.LARGE,
-	xlarge: Classes.Icon.XLARGE
+	large: 'xui-icon-large',
+	xlarge: 'xui-icon-xlarge'
 };
-const rotations = [
-	0,
-	90,
-	180,
-	270
-];
-const colors = Object.keys(Classes.Icon.Color).map(key=>{return key.toLowerCase()});
+
+const rotationClasses = {
+	'90': 'xui-icon-rotate-90',
+	'180': 'xui-icon-rotate-180',
+	'270': 'xui-icon-rotate-270'
+};
+
+/* eslint-disable camelcase */
+const colorClasses = {
+	standard: 'xui-icon-color-standard',
+	white: 'xui-icon-color-white',
+	blue: 'xui-icon-color-blue',
+	green: 'xui-icon-color-green',
+	red: 'xui-icon-color-red',
+	file_spreadsheet: 'xui-icon-color-file-spreadsheet',
+	file_pdf: 'xui-icon-color-file-pdf'
+};
+/* eslint-enabled camelcase */
+
 const propTypes = {
 	/** @property {string} Defines the icon to be rendered */
 	icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
 	/** @property {string} [className=''] Additional classes to be applied to the icon */
 	className: PropTypes.string,
 	/** @property {string} [size=''] Adds a size modifier to the icon */
-	size: PropTypes.oneOf(Object.keys(iconSizes)),
+	size: PropTypes.oneOf(Object.keys(sizeClasses)),
 	/** @property {string} [title=''] Title to be read by screen readers */
 	title: PropTypes.string,
 	/** @property {string} [desc=''] Description to be read by screen readers */
@@ -36,9 +51,9 @@ const propTypes = {
 	/** @property {string} [desc=''] Role to be applied to the SVG for screen readers */
 	role: PropTypes.string,
 	/** @property {string} [rotation=0] Adds a rotation modifier to the icon */
-	rotation: PropTypes.oneOf(rotations),
+	rotation: PropTypes.oneOf(Object.keys(rotationClasses)),
 	/** @property {string} [color] Adds a color modifier to the icon */
-	color: PropTypes.oneOf(colors),
+	color: PropTypes.oneOf(Object.keys(colorClasses)),
 	/** @property {bool} [inline] Whether the inline class modifier should be added */
 	inline: PropTypes.bool
 };
@@ -49,19 +64,31 @@ const defaultProps = {
 };
 
 export default function XUIIcon(props) {
-	const { icon, className, size, title, desc, role, rotation, color, inline } = props;
-	const classes = cn(
-		Classes.Icon.BASE,
-		className,
-		iconSizes[size],
-		Classes.Icon.Color[color ? color.toUpperCase() : null],
-		{
-			[Classes.Icon.ROTATE[rotation]] : rotation,
-			[Classes.Icon.INLINE] : inline
-		}
-		);
 
-	if (typeof(document) !== 'undefined' && !document.getElementById(iconBlobId)) {
+	const {
+		icon,
+		className,
+		size,
+		title,
+		desc,
+		role,
+		rotation,
+		color,
+		inline
+	} = props;
+
+	const classes = cn(
+		'xui-icon',
+		className,
+		sizeClasses[size],
+		colorClasses[color],
+		rotationClasses[rotation],
+		{
+			'xui-icon-inline' : inline
+		}
+	);
+
+	if (typeof(document) !== 'undefined' && !document.getElementById(blobId)) {
 		renderBlob();
 	}
 
@@ -79,7 +106,7 @@ export default function XUIIcon(props) {
 
 function renderBlob() {
 	const blobEl = document.createElement('div');
-	blobEl.id = iconBlobId;
+	blobEl.id = blobId;
 	blobEl.innerHTML = XUIIconBlob;
 	document.body.appendChild(blobEl);
 }

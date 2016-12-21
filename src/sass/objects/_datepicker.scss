@@ -273,7 +273,9 @@
 //   </table>
 // </div>
 //
-// Styleguide: Dropdowns.3
+// Weight: 4.1
+//
+// Styleguide: Datepicker
 
 @mixin xui-datepicker-selection-bubble($color : $xui-color-xero-blue, $width: 0, $height: 0, $top: 0) {
 	@if $width > 0 {

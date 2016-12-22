@@ -35,7 +35,8 @@
 // When using this pattern, a class should be toggled on the document's body
 // element that sets `overflow: hidden;` this will prevent two scroll bars on the page.
 //
-// ```html
+// <!--?prettify lang=html?-->
+// ```
 //<body class="xui-u-overflow-hidden">
 //  ...
 //  <div class="xui-mask xui-mask-is-active">
@@ -48,6 +49,7 @@
 // `xui-u-overflow-hidden` class to the document's body, this will prevent a
 // double scroll effect when the inner scroll reaches its end.
 //
+// <!--?prettify lang=html?-->
 //```html
 //<body class="xui-u-overflow-hidden">
 //  ...

@@ -16,7 +16,8 @@ Using in Your Project
 
 Include the following `link` in your page:
 
-```html
+<!--?prettify lang=html?-->
+```
 <link rel="stylesheet" href="https://edge.xero.com/style/xui/10.17.1/xui.min.css"/>
 ```
 
@@ -27,13 +28,15 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 
 ### Bower
 
-```bash
+<!--?prettify?-->
+```
 $ bower install git@github.dev.xero.com:UXE/xui.git#^10.17.1 --save
 ```
 
 ### npm
 
-```bash
+<!--?prettify?-->
+```
 $ npm install git://github.dev.xero.com/UXE/xui.git#10.17.1 --save
 ```
 
@@ -52,40 +55,32 @@ When appropriate components exist, developers should use those components over u
 
 Example Page Markup
 -------------------
-```html
+<!--?prettify lang=html?-->
+```
 <!DOCTYPE html>
 <html class="xui-html" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css" rel="stylesheet" />
     <link href="https://edge.xero.com/style/xui/10.17.1/xui.min.css" rel="stylesheet" />
-    <script src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
+    <script type="application/json" id="header-data" data-render-to="#header">
+      {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
+    </script>
+    <link rel="stylesheet" href="https://edge.xero.com/platform/header/4.2.0/header.min.css" />
+    <script src="https://edge.xero.com/platform/header/4.2.0/header.min.js" defer></script>
   </head>
   <body class="xui-body">
     <header id="header"></header>
-    <script>
-      // Ideally this code would live in an external script to enable CSP
-      (function () {
-        'use strict';
-        XERO.Header.init({}, '#header');
-      }());
-    </script>
     <header class="xui-pageheading">
       <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
-        <h1 class="xui-pageheading--title">Title</h1>
+        <h1 class="xui-pageheading--title">Page Title</h1>
       </div>
     </header>
-    <main role="main" class="xui-page-width-standard">
-      <div class="xui-panel">
-        <header class="xui-panel--header xui-padding">
-          <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
-        </header>
-        <section class="xui-panel--section xui-padding">
-          Page Content
-        </section>
-      </div>
-    </main>
+    <div class="xui-margin-horizontal-small">
+      <main role="main" class="xui-page-width-standard xui-padding-vertical-large">
+        <h1 class="xui-heading-display xui-margin-none">Hello World</h1>
+      </main>
+    </div>
   </body>
 </html>
 ```

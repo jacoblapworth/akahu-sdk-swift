@@ -16,5 +16,10 @@
   "devDependencies": {
     "bower": "^1.7.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
+  },
+  "component": {
+    "isUxeEndorsed": true,
+    "displayName": "Button",
+    "type": "React"
   }
 }

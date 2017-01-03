@@ -25,5 +25,10 @@
   "devDependencies": {
     "bower": "^1.7.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/FutureRobot/xui-webpack-build-tools.git#6.0.3"
+  },
+  "component": {
+    "isUxeEndorsed": true,
+    "displayName": "Text Area",
+    "type": "React"
   }
 }

@@ -18,5 +18,10 @@
     "bower": "^1.6.3",
     "serve": "^1.4.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
+  },
+  "component": {
+    "isUxeEndorsed": true,
+    "displayName": "Switch",
+    "type": "React"
   }
 }

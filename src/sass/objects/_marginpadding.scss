@@ -19,33 +19,19 @@
 //
 // #### Class Names
 //
-// `xui-margin-top-small`, `xui-margin-top`, `xui-margin-top-large` (top)
+// `xui-margin-top-auto`, `xui-margin-top-none`, `xui-margin-top-small`, `xui-margin-top`, `xui-margin-top-large` (top)
 //
-// `xui-margin-right-small`, `xui-margin-right`, `xui-margin-right-large` (right)
+// `xui-margin-right-auto`, `xui-margin-right-none`, `xui-margin-right-small`, `xui-margin-right`, `xui-margin-right-large` (right)
 //
-// `xui-margin-bottom-small`, `xui-margin-bottom`, `xui-margin-bottom-large` (bottom)
+// `xui-margin-bottom-auto`, `xui-margin-bottom-none`, `xui-margin-bottom-small`, `xui-margin-bottom`, `xui-margin-bottom-large` (bottom)
 //
-// `xui-margin-left-small`, `xui-margin-left`, `xui-margin-left-large` (left)
+// `xui-margin-left-auto`, `xui-margin-left-none`, `xui-margin-left-small`, `xui-margin-left`, `xui-margin-left-large` (left)
 //
-// `xui-margin-vertical-small`, `xui-margin-vertical`, `xui-margin-vertical-large` (vertical)
+// `xui-margin-vertical-auto`, `xui-margin-vertical-none`, `xui-margin-vertical-small`, `xui-margin-vertical`, `xui-margin-vertical-large` (vertical)
 //
-// `xui-margin-horizontal-small`, `xui-margin-horizontal`, `xui-margin-horizontal-large` (horizontal)
+// `xui-margin-horizontal-auto`, `xui-margin-horizontal-none`, `xui-margin-horizontal-small`, `xui-margin-horizontal`, `xui-margin-horizontal-large` (horizontal)
 //
-// `xui-margin-small`, `xui-margin`, `xui-margin-large` (vertical, horizontal)
-//
-// `xui-margin-auto-left` (auto left)
-//
-// `xui-margin-auto-right` (auto right)
-//
-// `xui-margin-auto-top` (auto top)
-//
-// `xui-margin-auto-vertical` (auto vertical)
-//
-// `xui-margin-auto-horizontal` (auto horizontal)
-//
-// `xui-margin-auto`	Margin auto (auto vertical, auto horizontal)
-//
-// `xui-margin-none` Margin Xero (0)
+// `xui-margin-none`, `xui-margin-small`, `xui-margin`, `xui-margin-large` (vertical, horizontal)
 //
 // Markup:
 // <div class="margin-example">
@@ -162,15 +148,19 @@
 // Styleguide: Margin and Padding.Margin.1
 
 // Collections of XUI layout classes in standard, small and large
-@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard);
-@include xui-generate-margin($xui-s-small, $xui-class-suffix-small);
-@include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-margin(auto, $xui-class-suffix-auto, true);
+@include xui-generate-margin(0, $xui-class-suffix-none, false);
+@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard, true);
+@include xui-generate-margin($xui-s-small, $xui-class-suffix-small, true);
+@include xui-generate-margin($xui-s-large, $xui-class-suffix-large, true);
 
+// TODO Breaking: remove the !important
 // scss-lint:disable ImportantRule
 .#{$ns}-margin-none {
 	margin: 0 !important;
 }
 
+// TODO: Breaking: remove these - they should be xui-margin-left-auto, etc
 .#{$ns}-margin-auto-left {
 	margin-left: auto;
 }
@@ -190,10 +180,6 @@
 .#{$ns}-margin-auto-vertical {
 	margin-bottom: auto;
 	margin-top: auto;
-}
-
-.#{$ns}-margin-auto {
-	margin: auto;
 }
 
 // Padding
@@ -280,9 +266,10 @@
 // Styleguide: Margin and Padding.Padding.1
 
 // Collections of XUI layout classes in standard, small and large
-@include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard);
-@include xui-generate-padding($xui-s-small, $xui-class-suffix-small);
-@include xui-generate-padding($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-padding(none, $xui-class-suffix-none, false);
+@include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard, true);
+@include xui-generate-padding($xui-s-small, $xui-class-suffix-small, true);
+@include xui-generate-padding($xui-s-large, $xui-class-suffix-large, true);
 
 // scss-lint:disable ImportantRule
 .#{$ns}-padding-none {

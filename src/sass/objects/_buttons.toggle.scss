@@ -108,13 +108,13 @@
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" checked/>
 //       <span class="xui-toggle--label">
-//         Checkbox<br/>Checkbox<br/>Checkbox
+//         When the text content is longer, the toggle will not take up more space.
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" />
 //       <span class="xui-toggle--label">
-//         Pyjamas
+//         Standard
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
@@ -269,6 +269,7 @@
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--label,
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
 	flex-grow: 1;
+	flex-basis: 100%;
 }
 
 

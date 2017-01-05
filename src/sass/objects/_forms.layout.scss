@@ -66,42 +66,12 @@
 
 .#{$ns}-validation-layout {
 	margin-bottom: $xui-s-small;
-	min-height: $xui-s-large;
+	min-height: $xui-s-large + 2; // Extra 2px to prevent vertical layout shifting
 	padding-top: $xui-s-xsmall;
 }
 
 .#{$ns}-validation-is-invalid {
 	color: $xui-color-xero-red;
-}
-
-.#{$ns}-validation {
-	color: $xui-color-grey-2;
-	font-size: $xui-font-size-heading-small;
-}
-
-.#{$ns}-validation-layout {
-		margin-bottom: $xui-s-small;
-		min-height: $xui-s-large;
-		padding-top: $xui-s-xsmall;
-}
-
-.#{$ns}-validation-is-invalid {
-		color: $xui-color-xero-red;
-}
-
-.#{$ns}-validation {
-	color: $xui-color-grey-2;
-	font-size: $xui-font-size-heading-small;
-}
-
-.#{$ns}-validation-layout {
-		margin-bottom: $xui-s-small;
-		min-height: $xui-s-large;
-		padding-top: $xui-s-xsmall;
-}
-
-.#{$ns}-validation-is-invalid {
-		color: $xui-color-xero-red;
 }
 
 // Inline Forms

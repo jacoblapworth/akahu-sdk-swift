@@ -1,6 +1,4 @@
-import React from 'react';
-import XUIBaseComponent from 'xui-base-component';
-import CSSClasses from 'xui-css-classes';
+import React, { PureComponent } from 'react';
 import cn from 'classnames';
 
 /**
@@ -34,27 +32,22 @@ const propTypes = {
  * Defaults for the disabled state. Defaults to enabled
  */
 const defaultProps = {
-
   checked: false,
-
   disabled: false
-
 };
 
-export default class XUISwitch extends XUIBaseComponent {
-
+export default class XUISwitch extends PureComponent {
 	render() {
-
-		const props = this.props;
+		const {props} = this;
 
 		const labelClasses = cn(
-			CSSClasses.Switch.BASE,
-			{[CSSClasses.GlobalState.IS_DISABLED]: props.disabled}
+			'xui-switch',
+			{'xui-is-disabled': props.disabled}
 		);
 
 		const inputClasses = cn(
-			CSSClasses.Utility.Hidden.VISUALLY,
-			CSSClasses.Switch.CHECKBOX
+			'xui-u-hidden-visually',
+			'xui-switch--checkbox'
 		);
 
 		return (
@@ -63,11 +56,10 @@ export default class XUISwitch extends XUIBaseComponent {
 					type="checkbox"
 					{...props}
 					className={inputClasses} />
-				<div className={CSSClasses.Switch.CONTROL}></div>
+				<div className="xui-switch--control"></div>
 			</label>
 		);
 	}
-
 }
 
 XUISwitch.propTypes = propTypes;

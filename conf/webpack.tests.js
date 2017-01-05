@@ -1,4 +1,5 @@
-import 'babel-core/external-helpers.js';
+import ReactDOM from 'react-dom';
+global.ReactDOM = ReactDOM;
 
 // Replace ./src/js with the directory of your application code and
 // make sure the file name regexp matches your test files.

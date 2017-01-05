@@ -1,5 +1,5 @@
 {
-  "version": "4.0.1",
+  "version": "5.0.0",
   "name": "xui-switch",
   "main": "src/XUISwitch.js",
   "description": "Layout component for XUI Switches",
@@ -11,12 +11,10 @@
     "prepublish": "bower install",
     "test-ui": "xui-webpack --config conf/build.js --progress --colors",
     "watch": "xui-webpack --config conf/build.js --progress --colors --watch",
-    "test": "karma start conf/test.js",
-    "start": "./node_modules/serve/bin/serve test/ui"
+    "test": "karma start conf/test.js"
   },
   "devDependencies": {
     "bower": "^1.6.3",
-    "serve": "^1.4.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
   },
   "component": {

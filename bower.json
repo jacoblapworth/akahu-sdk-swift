@@ -1,5 +1,5 @@
 {
-  "name": "XUI-Loader",
+  "name": "xui-loader",
   "description": "Displays a loader",
   "main": "src/XUILoader.js",
   "private": true,

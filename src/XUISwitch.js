@@ -32,7 +32,7 @@ const propTypes = {
  * Defaults for the disabled state. Defaults to enabled
  */
 const defaultProps = {
-  checked: false,
+  checked: null,
   disabled: false
 };
 

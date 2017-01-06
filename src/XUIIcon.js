@@ -9,7 +9,7 @@ const names = Object.keys(icons).reduce((object, icon) => {
 		return object;
 	}, {});
 
-export { names as XUIICons };
+export { names as XUIIcons };
 
 const blobId = 'xui-icon-blob-auto';
 

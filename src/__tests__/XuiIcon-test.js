@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import iconData from '../../src/iconData';
 import XUIIcon, { XUIIcons } from '../XUIIcon';
-import Classes from 'xui-css-classes';
 
 const TestUtils = React.addons.TestUtils;
 
@@ -33,40 +32,40 @@ describe('XUIIcon', () => {
 
 		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
 		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.LARGE);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.XLARGE);
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-large');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-xlarge');
 
 		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode1.getAttribute("class")).to.contain(Classes.Icon.LARGE);
+		expect(domNode1.getAttribute("class")).to.contain('xui-icon-large');
 
 		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode2.getAttribute("class")).to.contain(Classes.Icon.XLARGE);
+		expect(domNode2.getAttribute("class")).to.contain('xui-icon-xlarge');
 	});
 
 	it('Should render with the correct rotation classes when rotations are provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
 				<XUIIcon icon={ XUIIcons.SEARCH } />
-				<XUIIcon icon={ XUIIcons.SEARCH } rotation={90} />
-				<XUIIcon icon={ XUIIcons.SEARCH } rotation={180} />
-				<XUIIcon icon={ XUIIcons.SEARCH } rotation={270} />
+				<XUIIcon icon={ XUIIcons.SEARCH } rotation="90" />
+				<XUIIcon icon={ XUIIcons.SEARCH } rotation="180" />
+				<XUIIcon icon={ XUIIcons.SEARCH } rotation="270" />
 			</div>
 		);
 
 		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
 		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['90']);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['180']);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.ROTATE['270']);
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-rotate-90');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-rotate-180');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-rotate-270');
 
 		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode1.getAttribute("class")).to.contain(Classes.Icon.ROTATE['90']);
+		expect(domNode1.getAttribute("class")).to.contain('xui-icon-rotate-90');
 
 		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode2.getAttribute("class")).to.contain(Classes.Icon.ROTATE['180']);
+		expect(domNode2.getAttribute("class")).to.contain('xui-icon-rotate-180');
 
 		const domNode3 = ReactDOM.findDOMNode(component).children[3];
-		expect(domNode3.getAttribute("class")).to.contain(Classes.Icon.ROTATE['270']);
+		expect(domNode3.getAttribute("class")).to.contain('xui-icon-rotate-270');
 	});
 
 	it('Should render with the correct color class when color is provided', function () {
@@ -83,33 +82,33 @@ describe('XUIIcon', () => {
 
 		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
 		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['STANDARD']);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['RED']);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['GREEN']);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['WHITE']);
-		expect(domNode.getAttribute("class")).to.not.contain(Classes.Icon.Color['BLUE']);
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-standard');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-red');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-green');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-white');
+		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-blue');
 
 		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode1.getAttribute("class")).to.contain(Classes.Icon.Color['STANDARD']);
+		expect(domNode1.getAttribute("class")).to.contain('xui-icon-color-standard');
 
 		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode2.getAttribute("class")).to.contain(Classes.Icon.Color['RED']);
+		expect(domNode2.getAttribute("class")).to.contain('xui-icon-color-red');
 
 		const domNode3 = ReactDOM.findDOMNode(component).children[3];
-		expect(domNode3.getAttribute("class")).to.contain(Classes.Icon.Color['GREEN']);
+		expect(domNode3.getAttribute("class")).to.contain('xui-icon-color-green');
 
 		const domNode4 = ReactDOM.findDOMNode(component).children[4];
-		expect(domNode4.getAttribute("class")).to.contain(Classes.Icon.Color['WHITE']);
+		expect(domNode4.getAttribute("class")).to.contain('xui-icon-color-white');
 
 		const domNode5 = ReactDOM.findDOMNode(component).children[5];
-		expect(domNode5.getAttribute("class")).to.contain(Classes.Icon.Color['BLUE']);
+		expect(domNode5.getAttribute("class")).to.contain('xui-icon-color-blue');
 	});
 
 	it('Should render title and desc elements within the SVG element based on the props provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon 
-					icon={ XUIIcons.SEARCH } 
+				<XUIIcon
+					icon={ XUIIcons.SEARCH }
 					title="Happy poop title 💩"
 					desc="Happy poop desc 💩" />
 			</div>

@@ -75,7 +75,7 @@
 		} @else {
 			@if ($i < $xui-layout-columns) {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {
-					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} );
+					width: calc( (100% - (12/#{$i}) * #{$xui-s-large}) / 12 * #{$i} - 0.05px ); // Fix for Firefox which accumulates rounding errors
 				}
 			} @else {
 				.#{$ns}-row-grid > .#{$ns}-column-#{$suffix} {

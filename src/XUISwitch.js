@@ -25,17 +25,6 @@ const propTypes = {
 
 };
 
-/**
- * @public
- *
- * Defaults for the checked state. Defaults to not checked
- * Defaults for the disabled state. Defaults to enabled
- */
-const defaultProps = {
-  checked: null,
-  disabled: false
-};
-
 export default class XUISwitch extends PureComponent {
 	render() {
 		const {props} = this;
@@ -63,4 +52,3 @@ export default class XUISwitch extends PureComponent {
 }
 
 XUISwitch.propTypes = propTypes;
-XUISwitch.defaultProps = defaultProps;

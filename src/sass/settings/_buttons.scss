@@ -3,18 +3,18 @@
 @import "./typography";
 
 $xui-button-variants-divider-colors: (
-		main : $xui-color-xero-blue-divider,
-		create : $xui-color-xero-green-divider,
-		negative : $xui-color-xero-red-divider
+	main : $xui-color-xero-blue-divider,
+	create : $xui-color-xero-green-divider,
+	negative : $xui-color-xero-red-divider
 );
 
 $xui-button-variants-background-colors: (
-		standard : null,
-		main : $xui-color-xero-blue,
-		create : $xui-color-xero-green,
-		negative : $xui-color-xero-red
+	standard : null,
+	main : $xui-color-xero-blue,
+	create : $xui-color-xero-green,
+	negative : $xui-color-xero-red
 );
 
 $xui-button-sizes: (
-		small : (padding: 6px $xui-s-small)
+	small : (padding: 6px $xui-s-small)
 );

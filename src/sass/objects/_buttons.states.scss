@@ -10,7 +10,7 @@
 }
 
 .#{$ns}-button-is-disabled {
-	@include xui-button-is-disabled;
+	@include xui-button-is-disabled(null); // Null sets no background color by default (useful for link styles)
 
 	&:hover,
 	&:focus {
@@ -36,10 +36,16 @@
 // Markup:
 // <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">Text</button>
 // <a href="https://go.xero.com" class="xui-button xui-button-standard xui-button-is-disabled">Text</a>
-// <a href="https://go.xero.com" class="xui-button xui-button-link xui-button-is-disabled xui-margin-left-large xui-margin-right-large">Text</a>
-// <button type="button" disabled class="xui-button xui-button-link xui-button-is-disabled">Text</a>
 //
 // Styleguide: Buttons.8.1
+
+// Link buttons when disabled
+//
+// Markup:
+// <a href="https://go.xero.com" class="xui-button xui-button-link xui-button-is-disabled">Text</a>
+// <button type="button" disabled class="xui-button xui-button-link xui-button-is-disabled">Text</a>
+//
+// Styleguide: Buttons.8.2
 
 // Coloured Button Variants when disabled
 //
@@ -58,4 +64,4 @@
 // <a href="https://go.xero.com" class="xui-button xui-button-create xui-button-is-disabled">Text</a>
 // <a href="https://go.xero.com" class="xui-button xui-button-negative xui-button-is-disabled">Text</a>
 //
-// Styleguide: Buttons.8.2
+// Styleguide: Buttons.8.3

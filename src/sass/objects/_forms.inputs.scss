@@ -122,6 +122,7 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 	.#{$ns}-icon {
 		height: $xui-input-height;
 		pointer-events: none;
+		z-index: 3; // Focus style has z-index: 2
 	}
 
 	.#{$ns}-input--icon-left,
@@ -241,51 +242,64 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 
 // Vertically Grouped Inputs
 //
-// Inputs can be vertically grouped using the `xui-input-verticallygrouped` class and having the inputs nested
-// inside a container.
+// Inputs can be grouped vertically.
 //
 // #### Class Names
 //
-// `xui-input-verticallygrouped` Modifier for a vertically grouped input
+// `xui-verticalinputgroup` Wrapper class to go around a set of vertically grouped inputs
 //
 // Markup
-// <div>
-//   <input class="xui-input xui-input-verticallygrouped" />
-//   <input class="xui-input xui-input-verticallygrouped" />
-//   <input class="xui-input xui-input-verticallygrouped" />
+// <div class="xui-verticalinputgroup">
+//   <input class="xui-input" />
+//   <input class="xui-input" />
+//   <input class="xui-input" />
+// </div>
+// <div class="xui-verticalinputgroup xui-margin-top-large">
+//   <div class="xui-inputwrapper">
+//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
+//     <input class="xui-input" placeholder="Email" />
+//   </div>
+//   <div class="xui-inputwrapper">
+//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
+//     <input class="xui-input" placeholder="Password" />
+//   </div>
 // </div>
 //
 // Styleguide: Forms.4.3
 
-.#{$ns}-input-verticallygrouped {
+.#{$ns}-verticalinputgroup {
 	// Only add top border radius to the first element
-	&:first-of-type {
+	.#{$ns}-input:first-of-type,
+	.#{$ns}-inputwrapper:first-of-type > .#{$ns}-input {
 		border-radius: 3px 3px 0 0;
 	}
 
 	// Add the margin adjustment to all elements but the first
-	&:nth-of-type(n+2) {
+	.#{$ns}-input:nth-of-type(n+2),
+	.#{$ns}-inputwrapper:nth-of-type(n+2) > .#{$ns}-input {
 		margin-top: -1px;
 	}
 
 	// On all elements except the first and last one, border radius 0 is required
-	&:nth-of-type(n+2):nth-last-of-type(n+2) {
+	.#{$ns}-input:nth-of-type(n+2):nth-last-of-type(n+2),
+	.#{$ns}-inputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-input {
 		border-radius: 0;
 	}
 
 	// Only add bottom border radius to the last element
-	&:last-of-type {
+	.#{$ns}-input:last-of-type,
+	.#{$ns}-inputwrapper:last-of-type > .#{$ns}-input {
 		border-radius: 0 0 3px 3px;
 	}
 }
 
 // Horizontally Grouped Inputs
 //
-// `xui-inputgroup` may be used to merge a group of inputs together. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// Inputs can be grouped horizontally
 //
 // #### Class Names
 //
-// `xui-inputgroup`	Container for the inputs you wish to join
+// `xui-inputgroup`	Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
 //
 // Markup:
 // <div class="xui-field-layout">
@@ -325,13 +339,13 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 	}
 }
 
-.#{$ns}-input-group:first-child,
-.#{$ns}-inputgroup:first-child {
+.#{$ns}-input-group > .#{$ns}-input:first-of-type,
+.#{$ns}-inputgroup > .#{$ns}-input:first-of-type {
 	border-radius: $xui-radius 0 0 $xui-radius;
 }
 
-.#{$ns}-input-group:last-child,
-.#{$ns}-inputgroup:last-child {
+.#{$ns}-input-group > .#{$ns}-input:last-of-type,
+.#{$ns}-inputgroup > .#{$ns}-input:last-of-type {
 	border-radius: 0 $xui-radius $xui-radius 0;
 
 	&.#{$ns}-input-is-invalid {

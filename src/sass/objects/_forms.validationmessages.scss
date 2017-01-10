@@ -21,6 +21,7 @@
 
 .#{$ns}-input-is-invalid {
 	border-color: $xui-color-xero-red;
+	z-index: 1;
 
 	&:focus,
 	&:hover {

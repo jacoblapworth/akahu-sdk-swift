@@ -31,10 +31,15 @@
 	min-height: $xui-input-height;
 	outline: none;
 	padding: 8px 0.75em;
+	position: relative;
 	width: 100%;
 
 	&:hover {
 		border-color: $xui-color-grey-3;
+	}
+
+	&:focus {
+		z-index: 2;
 	}
 
 	&:disabled {

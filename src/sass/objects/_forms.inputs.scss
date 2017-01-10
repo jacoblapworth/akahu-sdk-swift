@@ -269,7 +269,7 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 	}
 
 	// On all elements except the first and last one, border radius 0 is required
-	&:nth-child(n+2):nth-last-child(n+2) {
+	&:nth-of-type(n+2):nth-last-of-type(n+2) {
 		border-radius: 0;
 	}
 

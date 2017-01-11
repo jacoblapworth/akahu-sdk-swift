@@ -23,7 +23,7 @@
     "react": "~0.14.2 || ^15.0.0",
     "xui-css-classes": "git@github.dev.xero.com:UXE/xui-css-classes.git#^10.5.0",
     "xui-loader": "git@github.dev.xero.com:UXE/xui-loader.git#^4.0.0",
-    "xui-icon": "https://github.dev.xero.com/UXE/xui-icon.git#^4.0.0",
+    "xui-icon": "git@github.dev.xero.com:UXE/xui-icon.git#^4.0.0",
     "xui": "git@github.dev.xero.com:UXE/xui.git#^10.5.0"
   }
 }

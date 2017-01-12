@@ -55,31 +55,31 @@
 // Used to display read-only, categorical information. For example, assigning contacts to a particular group.
 //
 // Markup:
-// <span class="xui-text-tag xui-text-tag-solid">Dark tag</span>
-// <span class="xui-text-tag xui-text-tag-outline">Light tag</span>
-// <div class="xui-margin-top-large xui-dropdownmenu xui-dropdownmenu-large" role="menubar" aria-label="dropdown menu">
-//   <div class="xui-dropdownmenu--body">
-//      <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">All Investments</h3>
-//      <ul class="xui-menugroup xui-menugroup-layout" role="menu">
-//        <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
-//          <button type="button" class="xui-button xui-menuitem--body">
-//            <span>Erlich Bachman<br />
-//              <span class="xui-text-secondary">erlich@bachmanity.com</span>
-//            </span>
-//            <span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Bachmanity Capital</span>
-//          </button>
-//        </li>
-//        <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
-//          <button type="button" class="xui-button xui-menuitem--body">
-//             <span>Donald J Trump<br />
-//               <span class="xui-text-secondary">thedon@trump.com</span>
-//             </span>
-//             <span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Trump University</span>
-//          </button>
-//        </li>
-//      </ul>
-//   </div>
-// </div>
+//	<span class="xui-text-tag xui-text-tag-solid">Dark tag</span>
+//	<span class="xui-text-tag xui-text-tag-outline">Light tag</span>
+//
+//	<div class="xui-panel">
+//		<ul class="xui-picklist">
+//			<li class="xui-pickitem" aria-selected="false">
+//				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text">
+//					<span>
+//						Erlich Bachman<br />
+//						<span class="xui-text-secondary">erlich@bachmanity.com</span>
+//					</span>
+//					<span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Bachmanity Capital</span>
+//				</button>
+//			</li>
+//			<li class="xui-pickitem" aria-selected="false">
+//				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text">
+//					<span>
+//						Donald J Trump<br />
+//						<span class="xui-text-secondary">thedon@trump.com</span>
+//					</span>
+//					<span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Trump University</span>
+//				</button>
+//			</li>
+//		</ul>
+//	</div>
 //
 // Styleguide: Pills.3
 

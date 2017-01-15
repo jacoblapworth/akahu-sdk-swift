@@ -6,8 +6,10 @@
 //
 // ### Accessibility
 // The appropriate role to use for the popover depends on its use in your application. The purpose of the popover should still be clearly stated using `aria-label` and `aria-describedby` attributes.
-// * **`role="tooltip"`** - a contextual popup that displays a description of an element and typically becomes visible in response to a mouse hover or keyboard focus after a short delay. ([W3C Documentation](https://www.w3.org/TR/wai-aria/roles#tooltip))
-// * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
+// * **`role="tooltip"`** - a contextual popup that displays a description of an element and typically becomes visible in response to a mouse hover or keyboard focus after a short delay.
+//   ([W3C Documentation](https://www.w3.org/TR/wai-aria/roles#tooltip))
+// * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed.
+//   ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
 // #### Class Names
 //

@@ -10,9 +10,9 @@
 }
 
 @mixin xui-font-smooth {
+	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 // TODO: remove this

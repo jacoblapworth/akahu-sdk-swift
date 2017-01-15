@@ -218,10 +218,6 @@
 //
 // Styleguide: User Messaging.200.3
 
-.#{$ns}-toast--action {
-	font-weight: bold;
-}
-
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,
 .#{$ns}-toast--action {
@@ -235,6 +231,7 @@
 
 .#{$ns}-toast--action {
 	display: inline-block;
+	font-weight: bold;
 }
 
 .#{$ns}-toast-is-hidden {

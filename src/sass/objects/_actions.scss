@@ -51,7 +51,6 @@
 }
 
 .#{$ns}-actions-layout {
-
 	@include xui-breakpoint-narrow {
 		flex-direction: column;
 
@@ -69,5 +68,4 @@
 	.#{$ns}-actions--primary {
 		margin-left: $xui-s-small;
 	}
-
 }

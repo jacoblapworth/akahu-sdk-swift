@@ -61,8 +61,15 @@
 //
 // Markup:
 // <section class="xui-u-overflow-hidden" style="height:62px">
-//   <p>The utility classes, like the grid system and now the margin/padding classes, provide atomic control but don't come with (and can't come with) any consideration for a consistent approach to responsive design. You end up with needing extra classes to define when and how the grid should decompose and extra classes to define when and how margins and padding should shift for various viewports.</p>
-//   <p>Any design changes can also no longer be easily updated across all parts of the app that use XUI since layout and margin/padding decisions have been pushed off to individual teams/pages. (I'm also unsure how this works when implementing React components. Is there configuration in each component to determine which margin/padding to use?)</p>
+//   <p>
+//     The utility classes, like the grid system and now the margin/padding classes, provide atomic control but don't come with (and can't come with) any consideration for a consistent approach to responsive design.
+//     You end up with needing extra classes to define when and how the grid should decompose and extra classes to define when and how margins and padding should shift for various viewports.
+//   </p>
+//
+//   <p>
+//     Any design changes can also no longer be easily updated across all parts of the app that use XUI since layout and margin/padding decisions have been pushed off to individual teams/pages.
+//     (I'm also unsure how this works when implementing React components. Is there configuration in each component to determine which margin/padding to use?)
+//   </p>
 // </section>
 //
 // Styleguide: Utilities.1.1

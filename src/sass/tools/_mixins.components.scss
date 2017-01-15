@@ -18,12 +18,12 @@
 
 @mixin xui-overflow-shadow {
 	background: linear-gradient($xui-color-white, $xui-color-white) 100% 0 / 100% 3px local no-repeat,
-	linear-gradient($xui-color-white, $xui-color-white) 0 100% / 100% 3px local no-repeat,
-	linear-gradient($xui-color-overflow-shadow-grey, $xui-color-overflow-shadow-grey) 100% 0 / 100% 1px scroll no-repeat,
-	linear-gradient($xui-color-overflow-shadow-grey, $xui-color-overflow-shadow-grey) 0 100% / 100% 1px scroll no-repeat,
-	linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 100% 0 / 100% 3px scroll no-repeat,
-	linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 0 100% / 100% 3px scroll no-repeat,
-	$xui-color-white;
+		linear-gradient($xui-color-white, $xui-color-white) 0 100% / 100% 3px local no-repeat,
+		linear-gradient($xui-color-overflow-shadow-grey, $xui-color-overflow-shadow-grey) 100% 0 / 100% 1px scroll no-repeat,
+		linear-gradient($xui-color-overflow-shadow-grey, $xui-color-overflow-shadow-grey) 0 100% / 100% 1px scroll no-repeat,
+		linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 100% 0 / 100% 3px scroll no-repeat,
+		linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 0 100% / 100% 3px scroll no-repeat,
+		$xui-color-white;
 }
 
 @mixin xui-flex-children($align:center, $justify:center) {

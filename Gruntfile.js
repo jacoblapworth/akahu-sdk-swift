@@ -22,9 +22,7 @@ module.exports = function (grunt) {
 		configPath: require('path').join(process.cwd(), 'build/grunt'),
 		data: opts
 	});
-
-	grunt.registerTask('install', ['bower-install-simple', 'shell:install']);
-	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
+	
 	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:xui']);

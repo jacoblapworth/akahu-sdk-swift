@@ -115,8 +115,8 @@
 @mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue) {
 	background-color: $background-color;
 	border: $border;
-	color: $color;
 	border-radius: $xui-radius;
+	color: $color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
 	padding: 11px $xui-s-standard;

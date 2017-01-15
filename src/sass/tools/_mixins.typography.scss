@@ -37,13 +37,13 @@
 }
 
 @mixin xui-text-proportional-nums {
-	font-variant-numeric: proportional-nums;
 	font-feature-settings: "pnum" 1;
+	font-variant-numeric: proportional-nums;
 }
 
 @mixin xui-text-tabular-nums {
-	font-variant-numeric: tabular-nums;
 	font-feature-settings: "tnum" 1;
+	font-variant-numeric: tabular-nums;
 }
 
 @mixin xui-heading-large {
@@ -71,8 +71,8 @@
 @mixin xui-heading-xsmall {
 	@include xui-text-line-height-compact;
 
-	font-size: $xui-font-size-small;
 	color: $xui-color-grey-2;
+	font-size: $xui-font-size-small;
 	font-weight: $xui-font-weight-deemphasis;
 }
 

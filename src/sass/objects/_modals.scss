@@ -227,8 +227,8 @@
 }
 
 .#{$ns}-modal--heading {
-	font-weight: bold;
 	font-size: $xui-font-size-medium;
+	font-weight: bold;
 }
 
 // Modal body
@@ -241,8 +241,7 @@
 // Modal footer
 // -----------------------------------------------------------------------------
 
-.#{$ns}-modal--footer {
-}
+// .#{$ns}-modal--footer is reserved
 
 .#{$ns}-modal--close {
 	float: right;

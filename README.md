@@ -5,7 +5,7 @@ xui-avatar
 ![](https://img.shields.io/badge/XUI-^10.15.0-blue.svg)
 ![](https://img.shields.io/badge/React-^15.3.0-blue.svg)
 
-A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html).
+A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/#10.18.0/section-avatars.html).
 
 Renders an avatar either as an image (with the image URL provided) or as the first character of the value representing the entity in a coloured circle.
 

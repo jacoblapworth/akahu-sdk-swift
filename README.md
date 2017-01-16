@@ -4,15 +4,36 @@ xui-button
 ![](https://img.shields.io/badge/XUI-^10.0.0-blue.svg)
 ![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
 
-A React UI component that creates buttons from the [XUI UI library](https://github.dev.xero.com/pages/Style/xui/section-buttons.html). This includes single buttons and grouped buttons
-
-![](example/buttons.png)
+A React UI component that creates buttons from the [XUI UI library](https://github.dev.xero.com/pages/UXE/xui/#10.18.0/section-buttons.html). This includes single buttons and grouped buttons.
 
 ## Installation
 
 ```bash
 $ bower install --save git://github.dev.xero.com/UXE/xui-button.git
 ```
+
+### Example
+```js
+import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
+
+<XUIButton
+	isDisabled={true}
+	onClick={this.handleClick}
+	variant='create'
+	size='full-width'>Click me</XUIButton>
+
+<XUIButton>I am a dropdown <XUIButtonCaret /></XUIButton>
+
+<XUIButtonGroup>
+	<XUIButton>Grouped one</XUIButton>
+	<XUIButton>Grouped two</XUIButton>
+</XUIButtonGroup>
+
+```
+
+### Example
+
+![](example/buttons.png)
 
 ### XUIButton Properties
 
@@ -64,21 +85,3 @@ $ bower install --save git://github.dev.xero.com/UXE/xui-button.git
 
 `className`: (Node, Optional)
 
-### Example
-```js
-import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
-
-<XUIButton
-	isDisabled={true}
-	onClick={this.handleClick}
-	variant='create'
-	size='full-width'>Click me</XUIButton>
-
-<XUIButton>I am a dropdown <XUIButtonCaret /></XUIButton>
-
-<XUIButtonGroup>
-	<XUIButton>Grouped one</XUIButton>
-	<XUIButton>Grouped two</XUIButton>
-</XUIButtonGroup>
-
-```

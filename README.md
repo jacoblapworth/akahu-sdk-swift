@@ -5,13 +5,23 @@ xui-loader
 ![](https://img.shields.io/badge/XUI-%5E9.7.0%20%7C%7C%20%5E10.0.0-blue.svg)
 ![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
 
-A React UI component that creates a loading animation from the [XUI UI library](https://github.dev.xero.com/pages/uxe/xui/#9.10.1/section-loaders.html).
+A React UI component that creates a loading animation from the [XUI UI library](https://github.dev.xero.com/pages/UXE/xui/#10.18.0/section-loaders.html).
 
 ## Installation
 
 ```bash
 $ bower install --save git@github.dev.xero.com:UXE/xui-loader.git
 ```
+
+## Example
+```js
+import XUILoader from 'xui-loader';
+
+<XUILoader className='optional-class' label="Loading more data"/>
+```
+## Example 
+
+![](example/loader5.gif)
 
 ### XUI Loader Properties
 ####`className`: (String, Optional)
@@ -30,12 +40,6 @@ Adds an `aria-label` attribute to the loader.
 
 Whether to use the layout class for the loader which provides spacing and centers the component. Only works with XUI 10 (can be ignored for XUI 9)
 
-## Example
-```js
-import XUILoader from 'xui-loader';
-
-<XUILoader className='optional-class' label="Loading more data"/>
-```
 
 ## Using `refs=""`
 

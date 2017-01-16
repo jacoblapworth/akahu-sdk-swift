@@ -42,18 +42,15 @@ function parseCss(template, nodes) {
 	nodes.forEach(function (node) {
 		if (isComment(node)) {
 			if (shouldIgnore || node.text === 'TokenParserIgnore') {
-				shouldIgnore = true;
-
-				if (node.text == 'TokenParserEndIgnore') {
-					shouldIgnore = false;
-				}
-
+				shouldIgnore = node.text === 'TokenParserEndIgnore';
 			} else {
 				// Add the styleguide if the previous node was an inline comment/variable declaration
 				const isNewHeader = node.prev() !== null && (node.prev().type === 'decl' || node.prev().source.start.column > 1);
 
 				if (isNewHeader) {
-					var styleGuide = template.isSubsection ? `${template.name}.${majorNumber}.${sectionCounter}` : `${template.name}.${sectionCounter + majorNumber}`
+					const styleGuide = template.isSubsection
+						? `${template.name}.${majorNumber}.${sectionCounter}`
+						: `${template.name}.${sectionCounter + majorNumber}`;
 
 					if (!hasExample) {
 						sections.push(`//`,`// NoExample: true`);
@@ -82,7 +79,7 @@ function parseCss(template, nodes) {
 			}
 
 			variables[node.prop] = value;
-			var variable = translateVariable(node.prop, value);
+			const variable = translateVariable(node.prop, value);
 
 			if (variable.hasExample) {
 				hasExample = true;
@@ -91,7 +88,7 @@ function parseCss(template, nodes) {
 		}
 	});
 
-	var styleGuide = template.isSubsection ? `${template.name}.${majorNumber}.${sectionCounter}` : `${template.name}.${sectionCounter + majorNumber}`
+	const styleGuide = template.isSubsection ? `${template.name}.${majorNumber}.${sectionCounter}` : `${template.name}.${sectionCounter + majorNumber}`;
 	if (!hasExample) {
 		sections.push(`//`,`// NoExample: true`);
 	}
@@ -104,7 +101,7 @@ function isComment(node) {
 }
 
 function compileSass(expression) {
-	var result = sass.renderSync({
+	const result = sass.renderSync({
 		data: '.abc { border: ' + expression + ' }',
 		outputStyle: 'compressed',
 		sourceMap: false
@@ -113,7 +110,7 @@ function compileSass(expression) {
 }
 
 function translateVariable(name, value) {
-	var type = getType(name, value);
+	const type = getType(name, value);
 
 	if (regexDictionary.rem.test(value)) {
 		value = (value.match(regexDictionary.rem)[1] * 16) + 'px';
@@ -125,19 +122,19 @@ function translateVariable(name, value) {
 }
 
 function getType(name, value) {
-	var type = '';
+	let type = '';
 
 	if (regexDictionary.colorHash.test(value) || regexDictionary.colorRgba.test(value)) {
-		type =	types.color;
+		type = types.color;
 
 	} else if (regexDictionary.border.test(value)) {
-		type =	types.border;
+		type = types.border;
 
 	} else if (regexDictionary.shadow.test(value)) {
-		type =	types.shadow;
+		type = types.shadow;
 
 	} else if (regexDictionary.lineHeight.test(name)) {
-		type =	types.lineHeight;
+		type = types.lineHeight;
 
 	} else if (regexDictionary.fontWeight.test(name)) {
 		type = types.fontWeight;
@@ -145,12 +142,13 @@ function getType(name, value) {
 	} else if (regexDictionary.size.test(value)) {
 
 		if (regexDictionary.font.test(name)) {
-			type =	types.fontSize;
+			type = types.fontSize;
 
 		} else if(regexDictionary.spacing.test(name)) {
 			type = types.spacing;
 		}
 
 	}
+
 	return type;
 }

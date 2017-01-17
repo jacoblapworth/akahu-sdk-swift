@@ -318,18 +318,10 @@ XUIButton.propTypes = {
 	onSecondaryKeyDown: PropTypes.func,
 
 	/** @property {function} onClick Bind a function to fire when the button is clicked */
-	onClick: function (props) {
-		if (props.type === 'button' && !(typeof props.onClick === 'function')) {
-			throw new Error('Non-link buttons require an onClick function.');
-		}
-	},
+	onClick: PropTypes.func,
 
 	/** @property {function} [onSecondaryClick] Bind a function to fire when the second button in a split button is clicked */
-	onSecondaryClick: function (props) {
-		if (props.split && !(typeof props.onSecondaryClick === 'function')) {
-			throw new Error('Split buttons require a secondary click handler');
-		}
-	},
+	onSecondaryClick: PropTypes.func,
 
 	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
 	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
@@ -344,11 +336,7 @@ XUIButton.propTypes = {
 	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
 
 	/** @property {string} [href] The `href` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	href: function (props) {
-		if (props.type === CONSTANTS.LINK && !props.onClick && !props.href) {
-			throw new Error('Link buttons without an onClick handler require an href.');
-		}
-	},
+	href: PropTypes.string,
 
 	/** @property {string} [rel] The `rel` attribute to use on the anchor element (ignored unless `type` is `link`) */
 	rel: PropTypes.string,

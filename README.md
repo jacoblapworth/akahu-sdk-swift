@@ -24,19 +24,19 @@ import XUILoader from 'xui-loader';
 ![](example/loader5.gif)
 
 ### XUI Loader Properties
-####`className`: (String, Optional)
+#### `className`: (String, Optional)
 
 Adds more classes to the loader div, this is in addition to the already specified class of 'xui-loader'
 
-####`qaHook`: (String, Optional)
+#### `qaHook`: (String, Optional)
 
 Adds a `data-automationid` attribute to the loader for QA
 
-####`label`: (String, Optional, Recommended)
+#### `label`: (String, Optional, Recommended)
 
 Adds an `aria-label` attribute to the loader.
 
-####`defaultLayout`: (Boolean, default = true)
+#### `defaultLayout`: (Boolean, default = true)
 
 Whether to use the layout class for the loader which provides spacing and centers the component. Only works with XUI 10 (can be ignored for XUI 9)
 

@@ -57,16 +57,10 @@
 .#{$ns}-pickitem {
 	position: relative;
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus{
 		background: transparent;
-	}
-
-	&:focus {
-		background: rgba($xui-color-black, 0.1);
-		outline: none;
-		> .#{$ns}-pickitem--body {
-			background: transparent;
-		}
 	}
 }
 
@@ -83,16 +77,16 @@
 	line-height: $xui-line-height;
 	min-height: 40px;
 	padding-left: $xui-s-large;
-	padding-right: $xui-s-small;
+	padding-right: $xui-s-large;
 	text-align: left;
 	width: 100%;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background: rgba($xui-color-black, 0.05);
 	}
 
-	&:active,
-	&:focus {
+	&:active {
 		background: rgba($xui-color-black, 0.1);
 		outline: none;
 	}

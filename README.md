@@ -14,6 +14,22 @@ A React UI component designed to mimic the XUI Switch behaviour.
 $ bower install --save git@github.dev.xero.com:UXE/xui-switch.git
 ```
 
+### Example
+```js
+import XUISwitch from 'xui-switch';
+
+<XUISwitch
+	disabled={false}
+	checked={true}
+	onChange={handleSwitch()}
+	value='someValue'
+	name='someName'>
+</XUISwitch>
+```
+### Example 
+
+![](./example/switch-example.PNG)
+
 ### XUI Switch Properties
 `disabled` : (Boolean, Optional) Sets the switch to enabled or disabled
 
@@ -24,15 +40,3 @@ $ bower install --save git@github.dev.xero.com:UXE/xui-switch.git
 `value` : (String, Optional) Optional value for the input
 
 `name` : (String, Optional) Optional name for the input
-
-### Example
-```js
-import XUISwitch from 'xui-switch';
-
-<XUISwitch
-	disabled={false}
-	checked={true}
-	onChange={handleSwitch()}
-	value='someValue'
-	name='someName'></XUISwitch>
-```

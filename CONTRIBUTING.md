@@ -5,11 +5,10 @@ Getting Started
 You'll need:
 
  * [NodeJS](https://nodejs.org/)
- * [Ruby](https://www.ruby-lang.org/en/)
- * [Bundler](http://bundler.io/)
  * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
 
-[nvm](https://github.com/creationix/nvm) and [Grunt](http://gruntjs.com/) are recommended, but not required.
+[nvm](https://github.com/creationix/nvm) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see
+which version of node to use.
 
 
 npm scripts
@@ -17,12 +16,12 @@ npm scripts
 
 Script          | Description
 ----------------|-------------
-`npm install`   | Installs dependencies; required for other steps.
-`npm run lint`  | Lints the stylesheet.
+`npm install`   | Installs dependencies; required for other steps
+`npm run lint`  | Lints the stylesheet
 `npm run build` | Compiles the stylesheet
 `npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
-`npm run doc`   | Compiles the style guide documentation.
-`npm run watch` | Watches for changes in SCSS files and live reloads them if you have the docs open
+`npm run doc`   | Compiles the style guide documentation into the `docs` folder
+`npm run watch` | Watches for changes in SCSS files and live reloads them if you have the docs open.
 
 We recommend that you run the `watch` task as it will lint and compile the SCSS and docs for you.
 Otherwise you will manually need to run something like `npm run lint && npm run build && npm run doc`

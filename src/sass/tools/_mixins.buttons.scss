@@ -43,7 +43,7 @@
 @mixin xui-button-split {
 	.#{$ns}-button-split {
 		min-width: 0;
-		padding-left: $xui-s-xsmall;
+		padding: 0;
 	}
 }
 

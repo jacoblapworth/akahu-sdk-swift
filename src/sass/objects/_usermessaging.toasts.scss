@@ -32,7 +32,9 @@
 //
 // `xui-toast-wrapper`	Container for a group of toasts
 //
-// Styleguide: User Messaging.200
+// Weight: 4.1
+//
+// Styleguide: Toast
 
 .#{$ns}-toast {
 	@include xui-clearfix;
@@ -137,7 +139,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: User Messaging.200.1
+// Styleguide: Toast.1
 
 // Multi-Action
 //
@@ -157,7 +159,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.200.2
+// Styleguide: Toast.2
 
 // Toast Sentiment
 //
@@ -183,7 +185,7 @@
 // the users attention to the toast when you require their immediate attention. For further information, please
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
-// Styleguide: User Messaging.200.3.2
+// Styleguide: Toast.3
 
 // Placement
 //
@@ -216,7 +218,7 @@
 //    </div>
 //  </div>
 //
-// Styleguide: User Messaging.200.3
+// Styleguide: Toast.4
 
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,

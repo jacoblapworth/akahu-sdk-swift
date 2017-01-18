@@ -29,7 +29,9 @@
 //
 // `xui-banner-positive`	Modifier for a positive highlight banner
 //
-// Styleguide: User Messaging.100
+// Weight: 4.1
+//
+// Styleguide: Banner
 
 // Basic usage
 //
@@ -45,7 +47,7 @@
 //    <p class="xui-banner--message">Banner Message</p>
 //</div>
 //
-// Styleguide: User Messaging.100.1
+// Styleguide: Banner.1
 
 // Sentiment
 //
@@ -78,7 +80,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.100.2
+// Styleguide: Banner.2
 
 // With Actions
 //
@@ -94,7 +96,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.100.3
+// Styleguide: Banner.3
 
 // Dismissible
 //
@@ -108,7 +110,7 @@
 //   <p class="xui-banner--message">Banner Message</p>
 // </div>
 //
-// Styleguide: User Messaging.100.4
+// Styleguide: Banner.4
 
 // With message detail
 //
@@ -133,7 +135,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.100.5
+// Styleguide: Banner.5
 
 .#{$ns}-banner {
 	background-color: $xui-color-white;

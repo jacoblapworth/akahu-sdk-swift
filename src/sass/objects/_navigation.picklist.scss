@@ -7,7 +7,9 @@
 // They can have child picklists and can either have parent selectable, or not selectable variants.
 // Picklists can also have multiple items selected, or display icons.
 //
-// Styleguide: Navigation.6
+// Weight: 4.1
+//
+// Styleguide: Picklist
 
 // Simple
 //
@@ -36,7 +38,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.6.1
+// Styleguide: Picklist.1
 
 .#{$ns}-picklist {
 	@include xui-listreset;
@@ -168,7 +170,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.6.2
+// Styleguide: Picklist.2
 
 // Submenu more specificity for layout adjustments
 .#{$ns}-submenu {
@@ -280,7 +282,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.6.3
+// Styleguide: Picklist.3
 
 .#{$ns}-pickitem--split {
 	align-items: stretch;
@@ -375,7 +377,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.6.4
+// Styleguide: Picklist.4
 
 .#{$ns}-pickitem--uicontrol {
 	align-items: center;
@@ -462,7 +464,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.6.5
+// Styleguide: Picklist.5
 
 .#{$ns}-pickitem--icon {
 	display: inline;
@@ -519,4 +521,4 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.6.6
+// Styleguide: Picklist.6

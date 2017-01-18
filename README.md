@@ -5,11 +5,11 @@
 
 React components to render xui styled toggles `(xui 10.6.0 and above)` using `radio` or `checkbox` inputs. Toggles may contain any combination of text, images or [SVG icons](https://github.dev.xero.com/UXE/xui-icon).
 
-###### `XUIToggleOption`
+### XUIToggleOption
 * Renders a single toggle option
 * **Requires** an `onChange` function to manage the state of the input
 
-###### `XUIToggle`
+### XUIToggle
 * Renders a container for a group of toggle options
 * Provides `standard` and `inverted` colors
 * Provides `fullwidth` and `icon` layouts
@@ -85,52 +85,40 @@ const shared = {
 })();
 ```
 
+### Example
+
+![](./examples/toggle.PNG)
+
+## Components
+
 ### XUIToggleOption Properties
 
-|  Property  |                      Description                     |   Type   |  Default  |
-|------------|------------------------------------------------------|----------|-----------|
-| className  | Additional classes to apply to the root node         | string   | undefined |
-| qaHook     | The automation ID to apply to the root node          | string   | undefined |
-| isChecked  | The input is selected                                | bool     | undefined |
-| isDisabled | The input is disabled                                | bool     | undefined |
-| isRequired | The input is required for form submission            | bool     | undefined |
-| name       | The name to use as a reference for the value         | string   | undefined |
-| onChange   | The function to call when the control changes state  | function | undefined |
-| type       | The type of the input                                | string   | 'radio'   |
-| value      | The value to return on form submission               | string   | undefined |
+`className`: (String) Additional classes to apply to the root node.  
 
-###### `type` values
+`qaHook`: (String) The automation ID to apply to the root node.       
 
-|    Value   |    Description     |
-|------------|--------------------|
-| 'radio'    | A `radio` input    |
-| 'checkbox' | A `checkbox` input |
+`isChecked`: (Bool) The input is selected.                            
+
+`isDisabled`: (Bool) The input is disabled.                          
+
+`isRequired`: (String) The input is required for form submission.       
+
+`name`: (String) The name to use as a reference for the value.         
+
+`onChange`: (Function, Required)  The function to call when the control changes state.
+
+`type`: (String)The type of the input: `radio` (default) or `checkbox`.       
+
+`value`: (String)  The value to return on form submission.  
 
 ### XUIToggle Properties
 
 Note that the `xui-text-inverted` class must be used on the parent of a `XUIToggle` component when the `color` property is set to `'inverted'`.
 
-|  Property  |                      Description                     |   Type   |  Default   |
-|------------|------------------------------------------------------|----------|------------|
-| className  | Additional classes to apply to the root node         | string   | undefined  |
-| qaHook     | The automation ID to apply to the root node          | string   | undefined  |
-| color      | The color of the toggle                              | string   | 'standard' |
-| layout     | The layout of the toggle                             | string   | undefined  |
+`className`: (String) Additional classes to apply to the root node.    
 
-###### `color` values
+`qaHook`: (String) The automation ID to apply to the root node. 
 
-|   Value    |                             Description                             |
-|------------|---------------------------------------------------------------------|
-| 'standard' | Dark text on light background                                       |
-| 'inverted' | Light text on dark background (parent must use `xui-text-inverted`) |
+`color`: (String) The color of the toggle, `standard` (default) Dark text on light background`inverted` Light text on dark background (parent must use `xui-text-inverted`).
 
-###### `layout` values
-
-|    Value    |            Description           |
-|-------------|----------------------------------|
-| 'fullwidth' | Suitable for mixed label content |
-| 'icon'      | Suitable for icon toolbars only  |
-
-### Pretty Pictures
-
-![](./examples/xui-toggle-examples.PNG)
+`layout`: (String) The layout of the toggle, `fullwidth` (default)  Suitable for mixed label content `icon`  Suitable for icon toolbars only.

@@ -1,11 +1,10 @@
 # xui-textarea
 
-A React text area which provides basic XUI styling, autosizing (within a min/max number of rows), and a counter which shows characters remaining (if maximum number of characters is set).
-
 [![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_SharedReactComponents_UxeXuiTextarea)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_SharedReactComponents_UxeXuiTextarea)
 ![](https://img.shields.io/badge/XUI-^10.17.1-blue.svg)
 ![](https://img.shields.io/badge/React-^15.3.1-blue.svg)
 
+A React text area which provides basic XUI styling, autosizing (within a min/max number of rows), and a counter which shows characters remaining (if maximum number of characters is set).
 
 ## Installation
 

@@ -9,6 +9,7 @@ $xui-radius-iconwrapper: 2px;
 $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
 $xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
 $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
+$xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to have a bigger z-index
 
 // Text Inputs
 //
@@ -74,9 +75,11 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 // </div>
 // <div class="xui-inputwrapper xui-margin">
 //   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-//   <button type="button" class="xui-button xui-button-icon xui-input--icon-right" title="Close" aria-label="Close">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+//   <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
 //   </button>
+//   </div>
 //   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-inputwrapper xui-margin">
@@ -120,9 +123,8 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 	}
 
 	.#{$ns}-icon {
-		height: $xui-input-height;
 		pointer-events: none;
-		z-index: 3; // Focus style has z-index: 2
+		z-index: $xui-input-icon-zindex;
 	}
 
 	.#{$ns}-input--icon-left,
@@ -130,6 +132,7 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 		color: $xui-color-grey-3;
 		height: $xui-input-icon-height; // Do not supply width so that the icon does not scale (achieves vertical centering)
 		position: absolute;
+		z-index: $xui-input-icon-zindex;
 	}
 
 	.#{$ns}-input--icon-left {
@@ -142,12 +145,16 @@ $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 }
 
 .#{$ns}-input--iconwrapper {
+	align-items: center;
+	display: inline-flex;
 	height: $xui-input-icon-height;
+	justify-content: center;
 	line-height: $xui-input-icon-height;
 	position: absolute;
 	text-align: center; // If text is used instead of an icon, center it
 	top: 1px;
 	width: $xui-input-icon-width;
+	z-index: $xui-input-icon-zindex;
 }
 
 .#{$ns}-input--iconwrapper-left {

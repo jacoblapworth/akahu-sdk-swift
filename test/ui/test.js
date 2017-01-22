@@ -157,7 +157,7 @@ import {default as RendererUtils} from 'component-renderer';
 				{
 					name: 'value',
 					type: 'string',
-					default: 'The text to display in the avatar',
+					default: 'Sarah is cool af',
 					description: 'The text to display in the avatar'
 				},
 
@@ -191,12 +191,27 @@ import {default as RendererUtils} from 'component-renderer';
 
 		render () {
 			return (
-				<XUIAvatar
-					value="Louie Duck"
-					size="large"
-					identifier="quack-a-rooney"
-				/>
-			)
+				<div>
+					<XUIAvatar
+					value="Gyro"
+					size="xlarge"
+					imageUrl="logo.png"
+					/>
+
+					<XUIAvatar
+						value="Louie Duck"
+						size="large"
+						identifier="quack-a-rooney"
+					/>
+
+					<XUIAvatar
+						value="💩"
+						size="medium"
+					/>
+
+				</div>
+
+		)
 
 		}
 

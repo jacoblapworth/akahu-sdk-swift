@@ -198,16 +198,30 @@ import {default as RendererUtils} from 'component-renderer';
 					imageUrl="logo.png"
 					/>
 
-					<XUIAvatar
-						value="Louie Duck"
-						size="large"
-						identifier="quack-a-rooney"
-					/>
+					<br />
+					<br />
 
-					<XUIAvatar
-						value="💩"
-						size="medium"
-					/>
+					<XUIAvatarGroup size="small" maxAvatars={3}>
+						<XUIAvatar value="abcdefg" />
+						<XUIAvatar value="1234" imageUrl="https://example.com/non-existent-url.png" />
+						<XUIAvatar value="asdf" imageUrl="logo.png" />
+					</XUIAvatarGroup>
+
+					<br />
+
+					<XUIAvatarGroup maxAvatars={2}>
+						<XUIAvatar value="abcdefg" />
+						<XUIAvatar value="1234" imageUrl="https://example.com/non-existent-url.png" />
+						<XUIAvatar value="asdf" imageUrl="logo.png" />
+					</XUIAvatarGroup>
+
+					<br />
+
+					<XUIAvatarGroup size="large" maxAvatars={1}>
+						<XUIAvatar value="abcdefg" />
+						<XUIAvatar value="1234" imageUrl="https://example.com/non-existent-url.png" />
+						<XUIAvatar value="asdf" imageUrl="logo.png" />
+					</XUIAvatarGroup>
 
 				</div>
 

@@ -152,7 +152,7 @@ import {default as RendererUtils} from 'component-renderer';
 					name: 'onError',
 					type: 'function',
 					default: function(){console.log('close requested')},
-					description: 'Bind a function to fire on error(The test function for this showcase prints to the console)'
+					description: 'Bind a function to fire on error'
 				},
 				{
 					name: 'value',
@@ -168,7 +168,45 @@ import {default as RendererUtils} from 'component-renderer';
 	const ExampleConfig = {
 		componentName : 'Example',
 		devReady : true,
-		properties : [...XUIAvatarConfig.properties]
+		properties : [
+			{
+				name: 'className',
+				type: 'text',
+				default: null,
+				description: 'Adds extra classes to the containing element'
+			},
+			{
+				name: 'qaHook',
+				type: 'text',
+				default: null,
+				description: 'Adds data-automationid attribute to the mask and the avatar'
+			},
+			{
+				name: 'variant',
+				type: 'enum',
+				data: avatarVariants,
+				default: avatarVariants[0],
+				description: 'The avatar variant'
+			},
+			{
+				name: 'imageUrl',
+				type: 'text',
+				default: null,
+				description: 'the image the component should render. Initials rendered otherwise'
+			},
+			{
+				name: 'identifier',
+				type: 'text',
+				default: '',
+				description: 'A unique string that will be used to generate the color of the avatar if color is not provided.'
+			},
+			{
+				name: 'onError',
+				type: 'function',
+				default: function(){},
+				description: 'Bind a function to fire on error(The test function for this showcase prints to the console)'
+			},
+		]
 	};
 
 	class Example extends React.Component {

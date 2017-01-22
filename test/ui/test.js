@@ -216,12 +216,58 @@ import {default as RendererUtils} from 'component-renderer';
 
 		render () {
 			return (
-				<XUIButton
-					isDisabled={true}
-					onClick={this.handleClick}
-					variant='create'
-					size='full-width'>Click me
-				</XUIButton>
+				<div>
+					<XUIButton
+						isDisabled={false}
+						onClick={this.handleClick}
+						variant='primary'
+						size='full-width'>Click me
+					</XUIButton>
+					<br/>
+					<br/>
+					<div className="testButtonContainer">
+						<XUIButton>Default button</XUIButton>
+						{" "}
+						<XUIButton isDisabled>Default button (disabled)</XUIButton>
+						{" "}
+						<XUIButton isLoading>Default button (loading)</XUIButton>
+						{" "}
+						<XUIButton isLoading isDisabled>Default button (loading and disabled)</XUIButton>
+					</div>
+					<br/>
+					<br/>
+					<div className="testButtonContainer">
+						<XUIButton variant="primary">Primary button</XUIButton>
+						{" "}
+						<XUIButton variant="primary" isDisabled>Primary button (disabled)</XUIButton>
+						{" "}
+						<XUIButton variant="primary" isLoading>Primary button (loading)</XUIButton>
+						{" "}
+						<XUIButton variant="primary" isLoading isDisabled>Primary button (loading and disabled)</XUIButton>
+					</div>
+					<br/>
+					<br/>
+					<div className="testButtonContainer">
+						<XUIButton variant="create">Create button</XUIButton>
+						{" "}
+						<XUIButton variant="create" isDisabled>Create button (disabled)</XUIButton>
+						{" "}
+						<XUIButton variant="create" isLoading>Create button (loading)</XUIButton>
+						{" "}
+						<XUIButton variant="create" isLoading isDisabled>Create button (loading and disabled)</XUIButton>
+					</div>
+					<br/>
+					<br/>
+					<div className="testButtonContainer">
+						<XUIButton variant="negative">Negative button</XUIButton>
+						{" "}
+						<XUIButton variant="negative" isDisabled>Negative button (disabled)</XUIButton>
+						{" "}
+						<XUIButton variant="negative" isLoading>Negative button (loading)</XUIButton>
+						{" "}
+						<XUIButton variant="negative" isLoading isDisabled>Negative button (loading and disabled)</XUIButton>
+					</div>
+				</div>
 			)
 
 		}

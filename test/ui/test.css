@@ -1,0 +1,106 @@
+.cr-app-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  height: 100%; }
+
+.cr-app-header {
+  -webkit-flex: 0;
+          flex: 0; }
+
+.cr-app-body {
+  -webkit-flex: 1;
+          flex: 1;
+  height: calc(100% - 60px); }
+
+.cr-viewer-container {
+  background: white;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  max-width: calc(100% - 350px); }
+  .cr-viewer-container > .xui-sectionheading {
+    -webkit-flex: 0 0 auto;
+            flex: 0 0 auto; }
+
+.cr-viewer-heading {
+  -webkit-flex: 0 0 57px;
+          flex: 0 0 57px; }
+
+.cr-styleguide-blueprint {
+  -webkit-align-items: stretch;
+          align-items: stretch;
+  background-color: rgba(34, 102, 153, 0.12);
+  background-image: linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: 4px 36px, 17px -2px, -1px -1px, -1px -1px;
+  display: -webkit-flex;
+  display: flex;
+  height: calc(100% - 40px);
+  -webkit-flex: 1 1 auto;
+          flex: 1 1 auto; }
+
+.cr-display-loader {
+  -webkit-align-self: center;
+              -ms-grid-row-align: center;
+          align-self: center; }
+
+.cr-display-frame {
+  border: none;
+  width: 100%; }
+
+.cr-render-markup {
+  min-height: 200px;
+  -webkit-flex: 1 1 auto;
+          flex: 1 1 auto;
+  overflow: auto; }
+
+.cr-section-hide + .cr-section .xui-sectionheading {
+  border-top: none; }
+
+.cr-section-hide {
+  cursor: pointer;
+  -webkit-flex: 0 0 40px;
+          flex: 0 0 40px;
+  height: 40px;
+  overflow: hidden;
+  transition: all 0.33s ease-in-out; }
+
+.cr-section-show {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex: 1;
+          flex: 1;
+  -webkit-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  transition: all 0.33s ease-in-out; }
+
+.cr-section--heading {
+  overflow: hidden;
+  height: 40px; }
+
+.cr-sidebar-header-layout.cr-sidebar-header-layout {
+  -webkit-flex: 0 0 58px;
+          flex: 0 0 58px;
+  -webkit-justify-content: space-between;
+          justify-content: space-between; }
+
+pre[class*=language-] {
+  margin: 0 inherit;
+  background: white !important; }
+
+.cr-u-display-block {
+  display: block; }
+
+.cr-u-full-height {
+  height: 100%; }
+
+.cr-u-overflow-hidden {
+  overflow: hidden; }
+
+.cr-u-overflow-auto {
+  overflow: auto; }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ0ZXN0LmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

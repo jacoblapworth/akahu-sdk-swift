@@ -1,4 +1,4 @@
-import icons from './iconData.js';
+import icons from './private/iconData.js';
 
 let blob = '';
 const hiddenVisually = 'xui-u-hidden';
@@ -11,4 +11,15 @@ Object.keys(icons).forEach(function(name) {
 	`).replace(/[\t\n]/g, '');
 });
 
-export default `<svg focusable="false" class="${hiddenVisually}">${blob}</svg>`;
+const XUIIconBlob = `<svg focusable="false" class="${hiddenVisually}">${blob}</svg>`;
+
+export default XUIIconBlob;
+export const blobId = 'xui-icon-blob-auto';
+export function ensureIconBlobOnPage() {
+	if(typeof document !== 'undefined' && !document.getElementById(blobId)) {
+		const blobEl = document.createElement('div');
+		blobEl.id = blobId;
+		blobEl.innerHTML = XUIIconBlob;
+		document.body.appendChild(blobEl);
+	}
+}

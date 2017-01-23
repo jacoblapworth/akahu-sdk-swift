@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import iconData from '../../src/iconData';
+import iconData from '../private/iconData';
 import XUIIcon, { XUIIcons } from '../XUIIcon';
 
 const TestUtils = React.addons.TestUtils;

@@ -1,17 +1,14 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
-import XUIIconBlob from './XUIIconBlob';
-import icons from './iconData';
+import icons from './private/iconData';
+import { ensureIconBlobOnPage } from './XUIIconBlob';
 
-// TODO: Remove this logic in a future version
 const names = Object.keys(icons).reduce((object, icon) => {
 		object[icon.replace('-','_').toUpperCase()] = icon;
 		return object;
 	}, {});
 
 export { names as XUIIcons };
-
-const blobId = 'xui-icon-blob-auto';
 
 const sizeClasses = {
 	standard: '',
@@ -88,9 +85,7 @@ export default function XUIIcon(props) {
 		}
 	);
 
-	if (typeof(document) !== 'undefined' && !document.getElementById(blobId)) {
-		renderBlob();
-	}
+	ensureIconBlobOnPage();
 
 	const optionalTitle = title? <title>{ title }</title> : null;
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
@@ -102,13 +97,6 @@ export default function XUIIcon(props) {
 			<use xlinkHref={'#xui-icon-' + icon } role={ role }/>
 		</svg>
 	);
-}
-
-function renderBlob() {
-	const blobEl = document.createElement('div');
-	blobEl.id = blobId;
-	blobEl.innerHTML = XUIIconBlob;
-	document.body.appendChild(blobEl);
 }
 
 XUIIcon.propTypes = propTypes;

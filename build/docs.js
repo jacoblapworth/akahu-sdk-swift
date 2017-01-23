@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import iconNames from '../src/iconData';
+import iconNames from '../src/private/iconData';
 
 export default function() {
 	const iconUseTags = Object.keys(iconNames).map(iconName => {

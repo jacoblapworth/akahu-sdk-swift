@@ -1,3 +1,4 @@
-import XUIIcon, { XUIIcons } from './src/XUIIcon.js';
+import XUIIcon, { XUIIcons } from './src/XUIIcon';
+import { ensureIconBlobOnPage } from './src/XUIIconBlob';
 
-export { XUIIcon as default, XUIIcons };
+export { XUIIcon as default, XUIIcons, ensureIconBlobOnPage };

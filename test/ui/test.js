@@ -192,7 +192,27 @@ import {default as RendererUtils} from 'component-renderer';
 	const ExampleConfig = {
 		componentName : 'Example',
 		devReady : true,
-		properties : [...XUIButtonConfig.properties]
+		properties : [
+			{
+				name: 'children',
+				type: 'text',
+				default: '',
+				description: 'Some Children for the modal'
+			},
+			{
+				name: 'isDisabled',
+				type: 'boolean',
+				default: false,
+				description: 'Determines if the button is disabled or not'
+			},
+			{
+				name: 'isLoading',
+				type: 'boolean',
+				default: false,
+				description: 'If true, shows a loader inside the button and also disables the button to prevent clicking'
+			}
+
+		]
 	};
 
 	class Example extends React.Component {
@@ -217,56 +237,37 @@ import {default as RendererUtils} from 'component-renderer';
 		render () {
 			return (
 				<div>
-					<XUIButton
-						isDisabled={false}
-						onClick={this.handleClick}
-						variant='primary'
-						size='full-width'>Click me
-					</XUIButton>
-					<br/>
-					<br/>
-					<div className="testButtonContainer">
-						<XUIButton>Default button</XUIButton>
-						{" "}
-						<XUIButton isDisabled>Default button (disabled)</XUIButton>
-						{" "}
-						<XUIButton isLoading>Default button (loading)</XUIButton>
-						{" "}
-						<XUIButton isLoading isDisabled>Default button (loading and disabled)</XUIButton>
-					</div>
-					<br/>
-					<br/>
-					<div className="testButtonContainer">
-						<XUIButton variant="primary">Primary button</XUIButton>
-						{" "}
-						<XUIButton variant="primary" isDisabled>Primary button (disabled)</XUIButton>
-						{" "}
-						<XUIButton variant="primary" isLoading>Primary button (loading)</XUIButton>
-						{" "}
-						<XUIButton variant="primary" isLoading isDisabled>Primary button (loading and disabled)</XUIButton>
-					</div>
-					<br/>
-					<br/>
-					<div className="testButtonContainer">
-						<XUIButton variant="create">Create button</XUIButton>
-						{" "}
-						<XUIButton variant="create" isDisabled>Create button (disabled)</XUIButton>
-						{" "}
-						<XUIButton variant="create" isLoading>Create button (loading)</XUIButton>
-						{" "}
-						<XUIButton variant="create" isLoading isDisabled>Create button (loading and disabled)</XUIButton>
-					</div>
-					<br/>
-					<br/>
-					<div className="testButtonContainer">
-						<XUIButton variant="negative">Negative button</XUIButton>
-						{" "}
-						<XUIButton variant="negative" isDisabled>Negative button (disabled)</XUIButton>
-						{" "}
-						<XUIButton variant="negative" isLoading>Negative button (loading)</XUIButton>
-						{" "}
-						<XUIButton variant="negative" isLoading isDisabled>Negative button (loading and disabled)</XUIButton>
-					</div>
+					<XUIButton isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Default button</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButton variant="primary" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Primary button</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButton variant="create" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Create button</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButton variant="negative" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading} >Negative button</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButtonGroup>
+						{['One', 'Two', 'Three'].map((x, key) => (
+							<XUIButton variant="standard" isDisabled={this.props.isDisabled} key={key}>Grouped Button{x}</XUIButton>
+						))}
+					</XUIButtonGroup>
+
+					<br />
+					<br />
+
+					<XUIButton variant="link" isDisabled={this.props.isDisabled}>Link button</XUIButton>
+
 				</div>
 			)
 

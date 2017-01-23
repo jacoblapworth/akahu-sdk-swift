@@ -197,7 +197,7 @@ import {default as RendererUtils} from 'component-renderer';
 				name: 'children',
 				type: 'text',
 				default: '',
-				description: 'Some Children for the modal'
+				description: 'Some Children for the button'
 			},
 			{
 				name: 'isDisabled',

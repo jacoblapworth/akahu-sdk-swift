@@ -134,7 +134,7 @@ import {default as RendererUtils} from 'component-renderer';
 			},
 			{
 				name: 'maxAvatars',
-				type: 'in',
+				type: 'number',
 				default: '5',
 				description: 'The maximum number of avatars to show'
 			}
@@ -169,37 +169,6 @@ import {default as RendererUtils} from 'component-renderer';
 		componentName : 'Example',
 		devReady : true,
 		properties : [
-			{
-				name: 'className',
-				type: 'text',
-				default: null,
-				description: 'Adds extra classes to the containing element'
-			},
-			{
-				name: 'qaHook',
-				type: 'text',
-				default: null,
-				description: 'Adds data-automationid attribute to the mask and the avatar'
-			},
-			{
-				name: 'variant',
-				type: 'enum',
-				data: avatarVariants,
-				default: avatarVariants[0],
-				description: 'The avatar variant'
-			},
-			{
-				name: 'imageUrl',
-				type: 'text',
-				default: null,
-				description: 'the image the component should render. Initials rendered otherwise'
-			},
-			{
-				name: 'identifier',
-				type: 'text',
-				default: '',
-				description: 'A unique string that will be used to generate the color of the avatar if color is not provided.'
-			},
 			{
 				name: 'onError',
 				type: 'function',

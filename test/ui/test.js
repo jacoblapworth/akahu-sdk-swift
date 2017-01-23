@@ -122,7 +122,28 @@ import {default as RendererUtils} from 'component-renderer';
 			{
 				name: 'children',
 				type: 'text',
-				default: 'Header Children go here',
+				default: [
+					<XUIAvatar
+						size="small"
+						value="Joe the Plumber"
+						identifier="12345"
+					/>,
+					<XUIAvatar
+						size="small"
+						value="Fred the Plumber"
+						identifier="12345"
+					/>,
+					<XUIAvatar
+						size="small"
+						value="Ted the Plumber"
+						identifier="12345"
+					/>,
+					<XUIAvatar
+						size="small"
+						value="Bozo the Plumber"
+						identifier="12345"
+					/>
+				],
 				description: 'Add any component you want as children to the footer'
 			},
 			{
@@ -135,7 +156,7 @@ import {default as RendererUtils} from 'component-renderer';
 			{
 				name: 'maxAvatars',
 				type: 'number',
-				default: '5',
+				default: '3',
 				description: 'The maximum number of avatars to show'
 			}
 		]

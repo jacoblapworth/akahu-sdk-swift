@@ -35,7 +35,7 @@ import XUIIcon, { XUIIcons } from 'xui-icon';
  - `title` (string, optional): sets a title to be read by screen readers
  - `desc` (string, optional): sets a description to be read by screen readers
  - `role` (string, optional): sets a role for screen reader compatibility, defaults to `presentation`
- - `rotation` ([90,180,270], optional): specifies a rotation modifier of `90`, `180`, or `270` degrees clockwise
+ - `rotation` ([90,180,270], optional): specifies a rotation modifier of `90`, `180`, or `270` degrees clockwise. Can be a string or a number.
  - `color` (['standard','red','green','blue','white'], optional): Specifies a color modifier class
  - `inline` (boolean, optional): whether the inline class modifier should be added
 

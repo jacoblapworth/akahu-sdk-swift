@@ -1,4 +1,4 @@
-var iconBlob = require('./bundle.js');
+var iconBlob = require('./bundle.js')['default'];
 var docsIcons = require('./docs.bundle.js');
 var icons = require('../dist/iconData'); // CJS build of src/iconData.js (part of npm rollup task)
 var fs = require('fs');

@@ -52,55 +52,16 @@ import {default as RendererUtils} from 'component-renderer';
   };
 
 
-  const ExampleConfig = {
-    componentName : 'Example',
-    devReady : true,
-    properties : [...XUILoaderConfig.properties]
-};
-
-  class Example extends React.Component {
-
-    constructor(props) {
-      super(props);
-
-      this.state = this.props;
-    }
-
-    componentDidUpdate(prevProps) {
-      Object.keys(prevProps).forEach(propName => {
-        if (this.props[propName] !== prevProps[propName]) {
-        this.setState({
-          [propName]: this.props[propName]
-        });
-      }
-    });
-    }
-
-    render () {
-      return (
-        <div>
-          <XUILoader qaHook="my-id" label="Something is loading, please wait" />
-          <XUILoader size="small" label="Something is loading, please wait" />
-          <XUILoader size="large" label="Something is loading, please wait" />
-          <XUILoader defaultLayout={false} size="large" label="Something is loading, please wait" />
-        </div>
-        )
-
-    }
-
-  }
 
   RendererUtils.init({
     components : {
-      Example,
-      XUILoader,
+      XUILoader
     },
     configs : {
-      ExampleConfig,
-      XUILoaderConfig,
+      XUILoaderConfig
     },
-    defaultComponent : Example,
-    defaultConfig: ExampleConfig
+    defaultComponent : XUILoader,
+    defaultConfig: XUILoaderConfig
   });
 
 })();

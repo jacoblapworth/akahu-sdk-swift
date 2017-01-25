@@ -38,14 +38,11 @@
 		{{#each sections}}
 		{{#wrapSection referenceURI}}
 
-			<div class="kss-style ds-section-part">
-				<h{{depth}} class="ds-title ds-title--level-{{depth}}">
-					{{#ifDepth 3}}
-					{{else}}
-					<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}">
+			<div class="kss-style ds-section-part" data-search-section>
+				<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
+					<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
 						<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
 					</a>
-					{{/ifDepth}}
 					{{header}}
 				</h{{depth}}>
 

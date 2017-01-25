@@ -53,6 +53,7 @@
     "postcss-easy-import": "^1.0.1",
     "postcss-scss": "^0.3.1",
     "stylelint": "^7.7.1",
-    "yargs": "3.29.0"
+    "yargs": "3.29.0",
+    "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2"
   }
 }

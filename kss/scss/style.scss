@@ -230,8 +230,9 @@ $kss-color-padding: #eeebff;
 	@include xui-breakpoint-narrow {
 		margin: -15px -25px;
 		min-height: 50vh;
-		overflow: hidden;
+		max-width: initial;
 		width: initial;
+
 
 		.#{$ns}-select & {
 			margin-top: -55px;

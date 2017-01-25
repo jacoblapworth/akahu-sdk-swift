@@ -151,10 +151,8 @@
 
 // With Tabs
 //
-// `xui-pageheading-has-tabs`	Modifier for a page heading with tab navigation
-//
 // Markup:
-// <header class="xui-pageheading xui-pageheading-has-tabs">
+// <header class="xui-pageheading">
 //   <div class="xui-page-width-standard">
 //     <div class="xui-pageheading--content xui-pageheading--content-layout">
 //       <h1 id="page-title" class="xui-pageheading--title">Sales</h1>
@@ -174,6 +172,7 @@
 //
 // Styleguide: Navigation.3.2
 
+// TODO: remove in XUI11
 .#{$ns}-pageheading-has-tabs {
 	flex-direction: column;
 	justify-content: space-between;

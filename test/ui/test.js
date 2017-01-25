@@ -260,21 +260,21 @@ import {default as RendererUtils} from 'component-renderer';
 	}
 
 	RendererUtils.init({
-		components : {
+		components: {
 			Example,
 			XUIAvatar,
 			XUIAvatarCounter,
 			XUIAvatarGroup,
 			XUISimpleAvatar
 		},
-		configs : {
+		configs: {
 			ExampleConfig,
 			XUIAvatarConfig,
 			XUIAvatarCounterConfig,
 			XUIAvatarGroupConfig,
 			XUISimpleAvatarConfig
 		},
-		defaultComponent : Example,
+		defaultComponent: Example,
 		defaultConfig: ExampleConfig
 	});
 

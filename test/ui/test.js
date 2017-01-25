@@ -46,13 +46,13 @@ import {default as RendererUtils} from 'component-renderer';
 	};
 
 	RendererUtils.init({
-		components : {
+		components: {
 			XUISwitch
 		},
-		configs : {
+		configs: {
 			XUISwitchConfig
 		},
-		defaultComponent : XUISwitch,
+		defaultComponent: XUISwitch,
 		defaultConfig: XUISwitchConfig
 	});
 

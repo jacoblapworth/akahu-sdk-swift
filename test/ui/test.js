@@ -3,10 +3,9 @@ import React from 'react';
 import XUIAvatar, { XUIAvatarGroup, XUIAvatarCounter, XUISimpleAvatar } from '../../index.js';
 import { sizeClassNames, variantClassNames} from '../../src/constants.js';
 
-
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 
-import {default as RendererUtils} from 'component-renderer';
+import RendererUtils from 'component-renderer'
 
 (function() {
 

@@ -175,15 +175,15 @@ import {default as RendererUtils} from 'component-renderer';
 	}
 
 	RendererUtils.init({
-		components : {
+		components: {
 			Example,
 			XUITextArea
 		},
-		configs : {
+		configs: {
 			ExampleConfig,
 			XUITextAreaConfig
 		},
-		defaultComponent : Example,
+		defaultComponent: Example,
 		defaultConfig: ExampleConfig
 	});
 

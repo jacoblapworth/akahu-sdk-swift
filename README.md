@@ -15,8 +15,15 @@ The main implementation is similar to the process described in [css-tricks](http
 
 By default, each icon has its fill set to `currentColor`, so it will use the inherited font colour.
 
+## Installation
+
+```bash
+$ bower install --save git@github.dev.xero.com:UXE/xui-icon.git
+```
+
 React Usage
 ===========
+
 ### Modules
 `xui-icon` exports two modules:
  - `XUIIcon` - The main icon component

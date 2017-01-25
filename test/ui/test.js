@@ -276,19 +276,19 @@ import {default as RendererUtils} from 'component-renderer';
 	}
 
 	RendererUtils.init({
-		components : {
+		components: {
 			Example,
 			XUIButton,
 			XUIButtonCaret,
 			XUIButtonGroup
 		},
-		configs : {
+		configs: {
 			ExampleConfig,
 			XUIButtonConfig,
 			XUIButtonCaretConfig,
 			XUIButtonGroupConfig
 		},
-		defaultComponent : Example,
+		defaultComponent: Example,
 		defaultConfig: ExampleConfig
 	});
 

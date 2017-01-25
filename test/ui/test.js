@@ -5,7 +5,7 @@ import { sizeClassNames, variantClassNames, buttonHTMLTypes, buttonTypes } from 
 
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 
-import {default as RendererUtils} from 'component-renderer';
+import RendererUtils from 'component-renderer'
 
 (function() {
 

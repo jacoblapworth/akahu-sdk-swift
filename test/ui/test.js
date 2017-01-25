@@ -54,13 +54,13 @@ import {default as RendererUtils} from 'component-renderer';
 
 
   RendererUtils.init({
-    components : {
+    components: {
       XUILoader
     },
-    configs : {
+    configs: {
       XUILoaderConfig
     },
-    defaultComponent : XUILoader,
+    defaultComponent: XUILoader,
     defaultConfig: XUILoaderConfig
   });
 

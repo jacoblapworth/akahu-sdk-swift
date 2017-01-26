@@ -17,13 +17,13 @@ import {default as RendererUtils} from 'component-renderer';
     properties : [
       {
         name: 'className',
-        type: 'text',
+        type: 'string',
         default: '',
         description: 'Additional classes to be put on the loader'
       },
       {
         name: 'qaHook',
-        type: 'text',
+        type: 'string',
         default: null,
         description: 'Adds data-automationid attribute to the mask and the loader'
       },
@@ -35,7 +35,7 @@ import {default as RendererUtils} from 'component-renderer';
       },
       {
         name: 'label',
-        type: 'text',
+        type: 'string',
         default: '',
         description: 'Adds an aria-label attribute to the loader.'
       },

@@ -20,25 +20,25 @@ const shared = {
 		properties :  [
 			{
 				name: 'className',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Additional classes to apply to the root node.'
 			},
 			{
 				name: 'qaHook',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'The automation ID to apply to the root node.'
 			},
 			{
 				name: 'color',
-				type: 'text',
+				type: 'string',
 				default: 'standard',
 				description: 'The color of the toggle, standard (default) Dark text on light backgroundinverted Light text on dark background (parent must use xui-text-inverted).'
 			},
 			{
 				name: 'layout',
-				type: 'text',
+				type: 'string',
 				default: 'fullwidth',
 				description: 'The layout of the toggle, fullwidth (default) Suitable for mixed label content icon Suitable for icon toolbars only.'
 			}
@@ -51,13 +51,13 @@ const shared = {
 		properties :  [
 			{
 				name: 'className',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Additional classes to apply to the root node.'
 			},
 			{
 				name: 'qaHook',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'The automation ID to apply to the root node.'
 			},
@@ -75,13 +75,13 @@ const shared = {
 			},
 			{
 				name: 'isRequired',
-				type: 'text',
+				type: 'string',
 				default: 'yo',
 				description: 'The input is required for form submission.'
 			},
 			{
 				name: 'name',
-				type: 'text',
+				type: 'string',
 				default: '',
 				description: ' The name to use as a reference for the value.'
 			},
@@ -93,13 +93,13 @@ const shared = {
 			},
 			{
 				name: 'type',
-				type: 'text',
+				type: 'string',
 				default: 'radio',
 				description: 'The type of the input: radio (default) or checkbox.'
 			},
 			{
 				name: 'value',
-				type: 'text',
+				type: 'string',
 				default: '',
 				description: 'The value to return on form submission.'
 			}

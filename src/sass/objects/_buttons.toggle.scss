@@ -1,7 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-
 // Toggles
 //
 // Toggles can be made using either `radio` or `checkbox` inputs and come in three colorways:
@@ -63,15 +62,15 @@
 //       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
 //         <label class="xui-toggle-option">
 //           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
-//           <span class="xui-toggle--label">Bananas</span>
+//           <span class="xui-toggle--label xui-padding-vertical-small">Bananas</span>
 //         </label>
 //         <label class="xui-toggle-option">
 //           <input type="radio" name="tg1" class="xui-toggle--input" />
-//           <span class="xui-toggle--label">In</span>
+//           <span class="xui-toggle--label xui-padding-vertical-small">In</span>
 //         </label>
 //         <label class="xui-toggle-option">
 //           <input type="radio" name="tg1" class="xui-toggle--input" />
-//           <span class="xui-toggle--label">Pyjamas</span>
+//           <span class="xui-toggle--label xui-padding-vertical-small">Pyjamas</span>
 //         </label>
 //       </div>
 //     </div>
@@ -80,11 +79,11 @@
 //       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
 //         <label class="xui-toggle-option xui-is-disabled">
 //           <input type="radio" name="tg0" class="xui-toggle--input" disabled/>
-//           <span class="xui-toggle--label">B1</span>
+//           <span class="xui-toggle--label xui-padding-vertical-small">B1</span>
 //         </label>
 //         <label class="xui-toggle-option xui-is-disabled">
 //           <input type="radio" name="tg0" class="xui-toggle--input" checked disabled/>
-//           <span class="xui-toggle--label">B2</span>
+//           <span class="xui-toggle--label xui-padding-vertical-small">B2</span>
 //         </label>
 //       </div>
 //     </div>
@@ -109,19 +108,19 @@
 //   <div class="xui-toggle xui-toggle-standard xui-toggle-fullwidth-layout">
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" checked/>
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         When the text content is longer, the toggle will not take up more space.
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" />
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         Standard
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="checkbox" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
@@ -129,7 +128,7 @@
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="checkbox" class="xui-toggle--input" checked disabled/>
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
@@ -149,13 +148,13 @@
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         Radio<br/>Radio<br/>Radio
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         Pajamas
 //       </span>
 //     </label>
@@ -169,7 +168,7 @@
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" class="xui-toggle--input" checked disabled/>
-//       <span class="xui-toggle--label">
+//       <span class="xui-toggle--label xui-padding-vertical-small">
 //         <svg focusable="false" class="xui-icon">
 //           <use xlink:href="#xui-icon-desktop" role="presentation"/>
 //         </svg>
@@ -315,6 +314,7 @@
 	flex-direction: column;
 	justify-content: center;
 	margin-left: -1px;
+	min-height: $xui-input-height;
 	position: relative; // For z-index
 	text-align: center;
 	transition: all $xui-transition-duration-short ease;

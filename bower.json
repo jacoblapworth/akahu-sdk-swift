@@ -24,6 +24,6 @@
     "react": "~0.14.2 || ^15.3.1"
   },
   "devDependencies": {
-    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^0.0.1"
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.1"
   }
 }

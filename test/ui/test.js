@@ -56,7 +56,7 @@ import RendererUtils from 'component-renderer'
 			},
 			{
 				name: 'defaultValue',
-				type: 'text',
+				type: 'string',
 				default: 'Sarah is the bomb.com',
 				description: 'The initial value of the input.'
 			},
@@ -80,13 +80,13 @@ import RendererUtils from 'component-renderer'
 			},
 			{
 				name: 'fieldClassName',
-				type: 'text',
+				type: 'string',
 				default: '',
 				description: 'Additional class(es) to add to the wrapping div.'
 			},
 			{
 				name: 'id',
-				type: 'text',
+				type: 'string',
 				default: '',
 				description: 'ID to be set for the textarea.'
 			},
@@ -98,19 +98,19 @@ import RendererUtils from 'component-renderer'
 			},
 			{
 				name: 'className',
-				type: 'text',
+				type: 'string',
 				default: '',
-				description: 'Additional classes to be added to the textarea itself.'
+				description: 'Additional classes to be added to the stringarea itself.'
 			},
 			{
 				name: 'qaHook',
-				type: 'text',
+				type: 'string',
 				default: 'xui-textarea',
 				description: ' QA hook for testing.'
 			},
 			{
 				name: 'children',
-				type: 'text',
+				type: 'string',
 				default: '',
 				description: 'Optional children to be rendered by the component (i.e. a label).'
 			}
@@ -119,15 +119,7 @@ import RendererUtils from 'component-renderer'
 
 	const ExampleConfig = {
 		componentName : 'Example',
-		devReady : true,
-		properties : [
-			{
-				name: 'onChange',
-				type: 'function',
-				default: function(){},
-				description: 'Function to execute when the inputs value has been changed.'
-			}
-		]
+		devReady : true
 	};
 
 	class Example extends React.Component {
@@ -159,7 +151,7 @@ import RendererUtils from 'component-renderer'
 					</XUITextArea>
 					<XUITextArea
 						rows={3}
-						defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget pretium mauris, eu tempus velit. Etiam dolor nunc, tincidunt eget ex in, gravida varius est. Nullam vitae pretium leo. Curabitur eros odio, bibendum at diam quis, facilisis tincidunt quam. Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed posuere pulvinar nisl, eget fringilla arcu iaculis in. Etiam mauris ante, euismod ac ligula faucibus, varius auctor est. Curabitur tincidunt non ipsum quis imperdiet.">
+						defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Vivamus eget pretium mauris, eu tempus velit. Etiam dolor nunc, tincidunt eget ex in, gravida varius est. Nullam vitae pretium leo. Curabitur eros odio, bibendum at diam quis, facilisis tincidunt quam. Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed posuere pulvinar nisl, eget fringilla arcu iaculis in. Etiam mauris ante, euismod ac ligula faucibus, varius auctor eros odio, est.  Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Curabitur eros odio,tincidunt non ipsum quis ieros odio, imperdiet. Proin et tortor bibendum, commodo eros ut, lobortis lorem.">
 						<label className="xui-text-label xui-fieldlabel-layout">This textarea has a fixed height</label>
 					</XUITextArea>
 					<XUITextArea

@@ -14,16 +14,22 @@
           flex: 1;
   height: calc(100% - 60px); }
 
-.cr-viewer-container {
+.cr-viewer-container, .cr-viewer-container-full {
   background: white;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: column nowrap;
           flex-flow: column nowrap;
   max-width: calc(100% - 350px); }
-  .cr-viewer-container > .xui-sectionheading {
+  .cr-viewer-container > .xui-sectionheading, .cr-viewer-container-full > .xui-sectionheading {
     -webkit-flex: 0 0 auto;
             flex: 0 0 auto; }
+
+.cr-viewer-container {
+  max-width: calc(100% - 350px); }
+
+.cr-viewer-container-full {
+  max-width: 100%; }
 
 .cr-viewer-heading {
   -webkit-flex: 0 0 57px;

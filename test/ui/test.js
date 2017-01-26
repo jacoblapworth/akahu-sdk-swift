@@ -2,6 +2,7 @@ import 'babel-core/external-helpers.js';
 import React from 'react';
 import XUIButton, { XUIButtonCaret, XUIButtonGroup }  from '../../index.js';
 import { sizeClassNames, variantClassNames, buttonHTMLTypes, buttonTypes } from '../../src/private/constants.js';
+import { ensureIconBlobOnPage } from 'xui-icon';
 
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 
@@ -36,7 +37,7 @@ import RendererUtils from 'component-renderer'
 		properties : [
 			{
 				name: 'children',
-				type: 'text',
+				type: 'string',
 				default: 'Body Children go here',
 				description: 'Add any component you want as children to the footer'
 			}
@@ -51,19 +52,19 @@ import RendererUtils from 'component-renderer'
 			return [
 				{
 					name: 'className',
-					type: 'text',
+					type: 'string',
 					default: '',
 					description: 'Additional classes to be put on the button'
 				},
 				{
 					name: 'children',
-					type: 'text',
+					type: 'string',
 					default: 'Children!',
 					description: 'Some Children for the button'
 				},
 				{
 					name: 'qaHook',
-					type: 'text',
+					type: 'string',
 					default: null,
 					description: 'Adds data-automationid attribute to the mask and the button'
 				},
@@ -145,13 +146,13 @@ import RendererUtils from 'component-renderer'
 				},
 				{
 					name: 'href',
-					type: 'text',
+					type: 'string',
 					default: null,
 					description: 'The `href` attribute to use on the anchor element (ignored unless `type` is `link`)'
 				},
 				{
 					name: 'rel',
-					type: 'text',
+					type: 'string',
 					default: null,
 					description: 'The `rel` attribute to use on the anchor element (ignored unless `type` is `link`)'
 				},
@@ -195,7 +196,7 @@ import RendererUtils from 'component-renderer'
 		properties : [
 			{
 				name: 'children',
-				type: 'text',
+				type: 'string',
 				default: '',
 				description: 'Some Children for the button'
 			},
@@ -210,6 +211,12 @@ import RendererUtils from 'component-renderer'
 				type: 'boolean',
 				default: false,
 				description: 'If true, shows a loader inside the button and also disables the button to prevent clicking'
+			},
+			{
+				name: 'useCaret',
+				type: 'boolean',
+				default: false,
+				description: 'If true, shows Caret Icon'
 			}
 
 		]
@@ -235,19 +242,20 @@ import RendererUtils from 'component-renderer'
 		}
 
 		render () {
+			const caret = this.props.useCaret ? <XUIButtonCaret/> : null;
 			return (
 				<div>
-					<XUIButton isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Default button</XUIButton>
+					<XUIButton isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Default button {caret}</XUIButton>
 
 					<br />
 					<br />
 
-					<XUIButton variant="primary" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Primary button</XUIButton>
+					<XUIButton variant="primary" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Primary button {caret}</XUIButton>
 
 					<br />
 					<br />
 
-					<XUIButton variant="create" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Create button</XUIButton>
+					<XUIButton variant="create" isDisabled={this.props.isDisabled} isLoading={this.props.isLoading}>Create button {caret}</XUIButton>
 
 					<br />
 					<br />

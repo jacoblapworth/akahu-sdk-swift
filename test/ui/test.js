@@ -18,32 +18,6 @@ import RendererUtils from 'component-renderer'
 
 	const buttonType = Object.keys(buttonTypes);
 
-	const XUIButtonCaretConfig = {
-		componentName : 'XUIButtonCaret',
-		devReady : true,
-		properties : [
-			{
-				name: 'isSelect',
-				type: 'boolean',
-				default: true,
-				description: 'Signal if the caret has select styles'
-			}
-		]
-	};
-
-	const XUIButtonGroupConfig = {
-		componentName : 'XUIButtonGroup',
-		devReady : true,
-		properties : [
-			{
-				name: 'children',
-				type: 'string',
-				default: 'Body Children go here',
-				description: 'Add any component you want as children to the footer'
-			}
-		]
-	};
-
 
 	const XUIButtonConfig = {
 		componentName : 'XUIButton',
@@ -286,15 +260,11 @@ import RendererUtils from 'component-renderer'
 	RendererUtils.init({
 		components: {
 			Example,
-			XUIButton,
-			XUIButtonCaret,
-			XUIButtonGroup
+			XUIButton
 		},
 		configs: {
 			ExampleConfig,
-			XUIButtonConfig,
-			XUIButtonCaretConfig,
-			XUIButtonGroupConfig
+			XUIButtonConfig
 		},
 		defaultComponent: Example,
 		defaultConfig: ExampleConfig

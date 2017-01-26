@@ -20,13 +20,13 @@ import {default as RendererUtils} from 'component-renderer';
 		properties : [
 			{
 				name: 'className',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Adds extra classes to the containing element'
 			},
 			{
 				name: 'qaHook',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Adds data-automationid attribute to the mask and the avatar'
 			},
@@ -39,13 +39,13 @@ import {default as RendererUtils} from 'component-renderer';
 			},
 			{
 				name: 'value',
-				type: 'text',
+				type: 'string',
 				default: 'User Xperience Engineering',
 				description: 'The text to display in the avatar'
 			},
 			{
 				name: 'imageUrl',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'the image the component should render. Initials rendered otherwise'
 			},
@@ -58,7 +58,7 @@ import {default as RendererUtils} from 'component-renderer';
 			},
 			{
 				name: 'identifier',
-				type: 'text',
+				type: 'string',
 				default: 'purple',
 				description: 'A unique string that will be used to generate the color of the avatar if color is not provided.'
 			},
@@ -77,13 +77,13 @@ import {default as RendererUtils} from 'component-renderer';
 		properties : [
 			{
 				name: 'qaHook',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Adds data-automationid attribute to the mask and the avatar'
 			},
 			{
 				name: 'className',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Adds extra classes to the containing element'
 			},
@@ -109,19 +109,19 @@ import {default as RendererUtils} from 'component-renderer';
 		properties : [
 			{
 				name: 'className',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Adds extra classes to the containing element'
 			},
 			{
 				name: 'qaHook',
-				type: 'text',
+				type: 'string',
 				default: null,
 				description: 'Adds data-automationid attribute to the mask and the avatar'
 			},
 			{
 				name: 'children',
-				type: 'text',
+				type: 'string',
 				default: [
 					<XUIAvatar
 						size="small"
@@ -188,15 +188,7 @@ import {default as RendererUtils} from 'component-renderer';
 
 	const ExampleConfig = {
 		componentName : 'Example',
-		devReady : true,
-		properties : [
-			{
-				name: 'onError',
-				type: 'function',
-				default: function(){},
-				description: 'Bind a function to fire on error(The test function for this showcase prints to the console)'
-			},
-		]
+		devReady : true
 	};
 
 	class Example extends React.Component {

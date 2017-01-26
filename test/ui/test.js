@@ -5,7 +5,7 @@ import { sizeClassNames }  from '../../src/private/constants.js';
 
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 
-import {default as RendererUtils} from 'component-renderer';
+import RendererUtils from 'component-renderer'
 
 (function() {
 
@@ -54,13 +54,13 @@ import {default as RendererUtils} from 'component-renderer';
 
 
   RendererUtils.init({
-    components : {
+    components: {
       XUILoader
     },
-    configs : {
+    configs: {
       XUILoaderConfig
     },
-    defaultComponent : XUILoader,
+    defaultComponent: XUILoader,
     defaultConfig: XUILoaderConfig
   });
 

@@ -21,7 +21,7 @@ import RendererUtils from 'component-renderer'
 			{
 				name: 'checked',
 				type: 'boolean',
-				default: false,
+				default: true,
 				description: 'Sets the switch to be checked or unchecked (on or off)'
 			},
 			{
@@ -32,13 +32,13 @@ import RendererUtils from 'component-renderer'
 			},
 			{
 				name: 'value',
-				type: 'text',
+				type: 'string',
 				default: 'Sarah was here',
 				description: 'Optional value for the input'
 			},
 			{
 				name: 'name',
-				type: 'text',
+				type: 'string',
 				default: 'Sarah is cool af',
 				description: 'Optional name for the input'
 			}

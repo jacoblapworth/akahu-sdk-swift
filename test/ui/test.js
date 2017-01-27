@@ -5,7 +5,7 @@ import { sizeClassNames, variantClassNames} from '../../src/constants.js';
 
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 
-import RendererUtils from 'component-renderer'
+import RendererUtils from 'component-renderer';
 
 (function() {
 
@@ -64,7 +64,7 @@ import RendererUtils from 'component-renderer'
 			{
 				name: 'onError',
 				type: 'function',
-				default: function(){console.log('close requested')},
+				default: function(){ console.log('close requested') },
 				description: 'Bind a function to fire on error(The test function for this showcase prints to the console)'
 			},
 		]
@@ -161,13 +161,10 @@ import RendererUtils from 'component-renderer'
 		]
 	};
 
-
-
 	const XUIAvatarConfig = {
 		componentName : 'XUIAvatar',
 		devReady : true,
-		properties : (() => {
-			return [
+		properties : [
 				{
 					name: 'onError',
 					type: 'function',
@@ -180,9 +177,7 @@ import RendererUtils from 'component-renderer'
 					default: 'Sarah is cool af',
 					description: 'The text to display in the avatar'
 				},
-
 			]
-		})()
 	};
 
 	const ExampleConfig = {
@@ -211,11 +206,7 @@ import RendererUtils from 'component-renderer'
 		render () {
 			return (
 				<div>
-					<XUIAvatar
-					value="Gyro"
-					size="xlarge"
-					imageUrl="logo.png"
-					/>
+					<XUIAvatar value="Gyro" size="xlarge" imageUrl="logo.png"/>
 
 					<br />
 					<br />
@@ -243,11 +234,8 @@ import RendererUtils from 'component-renderer'
 					</XUIAvatarGroup>
 
 				</div>
-
-		)
-
+			)
 		}
-
 	}
 
 	RendererUtils.init({

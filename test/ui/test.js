@@ -46,7 +46,7 @@ const shared = {
 	};
 
 	const XUIToggleOptionConfig = {
-		componentName : 'XUIToggle',
+		componentName : 'XUIToggleOption',
 		devReady : true,
 		properties :  [
 			{
@@ -75,8 +75,8 @@ const shared = {
 			},
 			{
 				name: 'isRequired',
-				type: 'string',
-				default: 'yo',
+				type: 'boolean',
+				default: false,
 				description: 'The input is required for form submission.'
 			},
 			{
@@ -88,7 +88,7 @@ const shared = {
 			{
 				name: 'onChange',
 				type: 'function',
-				default: function(){},
+				default: shared,
 				description: 'The function to call when the control changes state.'
 			},
 			{
@@ -100,7 +100,7 @@ const shared = {
 			{
 				name: 'value',
 				type: 'string',
-				default: '',
+				default: null,
 				description: 'The value to return on form submission.'
 			}
 		]
@@ -109,7 +109,47 @@ const shared = {
 	const ExampleConfig = {
 		componentName : 'Example',
 		devReady : true,
-		properties : [...XUIToggleConfig.properties]
+		properties : [
+			{
+				name: 'isChecked',
+				type: 'boolean',
+				default: true,
+				description: 'The input is selected.'
+			},
+			{
+				name: 'type',
+				type: 'enum',
+				data: [ 'radio', 'checkbox' ],
+				default: 'radio',
+				description: 'The type of the input: radio (default) or checkbox.'
+			},
+			{
+				name: 'isDisabled',
+				type: 'boolean',
+				default: false,
+				description: ' The input is disabled.'
+			},
+			{
+				name: 'layout',
+				type: 'enum',
+				data: [ 'fullwidth', 'form' ],
+				default: 'fullwidth',
+				description: 'The layout of the toggle, fullwidth (default) Suitable for mixed label content icon Suitable for icon toolbars only.'
+			},
+			{
+				name: 'color',
+				type: 'enum',
+				data: [ 'standard', 'inverted' ],
+				default: 'standard',
+				description: 'The color of the toggle, standard (default) Dark text on light background (inverted) Light text on dark background (parent must use xui-text-inverted).'
+			},
+			{
+				name: 'onChange',
+				type: 'function',
+				default: function(){},
+				description: 'The function to call when the control changes state.'
+			}
+		]
 	};
 
 	class Example extends React.Component {
@@ -132,31 +172,46 @@ const shared = {
 
 		render () {
 			return (
-				<div>
-					<div className="xui-text-panelheading xui-margin-bottom">Checkbox toggle (inverted, fullwidth)</div>
-					<div className="xui-panel xui-margin xui-padding xui-text-inverted">
-						<XUIToggle color="inverted" layout="fullwidth">
-							<XUIToggleOption {...Object.assign({}, shared, {isChecked: true})}>
-								Checkbox<br/>Checkbox<br/>Checkbox<br/>
+					<div className="xui-panel xui-margin xui-padding">
+						<XUIToggle layout={this.props.layout}>
+							<XUIToggleOption {...Object.assign({},
+								shared,
+								{isChecked: this.props.isChecked},
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type},
+								{color: this.props.color},
+							)}>
+								Toy Story
 							</XUIToggleOption>
-							<XUIToggleOption {...shared}>
-								Pajamas
+							<XUIToggleOption {...Object.assign({},
+								shared,
+								{isChecked: this.props.isChecked},
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type},
+								{color: this.props.color},
+								)}>
+								The Lion King
 							</XUIToggleOption>
-							<XUIToggleOption {...Object.assign({}, shared, {isDisabled: true})}>
-								<svg className="xui-icon">
-									<use xlinkHref="#xui-icon-desktop" role="presentation"></use>
-								</svg>
-								Disabled
+							<XUIToggleOption {...Object.assign({},
+								shared,
+								{isChecked: this.props.isChecked},
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type},
+								{color: this.props.color},
+							)}>
+								Finding Nemo
 							</XUIToggleOption>
-							<XUIToggleOption {...Object.assign({}, shared, {isChecked: true, isDisabled: true})}>
-								<svg className="xui-icon">
-									<use xlinkHref="#xui-icon-desktop" role="presentation"></use>
-								</svg>
-								Checked and disabled
+							<XUIToggleOption {...Object.assign({},
+								shared,
+								{isChecked: this.props.isChecked},
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type},
+								{color: this.props.color},
+							)}>
+								Monsters, Inc.
 							</XUIToggleOption>
 						</XUIToggle>
-					</div>
-				</div>
+			</div>
 			)
 
 		}

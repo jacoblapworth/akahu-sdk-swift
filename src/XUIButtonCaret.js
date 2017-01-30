@@ -1,8 +1,8 @@
 import React from 'react';
 import XUIIcon from 'xui-icon';
 
-const XUIButtonCaret = () => (
-	<XUIIcon icon="caret" className="xui-button--caret"/>
+const XUIButtonCaret = ({...props}) => (
+	<XUIIcon icon="caret" className="xui-button--caret" {...props}/>
 );
 
 export default XUIButtonCaret;

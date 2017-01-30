@@ -145,7 +145,7 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 				<XUIButton onClick={() => firstButton.focus()}>Focus first button</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton>I am a dropdown <XUIButtonCaret isSelect /></XUIButton>
+				<XUIButton>I am a dropdown <XUIButtonCaret className="test"/></XUIButton>
 			</div>
 		</div>
 	);

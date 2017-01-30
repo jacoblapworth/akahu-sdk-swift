@@ -65,7 +65,9 @@
 		}
 	}
 
-	.#{$ns}-actions--primary {
-		margin-left: $xui-s-small;
+	@include xui-breakpoint-narrow-up {
+		.#{$ns}-actions--primary {
+			margin-left: $xui-s-small;
+		}
 	}
 }

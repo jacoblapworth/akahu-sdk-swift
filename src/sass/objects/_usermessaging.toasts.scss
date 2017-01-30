@@ -226,6 +226,10 @@
 	display: inline-block;
 }
 
+.#{$ns}-toast--message {
+	float: left;
+}
+
 .#{$ns}-toast--close,
 .#{$ns}-toast--actions {
 	float: right;

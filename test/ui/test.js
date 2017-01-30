@@ -170,12 +170,6 @@ import RendererUtils from 'component-renderer'
 		devReady : true,
 		properties : [
 			{
-				name: 'children',
-				type: 'string',
-				default: null,
-				description: 'Some Children for the button'
-			},
-			{
 				name: 'isDisabled',
 				type: 'boolean',
 				default: false,

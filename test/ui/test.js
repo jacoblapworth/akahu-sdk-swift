@@ -257,7 +257,7 @@ import RendererUtils from 'component-renderer'
 						isDisabled={this.props.isDisabled}
 						isLoading={this.props.isLoading}
 					>
-						Negative button
+						Negative button {caret}
 					</XUIButton>
 
 					<br />
@@ -284,7 +284,6 @@ import RendererUtils from 'component-renderer'
 					>
 						Link button
 					</XUIButton>
-
 				</div>
 			)
 		}

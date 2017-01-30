@@ -29,6 +29,6 @@
 		"no-case-declarations": "off",
 		"no-else-return": "error",
 		"react/no-find-dom-node": "warn",
-		"react/prop-types": "error",
+		"react/prop-types": "error"
 	}
 }

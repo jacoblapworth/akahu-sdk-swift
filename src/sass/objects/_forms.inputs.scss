@@ -123,7 +123,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 
 	.#{$ns}-icon {
-		pointer-events: none;
 		z-index: $xui-input-icon-zindex;
 	}
 

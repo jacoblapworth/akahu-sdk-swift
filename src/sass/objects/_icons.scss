@@ -139,7 +139,9 @@
 .#{$ns}-icon {
 	display: inline-block;
 	fill: currentColor;
+	flex: none; // Prevent distortion if parent has display: flex
 	height: $xui-icon-standard;
+	pointer-events: none; // Don't hog the cursor if inside buttons/links
 	width: $xui-icon-standard;
 }
 

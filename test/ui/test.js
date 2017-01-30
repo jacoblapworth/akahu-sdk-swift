@@ -132,7 +132,7 @@ const shared = {
 			{
 				name: 'layout',
 				type: 'enum',
-				data: [ 'fullwidth', 'form' ],
+				data: [ 'fullwidth', 'icon', 'form' ],
 				default: 'fullwidth',
 				description: 'The layout of the toggle, fullwidth (default) Suitable for mixed label content icon Suitable for icon toolbars only.'
 			},
@@ -173,13 +173,12 @@ const shared = {
 		render () {
 			return (
 					<div className="xui-panel xui-margin xui-padding">
-						<XUIToggle layout={this.props.layout}>
+						<XUIToggle color={this.props.color} layout={this.props.layout}>
 							<XUIToggleOption {...Object.assign({},
 								shared,
 								{isChecked: this.props.isChecked},
 								{isDisabled: this.props.isDisabled},
-								{type: this.props.type},
-								{color: this.props.color},
+								{type: this.props.type}
 							)}>
 								Toy Story
 							</XUIToggleOption>
@@ -187,17 +186,15 @@ const shared = {
 								shared,
 								{isChecked: this.props.isChecked},
 								{isDisabled: this.props.isDisabled},
-								{type: this.props.type},
-								{color: this.props.color},
-								)}>
+								{type: this.props.type}
+							)}>
 								The Lion King
 							</XUIToggleOption>
 							<XUIToggleOption {...Object.assign({},
 								shared,
 								{isChecked: this.props.isChecked},
 								{isDisabled: this.props.isDisabled},
-								{type: this.props.type},
-								{color: this.props.color},
+								{type: this.props.type}
 							)}>
 								Finding Nemo
 							</XUIToggleOption>
@@ -205,17 +202,14 @@ const shared = {
 								shared,
 								{isChecked: this.props.isChecked},
 								{isDisabled: this.props.isDisabled},
-								{type: this.props.type},
-								{color: this.props.color},
+								{type: this.props.type}
 							)}>
 								Monsters, Inc.
 							</XUIToggleOption>
 						</XUIToggle>
 			</div>
 			)
-
 		}
-
 	}
 
 	RendererUtils.init({

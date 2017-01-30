@@ -23,3 +23,4 @@ bower_components
 test/cr/test.cr.bundle.css
 test/cr/test.cr.bundle.js
 test/ui/test.ui.bundle.js
+test/ui/test.bundle.js

@@ -8,7 +8,7 @@ import RendererUtils from 'component-renderer'
 
 const shared = {
 	name: 'toggle-checkbox',
-	onChange: () => {alert('Hello, World!')},
+	onChange: () => {alert('Please use sidebar to toggle state!')},
 	type: 'checkbox'
 };
 
@@ -133,7 +133,7 @@ const shared = {
 				name: 'layout',
 				type: 'enum',
 				data: [ 'fullwidth', 'icon', 'form' ],
-				default: 'fullwidth',
+				default: 'form',
 				description: 'The layout of the toggle, fullwidth (default) Suitable for mixed label content icon Suitable for icon toolbars only.'
 			},
 			{

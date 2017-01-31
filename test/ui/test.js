@@ -1,11 +1,15 @@
 import 'babel-core/external-helpers.js';
 import React from 'react';
-import XUIAvatar, { XUIAvatarGroup, XUIAvatarCounter, XUISimpleAvatar } from '../../index.js';
-import { sizeClassNames, variantClassNames} from '../../src/constants.js';
-
+import XUIAvatar, {
+	XUIAvatarGroup,
+	XUIAvatarCounter,
+	XUISimpleAvatar
+} from '../../index.js';
+import { sizeClassNames, variantClassNames } from '../../src/constants.js';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
-
 import RendererUtils from 'component-renderer';
+
+const logCloseReq = () => console.log('close requested');
 
 (function() {
 
@@ -64,7 +68,7 @@ import RendererUtils from 'component-renderer';
 			{
 				name: 'onError',
 				type: 'function',
-				default: function(){ console.log('close requested') },
+				default: logCloseReq,
 				description: 'Bind a function to fire on error(The test function for this showcase prints to the console)'
 			},
 		]
@@ -155,7 +159,7 @@ import RendererUtils from 'component-renderer';
 			{
 				name: 'maxAvatars',
 				type: 'number',
-				default: '3',
+				default: 3,
 				description: 'The maximum number of avatars to show'
 			}
 		]
@@ -165,19 +169,19 @@ import RendererUtils from 'component-renderer';
 		componentName : 'XUIAvatar',
 		devReady : true,
 		properties : [
-				{
-					name: 'onError',
-					type: 'function',
-					default: function(){console.log('close requested')},
-					description: 'Bind a function to fire on error'
-				},
-				{
-					name: 'value',
-					type: 'string',
-					default: 'Sarah is cool af',
-					description: 'The text to display in the avatar'
-				},
-			]
+			{
+				name: 'onError',
+				type: 'function',
+				default: logCloseReq,
+				description: 'Bind a function to fire on error'
+			},
+			{
+				name: 'value',
+				type: 'string',
+				default: 'Sarah is cool af',
+				description: 'The text to display in the avatar'
+			},
+		]
 	};
 
 	const ExampleConfig = {
@@ -256,5 +260,4 @@ import RendererUtils from 'component-renderer';
 		defaultComponent: Example,
 		defaultConfig: ExampleConfig
 	});
-
 })();

@@ -24,6 +24,8 @@
 //
 // Styleguide: Typography.10
 
+// TODO: reconsider these class names for XUI11.
+// xui-panel-title is not a modifier of xui-panel
 .#{$ns}-panel-title {
 	@include xui-heading-medium;
 	// other specific stuff to this element might go here???
@@ -184,9 +186,9 @@
 //
 // `xui-heading` replaced with `xui-heading-large`
 //
-// `xui-page-title`
+// `xui-page-title` replaced with `xui-heading-medium`
 //
-// `xui-section-title`
+// `xui-section-title` replaced with `xui-item-title`
 //
 // `xui-text-panelheading`	replaced with `xui-panel-title`
 //

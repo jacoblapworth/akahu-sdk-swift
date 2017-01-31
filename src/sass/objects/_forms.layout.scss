@@ -30,7 +30,7 @@
 //
 // Markup:
 // <form class="xui-form-layout">
-//   <p class="xui-text-panelheading">Stacked Form</p>
+//   <p class="xui-panel-title">Stacked Form</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
 //     <input class="xui-input" type="text" id="field1" placeholder="" />
@@ -85,7 +85,7 @@
 // Markup:
 // <!-- Inline Form -->
 // <form class="xui-form-inline">
-//   <p class="xui-text-panelheading">Inline Form</p>
+//   <p class="xui-panel-title">Inline Form</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Field One</label>
 //     <input class="xui-input" type="text" id="field3" placeholder="Placeholder for field one" />
@@ -98,7 +98,7 @@
 // </form>
 // <!-- Hidden Labels -->
 // <form class="xui-form-inline">
-//   <p class="xui-text-panelheading">Hidden Labels</p>
+//   <p class="xui-panel-title">Hidden Labels</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
 //     <input class="xui-input" type="text" id="field5" placeholder="Field One" />

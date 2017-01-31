@@ -91,7 +91,7 @@ const NOOP = () => {};
 				name: 'onSecondaryClick',
 				type: 'function',
 				default: NOOP,
-				description: '	Bind a function to fire when the second button in a split button is clicked'
+				description: 'Bind a function to fire when the second button in a split button is clicked'
 			},
 			{
 				name: 'variant',

@@ -40,6 +40,10 @@ Adds an `aria-label` attribute to the loader.
 
 Whether to use the layout class for the loader which provides spacing and centers the component. Only works with XUI 10 (can be ignored for XUI 9)
 
+#### `size`: (String, 'small', 'standard' or 'large')
+
+Sets the size of the loader to be, small, standard, or large.
+
 
 ## Using `refs=""`
 

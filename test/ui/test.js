@@ -132,9 +132,21 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
 				<XUIButton onClick={clickHandler} variant="unstyled" isDisabled>Unstyled button (disabled)</XUIButton>
 			</div>
 			<div className="testButtonContainer">
-				<XUIButton aria-haspopup={true} onClick={clickHandler} onSecondaryClick={secondaryClickHandler} split={true} variant="primary">Split button</XUIButton>
+				<XUIButton
+					aria-haspopup={true}
+					onClick={clickHandler}
+					onSecondaryClick={secondaryClickHandler}
+					split={true}
+					variant="primary">
+					Split button
+				</XUIButton>
 			</div>
-			<XUIButton onClick={() => firstButton.focus()}>Focus first button</XUIButton>
+			<div className="testButtonContainer">
+				<XUIButton onClick={() => firstButton.focus()}>Focus first button</XUIButton>
+			</div>
+			<div className="testButtonContainer">
+				<XUIButton>I am a dropdown <XUIButtonCaret className="test"/></XUIButton>
+			</div>
 		</div>
 	);
 

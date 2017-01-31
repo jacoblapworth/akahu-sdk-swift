@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import Classes from 'xui-css-classes';
 import cn from 'classnames';
-import XUIIcon from 'xui-icon';
 import XUILoader from 'xui-loader';
+import XUIButtonCaret from './XUIButtonCaret';
 
 // General Helpers
 const keys = Object.keys;
@@ -265,6 +265,7 @@ export default class XUIButton extends React.Component {
 
 		if (isSplit) {
 			elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
+			elementProps.type = 'button';
 		}
 
 		let Button = (
@@ -276,15 +277,16 @@ export default class XUIButton extends React.Component {
 		if (isSplit) {
 
 			Button = (
-				<div className={ButtonClasses.GROUPED}>
+				<div className='xui-buttongroup'>
 					{Button}
 					<ElementType
 						{...secondaryProps}
 						className={cn(elementProps.className, ButtonClasses.SPLIT)}
 						onClick={secondaryClickHandler}
 						onKeyPress={buttonDisabled ? null : onSecondaryKeyDown}
+						type="button"
 					>
-						<XUIIcon icon="caret" className={ButtonClasses.CARET}/>
+						<XUIButtonCaret/>
 					</ElementType>
 				</div>
 			);

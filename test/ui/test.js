@@ -1,9 +1,7 @@
 import 'babel-core/external-helpers.js';
 import React from 'react';
 import XUISwitch from '../../src/XUISwitch.js';
-
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
-
 import RendererUtils from 'component-renderer'
 
 (function() {
@@ -33,13 +31,13 @@ import RendererUtils from 'component-renderer'
 			{
 				name: 'value',
 				type: 'string',
-				default: 'Sarah was here',
+				default: null,
 				description: 'Optional value for the input'
 			},
 			{
 				name: 'name',
 				type: 'string',
-				default: 'Sarah is cool af',
+				default: null,
 				description: 'Optional name for the input'
 			}
 		]

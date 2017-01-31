@@ -24,6 +24,6 @@
     "xui": "git@github.dev.xero.com:UXE/xui.git#^10.0.0"
   },
   "devDependencies": {
-    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.1"
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
   }
 }

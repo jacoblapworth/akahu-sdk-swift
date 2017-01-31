@@ -232,6 +232,7 @@ $kss-color-padding: #eeebff;
 		min-height: 50vh;
 		max-width: initial;
 		width: initial;
+		overflow: auto;
 
 
 		.#{$ns}-select & {
@@ -244,7 +245,6 @@ $kss-color-padding: #eeebff;
 
 		.#{$ns}-dropdown--body {
 			max-height: 80%;
-			position: absolute;
 			width: 100%;
 		}
 	}

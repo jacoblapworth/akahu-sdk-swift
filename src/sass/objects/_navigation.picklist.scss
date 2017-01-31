@@ -21,6 +21,8 @@
 //
 // `xui-picklist`	Container for a vertical menu
 //
+// `xui-picklist-layout` Provides padding for the picklist.
+//
 // `xui-pickitem`	Container for a picklist item
 //
 // `xui-pickitem-is-selected`	Indicate the currently selected picklist item
@@ -30,7 +32,7 @@
 // `xui-pickitem--text` Container for the picklist item's text. Provides vertical padding to ensure good multiline spacing.
 //
 // Markup:
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
 //     <a href="#" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item one - Is Selected</a>
 //   </li>
@@ -46,12 +48,16 @@
 
 .#{$ns}-picklist {
 	@include xui-listreset;
-	padding: $xui-s-small 0; //ToDo: remove in XUI11 to a layout class.
+	padding: $xui-s-small 0; //ToDo: remove in XUI11 in favour of the layout class.
 	position: relative;
 
 	& + .#{$ns}-picklist {
 		border-top: 1px solid rgba($xui-color-black, 0.1);
 	}
+}
+
+.#{$ns}-picklist-layout{
+	padding: $xui-s-small 0;
 }
 
 .#{$ns}-pickitem {
@@ -145,7 +151,7 @@
 // `xui-submenu-layout`	This class provides max-height rules to allow the menu to transition. The max height has been set to 100vh (100% of the viewport height) in this case and may not be suitable for all use cases.
 //
 // Markup:
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li class="xui-pickitem">
 //     <input class="xui-pickitem--submenucontrol" id="submenu-sidebar-1" type="checkbox" tabindex="-1"/>
 //     <label class="xui-pickitem--body xui-submenu-uicontrol--label" for="submenu-sidebar-1" tabindex="0" title="Open|close submenu" aria-label="Open|Close submenu">
@@ -249,7 +255,7 @@
 // `xui-pickitem--split`	Container for split components.
 //
 // Markup:
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li>
 //     <input class="xui-pickitem--submenucontrol" id="submenu-label" type="checkbox" tabindex="-1" />
 //     <div class="xui-pickitem--split">
@@ -308,7 +314,7 @@
 // `xui-pickitem--input` positions the svg vertically and pads the checkbox from the label.
 //
 // Markup:
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li>
 //     <input class="xui-pickitem--submenucontrol" id="submenu-check" type="checkbox" tabindex="-1" />
 //     <div class="xui-pickitem--split">
@@ -413,7 +419,7 @@
 // `xui-pickitem--icon` positions the icon within the container and pads the content to the correct dimensions
 //
 // Markup:
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li class="xui-pickitem">
 //     <input class="xui-pickitem--submenucontrol" id="submenu-icon" type="checkbox" tabindex="-1" />
 //     <div class="xui-pickitem--split">
@@ -481,7 +487,7 @@
 // enable Firefox to handle `display: flex` inside `<button>` elements.
 //
 // Markup:
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li class="xui-pickitem xui-pickitem-is-selected">
 //     <button tabindex="0" type="button" class="xui-pickitem--body">
 //       <div class="xui-u-flex-inherit xui-pickitem--text">
@@ -499,7 +505,7 @@
 //     </button>
 //   </li>
 // </ul>
-// <ul class="xui-picklist">
+// <ul class="xui-picklist xui-picklist-layout">
 //   <li class="xui-pickitem">
 //     <button tabindex="-1" type="button" class="xui-pickitem--body">
 //       <div class="xui-u-flex-inherit xui-pickitem--text">

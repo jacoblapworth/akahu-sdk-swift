@@ -81,17 +81,17 @@
 //         <button class="xui-pickitem--body" tabindex="-1">GST Return</button>
 //       </li>
 //     </ul>
+//		<div class="xui-dropdown--footer">
+//			<ul class="xui-picklist">
+//				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
+//					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
+//				</li>
+//				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
+//					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
+//				</li>
+//			</ul>
+//		</div>
 //   </div>
-//	<div class="xui-dropdown--footer">
-//		<ul class="xui-picklist">
-//			<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
-//				<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
-//			</li>
-//			<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
-//				<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
-//			</li>
-//		</ul>
-//	</div>
 // </div>
 //
 // Styleguide: Dropdowns.1
@@ -120,14 +120,12 @@
 
 
 .#{$ns}-dropdown-layout {
-	box-shadow: $xui-shadow-depth-2;
 	display: none;
 	min-width: $xui-starting-width;
 	position: absolute;
 
 	@include xui-breakpoint-narrow-up {
-		background-color: $xui-color-white;
-		border-radius: $xui-radius;
+		position: fixed;
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
@@ -144,18 +142,19 @@
 		z-index: 9999;
 
 		.#{$ns}-dropdown--body {
-			background-color: $xui-color-white;
 			left: 0;
 			max-width: 100vw;
-			position: static;
+			position: absolute;
 			top: 100vh;
+			width: 100vw;
+			z-index: inherit;
 		}
 	}
 
 	.#{$ns}-dropdown--mask {
 		bottom: 0;
 		left: 0;
-		position: static;
+		position: absolute;
 		right: 0;
 		top: 0;
 	}
@@ -166,9 +165,10 @@
 	}
 
 	.#{$ns}-dropdown--footer {
-		background-color: $xui-color-white;
 		border-top: 1px solid rgba($xui-color-black, 0.1);
+		bottom: 0;
 		padding: $xui-s-small 0;
+		width: 100%;
 		//ToDo: Remove this in XUI11 in favour of a layout class on the picklist.
 		.#{$ns}-picklist {
 			padding: 0;
@@ -183,9 +183,15 @@
 }
 
 .#{$ns}-dropdown--body {
-	@include xui-breakpoint-narrow {
-		box-shadow: none;
-		overflow: auto;
+	background-color: $xui-color-white;
+
+	@include xui-breakpoint-narrow-up {
+		border-radius: $xui-radius;
+		box-shadow: $xui-shadow-depth-2;
+	}
+
+	& :first-child {
+		overflow-y: auto;
 	}
 }
 

@@ -1,10 +1,10 @@
 import 'babel-core/external-helpers.js';
 import React from 'react';
 import XUITextArea from '../../src/XUITextArea.js';
-
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
-
 import RendererUtils from 'component-renderer'
+
+const NOOP = () => {};
 
 (function() {
 
@@ -35,12 +35,6 @@ import RendererUtils from 'component-renderer'
 				type: 'number',
 				default: 10,
 				description: 'The maximum number of rows for the text area to expand to.'
-			},
-			{
-				name: 'onChange',
-				type: 'function',
-				default: function(){},
-				description: 'Function to execute when the inputs value has been changed.'
 			},
 			{
 				name: 'manualResize',
@@ -81,25 +75,31 @@ import RendererUtils from 'component-renderer'
 			{
 				name: 'fieldClassName',
 				type: 'string',
-				default: '',
+				default: null,
 				description: 'Additional class(es) to add to the wrapping div.'
 			},
 			{
 				name: 'id',
 				type: 'string',
-				default: '',
+				default: null,
 				description: 'ID to be set for the textarea.'
+			},
+			{
+				name: 'onChange',
+				type: 'function',
+				default: NOOP,
+				description: 'Function to execute when the inputs value has been changed.'
 			},
 			{
 				name: 'textareaRef',
 				type: 'function',
-				default: function(){},
+				default: NOOP,
 				description: 'Function to add a reference to the textarea element'
 			},
 			{
 				name: 'className',
 				type: 'string',
-				default: '',
+				default: null,
 				description: 'Additional classes to be added to the stringarea itself.'
 			},
 			{
@@ -111,7 +111,7 @@ import RendererUtils from 'component-renderer'
 			{
 				name: 'children',
 				type: 'string',
-				default: '',
+				default: null,
 				description: 'Optional children to be rendered by the component (i.e. a label).'
 			}
 		]
@@ -122,49 +122,27 @@ import RendererUtils from 'component-renderer'
 		devReady : true
 	};
 
-	class Example extends React.Component {
+	const Example = props => (
+		<div>
+			<XUITextArea
+				minRows={2}
+				maxRows={5}
+				maxCharacters={2000}>
+				<label className="xui-text-label xui-fieldlabel-layout">This textarea auto-resizes</label>
+			</XUITextArea>
+			<XUITextArea
+				rows={3}
+				defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Vivamus eget pretium mauris, eu tempus velit. Etiam dolor nunc, tincidunt eget ex in, gravida varius est. Nullam vitae pretium leo. Curabitur eros odio, bibendum at diam quis, facilisis tincidunt quam. Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed posuere pulvinar nisl, eget fringilla arcu iaculis in. Etiam mauris ante, euismod ac ligula faucibus, varius auctor eros odio, est.  Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Curabitur eros odio,tincidunt non ipsum quis ieros odio, imperdiet. Proin et tortor bibendum, commodo eros ut, lobortis lorem.">
+				<label className="xui-text-label xui-fieldlabel-layout">This textarea has a fixed height</label>
+			</XUITextArea>
+			<XUITextArea
+				rows={3}
+				isDisabled={true}
+				defaultValue="This textarea has no label and is disabled">
+			</XUITextArea>
+		</div>
+	);
 
-		constructor(props) {
-			super(props);
-
-			this.state = this.props;
-		}
-
-		componentDidUpdate(prevProps) {
-			Object.keys(prevProps).forEach(propName => {
-				if (this.props[propName] !== prevProps[propName]) {
-					this.setState({
-						[propName]: this.props[propName]
-					});
-				}
-			});
-		}
-
-		render () {
-			return (
-				<div>
-					<XUITextArea
-						minRows={2}
-						maxRows={5}
-						maxCharacters={2000}>
-						<label className="xui-text-label xui-fieldlabel-layout">This textarea auto-resizes</label>
-					</XUITextArea>
-					<XUITextArea
-						rows={3}
-						defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Vivamus eget pretium mauris, eu tempus velit. Etiam dolor nunc, tincidunt eget ex in, gravida varius est. Nullam vitae pretium leo. Curabitur eros odio, bibendum at diam quis, facilisis tincidunt quam. Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed posuere pulvinar nisl, eget fringilla arcu iaculis in. Etiam mauris ante, euismod ac ligula faucibus, varius auctor eros odio, est.  Morbi a mollis nulla. In velit leo, condimentum ac scelerisque nec, tincidunt sit amet odio. Proin posuere neque eget purus placerat feugiat. Proin et tortor bibendum, commodo eros ut, lobortis lorem. In ut orci ipsum. Curabitur eros odio,tincidunt non ipsum quis ieros odio, imperdiet. Proin et tortor bibendum, commodo eros ut, lobortis lorem.">
-						<label className="xui-text-label xui-fieldlabel-layout">This textarea has a fixed height</label>
-					</XUITextArea>
-					<XUITextArea
-						rows={3}
-						isDisabled={true}
-						defaultValue="This textarea has no label and is disabled">
-					</XUITextArea>
-				</div>
-			)
-
-		}
-
-	}
 
 	RendererUtils.init({
 		components: {

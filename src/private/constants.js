@@ -1,4 +1,3 @@
-
 import Classes from 'xui-css-classes';
 
 const ButtonClasses = Classes.Button;
@@ -17,15 +16,15 @@ export const sizeClassNames = {
  * Map of variants to class names
  */
 export const variantClassNames = {
-		'primary': ButtonClasses.MAIN,
-		'create': ButtonClasses.CREATE,
-		'link': ButtonClasses.LINK,
-		'negative': ButtonClasses.NEGATIVE,
-		'standard': ButtonClasses.STANDARD,
-		'icon':	ButtonClasses.Icon.BASE,
-		'icon-inverted': ButtonClasses.Icon.INVERTED,
-		'unstyled': ''
-	};
+	'primary': ButtonClasses.MAIN,
+	'create': ButtonClasses.CREATE,
+	'link': ButtonClasses.LINK,
+	'negative': ButtonClasses.NEGATIVE,
+	'standard': ButtonClasses.STANDARD,
+	'icon':	ButtonClasses.Icon.BASE,
+	'icon-inverted': ButtonClasses.Icon.INVERTED,
+	'unstyled': ''
+};
 /**
  * @public
  * Map of HTML types to class names

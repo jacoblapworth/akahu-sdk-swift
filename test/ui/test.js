@@ -11,6 +11,8 @@ import {
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 import RendererUtils from 'component-renderer'
 
+const NOOP = () => {};
+
 (function() {
 
 	const buttonVariants = Object.keys(variantClassNames);
@@ -20,7 +22,6 @@ import RendererUtils from 'component-renderer'
 	const buttonHTMLType = Object.keys(buttonHTMLTypes);
 
 	const buttonType = Object.keys(buttonTypes);
-
 
 	const XUIButtonConfig = {
 		componentName : 'XUIButton',
@@ -83,13 +84,13 @@ import RendererUtils from 'component-renderer'
 			{
 				name: 'onClick',
 				type: 'function',
-				default: function(){},
+				default: NOOP,
 				description: 'Bind a function to fire when the button is clicked'
 			},
 			{
 				name: 'onSecondaryClick',
 				type: 'function',
-				default: function(){},
+				default: NOOP,
 				description: '	Bind a function to fire when the second button in a split button is clicked'
 			},
 			{
@@ -187,7 +188,6 @@ import RendererUtils from 'component-renderer'
 				default: false,
 				description: 'If true, shows Caret Icon'
 			}
-
 		]
 	};
 
@@ -198,7 +198,6 @@ import RendererUtils from 'component-renderer'
 
 			this.state = this.props;
 		}
-
 
 		componentDidUpdate(prevProps) {
 			Object.keys(prevProps).forEach(propName => {

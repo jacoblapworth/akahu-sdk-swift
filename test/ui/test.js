@@ -137,7 +137,7 @@ const toggleIcon = {
 			{
 				name: 'color',
 				type: 'enum',
-				data: [ 'standard', 'inverted' ],
+				data: [ 'standard', 'inverted', 'form' ],
 				default: 'standard',
 				description: 'The color of the toggle, standard (default) Dark text on light background (inverted) Light text on dark background (parent must use xui-text-inverted).'
 			},

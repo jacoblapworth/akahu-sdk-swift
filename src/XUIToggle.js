@@ -5,7 +5,8 @@ import cn from 'classnames';
 /** @private colorMap - Map colors to classes */
 const colorMap = {
 	standard: 'xui-toggle-standard',
-	inverted: 'xui-toggle-inverted'
+	inverted: 'xui-toggle-inverted',
+	form: 'xui-toggle-form'
 };
 
 

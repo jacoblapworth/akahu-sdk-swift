@@ -34,13 +34,22 @@
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
 //   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//     <a href="#" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item one - Is Selected</a>
+//     <a href="#" class="xui-pickitem--body" tabindex="-1">
+//       <span class="xui-pickitem--text">Item one - Is Selected</span>
+//     </a>
 //   </li>
 //   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1">
-//     <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item two - Has Hover class</button>
+//     <button type="button" class="xui-pickitem--body" tabindex="-1">
+//       <span class="xui-pickitem--text xui-text-truncated">
+//         Item two - with text truncation class applied to the child element that has the xui-pickitem--text class to demonstrate truncation in effect.
+//         Widescreen monitors can be pretty wide so it may take a lot of text to make the truncation kick in. If all else fails here is an ellipsis...
+//       </span>
+//     </button>
 //   </li>
 //   <li class="xui-pickitem" tabindex="-1">
-//     <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item three</button>
+//     <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">
+//       <span class="xui-pickitem--text">Item three</span>
+//     </button>
 //   </li>
 // </ul>
 //

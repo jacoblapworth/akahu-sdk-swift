@@ -108,6 +108,7 @@
 }
 
 @mixin xui-text-truncated {
+	display: block; // other display values do not allow for truncation
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;

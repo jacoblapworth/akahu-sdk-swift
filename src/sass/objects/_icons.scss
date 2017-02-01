@@ -131,11 +131,24 @@
 // Styleguide: Icons.6
 
 /* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
+// TODO: remove xui-icon-svg in XUI11 since it applies on the <symbol> element
+// and is not a modifier of child of xui-icon
+.#{$ns}-iconsymbol,
 .#{$ns}-icon-svg {
 	fill-rule: evenodd;
 	shape-rendering: auto;
 }
 
+.#{$ns}-iconwrapper {
+	align-items: center;
+	display: inline-flex;
+	height: $xui-icon-standard;
+	justify-content: center;
+	width: $xui-icon-standard;
+}
+
+// TODO: remove sizing assumptions in XUI11
+// The successors to this class split the fill from the display/width/height
 .#{$ns}-icon {
 	display: inline-block;
 	fill: currentColor;
@@ -145,21 +158,30 @@
 	width: $xui-icon-standard;
 }
 
+// TODO: this becomes xui-icon in XUI11
+.#{$ns}-newicon {
+	fill: currentColor;
+}
+
+// TODO: remove from XUI11
 .#{$ns}-icon-inline {
 	margin: -10px -8px -6px;
 	vertical-align: middle;
 }
 
-.#{$ns}-icon-large {
+.#{$ns}-icon-large,
+.#{$ns}-iconwrapper-large {
 	height: $xui-icon-large;
 	width: $xui-icon-large;
 }
 
-.#{$ns}-icon-xlarge {
+.#{$ns}-icon-xlarge,
+.#{$ns}-iconwrapper-xlarge {
 	height: $xui-icon-xlarge;
 	width: $xui-icon-xlarge;
 }
 
+// TODO: consider making these more generic in XUI11
 .#{$ns}-icon-rotate-90 {
 	transform: rotate(90deg);
 }

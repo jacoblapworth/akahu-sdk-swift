@@ -44,7 +44,6 @@ Whether to use the layout class for the loader which provides spacing and center
 
 Sets the size of the loader to be, 'small', 'standard', or 'large'.
 
-
 ## Using `refs=""`
 
 This component has been built as a [stateless functional component](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions). As a result, you cannot use refs with this component.

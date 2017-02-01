@@ -24,5 +24,8 @@
     "classnames": "^2.1.0",
     "react": "^0.14.2 || ^15.0.0",
     "xui": "git@github.dev.xero.com:UXE/xui.git#^10.19.0"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
   }
 }

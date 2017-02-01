@@ -1,5 +1,5 @@
 {
-  "version": "2.10.0",
+  "version": "2.10.1",
   "name": "xui-button",
   "main": "index.js",
   "description": "A button. That clicks",

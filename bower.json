@@ -18,5 +18,8 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.1.0"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
   }
 }

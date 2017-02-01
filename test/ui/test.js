@@ -1,14 +1,18 @@
 import 'babel-core/external-helpers.js';
 import React from 'react';
 import XUIToggle, {XUIToggleOption} from '../../index.js';
-
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
-
 import RendererUtils from 'component-renderer'
 
-const shared = {
+const toggleForm = {
 	name: 'toggle-checkbox',
-	onChange: () => {alert('Please use sidebar to toggle state!')},
+	onChange: () => {},
+	type: 'checkbox'
+};
+
+const toggleIcon = {
+	name: 'toggle-checkbox-icon',
+	onChange: () => {},
 	type: 'checkbox'
 };
 
@@ -82,13 +86,13 @@ const shared = {
 			{
 				name: 'name',
 				type: 'string',
-				default: '',
+				default: null,
 				description: ' The name to use as a reference for the value.'
 			},
 			{
 				name: 'onChange',
 				type: 'function',
-				default: shared,
+				default: toggleForm,
 				description: 'The function to call when the control changes state.'
 			},
 			{
@@ -111,12 +115,6 @@ const shared = {
 		devReady : true,
 		properties : [
 			{
-				name: 'isChecked',
-				type: 'boolean',
-				default: true,
-				description: 'The input is selected.'
-			},
-			{
 				name: 'type',
 				type: 'enum',
 				data: [ 'radio', 'checkbox' ],
@@ -133,7 +131,7 @@ const shared = {
 				name: 'layout',
 				type: 'enum',
 				data: [ 'fullwidth', 'icon', 'form' ],
-				default: 'form',
+				default: 'icon',
 				description: 'The layout of the toggle, fullwidth (default) Suitable for mixed label content icon Suitable for icon toolbars only.'
 			},
 			{
@@ -172,42 +170,72 @@ const shared = {
 
 		render () {
 			return (
-					<div className="xui-panel xui-margin xui-padding">
-						<XUIToggle color={this.props.color} layout={this.props.layout}>
+				<div>
+					<div className={`xui-panel xui-margin xui-padding xui-text-${this.props.color}`}>
+						<XUIToggle color={this.props.color} layout='form'>
 							<XUIToggleOption {...Object.assign({},
-								shared,
-								{isChecked: this.props.isChecked},
+								toggleForm,
 								{isDisabled: this.props.isDisabled},
 								{type: this.props.type}
 							)}>
 								Toy Story
 							</XUIToggleOption>
 							<XUIToggleOption {...Object.assign({},
-								shared,
-								{isChecked: this.props.isChecked},
+								toggleForm,
 								{isDisabled: this.props.isDisabled},
 								{type: this.props.type}
 							)}>
 								The Lion King
 							</XUIToggleOption>
 							<XUIToggleOption {...Object.assign({},
-								shared,
-								{isChecked: this.props.isChecked},
+								toggleForm,
 								{isDisabled: this.props.isDisabled},
 								{type: this.props.type}
 							)}>
 								Finding Nemo
 							</XUIToggleOption>
 							<XUIToggleOption {...Object.assign({},
-								shared,
-								{isChecked: this.props.isChecked},
+								toggleForm,
 								{isDisabled: this.props.isDisabled},
 								{type: this.props.type}
 							)}>
 								Monsters, Inc.
 							</XUIToggleOption>
 						</XUIToggle>
-			</div>
+					</div>
+
+					<div className={`xui-panel xui-margin xui-padding xui-text-${this.props.color}`}>
+						<XUIToggle color={this.props.color} layout={this.props.layout}>
+							<XUIToggleOption {...Object.assign({},
+								toggleIcon,
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type}
+							)}>
+								<svg focusable="false" className="xui-icon">
+									<use xlinkHref="#xui-icon-photo"></use>
+								</svg>
+							</XUIToggleOption>
+							<XUIToggleOption {...Object.assign({},
+								toggleIcon,
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type}
+							)}>
+								<svg focusable="false" className="xui-icon">
+									<use xlinkHref="#xui-icon-notification"></use>
+								</svg>
+							</XUIToggleOption>
+							<XUIToggleOption {...Object.assign({},
+								toggleIcon,
+								{isDisabled: this.props.isDisabled},
+								{type: this.props.type}
+							)}>
+								<svg focusable="false" className="xui-icon">
+									<use xlinkHref="#xui-icon-contact"></use>
+								</svg>
+							</XUIToggleOption>
+						</XUIToggle>
+					</div>
+				</div>
 			)
 		}
 	}
@@ -226,5 +254,4 @@ const shared = {
 		defaultComponent: Example,
 		defaultConfig: ExampleConfig
 	});
-
 })();

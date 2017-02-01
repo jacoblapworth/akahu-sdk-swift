@@ -1,15 +1,18 @@
 import React from 'react';
-import Classes from 'xui-css-classes';
+import XUIIcon from 'xui-icon';
+import cn from 'classnames';
 
-const PropTypes = {
-	/** @property {boolean} [isSelect=false] signal if the caret has select styles */
-	isSelect: React.PropTypes.bool
+const propTypes = {
+	className: React.PropTypes.string
 };
 
-const XUIButtonCaret = ({ isSelect }) => (
-	<span className={isSelect ? Classes : `${Classes.Button.CARET} ${Classes.Margin.LEFT}`}></span>
-);
+const XUIButtonCaret = ({className, ...props}) => {
+	const classes = cn(className, 'xui-button--caret');
+	return (
+		<XUIIcon icon="caret" className={classes} {...props}/>
+	)
+};
 
-XUIButtonCaret.propTypes = PropTypes;
+XUIButtonCaret.propTypes = propTypes;
 
 export default XUIButtonCaret;

@@ -78,7 +78,7 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 `tabIndex`: (Boolean, Optional) The HTML `tabIndex` attribute which will go on the node.  Default `0`
 
 ### XUIButtonCaret Properties
-`isSelect`: (Boolean, Optional) Determines if the caret has select styles. Defaults to false.
+No properties
 
 ### XUIButtonGroup Properties
 `children`: (Node, Optional)

@@ -1,154 +1,298 @@
+import 'babel-core/external-helpers.js';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import XUIButton, {XUIButtonGroup, XUIButtonCaret} from '../../index.js';
+import XUIButton, { XUIButtonCaret, XUIButtonGroup }  from '../../index.js';
+import { ensureIconBlobOnPage } from 'xui-icon';
+import {
+	sizeClassNames,
+	variantClassNames,
+	buttonHTMLTypes,
+	buttonTypes
+} from '../../src/private/constants.js';
+import '../../bower_components/component-renderer/src/renderer.styles.scss';
+import RendererUtils from 'component-renderer'
+
+const NOOP = () => {};
 
 (function() {
-	const clickHandler = function() {
-		alert('I was clicked'); //eslint-disable-line no-alert
+
+	const buttonVariants = Object.keys(variantClassNames);
+
+	const buttonSize = Object.keys(sizeClassNames);
+
+	const buttonHTMLType = Object.keys(buttonHTMLTypes);
+
+	const buttonType = Object.keys(buttonTypes);
+
+	const XUIButtonConfig = {
+		componentName : 'XUIButton',
+		devReady : true,
+		properties : [
+			{
+				name: 'className',
+				type: 'string',
+				default: null,
+				description: 'Additional classes to be put on the button'
+			},
+			{
+				name: 'children',
+				type: 'string',
+				default: 'Children!',
+				description: 'Some Children for the button'
+			},
+			{
+				name: 'qaHook',
+				type: 'string',
+				default: null,
+				description: 'Adds data-automationid attribute to the mask and the button'
+			},
+			{
+				name: 'isDisabled',
+				type: 'boolean',
+				default: false,
+				description: 'Determines if the button is disabled or not'
+			},
+			{
+				name: 'isExternalLink',
+				type: 'boolean',
+				default: false,
+				description: 'Should be used for links pointing at external sites'
+			},
+			{
+				name: 'isLoading',
+				type: 'boolean',
+				default: false,
+				description: 'If true, shows a loader inside the button and also disables the button to prevent clicking'
+			},
+			{
+				name: 'isGrouped',
+				type: 'boolean',
+				default: false,
+				description: 'If this button is part of a parent button group'
+			},
+			{
+				name: 'onKeyDown',
+				type: 'boolean',
+				default: false,
+				description: 'A keydown event handler for the button'
+			},
+			{
+				name: 'onSecondaryKeyDown',
+				type: 'boolean',
+				default: false,
+				description: 'A keydown event handler for the secondary button'
+			},
+			{
+				name: 'onClick',
+				type: 'function',
+				default: NOOP,
+				description: 'Bind a function to fire when the button is clicked'
+			},
+			{
+				name: 'onSecondaryClick',
+				type: 'function',
+				default: NOOP,
+				description: 'Bind a function to fire when the second button in a split button is clicked'
+			},
+			{
+				name: 'variant',
+				type: 'enum',
+				data: buttonVariants,
+				default: buttonVariants[0],
+				description: 'The button variant'
+			},
+			{
+				name: 'size',
+				type: 'enum',
+				data: buttonSize,
+				default: buttonSize[2],
+				description: 'The size of this Button. small, full-width, full-width-mobile'
+			},
+			{
+				name: 'type',
+				type: 'enum',
+				data: buttonHTMLType,
+				default: buttonHTMLType[0],
+				description: 'The HTML type of this button. `button`, or `link`. Defaults to `button`'
+			},
+			{
+				name: 'buttonType',
+				type: 'enum',
+				data: buttonType,
+				default: buttonType[0],
+				description: 'The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`'
+			},
+			{
+				name: 'href',
+				type: 'string',
+				default: null,
+				description: 'The `href` attribute to use on the anchor element (ignored unless `type` is `link`)'
+			},
+			{
+				name: 'rel',
+				type: 'string',
+				default: null,
+				description: 'The `rel` attribute to use on the anchor element (ignored unless `type` is `link`)'
+			},
+			{
+				name: 'tabIndex',
+				type: 'number',
+				default: null,
+				description: 'The HTML tabIndex property to put on the component'
+			},
+			{
+				name: 'target',
+				type: 'string',
+				default: null,
+				description: 'The `target` attribute to use on the anchor element (ignored unless `type` is `link`)'
+			},
+			{
+				name: 'title',
+				type: 'string',
+				default: null,
+				description: 'The `title` attribute for this button'
+			},
+			{
+				name: 'split',
+				type: 'boolean',
+				default: null,
+				description: 'Changes the button to a split button.'
+			},
+			{
+				name: 'secondaryProps',
+				type: 'object',
+				default: null,
+				description: ''
+			}
+		]
 	};
 
-	const secondaryClickHandler = function() {
-		alert('I was clicked too'); //eslint-disable-line no-alert
+	const ExampleConfig = {
+		componentName : 'Example',
+		devReady : true,
+		properties : [
+			{
+				name: 'isDisabled',
+				type: 'boolean',
+				default: false,
+				description: 'Determines if the button is disabled or not'
+			},
+			{
+				name: 'isLoading',
+				type: 'boolean',
+				default: false,
+				description: 'If true, shows a loader inside the button and also disables the button to prevent clicking'
+			},
+			{
+				name: 'useCaret',
+				type: 'boolean',
+				default: false,
+				description: 'If true, shows Caret Icon'
+			}
+		]
 	};
-	let firstButton;
 
-	const examples = (
-		<div>
-			<div className="testButtonContainer">
-				<XUIButton ref={c => firstButton = c} onClick={clickHandler}>Default button</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} isDisabled>Default button (disabled)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} isLoading>Default button (loading)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} isLoading isDisabled>Default button (loading and disabled)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="primary">Primary button</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="primary" isDisabled>Primary button (disabled)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="primary" isLoading>Primary button (loading)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="primary" isLoading isDisabled>Primary button (loading and disabled)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="create">Create button</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="create" isDisabled>Create button (disabled)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="create" isLoading>Create button (loading)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="create" isLoading isDisabled>Create button (loading and disabled)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="link">Link button</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="negative">Negative button</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="negative" isDisabled>Negative button (disabled)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="negative" isLoading>Negative button (loading)</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="negative" isLoading isDisabled>Negative button (loading and disabled)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="standard">Standard Button</XUIButton>
-				{" "}
-				<XUIButton onClick={clickHandler} variant="standard" isDisabled>Standard Button (disabled)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="create">A dropdown button<XUIButtonCaret /></XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButtonGroup>
-					{['One', 'Two', 'Three'].map((x, key) => (
-						<XUIButton onClick={clickHandler} variant="standard" key={key}>Grouped Button {x}</XUIButton>
-					))}
-				</XUIButtonGroup>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="standard">Click me for an alert</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="standard" size="small">Small button</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="standard" size="full-width">Full width button</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="standard" size="full-width-mobile">Full width button (on mobile)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="standard" type="link">Simple anchor tag with no href</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} type="link" variant="negative">Simple negative anchor tag with no href</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					variant="link"
-					type="link"
-					href="http://go.xero.com">Simple anchor tag with href</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					variant="link"
-					type="link"
-					isDisabled
-					href="http://go.xero.com">Disabled link button</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					variant="link"
-					type="link"
-					href="http://go.xero.com"
-					target="_blank">Anchor tag with `_blank` target</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					variant="standard"
-					onClick={clickHandler}
-					className="fun-times">Button with modifier class</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					variant="standard"
-					onClick={clickHandler}
-					qaHook="buttonQAHook">Button with a QA hook class</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					variant="link"
-					type="link"
-					isLoading={true}
-					onClick={clickHandler}
-					qaHook="buttonQAHook">Loading link</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={clickHandler} variant="unstyled">Unstyled button</XUIButton>
-				&nbsp;
-				<XUIButton onClick={clickHandler} variant="unstyled" isDisabled>Unstyled button (disabled)</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton
-					aria-haspopup={true}
-					onClick={clickHandler}
-					onSecondaryClick={secondaryClickHandler}
-					split={true}
-					variant="primary">
-					Split button
-				</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton onClick={() => firstButton.focus()}>Focus first button</XUIButton>
-			</div>
-			<div className="testButtonContainer">
-				<XUIButton>I am a dropdown <XUIButtonCaret className="test"/></XUIButton>
-			</div>
-		</div>
-	);
+	class Example extends React.Component {
 
-	ReactDOM.render(examples, document.getElementById('app'));
+		constructor(props) {
+			super(props);
+
+			this.state = this.props;
+		}
+
+		componentDidUpdate(prevProps) {
+			Object.keys(prevProps).forEach(propName => {
+				if (this.props[propName] !== prevProps[propName]) {
+					this.setState({
+						[propName]: this.props[propName]
+					});
+				}
+			});
+		}
+
+		render() {
+			const caret = this.props.useCaret ? <XUIButtonCaret/> : null;
+			return (
+				<div>
+					<XUIButton
+						isDisabled={this.props.isDisabled}
+						isLoading={this.props.isLoading}
+					>
+						Default button {caret}
+					</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButton
+						variant="primary"
+						isDisabled={this.props.isDisabled}
+						isLoading={this.props.isLoading}
+					>
+						Primary button {caret}
+					</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButton
+						variant="create"
+						isDisabled={this.props.isDisabled}
+						isLoading={this.props.isLoading}
+					>
+						Create button {caret}
+					</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButton
+						variant="negative"
+						isDisabled={this.props.isDisabled}
+						isLoading={this.props.isLoading}
+					>
+						Negative button {caret}
+					</XUIButton>
+
+					<br />
+					<br />
+
+					<XUIButtonGroup>
+						{['One', 'Two', 'Three'].map((x, key) => (
+							<XUIButton
+								variant="standard"
+								isDisabled={this.props.isDisabled}
+								key={key}
+							>
+								Grouped Button{x}
+							</XUIButton>
+						))}
+					</XUIButtonGroup>
+
+					<br />
+					<br />
+
+					<XUIButton
+						variant="link"
+						isDisabled={this.props.isDisabled}
+					>
+						Link button
+					</XUIButton>
+				</div>
+			)
+		}
+	}
+
+	RendererUtils.init({
+		components: {
+			Example,
+			XUIButton
+		},
+		configs: {
+			ExampleConfig,
+			XUIButtonConfig
+		},
+		defaultComponent: Example,
+		defaultConfig: ExampleConfig
+	});
+
 })();

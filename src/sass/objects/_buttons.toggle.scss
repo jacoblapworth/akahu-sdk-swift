@@ -261,7 +261,7 @@
 
 // Icon toolbar layout
 .#{$ns}-toggle-icon-layout .#{$ns}-toggle--label {
-	height: 36px;
+	height: $xui-input-height;
 	width: 44px;
 }
 
@@ -271,12 +271,14 @@
 .#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle-option {
 	flex-basis: 100%;
 	flex-grow: 1;
+	min-height: $xui-input-height;
 }
 
 
 // Form Layout
 .#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
 	line-height: $xui-line-height-button;
+	min-height: $xui-input-height;
 	padding-bottom: 8px;
 	padding-top: 8px;
 }

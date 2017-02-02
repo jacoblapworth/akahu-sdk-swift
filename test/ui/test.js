@@ -9,7 +9,7 @@ import { sizeClassNames, variantClassNames } from '../../src/constants.js';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 import RendererUtils from 'component-renderer';
 
-const logCloseReq = () => console.log('close requested');
+const NOOP = () => {};
 
 (function() {
 
@@ -68,7 +68,7 @@ const logCloseReq = () => console.log('close requested');
 			{
 				name: 'onError',
 				type: 'function',
-				default: logCloseReq,
+				default: NOOP,
 				description: 'Bind a function to fire on error(The test function for this showcase prints to the console)'
 			},
 		]
@@ -172,13 +172,13 @@ const logCloseReq = () => console.log('close requested');
 			{
 				name: 'onError',
 				type: 'function',
-				default: logCloseReq,
+				default: NOOP,
 				description: 'Bind a function to fire on error'
 			},
 			{
 				name: 'value',
 				type: 'string',
-				default: 'Sarah is cool af',
+				default: 'Sarah',
 				description: 'The text to display in the avatar'
 			},
 		]
@@ -245,17 +245,17 @@ const logCloseReq = () => console.log('close requested');
 	RendererUtils.init({
 		components: {
 			Example,
+			XUISimpleAvatar,
 			XUIAvatar,
 			XUIAvatarCounter,
-			XUIAvatarGroup,
-			XUISimpleAvatar
+			XUIAvatarGroup
 		},
 		configs: {
 			ExampleConfig,
+			XUISimpleAvatarConfig,
 			XUIAvatarConfig,
 			XUIAvatarCounterConfig,
-			XUIAvatarGroupConfig,
-			XUISimpleAvatarConfig
+			XUIAvatarGroupConfig
 		},
 		defaultComponent: Example,
 		defaultConfig: ExampleConfig

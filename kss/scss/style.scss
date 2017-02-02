@@ -313,7 +313,7 @@ $kss-color-padding: #eeebff;
 	}
 
 	&:checked ~ .ds-nav--submenu {
-		max-height: 100vh;
+		max-height: inherit;
 		opacity: 1;
 		visibility: visible;
 	}

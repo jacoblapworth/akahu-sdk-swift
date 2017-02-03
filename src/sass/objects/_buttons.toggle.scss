@@ -37,6 +37,8 @@
 //
 // `xui-toggle--label` Style for a toggle label
 //
+// `xui-toggle--text` Style for toggle text within the label. Fixes a bug with text not wrapping if using `xui-toggle-fullwidth-layout` and IE11
+//
 // `xui-is-disabled` Style for a disabled toggle
 //
 // Weight: 4.1
@@ -109,7 +111,9 @@
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" checked/>
 //       <span class="xui-toggle--label xui-padding-vertical-small">
-//         When the text content is longer, the toggle will not take up more space.
+//         <span class="xui-toggle--text">
+//            When the text content is longer, the toggle will not take up more space.
+//         </span>
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option">
@@ -272,6 +276,12 @@
 	flex-basis: 100%;
 	flex-grow: 1;
 	min-height: $xui-input-height;
+}
+
+// This forces text to wrap in IE11
+.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--text {
+	display: block;
+	width: 100%;
 }
 
 

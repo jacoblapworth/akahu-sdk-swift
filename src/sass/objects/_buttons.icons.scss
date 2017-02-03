@@ -25,10 +25,6 @@
 //
 // [Unfortunately, `title` is not a substitute for `aria-label`.](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
 //
-// :hover - Highlights when hovering
-// :focus - When focused
-// :active - When active
-//
 // Markup:
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-large {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>

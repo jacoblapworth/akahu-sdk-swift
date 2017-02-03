@@ -6,6 +6,12 @@
 //
 // The classes for these are designed to work on any element, `<button>, <a>, <input />` are examples of were you would typically apply these classes
 //
+// Markup:
+// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">Standard</button>
+// <button type="button" class="xui-button xui-button-main {{modifier_class}}">Main</button>
+// <button type="button" class="xui-button xui-button-create {{modifier_class}}">Create</button>
+// <button type="button" class="xui-button xui-button-negative {{modifier_class}}">Negative</button>
+//
 // Styleguide: Buttons.2
 
 @each $variant, $color in $xui-button-variants-background-colors {
@@ -30,67 +36,3 @@
 	}
 
 }
-
-// Standard
-//
-// Use this type of button, when you might have a list of similar components down a page, and it doesn't make sense to have a main, create or negative button
-//
-// :hover - Highlights when hovering
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button xui-button-standard {{modifier_class}}" value="Text" />
-// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-standard {{modifier_class}}">A button with longer text</a>
-//
-// Styleguide: Buttons.2.1
-
-// Main
-//
-// The main action of a form or dialog.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="submit" class="xui-button xui-button-main {{modifier_class}}">Text</button>
-// <input type="submit" class="xui-button xui-button-main {{modifier_class}}" value="Text" />
-// <button type="button" class="xui-button xui-button-main {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-main {{modifier_class}}">A button with longer text</a>
-//
-// Styleguide: Buttons.2.2
-
-// Create
-//
-// Button to use when creating things.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-create {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button xui-button-create {{modifier_class}}" value="Text"/>
-// <button type="submit" class="xui-button xui-button-create {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-create {{modifier_class}}">A button with longer text</a>
-//
-// Styleguide: Buttons.2.3
-
-// Negative
-//
-// Button for negative actions such as delete and remove.
-//
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-negative {{modifier_class}}">Text</button>
-// <input type="button" class="xui-button xui-button-negative {{modifier_class}}" value="Text"/>
-// <button type="submit" class="xui-button xui-button-negative {{modifier_class}}">Text</button>
-// <a href="https://xero.com" role="button" class="xui-button xui-button-negative {{modifier_class}}">A button with longer text</a>
-//
-// Styleguide: Buttons.2.4

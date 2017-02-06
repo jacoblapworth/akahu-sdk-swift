@@ -1,6 +1,6 @@
 {
 	"source": "../src/sass",
-	"custom": ["heading", "tokens", "colorTokens", "noExample"],
+	"custom": ["heading", "tokens", "colorTokens", "noExample", "classes"],
 	"destination": "../docs",
 	"css": [
 		"./kss-assets/xui.css",

@@ -86,6 +86,22 @@
 			</nav>
 			{{/if}} {{/if}} {{/each}} {{/if}}
 
+			{{#if classes}}
+			<div class="kss-style ds-section-part">
+				<h3>CSS Classes</h3>
+				<table class="xui-contentblock xui-margin-bottom">
+					<tbody>
+						{{#renderClasses classes}}
+							<tr class="xui-contentblock--item xui-contentblock--item-layout">
+								<td class="xui-text-cell xui-padding-small"><code>{{classes.name}}</code></td>
+								<td class="xui-text-cell xui-padding-small">{{classes.value}}</td>
+							</tr>
+						{{/renderClasses}}
+					</tbody>
+				</table>
+			</div>
+			{{/if}}
+
 			{{#if tokens}}
 			<div class="kss-modifier__example ds-section-part">
 				<div class="ds-token-wrap">

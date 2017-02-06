@@ -22,7 +22,7 @@ If `minRows` or `maxRows` is not set, the css property for `min-height` or `max-
 These examples show the two main ways of using this component, with a minimum & maximum number of rows, and with a set number of rows.
 
 ```jsx
-import XUIInput from 'xui-text-area';
+import XUIInput from 'xui-textarea';
 
 <XUITextArea 
 	minRows={2}

@@ -17,13 +17,10 @@
 //
 // Implementation of rules here are based on the A11Y Project's [How to Hide Content](http://a11yproject.com/posts/how-to-hide-content/).
 //
-// #### Class Names
-//
-// `xui-u-hidden`	Hide the element using `display` and `visibility` properties
-//
-// `xui-u-hidden-mobile`	Hide the element on mobile only using `display` property
-//
-// `xui-u-hidden-visually`	Hide the element using `width` and `height` properties
+// Classes:
+// xui-u-hidden: Hide the element using `display` and `visibility` properties
+// xui-u-hidden-mobile: Hide the element on mobile only using `display` property
+// xui-u-hidden-visually: Hide the element using `width` and `height` properties
 //
 // Markup:
 //  <section class="xui-u-container xui-u-hidden">hidden</section>
@@ -55,9 +52,8 @@
 //
 // The overflow property specifies whether to clip content, render scrollbars or just display content when it overflows its block level container.
 //
-// #### Class Names
-//
-// `xui-u-overflow-hidden`	Content is clipped, with no scrollbars
+// Classes:
+// xui-u-overflow-hidden: Content is clipped, with no scrollbars
 //
 // Markup:
 // <section class="xui-u-overflow-hidden" style="height:62px">
@@ -82,20 +78,13 @@
 //
 // Flex classes can be used to create flexible mutli-column layouts.
 //
-// #### Class Names
-//
-// `xui-u-flex`	Container for a flex box parent
-//
-// `xui-u-flex-col`	Container for a flex child (inside `xui-u-flex`)
-//
-// `xui-u-flex-grow`	Modifier for a flex child which fills remaining space
-//
-// `xui-u-flex-row`	Modifier for a vertically centered flex box parent
-//
-// `xui-u-flex-verticalalign-center`	Modifier for a column-orientated flex box parent
-//
-// `xui-u-flex-inherit`  Inherit flex properties. Firefox does not handle display: flex on buttons,
-//  so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
+// Classes:
+// xui-u-flex: Container for a flex box parent
+// xui-u-flex-col: Container for a flex child (inside `xui-u-flex`)
+// xui-u-flex-grow: Modifier for a flex child which fills remaining space
+// xui-u-flex-row: Modifier for a vertically centered flex box parent
+// xui-u-flex-verticalalign-center: Modifier for a column-orientated flex box parent
+// xui-u-flex-inherit: Inherit flex properties. Firefox does not handle display: flex on buttons, so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
 //
 // Markup:
 // <div class="xui-panel">
@@ -163,9 +152,8 @@
 //
 // Sometimes you want an element to have full width.
 //
-// #### Class Names
-//
-// `xui-u-fullwidth`	Modifier for a full-width element
+// Classes:
+// xui-u-fullwidth: Modifier for a full-width element
 //
 // Markup:
 // <div>
@@ -185,9 +173,8 @@
 // may end up highlighting the text (interpreting a double click as an instruction to select
 // the surrounding text). If this behaviour is undesirable, use `xui-u-noselect`.
 //
-// #### Class Names
-//
-// `xui-u-noselect`		Modifier for an element that should not allow user selection
+// Classes:
+// xui-u-noselect: Modifier for an element that should not allow user selection
 //
 // Markup:
 // <p class="xui-u-noselect">Text <span class="xui-caret"></span></p>
@@ -202,13 +189,10 @@
 //
 // May be added to elements to give them a smooth transition between transforms.
 //
-// #### Class Names
-//
-// `xui-u-transition-long`	Modifier for long animation transition between transforms
-//
-// `xui-u-transition-medium`	Modifier for medium animation transition between transforms
-//
-// `xui-u-transition-short`	Modifier for short animation transition between transforms
+// Classes:
+// xui-u-transition-long: Modifier for long animation transition between transforms
+// xui-u-transition-medium: Modifier for medium animation transition between transforms
+// xui-u-transition-short: Modifier for short animation transition between transforms
 //
 // Markup:
 // <div>
@@ -236,11 +220,9 @@
 // May be applied to elements to disable resize attributes. The primary use for this is for textarea, but has been added as a utility as resize can be applied to several other
 // elements.
 //
-// #### Class Names
-//
-// `xui-u-resize-none` Modifier to disable resizing completely
-//
-// `xui-u-resize-vertical` Modifier to enable vertical resizing and disable horizontal resizing
+// Classes:
+// xui-u-resize-none: Modifier to disable resizing completely
+// xui-u-resize-vertical: Modifier to enable vertical resizing and disable horizontal resizing
 //
 // Markup:
 // <div>

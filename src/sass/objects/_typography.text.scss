@@ -3,17 +3,11 @@
 
 // Standard Text
 //
-// #### Class Names
-//
-// `xui-text-secondary` for supporting copy like extra meta data
-//
-// `xui-text-minor` use sparingly for fine-print and inconsequential labelling
-//
-// Labels and placeholder clasees should only be used for forms. See [Labels](file:///Users/james/dev/uxe/xui/docs/section-forms.html#forms-3) in Forms for full demos.
-//
-// `xui-text-label` for labeling form fields
-//
-// `xui-text-placeholder` for showing placeholder content
+// Classes:
+// xui-text-secondary: for supporting copy like extra meta data
+// xui-text-minor: use sparingly for fine-print and inconsequential labelling
+// xui-text-label: for labeling form fields. Labels clasees should only be used for forms.
+// xui-text-placeholder: for showing placeholder content. Placeholder clasees should only be used for forms.
 //
 // Markup:
 // <p>Plain old paragraph</p>
@@ -55,11 +49,9 @@
 // want to draw attention to. This could be for secondary links or lists of links.
 // Minor links should not be used in strings of text.
 //
-// #### Class Names
-//
-// `xui-link`, `xui-text-link` adds link hover and focus highlighting.
-//
-// `xui-text-minorlink` inherits it's parent text colour, but has standard link hover and focus highlighting
+// Classes:
+// xui-link`: `xui-text-link` adds link hover and focus highlighting.
+// xui-text-minorlink: inherits it's parent text colour, but has standard link hover and focus highlighting
 //
 // Markup:
 // <div class="xui-panel xui-padding" style="display:inline-block">
@@ -106,11 +98,8 @@
 
 // Emphasis
 //
-// #### Class Names
-//
-// `xui-text-emphasis` To emphasise a particular piece of text when the default parent is set to normal (via a span element)
-//
-// `xui-text-deemphasis` To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
+// Classes:
+// xui-text-emphasis: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
 //
 // Markup:
 // <p>Please add a <span class="xui-text-emphasis">minimum of 3</span> employees</p>
@@ -131,14 +120,9 @@
 // Common components should declare their own letter spacing where required
 // and these classes should not be used very often.
 //
-// #### Class Names
-//
-// `xui-text-spacing-tight` Tight letterspacing helps retain the impact of large copy.
-//
-// This styling is already included on `xui-heading-display`, `xui-heading-display-xl` and `xui-heading-display-xxl`
-//
-// `xui-text-spacing-loose` Loose letterspacing assists legibility for letterforms in
-// smaller text blocks, especially those in uppercase
+// Classes:
+// xui-text-spacing-tight: Tight letterspacing helps retain the impact of large copy.  This styling is already included on `xui-heading-display`, `xui-heading-display-xl` and `xui-heading-display-xxl`
+// xui-text-spacing-loose: Loose letterspacing assists legibility for letterforms in smaller text blocks, especially those in uppercase
 //
 // Markup:
 // <p>Default letterspacing</p>

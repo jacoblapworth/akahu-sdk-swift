@@ -15,11 +15,9 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // The number inputs have had their up and down arrows removed to sync browser styles
 //
-// #### Class Names
-//
-// `xui-input`	Style for a text input
-//
-// `xui-input-is-invalid`	Modifier for an invalid text input
+// Classes:
+// xui-input: Style for a text input
+// xui-input-is-invalid: Modifier for an invalid text input
 //
 // Markup:
 // <input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
@@ -44,25 +42,16 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //  - Buttons should be formatted like the icon buttons [shown in the docs](https://github.dev.xero.com/pages/UXE/xui/docs/10.2.0/section-buttons.html#kssref-buttons-7)
 //  - Both prompts and buttons should be placed before the `input` tag to ensure the correct padding is applied to `xui-input` due to our implementation using sibling selectors
 //
-// #### Class Names
-//
-// `xui-inputwrapper`	Container for a text input with an icon
-//
-// `xui-input--iconwrapper`  Wrapper around the icon (use only if you want to apply a background color to the icon).
-//
-// `xui-input--iconwrapper-left`  Left-aligned icon wrapper
-//
-// `xui-input--iconwrapper-right`  Right-aligned icon wrapper
-//
-// `xui-input--icon-left`	Modifier for a left-aligned input icon
-//
-// `xui-input--icon-right`	Modifier for a right-aligned input icon
-//
-// `xui-input--iconwrapper-facebook`  Facebook color for icon wrapper
-//
-// `xui-input--iconwrapper-twitter`  Twitter background color for icon wrapper
-//
-// `xui-input--iconwrapper-linkedin`  LinkedIn background color for icon wrapper
+// Classes:
+// xui-inputwrapper: Container for a text input with an icon
+// xui-input--iconwrapper: Wrapper around the icon (use only if you want to apply a background color to the icon).
+// xui-input--iconwrapper-left: Left-aligned icon wrapper
+// xui-input--iconwrapper-right: Right-aligned icon wrapper
+// xui-input--icon-left: Modifier for a left-aligned input icon
+// xui-input--icon-right: Modifier for a right-aligned input icon
+// xui-input--iconwrapper-facebook: Facebook color for icon wrapper
+// xui-input--iconwrapper-twitter: Twitter background color for icon wrapper
+// xui-input--iconwrapper-linkedin: LinkedIn background color for icon wrapper
 //
 // Markup:
 // <div class="xui-inputwrapper xui-margin">
@@ -182,15 +171,11 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Borderless styling of inputs for usage in modal style forms or narrow views.
 //
-// #### Class Names
-//
-// `xui-inputwrapper-borderless` Modifier for the borderless inputs container
-//
-// `xui-inputwrapper-borderless-layout` Layout of the borderless input wrapper, mainly padding changes to alter icons.
-//
-// `xui-input-borderless` Modifier for borderless input fields
-//
-// `xui-input-borderless-layout` Layout of the borderless input, mainly padding changes.
+// Classes:
+// xui-inputwrapper-borderless: Modifier for the borderless inputs container
+// xui-inputwrapper-borderless-layout: Layout of the borderless input wrapper, mainly padding changes to alter icons.
+// xui-input-borderless: Modifier for borderless input fields
+// xui-input-borderless-layout: Layout of the borderless input, mainly padding changes.
 //
 // Markup:
 //<div style="background-color: #284664;" class="xui-padding">
@@ -250,9 +235,8 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Inputs can be grouped vertically.
 //
-// #### Class Names
-//
-// `xui-verticalinputgroup` Wrapper class to go around a set of vertically grouped inputs
+// Classes:
+// xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
 //
 // Markup
 // <div class="xui-verticalinputgroup">
@@ -303,9 +287,8 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Inputs can be grouped horizontally
 //
-// #### Class Names
-//
-// `xui-inputgroup`	Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// Classes:
+// xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
 //
 // Markup:
 // <div class="xui-field-layout">

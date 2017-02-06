@@ -18,56 +18,22 @@
 //
 // Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
 //
-// #### Common XUI-Icon IDs
-//
-// `xui-icon-checkbox-main` styled checkbox main icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-main"/></svg>
-//
-// `xui-icon-checkbox-check` styled checkbox checkmark icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-check"/></svg>
-//
-// `xui-icon-checkbox-indeterminate` styled checkbox indeterminate icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-checkbox-indeterminate"/></svg>
-//
-// `xui-icon-radio-main` styled radio main icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-main"/></svg>
-//
-// `xui-icon-radio-check` styled radio checkmark icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-radio-check"/></svg>
-//
-// `xui-icon-star` styled star icon <svg focusable="false" class="xui-icon xui-icon-inline"><use role="presentation" xlink:href="#xui-icon-star"/></svg>
-//
-// #### Checkbox Class Names
-//
-// `xui-styledcheckbox-group` Container for a group of styled checkboxes
-//
-// `xui-styledcheckbox` Container for a styled checkbox
-//
-// `xui-styledcheckbox-reversed` Modifier for a right-aligned styled checkbox
-//
-// `xui-styledcheckbox--focus` Subcomponent for focus layer of a styled checkbox
-//
-// `xui-styledcheckbox--main` Subcomponent for main layer of a styled checkbox
-//
-// `xui-styledcheckbox--check` Subcomponent for checkmark layer of a styled checkbox
-//
-// `xui-styledcheckbox--indeterminate` Subcomponent for indeterminate layer of a styled checkbox
-//
-// `xui-styledcheckbox--label` Subcomponent for label text of a styled checkbox
-//
-// #### Radio Class Names
-//
-// `xui-styledradio-group` Container for a group of styled radios
-//
-// `xui-styledradio` Container for a styled radio
-//
-// `xui-styledradio-reversed` Modifier for a right-aligned styled radio
-//
-// `xui-styledradio--focus` Subcomponent for focus layer of a styled radio
-//
-// `xui-styledradio--main` Subcomponent for main layer of a styled radio
-//
-// `xui-styledradio--check` Subcomponent for checkmark layer of a styled radio
-//
-// `xui-styledradio--label` Subcomponent for label text of a styled radio
-//
-// #### Other Class Names
-// `xui-is-disabled` Provides disabled style
+// Classes:
+// xui-styledcheckbox-group: Container for a group of styled checkboxes
+// xui-styledcheckbox: Container for a styled checkbox
+// xui-styledcheckbox-reversed: Modifier for a right-aligned styled checkbox
+// xui-styledcheckbox--focus: Subcomponent for focus layer of a styled checkbox
+// xui-styledcheckbox--main: Subcomponent for main layer of a styled checkbox
+// xui-styledcheckbox--check: Subcomponent for checkmark layer of a styled checkbox
+// xui-styledcheckbox--indeterminate: Subcomponent for indeterminate layer of a styled checkbox
+// xui-styledcheckbox--label: Subcomponent for label text of a styled checkbox
+// xui-styledradio-group: Container for a group of styled radios
+// xui-styledradio: Container for a styled radio
+// xui-styledradio-reversed: Modifier for a right-aligned styled radio
+// xui-styledradio--focus: Subcomponent for focus layer of a styled radio
+// xui-styledradio--main: Subcomponent for main layer of a styled radio
+// xui-styledradio--check: Subcomponent for checkmark layer of a styled radio
+// xui-styledradio--label: Subcomponent for label text of a styled radio
 //
 // Styleguide: Checkboxes and Radios.1
 

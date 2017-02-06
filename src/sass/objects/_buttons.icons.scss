@@ -9,10 +9,6 @@
 //
 // Used for buttons that only use icons.
 //
-// `xui-button-icon` - Class for an icon button as large as the underlying icon
-//
-// `xui-button-icon-large` - Class for a button with a 40x40 touch target.
-//
 // You can use `xui-button-icon-large` without using `xui-icon-large`. The icon will
 // stay 30x30, but the button will be 40x40. The icon will be horizontally and vertically
 // centered within the button, which allows you to provide a larger touch target.
@@ -24,6 +20,10 @@
 // - `aria-label`: This provides a description of the button to screen readers to improve accessibility
 //
 // [Unfortunately, `title` is not a substitute for `aria-label`.](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+//
+// Classes:
+// xui-button-icon: Class for an icon button as large as the underlying icon
+// xui-button-icon-large:  Class for a button with a 40x40 touch target.
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>

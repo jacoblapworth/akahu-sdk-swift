@@ -5,13 +5,10 @@
 //
 // Classes that can be added to change the alignment of text.
 //
-// #### Class Names
-//
-// `xui-text-leftaligned`	The default alignment for most other UI elements and body copy
-//
-// `xui-text-centered`	Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
-//
-// `xui-text-rightaligned`	Mostly for numeric data, to assist with scanning via the decimal place
+// Classes:
+// xui-text-leftaligned: The default alignment for most other UI elements and body copy
+// xui-text-centered: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
+// xui-text-rightaligned: Mostly for numeric data, to assist with scanning via the decimal place
 //
 // Markup:
 //  <p class="xui-text-leftaligned xui-text-emphasis">Email Address</p>
@@ -40,9 +37,8 @@
 //
 // To truncate after an arbitrary number of lines, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
 //
-// #### Class Names
-//
-// `xui-text-truncated`	Modifier for truncated text with an ellipsis
+// Classes:
+// xui-text-truncated: Modifier for truncated text with an ellipsis
 //
 // Markup:
 //  <div style="width: 250px;">
@@ -62,9 +58,8 @@
 // Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
 // and losing some information.
 //
-// #### Class Names
-//
-// `xui-text-word-break`	Helps long words like URLs not break out of their parent container
+// Classes:
+// xui-text-word-break: Helps long words like URLs not break out of their parent container
 //
 // Markup:
 //  <div style="width: 200px;">
@@ -160,15 +155,11 @@
 // Inverts the text to provide a dark background and white text. These are most
 // generic types for inverted colors. For inverted buttons please see [Icons](section-buttons.html#buttons-7) and [Toggles](section-buttons.html#buttons-10) in Buttons.
 //
-// #### Class Names
-//
-// `xui-text-inverted`	Style for inverted text, includes background color and text color
-//
-// `xui-text-color-white`	explicit color for text
-//
-// `xui-text-color-white-muted` white at 80% used for ...
-//
-// `xui-text-color-white-faint` white at 50% used for ...
+// Classes:
+// xui-text-inverted: Style for inverted text, includes background color and text color
+// xui-text-color-white: explicit color for text
+// xui-text-color-white-muted: white at 80% used for ...
+// xui-text-color-white-faint: white at 50% used for ...
 //
 // Markup:
 // <div class="xui-row xui-text-inverted xui-padding">

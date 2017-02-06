@@ -18,39 +18,23 @@
 // trigger. The same applies for whether the menu should be left-aligned or right-aligned against
 // the trigger.
 //
-// #### Class Names
-//
-// `xui-dropdownmenu`	Container for a drop down menu, replaced by `xui-dropdown-layout`
-//
-// `xui-dropdownmenu--body`	Container for the body of a drop down menu, replaced by `xui-dropdown--body`
-//
-// `xui-dropdownmenu--footer`	Container for the footer of a drop down menu
-//
-// `xui-dropdownmenu--groupheading`	Style for a drop down menu group heading
-//
-// `xui-dropdownmenu--groupheading-layout`	Recommended layout for a drop down menu group heading
-//
-// `xui-dropdownmenu-is-closed`	Hide the drop down menu, replaced by `xui-dropdown-is-closed`
-//
-// `xui-dropdownmenu-small` Modifier for a small dropdown menu
-//
-// `xui-dropdownmenu-medium` Modifier for a medium dropdown menu
-//
-// `xui-dropdownmenu-large` Modifier for a large  dropdown menu
-//
-// `xui-menugroup`	Container for a group of menu items, replaced by `xui-picklist`
-//
-// `xui-menugroup-layout`	Recommended layout for a menu group
-//
-// `xui-menuitem`	Container for a menu item, replaced by `xui-pickitem`
-//
-// `xui-menuitem--body`	Container for the body of a menu item, replaced by `xui-pickitem--body`
-//
-// `xui-menuitem--input` Style for a menu item input (e.g. checkbox)
-//
-// `xui-menuitem-is-selected`	Modifier for a selected menu item
-//
-// `xui-menuitem-layout`	Recommended layout for a menu item
+// Classes:
+// xui-dropdownmenu: Container for a drop down menu, replaced by `xui-dropdown-layout`
+// xui-dropdownmenu--body: Container for the body of a drop down menu, replaced by `xui-dropdown--body`
+// xui-dropdownmenu--footer: Container for the footer of a drop down menu
+// xui-dropdownmenu--groupheading: Style for a drop down menu group heading
+// xui-dropdownmenu--groupheading-layout: Recommended layout for a drop down menu group heading
+// xui-dropdownmenu-is-closed: Hide the drop down menu, replaced by `xui-dropdown-is-closed`
+// xui-dropdownmenu-small: Modifier for a small dropdown menu
+// xui-dropdownmenu-medium: Modifier for a medium dropdown menu
+// xui-dropdownmenu-large: Modifier for a large  dropdown menu
+// xui-menugroup: Container for a group of menu items, replaced by `xui-picklist`
+// xui-menugroup-layout: Recommended layout for a menu group
+// xui-menuitem: Container for a menu item, replaced by `xui-pickitem`
+// xui-menuitem--body: Container for the body of a menu item, replaced by `xui-pickitem--body`
+// xui-menuitem--input: Style for a menu item input (e.g. checkbox)
+// xui-menuitem-is-selected: Modifier for a selected menu item
+// xui-menuitem-layout: Recommended layout for a menu item
 //
 // Markup:
 // <div class="xui-dropdownmenu xui-dropdownmenu-small" role="menubar" aria-label="dropdown menu">

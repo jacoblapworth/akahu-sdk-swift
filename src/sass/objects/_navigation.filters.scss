@@ -16,23 +16,15 @@
 //
 // Sidebar filters are used to filter content that is displayed in an associated panel / section
 //
-// #### Class Names
-//
-// `xui-sidebarfilter`	Container for a sidebar filter
-//
-// `xui-sidebarfilter-is-selected`	Selected state for a sidebar filter
-//
-// `xui-sidebarfilter--body`	Container for the body of a sidebar filter
-//
-// `xui-sidebarfilter--control`	Subcomponent for a sidebar control using a checkbox
-//
-// `xui-sidebarfilters`	Container for a group of sidebar filters
-//
-// `xui-sidebarfilters-multiple`	Container for mutlitple groups of sidebar filters
-//
-// `xui-sidebarsummary`	Style for a sidebar summary (hidden by default)
-//
-// `xui-sidebarsummary--control`	Subcomponent for a sidebar summary control using a checkbox
+// Classes:
+// xui-sidebarfilter: Container for a sidebar filter
+// xui-sidebarfilter-is-selected: Selected state for a sidebar filter
+// xui-sidebarfilter--body: Container for the body of a sidebar filter
+// xui-sidebarfilter--control: Subcomponent for a sidebar control using a checkbox
+// xui-sidebarfilters: Container for a group of sidebar filters
+// xui-sidebarfilters-multiple: Container for mutlitple groups of sidebar filters
+// xui-sidebarsummary: Style for a sidebar summary (hidden by default)
+// xui-sidebarsummary--control: Subcomponent for a sidebar summary control using a checkbox
 //
 // Markup:
 // <div class="xui-page-width-standard xui-page-layout-sidebar-left">

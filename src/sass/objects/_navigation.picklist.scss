@@ -17,19 +17,13 @@
 
 // Simple
 //
-// #### Class Names
-//
-// `xui-picklist`	Container for a vertical menu
-//
-// `xui-picklist-layout` Provides padding for the picklist.
-//
-// `xui-pickitem`	Container for a picklist item
-//
-// `xui-pickitem-is-selected`	Indicate the currently selected picklist item
-//
-// `xui-pickitem--body`	Container for the picklist item's body. This wraps the submenu toggle.
-//
-// `xui-pickitem--text` Container for the picklist item's text. Provides vertical padding to ensure good multiline spacing.
+// Classes:
+// xui-picklist: Container for a vertical menu
+// xui-picklist-layout: Provides padding for the picklist.
+// xui-pickitem: Container for a picklist item
+// xui-pickitem-is-selected: Indicate the currently selected picklist item
+// xui-pickitem--body: Container for the picklist item's body. This wraps the submenu toggle.
+// xui-pickitem--text: Container for the picklist item's text. Provides vertical padding to ensure good multiline spacing.
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
@@ -147,17 +141,12 @@
 
 // Submenus
 //
-// #### Class Names
-//
-// `xui-submenu`	Container for a vertical submenu
-//
-// `xui-pickitem--submenucontrol`	Hidden input to control the open and closed state of the sub menu
-//
-// `xui-submenu-uicontrol--label`	UI Control, clicking on this changes state of the control opening and closing the menu
-//
-// `xui-submenu-uicontrol--icon`	Additional class for the arrow icon indicator. Provides layout and animation.
-//
-// `xui-submenu-layout`	This class provides max-height rules to allow the menu to transition. The max height has been set to 100vh (100% of the viewport height) in this case and may not be suitable for all use cases.
+// Classes:
+// xui-submenu: Container for a vertical submenu
+// xui-pickitem--submenucontrol: Hidden input to control the open and closed state of the sub menu
+// xui-submenu-uicontrol--label: UI Control, clicking on this changes state of the control opening and closing the menu
+// xui-submenu-uicontrol--icon: Additional class for the arrow icon indicator. Provides layout and animation.
+// xui-submenu-layout: This class provides max-height rules to allow the menu to transition. The max height has been set to 100vh (100% of the viewport height) in this case and may not be suitable for all use cases.
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
@@ -259,9 +248,8 @@
 
 // Split Submenus
 //
-// #### Class Names
-//
-// `xui-pickitem--split`	Container for split components.
+// Classes:
+// xui-pickitem--split: Container for split components.
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
@@ -316,11 +304,9 @@
 
 // Multiple choice menus
 //
-// #### Class Names
-//
-// `xui-pickitem--multiselect-label`	Additional class to be put on the checkbox label for positioning purposes.
-//
-// `xui-pickitem--input` positions the svg vertically and pads the checkbox from the label.
+// Classes:
+// xui-pickitem--multiselect-label: Additional class to be put on the checkbox label for positioning purposes.
+// xui-pickitem--input: positions the svg vertically and pads the checkbox from the label.
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
@@ -423,9 +409,8 @@
 
 // Icon menus
 //
-// #### Class Names
-//
-// `xui-pickitem--icon` positions the icon within the container and pads the content to the correct dimensions
+// Classes:
+// xui-pickitem--icon: positions the icon within the container and pads the content to the correct dimensions
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">

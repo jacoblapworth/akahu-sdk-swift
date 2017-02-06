@@ -15,44 +15,24 @@
 //
 // Used to highlight that more than one selection can be made.
 //
-// #### Class Names
-//
-// `.xui-newpill` pill container class
-//
-// `.xui-newpill-layout` Layout assumptions for pills, both internally and externally.
-//
-// `.xui-newpill--content` Any content inside the pill should truncate when it reaches it max width.
-//
-// `.xui-newpill--secondary` Adds an extra small horizontal margin to the secondary items within the pill.
-//
-// `.xui-newpill--avatar` Allows avatars to sit nicely in the initial curve of the pill.
-//
-// `.xui-newpill-is-invalid` Invalid state of a pill.
-//
-// `.xui-newpill-is-focussed` Focus state of a pill.
-//
-// `.xui-newpill-is-deleteable` Allows the pill to house a delete icon button.
-//
-// `.xui-newpill--button` Allows buttons within pills to inherit colors from their containing element.
-//
-// `.xui-newpill--button-icon` Allows the delete icon button to be positioned on top of other content within the pill.
-//
-//	#### Deprecated Class Names
-//
-// `.xui-pill` Deprecated in favour of `.xui-newpill`.
-//
-// `.xui-pill-layout` Deprecated in favour of `.xui-newpill-layout`.
-//
-// `.xui-pill--content` Deprecated in favour of `.xui-newpill--content`.
-//
-// `.xui-pill--secondary` Deprecated in favour of `.xui-newpill--secondary`.
-//
-// `.xui-pill--avatar` Deprecated in favour of `.xui-newpill--avatar`.
-//
-// `.xui-pill--text` Has now changed to `.xui-newpill--content` to imply more flexibility with this class outside of text.
-//
-// `.xui-pill-invalid` Deprecated in favour of `xui-newpill-is-invalid`.
-//
+// Classes:
+// .xui-newpill: pill container class
+// .xui-newpill-layout: Layout assumptions for pills, both internally and externally.
+// .xui-newpill--content: Any content inside the pill should truncate when it reaches it max width.
+// .xui-newpill--secondary: Adds an extra small horizontal margin to the secondary items within the pill.
+// .xui-newpill--avatar: Allows avatars to sit nicely in the initial curve of the pill.
+// .xui-newpill-is-invalid: Invalid state of a pill.
+// .xui-newpill-is-focussed: Focus state of a pill.
+// .xui-newpill-is-deleteable: Allows the pill to house a delete icon button.
+// .xui-newpill--button: Allows buttons within pills to inherit colors from their containing element.
+// .xui-newpill--button-icon: Allows the delete icon button to be positioned on top of other content within the pill.
+// .xui-pill: Deprecated in favour of `.xui-newpill`.
+// .xui-pill-layout: Deprecated in favour of `.xui-newpill-layout`.
+// .xui-pill--content: Deprecated in favour of `.xui-newpill--content`.
+// .xui-pill--secondary: Deprecated in favour of `.xui-newpill--secondary`.
+// .xui-pill--avatar: Deprecated in favour of `.xui-newpill--avatar`.
+// .xui-pill--text: Has now changed to `.xui-newpill--content` to imply more flexibility with this class outside of text.
+// .xui-pill-invalid: Deprecated in favour of `xui-newpill-is-invalid`.
 //
 // Markup:
 // <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-margin-top-small">
@@ -197,9 +177,8 @@
 //
 // Signifies only one selection can be made here rather than multiple, typically will live inside an input field.
 //
-// #### Class Names
-//
-// `.xui-pill-single` Class for the case when only one selection can be made
+// Classes:
+// .xui-pill-single: Class for the case when only one selection can be made
 //
 // Markup:
 // <div class="xui-input xui-margin-top">

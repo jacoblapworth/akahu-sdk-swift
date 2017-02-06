@@ -3,13 +3,10 @@
 //
 // Statuses provide text colors that match the sentiment used for banner and toast components.
 //
-// #### Class Names
-//
-// `xui-text-status`	Style for status text
-//
-// `xui-text-status-negative`	Modifier for negative status text
-//
-// `xui-text-status-positive`	Modifier for positive status text
+// Classes:
+// xui-text-status: Style for status text
+// xui-text-status-negative: Modifier for negative status text
+// xui-text-status-positive: Modifier for positive status text
 //
 // Markup:
 // <span class="xui-text-status">
@@ -111,9 +108,8 @@
 //
 // Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
 //
-// #### Class Names
-//
-// `xui-caret`	Style for a CSS caret, replaced by `xui-icon-inline`
+// Classes:
+// xui-caret: Style for a CSS caret, replaced by `xui-icon-inline`
 //
 // Markup:
 //  <p>Text <span class="xui-caret"></span></p>
@@ -134,13 +130,10 @@
 // Common components should declare their own line height and these classes
 // should not be used very often.
 //
-// #### Class Names
-//
-// `xui-text-reset`	Modifier to reset `line-height: 1`
-//
-// `xui-text-tight`	use to retain impact of large copy
-//
-// `xui-text-compact`	group UI text when it wraps
+// Classes:
+// xui-text-reset: Modifier to reset `line-height: 1`
+// xui-text-tight: use to retain impact of large copy
+// xui-text-compact: group UI text when it wraps
 //
 // Markup:
 // <div style="max-width: 200px" class="xui-text-tight">

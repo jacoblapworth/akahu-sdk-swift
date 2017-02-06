@@ -9,19 +9,13 @@
 //
 // Loaders provide users with feedback that something is happening and can be used by themselves or inside other elements.
 //
-// #### Class Names
-//
-// `xui-loader`	Container for a loader
-//
-// `xui-loader--dot`	Style for a loader dot
-//
-// `xui-loader-large`	Modifier for a large loader
-//
-// `xui-loader-layout`	Recommended layout for a loader
-//
-// `xui-loader-small`	Modifier for a small loader
-//
-// `xui-button--loader`	Modifier for a loader inside a button (loaders inside buttons should also use `xui-loader-small`)
+// Classes:
+// xui-loader: Container for a loader
+// xui-loader--dot: Style for a loader dot
+// xui-loader-large: Modifier for a large loader
+// xui-loader-layout: Recommended layout for a loader
+// xui-loader-small: Modifier for a small loader
+// xui-button--loader: Modifier for a loader inside a button (loaders inside buttons should also use `xui-loader-small`)
 //
 // Markup:
 // <!-- Loader -->

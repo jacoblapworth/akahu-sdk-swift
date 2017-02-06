@@ -6,23 +6,15 @@
 // Make sure that the `xui-step--icon` element comes after the `xui-step--body` element for correct positioning.
 // Use `<br />` elements to create multi-line text.
 //
-// #### Class Names
-//
-// `xui-step`	Container for a step
-//
-// `xui-step--body`	Container for the body text of a step (inside `xui-step`)
-//
-// `xui-step--icon`	Container for the trailing icon of a step (inside `xui-step`)
-//
-// `xui-step-is-complete`	Modifier for a completed step
-//
-// `xui-step-is-selected`	Modifier for the currently selected step
-//
-// `xui-step-layout`	Recommended layout for a step
-//
-// `xui-steps`	Container for a group of steps
-//
-// `xui-steps-interactive`	Enable navigation between completed steps
+// Classes:
+// xui-step: Container for a step
+// xui-step--body: Container for the body text of a step (inside `xui-step`)
+// xui-step--icon: Container for the trailing icon of a step (inside `xui-step`)
+// xui-step-is-complete: Modifier for a completed step
+// xui-step-is-selected: Modifier for the currently selected step
+// xui-step-layout: Recommended layout for a step
+// xui-steps: Container for a group of steps
+// xui-steps-interactive: Enable navigation between completed steps
 //
 // Weight: 4.1
 //

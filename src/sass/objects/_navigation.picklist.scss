@@ -145,7 +145,7 @@
 	}
 }
 
-.#{$ns}-picklist--nested-container {
+.#{$ns}-picklist--nestedcontainer {
 	display: flex;
 	flex-wrap: wrap;
 
@@ -165,7 +165,7 @@
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
-//   <li class="xui-picklist--nested-container">
+//   <li class="xui-picklist--nestedcontainer">
 //     <input type="checkbox" class="xui-pickitem--submenucontrol" id="nested-checkbox" tabindex="-1" aria-owns="nested" aria-expanded="false" value="on">
 //     <label for="nested-checkbox" class="xui-submenu-uicontrol xui-pickitem--body" title="Open|close submenu" role="button" aria-label="Open|Close submenu">
 //       <span class="xui-pickitem--text">Nested List</span>
@@ -310,7 +310,7 @@
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
-//   <li class="xui-picklist--nested-container">
+//   <li class="xui-picklist--nestedcontainer">
 //     <input type="checkbox" class="xui-pickitem--submenucontrol" id="split-checkbox" tabindex="-1" aria-owns="split" aria-expanded="true" value="on">
 //     <div class="xui-pickitem xui-pickitem--split" aria-selected="false" tabindex="-1" role="option" id="splitTrigger">
 //       <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1"><!-- react-text: 31 -->Split Trigger Item<!-- /react-text --></button>
@@ -398,7 +398,7 @@
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
-//   <li class="xui-picklist--nested-container">
+//   <li class="xui-picklist--nestedcontainer">
 //     <input class="xui-pickitem--submenucontrol" id="submenu-check" type="checkbox" tabindex="-1" />
 //     <div class="xui-pickitem xui-pickitem--split">
 //       <label class="xui-pickitem--body xui-styledcheckbox">
@@ -502,7 +502,7 @@
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout">
-//   <li class="xui-picklist--nested-container">
+//   <li class="xui-picklist--nestedcontainer">
 //     <input class="xui-pickitem--submenucontrol" id="submenu-icon" type="checkbox" tabindex="-1" />
 //     <div class="xui-pickitem xui-pickitem--split">
 //       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">

@@ -1,8 +1,6 @@
 /* global describe, beforeEach, it */
 import React from 'react';
 import { assert } from 'chai';
-import CSSClasses from 'xui-css-classes';
-
 import XUIButton from '../XUIButton';
 
 const { renderIntoDocument, Simulate } = React.addons.TestUtils;
@@ -14,46 +12,46 @@ describe('<XUIButton/>', () => {
 			<XUIButton onClick={noop}>test</XUIButton>
 		);
 
-		const node = button.buttonNode;
-		assert.strictEqual(node.tagName, 'BUTTON');
-		assert.strictEqual(node.innerText, 'test');
+		const node = button.rootNode;
+		assert.strictEqual(node.tagName.toLowerCase(), 'button');
+		assert.strictEqual(node.textContent, 'test');
 	});
 
-	it('should render as a link element when the type is `link`', () => {
+	it('should render as a link element when isLink flag is set', () => {
 		const button = renderIntoDocument(
-			<XUIButton href="https://google.com" type="link">foo</XUIButton>
+			<XUIButton href="https://google.com" isLink={true}>foo</XUIButton>
 		);
 
-		const node = button.buttonNode;
+		const node = button.rootNode;
 		assert.strictEqual(node.tagName, 'A');
 		assert.strictEqual(node.innerText, 'foo');
 	});
 
 	it('should set the `target` prop as the `target` attribute if rendering a link', () => {
 		const button = renderIntoDocument(
-			<XUIButton type="link" href="https://google.com" target="_blank" isExternalLink={true}>foo</XUIButton>
+			<XUIButton isLink={true} href="https://google.com" target="_blank" isExternalLink={true}>foo</XUIButton>
 		);
 
-		const node = button.buttonNode;
+		const node = button.rootNode;
 		assert.strictEqual(node.getAttribute('target'), '_blank');
 	});
 
 	it('should render as a link element with `rel="external noopener noreferrer"` if the `isExternalLink` prop is true', () => {
 		const button = renderIntoDocument(
-			<XUIButton type="link" href="https://google.com" isExternalLink={true}>foo</XUIButton>
+			<XUIButton isLink={true} href="https://google.com" isExternalLink={true}>foo</XUIButton>
 		);
 
-		const node = button.buttonNode;
+		const node = button.rootNode;
 		assert.strictEqual(node.getAttribute('rel'), 'external noopener noreferrer');
 	});
 
 	it('should render as a link element with existing `rel` value intact when `isExternalLink` prop is true', () => {
 		const button = renderIntoDocument(
-			<XUIButton type="link" href="https://google.com" target="_blank" rel="help"
+			<XUIButton isLink={true} href="https://google.com" target="_blank" rel="help"
 				   isExternalLink={true}>Help</XUIButton>
 		);
 
-		const node = button.buttonNode;
+		const node = button.rootNode;
 		assert.strictEqual(node.getAttribute('rel'), 'help external noopener noreferrer');
 	});
 
@@ -66,18 +64,18 @@ describe('<XUIButton/>', () => {
 
 		// although this component can trigger the 'onClick' handler with either
 		// 'enter' or 'space' keyPress, that cannot be simulated as expected using Simulate
-		Simulate.click(button.buttonNode);
+		Simulate.click(button.rootNode);
 		assert.isTrue(onClick.calledOnce);
 	});
 
 	it('should render a loader if the `isLoading` prop is true', () => {
 		const button = renderIntoDocument(
-			<XUIButton type="button" onClick={noop} isLoading>Hai</XUIButton>
+			<XUIButton onClick={noop} isLoading={true}>Hai</XUIButton>
 		);
 
-		const node = button.buttonNode;
+		const node = button.rootNode;
 		assert.strictEqual(node.children.length, 1);
-		assert.isTrue(node.firstChild.classList.contains(CSSClasses.Button.LOADER));
+		assert.isTrue(node.firstChild.classList.contains('xui-button--loader'));
 	});
 
 	it('should not allow clicks if the `isLoading` prop is true', () => {
@@ -87,35 +85,35 @@ describe('<XUIButton/>', () => {
 			<XUIButton isLoading={true} onClick={onClick}>test</XUIButton>
 		);
 
-		Simulate.click(button.buttonNode);
+		Simulate.click(button.rootNode);
 
 		assert.isFalse(onClick.calledOnce);
 	});
 
 	it('should work even if the button is a link and no click handler has been defined', () => {
 		const button = renderIntoDocument(
-			<XUIButton href="https://google.com" type="link">Action</XUIButton>
+			<XUIButton href="https://google.com" isLink={true}>Action</XUIButton>
 		);
-		assert.doesNotThrow(() => {Simulate.click(button.buttonNode)}, Error);
+		assert.doesNotThrow(() => {Simulate.click(button.rootNode)}, Error);
 	});
 
 	it('links with an onclick handler should be able to handle click events with the handler', () => {
 		const onClick = sinon.spy();
 		const button = renderIntoDocument(
-			<XUIButton type="link" onClick={onClick}>test</XUIButton>
+			<XUIButton isLink={true} onClick={onClick}>test</XUIButton>
 		);
-		Simulate.click(button.buttonNode);
+		Simulate.click(button.rootNode);
 		assert.isTrue(onClick.calledOnce);
 	});
 
-	it('has a role attribute for links which are function like buttons', () => {
-		const button = renderIntoDocument(<XUIButton type="link" href="https://www.xero.com/" onClick={() => console.log('click')} />);
-		assert.strictEqual(button.buttonNode.getAttribute('role'), 'button');
+	it('has a role attribute for links which function like buttons', () => {
+		const button = renderIntoDocument(<XUIButton isLink={true} href="https://www.xero.com/" onClick={() => console.log('click')} />);
+		assert.strictEqual(button.rootNode.getAttribute('role'), 'button');
 	});
 
 	it('does not have a role attribute for links which are just styled like buttons', () => {
-		const button = renderIntoDocument(<XUIButton type="link" href="https://www.xero.com/" />);
-		assert.isNull(button.buttonNode.getAttribute('role'));
+		const button = renderIntoDocument(<XUIButton isLink={true} href="https://www.xero.com/" />);
+		assert.isNull(button.rootNode.getAttribute('role'));
 	});
 
 	/*
@@ -127,7 +125,7 @@ describe('<XUIButton/>', () => {
 	it.skip('focus() should focus the DOM node', function () {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		button.focus();
-		assert.isTrue(button.buttonNode === document.activeElement);
+		assert.isTrue(button.rootNode === document.activeElement);
 	});
 
 	it.skip('hasFocus() should accurately reflect whether or not the main button DOM node has focus', function () {

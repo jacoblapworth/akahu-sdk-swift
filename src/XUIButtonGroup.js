@@ -1,27 +1,15 @@
-import React, {Children} from 'react';
-import Classes from 'xui-css-classes';
+import React, { Children, cloneElement, PropTypes } from 'react';
 import cn from 'classnames';
 
-const withProp = (prop, value) => element => element ? {
-		...element,
-		props: {
-			...element.props,
-			[prop]: value
-		}
-	} : null;
-
-const propTypes = {
-	children: React.PropTypes.node,
-	className: React.PropTypes.string
-};
-
-export default function XUIButtonGroup(props) {
-	const className = cn(props.className, Classes.BUTTON_GROUP);
+export default function XUIButtonGroup({children, className}) {
 	return (
-		<div className={className}>
-			{Children.map(props.children, withProp('isGrouped', true))}
+		<div className={cn(className, 'xui-buttongroup')}>
+			{Children.map(children, child => cloneElement(child, { isGrouped: true }))}
 		</div>
 	);
 }
 
-XUIButtonGroup.propTypes = propTypes;
+XUIButtonGroup.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string
+};

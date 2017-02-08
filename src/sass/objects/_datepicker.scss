@@ -109,25 +109,15 @@
 //       <svg focusable="false" class="xui-icon xui-datepicker--arrow-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //     </button>
 //     <div class="xui-datepicker--heading-dates">
-//       <h3 class="xui-datepicker--heading xui-text-emphasis" role="heading">
-//         <span class="xui-datepicker--heading--selection">
-//           October
-//         </span>
-//         <select class="xui-datepicker--heading--selector">
-//           <option value="October">October</option>
-//           <option value="November">November</option>
-//           <option value="December">December</option>
-//         </select>
-//       </h3>
-//       <h3 class="xui-datepicker--heading" role="heading">
-//         <span class="xui-datepicker--heading--selection">
-//           2016
-//         </span>
-//         <select class="xui-datepicker--heading--selector">
-//           <option value="2016">2016</option>
-//           <option value="2017">2017</option>
-//         </select>
-//       </h3>
+//       <select class="xui-datepicker--heading xui-datepicker--monthselect-layout">
+//         <option class="xui-datepicker--monthoption-layout" value="October">October</option>
+//         <option class="xui-datepicker--monthoption-layout" value="November">November</option>
+//         <option class="xui-datepicker--monthoption-layout" value="December">December</option>
+//       </select>
+//       <select class="xui-datepicker--heading">
+//         <option value="2016">2016</option>
+//         <option value="2017">2017</option>
+//       </select>
 //     </div>
 //     <button type="button" class="xui-button xui-button-icon xui-datepicker--nextbutton xui-datepicker--button-is-disabled" aria-label="Go to next month" title="Go to next month">
 //       <svg focusable="false" class="xui-icon xui-datepicker--arrow-icon xui-icon-rotate-270 xui-u-hidden-visually"> <use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
@@ -327,6 +317,16 @@
 	flex-flow: row nowrap;
 }
 
+.#{$ns}-datepicker--monthselect-layout {
+	text-align-last: right;
+	text-align: right;
+}
+
+.#{$ns}-datepicker--monthoption-layout {
+	text-align-last: left;
+	text-align: left;
+}
+
 .#{$ns}-datepicker--arrow-icon {
 	height: 3em;
 	width: 3em;
@@ -362,6 +362,10 @@
 	position: relative;
 	&:focus {
 		outline: none;
+	}
+
+	&::-ms-expand {
+		display: none
 	}
 }
 

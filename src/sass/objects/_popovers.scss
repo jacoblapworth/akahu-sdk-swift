@@ -29,8 +29,8 @@
 // xui-popover--arrow-topright: Modifier for a top-right arrow
 //
 // Markup:
-// <div class="xui-popover" role="dialog" aria-labelledby="popover-header">
-//   <div class="xui-popover--arrow {{modifier_class}}">
+// <div class="xui-popover xui-margin-top-small" role="dialog" aria-labelledby="popover-header">
+//   <div class="xui-popover--arrow xui-popover--arrow-topleft">
 //     <svg focusable="false" viewbox="0 0 100 100">
 //       <polyline points="0,50 50,0 100, 50" stroke-width="7" class="xui-popover--arrow--border"/>
 //     </svg>

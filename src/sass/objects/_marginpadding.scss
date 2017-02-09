@@ -155,6 +155,7 @@
 @include xui-generate-margin($xui-s-xsmall, $xui-class-suffix-xsmall, true);
 @include xui-generate-margin($xui-s-large, $xui-class-suffix-large, true);
 @include xui-generate-margin($xui-s-xlarge, $xui-class-suffix-xlarge, true);
+@include xui-generate-margin($xui-s-huge, $xui-class-suffix-huge, true);
 
 // TODO Breaking: remove the !important
 // scss-lint:disable ImportantRule
@@ -274,6 +275,7 @@
 @include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall, true);
 @include xui-generate-padding($xui-s-large, $xui-class-suffix-large, true);
 @include xui-generate-padding($xui-s-xlarge, $xui-class-suffix-xlarge, true);
+@include xui-generate-padding($xui-s-huge, $xui-class-suffix-huge, true);
 
 // scss-lint:disable ImportantRule
 .#{$ns}-padding-none {

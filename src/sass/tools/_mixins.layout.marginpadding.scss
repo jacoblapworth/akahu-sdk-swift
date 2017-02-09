@@ -75,8 +75,7 @@
 }
 
 @mixin xui-padding($padding) {
-	@include xui-padding-vertical($padding);
-	@include xui-padding-horizontal($padding);
+	padding: $padding;
 }
 
 // Padding primitive css classes

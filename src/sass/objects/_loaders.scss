@@ -91,6 +91,7 @@
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;
+	transform-style: preserve-3d; // Firefox jank fix
 	vertical-align: middle;
 	width: $dot-size;
 

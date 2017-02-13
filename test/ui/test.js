@@ -1,27 +1,15 @@
-import 'babel-core/external-helpers.js';
-import React from 'react';
-import XUIButton, { XUIButtonCaret, XUIButtonGroup }  from '../../index.js';
+import React, {PropTypes} from 'react';
+import XUIButton, { XUIButtonCaret }  from '../../index.js';
+import { SizeClassNames, VariantClassNames, ButtonTypes } from '../../src/private/constants.js';
 import { ensureIconBlobOnPage } from 'xui-icon';
-import {
-	sizeClassNames,
-	variantClassNames,
-	buttonHTMLTypes,
-	buttonTypes
-} from '../../src/private/constants.js';
+import { ButtonDefaultProps } from '../../src/private/propTypes';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 import RendererUtils from 'component-renderer'
 
 const NOOP = () => {};
+const keys = Object.keys;
 
 (function() {
-
-	const buttonVariants = Object.keys(variantClassNames);
-
-	const buttonSize = Object.keys(sizeClassNames);
-
-	const buttonHTMLType = Object.keys(buttonHTMLTypes);
-
-	const buttonType = Object.keys(buttonTypes);
 
 	const XUIButtonConfig = {
 		componentName : 'XUIButton',
@@ -30,7 +18,7 @@ const NOOP = () => {};
 			{
 				name: 'className',
 				type: 'string',
-				default: null,
+				default: ButtonDefaultProps.className,
 				description: 'Additional classes to be put on the button'
 			},
 			{
@@ -42,44 +30,44 @@ const NOOP = () => {};
 			{
 				name: 'qaHook',
 				type: 'string',
-				default: null,
+				default: ButtonDefaultProps.qaHook,
 				description: 'Adds data-automationid attribute to the mask and the button'
+			},
+			{
+				name: 'isLink',
+				type: 'boolean',
+				default: ButtonDefaultProps.isLink,
+				description: 'Whether or not to render this button using an <a> tag'
 			},
 			{
 				name: 'isDisabled',
 				type: 'boolean',
-				default: false,
+				default: ButtonDefaultProps.isDisabled,
 				description: 'Determines if the button is disabled or not'
 			},
 			{
 				name: 'isExternalLink',
 				type: 'boolean',
-				default: false,
+				default: ButtonDefaultProps.isExternalLink,
 				description: 'Should be used for links pointing at external sites'
 			},
 			{
 				name: 'isLoading',
 				type: 'boolean',
-				default: false,
+				default: ButtonDefaultProps.isLoading,
 				description: 'If true, shows a loader inside the button and also disables the button to prevent clicking'
 			},
 			{
 				name: 'isGrouped',
 				type: 'boolean',
-				default: false,
+				default: ButtonDefaultProps.isGrouped,
 				description: 'If this button is part of a parent button group'
 			},
 			{
 				name: 'onKeyDown',
-				type: 'boolean',
-				default: false,
+				type: 'function',
+				default: NOOP,
 				description: 'A keydown event handler for the button'
-			},
-			{
-				name: 'onSecondaryKeyDown',
-				type: 'boolean',
-				default: false,
-				description: 'A keydown event handler for the secondary button'
 			},
 			{
 				name: 'onClick',
@@ -88,80 +76,55 @@ const NOOP = () => {};
 				description: 'Bind a function to fire when the button is clicked'
 			},
 			{
-				name: 'onSecondaryClick',
-				type: 'function',
-				default: NOOP,
-				description: 'Bind a function to fire when the second button in a split button is clicked'
-			},
-			{
 				name: 'variant',
 				type: 'enum',
-				data: buttonVariants,
-				default: buttonVariants[0],
+				data: keys(VariantClassNames),
+				default: ButtonDefaultProps.variant,
 				description: 'The button variant'
 			},
 			{
 				name: 'size',
 				type: 'enum',
-				data: buttonSize,
-				default: buttonSize[2],
-				description: 'The size of this Button. small, full-width, full-width-mobile'
+				data: keys(SizeClassNames),
+				default: ButtonDefaultProps.size,
+				description: 'The size of this Button. ' + Object.keys(VariantClassNames).join(', ')
 			},
 			{
 				name: 'type',
 				type: 'enum',
-				data: buttonHTMLType,
-				default: buttonHTMLType[0],
-				description: 'The HTML type of this button. `button`, or `link`. Defaults to `button`'
-			},
-			{
-				name: 'buttonType',
-				type: 'enum',
-				data: buttonType,
-				default: buttonType[0],
-				description: 'The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`'
+				data: keys(ButtonTypes),
+				default: ButtonDefaultProps.type,
+				description: 'The HTML type property of this button.'
 			},
 			{
 				name: 'href',
 				type: 'string',
-				default: null,
-				description: 'The `href` attribute to use on the anchor element (ignored unless `type` is `link`)'
+				default: ButtonDefaultProps.href,
+				description: 'The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`)'
 			},
 			{
 				name: 'rel',
 				type: 'string',
-				default: null,
-				description: 'The `rel` attribute to use on the anchor element (ignored unless `type` is `link`)'
+				default: ButtonDefaultProps.rel,
+				description: 'The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`)'
 			},
 			{
 				name: 'tabIndex',
 				type: 'number',
-				default: null,
+				default: ButtonDefaultProps.tabIndex,
 				description: 'The HTML tabIndex property to put on the component'
 			},
 			{
 				name: 'target',
 				type: 'string',
-				default: null,
-				description: 'The `target` attribute to use on the anchor element (ignored unless `type` is `link`)'
+				default: ButtonDefaultProps.target,
+				description: 'The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`)'
 			},
 			{
 				name: 'title',
 				type: 'string',
-				default: null,
+				default: ButtonDefaultProps.title,
 				description: 'The `title` attribute for this button'
-			},
-			{
-				name: 'split',
-				type: 'boolean',
-				default: null,
-				description: 'Changes the button to a split button.'
-			},
-			{
-				name: 'secondaryProps',
-				type: 'object',
-				default: null,
-				description: ''
 			}
 		]
 	};
@@ -210,78 +173,50 @@ const NOOP = () => {};
 		}
 
 		render() {
-			const caret = this.props.useCaret ? <XUIButtonCaret/> : null;
+			const caret = this.state.useCaret ? <XUIButtonCaret/> : null;
+			const { isDisabled, isLoading } = this.state;
 			return (
 				<div>
 					<XUIButton
-						isDisabled={this.props.isDisabled}
-						isLoading={this.props.isLoading}
+						isDisabled={isDisabled}
+						isLoading={isLoading}
 					>
 						Default button {caret}
 					</XUIButton>
 
 					<br />
 					<br />
-
-					<XUIButton
-						variant="primary"
-						isDisabled={this.props.isDisabled}
-						isLoading={this.props.isLoading}
-					>
-						Primary button {caret}
-					</XUIButton>
-
-					<br />
-					<br />
-
-					<XUIButton
-						variant="create"
-						isDisabled={this.props.isDisabled}
-						isLoading={this.props.isLoading}
-					>
-						Create button {caret}
-					</XUIButton>
-
-					<br />
-					<br />
-
-					<XUIButton
-						variant="negative"
-						isDisabled={this.props.isDisabled}
-						isLoading={this.props.isLoading}
-					>
-						Negative button {caret}
-					</XUIButton>
-
-					<br />
-					<br />
-
-					<XUIButtonGroup>
-						{['One', 'Two', 'Three'].map((x, key) => (
+					{Object.keys(VariantClassNames).map(variant => {
+						return [
+							<br key={variant + '1'} />,
+							<br key={variant + '2'} />,
 							<XUIButton
-								variant="standard"
-								isDisabled={this.props.isDisabled}
-								key={key}
+								key={variant}
+								variant={variant}
+								isDisabled={isDisabled}
+								isLoading={isLoading}
 							>
-								Grouped Button{x}
+								{variant} button {caret}
 							</XUIButton>
-						))}
-					</XUIButtonGroup>
-
-					<br />
-					<br />
-
-					<XUIButton
-						variant="link"
-						isDisabled={this.props.isDisabled}
-					>
-						Link button
-					</XUIButton>
+						];
+					})}
 				</div>
 			)
 		}
 	}
 
+	Example.propTypes = {
+		isDisabled: PropTypes.bool,
+		isLoading: PropTypes.bool,
+		useCaret: PropTypes.bool
+	};
+	Example.defaultProps = {
+		isDisabled: false,
+		isLoading: false,
+		useCaret: false
+	};
+
+	ensureIconBlobOnPage();
 	RendererUtils.init({
 		components: {
 			Example,

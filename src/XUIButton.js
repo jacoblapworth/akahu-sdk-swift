@@ -1,51 +1,9 @@
-import React, {PropTypes} from 'react';
-import Classes from 'xui-css-classes';
+import React from 'react';
 import cn from 'classnames';
 import XUILoader from 'xui-loader';
-import XUIButtonCaret from './XUIButtonCaret';
+import { ButtonDefaultProps, ButtonPropTypes } from './private/propTypes';
+import { SizeClassNames, VariantClassNames } from './private/constants';
 
-// General Helpers
-const keys = Object.keys;
-const values = x => keys(x).map(k => x[k]);
-
-const ButtonClasses = Classes.Button;
-
-/**
- * String constants
- *
- * @private
- * @type {Object}
- */
-const CONSTANTS = {
-	TYPES: {
-		BUTTON: 'button',
-		LINK: 'link'
-	},
-	ELEMENT_TYPES: {
-		BUTTON: 'button',
-		LINK: 'a'
-	},
-	BUTTON_TYPES: {
-		SUBMIT: 'submit',
-		BUTTON: 'button',
-		RESET: 'reset'
-	},
-	VARIANTS: {
-		'primary': ButtonClasses.MAIN,
-		'create': ButtonClasses.CREATE,
-		'link': ButtonClasses.LINK,
-		'negative': ButtonClasses.NEGATIVE,
-		'standard': ButtonClasses.STANDARD,
-		'icon':	ButtonClasses.Icon.BASE,
-		'icon-inverted': ButtonClasses.Icon.INVERTED,
-		'unstyled': ''
-	},
-	SIZES: {
-		'small': ButtonClasses.SMALL,
-		'full-width': Classes.Utility.FULL_WIDTH,
-		'full-width-mobile': ButtonClasses.FULL_WIDTH
-	}
-};
 
 /**
  * Returns a class name for the button depending on the button variant string given. Will return
@@ -53,40 +11,11 @@ const CONSTANTS = {
  *
  * @private
  * @param {string} variant - The button variant
- * @return {string} The variant specific classname
+ * @return {string} The variant specific class name
  */
 const getVariantClass = variant => {
-	const variants = CONSTANTS.VARIANTS;
-	return variants.hasOwnProperty(variant) ? variants[variant] : ButtonClasses.STANDARD;
+	return VariantClassNames.hasOwnProperty(variant) ? VariantClassNames[variant] : 'xui-button-standard';
 };
-
-/**
- * Returns a classname for the button depending on it's disabled state
- *
- * @private
- * @param {boolean} isDisabled - Whether or not the button is disabled
- * @return {string} The disabled state specific classname
- */
-const getDisabledClass = isDisabled => isDisabled ? ButtonClasses.IS_DISABLED : null;
-
-/**
- * Returns a class name for the button depending on the button sizing string given. Will return
- * undefined if no matching size is given.
- *
- * @private
- * @param {string} size - The button size
- * @return {string} The size specific class name
- */
-const getSizeClass = size => CONSTANTS.SIZES[size];
-
-/**
- * Returns a class name for the button depending on if it has been set to belong to a group
- *
- * @private
- * @param {boolean} isGrouped - Whether or not the button belongs to a group
- * @return {string} The grouped state specific class name
- */
-const getGroupClass = isGrouped => isGrouped ? ButtonClasses.GROUPED : null;
 
 /**
  * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
@@ -181,11 +110,11 @@ const setupLinkProps = (props, elementProps) => {
 
 export default class XUIButton extends React.Component {
 	focus() {
-		this.buttonNode && this.buttonNode.focus();
+		this.rootNode && this.rootNode.focus();
 	}
 
 	hasFocus() {
-		return !!this.buttonNode && this.buttonNode.contains(document.activeElement);
+		return !!this.rootNode && this.rootNode.contains(document.activeElement);
 	}
 
 	render () {
@@ -193,18 +122,13 @@ export default class XUIButton extends React.Component {
 		const {
 			type,
 			variant,
-			split,
-			onSecondaryClick,
 			onClick,
 			isDisabled,
 			isLoading,
 			children,
 			className,
 			onKeyDown,
-			buttonType,
 			tabIndex,
-			onSecondaryKeyDown,
-			secondaryProps,
 			size,
 			isGrouped,
 			qaHook,
@@ -212,43 +136,30 @@ export default class XUIButton extends React.Component {
 			href,
 			target,
 			rel,
-			...buttonProps
+			isLink,
+			...spreadProps
 		} = xuiButton.props;
-		const isLink = type === CONSTANTS.TYPES.LINK;
-		const ElementType = isLink ? CONSTANTS.ELEMENT_TYPES.LINK : CONSTANTS.ELEMENT_TYPES.BUTTON;
+		const ElementType = isLink ? 'a' : 'button';
 		const variantClass = getVariantClass(variant);
-		const isSplit = split && onSecondaryClick;
 		const buttonDisabled = isDisabled || isLoading;
-		const buttonChildren = isLoading ? <XUILoader size="small" defaultLayout={false} className={ButtonClasses.LOADER} /> : children;
+		const buttonChildren = isLoading ? <XUILoader size="small" defaultLayout={false} className="xui-button--loader" /> : children;
 
-		const buttonClassNames = cn(
-			ButtonClasses.BASE,
-			className,
-			variantClass,
-			getDisabledClass(isDisabled),
-			getSizeClass(size),
-			getGroupClass(isGrouped)
-		);
+		const buttonClassNames = cn('xui-button', className, variantClass, SizeClassNames[size], {
+			'xui-button-is-disabled': isDisabled,
+			'xui-button-grouped': isGrouped
+		});
 
 		const clickHandler = function() {
 			if (isLink && buttonDisabled) {
 				event.preventDefault();
-			} else if (!isLink || isLink && onClick){
+			} else if (onClick) {
 				onClick.call(xuiButton, ...arguments);
-			}
-		};
-
-		const secondaryClickHandler = function() {
-			if (isLink && buttonDisabled) {
-				event.preventDefault();
-			} else {
-				onSecondaryClick.call(xuiButton, ...arguments);
 			}
 		};
 
 		// Standard props for all element types
 		const elementProps = {
-			...buttonProps,
+			...spreadProps,
 			onClick: clickHandler,
 			onKeyDown: buttonDisabled ? null : onKeyDown,
 			disabled: buttonDisabled,
@@ -260,108 +171,16 @@ export default class XUIButton extends React.Component {
 		if (isLink) {
 			setupLinkProps({ href, onClick, isExternalLink, target, rel, isDisabled, isLoading }, elementProps);
 		} else {
-			elementProps.type = buttonType;
+			elementProps.type = type;
 		}
 
-		if (isSplit) {
-			elementProps.className = `${elementProps.className} ${ButtonClasses.GROUPED}`;
-			elementProps.type = 'button';
-		}
-
-		let Button = (
-			<ElementType ref={n => xuiButton.buttonNode = n} {...elementProps} data-automationid={qaHook}>
+		return (
+			<ElementType ref={n => xuiButton.rootNode = n} {...elementProps} data-automationid={qaHook}>
 				{buttonChildren}
 			</ElementType>
 		);
-
-		if (isSplit) {
-
-			Button = (
-				<div className='xui-buttongroup'>
-					{Button}
-					<ElementType
-						{...secondaryProps}
-						className={cn(elementProps.className, ButtonClasses.SPLIT)}
-						onClick={secondaryClickHandler}
-						onKeyPress={buttonDisabled ? null : onSecondaryKeyDown}
-						type="button"
-					>
-						<XUIButtonCaret/>
-					</ElementType>
-				</div>
-			);
-		}
-
-		return Button;
 	}
 }
 
-XUIButton.propTypes = {
-	className: PropTypes.string,
-	children: PropTypes.node,
-	qaHook: PropTypes.string,
-
-	/** @property {boolean} [isDisabled] Determines if the button is disabled or not. */
-	isDisabled: PropTypes.bool,
-
-	/** @property {string} [isExternalLink] If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
-	isExternalLink: PropTypes.bool,
-
-	/** @property {boolean} [isLoading] If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
-	isLoading: PropTypes.bool,
-
-	/** @property {boolean} [isGrouped] If this button is part of a parent button group */
-	isGrouped: PropTypes.bool,
-
-	/** @property {function} [onKeyDown] A keydown event handler for the button */
-	onKeyDown: PropTypes.func,
-
-	/** @property {function} [onSecondaryKeyDown] A keydown event handler for the secondary button */
-	onSecondaryKeyDown: PropTypes.func,
-
-	/** @property {function} onClick Bind a function to fire when the button is clicked */
-	onClick: PropTypes.func,
-
-	/** @property {function} [onSecondaryClick] Bind a function to fire when the second button in a split button is clicked */
-	onSecondaryClick: PropTypes.func,
-
-	/** @property {string} [variant='standard'] Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
-	variant: PropTypes.oneOf(keys(CONSTANTS.VARIANTS)),
-
-	/** @property {string} [size='default'] Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
-	size: PropTypes.oneOf(keys(CONSTANTS.SIZES)),
-
-	/** @property {string} [type='button'] The HTML type of this button. `button`, or `link`. Defaults to `button` */
-	type: PropTypes.oneOf(values(CONSTANTS.TYPES)),
-
-	/** @property {string} [buttonType='submit'] The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit` */
-	buttonType: PropTypes.oneOf(values(CONSTANTS.BUTTON_TYPES)),
-
-	/** @property {string} [href] The `href` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	href: PropTypes.string,
-
-	/** @property {string} [rel] The `rel` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	rel: PropTypes.string,
-
-	/** @property {number} [tabIndex=0] The HTML tabIndex property to put on the component */
-	tabIndex: PropTypes.number,
-
-	/** @property {string} [target] The `target` attribute to use on the anchor element (ignored unless `type` is `link`) */
-	target: PropTypes.string,
-
-	/** @property {string} [title] The `title` attribute for this button */
-	title: PropTypes.string,
-
-	/** @property {boolean} [split] Changes the button to a split button. Use `onSecondaryClick` with this to create dropdown experiences */
-	split: PropTypes.bool,
-
-	secondaryProps: PropTypes.object
-};
-
-XUIButton.defaultProps = {
-	buttonType: CONSTANTS.BUTTON_TYPES.SUBMIT,
-	tabIndex: 0,
-	type: CONSTANTS.ELEMENT_TYPES.BUTTON,
-	variant: 'standard',
-	secondaryProps: {}
-};
+XUIButton.propTypes = ButtonPropTypes;
+XUIButton.defaultProps = ButtonDefaultProps;

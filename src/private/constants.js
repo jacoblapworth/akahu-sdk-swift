@@ -1,48 +1,36 @@
-import Classes from 'xui-css-classes';
-
-const ButtonClasses = Classes.Button;
 /**
  * @public
  * Map of sizes to XUI Classes properties
  */
-export const sizeClassNames = {
-	'small': ButtonClasses.SMALL,
-	'full-width': Classes.Utility.FULL_WIDTH,
-	'full-width-mobile': ButtonClasses.FULL_WIDTH
+export const SizeClassNames = {
+	small: 'xui-button-small',
+	'full-width': 'xui-u-fullwidth',
+	'full-width-mobile': 'xui-button-fullwidth-layout'
 };
 
 /**
  * @public
  * Map of variants to class names
  */
-export const variantClassNames = {
-	'primary': ButtonClasses.MAIN,
-	'create': ButtonClasses.CREATE,
-	'link': ButtonClasses.LINK,
-	'negative': ButtonClasses.NEGATIVE,
-	'standard': ButtonClasses.STANDARD,
-	'icon':	ButtonClasses.Icon.BASE,
-	'icon-inverted': ButtonClasses.Icon.INVERTED,
-	'unstyled': ''
-};
-/**
- * @public
- * Map of HTML types to class names
- */
-export const buttonHTMLTypes = {
-	BUTTON: 'button',
-	LINK: 'a'
+export const VariantClassNames = {
+	primary: 'xui-button-main',
+	create: 'xui-button-create',
+	link: 'xui-button-link',
+	negative: 'xui-button-negative',
+	standard: 'xui-button-standard',
+	icon: 'xui-button-icon',
+	'icon-inverted': 'xui-button-icon-inverted',
+	unstyled: ''
 };
 
 /**
  * @public
  * Map of button types to class names
  */
-
-export const buttonTypes = {
-	SUBMIT: 'submit',
-	BUTTON: 'button',
-	RESET: 'reset'
+export const ButtonTypes = {
+	submit: 'submit',
+	button: 'button',
+	reset: 'reset'
 };
 
 

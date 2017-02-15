@@ -134,7 +134,7 @@
 	color: $xui-color-primary-text;
 	opacity: 1;
 	position: relative;
-	transition: opacity $xui-transition-duration-short $xui-easing-standard;
+	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
 .#{$ns}-banner-positive::before {
@@ -208,7 +208,7 @@
 }
 
 .#{$ns}-banner-animated {
-	animation: xui-banner-animation $xui-transition-duration-short;
+	animation: xui-banner-animation $xui-motion-speed-fast;
 }
 
 .#{$ns}-banner--messagedetail {

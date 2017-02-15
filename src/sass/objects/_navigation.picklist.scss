@@ -227,7 +227,7 @@
 .#{$ns}-submenu {
 	@include xui-listreset;
 	flex: none;
-	transition: all $xui-transition-duration-short $xui-easing-standard;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 
 	.#{$ns}-pickitem--body {
 		padding-left: $xui-s-3xlarge;
@@ -273,7 +273,7 @@
 	align-self: center;
 	color: $xui-color-icon;
 	margin: 3px;
-	transition: all $xui-transition-duration-short $xui-easing-standard;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
 .#{$ns}-pickitem--submenucontrol {

@@ -216,18 +216,18 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-show $xui-transition-duration-short $xui-easing-standard forwards;
+			animation: xui-animation-show $xui-motion-speed-fast $xui-motion-curve-standard forwards;
 		}
 	}
 
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadein $xui-transition-duration-short $xui-easing-standard forwards;
+			animation: xui-animation-fadein $xui-motion-speed-fast $xui-motion-curve-standard forwards;
 		}
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-slideup $xui-transition-duration-short $xui-easing-standard forwards;
+			animation: xui-animation-slideup $xui-motion-speed-fast $xui-motion-curve-standard forwards;
 		}
 	}
 }
@@ -237,18 +237,18 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-hide $xui-transition-duration-short $xui-easing-standard forwards;
+			animation: xui-animation-hide $xui-motion-speed-fast $xui-motion-curve-standard forwards;
 		}
 	}
 
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadeout $xui-transition-duration-short $xui-easing-standard forwards;
+			animation: xui-animation-fadeout $xui-motion-speed-fast $xui-motion-curve-standard forwards;
 		}
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-slidedown $xui-transition-duration-short $xui-easing-standard forwards;
+			animation: xui-animation-slidedown $xui-motion-speed-fast $xui-motion-curve-standard forwards;
 		}
 	}
 }

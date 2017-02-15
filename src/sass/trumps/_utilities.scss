@@ -185,36 +185,6 @@
 	user-select: none;
 }
 
-// Transitions
-//
-// May be added to elements to give them a smooth transition between transforms.
-//
-// Classes:
-// xui-u-transition-long: Modifier for long animation transition between transforms
-// xui-u-transition-medium: Modifier for medium animation transition between transforms
-// xui-u-transition-short: Modifier for short animation transition between transforms
-//
-// Markup:
-// <div>
-// 	<div><span class="xui-panel-title">Short transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-short"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// 	<div><span class="xui-panel-title">Medium transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-medium"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// 	<div><span class="xui-panel-title">Long transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-long"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// </div>
-//
-// Styleguide: Utilities.6
-
-.#{$ns}-u-transition-short {
-	transition: $xui-transition-duration-short;
-}
-
-.#{$ns}-u-transition-medium {
-	transition: $xui-transition-duration-medium;
-}
-
-.#{$ns}-u-transition-long {
-	transition: $xui-transition-duration-long;
-}
-
 // Resizing
 //
 // May be applied to elements to disable resize attributes. The primary use for this is for textarea, but has been added as a utility as resize can be applied to several other

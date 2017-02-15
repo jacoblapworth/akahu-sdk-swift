@@ -133,7 +133,7 @@
 	margin: 0;
 	outline: none;
 	overflow: hidden;
-	transition: $xui-transition-duration-short opacity $xui-easing-standard;
+	transition: $xui-motion-speed-fast opacity $xui-motion-curve-standard;
 }
 
 // TODO: Deprecate layout

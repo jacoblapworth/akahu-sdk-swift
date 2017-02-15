@@ -7,6 +7,7 @@
   "license": "Copyright Xero Ltd",
   "private": true,
   "scripts": {
+    "build-readme": "node scripts/build-doc.js",
     "lint": "./node_modules/xui-webpack-build-tools/node_modules/.bin/eslint -c .eslintrc ./src",
     "prepublish": "bower install",
     "test-ui": "xui-webpack --config conf/build.js --progress --colors",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "bower": "^1.6.3",
+    "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
   },
   "component": {

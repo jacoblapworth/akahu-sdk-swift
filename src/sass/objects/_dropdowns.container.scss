@@ -144,7 +144,7 @@
 		top: 0;
 	}
 
-	.#{$ns}-dropdown--body {
+	.#{$ns}-dropdown--body :first-child {
 		max-height: 80vh;
 		overflow-y: auto;
 	}

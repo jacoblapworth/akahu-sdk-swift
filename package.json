@@ -46,14 +46,15 @@
     "kss": "3.0.0-beta.16",
     "load-grunt-config": "^0.17.2",
     "load-grunt-tasks": "^3.2.0",
+    "marked": "^0.3.6",
     "node-sass": "^3.8.0",
     "nopt": "^3.0.6",
     "postcss": "^5.2.4",
     "postcss-discard-comments": "^2.0.4",
     "postcss-easy-import": "^1.0.1",
     "postcss-scss": "^0.3.1",
+    "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2",
     "stylelint": "^7.7.1",
-    "yargs": "3.29.0",
-    "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2"
+    "yargs": "3.29.0"
   }
 }

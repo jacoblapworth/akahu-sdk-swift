@@ -46,6 +46,12 @@
 					{{header}}
 				</h{{depth}}>
 
+				{{#if markdown}}
+				<div class="ds-description">
+					{{{includePage markdown}}}
+				</div>
+				{{/if}}
+
 				{{#if description}}
 				<div class="ds-description">
 					{{{description}}}

@@ -41,64 +41,68 @@ import XUIAvatar from 'xui-avatar';
 })();
 ```
 
-### Example
-
-![](example/example.png)
-
-## Components
+## xui-avatar prop types
 
 ### XUIAvatar
+`onError`: (func, Optional) Function to be used if the avatar renders an image and the image load fails
 
-A higher order component wrapping `XUISimpleAvatar` (see below) which falls back to a text avatar if the image provided cannot load.
+`value`: (string, Required)  The text to display in the avatar. In the simple avatar component, it is optional, but here it is mandatory
 
-This component transparently passes its props to `XUISimpleAvatar`.
-
-The only exception is that the `value` prop is required (in order to have a fallback)
-
-### XUISimpleAvatar
-
-A simple, stateless avatar
-
-Although all the properties are marked as optional, one of either `value` or `imageUrl` must be provided. The component will throw if neither are provided, or if either is falsy (e.g. empty string).
-
-`className`: (String, Optional)
-
-`qaHook`: (String, Optional)
-
-`value`: (String, Optional) The text that represents the entity for which the avatar is being shown. If no `imageUrl` is supplied, the first character from the value will be used.
-
-`imageUrl`: (String, Optional) The image URL to use in the avatar. If a `value` is supplied in addition to the `imageUrl`, it will be ignored (as will `identifier`)
-
-`size`: (One of: ['small', 'medium', 'large', 'xlarge'], Optional, default: 'medium') The size of the avatar.
-
-`identifier`: (String, Optional) A unique string that will be used to generate the colour of the avatar. Note that if `identifier` is not supplied, `value` will be used in its place. Doing this is not recommended since if different entities with the same value exist, they will end up looking identical.
-
-`variant`: (String, Optional) The kind of entity the avatar represents. If unspecified, the avatar is circular and represents a person. If specified as `business`, the avatar becomes rectangular and can contain up to 3 letters.
-
-`onError`: (Function, Optional) Error handler if the image does not load. If no `imageUrl` prop is provided but `onError` is, then the `onError` function will be ignored.
-
-### XUIAvatarGroup
-
-A container for many avatars.
-
-`className`: (String, Optional)
-
-`qaHook`: (String, Optional)
-
-`children`: (Node, Optional)
-
-`maxAvatars`: (Number, Optional) The maximum number of avatars to show
-
-`avatarSize`: (One of: ['small', 'medium', 'large', 'xlarge'], Optional) The size to apply to all avatars contained within the group. This will override any individual avatar's size settings.
 
 ### XUIAvatarCounter
+`qaHook`: (string, Optional) 
 
-An avatar-like component intended to display the count of additional avatars in a confined space.
+`className`: (string, Optional) 
 
-`className`: (String, Optional)
+`count`: (union, Optional) The count to display. If this is a string, it is passed through transparently. If it is a number, it will render with a + prefix
 
-`qaHook`: (String, Optional)
+`size`: (enum, Optional, Default='medium') The size of the counter. Can be small, medium, large or xlarge
 
-`size`: (One of: ['small', 'medium', 'large', 'xlarge'], Optional, default: 'medium') The size of the avatar.
 
-`count`: (String or Number, Required) The value to display inside the counter avatar. If this is a positive number (not a string), the number will be shown prefixed with a '+'. If this is a string, the string value will be used directly.
+### XUIAvatarGroup
+`className`: (string, Optional) 
+
+`qaHook`: (string, Optional) 
+
+`children`: (node, Optional) 
+
+`avatarSize`: (enum, Optional) The size to apply to all avatars contained within the group. This will override any individual avatar's size settings.
+
+`maxAvatars`: (custom, Optional) The maximum number of avatars to show
+
+
+### XUISimpleAvatar
+`className`: (string, Optional) 
+
+`qaHook`: (string, Optional) 
+
+`variant`: (enum, Optional) The avatar variant
+
+`value`: (custom, Optional) The text to display in the avatar
+
+`imageUrl`: (string, Optional) the image the component should render. Initials rendered otherwise
+
+`size`: (enum, Optional, Default='medium') The size of the avatar. Can be small, medium, large or xlarge
+
+`identifier`: (string, Optional) A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier.
+
+`onError`: (func, Optional) Error handler if the avatar image fails to load
+
+
+## Testing
+
+### Running the Unit Tests
+`$ npm run test`
+This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
+
+### Running the UI Tests
+`$ npm run test-ui`
+This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
+
+### Generating a code coverage report
+`$ npm run test-coverage`
+Generates a coverage report in `build/coverage/PhantomJS/index.html`.
+
+
+**This README has been automatically generated. Please mark any changes in the docs folder.**
+

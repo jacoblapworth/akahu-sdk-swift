@@ -14,30 +14,14 @@ React components to render xui styled toggles `(xui 10.6.0 and above)` using `ra
 * Provides `standard` and `inverted` colors
 * Provides `fullwidth` and `icon` layouts
 
-### Installation
+
+## Installation
 
 ```sh
 bower install --save git@github.dev.xero.com:UXE/xui-toggle.git
 ```
 
-### NPM Scripts
-
-Run unit tests:
-```sh
-npm run test
-```
-
-Run unit tests with coverage report:
-```sh
-npm run test-coverage
-```
-
-Build standard UI test in the `test/ui` folder
-```sh
-npm run test-ui
-```
-
-### Example
+## Example
 
 The [`Object.assign()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 method can be used with the spread operator to shallow merge shared and individual properties for `XUIToggleOption` components.
@@ -85,40 +69,56 @@ const shared = {
 })();
 ```
 
-### Example
+## xui-toggle prop types
 
-![](./examples/toggle.PNG)
+### XUIToggle
+`children`: (node, Optional) 
 
-## Components
+`className`: (string, Optional) 
 
-### XUIToggleOption Properties
+`qaHook`: (string, Optional) 
 
-`className`: (String) Additional classes to apply to the root node.  
+`color`: (enum, Optional, Default='standard') - The color of the toggle
 
-`qaHook`: (String) The automation ID to apply to the root node.       
+`layout`: (enum, Optional) - The layout of the toggle
 
-`isChecked`: (Bool) The input is selected.                            
 
-`isDisabled`: (Bool) The input is disabled.                          
+### XUIToggleOption
+`children`: (node, Optional) 
 
-`isRequired`: (String) The input is required for form submission.       
+`className`: (string, Optional) 
 
-`name`: (String) The name to use as a reference for the value.         
+`qaHook`: (string, Optional) 
 
-`onChange`: (Function, Required)  The function to call when the control changes state.
+`isChecked`: (bool, Optional) - The input is selected
 
-`type`: (String)The type of the input: `radio` (default) or `checkbox`.       
+`isDisabled`: (bool, Optional) - The input is disabled
 
-`value`: (String)  The value to return on form submission.  
+`isRequired`: (bool, Optional) - The input is required for form submission
 
-### XUIToggle Properties
+`name`: (string, Optional) - The name to use as a reference for the value
 
-Note that the `xui-text-inverted` class must be used on the parent of a `XUIToggle` component when the `color` property is set to `'inverted'`.
+`onChange`: (func, Required)  - The function to call when the control changes state
 
-`className`: (String) Additional classes to apply to the root node.    
+`type`: (enum, Optional, Default='radio') - The type of the input
 
-`qaHook`: (String) The automation ID to apply to the root node. 
+`value`: (string, Optional) - The value to return on form submission
 
-`color`: (String) The color of the toggle, `standard` (default) Dark text on light background`inverted` Light text on dark background (parent must use `xui-text-inverted`).
 
-`layout`: (String) The layout of the toggle, `fullwidth` (default)  Suitable for mixed label content `icon`  Suitable for icon toolbars only.
+## Testing
+
+### Running the Unit Tests
+`$ npm run test`
+This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
+
+### Running the UI Tests
+`$ npm run test-ui`
+This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
+
+### Generating a code coverage report
+`$ npm run test-coverage`
+Generates a coverage report in `build/coverage/PhantomJS/index.html`.
+
+
+**This README has been automatically generated. Please mark any changes in the docs folder.**
+

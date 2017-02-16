@@ -19,31 +19,35 @@ import XUILoader from 'xui-loader';
 
 <XUILoader className='optional-class' label="Loading more data"/>
 ```
-## Example
 
-![](example/loader5.gif)
+## xui-loader prop types
 
-### XUI Loader Properties
-#### `className`: (String, Optional)
+### XUILoader
+`className`: (string, Optional) Add additional classes to the loader wrapping div
 
-Adds more classes to the loader div, this is in addition to the already specified class of 'xui-loader'
+`qaHook`: (string, Optional) Adds data-automationid attribute with qaHook contents to the loader wrapping div
 
-#### `qaHook`: (String, Optional)
+`label`: (string, Optional) adds aria-label to the loader wrapping div
 
-Adds a `data-automationid` attribute to the loader for QA
+`defaultLayout`: (bool, Optional, Default=true) Defaults to `true`. Sets the default layout class on the loader wrapping div
 
-#### `label`: (String, Optional, Recommended)
+`size`: (enum, Optional, Default='standard') Sets the size of the loader to be, small, standard (no class added), and large
 
-Adds an `aria-label` attribute to the loader.
 
-#### `defaultLayout`: (Boolean, default = true)
+## Testing
 
-Whether to use the layout class for the loader which provides spacing and centers the component. Only works with XUI 10 (can be ignored for XUI 9)
+### Running the Unit Tests
+`$ npm run test`
+This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
 
-#### `size`: (Enum, Optional, default = standard)
+### Running the UI Tests
+`$ npm run test-ui`
+This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
 
-Sets the size of the loader to be, 'small', 'standard', or 'large'.
+### Generating a code coverage report
+`$ npm run test-coverage`
+Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
-## Using `refs=""`
 
-This component has been built as a [stateless functional component](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions). As a result, you cannot use refs with this component.
+**This README has been automatically generated. Please mark any changes in the docs folder.**
+

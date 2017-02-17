@@ -18,9 +18,9 @@ const NOOP = () => {};
 	const avatarVariants = Object.keys(variantClassNames);
 
 	const XUISimpleAvatarConfig = {
-		componentName : 'XUISimpleAvatar',
-		devReady : true,
-		properties : [
+		componentName: 'XUISimpleAvatar',
+		devReady: true,
+		properties: [
 			{
 				name: 'className',
 				type: 'string',
@@ -75,9 +75,9 @@ const NOOP = () => {};
 	};
 
 	const XUIAvatarCounterConfig = {
-		componentName : 'XUIAvatarCounter',
-		devReady : true,
-		properties : [
+		componentName: 'XUIAvatarCounter',
+		devReady: true,
+		properties: [
 			{
 				name: 'qaHook',
 				type: 'string',
@@ -107,9 +107,9 @@ const NOOP = () => {};
 	};
 
 	const XUIAvatarGroupConfig = {
-		componentName : 'XUIAvatarGroup',
-		devReady : true,
-		properties : [
+		componentName: 'XUIAvatarGroup',
+		devReady: true,
+		properties: [
 			{
 				name: 'className',
 				type: 'string',
@@ -150,7 +150,7 @@ const NOOP = () => {};
 				description: 'Add any component you want as children to the footer'
 			},
 			{
-				name: 'size',
+				name: 'avatarSize',
 				type: 'enum',
 				data: avatarKeys,
 				default: avatarKeys[2],
@@ -166,9 +166,9 @@ const NOOP = () => {};
 	};
 
 	const XUIAvatarConfig = {
-		componentName : 'XUIAvatar',
-		devReady : true,
-		properties : [
+		componentName: 'XUIAvatar',
+		devReady: true,
+		properties: [
 			{
 				name: 'onError',
 				type: 'function',
@@ -185,8 +185,8 @@ const NOOP = () => {};
 	};
 
 	const ExampleConfig = {
-		componentName : 'Example',
-		devReady : true
+		componentName: 'Example',
+		devReady: true
 	};
 
 	class Example extends React.Component {

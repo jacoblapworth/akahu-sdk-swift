@@ -24,9 +24,10 @@
   "dependencies": {
     "classnames": "^2.1.0",
     "react": "^15.3.0",
-    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.15.0"
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.15.0",
+    "guid": "git://github.dev.xero.com/XeroJS/guid.git#0.0.12"
   },
   "devDependencies": {
-    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.2.0"
   }
 }

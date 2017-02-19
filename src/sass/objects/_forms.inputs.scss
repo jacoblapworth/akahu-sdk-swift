@@ -125,10 +125,12 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 	.#{$ns}-input--icon-left {
 		left: $xui-input-icon-offset;
+		top: 1px; // Border offset
 	}
 
 	.#{$ns}-input--icon-right {
 		right: $xui-input-icon-offset;
+		top: 1px; // Border offset
 	}
 }
 

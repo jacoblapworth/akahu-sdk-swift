@@ -2,7 +2,7 @@
 
 XUI has been built on KSS a living style guide system that works by annotating CSS or SASS and producing an interactive documentation system that makes use of it's own CSS.
 
-- [ ] Add reference info to KSS and how we are using it / have it configured eg everything is in the kss directiory, kss-assets gets copied across etc.
+- [ ] Add reference info to KSS and how we are using it / have it configured eg everything is in the kss directory, kss-assets gets copied across etc.
 - [ ] Add info on KSS tooling
 - [ ] Add info on bespoke template
 - [ ] Add info on custom CSS (responsive, making certain examples work (margin, position relative overrides, etc))
@@ -11,7 +11,7 @@ XUI has been built on KSS a living style guide system that works by annotating C
 
 ## Customisations
 
-KSS supports custom properties and we have a number all pre-defined in our [config.json](https://github.dev.xero.com/UXE/xui/blob/master/kss/config.json#L3) these allow us to push KSS beyond it's initial design by adding custom handlebars tempaltes and helpers when these props are used.
+KSS supports custom properties and we have a number all pre-defined in our [config.json](https://github.dev.xero.com/UXE/xui/blob/master/kss/config.json#L3) these allow us to push KSS beyond it's initial design by adding custom handlebars templates and helpers when these props are used.
 
 ### XUI custom KSS props
 
@@ -57,7 +57,7 @@ Classes processes a : separate list of class names and descriptions and places t
 
 Allows authoring of markdown documents to be included with KSS blocks.
 
-* Markdown docs come immediatly after headings and precede description blocks.
+* Markdown docs come immediately after headings and precede description blocks.
 * files are referenced as relative paths to the src/docs directory
 
 Example of adding in `overview.md` into the toast section.

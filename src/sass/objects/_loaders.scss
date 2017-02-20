@@ -9,6 +9,10 @@
 //
 // Loaders provide users with feedback that something is happening and can be used by themselves or inside other elements.
 //
+// ### Accessibility
+// While loading, apply the `aria-busy="true"` attribute on the element that encapsulates the content being loaded
+// (not on the loader itself)
+//
 // Classes:
 // xui-loader: Container for a loader
 // xui-loader--dot: Style for a loader dot
@@ -19,7 +23,7 @@
 //
 // Markup:
 // <!-- Loader -->
-// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-label="Content loading" aria-busy="true">
+// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-label="Content loading">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -27,28 +31,28 @@
 // <br />
 // <!-- Loader inside a button -->
 // <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-main">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-standard">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>

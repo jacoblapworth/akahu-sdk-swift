@@ -10,13 +10,7 @@ A React UI component that creates buttons from the [XUI UI library](https://gith
 
 ```bash
 $ bower install --save git://github.dev.xero.com/UXE/xui-button.git
-```                                                                 
-
-### Migrating from v2 Buttons
-
-1. The `isSplit` prop (and all associated secondary button props) of the button component has been removed.  There's a new `XUISecondaryButton` component for that. Check out the Split Button Example below to see how to accomplish the same thing now.
-2. If you want to output a link (aka `<a>` tag), you should no longer use the `type` prop.  Set the `isLink` prop to true instead.
-3. The `buttonType` prop has been renamed to `type` (more intuitive) and the default has changed from `submit` to `button`.  Most people were manually setting `button` or just didn't have the button inside of a form, so it was changed.
+```
 
 ### Example
 ```js
@@ -30,89 +24,56 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 >
 	Click me
 </XUIButton>
-
-<XUIButton>I am a dropdown <XUIButtonCaret /></XUIButton>
-
-<XUIButtonGroup>
-	<XUIButton>Grouped one</XUIButton>
-	<XUIButton>Grouped two</XUIButton>
-</XUIButtonGroup>
-
 ```
 
-### Example
+## xui-button prop types
 
-![](example/buttons.png)
+### XUIButton
 
-### Split Button Example
-```js
-import XUIButton, {XUISplitButtonGroup, XUISecondaryButton} from 'xui-button';
+### XUIButtonCaret
+`className`: (string, Optional) 
 
-...
 
-<XUISplitButtonGroup variant="primary">
-	<XUIButton onClick={clickHandler}>Primary Action</XUIButton>
-	<XUISecondaryButton onClick={openMenu} />
-</XUISplitButtonGroup>
+### XUIButtonGroup
+`children`: (node, Optional) 
 
-```
+`className`: (string, Optional) 
 
-### XUIButton Properties
 
-`className`: (String, Optional)
+### XUISecondaryButton
 
-`qaHook`: (String, Optional)
+### XUISplitButtonGroup
+`children`: (node, Optional) 
 
-`children`: (Node, Optional)
+`className`: (string, Optional) 
 
-`isDisabled`: (Boolean, Optional) Determines if the button is disabled or not. Set to false by default
+`qaHook`: (string, Optional) 
 
-`isExternalLink` (Boolean, Optional) If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites.
+`isDisabled`: (custom, Optional, Default=ButtonDefaultProps.isDisabled) 
 
-`isLoading`: (Boolean, Optional) Whether the button should show a loader inside. If true, this disables the button to prevent clicking.
+`variant`: (custom, Optional, Default=ButtonDefaultProps.variant) 
 
-`isGrouped`: (Boolean, Optional) Automatically set to true when it's a child of XUIButtonGroup. Set to false by default otherwise
 
-`isLink`: (Boolean, Optional) Whether or not to render this button using an <a> tag
+## Testing
 
-`onKeyDown`: (Function, Optional) A keydown event handler for the generated element.
+### Running the Unit Tests
+`$ npm run test`
+This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
 
-`onClick`: (Function, Required) A function to fire when the button is clicked
+### Running the UI Tests
+`$ npm run test-ui`
+This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
 
-`variant`: (String, Optional) Determines what the purpose of this button is. `primary`, `create` or `negative`. If nothing is provided then it is a default button
+### Generating a code coverage report
+`$ npm run test-coverage`
+Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
-`size`: (String, Optional) Modifier for the size of the button. `small`, or `full-width`. Else ignored
+### Migrating from v2 Buttons
 
-`type`: (String, Optional) The type attribute of this button. `submit`, `button`, or `reset`. Defaults to `submit`
+1. The `isSplit` prop (and all associated secondary button props) of the button component has been removed.  There's a new `XUISecondaryButton` component for that. Check out the Split Button Example below to see how to accomplish the same thing now.
+2. If you want to output a link (aka `<a>` tag), you should no longer use the `type` prop.  Set the `isLink` prop to true instead.
+3. The `buttonType` prop has been renamed to `type` (more intuitive) and the default has changed from `submit` to `button`.  Most people were manually setting `button` or just didn't have the button inside of a form, so it was changed.
 
-`href`: (String, Optional) If `isLink` is true, then this will be the hyperlink reference. Else ignored.
 
-`rel`: (String, Optional) The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`)
+**This README has been automatically generated. Please mark any changes in the docs folder.**
 
-`target`: (String, Optional) The `target` attribute for the button if `isLink` is `true`. Else ignored
-
-`title`: (String, Optional) The `title` attribute for this button
-
-`tabIndex`: (Boolean, Optional) The HTML `tabIndex` attribute which will go on the node.  Default `0`
-
-### XUIButtonCaret Properties
-No properties
-
-### XUIButtonGroup Properties
-`children`: (Node, Optional)
-
-`className`: (Node, Optional)
-
-### XUISecondaryButton Properties
-All the same props as a button, except it doesn't accept children.
-
-### XUISplitButtonGroup Properties
-`children`: (Node, Optional)
-
-`className`: (Node, Optional)
-
-`qaHook`: (String, Optional)
-
-`isDisabled`: (Boolean, Optional) Whether or not ALL children in this group are disabled. This has a default of `false` and will override any `isDisabled` prop on child buttons.
-
-`variant`: (String, Optional) Determines what the purpose of all the child buttons will be. `primary`, `create` or `negative`. This has a default of `standard` and will override any `variant` props on child buttons. 

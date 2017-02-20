@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {generateReadme} = require('../../readme-builder');
+const {generateReadme} = require('readme-builder');
 
 generateReadme('UXE', 'xui-icon', [
 	'./docs/overview.md',

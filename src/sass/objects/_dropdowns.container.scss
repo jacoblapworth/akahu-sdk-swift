@@ -133,6 +133,10 @@
 			top: 100vh;
 			width: 100vw;
 			z-index: inherit;
+
+			& :first-child {
+				max-height: 80vh;
+			}
 		}
 	}
 
@@ -142,11 +146,6 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-	}
-
-	.#{$ns}-dropdown--body :first-child {
-		max-height: 80vh;
-		overflow-y: auto;
 	}
 
 	.#{$ns}-dropdown--footer {

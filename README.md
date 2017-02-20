@@ -94,3 +94,43 @@ const svg = createSVGElement({
 });
 document.body.appendChild(svg);
 ```
+
+## xui-icon prop types
+
+### XUIIcon
+`icon`: (enum, Required)  the icon to be rendered
+
+`className`: (string, Optional) Additional classes to be applied to the icon
+
+`size`: (enum, Optional, Default='standard') Adds a size modifier to the icon
+
+`title`: (string, Optional) Title to be read by screen readers
+
+`desc`: (string, Optional) Description to be read by screen readers
+
+`role`: (string, Optional, Default='presentation') Role to be applied to the SVG for screen readers
+
+`rotation`: (enum, Optional) Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270
+
+`color`: (enum, Optional) Adds a color modifier to the icon
+
+`inline`: (bool, Optional) Whether the inline class modifier should be added
+
+
+## Testing
+
+### Running the Unit Tests
+`$ npm run test`
+This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
+
+### Running the UI Tests
+`$ npm run test-ui`
+This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
+
+### Generating a code coverage report
+`$ npm run test-coverage`
+Generates a coverage report in `build/coverage/PhantomJS/index.html`.
+
+
+**This README has been automatically generated. Please mark any changes in the docs folder.**
+

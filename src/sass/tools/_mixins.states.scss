@@ -1,6 +1,16 @@
+@import "../vars";
+
 @mixin xui-state-focus {
 	&:focus {
 		box-shadow: $xui-shadow-focus;
+		outline: none;
+		transition: box-shadow $xui-transition-duration-short;
+	}
+}
+
+@mixin xui-state-focus-inverted {
+	&:focus {
+		box-shadow: $xui-shadow-focus-inverted;
 		outline: none;
 		transition: box-shadow $xui-transition-duration-short;
 	}

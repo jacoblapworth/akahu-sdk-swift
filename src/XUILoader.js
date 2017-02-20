@@ -21,7 +21,7 @@ const XUILoader = (props) => {
   );
 
   return (
-    <div data-automationid={props.qaHook} className={className} role="progressbar" aria-label={props.label} aria-busy="true">
+    <div data-automationid={props.qaHook} className={className} role="progressbar" aria-label={props.label}>
       {
         [1,2,3].map(loaderDot => <div className={`${baseClass}--dot`} key={loaderDot}/>)
       }

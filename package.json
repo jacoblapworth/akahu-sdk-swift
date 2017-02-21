@@ -16,6 +16,7 @@
     "ui"
   ],
   "scripts": {
+    "build-readme": "node scripts/build-doc.js",
     "dist": "webpack --config conf/build.js --prod --progress --colors",
     "prepublish": "bower install",
     "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "bower": "^1.7.0",
+    "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/FutureRobot/xui-webpack-build-tools.git#6.0.3"
   },
   "component": {

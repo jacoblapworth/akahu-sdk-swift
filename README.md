@@ -14,7 +14,7 @@ A React UI component designed to mimic the XUI Switch behaviour.
 $ bower install --save git@github.dev.xero.com:UXE/xui-switch.git
 ```
 
-### Example
+## Example
 ```js
 import XUISwitch from 'xui-switch';
 
@@ -26,17 +26,31 @@ import XUISwitch from 'xui-switch';
 	name='someName'>
 </XUISwitch>
 ```
-### Example 
 
-![](./example/switch-example.PNG)
+## xui-switch prop types
 
-### XUI Switch Properties
-`disabled` : (Boolean, Optional) Sets the switch to enabled or disabled
+### XUISwitch
+`onChange`: (func, Required)  Fires parent onChange handler
 
-`checked` : (Boolean, Optional) Sets the switch to be checked or unchecked (on or off)
+`checked`: (bool, Optional) Determines whether the switch is checked or unchecked
 
-`onChange` : (Function, Required) Bind a function to fire when the Switch state changes
+`disabled`: (bool, Optional) Determines whether the switch is enabled or disabled
 
-`value` : (String, Optional) Optional value for the input
+`name`: (string, Optional) Name attribute for the input
 
-`name` : (String, Optional) Optional name for the input
+`value`: (string, Optional) Value attribute for the input
+
+
+## Testing
+
+### Running the Unit Tests
+`$ npm run test`
+This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
+
+### Running the UI Tests
+`$ npm run test-ui`
+This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
+
+
+**This README has been automatically generated. Please mark any changes in the docs folder.**
+

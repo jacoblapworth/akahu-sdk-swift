@@ -7,12 +7,14 @@
   "license": "Copyright Xero Ltd",
   "private": true,
   "scripts": {
+    "build-readme": "node scripts/build-doc.js",
     "prepublish": "bower install",
     "test": "xui-karma start conf/test.js",
     "test-coverage": "xui-karma start conf/test.js --coverage",
     "test-ui": "xui-webpack --config conf/build.js --progress --colors --watch"
   },
   "devDependencies": {
+    "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
     "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.6.0"
   },
   "dependencies": {

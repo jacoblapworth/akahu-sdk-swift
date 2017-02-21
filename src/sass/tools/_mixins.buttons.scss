@@ -112,8 +112,11 @@
 	pointer-events: none;
 }
 
-@mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue) {
+@mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue, $background-image: null) {
 	background-color: $background-color;
+	background-image: $background-image;
+	background-origin: padding-box;
+	background-repeat: no-repeat;
 	border: $border;
 	border-radius: $xui-radius;
 	color: $color;

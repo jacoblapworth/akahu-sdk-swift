@@ -46,6 +46,7 @@
 // xui-actions--primary: Subcomponent to be applied directly to the primary button
 // xui-actions--secondary: Subcomponent to be applied directly to the secondary button
 // xui-button--loader: Modifier for a loader inside a button.
+// xui-button-inverted: Modifier for button focus styling against dark backgrounds
 //
 // Weight: 4.1
 //
@@ -77,23 +78,6 @@
 @import "buttons.states"; // Section 8
 //Section 9 is _actions.scss - is included to the styleguide directly in xui.scss
 @import "buttons.toggle"; // Section 10
-
-// Inverted
-//
-// Use this modifier to get the appropriate focus styling for buttons on darker backgrounds
-//
-// Classes:
-// xui-button-inverted: Modifier for button focus styling against dark backgrounds
-//
-// Markup:
-// <div class="xui-background-grey-2 xui-padding">
-//   <button type="button" class="xui-button xui-button-inverted xui-button-standard">Inverted standard</button>
-//   <button type="button" class="xui-button xui-button-inverted xui-button-main">Inverted main</button>
-//   <button type="button" class="xui-button xui-button-inverted xui-button-create">Inverted create</button>
-//   <button type="button" class="xui-button xui-button-inverted xui-button-negative">Inverted negative</button>
-// </div>
-//
-// Styleguide: Buttons.100
 
 .#{$ns}-button-inverted {
 	@include xui-state-focus-inverted;

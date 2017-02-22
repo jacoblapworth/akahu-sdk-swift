@@ -37,7 +37,7 @@ $xui-color-reversed-text: $xui-color-white;
 $xui-color-disabled: $xui-color-grey-5;
 $xui-color-disabled-text: $xui-color-grey-3;
 $xui-color-placeholder: $xui-color-grey-3;
-$xui-color-border: $xui-color-grey-4;
+$xui-color-border: rgba($xui-color-grey-1, .5);
 $xui-color-divider: $xui-color-grey-5;
 $xui-color-background: $xui-color-grey-6;
 $xui-color-hover: $xui-color-grey-6;
@@ -55,7 +55,7 @@ $xui-color-shadow-inverted-strong: rgba($xui-color-white, 0.2);
 $xui-color-highlight-inverted-light: rgba($xui-color-white, 0.95);
 $xui-color-highlight-inverted-medium: rgba($xui-color-white, 0.90);
 $xui-color-highlight-inverted-strong: $xui-color-white-muted;
-$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-shadow-inverted-medium;
+$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-shadow-inverted-strong;
 
 // Avatars
 //

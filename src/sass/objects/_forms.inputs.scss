@@ -180,7 +180,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 // xui-input-borderless-layout: Layout of the borderless input, mainly padding changes.
 //
 // Markup:
-//<div style="background-color: #284664;" class="xui-padding">
+//<div class="xui-padding xui-background-grey-1">
 // <input class="xui-input xui-input-borderless" type="text" placeholder="Standard Input, No Layout" aria-label="Standard input"/>
 // <input class="xui-input xui-input-borderless xui-input-borderless-layout xui-margin-top" type="text" placeholder="Standard Input, With Layout" aria-label="Standard input"/>
 // <div class="xui-inputwrapper xui-inputwrapper-borderless xui-inputwrapper-borderless-layout xui-margin-top">

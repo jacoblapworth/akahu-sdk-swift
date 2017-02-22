@@ -46,6 +46,7 @@
 // xui-actions--primary: Subcomponent to be applied directly to the primary button
 // xui-actions--secondary: Subcomponent to be applied directly to the secondary button
 // xui-button--loader: Modifier for a loader inside a button.
+// xui-button-inverted: Modifier for button focus styling against dark backgrounds
 //
 // Weight: 4.1
 //
@@ -77,3 +78,13 @@
 @import "buttons.states"; // Section 8
 //Section 9 is _actions.scss - is included to the styleguide directly in xui.scss
 @import "buttons.toggle"; // Section 10
+
+.#{$ns}-button-inverted {
+	@include xui-state-focus-inverted;
+	&:hover {
+		box-shadow: inherit;
+	}
+	&:active {
+		box-shadow: inherit;
+	}
+}

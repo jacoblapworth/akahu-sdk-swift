@@ -1,0 +1,21 @@
+@import "../vars";
+
+// Background Color Classes
+//
+// Classes:
+// xui-background-grey-1: Applies $xui-color-grey-1 as the background color
+// xui-background-grey-2: Applies $xui-color-grey-2 as the background color
+//
+// Markup:
+// <div class="xui-padding xui-background-grey-1 xui-text-color-white">Hello</div>
+// <div class="xui-padding xui-background-grey-2 xui-text-color-white">Hello</div>
+//
+// Styleguide: Colors.200
+
+.#{$ns}-background-grey-1 {
+	background-color: $xui-color-grey-1;
+}
+
+.#{$ns}-background-grey-2 {
+	background-color: $xui-color-grey-2;
+}

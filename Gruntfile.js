@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
 	grunt.registerTask('dist', ['cssmin']);
-	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:xui', 'search-index']);
+	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:xui', 'babel:search', 'search-index']);
 	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide']);
 
 	var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];

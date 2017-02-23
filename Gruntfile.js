@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 		var done = this.async();
 		var src = path.join(__dirname, 'docs');
 		var dest = path.join(__dirname, 'docs/');
-		require('static-search-indexer').buildIndex(src, dest, `https://github.dev.xero.com/pages/UXE/xui/docs/${require('./package.json').version}/`, () => done());
+		require('static-search-indexer').buildIndex(src, dest, `https://github.dev.xero.com/pages/UXE/xui/#${require('./package.json').version}/`, () => done());
 	});
 
 	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);

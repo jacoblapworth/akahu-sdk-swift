@@ -541,5 +541,6 @@ $ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
 	background: $ds-scrollbar-xlight;
 }
 
+@import "./markdown";
 @import "./prettyprint";
 @import "./search";

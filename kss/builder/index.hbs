@@ -234,13 +234,10 @@
 
 <nav id="navigation-primary" class="ds-nav ds-nav--menu">
 	<ul class="xui-u-hidden ds-nav--container xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-    <li class="xui-menugroup xui-padding ds-nav--header xui-text-inverted">
-			<img class="ds-xero-icon" src="https://edge.xero.com/images/1.0.0/logo/xero-logo-100.png" />
-			<span class="ds-nav--header-title xui-padding">{{@root.options.title}}</span>
-    </li>
-		<li class="ds-nav--title xui-padding-vertical-large">
-			<a class="ds-nav--link xui-padding-horizontal-large xui-section-title xui-verticaltab xui-padding-vertical-small {{#isEqual header @root.sections.0.header}} xui-verticaltab-is-selected{{/isEqual}}" href="./index.html">
-					Overview
+		<li class="xui-menugroup xui-padding ds-nav--header xui-text-inverted">
+			<a class="xui-text-color-white" href="./index.html">
+				<img class="ds-xero-icon" src="https://edge.xero.com/images/1.0.0/logo/xero-logo-100.png" />
+				<span class="ds-nav--header-title xui-padding">{{@root.options.title}}</span>
 			</a>
 		</li>
 		{{#each menu}}

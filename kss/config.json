@@ -19,7 +19,7 @@
 		"./kss-assets/search-es5.js"
 	],
 	"title": "XUI",
-	"homepage": "../../README.md",
+	"homepage": "../../src/docs/home.md",
 	"builder": "./builder",
 	"extend": "./builder/extend"
 }

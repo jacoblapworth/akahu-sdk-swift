@@ -1,0 +1,27 @@
+@import "../../src/sass/vars";
+
+.xs-result-text {
+	color: $xui-color-black
+}
+
+.xs-overflow-y-auto {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.xs-result-container {
+	margin-top: $xui-s-xsmall;
+	max-height: calc(100vh - 100px);
+	width: 380px;
+}
+
+#xs-search-input {
+	width: 380px;
+}
+
+#xs-search-container {
+	position: absolute;
+	top: $xui-s-xsmall;
+	right: 210px;
+	z-index: 9999;
+}

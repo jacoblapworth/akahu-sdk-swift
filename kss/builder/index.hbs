@@ -19,6 +19,16 @@
 
 
 <article role="main" class="ds-main">
+	<div id="xs-search-container">
+		<div class="xui-inputwrapper">
+			<div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+				<button id="xs-search-dismiss" type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+					<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
+				</button>
+			</div>
+			<input id="xs-search-input" class="xui-input xui-doc-search-input" type="search" placeholder="Search" aria-label="Search"/>
+		</div>
+	</div>
 
 	<div class="ds-section-wrap">
 
@@ -38,119 +48,122 @@
 		{{#each sections}}
 		{{#wrapSection referenceURI}}
 
-			<div class="kss-style ds-section-part" data-search-section>
-				<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
-					<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
-						<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
-					</a>
-					{{header}}
-				</h{{depth}}>
+			<div data-search-section>
+				<div class="kss-style ds-section-part">
+					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
+						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
+							<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
+						</a>
+						{{header}}
+					</h{{depth}}>
 
-				{{#if markdown}}
-				<div class="ds-description">
-					{{{includePage markdown}}}
-				</div>
-				{{/if}}
+					{{#if markdown}}
+					<div class="ds-description">
+						{{{includePage markdown}}}
+					</div>
+					{{/if}}
 
-				{{#if description}}
-				<div class="ds-description">
-					{{{description}}}
-				</div>
-				{{/if}}
-
-				{{#if parameters}}
-				<div class="kss-parameters__title">Parameters:</div>
-				<ul class="kss-parameters">
-					{{#each parameters}}
-					<li class="kss-parameters__item">
-					<div class="kss-parameters__name"><code>{{name}}</code></div>
-					<div class="kss-parameters__description">
+					{{#if description}}
+					<div class="ds-description">
 						{{{description}}}
-						{{#if defaultValue}}
-						<div class="kss-parameters__default-value">
-							Defaults to: <code>{{defaultValue}}</code>
-						</div>
-						{{/if}}
 					</div>
-					</li>
-					{{/each}}
-				</ul>
-				{{/if}}
-			</div>
+					{{/if}}
 
-			{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
-			<nav class="ds-section-part">
-				<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-					{{#each children}} {{#ifDepth 2}}
-					<li>
-					<a class="ds-nav-item xui-verticaltab" href="section-{{../referenceURI}}.html#{{referenceURI}}">
-						<span>{{header}}</span>
-					</a>
-					</li>
-					{{/ifDepth}} {{/each}}
-				</ul>
-			</nav>
-			{{/if}} {{/if}} {{/each}} {{/if}}
-
-			{{#if classes}}
-			<div class="kss-style ds-section-part">
-				<h3>CSS Classes</h3>
-				<table class="xui-contentblock xui-margin-bottom">
-					<tbody>
-						{{#renderClasses classes}}
-							<tr class="xui-contentblock--item xui-contentblock--item-layout">
-								<td class="xui-text-cell xui-padding-small"><code>{{classes.name}}</code></td>
-								<td class="xui-text-cell xui-padding-small">{{classes.value}}</td>
-							</tr>
-						{{/renderClasses}}
-					</tbody>
-				</table>
-			</div>
-			{{/if}}
-
-			{{#if tokens}}
-			<div class="kss-modifier__example ds-section-part">
-				<div class="ds-token-wrap">
-				<div class="ds-token-table xui-row-flex xui-justify-left">
-					<div class="xui-column-12-of-12 xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">
-						<div class="xui-column-5-of-12">Token</div>
-						<div class="xui-column-3-of-12">Value</div>
-						{{#unless noexample}}<div class="xui-column-3-of-12">Example</div>{{/unless}}
-					</div>
-					{{#renderTokens tokens}}
-					<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
-						<div class="xui-column-5-of-12"><code class="ds-token-text">{{token.name}}</code></div>
-							<div {{#if token.example}}class="xui-column-3-of-12"{{/if}}>
-									<code class="ds-token-text">{{token.value}}</code></div>
-							{{#if token.example}}
-							<div class="xui-column-4-of-12">{{{token.example}}}</div>
+					{{#if parameters}}
+					<div class="kss-parameters__title">Parameters:</div>
+					<ul class="kss-parameters">
+						{{#each parameters}}
+						<li class="kss-parameters__item">
+						<div class="kss-parameters__name"><code>{{name}}</code></div>
+						<div class="kss-parameters__description">
+							{{{description}}}
+							{{#if defaultValue}}
+							<div class="kss-parameters__default-value">
+								Defaults to: <code>{{defaultValue}}</code>
+							</div>
 							{{/if}}
+						</div>
+						</li>
+						{{/each}}
+					</ul>
+					{{/if}}
+				</div>
+
+				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
+				<nav class="ds-section-part">
+					<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+						{{#each children}} {{#ifDepth 2}}
+						<li>
+						<a class="ds-nav-item xui-verticaltab" href="section-{{../referenceURI}}.html#{{referenceURI}}">
+							<span>{{header}}</span>
+						</a>
+						</li>
+						{{/ifDepth}} {{/each}}
+					</ul>
+				</nav>
+				{{/if}} {{/if}} {{/each}} {{/if}}
+
+				{{#if classes}}
+				<div class="kss-style ds-section-part">
+					<h3>CSS Classes</h3>
+					<table class="xui-contentblock xui-margin-bottom">
+						<tbody>
+							{{#renderClasses classes}}
+								<tr class="xui-contentblock--item xui-contentblock--item-layout">
+									<td class="xui-text-cell xui-padding-small"><code>{{classes.name}}</code></td>
+									<td class="xui-text-cell xui-padding-small">{{classes.value}}</td>
+								</tr>
+							{{/renderClasses}}
+						</tbody>
+					</table>
+				</div>
+				{{/if}}
+
+				{{#if tokens}}
+				<div class="kss-modifier__example ds-section-part">
+					<div class="ds-token-wrap">
+					<div class="ds-token-table xui-row-flex xui-justify-left">
+						<div class="xui-column-12-of-12 xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">
+							<div class="xui-column-5-of-12">Token</div>
+							<div class="xui-column-3-of-12">Value</div>
+							{{#unless noexample}}<div class="xui-column-3-of-12">Example</div>{{/unless}}
+						</div>
+						{{#renderTokens tokens}}
+						<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
+							<div class="xui-column-5-of-12"><code class="ds-token-text">{{token.name}}</code></div>
+								<div {{#if token.example}}class="xui-column-3-of-12"{{/if}}>
+										<code class="ds-token-text">{{token.value}}</code></div>
+								{{#if token.example}}
+								<div class="xui-column-4-of-12">{{{token.example}}}</div>
+								{{/if}}
+						</div>
+						{{/renderTokens}}
+					</div>
+					</div>
+				</div>
+				{{/if}}
+
+				{{#if colortokens}}
+				<div class="kss-modifier__example ds-section-part">
+					<div class="ds-token-wrap {{#isInverted header}}xui-text-inverted{{/isInverted}}">
+					<div class="ds-token-table ds-token-table-color xui-row-flex xui-justify-left">
+					{{#renderTokens colortokens}}
+					<div class="ds-token-table--row xui-column-3-of-12">
+						<div class="ds-token-grid--cell">
+								<code class="ds-token-text">{{token.name}}</code>
+						</div>
+						<div class="ds-token-grid--cell">
+							{{{token.example}}}
+							<code class="ds-token-text--floating">{{token.value}}</code>
+						</div>
 					</div>
 					{{/renderTokens}}
+					</div>
+					</div>
 				</div>
-				</div>
-			</div>
-			{{/if}}
+				{{/if}}
 
-			{{#if colortokens}}
-			<div class="kss-modifier__example ds-section-part">
-				<div class="ds-token-wrap {{#isInverted header}}xui-text-inverted{{/isInverted}}">
-				<div class="ds-token-table ds-token-table-color xui-row-flex xui-justify-left">
-				{{#renderTokens colortokens}}
-				<div class="ds-token-table--row xui-column-3-of-12">
-					<div class="ds-token-grid--cell">
-							<code class="ds-token-text">{{token.name}}</code>
-					</div>
-					<div class="ds-token-grid--cell">
-						{{{token.example}}}
-						<code class="ds-token-text--floating">{{token.value}}</code>
-					</div>
-				</div>
-				{{/renderTokens}}
-				</div>
-				</div>
-			</div>
-			{{/if}}
+			</div>  {{! end data-search-section }}
 
 			{{#if example}}
 			<div class="ds-markup-example-switcher ds-section-part" data-sectionid="{{referenceNumber}}">

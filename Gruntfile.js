@@ -29,12 +29,12 @@ module.exports = function (grunt) {
 		var done = this.async();
 		var src = path.join(__dirname, 'docs');
 		var dest = path.join(__dirname, 'docs/');
-		require('static-search-indexer').buildIndex(src, dest, `https://github.dev.xero.com/pages/UXE/xui/docs/${require('./package.json').version}/`, () => done());
+		require('static-search-indexer').buildIndex(src, dest, `https://github.dev.xero.com/pages/UXE/xui/#${require('./package.json').version}/`, () => done());
 	});
 
 	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
 	grunt.registerTask('dist', ['cssmin']);
-	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:xui', 'search-index']);
+	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:xui', 'babel:search', 'search-index']);
 	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide']);
 
 	var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];

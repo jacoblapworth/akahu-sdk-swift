@@ -4,7 +4,7 @@ xui-icon
 ![](https://img.shields.io/badge/XUI-^10.0.0-blue.svg)
 ![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
 
-xui-icon is a module for importing and using XUI Icons to you project. The full list of existing icons may be found [here](https://github.dev.xero.com/pages/UXE/xui-icon/).
+xui-icon is a module for importing and using XUI Icons to you project. The full list of existing icons may be found [here](https://github.dev.xero.com/pages/UXE/xui-icon/test/ui/).
 
 The icons can be consumed in 3 ways:
 * Using the `XUIIcon` module as a React component. Use this for React-based single page apps.

@@ -153,6 +153,7 @@
 // TODO: this becomes xui-icon in XUI11
 .#{$ns}-newicon {
 	fill: currentColor;
+	transform: rotate(360deg); // Blurry icon fix for Firefox if icon is rendered on a subpixel
 }
 
 // TODO: remove from XUI11

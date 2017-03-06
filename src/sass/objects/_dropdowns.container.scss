@@ -109,7 +109,7 @@
 
 
 .#{$ns}-dropdown-layout {
-	display: none;
+	display: flex;
 	min-width: $xui-starting-width;
 	position: absolute;
 
@@ -126,7 +126,8 @@
 	@include xui-breakpoint-narrow {
 		height: 100%;
 		left: 0;
-		top: 0;
+		position: fixed;
+		top: 100vh;
 		width: 100%;
 		z-index: 9999;
 
@@ -140,6 +141,40 @@
 
 			.#{$ns}-dropdown--scrollable-content {
 				max-height: 80vh;
+			}
+		}
+
+		.#{$ns}-dropdown--header {
+			display: block;
+
+			.#{$ns}-dropdown--header-container{
+				align-items: center;
+				border-bottom: $xui-divider-standard;
+				display: flex;
+				justify-content: space-between;
+				min-height: $xui-s-6xlarge;
+				padding: $xui-s-small;
+			}
+
+			.#{$ns}-dropdown--header-leftcontent {
+				align-items: center;
+				display: flex;
+				flex: 1;
+				overflow: hidden;
+				padding-right: $xui-s-small;
+			}
+
+			.#{$ns}-dropdown--header-rightcontent {
+				align-items: center;
+				display: flex;
+			}
+		}
+
+		.#{$ns}-dropdown-fullheight {
+			height: 100vh;
+
+			.xui-dropdown--body {
+				max-height: 100vh;
 			}
 		}
 	}
@@ -184,23 +219,23 @@
 }
 
 .#{$ns}-dropdown-is-open {
-	display: flex;
 	flex-direction: column;
 	z-index: 1;
 
 	@include xui-breakpoint-narrow-up {
-
 		.#{$ns}-dropdown--body {
 			transform: scaleY(1);
 		}
 	}
 
 	@include xui-breakpoint-narrow {
+		top: 0;
 
 		.#{$ns}-dropdown--mask {
 			flex-grow: 1;
 			opacity: 1;
 			pointer-events: auto;
+			width: 100vw;
 		}
 
 		.#{$ns}-dropdown--body {
@@ -216,18 +251,18 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-show $xui-motion-speed-fast $xui-motion-curve-standard forwards;
+			animation: xui-animation-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadein $xui-motion-speed-fast $xui-motion-curve-standard forwards;
+			animation: xui-animation-fadein $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-slideup $xui-motion-speed-fast $xui-motion-curve-standard forwards;
+			animation: xui-animation-slideup $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 }
@@ -237,18 +272,18 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-hide $xui-motion-speed-fast $xui-motion-curve-standard forwards;
+			animation: xui-animation-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadeout $xui-motion-speed-fast $xui-motion-curve-standard forwards;
+			animation: xui-animation-fadeout $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-slidedown $xui-motion-speed-fast $xui-motion-curve-standard forwards;
+			animation: xui-animation-slidedown $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 }

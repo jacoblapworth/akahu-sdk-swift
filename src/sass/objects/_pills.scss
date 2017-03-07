@@ -1,13 +1,19 @@
 @import "../vars";
 @import "../mixins";
 
-// Pills
-//
-// Pill are used for signifying a selection has been made, either single or multiple. Typically used within an input box but potentially can be used elsewhere.
+// Pills and Tags
 //
 // Weight: 4.1
 //
-// Styleguide: Pills
+// Styleguide: Pills and Tags
+
+// Pills vs Tags
+//
+// Pills are used for signifying a selection has been made, either single or multiple, and may include the option to remove the selection (via a cross).
+//
+// Tags are used for displaying read-only information. Their usage implies an existing selection/association.
+//
+// Styleguide: Pills and Tags.1
 
 // Pills Used in Multi Selections
 //
@@ -79,7 +85,7 @@
 //   </button>
 // </div>
 //
-// Styleguide: Pills.1
+// Styleguide: Pills and Tags.2
 
 
 .#{$ns}-pill {
@@ -214,7 +220,7 @@
 // </div>
 //
 //
-// Styleguide: Pills.2
+// Styleguide: Pills and Tags.3
 
 .#{$ns}-pill-single {
 	background-color: $xui-color-white;

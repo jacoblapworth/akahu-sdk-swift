@@ -279,7 +279,7 @@
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadeout $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			animation: xui-animation-fadeout $xui-motion-speed-slow $xui-motion-curve-standard forwards;
 		}
 
 		.#{$ns}-dropdown--body {

@@ -41,7 +41,7 @@
 	max-width: 400px;
 	opacity: 1;
 	position: relative;
-	transition: opacity $xui-transition-duration-short $xui-easing-standard;
+	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 	z-index: 10;
 }
 

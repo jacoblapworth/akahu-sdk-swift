@@ -51,7 +51,7 @@ $xui-drawer-width: 350px;
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: all $xui-transition-duration-short $xui-easing-standard;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	width: $xui-drawer-width;
 }
 

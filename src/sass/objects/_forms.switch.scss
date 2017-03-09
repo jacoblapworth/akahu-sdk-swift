@@ -67,7 +67,7 @@
 	display: inline-block;
 	height: 22px;
 	position: relative;
-	transition: all $xui-transition-duration-short $xui-easing-standard;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	user-select: none;
 	vertical-align: middle;
 	width: 48px;
@@ -82,7 +82,7 @@
 		position: absolute;
 		top: 1px;
 		transform: translate(1px);
-		transition: all $xui-transition-duration-short $xui-easing-standard;
+		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 		width: 18px;
 	}
 

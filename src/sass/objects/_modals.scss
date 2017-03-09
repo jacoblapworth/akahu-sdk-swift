@@ -134,7 +134,7 @@
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: opacity $xui-transition-duration-medium $xui-easing-standard;
+	transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
 	visibility: hidden;
 	z-index: 10;
 }

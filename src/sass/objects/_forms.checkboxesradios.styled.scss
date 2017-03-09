@@ -404,7 +404,7 @@
 .#{$ns}-styledradio--focus,
 .#{$ns}-styledradio--main,
 .#{$ns}-styledradio--check {
-	transition: all $xui-transition-duration-short ease;
+	transition: all $xui-motion-speed-fast ease;
 }
 
 .#{$ns}-styledcheckbox--focus,

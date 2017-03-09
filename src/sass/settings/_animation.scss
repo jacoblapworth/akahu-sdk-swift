@@ -2,8 +2,23 @@
  * Global animation-related settings.
  */
 
+// TODO: Remove these 4 vars in XUI11
 $xui-transition-duration-short: 0.1s;
 $xui-transition-duration-medium: 0.3s;
 $xui-transition-duration-long: 0.8s;
-
 $xui-easing-standard: ease;
+
+/* ----- Duration ----- */
+$xui-motion-speed-fast: 0.1s;
+$xui-motion-speed-medium: 0.3s;
+$xui-motion-speed-slow: 0.5s;
+
+/* ----- Easing function ----- */
+$xui-motion-curve-standard: ease;
+$xui-motion-curve-enter: ease-in;
+$xui-motion-curve-exit: ease-out;
+
+/* ----- Delay ----- */
+$xui-motion-delay-short: 0.1s;
+$xui-motion-delay-medium: 0.3s;
+$xui-motion-delay-long: 0.5s;

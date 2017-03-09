@@ -329,7 +329,7 @@
 	min-height: $xui-input-height;
 	position: relative; // For z-index
 	text-align: center;
-	transition: all $xui-transition-duration-short ease;
+	transition: all $xui-motion-speed-fast ease;
 
 	// Border radius
 	&:first-of-type { // TODO: Remove this style on next breaking-changes release

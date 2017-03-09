@@ -5,7 +5,7 @@
 @mixin xui-navigation-filters-collapse-list() {
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height $xui-transition-duration-medium linear;
+	transition: max-height $xui-motion-speed-medium linear;
 }
 
 @mixin xui-navigation-filters-expand-list() {

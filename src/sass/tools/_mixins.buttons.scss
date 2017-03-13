@@ -56,7 +56,6 @@
 @mixin xui-button-grouped {
 	.#{$ns}-button-grouped {
 		border-radius: 0;
-		margin-right: -1px; // Prevent double borders
 
 		&:hover {
 			z-index: 2; // show full border on hover
@@ -70,6 +69,10 @@
 		&:first-of-type {
 			border-bottom-left-radius: $xui-radius;
 			border-top-left-radius: $xui-radius;
+		}
+
+		&:nth-child(n+2) {
+			border-left: 0;
 		}
 
 		&:last-of-type {

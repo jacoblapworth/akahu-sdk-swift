@@ -117,11 +117,6 @@
 	white-space: nowrap;
 }
 
-.#{$ns}-pill--text,
-.#{$ns}-pill--content {
-	@include xui-text-truncated;
-}
-
 .#{$ns}-newpill-layout {
 	height: $xui-icon-standard;
 	max-width: 200px;
@@ -209,7 +204,7 @@
 // </div>
 // <div class="xui-input xui-margin-top">
 //   <div class="xui-pill xui-pill-single xui-space-between">
-//     <span>
+//     <span class="xui-text-truncated">
 //       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1">C</abbr>
 //       <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
 //     </span>

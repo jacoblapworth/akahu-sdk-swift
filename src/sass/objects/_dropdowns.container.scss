@@ -233,7 +233,6 @@
 
 		.#{$ns}-dropdown--mask {
 			flex-grow: 1;
-			opacity: 1;
 			pointer-events: auto;
 			width: 100vw;
 		}
@@ -258,7 +257,8 @@
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadein $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			opacity: 1;
+			transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 
 		.#{$ns}-dropdown--body {
@@ -279,7 +279,7 @@
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			animation: xui-animation-fadeout $xui-motion-speed-slow $xui-motion-curve-standard forwards;
+			transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard $xui-motion-speed-medium;
 		}
 
 		.#{$ns}-dropdown--body {

@@ -114,7 +114,6 @@
 	position: absolute;
 
 	@include xui-breakpoint-narrow-up {
-		position: fixed;
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
@@ -135,7 +134,7 @@
 			left: 0;
 			max-width: 100vw;
 			position: absolute;
-			top: 100vh;
+			bottom: -100vh;
 			width: 100vw;
 			z-index: inherit;
 
@@ -238,7 +237,6 @@
 		}
 
 		.#{$ns}-dropdown--body {
-			bottom: 0;
 			flex-grow: 0;
 			top: auto;
 		}
@@ -262,7 +260,8 @@
 		}
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-slideup $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			bottom: 0;
+			transition: bottom $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 }
@@ -283,7 +282,7 @@
 		}
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-slidedown $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			transition: bottom $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 }

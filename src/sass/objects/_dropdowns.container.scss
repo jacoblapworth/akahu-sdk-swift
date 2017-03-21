@@ -170,10 +170,11 @@
 			}
 		}
 
-		.#{$ns}-dropdown-fullheight {
+		&.#{$ns}-dropdown-fullheight {
 			height: 100vh;
 
-			.xui-dropdown--body {
+			.#{$ns}-dropdown--body {
+				height: 100vh;
 				max-height: 100vh;
 			}
 		}

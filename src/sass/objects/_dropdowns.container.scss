@@ -135,9 +135,9 @@
 			max-width: 100vw;
 			position: absolute;
 			top: 100%;
+			transform: translateY(0%);
 			width: 100vw;
 			z-index: inherit;
-			transform: translateY(0%);
 
 			.#{$ns}-dropdown--scrollable-content {
 				max-height: 80vh;
@@ -230,7 +230,7 @@
 	}
 
 	@include xui-breakpoint-narrow {
-	top: 0;
+		top: 0;
 
 		.#{$ns}-dropdown--mask {
 			flex-grow: 1;

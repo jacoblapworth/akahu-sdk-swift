@@ -110,6 +110,7 @@
 
 .#{$ns}-dropdown-layout {
 	display: flex;
+	flex-direction: column;
 	min-width: $xui-starting-width;
 	position: absolute;
 
@@ -117,8 +118,8 @@
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
-			transform: scaleY(0);
 			transform-origin: top;
+			transform: scaleY(0)
 		}
 	}
 
@@ -220,14 +221,7 @@
 }
 
 .#{$ns}-dropdown-is-open {
-	flex-direction: column;
 	z-index: 1;
-
-	@include xui-breakpoint-narrow-up {
-		.#{$ns}-dropdown--body {
-			transform: scaleY(1);
-		}
-	}
 
 	@include xui-breakpoint-narrow {
 		top: 0;
@@ -249,7 +243,8 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			transform: scaleY(1);
+			transition: transform $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 
@@ -272,7 +267,8 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			transform: scaleY(0);
+			transition: transform $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 

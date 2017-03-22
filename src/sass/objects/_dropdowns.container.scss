@@ -119,7 +119,9 @@
 
 		.#{$ns}-dropdown--body {
 			transform-origin: top;
-			transform: scaleY(0)
+			overflow: hidden;
+			max-height: 0vh;
+			opacity: 0;
 		}
 	}
 
@@ -234,6 +236,8 @@
 
 		.#{$ns}-dropdown--body {
 			flex-grow: 0;
+			max-height: 100%;
+			opacity: 1;
 		}
 	}
 }
@@ -243,8 +247,9 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			transform: scaleY(1);
-			transition: transform $xui-motion-speed-medium $xui-motion-curve-standard;
+			max-height: 100vh;
+			opacity: 1;
+			transition: all $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 
@@ -267,8 +272,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			transform: scaleY(0);
-			transition: transform $xui-motion-speed-medium $xui-motion-curve-standard;
+			transition: all $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 

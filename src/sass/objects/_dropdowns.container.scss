@@ -247,7 +247,14 @@
 
 		.#{$ns}-dropdown--body {
 			max-height: 100vh;
-			transition: all $xui-motion-speed-medium $xui-motion-curve-standard;
+			/**
+			* Theres a 1ms delay here as a workaround to transitionsing the body open
+			* when pragmatically appending the dropdown to the end of the body.
+			* Without this delay the transition appears way to quickly, appearing not
+			* to transition at all. This delay allows the DOM element to be appended
+			* to the page before attempting to transition.
+			*/
+			transition: max-height $xui-motion-speed-medium $xui-motion-curve-standard 0.001s;
 		}
 	}
 
@@ -270,7 +277,8 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			transition: all $xui-motion-speed-medium $xui-motion-curve-standard;
+			max-height: 0vh;
+			transition: max-height $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}
 

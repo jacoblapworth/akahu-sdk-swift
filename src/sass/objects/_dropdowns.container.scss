@@ -118,9 +118,9 @@
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
-			transform-origin: top;
-			overflow: hidden;
 			max-height: 0vh;
+			overflow: hidden;
+			transform-origin: top;
 		}
 	}
 

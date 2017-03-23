@@ -79,10 +79,10 @@
 // Flex classes can be used to create flexible mutli-column layouts.
 //
 // Classes:
-// xui-u-flex: Container for a flex box parent
-// xui-u-flex-col: Container for a flex child (inside `xui-u-flex`)
+// xui-u-flex: Applies `display: flex` to an element
+// xui-u-flex-horizontal: Modifier to display child items horizontally
+// xui-u-flex-vertical: Modifier to display child items vertically
 // xui-u-flex-grow: Modifier for a flex child which fills remaining space
-// xui-u-flex-row: Modifier for a vertically centered flex box parent
 // xui-u-flex-verticalalign-center: Modifier for a column-orientated flex box parent
 // xui-u-flex-inherit: Inherit flex properties. Firefox does not handle display: flex on buttons, so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
 //
@@ -95,17 +95,17 @@
 // </div>
 // <br />
 // <div class="xui-u-flex">
-//   <div class="xui-panel xui-u-flex-col">
+//   <div class="xui-panel xui-u-flex xui-u-flex-vertical">
 //     <div class="xui-panel--header">Header</div>
 //     <div class="xui-panel--section">Content</div>
 //     <div class="xui-panel--footer">Footer</div>
 //   </div>
-//   <div class="xui-panel xui-u-flex-col xui-u-flex-grow">
+//   <div class="xui-panel xui-u-flex xui-u-flex-vertical xui-u-flex-grow">
 //     <div class="xui-panel--header">Header</div>
 //     <div class="xui-panel--section">Content</div>
 //     <div class="xui-panel--footer">Footer</div>
 //   </div>
-//   <div class="xui-panel xui-u-flex-col">
+//   <div class="xui-panel xui-u-flex xui-u-flex-vertical">
 //     <div class="xui-panel--header">Header</div>
 //     <div class="xui-panel--section">Content</div>
 //     <div class="xui-panel--footer">Footer</div>
@@ -118,22 +118,29 @@
 	display: flex;
 }
 
+// TODO: This class name makes little sense. Update or remove for next breaking change.
 .#{$ns}-u-flex-row {
 	align-items: center;
+}
+
+.#{$ns}-u-flex-col,
+.#{$ns}-u-flex-horizontal {
+	flex-direction: row;
+}
+
+.#{$ns}-u-flex-vertical {
+	flex-direction: column;
 }
 
 .#{$ns}-u-spacebetween {
 	justify-content: space-between;
 }
 
-.#{$ns}-u-flex-col {
-	flex-direction: row;
-}
-
 .#{$ns}-u-flex-grow {
 	flex-grow: 1;
 }
 
+// TODO: Revisit this class - better as separate utility classes?
 .#{$ns}-u-flex-verticalalign-center {
 	flex-direction: column;
 	justify-content: center;

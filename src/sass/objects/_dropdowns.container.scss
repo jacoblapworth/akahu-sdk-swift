@@ -118,7 +118,7 @@
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
-			max-height: 0vh;
+			max-height: 0;
 			overflow: hidden;
 			transform-origin: top;
 		}
@@ -149,7 +149,7 @@
 		.#{$ns}-dropdown--header {
 			display: block;
 
-			.#{$ns}-dropdown--header-container{
+			.#{$ns}-dropdown--header-container {
 				align-items: center;
 				border-bottom: $xui-divider-standard;
 				display: flex;
@@ -277,7 +277,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			max-height: 0vh;
+			max-height: 0;
 			transition: max-height $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 	}

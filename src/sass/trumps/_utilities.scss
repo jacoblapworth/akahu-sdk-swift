@@ -115,6 +115,17 @@
 //
 // Styleguide: Utilities.2
 
+// Deprecated flex utility classes
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-u-flex-row: Use xui-u-flex-verticallycentered instead
+// xui-u-flex-col: Use xui-u-flex-horizontal instead
+//
+// Styleguide: Utilities.2.1
+
 .#{$ns}-u-flex {
 	display: flex;
 }

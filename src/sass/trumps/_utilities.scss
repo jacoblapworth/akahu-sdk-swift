@@ -80,15 +80,16 @@
 //
 // Classes:
 // xui-u-flex: Applies `display: flex` to an element
-// xui-u-flex-horizontal: Modifier to display child items horizontally
-// xui-u-flex-vertical: Modifier to display child items vertically
+// xui-u-flex-horizontal: Modifier to display child items in a horizontal order
+// xui-u-flex-vertical: Modifier to display child items in a vertical order
+// xui-u-flex-verticallycentered: Modifier to display child items vertically centered
 // xui-u-flex-grow: Modifier for a flex child which fills remaining space
 // xui-u-flex-verticalalign-center: Modifier for a column-orientated flex box parent
 // xui-u-flex-inherit: Inherit flex properties. Firefox does not handle display: flex on buttons, so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
 //
 // Markup:
 // <div class="xui-panel">
-//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-verticallycentered xui-padding">
 //     <h3 class="xui-panel--heading xui-panel-title xui-u-flex-col xui-u-flex-grow">Panel Header</h3>
 //     <button type="button" class="xui-button xui-button-standard xui-u-flex-col">Button</button>
 //   </header>
@@ -118,8 +119,9 @@
 	display: flex;
 }
 
-// TODO: This class name makes little sense. Update or remove for next breaking change.
-.#{$ns}-u-flex-row {
+// TODO: xui-u-flex-row class name makes little sense. Update or remove for next breaking change.
+.#{$ns}-u-flex-row,
+.#{$ns}-u-flex-verticallycentered {
 	align-items: center;
 }
 

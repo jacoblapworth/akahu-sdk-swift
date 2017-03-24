@@ -255,7 +255,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation:  xui-dropdown-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			animation: xui-dropdown-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 

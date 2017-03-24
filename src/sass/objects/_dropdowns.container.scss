@@ -1,6 +1,16 @@
 @import "../vars";
 @import "../mixins";
 
+@keyframes xui-animation-show {
+	0% { max-height: 0; z-index: 1000; }
+	100% { max-height: 100vh; }
+}
+
+@keyframes xui-animation-hide {
+	0% { max-height: 100vh; z-index: 1000; }
+	100% { max-height: 0; }
+}
+
 // Dropdowns
 //
 // ### Behaviour
@@ -118,7 +128,6 @@
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
-			max-height: 0;
 			overflow: hidden;
 			transform-origin: top;
 		}
@@ -137,7 +146,7 @@
 			max-width: 100vw;
 			position: absolute;
 			top: 100%;
-			transform: translateY(0%);
+			transform: translateY(0);
 			width: 100vw;
 			z-index: inherit;
 
@@ -246,15 +255,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			max-height: 100vh;
-			/**
-			* Theres a 1ms delay here as a workaround to transitionsing the body open
-			* when pragmatically appending the dropdown to the end of the body.
-			* Without this delay the transition appears way to quickly, appearing not
-			* to transition at all. This delay allows the DOM element to be appended
-			* to the page before attempting to transition.
-			*/
-			transition: max-height $xui-motion-speed-medium $xui-motion-curve-standard 0.001s;
+			animation: $xui-motion-speed-medium $xui-motion-curve-standard forwards xui-animation-show;
 		}
 	}
 
@@ -277,8 +278,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			max-height: 0;
-			transition: max-height $xui-motion-speed-medium $xui-motion-curve-standard;
+			animation: xui-animation-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 

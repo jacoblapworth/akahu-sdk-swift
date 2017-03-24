@@ -1,12 +1,12 @@
 @import "../vars";
 @import "../mixins";
 
-@keyframes xui-animation-show {
+@keyframes xui-dropdown-show {
 	0% { max-height: 0; z-index: 1000; }
 	100% { max-height: 100vh; }
 }
 
-@keyframes xui-animation-hide {
+@keyframes xui-dropdown-hide {
 	0% { max-height: 100vh; z-index: 1000; }
 	100% { max-height: 0; }
 }
@@ -255,7 +255,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: $xui-motion-speed-medium $xui-motion-curve-standard forwards xui-animation-show;
+			animation:  xui-dropdown-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 
@@ -278,7 +278,7 @@
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {
-			animation: xui-animation-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			animation: xui-dropdown-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 		}
 	}
 

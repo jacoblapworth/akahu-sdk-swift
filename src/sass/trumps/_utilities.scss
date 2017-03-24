@@ -79,33 +79,34 @@
 // Flex classes can be used to create flexible mutli-column layouts.
 //
 // Classes:
-// xui-u-flex: Container for a flex box parent
-// xui-u-flex-col: Container for a flex child (inside `xui-u-flex`)
+// xui-u-flex: Applies `display: flex` to an element
+// xui-u-flex-horizontal: Modifier to display child items in a horizontal order
+// xui-u-flex-vertical: Modifier to display child items in a vertical order
+// xui-u-flex-verticallycentered: Modifier to display child items vertically centered
 // xui-u-flex-grow: Modifier for a flex child which fills remaining space
-// xui-u-flex-row: Modifier for a vertically centered flex box parent
 // xui-u-flex-verticalalign-center: Modifier for a column-orientated flex box parent
 // xui-u-flex-inherit: Inherit flex properties. Firefox does not handle display: flex on buttons, so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
 //
 // Markup:
 // <div class="xui-panel">
-//   <header class="xui-panel--header xui-u-flex xui-u-flex-row xui-padding">
+//   <header class="xui-panel--header xui-u-flex xui-u-flex-verticallycentered xui-padding">
 //     <h3 class="xui-panel--heading xui-panel-title xui-u-flex-col xui-u-flex-grow">Panel Header</h3>
 //     <button type="button" class="xui-button xui-button-standard xui-u-flex-col">Button</button>
 //   </header>
 // </div>
 // <br />
 // <div class="xui-u-flex">
-//   <div class="xui-panel xui-u-flex-col">
+//   <div class="xui-panel xui-u-flex xui-u-flex-vertical">
 //     <div class="xui-panel--header">Header</div>
 //     <div class="xui-panel--section">Content</div>
 //     <div class="xui-panel--footer">Footer</div>
 //   </div>
-//   <div class="xui-panel xui-u-flex-col xui-u-flex-grow">
+//   <div class="xui-panel xui-u-flex xui-u-flex-vertical xui-u-flex-grow">
 //     <div class="xui-panel--header">Header</div>
 //     <div class="xui-panel--section">Content</div>
 //     <div class="xui-panel--footer">Footer</div>
 //   </div>
-//   <div class="xui-panel xui-u-flex-col">
+//   <div class="xui-panel xui-u-flex xui-u-flex-vertical">
 //     <div class="xui-panel--header">Header</div>
 //     <div class="xui-panel--section">Content</div>
 //     <div class="xui-panel--footer">Footer</div>
@@ -114,26 +115,45 @@
 //
 // Styleguide: Utilities.2
 
+// Deprecated flex utility classes
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-u-flex-row: Use xui-u-flex-verticallycentered instead
+// xui-u-flex-col: Use xui-u-flex-horizontal instead
+//
+// Styleguide: Utilities.2.1
+
 .#{$ns}-u-flex {
 	display: flex;
 }
 
-.#{$ns}-u-flex-row {
+// TODO: xui-u-flex-row class name makes little sense. Update or remove for next breaking change.
+.#{$ns}-u-flex-row,
+.#{$ns}-u-flex-verticallycentered {
 	align-items: center;
+}
+
+.#{$ns}-u-flex-col,
+.#{$ns}-u-flex-horizontal {
+	flex-direction: row;
+}
+
+.#{$ns}-u-flex-vertical {
+	flex-direction: column;
 }
 
 .#{$ns}-u-spacebetween {
 	justify-content: space-between;
 }
 
-.#{$ns}-u-flex-col {
-	flex-direction: row;
-}
-
 .#{$ns}-u-flex-grow {
 	flex-grow: 1;
 }
 
+// TODO: Revisit this class - better as separate utility classes?
 .#{$ns}-u-flex-verticalalign-center {
 	flex-direction: column;
 	justify-content: center;

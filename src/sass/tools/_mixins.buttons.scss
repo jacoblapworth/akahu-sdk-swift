@@ -125,7 +125,8 @@
 	color: $color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
-	padding: 11px $xui-s-standard;
+	min-height: $xui-input-height;
+	padding: 11px $xui-input-padding-horizontal;
 	text-align: center;
 	text-decoration: none;
 }

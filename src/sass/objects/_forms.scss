@@ -30,7 +30,7 @@
 	margin: 0; // Safari's default UA styles set 2px vertical padding
 	min-height: $xui-input-height;
 	outline: none;
-	padding: 8px 0.75em;
+	padding: $xui-input-padding;
 	position: relative;
 	width: 100%;
 

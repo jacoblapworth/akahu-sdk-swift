@@ -156,6 +156,7 @@
 	margin-bottom: auto; // Margin top & bottom required to fix flex > align-items: center for children taller than the container.
 	margin-top: auto;
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
+	position: relative;
 	width: 360px;
 
 	.#{$ns}-modal--close ~ .#{$ns}-modal--header {

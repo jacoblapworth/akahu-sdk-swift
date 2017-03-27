@@ -19,10 +19,9 @@
 //
 // Styleguide: Buttons.3.1
 
-@each $size, $value-map in $xui-button-sizes {
-	.#{$ns}-button-#{$size} {
-		@include xui-button-size($value-map...);
-	}
+.#{$ns}-button-small {
+	min-height: 30px;
+	padding: 6px $xui-s-small;
 }
 
 // Full-width

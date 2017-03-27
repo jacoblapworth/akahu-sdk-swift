@@ -15,6 +15,7 @@ $xui-button-variants-background-colors: (
 	negative : $xui-color-xero-red
 );
 
+// TODO: Remove this in XUI11 as it is no longer used
 $xui-button-sizes: (
 	small : (padding: 6px $xui-s-small)
 );

@@ -27,9 +27,18 @@
 // xui-toast-list: Style for a description toast
 // xui-toast-negative: Modifier for a negative highlight toast
 // xui-toast-positive: Modifier for a positive highlight toast
-// xui-toast-wrapper: Container for a group of toasts
 //
 // Styleguide: Toast.10
+
+// Deprecated CSS Classes
+//
+// <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
+// <img src="https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg" />
+//
+// Classes:
+// xui-toast-wrapper: Container for a group of toasts
+//
+// Styleguide: Toast.11
 
 .#{$ns}-toast {
 	@include xui-clearfix;

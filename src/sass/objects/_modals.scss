@@ -156,14 +156,26 @@
 	margin-bottom: auto; // Margin top & bottom required to fix flex > align-items: center for children taller than the container.
 	margin-top: auto;
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
+	position: relative;
 	width: 360px;
 
 	.#{$ns}-modal--close ~ .#{$ns}-modal--header {
 		min-height: 50px;
+		padding-right: 50px;
+	}
+
+	.#{$ns}-modal--body {
+		flex: 1 0 250px; // I chose 250px as it was small, but not too small allowing for header and footer height.
+	}
+
+	.#{$ns}-modal--footer {
+		flex-shrink: 0;
 	}
 
 	.#{$ns}-modal--close {
 		margin: $xui-s-small;
+		position: absolute;
+		right: 0;
 	}
 }
 
@@ -188,10 +200,13 @@
 
 .#{$ns}-modal-fullscreen {
 	border-radius: 0;
-	height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100%;
 	left: 0;
-	max-height: 100vh; // Overrides any max height set by the `modal-layout` class
+	max-height: 100%; // Overrides any max height set by the `modal-layout` class
 	max-width: 100vw; // Overrides any max width set by the `modal-layout` class
+	overflow: auto;
 	position: fixed;
 	top: 0;
 	width: 100vw;

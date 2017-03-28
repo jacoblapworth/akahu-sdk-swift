@@ -204,8 +204,9 @@
 	flex-flow: column nowrap;
 	height: 100%;
 	left: 0;
-	max-height: 100vh; // Overrides any max height set by the `modal-layout` class
+	max-height: 100%; // Overrides any max height set by the `modal-layout` class
 	max-width: 100vw; // Overrides any max width set by the `modal-layout` class
+	overflow: auto;
 	position: fixed;
 	top: 0;
 	width: 100vw;

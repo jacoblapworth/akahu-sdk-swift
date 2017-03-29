@@ -119,7 +119,7 @@
 
 
 .#{$ns}-dropdown-layout {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	min-width: $xui-starting-width;
 	position: absolute;
@@ -231,6 +231,7 @@
 }
 
 .#{$ns}-dropdown-is-open {
+	display: flex;
 	z-index: 1;
 
 	@include xui-breakpoint-narrow {

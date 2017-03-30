@@ -18,7 +18,7 @@
 ### Why 
 
 ### Screenshot
-*Please include a screenshot of any bugs*
+*Please include a screenshot of what you want (if applicable)*
 
 ---
 

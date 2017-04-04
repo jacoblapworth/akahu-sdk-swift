@@ -275,7 +275,7 @@
 }
 
 .#{$ns}-dropdown-is-closing {
-
+	display: flex;
 	@include xui-breakpoint-narrow-up {
 
 		.#{$ns}-dropdown--body {

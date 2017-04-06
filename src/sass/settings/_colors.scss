@@ -28,6 +28,22 @@ $xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 20%);
 $xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
 $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 
+//Greys with opacity
+$xui-color-grey-alpha-2: rgba($xui-color-grey-1,0.75);
+$xui-color-grey-alpha-3: rgba($xui-color-grey-1, 0.5);
+$xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.35);
+$xui-color-grey-alpha-5: rgba($xui-color-grey-1, 0.2);
+$xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.1);
+$xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.05);
+
+//Inverted with opacity
+$xui-color-inverted-alpha-2: rgba($xui-color-white,0.75);
+$xui-color-inverted-alpha-3: rgba($xui-color-white, 0.5);
+$xui-color-inverted-alpha-4: rgba($xui-color-white, 0.35);
+$xui-color-inverted-alpha-5: rgba($xui-color-white, 0.2);
+$xui-color-inverted-alpha-6: rgba($xui-color-white, 0.1);
+$xui-color-inverted-alpha-7: rgba($xui-color-white, 0.05);
+
 // Component Greys
 //
 $xui-color-primary-text: $xui-color-grey-1;
@@ -41,7 +57,8 @@ $xui-color-border: rgba($xui-color-grey-1, .35);
 $xui-color-divider: $xui-color-grey-5;
 $xui-color-background: $xui-color-grey-6;
 $xui-color-hover: $xui-color-grey-6;
-$xui-color-icon: $xui-color-grey-3;
+$xui-color-icon: $xui-color-grey-alpha-3;
+$xui-color-icon-inverted: $xui-color-inverted-alpha-2;
 $xui-color-form: $xui-color-white;
 $xui-color-panel: $xui-color-white;
 
@@ -89,15 +106,16 @@ $xui-color-file-pdf: #db4437;
 
 // Shadows Colours and Depths
 //
-$xui-color-shadow-light: rgba($xui-color-black, 0.05);
-$xui-color-shadow-medium: rgba($xui-color-black, 0.1);
-$xui-color-shadow-strong: rgba($xui-color-black, 0.2);
+$xui-color-shadow-light: $xui-color-grey-alpha-7;
+$xui-color-shadow-medium: $xui-color-grey-alpha-6;
+$xui-color-shadow-strong: $xui-color-grey-alpha-5;
 $xui-shadow-depth-1: 0 2px 0 0 $xui-color-shadow-light;
 $xui-shadow-depth-1-upward: 0 -2px 0 0 $xui-color-shadow-light;
 $xui-shadow-depth-2: 0 2px 0 0 $xui-color-shadow-light, 0 0 15px 0 $xui-color-shadow-medium;
 $xui-shadow-depth-3: 0 2px 0 0 $xui-color-shadow-light, 0 0 15px 0 $xui-color-shadow-medium, 0 0 30px 0 $xui-color-shadow-strong;
-$xui-color-overflow-shadow: rgba(0, 0, 0, 0.05);
-$xui-color-overflow-shadow-grey: #d4dae0;
+
+$xui-color-overflow-shadow: $xui-color-grey-alpha-7; // TODO: deprecated, to remove in XUI 11
+$xui-color-overflow-shadow-grey: #d4dae0; // TODO: deprecated, to remove in XUI 11
 
 // Shadows Components
 //

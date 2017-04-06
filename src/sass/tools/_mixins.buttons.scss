@@ -73,6 +73,9 @@
 
 		&:nth-child(n+2) {
 			border-left: 0;
+			&:not(.#{$ns}-button-standard) {
+				margin-left: 1px;
+			}
 		}
 
 		&:last-of-type {
@@ -115,13 +118,13 @@
 	pointer-events: none;
 }
 
-@mixin xui-button-variant($background-color: $xui-color-form, $border: $xui-border-standard, $color: $xui-color-xero-blue, $background-image: null) {
+@mixin xui-button-variant($background-color: $xui-color-form, $color: $xui-color-xero-blue, $background-image: null, $border: null) {
 	background-color: $background-color;
+	background-clip: padding-box;
 	background-image: $background-image;
-	background-origin: padding-box;
 	background-repeat: no-repeat;
-	border: $border;
 	border-radius: $xui-radius;
+	border: $border;
 	color: $color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
@@ -131,7 +134,7 @@
 	text-decoration: none;
 }
 
-@mixin xui-button-icon-states($text-color: $xui-color-grey-2, $focus-bg-color: $xui-color-shadow-light, $active-bg-color: $xui-color-shadow-medium, $hover-bg-color: none) {
+@mixin xui-button-icon-states($text-color: $xui-color-grey-alpha-2, $focus-bg-color: $xui-color-shadow-light, $active-bg-color: $xui-color-shadow-medium, $hover-bg-color: none) {
 	&:hover {
 		background-color: $hover-bg-color;
 		color: $text-color;

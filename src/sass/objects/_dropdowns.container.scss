@@ -26,9 +26,6 @@
 // xui-dropdown--mask: Mask that is displayed when dropdown takes on narrow screen responsive behaviour.
 // xui-dropdown--body: Container for the content section of a drop down
 // xui-dropdown--footer: Footer class for the dropdown.
-// xui-dropdown-is-open: Style for an open, visible dropdown
-// xui-dropdown-is-opening: Style for animating the opening of a dropdown
-// xui-dropdown-is-closing: Style for animating the closing of a dropdown
 // xui-dropdown-small: Style for a small width dropdown
 // xui-dropdown-medium: Style for a medium width dropdown
 // xui-dropdown-large: Style for a large width dropdown
@@ -38,7 +35,37 @@
 // xui-dropdown-positionabove: Style for positioning the dropdown above its nearest explictly positioned parent
 // xui-dropdown-positionbelow: Style for positioning the dropdown below its nearest explictly positioned parent
 //
-// ### Small dropdown
+// Styleguide: Dropdowns.1
+
+// State Transitions
+//
+// Classes:
+// xui-dropdown-is-open: Style for an open, visible dropdown
+// xui-dropdown-is-opening: Style for animating the opening of a dropdown
+// xui-dropdown-is-closing: Style for animating the closing of a dropdown
+//
+// The following classes are involved in setting the state of the dropdown, which is closed by default:
+// * `xui-dropdown-is-open`
+// * `xui-dropdown-is-opening`
+// * `xui-dropdown-is-closing`
+//
+// #### Closed
+// None of the above classes should be applied.
+//
+// #### Opening
+// Apply `xui-dropdown-is-open`, then, after a brief delay (enough for a repaint), apply `xui-dropdown-is-opening`.
+// If you apply both classes without giving the browser a chance to repaint, then there will be no animation.
+//
+// #### Open
+// While the dropdown is open, it should have both `xui-dropdown-is-open` and `xui-dropdown-is-opening` applied.
+//
+// #### Closing
+// Remove `xui-dropdown-is-opening` and apply `xui-dropdown-is-closing`.
+// Set a timeout for 200ms and then remove both `xui-dropdown-is-closing` and `xui-dropdown-is-open`.
+//
+// Styleguide: Dropdowns.1.2
+
+// Narrow Dropdown
 //
 // Markup:
 // <div class="xui-dropdown-layout xui-dropdown-small xui-dropdown-is-open xui-dropdown-is-opening">
@@ -91,7 +118,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Dropdowns.1
+// Styleguide: Dropdowns.1.3
 
 // Full width dropdown
 //
@@ -115,7 +142,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Dropdowns.1.2
+// Styleguide: Dropdowns.1.4
 
 
 .#{$ns}-dropdown-layout {
@@ -197,6 +224,7 @@
 		position: absolute;
 		right: 0;
 		top: 0;
+		transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 	}
 
 	.#{$ns}-dropdown--footer {
@@ -264,7 +292,6 @@
 
 		.#{$ns}-dropdown--mask {
 			opacity: 1;
-			transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard;
 		}
 
 		.#{$ns}-dropdown--body {
@@ -286,7 +313,7 @@
 	@include xui-breakpoint-narrow {
 
 		.#{$ns}-dropdown--mask {
-			transition: opacity $xui-motion-speed-medium $xui-motion-curve-standard $xui-motion-speed-medium;
+			opacity: 0;
 		}
 
 		.#{$ns}-dropdown--body {

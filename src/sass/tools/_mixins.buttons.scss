@@ -11,6 +11,7 @@
 	margin: 0;
 	outline: none;
 	padding: 0;
+	color: inherit;
 }
 
 @mixin xui-button-shadow($fade) {
@@ -134,7 +135,7 @@
 	text-decoration: none;
 }
 
-@mixin xui-button-icon-states($text-color: $xui-color-grey-alpha-2, $focus-bg-color: $xui-color-shadow-light, $active-bg-color: $xui-color-shadow-medium, $hover-bg-color: none) {
+@mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-color-shadow-light, $active-bg-color: $xui-color-shadow-medium, $hover-bg-color: none) {
 	&:hover {
 		background-color: $hover-bg-color;
 		color: $text-color;

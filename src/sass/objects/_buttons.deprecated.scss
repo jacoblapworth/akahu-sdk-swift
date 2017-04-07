@@ -1,0 +1,28 @@
+@import "../vars";
+@import "../mixins";
+
+// Deprecated
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.23.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// The following link classes have been deprecated and will removed in a future version of XUI.
+//
+// To recreate this behaviour use the new borderless button variant.
+//
+// Classes:
+// xui-button-link: Text only button without padding
+// xui-padding-actionlink: Text only button with padding
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-link {{modifier_class}}">Action</button>
+// <button type="button" class="xui-button xui-button-link xui-padding-actionlink {{modifier_class}}">Action</button>
+//
+// Styleguide: Buttons.10
+
+
+.#{$ns}-button-link { // TODO Remove in XUI
+	@include xui-state-focus-transparent;
+	color: $xui-color-xero-blue;
+	font-weight: inherit;
+}

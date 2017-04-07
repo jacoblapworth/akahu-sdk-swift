@@ -8,7 +8,6 @@ $xui-color-white: #fff;
 $xui-color-black: #32465a; // We refuse to use #000
 $xui-color-xero-blue: #2baaed;
 $xui-color-xero-light-blue: #3adcf6;
-$xui-color-xero-dark-blue: #0299d4;
 $xui-color-xero-green: #57c40a;
 $xui-color-xero-light-green: #51daaf;
 $xui-color-xero-orange: #fa8100;
@@ -18,7 +17,14 @@ $xui-color-xero-pink: #ff6496;
 $xui-color-xero-purple: #b450c8;
 $xui-color-xero-dark-purple: #643cfa;
 
-//Base Greys
+
+// Dark variants
+$xui-color-xero-dark-blue: mix($xui-color-xero-blue, #000, 90%);
+$xui-color-xero-dark-green: mix($xui-color-xero-green, #000, 90%);
+$xui-color-xero-dark-red: mix($xui-color-xero-red, #000, 90%);
+
+
+// Greys
 //
 $xui-color-grey-1: $xui-color-black;
 $xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
@@ -28,15 +34,17 @@ $xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 20%);
 $xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
 $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 
-//Greys with opacity
-$xui-color-grey-alpha-2: rgba($xui-color-grey-1,0.75);
+// Greys with opacity
+//
+$xui-color-grey-alpha-2: rgba($xui-color-grey-1, 0.75);
 $xui-color-grey-alpha-3: rgba($xui-color-grey-1, 0.5);
 $xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.35);
 $xui-color-grey-alpha-5: rgba($xui-color-grey-1, 0.2);
 $xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.1);
 $xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.05);
 
-//Inverted with opacity
+// Inverted with opacity
+//
 $xui-color-inverted-alpha-2: rgba($xui-color-white,0.75);
 $xui-color-inverted-alpha-3: rgba($xui-color-white, 0.5);
 $xui-color-inverted-alpha-4: rgba($xui-color-white, 0.35);
@@ -48,31 +56,39 @@ $xui-color-inverted-alpha-7: rgba($xui-color-white, 0.05);
 //
 $xui-color-primary-text: $xui-color-grey-1;
 $xui-color-tooltip: $xui-color-grey-1;
-$xui-color-secondary-text: $xui-color-grey-2;
+$xui-color-secondary-text: $xui-color-grey-alpha-2;
 $xui-color-reversed-text: $xui-color-white;
-$xui-color-disabled: $xui-color-grey-5;
-$xui-color-disabled-text: $xui-color-grey-3;
-$xui-color-placeholder: $xui-color-grey-3;
-$xui-color-border: rgba($xui-color-grey-1, .35);
-$xui-color-divider: $xui-color-grey-5;
-$xui-color-background: $xui-color-grey-6;
-$xui-color-hover: $xui-color-grey-6;
-$xui-color-icon: $xui-color-grey-alpha-3;
+$xui-color-disabled: $xui-color-grey-alpha-5;
+$xui-color-disabled-text: $xui-color-grey-alpha-3;
+$xui-color-placeholder: $xui-color-grey-alpha-3;
+$xui-color-border: $xui-color-grey-alpha-4;
+$xui-color-divider: $xui-color-grey-alpha-5;
+$xui-color-background: $xui-color-grey-alpha-6;
+$xui-color-hover: $xui-color-grey-alpha-7;
+$xui-color-icon: $xui-color-grey-alpha-2;
 $xui-color-icon-inverted: $xui-color-inverted-alpha-2;
 $xui-color-form: $xui-color-white;
 $xui-color-panel: $xui-color-white;
 
 // Inverted Colours
 //
-$xui-color-white-muted: rgba($xui-color-white, 0.8);
-$xui-color-white-faint: rgba($xui-color-white, 0.5);
-$xui-color-shadow-inverted-light: rgba($xui-color-white, 0.05);
-$xui-color-shadow-inverted-medium: rgba($xui-color-white, 0.1);
-$xui-color-shadow-inverted-strong: rgba($xui-color-white, 0.2);
+$xui-color-white-muted: $xui-color-inverted-alpha-2;
+$xui-color-white-faint: $xui-color-inverted-alpha-3;
+$xui-color-shadow-inverted-light: $xui-color-inverted-alpha-7;
+$xui-color-shadow-inverted-medium: $xui-color-inverted-alpha-6;
+$xui-color-shadow-inverted-strong: $xui-color-inverted-alpha-5;
+
+// Highlights
+//
+$xui-color-highlight-light: rgba($xui-color-grey-1, 0.95);
+$xui-color-highlight-medium: rgba($xui-color-grey-1, 0.90);
+$xui-color-highlight-strong: rgba($xui-color-grey-1, 0.80);
+
 $xui-color-highlight-inverted-light: rgba($xui-color-white, 0.95);
 $xui-color-highlight-inverted-medium: rgba($xui-color-white, 0.90);
-$xui-color-highlight-inverted-strong: $xui-color-white-muted;
-$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-shadow-inverted-strong;
+$xui-color-highlight-inverted-strong: rgba($xui-color-white,0.75);
+
+
 
 // Avatars
 //
@@ -87,11 +103,6 @@ $xui-color-avatar-8: #9595ef;
 $xui-color-avatar-9: #c48fde;
 $xui-color-avatar-10: #ff9cde;
 
-// Highlights
-//
-$xui-color-highlight-light: rgba($xui-color-black, 0.95);
-$xui-color-highlight-medium: rgba($xui-color-black, 0.90);
-$xui-color-highlight-strong: rgba($xui-color-black, 0.80);
 
 // Social
 //
@@ -125,7 +136,11 @@ $xui-shadow-dropdown: $xui-shadow-depth-2;
 $xui-shadow-popovers: $xui-shadow-depth-2;
 $xui-shadow-toasts: $xui-shadow-depth-2;
 $xui-shadow-modal: $xui-shadow-depth-3;
+
+// Focus ring
+//
 $xui-shadow-focus: 0 0 0 3px $xui-color-shadow-medium;
+$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-shadow-inverted-strong;
 
 // Borders
 //

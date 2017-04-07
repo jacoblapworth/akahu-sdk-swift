@@ -70,14 +70,15 @@
 }
 
 @import "buttons.variants"; // Section 2
-@import "buttons.sizes"; // Section 3
-@import "buttons.groups"; // Section 4
-@import "buttons.dropdowns"; // Section 5
-@import "buttons.icons"; // Section 6
-@import "buttons.link"; // Section 7
+@import "buttons.borderless"; // Section 3
+@import "buttons.sizes"; // Section 4
+@import "buttons.groups"; // Section 5
+@import "buttons.dropdowns"; // Section 6
+@import "buttons.icons"; // Section 7
 @import "buttons.states"; // Section 8
-//Section 9 is _actions.scss - is included to the styleguide directly in xui.scss
-@import "buttons.toggle"; // Section 10
+@import "buttons.toggle";
+// Section 9 is action layouts
+@import "buttons.deprecated"; // Section 10
 
 .#{$ns}-button-inverted {
 	@include xui-state-focus-inverted;

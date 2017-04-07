@@ -3,7 +3,7 @@
 
 // Icons
 //
-// Styleguide: Buttons.6
+// Styleguide: Buttons.7
 
 // Icon
 //
@@ -38,7 +38,7 @@
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // </div>
 //
-// Styleguide: Buttons.6.1
+// Styleguide: Buttons.7.1
 
 .#{$ns}-button-icon {
 	@include xui-button-icon-states;
@@ -51,12 +51,22 @@
 	.#{$ns}-icon {
 		display: block;
 	}
+	
+	&.#{$ns}-button-is-disabled {
+		color: $xui-color-grey-alpha-3;
+	}
 
 	&-inverted {
-		@include xui-button-icon-states($xui-color-grey-4, $xui-color-shadow-inverted-light, $xui-color-shadow-inverted-medium);
+		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-light, $xui-color-shadow-inverted-medium);
 		color: $xui-color-icon-inverted;
+
+		&.#{$ns}-button-is-disabled {
+			color: $xui-color-inverted-alpha-3;
+		}
 	}
+
 }
+
 
 .#{$ns}-button-icon-large {
 	height: $xui-icon-large;

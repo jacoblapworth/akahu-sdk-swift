@@ -23,7 +23,7 @@
 //
 // Markup:
 // <!-- Loader -->
-// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-label="Content loading">
+// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-valuetext="Content loading">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -31,28 +31,28 @@
 // <br />
 // <!-- Loader inside a button -->
 // <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-main">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-standard">
-//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-label="Button loading">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>

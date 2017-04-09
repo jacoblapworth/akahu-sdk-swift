@@ -4,6 +4,7 @@
 	appearance: none;
 	background: transparent;
 	border: 0;
+	color: inherit;
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
@@ -11,7 +12,6 @@
 	margin: 0;
 	outline: none;
 	padding: 0;
-	color: inherit;
 }
 
 @mixin xui-button-shadow($fade) {
@@ -120,12 +120,12 @@
 }
 
 @mixin xui-button-variant($background-color: $xui-color-form, $color: $xui-color-xero-blue, $background-image: null, $border: null) {
-	background-color: $background-color;
 	background-clip: padding-box;
+	background-color: $background-color;
 	background-image: $background-image;
 	background-repeat: no-repeat;
-	border-radius: $xui-radius;
 	border: $border;
+	border-radius: $xui-radius;
 	color: $color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS

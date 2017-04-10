@@ -15,35 +15,42 @@
 //	<button type="button" class="xui-button xui-button-borderless xui-button-borderless-inverted">Inverted</button>
 // 	<button type="button" class="xui-button xui-button-borderless xui-button-borderless-inverted xui-button-is-disabled">Inverted disabled</button>
 // </div>
-// <button type="button" class="xui-button xui-button-borderless">With icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// <button type="button" class="xui-button xui-button-borderless">
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	With icon on left
+// </button>
+// <button type="button" class="xui-button xui-button-borderless">With icon on right
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-borderless xui-button-borderless-muted">Muted with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-borderless xui-button-borderless-blue">Blue with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-borderless xui-button-borderless-red">Red with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-borderless xui-button-borderless-green">Green with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// </button>
+// <button type="button" class="xui-button xui-button-borderless xui-button-borderless-green xui-button-small">Green with icon
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-borderless xui-button-borderless-green xui-button-is-disabled">Disabled with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <div class='xui-buttongroup'>
-// 	<button type="button" class="xui-button xui-button-borderless xui-button-borderless-muted xui-button-grouped">One</button>
-// 	<button type="button" class="xui-button xui-button-borderless xui-button-borderless-muted xui-button-grouped">Two</button>
-// 	<button type="button" class="xui-button xui-button-borderless xui-button-borderless-muted xui-button-grouped">Three</button>
+// 	<button type="button" class="xui-button xui-button-borderless xui-button-small xui-button-borderless-muted xui-button-grouped">One</button>
+// 	<button type="button" class="xui-button xui-button-borderless xui-button-small xui-button-borderless-muted xui-button-grouped">Two</button>
+// 	<button type="button" class="xui-button xui-button-borderless xui-button-small xui-button-borderless-muted xui-button-grouped">Three</button>
 // </div>
 // <div class="xui-text-inverted">
-// <button type="button" class="xui-button xui-button-borderless xui-button-borderless-inverted">Inverted with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// <button type="button" class="xui-button xui-button-borderless xui-button-borderless-inverted xui-button-small">Inverted with icon
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <button type="button" class="xui-button xui-button-borderless xui-button-borderless-inverted xui-button-is-disabled">Inverted disabled with icon
-//	<svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//	<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 // <div class='xui-buttongroup'>
 // 	<button type="button" class="xui-button xui-button-borderless xui-button-borderless-inverted xui-button-grouped">One</button>
@@ -75,38 +82,25 @@
 	}
 
 	&.#{$ns}-button-borderless-muted {
-		color: $xui-color-grey-alpha-2;
-		&:hover {
-			color: $xui-color-grey-1;
-		}
+		@include xui-button-borderless-text($xui-color-grey-alpha-2, $xui-color-grey-1);
 	}
 	&.#{$ns}-button-borderless-blue {
-		color: $xui-color-xero-blue;
-		&:hover {
-			color: $xui-color-xero-dark-blue;
-		}
+		@include xui-button-borderless-text($xui-color-xero-blue, $xui-color-xero-dark-blue);
 	}
 	&.#{$ns}-button-borderless-green {
-		color: $xui-color-xero-green;
-		&:hover {
-			color: $xui-color-xero-dark-green;
-		}
+		@include xui-button-borderless-text($xui-color-xero-green, $xui-color-xero-dark-green);
 	}
 	&.#{$ns}-button-borderless-red {
-		color: $xui-color-xero-red;
-		&:hover {
-			color: $xui-color-xero-dark-red;
-		}
+		@include xui-button-borderless-text($xui-color-xero-red, $xui-color-xero-dark-red);
 	}
+
 	&.#{$ns}-button-is-disabled {
 		background: none;
 		color: $xui-color-grey-alpha-3;
 	}
+
 	&.#{$ns}-button-borderless-inverted {
-		color: $xui-color-inverted-alpha-2;
-		&:hover {
-			color: $xui-color-white;
-		}
+		@include xui-button-borderless-text($xui-color-inverted-alpha-2, $xui-color-white);
 		&:focus {
 			background: $xui-color-inverted-alpha-7;
 		}

@@ -18,6 +18,13 @@
 	box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);
 }
 
+@mixin xui-button-borderless-text($default, $hover) {
+	color: $default;
+	&:hover {
+		color: $hover;
+	}
+}
+
 @mixin xui-button-hover {
 	&:hover {
 		text-decoration: none;

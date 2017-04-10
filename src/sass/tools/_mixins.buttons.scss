@@ -18,13 +18,6 @@
 	box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);
 }
 
-@mixin xui-button-borderless-text($default, $hover) {
-	color: $default;
-	&:hover {
-		color: $hover;
-	}
-}
-
 @mixin xui-button-hover {
 	&:hover {
 		text-decoration: none;
@@ -140,6 +133,27 @@
 	padding: 11px $xui-input-padding-horizontal;
 	text-align: center;
 	text-decoration: none;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+}
+
+@mixin xui-button-borderless ($text-color, $text-hover-color, $background-focus: $xui-color-grey-alpha-7, $background-active: $xui-color-grey-alpha-6) {
+	background: transparent;
+	border-radius: $xui-radius;
+	font-weight: bold;
+	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
+	min-height: $xui-input-height;
+	padding: 11px $xui-input-padding-horizontal;
+	color: $text-color;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+	&:hover {
+		color: $text-hover-color;
+	}
+	&:focus {
+		background: $background-focus;
+	}
+	&:active {
+		background: $background-active;
+	}
 }
 
 @mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-color-shadow-light, $active-bg-color: $xui-color-shadow-medium, $hover-bg-color: none) {

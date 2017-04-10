@@ -25,7 +25,6 @@
 // Classes:
 // xui-button: Style for a button
 // xui-button--caret: Subcomponent for a caret button
-// xui-button-create: Modifier for a create button
 // xui-button-fullwidth-layout: Modifier for a full-width button at narrow breakpoint
 // xui-buttongroup: Container for a group of buttons
 // xui-button-grouped: Modifier for a grouped button
@@ -33,13 +32,17 @@
 // xui-button-icon-inverted: Modifier for an icon button for use with an inverted color scheme (dark background)
 // xui-button-icon-large: Modifier for a large icon button
 // xui-button-is-disabled: Modifier for a disabled button
-// xui-button-link: Modifier for a link button
-// xui-padding-actionlink: Recommended padding for an action link button
+// xui-button-standard: Modifier for a standard button
 // xui-button-main: Modifier for a main button
-// xui-button-negative: Modifier for a negative button
+// xui-button-create: Modifier for a button that creates new objects
+// xui-button-negative: Modifier for a button with negative consequences
+// xui-button-borderless-standard: Modifier for a standard borderless button
+// xui-button-borderless-main: Modifier for a main borderless button
+// xui-button-borderless-muted: Modifier for a more subtle borderless button
+// xui-button-borderless-create: Modifier for a borderless button that creates new objects
+// xui-button-borderless-negative: Modifier for a borderless button with negative consequences
 // xui-button-small: Modifier for a small button
 // xui-button-split: Modifier for a split button (eg button and dropdown)
-// xui-button-standard: Modifier for a standard button
 // xui-actions: Container to be used when creating layouts with a primary and secondary button
 // xui-actions-layout: Provides spacing between primary and secondary buttons as well as a mobile responsive layout
 // xui-actions-linear: Places primary and secondary buttons at opposite sides of the container
@@ -47,6 +50,7 @@
 // xui-actions--secondary: Subcomponent to be applied directly to the secondary button
 // xui-button--loader: Modifier for a loader inside a button.
 // xui-button-inverted: Modifier for button focus styling against dark backgrounds
+// xui-icon-inline: Applied to icons until we remove the 30px viewbox assumption
 //
 // Weight: 4.1
 //

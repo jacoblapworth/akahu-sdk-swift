@@ -17,6 +17,6 @@ module.exports = function(grunt, opts) {
 			livereload: livereload
 		},
 		files: ['**/*.scss', 'builder/*'],
-		tasks: ['build', 'kss']
+		tasks: ['build', 'kss', 'doc']
 	}
 };

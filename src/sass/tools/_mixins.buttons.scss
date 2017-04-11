@@ -74,8 +74,10 @@
 
 		&:nth-child(n+2) {
 			border-left: 0;
-			&:not(.#{$ns}-button-standard) {
-				margin-left: 1px;
+			margin-left: 1px;
+
+			&.#{$ns}-button-standard {
+				margin-left: 0;
 			}
 		}
 

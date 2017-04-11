@@ -16,7 +16,8 @@
 		"https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.7.2/lunr.min.js",
 		"https://cdn.polyfill.io/v2/polyfill.js?features=Promise,fetch",
-		"./kss-assets/search-es5.js"
+		"./kss-assets/search-es5.js",
+		"http://localhost:35729/livereload.js"
 	],
 	"title": "XUI",
 	"homepage": "../../src/docs/home.md",

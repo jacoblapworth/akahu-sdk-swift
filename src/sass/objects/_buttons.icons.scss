@@ -58,7 +58,7 @@
 	}
 
 	&-inverted {
-		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-light, $xui-color-shadow-inverted-medium);
+		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-medium, $xui-color-shadow-inverted-strong;
 		color: $xui-color-icon-inverted;
 
 		&.#{$ns}-button-is-disabled {

@@ -136,14 +136,14 @@
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
-@mixin xui-button-borderless ($text-color, $text-hover-color, $background-focus: $xui-color-grey-alpha-7, $background-active: $xui-color-grey-alpha-6) {
+@mixin xui-button-borderless($text-color, $text-hover-color, $background-focus: $xui-color-grey-alpha-7, $background-active: $xui-color-grey-alpha-6) {
 	background: transparent;
 	border-radius: $xui-radius;
+	color: $text-color;
 	font-weight: bold;
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
 	min-height: $xui-input-height;
 	padding: 11px $xui-input-padding-horizontal;
-	color: $text-color;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	&:hover {
 		color: $text-hover-color;

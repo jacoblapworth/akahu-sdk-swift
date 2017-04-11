@@ -2,7 +2,8 @@
 
 // Borderless
 //
-// Borderless buttons take up the same amount of physical space as a regular button (to retain an appropirate hit area), but are used in situations where a regular button would draw too much attention. To use an icon inside a borderless button, add the class `.xui-icon-inline` to the svg. All standard variants can also be applied, ie. `.xui-buttongroup` `.xui-button-is-disabled` and `.xui-button-small`. 
+// Borderless buttons take up the same amount of physical space as a regular button (to retain an appropriate hit area), but are used in situations where a regular button would draw too much attention.
+// To use an icon inside a borderless button, add the class `.xui-icon-inline` to the svg. All standard variants can also be applied, ie. `.xui-buttongroup` `.xui-button-is-disabled` and `.xui-button-small`. 
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-borderless-standard">Standard</button>

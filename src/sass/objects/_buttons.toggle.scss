@@ -23,12 +23,6 @@
 //
 // `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
 //
-// `xui-toggle-icon-layout` Recommended layout for an icon toolbar
-//
-// `xui-toggle-standard` Style for a dark on light toggle container
-//
-// `xui-toggle-form` Style for white on blue toggle container
-//
 // `xui-toggle-inverted` Style for a light on dark toggle container (use with `xui-text-inverted`)
 //
 // `xui-toggle-option` Container for a toggle option
@@ -46,7 +40,7 @@
 // Styleguide: Toggle
 
 
-// Form Layout
+// Form layout
 //
 // The recommended form layout can be achieved using `xui-toggle-form-layout` alongside `xui-toggle`
 // and is suitable for mixed label content.
@@ -54,20 +48,20 @@
 // Styleguide: Toggle.1
 
 
-// Radio (Form Layout, Form)
+// Form layout radio
 //
 // Markup:
 // <div class="xui-panel xui-margin xui-padding">
 //   <form class="xui-form-layout">
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled</label>
-//       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
+//       <div class="xui-toggle xui-toggle-form-layout">
 //         <label class="xui-toggle-option">
-//           <input type="radio" name="tg1" class="xui-toggle--input"/>
+//           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
 //         </label>
 //         <label class="xui-toggle-option">
-//           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
+//           <input type="radio" name="tg1" class="xui-toggle--input"/>
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
 //         </label>
 //         <label class="xui-toggle-option">
@@ -75,16 +69,16 @@
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
 //         </label>
 //       </div>
-//		</div>
+//    </div>
 //    <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="field2">Disabled</label>
-//       <div class="xui-toggle xui-toggle-form xui-toggle-form-layout">
+//       <div class="xui-toggle xui-toggle-form-layout">
 //         <label class="xui-toggle-option xui-is-disabled">
-//           <input type="radio" name="tg0" class="xui-toggle--input" disabled/>
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled checked/>
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
 //         </label>
 //         <label class="xui-toggle-option xui-is-disabled">
-//           <input type="radio" name="tg0" class="xui-toggle--input" checked disabled/>
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled/>
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
 //         </label>
 //         <label class="xui-toggle-option xui-is-disabled">
@@ -92,108 +86,25 @@
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
 //         </label>
 //       </div>
-//			</div>
-//		</div>
+//      </div>
+//    </div>
 //   </form>
 // </div>
 //
-// Styleguide: Toggle.2
+// Styleguide: Toggle.1.2
 
-
-// Full-Width Layout
+// Full width layout
 //
 // The recommended full-width layout can be achieved using `xui-toggle-fullwidth-layout` alongside `xui-toggle`
 // and is suitable for mixed label content.
 //
-// Styleguide: Toggle.3
+// Styleguide: Toggle.2
 
-
-// Checkbox (Full-Width, Standard)
-//
-// Markup:
-// <div class="xui-panel xui-margin xui-padding">
-//   <div class="xui-toggle xui-toggle-standard xui-toggle-fullwidth-layout xui-padding-bottom-small">
-//     <label class="xui-toggle-option">
-//       <input type="checkbox" class="xui-toggle--input"/>
-//       <span class="xui-toggle--label xui-padding-vertical-small">
-//         <span class="xui-toggle--text">
-//            Checkbox
-//         </span>
-//       </span>
-//     </label>
-//     <label class="xui-toggle-option">
-//       <input type="checkbox" class="xui-toggle--input" checked/>
-//       <span class="xui-toggle--label xui-padding-vertical-small">
-//         <span class="xui-toggle--text">
-//            Checkbox
-//         </span>
-//       </span>
-//     </label>
-//     <label class="xui-toggle-option">
-//       <input type="checkbox" class="xui-toggle--input"/>
-//       <span class="xui-toggle--label xui-padding-vertical-small">
-//         <span class="xui-toggle--text">
-//            Checkbox
-//         </span>
-//       </span>
-//     </label>
-//   </div>
-//   <div class="xui-toggle xui-toggle-standard xui-toggle-fullwidth-layout">
-//     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="checkbox" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small">
-//            Checkbox
-//       </span>
-//     </label>
-//     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="checkbox" class="xui-toggle--input" disabled checked/>
-//       <span class="xui-toggle--label xui-padding-vertical-small">
-//            Checkbox
-//       </span>
-//     </label>
-//     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="checkbox" class="xui-toggle--input" disabled/>
-//       <span class="xui-toggle--label xui-padding-vertical-small">
-//            Checkbox
-//       </span>
-//     </label>
-//   </div>
-// </div>
-//
-// Styleguide: Toggle.4
-
-
-// Radio (Full-Width, Inverted, Disabled)
+// Full width inverted radio
 //
 // Markup:
 // <div class="xui-panel xui-margin xui-padding xui-text-inverted">
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout xui-padding-bottom-small">
-//     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="radio" class="xui-toggle--input" name="tg2" disabled/>
-//       <span class="xui-toggle--label">
-//         Radio
-//       </span>
-//     </label>
-//     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="radio" class="xui-toggle--input" name="tg2" disabled checked/>
-//       <span class="xui-toggle--label">
-//         Radio
-//       </span>
-//     </label>
-//     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="radio" class="xui-toggle--input"  name="tg2" disabled/>
-//       <span class="xui-toggle--label">
-//         Radio
-//       </span>
-//     </label>
-//   </div>
-//   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
-//     <label class="xui-toggle-option">
-//       <input type="radio" class="xui-toggle--input" name="tg3"/>
-//       <span class="xui-toggle--label">
-//         Radio
-//       </span>
-//     </label>
 //     <label class="xui-toggle-option">
 //       <input type="radio" class="xui-toggle--input" name="tg3" checked/>
 //       <span class="xui-toggle--label">
@@ -206,25 +117,48 @@
 //         Radio
 //       </span>
 //     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//   </div>
+//   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" name="tg2" checked disabled/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" name="tg2" disabled/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input"  name="tg2" disabled/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
 //   </div>
 // </div>
 //
-// Styleguide: Toggle.5
+// Styleguide: Toggle.2.1
 
-
-// Icon Toolbar Layout
+// Icon only
 //
-// The recommended icon toolbar layout can be achieved using `xui-toggle-icon-layout` alongside `xui-toggle`.
-// This layout class is only suitable for icons and will not accomodate mixed label content.
+// No additional classes are required for icon only toggles. Simply use svg content instead of text.
 //
-// Styleguide: Toggle.6
+// Styleguide: Toggle.3
 
-
-// Checkbox (Icon Toolbar, Standard)
+// Icon only chekbox
 //
 // Markup:
 // <div class="xui-panel xui-margin xui-padding">
-//   <div class="xui-toggle xui-toggle-standard xui-toggle-icon-layout xui-padding-bottom-small">
+//   <div class="xui-toggle xui-padding-bottom-small">
 //     <label class="xui-toggle-option">
 //       <input type="checkbox" class="xui-toggle--input" checked/>
 //       <span class="xui-toggle--label">
@@ -250,7 +184,7 @@
 //       </span>
 //     </label>
 //   </div>
-//   <div class="xui-toggle xui-toggle-standard xui-toggle-icon-layout">
+//   <div class="xui-toggle">
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="checkbox" class="xui-toggle--input" disabled checked/>
 //       <span class="xui-toggle--label">
@@ -278,14 +212,14 @@
 //   </div>
 // </div>
 //
-// Styleguide: Toggle.7
+// Styleguide: Toggle.3.1
 
 
-// Radio (Icon Toolbar, Inverted)
+// Icon only iverted radio
 //
 // Markup:
 // <div class="xui-panel xui-margin xui-padding xui-text-inverted">
-//   <div class="xui-toggle xui-toggle-inverted xui-toggle-icon-layout xui-padding-bottom-small">
+//   <div class="xui-toggle xui-toggle-inverted xui-padding-bottom-small">
 //     <label class="xui-toggle-option">
 //       <input type="radio" name="tg0" class="xui-toggle--input"/>
 //       <span class="xui-toggle--label">
@@ -311,7 +245,7 @@
 //       </span>
 //     </label>
 //   </div>
-//   <div class="xui-toggle xui-toggle-inverted xui-toggle-icon-layout">
+//   <div class="xui-toggle xui-toggle-inverted">
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" name="tg1" class="xui-toggle--input" disabled/>
 //       <span class="xui-toggle--label">
@@ -339,7 +273,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Toggle.8
+// Styleguide: Toggle.3.2
 
 
 // Icon toolbar layout
@@ -379,7 +313,7 @@
 }
 
 
-// Group styles
+// Base toggle (form and standard variant deprecated, removed in XUI 11)
 .#{$ns}-toggle {
 	align-items: stretch;
 	display: flex;
@@ -388,6 +322,57 @@
 	.#{$ns}-is-disabled {
 		opacity: 1;
 	}
+
+	// For icons
+	.#{$ns}-toggle--label {
+		min-width: $xui-input-height;
+	}
+
+	.#{$ns}-toggle--label:hover {
+		background-color: $xui-color-shadow-light;
+	}
+
+	// Focus, not hover
+	.#{$ns}-toggle--input:focus:not(:hover) + .#{$ns}-toggle--label {
+		box-shadow: $xui-shadow-focus;
+	}
+
+	// Active
+	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-shadow-medium;
+	}
+
+	// Checked
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
+		background-color: $xui-color-grey-1;
+		border-color: $xui-color-grey-1;
+		color: $xui-color-white;
+		z-index: 1;
+	}
+
+	// Checked, hover
+	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
+		background-color: $xui-color-highlight-light;
+	}
+
+	// Checked, active
+	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
+		background-color: $xui-color-highlight-medium;
+	}
+
+	// Checked, disabled
+	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
+		background-color: $xui-color-grey-alpha-6;
+		border-color: $xui-color-grey-alpha-5;
+		color: $xui-color-grey-alpha-4;
+	}
+
+	// Disabled
+	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
+		border-color: $xui-color-grey-alpha-5;
+		color: $xui-color-grey-alpha-4;
+	}
+
 }
 
 
@@ -421,6 +406,8 @@
 		border-top-right-radius: $xui-radius;
 	}
 }
+
+
 
 
 // Standard styles
@@ -565,6 +552,8 @@
 	// Checked, disabled
 	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
 		background-color: $xui-color-inverted-alpha-6;
+		border-color: $xui-color-inverted-alpha-5;
+		color: $xui-color-inverted-alpha-4;
 	}
 
 	// Disabled

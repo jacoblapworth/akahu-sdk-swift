@@ -216,20 +216,20 @@
 
 	// Checked
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
-		background-color: $xui-color-grey-1;
-		border-color: $xui-color-grey-1;
+		background-color: $xui-color-xero-blue;
+		border-color: $xui-color-xero-blue;
 		color: $xui-color-white;
 		z-index: 1;
 	}
 
 	// Checked, hover
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
-		background-color: $xui-color-highlight-light;
+		background-color: $xui-color-xero-blue;
 	}
 
 	// Checked, active
 	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
-		background-color: $xui-color-highlight-medium;
+		background-color: $xui-color-xero-blue;
 	}
 
 	// Checked, disabled

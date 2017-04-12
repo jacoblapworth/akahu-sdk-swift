@@ -34,9 +34,6 @@
 .#{$ns}-button-borderless {
 	&-standard {
 		@include xui-button-borderless($xui-color-grey-1, $xui-color-xero-dark-blue);
-		&.#{$ns}-button-is-disabled {
-			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
-		}
 	}
 	&-muted {
 		@include xui-button-borderless($xui-color-grey-alpha-2, $xui-color-grey-1);

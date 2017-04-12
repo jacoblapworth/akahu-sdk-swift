@@ -49,6 +49,7 @@
 	justify-content: center;
 
 	.#{$ns}-icon {
+		@include xui-margin-auto-horizontal; // Safari seems to ignore the flex rules and does not center horizontally
 		display: block;
 	}
 

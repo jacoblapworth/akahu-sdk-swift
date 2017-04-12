@@ -25,10 +25,10 @@
 ## Bug | Design QA
 *Use for bug/design QA requests – delete if not applicable*
 
-### Expected Behavior
+### Expected Behaviour
 
 
-### Actual Behavior
+### Actual Behaviour
 
 
 ### Where it is visible

@@ -311,11 +311,6 @@
 		opacity: 1;
 	}
 
-	// For icons
-	.#{$ns}-toggle--label {
-		min-width: $xui-input-height;
-	}
-
 	.#{$ns}-toggle--label:hover {
 		background-color: $xui-color-shadow-light;
 	}
@@ -376,6 +371,7 @@
 	justify-content: center;
 	margin-left: -1px;
 	min-height: $xui-input-height;
+	min-width: $xui-input-height;
 	position: relative; // For z-index
 	text-align: center;
 	transition: all $xui-motion-speed-fast ease;

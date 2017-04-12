@@ -147,6 +147,12 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	z-index: $xui-input-icon-zindex;
 }
 
+// TODO: remove in XUI11
+.#{$ns}-input-borderless-layout {
+	@include xui-padding-vertical($xui-s-standard);
+}
+
+// TODO: remove in XUI11
 .#{$ns}-inputwrapper-borderless-layout {
 	.#{$ns}-input--iconwrapper {
 		top: $xui-s-xsmall + 1px; // Layout class adds extra vertical height
@@ -181,20 +187,31 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Classes:
 // xui-inputwrapper-borderless: Modifier for the borderless inputs container
-// xui-inputwrapper-borderless-layout: Layout of the borderless input wrapper, mainly padding changes to alter icons
 // xui-inputwrapper-borderless-standard: Modifier for a standard borderless input (use with light backgrounds)
 // xui-inputwrapper-borderless-secondary: Modifier for a secondary borderless input (use with light backgrounds)
 // xui-inputwrapper-borderless-inverted: Modifier for an inverted borderless input (use with dark backgrounds)
 // xui-input-borderless: Modifier for borderless input fields
-// xui-input-borderless-layout: Layout of the borderless input, mainly padding changes
 //
 // Markup:
 // <div class="xui-padding">
-//   <input class="xui-input xui-input-borderless xui-input-borderless-standard" type="text" placeholder="Standard borderless" aria-label="Standard borderless input"/>
-//   <input class="xui-margin-top xui-input xui-input-borderless xui-input-borderless-secondary" type="text" placeholder="Secondary borderless" aria-label="Secondary borderless input"/>
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-inputwrapper-borderless-layout xui-margin-top">
-// 	   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	   <input class="xui-input xui-input-borderless xui-input-borderless-secondary xui-input-borderless-layout" type="search" placeholder="Secondary borderless with Layout, icon and clear button" aria-label="Secondary borderless input with Layout, icon and clear button"/>
+//   <input class="xui-input xui-input-borderless xui-input-borderless-transparent" type="text" placeholder="Transparent input" aria-label="Transparent input" />
+//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
+// 	   <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//     <input class="xui-input xui-input-borderless xui-input-borderless-transparent xui-padding-right-huge" type="search" placeholder="Transparent input with icons" aria-label="Transparent input with icons" />
+//     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+//       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-clear" role="presentation"/>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+//   <input class="xui-margin-top xui-input xui-input-borderless xui-input-borderless-solid" type="text" placeholder="Solid input" aria-label="Solid input"/>
+//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
+// 	   <svg focusable="false" class="xui-icon xui-input--icon-left">
+//        <use xlink:href="#xui-icon-search" role="presentation" />
+//     </svg>
+//     <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-padding-right-huge" type="search" placeholder="Solid input with icons" aria-label="Solid input with icons"/>
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
 //       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
 //         <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
@@ -203,23 +220,44 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 // <div class="xui-padding xui-background-grey-1">
-//   <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-layout" type="text" placeholder="Inverted borderless input, with layout" aria-label="borderless input"/>
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-inputwrapper-borderless-layout xui-margin-top">
-// 	   <svg focusable="false" class="xui-icon xui-input--icon-right xui-icon-color-white-faint"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	   <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-layout" type="search" placeholder="Inverted borderless with right icon" aria-label="Inverted borderless input with right icon"/>
-//   </div>
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-inputwrapper-borderless-layout xui-margin-top">
-// 	   <svg focusable="false" class="xui-icon xui-input--icon-left xui-icon-color-white-faint"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-// 	   <input class="xui-input xui-input-borderless xui-input-borderless-layout xui-input-borderless-inverted" type="search" placeholder="Inverted borderless with icon and clear button" aria-label="Inverted borderless input with icon and clear button"/>
+//   <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-transparent" type="text" placeholder="Transparent inverted input" aria-label="Transparent inverted input" />
+//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
+// 	   <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-search" role="presentation" /></svg>
+//     <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-transparent xui-padding-right-huge" type="search" placeholder="Transparent inverted input with icons" aria-label="Transparent inverted input with icons" />
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
 //       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Clear" aria-label="Clear">
-//         <svg focusable="false" class="xui-icon xui-icon-color-white-faint"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-clear" role="presentation"/>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+//   <input class="xui-margin-top xui-input xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid" type="text" placeholder="Solid inverted input" aria-label="Solid inverted input"/>
+//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
+// 	   <svg focusable="false" class="xui-icon xui-input--icon-left">
+//        <use xlink:href="#xui-icon-search" role="presentation" />
+//     </svg>
+//     <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-solid xui-padding-right-huge" type="search" placeholder="Solid inverted input with icons" aria-label="Solid inverted input with icons"/>
+//     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Clear" aria-label="Clear">
+//         <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
 //       </button>
 //     </div>
 //   </div>
 // </div>
 //
 // Styleguide: Forms.4.2
+
+// Deprecated utility classes
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.24.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-inputwrapper-borderless-layout: Layout of the borderless input wrapper, mainly padding changes to alter icons
+// xui-input-borderless-layout: Layout of the borderless input, mainly padding
+//
+// Styleguide: Forms.4.3
 
 .#{$ns}-input-borderless {
 	border: 0;
@@ -229,38 +267,43 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
-.#{$ns}-input-borderless-inverted {
-	background-color: rgba($xui-color-white, 0.1);
-	color: $xui-color-white;
-
-	&:focus {
-		background-color: rgba($xui-color-white, 0.2);
-	}
-
-	&::placeholder {
-		color: $xui-color-white;
-		opacity: .7;
-	}
-}
-
-.#{$ns}-input-borderless-standard {
+.#{$ns}-input-borderless-transparent {
 	background-color: transparent;
 
 	&:focus {
 		background-color: rgba($xui-color-black, 0.05);
 	}
+
+	&.#{$ns}-input-borderless-inverted {
+		&:focus {
+			background-color: rgba($xui-color-white, 0.1);
+		}
+	}
 }
 
-.#{$ns}-input-borderless-secondary {
+.#{$ns}-input-borderless-solid {
 	background-color: rgba($xui-color-black, 0.05);
 
 	&:focus {
 		background-color: rgba($xui-color-black, 0.1);
 	}
+
+	&.#{$ns}-input-borderless-inverted {
+		background-color: rgba($xui-color-white, 0.1);
+
+		&:focus {
+			background-color: rgba($xui-color-white, 0.2);
+		}
+	}
 }
 
-.#{$ns}-input-borderless-layout {
-	@include xui-padding($xui-s-standard);
+.#{$ns}-input-borderless-inverted {
+	color: $xui-color-white;
+
+	&::placeholder {
+		color: $xui-color-white;
+		opacity: .5;
+	}
 }
 
 // TODO: Remove xui-input-wrapper-borderless in XUI11
@@ -268,11 +311,11 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 .#{$ns}-inputwrapper-borderless {
 
 	.#{$ns}-input--icon-left {
-		left: $xui-s-small;
+		left: $xui-s-xsmall + $xui-input-icon-offset;
 	}
 
 	.#{$ns}-input--icon-right {
-		right: $xui-s-small;
+		right: $xui-s-xsmall + $xui-input-icon-offset;
 	}
 }
 
@@ -312,7 +355,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 //
-// Styleguide: Forms.4.3
+// Styleguide: Forms.4.4
 
 .#{$ns}-verticalinputgroup {
 	// Only add top border radius to the first element
@@ -393,7 +436,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 //
-// Styleguide: Forms.4.4
+// Styleguide: Forms.4.5
 
 // TODO: Remove xui-input-group in XUI11
 .#{$ns}-input-group,

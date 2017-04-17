@@ -71,7 +71,7 @@
 @mixin xui-heading-xsmall {
 	@include xui-text-line-height-compact;
 
-	color: $xui-color-grey-2;
+	color: $xui-color-grey-alpha-2;
 	font-size: $xui-font-size-small;
 	font-weight: $xui-font-weight-deemphasis;
 }
@@ -87,7 +87,7 @@
 
 // Text color
 @mixin xui-text-muted {
-	color: $xui-color-grey-2;
+	color: $xui-color-grey-alpha-2;
 }
 
 @mixin xui-text-positive {

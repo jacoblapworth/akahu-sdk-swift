@@ -3,15 +3,15 @@
 
 // Icons
 //
-// Styleguide: Buttons.6
+// Styleguide: Buttons.7
 
 // Icon
 //
 // Used for buttons that only use icons.
 //
-// You can use `xui-button-icon-large` without using `xui-icon-large`. The icon will
-// stay 30x30, but the button will be 40x40. The icon will be horizontally and vertically
-// centered within the button, which allows you to provide a larger touch target.
+// For a larger variant, you can use `xui-button-icon-large` to create a button with a larger touch target. The icon will
+// remain the same size, but the button will be larger. The icon will be horizontally and vertically
+// centered within the button.
 // As this uses flexbox, ensure you add `xui-u-flex-inherit` to the `<svg>` element
 // for Firefox compatibility.
 //
@@ -28,21 +28,17 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-icon" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // <br />
 // <div class="xui-text-inverted">
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-cross"></use></svg></button>
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
-//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // </div>
 //
-// Styleguide: Buttons.6.1
+// Styleguide: Buttons.7.1
 
 .#{$ns}-button-icon {
 	@include xui-button-icon-states;
@@ -57,11 +53,21 @@
 		display: block;
 	}
 
-	&-inverted {
-		@include xui-button-icon-states($xui-color-grey-4, $xui-color-shadow-inverted-light, $xui-color-shadow-inverted-medium);
-		color: $xui-color-icon;
+	&.#{$ns}-button-is-disabled {
+		color: $xui-color-grey-alpha-3;
 	}
+
+	&-inverted {
+		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-light, $xui-color-shadow-inverted-medium);
+		color: $xui-color-icon-inverted;
+
+		&.#{$ns}-button-is-disabled {
+			color: $xui-color-inverted-alpha-3;
+		}
+	}
+
 }
+
 
 .#{$ns}-button-icon-large {
 	height: $xui-icon-large;

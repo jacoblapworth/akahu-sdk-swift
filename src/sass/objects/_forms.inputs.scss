@@ -183,12 +183,22 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 // Borderless Text Inputs
 //
-// Borderless styling of inputs for usage in modal style forms or narrow views.
+// There are two borderless input variants, each with differing levels of visual impact, and each with an inverted modifier.
+// One is transparent by default (but tints on focus), the other is tinted by default (and darkens on focus).
+//
+// Use them in contexts where a regular bordered input attracts too much visual attention.
+// A common use is search, where nesting a regular input creates undesirable double borders.
+//
+// Gauge the level of importance of the input in the overall flow, to determine which variant to use.
+// For example, if search is not a primary use case, decrease its visual significance, and use the transparent variant.
+//
+// Please note that this kind of input is not for use in contexts that require validation.
+// Additionally, if extra space is required, consider nesting the element.
 //
 // Classes:
 // xui-inputwrapper-borderless: Modifier for the borderless inputs container
-// xui-inputwrapper-borderless-standard: Modifier for a standard borderless input (use with light backgrounds)
-// xui-inputwrapper-borderless-secondary: Modifier for a secondary borderless input (use with light backgrounds)
+// xui-inputwrapper-borderless-transparent: Modifier for a transparent borderless input (use with light backgrounds)
+// xui-inputwrapper-borderless-solid: Modifier for a solid borderless input (use with light backgrounds)
 // xui-inputwrapper-borderless-inverted: Modifier for an inverted borderless input (use with dark backgrounds)
 // xui-input-borderless: Modifier for borderless input fields
 //

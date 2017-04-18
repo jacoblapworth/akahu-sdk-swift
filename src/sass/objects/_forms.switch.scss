@@ -9,15 +9,11 @@
 //
 // When the input is `disabled`, you should use the global `.xui-is-disabled` class on the `.xui-switch` element.
 //
-// #### Class Names
-//
-// `xui-switch`	Container for a switch
-//
-// `xui-switch--checkbox`	Subcomponent for a switch checkbox
-//
-// `xui-switch--control`	Container for switch appearance
-//
-// `xui-switch--labeltext`	Container for optioinal switch label
+// Classes:
+// xui-switch: Container for a switch
+// xui-switch--checkbox: Subcomponent for a switch checkbox
+// xui-switch--control: Container for switch appearance
+// xui-switch--labeltext: Container for optioinal switch label
 //
 //  Markup:
 // <label class="xui-switch">
@@ -40,7 +36,9 @@
 //   <span class="xui-switch--control"></span>
 // </label>
 //
-// Styleguide: Forms.7
+// Weight: 4.1
+//
+// Styleguide: Switch
 
 .#{$ns}-switch {
 	display: inline-block;
@@ -67,25 +65,25 @@
 	border-radius: 40px;
 	cursor: pointer;
 	display: inline-block;
-	height: 26px;
+	height: 22px;
 	position: relative;
-	transition: all $xui-transition-duration-short $xui-easing-standard;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	user-select: none;
 	vertical-align: middle;
-	width: 50px;
+	width: 48px;
 
 	&::before {
 		background-color: $xui-color-white;
-		border: 1px solid $xui-color-white;
+		border: 2px solid $xui-color-white;
 		border-radius: 50%;
 		content: " ";
 		display: inline-block;
-		height: 22px;
+		height: 18px;
 		position: absolute;
 		top: 1px;
 		transform: translate(1px);
-		transition: all $xui-transition-duration-short $xui-easing-standard;
-		width: 22px;
+		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+		width: 18px;
 	}
 
 }
@@ -101,7 +99,7 @@
 
 		&::before {
 			left: auto;
-			transform: translate(25px);
+			transform: translate(27px);
 		}
 	}
 }

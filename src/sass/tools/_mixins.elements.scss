@@ -10,12 +10,18 @@
 }
 
 @mixin xui-font-smooth {
+	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
+// TODO: remove this
 @mixin xui-bold {
-	@include xui-font-smooth;
 	font-weight: bold;
+}
+
+@mixin xui-listreset {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }

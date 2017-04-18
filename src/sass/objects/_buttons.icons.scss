@@ -1,48 +1,75 @@
+@import "../vars";
+@import "../mixins";
+
 // Icons
 //
 // Styleguide: Buttons.7
 
 // Icon
 //
-// Used for buttons that only use icons. Two variants are available, standard (no suffix) and large (`-large`).
+// Used for buttons that only use icons.
 //
-// `title` and `aria-label` attributes should be provided to explain the icon.
-// Unfortunately `title` [is not a substitute for `aria-label`](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+// For a larger variant, you can use `xui-button-icon-large` to create a button with a larger touch target. The icon will
+// remain the same size, but the button will be larger. The icon will be horizontally and vertically
+// centered within the button.
+// As this uses flexbox, ensure you add `xui-u-flex-inherit` to the `<svg>` element
+// for Firefox compatibility.
 //
-// :hover - Highlights when hovering
-// :focus - When focused
-// :active - When active
+// Your icon button should provide:
+// - `title`: This provides additional information about your button to users in a tooltip
+// - `aria-label`: This provides a description of the button to screen readers to improve accessibility
+//
+// [Unfortunately, `title` is not a substitute for `aria-label`.](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/)
+//
+// Classes:
+// xui-button-icon: Class for an icon button as large as the underlying icon
+// xui-button-icon-large:  Class for a button with a 40x40 touch target.
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-close"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-close"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-discount"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-discount"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
-// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close" aria-label="Close"><svg class="xui-icon xui-icon-large"> <use xlink:href="#xui-icon-suggestion"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
+// <br />
+// <div class="xui-text-inverted">
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large" title="Close the window" aria-label="Close the window"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-cross"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
+// </div>
 //
 // Styleguide: Buttons.7.1
 
 .#{$ns}-button-icon {
+	@include xui-button-icon-states;
+	align-items: center;
 	border-radius: 50%;
-	color: $xui-color-grey-3;
-
-	&:hover {
-		color: $xui-color-grey-2;
-	}
-
-	&:focus {
-		background: $xui-color-shadow-light;
-		outline: none;
-	}
-
-	&:active {
-		background: $xui-color-shadow-medium;
-		color: $xui-color-grey-2;
-		outline: none;
-	}
+	color: $xui-color-icon;
+	display: inline-flex;
+	justify-content: center;
 
 	.#{$ns}-icon {
+		@include xui-margin-auto-horizontal; // Safari seems to ignore the flex rules and does not center horizontally
 		display: block;
 	}
+
+	&.#{$ns}-button-is-disabled {
+		color: $xui-color-grey-alpha-3;
+	}
+
+	&-inverted {
+		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-light, $xui-color-shadow-inverted-medium);
+		color: $xui-color-icon-inverted;
+
+		&.#{$ns}-button-is-disabled {
+			color: $xui-color-inverted-alpha-3;
+		}
+	}
+
+}
+
+
+.#{$ns}-button-icon-large {
+	height: $xui-icon-large;
+	width: $xui-icon-large;
 }

@@ -1,0 +1,537 @@
+// scss-lint:disable Prefix
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
+
+$ds-nav-width: 15rem;
+$ds-inverted--light: rgba(0, 0, 0, 0.06);
+$ds-inverted--medium: rgba(0, 0, 0, 0.2);
+
+.ds-main {
+	margin: auto;
+	min-height: 100%;
+
+	@include xui-breakpoint-wide {
+		width: calc(70% - 200px);
+	}
+}
+
+.ds-node {
+	background: $xui-color-white;
+}
+
+.ds-anchor {
+	margin-left: -21px;
+	visibility: hidden;
+}
+
+.ds-title:hover > .ds-anchor {
+	visibility: visible;
+}
+
+.ds-title {
+	color: $xui-color-black;
+	font-family: $xui-font-family;
+	margin-left: -$xui-s-large;
+	padding-left: $xui-s-large;
+}
+
+.ds-title--level-1 {
+	font-size: 32px;
+}
+
+.ds-title--level-2 {
+	margin-top: 0;
+	padding-top: 2em;
+
+	@include xui-breakpoint-wide {
+		padding-top: 3em;
+	}
+}
+
+.ds-title--level-3 {
+	padding-top: 1em;
+
+	@include xui-breakpoint-wide {
+		padding-top: 2em;
+	}
+}
+
+.ds-nav-section {
+	background: $xui-color-white;
+	color: $xui-color-xero-blue;
+	list-style: none;
+	padding: 0;
+
+	@include xui-breakpoint-wide {
+		background: $xui-color-white;
+		margin: 3rem 0;
+		max-height: calc(100vh - 6rem);
+		max-width: 200px;
+		overflow: auto;
+		position: fixed;
+		right: 0;
+		width: 20%;
+	}
+}
+
+.ds-nav-section::before {
+	color: $xui-color-secondary-text;
+	content: "In this section";
+	padding: $xui-s-standard 0;
+}
+
+.ds-nav-item {
+	display: inline-block;
+	font-size: 15px;
+	padding: $xui-s-small;
+
+	@include xui-breakpoint-wide {
+		font-size: $xui-font-size-text;
+		width: 100%;
+	}
+}
+
+.ds-section-wrap {
+	margin: 4em 0;
+}
+
+.ds-section-part {
+	padding: 0 $xui-s-xlarge;
+}
+
+.ds-input-all,
+.ds-input-markup,
+.ds-input-example {
+	display: none;
+}
+
+.ds-all-label,
+.ds-markup-label,
+.ds-example-label {
+	display: inline-block;
+	margin-right: 15px;
+	padding-bottom: 10px;
+}
+
+// Labels need to be nested in another element for other styling reasons (full bleed)
+.ds-input-all:checked ~ * .ds-all-label,
+.ds-input-markup:checked ~ * .ds-markup-label,
+.ds-input-example:checked ~ * .ds-example-label {
+	border-bottom: 3px $xui-color-xero-blue solid;
+	color: $xui-color-xero-blue;
+}
+
+.ds-description {
+	line-height: 1.8;
+
+	pre {
+		background: $xui-color-background;
+		border: 1px solid $xui-color-border;
+		padding: 15px 25px;
+		width: 100%;
+	}
+}
+
+.ds-markup-wrap,
+.ds-example-wrap {
+	border: 1px solid $xui-color-border;
+	display: none;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	position: relative;
+	width: 100%;
+
+	.xui-toast-wrapper {
+		position: relative;
+		z-index: 100;
+	}
+
+	.xui-sidedrawer {
+		float: right;
+		position: relative;
+	}
+
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+
+	.xui-mask {
+		border-radius: 3px;
+		opacity: 1;
+		padding: 20px 0;
+		position: relative;
+		width: 100%;
+		z-index: 0;
+	}
+}
+
+.ds-markup-wrap {
+	background: $xui-color-background;
+}
+
+.ds-input-all:checked ~ .ds-markup-wrap,
+.ds-input-all:checked ~ .ds-example-wrap,
+.ds-input-markup:checked ~ .ds-markup-wrap,
+.ds-input-example:checked ~ .ds-example-wrap {
+	display: block;
+}
+
+.ds-input-all:checked ~ .ds-markup-wrap {
+	border-top: 0;
+}
+
+// Layout.Margin and Layout.Padding
+$kss-color-margin: #fffedf;
+$kss-color-padding: #eeebff;
+
+
+.margin-example {
+	background: repeating-linear-gradient(135deg, $kss-color-margin, $kss-color-margin 6px, $xui-color-grey-5 6px, $xui-color-grey-5 7px);
+}
+
+[id*="margin-and-padding-padding"] [class*="xui-padding"] {
+	background: repeating-linear-gradient(135deg, $kss-color-padding, $kss-color-padding 6px, $xui-color-grey-5 6px, $xui-color-grey-5 7px);
+}
+
+.ds-spacing-example {
+	background: url("./kss-assets/ryanbear.gif") center center $xui-color-grey-6;
+	background-size: 130%;
+	border: $xui-border-standard;
+}
+
+[id*="margin-and-padding"] [class*="xui-padding"],
+.margin-example {
+	border: 1px solid $xui-color-grey-5;
+	margin-bottom: 1vw;
+
+	// scss-lint:disable SelectorDepth
+	> * {
+		background: $xui-color-white;
+		outline: 1px solid $xui-color-grey-5;
+		padding: 1vw;
+	}
+}
+
+// Dropdowns
+.xui-dropdown-layout {
+	position: relative;
+
+	@include xui-breakpoint-narrow {
+		margin: -15px -25px;
+		min-height: 50vh;
+		max-width: initial;
+		width: initial;
+		overflow: auto;
+
+
+		.#{$ns}-select & {
+			margin-top: -55px;
+		}
+
+		.#{$ns}-dropdown--mask {
+			position: absolute;
+		}
+
+		.#{$ns}-dropdown--body {
+			max-height: 80%;
+			width: 100%;
+		}
+	}
+}
+
+// Grid Layouts
+[id*="grid-layout"] .xui-row,
+[id*="grid-layout"] .xui-row-grid,
+[id*="grid-layout"] .xui-row-flex {
+	margin-bottom: 10px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+[id*="grid-layout"] [class*="column"] {
+	background: rgba($xui-color-xero-blue, 0.5);
+	border: 1px solid $xui-color-border;
+	color: inherit;
+	font-size: 11px;
+	padding: 10px;
+	text-transform: uppercase;
+}
+
+[id*="grid-layout"] .xui-grid {
+	margin: 20px 0;
+}
+
+.ds-icons {
+	box-shadow: -1px -1px 0 $ds-inverted--light inset;
+	margin: 0;
+	padding: 4vh 2vh;
+	width: 33.33%;
+
+	@include xui-breakpoint-wide {
+		width: 16.66%;
+	}
+}
+
+.ds-copy-button {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Main Menu
+// -----------------------------------------------------------------------------
+
+.ds-hamburger {
+	background: url("./kss-assets/hamburger.png") center center / 2rem auto no-repeat $xui-color-grey-3;
+	padding: 20px;
+	position: absolute;
+
+	&:hover {
+		background-color: $xui-color-grey-5;
+	}
+}
+
+.ds-input {
+	display: none;
+
+	&:checked ~ .ds-nav--icon {
+		transform: rotate(0deg);
+	}
+
+	&:checked ~ .ds-nav--submenu {
+		max-height: inherit;
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.ds-nav--container {
+	background: $xui-color-white;
+	margin: auto;
+
+	.xui-tabgroup-vertical:nth-child(n+2) {
+		border-top: 0;
+	}
+
+	.xui-verticaltab {
+		&:not(.xui-section-title):hover {
+			background-color: $ds-inverted--light;
+		}
+
+		&:not(.xui-verticaltab-is-selected):hover {
+			border-left-color: transparent;
+		}
+	}
+
+	.xui-verticaltab-is-selected {
+		background-color: $ds-inverted--light;
+	}
+
+	.xui-section-title:hover {
+		background-color: transparent;
+	}
+}
+
+.ds-nav--icon {
+	pointer-events: none;
+	position: absolute;
+	right: $xui-s-standard;
+	top: 25px;
+	transition: 0.1s all ease;
+}
+
+.ds-nav--submenu {
+	font-weight: normal;
+	margin: 0;
+	max-height: 0;
+	opacity: 0.8;
+	overflow: hidden;
+	padding: 0;
+	visibility: hidden;
+}
+
+.ds-nav--link {
+	color: $xui-color-highlight-light;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+
+.ds-nav--menu {
+	min-width: 200px;
+	overflow: auto;
+	padding-bottom: 2rem;
+
+	@include xui-breakpoint-wide {
+		bottom: 0;
+		max-width: 320px;
+		width: calc(20% - 1px);
+	}
+}
+
+.ds-footer {
+	background: $xui-color-grey-6;
+
+	@include xui-breakpoint-wide {
+		float: right;
+		margin-left: calc(20% - 1px);
+		min-width: calc(100% - 320px);
+		width: calc(100% - 20% + 1px);
+	}
+}
+
+.ds-nav--title {
+	border-bottom: 1px solid $xui-color-shadow-medium;
+	border-left: 0;
+	font-weight: bold;
+	position: relative;
+
+	&:hover {
+		background: transparent;
+		border-left: 0;
+	}
+}
+
+.ds-nav--header {
+	&::before {
+		content: "";
+		display: inline-block;
+		height: 50px;
+		margin-right: -0.25rem;
+		vertical-align: middle;
+	}
+}
+
+.ds-nav--header-title {
+	display: inline-block;
+	font-size: $xui-font-size-heading;
+	font-weight: bold;
+	margin-left: 60px;
+	vertical-align: middle;
+}
+
+.ds-xero-icon {
+	height: 60px;
+	position: absolute;
+}
+
+
+.ds-nav {
+	@include xui-breakpoint-wide {
+		border-right: $xui-border-standard;
+		position: fixed;
+		top: 0;
+	}
+}
+
+.ds-nav--responsive {
+	height: 5rem;
+	overflow: hidden;
+	width: 100%;
+	z-index: 1;
+
+	@include xui-breakpoint-wide {
+		display: none;
+	}
+}
+
+.ds-defaultexample-label {
+	color: $xui-color-xero-blue;
+}
+
+// -----------------------------------------------------------------------------
+// Variables
+// -----------------------------------------------------------------------------
+.ds-token-wrap {
+	border: $xui-border-standard;
+}
+
+.ds-token-table {
+	margin: auto;
+	width: 100%;
+}
+
+.ds-token-table-color {
+	max-width: 800px;
+}
+
+.ds-token-box {
+	background-color: $xui-color-white;
+	border: $xui-border-standard;
+	padding-bottom: 100%;
+}
+
+.ds-token-text {
+	background: none;
+	color: inherit;
+	font-size: $xui-font-size-section-title;
+	padding: 0;
+}
+
+.ds-token-text--floating {
+	background: $xui-color-highlight-inverted-strong;
+	bottom: 5%;
+	left: 5%;
+	max-width: 85%;
+	overflow-x: auto;
+	padding: 0.4em 0.6em;
+	position: absolute;
+	white-space: nowrap;
+}
+
+.ds-token-grid--cell {
+	min-height: 3rem;
+	position: relative;
+}
+
+.ds-token-vertical-align {
+	align-items: center;
+	display: flex;
+}
+
+.ds-token-table--row {
+	padding: 2vh;
+
+	&:hover {
+		background-color: $xui-color-shadow-light;
+	}
+}
+
+// ------------------------------------------------------
+// Show and style scrollbars (for our massively mac audience)
+// ------------------------------------------------------
+$ds-scrollbar-xlight: rgba(0, 0, 0, 0.05);
+$ds-scrollbar-light: rgba(0, 0, 0, 0.1);
+$ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
+
+
+::-webkit-scrollbar {
+	height: 7px;
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: $ds-scrollbar-light;
+	border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $ds-inverted--medium;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: $xui-color-shadow-strong;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: $ds-scrollbar-xlight;
+}
+
+@import "./markdown";
+@import "./prettyprint";
+@import "./search";

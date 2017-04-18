@@ -3,27 +3,23 @@
 
 // Content Blocks and Tables
 //
+// Weight: 5.1
+//
 // Styleguide: Content Blocks
 
 // Content Block with Actions
 //
-// #### Class Names
-//
-// `xui-contentblock`	Container for a content block
-//
-// `xui-contentblock--item`	Container for a content block item
-//
-// `xui-contentblock--item-layout`	Modifier to provide content block item layout
-//
-// `xui-contentblock--item-negative`	Modifier for a negative highlight content block item
-//
-// `xui-contentblock--item-selected`	Modifier for a selected content block item
-//
-// `xui-rowlink`	Modifier for a content block item which acts as a hyperlink
+// Classes:
+// xui-contentblock: Container for a content block
+// xui-contentblock--item: Container for a content block item
+// xui-contentblock--item-layout: Modifier to provide content block item layout
+// xui-contentblock--item-negative: Modifier for a negative highlight content block item
+// xui-contentblock--item-selected: Modifier for a selected content block item
+// xui-rowlink: Modifier for a content block item which acts as a hyperlink
 //
 // Markup:
 // <section>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Today</h2>
+//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Today</h2>
 //   <ol class="xui-contentblock">
 //     <li class="xui-contentblock--item xui-contentblock--item-negative xui-contentblock--item-layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-col">
@@ -50,7 +46,7 @@
 //       </div>
 //     </li>
 //   </ol>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Tomorrow</h2>
+//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Tomorrow</h2>
 //   <ol class="xui-contentblock">
 //     <li class="xui-contentblock--item xui-contentblock--item--layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-col">
@@ -76,20 +72,20 @@
 //
 // Markup:
 // <section>
-//   <header class="xui-sectionheading xui-sectionheading-layout xui-text-sectionheading">Account Number: 12345678</header>
+//   <header class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Account Number: 12345678</header>
 //   <ol class="xui-contentblock">
 //     <li class="xui-contentblock--item xui-contentblock--item-layout">
-//       <a href="/Contacts/View/b8942fdc-ad0f-4cc0-967e-9a6f619a992d" class="xui-layout-fixed xui-padding xui-rowlink">
-//         <div class="xui-layout-column-5-of-12">Arya Stark</div>
-//         <div class="xui-layout-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
+//       <a href="/Contacts/View/b8942fdc-ad0f-4cc0-967e-9a6f619a992d" class="xui-row xui-padding xui-rowlink">
+//         <div class="xui-column-5-of-12">Arya Stark</div>
+//         <div class="xui-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
 //           <div class="xui-text-secondary">25 January 2016</div>
 //         </div>
 //       </a>
 //     </li>
 //     <li class="xui-contentblock--item xui-contentblock--item-layout">
-//       <a href="/Contacts/View/3e057826-6a71-4567-bae0-8834db2b6c71" class="xui-layout-fixed xui-padding xui-rowlink">
-//         <div class="xui-layout-column-5-of-12">Basil Cafe</div>
-//         <div class="xui-layout-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
+//       <a href="/Contacts/View/3e057826-6a71-4567-bae0-8834db2b6c71" class="xui-row xui-padding xui-rowlink">
+//         <div class="xui-column-5-of-12">Basil Cafe</div>
+//         <div class="xui-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
 //           <div class="xui-text-secondary">25 January 2016</div>
 //         </div>
 //       </a>
@@ -120,18 +116,13 @@
 	}
 
 	&-layout {
-		line-height: $xui-line-height-text;
+		@include xui-text-line-height; // 1.5
 	}
 }
 
 .#{$ns}-contentblock--item-negative::before {
+	@include xui-highlight-left;
 	background: $xui-color-xero-red;
-	content: "";
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 4px;
 }
 
 .#{$ns}-rowlink {
@@ -145,10 +136,10 @@
 // <table class="xui-contentblock">
 //  <thead>
 //    <tr class="xui-sectionheading">
-//      <th class="xui-text-sectionheading xui-sectionheading-layout">Code</th>
-//      <th class="xui-text-sectionheading xui-sectionheading-layout">Account</th>
-//      <th class="xui-text-sectionheading xui-sectionheading-layout">Account Type</th>
-//      <th class="xui-text-sectionheading xui-sectionheading-layout xui-text-number">Amount</th>
+//      <th class="xui-separator-title xui-sectionheading-layout">Code</th>
+//      <th class="xui-separator-title xui-sectionheading-layout">Account</th>
+//      <th class="xui-separator-title xui-sectionheading-layout">Account Type</th>
+//      <th class="xui-separator-title xui-sectionheading-layout xui-text-number">Amount</th>
 //    </tr>
 //  </thead>
 //  <tbody>

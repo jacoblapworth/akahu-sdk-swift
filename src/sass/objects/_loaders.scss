@@ -9,21 +9,21 @@
 //
 // Loaders provide users with feedback that something is happening and can be used by themselves or inside other elements.
 //
-// #### Class Names
+// ### Accessibility
+// While loading, apply the `aria-busy="true"` attribute on the element that encapsulates the content being loaded
+// (not on the loader itself)
 //
-// `xui-loader`	Container for a loader
-//
-// `xui-loader--dot`	Style for a loader dot
-//
-// `xui-loader-large`	Modifier for a large loader
-//
-// `xui-loader-layout`	Recommended layout for a loader
-//
-// `xui-loader-small`	Modifier for a small loader
+// Classes:
+// xui-loader: Container for a loader
+// xui-loader--dot: Style for a loader dot
+// xui-loader-large: Modifier for a large loader
+// xui-loader-layout: Recommended layout for a loader
+// xui-loader-small: Modifier for a small loader
+// xui-button--loader: Modifier for a loader inside a button (loaders inside buttons should also use `xui-loader-small`)
 //
 // Markup:
 // <!-- Loader -->
-// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-label="Content loading" aria-busy="true">
+// <div class="xui-loader xui-loader-large xui-loader-layout" role="progressbar" aria-valuetext="Content loading">
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
 //   <div class="xui-loader--dot"></div>
@@ -31,33 +31,35 @@
 // <br />
 // <!-- Loader inside a button -->
 // <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">
-//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled">
-//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-main">
-//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
 // <button type="button" disabled class="xui-button xui-button-standard">
-//   <div class="xui-loader-small" role="progressbar" aria-label="Button loading" aria-busy="true">
+//   <div class="xui-button--loader xui-loader xui-loader-small" role="progressbar" aria-valuetext="Button loading">
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //     <div class="xui-loader--dot"></div>
 //   </div>
 // </button>
+//
+// Weight: 5.1
 //
 // Styleguide: Loaders
 
@@ -65,9 +67,13 @@
 	color: $xui-color-placeholder;
 }
 
+.#{$ns}-button--loader {
+	color: inherit;
+}
+
 .#{$ns}-loader-layout {
-	margin-bottom: $xui-s-3xlarge;
-	margin-top: $xui-s-3xlarge;
+	padding-bottom: $xui-s-3xlarge;
+	padding-top: $xui-s-3xlarge;
 	text-align: center;
 }
 
@@ -75,11 +81,13 @@
 	$dot-size-small: 10px;
 	$dot-size: 12px;
 	$dot-size-large: 14px;
+	$dot-margin: 1px;
+	$dot-margin-large: 2px;
 	$animation-time: 1.3s;
 	$animation-delay: -0.16s;
 
 	// easeInOutSine
-	$animation-easing: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+	$animation-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
 	animation: xui-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
@@ -87,6 +95,8 @@
 	border-radius: 50%;
 	display: inline-block;
 	height: $dot-size;
+	transform-style: preserve-3d; // Firefox jank fix
+	vertical-align: middle;
 	width: $dot-size;
 
 	&:nth-child(1) {
@@ -107,12 +117,12 @@
 	}
 
 	.#{$ns}-loader & {
-		margin-right: $dot-size - $dot-size-small;
+		margin-right: $dot-margin;
 	}
 
 	.#{$ns}-loader-large & {
 		height: $dot-size-large;
-		margin-right: $dot-size-large - $dot-size-small;
+		margin-right: $dot-margin-large;
 		width: $dot-size-large;
 	}
 }
@@ -121,7 +131,7 @@
 	0%,
 	80%,
 	100% {
-		transform: scale(0);
+		transform: scale(0.5);
 	}
 
 	40% {

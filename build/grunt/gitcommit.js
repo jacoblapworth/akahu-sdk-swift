@@ -19,7 +19,7 @@ module.exports = {
 		files: {
 			src: [
 				'dist/*',
-				'styleguide/*',
+				'kss/styleguide/*',
 				'./*.html'
 			]
 		}

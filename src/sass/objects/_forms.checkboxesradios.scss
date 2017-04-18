@@ -14,19 +14,13 @@
 // The following examples show laying out radio and checkboxes with clickable
 // labels.
 //
-// #### Class Names
-//
-// `xui-checkbox`	Style for a checkbox
-//
-// `xui-checkbox-layout`	Recommended layout for a checkbox
-//
-// `xui-checkboxgroup`	Container for a group of checkboxes
-//
-// `xui-radio`	Style for a radio input
-//
-// `xui-radio-layout`	Recommended layout for a radio input
-//
-// `xui-radiogroup`	Container for a group of radio inputs
+// Classes:
+// xui-checkbox: Style for a checkbox
+// xui-checkbox-layout: Recommended layout for a checkbox
+// xui-checkboxgroup: Container for a group of checkboxes
+// xui-radio: Style for a radio input
+// xui-radio-layout: Recommended layout for a radio input
+// xui-radiogroup: Container for a group of radio inputs
 //
 // Markup:
 // <label class="xui-checkbox xui-checkbox-layout">
@@ -38,7 +32,9 @@
 //  Pick me!
 // </label>
 //
-// Styleguide: Forms.5
+// Weight: 4.1
+//
+// Styleguide: Checkboxes and Radios
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
@@ -52,11 +48,12 @@
 	}
 }
 
-.#{$ns}-checkbox-layout, .#{$ns}-radio-layout {
+.#{$ns}-checkbox-layout,
+.#{$ns}-radio-layout {
 	@include xui-padding-vertical($xui-s-small);
 	@include xui-padding-horizontal($xui-s-standard);
+	@include xui-text-line-height; // 1.5
 	display: flex;
-	line-height: $xui-line-height-text;
 	text-align: left;
 	text-decoration: none;
 
@@ -103,7 +100,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Forms.6
+// Styleguide: Checkboxes and Radios.1
 
 .#{$ns}-checkboxgroup,
 .#{$ns}-radiogroup {

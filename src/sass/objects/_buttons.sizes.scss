@@ -1,6 +1,6 @@
 // Sizes
 //
-// Styleguide: Buttons.3
+// Styleguide: Buttons.4
 
 .#{$ns}-button-fullwidth-layout {
 	@include xui-breakpoint-narrow {
@@ -13,23 +13,15 @@
 //
 // Button to use when creating smaller more compact things.
 //
-// :hover - Highlights when hovering.
-// :focus - When focused
-// :active - When active
-// .xui-button-small
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-standard xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button xui-button-main xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button xui-button-create xui-button-small {{modifier_class}}">Text</button>
-// <button type="button" class="xui-button xui-button-negative xui-button-small {{modifier_class}}">Text</button>
 //
-// Styleguide: Buttons.3.1
+// Styleguide: Buttons.4.1
 
-@each $size, $value-map in $xui-button-sizes {
-	.#{$ns}-button-#{$size} {
-		@include xui-button-size($value-map...);
-	}
+.#{$ns}-button-small {
+	min-height: 30px;
+	padding: 6px $xui-s-small;
 }
 
 // Full-width
@@ -39,7 +31,7 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-main xui-u-fullwidth">Big Button</button>
 //
-// Styleguide: Buttons.3.2.1
+// Styleguide: Buttons.4.2
 
 // Full-width for mobile devices
 //
@@ -48,4 +40,4 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-main xui-button-fullwidth-layout">Mobile Button</button>
 //
-// Styleguide: Buttons.3.2.2
+// Styleguide: Buttons.4.3

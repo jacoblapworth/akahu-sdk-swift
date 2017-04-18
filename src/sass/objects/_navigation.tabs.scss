@@ -36,21 +36,14 @@
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
 //
-// #### Class Names
-//
-// `xui-tabgroup`	Container for a group of tabs
-//
-// `xui-tabgroup-layout`	Recommened layout for a tab group
-//
-// `xui-tab`	Container for a tab
-//
-// `xui-tab--body`	Container for the body of a tab
-//
-// `xui-tab-is-selected`	Modifier for the currently selected tab
-//
-// `xui-tab-pageheading`	Modifier for a page heading tab
-//
-// `xui-tab-pageheading-is-selected`	Modifier for the currently selected page heading tab
+// Classes:
+// xui-tabgroup: Container for a group of tabs
+// xui-tabgroup-layout: Recommened layout for a tab group
+// xui-tab: Container for a tab
+// xui-tab--body: Container for the body of a tab
+// xui-tab-is-selected: Modifier for the currently selected tab
+// xui-tab-pageheading: Modifier for a page heading tab
+// xui-tab-pageheading-is-selected: Modifier for the currently selected page heading tab
 //
 // Markup:
 // <ul class="xui-tabgroup xui-tabgroup-layout" role="navigation" aria-label="Tertiary">
@@ -68,6 +61,9 @@
 //   </li>
 //   <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
 //     <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
+//   </li>
+//   <li class="xui-tab xui-tab-pageheading">
+//     <a class="xui-tab--body" href="#selected_pagenav">Multi-line<br />Item</a>
 //   </li>
 // </ul>
 //
@@ -90,23 +86,28 @@ $xui-color-variations: (
 	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
 	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
 	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
-	"#{$ns}-tab-pagenav":($xui-color-tab-pagenav, transparent, $xui-color-reversed-text, $xui-color-reversed-text),
-	"#{$ns}-tab-pagenav-is-selected":($xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text, $xui-color-reversed-text)
+	"#{$ns}-tab-inlinenav":($xui-color-primary-text, transparent, $xui-color-xero-light-green, $xui-color-xero-blue),
+	"#{$ns}-tab-inlinenav-is-selected":($xui-color-primary-text, $xui-color-xero-light-green, $xui-color-xero-light-green, $xui-color-xero-blue)
 );
 
 // Individual tabs
 // -----------------------------------------------------------------------------
 
 .#{$ns}-tab {
+	align-items: center;
+	display: flex;
 	margin: 0;
 	position: relative;
 
 	.#{$ns}-tab--body {
+		@include xui-text-line-height-compact;
+
+		align-items: center;
 		border-radius: $xui-radius;
 		color: $xui-color-secondary-text;
 		cursor: pointer;
-		display: inline-block;
-		font-weight: bold;
+		display: inline-flex;
+		height: 100%;
 		outline: none;
 		text-align: center;
 
@@ -130,6 +131,7 @@ $xui-color-variations: (
 		content: " ";
 		display: block;
 		height: 3px;
+		left: 0;
 		position: absolute;
 		width: 100%;
 	}
@@ -148,24 +150,41 @@ $xui-color-variations: (
 	}
 }
 
+.#{$ns}-tabgroup-layout-inline {
+	height: 100%;
+}
+
+.#{$ns}-tab-inlinenav {
+	align-items: center;
+	display: flex;
+}
+
+// fix the issue where ::after appears on the next tab
+.#{$ns}-tab-inlinenav-is-selected {
+	&::after {
+		left: 0;
+		right: 0;
+	}
+}
+
 // Vertical
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// *This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>*
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
 // NOTE: Keep an eye on this one... there might be a better way to declare a
 //       tab section without having to undo existing section padding.
 //
-// #### Class Names
-//
-// `xui-tabgroup-vertical`	Container for a group of vertical tabs
-//
-// `xui-tabgroup-vertical-layout`	Recommened layout for a vertical tab group
-//
-// `xui-verticaltab`	Container for a vertical tab
-//
-// `xui-verticaltab--body`	Container for the body of a vertical tab
-//
-// `xui-verticaltab-is-selected`	Modifier for the currently selected vertical tab
+// Classes:
+// xui-tabgroup-vertical: Container for a group of vertical tabs, replaced by `xui-picklist`
+// xui-tabgroup-vertical-layout: Recommended layout for a vertical tab group
+// xui-verticaltab: Container for a vertical tab, replaced by `xui-pickitem`
+// xui-verticaltab--body: Container for the body of a vertical tab, replaced by `xui-pickitem--body`
+// xui-verticaltab-is-selected: Modifier for the currently selected vertical tab
 //
 // Markup:
 // <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout" role="navigation" aria-label="Tertiary">
@@ -224,6 +243,8 @@ $xui-color-variations: (
 }
 
 .#{$ns}-verticaltab--body {
+	@include xui-text-line-height-compact;
+
 	color: $xui-color-primary-text;
 	display: block;
 	width: 100%;
@@ -244,5 +265,3 @@ $xui-color-variations: (
 		@include xui-padding($xui-s-small);
 	}
 }
-
-

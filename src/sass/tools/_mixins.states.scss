@@ -1,6 +1,16 @@
+@import "../vars";
+
 @mixin xui-state-focus {
 	&:focus {
 		box-shadow: $xui-shadow-focus;
+		outline: none;
+		transition: box-shadow $xui-motion-speed-fast;
+	}
+}
+
+@mixin xui-state-focus-inverted {
+	&:focus {
+		box-shadow: $xui-shadow-focus-inverted;
 		outline: none;
 		transition: box-shadow $xui-transition-duration-short;
 	}
@@ -8,16 +18,16 @@
 
 @mixin xui-state-focus-transparent {
 	&:hover {
-		color: darken($xui-color-xero-blue, 10%);
+		color: $xui-color-xero-dark-blue;
 	}
 
 	&:focus {
-		background-color: rgba($xui-color-grey-1, 0.05);
+		background-color: $xui-color-grey-alpha-7;
 		border-radius: $xui-radius;
 	}
 
 	&:active {
-		background-color: rgba($xui-color-grey-1, 0.1);
+		background-color: $xui-color-grey-alpha-6;
 		border-radius: $xui-radius;
 	}
 }

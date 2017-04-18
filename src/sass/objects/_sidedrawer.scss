@@ -13,24 +13,18 @@
 //   * The `aria-live` attribute for this role should be set to `polite` so that users are notified of change at the next graceful opportunity, even when the side drawer isn't in focus. ([W3C documentation](https://www.w3.org/TR/wai-aria/states_and_properties#aria-live))
 //  * **`role="dialog"`** - Acts as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed. ([MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
-// #### Class Names
-//
-// `xui-sidedrawer`	Container for a side drawer
-//
-// `xui-sidedrawer--content`	Container for the body of a side drawer
-//
-// `xui-sidedrawer--footer`	Container for the footer of a side drawer
-//
-// `xui-sidedrawer--header`	Container for the header of a side drawer
-//
-// `xui-sidedrawer-is-closed`	Hide the side drawer
-//
-// `xui-sidedrawer-layout`	Recommended layout for a side drawer
+// Classes:
+// xui-sidedrawer: Container for a side drawer
+// xui-sidedrawer--content: Container for the body of a side drawer
+// xui-sidedrawer--footer: Container for the footer of a side drawer
+// xui-sidedrawer--header: Container for the header of a side drawer
+// xui-sidedrawer-is-closed: Hide the side drawer
+// xui-sidedrawer-layout: Recommended layout for a side drawer
 //
 // Markup:
 // <div class="xui-sidedrawer xui-sidedrawer-layout" role="complementary" aria-labelledby="drawer-header">
 //   <div class="xui-sidedrawer--header">
-//     <h3 id="drawer-header" class="xui-section-title">Header</h3>
+//     <h3 id="drawer-header" class="xui-item-title">Header</h3>
 //   </div>
 //   <div class="xui-sidedrawer--content">
 //     Body content<br />
@@ -42,6 +36,8 @@
 //     Footer content
 //   </div>
 // </div>
+//
+// Weight: 4.1
 //
 // Styleguide: Sidedrawer
 $xui-drawer-width: 350px;
@@ -55,7 +51,7 @@ $xui-drawer-width: 350px;
 	position: fixed;
 	right: 0;
 	top: 0;
-	transition: all $xui-transition-duration-short $xui-easing-standard;
+	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	width: $xui-drawer-width;
 }
 
@@ -64,10 +60,10 @@ $xui-drawer-width: 350px;
 }
 
 .#{$ns}-sidedrawer--header {
-	@include xui-bold;
 	background: $xui-color-panel;
 	border-bottom: 1px solid $xui-color-border;
 	box-sizing: border-box;
+	font-weight: bold;
 	text-align: center;
 	width: 100%;
 	z-index: 5;

@@ -6,23 +6,17 @@
 // Make sure that the `xui-step--icon` element comes after the `xui-step--body` element for correct positioning.
 // Use `<br />` elements to create multi-line text.
 //
-// #### Class Names
+// Classes:
+// xui-step: Container for a step
+// xui-step--body: Container for the body text of a step (inside `xui-step`)
+// xui-step--icon: Container for the trailing icon of a step (inside `xui-step`)
+// xui-step-is-complete: Modifier for a completed step
+// xui-step-is-selected: Modifier for the currently selected step
+// xui-step-layout: Recommended layout for a step
+// xui-steps: Container for a group of steps
+// xui-steps-interactive: Enable navigation between completed steps
 //
-// `xui-step`	Container for a step
-//
-// `xui-step--body`	Container for the body text of a step (inside `xui-step`)
-//
-// `xui-step--icon`	Container for the trailing icon of a step (inside `xui-step`)
-//
-// `xui-step-is-complete`	Modifier for a completed step
-//
-// `xui-step-is-selected`	Modifier for the currently selected step
-//
-// `xui-step-layout`	Recommended layout for a step
-//
-// `xui-steps`	Container for a group of steps
-//
-// `xui-steps-interactive`	Enable navigation between completed steps
+// Weight: 4.1
 //
 // Styleguide: Steps
 
@@ -40,19 +34,19 @@
 //       <ol class="xui-steps xui-steps-interactive">
 //         <li class="xui-step xui-step-layout xui-step-is-complete">
 //           <a class="xui-step--body" href="#">Denial</a>
-//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//           <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //         </li>
 //         <li class="xui-step xui-step-layout xui-step-is-complete">
 //           <a class="xui-step--body" href="#">Anger</a>
-//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//           <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //         </li>
 //         <li class="xui-step xui-step-layout xui-step-is-selected">
 //           <span class="xui-step--body">Bargaining</span>
-//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//           <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //         </li>
 //         <li class="xui-step xui-step-layout">
 //           <span class="xui-step--body">Depression</span>
-//           <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//           <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //         </li>
 //         <li class="xui-step xui-step-layout">
 //           <span class="xui-step--body">Acceptance</span>
@@ -74,19 +68,19 @@
 //     <ol class="xui-steps">
 //       <li class="xui-step xui-step-layout xui-step-is-complete">
 //         <span class="xui-step--body">Fear<br />leads to anger</span>
-//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//         <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //       </li>
 //       <li class="xui-step xui-step-layout xui-step-is-complete">
 //         <span class="xui-step--body">Anger<br />leads to hate</span>
-//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//         <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //       </li>
 //       <li class="xui-step xui-step-layout xui-step-is-selected">
 //         <span class="xui-step--body">Hate<br />leads to suffering</span>
-//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//         <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //       </li>
 //       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">Suffering<br />leads to the dark side</span>
-//         <svg class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" /></svg>
+//         <svg focusable="false" class="xui-step--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //       </li>
 //       <li class="xui-step xui-step-layout">
 //         <span class="xui-step--body">"Nooooooooooooo!"<br />- Darth Vader</span>
@@ -141,6 +135,8 @@
 
 // Step text
 .#{$ns}-step--body {
+	@include xui-text-line-height-compact;
+
 	color: currentColor;
 	outline: none;
 	padding: $xui-s-actionlink;

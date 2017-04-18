@@ -1,0 +1,97 @@
+@import "../settings/typography";
+@import "../mixins";
+
+// Text Content
+//
+// Use the `xui-textcontent` wrapper class to enclose content that is represented by simple HTML elements.
+//
+// HTML elements inside `xui-textcontent` will be basically formatted in a way that makes sense for displaying user generated content.
+//
+// Markup:
+// <div class="xui-panel xui-padding-horizontal xui-padding-bottom xui-textcontent">
+//   <h1>Getting started with Xero Payroll</h1>
+//   <p>Here's what you'll need to sign up to Xero, how to set up your organisation, and links to pages that'll help you get started using Xero.</p>
+//   <hr>
+//   <h2>What you'll need</h2>
+//   <p>You'll need a browser and a Xero account to get started with Xero.</p>
+//   <ul>
+//     <li><a href="#system-requirements">System requirements</a></li>
+//     <li><a href="#sign-up">Sign up for a free Xero account</a></li>
+//   </ul>
+//   <h3>Converting from another system</h3>
+//   <h4>MYOB</h4>
+//   <h5>Initial steps</h5>
+//   <ul>
+//     <li><a href="#import">Import MYOB Practice chart of accounts</a></li>
+//   </ul>
+//   <h5>Final steps</h5>
+//   <ul>
+//     <li><a href="http://giphy.com/search/happy">Be happy</a></li>
+//   </ul>
+// </div>
+//
+// Styleguide: Typography.80
+
+.#{$ns}-textcontent {
+	@include xui-text-line-height; // 1.5
+	font-size: $xui-font-size-medium;
+
+	* {
+		margin: 1em 0 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 2em;
+	}
+
+	h1 {
+		@include xui-heading-large;
+		font-size: $xui-font-size-extended-4xlarge;
+	}
+
+	h2 {
+		@include xui-heading-large;
+	}
+
+	h3 {
+		@include xui-heading-medium;
+	}
+
+	h4 {
+		@include xui-heading-small;
+	}
+
+	h5 {
+		@include xui-heading-small;
+		font-weight: normal;
+	}
+
+	h6 {
+		@include xui-heading-xsmall;
+	}
+
+	hr {
+		background: $xui-color-grey-5;
+		border: 0;
+		height: 1px;
+		margin: 3rem 0;
+		width: 100%;
+	}
+
+	dt {
+		@include xui-bold;
+
+		&::after {
+			content: ":";
+		}
+	}
+
+	dd {
+		margin-left: 1em;
+	}
+}

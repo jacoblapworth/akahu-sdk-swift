@@ -4,7 +4,6 @@
 /.bundle
 /node_modules
 /vendor/bundle/
-/styleguide/styleguide.md
 npm-debug.log
 
 # gh-pages branch stuff
@@ -12,13 +11,8 @@ npm-debug.log
 /origin
 
 # Build/Output files/directories
-/*.html
 /dist
-/public
-/styleguide/images
-/styleguide/kss-style.css
-/styleguide/kss-style.css.map
-/styleguide/xuiIconBlobES5.js
+/kss/styleguide/styleguide.md
 
 # IDE files/directores
 /.idea
@@ -26,3 +20,6 @@ npm-debug.log
 
 #OSX
 .DS_Store
+
+# Generated Colours Page
+src/sass/tmp

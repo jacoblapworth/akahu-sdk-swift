@@ -7,10 +7,7 @@
 
 html {
 	font-size: 100%; // Explicitly set font-size for rems - same as the UA default (usually 16px)
-	// scss-lint:disable VendorPrefix
-	/* doiuse-disable */
 	-webkit-text-size-adjust: 100%; // Prevent font size adjustments from orientation changes in iOS
-	/* doiuse-enable */
 }
 
 // Generally we don't use * selectors, however as this is a CSS WG
@@ -29,13 +26,22 @@ form {
 }
 
 .#{$ns}-body {
+	@include xui-container;
 	background-color: $xui-color-background;
-	box-sizing: border-box;
-	color: $xui-color-primary-text;
-	font-family: $xui-font-family;
-	font-size: $xui-font-size-text;
-	line-height: $xui-line-height;
 	overflow-y: scroll;
+}
+
+.#{$ns}-html {
+	height: 100%;
+
+	> .#{$ns}-body {
+		height: 100%;
+	}
+}
+
+// Alternative to xui-body for legacy pages
+.#{$ns}-container {
+	@include xui-container;
 }
 
 main {

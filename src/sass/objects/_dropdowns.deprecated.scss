@@ -1,0 +1,251 @@
+@import "../vars";
+@import "../mixins";
+
+// Deprecated
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// *The following dropdown classes have been deprecated and will removed in a future version of XUI.*
+//
+// *To recreate this behaviour use <a href="#dropdowns-1">dropdowns</a> and <a href="#navigation-6">picklists</a>*
+//
+// ### Behaviour
+//
+// Implementations should make the most of the screen space available when showing dropdowns.
+// Scrollbars can be used when there is not enough screen space to fit all menu items. When there
+// is more space above than below the dropdown trigger, the menu should be positioned above the
+// trigger. The same applies for whether the menu should be left-aligned or right-aligned against
+// the trigger.
+//
+// Classes:
+// xui-dropdownmenu: Container for a drop down menu, replaced by `xui-dropdown-layout`
+// xui-dropdownmenu--body: Container for the body of a drop down menu, replaced by `xui-dropdown--body`
+// xui-dropdownmenu--footer: Container for the footer of a drop down menu
+// xui-dropdownmenu--groupheading: Style for a drop down menu group heading
+// xui-dropdownmenu--groupheading-layout: Recommended layout for a drop down menu group heading
+// xui-dropdownmenu-is-closed: Hide the drop down menu, replaced by `xui-dropdown-is-closed`
+// xui-dropdownmenu-small: Modifier for a small dropdown menu
+// xui-dropdownmenu-medium: Modifier for a medium dropdown menu
+// xui-dropdownmenu-large: Modifier for a large  dropdown menu
+// xui-menugroup: Container for a group of menu items, replaced by `xui-picklist`
+// xui-menugroup-layout: Recommended layout for a menu group
+// xui-menuitem: Container for a menu item, replaced by `xui-pickitem`
+// xui-menuitem--body: Container for the body of a menu item, replaced by `xui-pickitem--body`
+// xui-menuitem--input: Style for a menu item input (e.g. checkbox)
+// xui-menuitem-is-selected: Modifier for a selected menu item
+// xui-menuitem-layout: Recommended layout for a menu item
+//
+// Markup:
+// <div class="xui-dropdownmenu xui-dropdownmenu-small" role="menubar" aria-label="dropdown menu">
+//   <div class="xui-dropdownmenu--body">
+//     <h3 class="xui-dropdownmenu--groupheading xui-dropdownmenu--groupheading-layout">Group Title</h3>
+//     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 1 label">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <button type="button" class="xui-button xui-menuitem--body">
+//           Menu item 1
+//         </button>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout xui-menuitem-is-selected" role="menuitem" aria-selected="true">
+//         <button type="button" class="xui-button xui-menuitem--body">
+//           Menu item 2
+//         </button>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 3
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 4
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 5
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 6 with more text
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 7
+//         </label>
+//       </li>
+//     </ul>
+//     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Menu group 2 label">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <a class="xui-menuitem--body" href="http://www.google.com">Link Menu Item 1</a>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 2
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="checkbox" class="xui-menuitem--input" role="menuitemcheckbox" />
+//           Menu item 3
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
+//           Menu item 4
+//         </label>
+//       </li>
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem" aria-selected="false">
+//         <label class="xui-menuitem--body">
+//           <input type="radio" name="radios2" class="xui-menuitem--input" role="menuitemradio" />
+//           Menu item 5
+//         </label>
+//       </li>
+//     </ul>
+//   </div>
+//   <footer class="xui-dropdownmenu--footer">
+//     <ul class="xui-menugroup xui-menugroup-layout" role="menu" aria-label="Footer menu label">
+//       <li class="xui-menuitem xui-menuitem-layout" role="menuitem">
+//         <button type="button" class="xui-button xui-menuitem--body">+ Some action</button>
+//       </li>
+//     </ul>
+//   </footer>
+// </div>
+//
+// Styleguide: Dropdowns.99
+
+.#{$ns}-dropdownmenu {
+	background-color: $xui-color-panel;
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-2;
+	font-size: $xui-font-size-small;
+	list-style-type: none;
+	margin: 0;
+	outline: none;
+	overflow: hidden;
+	transition: $xui-motion-speed-fast opacity $xui-motion-curve-standard;
+}
+
+// TODO: Deprecate layout
+.#{$ns}-dropdownmenu-layout,
+.#{$ns}-dropdownmenu-small {
+	width: 220px;
+}
+
+.#{$ns}-dropdownmenu-medium {
+	width: 300px;
+}
+
+.#{$ns}-dropdownmenu-large {
+	width: 380px;
+}
+
+.#{$ns}-dropdownmenu-is-closed {
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+}
+
+.#{$ns}-dropdownmenu--body,
+.#{$ns}-dropdownmenu--footer {
+	flex: 1 1 auto;
+}
+
+.#{$ns}-dropdownmenu--body {
+	@include xui-overflow-shadow;
+
+	overflow: auto;
+	-ms-scroll-chaining: none;
+}
+
+.#{$ns}-dropdownmenu--footer {
+	border-top: $xui-border-standard;
+	box-shadow: 0 -2px 0 0 rgba($xui-color-black, 0.05); // Should be a negative shadow variable
+}
+
+.#{$ns}-menugroup {
+	border-top: $xui-divider-standard;
+	margin: 0;
+	padding: 0;
+
+	&:first-of-type {
+		border-top: 0;
+	}
+}
+
+.#{$ns}-menuitem {
+	border-left: $xui-border-transparent;
+	list-style-type: none;
+	user-select: none;
+
+	&:hover {
+		background-color: $xui-color-hover;
+	}
+}
+
+.#{$ns}-menuitem-layout {
+	.#{$ns}-menuitem--body {
+		@include xui-padding-horizontal($xui-s-standard);
+		@include xui-padding-vertical($xui-s-small);
+		@include xui-text-line-height-compact;
+
+		color: $xui-color-primary-text;
+		display: flex;
+		text-align: left;
+		text-decoration: none;
+		width: 100%;
+	}
+
+	.#{$ns}-menuitem--input {
+		flex: none;
+		margin: 3px 7px 0 0;
+		padding: 0;
+	}
+}
+
+.#{$ns}-menugroup-layout {
+	@include xui-padding-vertical($xui-s-small);
+}
+
+.#{$ns}-dropdownmenu--groupheading {
+	background-color: $xui-color-grey-6;
+	border-bottom: $xui-divider-standard;
+	margin: 0;
+
+	&:nth-of-type(n+2) {
+		border-top: 1px solid $xui-color-grey-4;
+	}
+
+	& + .#{$ns}-menugroup {
+		border-top: 0;
+	}
+}
+
+.#{$ns}-dropdownmenu--groupheading-layout {
+	@include xui-padding-horizontal($xui-s-standard);
+	@include xui-padding-vertical($xui-s-small);
+}
+
+.#{$ns}-menuitem-is-selected {
+	border-left: $xui-border-is-selected;
+
+	.#{$ns}-menuitem--body {
+		color: inherit;
+	}
+
+	&:hover {
+		background-color: $xui-color-xero-blue;
+		color: $xui-color-reversed-text;
+
+	}
+}

@@ -1,0 +1,115 @@
+/*
+	Mixins for line-heights
+
+	Dev notes: Multiple mixins have been chosen due to the cognitive burden of
+	a single mixin and a map.
+
+	To use these, an example
+
+	.#{$ns}-some-class {
+		@include @xui-text-lineheight-tight;
+	}
+*/
+
+
+@mixin xui-text-small {
+	font-size: $xui-font-size-small;
+}
+
+@mixin xui-text-xsmall {
+	font-size: $xui-font-size-xsmall;
+}
+
+@mixin xui-text-line-height-reset {
+	line-height: $xui-line-height-reset;
+}
+
+@mixin xui-text-line-height-tight {
+	line-height: $xui-line-height-tight;
+}
+
+@mixin xui-text-line-height-compact {
+	line-height: $xui-line-height-compact;
+}
+
+@mixin xui-text-line-height {
+	line-height: $xui-line-height;
+}
+
+@mixin xui-text-proportional-nums {
+	font-feature-settings: "pnum" 1;
+	font-variant-numeric: proportional-nums;
+}
+
+@mixin xui-text-tabular-nums {
+	font-feature-settings: "tnum" 1;
+	font-variant-numeric: tabular-nums;
+}
+
+@mixin xui-heading-large {
+	@include xui-text-line-height-compact;
+	@include xui-text-proportional-nums;
+
+	font-size: $xui-font-size-xlarge;
+	font-weight: bold;
+}
+
+@mixin xui-heading-medium {
+	@include xui-text-line-height-compact;
+
+	font-size: $xui-font-size-large;
+	font-weight: bold;
+}
+
+@mixin xui-heading-small {
+	@include xui-text-line-height-compact;
+
+	font-size: $xui-font-size-medium;
+	font-weight: bold;
+}
+
+@mixin xui-heading-xsmall {
+	@include xui-text-line-height-compact;
+
+	color: $xui-color-grey-alpha-2;
+	font-size: $xui-font-size-small;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Font-weight
+@mixin xui-text-emphasis {
+	font-weight: $xui-font-weight-emphasis;
+}
+
+@mixin xui-text-deemphasis {
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Text color
+@mixin xui-text-muted {
+	color: $xui-color-grey-alpha-2;
+}
+
+@mixin xui-text-positive {
+	color: $xui-color-xero-green;
+}
+
+@mixin xui-text-negative {
+	color: $xui-color-xero-red;
+}
+
+// Letter spacing
+@mixin xui-text-spacing-tight {
+	letter-spacing: $xui-letter-spacing-tight;
+}
+
+@mixin xui-text-spacing-loose {
+	letter-spacing: $xui-letter-spacing-loose;
+}
+
+@mixin xui-text-truncated {
+	display: block; // other display values do not allow for truncation
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

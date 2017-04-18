@@ -1,4 +1,6 @@
 /*eslint-env node */
+var path = require('path');
+
 module.exports = function (grunt) {
 	'use strict';
 
@@ -23,13 +25,17 @@ module.exports = function (grunt) {
 		data: opts
 	});
 
-	grunt.registerTask('install', ['bower-install-simple', 'shell:install']);
-	grunt.registerTask('lint', ['scsslint', 'build', 'doiuse']);
-	grunt.registerTask('build', ['sass', 'autoprefixer:dist', 'copy:images', 'copy:icons']);
-	grunt.registerTask('dist', ['cssmin']);
-	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:files']);
+	grunt.registerTask('search-index', function () {
+		var done = this.async();
+		var src = path.join(__dirname, 'docs');
+		var dest = path.join(__dirname, 'docs/');
+		require('static-search-indexer').buildIndex(src, dest, `https://github.dev.xero.com/pages/UXE/xui/#${require('./package.json').version}/`, () => done());
+	});
 
-	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide', 'copy:images-docs']);
+	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
+	grunt.registerTask('dist', ['cssmin']);
+	grunt.registerTask('doc', ['if:readme', 'kss', 'copy:xui', 'babel:search', 'search-index']);
+	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide']);
 
 	var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];
 
@@ -61,7 +67,8 @@ module.exports = function (grunt) {
 				ignore: [
 					'css-appearance',
 					'css-resize',
-					'viewport-units'
+					'viewport-units',
+					'font-feature'
 				],
 				onFeatureUsage: function(usageInfo) {
 					if (usageInfo.feature === 'flexbox'){

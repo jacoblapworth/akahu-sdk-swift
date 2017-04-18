@@ -2,7 +2,7 @@
 
 // States
 //
-// Styleguide: Buttons.4
+// Styleguide: Buttons.8
 
 .#{$ns}-button[disabled] {
 	cursor: default;
@@ -10,7 +10,7 @@
 }
 
 .#{$ns}-button-is-disabled {
-	@include xui-button-is-disabled;
+	@include xui-button-is-disabled(null); // Null sets no background color by default (useful for link styles)
 
 	&:hover,
 	&:focus {
@@ -34,21 +34,23 @@
 // These buttons invert to a greyscale colour
 //
 // Markup:
-// <button type="button" disabled class="xui-button xui-button-standard">Text</button>
+// <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">Text</button>
 // <a href="https://go.xero.com" class="xui-button xui-button-standard xui-button-is-disabled">Text</a>
 //
-// Styleguide: Buttons.4.1
+// Styleguide: Buttons.8.1
 
-// Button Variants when disabled
+// Coloured Button Variants when disabled
 //
-// Button variants receive the same treatment when disabled and should invert to a greyscale colour when in this state
+// All coloured button variants receive the same treatment when disabled and are a greyscale colour when disabled.
+//
+// The `xui-button-is-disabled` class should be used in favour of the global `xui-is-disabled` class.
+//
+// When using the `button` element, it is recommended to use both the `disabled` attribute as well as the<br />
+// `xui-button-is-disabled` class.
 //
 // Markup:
-// <button type="button" disabled class="xui-button xui-button-main">Text</button>
-// <button type="button" disabled class="xui-button xui-button-create">Text</button>
-// <button type="button" disabled class="xui-button xui-button-negative">Text</button>
-// <a href="https://go.xero.com" class="xui-button xui-button-main xui-button-is-disabled">Text</a>
-// <a href="https://go.xero.com" class="xui-button xui-button-create xui-button-is-disabled">Text</a>
-// <a href="https://go.xero.com" class="xui-button xui-button-negative xui-button-is-disabled">Text</a>
+// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled">Text</button>
+// <button type="button" disabled class="xui-button xui-button-create xui-button-is-disabled">Text</button>
+// <button type="button" disabled class="xui-button xui-button-negative xui-button-is-disabled">Text</button>
 //
-// Styleguide: Buttons.4.2
+// Styleguide: Buttons.8.2

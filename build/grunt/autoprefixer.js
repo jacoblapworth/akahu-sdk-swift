@@ -6,6 +6,6 @@ module.exports = {
     src: 'dist/xui.css'
   },
   styleguide: {
-    src: 'styleguide/kss-style.css'
+    src: 'docs/kss-style.css'
   }
 };

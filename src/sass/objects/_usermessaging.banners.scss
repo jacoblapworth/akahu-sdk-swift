@@ -5,31 +5,22 @@
 //
 // Banners are used to display notifications to users, typically in the top center of the screen.
 //
-// #### Class Names
+// Classes:
+// xui-banner: Container for a banner
+// xui-banner--action: Container for a banner action
+// xui-banner--actions: Container for a group of banner actions
+// xui-banner--close: Subcomponent for a banner close button
+// xui-banner--link: Subcomponent for a banner link button
+// xui-banner--message: Style for a banner message
+// xui-banner--messagedetail: Style for additional banner message details
+// xui-banner-animated: Recommended animation for a banner
+// xui-banner-layout: Recommended layout for a banner
+// xui-banner-negative: Modifier for a negative highlight banner
+// xui-banner-positive: Modifier for a positive highlight banner
 //
-// `xui-banner`	Container for a banner
+// Weight: 4.1
 //
-// `xui-banner--action`	Container for a banner action
-//
-// `xui-banner--actions`	Container for a group of banner actions
-//
-// `xui-banner--close`	Subcomponent for a banner close button
-//
-// `xui-banner--link`	Subcomponent for a banner link button
-//
-// `xui-banner--message`	Style for a banner message
-//
-// `xui-banner--messagedetail`	Style for additional banner message details
-//
-// `xui-banner-animated`	Recommended animation for a banner
-//
-// `xui-banner-layout`	Recommended layout for a banner
-//
-// `xui-banner-negative`	Modifier for a negative highlight banner
-//
-// `xui-banner-positive`	Modifier for a positive highlight banner
-//
-// Styleguide: User Messaging.100
+// Styleguide: Banner
 
 // Basic usage
 //
@@ -45,7 +36,7 @@
 //    <p class="xui-banner--message">Banner Message</p>
 //</div>
 //
-// Styleguide: User Messaging.100.1
+// Styleguide: Banner.1
 
 // Sentiment
 //
@@ -78,7 +69,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.100.2
+// Styleguide: Banner.2
 
 // With Actions
 //
@@ -94,7 +85,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.100.3
+// Styleguide: Banner.3
 
 // Dismissible
 //
@@ -103,12 +94,12 @@
 // Markup:
 // <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
-//       <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner Message</p>
 // </div>
 //
-// Styleguide: User Messaging.100.4
+// Styleguide: Banner.4
 
 // With message detail
 //
@@ -118,7 +109,7 @@
 // Markup:
 // <div class="xui-banner xui-banner-layout" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
-//     <svg class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-close" /></svg>
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner Message</p>
 //   <div class="xui-banner--messagedetail xui-textcontent">
@@ -133,7 +124,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: User Messaging.100.5
+// Styleguide: Banner.5
 
 .#{$ns}-banner {
 	background-color: $xui-color-white;
@@ -143,25 +134,16 @@
 	color: $xui-color-primary-text;
 	opacity: 1;
 	position: relative;
-	transition: opacity $xui-transition-duration-short $xui-easing-standard;
-}
-
-.#{$ns}-banner::before {
-	background: transparent;
-	border-radius: $xui-radius 0 0 $xui-radius;
-	content: "";
-	height: calc(100% + 2px);
-	left: -1px;
-	position: absolute;
-	top: -1px;
-	width: 4px;
+	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
 .#{$ns}-banner-positive::before {
+	@include xui-highlight-left($xui-radius, true);
 	background: $xui-color-xero-light-green;
 }
 
 .#{$ns}-banner-negative::before {
+	@include xui-highlight-left($xui-radius, true);
 	background: $xui-color-xero-red;
 }
 
@@ -226,7 +208,7 @@
 }
 
 .#{$ns}-banner-animated {
-	animation: xui-banner-animation $xui-transition-duration-short;
+	animation: xui-banner-animation $xui-motion-speed-fast;
 }
 
 .#{$ns}-banner--messagedetail {
@@ -239,8 +221,8 @@
 }
 
 .#{$ns}-banner--action {
-	@include xui-bold;
 	display: inline-block;
+	font-weight: bold;
 }
 
 @keyframes xui-banner-animation {

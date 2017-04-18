@@ -2,6 +2,26 @@
 //
 // The Shared header is the recommended tool for displaying navigation within your application.
 //
+// Styleguide: Navigation.2
+
+// Version 4 (Responsive)
+//
+// **Notes**
+// - To get the header rendering in your application, please follow [these instructions](https://github.dev.xero.com/xero/responsive-header) instead of copying the code here.
+// - The header is run based on a strict JSON api. You can [read up on the JSON API here](https://github.dev.xero.com/Xero/Responsive-Header/wiki/Header-Model-Structure).
+//
+// Markup:
+// <div id="header4"></div>
+// <script type="application/json" id="header-data" data-render-to="#header4">
+//   {}
+// </script>
+// <link rel="stylesheet" href="https://edge.xero.com/platform/header/4.0.0-beta.10/header.min.css" />
+// <script src="https://edge.xero.com/platform/header/4.0.0-beta.10/header.min.js" defer></script>
+//
+// Styleguide: Navigation.2.1
+
+// Version 3 (Deprecated)
+//
 // **Notes**
 // - To get the header rendering in your application, please follow [these instructions](https://github.dev.xero.com/Xero/Header.Renderer/blob/master/README.md) instead of copying the code here.
 // - The header is run based on a strict JSON api. You can [read up on the JSON API here](https://confluence.inside.xero.com/display/SELF/Header-FrontEnd+JSON+API).
@@ -11,7 +31,10 @@
 // Markup:
 // <link rel="stylesheet" type="text/css" href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css"/>
 // <div id="header"></div>
-// <script type="text/javascript" src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
-// <script type="text/javascript">document.getElementById("header").innerHTML="",XERO.Header.init({appMenu:{model:{text:"Wei Designs",highlightMyXeroLink:!1,enableTitle:!1},type:"Header/AppMenu/AppMenuDropDown"},colour:"blue",navigation:{collection:[{model:{href:"#kssref-navigation-2",id:"Dashboard",listClass:" selected",openInNewWindow:!1,text:"Dashboard"},type:"Widgets/Tabs/TabItem"}]},profile:{model:{fullName:"Walter Whiteboard",role:"",avatar:"http://i.imgur.com/4P2Axd0.jpg",isCertifiedAdvisor:!1,href:"#kssref-navigation-2",openInNewWindow:!1},collection:[{model:{imageClass:"profile",href:"#kssref-navigation-2",openInNewWindow:!1,text:"Profile"},type:"Header/Profiles/ProfileLink"},{model:{imageClass:"settings",href:"#kssref-navigation-2",openInNewWindow:!1,text:"Account"},type:"Header/Profiles/ProfileLink"},{model:{imageClass:"logout",href:"#kssref-navigation-2",openInNewWindow:!1,text:"Logout",datajs:"logout"},type:"Header/Profiles/ProfileLink"}]},extensions:{collection:[{model:{imageClass:"quicklaunch"},type:"Widgets/Tabs/TabIconItem",collection:[{options:{links:[{title:"Invoice",key:"invoice",url:"#kssref-navigation-2"},{title:"Bill",key:"bill",url:"#kssref-navigation-2"}]},type:"Widgets/DropDowns/DropDownAddonItem",url:"https://edge.xero.com/platform/quicklaunch/1.0.2/app.js"}]},{model:{imageClass:"help"},type:"Widgets/Tabs/TabIconItem"}]}},"#header");</script>
+// <script type="text/javascript" src="https://edge.xero.com/platform/header/3.0.8/scripts/header.min.js"></script>
+// <script type="text/javascript">
+//   document.getElementById("header").innerHTML="";
+//   XERO.Header.init({},"#header");
+// </script>
 //
-// Styleguide: Navigation.2
+// Styleguide: Navigation.2.2

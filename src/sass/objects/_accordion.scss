@@ -2,63 +2,59 @@
 //
 // The accordion is used to display an expandable/collapsible list to users.
 //
-// #### Class Names
-//
-// `xui-accordion`	Container for an accordion
-//
-// `xui-accordion--header`	Style for an accordion item heading
-//
-// `xui-accordionitem`	Container for an accordion item
-//
-// `xui-accordionitem--collapsed`	Container for collapsed state of an accordion item
-//
-// `xui-accordionitem--expanded`	Container for expanded state of an accordion item
-//
-// `xui-accordionitem-is-open`	Enable the expanded state of an accordion item
-//
-// `xui-accordionitem-layout`	Recommended layout for an accordion item
+// Classes:
+// xui-accordion: Container for an accordion
+// xui-accordion--header: Style for an accordion item heading
+// xui-accordionitem: Container for an accordion item
+// xui-accordionitem--collapsed: Container for collapsed state of an accordion item
+// xui-accordionitem--expanded: Container for expanded state of an accordion item
+// xui-accordionitem-is-open: Enable the expanded state of an accordion item
+// xui-accordionitem-layout: Recommended layout for an accordion item
 //
 // Markup:
-//<ul class="xui-accordion xui-page-width-standard xui-panel" role="tablist" aria-multiselectable="true">
-//  <li class="xui-accordionitem xui-accordionitem-layout">
-//    <div id="tab-1" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-1" arial-expanded="false" role="tab" tabindex="-1">
-//      <a href="#">Collapsed Title</a>
-//    </div>
-//    <div id="panel-1" class="xui-accordionitem--expanded" aria-labelledby="tab-1" aria-hidden="true" role="tabpanel">
-//      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
-//      <p>Some other content...</p>
-//    </div>
-//  </li>
-//  <li class="xui-accordionitem xui-accordionitem-layout">
-//    <div id="tab-2" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-2" aria-expanded="false" role="tab" tabindex="-1">
-//      <a href="#">Collapsed Title</a>
-//    </div>
-//    <div id="panel-2" class="xui-accordionitem--expanded" aria-labelledby="tab-2" aria-hidden="true" role="tabpanel">
-//      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
-//      <p>Some other content...</p>
-//    </div>
-//  </li>
-//  <li class="xui-accordionitem xui-accordionitem-layout xui-accordionitem-is-open">
-//    <div id="tab-3" class="xui-accordionitem--collapsed" aria-selected="true" aria-controls="panel-3" aria-expanded="true" role="tab" tabindex="0">
-//      <a href="#">Collapsed Title</a>
-//    </div>
-//    <div id="panel-3" class="xui-accordionitem--expanded" aria-labelledby="tab-3" aria-hidden="false" role="tabpanel">
-//      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
-//      <p>Some other content...</p>
-//    </div>
-//  </li>
-//  <li class="xui-accordionitem xui-accordionitem-layout">
-//    <div id="tab-4" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-4" aria-expanded="false" role="tab" tabindex="-1">
-//      <a href="#">Collapsed Title</a>
-//    </div>
-//    <div id="panel-4" class="xui-accordionitem--expanded" aria-labelledby="tab-4" aria-hidden="true" role="tabpanel">
-//      <h3 class="xui-page-title xui-accordion--header">Expanded Title</h3>
-//      <p>Some other content...</p>
-//    </div>
-//  </li>
-//</ul>
+// <ul class="xui-accordion xui-page-width-standard xui-panel" role="tablist" aria-multiselectable="true">
+//   <li class="xui-accordionitem xui-accordionitem-layout">
+//     <div id="tab-1" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-1" arial-expanded="false" role="tab" tabindex="-1">
+//       <a href="#">Collapsed Title</a>
+//     </div>
+//     <div id="panel-1" class="xui-accordionitem--expanded" aria-labelledby="tab-1" aria-hidden="true" role="tabpanel">
+//       <h3 class="xui-heading-medium xui-accordion--header">Expanded Title</h3>
+//       <p>Some other content...</p>
+//     </div>
+//   </li>
+//   <li class="xui-accordionitem xui-accordionitem-layout">
+//     <div id="tab-2" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-2" aria-expanded="false" role="tab" tabindex="-1">
+//       <a href="#">Collapsed Title</a>
+//     </div>
+//     <div id="panel-2" class="xui-accordionitem--expanded" aria-labelledby="tab-2" aria-hidden="true" role="tabpanel">
+//       <h3 class="xui-heading-medium xui-accordion--header">Expanded Title</h3>
+//       <p>Some other content...</p>
+//     </div>
+//   </li>
+//   <li class="xui-accordionitem xui-accordionitem-layout xui-accordionitem-is-open">
+//     <div id="tab-3" class="xui-accordionitem--collapsed" aria-selected="true" aria-controls="panel-3" aria-expanded="true" role="tab" tabindex="0">
+//       <a href="#">Collapsed Title</a>
+//     </div>
+//     <div id="panel-3" class="xui-accordionitem--expanded" aria-labelledby="tab-3" aria-hidden="false" role="tabpanel">
+//       <h3 class="xui-heading-medium xui-accordion--header">Expanded Title</h3>
+//       <p>Some other content...</p>
+//     </div>
+//   </li>
+//   <li class="xui-accordionitem xui-accordionitem-layout">
+//     <div id="tab-4" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-4" aria-expanded="false" role="tab" tabindex="-1">
+//       <a href="#">Collapsed Title</a>
+//     </div>
+//     <div id="panel-4" class="xui-accordionitem--expanded" aria-labelledby="tab-4" aria-hidden="true" role="tabpanel">
+//       <h3 class="xui-heading-medium xui-accordion--header">Expanded Title</h3>
+//       <p>Some other content...</p>
+//     </div>
+//   </li>
+// </ul>
+//
+// Weight: 4.1
 //
 // Styleguide: Accordion
+
 .#{$ns}-accordion {
 	list-style: none;
 	margin: 0;
@@ -71,7 +67,8 @@
 
 .#{$ns}-accordionitem {
 	background-color: $xui-color-white;
-	transition: width 0.3s, margin 0.3s;
+	transition-duration: $xui-motion-speed-fast;
+	transition-property: width, margin;
 	width: 100%;
 }
 
@@ -84,28 +81,12 @@
 	opacity: 0;
 	padding: 0;
 	transform: scaleY(0);
-	transition: padding 0.3s;
+	transition: padding $xui-motion-speed-medium;
 }
 
 .#{$ns}-accordionitem-layout {
 	.#{$ns}-accordionitem--collapsed {
 		padding: $xui-s-standard;
-	}
-}
-
-.#{$ns}-accordionitem-is-open {
-	&.#{$ns}-accordionitem-layout {
-		@include xui-breakpoint-wide { /** increase width of open accordion item by 40px on larger screen sizes **/
-			border-left: $xui-divider-standard;
-			border-radius: $xui-radius;
-			border-right: $xui-divider-standard;
-			margin-left: -$xui-s-large;
-			width: calc(100% + 40px);
-		}
-	}
-
-	.#{$ns}-accordionitem--expanded {
-		padding: $xui-s-xxlarge;
 	}
 }
 
@@ -116,8 +97,21 @@
 	height: auto;
 	margin: 0;
 	max-width: 100vw;
-	transform: translateY(-1px); /** hides the border-bottom of the accordion--collapsed above it **/
+	transform: translateY(-1px); // hides the border-bottom of the accordion--collapsed above it
 
+	&.#{$ns}-accordionitem-layout {
+		@include xui-breakpoint-wide { //increase width of open accordion item by 40px on larger screen sizes
+			border-left: $xui-divider-standard;
+			border-radius: $xui-radius;
+			border-right: $xui-divider-standard;
+			margin-left: -$xui-s-large;
+			width: calc(100% + 40px);
+		}
+	}
+
+	.#{$ns}-accordionitem--expanded {
+		padding: $xui-s-huge;
+	}
 
 	> .#{$ns}-accordionitem--collapsed {
 		border: 0;
@@ -131,7 +125,8 @@
 		height: auto;
 		opacity: 1;
 		transform: scaleY(1);
-		transition: opacity 0.2s, padding 0.3s, transform 0.3s;
-		transition-delay: 0.1s, 0s, -2s;
+		transition-delay: $xui-motion-speed-fast, 0s, -2s;
+		transition-duration: $xui-motion-speed-medium;
+		transition-property: opacity, padding, transform;
 	}
 }

@@ -5,55 +5,54 @@
 //
 // A dashboard-style block designed to display summarised stats and figures
 //
-// #### Class Names
-//
-// `xui-overview`	Container for an overview block
-//
-// `xui-overview--section`	Container for a section of an overview block
-//
-// `xui-overview-layout`	Recommended layout for an overview block
+// Classes:
+// xui-overview: Container for an overview block
+// xui-overview--section: Container for a section of an overview block
+// xui-overview-layout: Recommended layout for an overview block
 //
 //  Markup:
 // <div class="xui-overview xui-overview-layout">
 //   <section class="xui-overview--section">
 //     <div class="xui-text-secondary">All</div>
-//     <div class="xui-heading xui-text-status">1.3m</div>
+//     <div class="xui-heading-large xui-text-status">1.3m</div>
 //   </section>
 //   <section class="xui-overview--section">
 //     <div class="xui-text-secondary">Draft</div>
-//     <div class="xui-heading xui-text-status">None</div>
+//     <div class="xui-heading-large xui-text-status">None</div>
 //   </section>
 //   <section class="xui-overview--section">
 //     <div class="xui-text-secondary">Paid</div>
-//     <div class="xui-heading xui-text-status xui-text-status-positive">14.5k</div>
+//     <div class="xui-heading-large xui-text-status xui-text-status-positive">14.5k</div>
 //   </section>
 // </div>
 // <div class="xui-overview xui-margin-vertical-large">
 //   <section class="xui-overview--section xui-padding-vertical-large">
 //     <div class="xui-text-secondary">All</div>
-//     <div class="xui-heading xui-text-status">1.3m</div>
+//     <div class="xui-heading-large xui-text-status">1.3m</div>
 //   </section>
 //   <section class="xui-overview--section xui-padding-vertical-large">
 //     <div class="xui-text-secondary">Draft</div>
-//     <div class="xui-heading xui-text-status">None</div>
+//     <div class="xui-heading-large xui-text-status">None</div>
 //   </section>
 //   <section class="xui-overview--section xui-padding-vertical-large">
 //     <div class="xui-text-secondary">Paid</div>
-//     <div class="xui-heading xui-text-status xui-text-status-positive">14.5k</div>
+//     <div class="xui-heading-large xui-text-status xui-text-status-positive">14.5k</div>
 //   </section>
 //   <section class="xui-overview--section xui-padding-vertical-large">
 //     <div class="xui-text-secondary">Overdue</div>
-//     <div class="xui-heading xui-text-status xui-text-status-negative">350.25</div>
+//     <div class="xui-heading-large xui-text-status xui-text-status-negative">350.25</div>
 //   </section>
 //   <section class="xui-overview--section xui-padding-vertical-large">
 //     <div class="xui-text-secondary">Sales</div>
-//     <div class="xui-heading xui-text-status">10k</div>
+//     <div class="xui-heading-large xui-text-status">10k</div>
 //   </section>
 //   <section class="xui-overview--section xui-padding-vertical-large">
 //     <div class="xui-text-secondary">Marketing</div>
-//     <div class="xui-heading xui-text-status xui-text-status-negative">20k</div>
+//     <div class="xui-heading-large xui-text-status xui-text-status-negative">20k</div>
 //   </section>
 // </div>
+//
+// Weight: 4.1
 //
 // Styleguide: Overview Blocks
 

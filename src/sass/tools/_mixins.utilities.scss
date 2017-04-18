@@ -1,0 +1,13 @@
+// scss-lint:disable ImportantRule
+@mixin xui-utility-hidden-visually() {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px !important;
+	left: 0 !important;
+	overflow: hidden;
+	padding: 0 !important;
+	position: absolute !important;
+	top: 0 !important;
+	white-space: nowrap !important; // See https://css-tricks.com/beware-smushed-off-screen-accessible-text/
+	width: 1px !important;
+}

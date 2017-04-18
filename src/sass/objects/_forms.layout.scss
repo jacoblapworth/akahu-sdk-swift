@@ -1,14 +1,13 @@
 // Form Layout
 //
-// #### Class Names
-//
-// `xui-field-layout`	Recommended layout for a form field (eg label and input)
-//
-// `xui-fieldlabel-layout`	Recommended layout for a form label
-//
-// `xui-form-inline`	Recommended layout for an inline form
-//
-// `xui-form-layout`	Recommended layout for a stacked form
+// Classes:
+// xui-field-layout: Recommended layout for a form field (eg label and input)
+// xui-fieldlabel-layout: Recommended layout for a form label
+// xui-form-inline: Recommended layout for an inline form
+// xui-form-layout: Recommended layout for a stacked form
+// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
+// xui-validation-layout: Recommended layout for text below inputs
+// xui-validation-is-invalid: Modifier for text below inputs that are in an error state
 //
 // Styleguide: Forms.1
 
@@ -19,16 +18,25 @@
 // Use the `xui-field-layout` class as a container for related form elements (e.g. `<label>` and `<input>`)
 // to give the suggested spacing between form fields.
 //
+// Note that using `xui-validation-layout` eliminates the need to wrap the parent in `xui-field-layout`.
+// In this way, vertical spacing between form fields will not be altered unless the text is more than one line long.
+//
 // Markup:
 // <form class="xui-form-layout">
-//   <p class="xui-text-panelheading">Stacked Form</p>
+//   <p class="xui-panel-title">Stacked Form</p>
 //   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Field One</label>
-//     <input class="xui-input" type="text" id="field1" placeholder="Placeholder for field one" />
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
+//     <input class="xui-input" type="text" id="field1" placeholder="" />
 //   </div>
-//   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">Field Two</label>
-//     <input class="xui-input" type="text" id="field2" placeholder="Placeholder for field two" />
+//   <div> <!-- optional wrapper for clarity -->
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
+//     <input class="xui-input" type="text" id="field2" placeholder="" />
+//     <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
+//   </div>
+//   <div> <!-- optional wrapper for clarity -->
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Bank account number</label>
+//     <input class="xui-input xui-input-is-invalid" type="text" id="field3" placeholder="" />
+//     <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
 //   </div>
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
@@ -41,7 +49,22 @@
 }
 
 .#{$ns}-field-layout {
-	margin-bottom: $xui-s-xxlarge;
+	margin-bottom: $xui-s-huge;
+}
+
+.#{$ns}-validation {
+	color: $xui-color-grey-alpha-2;
+	font-size: $xui-font-size-heading-small;
+}
+
+.#{$ns}-validation-layout {
+	margin-bottom: $xui-s-small;
+	min-height: $xui-s-large + 2; // Extra 2px to prevent vertical layout shifting
+	padding-top: $xui-s-xsmall;
+}
+
+.#{$ns}-validation-is-invalid {
+	color: $xui-color-xero-red;
 }
 
 // Inline Forms
@@ -55,7 +78,7 @@
 // Markup:
 // <!-- Inline Form -->
 // <form class="xui-form-inline">
-//   <p class="xui-text-panelheading">Inline Form</p>
+//   <p class="xui-panel-title">Inline Form</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Field One</label>
 //     <input class="xui-input" type="text" id="field3" placeholder="Placeholder for field one" />
@@ -68,7 +91,7 @@
 // </form>
 // <!-- Hidden Labels -->
 // <form class="xui-form-inline">
-//   <p class="xui-text-panelheading">Hidden Labels</p>
+//   <p class="xui-panel-title">Hidden Labels</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
 //     <input class="xui-input" type="text" id="field5" placeholder="Field One" />

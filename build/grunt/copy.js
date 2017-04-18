@@ -2,30 +2,10 @@
  * Copy configuration for Grunt.
  */
 module.exports = {
-	images: {
+	'xui': {
 		expand: true,
-		cwd: 'src/',
-		src: 'images/**',
-		dest: 'dist'
-	},
-	'images-docs': {
-		expand: true,
-		cwd: 'src/',
-		src: 'images/**',
-		dest: 'styleguide'
-	},
-	'files': {
-		expand: true,
-		src: 'README.md',
-		dest: 'styleguide',
-		rename: function(dest, src){
-			return dest + '/' + src.replace('README.md','styleguide.md')
-		}
-	},
-	icons: {
-		expand: true,
-		cwd: 'bower_components/xui-icon/dist',
-		src: 'xuiIconBlobES5.js',
-		dest: 'styleguide'
+		src: 'xui.css',
+		cwd: 'dist',
+		dest: 'docs/kss-assets'
 	}
 };

@@ -4,9 +4,10 @@ XUI
 [![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
 ![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
 
-A shared stylesheet for Xero applications that implements the [Xero Pattern Library](https://xero.invisionapp.com/share/CX2VL4F75).
-
-For examples see https://github.dev.xero.com/pages/UXE/xui/
+### Always get the latest versions here:
+* XUI documentation: https://github.dev.xero.com/pages/UXE/xui/
+* XUI on GitHub: https://github.dev.xero.com/UXE/xui
+* Component Registry: https://github.dev.xero.com/pages/UXE/Components-Registry/ 
 
 
 Using in Your Project
@@ -16,8 +17,9 @@ Using in Your Project
 
 Include the following `link` in your page:
 
-```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.1.0/xui.min.css"/>
+<!--?prettify lang=html?-->
+```
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.22.4/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -27,8 +29,16 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 
 ### Bower
 
-```bash
-$ bower install git@github.dev.xero.com:UXE/xui.git --save
+<!--?prettify?-->
+```
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.22.4 --save
+```
+
+### npm
+
+<!--?prettify?-->
+```
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.22.4 --save
 ```
 
 You will need to compile `xui.scss`.
@@ -39,84 +49,84 @@ What is XUI For?
 
 XUI provides a CSS base that implements the Xero Pattern Library.
 
-The approach is heavily inspired by Stripe's approach, which is discussed in
-this video:
+It is heavily [inspired by Stripe's approach](http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ).
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ" target="_blank">
-  <img src="http://img.youtube.com/vi/NHpSmJrEvRQ/0.jpg" alt="Thumbnail of Michelle Bu's TXJS 2015 talk" width="480" height="360">
-</a>
-
-In the near future we aim to provide JavaScript components that target XUI and
-when those components are available developers should prefer those components
-over using XUI directly.
+We also provide React components that target XUI in the [UXE Github org](https://github.dev.xero.com/UXE).
+When appropriate components exist, developers should use those components over using XUI directly.
 
 Example Page Markup
 -------------------
-```html
+<!--?prettify lang=html?-->
+```
 <!DOCTYPE html>
-<html lang="en">
+<html class="xui-html" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css" rel="stylesheet" />
-    <link href="https://edge.xero.com/style/xui/10.1.0/xui.min.css" rel="stylesheet" />
-    <script src="https://edge.xero.com/platform/header/3.0.4/scripts/header.min.js"></script>
+    <link href="https://edge.xero.com/style/xui/10.22.4/xui.min.css" rel="stylesheet" />
+    <script type="application/json" id="header-data" data-render-to="#header">
+      {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
+    </script>
+    <link rel="stylesheet" href="https://edge.xero.com/platform/header/4.2.0/header.min.css" />
+    <script src="https://edge.xero.com/platform/header/4.2.0/header.min.js" defer></script>
   </head>
   <body class="xui-body">
     <header id="header"></header>
-    <script>
-      // Ideally this code would live in an external script to enable CSP
-      (function () {
-        'use strict';
-        XERO.Header.init({}, '#header');
-      }());
-    </script>
     <header class="xui-pageheading">
       <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
-        <h1 class="xui-pageheading--title">Title</h1>
+        <h1 class="xui-pageheading--title">Page Title</h1>
       </div>
     </header>
-    <main role="main" class="xui-page-width-standard">
-      <div class="xui-panel">
-        <header class="xui-panel--header xui-padding">
-          <h3 class="xui-panel--heading xui-text-panelheading">Panel Header</h3>
-        </header>
-        <section class="xui-panel--section xui-padding">
-          Page Content
-        </section>
-      </div>
-    </main>
+    <div class="xui-margin-horizontal-small">
+      <main role="main" class="xui-page-width-standard xui-padding-vertical-large">
+        <h1 class="xui-heading-display xui-margin-none">Hello World</h1>
+      </main>
+    </div>
   </body>
 </html>
 ```
 
-Usage Guidelines
-----------------
+Using XUI
+---------
 
- * Add the `xui-body` class to your `<body>` element, unless you are targeting
-   legacy pages. The `xui-body` class provides background color, baseline font
+ * Add the `xui-body` class to your `<body>` element and `xui-html` to your
+   `<html>` element, unless you are targeting legacy pages.
+   The `xui-body` class provides background color, baseline font
    styling and line height. Note that if you use this, you must use at least
    version 3.0.3 of the Shared Header.
- * XUI CSS assumes `box-sizing: border-box`. This is provided by XUI via the `xui-body` class.
-   For legacy pages, you will need to set `box-sizing: border-box` on the container that wraps
-   XUI CSS classes.
+   The `xui-html` class sets the height of the `html` element to 100%, and
+   the body element with `xui-body` directly under it.
+ * For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
+   which has the `xui-container` class applied. This sets properties that XUI relies on,
+   such as `box-sizing: border-box`, its default line-height, fonts, etc.
+   For tricky legacy CSS that might override those rules, you can also use the
+   `xui-container` mixin to apply these rules to more specific selectors in your own CSS.
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.
  * Avoid writing your own CSS as much as possible, particularly if your CSS
    overrides XUI's styling. The less custom CSS you have, the easier it will be
-   to upgrade to new versions of XUI.
+   to upgrade to future versions of XUI.
  * In your main application, make sure XUI is loaded or imported before any of
    your other stylesheets.
- * When developing components, import XUI as a devDependency. Do not import XUI,
-   or any SCSS file containing shared classes, in any code that your component
-   exports. SCSS does not currently dedupe multiple imports of the same code, so
-   importing XUI in separate components will at the very least lead to bloated
-   files. It may also cause broken styling depending on when the imports occur.
- * If you need XUI's variables and mixins, import them via these entry points:
-    * For variables, `@import 'xui/src/sass/vars';`
-    * For mixins, `@import 'xui/src/sass/mixins';`
 
+Developing XUI Components
+-------------------------
+
+When developing components, import XUI as a dependency. Do not import XUI,
+or any SCSS file containing shared classes, in any code that your component
+exports. SCSS does not currently dedupe multiple imports of the same code, so
+importing XUI in separate components will at the very least result in bloated
+files. It may also cause broken styling depending on when the imports occur.
+
+Using XUI's Variables and Mixins
+--------------------------------
+
+If you want access to XUI's variables and mixins, you can import XUI as a dependency, and then import these individual files
+  * For variables, `@import 'xui/src/sass/vars';`
+  * For mixins, `@import 'xui/src/sass/mixins';`
+
+We do not recommend importing any other files as they are not considered a part of XUI's public API; they might move around between versions, which could end up breaking your project.
 
 Updating
 --------

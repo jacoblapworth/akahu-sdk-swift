@@ -3,6 +3,11 @@
 
 // Filters
 //
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>
+//
 // Filters are a way to operate over a set of data, and change the view to show the new set of data based on your chosen filter
 //
 // Styleguide: Navigation.4
@@ -11,23 +16,15 @@
 //
 // Sidebar filters are used to filter content that is displayed in an associated panel / section
 //
-// #### Class Names
-//
-// `xui-sidebarfilter`	Container for a sidebar filter
-//
-// `xui-sidebarfilter-is-selected`	Selected state for a sidebar filter
-//
-// `xui-sidebarfilter--body`	Container for the body of a sidebar filter
-//
-// `xui-sidebarfilter--control`	Subcomponent for a sidebar control using a checkbox
-//
-// `xui-sidebarfilters`	Container for a group of sidebar filters
-//
-// `xui-sidebarfilters-multiple`	Container for mutlitple groups of sidebar filters
-//
-// `xui-sidebarsummary`	Style for a sidebar summary (hidden by default)
-//
-// `xui-sidebarsummary--control`	Subcomponent for a sidebar summary control using a checkbox
+// Classes:
+// xui-sidebarfilter: Container for a sidebar filter
+// xui-sidebarfilter-is-selected: Selected state for a sidebar filter
+// xui-sidebarfilter--body: Container for the body of a sidebar filter
+// xui-sidebarfilter--control: Subcomponent for a sidebar control using a checkbox
+// xui-sidebarfilters: Container for a group of sidebar filters
+// xui-sidebarfilters-multiple: Container for mutlitple groups of sidebar filters
+// xui-sidebarsummary: Style for a sidebar summary (hidden by default)
+// xui-sidebarsummary--control: Subcomponent for a sidebar summary control using a checkbox
 //
 // Markup:
 // <div class="xui-page-width-standard xui-page-layout-sidebar-left">
@@ -178,11 +175,13 @@
 
 	@include xui-breakpoint-narrow() {
 
-		& + .#{$ns}-sidebarfilters, & + .#{$ns}-sidebarfilters-multiple {
+		& + .#{$ns}-sidebarfilters,
+		& + .#{$ns}-sidebarfilters-multiple {
 			@include xui-navigation-filters-collapse-list();
 		}
 
-		&:checked + .#{$ns}-sidebarfilters, &:checked + .#{$ns}-sidebarfilters-multiple {
+		&:checked + .#{$ns}-sidebarfilters,
+		&:checked + .#{$ns}-sidebarfilters-multiple {
 			@include xui-navigation-filters-expand-list();
 		}
 
@@ -190,7 +189,8 @@
 
 }
 
-.#{$ns}-sidebarfilter--body, .#{$ns}-sidebarsummary {
+.#{$ns}-sidebarfilter--body,
+.#{$ns}-sidebarsummary {
 	color: $xui-color-primary-text;
 	display: flex;
 	width: 100%;
@@ -230,5 +230,5 @@
 }
 
 .#{$ns}-sidebarfilter-is-selected > .#{$ns}-sidebarfilter--body {
-	@include xui-bold;
+	font-weight: bold;
 }

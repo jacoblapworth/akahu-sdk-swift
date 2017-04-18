@@ -1,0 +1,68 @@
+@import "../vars";
+
+// Borderless
+//
+// Borderless buttons take up the same amount of physical space as a regular button (to retain an appropriate hit area), but are used in situations where a regular button would draw too much attention.
+// To use an icon inside a borderless button, add the class `.xui-icon-inline` to the svg. All standard variants can also be applied, ie. `.xui-buttongroup` `.xui-button-is-disabled` and `.xui-button-small`. 
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-borderless-standard">Standard</button>
+// <button type="button" class="xui-button xui-button-borderless-muted">Muted</button>
+// <button type="button" class="xui-button xui-button-borderless-main">Main</button>
+// <button type="button" class="xui-button xui-button-borderless-create">Create</button>
+// <button type="button" class="xui-button xui-button-borderless-negative">Negative</button>
+// <button type="button" class="xui-button xui-button-borderless-standard xui-button-is-disabled">Disabled</button>
+// <div class="xui-text-inverted">
+// 	<button type="button" class="xui-button xui-button-borderless-inverted">Inverted</button>
+// 	<button type="button" class="xui-button xui-button-borderless-inverted">
+// 		<svg focusable="false" class="xui-icon xui-icon-inline">
+// 			<use xlink:href="#xui-icon-phone" role="presentation" />
+// 		</svg>
+// 		Icon left
+// 	</button>
+// 	<button type="button" class="xui-button xui-button-borderless-inverted">
+// 		Icon right
+// 	  <svg focusable="false" class="xui-icon xui-icon-inline">
+// 			<use xlink:href="#xui-icon-caret" role="presentation" />
+// 		</svg>
+// 	</button>
+// 	<button type="button" class="xui-button xui-button-borderless-inverted xui-button-is-disabled">Disabled</button>
+// </div>
+//
+// Styleguide: Buttons.3
+
+.#{$ns}-button-borderless {
+	&-standard {
+		@include xui-button-borderless($xui-color-grey-1, $xui-color-xero-dark-blue);
+	}
+	&-muted {
+		@include xui-button-borderless($xui-color-grey-alpha-2, $xui-color-grey-1);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
+		}
+	}
+	&-main {
+		@include xui-button-borderless($xui-color-xero-blue, $xui-color-xero-dark-blue);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
+		}
+	}
+	&-create {
+		@include xui-button-borderless($xui-color-xero-green, $xui-color-xero-dark-green);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
+		}
+	}
+	&-negative {
+		@include xui-button-borderless($xui-color-xero-red, $xui-color-xero-dark-red);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
+		}
+	}
+	&-inverted {
+		@include xui-button-borderless($xui-color-inverted-alpha-2, $xui-color-white, $xui-color-inverted-alpha-7, $xui-color-inverted-alpha-6);
+		&.#{$ns}-button-is-disabled {
+			@include xui-button-is-disabled(none, $xui-color-inverted-alpha-4);
+		}
+	}
+}

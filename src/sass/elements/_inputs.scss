@@ -1,5 +1,5 @@
 /**
- * Most input stylings can be found in objects/_formelements.*.scss files.  This
+ * Most input stylings can be found in objects/_forms.inputs.*.scss files.  This
  * file contains just a few element selectors that we either haven't yet decided
  * how to deal with and turn into class selectors, or specific oddities that we
  * want to smooth out.
@@ -26,4 +26,10 @@ input[type=number]::-webkit-outer-spin-button {
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
+}
+
+// Remove yellow background from autofilled inputs
+input:-webkit-autofill {
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: xui-animation-autofill;
 }

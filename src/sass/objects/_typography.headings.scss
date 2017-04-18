@@ -1,0 +1,216 @@
+// Presets
+//
+// We’ve got a few standardised classes to deal with the different types of content across our app.
+// At surface level they bear some similarities, but the separation has been done so to anticipate future changes at a component level.
+// When choosing the right class to use, a good rule of thumb is to ask yourself, ‘what kind of content is this’ and then apply the one that best fits that use case.
+//
+// XUI does not provide a CSS reset for semantic heading elements (e.g. `<h2>`). Use these classes in conjunction with XUI's spacing classes.
+//
+// Classes:
+// xui-panel-title: Standard title for each block of content within a page. Should only be used once per panel
+// xui-modal-title: for consistent application across all modal headers
+// xui-item-title: for consistent application across all content blocks & line items
+// xui-separator-title: for consistent application across all dropdown vertical separators
+//
+// Markup:
+// <h2 class="xui-panel-title xui-margin-none">All tasks</h2>
+// <h2 class="xui-modal-title xui-margin-none">Assign task</h2>
+// <h2 class="xui-item-title xui-margin-none">Homepage redesign</h2>
+// <h2 class="xui-separator-title xui-margin-none">Export options</h2>
+//
+// Styleguide: Typography.10
+
+// TODO: reconsider these class names for XUI11.
+// xui-panel-title is not a modifier of xui-panel
+.#{$ns}-panel-title {
+	@include xui-heading-medium;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-section-title,
+.#{$ns}-text-sectionheading {
+	color: $xui-color-grey-1;
+	font-size: $xui-font-size-medium;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+.#{$ns}-modal-title {
+	@include xui-heading-medium;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-item-title {
+	@include xui-heading-small;
+	// other specific stuff to this element might go here???
+}
+
+.#{$ns}-separator-title {
+	@include xui-heading-xsmall;
+}
+
+// Generic Headings
+//
+// For other contexts that don’t quite fit the examples above, we offer a few other classes to provide some flexibility while still conforming to XUI proportions and style.
+//
+// Classes:
+// xui-heading-large: for large in-page headings
+// xui-heading-medium: mid-weight heading useful for breaking up long forms etc.
+// xui-heading-small: for second-tier headings
+// xui-heading-xsmall: for minute headings that group content but aren’t strictly within tables or dropdowns
+//
+// Markup:
+// <h1 class="xui-heading-large xui-margin-none">Directory Listing</h1>
+// <h2 class="xui-heading-medium xui-margin-none">Location</h2>
+// <h3 class="xui-heading-small xui-margin-none">Street Address</h3>
+// <h4 class="xui-heading-xsmall xui-margin-none">Map</h4>
+//
+// Styleguide: Typography.20
+
+.#{$ns}-heading-large {
+	@include xui-heading-large;
+}
+
+.#{$ns}-heading-medium,
+.#{$ns}-textcontent h3 {
+	@include xui-heading-medium;
+}
+
+.#{$ns}-heading-small,
+.#{$ns}-textcontent h4 {
+	@include xui-heading-small;
+}
+
+.#{$ns}-heading-xsmall,
+.#{$ns}-dropdownmenu--groupheading,
+.#{$ns}-textcontent h5 {
+	@include xui-heading-xsmall;
+}
+
+
+// Display headings
+//
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-positive" role="alert">
+// <span class="xui-text-status xui-text-status-positive xui-padding-right-small">
+// <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-info" role="presentation"/></svg>
+// </span>
+// Experimental: These are still in development and sizes are subject to change.
+// </div>
+//
+// We also provide a few classes for more deliberate display typography. These scale relative to the viewport, and are particularly useful for highlighting small pieces of information like key financials in overview pages.
+//
+// Classes:
+// xui-heading-display: for relatively dense display text
+// xui-heading-display-xl: for short amounts of display text
+// xui-heading-display-xxl: for only a few digits of display text
+//
+// Markup:
+// <h2 class="xui-heading-display xui-text-truncated xui-margin-none">Welcome aboard</h2>
+// <h1 class="xui-heading-display-xl xui-text-truncated xui-margin-none">$3,724.00</h1>
+// <h1 class="xui-heading-display-xxl xui-text-truncated xui-margin-none">82.1%</h1>
+//
+// Styleguide: Typography.30
+
+.#{$ns}-heading-display,
+.#{$ns}-textcontent h2 {
+	@include xui-text-spacing-tight;
+	@include xui-text-emphasis;
+	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
+	font-size: $xui-font-size-extended-2xlarge;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: $xui-font-size-extended-4xlarge;
+	}
+
+	@include xui-breakpoint-huge {
+		font-size: $xui-font-size-extended-5xlarge;
+	}
+}
+
+.#{$ns}-heading-display-xl,
+.#{$ns}-textcontent h1 {
+	@include xui-text-spacing-tight;
+	@include xui-text-emphasis;
+	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
+	font-size: $xui-font-size-extended-4xlarge;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: $xui-font-size-extended-5xlarge;
+	}
+
+	@include xui-breakpoint-huge {
+		font-size: 48px;
+	}
+}
+
+.#{$ns}-heading-display-xxl {
+	@include xui-text-spacing-tight;
+	@include xui-text-emphasis;
+	@include xui-text-line-height-tight;
+	@include xui-text-proportional-nums;
+	font-size: 48px;
+
+	@include xui-breakpoint-medium-and-wide {
+		font-size: 5vw;
+	}
+}
+
+// This doesn't really feel like a 'heading' might belong elsewhere
+// Not documented. So it doesn't exist yet
+.#{$ns}-thead-title {
+	color: $xui-color-grey-alpha-2;
+	font-size: $xui-font-size-xsmall;
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Text Styles
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+//
+// *The following heading styles have been replaced with a new set of [Presets](#typography-10) and [Standard Text](#typography-50).*
+//
+// Classes:
+// xui-heading: replaced with `xui-heading-large`
+// xui-page-title: replaced with `xui-heading-medium`
+// xui-section-title: replaced with `xui-item-title`
+// xui-text-panelheading: replaced with `xui-panel-title`
+// xui-text-sectionheading: replaced with `xui-separator-title`
+//
+// Markup:
+// <p class="xui-heading">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-page-title">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-section-title">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-panelheading">The quick brown fox jumps over the lazy dog</p>
+// <p class="xui-text-sectionheading">The quick brown fox jumps over the lazy dog</p>
+//
+// Styleguide: Typography.39
+.#{$ns}-heading {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-extended-xlarge;
+}
+
+.#{$ns}-page-title {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-extended-large;
+}
+
+.#{$ns}-section-title {
+	@include xui-bold;
+	color: $xui-color-primary-text;
+	font-size: $xui-font-size-medium;
+}
+
+.#{$ns}-text-panelheading {
+	@include xui-bold;
+	font-size: $xui-font-size-medium;
+}
+
+.#{$ns}-text-sectionheading {
+	color: $xui-color-secondary-text;
+	font-size: $xui-font-size-xsmall;
+	font-weight: normal;
+}

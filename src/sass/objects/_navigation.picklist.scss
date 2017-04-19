@@ -111,7 +111,7 @@
 	}
 
 	&:active {
-		background: rgba($xui-color-black, 0.1);
+		background: rgba($xui-color-black, 0.05);
 		outline: none;
 	}
 
@@ -129,17 +129,17 @@
 }
 
 .#{$ns}-pickitem-is-hovered {
-	background: rgba($xui-color-black, 0.05);
+	background: rgba($xui-color-black, 0.025);
 }
 
 // Specificity exists to encapsulate the style update and eliminate nested menus
 // also receiving these styles.
 .#{$ns}-pickitem-is-hovered > .#{$ns}-pickitem--body {
-	background: rgba($xui-color-black, 0.05);
+	background: rgba($xui-color-black, 0.025);
 
 	&:active,
 	&:focus {
-		background: rgba($xui-color-black, 0.1);
+		background: rgba($xui-color-black, 0.05);
 	}
 }
 

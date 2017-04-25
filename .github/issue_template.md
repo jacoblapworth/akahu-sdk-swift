@@ -1,12 +1,12 @@
 *Please categorise your issue with one of the following:*
 
-- [ ] Bug
-- [ ] Design QA
-- [ ] Enhancement
-- [ ] Feature request
-- [ ] Design concept
-- [ ] Design enhancement
-- [ ] Documentation
+- Bug
+- Design QA
+- Enhancement
+- Feature request
+- Design concept
+- Design enhancement
+- Documentation
 
 ---
 

@@ -41,13 +41,13 @@
 //
 // Markup:
 // <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0" role="treeitem">
-//     <a href="#" class="xui-pickitem--body" tabindex="-1">
+//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//     <a href="#" class="xui-pickitem--body" tabindex="0">
 //       <span class="xui-pickitem--text">Item one - Is Selected</span>
 //     </a>
 //   </li>
 //   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="-1">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
 //       <span class="xui-pickitem--text xui-text-truncated">
 //         Item two - with text truncation class applied to the child element that has the xui-pickitem--text class to demonstrate truncation in effect.
 //         Widescreen monitors can be pretty wide so it may take a lot of text to make the truncation kick in. If all else fails here is an ellipsis...
@@ -55,7 +55,7 @@
 //     </button>
 //   </li>
 //   <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
 //       <span class="xui-pickitem--text">Item three</span>
 //     </button>
 //   </li>
@@ -100,6 +100,7 @@
 	justify-content: space-between;
 	line-height: $xui-line-height;
 	min-height: 40px;
+	outline: none;
 	padding-left: $xui-s-large;
 	padding-right: 0;
 	text-align: left;
@@ -107,12 +108,11 @@
 
 	&:hover,
 	&:focus {
-		background: rgba($xui-color-black, 0.05);
+		background: $xui-color-grey-alpha-7;
 	}
 
 	&:active {
-		background: rgba($xui-color-black, 0.05);
-		outline: none;
+		background: $xui-color-grey-alpha-6;
 	}
 
 	// Fixes an alignment issue with the arrow icon indicators in non-split menuitems
@@ -129,17 +129,25 @@
 }
 
 .#{$ns}-pickitem-is-hovered {
-	background: rgba($xui-color-black, 0.025);
+	background: $xui-color-grey-alpha-7;
+	&:hover,
+	&:focus {
+		background: $xui-color-grey-alpha-7;
+	}
+
+	&:active {
+		background: $xui-color-grey-alpha-6;
+	}
 }
 
 // Specificity exists to encapsulate the style update and eliminate nested menus
 // also receiving these styles.
 .#{$ns}-pickitem-is-hovered > .#{$ns}-pickitem--body {
-	background: rgba($xui-color-black, 0.025);
-
-	&:active,
-	&:focus {
-		background: rgba($xui-color-black, 0.05);
+	background: transparent;
+	&:focus,
+	&:hover,
+	&:active {
+		background: transparent;
 	}
 }
 
@@ -209,34 +217,6 @@
 //
 // Styleguide: Picklist.2
 
-// DEPRECATED STRUCTURE
-//
-// Markup:
-// <ul class="xui-picklist" role="tree">
-//   <li class="xui-pickitem" role="treeitem" aria-expanded="false">
-//     <input class="xui-pickitem--submenucontrol" id="submenu-sidebar-1" type="checkbox" tabindex="-1"/>
-//     <label class="xui-pickitem--body xui-submenu-uicontrol--label" for="submenu-sidebar-1" tabindex="0" title="Open or close submenu" aria-label="Open or close submenu">
-//       <span class="xui-pickitem--text">Item one has a submenu</span>
-//       <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//         <use role="presentation" xlink:href="#xui-icon-arrow"></use>
-//       </svg>
-//     </label>
-//     <ul class="xui-submenu xui-submenu-layout" role="group">
-//       <li class="xui-pickitem xui-pickitem-is-selected" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 1 is selected</button>
-//       </li>
-//       <li class="xui-pickitem" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 2</button>
-//       </li>
-//     </ul>
-//   </li>
-//   <li class="xui-pickitem" role="treeitem">
-//     <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item two</button>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.2.1
-
 // Submenu more specificity for layout adjustments
 .#{$ns}-submenu {
 	@include xui-listreset;
@@ -271,21 +251,21 @@
 
 .#{$ns}-submenu-uicontrol--label, .#{$ns}-submenu-uicontrol {
 	display: flex;
+	outline: none;
 
-	&:hover {
-		background: rgba($xui-color-black, 0.05);
+	&:hover,
+	&:focus {
+		background: $xui-color-grey-alpha-7;
 	}
 
-	&:active,
-	&:focus {
-		background: rgba($xui-color-black, 0.1);
-		outline: none;
+	&:active {
+		background: $xui-color-grey-alpha-6;
 	}
 }
 
 .#{$ns}-submenu-uicontrol--icon {
 	align-self: center;
-	color: $xui-color-icon;
+	color: $xui-color-grey-alpha-2;
 	margin: 3px;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 }
@@ -350,42 +330,6 @@
 // </ul>
 //
 // Styleguide: Picklist.3
-
-// DEPRECATED STRUCTURE
-//
-// Markup:
-// <ul class="xui-picklist" role="tree">
-//   <li role="treeitem" aria-expanded="false">
-//     <input class="xui-pickitem--submenucontrol" id="submenu-label" type="checkbox" tabindex="-1" />
-//     <div class="xui-pickitem--split">
-//       <div class="xui-pickitem" tabindex="-1">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">
-//           Item 1 has a split menu
-//         </button>
-//       </div>
-//       <div class="xui-submenu-uicontrol">
-//         <label for="submenu-label" class="xui-pickitem--uicontrol" title="Open or close submenu" aria-label="Open of close submenu">
-//           <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//             <use role="presentation" xlink:href="#xui-icon-arrow"></use>
-//           </svg>
-//         </label>
-//       </div>
-//     </div>
-//     <ul class="xui-submenu xui-submenu-layout" role="group">
-//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//         <a class="xui-pickitem--body xui-pickitem--text" href="#" tabindex="-1">Submenu item 1</a>
-//       </li>
-//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 2</button>
-//       </li>
-//     </ul>
-//   </li>
-//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0" role="treeitem">
-//     <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item 2 is selected</button>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.3.1
 
 .#{$ns}-pickitem--split {
 	align-items: stretch;
@@ -485,12 +429,13 @@
 	display: flex;
 	padding: 3px;
 
-	&:hover {
-		background: rgba($xui-color-black, 0.05);
+	&:hover
+	&:focus, {
+		background: $xui-color-grey-alpha-7;
 	}
 
 	&:active {
-		background: rgba($xui-color-black, 0.1);
+		background: $xui-color-grey-alpha-6;
 	}
 }
 

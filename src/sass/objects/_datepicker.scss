@@ -287,7 +287,7 @@
 }
 
 @mixin xui-selected-day-hover-rule($hover:'start', $selected: false) {
-	$color-highlight: $xui-color-hover;
+	$color-highlight: $xui-color-grey-alpha-7;
 	$color-background: $xui-color-white;
 
 	@if $selected {
@@ -428,7 +428,7 @@
 	z-index: 0;
 
 	&:hover .#{$ns}-datepicker--day--time {
-		background: $xui-color-hover;
+		background: $xui-color-grey-7;
 		border-radius: 50%;
 	}
 }
@@ -442,7 +442,7 @@
 	z-index: 1;
 
 	@include xui-datepicker-selection-bubble(
-		$xui-color-hover,
+		$xui-color-grey-7,
 		0, 0,
 		42%
 	)
@@ -455,7 +455,7 @@
 }
 
 .#{$ns}-datepicker--othermonth, .#{$ns}-datepicker--day-is-othermonth {
-	color: $xui-color-secondary-text;
+	color: $xui-color-grey-alpha-2;
 }
 
 .#{$ns}-datepicker--day-is-today {
@@ -508,7 +508,7 @@
 .#{$ns}-datepicker--day-is-hovered-start .#{$ns}-datepicker--day--time,
 .#{$ns}-datepicker--day-is-hovered-start:hover .#{$ns}-datepicker--day--time {
 	@include xui-datepicker-selection-bubble(
-		$xui-color-hover,
+		$xui-color-grey-7,
 		100%, 100%,
 		0
 	);
@@ -517,14 +517,14 @@
 
 .#{$ns}-datepicker--day-is-hovered-middle .#{$ns}-datepicker--day--time,
 .#{$ns}-datepicker--day-is-hovered-middle:hover .#{$ns}-datepicker--day--time {
-	background: $xui-color-hover;
+	background: $xui-color-grey-7;
 	border-radius: 0;
 }
 
 .#{$ns}-datepicker--day-is-hovered-end .#{$ns}-datepicker--day--time,
 .#{$ns}-datepicker--day-is-hovered-end:hover .#{$ns}-datepicker--day--time {
 	@include xui-datepicker-selection-bubble(
-		$xui-color-hover,
+		$xui-color-grey-7,
 		100%, 100%,
 		0
 	);

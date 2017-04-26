@@ -20,13 +20,10 @@
 // xui-toast--action: Container for a toast action
 // xui-toast--actions: Container for a group of toast actions
 // xui-toast--close: Subcomponent for a toast close button
-// xui-toast--link: Subcomponent for a toast link button
-// xui-toast--message: Style for a toast message
+// xui-toast--message: Style for a toast description
 // xui-toast-is-hidden: Hide the toast
 // xui-toast-layout: Recommended layout for a toast
-// xui-toast-list: Style for a description toast
-// xui-toast-negative: Modifier for a negative highlight toast
-// xui-toast-positive: Modifier for a positive highlight toast
+// xui-toast-wrapper: Positions toast in bottom left corner of viewport
 //
 // Styleguide: Toast.10
 
@@ -37,21 +34,29 @@
 //
 // Classes:
 // xui-toast-wrapper: Container for a group of toasts
+// xui-toast-positive: Positive sentiment
+// xui-toast-negative: Negative sentiment
+// xui-toast--link: Subcomponent for a toast link button
+// xui-toast-list: Bulleted list toasts
 //
 // Styleguide: Toast.11
+
 
 .#{$ns}-toast {
 	@include xui-clearfix;
 	background: transparentize($xui-color-white, 0.1);
-	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-2;
-	color: $xui-color-primary-text;
+	box-shadow: $xui-shadow-depth-lift;
+	color: $xui-color-grey-1;
+	display: inline-block;
 	max-width: 400px;
 	opacity: 1;
 	position: relative;
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 	z-index: 10;
+	@include xui-breakpoint-narrow {
+		border-radius: 0;
+	}
 }
 
 .#{$ns}-toast-positive::before {
@@ -68,10 +73,6 @@
 	@include xui-margin($xui-s-large);
 	@include xui-padding($xui-s-small);
 	@include xui-breakpoint-narrow {
-		border-bottom: 0;
-		border-left: 0;
-		border-radius: 0;
-		border-right: 0;
 		margin: 0;
 		max-width: none;
 		width: 100%;
@@ -83,10 +84,6 @@
 		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
 			max-width: calc(100% - 80px);
 		}
-	}
-
-	.#{$ns}-toast--close {
-		@include xui-margin-vertical(-2px);
 	}
 
 	.#{$ns}-toast--message {
@@ -132,10 +129,10 @@
 //
 // Styleguide: Toast.2
 
-// Simple
+// Standard
 //
 // * Always include a description
-// * Always include a close button, unless it’s a system error which persists indefinitely
+// * Always include a close button
 // * Avoid long descriptions
 //
 // Markup:
@@ -143,40 +140,83 @@
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-//   <div class="xui-toast--message">Image Uploaded</div>
-// </div>
-// <div class="xui-toast xui-toast-layout" role="status">
-//   <div class="xui-toast--message">No connection</div>
+//   <div class="xui-toast--message">Invoice deleted</div>
 // </div>
 //
 // Styleguide: Toast.2.1
 
+// System messages
+//
+// * System messages persist indefinitely, and don't have a close button.
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <div class="xui-toast--message">No connection</div>
+// </div>
+// <br>
+//
+// Styleguide: Toast.2.2
+
 // Actions
 //
-// Additional actions are optional (maximum of two, in addition to the close button)
-// Actions should be related to the task at hand
+// * Additional actions are optional (maximum of two, in addition to the close button)
+// * Actions should be related to the task at hand
+// * Layout adjusts based on length of description
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-//   <div class="xui-toast--message">Item Updated</div>
+//   <div class="xui-toast--message">Short description</div>
 //   <ul class="xui-toast--actions">
 //     <li class="xui-toast--action">
-//       <button type="button" class="xui-button xui-button-link xui-toast--link">Save as default</button>
-//     </li>
-//     <li class="xui-toast--action">
-//       <a class="xui-toast--link" href="#ToastLink">Undo</a>
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
 //     </li>
 //   </ul>
 // </div>
-//
-// Styleguide: Toast.2.2
-
-// Toast Sentiment
-//
-// Toast sentiment via `xui-toast-positive` and `xui-toast-negative` has been deprecated.
+// <br>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Avoid long descriptions. However, it's helpful to know that text does wrap by default.</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//   </ul>
+// </div>
+// <br>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Short description</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//     <li class="xui-toast--action">
+//       <a class="xui-button xui-button-borderless-main xui-button-small" href="#ToastLink">Action</a>
+//     </li>
+//   </ul>
+// </div>
+// <br>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Avoid long descriptions.  However, it's helpful to know that text does wrap by default.</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//     <li class="xui-toast--action">
+//       <a class="xui-button xui-button-borderless-main xui-button-small" href="#ToastLink">Action</a>
+//     </li>
+//   </ul>
+// </div>
 //
 // Styleguide: Toast.2.3
 
@@ -190,20 +230,7 @@
 //   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-//   <div class="xui-toast--message">Item Updated</div>
-//   <ul class="xui-toast--actions">
-//     <li class="xui-toast--action">
-//       <button type="button" class="xui-button xui-button-link xui-toast--link">Save as default</button>
-//     </li>
-//     <li class="xui-toast--action">
-//       <a class="xui-toast--link" href="#ToastLink">Undo</a>
-//     </li>
-//   </ul>
-// </div>
-// <div class="xui-toast-wrapper">
-//   <div class="xui-toast xui-toast-layout" role="alert">
-//     <div class="xui-toast--message">Connection successful</div>
-//   </div>
+//   <div class="xui-toast--message">Image uploaded</div>
 // </div>
 //
 // Styleguide: Toast.2.4

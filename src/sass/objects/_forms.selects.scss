@@ -125,11 +125,23 @@
 //
 // Styleguide: Forms.9
 
+// Deprecated CSS Classes
+//
+// <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
+// <img src="https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg" />
+//
+// No additional styling is neccessary now.
+//
+// Classes:
+// xui-select--button-is-selected: Selected class
+//
+// Styleguide: Forms.11
+
 .#{$ns}-select--button {
 	background-color: transparent;
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	display: block;
 	font-weight: normal;
 	min-height: $xui-input-height;
@@ -138,20 +150,10 @@
 	text-align: left;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-}
-
-.#{$ns}-select--button-is-selected {
-	border: $xui-border-standard;
-	border-color: $xui-color-border;
-	border-radius: $xui-radius $xui-radius 0 0;
-
-	@include xui-breakpoint-narrow {
-		border-radius: $xui-radius;
-	}
+	@extend %#{$ns}-commoninput;
 }
 
 .#{$ns}-dropdownmenu-select {
-	border-color: $xui-color-border;
 	border-radius: 0 0 $xui-radius $xui-radius;
 	border-top: 0;
 }
@@ -159,10 +161,8 @@
 .#{$ns}-select-layout {
 
 	.#{$ns}-dropdown--body {
-		border: $xui-border-standard;
-		border-radius: 0 0 $xui-radius $xui-radius;
 		border-top: 0;
-		margin-top: -1px;
+		margin-top: $xui-s-small;
 
 		@include xui-breakpoint-narrow {
 			border: 0;
@@ -172,5 +172,14 @@
 
 	.#{$ns}-select--button {
 		width: 100%;
+	}
+}
+
+.#{$ns}-select--button-is-selected { // TODO: deprecated, remove in XUI 11
+	border: $xui-border-standard;
+	border-color: $xui-color-grey-alpha-4;
+
+	@include xui-breakpoint-narrow {
+		border-radius: $xui-radius;
 	}
 }

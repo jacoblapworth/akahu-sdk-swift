@@ -187,7 +187,7 @@
 
 			.#{$ns}-dropdown--header-container {
 				align-items: center;
-				border-bottom: $xui-divider-standard;
+				border-bottom: $xui-border-muted;
 				display: flex;
 				justify-content: space-between;
 				min-height: $xui-s-6xlarge;
@@ -228,8 +228,8 @@
 	}
 
 	.#{$ns}-dropdown--footer {
-		border-top: 1px solid rgba($xui-color-black, 0.1);
 		bottom: 0;
+		box-shadow: $xui-shadow-border-top;
 		padding: $xui-s-small 0;
 		width: 100%;
 		//ToDo: Remove this in XUI11 in favour of a layout class on the picklist.
@@ -250,7 +250,7 @@
 
 	@include xui-breakpoint-narrow-up {
 		border-radius: $xui-radius;
-		box-shadow: $xui-shadow-depth-2;
+		box-shadow: $xui-shadow-depth-lift;
 	}
 
 	.#{$ns}-dropdown--scrollable-content {

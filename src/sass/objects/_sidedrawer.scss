@@ -43,8 +43,8 @@
 $xui-drawer-width: 350px;
 
 .#{$ns}-sidedrawer {
-	background: $xui-color-background;
-	border-left: 1px solid $xui-color-border;
+	background: $xui-color-grey-alpha-6;
+	border-left: 1px solid $xui-color-grey-alpha-4;
 	box-sizing: border-box;
 	height: 100%;
 	overflow: hidden;
@@ -60,8 +60,8 @@ $xui-drawer-width: 350px;
 }
 
 .#{$ns}-sidedrawer--header {
-	background: $xui-color-panel;
-	border-bottom: 1px solid $xui-color-border;
+	background: $xui-color-white;
+	border-bottom: 1px solid $xui-color-grey-alpha-4;
 	box-sizing: border-box;
 	font-weight: bold;
 	text-align: center;
@@ -71,8 +71,8 @@ $xui-drawer-width: 350px;
 
 
 .#{$ns}-sidedrawer--footer {
-	background: $xui-color-panel;
-	border-top: 1px solid $xui-color-border;
+	background: $xui-color-white;
+	border-top: 1px solid $xui-color-grey-alpha-4;
 	box-sizing: border-box;
 	width: 100%;
 	z-index: 5;

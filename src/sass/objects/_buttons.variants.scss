@@ -21,7 +21,7 @@
 			// TODO: in XUI 11, figure out a way to do this without a border, as it adds unwanted width
 			@include xui-button-variant($color, $xui-color-xero-blue, linear-gradient($xui-color-white, $xui-color-white), $xui-border-standard);
 		} @else {
-			@include xui-button-variant($color, $xui-color-reversed-text);
+			@include xui-button-variant($color, $xui-color-white);
 		}
 
 		@include xui-button-focus(0.1, $xui-shadow-focus);

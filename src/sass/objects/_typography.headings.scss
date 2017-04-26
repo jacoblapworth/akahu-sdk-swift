@@ -188,19 +188,19 @@
 // Styleguide: Typography.39
 .#{$ns}-heading {
 	@include xui-bold;
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	font-size: $xui-font-size-extended-xlarge;
 }
 
 .#{$ns}-page-title {
 	@include xui-bold;
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	font-size: $xui-font-size-extended-large;
 }
 
 .#{$ns}-section-title {
 	@include xui-bold;
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	font-size: $xui-font-size-medium;
 }
 
@@ -210,7 +210,7 @@
 }
 
 .#{$ns}-text-sectionheading {
-	color: $xui-color-secondary-text;
+	color: $xui-color-grey-alpha-2;
 	font-size: $xui-font-size-xsmall;
 	font-weight: normal;
 }

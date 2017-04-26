@@ -60,8 +60,7 @@
 }
 
 .#{$ns}-switch--control {
-	background-color: $xui-color-disabled-text;
-	border: 1px solid $xui-color-disabled-text;
+	background-color: $xui-color-grey-alpha-4;
 	border-radius: 40px;
 	cursor: pointer;
 	display: inline-block;
@@ -70,18 +69,16 @@
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 	user-select: none;
 	vertical-align: middle;
-	width: 48px;
+	width: 40px;
 
 	&::before {
 		background-color: $xui-color-white;
-		border: 2px solid $xui-color-white;
 		border-radius: 50%;
 		content: " ";
 		display: inline-block;
 		height: 18px;
+		margin: 2px;
 		position: absolute;
-		top: 1px;
-		transform: translate(1px);
 		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 		width: 18px;
 	}
@@ -95,11 +92,10 @@
 
 	&:checked + .#{$ns}-switch--control {
 		background: $xui-color-xero-blue;
-		border: 1px solid $xui-color-xero-blue;
 
 		&::before {
 			left: auto;
-			transform: translate(27px);
+			transform: translate(18px);
 		}
 	}
 }

@@ -35,7 +35,7 @@
 //       <polyline points="0,50 50,0 100, 50" stroke-width="7" class="xui-popover--arrow--border"/>
 //     </svg>
 //   </div>
-//   <div class="xui-padding-horizontal">
+//   <div class="xui-padding-small">
 //   	<p>Tue Mar 08 2016</p>
 //   	<p class="xui-text-secondary">Active between 6:02 and 6:07</p>
 //   </div>
@@ -46,10 +46,9 @@
 // Styleguide: Popovers
 
 .#{$ns}-popover {
-	background-color: $xui-color-panel;
-	border: $xui-border-standard;
+	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-2;
+	box-shadow: $xui-shadow-depth-lift;
 	position: relative;
 }
 
@@ -144,13 +143,14 @@
 	}
 
 	&--border {
-		stroke: $xui-color-border;
+		stroke: $xui-color-grey-alpha-5;
 	}
 }
 
 // TODO: Remove all header, body, footer and link classes
 // Deprecated in favour of just using popovers as simple containers
 // Note that the date picker currently uses these classes
+
 .#{$ns}-popover--body {
 	max-height: 400px;
 	overflow: auto;
@@ -168,7 +168,7 @@
 }
 
 .#{$ns}-popover--header-can-scroll-up {
-	box-shadow: 0 2px 3px $xui-color-border;
+	box-shadow: 0 2px 3px $xui-color-grey-alpha-4;
 }
 
 .#{$ns}-popover--heading {
@@ -176,7 +176,7 @@
 }
 
 .#{$ns}-popover--footer {
-	border-top: $xui-divider-standard;
+	border-top: $xui-border-muted;
 	position: relative;
 }
 
@@ -185,7 +185,7 @@
 }
 
 .#{$ns}-popover--footer-can-scroll-down {
-	box-shadow: 0 -2px 3px $xui-color-border;
+	box-shadow: 0 -2px 3px $xui-color-grey-alpha-4;
 }
 
 .#{$ns}-popover--link {

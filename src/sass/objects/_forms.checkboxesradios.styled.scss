@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Styled Checkboxes and Radios
 //
 // Styled checkbox and radio inputs can be made with any SVG icon from the [xui-icon collection](https://github.dev.xero.com/pages/UXE/xui-icon/).
@@ -315,6 +317,10 @@
 .#{$ns}-styledradio--label {
 	flex-grow: 1;
 	padding: 6px 3px 3px;
+
+	.#{$ns}-is-disabled & {
+		color: $xui-color-disabled-text;
+	}
 }
 
 

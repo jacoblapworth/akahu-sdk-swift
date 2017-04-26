@@ -51,6 +51,10 @@
 	right: 3px;
 	top: $xui-s-xsmall;
 	z-index: 2;
+
+	.#{$ns}-is-disabled ~ & {
+		opacity: .4;
+	}
 }
 
 // Styled Select Boxes

@@ -19,7 +19,7 @@ Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
 ```
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.22.4/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.23.0/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -31,14 +31,14 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 
 <!--?prettify?-->
 ```
-$ bower install git@github.dev.xero.com:UXE/xui.git#^10.22.4 --save
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.23.0 --save
 ```
 
 ### npm
 
 <!--?prettify?-->
 ```
-$ npm install git://github.dev.xero.com/UXE/xui.git#10.22.4 --save
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.23.0 --save
 ```
 
 You will need to compile `xui.scss`.
@@ -63,7 +63,7 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/style/xui/10.22.4/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.23.0/xui.min.css" rel="stylesheet" />
     <script type="application/json" id="header-data" data-render-to="#header">
       {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
     </script>

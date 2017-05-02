@@ -44,9 +44,9 @@
 
 .#{$ns}-toast {
 	@include xui-clearfix;
+	@include xui-box-shadow-border($xui-shadow-depth-lift);
 	background: transparentize($xui-color-white, 0.1);
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-lift;
 	color: $xui-color-grey-1;
 	display: inline-block;
 	max-width: 400px;

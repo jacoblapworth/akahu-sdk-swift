@@ -146,9 +146,9 @@
 }
 
 .#{$ns}-modal {
+	@include xui-box-shadow-border($xui-shadow-depth-pop);
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-pop;
 	outline: none;
 }
 

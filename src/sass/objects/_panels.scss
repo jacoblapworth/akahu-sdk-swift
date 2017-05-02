@@ -270,9 +270,9 @@
 // Styleguide: Panels.5
 
 .#{$ns}-panel {
+	@include xui-box-shadow-border($xui-shadow-border-all);
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-border-all;
 }
 
 // PANEL HEADER

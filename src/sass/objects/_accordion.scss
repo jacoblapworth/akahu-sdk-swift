@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // Accordion
 //
 // The accordion is used to display an expandable/collapsible list to users.
@@ -91,7 +94,7 @@
 }
 
 .#{$ns}-accordionitem-is-open {
-	box-shadow: $xui-shadow-depth-lift;
+	@include xui-box-shadow-border($xui-shadow-depth-lift);
 	height: auto;
 	margin: 0;
 	max-width: 100vw;

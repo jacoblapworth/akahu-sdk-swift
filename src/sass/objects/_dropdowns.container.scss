@@ -228,8 +228,8 @@
 	}
 
 	.#{$ns}-dropdown--footer {
+		@include xui-box-shadow-border($xui-shadow-border-top);
 		bottom: 0;
-		box-shadow: $xui-shadow-border-top;
 		padding: $xui-s-small 0;
 		width: 100%;
 		//ToDo: Remove this in XUI11 in favour of a layout class on the picklist.
@@ -249,8 +249,8 @@
 	background-color: $xui-color-white;
 
 	@include xui-breakpoint-narrow-up {
+		@include xui-box-shadow-border($xui-shadow-depth-lift);
 		border-radius: $xui-radius;
-		box-shadow: $xui-shadow-depth-lift;
 	}
 
 	.#{$ns}-dropdown--scrollable-content {

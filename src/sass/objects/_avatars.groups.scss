@@ -38,7 +38,7 @@
 .#{$ns}-avatargroup {
 	.#{$ns}-avatar {
 		@include xui-all-but-first {
-			box-shadow: -2px 0 0 0 $xui-color-grey-alpha-6;
+			@include xui-box-shadow-border(-2px 0 0 0 $xui-color-grey-alpha-6);
 			margin-left: -1.25em;
 		}
 	}

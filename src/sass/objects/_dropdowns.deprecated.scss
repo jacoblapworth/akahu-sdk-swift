@@ -124,9 +124,9 @@
 // Styleguide: Dropdowns.99
 
 .#{$ns}-dropdownmenu {
+	@include xui-box-shadow-border($xui-shadow-depth-lift);
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-lift;
 	font-size: $xui-font-size-small;
 	list-style-type: none;
 	margin: 0;
@@ -168,7 +168,7 @@
 }
 
 .#{$ns}-dropdownmenu--footer {
-	box-shadow: $xui-shadow-border-top;
+	@include xui-box-shadow-border($xui-shadow-border-top);
 }
 
 .#{$ns}-menugroup {

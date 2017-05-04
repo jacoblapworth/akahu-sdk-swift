@@ -149,6 +149,7 @@
 	display: none;
 	flex-direction: column;
 	min-width: $xui-starting-width;
+	outline: none;
 	position: absolute;
 
 	@include xui-breakpoint-narrow-up {

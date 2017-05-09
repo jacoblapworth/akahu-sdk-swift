@@ -91,11 +91,11 @@ you can include icons individually:
 ### React
 
 Use the `XUICustomIcon` component and provide the path by importing the icon from the `icons` folder.
-Please note: Webpack's tree shaking is feeble (XUIIcon is the default export so Webpack will bring it in along with all the icons) 
+Please note: Webpack's tree shaking is feeble (does not drop unused classes exported by our entry point without additional build tooling) 
 so you will need to import the `XUICustomIcon` module from its source location and not rely on the entry point provided by `package.json`
 
 ```js
-import {XUICustomIcon} from 'xui-icon/src/XUICustomIcon';
+import XUICustomIcon from 'xui-icon/src/XUICustomIcon';
 import accessibility from 'xui-icon/icons/accessibility';
 
 // ...
@@ -120,6 +120,26 @@ document.body.appendChild(svg);
 ```
 
 ## xui-icon prop types
+
+### XUICustomIcon
+`path`: (string, Required)  The path to use in the SVG
+
+`className`: (string, Optional) Additional classes to be applied to the icon
+
+`size`: (enum, Optional, Default='standard') Adds a size modifier to the icon
+
+`title`: (string, Optional) Title to be read by screen readers
+
+`desc`: (string, Optional) Description to be read by screen readers
+
+`role`: (string, Optional, Default='presentation') Role to be applied to the SVG for screen readers
+
+`rotation`: (enum, Optional) Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270
+
+`color`: (enum, Optional) Adds a color modifier to the icon
+
+`inline`: (bool, Optional) Whether the inline class modifier should be added
+
 
 ### XUIIcon
 `icon`: (enum, Required)  the icon to be rendered

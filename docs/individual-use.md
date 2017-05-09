@@ -7,11 +7,11 @@ you can include icons individually:
 ### React
 
 Use the `XUICustomIcon` component and provide the path by importing the icon from the `icons` folder.
-Please note: Webpack's tree shaking is feeble (XUIIcon is the default export so Webpack will bring it in along with all the icons) 
+Please note: Webpack's tree shaking is feeble (does not drop unused classes exported by our entry point without additional build tooling) 
 so you will need to import the `XUICustomIcon` module from its source location and not rely on the entry point provided by `package.json`
 
 ```js
-import {XUICustomIcon} from 'xui-icon/src/XUICustomIcon';
+import XUICustomIcon from 'xui-icon/src/XUICustomIcon';
 import accessibility from 'xui-icon/icons/accessibility';
 
 // ...

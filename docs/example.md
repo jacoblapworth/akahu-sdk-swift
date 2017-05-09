@@ -3,7 +3,8 @@ React Usage
 
 ### Modules
 `xui-icon` exports two modules:
- - `XUIIcon` - The main icon component
+ - `XUIIcon` - The main icon component which makes the whole icon suite available
+ - `XUICustomIcon` - Icon component which allows individual icons to be imported.
  - `XUIIcons` - Object containing names for all of the icons provided.
 
 ### Usage
@@ -25,5 +26,7 @@ import XUIIcon, { XUIIcons } from 'xui-icon';
 
 For example, to add an arrow rotated to the right
 ```jsx
-<XUIIcon icon="arrow" rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
+<XUIIcon icon={XUIIcons.ARROW} rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
 ```
+
+The only difference between XUIIcon and XUICustomIcon is that XUICustomIcon accepts a `path` instead of an `icon` name.

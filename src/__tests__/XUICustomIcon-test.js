@@ -1,16 +1,16 @@
 import { assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import iconData from '../private/iconData';
-import XUIIcon, { XUIIcons } from '../XUIIcon';
+import XUICustomIcon from '../XUICustomIcon';
+import accessibility from '../../icons/accessibility';
 
 const TestUtils = React.addons.TestUtils;
 
-describe('XUIIcon', () => {
+describe('XUICustomIcon', () => {
 	it('Should render with any additional classes provided through the className prop', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon={ XUIIcons.SEARCH } className={'classyMcClassFace'} />
+				<XUICustomIcon path={accessibility} className={'classyMcClassFace'} />
 			</div>
 		);
 
@@ -22,9 +22,9 @@ describe('XUIIcon', () => {
 	it('Should render with the correct size classes when modifiers are provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon={ XUIIcons.SEARCH } />
-				<XUIIcon icon={ XUIIcons.SEARCH } size="large" />
-				<XUIIcon icon={ XUIIcons.SEARCH } size="xlarge" />
+				<XUICustomIcon path={accessibility} />
+				<XUICustomIcon path={accessibility} size="large" />
+				<XUICustomIcon path={accessibility} size="xlarge" />
 			</div>
 		);
 
@@ -43,10 +43,10 @@ describe('XUIIcon', () => {
 	it('Should render with the correct rotation classes when rotations are provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon={ XUIIcons.SEARCH } />
-				<XUIIcon icon={ XUIIcons.SEARCH } rotation="90" />
-				<XUIIcon icon={ XUIIcons.SEARCH } rotation="180" />
-				<XUIIcon icon={ XUIIcons.SEARCH } rotation="270" />
+				<XUICustomIcon path={accessibility} />
+				<XUICustomIcon path={accessibility} rotation="90" />
+				<XUICustomIcon path={accessibility} rotation="180" />
+				<XUICustomIcon path={accessibility} rotation="270" />
 			</div>
 		);
 
@@ -69,12 +69,12 @@ describe('XUIIcon', () => {
 	it('Should render with the correct color class when color is provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon={ XUIIcons.SEARCH } />
-				<XUIIcon icon={ XUIIcons.SEARCH } color={'standard'} />
-				<XUIIcon icon={ XUIIcons.SEARCH } color={'red'} />
-				<XUIIcon icon={ XUIIcons.SEARCH } color={'green'} />
-				<XUIIcon icon={ XUIIcons.SEARCH } color={'white'} />
-				<XUIIcon icon={ XUIIcons.SEARCH } color={'blue'} />
+				<XUICustomIcon path={accessibility} />
+				<XUICustomIcon path={accessibility} color={'standard'} />
+				<XUICustomIcon path={accessibility} color={'red'} />
+				<XUICustomIcon path={accessibility} color={'green'} />
+				<XUICustomIcon path={accessibility} color={'white'} />
+				<XUICustomIcon path={accessibility} color={'blue'} />
 			</div>
 		);
 
@@ -105,8 +105,8 @@ describe('XUIIcon', () => {
 	it('Should render title and desc elements within the SVG element based on the props provided', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon
-					icon={ XUIIcons.SEARCH }
+				<XUICustomIcon
+					path={accessibility}
 					title="Happy poop title 💩"
 					desc="Happy poop desc 💩" />
 			</div>
@@ -135,42 +135,23 @@ describe('XUIIcon', () => {
 		}
 	});
 
-	it('Should render with role="presentation" on the use element by default', function () {
+	it('Should render with role="presentation" on the path element by default', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon={ XUIIcons.SEARCH } />
+				<XUICustomIcon path={accessibility} />
 			</div>
 		);
 		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getElementsByTagName("use")[0].getAttribute("role")).to.equal("presentation");
+		expect(domNode.getElementsByTagName("path")[0].getAttribute("role")).to.equal("presentation");
 	});
 
-	it('Should render with the given role applied to the use element', function () {
+	it('Should render with the given role applied to the path element', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
-				<XUIIcon icon={ XUIIcons.SEARCH } role="img" />
+				<XUICustomIcon path={accessibility} role="img" />
 			</div>
 		);
 		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getElementsByTagName("use")[0].getAttribute("role")).to.equal("img");
-	});
-
-	const iconNames = Object.keys(iconData);
-	it('Should render each icon within the icon data json file correctly', function() {
-
-		const component = TestUtils.renderIntoDocument(
-			<div>
-			{
-				iconNames.map((icon, i) => {
-					return <XUIIcon key={i} icon={ XUIIcons[icon.replace('-','_').toUpperCase()] } role="img" />
-				})
-			}
-			</div>
-		);
-
-		for (let i = 0; i < iconNames.length; i++) {
-			const domNode = ReactDOM.findDOMNode(component).children[i];
-			expect(domNode.getElementsByTagName("use")[0].getAttribute("xlink:href")).to.equal('#xui-icon-' + iconNames[i]);
-		}
+		expect(domNode.getElementsByTagName("path")[0].getAttribute("role")).to.equal("img");
 	});
 });

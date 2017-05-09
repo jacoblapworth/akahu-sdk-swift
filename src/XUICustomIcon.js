@@ -1,19 +1,10 @@
 import React, { PropTypes } from 'react';
 import cn from 'classnames';
-import icons from './private/iconData';
-import { ensureIconBlobOnPage } from './XUIIconBlob';
 import {sizeClasses, rotationClasses, colorClasses } from './private/constants';
 
-const names = Object.keys(icons).reduce((object, icon) => {
-		object[icon.replace('-','_').toUpperCase()] = icon;
-		return object;
-	}, {});
-
-export { names as XUIIcons };
-
 const propTypes = {
-	/** @property {string} Defines the icon to be rendered */
-	icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
+	/** @property {string} path The path to use in the SVG */
+	path: PropTypes.string.isRequired,
 	/** @property {string} [className=''] Additional classes to be applied to the icon */
 	className: PropTypes.string,
 	/** @property {string} [size=''] Adds a size modifier to the icon */
@@ -37,10 +28,9 @@ const defaultProps = {
 	role: 'presentation'
 };
 
-export default function XUIIcon(props) {
+export default function XUICustomIcon(props) {
 
 	const {
-		icon,
 		className,
 		size,
 		title,
@@ -48,7 +38,8 @@ export default function XUIIcon(props) {
 		role,
 		rotation,
 		color,
-		inline
+		inline,
+		path
 	} = props;
 
 	const classes = cn(
@@ -62,8 +53,6 @@ export default function XUIIcon(props) {
 		}
 	);
 
-	ensureIconBlobOnPage();
-
 	const optionalTitle = title? <title>{ title }</title> : null;
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
 
@@ -71,10 +60,10 @@ export default function XUIIcon(props) {
 		<svg focusable="false" className={ classes }>
 			{ optionalTitle }
 			{ optionalDescription }
-			<use xlinkHref={'#xui-icon-' + icon } role={ role }/>
+			<path d={path} role={role} />
 		</svg>
 	);
 }
 
-XUIIcon.propTypes = propTypes;
-XUIIcon.defaultProps = defaultProps;
+XUICustomIcon.propTypes = propTypes;
+XUICustomIcon.defaultProps = defaultProps;

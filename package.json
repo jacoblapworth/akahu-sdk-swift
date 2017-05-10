@@ -1,5 +1,5 @@
 {
-  "version": "4.0.2",
+  "version": "4.0.3",
   "name": "xui-loader",
   "main": "src/XUILoader.js",
   "description": "Display a loader",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.0.3"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.7.1"
   },
   "dependencies": {
     "bower": "^1.7.7"

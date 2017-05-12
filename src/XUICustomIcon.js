@@ -25,7 +25,8 @@ const propTypes = {
 
 const defaultProps = {
 	size: 'standard',
-	role: 'presentation'
+	role: 'presentation',
+	viewBox: '0 0 30 30'
 };
 
 export default function XUICustomIcon(props) {
@@ -39,6 +40,7 @@ export default function XUICustomIcon(props) {
 		rotation,
 		color,
 		inline,
+		viewBox,
 		path
 	} = props;
 
@@ -57,7 +59,7 @@ export default function XUICustomIcon(props) {
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
 
 	return(
-		<svg focusable="false" className={ classes }>
+		<svg focusable="false" className={ classes } viewBox={viewBox}>
 			{ optionalTitle }
 			{ optionalDescription }
 			<path d={path} role={role} />

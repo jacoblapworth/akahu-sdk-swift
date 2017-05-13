@@ -140,6 +140,8 @@ document.body.appendChild(svg);
 
 `inline`: (bool, Optional) Whether the inline class modifier should be added
 
+`viewBox`: (Optional, Default='0 0 30 30') 
+
 
 ### XUIIcon
 `icon`: (enum, Required)  the icon to be rendered

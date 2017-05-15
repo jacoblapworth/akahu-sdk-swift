@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
 
@@ -31,19 +32,19 @@ const XUILoader = (props) => {
 
 XUILoader.propTypes = {
   /** @property {string} [className] Add additional classes to the loader wrapping div */
-  className: React.PropTypes.string,
+  className: PropTypes.string,
 
   /** @property {string} [qaHook] Adds data-automationid attribute with qaHook contents to the loader wrapping div */
-  qaHook: React.PropTypes.string,
+  qaHook: PropTypes.string,
 
   /** @property {string} [label] adds aria-label to the loader wrapping div */
-  label: React.PropTypes.string,
+  label: PropTypes.string,
 
   /** @property {boolean} [defaultLayout] Defaults to `true`. Sets the default layout class on the loader wrapping div */
-  defaultLayout: React.PropTypes.bool,
+  defaultLayout: PropTypes.bool,
 
   /** @property {string} [size] Sets the size of the loader to be, small, standard (no class added), and large */
-  size: React.PropTypes.oneOf(Object.keys(sizeMap))
+  size: PropTypes.oneOf(Object.keys(sizeMap))
 };
 
 XUILoader.defaultProps = {

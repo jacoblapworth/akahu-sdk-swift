@@ -42,6 +42,7 @@
 
 .#{$ns}-switch {
 	display: inline-block;
+	position: relative;
 	vertical-align: top;
 
 	&.#{$ns}-is-disabled {

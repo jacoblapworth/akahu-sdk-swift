@@ -29,6 +29,7 @@
 @mixin xui-position-offscreen-input {
 	@include xui-position-offscreen-base;
 
+	flex: none; // Preserve width when the container has display: flex on Chrome
 	height: $xui-icon-standard;
 	margin: 0 -4px 0 -9px; // Undo the width below so the element does not take up extra space. The weird -9px value is uniquely for FF on Windows
 	width: 13px; // Min width of radios/checkboxes on Firefox is 4px, which sets 2px borders that cannot be undone, but due to the FF bug above this becomes the sum of the negative margins

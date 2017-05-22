@@ -22,7 +22,13 @@ import createSVGElement from '../../src/createSVGElement';
 			<div className="xui-row-flex">
 				{iconUseTags}
 			</div>
-			<p className="xui-text-centered"><strong>Note:</strong> The download icon has been deprecated and will be removed in the next major version. Use import instead.</p>
+			<p><strong>Note:</strong> The following icons have been deprecated:
+				<ul>
+					<li>download - use import instead</li>
+					<li>pdf - use file-pdf instead</li>
+					<li>zip - use file-zip instead</li>
+				</ul>
+			</p>
 		</div>, document.getElementById('iconShowcase')
 	);
 

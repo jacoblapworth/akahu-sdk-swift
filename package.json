@@ -1,5 +1,5 @@
 {
-  "version": "4.16.2",
+  "version": "4.17.0",
   "name": "xui-icon",
   "main": "index.js",
   "description": "Module for using XUI Icons",
@@ -28,7 +28,7 @@
     "rollup-plugin-commonjs": "^2.2.1",
     "rollup-plugin-npm": "^1.4.0",
     "rollup-plugin-uglify": "^0.3.1",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#7.2.3"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#7.2.4"
   },
   "component": {
     "isUxeEndorsed": true,

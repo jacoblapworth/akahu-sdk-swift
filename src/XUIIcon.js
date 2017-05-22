@@ -23,7 +23,7 @@ const propTypes = {
 	title: PropTypes.string,
 	/** @property {string} [desc=''] Description to be read by screen readers */
 	desc: PropTypes.string,
-	/** @property {string} [desc=''] Role to be applied to the SVG for screen readers */
+	/** @property {string} [role=''] Role to be applied to the SVG for screen readers */
 	role: PropTypes.string,
 	/** @property {string|number} [rotation=0] Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270 */
 	rotation: PropTypes.oneOf(Object.keys(rotationClasses).concat(Object.keys(rotationClasses).map(n => parseInt(n)))),

@@ -185,28 +185,6 @@
 
 		.#{$ns}-dropdown--header {
 			display: block;
-
-			.#{$ns}-dropdown--header-container {
-				align-items: center;
-				border-bottom: $xui-border-muted;
-				display: flex;
-				justify-content: space-between;
-				min-height: $xui-s-6xlarge;
-				padding: $xui-s-small;
-			}
-
-			.#{$ns}-dropdown--header-leftcontent {
-				align-items: center;
-				display: flex;
-				flex: 1;
-				overflow: hidden;
-				padding-right: $xui-s-small;
-			}
-
-			.#{$ns}-dropdown--header-rightcontent {
-				align-items: center;
-				display: flex;
-			}
 		}
 
 		&.#{$ns}-dropdown-fullheight {
@@ -217,6 +195,29 @@
 				max-height: 100vh;
 			}
 		}
+	}
+
+	.#{$ns}-dropdown--header-container {
+		align-items: center;
+		border-bottom: $xui-border-muted;
+		display: flex;
+		height: 60px;
+		justify-content: space-between;
+		min-height: $xui-s-6xlarge;
+		padding: $xui-s-small;
+	}
+
+	.#{$ns}-dropdown--header-leftcontent {
+		align-items: center;
+		display: flex;
+		flex: 1;
+		overflow: hidden;
+		padding-right: $xui-s-small;
+	}
+
+	.#{$ns}-dropdown--header-rightcontent {
+		align-items: center;
+		display: flex;
 	}
 
 	.#{$ns}-dropdown--mask {
@@ -326,6 +327,10 @@
 @each $number, $variant in $xui-width-variants-dropdown{
 	.#{$ns}-dropdown-#{$variant} {
 		max-width: $xui-starting-width + ($xui-base-width * $number);
+	}
+
+	.#{$ns}-dropdown-fixed-#{$variant} {
+		width: $xui-starting-width + ($xui-base-width * $number);
 	}
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "3.0.0-beta.1",
   "name": "xui-textarea",
   "main": "index.js",
   "description": "ReactJS text area component for xui pages",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "bower": "^1.7.0",
     "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
-    "xui-webpack-build-tools": "git://github.dev.xero.com/FutureRobot/xui-webpack-build-tools.git#6.0.3"
+    "xui-webpack-build-tools": "git://github.dev.xero.com/FutureRobot/xui-webpack-build-tools.git#7.2.4"
   },
   "component": {
     "isUxeEndorsed": true,

@@ -18,10 +18,10 @@ describe('XUITextArea basic functionality:', () => {
 		component = TestUtils.renderIntoDocument(
 			<div>
 				<XUITextArea
-					className='classyMcClassFace'
-					fieldClassName='fieldClassyMcClassFace'
+					className="classyMcClassFace"
+					fieldClassName="fieldClassyMcClassFace"
 					onChange={changeHandler}
-					qaHook={'xui-input'}
+					qaHook="xui-input"
 					maxCharacters={10}
 					/>
 			</div>
@@ -50,15 +50,15 @@ describe('XUITextArea additional functionality:', () => {
 			<div>
 				<XUITextArea
 					className="textarea-1"
-					qaHook={'xui-input'}
+					qaHook="xui-input"
 					maxCharacters={10}
-					defaultValue={'12345678910'}
+					defaultValue="12345678910"
 					/>
 				<XUITextArea
 					className="textarea-2"
-					qaHook={'xui-input'}
+					qaHook="xui-input"
 					maxCharacters={10}
-					defaultValue={'123456789'}
+					defaultValue="123456789"
 					/>
 			</div>
 		);
@@ -75,14 +75,14 @@ describe('XUITextArea additional functionality:', () => {
 			<div>
 				<XUITextArea
 					fieldClassName="field-1"
-					qaHook={'xui-input'}
+					qaHook="xui-input"
 					maxCharacters={10}
 					/>
 				<XUITextArea
 					fieldClassName="field-2"
-					qaHook={'xui-input'}
+					qaHook="xui-input"
 					maxCharacters={10}
-					defaultValue={'a'}
+					defaultValue="a"
 					/>
 			</div>
 		);
@@ -97,7 +97,7 @@ describe('XUITextArea additional functionality:', () => {
 
 	it('should pass back a reference to the inner textarea element to the textareaRef callback', () => {
 
-		var textAreaNode = null;
+		let textAreaNode = null;
 
 		const textareaRef = (node) => {
 			textAreaNode = node;
@@ -107,7 +107,7 @@ describe('XUITextArea additional functionality:', () => {
 			<XUITextArea
 				textareaRef={textareaRef}
 				fieldClassName="field-1"
-				qaHook={'xui-input'}
+				qaHook="xui-input"
 				maxCharacters={10}
 			/>
 		);

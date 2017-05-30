@@ -61,10 +61,22 @@ const NOOP = () => {};
 				description: 'The maximum number of characters for the text area, if given a value, a character counter and validation will be added.'
 			},
 			{
-				name: 'error',
+				name: 'isInvalid',
 				type: 'boolean',
 				default: false,
 				description: 'Whether the text area should have error state invalid styling.'
+			},
+			{
+				name: 'validationMessage',
+				type: 'string',
+				default: '',
+				description: 'Validation message to show'
+			},
+			{
+				name: 'hintMessage',
+				type: 'string',
+				default: '',
+				description: 'Explanatory message to show'
 			},
 			{
 				name: 'defaultLayout',
@@ -137,7 +149,7 @@ const NOOP = () => {};
 			</XUITextArea>
 			<XUITextArea
 				rows={3}
-				isDisabled={true}
+				isDisabled
 				defaultValue="This textarea has no label and is disabled">
 			</XUITextArea>
 		</div>

@@ -194,7 +194,9 @@ export default class XUITextArea extends Component {
 			maxCharacters,
 			maxRows,
 			defaultLayout,
-			error,
+			isInvalid,
+			validationMessage,
+			hintMessage,
 			manualResize,
 			isDisabled,
 			textareaId,
@@ -209,7 +211,7 @@ export default class XUITextArea extends Component {
 				inputClass,
 				className,
 				{
-					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || error
+					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid
 				},
 				manualResize ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
 			);
@@ -240,6 +242,14 @@ export default class XUITextArea extends Component {
 			/>
 		);
 
+		const message = (validationMessage || hintMessage) && (
+			<div className={cn(
+				'xui-validation',
+				'xui-validation-layout',
+				{ 'xui-validation-is-invalid': isInvalid && validationMessage }
+			)}>{(isInvalid && validationMessage) ? validationMessage : hintMessage}</div>
+		);
+
 		const counter = maxCharacters ? (
 			<span
 				ref={c => textComponent._counter = c}
@@ -260,6 +270,7 @@ export default class XUITextArea extends Component {
 					</div>
 				</div>
 				{textArea}
+				{message}
 			</div>
 		);
 	}
@@ -290,8 +301,12 @@ XUITextArea.PropTypes = {
 	defaultValue: React.PropTypes.string,
 	/** @property {Number} [maxCharacters] The maximum number of characters for the text area, if given a value, a character counter and validation will be added. */
 	maxCharacters: React.PropTypes.number,
-	/** @property {Boolean} [error] Whether the text area should have error state styling. */
-	error: React.PropTypes.bool,
+	/** @property {Boolean} [isInvalid] Whether the text area should have isInvalid state styling. */
+	isInvalid: React.PropTypes.bool,
+	/** @property {String} [validationMessage] Validation message to show */
+	validationMessage: React.PropTypes.string,
+	/** @property {String} [hintMessage] Explanatory message to show */
+	hintMessage: React.PropTypes.string,
 	/** @property {Boolean} [defaultLayout=true] Whether default field layout should be applied to the container. */
 	defaultLayout: React.PropTypes.bool,
 	/** @property {String} [fieldClassName] Additional classes to add to the wrapping div. */

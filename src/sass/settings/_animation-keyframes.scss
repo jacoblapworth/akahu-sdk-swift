@@ -4,7 +4,7 @@
 // as these translate directly to global CSS keyframes. Importing this file more than once will lead to
 // these keyframes appearing numerous times in the compiled CSS.
 
-@keyframes xui-animation-show {
+@keyframes #{$ns}-animation-show {
 
 	0% {
 		opacity: 0;
@@ -21,7 +21,7 @@
 	}
 }
 
-@keyframes xui-animation-hide {
+@keyframes #{$ns}-animation-hide {
 
 	0% {
 		opacity: 1;
@@ -38,7 +38,7 @@
 	}
 }
 
-@keyframes xui-animation-slideup {
+@keyframes #{$ns}-animation-slideup {
 
 	0% {
 		transform: translateY(100%);
@@ -49,7 +49,7 @@
 	}
 }
 
-@keyframes xui-animation-slidedown {
+@keyframes #{$ns}-animation-slidedown {
 
 	0% {
 		transform: translateY(-100%);
@@ -60,7 +60,7 @@
 	}
 }
 
-@keyframes xui-animation-fadein {
+@keyframes #{$ns}-animation-fadein {
 
 	0% {
 		opacity: 0;
@@ -71,7 +71,7 @@
 	}
 }
 
-@keyframes xui-animation-fadeout {
+@keyframes #{$ns}-animation-fadeout {
 
 	0% {
 		opacity: 1;
@@ -82,7 +82,7 @@
 	}
 }
 
-@keyframes xui-animation-autofill {
+@keyframes #{$ns}-animation-autofill {
 	to {
 		background: $xui-color-white;
 	}

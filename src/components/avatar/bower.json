@@ -1,0 +1,33 @@
+{
+  "name": "xui-avatar",
+  "description": "React UI component that renders an avatar, either based on the user's name or profile image",
+  "main": "index.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "example",
+    "src/__tests__",
+    "conf"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "fedule",
+    "ui"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "classnames": "^2.1.0",
+    "react": "^15.3.0",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.15.0",
+    "guid": "git://github.dev.xero.com/XeroJS/guid.git#0.0.12"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.2.0"
+  }
+}

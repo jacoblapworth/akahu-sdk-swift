@@ -13,6 +13,8 @@ npm-debug.log
 # Build/Output files/directories
 /dist
 /kss/styleguide/styleguide.md
+/react
+/sass
 
 # IDE files/directores
 /.idea

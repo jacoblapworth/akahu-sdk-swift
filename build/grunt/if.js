@@ -1,4 +1,3 @@
-var path = require('path');
 var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];
 
 module.exports = function(grunt) {

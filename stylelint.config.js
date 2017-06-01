@@ -1,3 +1,4 @@
+/* global module */
 module.exports = {
 	"ignoreFiles": [
 		['src/sass/_conflicts.scss', 'src/sass/tmp/*']

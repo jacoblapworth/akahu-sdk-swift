@@ -3,7 +3,6 @@ const syntax = require('postcss-scss');
 const { templates, types, regexDictionary } = require('../../kss/builder/parser/constants');
 const sass = require('node-sass');
 const fs = require('fs');
-const path = require('path');
 
 const ignoreLine = 'xuidoc:ignore';
 const ignoreStart = 'xuidoc:ignore:start';
@@ -24,11 +23,10 @@ templates.forEach(function (template) {
 
 			try {
 				fs.mkdirSync(outputDir);
-			} catch (e) {
-			}
+			} catch (e) {} // eslint-disable-line no-empty
 			fs.writeFileSync(makeOutputAddress(template.name), disclaimer + html.join('\n'));
 
-		}).catch(function (e) { console.log(e) });
+		}).catch(function (e) { console.log(e) }); // eslint-disable-line no-console
 });
 
 function stripIgnoredContent(content) {

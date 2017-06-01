@@ -5,22 +5,17 @@ xui-avatar
 ![](https://img.shields.io/badge/XUI-^10.15.0-blue.svg)
 ![](https://img.shields.io/badge/React-^15.3.0-blue.svg)
 
-A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/section-avatars.html).
+A React implementation of the [XUI Avatar component](https://github.dev.xero.com/pages/UXE/xui/#master/section-avatars.html).
 
 Renders an avatar either as an image (with the image URL provided) or as the first character of the value representing the entity in a coloured circle.
 
 It can also render avatars in a group.
 
-## Installation
-
-```
-bower install --save git@github.dev.xero.com:ReactLabs/xui-avatar.git
-```
 
 ## Example
 
 ```js
-import XUIAvatar from 'xui-avatar';
+import XUIAvatar from 'src/components/avatar';
 
 (function() {
 	ReactDOM.render(
@@ -50,9 +45,9 @@ import XUIAvatar from 'xui-avatar';
 
 
 ### XUIAvatarCounter
-`qaHook`: (string, Optional) 
+`qaHook`: (string, Optional)
 
-`className`: (string, Optional) 
+`className`: (string, Optional)
 
 `count`: (union, Optional) The count to display. If this is a string, it is passed through transparently. If it is a number, it will render with a + prefix
 
@@ -60,11 +55,11 @@ import XUIAvatar from 'xui-avatar';
 
 
 ### XUIAvatarGroup
-`className`: (string, Optional) 
+`className`: (string, Optional)
 
-`qaHook`: (string, Optional) 
+`qaHook`: (string, Optional)
 
-`children`: (node, Optional) 
+`children`: (node, Optional)
 
 `avatarSize`: (enum, Optional) The size to apply to all avatars contained within the group. This will override any individual avatar's size settings.
 
@@ -72,9 +67,9 @@ import XUIAvatar from 'xui-avatar';
 
 
 ### XUISimpleAvatar
-`className`: (string, Optional) 
+`className`: (string, Optional)
 
-`qaHook`: (string, Optional) 
+`qaHook`: (string, Optional)
 
 `variant`: (enum, Optional) The avatar variant
 
@@ -105,4 +100,3 @@ Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
 
 **This README has been automatically generated. Please mark any changes in the docs folder.**
-

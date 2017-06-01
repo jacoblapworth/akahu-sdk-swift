@@ -6,15 +6,9 @@ xui-button
 
 A React UI component that creates buttons from the [XUI UI library](https://github.dev.xero.com/pages/UXE/xui/#10.18.0/section-buttons.html). This includes single buttons and grouped buttons.
 
-## Installation
-
-```bash
-$ bower install --save git://github.dev.xero.com/UXE/xui-button.git
-```
-
 ### Example
 ```js
-import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
+import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'src/components/button';
 
 <XUIButton
 	isDisabled={true}
@@ -31,27 +25,27 @@ import XUIButton, {XUIButtonGroup, XUIButtonCaret} from 'xui-button';
 ### XUIButton
 
 ### XUIButtonCaret
-`className`: (string, Optional) 
+`className`: (string, Optional)
 
 
 ### XUIButtonGroup
-`children`: (node, Optional) 
+`children`: (node, Optional)
 
-`className`: (string, Optional) 
+`className`: (string, Optional)
 
 
 ### XUISecondaryButton
 
 ### XUISplitButtonGroup
-`children`: (node, Optional) 
+`children`: (node, Optional)
 
-`className`: (string, Optional) 
+`className`: (string, Optional)
 
-`qaHook`: (string, Optional) 
+`qaHook`: (string, Optional)
 
-`isDisabled`: (custom, Optional, Default=ButtonDefaultProps.isDisabled) 
+`isDisabled`: (custom, Optional, Default=ButtonDefaultProps.isDisabled)
 
-`variant`: (custom, Optional, Default=ButtonDefaultProps.variant) 
+`variant`: (custom, Optional, Default=ButtonDefaultProps.variant)
 
 
 ## Testing
@@ -76,4 +70,3 @@ Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
 
 **This README has been automatically generated. Please mark any changes in the docs folder.**
-

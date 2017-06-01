@@ -15,12 +15,6 @@ The main implementation is similar to the process described in [css-tricks](http
 
 By default, each icon has its fill set to `currentColor`, so it will use the inherited font colour.
 
-## Installation
-
-```bash
-$ bower install --save git@github.dev.xero.com:UXE/xui-icon.git
-```
-
 React Usage
 ===========
 
@@ -32,7 +26,7 @@ React Usage
 
 ### Usage
 ```js
-import XUIIcon, { XUIIcons } from 'xui-icon';
+import XUIIcon, { XUIIcons } from 'src/components/icon';
 ```
 
 `XUIIcon`'s parameters:
@@ -74,12 +68,12 @@ The ES5 icon blob is available via edge.xero.com and can be included directly in
 ### Via the Bower component
 #### ES6
  ```js
-import xuiIconBlob from 'xui-icon/dist/xuiIconBlob.js';
+import xuiIconBlob from 'src/components/icon/dist/xuiIconBlob.js';
 xuiIconBlob();
 ```
 #### ES5
 ```html
-<script src="xui-icon/dist/xuiIconBlobES5.js"></script>
+<script src="src/components/icon/dist/xuiIconBlobES5.js"></script>
 ```
 
 Using the icons individually
@@ -91,16 +85,16 @@ you can include icons individually:
 ### React
 
 Use the `XUICustomIcon` component and provide the path by importing the icon from the `icons` folder.
-Please note: Webpack's tree shaking is feeble (does not drop unused classes exported by our entry point without additional build tooling) 
+Please note: Webpack's tree shaking is feeble (does not drop unused classes exported by our entry point without additional build tooling)
 so you will need to import the `XUICustomIcon` module from its source location and not rely on the entry point provided by `package.json`
 
 ```js
-import XUICustomIcon from 'xui-icon/src/XUICustomIcon';
-import accessibility from 'xui-icon/icons/accessibility';
+import XUICustomIcon from './icon/src/XUICustomIcon';
+import accessibility from './icon/icons/accessibility';
 
 // ...
     render() {
-        return <XUICustomIcon path={accessibility} rotation={180} />;    
+        return <XUICustomIcon path={accessibility} rotation={180} />;
     }
 ```
 
@@ -110,8 +104,8 @@ You can import individual icon paths from the `icons` directory and use the `cre
 Other options that can be used to set attributes on the SVG element are `viewBox` and `class`.
 
 ```js
-import menu from 'xui-icon/icons/menu';
-import createSVGElement from 'xui-icon/src/createSVGElement';
+import menu from './icon/icons/menu';
+import createSVGElement from './icon/src/createSVGElement';
 
 const svg = createSVGElement({
 	path: menu
@@ -140,7 +134,7 @@ document.body.appendChild(svg);
 
 `inline`: (bool, Optional) Whether the inline class modifier should be added
 
-`viewBox`: (Optional, Default='0 0 30 30') 
+`viewBox`: (Optional, Default='0 0 30 30')
 
 
 ### XUIIcon
@@ -179,4 +173,3 @@ Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
 
 **This README has been automatically generated. Please mark any changes in the docs folder.**
-

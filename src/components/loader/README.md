@@ -7,15 +7,9 @@ xui-loader
 
 A React UI component that creates a loading animation from the [XUI UI library](https://github.dev.xero.com/pages/UXE/xui/#10.19.0/section-loaders.html).
 
-## Installation
-
-```bash
-$ bower install --save git@github.dev.xero.com:UXE/xui-loader.git
-```
-
 ## Example
 ```js
-import XUILoader from 'xui-loader';
+import XUILoader from 'src/components/loader';
 
 <XUILoader className='optional-class' label="Loading more data"/>
 ```
@@ -50,4 +44,3 @@ Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
 
 **This README has been automatically generated. Please mark any changes in the docs folder.**
-

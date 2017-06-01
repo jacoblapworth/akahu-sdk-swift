@@ -8,15 +8,9 @@ xui-switch
 
 A React UI component designed to mimic the XUI Switch behaviour.
 
-## Installation
-
-```bash
-$ bower install --save git@github.dev.xero.com:UXE/xui-switch.git
-```
-
 ## Example
 ```js
-import XUISwitch from 'xui-switch';
+import XUISwitch from 'src/components/switch';
 
 <XUISwitch
 	disabled={false}
@@ -53,4 +47,3 @@ This script generates a html page at `test/ui/index.html` so you can view the co
 
 
 **This README has been automatically generated. Please mark any changes in the docs folder.**
-

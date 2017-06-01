@@ -12,17 +12,12 @@ This component provides an auto-resizing capability. This behaviour is enabled w
 
 If `minRows` or `maxRows` is not set, the css property for `min-height` or `max-height` will be used in their place. Otherwise `min-height` and `max-height` will be overriden.
 
-## Installation
-
-```sh
-bower install --save git@github.dev.xero.com:UXE/xui-textarea.git
-```
 
 ## Example
 These examples show the two main ways of using this component, with a minimum & maximum number of rows, and with a set number of rows.
 
 ```jsx
-import XUIInput from 'xui-textarea';
+import XUIInput from 'src/components/textarea';
 
 <XUITextArea
 	minRows={2}
@@ -45,11 +40,11 @@ import XUIInput from 'xui-textarea';
 ## xui-textarea prop types
 
 ### XUITextArea
-`qaHook`: (Optional, Default='xui-textarea') 
+`qaHook`: (Optional, Default='xui-textarea')
 
-`rows`: (Optional, Default=3) 
+`rows`: (Optional, Default=3)
 
-`defaultLayout`: (Optional, Default=true) 
+`defaultLayout`: (Optional, Default=true)
 
 
 ## Testing
@@ -68,4 +63,3 @@ Generates a coverage report in `build/coverage/PhantomJS/index.html`.
 
 
 **This README has been automatically generated. Please mark any changes in the docs folder.**
-

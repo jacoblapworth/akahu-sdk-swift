@@ -1,0 +1,38 @@
+{
+  "version": "4.17.0",
+  "name": "xui-icon",
+  "main": "index.js",
+  "description": "Module for using XUI Icons",
+  "author": "Kirk Holloway <kirk.holloway@xero.com>",
+  "license": "Copyright Xero Ltd",
+  "private": true,
+  "scripts": {
+    "build": "xui-webpack --config ./conf/build.js --progress --colors && npm run rollup",
+    "build-readme": "node scripts/build-doc.js",
+    "rollup": "rollup -c && rollup -c ./rollup.config.docs.js && rollup ./src/private/iconData.js --output ./dist/iconData.js --format cjs && node ./build/build.js",
+    "prepublish": "bower install",
+    "test": "xui-karma start ./conf/test.js",
+    "test-coverage": "xui-karma start ./conf/test.js --coverage",
+    "test-ui": "xui-webpack --config ./conf/build.js --progress --colors --watch",
+    "watch": "xui-webpack --config ./conf/build.js --progress --colors --watch"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.5.0",
+    "bower": "^1.7.0",
+    "json-loader": "^0.5.4",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.1",
+    "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
+    "rollup": "~0.36.0",
+    "rollup-plugin-babel": "^2.4.0",
+    "rollup-plugin-commonjs": "^2.2.1",
+    "rollup-plugin-npm": "^1.4.0",
+    "rollup-plugin-uglify": "^0.3.1",
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#7.2.4"
+  },
+  "component": {
+    "isUxeEndorsed": true,
+    "displayName": "Icon",
+    "type": "React"
+  }
+}

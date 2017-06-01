@@ -1,0 +1,32 @@
+{
+  "name": "xui-loader",
+  "description": "Displays a loader",
+  "main": "src/XUILoader.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "conf",
+    "example",
+    "src/__tests__"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "React",
+    "fedule",
+    "xui"
+  ],
+  "moduleType": "es6",
+  "dependencies": {
+    "classnames": "^2.1.0",
+    "prop-types": "https://unpkg.com/prop-types@15.5.10/prop-types.min.js",
+    "react": "^0.14.2 || ^15.0.0",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.19.0"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
+  }
+}

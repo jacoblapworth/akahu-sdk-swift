@@ -1,0 +1,29 @@
+{
+  "version": "4.0.4",
+  "name": "xui-loader",
+  "main": "src/XUILoader.js",
+  "description": "Display a loader",
+  "author": "Tony Anderson <tony.anderson@xero.com>",
+  "license": "Copyright Xero Ltd",
+  "private": true,
+  "scripts": {
+    "build-readme": "node scripts/build-doc.js",
+    "lint": "eslint -c .eslintrc ./src",
+    "prepublish": "bower install",
+    "test": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js",
+    "test-ui": "env UV_THREADPOOL_SIZE=100 xui-webpack --config conf/build.js --progress --colors --watch",
+    "test-coverage": "env UV_THREADPOOL_SIZE=100 xui-karma start conf/test.js --coverage"
+  },
+  "devDependencies": {
+    "readme-builder": "git://github.dev.xero.com/XeroJS/readme-builder#1.0.0",
+    "xui-webpack-build-tools": "git://github.dev.xero.com/ReactLabs/xui-webpack-build-tools.git#6.7.1"
+  },
+  "dependencies": {
+    "bower": "^1.7.7"
+  },
+  "component": {
+    "isUxeEndorsed": true,
+    "displayName": "Loader",
+    "type": "React"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "xui-textarea",
+  "description": "ReactJS text area component for xui pages",
+  "main": "index.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "fedule",
+    "ui"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "xui": "git://github.dev.xero.com/UXE/xui.git#^10.24.0",
+    "classnames": "^2.1.0",
+    "react": "^15.3.1"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#1.0.2"
+  }
+}

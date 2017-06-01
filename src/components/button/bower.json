@@ -1,0 +1,31 @@
+{
+  "name": "xui-button",
+  "description": "A button. That clicks",
+  "main": "index.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "Copyright Xero Ltd",
+  "keywords": [
+    "fedule",
+    "ui"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "classnames": "^2.1.0",
+    "react": "^15.3.0",
+    "xui-loader": "git@github.dev.xero.com:UXE/xui-loader.git#^4.0.0",
+    "xui-icon": "git@github.dev.xero.com:UXE/xui-icon.git#^4.0.0",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.19.0"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
+  }
+}

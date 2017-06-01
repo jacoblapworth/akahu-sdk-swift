@@ -1,0 +1,26 @@
+{
+  "name": "xui-toggle",
+  "version": "1.0.1",
+  "description": "React components to render xui styled toggles",
+  "main": "index.js",
+  "license": "Copyright Xero Ltd",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.1.0",
+    "xui": "git@github.dev.xero.com:UXE/xui.git#^10.15.0"
+  },
+  "devDependencies": {
+    "component-renderer": "https://github.dev.xero.com/ReactLabs/component-renderer.git#^1.0.2"
+  }
+}

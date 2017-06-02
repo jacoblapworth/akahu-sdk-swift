@@ -1,3 +1,13 @@
 module.exports = {
-  extends: ['@xero/eslint-config-xero-react-base']
+  env: {
+    jasmine: true,
+    node: true
+  },
+  globals: {
+    sinon: true
+  },
+  extends: ["@xero/eslint-config-xero-react-base"],
+  rules: {
+    "no-console": "warn",
+  }
 };

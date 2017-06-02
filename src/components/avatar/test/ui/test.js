@@ -127,21 +127,25 @@ const NOOP = () => {};
 				type: 'string',
 				default: [
 					<XUIAvatar
+						key="test1"
 						size="small"
 						value="Joe the Plumber"
 						identifier="12345"
 					/>,
 					<XUIAvatar
+						key="test2"
 						size="small"
 						value="Fred the Plumber"
 						identifier="12345"
 					/>,
 					<XUIAvatar
+						key="test3"
 						size="small"
 						value="Ted the Plumber"
 						identifier="12345"
 					/>,
 					<XUIAvatar
+						key="test4"
 						size="small"
 						value="Bozo the Plumber"
 						identifier="12345"

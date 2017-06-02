@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from "prop-types";
 import cn from 'classnames';
 import {sizeClassNames, classNames, colorClassNames, variantClassNames} from './constants';
 
@@ -78,11 +79,11 @@ export default class XUISimpleAvatar extends PureComponent {
 
 XUISimpleAvatar.propTypes = {
 
-	className: React.PropTypes.string,
-	qaHook: React.PropTypes.string,
+	className: PropTypes.string,
+	qaHook: PropTypes.string,
 
 	/** @property {String} [variant] The avatar variant */
-	variant: React.PropTypes.oneOf(Object.keys(variantClassNames)),
+	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/** @property {String} [value] The text to display in the avatar */
 	value: function(props, propName) {
@@ -92,16 +93,16 @@ XUISimpleAvatar.propTypes = {
 	},
 
 	/** @property {String} [imageUrl] the image the component should render. Initials rendered otherwise */
-	imageUrl: React.PropTypes.string,
+	imageUrl: PropTypes.string,
 
 	/** @property {String} [size=medium] The size of the avatar. Can be small, medium, large or xlarge */
-	size: React.PropTypes.oneOf(Object.keys(sizeClassNames)),
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
 	/** @property {String} [identifier] A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
-	identifier: React.PropTypes.string,
+	identifier: PropTypes.string,
 
 	/** @property {Function} [onError] Error handler if the avatar image fails to load */
-	onError: React.PropTypes.func
+	onError: PropTypes.func
 };
 
 XUISimpleAvatar.defaultProps = {

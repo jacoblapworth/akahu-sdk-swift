@@ -1,4 +1,5 @@
-import React, { Children, cloneElement, PropTypes } from 'react';
+import React, { Children, cloneElement } from 'react';
+import PropTypes from "prop-types";
 import cn from 'classnames';
 
 export default function XUIButtonGroup({children, className}) {

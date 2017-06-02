@@ -134,7 +134,7 @@ const NOOP = () => {};
 		devReady : true
 	};
 
-	const Example = props => (
+	const Example = () => (
 		<div>
 			<XUITextArea
 				minRows={2}

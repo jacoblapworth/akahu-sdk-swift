@@ -1,4 +1,5 @@
-import React, { Children, PropTypes, cloneElement } from 'react';
+import React, { Children, cloneElement } from 'react';
+import PropTypes from "prop-types";
 import XUIButtonGroup from './XUIButtonGroup';
 import { ButtonDefaultProps, ButtonPropTypes } from './private/propTypes';
 

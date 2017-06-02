@@ -1,5 +1,4 @@
 import 'babel-core/external-helpers.js';
-import React from 'react';
 import XUISwitch from '../../src/XUISwitch.js';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 import RendererUtils from 'component-renderer'

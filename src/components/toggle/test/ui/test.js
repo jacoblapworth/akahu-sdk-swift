@@ -1,5 +1,6 @@
 import 'babel-core/external-helpers.js';
 import React from 'react';
+import PropTypes from "prop-types";
 import XUIToggle, {XUIToggleOption} from '../../index.js';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
 import RendererUtils from 'component-renderer'
@@ -238,6 +239,13 @@ const toggleIcon = {
 				</div>
 			)
 		}
+	}
+
+	Example.propTypes = {
+		color: PropTypes.string.isRequired,
+		isDisabled: PropTypes.bool.isRequired,
+		layout: PropTypes.string.isRequired,
+		type: PropTypes.string.isRequired,
 	}
 
 	RendererUtils.init({

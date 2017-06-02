@@ -1,5 +1,6 @@
 /* global module */
 module.exports = {
+	"plugins": ["stylelint-order"],
 	"ignoreFiles": [
 		['src/sass/_conflicts.scss', 'src/sass/tmp/*']
 	],
@@ -13,7 +14,7 @@ module.exports = {
 		"no-extra-semicolons": true,
 		"no-missing-end-of-source-newline": true,
 
-		"declaration-block-properties-order": "alphabetical",
+		"order/properties-alphabetical-order": true,
 
 		"declaration-bang-space-after": "never",
 		"declaration-bang-space-before": "always",

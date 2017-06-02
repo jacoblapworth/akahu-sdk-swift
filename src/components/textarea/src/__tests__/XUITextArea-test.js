@@ -1,4 +1,4 @@
-import { assert, expect } from 'chai';
+import { expect } from 'chai';
 import React from 'react';
 import XUITextArea from '../XUITextArea.js';
 

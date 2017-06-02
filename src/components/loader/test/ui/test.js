@@ -1,5 +1,4 @@
 import 'babel-core/external-helpers.js';
-import React from 'react';
 import XUILoader  from '../../src/XUILoader';
 import { sizeClassNames }  from '../../src/private/constants.js';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';

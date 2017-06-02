@@ -1,12 +1,11 @@
 module.exports = {
   env: {
-    jasmine: true,
-    node: true
+    "jest/globals": true,
   },
-  globals: {
-    sinon: true
-  },
-  extends: ["@xero/eslint-config-xero-react-base"],
+  extends: [
+		"@xero/eslint-config-xero-react-base",
+		"plugin:jest/recommended"
+	],
   rules: {
     "no-console": "warn",
   }

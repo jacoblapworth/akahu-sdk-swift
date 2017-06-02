@@ -39,6 +39,7 @@
     "babel-preset-jest": "^20.0.3",
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.1.0",
+    "eslint-plugin-jest": "^20.0.3",
     "guid": "git://github.dev.xero.com/XeroJS/guid.git#0.0.12",
     "proptypes": "1.0.0",
     "react": "15.5.4",

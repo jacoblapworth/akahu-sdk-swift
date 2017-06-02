@@ -8,6 +8,6 @@ module.exports = {
   },
   extends: ["@xero/eslint-config-xero-react-base"],
   rules: {
-    "no-console": 1
+    "no-console": "warn",
   }
 };

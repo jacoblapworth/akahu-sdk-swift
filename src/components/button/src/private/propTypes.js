@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from "prop-types";
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './constants';
 
 // General Helpers

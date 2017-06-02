@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import cn from 'classnames';
 
 /**
@@ -84,7 +85,7 @@ const resize = (textComponent, sizeData) => {
 };
 
 
-const changeHandler = function(e) {
+const changeHandler = function() {
 	const textComponent = this;
 
 	const {
@@ -282,43 +283,43 @@ XUITextArea.defaultProps = {
 	defaultLayout: true
 };
 
-XUITextArea.PropTypes = {
+XUITextArea.propTypes = {
 	/** @property {Boolean} [isDisabled] Whether the input should be isDisabled. */
-	isDisabled: React.PropTypes.bool,
+	isDisabled: PropTypes.bool,
 	/** @property {Number} [rows=3] The number of lines the input should display without scrolling. */
-	rows: React.PropTypes.number,
+	rows: PropTypes.number,
 	/** @property {Number} [minRows] The minimum number of rows for the text area to make space for. */
-	minRows: React.PropTypes.number,
+	minRows: PropTypes.number,
 	/** @property {Number} [maxRows] The maximum number of rows for the text area to expand to. */
-	maxRows: React.PropTypes.number,
+	maxRows: PropTypes.number,
 	/** @property {Boolean} [manualResize] Whether or not the user should be able to manually resize the field. */
-	manualResize: React.PropTypes.bool,
+	manualResize: PropTypes.bool,
 	/** @property {Function} [onChange] Function to execute when the input's value has been changed. */
-	onChange: React.PropTypes.func,
+	onChange: PropTypes.func,
 	/** @property {Boolean} [readOnly] Whether the text input should be read-only. */
-	readOnly: React.PropTypes.bool,
+	readOnly: PropTypes.bool,
 	/** @property {String} [defaultValue] The initial value of the input. */
-	defaultValue: React.PropTypes.string,
+	defaultValue: PropTypes.string,
 	/** @property {Number} [maxCharacters] The maximum number of characters for the text area, if given a value, a character counter and validation will be added. */
-	maxCharacters: React.PropTypes.number,
+	maxCharacters: PropTypes.number,
 	/** @property {Boolean} [isInvalid] Whether the text area should have isInvalid state styling. */
-	isInvalid: React.PropTypes.bool,
+	isInvalid: PropTypes.bool,
 	/** @property {String} [validationMessage] Validation message to show */
-	validationMessage: React.PropTypes.string,
+	validationMessage: PropTypes.string,
 	/** @property {String} [hintMessage] Explanatory message to show */
-	hintMessage: React.PropTypes.string,
+	hintMessage: PropTypes.string,
 	/** @property {Boolean} [defaultLayout=true] Whether default field layout should be applied to the container. */
-	defaultLayout: React.PropTypes.bool,
+	defaultLayout: PropTypes.bool,
 	/** @property {String} [fieldClassName] Additional classes to add to the wrapping div. */
-	fieldClassName: React.PropTypes.string,
+	fieldClassName: PropTypes.string,
 	/** @property {String} [id] ID to be set for the textarea. */
-	textareaId: React.PropTypes.string,
+	textareaId: PropTypes.string,
 	/** @property {Function} [textareaRef] Function to add a reference to the textarea element. */
-	textareaRef: React.PropTypes.func,
+	textareaRef: PropTypes.func,
 	/** @property {String} [className] Additional classes to be added to the textarea itself. */
-	className: React.PropTypes.string,
+	className: PropTypes.string,
 	/** @property {String} [qaHook] QaHook for testing. */
-	qaHook: React.PropTypes.string,
+	qaHook: PropTypes.string,
 	/** @property {node} [children] Optional children to be rendered within the component (i.e. a label). */
-	children: React.PropTypes.node
+	children: PropTypes.node
 };

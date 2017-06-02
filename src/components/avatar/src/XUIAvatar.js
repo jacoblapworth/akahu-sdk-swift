@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import XUISimpleAvatar from './XUISimpleAvatar';
 
 const propTypes = {
 	/** @property {Function} [onError] Function to be used if the avatar renders an image and the image load fails  */
-	onError: React.PropTypes.func,
+	onError: PropTypes.func,
 
 	/** @property {String} value The text to display in the avatar. In the simple avatar component, it is optional, but here it is mandatory */
-	value: React.PropTypes.string.isRequired
+	value: PropTypes.string.isRequired
 };
 
 /**

@@ -1,5 +1,6 @@
 import React from 'react';
 import XUIIcon from 'xui-icon';
+import PropTypes from "prop-types";
 import cn from 'classnames';
 
 export default function XUIButtonCaret({className, ...props}) {
@@ -10,5 +11,5 @@ export default function XUIButtonCaret({className, ...props}) {
 }
 
 XUIButtonCaret.propTypes = {
-	className: React.PropTypes.string
+	className: PropTypes.string
 };

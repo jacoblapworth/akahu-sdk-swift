@@ -79,6 +79,7 @@
     "postcss-scss": "^0.3.1",
     "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2",
     "stylelint": "^7.7.1",
+    "stylelint-order": "^0.4.4",
     "yargs": "3.29.0"
   }
 }

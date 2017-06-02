@@ -48,7 +48,7 @@ describe('<XUIButton/>', () => {
 	it('should render as a link element with existing `rel` value intact when `isExternalLink` prop is true', () => {
 		const button = renderIntoDocument(
 			<XUIButton isLink={true} href="https://google.com" target="_blank" rel="help"
-				   isExternalLink={true}>Help</XUIButton>
+			isExternalLink={true}>Help</XUIButton>
 		);
 
 		const node = button.rootNode;

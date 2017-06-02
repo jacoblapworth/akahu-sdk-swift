@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from "prop-types";
 import XUIButton, { XUIButtonCaret }  from '../../index.js';
 import { SizeClassNames, VariantClassNames, ButtonTypes } from '../../src/private/constants.js';
 import { ensureIconBlobOnPage } from 'xui-icon';

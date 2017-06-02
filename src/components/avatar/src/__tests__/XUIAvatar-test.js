@@ -1,6 +1,5 @@
 import chai from 'chai';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import XUIAvatar from '../XUIAvatar';
 import {classNames, sizeClassNames} from '../constants';

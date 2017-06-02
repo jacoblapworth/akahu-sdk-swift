@@ -1,16 +1,17 @@
 import React, {PureComponent} from 'react';
+import PropTypes from "prop-types";
 import cn from 'classnames';
 import Guid from 'guid'
 import XUIAvatarCounter from './XUIAvatarCounter';
 import { sizeClassNames, classNames } from './constants';
 
 const propTypes = {
-	className: React.PropTypes.string,
-	qaHook: React.PropTypes.string,
-	children: React.PropTypes.node,
+	className: PropTypes.string,
+	qaHook: PropTypes.string,
+	children: PropTypes.node,
 
 	/** @property {String} [avatarSize] The size to apply to all avatars contained within the group. This will override any individual avatar's size settings. */
-	avatarSize: React.PropTypes.oneOf(Object.keys(sizeClassNames)),
+	avatarSize: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
 	/** @property {Number} [maxAvatars] The maximum number of avatars to show */
 	maxAvatars: function(props, propName) {

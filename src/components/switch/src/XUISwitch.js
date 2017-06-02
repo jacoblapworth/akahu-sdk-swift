@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from "prop-types";
 import cn from 'classnames';
 
 /**
@@ -9,19 +10,19 @@ import cn from 'classnames';
 const propTypes = {
 
 	/** @property {function} onChange Fires parent onChange handler */
-	onChange : React.PropTypes.func.isRequired,
+	onChange : PropTypes.func.isRequired,
 
 	/** @property {boolean} [checked=false] Determines whether the switch is checked or unchecked */
-	checked : React.PropTypes.bool,
+	checked : PropTypes.bool,
 
 	/** @property {boolean} [disabled=false] Determines whether the switch is enabled or disabled */
-	disabled : React.PropTypes.bool,
+	disabled : PropTypes.bool,
 
 	/** @property {string} [name=name] Name attribute for the input */
-	name : React.PropTypes.string,
+	name : PropTypes.string,
 
 	/** @property {string} [value=value] Value attribute for the input */
-	value: React.PropTypes.string
+	value: PropTypes.string
 
 };
 

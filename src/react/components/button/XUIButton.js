@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import XUILoader from 'xui-loader';
+import XUILoader from '../loader/XUILoader';
 import { ButtonDefaultProps, ButtonPropTypes } from './private/propTypes';
 import { SizeClassNames, VariantClassNames } from './private/constants';
 

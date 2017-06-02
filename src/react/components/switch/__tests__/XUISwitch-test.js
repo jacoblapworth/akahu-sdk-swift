@@ -3,7 +3,7 @@ import chai from 'chai';
 import XUISwitch from '../XUISwitch';
 
 const assert = chai.assert;
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 const onChange = () => {
 	console.log('Value changed!!');

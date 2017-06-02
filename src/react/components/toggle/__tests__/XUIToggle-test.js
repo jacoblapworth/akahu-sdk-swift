@@ -6,7 +6,7 @@ import XUIToggleOption from '../XUIToggleOption.js';
 import XUIToggle from '../XUIToggle.js';
 
 const assert = chai.assert;
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 
 describe('XUIToggle', function() {

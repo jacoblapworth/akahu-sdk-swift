@@ -1,9 +1,9 @@
-/* global describe, beforeEach, it */
+import { expect, assert } from 'chai';
 import React from 'react';
-import { assert } from 'chai';
+import sinon from 'sinon';
 import XUIButton from '../XUIButton';
 
-const { renderIntoDocument, Simulate } = React.addons.TestUtils;
+const { renderIntoDocument, Simulate } = require('react-dom/test-utils');
 const noop = () => {};
 
 describe('<XUIButton/>', () => {
@@ -24,7 +24,7 @@ describe('<XUIButton/>', () => {
 
 		const node = button.rootNode;
 		assert.strictEqual(node.tagName, 'A');
-		assert.strictEqual(node.innerText, 'foo');
+		assert.strictEqual(node.innerHTML, 'foo');
 	});
 
 	it('should set the `target` prop as the `target` attribute if rendering a link', () => {

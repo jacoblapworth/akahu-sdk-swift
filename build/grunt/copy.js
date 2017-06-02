@@ -2,7 +2,7 @@
  * Copy configuration for Grunt.
  */
 module.exports = {
-	'xui': {
+	xui: {
 		expand: true,
 		src: 'xui.css',
 		cwd: 'dist',

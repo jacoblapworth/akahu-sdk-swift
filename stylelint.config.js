@@ -1,10 +1,10 @@
 /* global module */
 module.exports = {
-	"plugins": ["stylelint-order"],
-	"ignoreFiles": [
+	plugins: ["stylelint-order"],
+	ignoreFiles: [
 		['src/sass/_conflicts.scss', 'src/sass/tmp/*']
 	],
-	"rules": {
+	rules: {
 		"indentation": "tab",
 		"max-line-length": 305,
 		"max-nesting-depth": 3,

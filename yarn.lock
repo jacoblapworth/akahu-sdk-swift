@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@xero/eslint-config-xero-react-base@^1.1.0":
-  version "1.1.0"
-  resolved "https://af.inside.xero-support.com/artifactory/api/npm/npm-dev/eslint-config-meta/eslint-config-xero-react-base/xero-eslint-config-xero-react-base-1.1.0.tgz#29cadf0ced0489f651e9dfb8db8853f735fb0d48"
+"@xero/eslint-config-xero-react-base@^1.1.2":
+  version "1.1.2"
+  resolved "https://af.inside.xero-support.com/artifactory/api/npm/npm-dev/eslint-config-meta/eslint-config-xero-react-base/xero-eslint-config-xero-react-base-1.1.2.tgz#fb212ac2bfed770d43cbe6cf92ce9bed06457a6c"
 
 JSONStream@^0.8.4:
   version "0.8.4"

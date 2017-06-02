@@ -1,16 +1,16 @@
 module.exports = {
-	root: true,
+  root: true,
   env: {
     'jest/globals': true,
-		node: true,
+    node: true,
   },
-	parser: 'babel-eslint',
-	plugins: ['jest'],
+  parser: 'babel-eslint',
+  plugins: ['jest'],
   extends: [
-		"@xero/eslint-config-xero-react-base",
-		"plugin:jest/recommended"
-	],
+    '@xero/eslint-config-xero-react-base',
+    'plugin:jest/recommended'
+  ],
   rules: {
-    "no-console": "warn",
+    'no-console': 'warn',
   }
 };

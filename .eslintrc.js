@@ -4,6 +4,7 @@ module.exports = {
     'jest/globals': true,
 		node: true,
   },
+	parser: 'babel-eslint',
 	plugins: ['jest'],
   extends: [
 		"@xero/eslint-config-xero-react-base",

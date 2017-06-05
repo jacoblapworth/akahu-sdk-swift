@@ -5,28 +5,6 @@ import Guid from 'guid'
 import XUIAvatarCounter from './XUIAvatarCounter';
 import { sizeClassNames, classNames } from './constants';
 
-const propTypes = {
-	className: PropTypes.string,
-	qaHook: PropTypes.string,
-	children: PropTypes.node,
-
-	/** @property {String} [avatarSize] The size to apply to all avatars contained within the group. This will override any individual avatar's size settings. */
-	avatarSize: PropTypes.oneOf(Object.keys(sizeClassNames)),
-
-	/** @property {Number} [maxAvatars] The maximum number of avatars to show */
-	maxAvatars: function(props, propName) {
-		const maxAvatars = props[propName];
-
-		if(maxAvatars && typeof maxAvatars !== 'number') {
-			return new Error('maxAvatars prop must be a number if specified');
-		}
-
-		if(typeof maxAvatars === 'number' && (!Number.isFinite(maxAvatars) || maxAvatars < 0)) {
-			return new Error('maxAvatars prop must be a positive integer');
-		}
-	}
-};
-
 export default class XUIAvatarGroup extends PureComponent {
 	render() {
 		const { props } = this;
@@ -64,4 +42,24 @@ export default class XUIAvatarGroup extends PureComponent {
 
 }
 
-XUIAvatarGroup.propTypes = propTypes;
+XUIAvatarGroup.propTypes = {
+	className: PropTypes.string,
+	qaHook: PropTypes.string,
+	children: PropTypes.node,
+
+	/** @property {String} [avatarSize] The size to apply to all avatars contained within the group. This will override any individual avatar's size settings. */
+	avatarSize: PropTypes.oneOf(Object.keys(sizeClassNames)),
+
+	/** @property {Number} [maxAvatars] The maximum number of avatars to show */
+	maxAvatars: function(props, propName) {
+		const maxAvatars = props[propName];
+
+		if(maxAvatars && typeof maxAvatars !== 'number') {
+			return new Error('maxAvatars prop must be a number if specified');
+		}
+
+		if(typeof maxAvatars === 'number' && (!Number.isFinite(maxAvatars) || maxAvatars < 0)) {
+			return new Error('maxAvatars prop must be a positive integer');
+		}
+	}
+};

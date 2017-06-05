@@ -4,7 +4,6 @@ import XUILoader from '../loader/XUILoader';
 import { ButtonDefaultProps, ButtonPropTypes } from './private/propTypes';
 import { SizeClassNames, VariantClassNames } from './private/constants';
 
-
 /**
  * Returns a class name for the button depending on the button variant string given. Will return
  * undefined if no matching variant is given.

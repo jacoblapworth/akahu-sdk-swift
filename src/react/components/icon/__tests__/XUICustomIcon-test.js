@@ -1,10 +1,10 @@
-import { assert } from 'chai';
+import { expect, assert } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import XUICustomIcon from '../XUICustomIcon';
-import accessibility from '../../icons/accessibility';
+import accessibility from '../icons/accessibility';
 
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 describe('XUICustomIcon', () => {
 	it('Should render with any additional classes provided through the className prop', function () {

@@ -4,8 +4,9 @@ import React from 'react';
 import XUIAvatar from '../XUIAvatar';
 import {classNames, sizeClassNames} from '../constants';
 
+
 const assert = chai.assert;
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 // Note: the rendering of <divs> in the tests below is a crappy workaround for
 // https://github.com/facebook/react/issues/4839
@@ -102,14 +103,13 @@ describe('XUIAvatar', function () {
 		assert.isTrue(node3.className !== node1.className);
 	});
 
-	it('should render an avatar with an image that does not exist as an abbreviation', function(done) {
+	it('should render an avatar with an image that does not exist as an abbreviation', function() {
 		const imageUrl = "https://example.com/non-existent-image.png";
 
 		function onErrorHandler() {
 			// Give React a chance to render async
 			setTimeout(function() {
 				assert.strictEqual(dom.firstElementChild.tagName, 'ABBR', 'Avatar has been re-rendered with an ABBR element');
-				done();
 			}, 10);
 		}
 
@@ -117,7 +117,6 @@ describe('XUIAvatar', function () {
 			<div>
 				<XUIAvatar imageUrl={imageUrl} onError={onErrorHandler} value="Something something" />
 			</div>
-
 		);
 
 		const node = dom.firstElementChild;

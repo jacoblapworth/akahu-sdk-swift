@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import React from 'react';
 import XUITextArea from '../XUITextArea.js';
 
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 let component = {};
 let changed = false;
@@ -91,8 +91,8 @@ describe('XUITextArea additional functionality:', () => {
 		const secondField = component.querySelector('.field-2');
 		const firstCounter = firstField.getElementsByClassName('xui-margin-auto-top')[0];
 		const secondCounter = secondField.getElementsByClassName('xui-margin-auto-top')[0];
-		expect(firstCounter.innerText).to.equal('10');
-		expect(secondCounter.innerText).to.equal('9');
+		expect(firstCounter.innerHTML).to.contain('10');
+		expect(secondCounter.innerHTML).to.contain('9');
 	});
 
 	it('should pass back a reference to the inner textarea element to the textareaRef callback', () => {

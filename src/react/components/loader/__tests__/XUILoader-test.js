@@ -3,10 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import chai from 'chai';
 import XUILoader from '../XUILoader.js';
-import Classes from 'xui-css-classes';
 
 const assert = chai.assert;
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {
@@ -41,7 +40,7 @@ describe('XUILoader', function () {
 		);
 
 		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.isTrue(node.classList.contains(Classes.Loader.LAYOUT));
+		assert.isTrue(node.classList.contains('xui-loader-layout'));
 	});
 
 	it('should not add the layout class if `defaultLayout` is set to `false`', function () {
@@ -52,7 +51,7 @@ describe('XUILoader', function () {
 		);
 
 		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.isFalse(node.classList.contains(Classes.Loader.LAYOUT));
+		assert.isFalse(node.classList.contains('xui-loader-layout'));
 	});
 
 	it('should add appropriate size classes', function () {
@@ -67,8 +66,8 @@ describe('XUILoader', function () {
 		const node1 = ReactDOM.findDOMNode(component).children[0];
 		const node2 = ReactDOM.findDOMNode(component).children[1];
 		const node3 = ReactDOM.findDOMNode(component).children[2];
-		assert.isTrue(node1.classList.contains(Classes.Loader.BASE));
-		assert.isTrue(node2.classList.contains(Classes.Loader.SMALL));
-		assert.isTrue(node3.classList.contains(Classes.Loader.LARGE));
+		assert.isTrue(node1.classList.contains('xui-loader'));
+		assert.isTrue(node2.classList.contains('xui-loader-small'));
+		assert.isTrue(node3.classList.contains('xui-loader-large'));
 	});
 });

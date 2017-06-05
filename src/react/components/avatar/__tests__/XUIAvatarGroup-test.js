@@ -8,7 +8,7 @@ import XUIAvatarCounter from '../XUIAvatarCounter';
 import {classNames, sizeClassNames} from '../constants';
 
 const assert = chai.assert;
-const TestUtils = React.addons.TestUtils;
+const TestUtils = require('react-dom/test-utils');
 
 // Note: the rendering of <divs> in the tests below is a crappy workaround for
 // https://github.com/facebook/react/issues/4839

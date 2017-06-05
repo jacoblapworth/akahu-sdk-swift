@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import XUIAvatar from '../avatar/XUIAvatar';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import clear from '@xero/xui-icon/icons/clear';
 import XUIIcon from '../icon/XUIIcon';

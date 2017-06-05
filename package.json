@@ -40,11 +40,9 @@
     "test:ci": "cross-env TEAMCITY_VERSION=\"9.1.7\" NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage"
   },
   "dependencies": {
-    "babel-jest": "20.0.3",
-    "babel-preset-jest": "20.0.3",
     "classnames": "2.1.0",
     "guid": "git://github.dev.xero.com/XeroJS/guid.git#0.0.12",
-    "proptypes": "1.0.0",
+    "proptypes": "1.1.0",
     "react": "15.5.4",
     "react-dom": "15.5.4"
   },
@@ -54,6 +52,8 @@
     "@xero/xui-icon": "5.0.0-rc.2",
     "babel-cli": "6.24.1",
     "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-preset-jest": "20.0.3",
     "chai": "4.0.1",
     "check-engines": "1.2.0",
     "cross-env": "5.0.0",

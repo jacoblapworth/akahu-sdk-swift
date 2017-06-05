@@ -1,175 +1,40 @@
 xui-icon
-========
-[![build status](https://teamcity.dev.xero.com/app/rest/builds/buildType:(id:XeroJS_SharedReactComponents_UxeXuiIcon)/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=XeroJS_XuiIcon)
+==========
 ![](https://img.shields.io/badge/XUI-^10.0.0-blue.svg)
-![](https://img.shields.io/badge/React-^0.14.2 || ^15.0.0-blue.svg)
+![](https://img.shields.io/badge/React-^15.5.4-blue.svg)
 
-xui-icon is a module for importing and using XUI Icons to you project. The full list of existing icons may be found [here](https://github.dev.xero.com/pages/UXE/xui-icon/test/ui/).
+A React UI component that creates icons from the [XUI UI library](https://github.dev.xero.com/pages/UXE/xui/#10.24.1/section-icons.html).
 
-The icons can be consumed in 3 ways:
-* Using the `XUIIcon` module as a React component. Use this for React-based single page apps.
-* Using the ES5 artifact available on edge.xero.com. Use this for non-React-based single page apps.
-* The SVG path of each individual icon can be imported from the `icon` folder. Use this for apps that are shared across various pages (e.g. the header)
-
-The main implementation is similar to the process described in [css-tricks](https://css-tricks.com/svg-symbol-good-choice-icons/) where the SVG paths are added to a hidden element within the page, and all icon usages reference the SVGs in this blob. When using react, the blob is added by `XUIIcon`, so React users do not need to worry about this.
-
-By default, each icon has its fill set to `currentColor`, so it will use the inherited font colour.
-
-React Usage
-===========
-
-### Modules
-`xui-icon` exports two modules:
- - `XUIIcon` - The main icon component which makes the whole icon suite available
- - `XUICustomIcon` - Icon component which allows individual icons to be imported.
- - `XUIIcons` - Object containing names for all of the icons provided.
-
-### Usage
+### Example
 ```js
-import XUIIcon, { XUIIcons } from 'src/components/icon';
+import menu from '@xero/xui-icon/icons/menu';
+import XUIIcon from '@xero/xui/react/icon';
+
+(function() {
+	ReactDOM.render(
+		<XUIIcon path={ menu } />,
+		document.getElementById('app')
+	);
+})();
 ```
 
-`XUIIcon`'s parameters:
- - `icon` (string, required): specifies which icon you want to use
-  - Either a `XUIIcons` property, or by explicitly naming the icon. (`XUIIcons.ARROW_SMALL` or `'arrow-small'`)
- - `className` (string, optional): used to specify any additional classes for styling the icon. This will mostly be used for adding size modifiers.
- - `size` (['large','xlarge'], optional): specifies a size modifier
- - `title` (string, optional): sets a title to be read by screen readers
- - `desc` (string, optional): sets a description to be read by screen readers
- - `role` (string, optional): sets a role for screen reader compatibility, defaults to `presentation`
- - `rotation` ([90,180,270], optional): specifies a rotation modifier of `90`, `180`, or `270` degrees clockwise. Can be a string or a number.
- - `color` (['standard','red','green','blue','white'], optional): Specifies a color modifier class
- - `inline` (boolean, optional): whether the inline class modifier should be added
+## Prop Types
+`path`: (string, required) The path to use in the SVG
 
-For example, to add an arrow rotated to the right
-```jsx
-<XUIIcon icon={XUIIcons.ARROW} rotation={270} title="Right arrow" desc="Arrow pointing to the right" />
-```
+`className`: (string, optional) Additional classes to be applied to the icon
 
-The only difference between XUIIcon and XUICustomIcon is that XUICustomIcon accepts a `path` instead of an `icon` name.
+`size`: (string, optional, default='standard') Adds a size modifier to the icon
 
-Using the icons without React
-=============================
-This package uses Babel & Rollup to create ES5 and Common JS distributables which, when imported, will add the icon blob to your page.
+`title`: (string, optional) Title to be read by screen readers
 
-## Using the icons
-The icons may be referenced using the following markup:
- ```js
- <svg class="xui-icon"> <use xlink:href="#xui-icon-[icon name]" /> </svg>
- ```
-## Importing the icons
-### Via CDN
+`desc`: (string, optional) Description to be read by screen readers
 
-The ES5 icon blob is available via edge.xero.com and can be included directly into any page:
-```html
-<script src="https://edge.xero.com/style/xui-icon/4.1.0/xuiIconBlobES5.js"></script>
-```
+`role`: (string, optional, default='presentation') Role to be applied to the SVG for screen readers
 
-### Via the Bower component
-#### ES6
- ```js
-import xuiIconBlob from 'src/components/icon/dist/xuiIconBlob.js';
-xuiIconBlob();
-```
-#### ES5
-```html
-<script src="src/components/icon/dist/xuiIconBlobES5.js"></script>
-```
+`rotation`: (number, optional, default=0) Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270
 
-Using the icons individually
-============================
+`color`: (string, optional) Adds a color modifier to the icon
 
-Bringing in all the icons will bloat your artifact if you only end up using a few icons. To keep your artifact lean,
-you can include icons individually:
+`inline`: (boolean, optional, default=false) Whether the inline class modifier should be added
 
-### React
-
-Use the `XUICustomIcon` component and provide the path by importing the icon from the `icons` folder.
-Please note: Webpack's tree shaking is feeble (does not drop unused classes exported by our entry point without additional build tooling)
-so you will need to import the `XUICustomIcon` module from its source location and not rely on the entry point provided by `package.json`
-
-```js
-import XUICustomIcon from './icon/src/XUICustomIcon';
-import accessibility from './icon/icons/accessibility';
-
-// ...
-    render() {
-        return <XUICustomIcon path={accessibility} rotation={180} />;
-    }
-```
-
-### Vanilla JS
-
-You can import individual icon paths from the `icons` directory and use the `createSVGElement` utility function to render them to the DOM if you're not using a library like React.
-Other options that can be used to set attributes on the SVG element are `viewBox` and `class`.
-
-```js
-import menu from './icon/icons/menu';
-import createSVGElement from './icon/src/createSVGElement';
-
-const svg = createSVGElement({
-	path: menu
-});
-document.body.appendChild(svg);
-```
-
-## xui-icon prop types
-
-### XUICustomIcon
-`path`: (string, Required)  The path to use in the SVG
-
-`className`: (string, Optional) Additional classes to be applied to the icon
-
-`size`: (enum, Optional, Default='standard') Adds a size modifier to the icon
-
-`title`: (string, Optional) Title to be read by screen readers
-
-`desc`: (string, Optional) Description to be read by screen readers
-
-`role`: (string, Optional, Default='presentation') Role to be applied to the SVG for screen readers
-
-`rotation`: (enum, Optional) Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270
-
-`color`: (enum, Optional) Adds a color modifier to the icon
-
-`inline`: (bool, Optional) Whether the inline class modifier should be added
-
-`viewBox`: (Optional, Default='0 0 30 30')
-
-
-### XUIIcon
-`icon`: (enum, Required)  the icon to be rendered
-
-`className`: (string, Optional) Additional classes to be applied to the icon
-
-`size`: (enum, Optional, Default='standard') Adds a size modifier to the icon
-
-`title`: (string, Optional) Title to be read by screen readers
-
-`desc`: (string, Optional) Description to be read by screen readers
-
-`role`: (string, Optional, Default='presentation') Role to be applied to the SVG for screen readers
-
-`rotation`: (enum, Optional) Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270
-
-`color`: (enum, Optional) Adds a color modifier to the icon
-
-`inline`: (bool, Optional) Whether the inline class modifier should be added
-
-
-## Testing
-
-### Running the Unit Tests
-`$ npm run test`
-This simply runs the Unit Tests found in the `__tests__` directory. Reports the results in the command line using the spec reporter.
-
-### Running the UI Tests
-`$ npm run test-ui`
-This script generates a html page at `test/ui/index.html` so you can view the component as well as running the unit tests.
-
-### Generating a code coverage report
-`$ npm run test-coverage`
-Generates a coverage report in `build/coverage/PhantomJS/index.html`.
-
-
-**This README has been automatically generated. Please mark any changes in the docs folder.**
+`viewBox`: (string, optional, default='0 0 30 30')

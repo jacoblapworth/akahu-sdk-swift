@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const util = require('util');
 
 // nobody cares about warnings so lets make them errors

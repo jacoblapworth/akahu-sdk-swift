@@ -5,7 +5,7 @@ import { SizeClassNames, VariantClassNames, ButtonTypes } from '../../src/privat
 import { ensureIconBlobOnPage } from 'xui-icon';
 import { ButtonDefaultProps } from '../../src/private/propTypes';
 import '../../bower_components/component-renderer/src/renderer.styles.scss';
-import RendererUtils from 'component-renderer'
+import RendererUtils from 'component-renderer';
 
 const NOOP = () => {};
 const keys = Object.keys;

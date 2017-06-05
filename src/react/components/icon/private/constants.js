@@ -5,9 +5,9 @@ export const sizeClasses = {
 };
 
 export const rotationClasses = {
-	'90': 'xui-icon-rotate-90',
-	'180': 'xui-icon-rotate-180',
-	'270': 'xui-icon-rotate-270'
+	90: 'xui-icon-rotate-90',
+	180: 'xui-icon-rotate-180',
+	270: 'xui-icon-rotate-270'
 };
 
 /* eslint-disable camelcase */

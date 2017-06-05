@@ -1,1 +1,0 @@
-export default 'M10,14 L20,14 L20,16 L10,16 L10,14 Z';

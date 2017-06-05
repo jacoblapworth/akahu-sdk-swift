@@ -1,7 +1,7 @@
-import XUIToast from '../XUIToast';
-import XUIToastAction from '../XUIToastAction';
-import XUIToastActions from '../XUIToastActions';
-import XUIToastMessage from '../XUIToastMessage';
+import XUIToast from './components/modal/XUIToast';
+import XUIToastAction from './components/modal/XUIToastAction';
+import XUIToastActions from './components/modal/XUIToastActions';
+import XUIToastMessage from './components/modal/XUIToastMessage';
 
 export {
 	XUIToast as default,

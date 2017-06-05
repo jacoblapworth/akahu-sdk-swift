@@ -1,6 +1,6 @@
 import React from 'react';
-import XUIIcon from '@xui/xui-icon';
-import caret from '@xui/xui-icon/icons/caret';
+import XUIIcon from '../icon/XUIIcon';
+import caret from '@xero/xui-icon/icons/caret';
 import PropTypes from "prop-types";
 import cn from 'classnames';
 

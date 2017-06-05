@@ -1,2 +1,2 @@
-import XUIIcon from './component/icon/XUIIcon';
+import XUIIcon from './components/icon/XUIIcon';
 export default XUIIcon;

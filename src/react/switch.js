@@ -1,1 +1,3 @@
-export default from './components/switch/XUISwitch';
+import XUISwitch from './components/switch/XUISwitch';
+
+export default XUISwitch;

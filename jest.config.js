@@ -14,7 +14,7 @@ module.exports = {
     '\\.(png)$': '<rootDir>/src/__mocks__/fileMock.js',
   },
   transform: {
-    '^.+\\.jsx?$': '<rootDir>/jest.babel.js',
+    '^.+\\.jsx?$': 'babel-jest',
   },
   setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
 };

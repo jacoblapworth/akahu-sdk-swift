@@ -7,6 +7,8 @@ A React UI component that creates a loading animation from the [XUI UI library](
 
 ## Example
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUILoader from '@xero/xui/react/loader';
 
 (function() {

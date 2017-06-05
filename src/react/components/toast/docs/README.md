@@ -19,6 +19,7 @@ See issue https://github.dev.xero.com/UXE/xui-toast/issues/26 for the outstandin
 ## Example
 ```js
 import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIToast, { XUIToastAction, XUIToastActions, XUIToastMessage, XUIToastWrapper } from '@xero/xui/react/toast';
 import XeroIntl from 'XeroIntl';
 

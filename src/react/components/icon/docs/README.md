@@ -7,8 +7,10 @@ A React UI component that creates icons from the [XUI UI library](https://github
 
 ### Example
 ```js
-import menu from '@xero/xui-icon/icons/menu';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIIcon from '@xero/xui/react/icon';
+import menu from '@xero/xui-icon/icons/menu';
 
 (function() {
 	ReactDOM.render(

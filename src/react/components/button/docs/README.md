@@ -7,6 +7,8 @@ A React UI component that creates buttons from the [XUI UI library](https://gith
 
 ### Example
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIButton, { XUIButtonGroup, XUIButtonCaret } from '@xero/xui/react/button';
 
 function handleClick(event) {

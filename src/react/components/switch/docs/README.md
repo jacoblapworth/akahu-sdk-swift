@@ -3,11 +3,12 @@ xui-switch
 ![](https://img.shields.io/badge/XUI-%5E9.7.0%20%7C%7C%20%5E10.0.0-blue.svg)
 ![](https://img.shields.io/badge/React-^15.5.4-blue.svg)
 
-
 A React UI component designed to mimic the XUI Switch behaviour.
 
 ## Example
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUISwitch from '@xero/xui/react/switch';
 
 const handleSwitch = () => console.log('switch clicked');

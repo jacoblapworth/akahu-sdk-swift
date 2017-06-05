@@ -1,10 +1,12 @@
-xui-icon
+xui-input
 ==========
 ![](https://img.shields.io/badge/XUI-^10.17.1-blue.svg)
 ![](https://img.shields.io/badge/React-^15.5.4-blue.svg)
 
 ## Example
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIInput from '@xero/xui/react/input';
 import socialTwitterIconPath from '@xero/xui-icon/icons/social-twitter';
 

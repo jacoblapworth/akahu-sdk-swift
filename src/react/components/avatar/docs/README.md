@@ -11,6 +11,8 @@ It can also render avatars in a group.
 
 ## Example
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIAvatar from '@xero/xui/react/avatar';
 
 (function() {

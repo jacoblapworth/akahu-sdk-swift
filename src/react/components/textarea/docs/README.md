@@ -14,7 +14,9 @@ If `minRows` or `maxRows` is not set, the css property for `min-height` or `max-
 ## Example
 These examples show the two main ways of using this component, with a minimum & maximum number of rows, and with a set number of rows.
 
-```jsx
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
 import XUIInput from '@xero/xui/react/textarea';
 
 (function() {

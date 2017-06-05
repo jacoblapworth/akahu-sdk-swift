@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 export default function XUIRadioGroup ({ children, className, qaHook }) {

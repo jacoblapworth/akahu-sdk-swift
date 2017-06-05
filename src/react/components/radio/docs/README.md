@@ -21,8 +21,8 @@ method can be used with the spread operator to shallow merge shared and individu
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XUIRadio, {XUIRadioGroup} from 'xui-radio';
-import star from 'xui-icon/icons/star';
+import XUIRadio, {XUIRadioGroup} from '@xero/xui/react/radio';
+import star from '@xero/xui-icon/icons/star';
 
 const shared = {
 	iconMainPath: {star},

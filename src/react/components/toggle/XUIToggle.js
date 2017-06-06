@@ -1,25 +1,9 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { colorMap, layoutMap } from './private/constants';
 
-
-/** @private colorMap - Map colors to classes */
-const colorMap = {
-	standard: 'xui-toggle-standard',
-	inverted: 'xui-toggle-inverted',
-	form: 'xui-toggle-form'
-};
-
-
-/** @private layoutMap - Map layouts to classes */
-const layoutMap = {
-	fullwidth: 'xui-toggle-fullwidth-layout',
-	form: 'xui-toggle-form-layout',
-	icon: 'xui-toggle-icon-layout'
-};
-
-export default function XUIToggle(props) {
-	const {children, className, qaHook, color, layout} = props;
+export default function XUIToggle({ children, className, qaHook, color, layout }) {
 	const classes = cn(className, 'xui-toggle', colorMap[color], layoutMap[layout]);
 
 	return (
@@ -28,7 +12,6 @@ export default function XUIToggle(props) {
 		</div>
 	)
 }
-
 
 XUIToggle.propTypes = {
 	children: PropTypes.node,

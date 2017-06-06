@@ -2,3 +2,5 @@ node_modules
 react
 kss
 src/components/icon
+umd/assets
+uitest/assets

@@ -16,6 +16,7 @@ npm-debug.log
 /react
 /sass
 /umd/assets
+/uitest/assets
 src/react/umd.js
 
 # IDE files/directores

@@ -15,6 +15,8 @@ npm-debug.log
 /kss/styleguide/styleguide.md
 /react
 /sass
+/umd/assets
+src/react/umd.js
 
 # IDE files/directores
 /.idea

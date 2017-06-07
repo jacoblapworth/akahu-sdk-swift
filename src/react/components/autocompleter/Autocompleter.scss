@@ -1,0 +1,73 @@
+@import '../../../sass/vars';
+
+.ac-input {
+	// Otherwise, the box surrounding the input gets ridiculously tall
+	min-height: 0;
+	//Force the input to be 100% of the wrapper.
+	width: 100%;
+}
+
+.ac-wrapper {
+		flex-wrap: wrap;
+		width: 100%;
+		position: relative;
+		//Need to override padding to avoid dropdown being offset.
+		padding: 0;
+	// Need this thing to have the same focus state and the input.  Unfortunately, the only mixin I could find used
+	// the :focus selector and that won't work when the child input has focus.
+	&--focus {
+		transition: box-shadow $xui-transition-duration-short;
+		box-shadow: $xui-shadow-focus;
+		outline: none;
+	}
+
+	.ac-pill {
+		margin: $xui-s-xsmall;
+	}
+}
+
+.ac-input-wrapper {
+	padding: 8px 0.5em;
+	vertical-align: middle;
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.ac-search-wrapper {
+	background: rgba($xui-color-grey-1,0.05);
+	padding: 0;
+
+	.ac-input {
+		padding: 8px 0.5em;
+		background: rgba($xui-color-grey-1,0.05);
+		font-size: $xui-font-size-medium;
+		border-radius: $xui-selected-item-border-width;
+
+		&:focus{
+			 background: rgba($xui-color-grey-1,0.1);
+		}
+	}
+}
+
+.ac-emptystate {
+	color: $xui-color-secondary-text;
+}
+
+.ac-toggled-wrapper {
+	position: static;
+	//grow to fill the rest of the space available.
+	flex-grow: 1;
+}
+
+.ac-dropdown {
+	//anchors the dropdown to the far left of it's container instead of following the input.
+	left: 0;
+}
+
+@each $number, $variant in $xui-width-variants-dropdown{
+	.ac-dropdown-#{$variant} {
+		/* prevent dropdown from shifting in width when autocompleter filters long values */
+		width: $xui-starting-width + ($xui-base-width * $number);
+	}
+}

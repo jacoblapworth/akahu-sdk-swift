@@ -1,0 +1,9 @@
+@import '../../../../sass/_vars.scss';
+
+.c-select-box {
+	// Add a full blue border all the time for the select button
+	.xui-select--button-is-selected {
+		border-color: $xui-color-xero-blue;
+		border-radius: $xui-radius;
+	}
+}

@@ -49,11 +49,14 @@
   },
   "dependencies": {
     "classnames": "2.1.0",
-    "guid": "git://github.dev.xero.com/XeroJS/guid.git#0.0.12",
+    "guid": "0.0.12",
+    "lodash.debounce": "4.0.8",
+    "lodash.throttle": "4.1.1",
     "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-portal": "3.1.0"
+    "react-portal": "3.1.0",
+    "verge": "1.10.2"
   },
   "devDependencies": {
     "@xero/babel-preset-xero": "1.0.2",
@@ -114,6 +117,7 @@
     "react-test-renderer": "15.5.4",
     "rimraf": "2.6.1",
     "sass-loader": "6.0.5",
+    "simple-mock": "0.8.0",
     "sinon": "2.3.2",
     "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2",
     "style-loader": "0.18.2",

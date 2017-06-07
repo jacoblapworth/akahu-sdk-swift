@@ -1,0 +1,85 @@
+@import '../../../../sass/vars';
+@import '../../../../sass/mixins';
+
+.dropdown-static-wrapper {
+	position: relative;
+	z-index: 0;
+	//fix so inline drodowns are visible.
+	.xui-dropdown--body {
+		position: relative;
+		width: 100%;
+	  	bottom: 0;
+	}
+
+	//override for inline dropdown
+	.xui-dropdown--mask {
+		display: none;
+	}
+}
+
+.dropdown-zindex-override{
+  z-index: 100;
+}
+
+.xui-nesteddropdown-medium {
+	width: 300px;
+}
+
+.xui-nesteddropdown-large {
+	width: 380px;
+}
+
+//Override for header border 10.22.4
+.xui-dropdown-layout .xui-dropdown--header {
+	.xui-dropdown--header-container {
+		border-bottom: none;
+		//Currently a hex value
+		box-shadow: 0 1px 0 0 $xui-color-shadow-medium;
+	}
+}
+
+.xui-dropdown-layout .xui-dropdown--footer {
+	border-top: none;
+	//Currently too light, makes this darker and matches the header.
+	box-shadow: 0 -1px 0 0 $xui-color-shadow-medium;
+	//Any padding should be in a layout class, if we even want to dictate that.
+	padding: none;
+}
+
+.xui-dropdown-layout:focus{
+	//New focus state not in XUI 10.22
+	box-shadow: 0 0 0 3px rgba($xui-color-grey-1, 0.1);
+	outline: none;
+	@include xui-breakpoint-narrow-up {
+		border-radius: $xui-selected-item-border-width;
+	}
+}
+
+
+//Secondary Search Mock
+.ac-input-wrapper {
+	padding: 8px 0.5em;
+	vertical-align: middle;
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.ac-search-wrapper {
+	.xui-input-wrapper {
+		padding: 0;
+		width: 100%
+	}
+
+	.ac-input {
+		padding: 8px 0.5em;
+		background: rgba($xui-color-grey-1,0.05);
+		font-size: $xui-font-size-medium;
+		border-radius: $xui-selected-item-border-width;
+		width: 100%;
+
+		&:focus{
+			 background: rgba($xui-color-grey-1,0.1);
+		}
+	}
+}

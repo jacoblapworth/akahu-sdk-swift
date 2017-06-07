@@ -15,19 +15,17 @@ import XUIIcon from '../XUIIcon';
 	});
 
 	ReactDOM.render(
-		<div>
+		<div className="xui-page-width-standard">
+			<p><strong>Note:</strong> The following icons have been deprecated:</p>
+			<ul>
+				<li>download - use import instead</li>
+				<li>pdf - use file-pdf instead</li>
+				<li>zip - use file-zip instead</li>
+			</ul>
 			<div className="xui-row-flex">
 				{iconUseTags}
 			</div>
-			<p><strong>Note:</strong> The following icons have been deprecated:
-				<ul>
-					<li>download - use import instead</li>
-					<li>pdf - use file-pdf instead</li>
-					<li>zip - use file-zip instead</li>
-				</ul>
-			</p>
-		</div>, document.getElementById('iconShowcase')
+		</div>,
+		document.getElementById('app')
 	);
-
-	document.body.appendChild(svg);
 })();

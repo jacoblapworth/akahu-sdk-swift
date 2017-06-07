@@ -24,9 +24,10 @@
     "build:umd": "npm-run-all clean:umd build:umd:entry build:umd:webpack",
     "build:umd:webpack": "cross-env NODE_ENV=production webpack --config webpack.umd.config.js",
     "build:umd:entry": "node umd/createEntryPoint.js",
-    "clean": "npm-run-all clean:babel clean:umd",
+    "clean": "npm-run-all clean:babel clean:umd clean:testui",
     "clean:babel": "rimraf react sass",
     "clean:umd": "rimraf src/react/umd.js umd/assets",
+    "clean:testui": "rimraf uitest/assets",
     "copy:sass": "ncp src/sass sass",
     "dist": "grunt dist",
     "doc": "grunt doc",
@@ -43,14 +44,16 @@
     "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache",
     "test:watch": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
-    "test:ci": "cross-env TEAMCITY_VERSION=\"9.1.7\" NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage"
+    "test:ci": "cross-env TEAMCITY_VERSION=\"9.1.7\" NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
+    "test:ui": "cross-env NODE_ENV=development webpack --watch --config ./webpack.testui.config.js"
   },
   "dependencies": {
     "classnames": "2.1.0",
     "guid": "git://github.dev.xero.com/XeroJS/guid.git#0.0.12",
     "prop-types": "15.5.10",
     "react": "15.5.4",
-    "react-dom": "15.5.4"
+    "react-dom": "15.5.4",
+    "react-portal": "3.1.0"
   },
   "devDependencies": {
     "@xero/babel-preset-xero": "1.0.2",
@@ -108,7 +111,6 @@
     "postcss-loader": "2.0.5",
     "postcss-scss": "0.3.1",
     "react-addons-test-utils": "15.5.1",
-    "react-portal": "3.1.0",
     "react-test-renderer": "15.5.4",
     "rimraf": "2.6.1",
     "sass-loader": "6.0.5",

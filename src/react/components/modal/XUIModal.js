@@ -50,17 +50,17 @@ export default class XUIModal extends Component {
 		const modal = this;
 		const { isHidden, restrictFocus } = modal.props;
 
-		if(!isHidden && !modal._isScrollLocked) {
+		if (!isHidden && !modal._isScrollLocked) {
 			lockScroll();
 			modal._isScrollLocked = true;
 		}
 
-		if(isHidden && modal._isScrollLocked) {
+		if (isHidden && modal._isScrollLocked) {
 			unlockScroll();
 			modal._isScrollLocked = false;
 		}
 
-		if (!isHidden && restrictFocus && (prevProps.isHidden || !prevProps.restrictFocus)){
+		if (!isHidden && restrictFocus && (prevProps.isHidden || !prevProps.restrictFocus)) {
 			if (!modal._maskNode.contains(document.activeElement)){
 				modal._modalNode.focus();
 			}
@@ -74,7 +74,7 @@ export default class XUIModal extends Component {
 	 * listener to a parent (`window` by default) to catch this key press
 	 */
 	_keyUpHandler(event) {
-		const {isHidden, onClose} = this.props;
+		const { isHidden, onClose } = this.props;
 		const escapeKeyCode = 27;
 		if(event.keyCode === escapeKeyCode && !isHidden && onClose) {
 			onClose();
@@ -164,7 +164,7 @@ export default class XUIModal extends Component {
 				onClick={overlayClickHandler}
 				aria-hidden={isHidden}
 				data-automationid={`${qaHook}-mask`}
-				ref={m => this._maskNode = m}
+				ref={m => this._maskNode = m && console.log('got mask')}
 			>
 				<MainElement
 					className={modalClasses}
@@ -181,7 +181,7 @@ export default class XUIModal extends Component {
 			</div>);
 
 		return (
-			isUsingPortal ? <Portal isOpen={!isHidden}>{childNodes}</Portal> : childNodes
+			isUsingPortal ? <Portal isOpened={!isHidden}>{childNodes}</Portal> : childNodes
 		);
 	}
 }

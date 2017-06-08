@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import contact from '@xero/xui-icon/icons/contact';
 import notification from '@xero/xui-icon/icons/notification';
@@ -6,7 +6,7 @@ import photo from '@xero/xui-icon/icons/photo';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIToggle from '../XUIToggle';
 import XUIToggleOption from '../XUIToggleOption';
-import { colorMap, layoutMap } from '../private/constants';
+import { colorMap } from '../private/constants';
 
 const toggleForm = {
 	name: 'toggle-checkbox',

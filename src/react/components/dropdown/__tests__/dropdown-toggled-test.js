@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { mock } from 'simple-mock';
 import DropDown from '../DropDown';
@@ -72,26 +71,26 @@ describe('<DropDownToggled />', () => {
 		});
 
 		it('renders the list closed', () => {
-			expect(wrapper.node.isDropDownOpen()).to.be.false;
-			expect(document.body.getElementsByClassName('.xui-dropdown').length).to.equal(0);
+			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
+			expect(document.body.getElementsByClassName('.xui-dropdown').length).toEqual(0);
 		});
 
 		it('renders the list open on click of the trigger', () => {
 			wrapper.find('.xui-button').simulate('click');
 
-			expect(openDropDownMock.callCount).to.equal(1);
-			expect(wrapper.state('isHidden')).to.be.false;
+			expect(openDropDownMock.callCount).toEqual(1);
+			expect(wrapper.state('isHidden')).toBeFalsy();
 		});
 
 		it('accepts classNames for the wrapping div', () => {
-			expect(wrapper.find('.dropdown-toggled-wrapper').hasClass('testClass')).to.be.true;
+			expect(wrapper.find('.dropdown-toggled-wrapper').hasClass('testClass')).toBeTruthy();
 		});
 
 		it('calls the onOpen prop after the list is open', () => {
 			wrapper.find('.xui-button').simulate('click');
 
-			expect(openCalled, 'onOpen not called').to.be.true;
-			expect(document.body.getElementsByClassName('xui-dropdown-layout').length, 'dropdown is displayed').to.equal(1);
+			expect(openCalled).toBeTruthy();
+			expect(document.body.getElementsByClassName('xui-dropdown-layout')).toHaveLength(1);
 		});
 
 		it('calls the onClose prop after the list is closed', () => {
@@ -99,10 +98,10 @@ describe('<DropDownToggled />', () => {
 			wrapper.find('.xui-button').simulate('click');
 			//timeout is for animation to end.
 			setTimeout(() => {
-				expect(closeCalled).to.be.true;
+				expect(closeCalled).toBeTruthy();
 			}, 1300);
 
-			expect(document.body.getElementsByClassName('.xui-dropdown-layout').length).to.equal(0);
+			expect(document.body.getElementsByClassName('.xui-dropdown-layout')).toHaveLength(0);
 		});
 
 		//Failing to read state as it's out of scope when simulating the keyDown events
@@ -110,9 +109,9 @@ describe('<DropDownToggled />', () => {
 			const trigger = wrapper.find('.xui-button');
 			trigger.simulate('keyDown', { key: 'ArrowDown', keyCode: 40, which: 40 });
 
-			expect(triggerKeyDownHandlerMock.callCount).to.equal(1);
-			expect(wrapper.node.isDropDownOpen()).to.be.true;
-			expect(openDropDownMock.callCount).to.equal(1);
+			expect(triggerKeyDownHandlerMock.callCount).toEqual(1);
+			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
+			expect(openDropDownMock.callCount).toEqual(1);
 		});
 	});
 
@@ -123,22 +122,22 @@ describe('<DropDownToggled />', () => {
 		});
 
 		it('closes the list when the esc key is pressed', () => {
-			expect(wrapper.node.isDropDownOpen()).to.be.true;
+			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
 			wrapper.find('.xui-button').simulate('keyDown', { keyCode: 9 });
 
 			//timeout is for animation to end.
 			setTimeout(() => {
-				expect(wrapper.node.isDropDownOpen()).to.be.false;
+				expect(wrapper.node.isDropDownOpen()).toBeFalsey();
 			}, 1300);
 		});
 
 		it('closes the list when the tab key is pressed', () => {
-			expect(wrapper.node.isDropDownOpen()).to.be.true;
+			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
 			wrapper.find('.xui-button').simulate('keyDown', { keyCode: 27 });
 
 			//timeout is for animation to end.
 			setTimeout(() => {
-				expect(wrapper.node.isDropDownOpen()).to.be.false;
+				expect(wrapper.node.isDropDownOpen()).toBeFalsey();
 			}, 1300);
 		});
 	});
@@ -150,7 +149,7 @@ describe('<DropDownToggled />', () => {
 
 			wrapper.closest(Pickitem).first().childAt(0).simulate('click');
 
-			expect(wrapper.node.isDropDownOpen()).to.be.false;
+			expect(wrapper.node.isDropDownOpen()).toBeFalsey();
 		});
 
 		it('does not close the dropdown on select if closeOnSelect is set to false', function () {
@@ -158,7 +157,7 @@ describe('<DropDownToggled />', () => {
 
 			wrapper.closest('.xui-pickitem').first().childAt(0).simulate('click');
 
-			expect(wrapper.node.isDropDownOpen()).to.be.true;
+			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
 		});
 	});
 });

@@ -90,7 +90,7 @@ export default class SelectBox extends Component {
 			</DropDown>
 		);
 		return (
-			<div className={containerClasses}>
+			<div data-automationid={props.qaHook} className={containerClasses}>
 				<label className={labelClasses}
 					htmlFor={selectBox.ariaId}
 					onClick={selectBox.onLabelClick}

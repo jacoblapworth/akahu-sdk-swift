@@ -6,7 +6,7 @@ import linkedin from '@xero/xui-icon/icons/social-linkedin';
 import facebook from '@xero/xui-icon/icons/social-facebook';
 import twitter from '@xero/xui-icon/icons/social-twitter';
 
-const onChange = event => console.log(`oh I made a change, value: ${event.target.value}`);
+const onChange = event => console.log(`oh I made a change, value: ${event.target.value}`); // eslint-disable-line no-console
 
 ReactDOM.render(
 	<div className="xui-page-width-standard">

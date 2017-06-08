@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import Picklist from '../Picklist';
 import Pickitem from '../Pickitem';
@@ -19,8 +18,8 @@ describe('<Pickitem />', () => {
 	});
 
 	it('renders with `xui-pickitem` as the class ', () => {
-		expect(wrapper.find(Picklist)).to.exist;
-		expect(wrapper.find('#item1').hasClass('xui-pickitem')).to.be.true;
+		expect(wrapper.find(Picklist)).toBeDefined();
+		expect(wrapper.find('#item1').hasClass('xui-pickitem')).toBeTruthy();
 	});
 
 	it('renders with aria-selected as false and no selected class', () => {
@@ -28,12 +27,12 @@ describe('<Pickitem />', () => {
 		const isSelectClassPresent = item.hasClass('xui-pickitem-is-selected');
 		const isSelectAttributePresent = item.html().includes('aria-selected="true"');
 
-		expect(isSelectAttributePresent).to.be.false;
-		expect(isSelectClassPresent).to.be.false;
+		expect(isSelectAttributePresent).toBeFalsy();
+		expect(isSelectClassPresent).toBeFalsy();
 	});
 
 	it('contains role of `option`', () => {
-		expect(wrapper.find('#item1').prop('role')).to.equal('option');
+		expect(wrapper.find('#item1').prop('role')).toEqual('option');
 	});
 
 	//Skipped until we have the class in XUI
@@ -46,7 +45,7 @@ describe('<Pickitem />', () => {
 			{attachTo: div}
 		);
 
-		expect(wrapper.childAt(0).hasClass('xui-pickitem-is-hovered'))
+		expect(wrapper.childAt(0).hasClass('xui-pickitem-is-hovered')).toBeTruthy();
 
 	});
 
@@ -57,11 +56,11 @@ describe('<Pickitem />', () => {
 			</Picklist>
 		);
 
-		expect(wrapper.find(Pickitem).hasClass('xui-is-disabled')).to.be.true;
+		expect(wrapper.find(Pickitem).hasClass('xui-is-disabled')).toBeTruthy();
 	});
 
 	it('is not disabled by default', () => {
-		expect(wrapper.find('#item1').hasClass('xui-is-disabled')).to.be.false;
+		expect(wrapper.find('#item1').hasClass('xui-is-disabled')).toBeFalsy();
 	});
 
 	describe('One item selected', () => {
@@ -82,12 +81,12 @@ describe('<Pickitem />', () => {
 		it('renders with the selected class and aria-selected attribute when isSelected is true and the pickitem is multiselect', () => {
 			const isSelectAttributePresent = selectedItem.html().includes('aria-selected="true"');
 
-			expect(selectedItem.hasClass('xui-pickitem-is-selected')).to.be.true;
-			expect(isSelectAttributePresent).to.be.true;
+			expect(selectedItem.hasClass('xui-pickitem-is-selected')).toBeTruthy();
+			expect(isSelectAttributePresent).toBeTruthy();
 		});
 
 		it('doesn\'t render an arai-selected attribute for Pickitems that are not multiselect', () => {
-			expect(nonSelectedItem.html()).to.not.contain('aria-selected');
+			expect(nonSelectedItem.html()).not.toEqual(expect.stringContaining('aria-selected'));
 		});
 	});
 
@@ -104,46 +103,37 @@ describe('<Pickitem />', () => {
 		});
 
 		it('doesn\'t apply the styles for selected items when the prop disableSelectedStyles is true', () => {
-			expect(wrapper.find('#multiselectItem1').hasClass('xui-pickitem-is-selected')).to.be.false;
+			expect(wrapper.find('#multiselectItem1').hasClass('xui-pickitem-is-selected')).toBeFalsy();
 		});
 
 		it('will retain the `aria-selected` value when the disableSelectedStyles prop and isSelected prop are both true', () => {
 			const selectedItem = wrapper.find('#multiselectItem2');
-			expect(selectedItem.html().includes('aria-selected="true"')).to.be.true;
+			expect(selectedItem.html().includes('aria-selected="true"')).toBeTruthy();
 		});
 
 		it('inserts a checkbox as a child of the Pickitem when multiselect is true', () => {
 			const checkbox = wrapper.find('input[type="checkbox"]');
 
-			expect(checkbox).to.exist;
-			expect(checkbox.length).to.equal(2);
+			expect(checkbox).toBeDefined();
+			expect(checkbox.length).toEqual(2);
 		});
 
 		it('includes the class "xui-pickitem--multiselect-label" around the picklist content', () => {
 			const pickitem = wrapper.find('#multiselectItem2');
 
-			expect(pickitem.find('xui-pickitem--multiselect-label')).to.exist;
+			expect(pickitem.find('xui-pickitem--multiselect-label')).toBeDefined();
 		})
 	})
 })
 
 describe('<PickitemBody />', () => {
 	it('creates a button by default', () => {
-		const wrapper = mount(<PickitemBody
-			isSelected={true}
-			children="Item"
-		/>);
-
-		expect(wrapper.find('.xui-pickitem--body').type()).to.equal('button')
+		const wrapper = mount(<PickitemBody isSelected>Item</PickitemBody>);
+		expect(wrapper.find('.xui-pickitem--body').type()).toEqual('button')
 	});
 
 	it('creates an `a` tag when href is provided', () => {
-		const wrapper = mount(<PickitemBody
-			isSelected={true}
-			href="http://xero.com"
-			children="Item"
-		/>);
-
-		expect(wrapper.find('.xui-pickitem--body').type()).to.equal('a');
+		const wrapper = mount(<PickitemBody isSelected href="https://xero.com">Item</PickitemBody>);
+		expect(wrapper.find('.xui-pickitem--body').type()).toEqual('a');
 	});
 });

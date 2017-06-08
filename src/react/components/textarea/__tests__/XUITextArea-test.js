@@ -1,10 +1,8 @@
-import { expect } from 'chai';
 import React from 'react';
+import { mount } from 'enzyme';
 import XUITextArea from '../XUITextArea.js';
 
-const TestUtils = require('react-dom/test-utils');
-
-let component = {};
+let wrapper = {};
 let changed = false;
 
 // Note: The height change functionality of this component has not been tested due to the styling issues that come with headless browsers. Height tested at any size will come up as
@@ -15,30 +13,28 @@ describe('XUITextArea basic functionality:', () => {
 			changed = true;
 		};
 
-		component = TestUtils.renderIntoDocument(
-			<div>
-				<XUITextArea
-					className="classyMcClassFace"
-					fieldClassName="fieldClassyMcClassFace"
-					onChange={changeHandler}
-					qaHook="xui-input"
-					maxCharacters={10}
-					/>
-			</div>
+		wrapper = mount(
+			<XUITextArea
+				className="classyMcClassFace"
+				fieldClassName="fieldClassyMcClassFace"
+				onChange={changeHandler}
+				qaHook="xui-input"
+				maxCharacters={10}
+			/>
 		);
 	});
 
 	it('should call onChange when the value of the input changes', () => {
-		const inputNode = component.querySelector('.xui-input');
-		TestUtils.Simulate.change(inputNode);
-		expect(changed).to.be.true;
+		const inputNode = wrapper.find('.xui-input').first();
+		inputNode.simulate('change');
+		expect(changed).toBeTruthy();
 	});
 
 	it('should apply className and fieldClassName props to the textarea and containing div', () => {
-		const fieldNode = component.querySelector('.xui-field-layout');
-		expect(fieldNode.getAttribute('class')).to.contain('fieldClassyMcClassFace');
-		const inputNode = component.querySelector('.xui-input');
-		expect(inputNode.getAttribute('class')).to.contain('classyMcClassFace')
+		const fieldNode = wrapper.find('.xui-field-layout').first();
+		expect(fieldNode.hasClass('fieldClassyMcClassFace')).toBeTruthy();
+		const inputNode = wrapper.find('.xui-input').first();
+		expect(inputNode.hasClass('classyMcClassFace')).toBeTruthy();
 	});
 });
 
@@ -46,7 +42,7 @@ describe('XUITextArea additional functionality:', () => {
 
 	it('should apply error styling if maxCharacters is exceeded', () => {
 
-		component = TestUtils.renderIntoDocument(
+		wrapper = mount(
 			<div>
 				<XUITextArea
 					className="textarea-1"
@@ -63,36 +59,36 @@ describe('XUITextArea additional functionality:', () => {
 			</div>
 		);
 
-		const invalidNode = component.querySelector('.textarea-1');
-		const validNode = component.querySelector('.textarea-2');
-		expect(invalidNode.getAttribute('class')).to.contain('xui-input-is-invalid');
-		expect(validNode.getAttribute('class')).to.not.contain('xui-input-is-invalid');
+		const invalidNode = wrapper.find('.textarea-1').first();
+		const validNode = wrapper.find('.textarea-2').first();
+		expect(invalidNode.hasClass('xui-input-is-invalid')).toBeTruthy();
+		expect(validNode.hasClass('xui-input-is-invalid')).toBeFalsy();
 	});
 
 	it('should update the counter when text is entered', () => {
 
-		component = TestUtils.renderIntoDocument(
+		wrapper = mount(
 			<div>
 				<XUITextArea
 					fieldClassName="field-1"
 					qaHook="xui-input"
 					maxCharacters={10}
-					/>
+				/>
 				<XUITextArea
 					fieldClassName="field-2"
 					qaHook="xui-input"
 					maxCharacters={10}
 					defaultValue="a"
-					/>
+				/>
 			</div>
 		);
 
-		const firstField = component.querySelector('.field-1');
-		const secondField = component.querySelector('.field-2');
-		const firstCounter = firstField.getElementsByClassName('xui-margin-auto-top')[0];
-		const secondCounter = secondField.getElementsByClassName('xui-margin-auto-top')[0];
-		expect(firstCounter.innerHTML).to.contain('10');
-		expect(secondCounter.innerHTML).to.contain('9');
+		const firstField = wrapper.find('.field-1').first();
+		const secondField = wrapper.find('.field-2').first();
+		const firstCounter = firstField.find('.xui-margin-auto-top').first();
+		const secondCounter = secondField.find('.xui-margin-auto-top').first();
+		expect(firstCounter.text()).toEqual(expect.stringContaining('10'));
+		expect(secondCounter.text()).toEqual(expect.stringContaining('9'));
 	});
 
 	it('should pass back a reference to the inner textarea element to the textareaRef callback', () => {
@@ -103,7 +99,7 @@ describe('XUITextArea additional functionality:', () => {
 			textAreaNode = node;
 		};
 
-		component = TestUtils.renderIntoDocument(
+		wrapper = mount(
 			<XUITextArea
 				textareaRef={textareaRef}
 				fieldClassName="field-1"
@@ -112,6 +108,6 @@ describe('XUITextArea additional functionality:', () => {
 			/>
 		);
 
-		expect(textAreaNode.getAttribute('class')).to.contain('xui-input');
+		expect(textAreaNode.getAttribute('class')).toEqual(expect.stringContaining('xui-input'));
 	})
 });

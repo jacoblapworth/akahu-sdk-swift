@@ -79,7 +79,7 @@ export default class XUIModal extends Component {
 		if(event.keyCode === escapeKeyCode && !isHidden && onClose) {
 			onClose();
 		}
-	};
+	}
 
 	/**
 	 * @private
@@ -97,7 +97,7 @@ export default class XUIModal extends Component {
 				modal._modalNode.focus();
 			}
 		}
-	};
+	}
 
 	render() {
 		const {
@@ -148,7 +148,7 @@ export default class XUIModal extends Component {
 				<XUIIcon path={cross}/>
 			</XUIButton> : null;
 		let containsHeader = false;
-		const finalChildren = Children.map(children, (child, i) => {
+		const finalChildren = Children.map(children, child => {
 			if (child && child.type === XUIModalHeader) {
 				containsHeader = true;
 				return cloneElement(child, {...child.props, key: undefined, ref: undefined}, [child.props.children,closeButton]);
@@ -164,7 +164,7 @@ export default class XUIModal extends Component {
 				onClick={overlayClickHandler}
 				aria-hidden={isHidden}
 				data-automationid={`${qaHook}-mask`}
-				ref={m => this._maskNode = m && console.log('got mask')}
+				ref={m => this._maskNode = m}
 			>
 				<MainElement
 					className={modalClasses}
@@ -251,7 +251,8 @@ XUIModal.propTypes = {
 	children: PropTypes.node,
 	defaultLayout: PropTypes.bool,
 	className: PropTypes.string,
-	id: PropTypes.string
+	id: PropTypes.string,
+	qaHook: PropTypes.string
 };
 
 XUIModal.defaultProps = {

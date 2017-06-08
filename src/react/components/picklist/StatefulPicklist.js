@@ -26,7 +26,7 @@ import {
 function handleArrowKeyEvents(event, spl) {
 	const highlighted = spl.getHighlighted();
 	switch (event.keyCode) {
-		case 37: // Arrow Left
+		case 37: { // Arrow Left
 			const container = findParentGroupContainer(spl.list, highlighted);
 			if (container) {
 				if (isNestedListTrigger(highlighted)) {
@@ -48,6 +48,7 @@ function handleArrowKeyEvents(event, spl) {
 				}
 			}
 			break;
+		}
 		case 38: // Arrow Up
 			spl.highlightPrevious(highlighted);
 			break;
@@ -215,7 +216,7 @@ class StatefulPicklist extends Component {
 			switch (event.keyCode){
 				// 'space' and 'enter' keys
 				case 13:
-				case 32:
+				case 32: {
 					event.preventDefault();
 					const el = spl.getHighlighted();
 					if (el) {
@@ -229,6 +230,7 @@ class StatefulPicklist extends Component {
 						}
 					}
 					break;
+				}
 				// All arrow keys
 				case 37:
 				case 38:

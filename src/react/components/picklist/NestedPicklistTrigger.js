@@ -48,7 +48,7 @@ NestedPicklistTrigger.defaultProps = {
 	isHighlighted: false,
 	secondaryProps: {
 		"aria-label": "Toggle submenu",
-		role: "button"
+		"role": "button"
 	},
 	/*
 	 DO NOT REMOVE

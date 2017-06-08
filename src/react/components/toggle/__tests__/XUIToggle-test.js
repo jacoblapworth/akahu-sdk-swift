@@ -1,143 +1,72 @@
-/* eslint-disable react/no-find-dom-node */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import chai from 'chai';
+import { mount } from 'enzyme';
 import XUIToggleOption from '../XUIToggleOption.js';
 import XUIToggle from '../XUIToggle.js';
-
-const assert = chai.assert;
-const TestUtils = require('react-dom/test-utils');
-
 
 describe('XUIToggle', function() {
 
 	// children property toggles
 	it('should contain XUIToggleOption components if provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle>
-					<XUIToggleOption onChange={() => {}}/>
-					<XUIToggleOption onChange={() => {}}/>
-					<XUIToggleOption onChange={() => {}}/>
-				</XUIToggle>
-			</div>
+		const wrapper = mount(
+			<XUIToggle>
+				<XUIToggleOption onChange={() => {}}/>
+				<XUIToggleOption onChange={() => {}}/>
+				<XUIToggleOption onChange={() => {}}/>
+			</XUIToggle>
 		);
 
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		for (let i = 0; i < node.childNodes.length; i++) {
-			let label = node.childNodes[i];
-			assert.include(label.className, 'xui-toggle-option');
-		}
+		expect(wrapper.find(XUIToggleOption)).toHaveLength(3);
 	});
-
-
-	// children property non-toggles
-	it('should contain children regardless of type', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle>
-					<div>dogs</div>
-					<span>patotes</span>
-					<label>cats</label>
-				</XUIToggle>
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.strictEqual(node.querySelector('div').innerHTML, 'dogs');
-		assert.strictEqual(node.querySelector('span').innerHTML, 'patotes');
-		assert.strictEqual(node.querySelector('label').innerHTML, 'cats');
-	});
-
 
 	// className property (additional classes)
 	it('should use additional classes if provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle className="dogs-are-totes-patotes" />
-			</div>
-		);
+		const c = 'dogs-are-totes-patotes';
+		const wrapper = mount(<XUIToggle className={c} />);
 
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'dogs-are-totes-patotes');
+		expect(wrapper.find(`.${c}`)).toHaveLength(1);
 	});
 
 
 	// qaHook property
 	it('should have a qaHook if provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle qaHook="cheese-and-crackers" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.strictEqual(node.getAttribute('data-automationid'), 'cheese-and-crackers');
+		const qaHook = 'cheese-and-crackers';
+		const wrapper = mount(<XUIToggle qaHook={qaHook} />);
+		expect(wrapper.find(`[data-automationid="${qaHook}"]`)).toHaveLength(1);
 	});
 
 
 	// color default
 	it('should use the standard color by default', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'xui-toggle-standard');
+		const wrapper = mount(<XUIToggle />);
+		expect(wrapper.find('.xui-toggle-standard')).toHaveLength(1);
 	});
 
 
 	// color standard
 	it('should use the standard color if defined', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle color="standard"/>
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'xui-toggle-standard');
+		const wrapper = mount(<XUIToggle color="standard" />);
+		expect(wrapper.find('.xui-toggle-standard')).toHaveLength(1);
 	});
 
 
 	// color inverted
 	it('should use the inverted color if defined', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle color="inverted"/>
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'xui-toggle-inverted');
+		const wrapper = mount(<XUIToggle color="inverted" />);
+		expect(wrapper.find('.xui-toggle-inverted')).toHaveLength(1);
 	});
 
 
 	// layout fullwidth
 	it('should use the fullwidth layout if defined', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle layout="fullwidth"/>
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'xui-toggle-fullwidth-layout');
+		const wrapper = mount(<XUIToggle layout="fullwidth" />);
+		expect(wrapper.find('.xui-toggle-fullwidth-layout')).toHaveLength(1);
 	});
 
 
 	// layout icon
 	it('should use the icon layout if defined', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggle layout="icon"/>
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'xui-toggle-icon-layout');
+		const wrapper = mount(<XUIToggle layout="icon" />);
+		expect(wrapper.find('.xui-toggle-icon-layout')).toHaveLength(1);
 	});
 
 });

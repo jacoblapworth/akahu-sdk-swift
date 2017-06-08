@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import DropDown from '../DropDown.js';
 import Picklist from '../../picklist/Picklist';
@@ -22,7 +21,7 @@ describe('<DropDown /> API Methods', () => {
 	});
 
 	it('renders with the correct classes', () => {
-		expect(wrapper.find('.xui-dropdown-layout')).to.have.length(1);
+		expect(wrapper.find('.xui-dropdown-layout')).toHaveLength(1);
 	});
 
 	it('handles an undefined or null menu item', () => {
@@ -38,11 +37,11 @@ describe('<DropDown /> API Methods', () => {
 				</Picklist>
 			</DropDown>, {attachTo: div});
 
-		expect(wrapper).to.exist;
+		expect(wrapper).toBeDefined();
 	});
 
 	it('fires the callback when you click on a pick item', () => {
 		wrapper.find(Pickitem).first().childAt(0).simulate('click');
-		expect(click).to.be.true;
+		expect(click).toBeTruthy();
 	});
 });

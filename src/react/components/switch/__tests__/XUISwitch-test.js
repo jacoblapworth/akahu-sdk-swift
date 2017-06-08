@@ -1,13 +1,9 @@
 import React from 'react';
-import chai from 'chai';
+import { assert } from 'chai';
 import XUISwitch from '../XUISwitch';
+import * as TestUtils from 'react-dom/test-utils';
 
-const assert = chai.assert;
-const TestUtils = require('react-dom/test-utils');
-
-const onChange = () => {
-	console.log('Value changed!!');
-};
+const onChange = () => {};
 
 describe('XUISwitch', function () {
 

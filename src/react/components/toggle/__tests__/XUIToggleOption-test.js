@@ -1,200 +1,115 @@
-/* eslint-disable react/no-find-dom-node */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import chai from 'chai';
+import { render, mount } from 'enzyme';
 import XUIToggleOption from '../XUIToggleOption.js';
-
-
-const assert = chai.assert;
-const TestUtils = require('react-dom/test-utils');
-
 
 describe('XUIToggleOption', function() {
 
 	// children property (label text)
 	it('should have label text if provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}}>Howdy, folks!</XUIToggleOption>
-			</div>
+		const wrapper = render(
+			<XUIToggleOption onChange={() => {}}>Howdy, folks!</XUIToggleOption>
 		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.lastChild;
-		assert.strictEqual(node.innerHTML, 'Howdy, folks!');
+		expect(wrapper.text()).toEqual('Howdy, folks!');
 	});
 
 
 	// className property (additional classes)
 	it('should use additional classes on the root node if provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} className="dogs-are-totes-patotes" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'dogs-are-totes-patotes');
+		const c = 'dogs-are-totes-patotes'
+		const wrapper = mount(<XUIToggleOption onChange={() => {}} className={c} />);
+		expect(wrapper.find(`.${c}`)).toHaveLength(1);
 	});
 
 
 	// qaHook property
 	it('should have a qaHook on the root node if provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} qaHook="cheese-and-crackers" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.strictEqual(node.getAttribute('data-automationid'), 'cheese-and-crackers');
+		const qaHook = 'cheese-and-crackers'
+		const wrapper = mount(<XUIToggleOption onChange={() => {}} qaHook={qaHook} />);
+		expect(wrapper.find(`[data-automationid="${qaHook}"]`)).toHaveLength(1);
 	});
 
 
 	// Unchecked
 	it('should be unchecked by default', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.isFalse(node.checked);
+		const wrapper = mount(<XUIToggleOption onChange={() => {}} />);
+		expect(wrapper.find('input[checked]')).toHaveLength(0);
 	});
 
 
 	// isChecked property
 	it('should be selected if isChecked is true', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} isChecked={true} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.isTrue(node.checked);
+		const wrapper = mount(<XUIToggleOption isChecked onChange={() => {}} />);
+		expect(wrapper.find('input[checked]')).toHaveLength(1);
 	});
 
 
 	// isDisabled property
 	it('should be disabled if isDisabled is true', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} isDisabled={true} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.include(node.className, 'xui-is-disabled');
-		assert.isTrue(node.firstChild.disabled);
+		const wrapper = mount(<XUIToggleOption isDisabled onChange={() => {}} />);
+		expect(wrapper.find('input[disabled]')).toHaveLength(1);
+		expect(wrapper.find('.xui-is-disabled')).toHaveLength(1);
 	});
 
 
 	// isChecked and isDisabled properties
 	it('should be selected and disabled if isChecked and isDisabled are both true', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} isChecked={true} isDisabled={true} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.isTrue(node.checked && node.disabled);
+		const wrapper = mount(<XUIToggleOption isDisabled isChecked onChange={() => {}} />);
+		expect(wrapper.find('input[disabled]')).toHaveLength(1);
+		expect(wrapper.find('input[checked]')).toHaveLength(1);
+		expect(wrapper.find('.xui-is-disabled')).toHaveLength(1);
 	});
 
 
 	// isRequired property
 	it('should be required for form submission if isRequired is true', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} isRequired={true} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.isTrue(node.required);
+		const wrapper = mount(<XUIToggleOption isRequired onChange={() => {}} />);
+		expect(wrapper.find('input[required]')).toHaveLength(1);
 	});
 
 
 	// name property
 	it('should have the correct name if one is provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} name="Patrick" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.strictEqual(node.getAttribute('name'), 'Patrick');
+		const wrapper = mount(<XUIToggleOption name="patrick" onChange={() => {}} />);
+		expect(wrapper.find('input[name="patrick"]')).toHaveLength(1);
 	});
 
 
 	// onChange property
 	it('should call the provided onChange function every time the control changes state', function () {
-		let toggle = false;
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {toggle = !toggle}} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		TestUtils.Simulate.change(node);
-		assert.isTrue(toggle);
-		TestUtils.Simulate.change(node);
-		assert.isFalse(toggle);
+		const onChange = jest.fn();
+		const wrapper = mount(<XUIToggleOption onChange={onChange} />);
+		const node = wrapper.find('input').first();
+		node.simulate('change');
+		node.simulate('change');
+		expect(onChange).toHaveBeenCalledTimes(2);
 	});
 
 
 	// type default
 	it('should be of type radio by default', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.strictEqual(node.type, 'radio');
+		const wrapper = mount(<XUIToggleOption onChange={() => {}} />);
+		expect(wrapper.find('input').first().prop('type')).toEqual('radio');
 	});
 
 
 	// type radio
 	it('should be of type radio if defined', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} type="radio" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.strictEqual(node.type, 'radio');
+		const wrapper = mount(<XUIToggleOption type="radio" onChange={() => {}} />);
+		expect(wrapper.find('input').first().prop('type')).toEqual('radio');
 	});
 
 
 	// type checkbox
 	it('should be of type checkbox if defined', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} type="checkbox" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.strictEqual(node.type, 'checkbox');
+		const wrapper = mount(<XUIToggleOption type="checkbox" onChange={() => {}} />);
+		expect(wrapper.find('input').first().prop('type')).toEqual('checkbox');
 	});
 
 
 	// value property
 	it('should have the correct value if one is provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToggleOption onChange={() => {}} type="radio" value="64" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild.firstChild;
-		assert.strictEqual(node.getAttribute('value'), '64');
+		const wrapper = mount(<XUIToggleOption value="64" onChange={() => {}} />);
+		expect(wrapper.find('input').first().prop('value')).toEqual('64');
 	});
 
 });

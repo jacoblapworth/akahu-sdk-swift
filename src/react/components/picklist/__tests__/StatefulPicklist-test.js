@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import StatefulPicklist, { findNextItem, findPreviousItem } from '../StatefulPicklist.js';
 import Pickitem from '../Pickitem';
@@ -32,7 +31,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 		it('finds an item by id', () => {
 			const item3 = wrapper.node.findItemById('item3');
 
-			expect(item3.props.id).to.equal('item3');
+			expect(item3.props.id).toEqual('item3');
 		});
 
 		it('finds the next item in the list', () => {
@@ -41,7 +40,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			const nextItem = findNextItem(list, item3);
 
-			expect(nextItem.props.id).to.equal('item4');
+			expect(nextItem.props.id).toEqual('item4');
 		});
 
 		it('finds the first item in the list when we are at the bottom of the list to loop', () => {
@@ -50,7 +49,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			const nextItem = findNextItem(list, anotherItem4);
 
-			expect(nextItem.props.id).to.equal('item1');
+			expect(nextItem.props.id).toEqual('item1');
 		});
 
 		it('finds the last item in the list when we are at the top of the list to loop', () => {
@@ -59,7 +58,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			const nextItem = findPreviousItem(list, item1);
 
-			expect(nextItem.props.id).to.equal('anotheritem4');
+			expect(nextItem.props.id).toEqual('anotheritem4');
 		});
 
 		it('finds the previous item in the list', () => {
@@ -68,7 +67,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			const prevItem = findPreviousItem(list, item3);
 
-			expect(prevItem.props.id).to.equal('item2');
+			expect(prevItem.props.id).toEqual('item2');
 		});
 
 		it('changes the state when highlighting the next item', () => {
@@ -76,7 +75,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			wrapper.node.highlightNext(item3);
 
-			expect(wrapper.state().highlightedElement.props.id).to.equal('item4');
+			expect(wrapper.state().highlightedElement.props.id).toEqual('item4');
 		});
 
 		it('changes the state when highlighting the previous item', () => {
@@ -84,7 +83,7 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			wrapper.node.highlightPrevious(item3);
 
-			expect(wrapper.state().highlightedElement.props.id).to.equal('item2');
+			expect(wrapper.state().highlightedElement.props.id).toEqual('item2');
 		});
 	});
 });
@@ -110,12 +109,12 @@ describe('<StatefulPicklist /> Interactions', () => {
 	});
 
 	it('has an initial hoveredElement state of null', () => {
-		expect(wrapper.state('highlightedElement')).to.equal(null);
+		expect(wrapper.state('highlightedElement')).toEqual(null);
 	});
 
 	it('items have an id', () => {
 		const items = div.getElementsByClassName('xui-pickitem');
-		[].forEach.call(items, item => expect(item.id).to.exist);
+		[].forEach.call(items, item => expect(item.id).toBeDefined());
 	});
 
 	/*
@@ -129,8 +128,8 @@ describe('<StatefulPicklist /> Interactions', () => {
 		let item = wrapper.find('Pickitem').last();
 		item.simulate('mouseOver');
 
-		expect(item.hasClass('xui-pickitem-is-hovered')).to.be.true;
-		expect(wrapper.state('highlightedElement').type).to.equal(Pickitem);
+		expect(item.hasClass('xui-pickitem-is-hovered')).toBeTruthy();
+		expect(wrapper.state('highlightedElement').type).toEqual(Pickitem);
 	});
 
 	it.skip('calls the on click handler when an item is clicked on', () => {
@@ -138,6 +137,6 @@ describe('<StatefulPicklist /> Interactions', () => {
 
 		item.simulate('click');
 
-		expect(onClickHandlerMock.calls.length).to.be.above(0);
+		expect(onClickHandlerMock.calls.length).toBeGreaterThan(0);
 	});
 });

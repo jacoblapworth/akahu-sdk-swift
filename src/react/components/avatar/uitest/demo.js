@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import upperCamelCase from 'uppercamelcase';
 import XUIAvatar from '../XUIAvatar';
 import XUIAvatarGroup from '../XUIAvatarGroup';
-import XUIAvatarCounter from '../XUIAvatarCounter';
-import XUISimpleAvatar from '../XUISimpleAvatar';
 import { sizeClassNames, variantClassNames } from '../constants.js';
 
 const avatarKeys = Object.keys(sizeClassNames);
@@ -14,7 +12,7 @@ const sizes = (
 	<section>
 		<h3>All Sizes</h3>
 		{avatarKeys.map(size => (
-			<div>
+			<div key={size}>
 				<XUIAvatar key={size} size={size} value={upperCamelCase(size)} identifier={size} />
 				{upperCamelCase(size)}
 			</div>
@@ -26,7 +24,7 @@ const variants = (
 	<section>
 		<h3>All Variants</h3>
 		{avatarVariants.map(variant => (
-			<div>
+			<div key={variant}>
 				<XUIAvatar key={variant} variant={variant} value={upperCamelCase(variant)} identifier={variant} />
 				{upperCamelCase(variant)}
 			</div>

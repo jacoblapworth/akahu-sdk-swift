@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import chai from 'chai';
+import { assert } from 'chai';
 import XUIRadio from '../XUIRadio.js';
 import radioMain from '@xero/xui-icon/icons/radio-main';
 import radioCheck from '@xero/xui-icon/icons/radio-check';
 import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
 import star from '@xero/xui-icon/icons/star';
 
-const assert = chai.assert;
 const TestUtils = require('react-dom/test-utils');
 
 const NOOP = () => {};

@@ -1,61 +1,33 @@
-/* eslint-disable react/no-find-dom-node */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import chai from 'chai';
+import { mount } from 'enzyme';
 import XUILoader from '../XUILoader.js';
-
-const assert = chai.assert;
-const TestUtils = require('react-dom/test-utils');
 
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {
 		const testString = 'Something is loading, please wait';
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUILoader label="Something is loading, please wait" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.strictEqual(node.getAttribute('aria-label'), testString);
+		const wrapper = mount(<XUILoader label={testString} />);
+		expect(wrapper.getDOMNode().getAttribute('aria-label')).toEqual(testString);
 	});
 
 	it('should add extra classes when defined', function () {
 		const testClass = 'test-class';
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUILoader className={testClass} label="Something is loading, please wait" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.isTrue(node.classList.contains(testClass));
+		const wrapper = mount(<XUILoader className={testClass} label="Something is loading, please wait" />);
+		expect(wrapper.getDOMNode().classList.contains(testClass)).toBeTruthy();
 	});
 
 	it('should add the layout class by default', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUILoader label="Something is loading, please wait" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.isTrue(node.classList.contains('xui-loader-layout'));
+		const testClass = 'test-class';
+		const wrapper = mount(<XUILoader className={testClass} label="Something is loading, please wait" />);
+		expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeTruthy();
 	});
 
 	it('should not add the layout class if `defaultLayout` is set to `false`', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUILoader defaultLayout={false} label="Something is loading, please wait" />
-			</div>
-		);
-
-		const node = ReactDOM.findDOMNode(component).firstChild;
-		assert.isFalse(node.classList.contains('xui-loader-layout'));
+		const wrapper = mount(<XUILoader defaultLayout={false}label="Something is loading, please wait" />);
+		expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeFalsy();
 	});
 
 	it('should add appropriate size classes', function () {
-		const component = TestUtils.renderIntoDocument(
+		const wrapper = mount(
 			<div>
 				<XUILoader label="Something is loading, please wait" />
 				<XUILoader size="small" label="Something is loading, please wait" />
@@ -63,11 +35,9 @@ describe('XUILoader', function () {
 			</div>
 		);
 
-		const node1 = ReactDOM.findDOMNode(component).children[0];
-		const node2 = ReactDOM.findDOMNode(component).children[1];
-		const node3 = ReactDOM.findDOMNode(component).children[2];
-		assert.isTrue(node1.classList.contains('xui-loader'));
-		assert.isTrue(node2.classList.contains('xui-loader-small'));
-		assert.isTrue(node3.classList.contains('xui-loader-large'));
+		const loaders = wrapper.find('.xui-loader-layout');
+		expect(loaders.at(0).hasClass('xui-loader')).toBeTruthy();
+		expect(loaders.at(1).hasClass('xui-loader-small')).toBeTruthy();
+		expect(loaders.at(2).hasClass('xui-loader-large')).toBeTruthy();
 	});
 });

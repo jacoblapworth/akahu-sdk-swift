@@ -54,11 +54,12 @@ export default class Pickitem extends PureComponent {
 					isSelected={isSelected}
 					multiselect={multiselect}
 					href={href}
-					children={children}
 					checkboxClassName={checkboxClassName}
 					target={target}
 					{...listeners}
-				/>
+				>
+					{children}
+				</PickitemBody>
 			</Tag>
 		)
 	}

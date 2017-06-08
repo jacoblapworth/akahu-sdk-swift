@@ -67,7 +67,7 @@ class MiniApp extends Component {
 
 				<SelectBox
 					containerClasses="xui-fieldlabel-layout"
-					ref="selectOne"
+					ref={c => this.selectOne = c}
 					name="selectOne"
 					label="Select a Bike"
 					buttonContent={TextHelpers.getText(MiniApp.state.selectedBike, 'Choose a Bike')}
@@ -90,7 +90,7 @@ class MiniApp extends Component {
 
 				<SelectBox
 					containerClasses="xui-fieldlabel-layout"
-					ref="multiSelect"
+					ref={c => this.multiSelect = c}
 					name="multiSelect"
 					buttonContent={TextHelpers.getText(MiniApp.state.selectedBoat, 'Choose a few boats')}
 					label="Select Several Boats"
@@ -114,7 +114,7 @@ class MiniApp extends Component {
 
 				<h3>Default Layout: false</h3>
 				<SelectBox
-					ref="selectOne"
+					ref={c => this.selectOne = c}
 					label="Field Label"
 					defaultLayout={false}
 					buttonContent={TextHelpers.getText(MiniApp.state.selectedDog, 'Choose a Dog')}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import div from './helpers/container';
 import Autocompleter from '../Autocompleter';
 import Pill from '../../pill/XUIPill';
@@ -105,7 +105,7 @@ describe('Autocompleter', () => {
 		}, 100);
 	});
 
-	it('applies the xui-u-fullwidth class if no dropdownSize is provided in the component props', (done) => {
+	it('applies the xui-u-fullwidth class if no dropdownSize is provided in the component props', () => {
 		const wrapper = mount(
 			<Autocompleter>
 				<Picklist>

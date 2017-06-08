@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
 import XUIInput from '../XUIInput.js';
 import accessibility from '@xero/xui-icon/icons/accessibility';
@@ -22,22 +21,22 @@ describe('<XUIInput>', () => {
 		});
 
 		it('should render', () => {
-			expect(wrapper).to.exist;
+			expect(wrapper).toBeDefined();
 		});
 
 		it('should have a qahook on the input and wrapper', () => {
 			const input = wrapper.find('input');
-			expect(wrapper.html()).to.contain(`data-automationid="${qaHook}-container"`);
-			expect(input.html()).to.contain(`data-automationid="${qaHook}"`);
+			expect(wrapper.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}-container"`));
+			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
 		});
 
 		it('should pass containerClassName to container element', () => {
 			const input = wrapper.find('input');
-			expect(input.props().className).to.contain(className);
+			expect(input.hasClass(className)).toBeTruthy();
 		});
 
 		it('should default to no icon', () => {
-			expect(wrapper.find('XUIIcon')).to.have.length(0);
+			expect(wrapper.find('XUIIcon')).toHaveLength(0);
 		});
 
 	});
@@ -56,7 +55,7 @@ describe('<XUIInput>', () => {
 					className={ className }
 					qaHook={ qaHook }
 					onChange={ () => {changed = true} }
-					style={ {'backgroundColor': 'darkred'} }
+					style={ {backgroundColor: 'darkred'} }
 					aria-haspopup={true}
 					inputAttributes={ additionalAttrs }
 				/>
@@ -67,36 +66,36 @@ describe('<XUIInput>', () => {
 		});
 
 		it('renders input', () => {
-			expect(input).to.have.length(1);
+			expect(input).toHaveLength(1);
 		});
 
 		it('doesn\'t have inline styles', () => {
-			expect(input.props().styles).to.be.undefined;
+			expect(input.props().styles).toBeUndefined();
 		});
 
 		it('has a qaHook', () => {
-			expect(input.html()).to.contain(`data-automationid="${qaHook}"`)
+			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
 		});
 
 		it('is passed className', () => {
-			expect(input.hasClass(className)).to.be.true;
+			expect(input.hasClass(className)).toBeTruthy();
 		});
 
 		it('calls onChange when input changes', () => {
 			input.simulate('change');
-			expect(changed).to.equal(true);
+			expect(changed).toEqual(true);
 		});
 
 		it('is passed placeholder property', () => {
-			expect(input.props().placeholder).to.exist;
+			expect(input.prop('placeholder')).toBeDefined();
 		});
 
 		it('is passed placeholder property value', () => {
-			expect(input.props().placeholder).to.contain('This is an input');
+			expect(input.prop('placeholder')).toEqual(expect.stringContaining('This is an input'));
 		});
 
 		it('should accept arbitrary props', () => {
-			expect(input.props()['aria-haspopup']).to.be.true;
+			expect(input.prop('aria-haspopup')).toBeTruthy();
 		});
 	});
 
@@ -111,7 +110,7 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('XUIIcon')).to.have.length(0);
+			expect(wrapper.find('XUIIcon')).toHaveLength(0);
 
 			wrapper = mount(
 				<XUIInput
@@ -121,7 +120,7 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('XUIIcon')).to.have.length(1);
+			expect(wrapper.find('XUIIcon')).toHaveLength(1);
 		});
 
 		it('renders the position of icon as defined by the iconAttributes.position prop', () => {
@@ -133,7 +132,7 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('XUIIcon').props().className).to.contain('xui-input--icon-left');
+			expect(wrapper.find('XUIIcon').hasClass('xui-input--icon-left')).toBeTruthy();
 
 			wrapper = mount(
 				<XUIInput
@@ -143,7 +142,7 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('XUIIcon').props().className).to.contain('xui-input--icon-right');
+			expect(wrapper.find('XUIIcon').hasClass('xui-input--icon-right')).toBeTruthy();
 		});
 
 		it('renders with input', () => {
@@ -155,7 +154,7 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('XUIIcon')).to.have.length(1);
+			expect(wrapper.find('XUIIcon')).toHaveLength(1);
 		});
 
 		it('renders the icon within a div with class xui-input-iconwrapper when the iconAttributes.wrapperColor prop is defined', () => {
@@ -167,7 +166,7 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('.xui-input--iconwrapper')).to.have.length(1);
+			expect(wrapper.find('.xui-input--iconwrapper')).toHaveLength(1);
 		});
 	});
 
@@ -182,8 +181,8 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('.xui-button-icon')).to.have.length(1);
-			expect(wrapper.find('.xui-u-hidden')).to.have.length(1);
+			expect(wrapper.find('.xui-button-icon')).toHaveLength(1);
+			expect(wrapper.find('.xui-u-hidden')).toHaveLength(1);
 		});
 
 		it('renders when the hasCloseButton property is defined and the input is not empty', () => {
@@ -197,8 +196,8 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('.xui-button-icon')).to.have.length(1);
-			expect(wrapper.find('.xui-u-hidden')).to.have.length(0);
+			expect(wrapper.find('.xui-button-icon')).toHaveLength(1);
+			expect(wrapper.find('.xui-u-hidden')).toHaveLength(0);
 		});
 
 		it('does not render when the hasCloseButton property is not defined', () => {
@@ -210,8 +209,8 @@ describe('<XUIInput>', () => {
 				/>
 			);
 
-			expect(wrapper.find('.xui-button-icon')).to.have.length(0);
-			expect(wrapper.find('.xui-u-hidden')).to.have.length(0);
+			expect(wrapper.find('.xui-button-icon')).toHaveLength(0);
+			expect(wrapper.find('.xui-u-hidden')).toHaveLength(0);
 		});
 
 		it('fires onChange when the clear button is clicked', () => {
@@ -227,7 +226,7 @@ describe('<XUIInput>', () => {
 
 			wrapper.find('.xui-button-icon').simulate('click');
 
-			expect(onChangeFired).to.be.true;
+			expect(onChangeFired).toBeTruthy();
 		});
 	});
 
@@ -241,7 +240,7 @@ describe('<XUIInput>', () => {
 			);
 
 			const input = wrapper.find('input');
-			expect(input.hasClass('xui-input-is-invalid')).to.be.true;
+			expect(input.hasClass('xui-input-is-invalid')).toBeTruthy();
 		});
 
 		it('renders with a hint message if one is provided', () => {
@@ -255,7 +254,7 @@ describe('<XUIInput>', () => {
 			);
 
 			const validationEl = wrapper.find('.xui-validation');
-			expect(validationEl.text()).to.equal(msg);
+			expect(validationEl.text()).toEqual(msg);
 		});
 
 		it('renders with the correct class on the validation element if isInvalid=true and a validation message is present', () => {
@@ -269,10 +268,10 @@ describe('<XUIInput>', () => {
 			);
 
 			const input = wrapper.find('input');
-			expect(input.hasClass('xui-input-is-invalid')).to.be.true;
+			expect(input.hasClass('xui-input-is-invalid')).toBeTruthy();
 
 			const validationEl = wrapper.find('.xui-validation');
-			expect(validationEl.hasClass('xui-validation-is-invalid')).to.be.true;
+			expect(validationEl.hasClass('xui-validation-is-invalid')).toBeTruthy();
 		});
 
 		it('renders with the correct class on the validation element if isInvalid=true and no validation message is present', () => {
@@ -285,10 +284,10 @@ describe('<XUIInput>', () => {
 			);
 
 			const input = wrapper.find('input');
-			expect(input.hasClass('xui-input-is-invalid')).to.be.true;
+			expect(input.hasClass('xui-input-is-invalid')).toBeTruthy();
 
 			const validationEl = wrapper.find('.xui-validation');
-			expect(validationEl.hasClass('xui-validation-is-invalid')).to.be.false;
+			expect(validationEl.hasClass('xui-validation-is-invalid')).toBeFalsy();
 		});
 	});
 });

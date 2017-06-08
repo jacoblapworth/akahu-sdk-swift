@@ -6,11 +6,11 @@ import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
 
 const sentimentMap = {
-	'positive': {
+	positive: {
 		class: 'xui-toast-positive',
 		role: 'alert'
 	},
-	'negative': {
+	negative: {
 		class: 'xui-toast-negative',
 		role: 'alert'
 	}

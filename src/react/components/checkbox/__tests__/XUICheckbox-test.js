@@ -1,16 +1,14 @@
-/* global describe, beforeEach, it */
 import React from 'react';
-import { expect } from 'chai';
-import XUICheckbox from '../XUICheckbox.js';
+import { mount } from 'enzyme';
 import star from '@xero/xui-icon/icons/star';
 import contact from '@xero/xui-icon/icons/contact';
 import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
 import checkboxIndeterminate from '@xero/xui-icon/icons/checkbox-indeterminate';
 import checkboxMain from '@xero/xui-icon/icons/checkbox-main';
+import XUICheckbox from '../XUICheckbox.js';
 
 import div from './helpers/container';
 
-import { mount } from 'enzyme';
 
 const NOOP = () => {};
 
@@ -39,23 +37,23 @@ describe('XUICheckbox', function() {
 	});
 
 	it('should be of type checkbox', () => {
-		expect(node.type).to.equal('checkbox');
+		expect(node.type).toEqual('checkbox');
 	});
 
 	it('should have label text if provided', () => {
-		expect(node.innerHTML, 'Howdy, folks!');
+		expect(wrapper.find('label').text()).toEqual('Howdy, folks!');
 	});
 
 	it('should use additional classes on the root node if provided', () => {
-		expect(wrapper.find('label').hasClass('dogs-are-totes-patotes')).to.be.true;
+		expect(wrapper.find('label').hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
 	it('should have a qaHook on the root node if provided', function () {
-		expect(wrapper.find('[data-automationid="cheese-and-crackers"]').node).to.exist;
+		expect(wrapper.find('[data-automationid="cheese-and-crackers"]').node).toBeDefined();
 	});
 
 	it('should use the xui-icon class on the SVG element', () => {
-		expect(wrapper.find('svg').hasClass('xui-icon')).to.be.true;
+		expect(wrapper.find('svg').hasClass('xui-icon')).toBeTruthy();
 	});
 
 	it('should define role as presentation on each use element', () => {
@@ -70,25 +68,25 @@ describe('XUICheckbox', function() {
 		check = wrapper.find('.xui-styledcheckbox--check').node;
 		indeterminate = wrapper.find('.xui-styledcheckbox--indeterminate').node;
 
-		expect(focus.getAttribute('role')).to.equal('presentation');
-		expect(main.getAttribute('role')).to.equal('presentation');
-		expect(check.getAttribute('role')).to.equal('presentation');
-		expect(indeterminate.getAttribute('role')).to.equal('presentation');
+		expect(focus.getAttribute('role')).toEqual('presentation');
+		expect(main.getAttribute('role')).toEqual('presentation');
+		expect(check.getAttribute('role')).toEqual('presentation');
+		expect(indeterminate.getAttribute('role')).toEqual('presentation');
 	});
 
 	it('should be unchecked by default', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} />);
 
 		const node = wrapper.find('input').node;
-		expect(node.checked).to.be.false;
+		expect(node.checked).toBeFalsy();
 	});
 
 	it('should be selected and disabled if isChecked and isDisabled are both true', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} isChecked={true} isDisabled={true} />);
 
 		const node = wrapper.find('input').node;
-		expect(node.checked, 'checked is not true').to.be.true;
-		expect(node.disabled, 'disabled is not set as true').to.be.true;
+		expect(node.checked).toBeTruthy();
+		expect(node.disabled).toBeTruthy();
 	});
 
 
@@ -97,7 +95,7 @@ describe('XUICheckbox', function() {
 
 		//haven't been able to use wrapper.find as we need a true DOM representation to find the property.
 		const node = document.querySelector('.indeterminate input');
-		expect(node.indeterminate).to.be.true;
+		expect(node.indeterminate).toBeTruthy();
 	});
 
 
@@ -107,12 +105,12 @@ describe('XUICheckbox', function() {
 		//haven't been able to use wrapper.find as we need a true DOM representation to find the property.
 		const node = document.querySelector('.indeterminate input');
 
-		expect(node).to.exist;
-		expect(node.indeterminate).to.be.true;
+		expect(node).toBeDefined();
+		expect(node.indeterminate).toBeTruthy();
 
 		wrapper.setProps({isIndeterminate : false});
 
-		expect(node.indeterminate).to.be.false;
+		expect(node.indeterminate).toBeFalsy();
 	});
 
 
@@ -120,20 +118,20 @@ describe('XUICheckbox', function() {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} isRequired={true} />);
 
 		const node = wrapper.find('input');
-		expect(node.props().required).to.be.true;
+		expect(node.props().required).toBeTruthy();
 	});
 
 	it('should use the xui-styledcheckbox-reverse class on the root node if isReversed is true', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} isReversed={true} />);
 
-		expect(wrapper.find('label').hasClass('xui-styledcheckbox-reversed')).to.be.true;
+		expect(wrapper.find('label').hasClass('xui-styledcheckbox-reversed')).toBeTruthy();
 	});
 
 	it('should have the correct name if one is provided', function () {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} name="Patrick" />);
 
 		const node = wrapper.find('input');
-		expect(node.props().name).to.equal('Patrick');
+		expect(node.props().name).toEqual('Patrick');
 	});
 
 	it('should call the provided onChange function every time the control changes state', () => {
@@ -143,14 +141,14 @@ describe('XUICheckbox', function() {
 		const node = wrapper.find('input');
 
 		node.simulate('change');
-		expect(toggle).to.be.true;
+		expect(toggle).toBeTruthy();
 		node.simulate('change');
-		expect(toggle).to.be.false;
+		expect(toggle).toBeFalsy();
 	});
 
 	it('should have the correct value if one is provided', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} value="64" />);
-		expect(wrapper.find('input[type="checkbox"]').props().value).to.equal('64');
+		expect(wrapper.find('input[type="checkbox"]').props().value).toEqual('64');
 	});
 
 	it('should allow setting a custom tabIndex on the input', function () {
@@ -159,14 +157,14 @@ describe('XUICheckbox', function() {
 				Howdy, folks!
 			</XUICheckbox>, {attachTo: div}
 		);
-		expect(wrapper.find('input[type="checkbox"]').props().tabIndex).to.equal(-1);
+		expect(wrapper.find('input[type="checkbox"]').props().tabIndex).toEqual(-1);
 	});
 
 	it('should not display label if isLabelHidden is true', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} isLabelHidden={true} />);
 		const node = wrapper.find('span');
 
-		expect(node.node).to.be.undefined;
+		expect(node.node).toBeUndefined();
 	});
 
 	///ICON COMBINATORS
@@ -182,22 +180,22 @@ describe('XUICheckbox', function() {
 
 			if(variants.focus) {
 				focus = wrapper.find('.xui-styledcheckbox--focus').node;
-				expect(focus.getAttribute('d')).to.equal(variants.focus);
+				expect(focus.getAttribute('d')).toEqual(variants.focus);
 			}
 
 			if(variants.main){
 				main = wrapper.find('.xui-styledcheckbox--main').node;
-				expect(main.getAttribute('d')).to.equal(variants.main);
+				expect(main.getAttribute('d')).toEqual(variants.main);
 			}
 
 			if(variants.check){
 				check = wrapper.find('.xui-styledcheckbox--check').node;
-				expect(check.getAttribute('d')).to.equal(variants.check);
+				expect(check.getAttribute('d')).toEqual(variants.check);
 			}
 
 			if(variants.indeterminate){
 				indeterminate = wrapper.find('.xui-styledcheckbox--indeterminate').node;
-				expect(indeterminate.getAttribute('d')).to.equal(variants.indeterminate);
+				expect(indeterminate.getAttribute('d')).toEqual(variants.indeterminate);
 			}
 
 		};
@@ -243,7 +241,7 @@ describe('XUICheckbox', function() {
 				main: star
 			});
 
-			expect(wrapper.find('svg').node.childNodes.length).to.equal(2);
+			expect(wrapper.find('svg').node.childNodes.length).toEqual(2);
 		});
 
 		it('use icons - iconMainPath: star, iconCheckPath: null, iconIndeterminatePath: contact when an Indeterminate icon path is supplied with iconMainPath', () => {
@@ -259,7 +257,7 @@ describe('XUICheckbox', function() {
 				indeterminate: contact
 			});
 
-			expect(wrapper.find('svg').node.childNodes.length).to.equal(3);
+			expect(wrapper.find('svg').node.childNodes.length).toEqual(3);
 		});
 
 		it('use icons - iconMainPath: star, iconCheckPath: null, iconIndeterminatePath: null when null is passed to iconIndeterminatePath or iconCheck', () => {
@@ -272,7 +270,7 @@ describe('XUICheckbox', function() {
 				focus: star,
 				main: star
 			});
-			expect(wrapper.find('svg').node.childNodes.length).to.equal(2);
+			expect(wrapper.find('svg').node.childNodes.length).toEqual(2);
 		});
 
 		it('use icons - iconMainPath: star, iconCheckPath: contact, iconIndeterminatePath: null', () => {
@@ -287,7 +285,7 @@ describe('XUICheckbox', function() {
 				main: star,
 				check: contact
 			});
-			expect(wrapper.find('svg').node.childNodes.length).to.equal(3);
+			expect(wrapper.find('svg').node.childNodes.length).toEqual(3);
 		});
 
 		it('use icons - iconMainPath: star, iconCheckPath: contact, iconIndeterminatePath: contact when a value is supplied to each icon', () => {

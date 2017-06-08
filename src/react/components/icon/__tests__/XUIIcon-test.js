@@ -1,26 +1,16 @@
-import { expect } from 'chai';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { mount, render } from 'enzyme';
 import XUIIcon from '../XUIIcon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 
-const TestUtils = require('react-dom/test-utils');
-
 describe('XUIIcon', () => {
 	it('Should render with any additional classes provided through the className prop', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIIcon path={accessibility} className={'classyMcClassFace'} />
-			</div>
-		);
-
-		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.contain('classyMcClassFace');
+		const wrapper = mount(<XUIIcon path={accessibility} className={'classyMcClassFace'} />);
+		expect(wrapper.getDOMNode().getAttribute('class')).toEqual(expect.stringContaining('classyMcClassFace'));
 	});
 
 	it('Should render with the correct size classes when modifiers are provided', function () {
-		const component = TestUtils.renderIntoDocument(
+		const wrapper = mount(
 			<div>
 				<XUIIcon path={accessibility} />
 				<XUIIcon path={accessibility} size="large" />
@@ -28,20 +18,17 @@ describe('XUIIcon', () => {
 			</div>
 		);
 
-		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-large');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-xlarge');
+		const icons = wrapper.find('.xui-icon');
+		expect(icons.at(0).hasClass('xui-icon-large')).toBeFalsy()
+		expect(icons.at(0).hasClass('xui-icon-xlarge')).toBeFalsy();
 
-		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode1.getAttribute("class")).to.contain('xui-icon-large');
+		expect(icons.at(1).hasClass('xui-icon-large')).toBeTruthy();
 
-		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode2.getAttribute("class")).to.contain('xui-icon-xlarge');
+		expect(icons.at(2).hasClass('xui-icon-xlarge')).toBeTruthy();
 	});
 
 	it('Should render with the correct rotation classes when rotations are provided', function () {
-		const component = TestUtils.renderIntoDocument(
+		const wrapper = mount(
 			<div>
 				<XUIIcon path={accessibility} />
 				<XUIIcon path={accessibility} rotation="90" />
@@ -50,24 +37,20 @@ describe('XUIIcon', () => {
 			</div>
 		);
 
-		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-rotate-90');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-rotate-180');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-rotate-270');
+		const icons = wrapper.find('.xui-icon');
+		expect(icons.at(0).hasClass('xui-icon-rotate-90')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-rotate-180')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-rotate-270')).toBeFalsy();
 
-		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode1.getAttribute("class")).to.contain('xui-icon-rotate-90');
+		expect(icons.at(1).hasClass('xui-icon-rotate-90')).toBeTruthy();
 
-		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode2.getAttribute("class")).to.contain('xui-icon-rotate-180');
+		expect(icons.at(2).hasClass('xui-icon-rotate-180')).toBeTruthy();
 
-		const domNode3 = ReactDOM.findDOMNode(component).children[3];
-		expect(domNode3.getAttribute("class")).to.contain('xui-icon-rotate-270');
+		expect(icons.at(3).hasClass('xui-icon-rotate-270')).toBeTruthy();
 	});
 
 	it('Should render with the correct color class when color is provided', function () {
-		const component = TestUtils.renderIntoDocument(
+		const wrapper = mount(
 			<div>
 				<XUIIcon path={accessibility} />
 				<XUIIcon path={accessibility} color={'standard'} />
@@ -78,80 +61,47 @@ describe('XUIIcon', () => {
 			</div>
 		);
 
-		// const domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'xui-banner');
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-standard');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-red');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-green');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-white');
-		expect(domNode.getAttribute("class")).to.not.contain('xui-icon-color-blue');
+		const icons = wrapper.find('.xui-icon');
+		expect(icons.at(0).hasClass('xui-icon-color-standard')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-red')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-green')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-white')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-blue')).toBeFalsy();
 
-		const domNode1 = ReactDOM.findDOMNode(component).children[1];
-		expect(domNode1.getAttribute("class")).to.contain('xui-icon-color-standard');
+		expect(icons.at(1).hasClass('xui-icon-color-standard')).toBeTruthy();
 
-		const domNode2 = ReactDOM.findDOMNode(component).children[2];
-		expect(domNode2.getAttribute("class")).to.contain('xui-icon-color-red');
+		expect(icons.at(2).hasClass('xui-icon-color-red')).toBeTruthy();
 
-		const domNode3 = ReactDOM.findDOMNode(component).children[3];
-		expect(domNode3.getAttribute("class")).to.contain('xui-icon-color-green');
+		expect(icons.at(3).hasClass('xui-icon-color-green')).toBeTruthy();
 
-		const domNode4 = ReactDOM.findDOMNode(component).children[4];
-		expect(domNode4.getAttribute("class")).to.contain('xui-icon-color-white');
+		expect(icons.at(4).hasClass('xui-icon-color-white')).toBeTruthy();
 
-		const domNode5 = ReactDOM.findDOMNode(component).children[5];
-		expect(domNode5.getAttribute("class")).to.contain('xui-icon-color-blue');
+		expect(icons.at(5).hasClass('xui-icon-color-blue')).toBeTruthy();
 	});
 
 	it('Should render title and desc elements within the SVG element based on the props provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIIcon
-					path={accessibility}
-					title="Happy poop title 💩"
-					desc="Happy poop desc 💩" />
-			</div>
+		const wrapper = render(
+			<XUIIcon
+				path={accessibility}
+				title="Happy poop title 💩"
+				desc="Happy poop desc 💩" />
 		);
 
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		const runningInPhantom = navigator.userAgent.indexOf("PhantomJS") > -1;
-
-		//Phantom doesn't allow looking at SVG child elements in the same way that other browsers do...
-		if (!runningInPhantom){
-			expect(domNode.getElementsByTagName("title")[0].innerHTML).to.equal("Happy poop title 💩");
-			expect(domNode.getElementsByTagName("desc")[0].innerHTML).to.equal("Happy poop desc 💩");
-		} else {
-			let titleNode, descNode;
-			for (let i=0; i < domNode.childNodes.length; i++) {
-				if (domNode.childNodes[i].tagName === "title"){
-					titleNode = domNode.childNodes[i];
-				}
-
-				if (domNode.childNodes[i].tagName === "desc"){
-					descNode = domNode.childNodes[i];
-				}
-			}
-			expect(titleNode.textContent).to.equal("Happy poop title 💩");
-			expect(descNode.textContent).to.equal("Happy poop desc 💩");
-		}
+		const title = wrapper.find('title').first();
+		const desc = wrapper.find('desc').first();
+		expect(title).toBeDefined();
+		expect(title.text()).toEqual('Happy poop title 💩')
+		expect(desc).toBeDefined();
+		expect(desc.text()).toEqual('Happy poop desc 💩');
 	});
 
 	it('Should render with role="presentation" on the path element by default', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIIcon path={accessibility} />
-			</div>
-		);
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getElementsByTagName("path")[0].getAttribute("role")).to.equal("presentation");
+		const wrapper = mount(<XUIIcon path={accessibility} />);
+		expect(wrapper.find('path').prop('role')).toEqual("presentation");
 	});
 
 	it('Should render with the given role applied to the path element', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIIcon path={accessibility} role="img" />
-			</div>
-		);
-		const domNode = ReactDOM.findDOMNode(component).children[0];
-		expect(domNode.getElementsByTagName("path")[0].getAttribute("role")).to.equal("img");
+		const wrapper = mount(<XUIIcon path={accessibility} role="img" />);
+		expect(wrapper.find('path').prop('role')).toEqual('img');
 	});
 });

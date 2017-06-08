@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import menu from '@xero/xui-icon/icons/menu';
 import iconData from '@xero/xui-icon/lib/private/iconData.js';
 import XUIIcon from '../XUIIcon';
 

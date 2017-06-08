@@ -1,4 +1,4 @@
-import { expect, assert } from 'chai';
+import { assert } from 'chai';
 import React from 'react';
 import sinon from 'sinon';
 import XUIButton from '../XUIButton';
@@ -107,12 +107,12 @@ describe('<XUIButton/>', () => {
 	});
 
 	it('has a role attribute for links which function like buttons', () => {
-		const button = renderIntoDocument(<XUIButton isLink={true} href="https://www.xero.com/" onClick={() => console.log('click')} />);
+		const button = renderIntoDocument(<XUIButton isLink href="https://www.xero.com/" onClick={() => {}} />);
 		assert.strictEqual(button.rootNode.getAttribute('role'), 'button');
 	});
 
 	it('does not have a role attribute for links which are just styled like buttons', () => {
-		const button = renderIntoDocument(<XUIButton isLink={true} href="https://www.xero.com/" />);
+		const button = renderIntoDocument(<XUIButton isLink href="https://www.xero.com/" />);
 		assert.isNull(button.rootNode.getAttribute('role'));
 	});
 

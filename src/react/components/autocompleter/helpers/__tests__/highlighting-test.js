@@ -1,11 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { expect } from 'chai';
 import { decorateSubStr } from '../highlighting.js';
 
-const TestUtils = require('react-dom/test-utils');;
-
-const res = [{id: 1, name: 'Fay'}, {id: 2, name: 'James'}, {id: 3, name: 'Anna'}];
 const boldMatch = (str) => (<strong>{str}</strong>);
 
 describe('Bolding text', () => {
@@ -15,9 +10,9 @@ describe('Bolding text', () => {
 
 		const matchResult = decorateSubStr(value, searchTerm, boldMatch);
 
-		expect(matchResult.length).to.eql(3);
-		expect(typeof matchResult).to.eql('object');
-		expect(matchResult[1].type).to.eql('strong');
+		expect(matchResult).toHaveLength(3);
+		expect(typeof matchResult).toEqual('object');
+		expect(matchResult[1].type).toEqual('strong');
 	});
 
 	it('should return bolded results when two of the same search terms are together i.e Anna, nn should be in bold', () => {
@@ -25,9 +20,9 @@ describe('Bolding text', () => {
 		const value = "Anna";
 		const matchResult = decorateSubStr(value, searchTerm, boldMatch);
 
-		expect(matchResult.length).to.eql(4);
-		expect(matchResult[1].type).to.eql('strong');
-		expect(matchResult[2].type).to.eql('strong');
+		expect(matchResult).toHaveLength(4);
+		expect(matchResult[1].type).toEqual('strong');
+		expect(matchResult[2].type).toEqual('strong');
 	});
 
 	it('should return the string with no bolding when there is no match form the search term', () => {
@@ -35,7 +30,7 @@ describe('Bolding text', () => {
 		const value = "Frederick";
 		const matchResult = decorateSubStr(value, searchTerm, boldMatch);
 
-		expect(typeof matchResult).to.eql('string');
+		expect(typeof matchResult).toEqual('string');
 	});
 
 	it('should bold the character in upper and lower case i.e. the a from Anna should be bolded twice ', () => {
@@ -43,8 +38,8 @@ describe('Bolding text', () => {
 		const value = "Anna";
 		const matchResult = decorateSubStr(value, searchTerm, boldMatch);
 
-		expect(matchResult.length).to.eql(3);
-		expect(matchResult[0].type).to.eql('strong');
-		expect(matchResult[2].type).to.eql('strong');
+		expect(matchResult).toHaveLength(3);
+		expect(matchResult[0].type).toEqual('strong');
+		expect(matchResult[2].type).toEqual('strong');
 	});
 })

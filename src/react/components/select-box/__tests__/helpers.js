@@ -14,7 +14,7 @@ export const waitFor = (test, message, done, timeLeft) => {
   timeLeft = timeLeft === undefined ? 100 : timeLeft;
   waitsInProgress.push(setTimeout(() => {
     if (timeLeft <= 0) {
-      console.warn(message);
+      console.warn(message); // eslint-disable-line no-console
       done();
     } else if (test()) {
       done();

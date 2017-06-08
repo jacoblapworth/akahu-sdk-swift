@@ -1,87 +1,56 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { assert, expect } from 'chai';
+import { mount, render } from 'enzyme';
 import XUIToast from '../XUIToast';
 import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
 import XUIToastMessage from '../XUIToastMessage';
 
-const TestUtils = require('react-dom/test-utils');
-
 describe('XUIToast', () => {
 
 	it('should render without a sentiment modifier if no sentiment is provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast/>
-			</div>
-		);
-
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		expect(domNode.className).to.not.contain('xui-toast-negative');
-		expect(domNode.className).to.not.contain('xui-toast-positive');
+		const wrapper = render(<XUIToast/>);
+		const toast = wrapper.find('.xui-toast');
+		expect(toast.hasClass('xui-toast')).toBeTruthy();
+		expect(toast.hasClass('xui-toast-negative')).toBeFalsy();
+		expect(toast.hasClass('xui-toast-positive')).toBeFalsy();
 	});
 
 	it('should render with the negative sentiment modifier when sentiment is set to negative', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast sentiment={'negative'}/>
-			</div>
-		);
+		const wrapper = render(<XUIToast sentiment="negative" />);
+		const toast = wrapper.find('.xui-toast');
 
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		expect(domNode.className).to.contain('xui-toast-negative');
+		expect(toast.hasClass('xui-toast-negative')).toBeTruthy();
+		expect(toast.hasClass('xui-toast-positive')).toBeFalsy();
 	});
 
 	it('should render with the positive sentiment modifier when sentiment is set to positive', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast sentiment={'positive'}/>
-			</div>
-		);
+		const wrapper = mount(<XUIToast sentiment="positive" />);
+		const toast = wrapper.find('.xui-toast');
 
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		expect(domNode.className).to.contain('xui-toast-positive');
+		expect(toast.hasClass('xui-toast-negative')).toBeFalsy();
+		expect(toast.hasClass('xui-toast-positive')).toBeTruthy();
 	});
 
 	it('should render the provided XUIToastMessage element', function () {
-
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast>
-					<XUIToastMessage>💩 Pile of Poo</XUIToastMessage>
-				</XUIToast>
-			</div>
-		);
-
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		assert.strictEqual(domNode.getElementsByClassName('xui-toast--message')[0].innerHTML, "💩 Pile of Poo");
+		const message = '💩 Pile of Poo'
+		const wrapper = render(<XUIToastMessage>{message}</XUIToastMessage>);
+		expect(wrapper.text()).toEqual(message);
 	});
 
 	it('should render without a close button if no close click function is provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast />
-			</div>
-		);
+		const wrapper = mount(<XUIToast />);
 
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		expect(domNode.getElementsByClassName('xui-toast--close').length).to.equal(0);
+		expect(wrapper.find('.xui-toast--close')).toHaveLength(0);
 	});
 
 	it('should render with a close button if close click function is provided', function () {
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast onCloseClick={function(){}} />
-			</div>
-		);
+		const wrapper = mount(<XUIToast onCloseClick={function(){}} />);
 
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		expect(domNode.getElementsByClassName('xui-toast--close').length).to.equal(1);
+		expect(wrapper.find('.xui-toast--close')).toHaveLength(1);
 	});
 
 	it('should add the appropriate `role` attribute depending on the sentiment (`alert` for positive/negative; else `status`)', function () {
-		const component = TestUtils.renderIntoDocument(
+		const wrapper = render(
 			<div>
 				<XUIToast sentiment="positive" />
 				<XUIToast sentiment="negative" />
@@ -89,51 +58,37 @@ describe('XUIToast', () => {
 			</div>
 		);
 
-		const container = ReactDOM.findDOMNode(component);
-		const node1 = container.children[0];
-		const node2 = container.children[1];
-		const node3 = container.children[2];
-
-		expect(node1.getAttribute('role')).to.equal('alert');
-		expect(node2.getAttribute('role')).to.equal('alert');
-		expect(node3.getAttribute('role')).to.equal('status');
+		const toasts = wrapper.find('.xui-toast');
+		expect(toasts[0].attribs['role']).toEqual('alert');
+		expect(toasts[1].attribs['role']).toEqual('alert');
+		expect(toasts[2].attribs['role']).toEqual('status');
 	});
 
 	it('should allow a custom `role` to be set', function () {
-		const component = TestUtils.renderIntoDocument(
+		const wrapper = render(
 			<div>
 				<XUIToast role="alert" />
 				<XUIToast role="status" sentiment="negative" />
 			</div>
 		);
 
-		const container = ReactDOM.findDOMNode(component);
-		const node1 = container.children[0];
-		const node2 = container.children[1];
-
-		expect(node1.getAttribute('role')).to.equal('alert');
-		expect(node2.getAttribute('role')).to.equal('status');
+		const toasts = wrapper.find('.xui-toast');
+		expect(toasts[0].attribs['role']).toEqual('alert');
+		expect(toasts[1].attribs['role']).toEqual('status');
 	});
 
 	it('should render toast actions as buttons and/or links with the appropriate classes', function () {
-		function onClick() {
-			console.log('Clicked');
-		}
-
-		const component = TestUtils.renderIntoDocument(
-			<div>
-				<XUIToast>
-					<XUIToastActions>
-						<XUIToastAction href="https://google.com">Hello</XUIToastAction>
-						<XUIToastAction onClick={onClick}>Goodbye</XUIToastAction>
-					</XUIToastActions>
-				</XUIToast>
-			</div>
+		const wrapper = mount(
+			<XUIToast>
+				<XUIToastActions>
+					<XUIToastAction href="https://google.com">Hello</XUIToastAction>
+					<XUIToastAction onClick={() => {}}>Goodbye</XUIToastAction>
+				</XUIToastActions>
+			</XUIToast>
 		);
 
-		const domNode = ReactDOM.findDOMNode(component).firstChild;
-		expect(domNode.getElementsByClassName('xui-toast--action').length).to.equal(2);
-		expect(domNode.getElementsByTagName('A').length).to.equal(1);
-		expect(domNode.getElementsByTagName('BUTTON').length).to.equal(1);
+		expect(wrapper.find('.xui-toast--action')).toHaveLength(2);
+		expect(wrapper.find('a')).toHaveLength(1);
+		expect(wrapper.find('button')).toHaveLength(1);
 	});
 });

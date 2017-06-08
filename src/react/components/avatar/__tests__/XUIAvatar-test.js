@@ -1,11 +1,9 @@
-import chai from 'chai';
+import { assert } from 'chai';
 import React from 'react';
 
 import XUIAvatar from '../XUIAvatar';
-import {classNames, sizeClassNames} from '../constants';
+import { classNames, sizeClassNames } from '../constants';
 
-
-const assert = chai.assert;
 const TestUtils = require('react-dom/test-utils');
 
 // Note: the rendering of <divs> in the tests below is a crappy workaround for

@@ -48,7 +48,6 @@
 
 .xui-dropdown-layout:focus{
 	//New focus state not in XUI 10.22
-	box-shadow: 0 0 0 3px rgba($xui-color-grey-1, 0.1);
 	outline: none;
 	@include xui-breakpoint-narrow-up {
 		border-radius: $xui-selected-item-border-width;

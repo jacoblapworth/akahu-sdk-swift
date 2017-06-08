@@ -1,9 +1,6 @@
-import breakpoints  from './breakpoints';
+import breakpoints from '../../helpers/breakpoints';
+import calcScrollbarWidth from 'scrollbar-width';
 
-const body = document.body;
-let top = body.scrollTop;
-let left = body.scrollLeft;
-let isScrollCurrentlyLocked = false;
 /**
  * Accepts one or more functions and curries a function that will call each passed function with the arguments passed
  * to the curried function.
@@ -104,45 +101,35 @@ export function scrollTopPosition(itemDOM, scrollableDOM) {
 export const isNarrowViewport = () => window.document.documentElement.clientWidth < breakpoints.narrow;
 
 /**
-* @private
-*
-* Will set the scroll on the browser to be locked and visibly hidden so the content
-* underneath cannot be scrolled.
-*/
+ * Test to see if the body scroll is currently locked
+ */
+export const isScrollLocked = () => document.body.classList.contains('xui-u-overflow-hidden');
+
+/**
+ * @private
+ *
+ * Will set the scroll on the browser to be locked and visibly hidden so the content
+ * underneath cannot be scrolled.
+ */
 export const lockScroll = () => {
-	top = body.scrollTop;
-	left = body.scrollLeft;
-	isScrollCurrentlyLocked = true
-
-	body.style.position = 'fixed';
-	body.style.overflow = 'hidden';
-	body.style.top = `${-top}px`;
-	body.style.left = `${-left}px`;
-	body.style.width = '100vw';
-	body.style.height = '100vh';
-
-
+	if (!isScrollLocked()) {
+		const body = document.body;
+		const existingPadding = parseInt(window.getComputedStyle(body).paddingRight, 10);
+		const scrollbarSize = calcScrollbarWidth();
+		const newPadding = isNaN(existingPadding) || !isFinite(existingPadding) ? scrollbarSize : scrollbarSize + existingPadding;
+		body.classList.add('xui-u-overflow-hidden');
+		body.style.paddingRight = `${newPadding}px`;
+	}
 };
 
 /**
-* @private
-*
-* Will reset the body to have postition: static and overflow: auto instead of hidden.
-*/
+ * @private
+ *
+ * Will reset the body to have postition: static and overflow: auto instead of hidden.
+ */
 export const unlockScroll = () => {
-	body.style.position = 'static';
-	body.style.overflow = 'auto';
-	body.style.width = null;
-	body.style.height = null;
-	body.style.top = null;
-	body.style.left = null
-	body.scrollTop = top;
-	body.scrollLeft = left;
-
-	isScrollCurrentlyLocked = false;
+	if (isScrollLocked()) {
+		document.body.classList.remove('xui-u-overflow-hidden');
+		document.body.style.paddingRight = '';
+	}
 };
-
-/**
-* Test to see if the body scroll is currently locked
-*/
-export const isScrollLocked = () => isScrollCurrentlyLocked;

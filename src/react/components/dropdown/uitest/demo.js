@@ -6,7 +6,6 @@ import checked from '@xero/xui-icon/icons/checkbox-check';
 import XUIIcon from '../../icon/XUIIcon';
 import DropDown from '../DropDown';
 import DropDownToggled from '../DropDownToggled';
-import DropDownListBox from '../DropDownListBox';
 import DropDownHeader from '../DropDownHeader';
 import DropDownFooter from '../DropDownFooter';
 import NestedDropDown from '../NestedDropDown';
@@ -91,7 +90,7 @@ class ToggledDropDown extends Component {
 	}
 	render() {
 		const trigger = (
-			<XUIButton buttonType="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
 				Trigger Button <XUIButtonCart />
 			</XUIButton>
 		);
@@ -203,7 +202,7 @@ class ToggledNestedDropdown extends Component {
 			currentPanel
 		} = exampleUsage.state;
 		const trigger = (
-			<XUIButton variant="secondary" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton variant="negative" onClick={() => {}} data-ref="toggled_trigger">
 				{selectedDate ?
 					selectedDate.toDateString() :
 					<span>Nested Dropdown <XUIButtonCart /></span>}
@@ -320,7 +319,7 @@ class FullHeightToggledDropDown extends Component {
 	}
 	render() {
 		const trigger = (
-			<XUIButton buttonType="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
 				Open Button <XUIButtonCart />
 			</XUIButton>
 		);
@@ -393,17 +392,15 @@ ReactDOM.render(
 		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
 			<div className="xui-text-panelheading xui-margin-bottom">Simple Dropdown Styling</div>
 			<p className='xui-text-label'>
-				Presentational only, allows PickList and uses the DropDownListBox component to apply XUI classes but not logic.
+				Presentational only applies XUI classes but not logic.
 			</p>
-			<DropDownListBox size="medium" className='xui-dropdown-is-open dropdown-static-wrapper'>
-				<Picklist>
-					<Pickitem id="plain1">I literally come with nothing, I am just here to look pretty</Pickitem>
-					<Pickitem id="plain2">Next Item</Pickitem>
-					<Pickitem id="plain3" isSelected={true}>Another Item</Pickitem>
-					<Pickitem id="plain4" href="http://xero.com">A Fourth Item</Pickitem>
-					<Pickitem id="plain5">Last Item</Pickitem>
-				</Picklist>
-			</DropDownListBox>
+			<Picklist>
+				<Pickitem id="plain1">I literally come with nothing, I am just here to look pretty</Pickitem>
+				<Pickitem id="plain2">Next Item</Pickitem>
+				<Pickitem id="plain3" isSelected={true}>Another Item</Pickitem>
+				<Pickitem id="plain4" href="http://xero.com">A Fourth Item</Pickitem>
+				<Pickitem id="plain5">Last Item</Pickitem>
+			</Picklist>
 		</div>
 	</div>,
 	document.getElementById('app')

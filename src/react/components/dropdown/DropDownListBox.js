@@ -167,7 +167,8 @@ class DropDownListBox extends PureComponent {
 			onKeyDown,
 			style,
 			header,
-			fixedWidth } = listBox.props;
+			fixedWidth
+		} = listBox.props;
 		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
 		const sizeClass = size ? dropdownSizes[size] : null;
 		const classNames = cn(
@@ -177,7 +178,8 @@ class DropDownListBox extends PureComponent {
 				'xui-dropdown-is-open': !isHidden,
 				'xui-dropdown-is-open xui-dropdown-is-closing': isHidden
 			},
-			className);
+			className
+		);
 		/*
 		Clone the style attributes passed in so we can set the maxHeight to null, effectively removing it from the dropdown
 		container. Instead adding this from state to the dropdown body element.

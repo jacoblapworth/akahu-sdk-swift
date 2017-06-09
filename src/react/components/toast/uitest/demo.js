@@ -6,7 +6,7 @@ import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
 import XUIToastMessage from '../XUIToastMessage';
 import XUIToastWrapper from '../XUIToastWrapper';
-import cn from 'classnames';
+
 const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
 const noop = () => {};
 

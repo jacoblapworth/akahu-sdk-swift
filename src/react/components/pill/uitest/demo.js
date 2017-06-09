@@ -11,8 +11,7 @@ const avatarProps = {
 	value: 'SJ',
 	imageUrl: 'logo.png',
 	size: 'small'
-}
-const noop = () => {};
+};
 const pills = (
 		<section >
 			<h3> Pills </h3>

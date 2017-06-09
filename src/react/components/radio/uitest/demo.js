@@ -1,18 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import desktop from '@xero/xui-icon/icons/desktop';
 import XUIRadio from '../XUIRadio';
 import XUIRadioGroup from '../XUIRadioGroup';
-import cn from 'classnames';
-import desktop from '@xero/xui-icon/icons/desktop';
 
 const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
-const noop = () => {};
-const shared = {
-	isRequired: true,
-	isReversed: true,
-	name: 'test',
-	onChange: () => {noop}
-};
 
 const normal = (
 	<section>

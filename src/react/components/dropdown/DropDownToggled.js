@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Positioning from './Positioning';
-import { compose, lockScroll, unlockScroll, isNarrowViewport, isScrollLocked } from './private/helpers.js';
+import Positioning from '../positioning/Positioning';
+import { compose, lockScroll, unlockScroll, isNarrowViewport, isScrollLocked } from './private/helpers';
 
-function focusTrigger(virtualTrigger, triggerDOM){
+function focusTrigger(virtualTrigger, triggerDOM) {
 	// if there is a focus API, use it, else set focus to the given trigger
 	if (virtualTrigger && typeof virtualTrigger.focus === 'function') {
 		virtualTrigger.focus();
@@ -138,12 +138,12 @@ export default class DropDownToggled extends PureComponent {
 
 		//Timeout to give any callbacks a chance to fire before the dropdown is hidden.
 		setTimeout(() => {
+			focusTrigger(ddt.trigger, trigger);
 			ddt.setState({
 				isHidden: true,
 				isOpening: false
 			});
 
-			focusTrigger(ddt.trigger, trigger);
 		}, 80);
 	}
 

@@ -116,6 +116,7 @@
     "react-addons-test-utils": "15.5.1",
     "rimraf": "2.6.1",
     "sass-loader": "6.0.5",
+    "scrollbar-width": "3.1.1",
     "simple-mock": "0.8.0",
     "sinon": "2.3.2",
     "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2",

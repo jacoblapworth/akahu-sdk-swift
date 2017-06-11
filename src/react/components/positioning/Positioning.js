@@ -4,110 +4,18 @@ import verge from 'verge';
 import throttle from 'lodash.throttle';
 import Portal from 'react-portal';
 import cn from 'classnames';
-import breakpoints from './private/breakpoints';
-
-
-/**
- * Tests the height and width of the given rectangle and returns true if the size is greater than 0x0
- *
- * @private
- * @param {DOMRect} baseRect
- * @return {boolean}
- */
-const isBaseRendered = baseRect => baseRect && baseRect.height > 0 && baseRect.width > 0;
-
-/**
-* Tests the viewport against a narrow width.
-*
-* @private
-* @return {boolean}
-*/
-const isNarrowViewport = () => verge.viewportW() < breakpoints.narrow;
-
-/**
-* Calculates the space below the trigger
-*
-* @private
-* @param {DOMRect} triggerRect
-* @return {Number}
-*/
-const calcSpaceBelow = triggerRect => triggerRect && verge.viewportH() - triggerRect.top - triggerRect.height;
-
-/**
-* Calulates the space above the trigger
-*
-* @private
-* @param {DOMRect} triggerRect
-* @return {Number}
-*/
-const calcSpaceAbove = triggerRect => triggerRect.top;
-
-/**
-* Tests if the base can be rendered under the trigger at all.
-*
-* @private
-* @param {DOMRect} triggerRect
-* @param {DOMRect} popupRect
-* @param {Number} gutter
-* @return {Boolean}
-*/
-const canAlignUnderTrigger = (triggerRect, popupRect, gutter) => popupRect.height + gutter < calcSpaceBelow(triggerRect);
-
-/**
-* Returns the top scroll amount, supported across mutliple browsers
-*
-* @private
-* @return {Number}
-*/
-const scrollTopAmount = () => window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
-/**
-* Returns the left scroll amount, supported across mutliple browsers
-*
-* @private
-* @return {Number}
-*/
-const scrollLeftAmount = () => window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
-
-/**
-* Tests if the bottom space is greater than the top around the trigger.
-*
-* @private
-* @param {DOMRect} triggerRect
-* @return {Boolean}
-*/
-const isBottomBiggerThanTop = triggerRect => {
-	const spaceAbove = calcSpaceAbove(triggerRect);
-	const spaceBelow = calcSpaceBelow(triggerRect);
-
-	return spaceBelow > spaceAbove;
-}
-
-/**
- * Listeners to attach to window
- *
- * @private
- * @param {Positioning} popup
- */
-function attachListeners(popup) {
-	window.addEventListener('resize', popup.positionComponent);
-	window.addEventListener('scroll', popup.positionComponent);
-	if (popup.props.setMaxHeight) {
-		window.addEventListener('resize', popup.calculateMaxHeight)
-	}
-}
-
-/**
- * Listeners to detach from window
- *
- * @private
- * @paramn {Positioning} popup
- */
-function detachListeners(popup) {
-	window.removeEventListener('resize', popup.positionComponent);
-	window.removeEventListener('scroll', popup.positionComponent);
-	window.removeEventListener('resize', popup.calculateMaxHeight)
-}
+import {
+	isNarrowViewport,
+	calcSpaceAbove,
+	calcSpaceBelow,
+	calcSpaceRight,
+	calcSpaceLeft,
+	scrollTopAmount,
+	scrollLeftAmount,
+	attachListeners,
+	detachListeners,
+	isBaseRendered
+} from './private/dom-helpers';
 
 /**
  * @private
@@ -119,23 +27,24 @@ function detachListeners(popup) {
  */
 function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 	const { gutter } = popup.props;
+	const spaceAboveTrigger = calcSpaceAbove(triggerRect);
+	const spaceBelowTrigger = calcSpaceBelow(triggerRect);
+	const spaceLeftOfTrigger = calcSpaceLeft(triggerRect);
+	const spaceRightOfTrigger = calcSpaceRight(triggerRect);
 
-	// If there's not enough space below the trigger and there's more space above the trigger than below, render above
-	const alignTop = !isBottomBiggerThanTop(triggerRect) && !canAlignUnderTrigger(triggerRect, popupRect, gutter);
-	const alignRight = verge.viewportW() - popupRect.width < triggerRect.left + gutter;
+	const canGoBelow = popupRect.height <= spaceBelowTrigger - gutter;
+	const canAlignLeftEdge = popupRect.width <= spaceRightOfTrigger + triggerRect.width - gutter;
 
-	const positionBelowTrigger = triggerRect.top + triggerRect.height;
-	const positionAboveTrigger = triggerRect.top - popupRect.height;
-	const triggerOffsetTop = (alignTop ? positionAboveTrigger: positionBelowTrigger) + scrollTopAmount();
+	const placeBelow = canGoBelow || spaceBelowTrigger >= spaceAboveTrigger;
+	const alignLeftEdge = canAlignLeftEdge || spaceRightOfTrigger >= spaceLeftOfTrigger;
 
-	const positionRightOfTrigger = triggerRect.left + triggerRect.width - popupRect.width;
-	const positionLeftOfTrigger = triggerRect.left;
-	const triggerOffsetLeft = (alignRight ? positionRightOfTrigger : positionLeftOfTrigger) + scrollLeftAmount();
+	const popupTopPos = placeBelow ? triggerRect.bottom : Math.max(triggerRect.top - popupRect.height, gutter);
+	const popupLeftPos = alignLeftEdge ? triggerRect.left : Math.max(triggerRect.left - popupRect.width, gutter);
 
 	popup.setState({
-		left: triggerOffsetLeft,
-		top: triggerOffsetTop,
-		alignTop: alignTop
+		top: popupTopPos + scrollTopAmount(),
+		left: popupLeftPos + scrollLeftAmount(),
+		alignTop: !placeBelow
 	});
 }
 
@@ -257,14 +166,19 @@ class Positioning extends PureComponent {
 		const triggerDOM = parentRef.firstChild;
 
 		if (verge.inViewport(triggerDOM)) {
-			const triggerRect = triggerDOM.getBoundingClientRect();
+			if (isNarrowViewport()) {
+				popup.setState({
+					maxHeight: verge.viewportH()
+				});
+			} else {
+				const triggerRect = triggerDOM.getBoundingClientRect();
+				const spaceAboveTrigger = calcSpaceAbove(triggerRect);
+				const spaceBelowTrigger = calcSpaceBelow(triggerRect);
 
-			const spaceAbove = calcSpaceAbove(triggerRect);
-			const spaceBelow = calcSpaceBelow(triggerRect);
-
-			popup.setState({
-				maxHeight: isNarrowViewport() ? verge.viewportH() : Math.max(spaceAbove, spaceBelow) - gutter
-			});
+				popup.setState({
+					maxHeight: Math.max(spaceAboveTrigger, spaceBelowTrigger) - gutter
+				});
+			}
 		}
 	}
 
@@ -343,7 +257,7 @@ Positioning.propTypes = {
 };
 
 Positioning.defaultProps = {
-	gutter: 20,
+	gutter: 5,
 	setMaxHeight: true
 };
 

@@ -48,6 +48,7 @@
     "test:ui": "cross-env NODE_ENV=development webpack --watch --config ./webpack.testui.config.js"
   },
   "dependencies": {
+    "@xero/xui-icon": "5.0.0-rc.2",
     "classnames": "2.1.0",
     "guid": "0.0.12",
     "lodash.debounce": "4.0.8",
@@ -62,7 +63,6 @@
     "@xero/babel-preset-xero": "1.0.2",
     "@xero/browserslist-autoprefixer": "2.3.0",
     "@xero/eslint-config-xero-react-base": "1.1.2",
-    "@xero/xui-icon": "5.0.0-rc.2",
     "autoprefixer": "7.1.1",
     "babel-cli": "6.24.1",
     "babel-eslint": "7.2.3",

@@ -8,7 +8,7 @@ function focusTrigger(virtualTrigger, triggerDOM) {
 	// if there is a focus API, use it, else set focus to the given trigger
 	if (virtualTrigger && typeof virtualTrigger.focus === 'function') {
 		virtualTrigger.focus();
-	} else if (typeof triggerDOM.focus === 'function') {
+	} else if (triggerDOM != null && typeof triggerDOM.focus === 'function') {
 		triggerDOM.focus();
 	}
 }
@@ -40,7 +40,8 @@ export default class DropDownToggled extends PureComponent {
 			'onHighlightChange',
 			'onCloseAnimationEnd',
 			'onOpen',
-			'onResize'
+			'onResize',
+			'triggerClickHandler'
 		].forEach(fn => {
 			ddt[fn] = ddt[fn].bind(ddt);
 		});
@@ -164,6 +165,23 @@ export default class DropDownToggled extends PureComponent {
 	toggle() {
 		const ddt = this;
 		ddt.state.isHidden ? ddt.openDropDown() : ddt.closeDropDown();
+	}
+
+	/**
+	 * @private
+	 * If user clicks on the trigger, we may want to open and/or toggle the dropdown.
+	 *
+	 * @memberof DropDownToggled
+	 */
+	triggerClickHandler() {
+		switch (this.props.triggerClickAction) {
+			case 'toggle':
+				this.toggle();
+				break;
+			case 'open':
+				this.openDropDown();
+				break;
+		}
 	}
 
 	/**
@@ -308,7 +326,7 @@ export default class DropDownToggled extends PureComponent {
 
 		const clonedTrigger = React.cloneElement(trigger, {
 			ref: compose(trigger.ref, c => ddt.trigger = c),
-			onClick: compose(trigger.props.onClick, ddt.toggle),
+			onClick: compose(trigger.props.onClick, ddt.triggerClickHandler),
 			onKeyDown: compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			...ariaProps
 		});
@@ -320,11 +338,9 @@ export default class DropDownToggled extends PureComponent {
 			onHighlightChange: compose(dropdown.props.onHighlightChange, ddt.onHighlightChange),
 			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
 			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: cn(
-				{
-					'xui-dropdown-is-opening': ddt.state.isOpening
-				},
-				dropdown.props.className)
+			className: cn(dropdown.props.className, {
+				'xui-dropdown-is-opening': ddt.state.isOpening
+			})
 		});
 
 		return (
@@ -375,12 +391,16 @@ DropDownToggled.propTypes = {
 	disableScrollLocking: PropTypes.bool,
 
 	/** @property {Function} [onCloseAnimationEnd] Function to be called once the closing animation has finished */
-	onCloseAnimationEnd: PropTypes.func
+	onCloseAnimationEnd: PropTypes.func,
+
+	/** @property {String} [triggerClickAction='toggle'] What action to take when the user clicks the trigger.  Default is to toggle the dropdown open/close.  Can just open ('open') or do nothing ('none'). */
+	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
 };
 
 DropDownToggled.defaultProps = {
 	isHidden: true,
 	closeOnSelect: true,
 	restrictToViewPort: true,
-	disableScrollLocking: false
+	disableScrollLocking: false,
+	triggerClickAction: 'toggle',
 };

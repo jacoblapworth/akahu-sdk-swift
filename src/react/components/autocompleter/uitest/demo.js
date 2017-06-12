@@ -428,7 +428,7 @@ class SecondarySearchExample extends Component {
 		const { value } = sse.state;
 
 		const trigger = (
-			<XUIButton buttonType="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
 				Toggle Me <XUIButtonCaret />
 			</XUIButton>
 		);

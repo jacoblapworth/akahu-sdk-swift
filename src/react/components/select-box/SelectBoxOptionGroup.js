@@ -13,7 +13,7 @@ export default class SelectBoxOptionGroup extends PureComponent {
 			});
 
 		return (
-			<li tabIndex={-1} className={Constants.CLASSES.GROUP_ITEM}>
+			<li tabIndex={-1} className={Constants.CLASSES.GROUP_ITEM} role="group">
 				{props.label ? <h3 className={classNames}>{props.label}</h3> : null}
 				<ul className="xui-menugroup">
 					{props.children}
@@ -37,5 +37,11 @@ SelectBoxOptionGroup.propTypes = {
 };
 
 SelectBoxOptionGroup.defaultProps = {
-	defaultLayout: true
+	defaultLayout: true,
+	/*
+	 DO NOT REMOVE
+	 This property is needed so that the StatefulPicklist will properly recognize this component as the root node for
+	 a nested list when traversing the children tree.
+	 */
+	_isGroup: true,
 };

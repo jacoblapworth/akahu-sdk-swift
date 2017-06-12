@@ -120,6 +120,15 @@ class MiniApp extends Component {
 					buttonContent={TextHelpers.getText(MiniApp.state.selectedDog, 'Choose a Dog')}
 					onSelect={MiniApp.onDogSelect}
 				>
+					<SelectBoxOption
+						id="thing"
+						isSelected={MiniApp.state.selectedDog === 'thing'}
+						value="thing"
+						defaultLayout={false}
+						truncatedText
+					>
+						The thing
+					</SelectBoxOption>
 					<SelectBoxOptionGroup
 						defaultLayout={false}
 						label={'Group Label'}

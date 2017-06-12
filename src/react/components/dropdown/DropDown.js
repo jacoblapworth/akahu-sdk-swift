@@ -8,6 +8,30 @@ import * as helpers from './private/helpers.js';
 
 import './scss/_dropDown.scss';
 
+/**
+ * Since users can put forms, datepickers, whatever inside of their dropdowns, we don't
+ * always want to handle a keyboard event using the standard keydown handlers.  Instead,
+ * we'll make a couple of assumptions.
+ *
+ * - 	If the keydown event was triggered by something outside of the DropDownListBox, then
+ * 		the onKeyDown method was manually called by something else, and we need to handle it.
+ * - 	If the event's target was exactly the list box, then it's a standard select-box type
+ * 		event and we should handle it.
+ * -	Certain keycodes are special, and we should always handle them if we can
+ *
+ * @private
+ * @param {KeyboardEvent} event
+ * @param {DropDown} dropdown
+ * @returns {Boolean}
+ */
+const shouldHandleKeyDown = (event, dropdown) => {
+	return !dropdown.listBox.rootNode.contains(event.target)
+				|| event.target === dropdown.listBox.rootNode
+				|| event.keyCode === 38 // Up Arrow
+				|| event.keyCode === 40 // Down Arrow
+				|| event.keyCode === 27; // Escape
+};
+
 export default class DropDown extends PureComponent {
 	constructor(props) {
 		super(props);
@@ -51,12 +75,12 @@ export default class DropDown extends PureComponent {
 		window.removeEventListener('focus', this._restrictFocus, true);
 	}
 
-	onKeyDown(e) {
+	onKeyDown(event) {
 		const dropdown = this;
-		if (e.target === dropdown.listBox.rootNode || e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 27) {
-			dropdown.panel && dropdown.panel.onKeyDown(e);
+		if (shouldHandleKeyDown(event, dropdown)) {
+			dropdown.panel && dropdown.panel.onKeyDown(event);
 			if (typeof dropdown.props.onKeyDown === 'function') {
-				dropdown.props.onKeyDown(e);
+				dropdown.props.onKeyDown(event);
 			}
 		}
 	}
@@ -71,7 +95,7 @@ export default class DropDown extends PureComponent {
 		const dropdown = this;
 		const rootNode = dropdown.listBox.rootNode;
 		const targetIsWindow = event.target === window;
-		if (targetIsWindow || !rootNode.contains( event.target )) {
+		if (targetIsWindow || !rootNode.contains(event.target)) {
 			event.stopPropagation();
 			rootNode.focus();
 		}
@@ -132,7 +156,8 @@ export default class DropDown extends PureComponent {
 					onSelect={onSelect}
 					ignoreKeyboardEvents={ignoreKeyboardEvents}
 					onHighlightChange={dropdown.onHighlightChange}
-					ref={dp => dropdown.panel = dp}>
+					ref={dp => dropdown.panel = dp}
+				>
 					{children}
 				</DropDownPanel>
 			</DropDownListBox>

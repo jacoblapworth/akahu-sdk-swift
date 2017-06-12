@@ -97,7 +97,7 @@ class StatefulPicklist extends Component {
 		 * We're an inline open list and we've click on an item to force the list in focus, it doesn't have a highlighted item,
 		 * but we also need to check there isn't a selected item at this stage too. If not, lets force the first item to be our highlightedElement.
 		 */
-		if (!spl.state.highlightedElement) {
+		if (spl.getHighlighted() == null) {
 			const firstItem = findInitialHighlightedItem(spl.list, this.idCache);
 			if (firstItem) {
 				spl.setState({
@@ -109,7 +109,7 @@ class StatefulPicklist extends Component {
 
 	getHighlighted() {
 		return this.state.highlightedElement;
-	}
+}
 
 	getHighlightedId() {
 		return getId(this.getHighlighted());

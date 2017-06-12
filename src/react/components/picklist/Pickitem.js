@@ -36,7 +36,7 @@ export default class Pickitem extends PureComponent {
 			[`${classBase}--split`]: isSplit,
 			'xui-is-disabled': isDisabled
 		});
-		const listeners = !isDisabled ? {onClick, onBlur, onFocus, onKeyDown, onMouseOver} : null;
+		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
 
 
 		const Tag = isSplit ? 'div' : 'li';

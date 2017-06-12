@@ -90,9 +90,9 @@ export function scrollTopPosition(itemDOM, scrollableDOM) {
 	let scrollTopAmount = scrollableDOM.scrollTop;
 
 	if (elRect.bottom > scrollableElRect.bottom) {
-		scrollTopAmount = scrollableDOM.scrollTop + (elRect.bottom - scrollableElRect.bottom);
+		scrollTopAmount = scrollTopAmount + (elRect.bottom - scrollableElRect.bottom);
 	} else if (elRect.top < scrollableElRect.top) {
-		scrollTopAmount = scrollableDOM.scrollTop - (scrollableElRect.top - elRect.top);
+		scrollTopAmount = scrollTopAmount - (scrollableElRect.top - elRect.top);
 	}
 
 	return scrollTopAmount;

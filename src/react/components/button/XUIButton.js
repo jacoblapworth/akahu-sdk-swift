@@ -107,13 +107,26 @@ const setupLinkProps = (props, elementProps) => {
 	}
 };
 
+/**
+ * Attempt to focus the root DOM node of the given component, if the DOM node exists
+ *
+ * @private
+ * @param {XUIButton} button
+ */
+const focusRootNode = button => button.rootNode != null && button.rootNode.focus();
+
 export default class XUIButton extends React.Component {
 	focus() {
-		this.rootNode && this.rootNode.focus();
+		focusRootNode(this);
+		// Apparently there are times when calling focus won't actually do it.  I think
+		// React's getting in the way, but I'm not sure yet....
+		if (this.rootNode !== document.activeElement) {
+			setTimeout(focusRootNode, 0, this);
+		}
 	}
 
 	hasFocus() {
-		return !!this.rootNode && this.rootNode.contains(document.activeElement);
+		return this.rootNode == null ? false : this.rootNode.contains(document.activeElement);
 	}
 
 	render () {

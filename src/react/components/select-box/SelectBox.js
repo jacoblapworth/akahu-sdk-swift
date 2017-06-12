@@ -11,7 +11,6 @@ import Picklist from '../picklist/Picklist';
 import Constants from './Constants';
 
 const { QA_HOOKS, CLASSES, REFS } = Constants;
-const NOOP = () => {};
 
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
@@ -76,7 +75,6 @@ export default class SelectBox extends Component {
 				ref={c => selectBox[REFS.TRIGGER] = c}
 				variant={props.buttonVariant}
 				qaHook={setQaHook(props.qaHook, QA_HOOKS.BUTTON)}
-				onClick={NOOP}
 			>
 				{props.buttonContent}
 				<XUIIcon className="xui-button--caret" path={caret} title="Toggle List" />
@@ -150,7 +148,7 @@ SelectBox.propTypes = {
 	/** @property {string} [qaHook] for adding automation ID to component as well as input and button sub-components */
 	qaHook: PropTypes.string,
 
-	/** @property {boolean} [defaultLayout] Use XUI provided layout classes */
+	/** @property {boolean} [defaultLayout=true] Use XUI provided layout classes */
 	defaultLayout: PropTypes.bool,
 
 	/** @property {String} Display text to be rendered on SelectBox button. */
@@ -165,9 +163,8 @@ SelectBox.propTypes = {
 	/** @property {boolean} [isOpen=false] Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,
 
-	/** @property {boolean} [isTextTruncated] Optionally toggles the text truncation */
+	/** @property {boolean} [isTextTruncated=true] Optionally toggles the text truncation */
 	isTextTruncated: PropTypes.bool
-
 };
 
 SelectBox.defaultProps = {

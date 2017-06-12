@@ -137,15 +137,19 @@ class DropDownListBox extends PureComponent {
 	}
 
 	/**
-	 * Find the child DOM node with given ID and adjust the list box's scroll position to ensure that it's in view.
+	 * Find the child DOM node with given ID and adjust the list box's scroll position to
+	 * ensure that it's in view.
 	 *
 	 * @param {String} id
 	 */
 	scrollIdIntoView(id) {
 		whenVisible(this, () => {
 			const element = document.getElementById(id);
-			if (element) {
-				this._scrollableContent.scrollTop = scrollTopPosition(element, this._scrollableContent);
+			if (element != null) {
+				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
+				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
+				// yet...
+				setTimeout(() => this._scrollableContent.scrollTop = newScrollTop, 0);
 			}
 		});
 	}

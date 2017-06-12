@@ -1,7 +1,7 @@
 XUI
 ===
 
-[![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
+[![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
 ![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
 
 ### Always get the latest versions here:

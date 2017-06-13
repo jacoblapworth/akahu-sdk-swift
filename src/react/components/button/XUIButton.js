@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import assign from 'object-assign';
 import XUILoader from '../loader/XUILoader';
 import { ButtonDefaultProps, ButtonPropTypes } from './private/propTypes';
 import { SizeClassNames, VariantClassNames } from './private/constants';
@@ -170,14 +171,13 @@ export default class XUIButton extends React.Component {
 		};
 
 		// Standard props for all element types
-		const elementProps = {
-			...spreadProps,
+		const elementProps = assign({}, spreadProps, {
 			onClick: clickHandler,
 			onKeyDown: buttonDisabled ? null : onKeyDown,
 			disabled: buttonDisabled,
 			className: buttonClassNames,
 			tabIndex: buttonDisabled ? -1 : tabIndex
-		};
+		});
 
 		// Element type specific props
 		if (isLink) {

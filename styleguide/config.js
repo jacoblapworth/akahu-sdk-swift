@@ -92,6 +92,7 @@ const config = {
 	},
 	title: 'XUI Components',
 	styleguideDir: styleguidePath,
+	showUsage: true,
 	ignore: [
 		"**/Positioning.js",
 		"**/Constants.js",

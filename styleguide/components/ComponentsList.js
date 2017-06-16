@@ -21,6 +21,7 @@ const styles = ({ color, fontFamily, fontSize, space, mq }) => ({
 	isChild: {
 		fontSize: fontSize.small,
 		borderBottom: 'none',
+		margin: [[0, 0, 0, space[2]]],
 		[mq.small]: {
 			display: 'inline-block',
 			margin: [[0, space[1], 0, 0]]

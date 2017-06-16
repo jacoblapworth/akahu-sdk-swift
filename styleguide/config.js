@@ -12,8 +12,8 @@ const styleguidePath = path.resolve(basePath, 'styleguide');
 // component sections
 //
 const componentsFolder = fs.readdirSync(componentPath);
-// TODO include in filter for umd.js
 const filterJsFile = file => /\.js$/.test(file);
+const filterUmdFile = file => /\.umd\.js$/.test(file);
 const replaceJsExtension = file => file.replace('.js', '');
 const createSectionObject = file => ({
 	name: file.charAt(0).toUpperCase() + file.slice(1),
@@ -22,6 +22,7 @@ const createSectionObject = file => ({
 });
 const componentSections = componentsFolder
 	.filter(filterJsFile)
+	.filter(filterUmdFile)
 	.map(replaceJsExtension)
 	.map(createSectionObject);
 

@@ -1,0 +1,4 @@
+Hello
+```
+<XUIAvatar value="foo"/>
+```

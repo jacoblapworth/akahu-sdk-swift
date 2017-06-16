@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import DropDown from '../DropDown.js';
+import DropDown from '../DropDown';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';

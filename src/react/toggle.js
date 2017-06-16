@@ -1,4 +1,4 @@
-import XUIToggle from './components/toggle/XUIToggle.js';
-import XUIToggleOption from './components/toggle/XUIToggleOption.js';
+import XUIToggle from './components/toggle/XUIToggle';
+import XUIToggleOption from './components/toggle/XUIToggleOption';
 
 export { XUIToggle as default, XUIToggleOption };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import XUIToggleOption from '../XUIToggleOption.js';
+import XUIToggleOption from '../XUIToggleOption';
 
 describe('XUIToggleOption', function() {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import XUITextArea from '../XUITextArea.js';
+import XUITextArea from '../XUITextArea';
 
 ReactDOM.render(
 	<div className="xui-page-width-standard">

@@ -5,7 +5,7 @@ import contact from '@xero/xui-icon/icons/contact';
 import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
 import checkboxIndeterminate from '@xero/xui-icon/icons/checkbox-indeterminate';
 import checkboxMain from '@xero/xui-icon/icons/checkbox-main';
-import XUICheckbox from '../XUICheckbox.js';
+import XUICheckbox from '../XUICheckbox';
 
 import div from './helpers/container';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import StatefulPicklist, { findNextItem, findPreviousItem } from '../StatefulPicklist.js';
+import StatefulPicklist, { findNextItem, findPreviousItem } from '../StatefulPicklist';
 import Pickitem from '../Pickitem';
 import Picklist from '../Picklist';
 import div from './helpers/container';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { assert } from 'chai';
-import XUIPill from '../XUIPill.js';
+import XUIPill from '../XUIPill';
 
 const TestUtils = require('react-dom/test-utils');
 

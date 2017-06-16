@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import XUIInput from '../XUIInput.js';
+import XUIInput from '../XUIInput';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 
 describe('<XUIInput>', () => {

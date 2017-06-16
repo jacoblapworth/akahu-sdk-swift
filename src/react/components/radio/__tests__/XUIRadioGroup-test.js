@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import XUIRadio from '../XUIRadio.js';
-import XUIRadioGroup from '../XUIRadioGroup.js';
+import XUIRadio from '../XUIRadio';
+import XUIRadioGroup from '../XUIRadioGroup';
 
 const NOOP = () => {};
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { assert } from 'chai';
-import XUIRadio from '../XUIRadio.js';
+import XUIRadio from '../XUIRadio';
 import radioMain from '@xero/xui-icon/icons/radio-main';
 import radioCheck from '@xero/xui-icon/icons/radio-check';
 import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';

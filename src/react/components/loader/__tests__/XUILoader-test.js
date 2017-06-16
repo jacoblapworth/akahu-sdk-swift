@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import XUILoader from '../XUILoader.js';
+import XUILoader from '../XUILoader';
 
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {

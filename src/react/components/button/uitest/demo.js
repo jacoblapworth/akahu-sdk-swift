@@ -8,7 +8,7 @@ import XUIButton from '../XUIButton';
 import XUIButtonCaret from '../XUIButtonCaret';
 import XUISplitButtonGroup from '../XUISplitButtonGroup';
 import XUISecondaryButton from '../XUISecondaryButton';
-import { SizeClassNames, VariantClassNames } from '../private/constants.js';
+import { SizeClassNames, VariantClassNames } from '../private/constants';
 
 const onClick = () => console.log('Button Click');
 const onSecondaryClick = () => console.log('Secondary Button Click');

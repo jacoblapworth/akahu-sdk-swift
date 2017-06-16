@@ -1,5 +1,5 @@
 import React from 'react';
-import { decorateSubStr } from '../highlighting.js';
+import { decorateSubStr } from '../highlighting';
 
 const boldMatch = (str) => (<strong>{str}</strong>);
 

@@ -4,7 +4,7 @@ import Guid from 'guid';
 import cn from 'classnames';
 import DropDownListBox from './DropDownListBox';
 import DropDownPanel from './DropDownPanel';
-import * as helpers from './private/helpers.js';
+import * as helpers from './private/helpers';
 
 import './scss/_dropDown.scss';
 

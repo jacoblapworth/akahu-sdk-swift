@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import upperCamelCase from 'uppercamelcase';
 import XUIAvatar from '../XUIAvatar';
 import XUIAvatarGroup from '../XUIAvatarGroup';
-import { sizeClassNames, variantClassNames } from '../constants.js';
+import { sizeClassNames, variantClassNames } from '../constants';
 
 const avatarKeys = Object.keys(sizeClassNames);
 const avatarVariants = Object.keys(variantClassNames);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import XUITextArea from '../XUITextArea.js';
+import XUITextArea from '../XUITextArea';
 
 let wrapper = {};
 let changed = false;

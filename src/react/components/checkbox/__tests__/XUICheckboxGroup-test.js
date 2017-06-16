@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import XUICheckbox from '../XUICheckbox.js';
-import XUICheckboxGroup from '../XUICheckboxGroup.js';
+import XUICheckbox from '../XUICheckbox';
+import XUICheckboxGroup from '../XUICheckboxGroup';
 
 const NOOP = () => {} // No operation function
 

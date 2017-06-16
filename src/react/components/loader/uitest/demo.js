@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import XUILoader from '../XUILoader';
-import { sizeClassNames } from '../private/constants.js';
+import { sizeClassNames } from '../private/constants';
 
 ReactDOM.render(
 	<div className="xui-page-width-standard">

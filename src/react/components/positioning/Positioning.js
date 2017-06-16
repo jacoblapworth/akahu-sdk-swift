@@ -234,8 +234,8 @@ class Positioning extends PureComponent {
 		});
 
 		return (
-			<Portal isOpened={!renderHidden} onOpen={popup.positionComponent}>
-				<div style={positioningStyles} ref={portal => popup.positionEl = portal}>
+			<Portal isOpened={!renderHidden} onOpen={popup.positionComponent} >
+				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container">
 					{clonedChildren}
 				</div>
 			</Portal>

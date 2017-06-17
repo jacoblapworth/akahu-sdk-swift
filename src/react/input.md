@@ -1,3 +1,20 @@
+## What
+
+Enhanced `<input />` field.
+
+## Why
+
+## Best Practice
+
+### Do
+
+* TODO
+
+### Don't
+
+* TODO
+
+
 ```
 const search = require ('@xero/xui-icon/icons/search').default;
 const linkedin = require ('@xero/xui-icon/icons/social-linkedin').default;

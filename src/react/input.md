@@ -21,15 +21,6 @@ const onChange = event => console.log(`oh I made a change, value: ${event.target
 				containerClassName="xui-margin-small"
 			/>
 			<XUIInput
-				onChange={onChange}
-				inputAttributes={{
-					placeholder: "Now it's empty",
-					defaultValue: 'This one has focus by default',
-					autoFocus: true
-				}}
-				containerClassName="xui-margin-small"
-			/>
-			<XUIInput
 				inputAttributes={{
 					placeholder: "Now it's empty",
 					defaultValue: 'This one also has a default value and is readonly',

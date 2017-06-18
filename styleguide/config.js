@@ -13,7 +13,7 @@ const styleguidePath = path.resolve(basePath, 'styleguide');
 //
 const componentsFolder = fs.readdirSync(componentPath);
 const filterJsFile = file => /\.js$/.test(file);
-const filterUmdFile = file => /\.umd\.js$/.test(file);
+const filterUmdFile = file => !/\umd\.js$/.test(file);
 const replaceJsExtension = file => file.replace('.js', '');
 const createSectionObject = file => ({
 	name: file.charAt(0).toUpperCase() + file.slice(1),

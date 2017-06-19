@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
 
@@ -25,8 +24,7 @@ export default class DropDownPanel extends PureComponent {
 			children,
 			onSelect,
 			ignoreKeyboardEvents,
-			onHighlightChange,
-			isHidden
+			onHighlightChange
 		} = panel.props;
 
 		let containsPicklist = false;
@@ -36,20 +34,16 @@ export default class DropDownPanel extends PureComponent {
 			}
 		});
 		return (
-			<div className={cn({ 'xui-u-hidden': isHidden })}>
-				{
-					containsPicklist ?
-					<StatefulPicklist
-						ref={c => panel.list = c}
-						onSelect={onSelect}
-						ignoreKeyboardEvents={ignoreKeyboardEvents}
-						onHighlightChange={onHighlightChange}
-					>
-						{children}
-					</StatefulPicklist>
-					: children
-				}
-			</div>
+			containsPicklist ?
+			<StatefulPicklist
+				ref={c => panel.list = c}
+				onSelect={onSelect}
+				ignoreKeyboardEvents={ignoreKeyboardEvents}
+				onHighlightChange={onHighlightChange}
+			>
+				{children}
+			</StatefulPicklist>
+			: children
 		);
 	}
 }
@@ -63,9 +57,6 @@ DropDownPanel.propTypes = {
 
 	/** @property {String} [panelHeading] Used by NestedDropDown to populate the DropDownHeader content */
 	panelHeading: PropTypes.string,
-
-	/** @property {Boolean} [isHidden] Whether the panel is hidden */
-	isHidden: PropTypes.bool,
 
 	/** @property {Array} [ignoreKeyboardEvents] Pass in an array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,

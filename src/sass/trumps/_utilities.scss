@@ -165,6 +165,10 @@
 	justify-content: space-between;
 }
 
+.#{$ns}-u-flex-1 {
+	flex: 1;
+}
+
 .#{$ns}-u-flex-grow {
 	flex-grow: 1;
 }

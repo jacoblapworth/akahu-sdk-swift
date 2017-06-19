@@ -1,14 +1,4 @@
-## What
-
-## Why
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
+Enhanced version of HTML <textarea>.
 
 ```
 <div className="xui-page-width-standard">

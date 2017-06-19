@@ -1,15 +1,3 @@
-## What
-
-## Why
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
-
 ```
 const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
 const noop = () => {};

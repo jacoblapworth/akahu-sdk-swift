@@ -1,18 +1,7 @@
-## What
-
-## Why
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
-
 ## Related
 
 * [Checkbox](#checkbox)
+* [Radio](#radio)
 
 ```
 const { PureComponent } = require('react');

@@ -1,26 +1,9 @@
-## What
-
-Comprehensive responsive Dropdown component enabling users to select one or more items from a list. Supports custom children eg datepicker component, select lists.
-
-## Why
-
-Provide consistent look and behaviour across browsers.
-Provide the building blocks to compose dropdowns
-Dropdown is a set of building blocks [Select Box](#select-box) and [Autocompleter](#autocompleter).
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
+Responsive Dropdown component enabling users to select one or more items from a list. Supports custom children eg datepicker component, select lists.
 
 ### Related Components
 
 * [Select Box](#select-box)
 * [Autocompleter](#autocompleter)
-
 
 ```
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;

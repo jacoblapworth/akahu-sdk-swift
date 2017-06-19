@@ -1,16 +1,7 @@
-## What
+### Usage
 
-## Why
-
-## Best Practice
-
-### Do
-
-* TODO
-
-### Don't
-
-* TODO
+1. Import required icon paths (the below examples use require, you should use es2015 import).
+2. Instance `<XUIIcon /> with imported icon path.
 
 ```
 	const star = require ('@xero/xui-icon/icons/star').default;

@@ -1,15 +1,3 @@
-## What
-
-## Why
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
-
 ```
 const contact = require('@xero/xui-icon/icons/contact').default
 const notification = require('@xero/xui-icon/icons/notification').default

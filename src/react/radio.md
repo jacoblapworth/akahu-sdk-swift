@@ -1,15 +1,3 @@
-## What
-
-## Why
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
-
 ```
 const rowClasses = 'xui-space-around xui-margin-bottom-small';
 console.log(customIcon);

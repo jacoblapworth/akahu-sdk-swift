@@ -1,19 +1,4 @@
-## What
-
-Enhanced `<input />` field.
-
-## Why
-
-## Best Practice
-
-### Do
-
-* TODO
-
-### Don't
-
-* TODO
-
+Enhanced HTML `<input />` field.
 
 ```
 const search = require ('@xero/xui-icon/icons/search').default;

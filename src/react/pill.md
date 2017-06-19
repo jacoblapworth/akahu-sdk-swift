@@ -1,16 +1,3 @@
-
-## What
-
-## Why
-
-## Best Practice
-
-### Do
-
-### Don't
-
-* TODO
-
 ```
 const cn = require ('classnames');
 

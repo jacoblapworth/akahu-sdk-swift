@@ -1,22 +1,6 @@
 ## What
 
-Enhanced verison of HTML `<select />`.
-
-## Why
-
-Provide consistent look and behaviour across browsers.
 Select Box is opinionated and is deigned to be a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour see [Dropdown](#dropdown) and [Autocompleter](#autocompleter).
-
-## Best Practice
-
-### Do
-
-* Use in place of `<select />`
-* TODO
-
-### Don't
-
-* TODO
 
 ### Related Components
 

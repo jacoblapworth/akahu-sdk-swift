@@ -1,4 +1,3 @@
-Hello
 ```
 <XUIAvatar value="foo"/>
 ```

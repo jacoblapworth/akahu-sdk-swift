@@ -9,7 +9,8 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=6.11.0",
+    "npm": ">=5"
   },
   "files": [
     "react",
@@ -56,10 +57,13 @@
     "guid": "0.0.12",
     "lodash.debounce": "4.0.8",
     "lodash.throttle": "4.1.1",
-    "prop-types": "15.5.10",
-    "react": "15.5.4",
-    "react-dom": "15.5.4",
+    "object-assign": "4.1.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-day-picker": "6.0.1",
+    "react-dom": "^15.5.4",
     "react-portal": "3.1.0",
+    "scrollbar-width": "3.1.1",
     "verge": "1.10.2"
   },
   "devDependencies": {
@@ -120,7 +124,6 @@
     "react-test-renderer": "15.5.4",
     "rimraf": "2.6.1",
     "sass-loader": "6.0.5",
-    "scrollbar-width": "3.1.1",
     "simple-mock": "0.8.0",
     "sinon": "2.3.2",
     "static-search-indexer": "git://github.dev.xero.com/XeroJS/static-search-indexer.git#1.0.0-alpha.2",

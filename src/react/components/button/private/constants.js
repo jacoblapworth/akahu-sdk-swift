@@ -3,7 +3,7 @@
  * Map of sizes to XUI Classes properties
  */
 export const SizeClassNames = {
-	"small": 'xui-button-small',
+	'small': 'xui-button-small',
 	'full-width': 'xui-u-fullwidth',
 	'full-width-mobile': 'xui-button-fullwidth-layout'
 };
@@ -13,14 +13,15 @@ export const SizeClassNames = {
  * Map of variants to class names
  */
 export const VariantClassNames = {
-	"primary": 'xui-button-main',
-	"create": 'xui-button-create',
-	"link": 'xui-button-link',
-	"negative": 'xui-button-negative',
-	"standard": 'xui-button-standard',
-	"icon": 'xui-button-icon',
+	'primary': 'xui-button-main',
+	'create': 'xui-button-create',
+	'link': 'xui-button-link',
+	'negative': 'xui-button-negative',
+	'standard': 'xui-button-standard',
+	'icon': 'xui-button-icon',
+	'icon-large': 'xui-button-icon xui-button-icon-large',
 	'icon-inverted': 'xui-button-icon-inverted',
-	"unstyled": ''
+	'unstyled': ''
 };
 
 /**

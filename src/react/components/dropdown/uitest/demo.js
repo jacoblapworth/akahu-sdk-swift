@@ -10,7 +10,7 @@ import DropDownHeader from '../DropDownHeader';
 import DropDownFooter from '../DropDownFooter';
 import NestedDropDown from '../NestedDropDown';
 import DropDownPanel from '../DropDownPanel';
-//import { DatePicker } from 'xui-datepicker';
+import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIInput from '../../input/XUIInput';
@@ -228,11 +228,11 @@ class ToggledNestedDropdown extends Component {
 					panelName="default"
 					panelHeading="Primary filters">
 					<Picklist>
-						{/*<Pickitem
+						<Pickitem
 							id="DatePickerOpen"
 							onSelect={()=>this.selectPanel('dateMenu')}>
 							Date Selection
-						</Pickitem>*/}
+						</Pickitem>
 						<Pickitem
 							id="ClearDate"
 							onSelect={()=>this.clearDate()}>
@@ -280,14 +280,15 @@ class ToggledNestedDropdown extends Component {
 						{createItems(statefulMultiselectItems[1], exampleUsage.state.selectedItems)}
 					</Picklist>
 				</DropDownPanel>
-				{/*<DropDownPanel
+				<DropDownPanel
 					panelName="startDate"
 					parentPanel="dateMenu"
 					panelHeading="Date selection">
-					<DatePicker
+					<XUIDatePicker
+						selectedDate={this.state.selectedDate}
 						onSelectDate={date => this.onSelectDate(date)}
 					/>
-				</DropDownPanel>*/}
+				</DropDownPanel>
 			</NestedDropDown>
 		);
 		return (

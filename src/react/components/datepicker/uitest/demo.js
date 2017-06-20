@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Calendar from '../Calendar';
+import XUIDatePicker from '../XUIDatePicker';
 import XUICheckbox from '../../checkbox/XUICheckbox';
 
 function minDate(d1, d2) {
@@ -36,36 +36,35 @@ class ExamplePicker extends React.Component {
       selectedDate: null,
       selectRange: false,
     };
-    ['onSelectDate', 'toggleRange'].forEach(name => this[name] = this[name].bind(this));
   }
 
-  onSelectDate(date) {
+  onSelectDate = newDate => {
     if (this.state.selectRange) {
-      this.setState((prevState) => {
+      this.setState(prevState => {
         const { selectedDate } = prevState;
         if (selectedDate && selectedDate.from && !selectedDate.to) {
           return {
             selectedDate: {
-              from: minDate(selectedDate.from, date),
-              to: maxDate(selectedDate.from, date),
+              from: minDate(selectedDate.from, newDate),
+              to: maxDate(selectedDate.from, newDate),
             },
           };
         }
         return {
           selectedDate: {
-            from: date,
+            from: newDate,
             to: null,
           },
         };
       });
     } else {
       this.setState({
-        selectedDate: date,
+        selectedDate: newDate,
       });
     }
   }
 
-  toggleRange() {
+  toggleRange = () => {
     this.setState(prevState => ({
       selectRange: !prevState.selectRange,
       selectedDate: null,
@@ -96,7 +95,7 @@ class ExamplePicker extends React.Component {
 				<XUICheckbox checked={this.state.selectRange} onChange={this.toggleRange}>
 					Select Date Ranges
 				</XUICheckbox>
-        <Calendar {...calendarProps} />
+        <XUIDatePicker {...calendarProps} />
       </div>
     );
   }
@@ -124,7 +123,7 @@ ReactDOM.render(
 		</section>
 		<section>
 			<h3>Panel - maxDate = next month</h3>
-			<div className="xui-panel xui-padding "><ExamplePicker maxDate={nextMonth} /></div>
+			<div className="xui-panel xui-padding"><ExamplePicker maxDate={nextMonth} /></div>
 		</section>
 		<section>
 			<h3>Compact - fixed weeks && minDate = last week && maxDate = next month</h3>
@@ -132,16 +131,18 @@ ReactDOM.render(
 		</section>
 		<section>
 			<h3>Arabic - RTL</h3>
-			<ExamplePicker
-				months={arabic.months}
-				weekdaysLong={arabic.weekdaysLong}
-				weekdaysShort={arabic.weekdaysShort}
-				nextButtonLabel={arabic.nextButtonLabel}
-				prevButtonLabel={arabic.prevButtonLabel}
-				dir={arabic.dir}
-				locale={arabic.locale}
-			/>
+			<div className="xui-panel xui-padding">
+				<ExamplePicker
+					months={arabic.months}
+					weekdaysLong={arabic.weekdaysLong}
+					weekdaysShort={arabic.weekdaysShort}
+					nextButtonLabel={arabic.nextButtonLabel}
+					prevButtonLabel={arabic.prevButtonLabel}
+					dir={arabic.dir}
+					locale={arabic.locale}
+				/>
+			</div>
 		</section>
-	</div>
-	, document.getElementById('app')
+	</div>,
+	document.getElementById('app')
 );

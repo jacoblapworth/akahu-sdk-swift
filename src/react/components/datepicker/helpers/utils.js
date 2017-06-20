@@ -15,16 +15,16 @@ export function zeroPad(number) {
  * Make sure that date range objects at least have the right shape.
  *
  * @export
- * @param {{from: Date|null, to: Date|null}} range
- * @returns {boolean}
+ * @param {{from: ?Date, to: ?Date}} range
+ * @returns {Boolean}
  */
 export function normalizeRange(range) {
   if (!range) {
     return null;
   }
   return {
-    from: range.from || null,
-    to: range.to || null,
+    from: range.from == null ? null : range.from,
+    to: range.to == null ? null : range.to,
   };
 }
 

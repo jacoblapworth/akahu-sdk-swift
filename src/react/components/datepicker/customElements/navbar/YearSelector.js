@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { intlNumber } from '../../helpers/utils';
 
 export default function YearSelector({
 	minDate,
@@ -10,7 +9,6 @@ export default function YearSelector({
 	selectRef,
 	onChange,
 	onKeyDown,
-	locale,
 }) {
 	const currentYear = currentMonthDate.getFullYear();
 	const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
@@ -24,7 +22,7 @@ export default function YearSelector({
 			htmlFor={id}
 			className="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall xui-text-deemphasis"
 		>
-			{intlNumber(currentYear, locale)}
+			{currentYear}
 		</label>
 	);
 
@@ -43,7 +41,7 @@ export default function YearSelector({
 				{
 					visibleYears.map(year => (
 						<option key={year} value={year}>
-							{intlNumber(year, locale)}
+							{year}
 						</option>
 					))
 				}

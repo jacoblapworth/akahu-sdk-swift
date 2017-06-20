@@ -135,18 +135,3 @@ export function normalizeDisplayedMonth(displayedMonth, minDate, maxDate) {
 	}
 	return normalized;
 }
-
-/**
- * If the browser supports internationalizing numbers for us, we should do that.
- *
- * @export
- * @param {Number} num
- * @param {String} locale
- * @returns {String}
- */
-export function intlNumber(num, locale) {
-	if (typeof Intl !== 'undefined' && typeof Intl.NumberFormat === 'function') {
-		return Intl.NumberFormat(locale, { useGrouping: false }).format(num);
-	}
-	return num.toString();
-}

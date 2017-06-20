@@ -7,14 +7,12 @@ import CustomCaption from './customElements/CustomCaption';
 import CustomWeekday from './customElements/CustomWeekday';
 import { customClassNames } from './helpers/constants';
 import {
-	intlNumber,
 	normalizeRange,
 	formatDateISO,
 	isRangeComplete,
 	isPartialRange,
 	isStartOfPartialRange,
 	normalizeDisplayedMonth,
-	normalizeDate,
 } from './helpers/utils';
 
 const customCaptionElement = <CustomCaption />;
@@ -191,7 +189,7 @@ export default class Calendar extends PureComponent {
 		const dateTime = formatDateISO(day);
 		return (
 			<time ref={n => this.dateRefs[dateTime] = n} dateTime={dateTime} className="xui-datepicker--day--time">
-				{intlNumber(day.getDate(), this.props.locale)}
+				{day.getDate()}
 			</time>
 		);
 	}

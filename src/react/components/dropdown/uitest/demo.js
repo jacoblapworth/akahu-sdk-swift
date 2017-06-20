@@ -298,10 +298,31 @@ class ToggledNestedDropdown extends Component {
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}
+				closeOnTab={false}
 				ref={dt => this.dropDownToggle = dt}
 				onCloseAnimationEnd={this.resetCurrentPanel}
 			/>
 		);
+	}
+}
+
+class WithForm extends Component {
+	render() {
+		const trigger = (
+			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+				Open Button <XUIButtonCart />
+			</XUIButton>
+		);
+		const dropdown = (
+			<DropDown>
+				<form className="xui-padding">
+					<div><label htmlFor="a">First: </label><input type="text" /></div>
+					<div><label htmlFor="b">Second: </label><input type="text" /></div>
+					<div><label htmlFor="c">Third: </label><input type="text" /></div>
+				</form>
+			</DropDown>
+		);
+		return <DropDownToggled trigger={trigger} dropdown={dropdown} closeOnTab={false} />;
 	}
 }
 
@@ -402,6 +423,13 @@ ReactDOM.render(
 				<Pickitem id="plain4" href="http://xero.com">A Fourth Item</Pickitem>
 				<Pickitem id="plain5">Last Item</Pickitem>
 			</Picklist>
+		</div>
+		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
+			<div className="xui-text-panelheading xui-margin-bottom">Dropdown with a Form Inside</div>
+			<p className='xui-text-label'>
+				Simple test case for putting a form in a dropdown
+			</p>
+			<WithForm />
 		</div>
 	</div>,
 	document.getElementById('app')

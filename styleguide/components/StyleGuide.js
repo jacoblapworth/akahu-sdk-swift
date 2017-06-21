@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from 'rsg-components/Logo';
-import Markdown from 'rsg-components/Markdown';
-import Styled from 'rsg-components/Styled';
+import Logo from 'rsg-components/Logo'; // eslint-disable-line import/no-unresolved
+import Markdown from 'rsg-components/Markdown'; // eslint-disable-line import/no-unresolved
+import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
 import cx from 'classnames';
 
 import '../styles.scss';

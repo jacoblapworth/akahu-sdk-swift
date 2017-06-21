@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import noop from 'lodash/noop';
 import { transform } from 'buble';
-import PlaygroundError from 'rsg-components/PlaygroundError';
-import Wrapper from 'rsg-components/Wrapper';
+import PlaygroundError from 'rsg-components/PlaygroundError'; // eslint-disable-line import/no-unresolved
+import Wrapper from 'rsg-components/Wrapper'; // eslint-disable-line import/no-unresolved
 
 /* eslint-disable react/no-multi-comp */
 

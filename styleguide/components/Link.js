@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Styled from 'rsg-components/Styled';
+import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
 
 export const styles = ({ color }) => ({
 	link: {

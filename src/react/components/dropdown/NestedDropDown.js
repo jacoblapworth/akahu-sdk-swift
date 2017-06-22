@@ -39,19 +39,26 @@ export default class NestedDropDown extends DropDown {
 		const dropdownClasses = cn('xui-dropdown-fullheight', className);
 		let parentPanel;
 		let panelHeading;
+
 		const childrenToRender =
 			React.Children.map(children, (child) => {
-				if (child.props && child.props.panelName === currentPanel) {
+				const isCurrentPanel = (child.props && child.props.panelName === currentPanel);
+				if (isCurrentPanel) {
 					({panelHeading, parentPanel} = child.props);
-					return React.cloneElement(child, {
-						ref: oc => dropdown.panel = oc,
-						onSelect: compose(child.props.onSelect, onSelect),
-						onHighlightChange: compose(child.props.onHighlightChange, dropdown.onHighlightChange)
-					});
 				}
-				return React.cloneElement(child, {
-					isHidden: true
-				});
+				return (
+					<div className={cn({ 'xui-u-hidden': !isCurrentPanel })}>
+						{
+							isCurrentPanel ?
+								React.cloneElement(child, {
+									ref: oc => dropdown.panel = oc,
+									onSelect: compose(child.props.onSelect, onSelect),
+									onHighlightChange: compose(child.props.onHighlightChange, dropdown.onHighlightChange)
+								})
+								: child
+						}
+					</div>
+				);
 			});
 
 		const header =

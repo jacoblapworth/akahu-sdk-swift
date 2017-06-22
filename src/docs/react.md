@@ -1,10 +1,10 @@
 # XUI React Components
 
-In the past, React components were all located in their own git repositories and installed via bower.  However, some things have changed that make bring XUI CSS and components together much more desirable.
+In the past, React components were all located in their own git repositories and installed via bower.  However, some things have changed that make bringing XUI CSS and components together much more desirable.
 
 The two primary factors are around release cadence and interdependency between components. Release autonomy between XUI and components has been great as we built out the base css library and initial suite of components. However recently it has made it increasingly hard to introduce changes to components that are used heavily by other components (think icon & button).
 
-Also the wider FED community has gone all in on an npm/yarn based package management and the effortt to maintain a bower compatibility layer has been increasing in cost.
+Also the wider FED community has gone all in on an npm/yarn based package management and the effort to maintain a bower compatibility layer has been increasing in cost.
 
 Because of this, we have moved all the React components here into the XUI repository.  This will enable us to improve consistency, testability, and release cadence.  All components will now version together and be released simultaneously as a single artifact in Artifactory.
 

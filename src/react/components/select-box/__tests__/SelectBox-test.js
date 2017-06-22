@@ -13,9 +13,9 @@ describe('SelectBox', function () {
 	beforeEach(function () {
 		select = mount(
 			<SelectBox
-				label='Test Select Box'
+				label="Test Select Box"
 				value={options[0]}
-				name='Test'
+				name="Test"
 				buttonContent={options[0]}
 				buttonClasses="blah"
 			>
@@ -75,7 +75,7 @@ describe('SelectBox', function () {
 	});
 
 	it('should open the dropdown on arrowDown', function() {
-		select.find('button.blah').first().simulate('keyDown', {
+		select.find('button.blah').first().simulate('keydown', {
 			key: 'down arrow',
 			keyCode: 40,
 			which: 40

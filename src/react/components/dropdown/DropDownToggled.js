@@ -106,7 +106,7 @@ export default class DropDownToggled extends PureComponent {
 		}
 	}
 
-	onOpen(){
+	onOpen() {
 		const ddt = this;
 		const { onOpen } = ddt.props;
 
@@ -193,7 +193,10 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	onKeyDown(e) {
 		if (!this.state.isHidden && (e.keyCode === 9 || e.keyCode === 27)) {
-			this.closeDropDown();
+			// If the user doesn't want to close when the tab key is hit, don't
+			if (e.keyCode !== 9 || this.props.closeOnTab) {
+				this.closeDropDown();
+			}
 		}
 	}
 
@@ -204,8 +207,10 @@ export default class DropDownToggled extends PureComponent {
 	 * Will close the dropdown if the esc key is pressed within the dropdown.
 	 */
 	onDropDownKeyDown(e) {
-		if (!this.state.isHidden && e.keyCode === 27) {
-			this.closeDropDown();
+		if (!this.state.isHidden && (e.keyCode === 27 || e.keyCode === 9)) {
+			if (e.keyCode !== 9 || this.props.closeOnTab) {
+				this.closeDropDown();
+			}
 		}
 	}
 
@@ -217,6 +222,7 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	onTriggerKeyDown(e) {
 		if (e.keyCode === 40 && this.state.isHidden) {
+			e.preventDefault();
 			this.openDropDown();
 		}
 	}
@@ -281,7 +287,7 @@ export default class DropDownToggled extends PureComponent {
 	* Will fire when the animation is complete on the dropdown so we can tell the portal
 	* to remove itself from the DOM.
 	*/
-	onCloseAnimationEnd(){
+	onCloseAnimationEnd() {
 		const ddt = this;
 
 		if (ddt.state.isHidden){
@@ -384,6 +390,9 @@ DropDownToggled.propTypes = {
 	/** @property {Boolean} [closeOnSelect=true] Whether or not the dropdown should be automatically hidden when the user selects something */
 	closeOnSelect: PropTypes.bool,
 
+	/** @prop {Boolean} [closeOnTab=true] Whether or not the dropdown should be automatically hidden when the user hits the tab key.  Good to turn this off if you've got a date picker, nested dropd down, form, or other complex component inside of a dropdown. */
+	closeOnTab: PropTypes.bool,
+
 	/** @property {Boolean} [restrictToViewPort=true] Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
 	restrictToViewPort: PropTypes.bool,
 
@@ -400,6 +409,7 @@ DropDownToggled.propTypes = {
 DropDownToggled.defaultProps = {
 	isHidden: true,
 	closeOnSelect: true,
+	closeOnTab: true,
 	restrictToViewPort: true,
 	disableScrollLocking: false,
 	triggerClickAction: 'toggle',

@@ -10,7 +10,7 @@ import DropDownHeader from '../DropDownHeader';
 import DropDownFooter from '../DropDownFooter';
 import NestedDropDown from '../NestedDropDown';
 import DropDownPanel from '../DropDownPanel';
-//import { DatePicker } from 'xui-datepicker';
+import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIInput from '../../input/XUIInput';
@@ -228,11 +228,11 @@ class ToggledNestedDropdown extends Component {
 					panelName="default"
 					panelHeading="Primary filters">
 					<Picklist>
-						{/*<Pickitem
+						<Pickitem
 							id="DatePickerOpen"
 							onSelect={()=>this.selectPanel('dateMenu')}>
 							Date Selection
-						</Pickitem>*/}
+						</Pickitem>
 						<Pickitem
 							id="ClearDate"
 							onSelect={()=>this.clearDate()}>
@@ -280,14 +280,15 @@ class ToggledNestedDropdown extends Component {
 						{createItems(statefulMultiselectItems[1], exampleUsage.state.selectedItems)}
 					</Picklist>
 				</DropDownPanel>
-				{/*<DropDownPanel
+				<DropDownPanel
 					panelName="startDate"
 					parentPanel="dateMenu"
 					panelHeading="Date selection">
-					<DatePicker
+					<XUIDatePicker
+						selectedDate={this.state.selectedDate}
 						onSelectDate={date => this.onSelectDate(date)}
 					/>
-				</DropDownPanel>*/}
+				</DropDownPanel>
 			</NestedDropDown>
 		);
 		return (
@@ -297,10 +298,31 @@ class ToggledNestedDropdown extends Component {
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}
+				closeOnTab={false}
 				ref={dt => this.dropDownToggle = dt}
 				onCloseAnimationEnd={this.resetCurrentPanel}
 			/>
 		);
+	}
+}
+
+class WithForm extends Component {
+	render() {
+		const trigger = (
+			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+				Open Button <XUIButtonCart />
+			</XUIButton>
+		);
+		const dropdown = (
+			<DropDown>
+				<form className="xui-padding">
+					<div><label htmlFor="a">First: </label><input type="text" /></div>
+					<div><label htmlFor="b">Second: </label><input type="text" /></div>
+					<div><label htmlFor="c">Third: </label><input type="text" /></div>
+				</form>
+			</DropDown>
+		);
+		return <DropDownToggled trigger={trigger} dropdown={dropdown} closeOnTab={false} />;
 	}
 }
 
@@ -401,6 +423,13 @@ ReactDOM.render(
 				<Pickitem id="plain4" href="http://xero.com">A Fourth Item</Pickitem>
 				<Pickitem id="plain5">Last Item</Pickitem>
 			</Picklist>
+		</div>
+		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
+			<div className="xui-text-panelheading xui-margin-bottom">Dropdown with a Form Inside</div>
+			<p className='xui-text-label'>
+				Simple test case for putting a form in a dropdown
+			</p>
+			<WithForm />
 		</div>
 	</div>,
 	document.getElementById('app')

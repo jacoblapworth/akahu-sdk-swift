@@ -29,7 +29,8 @@ const shouldHandleKeyDown = (event, dropdown) => {
 				|| event.target === dropdown.listBox.rootNode
 				|| event.keyCode === 38 // Up Arrow
 				|| event.keyCode === 40 // Down Arrow
-				|| event.keyCode === 27; // Escape
+				|| event.keyCode === 27 // Escape
+				|| event.keyCode === 9; // Tab
 };
 
 export default class DropDown extends PureComponent {
@@ -134,7 +135,7 @@ export default class DropDown extends PureComponent {
 			ignoreKeyboardEvents,
 			style,
 			header,
-			onCloseAnimationEnd
+			onCloseAnimationEnd,
 		} = dropdown.props;
 
 		const dropdownClasses = cn( {'xui-dropdown-fullheight' : header}, className)
@@ -201,14 +202,16 @@ DropDown.propTypes = {
 	/** @property {Boolean} [restrictFocus=true] Whether focus should be restricted to the dropdown while it's open */
 	restrictFocus: PropTypes.bool,
 
-	/** @property {function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
+	/** @property {Function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
 	onHighlightChange: PropTypes.func,
-	onCloseAnimationEnd: PropTypes.func
+
+	/** @prop {Function} [onCloseAnimationEnd] */
+	onCloseAnimationEnd: PropTypes.func,
 };
 
 DropDown.defaultProps = {
 	ignoreKeyboardEvents: [],
 	isHidden: false,
 	hasKeyboardEvents: true,
-	restrictFocus: true
+	restrictFocus: true,
 };

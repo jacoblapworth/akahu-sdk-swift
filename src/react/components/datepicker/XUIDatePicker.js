@@ -292,7 +292,7 @@ Calendar.propTypes = {
 	maxDate: PropTypes.instanceOf(Date),
 
 	/** @prop {Date} A date which represents the year and month that the calendar will display.  Could be any day in the given day and month. */
-	displayedMonth: PropTypes.instanceOf(Date).isRequired,
+	displayedMonth: PropTypes.instanceOf(Date),
 
 	/** @prop {String} An accessibility label for the next month button that will be read to users with a screen reader.  */
 	nextButtonLabel: PropTypes.string,

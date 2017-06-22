@@ -79,6 +79,7 @@ const config = {
 			alias: {
 				"./theme": path.resolve(styleguidePath, "components/theme"),
 				"rsg-components/ComponentsList": path.resolve(styleguidePath, "components/ComponentsList"),
+				"rsg-components/ExamplePlaceholder": path.resolve(styleguidePath, "components/ExamplePlaceholder"),
 				"rsg-components/Link": path.resolve(styleguidePath, "components/Link"),
 				"rsg-components/StyleGuide/StyleGuideRenderer": path.resolve(styleguidePath, "components/StyleGuide"),
 				"rsg-components/TableOfContents/TableOfContentsRenderer": path.resolve(styleguidePath, "components/TableOfContents"),
@@ -93,7 +94,7 @@ const config = {
 	},
 	title: 'XUI Components',
 	styleguideDir: styleguidePath,
-	showUsage: true,
+	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",
 		"**/Constants.js",

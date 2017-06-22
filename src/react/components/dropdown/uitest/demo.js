@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Guid from 'guid';
+import uuidv4 from 'uuid/v4';
 import checked from '@xero/xui-icon/icons/checkbox-check';
 import XUIIcon from '../../icon/XUIIcon';
 import DropDown from '../DropDown';
@@ -32,46 +32,46 @@ function createItems(items, selectedId) {
 }
 
 const toggledItems = [
-	{ props: { id: Guid.raw() }, text: 'a' },
-	{ props: { id: Guid.raw() }, text: 'b' },
-	{ props: { id: Guid.raw() }, text: 'c' },
-	{ props: { id: Guid.raw() }, text: 'd' },
-	{ props: { id: Guid.raw() }, text: 'e' },
-	{ props: { id: Guid.raw() }, text: 'f' },
-	{ props: { id: Guid.raw() }, text: 'g' },
-	{ props: { id: Guid.raw() }, text: 'h' },
-	{ props: { id: Guid.raw() }, text: 'i' },
-	{ props: { id: Guid.raw() }, text: 'j' },
-	{ props: { id: Guid.raw() }, text: 'k' },
-	{ props: { id: Guid.raw() }, text: 'l' },
-	{ props: { id: Guid.raw() }, text: 'm' },
-	{ props: { id: Guid.raw() }, text: 'n' },
-	{ props: { id: Guid.raw() }, text: 'o' },
-	{ props: { id: Guid.raw() }, text: 'p' },
-	{ props: { id: Guid.raw() }, text: 'q' },
-	{ props: { id: Guid.raw() }, text: 'r' },
-	{ props: { id: Guid.raw() }, text: 's' },
-	{ props: { id: Guid.raw() }, text: 't' },
-	{ props: { id: Guid.raw() }, text: 'u' },
-	{ props: { id: Guid.raw() }, text: 'v' },
-	{ props: { id: Guid.raw() }, text: 'w' },
-	{ props: { id: Guid.raw() }, text: 'x' },
-	{ props: { id: Guid.raw() }, text: 'y' },
-	{ props: { id: Guid.raw() }, text: 'z' }
+	{ props: { id: uuidv4() }, text: 'a' },
+	{ props: { id: uuidv4() }, text: 'b' },
+	{ props: { id: uuidv4() }, text: 'c' },
+	{ props: { id: uuidv4() }, text: 'd' },
+	{ props: { id: uuidv4() }, text: 'e' },
+	{ props: { id: uuidv4() }, text: 'f' },
+	{ props: { id: uuidv4() }, text: 'g' },
+	{ props: { id: uuidv4() }, text: 'h' },
+	{ props: { id: uuidv4() }, text: 'i' },
+	{ props: { id: uuidv4() }, text: 'j' },
+	{ props: { id: uuidv4() }, text: 'k' },
+	{ props: { id: uuidv4() }, text: 'l' },
+	{ props: { id: uuidv4() }, text: 'm' },
+	{ props: { id: uuidv4() }, text: 'n' },
+	{ props: { id: uuidv4() }, text: 'o' },
+	{ props: { id: uuidv4() }, text: 'p' },
+	{ props: { id: uuidv4() }, text: 'q' },
+	{ props: { id: uuidv4() }, text: 'r' },
+	{ props: { id: uuidv4() }, text: 's' },
+	{ props: { id: uuidv4() }, text: 't' },
+	{ props: { id: uuidv4() }, text: 'u' },
+	{ props: { id: uuidv4() }, text: 'v' },
+	{ props: { id: uuidv4() }, text: 'w' },
+	{ props: { id: uuidv4() }, text: 'x' },
+	{ props: { id: uuidv4() }, text: 'y' },
+	{ props: { id: uuidv4() }, text: 'z' }
 ];
 
 const statefulMultiselectItems = [
 	[
-		{ props: { id: Guid.raw(), className: 'item', disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 1' },
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 2' },
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 3' },
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 4' }
+		{ props: { id: uuidv4(), className: 'item', disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 1' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 2' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 3' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 4' }
 	],
 	[
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 1' },
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 2' },
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 3' },
-		{ props: { id: Guid.raw(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 4' }
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 1' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 2' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 3' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 4' }
 	]
 ];
 

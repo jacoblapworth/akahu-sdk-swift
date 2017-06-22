@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Guid from 'guid';
+import uuidv4 from 'uuid/v4';
 import cn from 'classnames';
 import DropDownListBox from './DropDownListBox';
 import DropDownPanel from './DropDownPanel';
@@ -40,7 +40,7 @@ export default class DropDown extends PureComponent {
 		const dropdown = this;
 		const { isHidden, restrictFocus } = dropdown.props
 
-		dropdown.dropdownId = props.id || Guid.raw();
+		dropdown.dropdownId = props.id || uuidv4();
 		dropdown.onKeyDown = dropdown.onKeyDown.bind(dropdown);
 		dropdown.onHighlightChange = dropdown.onHighlightChange.bind(dropdown);
 		dropdown.highlightItem = dropdown.highlightItem.bind(dropdown);

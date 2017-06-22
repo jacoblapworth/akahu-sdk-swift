@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
-import Guid from 'guid'
+import uuidv4 from 'uuid/v4'
 import XUIAvatarCounter from './XUIAvatarCounter';
 import { sizeClassNames, classNames } from './constants';
 
@@ -10,7 +10,7 @@ export default class XUIAvatarGroup extends PureComponent {
 		const { props } = this;
 		const { maxAvatars, avatarSize } = props;
 
-		if(maxAvatars === 0) {
+		if (maxAvatars === 0) {
 			return null;
 		}
 
@@ -25,7 +25,7 @@ export default class XUIAvatarGroup extends PureComponent {
 		if(avatarSize || counter) {
 			children = React.Children.map(props.children, function(child, idx) {
 				return idx < lastChildIndex ? React.cloneElement(child, {
-					key: Guid.raw(),
+					key: uuidv4(),
 					...child.props,
 					size: avatarSize
 				}) : null;

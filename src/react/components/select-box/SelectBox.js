@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Guid from 'guid';
+import uuidv4 from 'uuid/v4';
 import caret from '@xero/xui-icon/icons/caret';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
@@ -30,7 +30,7 @@ export default class SelectBox extends Component {
 	constructor(props) {
 		super(props);
 		const selectBox = this;
-		selectBox.ariaId = Guid.raw();
+		selectBox.ariaId = uuidv4();
 		[
 			selectBox.isDropDownOpen,
 			selectBox.onLabelClick

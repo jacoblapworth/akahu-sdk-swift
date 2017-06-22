@@ -55,7 +55,6 @@
   "dependencies": {
     "@xero/xui-icon": "5.0.0-rc.2",
     "classnames": "2.1.0",
-    "guid": "0.0.12",
     "lodash.debounce": "4.0.8",
     "lodash.throttle": "4.1.1",
     "object-assign": "4.1.1",
@@ -132,6 +131,7 @@
     "stylelint": "7.7.1",
     "stylelint-order": "0.4.4",
     "uppercamelcase": "3.0.0",
+    "uuid": "3.1.0",
     "webpack": "2.6.1",
     "yargs": "3.29.0"
   }

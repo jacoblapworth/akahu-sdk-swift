@@ -1,5 +1,3 @@
-`import XUIButton from '@xero/xui/react/button';`
-
 Default:
 
 ```

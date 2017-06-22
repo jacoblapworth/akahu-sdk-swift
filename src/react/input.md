@@ -1,3 +1,5 @@
+Enhanced HTML `<input />` field.
+
 ```
 const search = require ('@xero/xui-icon/icons/search').default;
 const linkedin = require ('@xero/xui-icon/icons/social-linkedin').default;
@@ -18,15 +20,6 @@ const onChange = event => console.log(`oh I made a change, value: ${event.target
 			<XUIInput
 				onChange={onChange}
 				inputAttributes={{ placeholder: 'Number', type: 'number' }}
-				containerClassName="xui-margin-small"
-			/>
-			<XUIInput
-				onChange={onChange}
-				inputAttributes={{
-					placeholder: "Now it's empty",
-					defaultValue: 'This one has focus by default',
-					autoFocus: true
-				}}
 				containerClassName="xui-margin-small"
 			/>
 			<XUIInput

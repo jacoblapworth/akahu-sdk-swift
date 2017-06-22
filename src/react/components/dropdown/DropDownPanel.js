@@ -52,8 +52,8 @@ DropDownPanel.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 
-	/** @property {String} [panelName] Used by NestedDropDown to identify each panel */
-	panelName: PropTypes.string,
+	/** @property {String} [panelId] Used by NestedDropDown to identify each panel */
+	panelId: PropTypes.string,
 
 	/** @property {String} [panelHeading] Used by NestedDropDown to populate the DropDownHeader content */
 	panelHeading: PropTypes.string,

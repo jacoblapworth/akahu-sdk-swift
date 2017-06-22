@@ -162,9 +162,9 @@ class ToggledNestedDropdown extends Component {
 		});
 	}
 
-	selectPanel(panelName) {
+	selectPanel(panelId) {
 		this.setState({
-			currentPanel: panelName,
+			currentPanel: panelId,
 		});
 	}
 
@@ -220,10 +220,10 @@ class ToggledNestedDropdown extends Component {
 					secondaryButtonContent: 'Cancel',
 					onSecondaryButtonClick: this.closeNestedDropDown
 				}}
-				onPanelSelect={panelName => this.selectPanel(panelName)}
+				onPanelSelect={panelId => this.selectPanel(panelId)}
 			>
 				<DropDownPanel
-					panelName="default"
+					panelId="default"
 					panelHeading="Primary filters">
 					<Picklist>
 						<Pickitem
@@ -251,7 +251,7 @@ class ToggledNestedDropdown extends Component {
 					</Picklist>
 				</DropDownPanel>
 				<DropDownPanel
-					panelName="dateMenu"
+					panelId="dateMenu"
 					parentPanel="default"
 					panelHeading="Date selection with a really long title">
 					<Picklist>
@@ -267,7 +267,7 @@ class ToggledNestedDropdown extends Component {
 					</Picklist>
 				</DropDownPanel>
 				<DropDownPanel
-					panelName="checkboxes"
+					panelId="checkboxes"
 					parentPanel="default"
 					panelHeading="Checkboxes!"
 					onSelect={exampleUsage.onOptionSelect}>
@@ -279,7 +279,7 @@ class ToggledNestedDropdown extends Component {
 					</Picklist>
 				</DropDownPanel>
 				<DropDownPanel
-					panelName="startDate"
+					panelId="startDate"
 					parentPanel="dateMenu"
 					panelHeading="Date selection">
 					<XUIDatePicker

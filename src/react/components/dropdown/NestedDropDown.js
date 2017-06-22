@@ -42,7 +42,7 @@ export default class NestedDropDown extends DropDown {
 
 		const childrenToRender =
 			React.Children.map(children, (child) => {
-				const isCurrentPanel = (child.props && child.props.panelName === currentPanel);
+				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
 				if (isCurrentPanel) {
 					({panelHeading, parentPanel} = child.props);
 				}
@@ -126,7 +126,7 @@ NestedDropDown.propTypes = {
 	onHighlightChange: PropTypes.func,
 	onCloseAnimationEnd: PropTypes.func,
 
-	/** @property {string} [currentPanel] The `panelName` propety of the panel which should currently be open */
+	/** @property {string} [currentPanel] The `panelId` propety of the panel which should currently be open */
 	currentPanel: PropTypes.string,
 
 	/** @property {Function} [onPanelChange] Callback for when the open DropDownPanel changes. Receives the name of the selected panel, and the previously selected panel. */

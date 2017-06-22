@@ -1,5 +1,5 @@
 import React from 'react';
-import guid from 'guid';
+import uuidv4 from 'uuid/v4';
 
 /**
  *	Find all case-insensitive matches of a sub-string in a string and replace them with the output of decorateFn.
@@ -16,7 +16,7 @@ export const decorateSubStr = (str, searchStr, decorateFn)	=> {
 	// If the search string is the same as the result, return a decorated full match
 	if (str === searchStr) {
 		//v1() creates a unique time based key
-		return decorateFn(str, guid.raw());
+		return decorateFn(str, uuidv4());
 	}
 
 	// If there's no search string or its greater than a match there's no need to decorate in this case.
@@ -40,7 +40,7 @@ export const decorateSubStr = (str, searchStr, decorateFn)	=> {
 			result[resultIdx++] = splitString[i];
 		}
 		if (matches[i]) {
-			result[resultIdx++] = decorateFn(matches[i], guid.raw());
+			result[resultIdx++] = decorateFn(matches[i], uuidv4());
 		}
 	}
 	return result;

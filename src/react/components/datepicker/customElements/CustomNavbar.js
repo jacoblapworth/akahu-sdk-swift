@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { NavbarPropTypes, DateUtils } from 'react-day-picker';
 import PropTypes from 'prop-types';
-import Guid from 'guid';
+import uuidv4 from 'uuid/v4';
 import assign from 'object-assign';
 import arrow from '@xero/xui-icon/icons/arrow';
 import XUIIcon from '../../icon/XUIIcon';
@@ -21,8 +21,8 @@ const isArrowKey = keyCode => keyCode >=37 && keyCode <= 40;
 export default class CustomNavbar extends PureComponent {
 	constructor(props) {
 		super(props);
-		this.yearId = Guid.raw();
-		this.monthId = Guid.raw();
+		this.yearId = uuidv4();
+		this.monthId = uuidv4();
 	}
 
 	onDateChange = date => {

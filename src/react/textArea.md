@@ -1,4 +1,4 @@
-Enhanced version of HTML <textarea>.
+Enhanced version of HTML `<textarea />`.
 
 ```
 <div className="xui-page-width-standard">

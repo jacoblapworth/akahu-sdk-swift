@@ -1,6 +1,5 @@
 ```
 const rowClasses = 'xui-space-around xui-margin-bottom-small';
-console.log(customIcon);
 
 const normal = (
 	<section>

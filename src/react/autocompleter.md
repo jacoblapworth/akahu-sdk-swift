@@ -3,8 +3,6 @@ const { boldMatch, decorateSubStr } = require('./components/autocompleter/helper
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 
-console.log(people);
-
 const filterPeopleByValue = (data, value, excludedItem) => {
 	return data.filter(node => {
 		const val = value.toLowerCase();

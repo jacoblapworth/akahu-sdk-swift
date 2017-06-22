@@ -96,13 +96,11 @@ class ToggledDropDown extends Component {
 		);
 		const dropdownFooter = (
 			<DropDownFooter>
-				<div className="xui-padding-horizontal xui-pading-vertical-xsmall">
-					<XUIButton
-						variant="link"
-						className="xui-margin-xsmall-vertical">
+				<Picklist>
+					<Pickitem id="iamfooter">
 						This is an example of a good footer
-					</XUIButton>
-				</div>
+					</Pickitem>
+				</Picklist>
 			</DropDownFooter>
 		);
 		const dropdown = (
@@ -361,13 +359,11 @@ class FullHeightToggledDropDown extends Component {
 		</DropDownHeader>;
 		const dropdownFooter = (
 			<DropDownFooter>
-				<div className="xui-padding-horizontal xui-pading-vertical-xsmall">
-					<XUIButton
-						variant="link"
-						className="xui-margin-xsmall-vertical">
+				<Picklist>
+					<Pickitem id="iamfooter">
 						This is an example of a good footer
-					</XUIButton>
-				</div>
+					</Pickitem>
+				</Picklist>
 			</DropDownFooter>
 		);
 		const dropdown = (

@@ -40,8 +40,8 @@ export default class DropDownHeader extends Component {
 		const classes = cn('xui-dropdown--header', className);
 		const headerClasses = cn(
 			'xui-dropdown--header-container',
-			{'xui-u-hidden-mobile-up': onlyShowForMobile},
-			'xui-padding-small');
+			{'xui-u-hidden-mobile-up': onlyShowForMobile}
+		);
 
 		const backButton = onBackButtonClick &&
 			<XUIButton

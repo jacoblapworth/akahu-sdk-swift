@@ -1,28 +1,18 @@
 import React, { PureComponent, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { isVisible,
+import {
+	maxWidthDropdownSizes,
+	fixedWidthDropdownSizes
+} from './private/constants';
+import {
+	isVisible,
 	intervalRunner,
 	scrollTopPosition,
 	isRendered,
 	compose,
 	isNarrowViewport
 } from './private/helpers';
-
-
-const maxWidthDropdownSizes = {
-	small: 'xui-dropdown-small',
-	medium: 'xui-dropdown-medium',
-	large: 'xui-dropdown-large',
-	xlarge: 'xui-dropdown-xlarge'
-};
-
-const fixedWidthDropdownSizes = {
-	small: 'xui-dropdown-fixed-small',
-	medium: 'xui-dropdown-fixed-medium',
-	large: 'xui-dropdown-fixed-large',
-	xlarge: 'xui-dropdown-fixed-xlarge'
-}
 
 /**
  * Taking the max height passed in through the style prop, we check it's defined and not null. If so, subtract the
@@ -178,11 +168,11 @@ class DropDownListBox extends PureComponent {
 		const classNames = cn(
 			'xui-dropdown-layout',
 			sizeClass,
+			className,
 			{
 				'xui-dropdown-is-open': !isHidden,
 				'xui-dropdown-is-open xui-dropdown-is-closing': isHidden
 			},
-			className
 		);
 		/*
 		Clone the style attributes passed in so we can set the maxHeight to null, effectively removing it from the dropdown
@@ -243,8 +233,8 @@ DropDownListBox.propTypes = {
 	/** @property {Boolean} [isHidden=false] default false*/
 	isHidden: PropTypes.bool,
 
-	/** @property {String} [size] Takes 'small', 'medium', 'large', 'xlarge', and applies correct XUI class based on these. Default will fit to children's width */
-	size: PropTypes.oneOf(Object.keys(maxWidthDropdownSizes)),
+	/** @property {String} [size] Applies the correct XUI class based on the chose size. Default will fits to children's width. */
+	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
 	/** @property {Element} [footer] Items to be added to the menu's footer */
 	footer: PropTypes.element,
@@ -261,7 +251,7 @@ DropDownListBox.propTypes = {
 	/** @property {Function} [onCloseAnimationEnd] callback for when animation has ended on close. */
 	onCloseAnimationEnd: PropTypes.func,
 
-	/** @property {Boolean} [fixedWidth] Whether the fixed width class variant should be used */
+	/** @property {Boolean} [fixedWidth=false] Whether the fixed width class variant should be used for the size prop */
 	fixedWidth: PropTypes.bool,
 };
 

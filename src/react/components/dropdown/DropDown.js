@@ -136,6 +136,7 @@ export default class DropDown extends PureComponent {
 			style,
 			header,
 			onCloseAnimationEnd,
+			fixedWidth,
 		} = dropdown.props;
 
 		const dropdownClasses = cn( {'xui-dropdown-fullheight' : header}, className)
@@ -147,6 +148,7 @@ export default class DropDown extends PureComponent {
 				header={header}
 				className={dropdownClasses}
 				size={size}
+				fixedWidth={fixedWidth}
 				qaHook={qaHook}
 				ref={c => dropdown.listBox = c}
 				onKeyDown={dropdown.onKeyDown}
@@ -175,7 +177,7 @@ DropDown.propTypes = {
 	/** @property {Boolean} [isHidden] default false*/
 	isHidden: PropTypes.bool,
 
-	/** @property {String} [size] Takes 'small', 'medium' or 'large' and applies correct XUI class based on these. Default will fits to children's width*/
+	/** @property {String} [size] Applies the correct XUI class based on the chose size. Default will fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
 	/** @property {Array} [ignoreKeyboardEvents] Pass in an array of keydown keycodes to be ignored from dropdown behaviour. */
@@ -207,6 +209,9 @@ DropDown.propTypes = {
 
 	/** @prop {Function} [onCloseAnimationEnd] */
 	onCloseAnimationEnd: PropTypes.func,
+
+	/** @property {Boolean} [fixedWidth=false] Whether the fixed width class variant should be used for the size prop */
+	fixedWidth: PropTypes.bool,
 };
 
 DropDown.defaultProps = {
@@ -214,4 +219,5 @@ DropDown.defaultProps = {
 	isHidden: false,
 	hasKeyboardEvents: true,
 	restrictFocus: true,
+	fixedWidth: false,
 };

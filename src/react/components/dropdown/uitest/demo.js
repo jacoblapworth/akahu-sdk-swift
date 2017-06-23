@@ -312,7 +312,7 @@ class WithForm extends Component {
 			</XUIButton>
 		);
 		const dropdown = (
-			<DropDown>
+			<DropDown size="large" fixedWidth>
 				<form className="xui-padding">
 					<div><label htmlFor="a">First: </label><input type="text" /></div>
 					<div><label htmlFor="b">Second: </label><input type="text" /></div>

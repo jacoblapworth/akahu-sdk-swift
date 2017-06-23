@@ -4,10 +4,13 @@ import cn from 'classnames';
 
 export default class Picklist extends Component {
 	render() {
-		const { children, className, id, onKeyDown, onMouseDown, secondaryProps } = this.props;
+		const { children, className, id, onKeyDown, onMouseDown, secondaryProps, defaultLayout } = this.props;
+		const classes = cn('xui-picklist', className, {
+			'xui-picklist-layout': defaultLayout,
+		});
 
 		return (
-			<ul className={cn('xui-picklist', className)} id={id} onKeyDown={onKeyDown} onMouseDown={onMouseDown} {...secondaryProps}>
+			<ul className={classes} id={id} onKeyDown={onKeyDown} onMouseDown={onMouseDown} {...secondaryProps}>
 				{children}
 			</ul>
 		)
@@ -20,10 +23,12 @@ Picklist.propTypes = {
 	id: PropTypes.string,
 	onKeyDown: PropTypes.func,
 	onMouseDown: PropTypes.func,
-	secondaryProps: PropTypes.object
+	secondaryProps: PropTypes.object,
+	defaultLayout: PropTypes.bool,
 };
 
 Picklist.defaultProps = {
+	defaultLayout: true,
 	secondaryProps : {
 		role:"group"
 	}

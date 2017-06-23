@@ -65,7 +65,6 @@
 
 .#{$ns}-picklist {
 	@include xui-listreset;
-	padding: $xui-s-small 0; //ToDo: remove in XUI11 in favour of the layout class.
 	position: relative;
 
 	& + .#{$ns}-picklist {
@@ -73,7 +72,7 @@
 	}
 }
 
-.#{$ns}-picklist-layout{
+.#{$ns}-picklist-layout {
 	padding: $xui-s-small 0;
 }
 

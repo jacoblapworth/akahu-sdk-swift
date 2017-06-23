@@ -6,10 +6,10 @@ module.exports = function (grunt) {
 
 	var nopt = require('nopt');
 	var knownOpts = {
-		'livereload': [Number, Boolean, null]
+		livereload: [Number, Boolean, null]
 	};
 	var shortHands = {
-		'lr': ['--livereload']
+		lr: ['--livereload']
 	};
 	var opts = nopt(knownOpts, shortHands, process.argv, 2);
 

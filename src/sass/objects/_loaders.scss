@@ -64,7 +64,7 @@
 // Styleguide: Loaders
 
 .#{$ns}-loader {
-	color: $xui-color-placeholder;
+	color: $xui-color-grey-alpha-3;
 }
 
 .#{$ns}-button--loader {
@@ -89,7 +89,7 @@
 	// easeInOutSine
 	$animation-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-	animation: xui-loader-animation $animation-time infinite $animation-easing;
+	animation: #{$ns}-loader-animation $animation-time infinite $animation-easing;
 	animation-fill-mode: both;
 	background-color: currentColor;
 	border-radius: 50%;
@@ -127,7 +127,7 @@
 	}
 }
 
-@keyframes xui-loader-animation {
+@keyframes #{$ns}-loader-animation {
 	0%,
 	80%,
 	100% {

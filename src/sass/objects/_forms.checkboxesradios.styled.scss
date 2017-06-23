@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Styled Checkboxes and Radios
 //
 // Styled checkbox and radio inputs can be made with any SVG icon from the [xui-icon collection](https://github.dev.xero.com/pages/UXE/xui-icon/).
@@ -288,49 +290,6 @@
 //
 // Styleguide: Checkboxes and Radios.8
 
-// Styled Checkbox Icons
-//
-// Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Bucket list</label>
-// <div class="xui-styledcheckbox-group">
-//   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
-//     <input type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-notification"/>
-//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-notification"/>
-//     </svg>
-//     <span class="xui-styledcheckbox--label">See the Liberty Bell</span>
-//   </label>
-//   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
-//     <input type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-shipping"/>
-//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-shipping"/>
-//     </svg>
-//     <span class="xui-styledcheckbox--label">Get my lorry licence</span>
-//   </label>
-//   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
-//     <input type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
-//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
-//       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-contact"/>
-//     </svg>
-//     <span class="xui-styledcheckbox--label">Spam my colleagues with dank memes</span>
-//   </label>
-//   <label class="xui-styledcheckbox xui-styledcheckbox-reversed">
-//     <input type="checkbox">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"/>
-//       <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"/>
-//       <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-url"/>
-//     </svg>
-//     <span class="xui-styledcheckbox--label">Take over the world</span>
-//   </label>
-// </div>
-//
-// Styleguide: Checkboxes and Radios.9
-
 
 // Group styles
 // ============
@@ -358,6 +317,10 @@
 .#{$ns}-styledradio--label {
 	flex-grow: 1;
 	padding: 6px 3px 3px;
+
+	.#{$ns}-is-disabled & {
+		color: $xui-color-disabled-text;
+	}
 }
 
 
@@ -386,7 +349,7 @@
 
 	// TODO: Opacity override
 	&.#{$ns}-is-disabled {
-		fill: $xui-color-disabled-text;
+		fill: $xui-color-grey-alpha-4;
 		opacity: 1;
 	}
 }
@@ -418,7 +381,7 @@
 .#{$ns}-styledcheckbox--main,
 .#{$ns}-styledradio--main {
 	fill: $xui-color-white;
-	stroke: $xui-color-border;
+	stroke: $xui-color-grey-alpha-4;
 	stroke-linejoin: round;
 }
 
@@ -452,7 +415,7 @@ input:focus:not(:hover) + svg {
 	.#{$ns}-styledcheckbox--focus,
 	.#{$ns}-styledradio--focus {
 		opacity: 1; // Show focus
-		stroke: $xui-color-shadow-medium;
+		stroke: $xui-color-grey-alpha-6;
 	}
 
 	.#{$ns}-styledcheckbox--main,
@@ -568,13 +531,13 @@ input:disabled:hover + svg {
 
 	.#{$ns}-styledcheckbox--main,
 	.#{$ns}-styledradio--main {
-		fill: $xui-color-grey-6; // TODO: Update $xui-color-disabled to use $xui-color-grey-6
-		stroke: $xui-color-border;
+		fill: $xui-color-grey-6; // TODO: Update $xui-color-grey-alpha-5 to use $xui-color-grey-6
+		stroke: $xui-color-grey-alpha-4;
 	}
 
 	.#{$ns}-styledcheckbox--check,
 	.#{$ns}-styledcheckbox--indeterminate,
 	.#{$ns}-styledradio--check {
-		fill: $xui-color-grey-4; // TODO: Update $xui-color-disabled-text to use $xui-color-grey-4
+		fill: $xui-color-grey-4; // TODO: Update $xui-color-grey-alpha-4 to use $xui-color-grey-4
 	}
 }

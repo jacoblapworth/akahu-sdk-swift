@@ -2,8 +2,8 @@
 @import "../mixins";
 
 .#{$ns}-sectionheading {
-	border-bottom: $xui-divider-standard;
-	border-top: $xui-divider-standard;
+	border-bottom: $xui-border-muted;
+	border-top: $xui-border-muted;
 	margin: 0;
 	text-align: left;
 }

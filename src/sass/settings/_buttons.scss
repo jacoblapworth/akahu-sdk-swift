@@ -2,12 +2,6 @@
 @import "./layout";
 @import "./typography";
 
-$xui-button-variants-divider-colors: (
-	main : $xui-color-xero-blue-divider,
-	create : $xui-color-xero-green-divider,
-	negative : $xui-color-xero-red-divider
-);
-
 $xui-button-variants-background-colors: (
 	standard : null,
 	main : $xui-color-xero-blue,
@@ -18,4 +12,11 @@ $xui-button-variants-background-colors: (
 // TODO: Remove this in XUI11 as it is no longer used
 $xui-button-sizes: (
 	small : (padding: 6px $xui-s-small)
+);
+
+// TODO: Deprecated, remove in XUI 11
+$xui-button-variants-divider-colors: (
+	main : $xui-color-xero-blue-divider,
+	create : $xui-color-xero-green-divider,
+	negative : $xui-color-xero-red-divider
 );

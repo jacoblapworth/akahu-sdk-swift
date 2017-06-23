@@ -270,10 +270,9 @@
 // Styleguide: Panels.5
 
 .#{$ns}-panel {
-	background-color: $xui-color-panel;
-	border: $xui-border-standard;
+	@include xui-box-shadow-border($xui-shadow-border-all);
+	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-1;
 }
 
 // PANEL HEADER
@@ -289,7 +288,7 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--section {
-	border-top: $xui-divider-standard;
+	border-top: $xui-border-muted;
 	margin: 0;
 
 	&:first-child {
@@ -310,7 +309,7 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--footer {
-	border-top: $xui-divider-standard;
+	border-top: $xui-border-muted;
 
 	&:first-child {
 		border-top: 0;
@@ -321,6 +320,6 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--sidebar {
-	border-right: $xui-border-standard;
+	border-right: $xui-border-muted;
 	flex: 0 0 200px;
 }

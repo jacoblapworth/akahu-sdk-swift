@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 // Accordion
 //
 // The accordion is used to display an expandable/collapsible list to users.
@@ -12,7 +15,7 @@
 // xui-accordionitem-layout: Recommended layout for an accordion item
 //
 // Markup:
-// <ul class="xui-accordion xui-page-width-standard xui-panel" role="tablist" aria-multiselectable="true">
+// <ul class="xui-accordion" role="tablist" aria-multiselectable="true">
 //   <li class="xui-accordionitem xui-accordionitem-layout">
 //     <div id="tab-1" class="xui-accordionitem--collapsed" aria-selected="false" aria-controls="panel-1" arial-expanded="false" role="tab" tabindex="-1">
 //       <a href="#">Collapsed Title</a>
@@ -73,7 +76,7 @@
 }
 
 .#{$ns}-accordionitem--collapsed {
-	border-bottom: $xui-divider-standard;
+	border-bottom: $xui-border-muted;
 }
 
 .#{$ns}-accordionitem--expanded {
@@ -91,9 +94,7 @@
 }
 
 .#{$ns}-accordionitem-is-open {
-	border-bottom: $xui-divider-standard;
-	border-top: $xui-divider-standard;
-	box-shadow: $xui-shadow-depth-2;
+	@include xui-box-shadow-border($xui-shadow-depth-lift);
 	height: auto;
 	margin: 0;
 	max-width: 100vw;
@@ -101,9 +102,7 @@
 
 	&.#{$ns}-accordionitem-layout {
 		@include xui-breakpoint-wide { //increase width of open accordion item by 40px on larger screen sizes
-			border-left: $xui-divider-standard;
 			border-radius: $xui-radius;
-			border-right: $xui-divider-standard;
 			margin-left: -$xui-s-large;
 			width: calc(100% + 40px);
 		}

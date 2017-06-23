@@ -19,10 +19,10 @@
 @mixin xui-overflow-shadow {
 	background: linear-gradient($xui-color-white, $xui-color-white) 100% 0 / 100% 3px local no-repeat,
 		linear-gradient($xui-color-white, $xui-color-white) 0 100% / 100% 3px local no-repeat,
-		linear-gradient($xui-color-overflow-shadow-grey, $xui-color-overflow-shadow-grey) 100% 0 / 100% 1px scroll no-repeat,
-		linear-gradient($xui-color-overflow-shadow-grey, $xui-color-overflow-shadow-grey) 0 100% / 100% 1px scroll no-repeat,
-		linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 100% 0 / 100% 3px scroll no-repeat,
-		linear-gradient($xui-color-overflow-shadow, $xui-color-overflow-shadow) 0 100% / 100% 3px scroll no-repeat,
+		linear-gradient($xui-color-grey-alpha-6, $xui-color-grey-alpha-6) 100% 0 / 100% 1px scroll no-repeat,
+		linear-gradient($xui-color-grey-alpha-6, $xui-color-grey-alpha-6) 0 100% / 100% 1px scroll no-repeat,
+		linear-gradient($xui-color-grey-alpha-7, $xui-color-grey-alpha-7) 100% 0 / 100% 3px scroll no-repeat,
+		linear-gradient($xui-color-grey-alpha-7, $xui-color-grey-alpha-7) 0 100% / 100% 3px scroll no-repeat,
 		$xui-color-white;
 }
 

@@ -75,7 +75,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 }
 
 .ds-nav-section::before {
-	color: $xui-color-secondary-text;
+	color: $xui-color-grey-alpha-2;
 	content: "In this section";
 	padding: $xui-s-standard 0;
 }
@@ -125,8 +125,8 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	line-height: 1.8;
 
 	pre {
-		background: $xui-color-background;
-		border: 1px solid $xui-color-border;
+		background: $xui-color-grey-alpha-6;
+		border: $xui-border-standard;
 		padding: 15px 25px;
 		width: 100%;
 	}
@@ -134,7 +134,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-markup-wrap,
 .ds-example-wrap {
-	border: 1px solid $xui-color-border;
+	border: $xui-border-standard;
 	display: none;
 	padding-bottom: 15px;
 	padding-top: 15px;
@@ -168,7 +168,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 }
 
 .ds-markup-wrap {
-	background: $xui-color-background;
+	background: $xui-color-grey-alpha-6;
 }
 
 .ds-input-all:checked ~ .ds-markup-wrap,
@@ -254,7 +254,7 @@ $kss-color-padding: #eeebff;
 
 [id*="grid-layout"] [class*="column"] {
 	background: rgba($xui-color-xero-blue, 0.5);
-	border: 1px solid $xui-color-border;
+	border: $xui-border-standard;
 	color: inherit;
 	font-size: 11px;
 	padding: 10px;
@@ -356,7 +356,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--link {
-	color: $xui-color-highlight-light;
+	color: rgba($xui-color-grey-1, 0.95);
 	display: block;
 	-webkit-font-smoothing: antialiased;
 }
@@ -385,7 +385,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--title {
-	border-bottom: 1px solid $xui-color-shadow-medium;
+	border-bottom: 1px solid $xui-color-grey-alpha-6;
 	border-left: 0;
 	font-weight: bold;
 	position: relative;
@@ -461,7 +461,6 @@ $kss-color-padding: #eeebff;
 
 .ds-token-box {
 	background-color: $xui-color-white;
-	border: $xui-border-standard;
 	padding-bottom: 100%;
 }
 
@@ -469,18 +468,18 @@ $kss-color-padding: #eeebff;
 	background: none;
 	color: inherit;
 	font-size: $xui-font-size-section-title;
-	padding: 0;
+	font-weight: bold;
+	padding: 0
 }
 
 .ds-token-text--floating {
-	background: $xui-color-highlight-inverted-strong;
-	bottom: 5%;
-	left: 5%;
-	max-width: 85%;
+	color: $xui-color-black;
+	background: rgba($xui-color-white,0.5);
+  display: inline-block;
+	margin-top: 5px;
+	max-width: 100%;
 	overflow-x: auto;
-	padding: 0.4em 0.6em;
-	position: absolute;
-	white-space: nowrap;
+	padding: 0.25em 0.5em;
 }
 
 .ds-token-grid--cell {
@@ -495,10 +494,6 @@ $kss-color-padding: #eeebff;
 
 .ds-token-table--row {
 	padding: 2vh;
-
-	&:hover {
-		background-color: $xui-color-shadow-light;
-	}
 }
 
 // ------------------------------------------------------
@@ -525,7 +520,7 @@ $ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: $xui-color-shadow-strong;
+	background: $xui-color-grey-alpha-5;
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {

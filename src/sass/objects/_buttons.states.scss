@@ -21,7 +21,7 @@
 
 		@if $variant != standard {
 			&.#{$ns}-button-#{$variant} {
-				@include xui-button-is-disabled($xui-color-disabled, $xui-color-reversed-text);
+				@include xui-button-is-disabled($xui-color-grey-alpha-5, $xui-color-white);
 			}
 		}
 

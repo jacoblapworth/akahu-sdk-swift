@@ -1,13 +1,13 @@
 XUI
 ===
 
-[![TC_build_status](https://teamcity.dev.xero.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
+[![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity.dev.xero.com/viewType.html?buildTypeId=Xui_Style_Master)
 ![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
 
 ### Always get the latest versions here:
 * XUI documentation: https://github.dev.xero.com/pages/UXE/xui/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
-* Component Registry: https://github.dev.xero.com/pages/UXE/Components-Registry/ 
+* Component Registry: https://github.dev.xero.com/pages/UXE/Components-Registry/
 
 
 Using in Your Project
@@ -19,7 +19,7 @@ Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
 ```
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.22.4/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/10.24.1/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -31,14 +31,14 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 
 <!--?prettify?-->
 ```
-$ bower install git@github.dev.xero.com:UXE/xui.git#^10.22.4 --save
+$ bower install git@github.dev.xero.com:UXE/xui.git#^10.24.1 --save
 ```
 
 ### npm
 
 <!--?prettify?-->
 ```
-$ npm install git://github.dev.xero.com/UXE/xui.git#10.22.4 --save
+$ npm install git://github.dev.xero.com/UXE/xui.git#10.24.1 --save
 ```
 
 You will need to compile `xui.scss`.
@@ -63,7 +63,7 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/style/xui/10.22.4/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/10.24.1/xui.min.css" rel="stylesheet" />
     <script type="application/json" id="header-data" data-render-to="#header">
       {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
     </script>

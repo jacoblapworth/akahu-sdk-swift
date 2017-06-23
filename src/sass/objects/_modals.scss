@@ -112,8 +112,8 @@
 //       </form>
 //     </div>
 //     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
-//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
 //       <button type="button" class="xui-actions--secondary xui-button xui-button-negative">Delete</button>
+//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
 //     </footer>
 //   </section>
 // </div>
@@ -122,7 +122,7 @@
 
 .#{$ns}-mask {
 	align-items: center;
-	background-color: transparentize($xui-color-primary-text, 0.3);
+	background-color: transparentize($xui-color-grey-1, 0.3);
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -146,9 +146,9 @@
 }
 
 .#{$ns}-modal {
-	background-color: $xui-color-panel;
+	@include xui-box-shadow-border($xui-shadow-depth-pop);
+	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-3;
 	outline: none;
 }
 

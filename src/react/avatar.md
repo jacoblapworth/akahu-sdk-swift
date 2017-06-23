@@ -1,0 +1,3 @@
+```
+<XUIAvatar value="foo"/>
+```

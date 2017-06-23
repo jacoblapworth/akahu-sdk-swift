@@ -37,14 +37,10 @@
 .#{$ns}-avatar-group,
 .#{$ns}-avatargroup {
 	.#{$ns}-avatar {
-		background-clip: content-box;
-		box-sizing: content-box;
-
 		@include xui-all-but-first {
-			border-left: 0.25em solid $xui-color-shadow-medium;
+			@include xui-box-shadow-border(-2px 0 0 0 $xui-color-grey-alpha-6);
 			margin-left: -1.25em;
 		}
-
 	}
 }
 

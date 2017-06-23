@@ -57,10 +57,10 @@
 // Styleguide: Overview Blocks
 
 .#{$ns}-overview {
-	background-color: $xui-color-panel;
+	background-color: $xui-color-white;
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-1;
+	box-shadow: 0 2px 0 0 $xui-color-grey-alpha-7;
 	display: flex;
 	width: 100%;
 }
@@ -74,7 +74,7 @@
 }
 
 .#{$ns}-overview--section:nth-child(n+2) {
-	border-left: $xui-border-standard;
+	border-left: $xui-border-muted;
 }
 
 .#{$ns}-overview-layout {

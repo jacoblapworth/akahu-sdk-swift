@@ -312,7 +312,7 @@
 	}
 
 	.#{$ns}-toggle--label:hover {
-		background-color: $xui-color-shadow-light;
+		background-color: $xui-color-grey-alpha-7;
 	}
 
 	// Focus, not hover
@@ -322,7 +322,7 @@
 
 	// Active
 	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
-		background-color: $xui-color-shadow-medium;
+		background-color: $xui-color-grey-alpha-6;
 	}
 
 	// Checked
@@ -335,12 +335,12 @@
 
 	// Checked, hover
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
-		background-color: $xui-color-highlight-light;
+		background-color: rgba($xui-color-grey-1, 0.95);
 	}
 
 	// Checked, active
 	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
-		background-color: $xui-color-highlight-medium;
+		background-color: rgba($xui-color-grey-1, 0.90);
 	}
 
 	// Checked, disabled
@@ -420,12 +420,12 @@
 
 	// Checked, hover
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
-		background-color: $xui-color-highlight-inverted-light;
+		background-color: rgba($xui-color-white, 0.95);
 	}
 
 	// Checked, active
 	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
-		background-color: $xui-color-highlight-inverted-medium;
+		background-color: rgba($xui-color-white, 0.90);
 	}
 
 	// Checked, disabled

@@ -27,7 +27,7 @@ form {
 
 .#{$ns}-body {
 	@include xui-container;
-	background-color: $xui-color-background;
+	background-color: $xui-color-grey-7;
 	overflow-y: scroll;
 }
 

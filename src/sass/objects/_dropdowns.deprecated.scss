@@ -124,10 +124,9 @@
 // Styleguide: Dropdowns.99
 
 .#{$ns}-dropdownmenu {
-	background-color: $xui-color-panel;
-	border: $xui-border-standard;
+	@include xui-box-shadow-border($xui-shadow-depth-lift);
+	background-color: $xui-color-white;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-2;
 	font-size: $xui-font-size-small;
 	list-style-type: none;
 	margin: 0;
@@ -169,12 +168,11 @@
 }
 
 .#{$ns}-dropdownmenu--footer {
-	border-top: $xui-border-standard;
-	box-shadow: 0 -2px 0 0 rgba($xui-color-black, 0.05); // Should be a negative shadow variable
+	@include xui-box-shadow-border($xui-shadow-border-top);
 }
 
 .#{$ns}-menugroup {
-	border-top: $xui-divider-standard;
+	border-top: $xui-border-muted;
 	margin: 0;
 	padding: 0;
 
@@ -184,12 +182,12 @@
 }
 
 .#{$ns}-menuitem {
-	border-left: $xui-border-transparent;
+	border-left: 3px solid transparent;
 	list-style-type: none;
 	user-select: none;
 
 	&:hover {
-		background-color: $xui-color-hover;
+		background-color: $xui-color-grey-alpha-7;
 	}
 }
 
@@ -199,7 +197,7 @@
 		@include xui-padding-vertical($xui-s-small);
 		@include xui-text-line-height-compact;
 
-		color: $xui-color-primary-text;
+		color: $xui-color-grey-1;
 		display: flex;
 		text-align: left;
 		text-decoration: none;
@@ -219,7 +217,7 @@
 
 .#{$ns}-dropdownmenu--groupheading {
 	background-color: $xui-color-grey-6;
-	border-bottom: $xui-divider-standard;
+	border-bottom: $xui-border-muted;
 	margin: 0;
 
 	&:nth-of-type(n+2) {
@@ -237,7 +235,7 @@
 }
 
 .#{$ns}-menuitem-is-selected {
-	border-left: $xui-border-is-selected;
+	border-left: 3px solid $xui-color-xero-blue;
 
 	.#{$ns}-menuitem--body {
 		color: inherit;
@@ -245,7 +243,7 @@
 
 	&:hover {
 		background-color: $xui-color-xero-blue;
-		color: $xui-color-reversed-text;
+		color: $xui-color-white;
 
 	}
 }

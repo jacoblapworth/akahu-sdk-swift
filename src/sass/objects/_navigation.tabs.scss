@@ -70,7 +70,7 @@
 // Styleguide: Navigation.5.1
 
 .#{$ns}-tabgroup {
-	color: $xui-color-secondary-text;
+	color: $xui-color-grey-alpha-2;
 	display: flex;
 	justify-content: flex-start;
 	list-style: none;
@@ -83,11 +83,11 @@
 //
 // (text-color, border-color, hover-text-color, hover-border-color)
 $xui-color-variations: (
-	"#{$ns}-tab-is-selected":($xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text, $xui-color-primary-text),
-	"#{$ns}-tab-pageheading":($xui-color-primary-text, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
+	"#{$ns}-tab-is-selected":($xui-color-grey-1, $xui-color-grey-1, $xui-color-grey-1, $xui-color-grey-1),
+	"#{$ns}-tab-pageheading":($xui-color-grey-1, transparent, $xui-color-xero-blue, $xui-color-xero-blue),
 	"#{$ns}-tab-pageheading-is-selected":($xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue, $xui-color-xero-blue),
-	"#{$ns}-tab-inlinenav":($xui-color-primary-text, transparent, $xui-color-xero-light-green, $xui-color-xero-blue),
-	"#{$ns}-tab-inlinenav-is-selected":($xui-color-primary-text, $xui-color-xero-light-green, $xui-color-xero-light-green, $xui-color-xero-blue)
+	"#{$ns}-tab-inlinenav":($xui-color-grey-1, transparent, $xui-color-xero-light-green, $xui-color-xero-blue),
+	"#{$ns}-tab-inlinenav-is-selected":($xui-color-grey-1, $xui-color-xero-light-green, $xui-color-xero-light-green, $xui-color-xero-blue)
 );
 
 // Individual tabs
@@ -104,7 +104,7 @@ $xui-color-variations: (
 
 		align-items: center;
 		border-radius: $xui-radius;
-		color: $xui-color-secondary-text;
+		color: $xui-color-grey-alpha-2;
 		cursor: pointer;
 		display: inline-flex;
 		height: 100%;
@@ -112,16 +112,16 @@ $xui-color-variations: (
 		text-align: center;
 
 		&:hover {
-			color: $xui-color-primary-text;
+			color: $xui-color-grey-1;
 			text-decoration: none;
 		}
 
 		&:focus {
-			background: $xui-color-tab-focus;
+			background: $xui-color-grey-alpha-7;
 		}
 
 		&:focus:active {
-			background: $xui-color-tab-active;
+			background: $xui-color-grey-alpha-6;
 		}
 	}
 
@@ -229,8 +229,8 @@ $xui-color-variations: (
 	position: relative;
 
 	&:hover {
-		background-color: $xui-color-background;
-		border-left: 4px solid $xui-color-background;
+		background-color: $xui-color-grey-alpha-6;
+		border-left: 4px solid $xui-color-grey-alpha-6;
 	}
 }
 
@@ -245,7 +245,7 @@ $xui-color-variations: (
 .#{$ns}-verticaltab--body {
 	@include xui-text-line-height-compact;
 
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	display: block;
 	width: 100%;
 

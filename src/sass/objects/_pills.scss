@@ -90,7 +90,7 @@
 
 .#{$ns}-pill {
 	align-items: center;
-	background-color: $xui-color-background;
+	background-color: $xui-color-grey-alpha-6;
 	border-radius: $xui-s-large;
 	cursor: default;
 	display: inline-flex;
@@ -126,7 +126,7 @@
 
 &.#{$ns}-newpill {
 	align-items: center;
-	background-color: $xui-color-background;
+	background-color: $xui-color-grey-alpha-6;
 	border-radius: $xui-s-large;
 	cursor: default;
 	display: inline-flex;

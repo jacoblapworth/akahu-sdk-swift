@@ -86,6 +86,8 @@
 //
 // Classes:
 // xui-u-flex: Applies `display: flex` to an element
+// xui-u-flex-inline: Applies `display: inline-flex` to an element
+// xui-u-flex-none: Applies `flex: none` to an element
 // xui-u-flex-horizontal: Modifier to display child items in a horizontal order
 // xui-u-flex-vertical: Modifier to display child items in a vertical order
 // xui-u-flex-verticallycentered: Modifier to display child items vertically centered
@@ -136,6 +138,14 @@
 	display: flex;
 }
 
+.#{$ns}-u-flex-inline {
+	display: inline-flex;
+}
+
+.#{$ns}-u-flex-none {
+	flex: none;
+}
+
 // TODO: xui-u-flex-row class name makes little sense. Update or remove for next breaking change.
 .#{$ns}-u-flex-row,
 .#{$ns}-u-flex-verticallycentered {
@@ -153,6 +163,10 @@
 
 .#{$ns}-u-spacebetween {
 	justify-content: space-between;
+}
+
+.#{$ns}-u-flex-1 {
+	flex: 1;
 }
 
 .#{$ns}-u-flex-grow {

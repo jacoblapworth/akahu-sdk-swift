@@ -3,7 +3,16 @@
 
 // Banners
 //
-// Banners are used to display notifications to users, typically in the top center of the screen.
+// Banners have been deprecated, as they perpetuate bad validation practices. Use inline validation instead.
+//
+// Weight: 4.1
+//
+// Styleguide: Banner
+
+// Deprecated classes
+//
+// <img src="https://img.shields.io/badge/Deprecated%20in-10.23.0-%23f6534e.svg" />
+// <img src="https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg" />
 //
 // Classes:
 // xui-banner: Container for a banner
@@ -18,9 +27,7 @@
 // xui-banner-negative: Modifier for a negative highlight banner
 // xui-banner-positive: Modifier for a positive highlight banner
 //
-// Weight: 4.1
-//
-// Styleguide: Banner
+// Styleguide: Banner.1
 
 // Basic usage
 //
@@ -36,7 +43,7 @@
 //    <p class="xui-banner--message">Banner Message</p>
 //</div>
 //
-// Styleguide: Banner.1
+// Styleguide: Banner.1.1
 
 // Sentiment
 //
@@ -69,7 +76,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Banner.2
+// Styleguide: Banner.1.2
 
 // With Actions
 //
@@ -85,7 +92,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Banner.3
+// Styleguide: Banner.1.3
 
 // Dismissible
 //
@@ -99,7 +106,7 @@
 //   <p class="xui-banner--message">Banner Message</p>
 // </div>
 //
-// Styleguide: Banner.4
+// Styleguide: Banner.1.4
 
 // With message detail
 //
@@ -124,14 +131,13 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Banner.5
+// Styleguide: Banner.1.5
 
 .#{$ns}-banner {
 	background-color: $xui-color-white;
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
-	box-shadow: $xui-shadow-depth-2;
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	opacity: 1;
 	position: relative;
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
@@ -208,11 +214,11 @@
 }
 
 .#{$ns}-banner-animated {
-	animation: xui-banner-animation $xui-motion-speed-fast;
+	animation: #{$ns}-banner-animation $xui-motion-speed-fast;
 }
 
 .#{$ns}-banner--messagedetail {
-	color: $xui-color-secondary-text;
+	color: $xui-color-grey-alpha-2;
 }
 
 .#{$ns}-banner--actions,
@@ -225,7 +231,7 @@
 	font-weight: bold;
 }
 
-@keyframes xui-banner-animation {
+@keyframes #{$ns}-banner-animation {
 	0% {
 		margin-top: -$xui-s-large;
 		opacity: 0;

@@ -85,26 +85,6 @@
 			border-bottom-right-radius: $xui-radius;
 			border-top-right-radius: $xui-radius;
 		}
-
-		@each $variant, $color in $xui-button-variants-divider-colors {
-			&.#{$ns}-button-#{$variant} {
-				&,
-				&:hover,
-				&:focus,
-				&:active {
-					border-left-color: $color;
-					border-right-color: $color;
-				}
-
-				&:first-of-type {
-					border-left: 0;
-				}
-
-				&:last-of-type {
-					border-right: 0;
-				}
-			}
-		}
 	}
 }
 
@@ -112,16 +92,16 @@
 	padding: $padding;
 }
 
-@mixin xui-button-is-disabled($bg-color: $xui-color-reversed-text, $color: $xui-color-disabled-text) {
+@mixin xui-button-is-disabled($bg-color: $xui-color-white, $color: $xui-color-grey-alpha-4) {
 	background-color: $bg-color;
-	border-color: $xui-color-disabled;
+	border-color: $xui-color-grey-alpha-5;
 	box-shadow: none;
 	color: $color;
 	cursor: default;
 	pointer-events: none;
 }
 
-@mixin xui-button-variant($background-color: $xui-color-form, $color: $xui-color-xero-blue, $background-image: null, $border: null) {
+@mixin xui-button-variant($background-color: $xui-color-white, $color: $xui-color-xero-blue, $background-image: null, $border: null) {
 	background-clip: padding-box;
 	background-color: $background-color;
 	background-image: $background-image;
@@ -135,7 +115,9 @@
 	padding: 11px $xui-input-padding-horizontal;
 	text-align: center;
 	text-decoration: none;
-	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+	transition-duration: $xui-motion-speed-fast;
+	transition-property: color, background, box-shadow;
+	transition-timing-function: $xui-motion-curve-standard;
 }
 
 @mixin xui-button-borderless($text-color, $text-hover-color, $background-focus: $xui-color-grey-alpha-7, $background-active: $xui-color-grey-alpha-6) {
@@ -146,7 +128,9 @@
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
 	min-height: $xui-input-height;
 	padding: 11px $xui-input-padding-horizontal;
-	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+	transition-duration: $xui-motion-speed-fast;
+	transition-property: color, background;
+	transition-timing-function: $xui-motion-curve-standard;
 	&:hover {
 		color: $text-hover-color;
 	}
@@ -158,7 +142,7 @@
 	}
 }
 
-@mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-color-shadow-light, $active-bg-color: $xui-color-shadow-medium, $hover-bg-color: none) {
+@mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-color-grey-alpha-7, $active-bg-color: $xui-color-grey-alpha-6, $hover-bg-color: none) {
 	&:hover {
 		background-color: $hover-bg-color;
 		color: $text-color;

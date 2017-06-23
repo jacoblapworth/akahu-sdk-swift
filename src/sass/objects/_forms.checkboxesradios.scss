@@ -27,9 +27,17 @@
 //  <input type="checkbox" name="checkbox"/>
 //  Tick me!
 // </label>
+// <label class="xui-checkbox xui-is-disabled xui-checkbox-layout">
+//  <input type="checkbox" name="checkbox" disabled />
+//  You can't tick me!
+// </label>
 // <label class="xui-radio xui-radio-layout">
 //  <input type="radio" name="radio"/>
 //  Pick me!
+// </label>
+// <label class="xui-radio xui-is-disabled xui-radio-layout">
+//  <input type="radio" name="radio" disabled />
+//  You can't pick me!
 // </label>
 //
 // Weight: 4.1
@@ -45,6 +53,16 @@
 		cursor: pointer;
 		height: 18px;
 		width: 18px;
+	}
+
+	&.#{$ns}-is-disabled {
+		color: $xui-color-disabled-text;
+		cursor: not-allowed;
+		opacity: 1;
+
+		input {
+			cursor: not-allowed;
+		}
 	}
 }
 

@@ -5,6 +5,7 @@
 /node_modules
 /vendor/bundle/
 npm-debug.log
+yarn.lock
 
 # gh-pages branch stuff
 /docs
@@ -13,6 +14,11 @@ npm-debug.log
 # Build/Output files/directories
 /dist
 /kss/styleguide/styleguide.md
+/react
+/sass
+/umd/assets
+/uitest/assets
+src/react/umd.js
 
 # IDE files/directores
 /.idea
@@ -23,3 +29,7 @@ npm-debug.log
 
 # Generated Colours Page
 src/sass/tmp
+
+# Styleguidist
+styleguide/build/
+styleguide/index.html

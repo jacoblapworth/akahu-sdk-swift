@@ -44,7 +44,7 @@
 	@include xui-button-icon-states;
 	align-items: center;
 	border-radius: 50%;
-	color: $xui-color-icon;
+	color: $xui-color-grey-alpha-2;
 	display: inline-flex;
 	justify-content: center;
 
@@ -59,7 +59,7 @@
 
 	&-inverted {
 		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-medium, $xui-color-shadow-inverted-strong);
-		color: $xui-color-icon-inverted;
+		color: $xui-color-inverted-alpha-2;
 
 		&.#{$ns}-button-is-disabled {
 			color: $xui-color-inverted-alpha-3;

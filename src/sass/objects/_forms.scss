@@ -43,14 +43,14 @@
 	}
 
 	&:disabled {
-		background-color: $xui-color-background;
-		border-color: $xui-color-border;
-		color: $xui-color-secondary-text;
-		-webkit-text-fill-color: $xui-color-secondary-text;
+		background-color: $xui-color-grey-alpha-6;
+		border-color: $xui-color-grey-alpha-4;
+		color: $xui-color-grey-alpha-2;
+		-webkit-text-fill-color: $xui-color-grey-alpha-2;
 	}
 
 	&::placeholder {
-		color: $xui-color-placeholder;
+		color: $xui-color-grey-alpha-3;
 		opacity: 1;
 	}
 

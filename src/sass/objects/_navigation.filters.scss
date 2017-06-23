@@ -191,12 +191,12 @@
 
 .#{$ns}-sidebarfilter--body,
 .#{$ns}-sidebarsummary {
-	color: $xui-color-primary-text;
+	color: $xui-color-grey-1;
 	display: flex;
 	width: 100%;
 
 	&:hover {
-		background-color: darken($xui-color-background, 5%);
+		background-color: darken($xui-color-grey-alpha-6, 5%);
 	}
 }
 

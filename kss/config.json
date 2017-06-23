@@ -13,8 +13,8 @@
 		"./kss-assets/scrollspy.js",
 		"./kss-assets/prettify.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js",
-		"https://edge.xero.com/style/xui-icon/4.12.0/xuiIconBlobES5.js",
-		"https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.7.2/lunr.min.js",
+		"https://edge.xero.com/style/xui-icon/4.17.0/xuiIconBlobES5.js",
+		"https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js",
 		"https://cdn.polyfill.io/v2/polyfill.js?features=Promise,fetch",
 		"./kss-assets/search-es5.js",
 		"http://localhost:35729/livereload.js"

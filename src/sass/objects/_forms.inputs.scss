@@ -149,7 +149,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 // TODO: remove in XUI11
 .#{$ns}-input-borderless-layout {
-	@include xui-padding-vertical($xui-s-standard);
+	@include xui-padding($xui-s-standard);
 }
 
 // TODO: remove in XUI11

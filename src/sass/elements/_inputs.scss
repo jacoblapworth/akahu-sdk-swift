@@ -1,3 +1,5 @@
+@import "../vars";
+
 /**
  * Most input stylings can be found in objects/_forms.inputs.*.scss files.  This
  * file contains just a few element selectors that we either haven't yet decided
@@ -31,5 +33,5 @@ input[type="search"]::-webkit-search-decoration {
 // Remove yellow background from autofilled inputs
 input:-webkit-autofill {
 	-webkit-animation-fill-mode: both;
-	-webkit-animation-name: xui-animation-autofill;
+	-webkit-animation-name: #{$ns}-animation-autofill;
 }

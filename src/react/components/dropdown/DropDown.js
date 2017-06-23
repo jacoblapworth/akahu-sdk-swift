@@ -64,11 +64,12 @@ export default class DropDown extends PureComponent {
 			if (id) {
 				dropdown.listBox.scrollIdIntoView(id);
 			}
-			if (prevProps.isHidden && restrictFocus) {
-				window.addEventListener('focus', dropdown._restrictFocus, true);
+		}
+		if (isHidden !== prevProps.isHidden || restrictFocus !== prevProps.restrictFocus) {
+			window.removeEventListener('focus', this._restrictFocus, true);
+			if (!isHidden && restrictFocus) {
+				window.addEventListener('focus', this._restrictFocus, true);
 			}
-		} else if (!prevProps.isHidden) {
-			window.removeEventListener('focus', dropdown._restrictFocus, true);
 		}
 	}
 
@@ -94,11 +95,13 @@ export default class DropDown extends PureComponent {
 	 **/
 	_restrictFocus(event) {
 		const dropdown = this;
-		const rootNode = dropdown.listBox.rootNode;
-		const targetIsWindow = event.target === window;
-		if (targetIsWindow || !rootNode.contains(event.target)) {
-			event.stopPropagation();
-			rootNode.focus();
+		if (dropdown.listBox != null && dropdown.listBox.rootNode != null) {
+			const rootNode = dropdown.listBox.rootNode;
+			const targetIsWindow = event.target === window;
+			if (targetIsWindow || !rootNode.contains(event.target)) {
+				event.stopPropagation();
+				rootNode.focus();
+			}
 		}
 	}
 

@@ -79,14 +79,19 @@ class ToggledDropDown extends Component {
 	constructor() {
 		super();
 		this.state = {
-			selectedId: null
+			selectedId: null,
+			restrictFocus: true,
 		};
-		this.onSelect = this.onSelect.bind(this);
 	}
-	onSelect(value) {
+	onSelect = value => {
 		this.setState({
-			selectedId: value
+			selectedId: value,
 		});
+	}
+	toggleRestrictFocus = () => {
+		this.setState(prevState => ({
+			restrictFocus: !prevState.restrictFocus,
+		}));
 	}
 	render() {
 		const trigger = (
@@ -96,15 +101,19 @@ class ToggledDropDown extends Component {
 		);
 		const dropdownFooter = (
 			<DropDownFooter>
-				<Picklist>
-					<Pickitem id="iamfooter">
-						This is an example of a good footer
-					</Pickitem>
-				</Picklist>
+				<XUIButton onClick={this.toggleRestrictFocus}>
+					Restrict Focus is {this.state.restrictFocus.toString()}
+				</XUIButton>
 			</DropDownFooter>
 		);
 		const dropdown = (
-			<DropDown onSelect={this.onSelect} footer={dropdownFooter} className='dropdown-toggle-wrapper' ref={dd => this.dropdown = dd}>
+			<DropDown
+				ref={dd => this.dropdown = dd}
+				onSelect={this.onSelect}
+				footer={dropdownFooter}
+				className="dropdown-toggle-wrapper"
+				restrictFocus={this.state.restrictFocus}
+			>
 				<Picklist>
 					{createItems(toggledItems, this.state.selectedId)}
 				</Picklist>
@@ -305,9 +314,17 @@ class ToggledNestedDropdown extends Component {
 }
 
 class WithForm extends Component {
+	state = {
+		restrictFocus: true,
+	}
+	toggleRestrictFocus = () => {
+		this.setState(prevState => ({
+			restrictFocus: !prevState.restrictFocus,
+		}));
+	}
 	render() {
 		const trigger = (
-			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" data-ref="toggled_trigger">
 				Open Button <XUIButtonCart />
 			</XUIButton>
 		);
@@ -317,6 +334,9 @@ class WithForm extends Component {
 					<div><label htmlFor="a">First: </label><input type="text" /></div>
 					<div><label htmlFor="b">Second: </label><input type="text" /></div>
 					<div><label htmlFor="c">Third: </label><input type="text" /></div>
+					<XUIButton type="button" onClick={this.toggleRestrictFocus}>
+						Restrict Focus is {this.state.restrictFocus.toString()}
+					</XUIButton>
 				</form>
 			</DropDown>
 		);

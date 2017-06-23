@@ -273,7 +273,6 @@
 
 .#{$ns}-dropdown-is-open {
 	display: flex;
-	z-index: 1;
 
 	@include xui-breakpoint-narrow {
 		top: 0;

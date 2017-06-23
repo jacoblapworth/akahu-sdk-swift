@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "11.0.0-alpha.4",
+  "version": "11.0.0-beta.1",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -64,6 +64,7 @@
     "react-dom": "^15.5.4",
     "react-portal": "3.1.0",
     "scrollbar-width": "3.1.1",
+    "uuid": "3.1.0",
     "verge": "1.10.2"
   },
   "devDependencies": {
@@ -131,7 +132,6 @@
     "stylelint": "7.7.1",
     "stylelint-order": "0.4.4",
     "uppercamelcase": "3.0.0",
-    "uuid": "3.1.0",
     "webpack": "2.6.1",
     "yargs": "3.29.0"
   }

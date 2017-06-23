@@ -5,6 +5,7 @@
 /node_modules
 /vendor/bundle/
 npm-debug.log
+yarn.lock
 
 # gh-pages branch stuff
 /docs

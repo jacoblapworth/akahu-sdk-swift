@@ -14,7 +14,7 @@ export const englishMonths = [
 ];
 
 export const customClassNames = {
-  wrapper: 'xui-datepicker',
+  container: 'xui-datepicker',
   interactionDisabled: 'xui-is-disabled',
   navBar: 'xui-datepicker--header',
   navButtonPrev: 'xui-datepicker--arrow-icon',

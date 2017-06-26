@@ -294,6 +294,7 @@ class ToggledNestedDropdown extends Component {
 					<XUIDatePicker
 						selectedDate={this.state.selectedDate}
 						onSelectDate={date => this.onSelectDate(date)}
+						isCompact
 					/>
 				</DropDownPanel>
 			</NestedDropDown>

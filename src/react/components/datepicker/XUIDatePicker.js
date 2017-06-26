@@ -240,7 +240,7 @@ export default class Calendar extends PureComponent {
 		let classes = customClassNames;
 		if (isCompact) {
 			classes = assign({}, customClassNames, {
-				wrapper: customClassNames.wrapper + ' xui-datepicker-compact',
+				container: customClassNames.container + ' xui-datepicker-compact',
 			});
 		}
 

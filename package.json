@@ -60,7 +60,7 @@
     "object-assign": "4.1.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-day-picker": "6.0.1",
+    "react-day-picker": "6.0.3",
     "react-dom": "^15.5.4",
     "react-portal": "3.1.0",
     "scrollbar-width": "3.1.1",

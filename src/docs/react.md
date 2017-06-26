@@ -27,13 +27,18 @@ import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
 import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 ```
 
+## CSS Compatibility
+
+Since this is a new major version of XUI, using CSS from that version is essential to having beautiful, functional components.  Starting with 11.0.0-beta.1, CSS artifacts have been published to S3.  DropDown and DatePicker in particular have bug fixes and new features that rely on the updated CSS.  As time goes on, you should be sure that your XUI NPM dependency and the CSS artifact you're using are the same version.
+
 ## Upgrading from bower components
 
 XUI is now an NPM only module.  The costs of maintaining both an NPM and bower version of the library would be too high.  However, we also know that plenty of projects still depend on the old bower components.  Don't worry, those components aren't going away.  The repositories will remain in their current state.  However, all new development will occur in this repository.
 
 Upgrading will require the following steps:
 - Follow the installation instructions above.
-- Do a find/replace in your code base to import the new components.  `import ... from 'xui-button'` should be replaced with `import ... from '@xero/xui/react/button'`, `import ... from 'xui-toast'` should be replaced with `import ... from '@xero/xui/react/toast'`, and so on.
+- Update all your import statements to reference the new NPM dependency.  Thankfully, Anchen Li in Melbourne has created a jscodeshift script that can do that for you located here: https://github.dev.xero.com/anchen-li/jscodeshift-script (thanks Anchen).
+- If you don't want to use the jscodeshit script, you'll have to do a find/replace in your code base to import the new components.  `import ... from 'xui-button'` should be replaced with `import ... from '@xero/xui/react/button'`, `import ... from 'xui-toast'` should be replaced with `import ... from '@xero/xui/react/toast'`, and so on.
 - Remove all the components from your bower.json dependencies.
 
 ### React Labs

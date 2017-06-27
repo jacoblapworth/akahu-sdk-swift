@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const basePath = path.resolve(__dirname, '..');
 const componentPath = path.resolve(basePath, 'src/react');
 const styleguidePath = path.resolve(basePath, 'styleguide');
-const outputPath = path.resolve(basePath, 'docs/react'),
+const outputPath = path.resolve(basePath, 'docs/react');
 
 //
 // component sections

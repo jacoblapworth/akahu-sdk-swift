@@ -29,7 +29,3 @@ src/react/umd.js
 
 # Generated Colours Page
 src/sass/tmp
-
-# Styleguidist
-styleguide/build/
-styleguide/index.html

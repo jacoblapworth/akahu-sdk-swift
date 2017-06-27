@@ -170,8 +170,7 @@ class DropDownListBox extends PureComponent {
 			sizeClass,
 			className,
 			{
-				'xui-dropdown-is-open': !isHidden,
-				'xui-dropdown-is-open xui-dropdown-is-closing': isHidden
+				'xui-dropdown-is-open': !isHidden
 			},
 		);
 		/*

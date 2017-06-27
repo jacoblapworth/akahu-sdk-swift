@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const basePath = path.resolve(__dirname, '..');
 const componentPath = path.resolve(basePath, 'src/react');
 const styleguidePath = path.resolve(basePath, 'styleguide');
+const outputPath = path.resolve(basePath, 'docs/react');
 
 //
 // component sections
@@ -93,7 +94,7 @@ const config = {
 		},
 	},
 	title: 'XUI Components',
-	styleguideDir: styleguidePath,
+	styleguideDir: outputPath,
 	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",

@@ -29,11 +29,16 @@ export default class NestedDropDown extends DropDown {
 			children,
 			qaHook,
 			style,
-			onCloseAnimationEnd,
 			onSelect,
 			headingAttributes,
 			currentPanel,
 			onPanelSelect,
+			fixedWidth,
+			onCloseAnimationEnd,
+			onOpenAnimationEnd,
+			animateClosed,
+			animateOpen,
+			forceDesktop,
 		} = dropdown.props;
 
 		const dropdownClasses = cn('xui-dropdown-fullheight', className);
@@ -61,7 +66,7 @@ export default class NestedDropDown extends DropDown {
 				);
 			});
 
-		const header =
+		const header = (
 			<DropDownHeader
 				title={panelHeading}
 				onSecondaryClick={() => dropdown.dropdown.clossdeDropDown()}
@@ -70,7 +75,9 @@ export default class NestedDropDown extends DropDown {
 				displayPrimaryButton={true}
 				primaryButtonContent={<XUIIcon path={checkboxCheck} inline={true}/>}
 				onlyShowForMobile={false}
-				{...headingAttributes} />;
+				{...headingAttributes}
+			/>
+		);
 
 		return (
 			<DropDownListBox
@@ -84,8 +91,12 @@ export default class NestedDropDown extends DropDown {
 				ref={c => dropdown.listBox = c}
 				onKeyDown={dropdown.onKeyDown}
 				style={style}
+				onOpenAnimationEnd={onOpenAnimationEnd}
 				onCloseAnimationEnd={onCloseAnimationEnd}
-				fixedWidth={true}
+				fixedWidth={fixedWidth}
+				animateOpen={animateOpen}
+				animateClosed={animateClosed}
+				forceDesktop={forceDesktop}
 			>
 				{childrenToRender}
 			</DropDownListBox>
@@ -124,7 +135,6 @@ NestedDropDown.propTypes = {
 
 	/** @property {Function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
 	onHighlightChange: PropTypes.func,
-	onCloseAnimationEnd: PropTypes.func,
 
 	/** @property {string} [currentPanel] The `panelId` propety of the panel which should currently be open */
 	currentPanel: PropTypes.string,
@@ -136,7 +146,25 @@ NestedDropDown.propTypes = {
 	onPanelSelect: PropTypes.func,
 
 	/** @property {Object} [headingAttributes] Additional attributes to be passed down to the header (onPrimaryButtonClick, primaryButtonContent, onSecondaryButtonClick, etc.) */
-	headingAttributes: PropTypes.object
+	headingAttributes: PropTypes.object,
+
+	/** @property {Boolean} [fixedWidth=true] Whether the fixed width class variant should be used for the size prop */
+	fixedWidth: PropTypes.bool,
+
+	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	forceDesktop: PropTypes.bool,
+
+	/** @prop {Boolean} [animateClosed=false] will add the closing animation class */
+	animateClosed: PropTypes.bool,
+
+	/** @prop {Boolean} [animateOpen=false] will add an opening animation class */
+	animateOpen: PropTypes.bool,
+
+	/** @prop {Function} [onCloseAnimationEnd] */
+	onCloseAnimationEnd: PropTypes.func,
+
+	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	onOpenAnimationEnd: PropTypes.func,
 };
 
 NestedDropDown.defaultProps = {
@@ -144,5 +172,9 @@ NestedDropDown.defaultProps = {
 	isHidden: false,
 	hasKeyboardEvents: true,
 	restrictFocus: true,
-	size: 'large'
+	size: 'large',
+	fixedWidth: true,
+	forceDesktop: false,
+	animateOpen: false,
+	animateClosed: false,
 };

@@ -109,6 +109,7 @@ export default class SelectBox extends Component {
 								onClose={props.onDropdownHide}
 								closeOnSelect={props.closeAfterSelection}
 								hidden={!props.isOpen}
+								forceDesktop={props.forceDesktop}
 							/>
 					}
 				</div>
@@ -164,7 +165,9 @@ SelectBox.propTypes = {
 	isOpen: PropTypes.bool,
 
 	/** @property {boolean} [isTextTruncated=true] Optionally toggles the text truncation */
-	isTextTruncated: PropTypes.bool
+	isTextTruncated: PropTypes.bool,
+
+	forceDesktop: PropTypes.bool,
 };
 
 SelectBox.defaultProps = {
@@ -172,5 +175,6 @@ SelectBox.defaultProps = {
 	closeAfterSelection: true,
 	defaultLayout: true,
 	isOpen: false,
-	isTextTruncated: true
+	isTextTruncated: true,
+	forceDesktop: false,
 };

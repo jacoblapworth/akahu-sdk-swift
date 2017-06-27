@@ -133,3 +133,17 @@ export const unlockScroll = () => {
 		document.body.style.paddingRight = '';
 	}
 };
+
+export const addEventListeners = ddt => {
+	if (typeof window !== 'undefined') {
+		window.addEventListener('mousedown', ddt.onMouseDown);
+		window.addEventListener('resize', ddt.onResize);
+	}
+};
+
+export const removeEventListeners = ddt => {
+	if (typeof window !== 'undefined') {
+		window.removeEventListener('mousedown', ddt.onMouseDown);
+		window.removeEventListener('resize', ddt.onResize);
+	}
+}

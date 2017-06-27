@@ -1,9 +1,10 @@
 import React, { PureComponent, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import verge from 'verge';
 import {
 	maxWidthDropdownSizes,
-	fixedWidthDropdownSizes
+	fixedWidthDropdownSizes,
 } from './private/constants';
 import {
 	isVisible,
@@ -11,7 +12,7 @@ import {
 	scrollTopPosition,
 	isRendered,
 	compose,
-	isNarrowViewport
+	isNarrowViewport,
 } from './private/helpers';
 
 /**
@@ -22,23 +23,34 @@ import {
  * @param {DropDownListBox} listBox
  * @returns {Number|null}
  */
-const calculateMaxHeight = listBox => {
+const calculateBodyMaxHeight = listBox => {
 	const { style } = listBox.props;
 
-	if (!style || style.maxHeight == null ){
+	/*
+	For mobile dropdowns, we have some different requirements.
+	1. If a header is present, the maxHeight of the entire dropdown is 100vh.
+	2. If a header is not present, the maxHeight of the entire dropdown is 80vh to allow
+			users to cancel by clicking on the mask.
+	3. If a footer is present, we need to account for that in the maxHeight of the body.
+	*/
+	if (isNarrowViewport()) {
+		let maxHeight = verge.viewportH();
+		if (listBox.header == null) {
+			maxHeight *= 0.8;
+		}
+		if (listBox.footer != null) {
+			maxHeight -= listBox.footer.rootNode.offsetHeight;
+		}
+		return maxHeight;
+	}
+
+	if (style == null || style.maxHeight == null) {
 		return null;
 	}
 
-	const maxHeight = style && style.maxHeight;
-	const footerHeight = listBox.footer ? listBox.footer.rootNode.offsetHeight : (maxHeight/100) * 20;
-	// When a header is provided we know we should allow the 20vh buffer for the
-	// mask so base the header height on 20% of the max height, which is 100vh.
-	// Creating the 20vh buffer we need to display the mask.
-	const headerHeight = listBox.header ? listBox.header.rootNode.offsetHeight : 0;
-
-	if(!listBox.header){
-		return maxHeight - ((maxHeight/100) * 20);
-	}
+	const maxHeight = style.maxHeight;
+	const footerHeight = listBox.footer != null ? listBox.footer.rootNode.offsetHeight : 0;
+	const headerHeight = listBox.header != null ? listBox.header.rootNode.offsetHeight : 0;
 
 	return maxHeight - footerHeight - headerHeight;
 };
@@ -55,11 +67,11 @@ const calculateMaxHeight = listBox => {
  * @private
  * @param {DropDownListBox} listBox
  */
-const setMaxHeight = listBox => {
+const setBodyMaxHeight = listBox => {
 	const isFooterRendered = () => isRendered(listBox.footer.rootNode);
 	const isHeaderRendered = () => isNarrowViewport() ? isRendered(listBox.header.rootNode): true;
 	const isScrollableContentRendered = () => isRendered(listBox._scrollableContent);
-	const maxHeight = calculateMaxHeight(listBox);
+	const maxHeight = calculateBodyMaxHeight(listBox);
 
 	const setter = () => {
 		listBox.setState({
@@ -96,18 +108,19 @@ class DropDownListBox extends PureComponent {
 		};
 	}
 
-	componentDidUpdate(nextProps) {
-		const listBox = this;
+	componentDidUpdate() {
+		setBodyMaxHeight(this);
+	}
 
-		//The timeout length of 1010 is to allow for the XUI animations to end when
-		// the dropdown when teh dropdown is closing
-		if(listBox.props.isHidden && !nextProps.isHidden) {
-			setTimeout(() => {
-				listBox.props.onCloseAnimationEnd && listBox.props.onCloseAnimationEnd();
-			}, 1010);
+	onAnimationEnd = event => {
+		if (event.target === this.bodyNode) {
+			if (this.props.animateOpen && this.props.onOpenAnimationEnd != null) {
+				this.props.onOpenAnimationEnd(event);
+			}
+			if (this.props.animateClosed && this.props.onCloseAnimationEnd != null) {
+				this.props.onCloseAnimationEnd(event);
+			}
 		}
-
-		setMaxHeight(listBox);
 	}
 
 	/**
@@ -161,35 +174,30 @@ class DropDownListBox extends PureComponent {
 			onKeyDown,
 			style,
 			header,
-			fixedWidth
+			fixedWidth,
+			animateClosed,
+			animateOpen,
+			forceDesktop,
 		} = listBox.props;
 		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
 		const sizeClass = size ? dropdownSizes[size] : null;
-		const classNames = cn(
-			'xui-dropdown-layout',
-			sizeClass,
-			className,
-			{
-				'xui-dropdown-is-open': !isHidden
-			},
-		);
-		/*
-		Clone the style attributes passed in so we can set the maxHeight to null, effectively removing it from the dropdown
-		container. Instead adding this from state to the dropdown body element.
-		 */
-		const outerStyle = {...style};
-		outerStyle.maxHeight = null;
+		const classNames = cn('xui-dropdown-layout', sizeClass, className, {
+			'xui-dropdown-is-open': !isHidden,
+			'xui-dropdown-is-closing': animateClosed,
+			'xui-dropdown-is-opening': animateOpen,
+			'xui-dropdown--force-desktop': forceDesktop,
+		});
 
 		const bodyStyles = {
 			maxHeight: listBox.state.maxHeight,
 			height: listBox.state.height
 		};
 
-		const clonedFooter = footer && cloneElement(footer, {
+		const clonedFooter = footer != null && cloneElement(footer, {
 			ref: compose(footer.ref, c => listBox.footer = c)
 		});
 
-		const clonedHeader = header && cloneElement(header, {
+		const clonedHeader = header != null && cloneElement(header, {
 			ref: compose(header.ref, c => listBox.header = c)
 		});
 
@@ -199,14 +207,15 @@ class DropDownListBox extends PureComponent {
 				className={classNames}
 				aria-hidden={isHidden}
 				id={id}
-				role='listbox'
+				role="listbox"
 				tabIndex={0}
 				ref={n => listBox.rootNode = n}
 				onKeyDown={onKeyDown}
-				style={outerStyle}
+				style={style}
+				onAnimationEnd={listBox.onAnimationEnd}
 			>
 				<div className="xui-dropdown--mask"></div>
-				<div className="xui-dropdown--body">
+				<div ref={n => this.bodyNode = n} className="xui-dropdown--body">
 					{clonedHeader}
 					<div
 						className="xui-dropdown--scrollable-content"
@@ -232,6 +241,18 @@ DropDownListBox.propTypes = {
 	/** @property {Boolean} [isHidden=false] default false*/
 	isHidden: PropTypes.bool,
 
+	/** @prop {Boolean} [animateClosed=false] will add the closing animation class */
+	animateClosed: PropTypes.bool,
+
+	/** @prop {Boolean} [animateOpen=false] will add an opening animation class */
+	animateOpen: PropTypes.bool,
+
+	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	onOpenAnimationEnd: PropTypes.func,
+
+	/** @property {Function} [onCloseAnimationEnd] callback for when animation has ended on close. */
+	onCloseAnimationEnd: PropTypes.func,
+
 	/** @property {String} [size] Applies the correct XUI class based on the chose size. Default will fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
@@ -247,15 +268,19 @@ DropDownListBox.propTypes = {
 	/** @property {Function} [onKeyDown] keydown event handler */
 	onKeyDown: PropTypes.func,
 
-	/** @property {Function} [onCloseAnimationEnd] callback for when animation has ended on close. */
-	onCloseAnimationEnd: PropTypes.func,
-
 	/** @property {Boolean} [fixedWidth=false] Whether the fixed width class variant should be used for the size prop */
 	fixedWidth: PropTypes.bool,
+
+	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	forceDesktop: PropTypes.bool,
 };
 
 DropDownListBox.defaultProps = {
-	isHidden: false
+	animateOpen: false,
+	animateClosed: false,
+	isHidden: false,
+	fixedWidth: false,
+	forceDesktop: false,
 };
 
 export { DropDownListBox as default, maxWidthDropdownSizes as dropdownSizes };

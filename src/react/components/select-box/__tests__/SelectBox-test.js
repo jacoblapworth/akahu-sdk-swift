@@ -18,6 +18,7 @@ describe('SelectBox', function () {
 				name="Test"
 				buttonContent={options[0]}
 				buttonClasses="blah"
+				forceDesktop
 			>
 				{options.map((opt, idx) => {
 					return (
@@ -58,6 +59,7 @@ describe('SelectBox', function () {
 				buttonContent="test"
 				buttonClasses="blah"
 				isOpen={false}
+				forceDesktop
 			>
 			</SelectBox>
 		);
@@ -97,6 +99,7 @@ describe('SelectBox', function () {
 				onInputBlur={noop}
 				buttonContent="test"
 				buttonClasses="blah"
+				forceDesktop
 			>
 				<SelectBoxOption id="sample" key="sample" onSelect={noop} value="Sample value">A sample option</SelectBoxOption>
 			</SelectBox>

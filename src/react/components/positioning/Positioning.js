@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import verge from 'verge';
-import throttle from 'lodash.throttle';
 import Portal from 'react-portal';
+import debounce from 'lodash.debounce';
 import cn from 'classnames';
 import {
 	isNarrowViewport,
@@ -12,9 +12,9 @@ import {
 	calcSpaceLeft,
 	scrollTopAmount,
 	scrollLeftAmount,
+	isBaseRendered,
 	attachListeners,
 	detachListeners,
-	isBaseRendered
 } from './private/dom-helpers';
 
 /**
@@ -39,7 +39,9 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 	const alignLeftEdge = canAlignLeftEdge || spaceRightOfTrigger >= spaceLeftOfTrigger;
 
 	const popupTopPos = placeBelow ? triggerRect.bottom : Math.max(triggerRect.top - popupRect.height, gutter);
-	const popupLeftPos = alignLeftEdge ? triggerRect.left : Math.max(triggerRect.left - popupRect.width, gutter);
+	const popupLeftPos = alignLeftEdge
+		? Math.max(triggerRect.left, gutter)
+		: Math.min(Math.max(triggerRect.right - popupRect.width, gutter), verge.viewportW() - popupRect.width - gutter);
 
 	popup.setState({
 		top: popupTopPos + scrollTopAmount(),
@@ -57,7 +59,8 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 function alignTopLeft(popup) {
 		popup.setState({
 			left: 0,
-			top: 0
+			top: 0,
+			maxHeight: null,
 		});
 }
 
@@ -78,7 +81,7 @@ function positionOnShow(popup) {
 		}
 		// Tell the render method it's OK to render without "visibility: hidden"
 		popup.setState({
-			positioned: true
+			positioned: true,
 		});
 	}
 }
@@ -95,8 +98,8 @@ function getDefaultState() {
 		top: 0,
 		left: 0,
 		alignTop: false,
-		maxHeight: 0,
-		positioned: false
+		maxHeight: verge.viewportH() * 0.99,
+		positioned: false,
 	};
 }
 
@@ -130,12 +133,50 @@ class Positioning extends PureComponent {
 
 		popup.state = getDefaultState();
 
-		popup.positionComponent = throttle(popup.positionComponent.bind(popup), 100, { trailing: true });
-		popup.calculateMaxHeight = throttle(popup.calculateMaxHeight.bind(popup), 100, { trailing: true });
+		popup.positionComponent = popup.positionComponent.bind(popup);
+		popup.calculateMaxHeight = popup.calculateMaxHeight.bind(popup);
+		popup.resizeHandler = debounce(popup.positionComponent, 75, { leading: false, trailing: true });
+	}
+
+	componentDidMount() {
+		if (!this.props.renderHidden) {
+			attachListeners(this);
+		}
+	}
+
+	componentDidUpdate(prevProps) {
+		const { props, state } = this;
+
+		// If the popup is going from hidden to visible but hasn't been positioned yet, the render method will ensure
+		// that everything is rendered with "visibility: hidden".  Wait a bit to make sure all children also render,
+		// then measure things and position the popup correctly on the screen.
+		if (!props.renderHidden && !state.positioned) {
+			setTimeout(positionOnShow, 100, this);
+		}
+
+		if (props.renderHidden !== prevProps.renderHidden) {
+			if (props.renderHidden) {
+				// If we're hiding the popup, reset the state to defaults so that the next show event will properly
+				// reposition everything.
+				this.setState(getDefaultState());
+				detachListeners(this);
+			} else {
+				attachListeners(this);
+			}
+		}
+
+		if (prevProps.setMaxHeight !== props.setMaxHeight) {
+			if (props.setMaxHeight) {
+				this.calculateMaxHeight();
+			} else {
+				this.setState({
+					maxHeight: null,
+				});
+			}
+		}
 	}
 
 	componentWillUnmount() {
-		// Safety cleanup
 		detachListeners(this);
 	}
 
@@ -144,14 +185,18 @@ class Positioning extends PureComponent {
 	 */
 	positionComponent() {
 		const popup = this;
-		const { parentRef } =  popup.props;
+		const { parentRef } = popup.props;
 
 		if (parentRef) {
 			const triggerDOM = parentRef.firstChild;
-			const baseRect =  popup.positionEl && popup.positionEl.firstChild.getBoundingClientRect();
+			const baseRect = popup.positionEl && popup.positionEl.firstChild.getBoundingClientRect();
 
 			if (isBaseRendered(baseRect) && verge.inViewport(triggerDOM)) {
-				isNarrowViewport() ? alignTopLeft(popup) : alignBaseWithTrigger(baseRect, triggerDOM.getBoundingClientRect(), popup);
+				if (!popup.props.forceDesktop && isNarrowViewport()) {
+					alignTopLeft(popup);
+				} else {
+					alignBaseWithTrigger(baseRect, triggerDOM.getBoundingClientRect(), popup);
+				}
 			}
 		}
 	}
@@ -166,9 +211,9 @@ class Positioning extends PureComponent {
 		const triggerDOM = parentRef.firstChild;
 
 		if (verge.inViewport(triggerDOM)) {
-			if (isNarrowViewport()) {
+			if (!popup.props.forceDesktop && isNarrowViewport()) {
 				popup.setState({
-					maxHeight: verge.viewportH()
+					maxHeight: verge.viewportH(),
 				});
 			} else {
 				const triggerRect = triggerDOM.getBoundingClientRect();
@@ -176,34 +221,9 @@ class Positioning extends PureComponent {
 				const spaceBelowTrigger = calcSpaceBelow(triggerRect);
 
 				popup.setState({
-					maxHeight: Math.max(spaceAboveTrigger, spaceBelowTrigger) - gutter
+					maxHeight: Math.max(spaceAboveTrigger, spaceBelowTrigger) - gutter,
 				});
 			}
-		}
-	}
-
-	componentDidUpdate(prevProps) {
-		const {props, state} = this;
-
-		// If the popup is going from hidden to visible but hasn't been positioned yet, the render method will ensure
-		// that everything is rendered with "visibility: hidden".  Wait a bit to make sure all children also render,
-		// then measure things and position the popup correctly on the screen.
-		if (!props.renderHidden && !state.positioned) {
-			setTimeout(positionOnShow, 100, this);
-		}
-
-		// In order to ensure that the event listeners are properly attached based on a potentially changing
-		// setMaxHeight prop when visible and detached when hidden, we'll need to unconditionally detach then reattach
-		// if visible here.
-		detachListeners(this);
-		if (!props.renderHidden) {
-			attachListeners(this);
-		}
-
-		// If we're hiding the popup, reset the state to defaults so that the next show event will properly reposition
-		// everything.
-		if (!prevProps.renderHidden && props.renderHidden) {
-			this.setState(getDefaultState());
 		}
 	}
 
@@ -253,12 +273,15 @@ Positioning.propTypes = {
 	/** @property {gutter} A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
 	gutter: PropTypes.number,
 	/** @property {setMaxHeight} A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
-	setMaxHeight: PropTypes.bool
+	setMaxHeight: PropTypes.bool,
+	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	forceDesktop: PropTypes.bool,
 };
 
 Positioning.defaultProps = {
-	gutter: 5,
-	setMaxHeight: true
+	gutter: 10,
+	setMaxHeight: true,
+	forceDesktop: false,
 };
 
 export default Positioning;

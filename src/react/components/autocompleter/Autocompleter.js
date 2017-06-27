@@ -162,6 +162,7 @@ export default class Autocompleter extends PureComponent {
 					closeOnSelect={props.closeOnSelect}
 					className={dropdownToggledClasses}
 					triggerClickAction={props.triggerClickAction}
+					forceDesktop={props.forceDesktop}
 				/>
 			</div>
 		);
@@ -228,6 +229,8 @@ Autocompleter.propTypes = {
 	/** @property {String} [triggerClickAction='open'] What action to take when the user clicks the trigger.  Default is to open the dropdown.  Can toggle the dropdown open/closed ('toggle') or do nothing ('none'). */
 	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
 
+	forceDesktop: PropTypes.bool,
+
 	qaHook: PropTypes.string,
 	children: PropTypes.node
 };
@@ -237,4 +240,5 @@ Autocompleter.defaultProps = {
 	searchThrottleInterval: 0,
 	openOnFocus: false,
 	triggerClickAction: 'open',
+	forceDesktop: false,
 };

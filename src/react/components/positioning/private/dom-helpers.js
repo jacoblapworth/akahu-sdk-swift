@@ -72,10 +72,8 @@ export const scrollLeftAmount = () =>
  * @param {Positioning} popup
  */
 export function attachListeners(popup) {
-	window.addEventListener('resize', popup.positionComponent);
-	window.addEventListener('scroll', popup.positionComponent);
-	if (popup.props.setMaxHeight) {
-		window.addEventListener('resize', popup.calculateMaxHeight)
+	if (typeof window !== 'undefined') {
+		window.addEventListener('resize', popup.resizeHandler);
 	}
 }
 
@@ -85,7 +83,7 @@ export function attachListeners(popup) {
  * @param {Positioning} popup
  */
 export function detachListeners(popup) {
-	window.removeEventListener('resize', popup.positionComponent);
-	window.removeEventListener('scroll', popup.positionComponent);
-	window.removeEventListener('resize', popup.calculateMaxHeight)
+	if (typeof window !== 'undefined') {
+		window.removeEventListener('resize', popup.resizeHandler);
+	}
 }

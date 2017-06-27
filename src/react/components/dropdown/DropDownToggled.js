@@ -1,9 +1,26 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import debounce from 'lodash.debounce';
 import Positioning from '../positioning/Positioning';
-import { compose, lockScroll, unlockScroll, isNarrowViewport, isScrollLocked } from './private/helpers';
+import {
+	compose,
+	lockScroll,
+	unlockScroll,
+	isNarrowViewport,
+	isScrollLocked,
+	addEventListeners,
+	removeEventListeners,
+} from './private/helpers';
 
+/**
+ * Attempt to set focus onto the trigger either via native DOM APIs or
+ * React component APIs (when available).
+ *
+ * @private
+ * @param {React.Component} virtualTrigger
+ * @param {HTMLElement} triggerDOM
+ */
 function focusTrigger(virtualTrigger, triggerDOM) {
 	// if there is a focus API, use it, else set focus to the given trigger
 	if (virtualTrigger && typeof virtualTrigger.focus === 'function') {
@@ -14,69 +31,70 @@ function focusTrigger(virtualTrigger, triggerDOM) {
 }
 
 /**
+ * Predicate function to determine whether or not the dropdown should animate open
+ * and closed based on state/props.
+ *
+ * @private
+ * @param {DropDownToggled} ddt
+ * @returns {Boolean}
+ */
+function shouldAnimate(ddt) {
+	return !ddt.props.forceDesktop && ddt.state.isNarrowViewport;
+}
+
+/**
+ * Scroll locking is only useful in a narrow set of circumstances.  Determine if we should
+ * do that right now.
+ *
+ * @private
+ * @param {DropDownToggled} ddt
+ * @returns {Boolean}
+ */
+function shouldLockScroll(ddt) {
+	return !ddt.props.disableScrollLocking
+		&& !ddt.props.forceDesktop
+		&& !isScrollLocked()
+		&& ddt.state.isNarrowViewport;
+}
+
+/**
  * HOC to wrap the passed in Dropdown & TriggerComponent elements. Adds functionality to toggle the list open/closed
  * based on click of the TriggerComponent.
  */
 export default class DropDownToggled extends PureComponent {
 	constructor(props) {
 		super(props);
-		const ddt = this;
 
-		ddt.state = {
+		this.state = {
 			isHidden: props.isHidden,
-			isPortalHidden: props.isHidden,
 			activeDescendant: null,
 			isNarrowViewport: isNarrowViewport(),
-			isOpening: false
+			isOpening: false,
+			isClosing: false,
 		};
-		[
-			'openDropDown',
-			'closeDropDown',
-			'toggle',
-			'onMouseDown',
-			'onTriggerKeyDown',
-			'onKeyDown',
-			'onSelect',
-			'onHighlightChange',
-			'onCloseAnimationEnd',
-			'onOpen',
-			'onResize',
-			'triggerClickHandler'
-		].forEach(fn => {
-			ddt[fn] = ddt[fn].bind(ddt);
-		});
 
-		ddt.onDropDownKeyDown = ddt.onDropDownKeyDown.bind(ddt);
+		this.onResize = debounce(this.onResize, 100);
 	}
 
 	/**
-	 * @public
-	 *
 	 * Attaches the event listeners based on state.
 	 * Listeners attached on keydown and mousedown to control the open/close keyboard shortcuts of the list.
 	 */
 	componentDidMount() {
-		const ddt = this;
-		if (!ddt.state.isHidden) {
-			window.addEventListener('mousedown', ddt.onMouseDown);
-			window.addEventListener('resize', ddt.onResize);
-			ddt.forceUpdate();
+		if (!this.state.isHidden) {
+			addEventListeners(this);
+			this.forceUpdate();
 		}
 	}
 
 	/**
-	 * @public
-	 *
 	 * Remove the event listeners attached in componentDidMount.
 	 */
 	componentWillUnmount() {
-		window.removeEventListener('mousedown', this.onMouseDown);
-		window.removeEventListener('resize', this.onResize);
+		removeEventListeners(this);
 	}
 
 	/**
-	 * @public
-	 *
 	 * Call onOpen and onClosed callbacks based on hidden state.
 	 * We're doing this here as we should call these after they've actually
 	 * rendered open or closed, not just with the state change.
@@ -87,65 +105,101 @@ export default class DropDownToggled extends PureComponent {
 	componentDidUpdate(prevProps, prevState) {
 		const ddt = this;
 		const { props, state } = ddt;
+		const { onOpenAnimationEnd, onCloseAnimationEnd } = props;
 
-		!state.isHidden && !props.disableScrollLocking && isNarrowViewport() && !isScrollLocked() && lockScroll();
+		// If an animation state has just changed, we need to fire the passed animation
+		// end callback
+		if (!state.isOpening && prevState.isOpening && onOpenAnimationEnd != null) {
+			onOpenAnimationEnd();
+		}
+		if (!state.isClosing && prevState.isClosing && onCloseAnimationEnd != null) {
+			onCloseAnimationEnd();
+		}
+
+		if (!props.disableScrollLocking) {
+			if (state.isHidden && isScrollLocked()) {
+				unlockScroll();
+			}
+			if (!state.isHidden) {
+				if (isScrollLocked() && !state.isNarrowViewport) {
+					unlockScroll();
+				}
+				if (shouldLockScroll(ddt)) {
+					lockScroll();
+				}
+			}
+		}
 
 		if (state.isHidden !== prevState.isHidden) {
-			const callback = state.isHidden ? props.onClose : ddt.onOpen;
-			if (callback) {
-				callback();
-			}
+			// Just closed
+			if (state.isHidden) {
+				// Remove window event listeners for performance gains.
+				removeEventListeners(ddt);
 
-			if (!state.isHidden) {
-				window.addEventListener('mousedown', ddt.onMouseDown);
-				window.addEventListener('resize', ddt.onResize);
+				// If we didn't animate close, we need to call the close animation callback
+				// for API consistency between the two.  After all, the animation here is
+				// just "hide".
+				if (!shouldAnimate(ddt) && onCloseAnimationEnd != null) {
+					onCloseAnimationEnd();
+				}
+
+				// onClose callback
+				if (props.onClose != null) {
+					props.onClose();
+				}
 			} else {
-				window.removeEventListener('mousedown', ddt.onMouseDown);
-				window.removeEventListener('resive',ddt.onResize);
+				// If we didn't animate open, we need to call the open animation callback
+				// for API consistency between the two.  After all, the animation here is
+				// just "hide".
+				if (!shouldAnimate(ddt) && onOpenAnimationEnd != null) {
+					onOpenAnimationEnd();
+				}
+
+				// onOpen callback
+				if (props.onOpen != null) {
+					props.onOpen();
+				}
+				// Add window event listeners to make sure things still look good on browser resize
+				addEventListeners(ddt);
+
+				// If we are animating, add the animation class now
+				if (shouldAnimate(ddt)) {
+					ddt.setState(() => ({
+						isOpening: true,
+					}));
+				}
 			}
 		}
 	}
 
-	onOpen() {
-		const ddt = this;
-		const { onOpen } = ddt.props;
-
-		ddt.setState({
-			isOpening: true
-		});
-
-		onOpen && onOpen();
-	}
-
-
 	/**
 	 * @public
 	 * Set the state as not hidden in order to toggle the list open.
 	 */
-	openDropDown() {
-		this.setState({
+	openDropDown = () => {
+		this.setState(() => ({
 			isHidden: false,
-			isPortalHidden: false
-		});
+			isOpening: false,
+			isNarrowViewport: isNarrowViewport(),
+		}));
 	}
 
 	/**
 	 * @public
 	 * Set the state as not hidden in order to toggle the list open.
 	 */
-	closeDropDown() {
+	closeDropDown = () => {
 		const ddt = this;
 		const { firstChild: trigger } = ddt.wrapper;
 
-		//Timeout to give any callbacks a chance to fire before the dropdown is hidden.
-		setTimeout(() => {
+		// Timeout to give any callbacks a chance to fire before the dropdown is hidden.
+		ddt.setState(() => {
 			focusTrigger(ddt.trigger, trigger);
-			ddt.setState({
-				isHidden: true,
-				isOpening: false
-			});
-
-		}, 80);
+			return {
+				isHidden: !shouldAnimate(ddt),
+				isClosing: shouldAnimate(ddt),
+			};
+		});
 	}
 
 	/**
@@ -154,18 +208,13 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 * @returns {boolean}
 	 */
-	isDropDownOpen() {
-		return !this.state.isHidden;
-	}
+	isDropDownOpen = () => !this.state.isHidden;
 
 	/**
 	 * @public
 	 * A handy method exposed to easily toggle the list based on internal state.
 	 */
-	toggle() {
-		const ddt = this;
-		ddt.state.isHidden ? ddt.openDropDown() : ddt.closeDropDown();
-	}
+	toggle = () => this.state.isHidden ? this.openDropDown() : this.closeDropDown();
 
 	/**
 	 * @private
@@ -173,7 +222,7 @@ export default class DropDownToggled extends PureComponent {
 	 *
 	 * @memberof DropDownToggled
 	 */
-	triggerClickHandler() {
+	triggerClickHandler = () => {
 		switch (this.props.triggerClickAction) {
 			case 'toggle':
 				this.toggle();
@@ -185,69 +234,67 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * @public
-	 * @param {KeyboardEvent} e key down event object
+	 * @param {KeyboardEvent} event key down event object
 	 *
 	 * Will close the list if either esc or tab keys are pressed on keydown.
 	 * Will tab to next index if tab key is pressed
 	 */
-	onKeyDown(e) {
-		if (!this.state.isHidden && (e.keyCode === 9 || e.keyCode === 27)) {
+	onKeyDown = event => {
+		if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
 			// If the user doesn't want to close when the tab key is hit, don't
-			if (e.keyCode !== 9 || this.props.closeOnTab) {
+			if (event.keyCode !== 9 || this.props.closeOnTab) {
 				this.closeDropDown();
 			}
 		}
 	}
 
 	/**
-	 * @public
-	 * @param {KeyboardEvent} e key down event object
+	 * @param {KeyboardEvent} event key down event object
 	 *
 	 * Will close the dropdown if the esc key is pressed within the dropdown.
 	 */
-	onDropDownKeyDown(e) {
-		if (!this.state.isHidden && (e.keyCode === 27 || e.keyCode === 9)) {
-			if (e.keyCode !== 9 || this.props.closeOnTab) {
+	onDropDownKeyDown = event => {
+		if (!this.state.isHidden && (event.keyCode === 27 || event.keyCode === 9)) {
+			if (event.keyCode !== 9 || this.props.closeOnTab) {
 				this.closeDropDown();
 			}
 		}
 	}
 
 	/**
-	 * @public
-	 * @param {KeyboardEvent} e key down event object
-	 *
 	 * Will open the list if the down arrow is pressed on keydown.
+	 *
+	 * @param {KeyboardEvent} event key down event object
 	 */
-	onTriggerKeyDown(e) {
-		if (e.keyCode === 40 && this.state.isHidden) {
-			e.preventDefault();
+	onTriggerKeyDown = event => {
+		if (event.keyCode === 40 && this.state.isHidden) {
+			event.preventDefault();
 			this.openDropDown();
 		}
 	}
 
 	/**
 	 * Fires when the window triggers a mouse down event
-	 * @public
-	 * @param {MouseEvent} e
+	 * @param {MouseEvent} event
 	 */
-	onMouseDown(e) {
+	onMouseDown = event => {
 		const ddt = this;
 		const { firstChild: trigger } = ddt.wrapper;
 		const dropdown = ddt.dropdown && document.getElementById(ddt.dropdown.dropdownId);
 
-		/**
-		* Summary fo below checks:
-		* - state has marked the portal and dropdown as not hidden
-		* - AND the dropdown has rendered and we can match teh click target to the dropdown
-		* - AND trigger has also rendered and can match with target
-		* - OR if the click target is the mask
+		/*
+		Summary of below checks:
+		 - state has marked the portal and dropdown as not hidden
+		 - AND the dropdown has rendered and we can match the click target to the dropdown
+		 - AND trigger has also rendered and can match with target
+		 - OR if the click target is the mask
 		*/
-		if (!ddt.state.isHidden && !ddt.state.isPortalHidden
-				&& dropdown && !dropdown.contains(e.target)
-				&& trigger && !trigger.contains(e.target)
-				|| e.target.classList.contains('xui-dropdown--mask')) {
+		if (
+			!ddt.state.isHidden
+			&& dropdown != null && !dropdown.contains(event.target)
+			&& trigger != null && !trigger.contains(event.target)
+			|| event.target.classList.contains('xui-dropdown--mask')
+		) {
 			ddt.closeDropDown();
 		}
 
@@ -255,18 +302,16 @@ export default class DropDownToggled extends PureComponent {
 
 	/**
 	 * Sets the activeDescendant state to be the id of the item selected so this can be set in the corresponding trigger attribute.
-	 * @param {Event} e
+	 * @param {Event} event
 	 * @param {ReactElement} item
 	 */
-	onSelect(e, item) {
-		const ddt = this;
-
-		ddt.setState({
+	onSelect = (event, item) => {
+		this.setState({
 			activeDescendant: item.props.id
 		});
 
-		if (ddt.props.closeOnSelect) {
-			ddt.closeDropDown();
+		if (this.props.closeOnSelect) {
+			this.closeDropDown();
 		}
 	}
 
@@ -275,55 +320,61 @@ export default class DropDownToggled extends PureComponent {
 	 *
 	 * @param {ReactElement} item
 	 */
-	onHighlightChange(item) {
+	onHighlightChange = item => {
 		this.setState({
 			activeDescendant: item.props.id
 		});
 	}
 
 	/**
-	* @public
-	*
-	* Will fire when the animation is complete on the dropdown so we can tell the portal
-	* to remove itself from the DOM.
-	*/
-	onCloseAnimationEnd() {
-		const ddt = this;
-
-		if (ddt.state.isHidden){
-			const {disableScrollLocking, onCloseAnimationEnd} = ddt.props;
-			!disableScrollLocking && unlockScroll();
-			onCloseAnimationEnd && onCloseAnimationEnd();
-
-			ddt.setState({
-				isPortalHidden: true
-			});
-		}
+	 * Will fire when the animation is complete on the dropdown so we can tell the portal
+	 * to remove itself from the DOM.
+	 */
+	onCloseAnimationEnd = () => {
+		this.setState(() => ({
+			isClosing: false,
+			isHidden: true,
+		}));
 	}
 
 	/**
-	* @public
-	*
-	* Will manage state of isNarrowViewport so we can test if the viewport has changed
-	* from a narrow viewport to wider the narrow viewport size or vice versa.
-	*/
-	onResize(){
-		const ddt = this;
+	 * When the opening animation finishes, we need to remove the class that causes it
+	 * to prevent a change in the child DOM nodes from causing another animation.
+	 *
+	 * @memberof DropDownToggled
+	 */
+	onOpenAnimationEnd = () => {
+		this.setState(() => ({
+			isOpening: false,
+		}));
+	}
 
-		ddt.setState(prevState => {
-			if ('prev, new', prevState.isNarrowViewport !== isNarrowViewport()){
-				ddt.closeDropDown();
+	/**
+	 * When the browser resizes, we need to do a couple of things to ensure that the
+	 * dropdown still looks correct:
+	 * 1. Check to see if we're in a mobile context.
+	 * 2. Reposition the dropdown.  Could be fullscreen if resized to mobile.
+	 *
+	 * @memberof DropDownToggled
+	 */
+	onResize = () => {
+		this.setState(() => ({
+			isNarrowViewport: isNarrowViewport(),
+		}));
+		this.repositionDropdown();
+	}
 
-				return {
-					isNarrowViewport: isNarrowViewport()
-				}
-			}
-		});
+	repositionDropdown = () => {
+		if (this.positioning != null) {
+			this.positioning.calculateMaxHeight();
+			this.positioning.positionComponent();
+		}
 	}
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop } = ddt.props;
+		const { isOpening, isClosing, isHidden } = ddt.state;
 		const ariaProps = {
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': true,
@@ -334,19 +385,21 @@ export default class DropDownToggled extends PureComponent {
 			ref: compose(trigger.ref, c => ddt.trigger = c),
 			onClick: compose(trigger.props.onClick, ddt.triggerClickHandler),
 			onKeyDown: compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
-			...ariaProps
+			...ariaProps,
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
+			isHidden,
+			forceDesktop: forceDesktop,
+			animateOpen: isOpening,
+			animateClosed: isClosing,
 			ref: compose(dropdown.ref, c => ddt.dropdown = c),
-			isHidden: ddt.state.isHidden,
 			onSelect: compose(dropdown.props.onSelect, ddt.onSelect),
 			onHighlightChange: compose(dropdown.props.onHighlightChange, ddt.onHighlightChange),
 			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
+			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, ddt.onOpenAnimationEnd),
 			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: cn(dropdown.props.className, {
-				'xui-dropdown-is-opening': ddt.state.isOpening
-			})
+			className: dropdown.props.className,
 		});
 
 		return (
@@ -358,9 +411,11 @@ export default class DropDownToggled extends PureComponent {
 			>
 				{clonedTrigger}
 				<Positioning
+					ref={c => this.positioning = c}
 					parentRef={ddt.wrapper}
-					renderHidden={ddt.state.isPortalHidden}
+					renderHidden={isHidden}
 					setMaxHeight={restrictToViewPort}
+					forceDesktop={forceDesktop}
 				>
 						{clonedDropdown}
 				</Positioning>
@@ -375,10 +430,10 @@ DropDownToggled.propTypes = {
 	/** @property {Boolean} [isHidden=true] Whether the dropdown is hidden on initial render */
 	isHidden: PropTypes.bool,
 
-	/** @property {Function} [onOpen] Callback that gets triggered on dropdown opening */
+	/** @property {Function} [onOpen] Callback that gets triggered when the dropdown begins opening */
 	onOpen: PropTypes.func,
 
-	/** @property {Function} [onClose] Callback that gets triggered on dropdown closing */
+	/** @property {Function} [onClose] Callback that gets triggered when the dropdown has finished closing */
 	onClose: PropTypes.func,
 
 	/** @property {Element} [trigger] Element used to trigger the dropdown opening/closing (typically a button) */
@@ -396,14 +451,20 @@ DropDownToggled.propTypes = {
 	/** @property {Boolean} [restrictToViewPort=true] Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
 	restrictToViewPort: PropTypes.bool,
 
-	/** @property {Boolean} [disableScrollLocking=true] Whether scroll locking behaviour should be disabled */
+	/** @property {Boolean} [disableScrollLocking=false] Whether scroll locking behaviour should be disabled on mobile */
 	disableScrollLocking: PropTypes.bool,
 
 	/** @property {Function} [onCloseAnimationEnd] Function to be called once the closing animation has finished */
 	onCloseAnimationEnd: PropTypes.func,
 
+	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	onOpenAnimationEnd: PropTypes.func,
+
 	/** @property {String} [triggerClickAction='toggle'] What action to take when the user clicks the trigger.  Default is to toggle the dropdown open/close.  Can just open ('open') or do nothing ('none'). */
 	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
+
+	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	forceDesktop: PropTypes.bool,
 };
 
 DropDownToggled.defaultProps = {
@@ -413,4 +474,5 @@ DropDownToggled.defaultProps = {
 	restrictToViewPort: true,
 	disableScrollLocking: false,
 	triggerClickAction: 'toggle',
+	forceDesktop: false,
 };

@@ -1,14 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { mock } from 'simple-mock';
 import DropDown from '../DropDown';
 import DropDownToggled from '../DropDownToggled';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
-
-let openDropDownMock;
-let triggerKeyDownHandlerMock;
 
 let openCalled = false;
 let closeCalled = false;
@@ -41,11 +37,10 @@ const getDropDown = (props) => {
 };
 
 function getWrapper(props={}) {
-	triggerKeyDownHandlerMock = mock(DropDownToggled.prototype, 'onTriggerKeyDown');
-	openDropDownMock = mock(DropDownToggled.prototype, 'openDropDown');
 	return mount(
 		<DropDownToggled
 			className="testClass"
+			forceDesktop={true}
 			onOpen={() => openCalled = true}
 			onClose={() => closeCalled = true}
 			trigger={getTrigger()}
@@ -78,7 +73,6 @@ describe('<DropDownToggled />', () => {
 		it('renders the list open on click of the trigger', () => {
 			wrapper.find('.xui-button').simulate('click');
 
-			expect(openDropDownMock.callCount).toEqual(1);
 			expect(wrapper.state('isHidden')).toBeFalsy();
 		});
 
@@ -96,26 +90,20 @@ describe('<DropDownToggled />', () => {
 		it('calls the onClose prop after the list is closed', () => {
 			wrapper.find('.xui-button').simulate('click');
 			wrapper.find('.xui-button').simulate('click');
-			//timeout is for animation to end.
-			setTimeout(() => {
-				expect(closeCalled).toBeTruthy();
-			}, 1300);
 
-			expect(document.body.getElementsByClassName('.xui-dropdown-layout')).toHaveLength(0);
+			expect(closeCalled).toBeTruthy();
 		});
 
-		//Failing to read state as it's out of scope when simulating the keyDown events
-		it.skip('opens the list when the down arrow is pressed from the trigger', () => {
+		// Failing to read state as it's out of scope when simulating the keyDown events
+		it('opens the list when the down arrow is pressed from the trigger', () => {
 			const trigger = wrapper.find('.xui-button');
 			trigger.simulate('keyDown', { key: 'ArrowDown', keyCode: 40, which: 40 });
 
-			expect(triggerKeyDownHandlerMock.callCount).toEqual(1);
 			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
-			expect(openDropDownMock.callCount).toEqual(1);
 		});
 	});
 
-	describe('drodown rendered open', () => {
+	describe('dropdown rendered open', () => {
 		let wrapper;
 		beforeEach(() => {
 			wrapper = getWrapper({ isHidden: false });
@@ -125,37 +113,31 @@ describe('<DropDownToggled />', () => {
 			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
 			wrapper.find('.xui-button').simulate('keyDown', { keyCode: 9 });
 
-			//timeout is for animation to end.
-			setTimeout(() => {
-				expect(wrapper.node.isDropDownOpen()).toBeFalsey();
-			}, 1300);
+			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
 		});
 
 		it('closes the list when the tab key is pressed', () => {
 			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
 			wrapper.find('.xui-button').simulate('keyDown', { keyCode: 27 });
 
-			//timeout is for animation to end.
-			setTimeout(() => {
-				expect(wrapper.node.isDropDownOpen()).toBeFalsey();
-			}, 1300);
+			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
 		});
 	});
 
-	//These are skipped as enzyme cannot test siblings.
+	// These are skipped as enzyme cannot test shit rendered in portal.
 	describe.skip('closeOnSelect', function () {
 		it('closes the dropdown when the user selects something by default', function () {
 			const wrapper = getWrapper({ isHidden: false });
 
-			wrapper.closest(Pickitem).first().childAt(0).simulate('click');
+			wrapper.closest('body').find('.xui-pickitem').first().simulate('click');
 
-			expect(wrapper.node.isDropDownOpen()).toBeFalsey();
+			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
 		});
 
 		it('does not close the dropdown on select if closeOnSelect is set to false', function () {
 			const wrapper = getWrapper({ isHidden: false, closeOnSelect: false });
 
-			wrapper.closest('.xui-pickitem').first().childAt(0).simulate('click');
+			wrapper.find('.xui-pickitem').first().simulate('click');
 
 			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
 		});

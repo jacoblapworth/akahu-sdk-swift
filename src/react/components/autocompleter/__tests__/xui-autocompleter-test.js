@@ -15,9 +15,10 @@ describe('Autocompleter', () => {
 			<Autocompleter
 				onSearch={() => searched = true }
 				placeholder="Search"
-				searchValue='a'
+				searchValue="a"
 				dropdownSize="medium"
 				qaHook="baseAC"
+				forceDesktop
 			>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
@@ -65,8 +66,9 @@ describe('Autocompleter', () => {
 	it('displays a XUILoader when loading is true', () => {
 		const wrapper = mount(
 			<Autocompleter
-				searchValue='a'
-				loading={true}
+				searchValue="a"
+				loading
+				forceDesktop
 			>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
@@ -82,6 +84,7 @@ describe('Autocompleter', () => {
 		const wrapper = mount(
 			<Autocompleter
 				pills={<Pill value="ABC" />}
+				forceDesktop
 			>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
@@ -92,22 +95,19 @@ describe('Autocompleter', () => {
 		expect(wrapper.find(Pill)).toBeDefined();
 	});
 
-	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', (done) => {
+	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {
 		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
 
 		wrapper.instance().openDropDown();
 		expect(wrapper.instance().ddt.state.isHidden).toBeFalsy()
 
 		wrapper.instance().closeDropDown();
-		setTimeout(() => {
-			expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
-			done();
-		}, 100);
+		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
 	});
 
 	it('applies the xui-u-fullwidth class if no dropdownSize is provided in the component props', () => {
 		const wrapper = mount(
-			<Autocompleter>
+			<Autocompleter forceDesktop>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
 				</Picklist>

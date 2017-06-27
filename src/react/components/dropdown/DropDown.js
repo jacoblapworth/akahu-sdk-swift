@@ -138,11 +138,18 @@ export default class DropDown extends PureComponent {
 			ignoreKeyboardEvents,
 			style,
 			header,
-			onCloseAnimationEnd,
 			fixedWidth,
+			onCloseAnimationEnd,
+			onOpenAnimationEnd,
+			animateClosed,
+			animateOpen,
+			forceDesktop,
 		} = dropdown.props;
 
-		const dropdownClasses = cn( {'xui-dropdown-fullheight' : header}, className)
+		const dropdownClasses = cn(className, {
+			'xui-dropdown-fullheight': header
+		});
+
 		return (
 			<DropDownListBox
 				id={dropdown.dropdownId}
@@ -156,7 +163,11 @@ export default class DropDown extends PureComponent {
 				ref={c => dropdown.listBox = c}
 				onKeyDown={dropdown.onKeyDown}
 				style={style}
+				animateClosed={animateClosed}
+				animateOpen={animateOpen}
 				onCloseAnimationEnd={onCloseAnimationEnd}
+				onOpenAnimationEnd={onOpenAnimationEnd}
+				forceDesktop={forceDesktop}
 			>
 				<DropDownPanel
 					onSelect={onSelect}
@@ -210,11 +221,23 @@ DropDown.propTypes = {
 	/** @property {Function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
 	onHighlightChange: PropTypes.func,
 
+	/** @prop {Boolean} [animateClosed=false] will add the closing animation class */
+	animateClosed: PropTypes.bool,
+
+	/** @prop {Boolean} [animateOpen=false] will add an opening animation class */
+	animateOpen: PropTypes.bool,
+
 	/** @prop {Function} [onCloseAnimationEnd] */
 	onCloseAnimationEnd: PropTypes.func,
 
+	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	onOpenAnimationEnd: PropTypes.func,
+
 	/** @property {Boolean} [fixedWidth=false] Whether the fixed width class variant should be used for the size prop */
 	fixedWidth: PropTypes.bool,
+
+	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	forceDesktop: PropTypes.bool,
 };
 
 DropDown.defaultProps = {
@@ -223,4 +246,5 @@ DropDown.defaultProps = {
 	hasKeyboardEvents: true,
 	restrictFocus: true,
 	fixedWidth: false,
+	forceDesktop: false,
 };

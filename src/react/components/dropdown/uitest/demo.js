@@ -113,6 +113,8 @@ class ToggledDropDown extends Component {
 				footer={dropdownFooter}
 				className="dropdown-toggle-wrapper"
 				restrictFocus={this.state.restrictFocus}
+				size="medium"
+				fixedWidth
 			>
 				<Picklist>
 					{createItems(toggledItems, this.state.selectedId)}
@@ -122,9 +124,12 @@ class ToggledDropDown extends Component {
 		return (
 			<DropDownToggled
 				className="exampleClass"
-				onOpen={() => {console.log('dropdown is open')}}
+				onOpen={() => console.log('dropdown is open')}
+				onClose={() => console.log('dropdown is closed')}
 				trigger={trigger}
 				dropdown={dropdown}
+				onOpenAnimationEnd={() => console.log('open animation end')}
+				onCloseAnimationEnd={() => console.log('close animation end')}
 			/>
 		);
 	}
@@ -135,6 +140,8 @@ class ToggledNestedDropdown extends Component {
 		super();
 		this.state = {
 			selectedId: null,
+			restrictToViewPort: true,
+			setMaxHeight: true,
 			currentPanel: "default",
 			selectedDate: null,
 			selectedItems: {
@@ -153,7 +160,7 @@ class ToggledNestedDropdown extends Component {
 
 	onSelect(value) {
 		this.setState({
-			selectedId: value
+			selectedId: value,
 		});
 	}
 
@@ -172,8 +179,11 @@ class ToggledNestedDropdown extends Component {
 	}
 
 	selectPanel(panelId) {
+		const showingDatePicker = panelId === 'startDate';
 		this.setState({
 			currentPanel: panelId,
+			restrictToViewPort: !showingDatePicker,
+			setMaxHeight: !showingDatePicker,
 		});
 	}
 
@@ -182,9 +192,7 @@ class ToggledNestedDropdown extends Component {
 	}
 
 	resetCurrentPanel() {
-		this.setState({
-			currentPanel: 'default'
-		});
+		this.selectPanel('default');
 	}
 
 	applyCheckboxes() {
@@ -206,7 +214,9 @@ class ToggledNestedDropdown extends Component {
 		const exampleUsage = this;
 		const {
 			selectedDate,
-			currentPanel
+			currentPanel,
+			restrictToViewPort,
+			setMaxHeight,
 		} = exampleUsage.state;
 		const trigger = (
 			<XUIButton variant="negative" onClick={() => {}} data-ref="toggled_trigger">
@@ -229,20 +239,23 @@ class ToggledNestedDropdown extends Component {
 					secondaryButtonContent: 'Cancel',
 					onSecondaryButtonClick: this.closeNestedDropDown
 				}}
-				onPanelSelect={panelId => this.selectPanel(panelId)}
+				onPanelSelect={this.selectPanel}
 			>
 				<DropDownPanel
 					panelId="default"
-					panelHeading="Primary filters">
+					panelHeading="Primary filters"
+				>
 					<Picklist>
 						<Pickitem
 							id="DatePickerOpen"
-							onSelect={()=>this.selectPanel('dateMenu')}>
+							onSelect={() => this.selectPanel('dateMenu')}
+						>
 							Date Selection
 						</Pickitem>
 						<Pickitem
 							id="ClearDate"
-							onSelect={()=>this.clearDate()}>
+							onSelect={() => this.clearDate()}
+						>
 							Clear filter
 						</Pickitem>
 					</Picklist>
@@ -250,7 +263,8 @@ class ToggledNestedDropdown extends Component {
 						<div className="xui-separator-title xui-padding-horizontal-large xui-padding-bottom-small">Multiple lists can be added</div>
 						<Pickitem
 							id="dog"
-							onSelect={()=>this.selectPanel('checkboxes')}>
+							onSelect={() => this.selectPanel('checkboxes')}
+						>
 							Checkboxes
 						</Pickitem>
 						<Pickitem
@@ -266,11 +280,11 @@ class ToggledNestedDropdown extends Component {
 					<Picklist>
 						<Pickitem
 							id="startDate"
-							onSelect={()=>this.selectPanel('startDate')}>
+							onSelect={() => this.selectPanel('startDate')}
+						>
 							Start date
 						</Pickitem>
-						<Pickitem
-							id="endDate">
+						<Pickitem id="endDate">
 							Some other button
 						</Pickitem>
 					</Picklist>
@@ -279,7 +293,8 @@ class ToggledNestedDropdown extends Component {
 					panelId="checkboxes"
 					parentPanel="default"
 					panelHeading="Checkboxes!"
-					onSelect={exampleUsage.onOptionSelect}>
+					onSelect={exampleUsage.onOptionSelect}
+				>
 					<Picklist>
 						{createItems(statefulMultiselectItems[0], exampleUsage.state.selectedItems)}
 					</Picklist>
@@ -290,10 +305,11 @@ class ToggledNestedDropdown extends Component {
 				<DropDownPanel
 					panelId="startDate"
 					parentPanel="dateMenu"
-					panelHeading="Date selection">
+					panelHeading="Date selection"
+				>
 					<XUIDatePicker
 						selectedDate={this.state.selectedDate}
-						onSelectDate={date => this.onSelectDate(date)}
+						onSelectDate={this.onSelectDate}
 						isCompact
 					/>
 				</DropDownPanel>
@@ -302,11 +318,13 @@ class ToggledNestedDropdown extends Component {
 		return (
 			<DropDownToggled
 				className="exampleClass"
-				onOpen={() => {console.log('dropdown is open')}}
+				onOpen={() => console.log('dropdown is open')}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}
 				closeOnTab={false}
+				setMaxHeight={setMaxHeight}
+				restrictToViewPort={restrictToViewPort}
 				ref={dt => this.dropDownToggle = dt}
 				onCloseAnimationEnd={this.resetCurrentPanel}
 			/>
@@ -341,7 +359,7 @@ class WithForm extends Component {
 				</form>
 			</DropDown>
 		);
-		return <DropDownToggled trigger={trigger} dropdown={dropdown} closeOnTab={false} />;
+		return <DropDownToggled trigger={trigger} dropdown={dropdown} closeOnTab={false} forceDesktop />;
 	}
 }
 
@@ -410,6 +428,9 @@ class FullHeightToggledDropDown extends Component {
 
 ReactDOM.render(
 	<div className="xui-form-layout">
+		<div style={{ position: 'fixed', right: 0, top: '20px' }}>
+			{<ToggledDropDown />}
+		</div>
 		<div className="xui-margin-bottom-large xui-panel xui-padding">
 			<div className="xui-text-panelheading xui-margin-bottom">Toggled Dropdown</div>
 			<p className='xui-text-label'>A simple dropdown containing a picklist.</p>

@@ -33,7 +33,7 @@
     "clean:testui": "rimraf uitest/assets",
     "copy:sass": "ncp src/sass sass",
     "dist": "grunt dist",
-    "doc": "grunt doc",
+    "doc": "cross-env NODE_ENV=production grunt doc",
     "lint": "npm-run-all lint:js lint:sass",
     "lint:sass": "stylelint --syntax scss ./src/sass/**/*.scss",
     "lint:js": "eslint .",

@@ -38,7 +38,7 @@ XUI is now an NPM only module.  The costs of maintaining both an NPM and bower v
 Upgrading will require the following steps:
 - Follow the installation instructions above.
 - Update all your import statements to reference the new NPM dependency.  Thankfully, Anchen Li in Melbourne has created a jscodeshift script that can do that for you located here: https://github.dev.xero.com/anchen-li/jscodeshift-script (thanks Anchen).
-- If you don't want to use the jscodeshit script, you'll have to do a find/replace in your code base to import the new components.  `import ... from 'xui-button'` should be replaced with `import ... from '@xero/xui/react/button'`, `import ... from 'xui-toast'` should be replaced with `import ... from '@xero/xui/react/toast'`, and so on.
+- If you don't want to use the jscodeshift script, you'll have to do a find/replace in your code base to import the new components.  `import ... from 'xui-button'` should be replaced with `import ... from '@xero/xui/react/button'`, `import ... from 'xui-toast'` should be replaced with `import ... from '@xero/xui/react/toast'`, and so on.
 - Remove all the components from your bower.json dependencies.
 
 ### React Labs

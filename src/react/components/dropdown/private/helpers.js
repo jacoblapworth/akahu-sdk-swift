@@ -134,16 +134,54 @@ export const unlockScroll = () => {
 	}
 };
 
+/**
+ * Add the window event listeners that the DropDownToggled depends on.
+ *
+ * @export
+ * @param {DropDownToggled} ddt
+ */
 export const addEventListeners = ddt => {
 	if (typeof window !== 'undefined') {
 		window.addEventListener('mousedown', ddt.onMouseDown);
 		window.addEventListener('resize', ddt.onResize);
+		if (ddt.props.repositionOnScroll) {
+			window.addEventListener('scroll', ddt.onScroll);
+		}
 	}
 };
 
+/**
+ * Remove the window event listeners that the DropDownToggled might have added.
+ *
+ * @export
+ * @param {DropDownToggled} ddt
+ */
 export const removeEventListeners = ddt => {
 	if (typeof window !== 'undefined') {
 		window.removeEventListener('mousedown', ddt.onMouseDown);
 		window.removeEventListener('resize', ddt.onResize);
+		window.removeEventListener('scroll', ddt.onScroll);
 	}
+};
+
+/**
+ * Throttles the execution of the given function to requestAnimationFrame.
+ * This isn't a general solution since it depends on no args being passed, but
+ * it's good enough for now
+ *
+ * @export
+ * @param {Function} fn
+ */
+export const throttleToFrame = fn => {
+	let requestingFrame = false;
+	const wrapped = () => {
+		fn();
+		requestingFrame = false;
+	};
+	return function () {
+		if (!requestingFrame) {
+			window.requestAnimationFrame(wrapped);
+			requestingFrame = true;
+		}
+	};
 }

@@ -11,6 +11,7 @@ import {
 	isScrollLocked,
 	addEventListeners,
 	removeEventListeners,
+	throttleToFrame,
 } from './private/helpers';
 
 /**
@@ -74,6 +75,7 @@ export default class DropDownToggled extends PureComponent {
 		};
 
 		this.onResize = debounce(this.onResize, 100);
+		this.onScroll = throttleToFrame(this.repositionDropdown);
 	}
 
 	/**
@@ -127,6 +129,16 @@ export default class DropDownToggled extends PureComponent {
 				if (shouldLockScroll(ddt)) {
 					lockScroll();
 				}
+			}
+		}
+
+		// It's possible for this prop to change while the dropdown remains open.  Make sure
+		// to handle that.
+		if (!state.isHidden && props.repositionOnScroll !== prevProps.repositionOnScroll) {
+			if (props.repositionOnScroll) {
+				window.addEventListener('scroll', ddt.onScroll);
+			} else {
+				window.removeEventListener('scroll', ddt.onScroll);
 			}
 		}
 
@@ -364,6 +376,11 @@ export default class DropDownToggled extends PureComponent {
 		this.repositionDropdown();
 	}
 
+	/**
+	 * Force the dropdown to reposition itself.
+	 *
+	 * @memberof DropDownToggled
+	 */
 	repositionDropdown = () => {
 		if (this.positioning != null) {
 			this.positioning.calculateMaxHeight();
@@ -465,6 +482,9 @@ DropDownToggled.propTypes = {
 
 	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
+
+	/** @prop {Boolean}[repositionOnScroll=false] Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
+	repositionOnScroll: PropTypes.bool,
 };
 
 DropDownToggled.defaultProps = {
@@ -475,4 +495,5 @@ DropDownToggled.defaultProps = {
 	disableScrollLocking: false,
 	triggerClickAction: 'toggle',
 	forceDesktop: false,
+	repositionOnScroll: false,
 };

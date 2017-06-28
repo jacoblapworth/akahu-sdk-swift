@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import checked from '@xero/xui-icon/icons/checkbox-check';
 import XUIIcon from '../../icon/XUIIcon';
@@ -96,7 +97,7 @@ class ToggledDropDown extends Component {
 	render() {
 		const trigger = (
 			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
-				Trigger Button <XUIButtonCart />
+				{this.props.repositionOnScroll ? 'Fixed' : 'Trigger'} Button <XUIButtonCart />
 			</XUIButton>
 		);
 		const dropdownFooter = (
@@ -113,8 +114,6 @@ class ToggledDropDown extends Component {
 				footer={dropdownFooter}
 				className="dropdown-toggle-wrapper"
 				restrictFocus={this.state.restrictFocus}
-				size="medium"
-				fixedWidth
 			>
 				<Picklist>
 					{createItems(toggledItems, this.state.selectedId)}
@@ -130,10 +129,15 @@ class ToggledDropDown extends Component {
 				dropdown={dropdown}
 				onOpenAnimationEnd={() => console.log('open animation end')}
 				onCloseAnimationEnd={() => console.log('close animation end')}
+				repositionOnScroll={this.props.repositionOnScroll}
 			/>
 		);
 	}
 }
+
+ToggledDropDown.propTypes = {
+	repositionOnScroll: PropTypes.bool,
+};
 
 class ToggledNestedDropdown extends Component {
 	constructor() {
@@ -429,7 +433,7 @@ class FullHeightToggledDropDown extends Component {
 ReactDOM.render(
 	<div className="xui-form-layout">
 		<div style={{ position: 'fixed', right: 0, top: '20px' }}>
-			{<ToggledDropDown />}
+			{<ToggledDropDown repositionOnScroll />}
 		</div>
 		<div className="xui-margin-bottom-large xui-panel xui-padding">
 			<div className="xui-text-panelheading xui-margin-bottom">Toggled Dropdown</div>

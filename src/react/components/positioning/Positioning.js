@@ -26,19 +26,22 @@ import {
  * @param {Positioning} popup
  */
 function alignBaseWithTrigger(popupRect, triggerRect, popup) {
-	const { gutter } = popup.props;
+	const { gutter, gap } = popup.props;
 	const spaceAboveTrigger = calcSpaceAbove(triggerRect);
 	const spaceBelowTrigger = calcSpaceBelow(triggerRect);
 	const spaceLeftOfTrigger = calcSpaceLeft(triggerRect);
 	const spaceRightOfTrigger = calcSpaceRight(triggerRect);
 
-	const canGoBelow = popupRect.height <= spaceBelowTrigger - gutter;
-	const canAlignLeftEdge = popupRect.width <= spaceRightOfTrigger + triggerRect.width - gutter;
+	const canGoBelow = popupRect.height <= spaceBelowTrigger - gutter - gap;
+	const canAlignLeftEdge = popupRect.width <= spaceRightOfTrigger + triggerRect.width - gutter - gap;
 
 	const placeBelow = canGoBelow || spaceBelowTrigger >= spaceAboveTrigger;
 	const alignLeftEdge = canAlignLeftEdge || spaceRightOfTrigger >= spaceLeftOfTrigger;
 
-	const popupTopPos = placeBelow ? triggerRect.bottom : Math.max(triggerRect.top - popupRect.height, gutter);
+	const popupTopPos = placeBelow
+		? triggerRect.bottom + gap
+		: Math.max(triggerRect.top - popupRect.height - gap, gutter);
+
 	const popupLeftPos = alignLeftEdge
 		? Math.max(triggerRect.left, gutter)
 		: Math.min(Math.max(triggerRect.right - popupRect.width, gutter), verge.viewportW() - popupRect.width - gutter);
@@ -207,7 +210,7 @@ class Positioning extends PureComponent {
 	 */
 	calculateMaxHeight() {
 		const popup = this;
-		const { gutter, parentRef } = popup.props;
+		const { gutter, parentRef, gap } = popup.props;
 		const triggerDOM = parentRef.firstChild;
 
 		if (verge.inViewport(triggerDOM)) {
@@ -221,7 +224,7 @@ class Positioning extends PureComponent {
 				const spaceBelowTrigger = calcSpaceBelow(triggerRect);
 
 				popup.setState({
-					maxHeight: Math.max(spaceAboveTrigger, spaceBelowTrigger) - gutter,
+					maxHeight: Math.max(spaceAboveTrigger, spaceBelowTrigger) - gutter - gap,
 				});
 			}
 		}
@@ -276,12 +279,14 @@ Positioning.propTypes = {
 	setMaxHeight: PropTypes.bool,
 	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
+	gap: PropTypes.number,
 };
 
 Positioning.defaultProps = {
 	gutter: 10,
 	setMaxHeight: true,
 	forceDesktop: false,
+	gap: 5,
 };
 
 export default Positioning;

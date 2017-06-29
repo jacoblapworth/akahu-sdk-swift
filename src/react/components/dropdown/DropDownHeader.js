@@ -138,7 +138,7 @@ DropDownHeader.propTypes = {
 	/** Whether the primary button is disabled */
 	isPrimaryButtonDisabled: PropTypes.bool,
 
-	/**Whether the primary button is disabled */
+	/** Whether the primary button is disabled */
 	isSecondaryButtonDisabled: PropTypes.bool,
 
 	/** Callback for when the back button is pressed (back button will not be rendered if this is not provided) */

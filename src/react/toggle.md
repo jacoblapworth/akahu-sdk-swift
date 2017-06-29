@@ -1,3 +1,12 @@
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-toggle.html#toggle">Toggle</a></span>
+	</div>
+</div>
+
 ```
 const contact = require('@xero/xui-icon/icons/contact').default
 const notification = require('@xero/xui-icon/icons/notification').default

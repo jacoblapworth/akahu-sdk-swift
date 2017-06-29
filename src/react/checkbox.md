@@ -1,4 +1,13 @@
-Enhanced verison of HTML checkbox using SVGs. Use in place of `<input type="checkbox" />`.
+Enhanced version of HTML checkbox using SVGs. Use in place of `<input type="checkbox" />`.
+
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-checkboxes-and-radios.html#checkboxes-and-radios-1">Checkboxes and Radios</a></span>
+	</div>
+</div>
 
 Standard Checkbox
 ```

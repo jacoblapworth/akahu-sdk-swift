@@ -1,7 +1,16 @@
 ### Usage
 
-1. Import required icon paths (the below examples use require, you should use es2015 import).
-2. Instance `<XUIIcon /> with imported icon path.
+1. Import required icon paths (the below examples use require; you should use es2015 import).
+2. Instance `<XUIIcon />` with imported icon path.
+
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-icons.html#icons">Icon</a></span>
+	</div>
+</div>
 
 ```
 	const star = require ('@xero/xui-icon/icons/star').default;

@@ -19,6 +19,15 @@ This is the container for the elements that are conditionally shown on the page.
 **Trigger**
 The trigger is the element that the user interacts with to open the dropdown.  Examples include the button that opens the selectable list in a select or the text input that users type into in order to search for items in an autocompleter.
 
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-dropdowns.html#dropdowns">Dropdown</a></span>
+	</div>
+</div>
+
 #### Toggled Dropdown
 
 At the heart of all of our Dropdown implementations is the `<DropDownToggled />` component.  It's what connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, and the dropdown itself will actually render as an immediate child of the body no matter where it sits in the React virtual DOM tree, but both have to know about each other.  Actions on the button have to open and close the dropdown and, for accessibility reasons, the trigger has to know both the ID of the dropdown element and the currently selected element.  However, React's one-way data flow means that we need something sitting on top of both of these components to send information back and forth

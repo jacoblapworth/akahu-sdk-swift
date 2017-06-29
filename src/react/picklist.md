@@ -1,8 +1,16 @@
 
-A list of things. Commonly used in a Dropdown. May be used as a standalone veritcal list.
+A list of things. Commonly used inside a Dropdown. May be used as a standalone vertical list.
 
-## Related
+### XUI Docs
 
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-picklist.html#picklist">Picklist</a></span>
+	</div>
+</div>
+
+### Related
 * [DropDown](#dropdown)
 
 ```

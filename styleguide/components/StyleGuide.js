@@ -11,6 +11,7 @@ const styles = ({ color, fontFamily, fontSize, sidebarWidth, mq, space, maxWidth
 	root: {
 		color: color.base,
 		backgroundColor: color.baseBackground,
+		fontFamily: fontFamily.base,
 	},
 	hasSidebar: {
 		paddingLeft: sidebarWidth,

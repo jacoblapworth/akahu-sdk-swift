@@ -1,3 +1,12 @@
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-toast.html#toast-2">Toast</a></span>
+	</div>
+</div>
+
 ```
 const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
 const noop = () => {};

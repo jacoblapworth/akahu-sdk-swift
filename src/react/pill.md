@@ -1,3 +1,12 @@
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-pills-and-tags.html#pills-and-tags-2">Pills and Tags</a></span>
+	</div>
+</div>
+
 ```
 const cn = require ('classnames');
 

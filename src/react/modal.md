@@ -1,3 +1,10 @@
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+	<span><a href="../section-modals.html#modals">Modal</a></span>
+</div>
+
 ```
 const  { PureComponent } = require ( 'react' );
 

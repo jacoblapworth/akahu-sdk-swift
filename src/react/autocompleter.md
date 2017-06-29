@@ -1,3 +1,20 @@
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-forms.html#forms-4">Input</a></span>
+	</div>
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-avatars.html#avatars-1">Avatar</a></span>
+	</div>
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-dropdowns.html#dropdowns">Dropdown</a></span>
+	</div>
+</div>
+
 ```
 const { boldMatch, decorateSubStr } = require('./components/autocompleter/helpers/highlighting');
 const { Component } = require('react');

@@ -1,5 +1,14 @@
 Select Box is opinionated and is deigned to be a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour see [Dropdown](#dropdown) and [Autocompleter](#autocompleter).
 
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="/section-forms.html#forms-9">Select Box</a></span>
+	</div>
+</div>
+
 ### Related Components
 
 * [Dropdown](#dropdown)

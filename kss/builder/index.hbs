@@ -103,6 +103,18 @@
 				</nav>
 				{{/if}} {{/if}} {{/each}} {{/if}}
 
+				{{#if components}}
+				<div class="kss-style ds-section-part">
+					<h3>React Components</h3>
+					{{#renderComponents components}}
+					<div>
+						<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+						<span>See our {{name}} component on the <a href="{{url}}">XUI Components</a> page</span>.
+					</div>
+					{{/renderComponents}}
+				</div>
+				{{/if}}
+
 				{{#if classes}}
 				<div class="kss-style ds-section-part">
 					<h3>CSS Classes</h3>

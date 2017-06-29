@@ -1,5 +1,14 @@
 Enhanced HTML `<input />` field.
 
+### XUI Docs
+
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-forms.html#forms-4">Text Inputs</a></span>
+	</div>
+</div>
+
 ```
 const search = require ('@xero/xui-icon/icons/search').default;
 const linkedin = require ('@xero/xui-icon/icons/social-linkedin').default;

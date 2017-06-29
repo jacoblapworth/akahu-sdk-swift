@@ -28,14 +28,13 @@ The trigger is the element that the user interacts with to open the dropdown.  E
 	</div>
 </div>
 
-#### Toggled Dropdown
+### Basic Use Cases
 
 At the heart of all of our Dropdown implementations is the `<DropDownToggled />` component.  It's what connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, and the dropdown itself will actually render as an immediate child of the body no matter where it sits in the React virtual DOM tree, but both have to know about each other.  Actions on the button have to open and close the dropdown and, for accessibility reasons, the trigger has to know both the ID of the dropdown element and the currently selected element.  However, React's one-way data flow means that we need something sitting on top of both of these components to send information back and forth
 
 Here's a quick example of creating a selectable list of items with a button trigger:
 
 ```
-const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 const { Component } = require ('react');
 
@@ -97,11 +96,88 @@ class ToggledDropDown extends Component {
 <ToggledDropDown />
 ```
 
+#### Multiselect
+
+Enabling multiselect behavior is a simple matter of setting a couple of props on the right components.  First, set `closeOnSelect` to `false` on the `<DropDownToggled />` to ensure that the user can select multiple items while the dropdown is open.  Then set the `multiselect` prop on your Pickitems to `true`.  Example:
+
+```
+const { Component } = require('react');
+const items = [
+	{ id: 'a', text: 'First' },
+	{ id: 'b', text: 'Second' },
+	{ id: 'c', text: 'Third' },
+	{ id: 'd', text: 'Fourth' },
+];
+
+class MultiselectExample extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			selected: {
+				a: false,
+				b: false,
+				c: false,
+				d: false,
+			},
+		};
+
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onSelect(value) {
+		this.setState(state => ({
+			selected: {
+				...state.selected,
+				[value]: !state.selected[value],
+			},
+		}));
+	}
+
+	render() {
+		const { selected } = this.state;
+		const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
+		const trigger = (
+			<XUIButton>
+				{selectedItems.length == 0 ? 'Select Items' : selectedItems.join(', ')}
+				<XUIButtonCaret />
+			</XUIButton>
+		)
+		const dropdown = (
+			<DropDown onSelect={this.onSelect}>
+				<Picklist>
+					{items.map(item => (
+						<Pickitem
+							key={item.id}
+							id={item.id}
+							value={item.id}
+							isSelected={selected[item.id]}
+							multiselect
+						>
+							{item.text} Option
+						</Pickitem>
+					))}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				trigger={trigger}
+				dropdown={dropdown}
+				closeOnSelect={false}
+			/>
+		);
+	}
+}
+<MultiselectExample />
+```
+
+
 #### With Header and Footer
 
-The `<DropDownHeader />` and `<DropDownFooter />` components are used to add a fixed header and/or footer element to the dropdown.  These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers.  These components can be added via the `header` and `footer` prop on the `<DropDown />` component.
+The `<DropDownHeader />` and `<DropDownFooter />` components are used to add a fixed header and/or footer element to the dropdown.  These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers.  Add these components via the `header` and `footer` prop on the `<DropDown />` component.
 
-Here is the previous example extended with the header and footer:
+Here is the first example extended with the header and footer:
 
 ```
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
@@ -153,7 +229,7 @@ class XDD extends Component {
 				onSecondaryButtonClick={this.closeDropDown}
 				onPrimaryButtonClick={this.onSelect}
 				displayPrimaryButton={true}
-				primaryButtonContent={<XUIIcon path={checked} inline={true}/>}
+				primaryButtonContent={<XUIIcon path={checked} inline={true} />}
 			>
 				<XUIInput
 					className="xui-u-fullwidth"
@@ -200,7 +276,11 @@ class XDD extends Component {
 <XDD />
 ```
 
-### Dropdown with DatePicker
+### Common Use Cases
+
+The DropDown's API had to have default behavior, and the Picklist use case was chosen to be that default.  However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
+
+#### DropDown with DatePicker
 
 While the `<DropDown />` API is optimized for the `<Picklist />` use case, it can contain any element.  Here is an example of a `<XUIDatePicker />` inside of a `<DropDown />`:
 
@@ -276,3 +356,122 @@ The `<DropDown />	` component is also not able to focus the datepicker automatic
 Keyboard users also need to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
 
 Lastly, the dropdown must be manually closed when the user has selected a date.  The `XUIDatePicker.onSelectDate` callback is used to set state and call `DropDownToggled.closeDropDown`.
+
+#### DropDown with Text Input Trigger
+
+Before reading through this example, it's highly recommended that you see if the [Autocompleter](#autocompleter) component can fit your use case.  It handles theses customizations by default.
+
+By default, the DropDown handles keyboard events for you because focus is actually placed on the DropDown's DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
+
+Here's an example of a possible way that this could be handled:
+
+```
+const debounce = require('lodash.debounce');
+const { Component } = require('react');
+const { boldMatch, decorateSubStr } = require('./autocompleter');
+
+const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map((text, id) => {
+	return { id, text };
+});
+
+class InputTriggerExample extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			inputValue: '',
+			selectedId: null,
+		};
+
+		this.onInputChange = this.onInputChange.bind(this);
+		this.onInputKeyDown = this.onInputKeyDown.bind(this);
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onInputChange(event) {
+		this.setState({
+			inputValue: event.target.value,
+		});
+	}
+
+	onInputKeyDown(event) {
+		if (this.ddt.isDropDownOpen() && this.dropdown != null) {
+			this.dropdown.onKeyDown(event);
+		} else {
+			this.ddt.openDropDown();
+		}
+	}
+
+	onSelect(value) {
+		this.setState({
+			inputValue: items.find(item => item.id === value).text,
+			selectedId: value,
+		});
+	}
+
+	render() {
+		const { selectedId, inputValue } = this.state;
+		const trigger = (
+			<XUIInput
+				inputAttributes={{
+					placeholder: 'Type Here',
+					value: inputValue,
+					onInput: this.onInputChange,
+					onKeyDown: this.onInputKeyDown,
+				}}
+			/>
+		);
+
+		let visibleItems;
+		if (inputValue === '' || (selectedId != null && items[selectedId].text === inputValue)) {
+			visibleItems = items;
+		} else {
+			const matcher = new RegExp(inputValue, 'i');
+			visibleItems = items.filter(item => matcher.test(item.text));
+		}
+
+		const dropdown = (
+			<DropDown
+				ref={c => this.dropdown = c}
+				hasKeyboardEvents={false}
+				restrictFocus={false}
+				onSelect={this.onSelect}
+			>
+				<Picklist>
+					{visibleItems.map(item => (
+						<Pickitem
+							key={item.id}
+							id={item.id}
+							value={item.id}
+							isSelected={selectedId === item.id}
+						>
+							<span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
+						</Pickitem>
+					))}
+				</Picklist>
+			</DropDown>
+		);
+
+		return (
+			<DropDownToggled
+				ref={c => this.ddt = c}
+				trigger={trigger}
+				dropdown={dropdown}
+				triggerClickAction="none"
+			/>
+		);
+	}
+}
+
+<InputTriggerExample />
+```
+
+This example illustrates how several props can be used to achieve your desired UX.
+
+`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.  By default, we toggle the dropdown's open state, but you can turn this off with "none" or use "open" to always open.
+
+If you want the focus to remain on the trigger once the dropdown is open, you have to set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure that focus does not shift to the dropdown.
+
+However, the combination of setting those props means that the dropdown no longer automatically opens.  If you choose to go this route, you'll now need to manually open the dropdown by calling the `DropDownToggled.openDropDown` API.  The example above just does it on any keypress in the input, but this is not required, and the dropdown can be opened at any time.
+
+While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.  The `DropDown.onKeyDown` API is a public API for this very reason.  Simply pass the keydown event to the DropDown and all normal keyboard handlers will take effect without moving focus from your trigger node.  Calling the public API is the equivalent of simulating a keydown event on the DropDown, so you get the same behavior as if the keydown did happen on the dropdown.

@@ -7,19 +7,19 @@ XUI
 ### Always get the latest versions here:
 * XUI documentation: https://github.dev.xero.com/pages/UXE/xui/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
-* Component Registry: https://github.dev.xero.com/pages/UXE/Components-Registry/
-
 
 Using in Your Project
 ---------------------
 
-### CDN (Recommended)
+### CSS
+
+#### CDN (Recommended)
 
 Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
 ```
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.0.0-beta.1/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.0.0-beta.2/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -27,32 +27,19 @@ Include the following `link` in your page:
 You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range.
 A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
 
-### Bower
-
-<!--?prettify?-->
-```
-$ bower install git@github.dev.xero.com:UXE/xui.git#^11.0.0-beta.1 --save
-```
+### Components
 
 ### npm
 
 <!--?prettify?-->
 ```
-$ npm install git://github.dev.xero.com/UXE/xui.git#11.0.0-beta.1 --save
+$ npm install @xero/xui@11.0.0-beta.2 --save
 ```
-
-You will need to compile `xui.scss`.
-
 
 What is XUI For?
 ----------------
 
-XUI provides a CSS base that implements the Xero Pattern Library.
-
-It is heavily [inspired by Stripe's approach](http://www.youtube.com/watch?feature=player_embedded&v=NHpSmJrEvRQ).
-
-We also provide React components that target XUI in the [UXE Github org](https://github.dev.xero.com/UXE).
-When appropriate components exist, developers should use those components over using XUI directly.
+XUI provides CSS and React components for implementing user interfaces at Xero.
 
 Example Page Markup
 -------------------
@@ -63,7 +50,7 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/style/xui/11.0.0-beta.1/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/11.0.0-beta.2/xui.min.css" rel="stylesheet" />
     <script type="application/json" id="header-data" data-render-to="#header">
       {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
     </script>
@@ -123,8 +110,8 @@ Using XUI's Variables and Mixins
 --------------------------------
 
 If you want access to XUI's variables and mixins, you can import XUI as a dependency, and then import these individual files
-  * For variables, `@import 'xui/src/sass/vars';`
-  * For mixins, `@import 'xui/src/sass/mixins';`
+  * For variables, `@import '@xero/xui/sass/vars';`
+  * For mixins, `@import '@xero/xui/sass/mixins';`
 
 We do not recommend importing any other files as they are not considered a part of XUI's public API; they might move around between versions, which could end up breaking your project.
 
@@ -134,17 +121,14 @@ Updating
 XUI follows [semantic versioning](http://semver.org). You should be able to update patch and minor versions without
 requiring any changes to your code.
 
-The [UXE Releases flow](https://www.flowdock.com/app/xero/uxe-releases) lists updates and upgrades when they
-become available.
-
+The [#platform-fed-releases](https://xero.slack.com/messages/C57H6G0RM) Slack lists updates and upgrades when they become available.
 
 Upgrading
 ---------
 
-Major releases with breaking changes will be made in accordance with our [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap).
+Major releases with breaking changes may be made at a maximum every 90 days in accordance with our [Software Lovability Objectives](https://confluence.inside.xero.com/display/FED/The+UX+Engineering+Team+and+XUI#TheUXEngineeringTeamandXUI-SoftwareLovabilityObjectives).
 
-Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to
-enable you to upgrade as seamlessly as possible.
+Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to enable you to upgrade as seamlessly as possible.
 
 
 Consuming Future Breaking Changes
@@ -152,18 +136,14 @@ Consuming Future Breaking Changes
 
 If you find yourself needing XUI CSS before it's released, you have two options:
 * Implement the required changes to the `xui-` classes as part of your app code
- * If you do this, take care to ensure that these XUI classes are loaded first before the rest of your CSS so that it
-   simulates what will happen when you upgrade XUI
+ * If you do this, take care to ensure that these XUI classes are loaded first before the rest of your CSS so that it simulates what will happen when you upgrade XUI
 * Create an app-specific class for the element you're targeting which will override XUI styling
  * These app-specific classes should be treated as tech debt and should not linger in the relevant JS/HTML after upgrading.
 
 Regardless of the approach you choose, make sure you do the following:
 
-* Document! Explain the reason for the overrides and add a TODO to remove it with the expected version of XUI containing
-  the change you want. You could also create an issue in your Github repo or a JIRA ticket.
-* When upgrading, check to see that the change you wanted is still there - it may have changed! Then remove your custom
-  code and verify that it works with the version of XUI you are upgrading to.
-
+* Document! Explain the reason for the overrides and add a TODO to remove it with the expected version of XUI containing the change you want. You could also create an issue in your Github repo or a JIRA ticket.
+* When upgrading, check to see that the change you wanted is still there - it may have changed! Then remove your custom code and verify that it works with the version of XUI you are upgrading to.
 
 Contributing to XUI
 -------------------
@@ -175,11 +155,8 @@ See [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTI
 Help
 ----
 
-For general Q & A ask a question in the [UX Engineering flow](https://www.flowdock.com/app/xero/ux-engineering)
-or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
+For general Q & A ask a question in the [#platform-fed-xui](https://xero.slack.com/messages/C565NP1A5) Slack or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
 
 We have [a UXE team member on interrupts each week](https://github.dev.xero.com/UXE/Home/wiki/Interrupts-Support-Schedule) who can provide a prompt response to any specific questions or issues.
 
-XUI's [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap) is documented in the project wiki.
-
-You may also want to subscribe to the [UX Engineering Newsletter](http://xero.us11.list-manage1.com/subscribe?u=b6eb05e31e28aab10df3721c6&id=5c27a93854).
+XUI's Roadmap and backlog live within the [UX Engineering teams's page](https://confluence.inside.xero.com/display/PLAT/UX+Engineering) on Confluence.

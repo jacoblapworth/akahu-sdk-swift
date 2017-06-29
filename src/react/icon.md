@@ -40,7 +40,7 @@ After (v11):
 import XUIIcon from '@xero/xui/react/icon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 ...
-<XUIcon path={accessibility} />
+<XUIIcon path={accessibility} />
 ```
 
 #### Reasons for xui-icon not being in the monorepo

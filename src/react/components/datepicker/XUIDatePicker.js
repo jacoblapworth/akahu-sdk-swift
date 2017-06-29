@@ -84,7 +84,7 @@ function getSingleDayModifiers(selectedDate, hoverDate, isDayDisabled) {
 	};
 }
 
-export default class Calendar extends PureComponent {
+export default class XUIDatePicker extends PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -94,6 +94,18 @@ export default class Calendar extends PureComponent {
 		};
 
 		this.dateRefs = {};
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.currentMonth !== this.state.currentMonth && this.props.onMonthChange != null) {
+			const currentMonth = this.state.currentMonth.getMonth();
+			const currentYear = this.state.currentMonth.getFullYear();
+			const prevMonth = prevState.currentMonth.getMonth();
+			const prevYear = prevState.currentMonth.getFullYear()
+			if (currentMonth !== prevMonth || currentYear !== prevYear) {
+				this.props.onMonthChange(this.state.currentMonth);
+			}
+		}
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -106,6 +118,12 @@ export default class Calendar extends PureComponent {
 			) {
 				this.setState({ currentMonth: nextDisplayedMonth });
 			}
+		}
+	}
+
+	focus = () => {
+		if (this.dayPicker != null) {
+			this.dayPicker.focusFirstDayOfMonth();
 		}
 	}
 
@@ -246,6 +264,7 @@ export default class Calendar extends PureComponent {
 
 		return (
 			<ReactDayPicker
+				ref={c => this.dayPicker = c}
 				labels={{
 					nextMonth: nextButtonLabel,
 					previousMonth: prevButtonLabel,
@@ -278,9 +297,12 @@ export default class Calendar extends PureComponent {
 	}
 }
 
-Calendar.propTypes = {
+XUIDatePicker.propTypes = {
 	/** @prop {function(Date):void} Callback for when the user selects a date.  Will fire even if the date has already been selected.  Will not fire for disbled days. */
 	onSelectDate: PropTypes.func.isRequired,
+
+	/** @prop {function(Date):void} Callback for when a user switches to a different month */
+	onMonthChange: PropTypes.func,
 
 	/** @prop {Date|{month: Number, year: Number, day: Number}} If you only want to display a single selected day without allowing the user to select a date range, pass that Date in here. */
 	selectedDate: PropTypes.instanceOf(Date),
@@ -341,7 +363,7 @@ Calendar.propTypes = {
 	dir: PropTypes.oneOf(['ltr', 'rtl']),
 };
 
-Calendar.defaultProps = {
+XUIDatePicker.defaultProps = {
 	nextButtonLabel: 'Next Month',
 	prevButtonLabel: 'Previous Month',
 	isCompact: false,

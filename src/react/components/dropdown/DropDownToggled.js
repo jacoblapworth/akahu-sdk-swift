@@ -76,6 +76,12 @@ export default class DropDownToggled extends PureComponent {
 
 		this.onResize = debounce(this.onResize, 100);
 		this.onScroll = throttleToFrame(this.repositionDropdown);
+
+		this.repositionDropdown = this.repositionDropdown.bind(this);
+		this.closeDropDown = this.closeDropDown.bind(this);
+		this.openDropDown = this.openDropDown.bind(this);
+		this.toggle = this.toggle.bind(this);
+		this.isDropDownOpen = this.isDropDownOpen.bind(this);
 	}
 
 	/**
@@ -107,13 +113,10 @@ export default class DropDownToggled extends PureComponent {
 	componentDidUpdate(prevProps, prevState) {
 		const ddt = this;
 		const { props, state } = ddt;
-		const { onOpenAnimationEnd, onCloseAnimationEnd } = props;
+		const { onCloseAnimationEnd } = props;
 
 		// If an animation state has just changed, we need to fire the passed animation
 		// end callback
-		if (!state.isOpening && prevState.isOpening && onOpenAnimationEnd != null) {
-			onOpenAnimationEnd();
-		}
 		if (!state.isClosing && prevState.isClosing && onCloseAnimationEnd != null) {
 			onCloseAnimationEnd();
 		}
@@ -160,13 +163,6 @@ export default class DropDownToggled extends PureComponent {
 					props.onClose();
 				}
 			} else {
-				// If we didn't animate open, we need to call the open animation callback
-				// for API consistency between the two.  After all, the animation here is
-				// just "hide".
-				if (!shouldAnimate(ddt) && onOpenAnimationEnd != null) {
-					onOpenAnimationEnd();
-				}
-
 				// onOpen callback
 				if (props.onOpen != null) {
 					props.onOpen();
@@ -185,10 +181,11 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
+	 * Show the dropdown.
+	 *
 	 * @public
-	 * Set the state as not hidden in order to toggle the list open.
 	 */
-	openDropDown = () => {
+	openDropDown() {
 		this.setState(() => ({
 			isHidden: false,
 			isOpening: false,
@@ -197,10 +194,11 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
+	 * Hide the dropdown
+	 *
 	 * @public
-	 * Set the state as not hidden in order to toggle the list open.
 	 */
-	closeDropDown = () => {
+	closeDropDown() {
 		const ddt = this;
 		const { firstChild: trigger } = ddt.wrapper;
 
@@ -218,15 +216,20 @@ export default class DropDownToggled extends PureComponent {
 	 * Determine if the dropdown is currently open.
 	 *
 	 * @public
-	 * @returns {boolean}
+	 * @returns {Boolean}
 	 */
-	isDropDownOpen = () => !this.state.isHidden;
+	isDropDownOpen(){
+		return !this.state.isHidden
+	}
 
 	/**
+	 * A convenience method to toggle the visibility of the dropdown.
+	 *
 	 * @public
-	 * A handy method exposed to easily toggle the list based on internal state.
 	 */
-	toggle = () => this.state.isHidden ? this.openDropDown() : this.closeDropDown();
+	toggle() {
+		this.state.isHidden ? this.openDropDown() : this.closeDropDown();
+	}
 
 	/**
 	 * @private
@@ -313,7 +316,9 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * Sets the activeDescendant state to be the id of the item selected so this can be set in the corresponding trigger attribute.
+	 * Sets the activeDescendant state to be the id of the item selected so this can be set in
+	 * the corresponding trigger attribute.
+	 *
 	 * @param {Event} event
 	 * @param {ReactElement} item
 	 */
@@ -359,6 +364,9 @@ export default class DropDownToggled extends PureComponent {
 		this.setState(() => ({
 			isOpening: false,
 		}));
+		if (this.props.onOpenAnimationEnd != null) {
+			this.props.onOpenAnimationEnd();
+		}
 	}
 
 	/**
@@ -377,13 +385,16 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * Force the dropdown to reposition itself.
+	 * Force the dropdown to reposition itself relative to the current position of the trigger.
 	 *
+	 * @public
 	 * @memberof DropDownToggled
 	 */
-	repositionDropdown = () => {
+	repositionDropdown() {
 		if (this.positioning != null) {
-			this.positioning.calculateMaxHeight();
+			if (this.props.restrictToViewPort) {
+				this.positioning.calculateMaxHeight();
+			}
 			this.positioning.positionComponent();
 		}
 	}
@@ -433,6 +444,7 @@ export default class DropDownToggled extends PureComponent {
 					renderHidden={isHidden}
 					setMaxHeight={restrictToViewPort}
 					forceDesktop={forceDesktop}
+					onVisible={shouldAnimate(this) ? null : this.onOpenAnimationEnd}
 				>
 						{clonedDropdown}
 				</Positioning>

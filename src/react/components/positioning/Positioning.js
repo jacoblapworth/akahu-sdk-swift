@@ -38,18 +38,19 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 	const placeBelow = canGoBelow || spaceBelowTrigger >= spaceAboveTrigger;
 	const alignLeftEdge = canAlignLeftEdge || spaceRightOfTrigger >= spaceLeftOfTrigger;
 
-	const popupTopPos = placeBelow
-		? triggerRect.bottom + gap
-		: Math.max(triggerRect.top - popupRect.height - gap, gutter);
+	const popupTransform = placeBelow
+		? (triggerRect.height + gap) + 'px'
+		: `calc(-100% - ${gap}px)`;
 
 	const popupLeftPos = alignLeftEdge
 		? Math.max(triggerRect.left, gutter)
 		: Math.min(Math.max(triggerRect.right - popupRect.width, gutter), verge.viewportW() - popupRect.width - gutter);
 
 	popup.setState({
-		top: popupTopPos + scrollTopAmount(),
+		top: triggerRect.top + scrollTopAmount(),
 		left: popupLeftPos + scrollLeftAmount(),
-		alignTop: !placeBelow
+		alignTop: !placeBelow,
+		transformY: popupTransform,
 	});
 }
 
@@ -64,6 +65,7 @@ function alignTopLeft(popup) {
 			left: 0,
 			top: 0,
 			maxHeight: null,
+			transformY: '0',
 		});
 }
 
@@ -100,6 +102,7 @@ function getDefaultState() {
 	return {
 		top: 0,
 		left: 0,
+		transformY: '0',
 		alignTop: false,
 		maxHeight: verge.viewportH() * 0.99,
 		positioned: false,
@@ -147,14 +150,18 @@ class Positioning extends PureComponent {
 		}
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState) {
 		const { props, state } = this;
 
 		// If the popup is going from hidden to visible but hasn't been positioned yet, the render method will ensure
 		// that everything is rendered with "visibility: hidden".  Wait a bit to make sure all children also render,
 		// then measure things and position the popup correctly on the screen.
 		if (!props.renderHidden && !state.positioned) {
-			setTimeout(positionOnShow, 100, this);
+			setTimeout(positionOnShow, 50, this);
+		}
+
+		if (!prevState.positioned && state.positioned && props.onVisible != null) {
+			setTimeout(props.onVisible, 50);
 		}
 
 		if (props.renderHidden !== prevProps.renderHidden) {
@@ -185,6 +192,8 @@ class Positioning extends PureComponent {
 
 	/**
 	 * Calculate positioning of the popup if the trigger is rendered.
+	 *
+	 * @public
 	 */
 	positionComponent() {
 		const popup = this;
@@ -205,8 +214,10 @@ class Positioning extends PureComponent {
 	}
 
 	/**
-	 * Given we're rendering in the greatest whitespace, we need to work out if a maxHeight should be added to the popup
-	 * in order for the full popup to show its content and scroll.
+	 * Given we're rendering in the greatest whitespace, we need to work out if a maxHeight should
+	 * be added to the popup in order for the full popup to show its content and scroll.
+	 *
+	 * @public
 	 */
 	calculateMaxHeight() {
 		const popup = this;
@@ -231,18 +242,18 @@ class Positioning extends PureComponent {
 	}
 
 	/**
-	 * @public
 	 * Uses internal state to work out inline styles and returns them.
 	 *
-	 * @return {{position: string}}
+	 * @return {{ maxHeight: Number, left: Number, top: Number, transformY: String }}
 	 */
 	getStyles() {
-		const { maxHeight, left, top } = this.state;
+		const { maxHeight, left, top, transformY } = this.state;
 
 		return {
 			maxHeight,
 			left,
-			top
+			top,
+			transform: `translateY(${transformY})`,
 		};
 	}
 
@@ -253,7 +264,7 @@ class Positioning extends PureComponent {
 		const positioningStyles = getPositionCalculationStyles(popup);
 		const clonedChildren = renderHidden || !positioned ? children : React.cloneElement(children, {
 			className : cn( children.props.className, { 'dropdown-positionabove' : popup.state.alignTop } ),
-			style : popup.getStyles()
+			style : popup.getStyles(),
 		});
 
 		return (
@@ -269,17 +280,20 @@ class Positioning extends PureComponent {
 Positioning.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
-	/** @property {renderHidden} true when the component is rendered but not displayed */
+	/** @property {Boolean} true when the component is rendered but not displayed */
 	renderHidden: PropTypes.bool,
-	/** @property {parentRef} A DOM object of the parent node. */
+	/** @property {function(element)} A DOM object of the parent node. */
 	parentRef: PropTypes.object,
-	/** @property {gutter} A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
+	/** @property {Number} A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
 	gutter: PropTypes.number,
-	/** @property {setMaxHeight} A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
+	/** @property {Boolean} A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
 	setMaxHeight: PropTypes.bool,
 	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
+	/** @prop {Number} The amount of space to put between the trigger and the dropdown */
 	gap: PropTypes.number,
+	/** @prop {Function} Callback for when the positioned element becomes visible  */
+	onVisible: PropTypes.func,
 };
 
 Positioning.defaultProps = {

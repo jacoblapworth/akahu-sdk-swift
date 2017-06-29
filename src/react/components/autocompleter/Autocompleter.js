@@ -136,6 +136,7 @@ export default class Autocompleter extends PureComponent {
 				hasKeyboardEvents={false}
 				className={dropdownClasses}
 				qaHook={listQaHook}
+				restrictFocus={false}
 			>
 				{props.loading ? <Picklist><XUILoader /></Picklist> : props.children}
 			</DropDown>

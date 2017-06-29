@@ -236,18 +236,15 @@ class ToggledNestedDropdown extends Component {
 				className='dropdown-toggle-wrapper'
 				currentPanel={currentPanel}
 				size="xlarge"
-				headingAttributes={{
-					primaryButtonContent: 'Accept',
-					onPrimaryButtonClick: exampleUsage.applyCheckboxes,
-					displayPrimaryButton: currentPanel === 'checkboxes',
-					secondaryButtonContent: 'Cancel',
-					onSecondaryButtonClick: this.closeNestedDropDown
-				}}
 				onPanelSelect={this.selectPanel}
 			>
 				<DropDownPanel
 					panelId="default"
-					panelHeading="Primary filters"
+					header={
+						<DropDownHeader
+							title="Filters"
+						/>
+					}
 				>
 					<Picklist>
 						<Pickitem
@@ -279,8 +276,13 @@ class ToggledNestedDropdown extends Component {
 				</DropDownPanel>
 				<DropDownPanel
 					panelId="dateMenu"
-					parentPanel="default"
-					panelHeading="Date selection with a really long title">
+					header={
+						<DropDownHeader
+							title="Date selection with a really long title"
+							onBackButtonClick={() => this.selectPanel("default")}
+						/>
+					}
+				>
 					<Picklist>
 						<Pickitem
 							id="startDate"
@@ -295,9 +297,14 @@ class ToggledNestedDropdown extends Component {
 				</DropDownPanel>
 				<DropDownPanel
 					panelId="checkboxes"
-					parentPanel="default"
-					panelHeading="Checkboxes!"
 					onSelect={exampleUsage.onOptionSelect}
+					header={
+						<DropDownHeader
+							title="Checkboxes!"
+							onBackButtonClick={() => this.selectPanel("default")}
+							onPrimaryButtonClick={this.closeNestedDropDown}
+						/>
+					}
 				>
 					<Picklist>
 						{createItems(statefulMultiselectItems[0], exampleUsage.state.selectedItems)}
@@ -308,8 +315,12 @@ class ToggledNestedDropdown extends Component {
 				</DropDownPanel>
 				<DropDownPanel
 					panelId="startDate"
-					parentPanel="dateMenu"
-					panelHeading="Date selection"
+					header={
+						<DropDownHeader
+							title="Date selection"
+							onBackButtonClick={() => this.selectPanel("dateMenu")}
+						/>
+					}
 				>
 					<XUIDatePicker
 						selectedDate={this.state.selectedDate}
@@ -392,6 +403,7 @@ class FullHeightToggledDropDown extends Component {
 			onPrimaryButtonClick={this.onSelect}
 			displayPrimaryButton={true}
 			primaryButtonContent={<XUIIcon path={checked} inline={true}/>}
+			onlyShowForMobile
 		>
 			<div>
 				<XUIInput

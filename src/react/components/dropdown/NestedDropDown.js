@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
 import DropDownListBox from './DropDownListBox';
-import DropDownHeader from './DropDownHeader';
 import DropDown from './DropDown';
-import XUIIcon from '../icon/XUIIcon';
 import { compose } from './private/helpers';
 
 import './scss/_dropDown.scss';
@@ -45,9 +42,7 @@ export default class NestedDropDown extends DropDown {
 			qaHook,
 			style,
 			onSelect,
-			headingAttributes,
 			currentPanel,
-			onPanelSelect,
 			fixedWidth,
 			onCloseAnimationEnd,
 			onOpenAnimationEnd,
@@ -57,14 +52,13 @@ export default class NestedDropDown extends DropDown {
 		} = dropdown.props;
 
 		const dropdownClasses = cn('xui-dropdown-fullheight', className);
-		let parentPanel;
-		let panelHeading;
 
+		let currentPanelHeader;
 		const childrenToRender =
 			React.Children.map(children, (child) => {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
 				if (isCurrentPanel) {
-					({panelHeading, parentPanel} = child.props);
+					currentPanelHeader = child.props.header;
 				}
 				return (
 					<div className={cn({ 'xui-u-hidden': !isCurrentPanel })}>
@@ -81,25 +75,12 @@ export default class NestedDropDown extends DropDown {
 				);
 			});
 
-		const header = (
-			<DropDownHeader
-				title={panelHeading}
-				onSecondaryClick={() => dropdown.dropdown.clossdeDropDown()}
-				onPrimaryClick={dropdown.onSelect}
-				onBackButtonClick={parentPanel ? () => onPanelSelect(parentPanel) : null}
-				displayPrimaryButton={true}
-				primaryButtonContent={<XUIIcon path={checkboxCheck} inline={true}/>}
-				onlyShowForMobile={false}
-				{...headingAttributes}
-			/>
-		);
-
 		return (
 			<DropDownListBox
 				id={dropdown.dropdownId}
 				isHidden={isHidden}
 				footer={footer}
-				header={header}
+				header={currentPanelHeader}
 				className={dropdownClasses}
 				size={size}
 				qaHook={qaHook}
@@ -159,9 +140,6 @@ NestedDropDown.propTypes = {
 
 	/** Callback to trigger opening of another panel. Takes destination panel name as a parameter. */
 	onPanelSelect: PropTypes.func,
-
-	/** Additional attributes to be passed down to the header (onPrimaryButtonClick, primaryButtonContent, onSecondaryButtonClick, etc.) */
-	headingAttributes: PropTypes.object,
 
 	/** Whether the fixed width class variant should be used for the size prop.  Does nothing if no size is provided. */
 	fixedWidth: PropTypes.bool,

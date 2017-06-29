@@ -35,16 +35,19 @@ export default class DropDownHeader extends Component {
 	render() {
 		const header = this;
 		const {
-			title,
-			primaryButtonContent,
-			isPrimaryButtonDisabled,
-			displayPrimaryButton,
-			secondaryButtonContent,
-			onBackButtonClick,
-			className,
 			children,
+			className,
+			title,
+			onPrimaryButtonClick,
+			onSecondaryButtonClick,
+			primaryButtonContent,
+			secondaryButtonContent,
+			isPrimaryButtonDisabled,
+			isSecondaryButtonDisabled,
+			onBackButtonClick,
 			onlyShowForMobile
 		} = header.props;
+
 		const classes = cn('xui-dropdown--header', className);
 		const headerClasses = cn(
 			'xui-dropdown--header-container',
@@ -61,14 +64,15 @@ export default class DropDownHeader extends Component {
 				/>
 			</XUIButton>;
 
-		const secondaryButton = secondaryButtonContent &&
+		const secondaryButton = onSecondaryButtonClick != null &&
 			<XUIButton
 				size="small"
-				onClick={header.onSecondaryClick}>
+				onClick={header.onSecondaryClick}
+				isDisabled={isSecondaryButtonDisabled}>
 				{secondaryButtonContent}
 			</XUIButton>;
 
-		const primaryButton = displayPrimaryButton &&
+		const primaryButton = onPrimaryButtonClick != null &&
 			<XUIButton
 				className={cn({"xui-margin-left-small": secondaryButtonContent})}
 				size="small"
@@ -114,6 +118,9 @@ DropDownHeader.propTypes = {
 	/** Callback for when the primary button is clicked */
 	onPrimaryButtonClick: PropTypes.func,
 
+	/** Callback for when the secondary button is clicked */
+	onSecondaryButtonClick: PropTypes.func,
+
 	/** Content to render within the primary button */
 	primaryButtonContent: PropTypes.oneOfType([
 		PropTypes.string,
@@ -121,21 +128,18 @@ DropDownHeader.propTypes = {
 		PropTypes.element
 	]),
 
-	/** Whether to display the primary button */
-	displayPrimaryButton: PropTypes.bool,
-
-	/** Whether the primary button is disabled */
-	isPrimaryButtonDisabled: PropTypes.bool,
-
-	/** Callback for when the secondary button is clicked */
-	onSecondaryButtonClick: PropTypes.func.isRequired,
-
 	/** Content to render within the secondary button */
 	secondaryButtonContent: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.object,
 		PropTypes.element
 	]),
+
+	/** Whether the primary button is disabled */
+	isPrimaryButtonDisabled: PropTypes.bool,
+
+	/**Whether the primary button is disabled */
+	isSecondaryButtonDisabled: PropTypes.bool,
 
 	/** Callback for when the back button is pressed (back button will not be rendered if this is not provided) */
 	onBackButtonClick: PropTypes.func,
@@ -146,7 +150,6 @@ DropDownHeader.propTypes = {
 
 DropDownHeader.defaultProps = {
 	primaryButtonContent: 'Apply',
-	isApplyDisabled: false,
 	secondaryButtonContent: 'Cancel',
 	onlyShowForMobile: true
 }

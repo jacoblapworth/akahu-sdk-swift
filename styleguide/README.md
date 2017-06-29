@@ -15,6 +15,18 @@ Styleguidist will add the JSDoc comments of any component APIs that you explicit
 1. The description has to come before the `@public` notation
 2. You can't use the `method = () => {` code style to automatically bind the method.  Looks like react-docgen executes **after** the babel-loader, which means that the function has been moved into the constructor (that's how it does the automatic binding.  Take a look at the transpiled code if you'd like.) and the JSDoc comments end up just hanging out in the middle of the file....
 
+Styleguidist will also pick up on any JSDoc descriptions of your propTypes.  However, there is a caveat:  You can not use `@prop` or type descriptions or anything like that.  It's best to just format your code and comments like so:
+
+```js
+MyComponent.propTypes = {
+	/** Prop description goes here */
+	awesome: PropTypes.bool,
+};
+MyComponent.defaultProps = {
+	awesome: true,
+};
+```
+
 XUI SASS is being imported in the overwritten components/StyleGuide.js, this enables the current version of XUI to be rendered on the page by default/inlined etc.
 
 Component Demos are targeted with `xui-container` and `xui-body` is not currently globally applied.

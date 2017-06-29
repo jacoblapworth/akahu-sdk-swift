@@ -57,10 +57,8 @@ export default class NestedDropDown extends DropDown {
 		const childrenToRender =
 			React.Children.map(children, (child) => {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
-				if (isCurrentPanel && child.props.header != null) {
-					currentPanelHeader = React.cloneElement(child.props.header, {
-						onlyShowForMobile: false
-					});
+				if (isCurrentPanel) {
+					currentPanelHeader = child.props.header;
 				}
 				return (
 					<div className={cn({ 'xui-u-hidden': !isCurrentPanel })}>

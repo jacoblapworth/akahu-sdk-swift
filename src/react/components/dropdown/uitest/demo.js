@@ -302,7 +302,7 @@ class ToggledNestedDropdown extends Component {
 						<DropDownHeader
 							title="Checkboxes!"
 							onBackButtonClick={() => this.selectPanel("default")}
-							onPrimaryButtonClick={()=>this.closeNestedDropDown()}
+							onPrimaryButtonClick={this.closeNestedDropDown}
 						/>
 					}
 				>
@@ -403,6 +403,7 @@ class FullHeightToggledDropDown extends Component {
 			onPrimaryButtonClick={this.onSelect}
 			displayPrimaryButton={true}
 			primaryButtonContent={<XUIIcon path={checked} inline={true}/>}
+			onlyShowForMobile
 		>
 			<div>
 				<XUIInput

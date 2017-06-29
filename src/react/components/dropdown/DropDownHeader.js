@@ -151,5 +151,5 @@ DropDownHeader.propTypes = {
 DropDownHeader.defaultProps = {
 	primaryButtonContent: 'Apply',
 	secondaryButtonContent: 'Cancel',
-	onlyShowForMobile: true
+	onlyShowForMobile: false
 }

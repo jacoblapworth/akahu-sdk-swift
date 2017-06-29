@@ -5,6 +5,14 @@ import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
 
+/**
+ * Wrapper component for the content of a dropdown header.  Certain elements (back button, title, etc)
+ * are added and controlled via props, but children nodes are also allowed for extra customization.
+ *
+ * @export
+ * @class DropDownHeader
+ * @extends {Component}
+ */
 export default class DropDownHeader extends Component {
 	constructor() {
 		super();
@@ -100,39 +108,39 @@ DropDownHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 
-	/** @property {String} [title] If present, is used in the header. If non is present no header will be returned*/
+	/** If present, is used in the header. If non is present no header will be returned. */
 	title: PropTypes.string.isRequired,
 
-	/** @property {Function} [onPrimaryButtonClick] Callback for when the primary button is clicked */
+	/** Callback for when the primary button is clicked */
 	onPrimaryButtonClick: PropTypes.func,
 
-	/** @property {[String, Node, Object]} [primaryButtonContent='Apply'] Content to render within the primary button */
+	/** Content to render within the primary button */
 	primaryButtonContent: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.object,
 		PropTypes.element
 	]),
 
-	/** @property {Boolean} [displayPrimaryButton=true] Whether to display the primary button */
+	/** Whether to display the primary button */
 	displayPrimaryButton: PropTypes.bool,
 
-	/** @property {Boolen} [isPrimaryButtonDisabled] Whether the primary button is disabled */
+	/** Whether the primary button is disabled */
 	isPrimaryButtonDisabled: PropTypes.bool,
 
-	/** @property {Function} [onSecondaryButtonClick] Callback for when the secondary button is clicked */
+	/** Callback for when the secondary button is clicked */
 	onSecondaryButtonClick: PropTypes.func.isRequired,
 
-	/** @property {[String, Node, Object]} [secondaryButtonContent='Cancel'] Content to render within the secondary button */
+	/** Content to render within the secondary button */
 	secondaryButtonContent: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.object,
 		PropTypes.element
 	]),
 
-	/** @property {Function} [onBackButtonClick] Callback for when the back button is pressed (back button will not be rendered if this is not provided) */
+	/** Callback for when the back button is pressed (back button will not be rendered if this is not provided) */
 	onBackButtonClick: PropTypes.func,
 
-	/** @property {Boolean} [onlyShowForMobile=true] Whether the header should only be shown at mobile sizes. */
+	/** Whether the header should only be shown at mobile sizes. */
 	onlyShowForMobile: PropTypes.bool
 }
 

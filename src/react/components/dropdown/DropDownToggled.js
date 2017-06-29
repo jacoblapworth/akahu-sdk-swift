@@ -61,6 +61,10 @@ function shouldLockScroll(ddt) {
 /**
  * HOC to wrap the passed in Dropdown & TriggerComponent elements. Adds functionality to toggle the list open/closed
  * based on click of the TriggerComponent.
+ *
+ * @export
+ * @class DropDownToggled
+ * @extends {PureComponent}
  */
 export default class DropDownToggled extends PureComponent {
 	constructor(props) {
@@ -219,7 +223,7 @@ export default class DropDownToggled extends PureComponent {
 	 * @returns {Boolean}
 	 */
 	isDropDownOpen(){
-		return !this.state.isHidden
+		return !this.state.isHidden;
 	}
 
 	/**
@@ -232,9 +236,9 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * @private
 	 * If user clicks on the trigger, we may want to open and/or toggle the dropdown.
 	 *
+	 * @private
 	 * @memberof DropDownToggled
 	 */
 	triggerClickHandler = () => {
@@ -249,10 +253,10 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * @param {KeyboardEvent} event key down event object
-	 *
 	 * Will close the list if either esc or tab keys are pressed on keydown.
 	 * Will tab to next index if tab key is pressed
+	 *
+	 * @param {KeyboardEvent} event key down event object
 	 */
 	onKeyDown = event => {
 		if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
@@ -264,9 +268,9 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * @param {KeyboardEvent} event key down event object
-	 *
 	 * Will close the dropdown if the esc key is pressed within the dropdown.
+	 *
+	 * @param {KeyboardEvent} event key down event object
 	 */
 	onDropDownKeyDown = event => {
 		if (!this.state.isHidden && (event.keyCode === 27 || event.keyCode === 9)) {
@@ -290,6 +294,7 @@ export default class DropDownToggled extends PureComponent {
 
 	/**
 	 * Fires when the window triggers a mouse down event
+	 *
 	 * @param {MouseEvent} event
 	 */
 	onMouseDown = event => {
@@ -319,7 +324,7 @@ export default class DropDownToggled extends PureComponent {
 	 * Sets the activeDescendant state to be the id of the item selected so this can be set in
 	 * the corresponding trigger attribute.
 	 *
-	 * @param {Event} event
+	 * @param {UIEvent} event
 	 * @param {ReactElement} item
 	 */
 	onSelect = (event, item) => {
@@ -456,46 +461,46 @@ export default class DropDownToggled extends PureComponent {
 DropDownToggled.propTypes = {
 	className: PropTypes.string,
 
-	/** @property {Boolean} [isHidden=true] Whether the dropdown is hidden on initial render */
+	/** Whether the dropdown is hidden on initial render */
 	isHidden: PropTypes.bool,
 
-	/** @property {Function} [onOpen] Callback that gets triggered when the dropdown begins opening */
+	/** Callback that gets triggered when the dropdown begins opening */
 	onOpen: PropTypes.func,
 
-	/** @property {Function} [onClose] Callback that gets triggered when the dropdown has finished closing */
+	/** Callback that gets triggered when the dropdown has finished closing */
 	onClose: PropTypes.func,
 
-	/** @property {Element} [trigger] Element used to trigger the dropdown opening/closing (typically a button) */
+	/** Element used to trigger the dropdown opening/closing (typically a button) */
 	trigger: PropTypes.element.isRequired,
 
-	/** @property {Element} [dropdown] The dropdown that will be rendered when triggered */
+	/** The dropdown that will be rendered when triggered */
 	dropdown: PropTypes.element.isRequired,
 
-	/** @property {Boolean} [closeOnSelect=true] Whether or not the dropdown should be automatically hidden when the user selects something */
+	/** Whether or not the dropdown should be automatically hidden when the user selects something */
 	closeOnSelect: PropTypes.bool,
 
-	/** @prop {Boolean} [closeOnTab=true] Whether or not the dropdown should be automatically hidden when the user hits the tab key.  Good to turn this off if you've got a date picker, nested dropd down, form, or other complex component inside of a dropdown. */
+	/** Whether or not the dropdown should be automatically hidden when the user hits the tab key.  Good to turn this off if you've got a date picker, nested dropd down, form, or other complex component inside of a dropdown. */
 	closeOnTab: PropTypes.bool,
 
-	/** @property {Boolean} [restrictToViewPort=true] Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
+	/** Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
 	restrictToViewPort: PropTypes.bool,
 
-	/** @property {Boolean} [disableScrollLocking=false] Whether scroll locking behaviour should be disabled on mobile */
+	/** Whether scroll locking behaviour should be disabled on mobile */
 	disableScrollLocking: PropTypes.bool,
 
-	/** @property {Function} [onCloseAnimationEnd] Function to be called once the closing animation has finished */
+	/** Function to be called once the closing animation has finished */
 	onCloseAnimationEnd: PropTypes.func,
 
-	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	/** Callback for when animation has ended on open. */
 	onOpenAnimationEnd: PropTypes.func,
 
-	/** @property {String} [triggerClickAction='toggle'] What action to take when the user clicks the trigger.  Default is to toggle the dropdown open/close.  Can just open ('open') or do nothing ('none'). */
+	/** What action to take when the user clicks the trigger.  Default is to toggle the dropdown open/close.  Can just open ('open') or do nothing ('none'). */
 	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
 
-	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** @prop {Boolean}[repositionOnScroll=false] Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
+	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
 	repositionOnScroll: PropTypes.bool,
 };
 

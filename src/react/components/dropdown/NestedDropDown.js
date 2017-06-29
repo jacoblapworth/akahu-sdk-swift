@@ -10,6 +10,21 @@ import { compose } from './private/helpers';
 
 import './scss/_dropDown.scss';
 
+/**
+ * BETA
+ * This component is still under active development and is not considered stable.  It is not exported
+ * from the src/react/dropdown entry point for this reason.  If you wish to beta test this component,
+ * you can import it directly from within the components/dropdown folder.  However, you do so at your
+ * own risk.
+ *
+ * NestedDropDown is a DropDown replacement used when a user workflow will take place inside of the
+ * dropdown.  Multiple panels are added as children and the active panel's ID is a prop on this
+ * component.
+ *
+ * @export
+ * @class NestedDropDown
+ * @extends {DropDown}
+ */
 export default class NestedDropDown extends DropDown {
 	componentDidUpdate(prevProps, prevState) {
 		super.componentDidUpdate(prevProps,prevState);
@@ -109,61 +124,61 @@ NestedDropDown.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** @property {Object} Style attribute on the dropdown node */
+	/** Style attribute on the dropdown node */
 	style: PropTypes.object,
 
-	/** @property {Boolean} [isHidden] default false*/
+	/** Whether or not the dropdown is hidden */
 	isHidden: PropTypes.bool,
 
-	/** @property {String} [size] Takes 'small', 'medium', 'large', or 'xlarge' and applies correct XUI class based on these. Default will fits to children's width*/
+	/** Applies correct XUI class based on prop value. Default will fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
-	/** @property {Array} [ignoreKeyboardEvents] Pass in an array of keydown keycodes to be ignored from dropdown behaviour. */
+	/** Pass in an array of KeyboardEvent keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
 
-	/** @property {String} [id] id of the list */
+	/** DOM ID of the list */
 	id: PropTypes.string,
 
-	/** @property {Element} [footer] Items to be added to the menu's footer */
+	/** Items to be added to the menu's footer */
 	footer: PropTypes.element,
 
-	/** @property {Function} [onSelect] Enable a generalised callback when an item has been selected. */
+	/** Enable a generalised callback when an item has been selected. */
 	onSelect: PropTypes.func,
 
-	/** @property {Boolean} [hasKeyboardEvents=true] Whether or not the dropdown should take focus and handle keyboard events automatically */
+	/** Whether or not the dropdown should take focus and handle keyboard events automatically */
 	hasKeyboardEvents: PropTypes.bool,
 
-	/** @property {Function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
+	/** Callback for when the highlighted item in the dropdown changes. */
 	onHighlightChange: PropTypes.func,
 
-	/** @property {string} [currentPanel] The `panelId` propety of the panel which should currently be open */
+	/** The `panelId` propety of the panel which should currently be open */
 	currentPanel: PropTypes.string,
 
-	/** @property {Function} [onPanelChange] Callback for when the open DropDownPanel changes. Receives the name of the selected panel, and the previously selected panel. */
+	/** Callback for when the open DropDownPanel changes. Receives the name of the selected panel, and the previously selected panel. */
 	onPanelChange: PropTypes.func,
 
-	/** @property {Function} [onPanelSelect] Callback to trigger opening of another panel. Takes destination panel name as a parameter. */
+	/** Callback to trigger opening of another panel. Takes destination panel name as a parameter. */
 	onPanelSelect: PropTypes.func,
 
-	/** @property {Object} [headingAttributes] Additional attributes to be passed down to the header (onPrimaryButtonClick, primaryButtonContent, onSecondaryButtonClick, etc.) */
+	/** Additional attributes to be passed down to the header (onPrimaryButtonClick, primaryButtonContent, onSecondaryButtonClick, etc.) */
 	headingAttributes: PropTypes.object,
 
-	/** @property {Boolean} [fixedWidth=true] Whether the fixed width class variant should be used for the size prop */
+	/** Whether the fixed width class variant should be used for the size prop.  Does nothing if no size is provided. */
 	fixedWidth: PropTypes.bool,
 
-	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** @prop {Boolean} [animateClosed=false] will add the closing animation class */
+	/** Will add the closing animation class */
 	animateClosed: PropTypes.bool,
 
-	/** @prop {Boolean} [animateOpen=false] will add an opening animation class */
+	/** Will add an opening animation class */
 	animateOpen: PropTypes.bool,
 
-	/** @prop {Function} [onCloseAnimationEnd] */
+	/** Callback for when the closing animation has stopped. */
 	onCloseAnimationEnd: PropTypes.func,
 
-	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	/** Callback for when animation has ended on open. */
 	onOpenAnimationEnd: PropTypes.func,
 };
 

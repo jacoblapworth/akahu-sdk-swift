@@ -33,6 +33,16 @@ const shouldHandleKeyDown = (event, dropdown) => {
 				|| event.keyCode === 9; // Tab
 };
 
+/**
+ * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
+ * presentational components are used to output content, scrolling is managed properly,
+ * and keyboard events are handled properly for the Picklist use case.  An instance of
+ * this should be passed to the DropDownToggled's dropdown prop.
+ *
+ * @export
+ * @class DropDown
+ * @extends {PureComponent}
+ */
 export default class DropDown extends PureComponent {
 	constructor(props) {
 		super(props);
@@ -77,6 +87,20 @@ export default class DropDown extends PureComponent {
 		window.removeEventListener('focus', this._restrictFocus, true);
 	}
 
+	/**
+	 * Keydown handler for the DropDown.  If `hasKeyboardEvents` is true, then this will
+	 * automatically handle list navigation keyboard events because the root node will have
+	 * focus.  However, if you want to keep the focus on the trigger by setting `hasKeyboardEvents`
+	 * to false, you need to manually call this method if you want arrow key handlers to actuall
+	 * navigate the list for users.  A heuristic is applied, so the only time you shouldn't call this
+	 * on trigger keydown is when you know for a fact that you don't want a default action to happen
+	 * (ex: Down arrow should not open the list).  It doesn't hurt to call this for keyboard events
+	 * that the component doesn't actually do anything with.
+	 *
+	 * @public
+	 * @param {KeyboardEvent} event
+	 * @memberof DropDown
+	 */
 	onKeyDown(event) {
 		const dropdown = this;
 		if (shouldHandleKeyDown(event, dropdown)) {
@@ -113,15 +137,23 @@ export default class DropDown extends PureComponent {
 		dropdown.props.onHighlightChange && dropdown.props.onHighlightChange(item);
 	}
 
+	/**
+	 * Highlight a specific React element in the DropDown list.
+	 *
+	 * @public
+	 * @param {Component} item
+	 * @param {UIEvent} event
+	 * @memberof DropDown
+	 */
 	highlightItem(item, event) {
 		this.panel.highlightItem(item, event);
 	}
 
-	unlockScroll(){
+	unlockScroll() {
 		helpers.unlockScroll();
 	}
 
-	lockScroll(){
+	lockScroll() {
 		helpers.lockScroll()
 	}
 
@@ -186,57 +218,59 @@ DropDown.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
+
+	/** Inline styles to apply to this component's root node. */
 	style: PropTypes.object,
 
-	/** @property {Boolean} [isHidden] default false*/
+	/** Whether or not this component is hidden. */
 	isHidden: PropTypes.bool,
 
-	/** @property {String} [size] Applies the correct XUI class based on the chose size. Default will fits to children's width. */
+	/** Applies the correct XUI class based on the chose size. Default will fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
-	/** @property {Array} [ignoreKeyboardEvents] Pass in an array of keydown keycodes to be ignored from dropdown behaviour. */
+	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
 
-	/** @property {String} id of the list */
+	/** DOM ID of the list */
 	id: PropTypes.string,
 
-	/** @property {Element} [header] The header element */
+	/** The header element. */
 	header: PropTypes.element,
 
-	/** @property {Element} [footer] Items to be added to the menu's footer */
+	/** Items to be added to the menu's footer. */
 	footer: PropTypes.element,
 
-	/** @property {Function} enable a generalised callback when an item has been selected. */
+	/** A generalised callback when an item has been selected. */
 	onSelect: PropTypes.func,
 
-	/** @property {boolean} [hasKeyboardEvents=true] Whether or not the dropdown should take focus and handle keyboard events automatically */
+	/** Whether or not the dropdown should take focus and handle keyboard events automatically */
 	hasKeyboardEvents: PropTypes.bool,
 
-	/** @property {Function} [onKeyDown] Callback for adding additional onKeyPress funcitonality */
+	/** Callback for adding additional onKeyPress funcitonality */
 	onKeyDown: PropTypes.func,
 
-	/** @property {Boolean} [restrictFocus=true] Whether focus should be restricted to the dropdown while it's open */
+	/** Whether focus should be restricted to the dropdown while it's open. */
 	restrictFocus: PropTypes.bool,
 
-	/** @property {Function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
+	/** Callback for when the highlighted item in the dropdown changes. */
 	onHighlightChange: PropTypes.func,
 
-	/** @prop {Boolean} [animateClosed=false] will add the closing animation class */
+	/** Will cause the dropdown to animate when closing. */
 	animateClosed: PropTypes.bool,
 
-	/** @prop {Boolean} [animateOpen=false] will add an opening animation class */
+	/** Will cause the dropdown to animate when opening. */
 	animateOpen: PropTypes.bool,
 
-	/** @prop {Function} [onCloseAnimationEnd] */
+	/** Callback for when the animation that closes the dropdown ends. */
 	onCloseAnimationEnd: PropTypes.func,
 
-	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	/** Callback for when animation has ended on open. */
 	onOpenAnimationEnd: PropTypes.func,
 
-	/** @property {Boolean} [fixedWidth=false] Whether the fixed width class variant should be used for the size prop */
+	/** Whether the fixed width class variant should be used for the size prop */
 	fixedWidth: PropTypes.bool,
 
-	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 };
 

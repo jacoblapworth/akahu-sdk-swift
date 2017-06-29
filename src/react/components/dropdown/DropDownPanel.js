@@ -5,17 +5,41 @@ import StatefulPicklist from '../picklist/StatefulPicklist';
 
 import './scss/_dropDown.scss';
 
+/**
+ * Presentational component that will automatically output a StatefulPicklist if
+ * a Picklist is passed in as a child so that keyboard interactivity is added as
+ * a convenience.
+ *
+ * @export
+ * @class DropDownPanel
+ * @extends {PureComponent}
+ */
 export default class DropDownPanel extends PureComponent {
 	onKeyDown(e) {
-		this.list && this.list.onKeyDown(e);
+		this.list != null && this.list.onKeyDown(e);
 	}
 
+	/**
+	 * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
+	 *
+	 * @public
+	 * @returns {String} null if nothing is highlighted or no child StatefulPicklist exists
+	 * @memberof DropDownPanel
+	 */
 	getHighlightedId() {
-		return this.list ? this.list.getHighlightedId() : null;
+		return this.list != null ? this.list.getHighlightedId() : null;
 	}
 
+	/**
+	 * Highlight a specific item in the child StatefulPicklist (if applicable).
+	 *
+	 * @public
+	 * @param {React.element} item
+	 * @param {UIEvent} event
+	 * @memberof DropDownPanel
+	 */
 	highlightItem(item, event) {
-		this.list && this.list.highlightItem(item, event);
+		this.list != null && this.list.highlightItem(item, event);
 	}
 
 	render() {
@@ -52,20 +76,20 @@ DropDownPanel.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 
-	/** @property {String} [panelId] Used by NestedDropDown to identify each panel */
+	/** Used by NestedDropDown to identify each panel. */
 	panelId: PropTypes.string,
 
-	/** @property {String} [panelHeading] Used by NestedDropDown to populate the DropDownHeader content */
+	/** Used by NestedDropDown to populate the DropDownHeader content */
 	panelHeading: PropTypes.string,
 
-	/** @property {Array} [ignoreKeyboardEvents] Pass in an array of keydown keycodes to be ignored from dropdown behaviour. */
+	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
 
-	/** @property {Function} [onSelect] A generalised callback when an item has been selected. */
+	/** A generalised callback when an item has been selected. */
 	onSelect: PropTypes.func,
 
-	/** @property {function} [onHighlightChange] Callback for when the highlighted item in the dropdown changes. */
-	onHighlightChange: PropTypes.func
+	/** Callback for when the highlighted item in the dropdown changes. */
+	onHighlightChange: PropTypes.func,
 };
 
 DropDownPanel.defaultProps = {

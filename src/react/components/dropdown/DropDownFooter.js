@@ -2,8 +2,16 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+/**
+ * Wrapper component for contents of a dropdown footer.  DropDown does expect this to be the
+ * wrapper, so it's use is mandatory.
+ *
+ * @export
+ * @class DropDownFooter
+ * @extends {PureComponent}
+ */
 export default class DropDownFooter extends PureComponent {
-  render(){
+  render() {
     const footer = this;
     const { children, className } = footer.props;
 
@@ -18,4 +26,4 @@ export default class DropDownFooter extends PureComponent {
 DropDownFooter.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node
-}
+};

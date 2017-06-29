@@ -99,12 +99,20 @@ function whenVisible(listBox, callback) {
 	intervalRunner(() => isVisible(listBox.rootNode), callback);
 }
 
+/**
+ * Presentational component that ensures the the contents of a dropdown are rendered with the
+ * correct CSS classes.  This component is also what addes the mask to the DOM when going into
+ * narrow viewport.
+ *
+ * @class DropDownListBox
+ * @extends {PureComponent}
+ */
 class DropDownListBox extends PureComponent {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			maxHeight: (props.style && props.style.maxHeight) || null
+			maxHeight: (props.style && props.style.maxHeight) || null,
 		};
 	}
 
@@ -143,6 +151,7 @@ class DropDownListBox extends PureComponent {
 	 * Find the child DOM node with given ID and adjust the list box's scroll position to
 	 * ensure that it's in view.
 	 *
+	 * @public
 	 * @param {String} id
 	 */
 	scrollIdIntoView(id) {
@@ -157,6 +166,13 @@ class DropDownListBox extends PureComponent {
 		});
 	}
 
+	/**
+	 * Determine if the currently focused DOM node a child of this component.
+	 *
+	 * @public
+	 * @returns {Boolean}
+	 * @memberof DropDownListBox
+	 */
 	hasFocus() {
 		return this.rootNode && this.rootNode.contains(document.activeElement);
 	}
@@ -236,42 +252,44 @@ DropDownListBox.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
+
+	/** Inline CSS styles to add to the root DOM node of this component. */
 	style: PropTypes.object,
 
-	/** @property {Boolean} [isHidden=false] default false*/
+	/** Whether or not the list box is hidden. */
 	isHidden: PropTypes.bool,
 
-	/** @prop {Boolean} [animateClosed=false] will add the closing animation class */
+	/** Will add the closing animation class */
 	animateClosed: PropTypes.bool,
 
-	/** @prop {Boolean} [animateOpen=false] will add an opening animation class */
+	/** Will add an opening animation class */
 	animateOpen: PropTypes.bool,
 
-	/** @property {Function} [onOpenAnimationEnd] callback for when animation has ended on open. */
+	/** Callback for when animation has ended on open. */
 	onOpenAnimationEnd: PropTypes.func,
 
-	/** @property {Function} [onCloseAnimationEnd] callback for when animation has ended on close. */
+	/** Callback for when animation has ended on close. */
 	onCloseAnimationEnd: PropTypes.func,
 
-	/** @property {String} [size] Applies the correct XUI class based on the chose size. Default will fits to children's width. */
+	/** Applies the correct XUI class based on the chose size. Default will fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
-	/** @property {Element} [footer] Items to be added to the menu's footer */
+	/** Items to be added to the menu's footer. */
 	footer: PropTypes.element,
 
-	/** @property {Element} [header] Items to be added to the menu's header in narrow view */
+	/** Items to be added to the menu's header. */
 	header: PropTypes.element,
 
-	/** @property {String} [id] Given id of the menu */
+	/** DOM ID of the menu */
 	id: PropTypes.string,
 
-	/** @property {Function} [onKeyDown] keydown event handler */
+	/** keydown event handler */
 	onKeyDown: PropTypes.func,
 
-	/** @property {Boolean} [fixedWidth=false] Whether the fixed width class variant should be used for the size prop */
+	/** Whether the fixed width class variant should be used for the size prop.  Does nothing without the size prop. */
 	fixedWidth: PropTypes.bool,
 
-	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 };
 

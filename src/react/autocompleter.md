@@ -89,10 +89,10 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						<XUIAvatar value={item.name} imageUrl={item.avatar} />
 					</div>
 					<div className="xui-column-10-of-12">
-						<div>
+						<div className="xui-item-title xui-text-truncated">
 							{decorateSubStr(item.name, value || '', boldMatch)}
 						</div>
-						<div className="xui-text-secondary xui-margin-top-small">
+						<div className="xui-text-secondary xui-text-truncated">
 							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
 						</div>
 					</div>

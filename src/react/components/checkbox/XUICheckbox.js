@@ -26,6 +26,13 @@ const onLabelClick = e => {
 	}
 };
 
+/**
+ * Outputs a checkbox with custom XUI styling.
+ *
+ * @export
+ * @class XUICheckbox
+ * @extends {Component}
+ */
 export default class XUICheckbox extends Component {
 	componentDidMount() {
 		setIndeterminate(this);
@@ -81,7 +88,7 @@ export default class XUICheckbox extends Component {
 		// `defaultChecked` prop on the input in order to prevent React from outputting warnings
 		// in the console.
 		if (isChecked == null) {
-			inputProps.defaultChecked = this.props.defaultChecked == null ? false : this.props.defaultChecked;
+			inputProps.defaultChecked = this.props.defaultChecked;
 		} else {
 			inputProps.checked = isChecked;
 			// checked prop without an onChange handler means this is readonly, so set that to prevent
@@ -160,7 +167,7 @@ XUICheckbox.propTypes = {
 	/** The tab-index property to place on the checkbox */
 	tabIndex: PropTypes.number,
 
-	/** Used to output an uncontrolled checkbox component */
+	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
 	defaultChecked: PropTypes.bool,
 };
 
@@ -170,4 +177,5 @@ XUICheckbox.defaultProps = {
 	isIndeterminate: false,
 	isRequired: false,
 	isReversed: false,
+	defaultChecked: false,
 };

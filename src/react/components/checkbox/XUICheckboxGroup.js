@@ -2,6 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+/**
+ * Presentational (aka dumb) component that outputs the container necessary to implement
+ * the grouped checkboxes pattern.
+ *
+ * @export
+ * @param {Object} [props]
+ * @returns
+ */
 export default function XUICheckboxGroup({ children, className, qaHook }) {
 	const classes = cn(className, 'xui-styledcheckbox-group');
 

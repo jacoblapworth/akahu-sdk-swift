@@ -7,7 +7,6 @@ import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
-import { dropdownSizeClasses } from './private/helpers';
 
 import './Autocompleter.scss';
 
@@ -125,7 +124,6 @@ export default class Autocompleter extends PureComponent {
 			'xui-u-fullwidth': !props.dropdownSize },
 			'ac-dropdown',
 			props.dropdownClassName,
-			{[dropdownSizeClasses[props.dropdownSize]]: props.dropdownSize}
 		);
 		const dropdown = (
 			<DropDown
@@ -137,6 +135,8 @@ export default class Autocompleter extends PureComponent {
 				className={dropdownClasses}
 				qaHook={listQaHook}
 				restrictFocus={false}
+				size={props.dropdownSize}
+				fixedWidth={props.dropdownFixedWidth}
 			>
 				{props.loading ? <Picklist><XUILoader /></Picklist> : props.children}
 			</DropDown>
@@ -171,66 +171,67 @@ export default class Autocompleter extends PureComponent {
 }
 
 Autocompleter.propTypes = {
-
-	/** @property {Function} [onOptionSelect] Callback to handle when an option has been selected from the dropdown */
+	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
 
-	/** @property {Boolean} [loading] When set to true a loader will be displayed instead of the picklist items.
+	/** When set to true a loader will be displayed instead of the picklist items.
 	 * State for this should be managed externally and it's defaulted to false.
 	 */
 	loading: PropTypes.bool,
 
-	/** @property {String} [id] ID to be added to the dropdown element of the completer */
+	/** ID to be added to the dropdown element of the completer */
 	id: PropTypes.string,
 
-	/** @property {String} Value that should be inside the input. */
+	/** Value that should be inside the input. */
 	searchValue: PropTypes.string,
 
-	/** @property {String} [className] CSS class(es) to go on the wrapping DOM node */
+	/** CSS class(es) to go on the wrapping DOM node */
 	className: PropTypes.string,
 
-	/** @property {String} [dropdownClassName] CSS class(es) to go on the dropdown list */
+	/** CSS class(es) to go on the dropdown list */
 	dropdownClassName: PropTypes.string,
 
-	/** @property {String} [inputClassName] CSS class(es) to go on the input */
+	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
 
-	/** @property {String} [placeholder] Placeholder for the input */
+	/** Placeholder for the input */
 	placeholder: PropTypes.string,
 
-	/** @property {number} [maxLength] Max length of the input */
+	/** Max length of the input */
 	maxLength: PropTypes.number,
 
-	/** @property {Pill|Pill[]} [pills] A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
+	/** A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
 	pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 
-	/** @property {function} [onOpen] Callback for when the list opens */
+	/** Callback for when the list opens */
 	onOpen: PropTypes.func,
 
-	/** @property {function} [onOpen] Callback for when the list closes */
+	/** Callback for when the list closes */
 	onClose: PropTypes.func,
 
-	/** @property {function} [onSearch] Callback for when the user types into the search box */
+	/** Callback for when the user types into the search box */
 	onSearch: PropTypes.func,
 
-	/** @property {number} [searchThrottleInterval=0] If you want to throttle the input's onChange handler, put the throttle interval here */
+	/** If you want to throttle the input's onChange handler, put the throttle interval here */
 	searchThrottleInterval: PropTypes.number,
 
-	/** @property {String} [dropdownSize] maps to the 'size' property of the dropdown component.
-	 * More can be found here: https://github.dev.xero.com/ReactLabs/dropdown/blob/master/README.md
-	 */
-	dropdownSize: PropTypes.string,
+	/** Maps to the 'size' property of the dropdown component. */
+	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
-	/** @property {Boolean} [closeOnSelect] maps to the `closeOnSelect` property of the DropDownToggled component. */
+	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
 
-	/** @property {Boolean} [openOnFocus] false by default, when set to true the dropdown will automatically open when the input is given focus. */
+	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,
 
-	/** @property {String} [triggerClickAction='open'] What action to take when the user clicks the trigger.  Default is to open the dropdown.  Can toggle the dropdown open/closed ('toggle') or do nothing ('none'). */
+	/** What action to take when the user clicks the trigger.  Default is to open the dropdown.  Can toggle the dropdown open/closed ('toggle') or do nothing ('none'). */
 	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
 
+	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
+
+	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
+	dropdownFixedWidth: PropTypes.bool,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node
@@ -242,4 +243,5 @@ Autocompleter.defaultProps = {
 	openOnFocus: false,
 	triggerClickAction: 'open',
 	forceDesktop: false,
+	dropdownFixedWidth: false,
 };

@@ -64,10 +64,3 @@
 	//anchors the dropdown to the far left of it's container instead of following the input.
 	left: 0;
 }
-
-@each $number, $variant in $xui-width-variants-dropdown{
-	.ac-dropdown-#{$variant} {
-		/* prevent dropdown from shifting in width when autocompleter filters long values */
-		width: $xui-starting-width + ($xui-base-width * $number);
-	}
-}

@@ -4,6 +4,14 @@ import XUICheckbox from '../checkbox/XUICheckbox';
 
 const NOOP = () => {};
 
+/**
+ * INTERNAL USE ONLY
+ *
+ * This presentation component is used internally in the XUI library to display the
+ * contents of a Pickitem.
+ *
+ * @param {Object} props
+ */
 const PickitemBody = ({ onClick, onKeyDown, onMouseOver, isSelected, href, multiselect, children, checkboxClassName, target }) => {
 	if (multiselect) {
 		return (

@@ -40,10 +40,3 @@ export const intervalRunner = (predicate, callback) => {
 		interval = setInterval(checker, delay);
 	}
 };
-
-export const dropdownSizeClasses = {
-	small: 'ac-dropdown-small',
-	medium: 'ac-dropdown-medium',
-	large: 'ac-dropdown-large',
-	xlarge: 'ac-dropdown-xlarge'
-};

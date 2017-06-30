@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+/**
+ * Presentational (aka dumb) component used to display a selectable list of Pickitems.
+ *
+ * @export
+ * @class Picklist
+ * @extends {Component}
+ */
 export default class Picklist extends Component {
 	render() {
 		const { children, className, id, onKeyDown, onMouseDown, secondaryProps, defaultLayout } = this.props;
@@ -31,5 +38,5 @@ Picklist.defaultProps = {
 	defaultLayout: true,
 	secondaryProps : {
 		role:"group"
-	}
+	},
 };

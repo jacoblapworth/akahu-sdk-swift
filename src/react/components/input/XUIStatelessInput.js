@@ -44,11 +44,9 @@ export default class XUIStatelessInput extends PureComponent {
 			const iconClass = `${baseClass}--icon-${iconAttributes.position || 'left'}`;
 			const iconWrapperClass = hasIcon && `${baseClass}--iconwrapper`;
 
-			const iconWrapperClasses = cn(
-				iconWrapperClass,
-				`${iconWrapperClass}-${iconAttributes.position}`,
-				`${iconWrapperClass}-${iconAttributes.wrapperColor}`
-			);
+			const iconWrapperClasses = cn(iconWrapperClass, `${iconWrapperClass}-${iconAttributes.position}`, {
+				[`${iconWrapperClass}-${iconAttributes.wrapperColor}`]: iconAttributes.wrapperColor != null
+			});
 
 			iconComponent = iconWrapperClass ? (
 				<div className={iconWrapperClasses}>
@@ -93,9 +91,6 @@ export default class XUIStatelessInput extends PureComponent {
 	}
 }
 
-const iconPositions = ['left', 'right'];
-const iconWrapperColors = ['twitter', 'facebook', 'linkedin'];
-
 XUIStatelessInput.propTypes = {
 	/** @property {Element} [button] Object containing button element placed after input in dom */
 	button: PropTypes.element,
@@ -105,8 +100,9 @@ XUIStatelessInput.propTypes = {
 	containerClassName: PropTypes.string,
 	/** @property {Object} [iconAttributes] Object containing icon element related properties */
 	iconAttributes: PropTypes.shape({
-		position: PropTypes.oneOf(iconPositions),
-		wrapperColor: PropTypes.oneOf(iconWrapperColors)
+		path: PropTypes.string,
+		position: PropTypes.oneOf(['left', 'right']),
+		wrapperColor: PropTypes.oneOf(['twitter', 'facebook', 'linkedin'])
 	}),
 	/** @property {Object} [inputAttributes] Object containing any additional properties and their values to the Input element.
 	 * Includes event handler callbacks i.e. onChange, onSelect, onClick, onKeyDown etc. */

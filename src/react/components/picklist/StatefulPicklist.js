@@ -15,11 +15,10 @@ import {
 } from './private/helpers';
 
 /**
- * @private
- *
  * Manages the arrow key events, checks the event is valid and based on the current
  * highlighted element will decide which action to take next to find the next item to highlight.
  *
+ * @private
  * @param {Event} event
  * @param {StatefulPicklist} spl
  */
@@ -68,6 +67,16 @@ function handleArrowKeyEvents(event, spl) {
 	}
 }
 
+/**
+ * A Picklist that keeps track of the currently highlighted menu item.  APIs exist
+ * to change the highlighted item, and a keydown event handler exists to either
+ * automatically handle keyboard events (down arrow selects next item, etc) or
+ * simulate that if the focus is elsewhere.
+ *
+ * @export
+ * @class StatefulPicklist
+ * @extends {Component}
+ */
 class StatefulPicklist extends Component {
 	constructor(props) {
 		super(props);
@@ -100,16 +109,29 @@ class StatefulPicklist extends Component {
 		this.highlightInitial();
 	}
 
+	/**
+	 * Get the React virtual DOM representation of the currently highlighted element.
+	 *
+	 * @public
+	 * @returns {React.element}
+	 * @memberof StatefulPicklist
+	 */
 	getHighlighted() {
 		return this.state.highlightedElement;
 	}
 
+	/**
+	 * Get the ID of the currently highlighted element.
+	 *
+	 * @public
+	 * @returns {String} null if nothing is highlighted
+	 * @memberof StatefulPicklist
+	 */
 	getHighlightedId() {
 		return getId(this.getHighlighted());
 	}
 
 	/**
-	 * @public
 	 * onClick of each item in the list we should select that item.
 	 *
 	 * @param {Event} [event]
@@ -120,9 +142,10 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
-	 * Fired when either the enter key or space bar is pressed and calls onclick of the menu item before closing the list.
+	 * Fired when either the enter key or space bar is pressed and calls onclick of
+	 * the menu item before closing the list.
 	 *
+	 * @public
 	 * @param {Component} item to be selected
 	 */
 	selectHighlighted(item) {
@@ -138,9 +161,9 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
 	 * Highlights the previous item in the list.
 	 *
+	 * @public
 	 * @param {Component} currentItem - Current item highlighted
 	 */
 	highlightPrevious(currentItem) {
@@ -149,9 +172,9 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
 	 * Highlights the next item in the list.
 	 *
+	 * @public
 	 * @param {Component} currentItem - Current item highlighted
 	 */
 	highlightNext(currentItem) {
@@ -198,9 +221,9 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
 	 * Find a child element by its ID. Used so we have access to the keys of that item.
 	 *
+	 * @public
 	 * @param {String} id of the item you want to find the instance of.
 	 */
 	findItemById(id) {
@@ -218,10 +241,11 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
+	 * Handles a keydown event, switch statement tells the list which action to take
+	 * next based on they key pressed.  Public API that can be used to simulate
+	 * keydown events if the DOM focus is elsewhere.
+	 *
 	 * @public
-	 *
-	 * Handles a keydown event, switch statement tells the list which action to take next based on they key pressed
-	 *
 	 * @param {KeyboardEvent} event Event
 	 */
 	onKeyDown(event) {
@@ -259,8 +283,6 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
-	 *
 	 * Removes any previously highlighted elements and sets the class on the next one.
 	 *
 	 * @param {MouseEvent} event
@@ -277,8 +299,7 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
-	 *
+
 	 * Stops individual items from stealing focus from the list itself when clicked.
 	 *
 	 * @param {MouseEvent} event
@@ -313,22 +334,22 @@ StatefulPicklist.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** @property {Array} [ignoreKDEvent] Pass in an array of keydown keycodes to be ignored from dropdown behaviour. */
+	/** AN array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,
 
-	/** @property {String} [id] id of the list */
+	/** ID of the list */
 	id: PropTypes.string,
 
-	/** @property {Function} [onSelect] Enables a generalised callback when an item has been selected. */
+	/** Enables a generalised callback when an item has been selected. */
 	onSelect: PropTypes.func,
 
-	/** @property {boolean} [canFocus=false] Whether or not the user should be allowed to tab to this component */
+	/** Whether or not the user should be allowed to tab to this component */
 	canFocus: PropTypes.bool,
 
-	/** @property {Function} [onHighlightChange] callback when the highlighted element has changed. */
+	/** Callback when the highlighted element has changed. */
 	onHighlightChange: PropTypes.func,
 
-	/** @property {object} [secondaryProps] An object of props that can be spread on the stateful picklist, useful for aria attributes. */
+	/** An object of props that can be spread on the stateful picklist, useful for aria attributes. */
 	secondaryProps: PropTypes.object
 };
 

@@ -16,7 +16,7 @@
 </div>
 
 ```
-const { boldMatch, decorateSubStr } = require('./components/autocompleter/helpers/highlighting');
+const { boldMatch, decorateSubStr } = require('./autocompleter');
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 
@@ -83,17 +83,17 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 				<Pickitem
 					key={item.id}
 					id={item.id}
-					onSelect={(value, instance) => example.setState({value: item.name, selectedItem: instance})}>
-					<div>
+					onSelect={(value, instance) => example.setState({value: item.name, selectedItem: instance})}
+				>
+					<div className="xui-column-2-of-12">
+						<XUIAvatar value={item.name} imageUrl={item.avatar} />
+					</div>
+					<div className="xui-column-10-of-12">
 						<div>
-							<XUIAvatar value={item.name} imageUrl={item.avatar}/>
-							<span className="xui-margin-left-small">
-											{decorateSubStr(item.name, value || '', boldMatch)}
-										</span>
+							{decorateSubStr(item.name, value || '', boldMatch)}
 						</div>
 						<div className="xui-text-secondary xui-margin-top-small">
-							{decorateSubStr(item.email, value || '', boldMatch)},
-							{decorateSubStr(item.subtext, value || '', boldMatch)}
+							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
 						</div>
 					</div>
 				</Pickitem>
@@ -110,7 +110,8 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						onSearch={example.onSearchChangeHandler}
 						placeholder="Search"
 						searchValue={value}
-						dropdownSize="large"
+						dropdownSize="x-large"
+						dropdownFixedWidth
 					>
 						<Picklist>
 							{example.getItems()}

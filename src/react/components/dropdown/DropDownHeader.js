@@ -1,4 +1,4 @@
-import React, { Component, Children, cloneElement } from 'react';
+import React, { Component, Children } from 'react';
 import PropTypes from 'prop-types';
 import back from '@xero/xui-icon/icons/back';
 import cn from 'classnames';
@@ -98,11 +98,11 @@ export default class DropDownHeader extends Component {
 						</div>
 					</div>
 				</div>
-				{Children.map(children, child => {
-					return cloneElement(child, {
-						className: child.props.className + " xui-dropdown--header-container"
-					});
-				})}
+				{Children.map(children, child => (
+					<div className="xui-dropdown--header-container">
+						{child}
+					</div>
+				))}
 			</div>
 		)
 	}

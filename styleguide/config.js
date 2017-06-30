@@ -95,6 +95,7 @@ const config = {
 	},
 	title: 'XUI Components',
 	styleguideDir: outputPath,
+	assetsDir: path.resolve(__dirname, '..', 'uitest'),
 	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",

@@ -102,10 +102,10 @@ AutocompleterInput.propTypes = {
 	onFocus: PropTypes.func,
 	id: PropTypes.string,
 	iconAttributes: PropTypes.object,
-	containerClassNames: PropTypes.string
+	containerClassNames: PropTypes.string,
 };
 
 AutocompleterInput.defaultProps = {
 	throttleInterval: 0,
-	ariaAttributes: {}
+	ariaAttributes: {},
 };

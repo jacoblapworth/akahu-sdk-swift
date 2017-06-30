@@ -181,6 +181,7 @@ Here is the first example extended with the header and footer:
 
 ```
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
+const searchIcon = require ( '@xero/xui-icon/icons/search' ).default;
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 const { Component } = require ('react');
 
@@ -232,9 +233,16 @@ class XDD extends Component {
 				primaryButtonContent={<XUIIcon path={checked} inline={true} />}
 			>
 				<XUIInput
-					className="xui-u-fullwidth"
-					type="search"
-					placeholder="Fake search box"
+					className="xui-input-borderless xui-input-borderless-solid"
+					containerClassName="xui-inputwrapper-borderless xui-u-fullwidth"
+					iconAttributes={{
+						path: searchIcon,
+						position: 'left',
+					}}
+					inputAttributes={{
+						type: 'search',
+						placeholder: 'Fake search box',
+					}}
 				/>
 			</DropDownHeader>
 		);

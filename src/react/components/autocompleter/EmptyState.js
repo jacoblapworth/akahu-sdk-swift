@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import XUIIcon from '../icon/XUIIcon';
 import search from '@xero/xui-icon/icons/search';
+import XUIIcon from '../icon/XUIIcon';
 
 const EmptyState = props => (
 	<div
@@ -19,11 +19,11 @@ EmptyState.propTypes = {
 	id: PropTypes.string,
 	path: PropTypes.string,
 	children: PropTypes.node
-}
+};
 
 EmptyState.defaultProps = {
-	children: ('No results found'),
-	path: search
-}
+	children: 'No results found',
+	path: search,
+};
 
 export default EmptyState;

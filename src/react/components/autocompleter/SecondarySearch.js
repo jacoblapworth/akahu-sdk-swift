@@ -6,11 +6,11 @@ import Picklist from '../picklist/Picklist';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 
-import { intervalRunner, isVisible, dropdownSizeClasses } from './private/helpers';
+import { intervalRunner, isVisible } from './private/helpers';
 
 import './Autocompleter.scss';
 
-export default class SearchableDropdown extends PureComponent {
+export default class SecondarySearch extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.openDropDown = this.openDropDown.bind(this);
@@ -20,32 +20,36 @@ export default class SearchableDropdown extends PureComponent {
 	}
 
 	/**
-	 * @public
 	 * Set the state as not hidden in order to toggle the list open.
+	 *
+	 * @public
 	 */
 	openDropDown() {
 		this.ddt.openDropDown();
 	}
 
 	/**
-	 * @public
 	 * Set the state as hidden in order to toggle the list closed.
+	 *
+	 * @public
 	 */
 	closeDropDown() {
 		this.ddt.closeDropDown();
 	}
 
 	/**
-	 * @public
 	 * Manually highlight an item in the list for selection.
+	 *
+	 * @public
 	 */
 	highlightItem(item) {
 		this.dropdown.highlightItem(item);
 	}
 
 	/**
-	 * @public
 	 * Focuses the autocompleter input before calling props.onOpen
+	 *
+	 * @public
 	 */
 	onOpen() {
 		this.focusInput();
@@ -53,8 +57,9 @@ export default class SearchableDropdown extends PureComponent {
 	}
 
 	/**
+	 * Focus the AutocompleterInput input element, if visible.
+	 *
 	 * @public
-	 * Focus the AutocompleterInput <input> element if visible
 	 */
 	focusInput() {
 		const inputDOM = this.input.inputNode;
@@ -79,7 +84,6 @@ export default class SearchableDropdown extends PureComponent {
 		const dropdownClasses = cn(
 			{ 'xui-u-fullwidth': !props.dropdownSize },
 			props.dropdownClassName,
-			{[dropdownSizeClasses[props.dropdownSize]]: props.dropdownSize}
 		);
 		const searchItem = (
 			<Picklist className="xui-padding-none">
@@ -94,7 +98,7 @@ export default class SearchableDropdown extends PureComponent {
 						onSearch={props.onSearch}
 						refFn={c => completer.input = c}
 						containerClassNames="ac-search-wrapper"
-						/>
+					/>
 				</li>
 			</Picklist>
 		);
@@ -108,6 +112,8 @@ export default class SearchableDropdown extends PureComponent {
 				id={props.id}
 				className={dropdownClasses}
 				qaHook={listQaHook}
+				size={props.dropdownSize}
+				fixedWidth={props.dropdownFixedWidth}
 			>
 			{searchItem}
 			{props.children}
@@ -120,86 +126,90 @@ export default class SearchableDropdown extends PureComponent {
 				data-automationid={containerQaHook}
 			>
 				<DropDownToggled
-				ref={c => completer.ddt = c}
-				trigger={props.trigger}
-				dropdown={dropdown}
-				onOpen={completer.onOpen}
-				onClose={props.onClose}
-				closeOnSelect={props.closeOnSelect}
-				className={dropdownToggledClasses}
+					ref={c => completer.ddt = c}
+					trigger={props.trigger}
+					dropdown={dropdown}
+					onOpen={completer.onOpen}
+					onClose={props.onClose}
+					closeOnSelect={props.closeOnSelect}
+					className={dropdownToggledClasses}
 				/>
 			</div>
 		);
 	}
 }
 
-SearchableDropdown.propTypes = {
-
-	/** @property {Function} [onOptionSelect] Callback to handle when an option has been selected from the dropdown */
+SecondarySearch.propTypes = {
+	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
 
-	/** @property {Boolean} [loading] When set to true a loader will be displayed instead of the picklist items.
+	/**
+	 * When set to true a loader will be displayed instead of the picklist items.
 	 * State for this should be managed externally and it's defaulted to false.
 	 */
 	loading: PropTypes.bool,
 
-	/** @property {String} [id] ID to be added to the dropdown element of the completer */
+	/** ID to be added to the dropdown element of the completer */
 	id: PropTypes.string,
 
-	/** @property {String} Value that should be inside the input. */
+	/** Value that should be inside the input. */
 	searchValue: PropTypes.string,
 
-	/** @property {String} [className] CSS class(es) to go on the wrapping DOM node */
+	/** CSS class(es) to go on the wrapping DOM node */
 	className: PropTypes.string,
 
-	/** @property {String} [dropdownClassName] CSS class(es) to go on the dropdown list */
+	/** CSS class(es) to go on the dropdown list */
 	dropdownClassName: PropTypes.string,
 
-	/** @property {String} [inputClassName] CSS class(es) to go on the input */
+	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
 
-	/** @property {String} [placeholder] Placeholder for the input */
+	/** Placeholder for the input */
 	placeholder: PropTypes.string,
 
-	/** @property {Pill|Pill[]} [pills] A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
+	/** A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
 	pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 
-	/** @property {function} [onOpen] Callback for when the list opens */
+	/** Callback for when the list opens */
 	onOpen: PropTypes.func,
 
-	/** @property {function} [onOpen] Callback for when the list closes */
+	/** Callback for when the list closes */
 	onClose: PropTypes.func,
 
-	/** @property {function} [onSearch] Callback for when the user types into the search box */
+	/** Callback for when the user types into the search box */
 	onSearch: PropTypes.func,
 
-	/** @property {number} [searchThrottleInterval=0] If you want to throttle the input's onChange handler, put the throttle interval here */
+	/** If you want to throttle the input's onChange handler, put the throttle interval here */
 	searchThrottleInterval: PropTypes.number,
 
-	/** @property {String} [dropdownSize] maps to the 'size' property of the dropdown component.
-	 * More can be found here: https://github.dev.xero.com/ReactLabs/dropdown/blob/master/README.md
-	 */
-	dropdownSize: PropTypes.string,
+	/** Maps to the 'size' property of the dropdown component. */
+	dropdownSize: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
-	/** @property {Boolean} [closeOnSelect] maps to the `closeOnSelect` property of the DropDownToggled component. */
+	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
 
-	/** @property {Boolean} [openOnFocus] false by default, when set to true the dropdown will automatically open when the input is given focus. */
+	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,
 
-	/** @property {Element} Will be passed directly down to the DropDownToggled component as the main trigger. */
+	/** Will be passed directly down to the DropDownToggled component as the main trigger. */
 	trigger: PropTypes.element.isRequired,
 
-	/** @property {String} [inputId] Id to be applied to the AutocompleterInput component. */
+	/** ID to be applied to the AutocompleterInput component. */
 	inputId: PropTypes.string,
 
+	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
+	forceDesktop: PropTypes.bool,
+
+	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
+	dropdownFixedWidth: PropTypes.bool,
+
 	qaHook: PropTypes.string,
-	children: PropTypes.node
+	children: PropTypes.node,
 };
 
-SearchableDropdown.defaultProps = {
+SecondarySearch.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,
-	inputId: 'secondary_search_input'
+	inputId: 'secondary_search_input',
 };

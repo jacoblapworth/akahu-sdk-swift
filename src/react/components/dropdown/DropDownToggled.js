@@ -369,6 +369,9 @@ export default class DropDownToggled extends PureComponent {
 		this.setState(() => ({
 			isOpening: false,
 		}));
+
+		// Tell the dropdown to ensure that an element is highlighted, if appropriate
+		this.dropdown.highlightInitial();
 		if (this.props.onOpenAnimationEnd != null) {
 			this.props.onOpenAnimationEnd();
 		}

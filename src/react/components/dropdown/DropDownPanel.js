@@ -42,6 +42,18 @@ export default class DropDownPanel extends PureComponent {
 		this.list != null && this.list.highlightItem(item, event);
 	}
 
+	/**
+	 * Used to highlight an item immediately after a dropdown opens.
+	 *
+	 * @public
+	 * @memberof DropDownPanel
+	 */
+	highlightInitial() {
+		if (this.list != null) {
+			this.list.highlightInitial();
+		}
+	}
+
 	render() {
 		const panel = this;
 		const {

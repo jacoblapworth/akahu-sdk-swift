@@ -82,6 +82,7 @@ class StatefulPicklist extends Component {
 		spl.selectHighlighted = spl.selectHighlighted.bind(spl);
 		spl.highlightNext = spl.highlightNext.bind(spl);
 		spl.highlightPrevious = spl.highlightPrevious.bind(spl);
+		spl.highlightInitial = spl.highlightInitial.bind(spl);
 		spl.findItemById = spl.findItemById.bind(spl);
 		spl.onClick = spl.onClick.bind(spl);
 		spl.onMouseDown = spl.onMouseDown.bind(spl);
@@ -89,27 +90,19 @@ class StatefulPicklist extends Component {
 	}
 
 	componentDidUpdate() {
-		const spl = this;
-
 		/**
 		 * We could be in two scenarios here. We've opened the list and no item is highlighted so lets highlight it
 		 * OR
-		 * We're an inline open list and we've click on an item to force the list in focus, it doesn't have a highlighted item,
-		 * but we also need to check there isn't a selected item at this stage too. If not, lets force the first item to be our highlightedElement.
+		 * We're an inline open list and we've click on an item to force the list in focus, it doesn't have a
+		 * highlighted item, but we also need to check there isn't a selected item at this stage too. If not, lets
+		 * force the first item to be our highlightedElement.
 		 */
-		if (spl.getHighlighted() == null) {
-			const firstItem = findInitialHighlightedItem(spl.list, this.idCache);
-			if (firstItem) {
-				spl.setState({
-					highlightedElement: firstItem
-				});
-			}
-		}
+		this.highlightInitial();
 	}
 
 	getHighlighted() {
 		return this.state.highlightedElement;
-}
+	}
 
 	getHighlightedId() {
 		return getId(this.getHighlighted());
@@ -167,9 +160,9 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
-	 * @public
 	 * Highlights the item passed in and fires the onHighlightChange callback.
 	 *
+	 * @public
 	 * @param {Component} item - Item to highlight
 	 * @param {Event} [event]
 	 */
@@ -180,6 +173,28 @@ class StatefulPicklist extends Component {
 		});
 
 		spl.props.onHighlightChange && spl.props.onHighlightChange(item, event);
+	}
+
+	/**
+	 * This API is used to ensure that something appropriate is highlighted. Here's
+	 * the logical ordering of operations:
+	 *
+	 * 1. If something's already highlighted, leave it alone.
+	 * 2. Try and highlight the first selected item.
+	 * 3. Highlight the first item in the list.
+	 *
+	 * @public
+	 * @memberof StatefulPicklist
+	 */
+	highlightInitial() {
+		if (this.getHighlighted() == null) {
+			const firstItem = findInitialHighlightedItem(this.list, this.idCache);
+			if (firstItem) {
+				this.setState({
+					highlightedElement: firstItem
+				});
+			}
+		}
 	}
 
 	/**

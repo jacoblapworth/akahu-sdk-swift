@@ -149,6 +149,22 @@ export default class DropDown extends PureComponent {
 		this.panel.highlightItem(item, event);
 	}
 
+	/**
+	 * Used to highlight an item immediately after a dropdown opens.
+	 *
+	 * @public
+	 * @memberof DropDownPanel
+	 */
+	highlightInitial() {
+		if (this.panel != null) {
+			this.panel.highlightInitial();
+			const highlightedId = this.panel.getHighlightedId();
+			if (highlightedId != null) {
+				this.listBox.scrollIdIntoView(highlightedId);
+			}
+		}
+	}
+
 	unlockScroll() {
 		helpers.unlockScroll();
 	}
@@ -184,6 +200,7 @@ export default class DropDown extends PureComponent {
 
 		return (
 			<DropDownListBox
+				ref={c => dropdown.listBox = c}
 				id={dropdown.dropdownId}
 				isHidden={isHidden}
 				footer={footer}
@@ -192,7 +209,6 @@ export default class DropDown extends PureComponent {
 				size={size}
 				fixedWidth={fixedWidth}
 				qaHook={qaHook}
-				ref={c => dropdown.listBox = c}
 				onKeyDown={dropdown.onKeyDown}
 				style={style}
 				animateClosed={animateClosed}
@@ -202,10 +218,10 @@ export default class DropDown extends PureComponent {
 				forceDesktop={forceDesktop}
 			>
 				<DropDownPanel
+					ref={dp => dropdown.panel = dp}
 					onSelect={onSelect}
 					ignoreKeyboardEvents={ignoreKeyboardEvents}
 					onHighlightChange={dropdown.onHighlightChange}
-					ref={dp => dropdown.panel = dp}
 				>
 					{children}
 				</DropDownPanel>

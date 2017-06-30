@@ -317,10 +317,7 @@ export function findInitialHighlightedItem(node, idCache) {
 	};
 	walk(node, findSelected, {idCache});
 
-	if (!node) {
-		item = findFirstMenuItem(node);
-	}
-	return item;
+	return item == null ? findFirstMenuItem(node) : item;
 }
 
 /**

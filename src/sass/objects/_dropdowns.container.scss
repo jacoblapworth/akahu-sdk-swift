@@ -221,7 +221,7 @@
 
 	.#{$ns}-dropdown--header-container {
 		align-items: center;
-		border-bottom: $xui-border-muted;
+		border-bottom: $xui-shadow-border-bottom;
 		display: flex;
 		height: $xui-navigation-height;
 		justify-content: space-between;
@@ -253,13 +253,9 @@
 	}
 
 	.#{$ns}-dropdown--footer {
-		@include xui-box-shadow-border($xui-shadow-border-top);
+		border-top: $xui-shadow-border-top;
 		bottom: 0;
 		width: 100%;
-		//ToDo: Remove this in XUI11 in favour of a layout class on the picklist.
-		.#{$ns}-picklist {
-			padding: 0;
-		}
 	}
 }
 

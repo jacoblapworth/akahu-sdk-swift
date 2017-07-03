@@ -17,6 +17,7 @@ import Pickitem from '../../picklist/Pickitem';
 import XUIInput from '../../input/XUIInput';
 import XUIButton from '../../button/XUIButton';
 import XUIButtonCart from '../../button/XUIButtonCaret';
+import search from '@xero/xui-icon/icons/search';
 
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 
@@ -102,9 +103,11 @@ class ToggledDropDown extends Component {
 		);
 		const dropdownFooter = (
 			<DropDownFooter>
-				<XUIButton onClick={this.toggleRestrictFocus}>
-					Restrict Focus is {this.state.restrictFocus.toString()}
-				</XUIButton>
+				<Picklist>
+					<Pickitem onSelect={this.toggleRestrictFocus}>
+						Restrict Focus is {this.state.restrictFocus.toString()}
+					</Pickitem>
+				</Picklist>
 			</DropDownFooter>
 		);
 		const dropdown = (
@@ -365,9 +368,18 @@ class WithForm extends Component {
 		const dropdown = (
 			<DropDown size="large" fixedWidth>
 				<form className="xui-padding">
-					<div><label htmlFor="a">First: </label><input type="text" /></div>
-					<div><label htmlFor="b">Second: </label><input type="text" /></div>
-					<div><label htmlFor="c">Third: </label><input type="text" /></div>
+					<XUIInput
+						inputAttributes={{placeholder: "First input",}}
+						containerClassName="xui-margin-bottom-small"
+					/>
+					<XUIInput
+						inputAttributes={{placeholder: "Second input",}}
+						containerClassName="xui-margin-bottom-small"
+					/>
+					<XUIInput
+						inputAttributes={{placeholder: "Third input",}}
+						containerClassName="xui-margin-bottom-small"
+					/>
 					<XUIButton type="button" onClick={this.toggleRestrictFocus}>
 						Restrict Focus is {this.state.restrictFocus.toString()}
 					</XUIButton>
@@ -405,12 +417,13 @@ class FullHeightToggledDropDown extends Component {
 			primaryButtonContent={<XUIIcon path={checked} inline={true}/>}
 			onlyShowForMobile
 		>
-			<div>
-				<XUIInput
-					type="search"
-					placeholder="Im a fake search box"
-				/>
-			</div>
+			<XUIInput
+				type="search"
+				placeholder="Im a fake search box"
+				className="xui-input-borderless xui-input-borderless-solid xui-u-fullwidth"
+				containerClassName="xui-u-fullwidth"
+				iconAttributes={{ path: search, position: 'left' }}
+			/>
 		</DropDownHeader>;
 		const dropdownFooter = (
 			<DropDownFooter>

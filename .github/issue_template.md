@@ -1,4 +1,4 @@
-*Please categorise your issue with one of the following:*
+*Please label your issue with one of the following:*
 
 - Bug
 - Design QA

@@ -5,8 +5,6 @@ import SelectBoxOption from '../SelectBoxOption';
 import SelectBoxOptionGroup from '../SelectBoxOptionGroup';
 import TextHelpers from '../TextHelpers';
 
-import '../scss/_select-box.scss';
-
 const CustomDoggy =(
 	<div style={{height: '200px', backgroundColor: '#ADFF2F', padding: '15px'}}>
 		<span>This is a custom doggie with a really long name, which is almost as long as its hair. I want a dog named Shadow.</span>

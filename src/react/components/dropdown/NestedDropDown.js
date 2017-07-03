@@ -8,11 +8,7 @@ import { compose } from './private/helpers';
 import './scss/_dropDown.scss';
 
 /**
- * BETA
- * This component is still under active development and is not considered stable.  It is not exported
- * from the src/react/dropdown entry point for this reason.  If you wish to beta test this component,
- * you can import it directly from within the components/dropdown folder.  However, you do so at your
- * own risk.
+ * <strong>BETA</strong> This component is still under active development and it's API may change.
  *
  * NestedDropDown is a DropDown replacement used when a user workflow will take place inside of the
  * dropdown.  Multiple panels are added as children and the active panel's ID is a prop on this

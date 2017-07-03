@@ -91,8 +91,8 @@ DropDownPanel.propTypes = {
 	/** Used by NestedDropDown to identify each panel. */
 	panelId: PropTypes.string,
 
-	/** Used by NestedDropDown to populate the DropDownHeader content */
-	panelHeading: PropTypes.string,
+	/** Used by NestedDropDown as the header for the panel */
+	header: PropTypes.node,
 
 	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
 	ignoreKeyboardEvents: PropTypes.array,

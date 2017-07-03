@@ -181,7 +181,7 @@ export default class XUIModal extends Component {
 			</div>);
 
 		return (
-			isUsingPortal ? <Portal isOpened={!isHidden}>{childNodes}</Portal> : childNodes
+			isUsingPortal ? <Portal isOpened={!isHidden}><div className="xui-container">{childNodes}</div></Portal> : childNodes
 		);
 	}
 }

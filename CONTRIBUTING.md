@@ -19,9 +19,9 @@ If you're only fixing a bug, it's fine to submit a pull request right away.
 
 Development Workflow
 --------
-Refer to the [SCSS docs](src/sass/CONTRIBUTING.md) for the SCSS workflow and
+Refer to the [SCSS contributing guide](src/sass/CONTRIBUTING.md) for the SCSS workflow and
 
-Refer to the [React docs](src/react/CONTRIBUTING.md) for React workflow
+Refer to the [React contributing guide](src/react/CONTRIBUTING.md) for React workflow
 
 Releases
 --------

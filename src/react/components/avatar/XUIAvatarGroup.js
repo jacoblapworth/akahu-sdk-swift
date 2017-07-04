@@ -47,10 +47,10 @@ XUIAvatarGroup.propTypes = {
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
 
-	/** @property {String} [avatarSize] The size to apply to all avatars contained within the group. This will override any individual avatar's size settings. */
+	/** The size to apply to all avatars contained within the group. This will override any individual avatar's size settings. */
 	avatarSize: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
-	/** @property {Number} [maxAvatars] The maximum number of avatars to show */
+	/** The maximum number of avatars to show */
 	maxAvatars: function(props, propName) {
 		const maxAvatars = props[propName];
 

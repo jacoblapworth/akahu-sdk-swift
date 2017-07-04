@@ -219,13 +219,13 @@ XUIModal.propTypes = {
 	 */
 	isForm: PropTypes.bool,
 
-	/** @property {Object} [keyListenerTarget=window] The target that should listen to key presses. Defaults to the window */
+	/** The target that should listen to key presses. Defaults to the window */
 	keyListenerTarget: PropTypes.object,
 
-	/** @property {string} maskClassName Optional custom classes for the mask */
+	/**maskClassName Optional custom classes for the mask */
 	maskClassName: PropTypes.string,
 
-	/** @property {string} closeClassName Optional custom classes for the close button */
+	/**closeClassName Optional custom classes for the close button */
 	closeClassName: PropTypes.string,
 
 	/**

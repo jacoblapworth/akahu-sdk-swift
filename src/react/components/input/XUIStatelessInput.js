@@ -92,30 +92,30 @@ export default class XUIStatelessInput extends PureComponent {
 }
 
 XUIStatelessInput.propTypes = {
-	/** @property {Element} [button] Object containing button element placed after input in dom */
+	/** Object containing button element placed after input in dom */
 	button: PropTypes.element,
-	/** @property {String} [className] Class to apply to the input element */
+	/** Class to apply to the input element */
 	className: PropTypes.string,
-	/** @property {String} [containerClassName] Class to apply to the container element */
+	/** Class to apply to the container element */
 	containerClassName: PropTypes.string,
-	/** @property {Object} [iconAttributes] Object containing icon element related properties */
+	/** Object containing icon element related properties */
 	iconAttributes: PropTypes.shape({
 		path: PropTypes.string,
 		position: PropTypes.oneOf(['left', 'right']),
 		wrapperColor: PropTypes.oneOf(['twitter', 'facebook', 'linkedin'])
 	}),
-	/** @property {Object} [inputAttributes] Object containing any additional properties and their values to the Input element.
+	/** Object containing any additional properties and their values to the Input element.
 	 * Includes event handler callbacks i.e. onChange, onSelect, onClick, onKeyDown etc. */
 	inputAttributes: PropTypes.object,
-	/** @property {Function} [inputRef] Function to add a reference to the Input element */
+	/** Function to add a reference to the Input element */
 	inputRef: PropTypes.func,
-	/** @property {String} [qaHook] Value of the automationId attribute */
+	/** Value of the automationId attribute */
 	qaHook: PropTypes.string,
-	/** @property {String} [validationMessage] Validation message to show */
+	/** Validation message to show */
 	validationMessage: PropTypes.string,
-	/** @property {String} [hintMessage] Explanatory message to show */
+	/** Explanatory message to show */
 	hintMessage: PropTypes.string,
-	/** @property {String} [isInvalid=false] Whether the input should be show as invalid */
+	/** Whether the input should be show as invalid */
 	isInvalid: PropTypes.bool
 };
 

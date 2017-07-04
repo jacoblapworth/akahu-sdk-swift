@@ -82,26 +82,26 @@ XUISimpleAvatar.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** @property {String} [variant] The avatar variant */
+	/** The avatar variant */
 	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
-	/** @property {String} [value] The text to display in the avatar */
+	/** The text to display in the avatar */
 	value: function(props, propName) {
 		if (!props[propName] && !props.imageUrl) {
 			return new Error('Avatar component requires either a non-empty `value` or `imageUrl` property');
 		}
 	},
 
-	/** @property {String} [imageUrl] the image the component should render. Initials rendered otherwise */
+	/** the image the component should render. Initials rendered otherwise */
 	imageUrl: PropTypes.string,
 
-	/** @property {String} [size=medium] The size of the avatar. Can be small, medium, large or xlarge */
+	/** The size of the avatar. Can be small, medium, large or xlarge */
 	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
-	/** @property {String} [identifier] A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
+	/** A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
 	identifier: PropTypes.string,
 
-	/** @property {Function} [onError] Error handler if the avatar image fails to load */
+	/** Error handler if the avatar image fails to load */
 	onError: PropTypes.func
 };
 

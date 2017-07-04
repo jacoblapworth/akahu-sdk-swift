@@ -17,9 +17,9 @@ XUIToggle.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
-	/** @property {string} [color='standard'] - The color of the toggle */
+	/** The color of the toggle */
 	color: PropTypes.oneOf(Object.keys(colorMap)),
-	/** @property {string} [layout] - The layout of the toggle */
+	/** The layout of the toggle */
 	layout: PropTypes.oneOf(Object.keys(layoutMap))
 };
 XUIToggle.defaultProps = {

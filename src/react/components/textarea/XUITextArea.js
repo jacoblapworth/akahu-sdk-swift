@@ -284,42 +284,42 @@ XUITextArea.defaultProps = {
 };
 
 XUITextArea.propTypes = {
-	/** @property {Boolean} [isDisabled] Whether the input should be isDisabled. */
+	/** Whether the input should be isDisabled. */
 	isDisabled: PropTypes.bool,
-	/** @property {Number} [rows=3] The number of lines the input should display without scrolling. */
+	/** The number of lines the input should display without scrolling. */
 	rows: PropTypes.number,
-	/** @property {Number} [minRows] The minimum number of rows for the text area to make space for. */
+	/** The minimum number of rows for the text area to make space for. */
 	minRows: PropTypes.number,
-	/** @property {Number} [maxRows] The maximum number of rows for the text area to expand to. */
+	/** The maximum number of rows for the text area to expand to. */
 	maxRows: PropTypes.number,
-	/** @property {Boolean} [manualResize] Whether or not the user should be able to manually resize the field. */
+	/** Whether or not the user should be able to manually resize the field. */
 	manualResize: PropTypes.bool,
-	/** @property {Function} [onChange] Function to execute when the input's value has been changed. */
+	/** Function to execute when the input's value has been changed. */
 	onChange: PropTypes.func,
-	/** @property {Boolean} [readOnly] Whether the text input should be read-only. */
+	/** Whether the text input should be read-only. */
 	readOnly: PropTypes.bool,
-	/** @property {String} [defaultValue] The initial value of the input. */
+	/** The initial value of the input. */
 	defaultValue: PropTypes.string,
-	/** @property {Number} [maxCharacters] The maximum number of characters for the text area, if given a value, a character counter and validation will be added. */
+	/** The maximum number of characters for the text area, if given a value, a character counter and validation will be added. */
 	maxCharacters: PropTypes.number,
-	/** @property {Boolean} [isInvalid] Whether the text area should have isInvalid state styling. */
+	/** Whether the text area should have isInvalid state styling. */
 	isInvalid: PropTypes.bool,
-	/** @property {String} [validationMessage] Validation message to show */
+	/** Validation message to show */
 	validationMessage: PropTypes.string,
-	/** @property {String} [hintMessage] Explanatory message to show */
+	/** Explanatory message to show */
 	hintMessage: PropTypes.string,
-	/** @property {Boolean} [defaultLayout=true] Whether default field layout should be applied to the container. */
+	/** Whether default field layout should be applied to the container. */
 	defaultLayout: PropTypes.bool,
-	/** @property {String} [fieldClassName] Additional classes to add to the wrapping div. */
+	/** Additional classes to add to the wrapping div. */
 	fieldClassName: PropTypes.string,
-	/** @property {String} [id] ID to be set for the textarea. */
+	/** ID to be set for the textarea. */
 	textareaId: PropTypes.string,
-	/** @property {Function} [textareaRef] Function to add a reference to the textarea element. */
+	/** Function to add a reference to the textarea element. */
 	textareaRef: PropTypes.func,
-	/** @property {String} [className] Additional classes to be added to the textarea itself. */
+	/** Additional classes to be added to the textarea itself. */
 	className: PropTypes.string,
-	/** @property {String} [qaHook] QaHook for testing. */
+	/** QaHook for testing. */
 	qaHook: PropTypes.string,
-	/** @property {node} [children] Optional children to be rendered within the component (i.e. a label). */
+	/** Optional children to be rendered within the component (i.e. a label). */
 	children: PropTypes.node
 };

@@ -29,14 +29,14 @@ export default class XUISwitch extends PureComponent {
 }
 
 XUISwitch.propTypes = {
-	/** @property {function} onChange Fires parent onChange handler */
+	/**onChange Fires parent onChange handler */
 	onChange : PropTypes.func.isRequired,
-	/** @property {boolean} [checked=false] Determines whether the switch is checked or unchecked */
+	/** Determines whether the switch is checked or unchecked */
 	checked : PropTypes.bool,
-	/** @property {boolean} [disabled=false] Determines whether the switch is enabled or disabled */
+	/** Determines whether the switch is enabled or disabled */
 	disabled : PropTypes.bool,
-	/** @property {string} [name=name] Name attribute for the input */
+	/** Name attribute for the input */
 	name : PropTypes.string,
-	/** @property {string} [value=value] Value attribute for the input */
+	/** Value attribute for the input */
 	value: PropTypes.string
 };

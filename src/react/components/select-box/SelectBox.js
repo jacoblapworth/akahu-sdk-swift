@@ -124,52 +124,52 @@ export default class SelectBox extends Component {
 }
 
 SelectBox.propTypes = {
-	/** @property {String} Input Label */
+	/** Input Label */
 	label: PropTypes.string.isRequired,
 
-	/** @property {String} [labelClasses] Additional classes to be applied to the label */
+	/** Additional classes to be applied to the label */
 	labelClasses: PropTypes.string,
 
-	/** @property {Boolean} [labelHidden=false] Input Label visibility */
+	/** Input Label visibility */
 	labelHidden: PropTypes.bool,
 
-	/** @property {Boolean} [closeAfterSelection=true] When a selection is made, close the dropdown */
+	/** When a selection is made, close the dropdown */
 	closeAfterSelection: PropTypes.bool,
 
-	/** @property {String} [buttonClasses] Additional classes to be applied to the button */
+	/** Additional classes to be applied to the button */
 	buttonClasses: PropTypes.string,
 
-	/** @property {String} [containerClasses] Additional classes to be applied to the container */
+	/** Additional classes to be applied to the container */
 	containerClasses: PropTypes.string,
 
-	/** @property {String} [dropDownClasses] Additional classes to be applied to the dropDown */
+	/** Additional classes to be applied to the dropDown */
 	dropDownClasses: PropTypes.string,
 
-	/** @property {String} [inputGroupClasses] Additional classes to be applied to the inputGroup */
+	/** Additional classes to be applied to the inputGroup */
 	inputGroupClasses: PropTypes.string,
 
-	/** @property {Function} [onDropdownHide] Optional callback to be executed when dropdown closes */
+	/** Optional callback to be executed when dropdown closes */
 	onDropdownHide: PropTypes.func,
 
-	/** @property {string} [qaHook] for adding automation ID to component as well as input and button sub-components */
+	/** for adding automation ID to component as well as input and button sub-components */
 	qaHook: PropTypes.string,
 
-	/** @property {boolean} [defaultLayout=true] Use XUI provided layout classes */
+	/** Use XUI provided layout classes */
 	defaultLayout: PropTypes.bool,
 
-	/** @property {String} Display text to be rendered on SelectBox button. */
+	/** Display text to be rendered on SelectBox button. */
 	buttonContent: PropTypes.string.isRequired,
 
-	/** @property {Function} Selection callback */
+	/** Selection callback */
 	onSelect: PropTypes.func,
 
-	/** @property {string} [buttonVariant] The XUI button variant to use as a trigger for the select box */
+	/** The XUI button variant to use as a trigger for the select box */
 	buttonVariant: PropTypes.string,
 
-	/** @property {boolean} [isOpen=false] Whether or not the list should be forced open */
+	/** Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,
 
-	/** @property {boolean} [isTextTruncated=true] Optionally toggles the text truncation */
+	/** Optionally toggles the text truncation */
 	isTextTruncated: PropTypes.bool,
 
 	forceDesktop: PropTypes.bool,

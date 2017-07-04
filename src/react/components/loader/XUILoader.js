@@ -26,19 +26,19 @@ const XUILoader = (props) => {
 };
 
 XUILoader.propTypes = {
-  /** @property {string} [className] Add additional classes to the loader wrapping div */
+  /** Add additional classes to the loader wrapping div */
   className: PropTypes.string,
 
-  /** @property {string} [qaHook] Adds data-automationid attribute with qaHook contents to the loader wrapping div */
+  /** Adds data-automationid attribute with qaHook contents to the loader wrapping div */
   qaHook: PropTypes.string,
 
-  /** @property {string} [label] adds aria-label to the loader wrapping div */
+  /** adds aria-label to the loader wrapping div */
   label: PropTypes.string,
 
-  /** @property {boolean} [defaultLayout=true] Defaults to `true`. Sets the default layout class on the loader wrapping div */
+  /** Defaults to `true`. Sets the default layout class on the loader wrapping div */
   defaultLayout: PropTypes.bool,
 
-  /** @property {string} [size='standard'] Sets the size of the loader to be, small, standard (no class added), and large */
+  /** Sets the size of the loader to be, small, standard (no class added), and large */
   size: PropTypes.oneOf(Object.keys(sizeClassNames))
 };
 

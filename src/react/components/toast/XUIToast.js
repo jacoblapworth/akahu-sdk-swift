@@ -66,19 +66,19 @@ XUIToast.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
-	/** @property {boolean} [isHidden=false] Hides the component when set to true */
+	/** Hides the component when set to true */
 	isHidden : PropTypes.bool,
-	/** @property {string} [sentiment] The sentiment of the toast (positive or negative) */
+	/** The sentiment of the toast (positive or negative) */
 	sentiment : PropTypes.oneOf(sentiments),
-	/** @property {function} [onCloseClick] When defined, displays the close button */
+	/** When defined, displays the close button */
 	onCloseClick : PropTypes.func,
-	/** @property {function} [onMouseOver] Handles the event for when the mouse hovers over the toast */
+	/** Handles the event for when the mouse hovers over the toast */
 	onMouseOver : PropTypes.func,
-	/** @property {function} [onMouseLeave] Handles the event for when the mouse moves out of the toast */
+	/** Handles the event for when the mouse moves out of the toast */
 	onMouseLeave : PropTypes.func,
-	/** @property {boolean} [defaultLayout=true] Applies default layout class to the component */
+	/** Applies default layout class to the component */
 	defaultLayout : PropTypes.bool,
-	/** @property {string} [role] Applies a role attribute to the toast element. This will override any component-determined value. */
+	/** Applies a role attribute to the toast element. This will override any component-determined value. */
 	role: PropTypes.string
 };
 XUIToast.defaultProps = {

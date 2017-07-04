@@ -68,39 +68,39 @@ XUIRadio.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** @property {string} [iconCheckPath] - The icon path to use for the checkmark */
+	/** The icon path to use for the checkmark */
 	iconCheckPath: PropTypes.string,
 
-	/** @property {string} [iconMainPath] - The icon path to use for the radio */
+	/** The icon path to use for the radio */
 	iconMainPath: PropTypes.string,
 
-	/** @property {boolean} [isChecked] - The input is selected */
+	/** The input is selected */
 	isChecked: PropTypes.bool,
 
-	/** @property {boolean} [isDisabled] - The input is disabled */
+	/** The input is disabled */
 	isDisabled: PropTypes.bool,
 
-	/** @property {boolean} [isRequired] - The input is required for form submission */
+	/** The input is required for form submission */
 	isRequired: PropTypes.bool,
 
-	/** @property {boolean} [isReversed] - The label and control are displayed in reverse order */
+	/** The label and control are displayed in reverse order */
 	isReversed: PropTypes.bool,
 
-	/** @property {string} [labelClassName] - Additional class names on the span (pseudo-label) element  */
+	/** Additional class names on the span (pseudo-label) element  */
 	labelClassName: PropTypes.string,
 
-	/** @property {string} [name] - The name to use as a reference for the value */
+	/** The name to use as a reference for the value */
 	name: PropTypes.string,
 
-	/** @property {function} onChange - The function to call when the control changes state */
+	/**onChange - The function to call when the control changes state */
 	onChange: PropTypes.func,
 
-	/** @property {string} [value] - The value to return on form submission */
+	/** The value to return on form submission */
 	value: PropTypes.string,
 
-	/** @property {string} [svgClassName] - Additional class names on the svg element  */
+	/** Additional class names on the svg element  */
 	svgClassName: PropTypes.string,
 
-	/** @property {number} [tabIndex] - The tabindex property to place on the radio input */
+	/** The tabindex property to place on the radio input */
 	tabIndex: PropTypes.number
 };

@@ -81,13 +81,13 @@ export default class XUIInput extends Component {
 }
 
 XUIInput.propTypes = {
-	/** @property {Object} [clearButtonProps] Object containing button element related properties. */
+	/** Object containing button element related properties. */
 	clearButtonProps: PropTypes.object,
-	/** @property {boolean} [hasClearButton] Determines if the input has a clear button or not. */
+	/** Determines if the input has a clear button or not. */
 	hasClearButton: PropTypes.bool,
-	/** @property {Object} [inputAttributes] Object containing any additional properties and their values to the Input element.
+	/** Object containing any additional properties and their values to the Input element.
 	 * Includes defaultValue event handler callbacks i.e. onChange, onSelect, onClick, onKeyDown etc. */
 	inputAttributes: PropTypes.object,
-	/** @property {Function} [inputRef] Function to add a reference to the Input element */
+	/** Function to add a reference to the Input element */
 	inputRef: PropTypes.func
 };

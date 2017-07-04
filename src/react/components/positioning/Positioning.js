@@ -280,19 +280,19 @@ class Positioning extends PureComponent {
 Positioning.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
-	/** @property {Boolean} true when the component is rendered but not displayed */
+	/**true when the component is rendered but not displayed */
 	renderHidden: PropTypes.bool,
-	/** @property {function(element)} A DOM object of the parent node. */
+	/**A DOM object of the parent node. */
 	parentRef: PropTypes.object,
-	/** @property {Number} A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
+	/**A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
 	gutter: PropTypes.number,
-	/** @property {Boolean} A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
+	/**A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
 	setMaxHeight: PropTypes.bool,
-	/** @prop {Boolean} [forceDesktop=false] Force the desktop UI, even if the viewport is narrow enough for mobile. */
+	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
-	/** @prop {Number} The amount of space to put between the trigger and the dropdown */
+	/** The amount of space to put between the trigger and the dropdown */
 	gap: PropTypes.number,
-	/** @prop {Function} Callback for when the positioned element becomes visible  */
+	/** Callback for when the positioned element becomes visible  */
 	onVisible: PropTypes.func,
 };
 

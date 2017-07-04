@@ -298,32 +298,31 @@ export default class XUIDatePicker extends PureComponent {
 }
 
 XUIDatePicker.propTypes = {
-	/** @prop {function(Date):void} Callback for when the user selects a date.  Will fire even if the date has already been selected.  Will not fire for disbled days. */
+	/** Callback for when the user selects a date.  Will fire even if the date has already been selected.  Will not fire for disbled days. */
 	onSelectDate: PropTypes.func.isRequired,
 
-	/** @prop {function(Date):void} Callback for when a user switches to a different month */
+	/** Callback for when a user switches to a different month */
 	onMonthChange: PropTypes.func,
 
-	/** @prop {Date|{month: Number, year: Number, day: Number}} If you only want to display a single selected day without allowing the user to select a date range, pass that Date in here. */
+	/** If you only want to display a single selected day without allowing the user to select a date range, pass that Date in here. */
 	selectedDate: PropTypes.instanceOf(Date),
 
-	/** @prop {Date} If you want to disable every date before a given day, pass in the minimum enabled date here.  Can be used with the isDateDisabled function. */
+	/** If you want to disable every date before a given day, pass in the minimum enabled date here.  Can be used with the isDateDisabled function. */
 	minDate: PropTypes.instanceOf(Date),
 
-	/** @prop {Date} If you want to disable every date after a given day, pass in the maximum enabled date here.  Can be used with the isDateDisabled function. */
+	/** If you want to disable every date after a given day, pass in the maximum enabled date here.  Can be used with the isDateDisabled function. */
 	maxDate: PropTypes.instanceOf(Date),
 
-	/** @prop {Date} A date which represents the year and month that the calendar will display.  Could be any day in the given day and month. */
+	/** A date which represents the year and month that the calendar will display.  Could be any day in the given day and month. */
 	displayedMonth: PropTypes.instanceOf(Date),
 
-	/** @prop {String} An accessibility label for the next month button that will be read to users with a screen reader.  */
+	/** An accessibility label for the next month button that will be read to users with a screen reader.  */
 	nextButtonLabel: PropTypes.string,
 
-	/** @prop {String} An accessibility label for the previous month button that will be read to users with a screen reader. */
+	/** An accessibility label for the previous month button that will be read to users with a screen reader. */
 	prevButtonLabel: PropTypes.string,
 
 	/**
-	 * @prop {{ from: Date|{month: Number, year: Number}, to: Date|{month: Number, year: Number} }}
 	 * If the user is selecting a date range, this will contain the dates the user has selected "from" and "to".
 	 * If the user has only selected the first date in the range, pass that in as the "from" property.
 	 */
@@ -332,34 +331,34 @@ XUIDatePicker.propTypes = {
     to: PropTypes.instanceOf(Date),
   }),
 
-	/** @prop {Boolean} If you need to render a calendar in a small amount of horizontal space, set this flag to shrink things down a bit. */
+	/** If you need to render a calendar in a small amount of horizontal space, set this flag to shrink things down a bit. */
 	isCompact: PropTypes.bool,
 
-	/** @prop {function(Date):Boolean} A function that we can use to determine whether or not a day should be disabled.  */
+	/** A function that we can use to determine whether or not a day should be disabled.  */
 	isDateDisabled: PropTypes.func,
 
-	/** @prop {Boolean} Whether or not to display days that occur in months other than the one you're focused on */
+	/** Whether or not to display days that occur in months other than the one you're focused on */
 	showDaysInOtherMonths: PropTypes.bool,
 
-	/** @prop {Boolean} Whether or not to show six full weeks no matter how many days are in the month. */
+	/** Whether or not to show six full weeks no matter how many days are in the month. */
 	showFixedNumberOfWeeks: PropTypes.bool,
 
-	/** @prop {String} The locale of the calendar */
+	/** The locale of the calendar */
 	locale: PropTypes.string,
 
-	/** @prop {String[]} An array of localized month names */
+	/** An array of localized month names */
 	months: PropTypes.arrayOf(PropTypes.string),
 
-	/** @prop {String[]} An array of localized full weekday names (ex: ["Sunday", "Monday", ...]) */
+	/** An array of localized full weekday names (ex: ["Sunday", "Monday", ...]) */
 	weekdaysLong: PropTypes.arrayOf(PropTypes.string),
 
-	/** @prop {String[]} An array of localized short weeday names (ex: ["Su", "Mo", ...]) */
+	/** An array of localized short weeday names (ex: ["Su", "Mo", ...]) */
 	weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 
-	/** @prop {Number} Which day of the week should be displayed as the first day of the week?  Sunday === 0 */
+	/** Which day of the week should be displayed as the first day of the week?  Sunday === 0 */
 	firstDayOfWeek: PropTypes.number,
 
-	/** @prop {'ltr'|'rtl'} Whether the language is right-to-left or left-to-right */
+	/** Whether the language is right-to-left or left-to-right */
 	dir: PropTypes.oneOf(['ltr', 'rtl']),
 };
 

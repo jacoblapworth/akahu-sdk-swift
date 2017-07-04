@@ -37,9 +37,9 @@ export default class XUIAvatar extends PureComponent {
 }
 
 XUIAvatar.propTypes = {
-	/** @property {Function} [onError] Function to be used if the avatar renders an image and the image load fails  */
+	/** Function to be used if the avatar renders an image and the image load fails  */
 	onError: PropTypes.func,
 
-	/** @property {String} value The text to display in the avatar. In the simple avatar component, it is optional, but here it is mandatory */
+	/**value The text to display in the avatar. In the simple avatar component, it is optional, but here it is mandatory */
 	value: PropTypes.string.isRequired
 };

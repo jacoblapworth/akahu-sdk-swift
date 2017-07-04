@@ -23,6 +23,9 @@
 //
 // ### Behaviour
 //
+// Correct dropdown behaviour comes default with using the Dropdown react component. However,
+// if you need to implement your own for some reason, please use the following guidelines.
+//
 // Implementations should make the most of the screen space available when showing dropdowns.
 // Scrollbars can be used when there is not enough screen space to fit all menu items. When there
 // is more space above than below the dropdown trigger, the menu should be positioned above the
@@ -40,6 +43,10 @@
 // xui-dropdown-medium: Style for a medium width dropdown
 // xui-dropdown-large: Style for a large width dropdown
 // xui-dropdown-xlarge: Style for an extra large width dropdown
+// xui-dropdown-fixed-small: Style for a small fixed-width dropdown
+// xui-dropdown-fixed-medium: Style for a medium fixed-width dropdown
+// xui-dropdown-fixed-large: Style for a large fixed-width dropdown
+// xui-dropdown-fixed-xlarge: Style for an extra large fixed-width dropdown
 // xui-dropdown-positionright: Style for aligning the right of dropdown with the right of its nearest explictly positioned parent
 // xui-dropdown-positionleft: Style for aligning the left of the dropdown to the left of its nearest explictly positioned parent
 // xui-dropdown-positionabove: Style for positioning the dropdown above its nearest explictly positioned parent

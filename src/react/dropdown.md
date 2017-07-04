@@ -1,22 +1,24 @@
 ### What is an XUI Dropdown?
 
-This is a set of components that can be used to associate a trigger (button, text input, etc) with a popup containing content.  By default, it's optimized for handling use cases similar to an HTML `<select>` replacement, but it's flexible enough to accomodate any content from DatePickers to forms.  The basic idea involves creating a trigger element and a dropdown element, then passing both as props to the `<DropDownToggled />` component.  This might be a bit of overkill for certain common use cases, so we provide two components which have APIs optimized for common use cases:
+This is a set of components that can be used to associate a trigger (button, text input,etc) with a popup containing content.
 
-* [Select Box](#select-box) which acts as a replacment for the HTML `<select>` element
-* [Autocompleter](#autocompleter) has a text input for a trigger and allows the user to search through and select from a list of items.
+Using a [Picklist](#picklist) in the `DropDown` gives behaviour similar to a `select` element. But `DropDown` can accomodate any content from [DatePickers](#datepicker) to forms. The basic idea involves creating a trigger element and a dropdown element, then passing both as props to the `<DropDownToggled />` component.
 
-Please read through the documentation for these components if it they could fit your use case.
+You may find one of these simpler components meets your requirements:
 
-If those components don't fit your use case, then read on.
+* [Select Box](#select-box) A simplified wrapper for `DropDown` and `DropDownToggled`, acts like a `<select/>` element
+* [Autocompleter](#autocompleter) Has a text input for a trigger and allows the user to search through and select from a list of items.
 
 #### Terminology
 
 DropDowns are deceptively complex, so it's important to understand the terms used throughout this documentation.
 
-**DropDown**
+##### DropDown
+
 This is the container for the elements that are conditionally shown on the page.  It's an absolutely positioned element that floats on top of other content.  Examples of content include the selectable items in a select box or the calendar inside of a DatePicker paired up with a text input.
 
-**Trigger**
+##### Trigger
+
 The trigger is the element that the user interacts with to open the dropdown.  Examples include the button that opens the selectable list in a select or the text input that users type into in order to search for items in an autocompleter.
 
 ### XUI Docs
@@ -359,7 +361,7 @@ Since this example is no longer using the dropdown for the optimized use case, t
 
 First, the `restrictToViewPort` prop of `<DropDownToggled />` is set to `false` to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This does mean that the date picker might hang off the edge of the screen or slightly cover the button, but this is prerrable to having to scroll inside of the dropdown.
 
-The `<DropDown />	` component is also not able to focus the datepicker automatically.  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `<DropDown />` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `<DropDownToggled />` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
+The `<DropDown />` component is also not able to focus the datepicker automatically.  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `<DropDown />` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `<DropDownToggled />` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
 
 Keyboard users also need to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
 
@@ -367,7 +369,7 @@ Lastly, the dropdown must be manually closed when the user has selected a date. 
 
 #### DropDown with Text Input Trigger
 
-Before reading through this example, it's highly recommended that you see if the [Autocompleter](#autocompleter) component can fit your use case.  It handles theses customizations by default.
+It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case.  It handles theses customizations by default.
 
 By default, the DropDown handles keyboard events for you because focus is actually placed on the DropDown's DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
 

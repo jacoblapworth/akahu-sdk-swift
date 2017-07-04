@@ -1,4 +1,4 @@
-Select Box is opinionated and is deigned to be a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour see [Dropdown](#dropdown) and [Autocompleter](#autocompleter).
+Select Box is an opinionated component which wraps [DropDown](#dropdown) and [DropDownToggled](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [DropDown](#dropdown) components directly.
 
 ### XUI Docs
 
@@ -79,46 +79,60 @@ class MiniApp extends Component {
 
 
 
-```js
+```
+const { Component }= require('react');
+const TextHelpers = require ('./components/select-box/TextHelpers').default;
 
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
-this.onBoatSelect,
 
-onBoatSelect(value) {
-	if (this.state.selectedBoat.indexOf(value) > -1) {
-		this.setState({
-			selectedBoat: this.state.selectedBoat.filter(boat => boat !== value)
-		});
-	} else {
-		this.setState({
-			selectedBoat: [...this.state.selectedBoat, value]
-		});
+class MiniApp extends Component {
+	constructor() {
+		this.state = {
+			selectedBoats: []
+		};
+		this.onBoatSelect = this.onBoatSelect.bind(this);
+	}
+	onBoatSelect(value) {
+		if (this.state.selectedBoats.indexOf(value) > -1) {
+			this.setState({
+				selectedBoats: this.state.selectedBoats.filter(boat => boat !== value)
+			});
+		} else {
+			this.setState({
+				selectedBoats: [...this.state.selectedBoats, value]
+			});
+		}
+	}
+
+	render() {
+		const MiniApp = this;
+		return (
+			<SelectBox
+				containerClasses="xui-fieldlabel-layout"
+				ref={c => this.multiSelect = c}
+				name="multiSelect"
+				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
+				label="Select Several Boats"
+				closeAfterSelection={false}
+				onSelect={MiniApp.onBoatSelect}
+			>
+				{boats.map((opt, idx) => {
+					return (
+						<SelectBoxOption
+							id={opt}
+							key={idx + opt + 'userDefined Key'}
+							showCheckboxes={true}
+							isSelected={MiniApp.state.selectedBoats.indexOf(opt) >= 0}
+							value={opt}
+						>
+							{opt}
+						</SelectBoxOption>
+					);
+				})}
+			</SelectBox>
+		);
 	}
 }
 
-<SelectBox
-	containerClasses="xui-fieldlabel-layout"
-	ref={c => this.multiSelect = c}
-	name="multiSelect"
-	buttonContent={TextHelpers.getText(MiniApp.state.selectedBoat, 'Choose a few boats')}
-	label="Select Several Boats"
-	closeAfterSelection={false}
-	onSelect={MiniApp.onBoatSelect}
->
-	{boats.map((opt, idx) => {
-		return (
-			<SelectBoxOption
-				id={opt}
-				key={idx + opt + 'userDefined Key'}
-				showCheckboxes={true}
-				isSelected={MiniApp.state.selectedBoat.indexOf(opt) >= 0}
-				value={opt}
-			>
-				{opt}
-			</SelectBoxOption>
-		);
-	})}
-</SelectBox>
-
-
+<MiniApp/>
 ```

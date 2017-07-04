@@ -94,6 +94,7 @@ export default class XUIDatePicker extends PureComponent {
 		};
 
 		this.dateRefs = {};
+		this.focus = this.focus.bind(this);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -121,7 +122,13 @@ export default class XUIDatePicker extends PureComponent {
 		}
 	}
 
-	focus = () => {
+	/**
+	 * Focus the first date of the month, if the datepicker has been rendered.
+	 *
+	 * @public
+	 * @memberof XUIDatePicker
+	 */
+	focus() {
 		if (this.dayPicker != null) {
 			this.dayPicker.focusFirstDayOfMonth();
 		}
@@ -366,7 +373,6 @@ XUIDatePicker.defaultProps = {
 	nextButtonLabel: 'Next Month',
 	prevButtonLabel: 'Previous Month',
 	isCompact: false,
-	zeroPadDays: false,
 	showDaysInOtherMonths: true,
 	showFixedNumberOfWeeks: false,
 	dir: 'ltr',

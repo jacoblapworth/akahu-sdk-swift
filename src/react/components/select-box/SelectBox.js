@@ -8,9 +8,7 @@ import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
 import Picklist from '../picklist/Picklist';
-import Constants from './Constants';
-
-const { QA_HOOKS, CLASSES, REFS } = Constants;
+import qaHooks from './qaHooks';
 
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
@@ -30,13 +28,13 @@ export default class SelectBox extends Component {
 	constructor(props) {
 		super(props);
 		const selectBox = this;
-		selectBox.ariaId = uuidv4();
-		[
-			selectBox.isDropDownOpen,
-			selectBox.onLabelClick
-		].forEach(fn => {
-			selectBox[fn.name] = fn.bind(selectBox);
-		});
+
+		selectBox.state = {
+			ariaId: uuidv4()
+		};
+
+		selectBox.isDropDownOpen = selectBox.isDropDownOpen.bind(selectBox);
+		selectBox.onLabelClick = selectBox.onLabelClick.bind(selectBox);
 	}
 
 	isDropDownOpen() {
@@ -44,13 +42,13 @@ export default class SelectBox extends Component {
 	}
 
 	onLabelClick() {
-		this[REFS.TRIGGER].focus();
+		this.trigger.focus();
 	}
 
 	render() {
 		const selectBox = this;
 		const { props } = selectBox;
-		const containerClasses = cn(CLASSES.SELECT_BOX, {
+		const containerClasses = cn({
 			[props.containerClasses]: !!props.containerClasses
 		});
 		const buttonClasses = cn({
@@ -68,29 +66,36 @@ export default class SelectBox extends Component {
 			[props.labelClasses]: !!props.labelClasses
 		});
 		const dropDownClasses = props.dropDownClasses;
+
 		const trigger = (
 			<XUIButton
 				className={buttonClasses}
 				type="button"
-				ref={c => selectBox[REFS.TRIGGER] = c}
+				ref={c => selectBox.trigger = c}
 				variant={props.buttonVariant}
-				qaHook={setQaHook(props.qaHook, QA_HOOKS.BUTTON)}
+				qaHook={setQaHook(props.qaHook, qaHooks.button)}
 			>
 				{props.buttonContent}
 				<XUIIcon className="xui-button--caret" path={caret} title="Toggle List" />
 			</XUIButton>
 		);
+
 		const dropdown = (
-			<DropDown className={dropDownClasses} onSelect={props.onSelect}>
+			<DropDown
+				className={dropDownClasses}
+				onSelect={props.onSelect}
+				qaHook={setQaHook(props.qaHook, qaHooks.dropdown)}
+			>
 				<Picklist>
 					{props.children}
 				</Picklist>
 			</DropDown>
 		);
+
 		return (
 			<div data-automationid={props.qaHook} className={containerClasses}>
 				<label className={labelClasses}
-					htmlFor={selectBox.ariaId}
+					htmlFor={selectBox.state.ariaId}
 					onClick={selectBox.onLabelClick}
 				>
 					{props.label}
@@ -105,7 +110,7 @@ export default class SelectBox extends Component {
 								ref={c => selectBox.ddt = c}
 								trigger={trigger}
 								dropdown={dropdown}
-								id={selectBox.ariaId}
+								id={selectBox.state.ariaId}
 								onClose={props.onDropdownHide}
 								closeOnSelect={props.closeAfterSelection}
 								hidden={!props.isOpen}

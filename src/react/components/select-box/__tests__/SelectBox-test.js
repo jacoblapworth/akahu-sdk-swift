@@ -1,9 +1,9 @@
 import React from 'react';
 import SelectBox from '../SelectBox';
 import SelectBoxOption from '../SelectBoxOption';
-import Constants from '../Constants';
 import { then } from './helpers';
 import { mount } from 'enzyme';
+import qaHooks from '../qaHooks';
 
 describe('SelectBox', function () {
 	const options = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona'];
@@ -110,6 +110,6 @@ describe('SelectBox', function () {
 		const buttonAutoId = select.find('button.blah').first().prop('data-automationid');
 
 		expect(nodeAutoId).toEqual(qaHook);
-		expect(buttonAutoId).toEqual(`${qaHook}-${Constants.QA_HOOKS.BUTTON}`);
+		expect(buttonAutoId).toEqual(`${qaHook}-${qaHooks.button}`);
 	});
 });

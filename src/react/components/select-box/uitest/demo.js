@@ -2,18 +2,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SelectBox from '../SelectBox';
 import SelectBoxOption from '../SelectBoxOption';
-import SelectBoxOptionGroup from '../SelectBoxOptionGroup';
 import TextHelpers from '../TextHelpers';
-
-const CustomDoggy =(
-	<div style={{height: '200px', backgroundColor: '#ADFF2F', padding: '15px'}}>
-		<span>This is a custom doggie with a really long name, which is almost as long as its hair. I want a dog named Shadow.</span>
-	</div>
-);
 
 const bikes = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona', 'i love mtb so much i want to scream from the mountain tops before crushing tight berms on my way to delivered salvation'];
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
-const dogs = ['Beagle', 'Retriever', 'Boxer', 'Husky', 'Collie', CustomDoggy];
 
 class MiniApp extends Component {
 	constructor (props, context) {
@@ -127,26 +119,6 @@ class MiniApp extends Component {
 					>
 						The thing
 					</SelectBoxOption>
-					<SelectBoxOptionGroup
-						defaultLayout={false}
-						label={'Group Label'}
-					>
-						{dogs.map((opt, idx) => {
-							const value = typeof opt === 'string' ? opt : 'custom';
-							return (
-								<SelectBoxOption
-									id={value}
-									key={idx + opt + 'userDefined Key'}
-									isSelected={opt === MiniApp.state.selectedDog || (!(typeof opt === 'string') && MiniApp.state.selectedDog === 'custom')}
-									value={value}
-									defaultLayout={false}
-									truncatedText={true}
-								>
-									{opt}
-								</SelectBoxOption>
-							);
-						})}
-					</SelectBoxOptionGroup>
 				</SelectBox>
 			</form>
 		);

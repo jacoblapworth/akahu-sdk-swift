@@ -6,9 +6,9 @@ export default class SelectBoxOption extends PureComponent {
 	render() {
 		const props = this.props;
 		const isText = typeof props.children[0] === 'string';
-		const wrapChildren = isText && props.truncatedText;
+		const shouldTruncateChildren = isText && props.truncatedText;
 		const children = props.children;
-		const contents = wrapChildren ? <span className="xui-text-truncated">{children}</span> : children;
+		const contents = shouldTruncateChildren ? <span className="xui-text-truncated">{children}</span> : children;
 		return (
 			<Pickitem
 				onClick={props.onClick}

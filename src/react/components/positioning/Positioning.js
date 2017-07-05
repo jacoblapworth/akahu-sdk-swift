@@ -248,11 +248,20 @@ class Positioning extends PureComponent {
 	 */
 	getStyles() {
 		const { maxHeight, left, top, transformY } = this.state;
+		const { matchTriggerWidth, parentRef } = this.props;
+		let width = null;
+		let maxWidth = null;
+		if (matchTriggerWidth && parentRef != null && parentRef.firstChild != null) {
+			width = parentRef.firstChild.getBoundingClientRect().width;
+			maxWidth = 'none';
+		}
 
 		return {
 			maxHeight,
 			left,
 			top,
+			width,
+			maxWidth,
 			transform: `translateY(${transformY})`,
 		};
 	}
@@ -294,6 +303,8 @@ Positioning.propTypes = {
 	gap: PropTypes.number,
 	/** Callback for when the positioned element becomes visible  */
 	onVisible: PropTypes.func,
+	/** Setting to true will for the dropdown to be as wide as the trigger. */
+	matchTriggerWidth: PropTypes.bool,
 };
 
 Positioning.defaultProps = {
@@ -301,6 +312,7 @@ Positioning.defaultProps = {
 	setMaxHeight: true,
 	forceDesktop: false,
 	gap: 5,
+	matchTriggerWidth: false,
 };
 
 export default Positioning;

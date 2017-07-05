@@ -115,6 +115,7 @@ export default class SelectBox extends Component {
 								closeOnSelect={props.closeAfterSelection}
 								hidden={!props.isOpen}
 								forceDesktop={props.forceDesktop}
+								matchTriggerWidth={props.matchTriggerWidth}
 							/>
 					}
 				</div>
@@ -172,7 +173,14 @@ SelectBox.propTypes = {
 	/** Optionally toggles the text truncation */
 	isTextTruncated: PropTypes.bool,
 
+	/** Force the desktop experience, even if the viewport is narrow enough for mobile */
 	forceDesktop: PropTypes.bool,
+
+	/**
+	 * Setting to false will allow the dropdown's width to be set independent of the trigger width.
+	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 */
+	matchTriggerWidth: PropTypes.bool,
 };
 
 SelectBox.defaultProps = {
@@ -182,4 +190,5 @@ SelectBox.defaultProps = {
 	isOpen: false,
 	isTextTruncated: true,
 	forceDesktop: false,
+	matchTriggerWidth: true,
 };

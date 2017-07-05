@@ -450,6 +450,7 @@ export default class DropDownToggled extends PureComponent {
 					parentRef={ddt.wrapper}
 					renderHidden={isHidden}
 					setMaxHeight={restrictToViewPort}
+					matchTriggerWidth={ddt.props.matchTriggerWidth}
 					forceDesktop={forceDesktop}
 					onVisible={shouldAnimate(this) ? null : this.onOpenAnimationEnd}
 				>
@@ -504,6 +505,12 @@ DropDownToggled.propTypes = {
 
 	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
 	repositionOnScroll: PropTypes.bool,
+
+	/**
+	 * Setting to true will for the dropdown to be as wide as the trigger.
+	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 */
+	matchTriggerWidth: PropTypes.bool,
 };
 
 DropDownToggled.defaultProps = {
@@ -515,4 +522,5 @@ DropDownToggled.defaultProps = {
 	triggerClickAction: 'toggle',
 	forceDesktop: false,
 	repositionOnScroll: false,
+	matchTriggerWidth: false,
 };

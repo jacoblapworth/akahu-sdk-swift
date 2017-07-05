@@ -4,7 +4,7 @@ import uuidv4 from 'uuid/v4';
 import cn from 'classnames';
 import DropDownListBox from './DropDownListBox';
 import DropDownPanel from './DropDownPanel';
-import * as helpers from './private/helpers';
+import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 
 import './scss/_dropDown.scss';
 
@@ -166,11 +166,11 @@ export default class DropDown extends PureComponent {
 	}
 
 	unlockScroll() {
-		helpers.unlockScroll();
+		unlockScroll();
 	}
 
 	lockScroll() {
-		helpers.lockScroll()
+		lockScroll()
 	}
 
 	render() {

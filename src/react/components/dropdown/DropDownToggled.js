@@ -5,14 +5,13 @@ import debounce from 'lodash.debounce';
 import Positioning from '../positioning/Positioning';
 import {
 	compose,
-	lockScroll,
-	unlockScroll,
 	isNarrowViewport,
-	isScrollLocked,
 	addEventListeners,
 	removeEventListeners,
 	throttleToFrame,
 } from './private/helpers';
+
+import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
 /**
  * Attempt to set focus onto the trigger either via native DOM APIs or

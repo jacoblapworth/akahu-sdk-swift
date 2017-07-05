@@ -7,7 +7,7 @@ import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { modalSizes } from './private/sizes';
-import { lockScroll, unlockScroll } from './private/helpers';
+import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 
 export default class XUIModal extends Component {
 	componentDidMount() {

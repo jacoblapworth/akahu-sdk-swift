@@ -7,6 +7,8 @@
 	</div>
 </div>
 
+### Example configurations
+
 ```
 const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
 const noop = () => {};
@@ -51,11 +53,6 @@ const action = (
 				<XUIToastMessage> Closable </XUIToastMessage>
 				<XUIToastAction> Action </XUIToastAction>
 			</XUIToast>
-			<XUIToastWrapper>
-				<XUIToast onCloseClick={noop}>
-					<XUIToastMessage> Wrapper Toast </XUIToastMessage>
-				</XUIToast>
-			</XUIToastWrapper>
 		</div>
 	</section>
 );
@@ -85,4 +82,15 @@ const actions = (
 	{action}
 	{actions}
 </div>
+```
+
+### Toast positioning
+Use `<XUIToastWrapper />` to position toast components at the bottom-left corner of the screen. This component will ensure consistent positioning if toast positioning changes in the future.
+
+```jsx
+<XUIToastWrapper>
+    <XUIToast onCloseClick={()=>{})}>
+        <XUIToastMessage> Wrapper Toast </XUIToastMessage>
+    </XUIToast>
+</XUIToastWrapper>
 ```

@@ -412,12 +412,16 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--week {
 	border-bottom: 1px solid transparent;
 	border-top: 1px solid transparent;
+	padding-left: $xui-s-small;
+	padding-right: $xui-s-small;
 }
 
 .#{$ns}-datepicker--weekdays {
 	border-bottom: $xui-border-muted;
 	margin-bottom: $xui-s-small;
 	padding-bottom: $xui-s-small;
+	padding-left: $xui-s-small;
+	padding-right: $xui-s-small;
 
 	#{$ns}-datepicker-compact & {
 		margin-bottom: $xui-s-xsmall;
@@ -498,7 +502,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--weekday {
-	color: $xui-color-grey-alpha-3;
+	color: $xui-color-grey-alpha-2;
 	cursor: default;
 	font-size: $xui-font-size-xsmall;
 	font-weight: normal;

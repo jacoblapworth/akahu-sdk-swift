@@ -377,4 +377,5 @@ XUIDatePicker.defaultProps = {
 	showFixedNumberOfWeeks: false,
 	dir: 'ltr',
 	locale: 'en',
+	weekdaysShort: ['S','M','T','W','T','F','S']
 };

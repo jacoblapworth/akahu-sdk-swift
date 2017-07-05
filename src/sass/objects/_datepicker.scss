@@ -430,7 +430,7 @@ $xui-datepicker-day-size-compact: 30px;
 	box-sizing: content-box;
 	cursor: pointer;
 	display: flex;
-	flex: 1;
+	flex: 1 0 auto;
 	font-size: inherit;
 	height: $xui-datepicker-day-size;
 	justify-content: center;

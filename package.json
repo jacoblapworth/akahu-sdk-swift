@@ -38,7 +38,7 @@
     "lint:sass": "stylelint --syntax scss ./src/sass/**/*.scss",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint . --fix",
-    "watch": "grunt watch --livereload",
+    "watch": "cross-env NODE_ENV=development grunt watch --livereload",
     "bump-major": "bumper major \"Bump to {version}\" --tag \"{version}\"",
     "bump-minor": "bumper minor \"Bump to {version}\" --tag \"{version}\"",
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\"",

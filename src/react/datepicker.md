@@ -26,42 +26,38 @@ class ExamplePicker extends React.Component {
     super(props);
 
     this.state = {
-      selectedDate: null
+      selectedDate: null,
     };
 
 		this.onSelectDate = newDate => {
 			this.setState({
-        selectedDate: newDate
+        selectedDate: newDate,
       });
-		console.log(newDate);
-		console.log(this.state);
+			console.log(newDate);
+			console.log(this.state);
+		};
   }
-  }
-
-
 
   render() {
-    const calendarProps = {
-      displayedMonth: today,
-      onSelectDate: this.onSelectDate,
-			isCompact: this.props.isCompact,
-			maxDate: this.props.maxDate,
-			minDate: this.props.minDate,
-			showFixedNumberOfWeeks: this.props.showFixedNumberOfWeeks,
-			months: this.props.months,
-			weekdaysLong: this.props.weekdaysLong,
-			weekdaysShort: this.props.weekdaysShort,
-			dir: this.props.dir,
-			locale: this.props.locale,
-    };
-		calendarProps.selectedDate = this.state.selectedDate;
     return (
-      <div>
-        <XUIDatePicker {...calendarProps} />
-      </div>
+			<XUIDatePicker
+				displayedMonth={today}
+				onSelectDate={this.onSelectDate}
+				isCompact={this.props.isCompact}
+				maxDate={this.props.maxDate}
+				minDate={this.props.minDate}
+				showFixedNumberOfWeeks={this.props.showFixedNumberOfWeeks}
+				months={this.props.months}
+				weekdaysLong={this.props.weekdaysLong}
+				weekdaysShort={this.props.weekdaysShort}
+				dir={this.props.dir}
+				locale={this.props.locale}
+				selectedDate={this.state.selectedDate}
+			/>
     );
   }
 }
+
 ExamplePicker.propTypes = {
 	showFixedNumberOfWeeks: PropTypes.bool,
 	isCompact: PropTypes.bool,
@@ -76,7 +72,7 @@ ExamplePicker.propTypes = {
 	locale: PropTypes.string,
 };
 
-	<section>
-		<div className="xui-panel xui-padding"><ExamplePicker /></div>
-	</section>
+<section>
+	<div className="xui-panel xui-padding"><ExamplePicker /></div>
+</section>
 ```

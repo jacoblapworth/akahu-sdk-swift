@@ -79,9 +79,9 @@ export default class DropDownToggled extends PureComponent {
 		};
 
 		this.onResize = debounce(this.onResize, 100);
-		this.onScroll = throttleToFrame(this.repositionDropdown);
+		this.onScroll = throttleToFrame(this.repositionDropDown);
 
-		this.repositionDropdown = this.repositionDropdown.bind(this);
+		this.repositionDropDown = this.repositionDropDown.bind(this);
 		this.closeDropDown = this.closeDropDown.bind(this);
 		this.openDropDown = this.openDropDown.bind(this);
 		this.toggle = this.toggle.bind(this);
@@ -389,7 +389,7 @@ export default class DropDownToggled extends PureComponent {
 		this.setState(() => ({
 			isNarrowViewport: isNarrowViewport(),
 		}));
-		this.repositionDropdown();
+		this.repositionDropDown();
 	}
 
 	/**
@@ -398,7 +398,7 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 * @memberof DropDownToggled
 	 */
-	repositionDropdown() {
+	repositionDropDown() {
 		if (this.positioning != null) {
 			if (this.props.restrictToViewPort) {
 				this.positioning.calculateMaxHeight();

@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import React, { PureComponent, Children } from 'react';
 import PropTypes from 'prop-types';
 import back from '@xero/xui-icon/icons/back';
 import cn from 'classnames';
@@ -11,29 +11,10 @@ import XUIIcon from '../icon/XUIIcon';
  *
  * @export
  * @class DropDownHeader
- * @extends {Component}
+ * @extends {PureComponent}
  */
-export default class DropDownHeader extends Component {
-	constructor() {
-		super();
-		const header = this;
-
-		header.onSecondaryClick = header.onSecondaryClick.bind(header);
-		header.onPrimaryClick = header.onPrimaryClick.bind(header);
-	}
-
-	onSecondaryClick() {
-		const { onSecondaryButtonClick } = this.props;
-		onSecondaryButtonClick && onSecondaryButtonClick();
-	}
-
-	onPrimaryClick() {
-		const { onPrimaryButtonClick } = this.props;
-		onPrimaryButtonClick && onPrimaryButtonClick();
-	}
-
+export default class DropDownHeader extends PureComponent {
 	render() {
-		const header = this;
 		const {
 			children,
 			className,
@@ -45,45 +26,46 @@ export default class DropDownHeader extends Component {
 			isPrimaryButtonDisabled,
 			isSecondaryButtonDisabled,
 			onBackButtonClick,
-			onlyShowForMobile
-		} = header.props;
+			onlyShowForMobile,
+		} = this.props;
 
 		const classes = cn('xui-dropdown--header', className);
 		const headerClasses = cn(
 			'xui-dropdown--header-container',
-			{'xui-u-hidden-mobile-up': onlyShowForMobile}
+			{ 'xui-u-hidden-mobile-up': onlyShowForMobile }
 		);
 
 		const backButton = onBackButtonClick &&
 			<XUIButton
 				variant="icon"
 				className="xui-button-icon-large xui-u-flex-none"
-				onClick={()=>onBackButtonClick()}>
-				<XUIIcon
-					path={back}
-				/>
+				onClick={onBackButtonClick}
+			>
+				<XUIIcon path={back} />
 			</XUIButton>;
 
 		const secondaryButton = onSecondaryButtonClick != null &&
 			<XUIButton
 				size="small"
-				onClick={header.onSecondaryClick}
-				isDisabled={isSecondaryButtonDisabled}>
+				onClick={onSecondaryButtonClick}
+				isDisabled={isSecondaryButtonDisabled}
+			>
 				{secondaryButtonContent}
 			</XUIButton>;
 
 		const primaryButton = onPrimaryButtonClick != null &&
 			<XUIButton
-				className={cn({"xui-margin-left-small": secondaryButtonContent})}
+				className={cn({'xui-margin-left-small': secondaryButtonContent})}
 				size="small"
 				variant="primary"
-				onClick={header.onPrimaryClick}
-				isDisabled={isPrimaryButtonDisabled} >
+				onClick={onPrimaryButtonClick}
+				isDisabled={isPrimaryButtonDisabled}
+			>
 				{primaryButtonContent}
 			</XUIButton>
 
 		return (
-			<div ref={h => header.rootNode = h} className={classes}>
+			<div ref={h => this.rootNode = h} className={classes}>
 				<div className={headerClasses}>
 					<div className="xui-dropdown--header-leftcontent">
 						{backButton}
@@ -145,11 +127,11 @@ DropDownHeader.propTypes = {
 	onBackButtonClick: PropTypes.func,
 
 	/** Whether the header should only be shown at mobile sizes. */
-	onlyShowForMobile: PropTypes.bool
-}
+	onlyShowForMobile: PropTypes.bool,
+};
 
 DropDownHeader.defaultProps = {
 	primaryButtonContent: 'Apply',
 	secondaryButtonContent: 'Cancel',
-	onlyShowForMobile: false
-}
+	onlyShowForMobile: false,
+};

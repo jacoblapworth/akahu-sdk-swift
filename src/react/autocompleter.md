@@ -110,7 +110,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						onSearch={example.onSearchChangeHandler}
 						placeholder="Search"
 						searchValue={value}
-						dropdownSize="x-large"
+						dropdownSize="xlarge"
 						dropdownFixedWidth
 					>
 						<Picklist>

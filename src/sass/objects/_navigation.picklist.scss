@@ -151,7 +151,7 @@
 	}
 }
 
-.#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body {
+.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body {
 	color: $xui-color-xero-blue;
 
 	&::before {

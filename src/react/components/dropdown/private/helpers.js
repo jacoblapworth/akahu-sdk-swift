@@ -143,6 +143,7 @@ export const unlockScroll = () => {
 export const addEventListeners = ddt => {
 	if (typeof window !== 'undefined') {
 		window.addEventListener('mousedown', ddt.onMouseDown);
+		window.addEventListener('touch', ddt.onMouseDown);
 		window.addEventListener('resize', ddt.onResize);
 		if (ddt.props.repositionOnScroll) {
 			window.addEventListener('scroll', ddt.onScroll);
@@ -159,6 +160,7 @@ export const addEventListeners = ddt => {
 export const removeEventListeners = ddt => {
 	if (typeof window !== 'undefined') {
 		window.removeEventListener('mousedown', ddt.onMouseDown);
+		window.removeEventListener('touch', ddt.onMouseDown);
 		window.removeEventListener('resize', ddt.onResize);
 		window.removeEventListener('scroll', ddt.onScroll);
 	}

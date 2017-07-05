@@ -43,11 +43,11 @@ const group = (
 	<section>
 		<h3>Radio Group</h3>
 		<XUIRadioGroup>
-			<XUIRadio isReversed>Reversed</XUIRadio>
-			<XUIRadio isChecked>Check me</XUIRadio>
-			<XUIRadio>Nah check me</XUIRadio>
-			<XUIRadio iconMainPath={customIcon}>You really want to check me</XUIRadio>
-			<XUIRadio isDisabled>Disabled</XUIRadio>
+			<XUIRadio name="radioGroup" isReversed>Reversed</XUIRadio>
+			<XUIRadio name="radioGroup" defaultChecked>Check me</XUIRadio>
+			<XUIRadio name="radioGroup">Nah check me</XUIRadio>
+			<XUIRadio name="radioGroup" iconMainPath={customIcon}>You really want to check me</XUIRadio>
+			<XUIRadio name="radioGroup" isDisabled>Disabled</XUIRadio>
 		</XUIRadioGroup>
 	</section>
 );

@@ -302,6 +302,9 @@ const XUIDatePicker = require('./datepicker').default;
 const XUIButton = require('./button').default;
 
 const today = new Date();
+const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
 class SimpleDropDownDatePicker extends React.Component {
 	constructor() {
@@ -342,7 +345,7 @@ class SimpleDropDownDatePicker extends React.Component {
 		);
 		const trigger = (
 			<XUIButton>
-				{selectedDate == null ? 'Select a date' : selectedDate.toDateString()}
+				{selectedDate == null ? 'Select a date' : formatDate(selectedDate)}
 			</XUIButton>
 		);
     return (
@@ -504,6 +507,8 @@ const Picklist = require('./picklist').default;
 const { Pickitem } = require('./picklist');
 const { Component } = require('react');
 
+const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+
 function getToday() {
 	const today = new Date();
 	today.setUTCHours(0);
@@ -609,7 +614,7 @@ class NestedExample extends Component {
 		const { activePanel, selectedDate } = this.state;
 		let triggerText = 'Select a Date';
 		if (selectedDate != null) {
-			triggerText = selectedDate.toDateString();
+			triggerText = formatDate(selectedDate);
 		}
 
 		const trigger = (

@@ -164,6 +164,7 @@ export default class Autocompleter extends PureComponent {
 					className={dropdownToggledClasses}
 					triggerClickAction={props.triggerClickAction}
 					forceDesktop={props.forceDesktop}
+					matchTriggerWidth={props.matchTriggerWidth}
 				/>
 			</div>
 		);
@@ -233,6 +234,12 @@ Autocompleter.propTypes = {
 	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
+	/**
+	 * Setting to false will allow the dropdown's width to be set independent of the trigger width.
+	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 */
+	matchTriggerWidth: PropTypes.bool,
+
 	qaHook: PropTypes.string,
 	children: PropTypes.node
 };
@@ -244,4 +251,5 @@ Autocompleter.defaultProps = {
 	triggerClickAction: 'open',
 	forceDesktop: false,
 	dropdownFixedWidth: false,
+	matchTriggerWidth: true,
 };

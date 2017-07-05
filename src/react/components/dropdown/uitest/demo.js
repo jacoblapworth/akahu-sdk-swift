@@ -455,6 +455,54 @@ class FullHeightToggledDropDown extends Component {
 	}
 }
 
+const matchTriggerItems = [
+	'short',
+	'Something middle of the road',
+	'ah tgeowautieawghiwe giuoawh tguiorewa hgurawioghawuio guwaieh ouiaw ',
+];
+
+class MatchTriggerWidth extends Component {
+	state = {
+		selected: null,
+	}
+
+	onSelect = value => this.setState({ selected: value })
+
+	render() {
+		const { selected } = this.state;
+		const buttonText = selected == null ? 'Select Something' : selected;
+		const trigger = (
+			<XUIButton>
+				{buttonText}
+				<XUIButtonCart />
+			</XUIButton>
+		);
+		const dropdown = (
+			<DropDown onSelect={this.onSelect}>
+				<Picklist>
+					{matchTriggerItems.map(item => (
+						<Pickitem
+							key={item}
+							id={item}
+							value={item}
+							isSelected={selected === item}
+						>
+							{item}
+						</Pickitem>
+					))}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				trigger={trigger}
+				dropdown={dropdown}
+				matchTriggerWidth
+			/>
+		);
+	}
+}
+
 ReactDOM.render(
 	<div className="xui-form-layout">
 		<div style={{ position: 'fixed', right: 0, top: '20px' }}>
@@ -497,6 +545,13 @@ ReactDOM.render(
 				Simple test case for putting a form in a dropdown
 			</p>
 			<WithForm />
+		</div>
+		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
+			<div className="xui-text-panelheading xui-margin-bottom">Dropdown width matches trigger width</div>
+			<p className='xui-text-label'>
+				Making sure that the &ldquo;matchTriggerWidth&rdquo; prop works
+			</p>
+			<MatchTriggerWidth />
 		</div>
 	</div>,
 	document.getElementById('app')

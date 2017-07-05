@@ -1,5 +1,6 @@
 node_modules
-./react
+react/*
+docs/*
 kss
 src/components/icon
 umd/assets

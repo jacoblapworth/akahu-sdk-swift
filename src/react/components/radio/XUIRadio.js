@@ -26,6 +26,7 @@ export default class XUIRadio extends React.Component {
 			qaHook,
 			iconCheckPath,
 			iconMainPath,
+			defaultChecked,
 			isChecked,
 			isDisabled,
 			isRequired,
@@ -34,7 +35,8 @@ export default class XUIRadio extends React.Component {
 			onChange,
 			value,
 			svgClassName,
-			labelClassName
+			labelClassName,
+			isLabelHidden
 		} = this.props;
 
 		const classes = cn(
@@ -48,16 +50,37 @@ export default class XUIRadio extends React.Component {
 
 		const svgClasses = cn('xui-icon', svgClassName);
 		const labelClasses = cn('xui-styledradio--label', labelClassName);
+		const labelElement = !isLabelHidden ? <span className={labelClasses}>{children}</span> : null;
+		const inputProps = {
+			type: 'radio',
+			disabled: isDisabled,
+			required: isRequired,
+			tabIndex,
+			name,
+			onChange,
+			value,
+		}
+
+		if (isChecked) {
+			inputProps.checked = isChecked;
+			// checked prop without an onChange handler means this is readonly, so set that to prevent
+			// warnings in the console.
+			if (onChange == null) {
+				inputProps.readOnly = true;
+			}
+		} else {
+			inputProps.defaultChecked = defaultChecked;
+		}
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input tabIndex={tabIndex} type="radio" checked={isChecked} disabled={isDisabled} required={isRequired} name={name} onChange={onChange} value={value} />
+				<input {...inputProps} />
 				<svg className={svgClasses}>
 					<path className="xui-styledradio--focus" role="presentation" d={iconMainPath || radioMain} />
 					<path className="xui-styledradio--main" role="presentation" d={iconMainPath || radioMain} />
 					{iconMainPath && !iconCheckPath ? null : <path className="xui-styledradio--check" role="presentation" d={iconCheckPath || radioCheck} />}
 				</svg>
-				<span className={labelClasses}>{children}</span>
+				{labelElement}
 			</label>
 		);
 	}
@@ -102,5 +125,20 @@ XUIRadio.propTypes = {
 	svgClassName: PropTypes.string,
 
 	/** The tabindex property to place on the radio input */
-	tabIndex: PropTypes.number
+	tabIndex: PropTypes.number,
+
+	/** Prevents the label element from being rendered to the page */
+	isLabelHidden: PropTypes.bool,
+
+	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
+	defaultChecked: PropTypes.bool,
+};
+
+XUIRadio.defaultProps = {
+	isLabelHidden: false,
+	isDisabled: false,
+	isIndeterminate: false,
+	isRequired: false,
+	isReversed: false,
+	defaultChecked: false
 };

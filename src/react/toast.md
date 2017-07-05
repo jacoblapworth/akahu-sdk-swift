@@ -51,11 +51,6 @@ const action = (
 				<XUIToastMessage> Closable </XUIToastMessage>
 				<XUIToastAction> Action </XUIToastAction>
 			</XUIToast>
-			<XUIToastWrapper>
-				<XUIToast onCloseClick={noop}>
-					<XUIToastMessage> Wrapper Toast </XUIToastMessage>
-				</XUIToast>
-			</XUIToastWrapper>
 		</div>
 	</section>
 );

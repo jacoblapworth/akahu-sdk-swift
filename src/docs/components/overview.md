@@ -5,7 +5,6 @@ First configure artifactory by adding the following to .npmrc. More info on Conf
 ```js
 @xero:registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-dev
 registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-upstream
-save-exact=true
 ```
 
 Then install XUI with npm

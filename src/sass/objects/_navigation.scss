@@ -4,13 +4,17 @@
 // Navigation and Filters
 //
 // ### Accessibility
-// As mentioned in the [Tabs section](https://github.dev.xero.com/pages/UXE/xui/section-tabs.html), when clicking a tab results in a URL change,
+// When clicking a tab results in a URL change,
 // it is recommended to apply the `role="navigation"` and aria-label attributes. When the intent is to have a panel, that exhibits behaviour similar
-// to on-page JS tabs (i.e switches to a corresponding view without changing the URL), then it is recommended to apply the tablist role instead of navigation.
+// to on-page JS tabs (i.e switches to a corresponding view without changing the URL), then it is recommended to apply the `tablist` role instead of `navigation`.
 //
 // Weight: 5.1
 //
 // Styleguide: Navigation
+
+// Deprecated
+//
+// Styleguide: Navigation.99
 
 @import "navigation.sharedheader";
 @import "navigation.subapp";

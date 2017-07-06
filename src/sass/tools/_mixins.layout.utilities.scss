@@ -35,12 +35,9 @@
 	width: 13px; // Min width of radios/checkboxes on Firefox is 4px, which sets 2px borders that cannot be undone, but due to the FF bug above this becomes the sum of the negative margins
 }
 
-// When we use box shadows as replacements for borders,
-// we need to add a transparent border, otherwise if a margin is applied
-// to a child element, it will be collapsed (ignored)
+// When this mixin is used as a border, any margins applied to child elements will be ignored.
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
 // for technical details and https://codepen.io/anon/pen/mmwRKy for a demo
 @mixin xui-box-shadow-border($box-shadow...) {
-	border: 1px solid transparent;
 	box-shadow: $box-shadow;
 }

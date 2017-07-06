@@ -95,8 +95,8 @@
 					},
 					{
 						"name": "TextArea",
-						"components": "../src/react/components/textArea/**/[A-Z]*.js",
-						"content": "../src/react/textArea.md"
+						"components": "../src/react/components/textarea/**/[A-Z]*.js",
+						"content": "../src/react/textarea.md"
 					}
 				]
 			},

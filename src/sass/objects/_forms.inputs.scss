@@ -260,7 +260,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Styleguide: Forms.4.2
 
-// Deprecated utility classes
+// Deprecated Text Input classes
 //
 // ![](https://img.shields.io/badge/Deprecated%20in-10.24.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
@@ -269,7 +269,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 // xui-inputwrapper-borderless-layout: Layout of the borderless input wrapper, mainly padding changes to alter icons
 // xui-input-borderless-layout: Layout of the borderless input, mainly padding
 //
-// Styleguide: Forms.4.3
+// Styleguide: Forms.99.2
 
 .#{$ns}-input-borderless {
 	border: 0;

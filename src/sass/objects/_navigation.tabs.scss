@@ -167,12 +167,12 @@ $xui-color-variations: (
 	}
 }
 
-// Vertical
+// Deprecated Vertical Tabs
 //
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
-// *This component is deprecated, alternatively, use <a href="#navigation-6">picklists</a>*
+// *This component is deprecated, alternatively, use <a href="section-picklist.html">picklists</a> instead.*
 //
 // Applied to sections that have tabs in them, removes the padding so that the
 // bottom of the tabs are flush with the top of the section they manage.
@@ -204,7 +204,7 @@ $xui-color-variations: (
 //   </li>
 // </ul>
 //
-// Styleguide: Navigation.5.2
+// Styleguide: Navigation.99.2
 
 .#{$ns}-tabgroup-vertical {
 	display: flex;

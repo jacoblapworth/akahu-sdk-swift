@@ -1,31 +1,6 @@
-# XUI React Components
-
-In the past, React components were all located in their own git repositories and installed via bower.  However, some things have changed that make bringing XUI CSS and components together much more desirable.
-
-The two primary factors are around release cadence and interdependency between components. Release autonomy between XUI and components has been great as we built out the base css library and initial suite of components. However recently it has made it increasingly hard to introduce changes to components that are used heavily by other components (think icon & button).
-
-Also the wider FED community has gone all in on an npm/yarn based package management and the effort to maintain a bower compatibility layer has been increasing in cost.
+Prior to XUI 11, React components were all located in their own git repositories and installed via bower.  However, some things have changed that make bringing XUI CSS and components together much more desirable.
 
 Because of this, we have moved all the React components here into the XUI repository.  This will enable us to improve consistency, testability, and release cadence.  All components will now version together and be released simultaneously as a single artifact in Artifactory.
-
-## Installing
-
-Make sure you've followed the instructions for [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).  You can then run
-```bash
-npm install --save @xero/xui
-```
-
-## Usage
-
-All XUI component are available once `@xero/xui` has been installed.  However, build tools like Webpack should only include components that you import (and their dependencies) in your final build artifact.
-
-Related components are grouped together in a single point to make importing related components easier and aid in the update path.  For example, the `react/button` module will export the exact same modules as the main entry point of the old `xui-button` component.
-
-To import a component, you just need to:
-```js
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
-```
 
 ## CSS Compatibility
 
@@ -33,13 +8,14 @@ Since this is a new major version of XUI, using CSS from that version is essenti
 
 ## Upgrading from bower components
 
-XUI is now an NPM only module.  The costs of maintaining both an NPM and bower version of the library would be too high.  However, we also know that plenty of projects still depend on the old bower components.  Don't worry, those components aren't going away.  The repositories will remain in their current state.  However, all new development will occur in this repository.
+XUI is now an NPM only module. All new development will occur in this repository. Because plenty of projects still depend on the old bower components the repositories will remain in their current state.
 
 Upgrading will require the following steps:
 - Follow the installation instructions above.
 - Update all your import statements to reference the new NPM dependency.  Thankfully, Anchen Li in Melbourne has created a jscodeshift script that can do that for you located here: https://github.dev.xero.com/anchen-li/jscodeshift-script (thanks Anchen).
 - If you don't want to use the jscodeshift script, you'll have to do a find/replace in your code base to import the new components.  `import ... from 'xui-button'` should be replaced with `import ... from '@xero/xui/react/button'`, `import ... from 'xui-toast'` should be replaced with `import ... from '@xero/xui/react/toast'`, and so on.
 - Remove all the components from your bower.json dependencies.
+- Review the latest release notes for changes to components you may need to make.
 
 ### React Labs
 

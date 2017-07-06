@@ -1,31 +1,12 @@
 const path = require('path');
-const fs = require('fs');
 const autoprefixer = require('autoprefixer');
 const browserlist = require('@xero/browserslist-autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const basePath = path.resolve(__dirname, '..');
-const componentPath = path.resolve(basePath, 'src/react');
 const styleguidePath = path.resolve(basePath, 'styleguide');
 const outputPath = path.resolve(basePath, 'docs/react');
-
-//
-// component sections
-//
-const componentsFolder = fs.readdirSync(componentPath);
-const filterJsFile = file => /\.js$/.test(file);
-const filterUmdFile = file => !/\umd\.js$/.test(file);
-const replaceJsExtension = file => file.replace('.js', '');
-const createSectionObject = file => ({
-	name: file.charAt(0).toUpperCase() + file.slice(1),
-	components: `${componentPath}/components/${file}/**/[A-Z]*.js`,
-	content: `${componentPath}/${file}.md`,
-});
-const componentSections = componentsFolder
-	.filter(filterJsFile)
-	.filter(filterUmdFile)
-	.map(replaceJsExtension)
-	.map(createSectionObject);
+const componentSections = require('./sections.json');
 
 const config = {
 	webpackConfig: {
@@ -93,7 +74,7 @@ const config = {
 			],
 		},
 	},
-	title: 'XUI Components',
+	title: 'XUI React Docs',
 	styleguideDir: outputPath,
 	assetsDir: path.resolve(__dirname, '..', 'uitest'),
 	template: path.resolve(styleguidePath, 'template.html'),

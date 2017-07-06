@@ -21,9 +21,13 @@ export const styles = ({ color }) => ({
 	},
 });
 
+const toggleChildren = function () {
+
+};
+
 export function LinkRenderer({ classes, children, ...props }) {
 	return (
-		<a {...props} className={cx(classes.link, props.className)}>
+		<a {...props} className={cx(classes.link, props.className)} onClick={toggleChildren}>
 			{children}
 		</a>
 	);

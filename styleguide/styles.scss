@@ -1,5 +1,37 @@
 @import '../src/sass/xui.scss';
 
-#app p a {
+#app {
+	p a {
 	display: inline;
+	}
+
+	ul {
+		padding-left: 0;
+	}
+
+	ul ul li {
+		margin-left: 16px;
+
+	}
+
+	article li a {
+		display: inline;
+	}
+
+	main h1 {
+		margin-top: 3em;
+	}
+
+	li code,
+	p code {
+		font-size: 13px;
+		background: $xui-color-grey-6;
+		color: $xui-color-grey-1;
+		border-radius: 3px;
+		padding: 0 4px;
+	}
+	h3 {
+		font-weight: bold;
+	}
 }
+

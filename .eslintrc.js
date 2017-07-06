@@ -12,5 +12,6 @@ module.exports = {
   ],
   rules: {
     'no-console': 'warn',
+    'jest/no-disabled-tests': 0
   }
 };

@@ -1,5 +1,4 @@
 /*eslint-env node */
-var path = require('path');
 
 module.exports = function (grunt) {
 	'use strict';

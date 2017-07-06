@@ -564,6 +564,7 @@ const Picklist = require('./picklist').default;
 const { Pickitem } = require('./picklist');
 const { Component } = require('react');
 
+const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
 function getToday() {

@@ -187,55 +187,81 @@ Here is the first example extended with the header and footer:
 ```
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
 const searchIcon = require ( '@xero/xui-icon/icons/search' ).default;
-const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 const { Component } = require ('react');
 
-function createItems(items, selectedId) {
-	if (Array.isArray(items)) {
-		return items.map(i => createItems(i, selectedId));
-	}
-	return React.createElement(Pickitem, {
-		...items.props,
-		value: items.props.id,
-		key: items.props.id,
-		isSelected: isSelected(items, selectedId),
-	}, items.text);
-}
+const getNumberOfTrueValues = items => Object.values(items).filter(value => value).length;
 
-const toggledItems = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
-	return { props: { id }, text };
+const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
+	return { id, text };
 });
 
 class XDD extends Component {
 	constructor() {
 		super();
 
+		const selected = {};
+
+		items.forEach(item => selected[item.id]=false);
+
 		this.state = {
-			selectedId: null,
+			selected,
+			selectedCount: 0
 		};
 
-		this.closeDropDown = this.closeDropDown.bind(this);
+		this.onApplyClick = this.onApplyClick.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+		this.closeDropDown = this.closeDropDown.bind(this);
+		this.onClose = this.onClose.bind(this);
+		this.onOpen = this.onOpen.bind(this);
+	}
+
+	onSelect(value) {
+		this.setState(state => ({
+			selected: {
+				...state.selected,
+				[value]: !state.selected[value],
+			},
+		}));
 	}
 
 	closeDropDown() {
 		this.ddt.closeDropDown();
 	}
 
-	onSelect(value) {
-		this.setState({
-			selectedId: value,
+	onApplyClick() {
+		this.setState(state => ({
+			selectedCount: getNumberOfTrueValues(state.selected),
+			previousSelected: null
+		}));
+		this.closeDropDown();
+	}
+
+	onClose() {
+		this.setState(state => {
+			const newSelected = state.previousSelected != null ? state.previousSelected : state.selected;
+			return {
+				selected: newSelected,
+				previousSelected: null,
+				selectedCount: getNumberOfTrueValues(newSelected)
+			};
 		});
+	}
+
+	onOpen() {
+		this.setState(state => ({
+			previousSelected: state.selected
+		}))
 	}
 
 	render() {
 		const dropdownHeader = (
 			<DropDownHeader
-				title="Filter States:"
+				title="Select Fruit"
 				onSecondaryButtonClick={this.closeDropDown}
-				onPrimaryButtonClick={this.onSelect}
-				displayPrimaryButton={true}
-				primaryButtonContent={<XUIIcon path={checked} inline={true} />}
+				onPrimaryButtonClick={this.onApplyClick}
+				primaryButtonContent="Apply"
+				secondaryButtonContent="Cancel"
 			>
 				<XUIInput
 					className="xui-input-borderless xui-input-borderless-solid"
@@ -248,6 +274,7 @@ class XDD extends Component {
 						type: 'search',
 						placeholder: 'Fake search box',
 					}}
+					hasClearButton
 				/>
 			</DropDownHeader>
 		);
@@ -255,14 +282,23 @@ class XDD extends Component {
 		const dropdownFooter = (
 			<DropDownFooter>
 				<Picklist>
-					<Pickitem id="footerAction">+ Add New Field</Pickitem>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								inline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Field
+							</span>
+					</Pickitem>
 				</Picklist>
 			</DropDownFooter>
 		);
 
 		const trigger = (
 			<XUIButton>
-				{this.state.selectedId ? toggledItems[this.state.selectedId].text : 'Toggle Button'}
+				{this.state.selectedCount > 0 ? `${this.state.selectedCount} items selected` : 'Toggle Button'}
 				<XUIButtonCaret />
 			</XUIButton>
 		);
@@ -271,9 +307,21 @@ class XDD extends Component {
 				onSelect={this.onSelect}
 				header={dropdownHeader}
 				footer={dropdownFooter}
+				size="large"
+				fixedWidth
 			>
 				<Picklist>
-					{createItems(toggledItems, this.state.selectedId)}
+					{items.map(item => (
+						<Pickitem
+							key={item.id}
+							id={item.id}
+							value={item.id}
+							isSelected={this.state.selected[item.id]}
+							multiselect
+						>
+							{item.text}
+						</Pickitem>
+					))}
 				</Picklist>
 			</DropDown>
 		);
@@ -282,6 +330,9 @@ class XDD extends Component {
 				ref={c => this.ddt = c}
 				trigger={trigger}
 				dropdown={dropdown}
+				closeOnSelect={false}
+				onClose={this.onClose}
+				onOpen={this.onOpen}
 			/>
 		);
 	}

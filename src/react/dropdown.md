@@ -384,7 +384,7 @@ Here's an example of a possible way that this could be handled:
 ```
 const debounce = require('lodash.debounce');
 const { Component } = require('react');
-const { boldMatch, decorateSubStr } = require('./autocompleter');
+const { boldMatch, decorateSubStr, EmptyState } = require('./autocompleter');
 
 const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map((text, id) => {
 	return { id, text };
@@ -445,6 +445,21 @@ class InputTriggerExample extends Component {
 			const matcher = new RegExp(inputValue, 'i');
 			visibleItems = items.filter(item => matcher.test(item.text));
 		}
+		let pickItems;
+		if (visibleItems.length === 0) {
+			pickItems = <EmptyState id="noItems">No Fruit Found</EmptyState>;
+		} else {
+			pickItems = visibleItems.map(item => (
+				<Pickitem
+					key={item.id}
+					id={item.id}
+					value={item.id}
+					isSelected={selectedId === item.id}
+				>
+					<span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
+				</Pickitem>
+			));
+		}
 
 		const dropdown = (
 			<DropDown
@@ -454,16 +469,7 @@ class InputTriggerExample extends Component {
 				onSelect={this.onSelect}
 			>
 				<Picklist>
-					{visibleItems.map(item => (
-						<Pickitem
-							key={item.id}
-							id={item.id}
-							value={item.id}
-							isSelected={selectedId === item.id}
-						>
-							<span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
-						</Pickitem>
-					))}
+					{pickItems}
 				</Picklist>
 			</DropDown>
 		);

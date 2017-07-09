@@ -27,7 +27,7 @@ a better time.
 
 CSS is hard. XUI's goal is for you to not write CSS. We do this by providing CSS for a suite of validated components and design patterns.
 
-* Start with the supported [React components](react/)
+* Explore the components in the [XUI React Docs](react/)
 * Explore [Colors](section-colors.html), [Icons](section-icons.html) & [Typography](section-typography.html)
 * Explore the patterns and other components that XUI CSS provides
 

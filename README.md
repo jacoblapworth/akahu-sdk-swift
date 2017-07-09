@@ -5,7 +5,7 @@ XUI
 ![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
 
 ### Always get the latest versions here:
-* XUI documentation: https://github.dev.xero.com/pages/UXE/xui/
+* XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
 Using in Your Project

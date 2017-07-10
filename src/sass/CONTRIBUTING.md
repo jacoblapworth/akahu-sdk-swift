@@ -1,5 +1,6 @@
-Getting Started
-===============
+# Development Documentation for the XUI CSS Library
+
+## Getting Started
 
 You'll need:
 
@@ -9,27 +10,23 @@ You'll need:
 [nvm](https://github.com/creationix/nvm) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see
 which version of node to use.
 
+## npm Scripts
 
-npm scripts
------------
-
-Script          | Description
-----------------|-------------
-`npm install`   | Installs dependencies; required for other steps
-`npm run lint`  | Lints the stylesheet
-`npm run build` | Compiles the stylesheet
-`npm run dist`  | Creates a minified version of the stylesheet (assumes you have run `build` first)
-`npm run doc`   | Compiles the style guide documentation into the `docs` folder
-`npm run watch` | Watches for changes in SCSS files and live reloads them if you have the docs open.
+Script              | Description
+--------------------|-------------
+`npm install`       | Installs dependencies; required for other steps
+`npm run lint:sass` | Lints the stylesheet
+`npm run build`     | Compiles the stylesheet
+`npm run dist`      | Creates a minified version of the stylesheet (assumes you have run `build` first)
+`npm run doc`       | Compiles the style guide documentation into the `docs` folder
+`npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
 
 We recommend that you run the `watch` task as it will lint and compile the SCSS and docs for you.
-Otherwise you will manually need to run something like `npm run lint && npm run build && npm run doc`
+Otherwise you will manually need to run something like `npm run lint:sass && npm run build && npm run doc`
 
+## Pre-commit Hook
 
-pre-commit hook
----------------
-
-You can add a pre-commit [hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) so that steps that might cause your build to fail in the CI environment are run before you commit.
+You can add a [pre-commit hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) so that steps that might cause your build to fail in the CI environment are run before you commit.
 
 Install the hook by running the following command:
 
@@ -37,9 +34,7 @@ Install the hook by running the following command:
 $ ln -s ../../pre-commit.sh .git/hooks/pre-commit
 ```
 
-
-post-merge hook
----------------
+## Post-merge Hook
 
 You can also add a post-merge hook so that your local environment is updated after a merge.
 
@@ -49,9 +44,7 @@ Install the hook by running the following command:
 $ ln -s ../../post-merge.sh .git/hooks/post-merge
 ```
 
-
-Conventions
------------
+## Conventions
 
 All classes must be prefixed with `xui-`.
 
@@ -66,39 +59,31 @@ Classes should follow the format:
 
 This format is a [BEM](https://en.bem.info/)-inspired evolution of [SMACSS](https://smacss.com/).
 
- * `xui-component` represents the higher level of an abstraction or component.
- * `xui-component-modifier` represents a different state or version of `xui-component`.
- * `xui-component--subcomponent` represents a descendant of `xui-component` that
+ * `xui-component` represents the highest level of an abstraction or component.
+ * `xui-component-modifier` represents a different state or variation of `xui-component`. It is used in conjunction with the high-level class.
+ * `xui-component--subcomponent` represents a subcomponent of `xui-component` that
    helps form `xui-component` as a whole.
 
 Use class selectors wherever possible. Use attribute selectors only if absolutely required.
 Do not use ids or element selectors.
 
-[Nesting selectors is bad](http://markdotto.com/2015/07/20/css-nesting/); we only allow 2 levels max.
+[Nesting selectors is bad](http://markdotto.com/2015/07/20/css-nesting/); we allow 2 levels max with some exceptions when absolutely required.
 
 Layout styling should be separate to component styling. Individual components
 should not make assumptions about their layout (e.g. by setting margins, padding or position).
-Examples can be shown using the layout primitive classes.
+Examples in the documentation can make use of layout primitive classes.
 
 A modifier class with the `-layout` suffix may be provided for the purpose of providing the most common layout
 configuration for that component, including responsive styling. More info on layout styling can be found in this blog post: [Styling Components in XUI 10](https://confluence.inside.xero.com/x/ww0YCQ).
 
-Avoid the anti-pattern of applying styles in a generic class and then undoing them in a
-more specific class.
-
-If you are adding images, ensure you prefix their path with the `$xui-images-path` variable and use
-a leading slash, e.g. `background: url("#{$xui-images-path}/inputs/search.svg")`
+Avoid the anti-pattern of applying styles in a generic class and then undoing them in a more specific class.
 
 If you are contributing a new component, be sure to provide ample documentation, which should include any
 applicable ARIA attributes, and demonstrate at least 2 different examples of the same component with
 different classes, children, or using different elements
 (e.g. showing the component classes when used with a `<div>` parent and a `<ul>` parent)
 
-Be sure to `npm run lint` before you commit. This can be done automatically if you install the [precommit hook](#precommit-hook).
-
-
-Patterns
---------
+## Patterns
 
 When you have one set of styles for the first item and a different set of styles for all
 other items, use `nth-of-type(n+2)` or `:nth-child(n+2)` as appropriate.
@@ -110,9 +95,7 @@ If you used `:first-child` to target the first item and a more general class sel
 other items, it is likely you would need to undo some styles for the `:first-child`, which would
 violate our conventions.
 
-
-Making Contributions
---------------------
+## Making Contributions
 
 Contributions can be made via issues and pull requests. Please be aware of what we consider to be
 [breaking changes](#breaking-changes) and avoid making them if possible.
@@ -120,9 +103,6 @@ Contributions can be made via issues and pull requests. Please be aware of what 
 If you are confident that you do not have breaking changes, open your PR against `master`.
 Otherwise, prefix your PR title with `[breaking-changes]` (or other feature branch), add the `breaking change` label,
 and open your PR against the `breaking-changes` branch (or other feature branch).
-
-We use a pretty OCD linter, so make sure your code passes linting before opening a PR, otherwise
-your PR build will fail.
 
 The XUI documentation is generated from the comments in our SCSS files. Please ensure that your change
 is also correctly reflected in the generated documentation.
@@ -137,13 +117,9 @@ Do not bump the version in package.json as part of your PR. If you would like a 
 once your change has been merged, please highlight that in your PR's description. The UXE team will
 coordinate releases.
 
-Be sure to `npm run lint` before you commit. This can be done automatically if you install the [precommit hook](#precommit-hook).
+## Breaking Changes
 
-
-Breaking Changes
-----------------
-
-Determining what constitutes a breaking change in CSS can be tricky.
+Determining what constitutes a breaking change in a CSS library is not easy.
 
 We want product design to evolve for free over time which may include layout changes that are predictable and which should
 have low impact on apps provided they have not used fixed sizes on elements.
@@ -159,11 +135,10 @@ SCSS files were imported by a project
 Since projects may subscribe to a semver range (either patch or minor), we do not want layouts breaking unexpectedly.
 
 New CSS classes are not considered breaking changes. Changes to existing classes that do not impact
-layout are also not considered breaking changes (e.g. font-weight, color, border-color, box-shadow, etc)
+layout are also not considered breaking changes (e.g. font-weight, color, border-color, box-shadow, etc).
 
-If you're unsure, [ask on the UXE flow](https://www.flowdock.com/app/xero/ux-engineering).
+If you're unsure, ask on the UXE slack channel: #platform-fed-xui
 
 To submit a PR that contains a breaking change, make sure that it is made against the
 [breaking-changes branch](https://github.dev.xero.com/UXE/xui/tree/breaking-changes). If it is merged,
-it will be included in the next major release. See the [roadmap](https://github.dev.xero.com/UXE/xui/wiki#roadmap)
-for more details.
+it will be included in the next major release.

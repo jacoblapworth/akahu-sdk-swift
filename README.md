@@ -36,6 +36,13 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 $ npm install @xero/xui@11.0.0-rc.1 --save
 ```
 
+If you haven't set up Artifactory for your project, you will need to add a `.npmrc` file where your `package.json` is located with the following contents:
+<!--?prettify?-->
+```
+@xero:registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-dev
+registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-upstream
+```
+
 What is XUI For?
 ----------------
 

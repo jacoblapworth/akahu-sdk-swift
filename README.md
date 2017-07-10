@@ -31,17 +31,24 @@ A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.js
 
 ### npm
 
-<!--?prettify?-->
-```
-$ npm install @xero/xui@11.0.0-rc.1 --save
-```
+First configure artifactory by adding the following to .npmrc. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).
 
-If you haven't set up Artifactory for your project, you will need to add a `.npmrc` file where your `package.json` is located with the following contents:
 <!--?prettify?-->
-```
+```js
 @xero:registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-dev
 registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-upstream
 ```
+
+Then install XUI with npm
+
+<!--?prettify?-->
+```bash
+npm install --save @xero/xui
+```
+
+This will install all the XUI components into `node_modules/@xero/xui` and keep them all together.
+
+Note that only components imported into your application will be part of your final bundle.
 
 What is XUI For?
 ----------------

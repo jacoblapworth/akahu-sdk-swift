@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import DropDownListBox from './DropDownListBox';
 import DropDown from './DropDown';
-import { compose } from './private/helpers';
+import { compose } from '../helpers/compose';
 
 import './scss/_dropDown.scss';
 

@@ -1,22 +1,5 @@
 import React, { Children } from 'react';
-
-/**
- * Accepts one or more functions and curries a function that will call each passed function with the arguments passed
- * to the curried function.
- *
- * @public
- * @param {Function} fns
- * @returns {Function}
- */
-export function compose(...fns) {
-	return function () {
-		fns.forEach(fn => {
-			if (typeof fn === 'function') {
-				fn.apply(this, arguments);
-			}
-		});
-	}
-}
+import { compose } from '../../helpers/compose';
 
 /**
  * Get the actual React component for a given element in the Children tree.  Useful for getting state off of a

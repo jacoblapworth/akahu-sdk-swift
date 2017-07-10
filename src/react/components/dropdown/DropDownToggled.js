@@ -4,12 +4,12 @@ import cn from 'classnames';
 import debounce from 'lodash.debounce';
 import Positioning from '../positioning/Positioning';
 import {
-	compose,
 	isNarrowViewport,
 	addEventListeners,
 	removeEventListeners,
 	throttleToFrame,
 } from './private/helpers';
+import { compose } from '../helpers/compose';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 

@@ -33,5 +33,9 @@
 	h3 {
 		font-weight: bold;
 	}
+
+	code, pre, [class*="pathline-"] {
+		overflow-x: auto;
+	}
 }
 

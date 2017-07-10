@@ -5,7 +5,7 @@ import clear from '@xero/xui-icon/icons/clear';
 import XUIIcon from '../icon/XUIIcon';
 import XUIStatelessInput from './XUIStatelessInput';
 import XUIButton from '../button/XUIButton';
-import { compose } from './private/utilities'
+import { compose } from '../helpers/compose';
 
 const onInputChange = (statefulInput) => {
 	const { inputAttributes } = statefulInput.props;

@@ -6,12 +6,12 @@ import {
 	maxWidthDropdownSizes,
 	fixedWidthDropdownSizes,
 } from './private/constants';
+import { compose } from '../helpers/compose';
 import {
 	isVisible,
 	intervalRunner,
 	scrollTopPosition,
 	isRendered,
-	compose,
 	isNarrowViewport,
 } from './private/helpers';
 

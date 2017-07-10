@@ -1,25 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
-
-/**
- * Accepts one or more functions and curries a function that will call each passed function with the arguments passed
- * to the curried function.
- *
- * @private
- * @param {Function} fns
- * @returns {Function}
- */
-function compose(...fns) {
-	return function () {
-		fns.forEach(fn => {
-			if (typeof fn === 'function') {
-				fn.apply(this, arguments);
-			}
-		});
-	}
-}
-
+import { compose } from '../helpers/compose';
 
 /**
  * @private

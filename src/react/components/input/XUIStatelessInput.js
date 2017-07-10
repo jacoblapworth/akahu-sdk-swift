@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIIcon from '../icon/XUIIcon';
-import { compose } from './private/utilities';
+import { compose } from '../helpers/compose';
 
 export default class XUIStatelessInput extends PureComponent {
 	render() {

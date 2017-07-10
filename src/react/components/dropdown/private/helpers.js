@@ -1,24 +1,6 @@
 import breakpoints from '../../helpers/breakpoints';
 
 /**
- * Accepts one or more functions and curries a function that will call each passed function with the arguments passed
- * to the curried function.
- *
- * @public
- * @param {Function} fns
- * @returns {Function}
- */
-export function compose(...fns) {
-	return function () {
-		fns.forEach(fn => {
-			if (typeof fn === 'function') {
-				fn.apply(this, arguments);
-			}
-		});
-	}
-}
-
-/**
  * Simple predicated used to determine if the ListBox's root DOM node can actually be focused.
  *
  * @public

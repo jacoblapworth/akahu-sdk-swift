@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
+import assign from 'object-assign';
 import checked from '@xero/xui-icon/icons/checkbox-check';
+import search from '@xero/xui-icon/icons/search';
 import XUIIcon from '../../icon/XUIIcon';
 import DropDown from '../DropDown';
 import DropDownToggled from '../DropDownToggled';
@@ -17,7 +19,6 @@ import Pickitem from '../../picklist/Pickitem';
 import XUIInput from '../../input/XUIInput';
 import XUIButton from '../../button/XUIButton';
 import XUIButtonCart from '../../button/XUIButtonCaret';
-import search from '@xero/xui-icon/icons/search';
 
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 
@@ -25,12 +26,11 @@ function createItems(items, selectedId) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i, selectedId));
 	}
-	return React.createElement(Pickitem, {
-		...items.props,
+	return React.createElement(Pickitem, assign({}, items.props, {
 		value: items.props.id,
 		key: items.props.id,
 		isSelected: isSelected(items, selectedId)
-	}, items.text);
+	}), items.text);
 }
 
 const toggledItems = [
@@ -59,7 +59,7 @@ const toggledItems = [
 	{ props: { id: uuidv4() }, text: 'w' },
 	{ props: { id: uuidv4() }, text: 'x' },
 	{ props: { id: uuidv4() }, text: 'y' },
-	{ props: { id: uuidv4() }, text: 'z' }
+	{ props: { id: uuidv4() }, text: 'z' },
 ];
 
 const statefulMultiselectItems = [
@@ -73,8 +73,8 @@ const statefulMultiselectItems = [
 		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 1' },
 		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 2' },
 		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 3' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 4' }
-	]
+		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 4' },
+	],
 ];
 
 class ToggledDropDown extends Component {
@@ -104,7 +104,7 @@ class ToggledDropDown extends Component {
 		const dropdownFooter = (
 			<DropDownFooter>
 				<Picklist>
-					<Pickitem onSelect={this.toggleRestrictFocus}>
+					<Pickitem id="restrict-focus-footer" onSelect={this.toggleRestrictFocus}>
 						Restrict Focus is {this.state.restrictFocus.toString()}
 					</Pickitem>
 				</Picklist>
@@ -210,10 +210,9 @@ class ToggledNestedDropdown extends Component {
 	onOptionSelect(value, item){
 		const exampleUsage = this;
 		exampleUsage.setState({
-			selectedItems: {
-				...exampleUsage.state.selectedItems,
+			selectedItems: assign({}, exampleUsage.state.selectedItems, {
 				[item.props.id]: !exampleUsage.state.selectedItems[item.props.id]
-			}
+			})
 		});
 	}
 
@@ -390,41 +389,58 @@ class WithForm extends Component {
 	}
 }
 
+const checkIcon = <XUIIcon path={checked} inline={true} />;
+
 class FullHeightToggledDropDown extends Component {
 	constructor() {
 		super();
 		this.state = {
-			selectedId: null
+			selectedId: null,
+			searchValue: '',
 		};
 		this.onSelect = this.onSelect.bind(this);
+		this.onSearch = this.onSearch.bind(this);
+	}
+	onSearch(event) {
+		this.setState({
+			searchValue: event.target.value,
+		});
 	}
 	onSelect(value) {
 		this.setState({
-			selectedId: value
+			selectedId: value,
+			searchValue: '',
 		});
+	}
+	closeDropDown = () => {
+		this._dropdownToggled.closeDropDown();
 	}
 	render() {
 		const trigger = (
-			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+			<XUIButton type="button" data-ref="toggled_trigger">
 				Open Button <XUIButtonCart />
 			</XUIButton>
 		);
-		const dropdownHeader = <DropDownHeader
-			title="Full Height Responsive Example"
-			onSecondaryButtonClick={() => this._dropdownToggled.closeDropDown()}
-			onPrimaryButtonClick={this.onSelect}
-			displayPrimaryButton={true}
-			primaryButtonContent={<XUIIcon path={checked} inline={true}/>}
-			onlyShowForMobile
-		>
-			<XUIInput
-				type="search"
-				placeholder="Im a fake search box"
-				className="xui-input-borderless xui-input-borderless-solid xui-u-fullwidth"
-				containerClassName="xui-u-fullwidth"
-				iconAttributes={{ path: search, position: 'left' }}
-			/>
-		</DropDownHeader>;
+		const dropdownHeader = (
+			<DropDownHeader
+				title="Full Height Responsive Example"
+				onSecondaryButtonClick={this.closeDropDown}
+				onPrimaryButtonClick={this.onSelect}
+				displayPrimaryButton={true}
+				primaryButtonContent={checkIcon}
+				onlyShowForMobile
+			>
+				<XUIInput
+					type="search"
+					value={this.state.searchValue}
+					onChange={this.onSearch}
+					placeholder="Im a fake search box"
+					className="xui-input-borderless xui-input-borderless-solid xui-u-fullwidth"
+					containerClassName="xui-u-fullwidth"
+					iconAttributes={{ path: search, position: 'left' }}
+				/>
+			</DropDownHeader>
+		);
 		const dropdownFooter = (
 			<DropDownFooter>
 				<Picklist>
@@ -438,7 +454,9 @@ class FullHeightToggledDropDown extends Component {
 			<DropDown
 				onSelect={this.onSelect}
 				header={dropdownHeader}
-				footer={dropdownFooter}>
+				footer={dropdownFooter}
+				restrictFocus={false}
+			>
 				<Picklist>
 					{createItems(toggledItems, this.state.selectedId)}
 				</Picklist>
@@ -540,9 +558,10 @@ ReactDOM.render(
 			</Picklist>
 		</div>
 		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Dropdown with a Form Inside</div>
+			<div className="xui-text-panelheading xui-margin-bottom">Desktop Dropdown with a Form Inside</div>
 			<p className='xui-text-label'>
-				Simple test case for putting a form in a dropdown
+				Simple test case for putting a form in a dropdown.  Also has the <strong>forceDesktop</strong>
+				flag set to true.
 			</p>
 			<WithForm />
 		</div>

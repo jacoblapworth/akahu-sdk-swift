@@ -62,7 +62,7 @@ export default class DropDownHeader extends PureComponent {
 				isDisabled={isPrimaryButtonDisabled}
 			>
 				{primaryButtonContent}
-			</XUIButton>
+			</XUIButton>;
 
 		return (
 			<div ref={h => this.rootNode = h} className={classes}>

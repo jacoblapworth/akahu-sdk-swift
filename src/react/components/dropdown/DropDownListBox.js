@@ -1,92 +1,16 @@
-import React, { PureComponent, cloneElement } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import verge from 'verge';
 import {
 	maxWidthDropdownSizes,
 	fixedWidthDropdownSizes,
 } from './private/constants';
-import { compose } from '../helpers/compose';
 import {
 	isVisible,
 	intervalRunner,
 	scrollTopPosition,
-	isRendered,
 	isNarrowViewport,
 } from './private/helpers';
-
-/**
- * Taking the max height passed in through the style prop, we check it's defined and not null. If so, subtract the
- * height of the rendered footer to return the true max height of the dropdown body.
- *
- * @private
- * @param {DropDownListBox} listBox
- * @returns {Number|null}
- */
-const calculateBodyMaxHeight = listBox => {
-	const { style } = listBox.props;
-
-	/*
-	For mobile dropdowns, we have some different requirements.
-	1. If a header is present, the maxHeight of the entire dropdown is 100vh.
-	2. If a header is not present, the maxHeight of the entire dropdown is 80vh to allow
-			users to cancel by clicking on the mask.
-	3. If a footer is present, we need to account for that in the maxHeight of the body.
-	*/
-	if (isNarrowViewport()) {
-		let maxHeight = verge.viewportH();
-		if (listBox.header == null) {
-			maxHeight *= 0.8;
-		}
-		if (listBox.footer != null) {
-			maxHeight -= listBox.footer.rootNode.offsetHeight;
-		}
-		return maxHeight;
-	}
-
-	if (style == null || style.maxHeight == null) {
-		return null;
-	}
-
-	const maxHeight = style.maxHeight;
-	const footerHeight = listBox.footer != null ? listBox.footer.rootNode.offsetHeight : 0;
-	const headerHeight = listBox.header != null ? listBox.header.rootNode.offsetHeight : 0;
-
-	return maxHeight - footerHeight - headerHeight;
-};
-
-/**
- * Attempts to set the maxHeight state so it can be set on the dropdown body element. If the footer isn't yet
- * rendered the component will check again several times over 5 seconds. If after that it's still not rendered, it
- * will check again several time over half a second. If after this it's still not rendered it will no longer keep
- * checking.
- *
- * If successfully rendered, we will immediately stop checking if the footer is rendered and go calculate the
- * max height.
- *
- * @private
- * @param {DropDownListBox} listBox
- */
-const setBodyMaxHeight = listBox => {
-	const isFooterRendered = () => isRendered(listBox.footer.rootNode);
-	const isHeaderRendered = () => isNarrowViewport() ? isRendered(listBox.header.rootNode): true;
-	const isScrollableContentRendered = () => isRendered(listBox._scrollableContent);
-	const maxHeight = calculateBodyMaxHeight(listBox);
-
-	const setter = () => {
-		listBox.setState({
-			maxHeight,
-			height: isNarrowViewport() && listBox.header ? maxHeight : 'auto'
-		});
-	};
-
-	//Return true if both the footer and header are renderered. However, we may
-	//only have either a header or footer. Therefore just return true if there
-	//isn't an element to check is rendered.
-	const areElementsRendered = () => (listBox.footer ? isFooterRendered() : true) && (listBox.header ? isHeaderRendered() : true) && isScrollableContentRendered();
-
-	intervalRunner(areElementsRendered, setter);
-};
 
 /**
  * Utilize the intervalRunner to execute a callback when the list box and its children become visible to the user.
@@ -116,8 +40,34 @@ class DropDownListBox extends PureComponent {
 		};
 	}
 
-	componentDidUpdate() {
-		setBodyMaxHeight(this);
+	/**
+	 * When -webkit-overflow-scrolling: touch is set in iOS, scrolling elements inside of a fixed
+	 * position div have a decent (aka > 75%) chance of simply not updating when clicking on a
+	 * checkbox after scrolling the content.  However, divs without this property don't have this
+	 * problem.  I experimented with some CSS solutions, but didn't find anything that helped.
+	 * That's why I've gone with this approach.  It's simple, -webkit-overflow-scrolling: touch
+	 * causes the problem, so get rid of it while DOM updates happen, then add it back.
+	 *
+	 * I've added some simple safety checks to prevent JS errors and prevent this code from running
+	 * in non-iOS browsers.  After all, creating a timer does actually affect performance...
+	 *
+	 * @author dev-johnsanders
+	 *
+	 * @memberof DropDownListBox
+	 */
+	iOSHack = () => {
+		const content = this._scrollableContent;
+		if (
+			content != null &&
+			content.style.hasOwnProperty('webkitOverflowScrolling') &&
+			navigator != null &&
+			navigator.userAgent.indexOf('Edge/') === -1
+		) {
+			content.style.webkitOverflowScrolling = 'auto';
+			this._scrollStyleTimer = setTimeout(() => {
+				content.style.webkitOverflowScrolling = '';
+			}, 600);
+		}
 	}
 
 	onAnimationEnd = event => {
@@ -204,18 +154,10 @@ class DropDownListBox extends PureComponent {
 			'xui-dropdown--force-desktop': forceDesktop,
 		});
 
-		const bodyStyles = {
-			maxHeight: listBox.state.maxHeight,
-			height: listBox.state.height
-		};
-
-		const clonedFooter = footer != null && cloneElement(footer, {
-			ref: compose(footer.ref, c => listBox.footer = c)
-		});
-
-		const clonedHeader = header != null && cloneElement(header, {
-			ref: compose(header.ref, c => listBox.header = c)
-		});
+		let maxHeight = null;
+		if (isNarrowViewport()) {
+			maxHeight = header == null ? '80vh' : '100vh';
+		}
 
 		return (
 			<div
@@ -231,16 +173,22 @@ class DropDownListBox extends PureComponent {
 				onAnimationEnd={listBox.onAnimationEnd}
 			>
 				<div className="xui-dropdown--mask"></div>
-				<div ref={n => this.bodyNode = n} className="xui-dropdown--body">
-					{clonedHeader}
+				<div
+					ref={n => this.bodyNode = n}
+					onMouseUp={this.iOSHack}
+					className="xui-dropdown--body"
+					style={{
+						maxHeight
+					}}
+				>
+					{header}
 					<div
 						className="xui-dropdown--scrollable-content"
-						style={bodyStyles}
 						ref={sc => this._scrollableContent = sc}
 					>
 						{children}
 					</div>
-					{clonedFooter}
+					{footer}
 				</div>
 			</div>
 		);

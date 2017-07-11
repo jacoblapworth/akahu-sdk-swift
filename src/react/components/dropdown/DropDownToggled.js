@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
+import verge from 'verge';
 import Positioning from '../positioning/Positioning';
 import {
 	isNarrowViewport,
@@ -12,6 +13,18 @@ import {
 import { compose } from '../helpers/compose';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
+
+/**
+ * If the given DOM node isn't on screen, scroll it into view.
+ *
+ * @private
+ * @param {HTMLElement} node
+ */
+function scrollIntoViewIfNecessary(node) {
+	if (!verge.inViewport(node)) {
+		node.scrollIntoView();
+	}
+}
 
 /**
  * Attempt to set focus onto the trigger either via native DOM APIs or
@@ -77,14 +90,14 @@ export default class DropDownToggled extends PureComponent {
 			isClosing: false,
 		};
 
-		this.onResize = debounce(this.onResize, 100);
-		this.onScroll = throttleToFrame(this.repositionDropDown);
-
 		this.repositionDropDown = this.repositionDropDown.bind(this);
 		this.closeDropDown = this.closeDropDown.bind(this);
 		this.openDropDown = this.openDropDown.bind(this);
 		this.toggle = this.toggle.bind(this);
 		this.isDropDownOpen = this.isDropDownOpen.bind(this);
+
+		this.onResize = debounce(this.onResize, 250);
+		this.onScroll = throttleToFrame(this.repositionDropDown);
 	}
 
 	/**
@@ -125,12 +138,13 @@ export default class DropDownToggled extends PureComponent {
 		}
 
 		if (!props.disableScrollLocking) {
-			if (state.isHidden && isScrollLocked()) {
+			if ((state.isHidden || state.isClosing) && isScrollLocked()) {
 				unlockScroll();
 			}
 			if (!state.isHidden) {
 				if (isScrollLocked() && !state.isNarrowViewport) {
 					unlockScroll();
+					scrollIntoViewIfNecessary(this.wrapper.firstChild);
 				}
 				if (shouldLockScroll(ddt)) {
 					lockScroll();
@@ -151,6 +165,9 @@ export default class DropDownToggled extends PureComponent {
 		if (state.isHidden !== prevState.isHidden) {
 			// Just closed
 			if (state.isHidden) {
+				const { firstChild: trigger } = ddt.wrapper;
+				focusTrigger(ddt.trigger, trigger);
+
 				// Remove window event listeners for performance gains.
 				removeEventListeners(ddt);
 
@@ -202,15 +219,10 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 */
 	closeDropDown() {
-		const ddt = this;
-		const { firstChild: trigger } = ddt.wrapper;
-
-		// Timeout to give any callbacks a chance to fire before the dropdown is hidden.
-		ddt.setState(() => {
-			focusTrigger(ddt.trigger, trigger);
+		this.setState(() => {
 			return {
-				isHidden: !shouldAnimate(ddt),
-				isClosing: shouldAnimate(ddt),
+				isHidden: !shouldAnimate(this),
+				isClosing: shouldAnimate(this),
 			};
 		});
 	}
@@ -310,9 +322,9 @@ export default class DropDownToggled extends PureComponent {
 		*/
 		if (
 			!ddt.state.isHidden
-			&& dropdown != null && !dropdown.contains(event.target)
-			&& trigger != null && !trigger.contains(event.target)
-			|| event.target.classList.contains('xui-dropdown--mask')
+			&& ((dropdown == null || !dropdown.contains(event.target))
+			&& (trigger == null || !trigger.contains(event.target))
+			|| event.target.classList.contains('xui-dropdown--mask'))
 		) {
 			ddt.closeDropDown();
 		}
@@ -377,18 +389,23 @@ export default class DropDownToggled extends PureComponent {
 	}
 
 	/**
-	 * When the browser resizes, we need to do a couple of things to ensure that the
-	 * dropdown still looks correct:
-	 * 1. Check to see if we're in a mobile context.
-	 * 2. Reposition the dropdown.  Could be fullscreen if resized to mobile.
+	 * When the browser resizes in desktop mode, we need to do a couple of things to
+	 * ensure that the dropdown still looks correct:
+	 * 1. Scroll the trigger back into view if we need to.
+	 * 2. Check to see if we're in a mobile context.
+	 * 3. Reposition the dropdown.  Could be fullscreen if resized to mobile.
 	 *
 	 * @memberof DropDownToggled
 	 */
 	onResize = () => {
-		this.setState(() => ({
-			isNarrowViewport: isNarrowViewport(),
-		}));
-		this.repositionDropDown();
+		this.setState(state => {
+			const isNarrow = isNarrowViewport();
+			if (!isNarrow || (isNarrow && !state.isNarrowViewport)) {
+				scrollIntoViewIfNecessary(this.wrapper.firstChild);
+				this.repositionDropDown();
+			}
+			return { isNarrowViewport: isNarrow };
+		});
 	}
 
 	/**
@@ -410,17 +427,14 @@ export default class DropDownToggled extends PureComponent {
 		const ddt = this;
 		const { className, trigger, dropdown, restrictToViewPort, forceDesktop } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
-		const ariaProps = {
-			'aria-activedescendant': ddt.state.activeDescendant,
-			'aria-haspopup': true,
-			'aria-controls': dropdown.dropdownId
-		};
 
 		const clonedTrigger = React.cloneElement(trigger, {
-			ref: compose(trigger.ref, c => ddt.trigger = c),
-			onClick: compose(trigger.props.onClick, ddt.triggerClickHandler),
-			onKeyDown: compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
-			...ariaProps,
+			'ref': compose(trigger.ref, c => ddt.trigger = c),
+			'onClick': compose(trigger.props.onClick, ddt.triggerClickHandler),
+			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
+			'aria-activedescendant': ddt.state.activeDescendant,
+			'aria-haspopup': true,
+			'aria-controls': dropdown.dropdownId,
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {

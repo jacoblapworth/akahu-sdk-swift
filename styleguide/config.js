@@ -10,6 +10,9 @@ const componentSections = require('./sections.json');
 
 const config = {
 	webpackConfig: {
+		devServer: {
+			disableHostCheck: true,
+		},
 		module: {
 			loaders: [
 				{

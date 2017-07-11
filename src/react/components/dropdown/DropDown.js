@@ -67,7 +67,7 @@ export default class DropDown extends PureComponent {
 		const dropdown = this;
 		const { isHidden, hasKeyboardEvents, restrictFocus } = dropdown.props;
 		if (!isHidden) {
-			if (hasKeyboardEvents) {
+			if (hasKeyboardEvents && !dropdown.listBox.hasFocus()) {
 				dropdown.listBox.focus();
 			}
 			const id = dropdown.panel && dropdown.panel.getHighlightedId();

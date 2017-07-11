@@ -190,11 +190,11 @@ const searchIcon = require ( '@xero/xui-icon/icons/search' ).default;
 const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 const { Component } = require ('react');
 
-const getNumberOfTrueValues = items => Object.values(items).filter(value => value).length;
-
 const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
 	return { id, text };
 });
+
+const getNumberOfTrueValues = items => Object.keys(items).filter(key => !!items[key]).length;
 
 class XDD extends Component {
 	constructor() {

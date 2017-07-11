@@ -32,10 +32,37 @@ form {
 }
 
 .#{$ns}-html {
-	height: 100%;
+	/*
+	Must be min-height.  If it's not, then the scroll-locking CSS will cause the page to have its
+	scroll position reset when a modal or mobile dropdown opens.
+
+	@author dev-johnsanders
+	*/
+	min-height: 100%;
 
 	> .#{$ns}-body {
 		height: 100%;
+	}
+}
+
+/*
+Should work with or without the xui-html class on the html element so land as xui-html has
+a min-height and not a height.
+*/
+html.#{$ns}-u-lockscroll {
+	overflow: hidden;
+
+	/*
+	We have to set overflow: hidden on both the body and html elements.  If only the body
+	or html element is set by itself, then dropdown lists with no header or footer may cause excessive
+	whitespace above or below the dropdown body in Android Chrome (which seems to depend on whether or
+	not the address bar is open when you open the dropdown).  That causes lots of scrolling
+	and/or content not being visible when the dropdown/modal opens.
+
+	@author dev-johnsanders
+	*/
+	& body {
+		overflow: hidden;
 	}
 }
 

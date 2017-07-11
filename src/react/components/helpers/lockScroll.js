@@ -1,35 +1,58 @@
 import calcScrollbarWidth from 'scrollbar-width';
 
-/**
- * Test to see if the body scroll is currently locked
- */
-export const isScrollLocked = () => document.body.classList.contains('xui-u-overflow-hidden');
+let scrollState = null;
 
 /**
- * @private
+ * Test to see if the body scroll is currently locked
  *
+ * @export
+ */
+export const isScrollLocked = () => document.documentElement.classList.contains('xui-u-lockscroll');
+
+/**
  * Will set the scroll on the browser to be locked and visibly hidden so the content
  * underneath cannot be scrolled.
+ *
+ * @export
  */
 export const lockScroll = () => {
 	if (!isScrollLocked()) {
 		const body = document.body;
+		const html = document.documentElement;
 		const existingPadding = parseInt(window.getComputedStyle(body).paddingRight, 10);
 		const scrollbarSize = calcScrollbarWidth();
 		const newPadding = isNaN(existingPadding) || !isFinite(existingPadding) ? scrollbarSize : scrollbarSize + existingPadding;
-		body.classList.add('xui-u-overflow-hidden');
+
+		// FF scrolls the HTML element.  Chrome scrolls the body.  Handle either.
+		const scrollElement = body.scrollTop > 0 || html.scrollTop === 0 ? body : html;
+		scrollState = {
+			top: scrollElement.scrollTop,
+			left: scrollElement.scrollLeft,
+		};
+
+		html.classList.add('xui-u-lockscroll');
 		body.style.paddingRight = `${newPadding}px`;
 	}
 };
 
 /**
- * @private
- *
  * Will reset the body to have postition: static and overflow: auto instead of hidden.
+ *
+ * @export
  */
 export const unlockScroll = () => {
 	if (isScrollLocked()) {
-		document.body.classList.remove('xui-u-overflow-hidden');
-		document.body.style.paddingRight = '';
+		const { body, documentElement: html } = document;
+
+		body.style.paddingRight = '';
+		html.classList.remove('xui-u-lockscroll');
+
+		/*
+		iOS still scrolls behind, so make sure the scroll position gets reset back to
+		what it was when we locked scrolling.
+
+		@author dev-johnsanders
+		*/
+		window.scrollTo(scrollState.left, scrollState.top);
 	}
 };

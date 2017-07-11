@@ -85,6 +85,7 @@ export default class SelectBox extends Component {
 				className={dropDownClasses}
 				onSelect={props.onSelect}
 				qaHook={setQaHook(props.qaHook, qaHooks.dropdown)}
+				restrictFocus={props.restrictFocus}
 			>
 				<Picklist>
 					{props.children}
@@ -181,6 +182,9 @@ SelectBox.propTypes = {
 	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
+
+	/** Whether focus should be restricted to the dropdown while it's open. */
+	restrictFocus: PropTypes.bool,
 };
 
 SelectBox.defaultProps = {
@@ -191,4 +195,5 @@ SelectBox.defaultProps = {
 	isTextTruncated: true,
 	forceDesktop: false,
 	matchTriggerWidth: true,
+	restrictFocus: true,
 };

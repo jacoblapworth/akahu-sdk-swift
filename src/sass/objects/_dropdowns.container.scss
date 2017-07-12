@@ -345,13 +345,24 @@
 	}
 }
 
-@each $number, $variant in $xui-width-variants-dropdown{
-	.#{$ns}-dropdown-#{$variant} {
-		max-width: $xui-starting-width + ($xui-base-width * $number);
-	}
+@each $number, $variant in $xui-width-variants-dropdown {
+	@include xui-breakpoint-narrow-up {
+		.#{$ns}-dropdown-#{$variant} {
+			max-width: $xui-starting-width + ($xui-base-width * $number);
+		}
 
-	.#{$ns}-dropdown-fixed-#{$variant} {
-		width: $xui-starting-width + ($xui-base-width * $number);
+		.#{$ns}-dropdown-fixed-#{$variant} {
+			width: $xui-starting-width + ($xui-base-width * $number);
+		}
+	}
+	@include xui-breakpoint-narrow {
+		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown--force-desktop {
+			max-width: $xui-starting-width + ($xui-base-width * $number);
+		}
+
+		.#{$ns}-dropdown-fixed-#{$variant}.#{$ns}-dropdown--force-desktop {
+			width: $xui-starting-width + ($xui-base-width * $number);
+		}
 	}
 }
 

@@ -237,7 +237,7 @@ class ToggledNestedDropdown extends Component {
 				onSelect={this.onSelect}
 				className='dropdown-toggle-wrapper'
 				currentPanel={currentPanel}
-				size="xlarge"
+				size="large"
 				onPanelSelect={this.selectPanel}
 			>
 				<DropDownPanel

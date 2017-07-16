@@ -98,7 +98,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	@extend %#{$ns}-commoninput;
 }
 
-// TODO: Remove xui-input-wrapper in XUI11
+// TODO: Remove xui-input-wrapper in XUI 12
 .#{$ns}-input-wrapper,
 .#{$ns}-inputwrapper {
 	position: relative;
@@ -149,12 +149,12 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	z-index: $xui-input-icon-zindex;
 }
 
-// TODO: remove in XUI11
+// TODO: remove in XUI 12
 .#{$ns}-input-borderless-layout {
 	@include xui-padding($xui-s-standard);
 }
 
-// TODO: remove in XUI11
+// TODO: remove in XUI 12
 .#{$ns}-inputwrapper-borderless-layout {
 	.#{$ns}-input--iconwrapper {
 		top: $xui-s-xsmall + 1px; // Layout class adds extra vertical height
@@ -318,7 +318,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
-// TODO: Remove xui-input-wrapper-borderless in XUI11
+// TODO: Remove xui-input-wrapper-borderless in XUI 12
 .#{$ns}-input-wrapper-borderless,
 .#{$ns}-inputwrapper-borderless {
 
@@ -331,7 +331,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
-// TODO: Remove xui-input-wrapper-borderless-layout in XUI11
+// TODO: Remove xui-input-wrapper-borderless-layout in XUI 12
 .#{$ns}-input-wrapper-borderless-layout,
 .#{$ns}-inputwrapper-borderless-layout {
 	.#{$ns}-input--icon-left ~ .#{$ns}-input {
@@ -450,7 +450,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Styleguide: Forms.4.5
 
-// TODO: Remove xui-input-group in XUI11
+// TODO: Remove xui-input-group in XUI 12
 .#{$ns}-input-group,
 .#{$ns}-inputgroup {
 	@include xui-clearfix;

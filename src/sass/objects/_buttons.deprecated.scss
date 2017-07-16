@@ -142,14 +142,14 @@
 //
 // Styleguide: Toggle.4.3
 
-.#{$ns}-button-link { // TODO: Remove in XUI 11
+.#{$ns}-button-link { // TODO: Remove in XUI 12
 	@include xui-state-focus-transparent;
 	color: $xui-color-xero-blue;
 	font-weight: inherit;
 }
 
 // Standard styles
-.#{$ns}-toggle-standard { // TODO: Remove in XUI 11
+.#{$ns}-toggle-standard { // TODO: Remove in XUI 12
 	// Hover
 	.#{$ns}-toggle--label:hover {
 		background-color: $xui-color-grey-alpha-7;
@@ -198,7 +198,7 @@
 }
 
 // Form styles
-.#{$ns}-toggle-form { // TODO: Remove in XUI 11
+.#{$ns}-toggle-form { // TODO: Remove in XUI 12
 	// Hover
 	.#{$ns}-toggle--label:hover {
 		background-color: $xui-color-grey-alpha-7;
@@ -246,7 +246,7 @@
 
 
 // Icon toolbar layout
-.#{$ns}-toggle-icon-layout .#{$ns}-toggle--label { // TODO: Remove in XUI 11
+.#{$ns}-toggle-icon-layout .#{$ns}-toggle--label { // TODO: Remove in XUI 12
 	height: $xui-input-height;
 	width: 44px;
 }

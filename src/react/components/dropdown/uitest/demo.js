@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
-import assign from 'object-assign';
 import checked from '@xero/xui-icon/icons/checkbox-check';
 import search from '@xero/xui-icon/icons/search';
 import XUIIcon from '../../icon/XUIIcon';
@@ -26,11 +25,12 @@ function createItems(items, selectedId) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i, selectedId));
 	}
-	return React.createElement(Pickitem, assign({}, items.props, {
+	return React.createElement(Pickitem, {
+		...items.props,
 		value: items.props.id,
 		key: items.props.id,
 		isSelected: isSelected(items, selectedId)
-	}), items.text);
+	}, items.text);
 }
 
 const toggledItems = [
@@ -210,9 +210,10 @@ class ToggledNestedDropdown extends Component {
 	onOptionSelect(value, item){
 		const exampleUsage = this;
 		exampleUsage.setState({
-			selectedItems: assign({}, exampleUsage.state.selectedItems, {
+			selectedItems: {
+				...exampleUsage.state.selectedItems,
 				[item.props.id]: !exampleUsage.state.selectedItems[item.props.id]
-			})
+			}
 		});
 	}
 

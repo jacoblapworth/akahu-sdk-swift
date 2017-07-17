@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import assign from 'object-assign';
 import contact from '@xero/xui-icon/icons/contact';
 import notification from '@xero/xui-icon/icons/notification';
 import photo from '@xero/xui-icon/icons/photo';
@@ -29,24 +28,16 @@ ReactDOM.render(
 				<h3>Layout: Form</h3>
 				<div className={`xui-panel xui-margin xui-padding xui-text-${color}`}>
 					<XUIToggle color={color} layout='form'>
-						<XUIToggleOption {...assign({},
-							toggleForm
-						)}>
+						<XUIToggleOption {...toggleForm}>
 							Toy Story
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleForm
-						)}>
+						<XUIToggleOption {...toggleForm}>
 							The Lion King
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleForm
-						)}>
+						<XUIToggleOption {...toggleForm}>
 							Finding Nemo
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleForm
-						)}>
+						<XUIToggleOption {...toggleForm}>
 							Monsters, Inc.
 						</XUIToggleOption>
 					</XUIToggle>
@@ -55,19 +46,13 @@ ReactDOM.render(
 				<h3>Layout: Standard</h3>
 				<div className={`xui-panel xui-margin xui-padding xui-text-${color}`}>
 					<XUIToggle color={color}>
-						<XUIToggleOption {...assign({},
-							toggleIcon
-						)}>
+						<XUIToggleOption {...toggleIcon}>
 							<XUIIcon path={photo} />
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleIcon
-						)}>
+						<XUIToggleOption {...toggleIcon}>
 							<XUIIcon path={notification} />
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleIcon
-						)}>
+						<XUIToggleOption {...toggleIcon}>
 							<XUIIcon path={contact} />
 						</XUIToggleOption>
 					</XUIToggle>
@@ -75,22 +60,13 @@ ReactDOM.render(
 				<h3>Disabled</h3>
 				<div className={`xui-panel xui-margin xui-padding xui-text-${color}`}>
 					<XUIToggle color={color}>
-						<XUIToggleOption {...assign({},
-							toggleIcon,
-							{ isDisabled: true }
-						)}>
+						<XUIToggleOption {...toggleIcon} isDisabled>
 							<XUIIcon path={photo} />
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleIcon,
-							{ isDisabled: true }
-						)}>
+						<XUIToggleOption {...toggleIcon} isDisabled>
 							<XUIIcon path={notification} />
 						</XUIToggleOption>
-						<XUIToggleOption {...assign({},
-							toggleIcon,
-							{ isDisabled: true }
-						)}>
+						<XUIToggleOption {...toggleIcon} isDisabled>
 							<XUIIcon path={contact} />
 						</XUIToggleOption>
 					</XUIToggle>

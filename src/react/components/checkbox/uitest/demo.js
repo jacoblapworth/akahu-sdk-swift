@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import desktop from '@xero/xui-icon/icons/desktop';
 import XUICheckbox from '../XUICheckbox';
 import XUICheckboxGroup from '../XUICheckboxGroup';
-Object.assign = require('object-assign'); // Make IE11 happy
 
 class Uncontrolled extends React.Component {
 	state = {}

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDayPicker, { DateUtils } from 'react-day-picker';
-import assign from 'object-assign';
 import CustomNavbar from './customElements/CustomNavbar';
 import CustomCaption from './customElements/CustomCaption';
 import CustomWeekday from './customElements/CustomWeekday';
@@ -264,9 +263,10 @@ export default class XUIDatePicker extends PureComponent {
 		}
 		let classes = customClassNames;
 		if (isCompact) {
-			classes = assign({}, customClassNames, {
+			classes = {
+				...customClassNames,
 				container: customClassNames.container + ' xui-datepicker-compact',
-			});
+			};
 		}
 
 		return (

@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import debounce from 'lodash.debounce';
-import assign from 'object-assign';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import Autocompleter from '../Autocompleter';
@@ -276,7 +275,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 		removeSelectedItem(item){
 			const { selectedItems } = this.state;
-			const clonedSelectedItems = assign({}, selectedItems);
+			const clonedSelectedItems = {...selectedItems};
 
 			delete clonedSelectedItems[item.props.id];
 

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { NavbarPropTypes, DateUtils } from 'react-day-picker';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
-import assign from 'object-assign';
 import arrow from '@xero/xui-icon/icons/arrow';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
@@ -167,7 +166,8 @@ export default class CustomNavbar extends PureComponent {
 	}
 }
 
-CustomNavbar.propTypes = assign({}, NavbarPropTypes, {
+CustomNavbar.propTypes = {
+	...NavbarPropTypes,
 	classNames: NavbarPropTypes.classNames,
 	showPreviousButton: NavbarPropTypes.showPreviousButton,
 	showNextButton: NavbarPropTypes.showNextButton,
@@ -182,7 +182,7 @@ CustomNavbar.propTypes = assign({}, NavbarPropTypes, {
 	maxDate: PropTypes.instanceOf(Date),
 	isCompact: PropTypes.bool,
 	locale: PropTypes.string,
-});
+};
 
 CustomNavbar.defaultProps = {
 	isCompact: false,

@@ -38,19 +38,22 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 	const placeBelow = canGoBelow || spaceBelowTrigger >= spaceAboveTrigger;
 	const alignLeftEdge = canAlignLeftEdge || spaceRightOfTrigger >= spaceLeftOfTrigger;
 
-	const popupTransform = placeBelow
-		? (triggerRect.height + gap) + 'px'
-		: `calc(-100% - ${gap}px)`;
-
 	const popupLeftPos = alignLeftEdge
 		? Math.max(triggerRect.left, gutter)
 		: Math.min(Math.max(triggerRect.right - popupRect.width, gutter), verge.viewportW() - popupRect.width - gutter);
 
+	const translateX = isNarrowViewport()
+		? '0px'
+		: `${Math.floor(popupLeftPos + scrollLeftAmount())}px`
+	const translateY = placeBelow
+		? (triggerRect.height + gap) + 'px'
+		: `calc(-100% - ${gap}px)`;
+	const translate = `translate(${translateX},${translateY})`;
+
 	popup.setState({
 		top: triggerRect.top + scrollTopAmount(),
-		left: popupLeftPos + scrollLeftAmount(),
 		alignTop: !placeBelow,
-		transformY: popupTransform,
+		transform: translate,
 		bottom: null,
 	});
 }
@@ -103,8 +106,7 @@ function positionOnShow(popup) {
 function getDefaultState() {
 	return {
 		top: 0,
-		left: 0,
-		transformY: '0',
+		transform: null,
 		alignTop: false,
 		maxHeight: verge.viewportH() * 0.99,
 		positioned: false,
@@ -125,7 +127,7 @@ function getPositionCalculationStyles(popup) {
 			visibility: 'hidden',
 			position: 'fixed',
 			top: 0,
-			left: 0,
+			transform: null,
 			maxHeight: '99%',
 			maxWidth: '99%'
 		};
@@ -249,7 +251,7 @@ class Positioning extends PureComponent {
 	 * @return {{ maxHeight: Number, left: Number, top: Number, transformY: String }}
 	 */
 	getStyles() {
-		const { maxHeight, left, top, transformY, bottom } = this.state;
+		const { maxHeight, transform, top, bottom } = this.state;
 		const { matchTriggerWidth, parentRef, forceDesktop } = this.props;
 		const isMobile = isNarrowViewport() && !forceDesktop;
 		let width = null;
@@ -261,12 +263,11 @@ class Positioning extends PureComponent {
 
 		return {
 			maxHeight: isMobile ? null : maxHeight,
-			left,
 			top,
 			width,
 			maxWidth,
 			bottom,
-			transform: transformY == null ? null : `translateY(${transformY})`,
+			transform: isMobile ? '' : transform,
 		};
 	}
 

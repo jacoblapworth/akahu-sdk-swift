@@ -20,7 +20,8 @@ export const VariantClassNames = {
 	'standard': 'xui-button-standard',
 	'icon': 'xui-button-icon',
 	'icon-large': 'xui-button-icon xui-button-icon-large',
-	'icon-inverted': 'xui-button-icon-inverted',
+	'icon-inverted': 'xui-button-icon xui-button-icon-inverted',
+	'icon-inverted-large': 'xui-button-icon xui-button-icon-inverted xui-button-icon-large',
 	'unstyled': ''
 };
 

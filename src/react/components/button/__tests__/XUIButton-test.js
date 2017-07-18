@@ -106,6 +106,24 @@ describe('<XUIButton/>', () => {
 		assert.isTrue(onClick.calledOnce);
 	});
 
+	it('renders icon buttons with the correct classes', () => {
+		const iconButton = renderIntoDocument(<XUIButton variant="icon" onClick={() => {}} />);
+		assert.isTrue(iconButton.rootNode.classList.contains('xui-button-icon'));
+
+		const invertedIconButton = renderIntoDocument(<XUIButton variant="icon-inverted" onClick={() => {}} />);
+		assert.isTrue(invertedIconButton.rootNode.classList.contains('xui-button-icon'));
+		assert.isTrue(invertedIconButton.rootNode.classList.contains('xui-button-icon-inverted'));
+
+		const largeIconButton = renderIntoDocument(<XUIButton variant="icon-large" onClick={() => {}} />);
+		assert.isTrue(largeIconButton.rootNode.classList.contains('xui-button-icon'));
+		assert.isTrue(largeIconButton.rootNode.classList.contains('xui-button-icon-large'));
+
+		const invertedLargeIconButton = renderIntoDocument(<XUIButton variant="icon-inverted-large" onClick={() => {}} />);
+		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon'));
+		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon-large'));
+		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon-inverted'));
+	});
+
 	it('has a role attribute for links which function like buttons', () => {
 		const button = renderIntoDocument(<XUIButton isLink href="https://www.xero.com/" onClick={() => {}} />);
 		assert.strictEqual(button.rootNode.getAttribute('role'), 'button');
@@ -116,19 +134,13 @@ describe('<XUIButton/>', () => {
 		assert.isNull(button.rootNode.getAttribute('role'));
 	});
 
-	/*
-	I tried to get these to work, but setting focus in karma doesn't seem to work.  Fucking sucks.  However, I did test
-	the focus() API on the test-ui page.
-
-	@dev-johnsanders 1 Dec 2016
-	 */
-	it.skip('focus() should focus the DOM node', function () {
+	it('focus() should focus the DOM node', function () {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		button.focus();
 		assert.isTrue(button.rootNode === document.activeElement);
 	});
 
-	it.skip('hasFocus() should accurately reflect whether or not the main button DOM node has focus', function () {
+	it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', function () {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		assert.isFalse(button.hasFocus(), 'said has focus when it does not');
 		button.focus();

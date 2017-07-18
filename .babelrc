@@ -1,3 +1,5 @@
 {
-	"presets": ["@xero/babel-preset-xero"]
+	"presets": [["@xero/babel-preset-xero", {
+		"wrapPropTypes": true
+	}]]
 }

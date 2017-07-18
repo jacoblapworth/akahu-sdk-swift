@@ -31,3 +31,19 @@ The StatefulPicklist is a component that wraps the Picklist to keep track of whi
 	<Pickitem id="plain5">Last Item</Pickitem>
 </Picklist>
 ```
+
+### Horizontal vairant
+
+```
+<Picklist isHorizontal>
+	<Pickitem id="plain1" isSelected shouldTruncate>
+		Projects
+	</Pickitem>
+	<Pickitem id="plain2" shouldTruncate>
+		Timesheets
+	</Pickitem>
+	<Pickitem id="plain3" shouldTruncate>
+		Other things
+	</Pickitem>
+</Picklist>
+```

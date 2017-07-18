@@ -14,7 +14,6 @@ import PickitemBody from './PickitemBody';
 export default class Pickitem extends PureComponent {
 	render() {
 		const pickItem = this;
-		const classBase = 'xui-pickitem';
 		const {
 			id,
 			isSelected,
@@ -35,15 +34,17 @@ export default class Pickitem extends PureComponent {
 			isDisabled,
 			isSplit,
 			ariaLabel,
-			target
+			target,
+			shouldTruncate
 		} = pickItem.props;
 
-		const classes = cn(classBase, className, {
-			[`${classBase}-is-hovered`]: isHighlighted,
-			[`${classBase}-is-selected`]: isSelected && !disableSelectedStyles,
-			[`${classBase}-multiselect`]: multiselect,
-			[`${classBase}--split`]: isSplit,
-			'xui-is-disabled': isDisabled
+		const classes = cn('xui-pickitem', className, {
+			'xui-pickitem-is-hovered': isHighlighted,
+			'xui-pickitem-is-selected': isSelected && !disableSelectedStyles,
+			'xui-pickitem-multiselect': multiselect,
+			'xui-pickitem--split': isSplit,
+			'xui-is-disabled': isDisabled,
+			'xui-text-truncated': shouldTruncate
 		});
 		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
 
@@ -113,7 +114,9 @@ Pickitem.propTypes = {
 	/** Optional label to add to a pickitem */
 	ariaLabel: PropTypes.string,
 	/** When a link is preferred, this target prop can be used on the <a> tag*/
-	target: PropTypes.string
+	target: PropTypes.string,
+	/** Whether to truncate text instead of wrapping */
+	shouldTruncate: PropTypes.bool
 };
 
 Pickitem.defaultProps = {

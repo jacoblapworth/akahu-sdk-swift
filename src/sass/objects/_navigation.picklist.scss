@@ -176,6 +176,55 @@
 	}
 }
 
+// Horizontal
+//
+// A horizontal variant of the datepicker is provided through the use of a modifier class. It is recommended that you do not use `xui-pickitem--text`
+// within horizontal pickitems as their padding is already provided, or with `xui-picklist-layout` as horizontal picklists should not have vertical padding.
+//
+// Classes:
+// xui-picklist-horizontal: Modifier class to be applied to the picklist for a horizontal variant
+//
+// Markup:
+// <ul class="xui-picklist xui-picklist-horizontal" role="tree">
+//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//     <a href="#" class="xui-pickitem--body" tabindex="0">
+//       Selected item
+//     </a>
+//   </li>
+//   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
+//       Item two
+//     </button>
+//   </li>
+//   <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
+//       Item three
+//     </button>
+//   </li>
+// </ul>
+//
+// Styleguide: Picklist.1.2
+
+
+.#{$ns}-picklist-horizontal {
+	display: inline-flex;
+	flex-direction: row;
+	.#{$ns}-pickitem--body {
+		height: 100%;
+		min-height: $xui-input-height;
+		padding: $xui-s-small $xui-s-standard;
+		text-align: center;
+	}
+	.#{$ns}-pickitem-is-selected {
+		.#{$ns}-pickitem--body:before {
+			border-bottom: 3px solid currentColor;
+			/* Remove default left border */
+			border-left: none;
+			width: 100%;
+		}
+	}
+}
+
 // Submenus
 //
 // Classes:

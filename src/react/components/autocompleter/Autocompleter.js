@@ -105,24 +105,34 @@ export default class Autocompleter extends PureComponent {
 			listQaHook = `${props.qaHook}-list`;
 			containerQaHook = `${props.qaHook}-container`;
 		}
+
 		const handlers = getHandlers(completer);
-		const trigger = (
-			<AutocompleterInput
-				refFn={c => completer.input = c}
-				value={props.searchValue}
-				placeholder={props.placeholder}
-				maxLength={props.maxLength}
-				onSearch={props.onSearch}
-				onKeyDown={handlers.onInputKeyDown}
-				className={props.inputClassName}
-				throttleInterval={props.searchThrottleInterval}
-				qaHook={inputQaHook}
-				onFocus={props.openOnFocus ? handlers.onInputFocus : null}
-			/>
+		const triggerClasses = cn(
+			'xui-input',
+			'xui-u-flex',
+			'xui-u-flex-verticallycentered',
+			props.triggerClassName
 		);
+		const trigger = (
+			<div className={triggerClasses}>
+				{props.pills}
+				<AutocompleterInput
+					refFn={c => completer.input = c}
+					value={props.searchValue}
+					placeholder={props.placeholder}
+					maxLength={props.maxLength}
+					onSearch={props.onSearch}
+					onKeyDown={handlers.onInputKeyDown}
+					className={props.inputClassName}
+					throttleInterval={props.searchThrottleInterval}
+					qaHook={inputQaHook}
+					onFocus={props.openOnFocus ? handlers.onInputFocus : null}
+				/>
+			</div>
+		);
+
 		const dropdownClasses = cn({
 			'xui-u-fullwidth': !props.dropdownSize },
-			'ac-dropdown',
 			props.dropdownClassName,
 		);
 		const dropdown = (
@@ -141,10 +151,14 @@ export default class Autocompleter extends PureComponent {
 				{props.loading ? <Picklist><XUILoader /></Picklist> : props.children}
 			</DropDown>
 		);
-		const classNames = cn('xui-input', 'ac-wrapper', 'xui-u-flex', props.className, {
-			'ac-wrapper--focus': completer.state.focused
-		});
-		const dropdownToggledClasses = cn({ 'xui-u-fullwidth': !props.dropdownSize }, 'ac-toggled-wrapper');
+
+		const classNames = cn(
+			props.className,
+			{
+				'ac-wrapper--focus': completer.state.focused
+			}
+		);
+
 		return (
 			<div
 				ref={c => completer.rootNode = c}
@@ -153,7 +167,6 @@ export default class Autocompleter extends PureComponent {
 				onBlur={handlers.onBlur}
 				data-automationid={containerQaHook}
 			>
-				{props.pills}
 				<DropDownToggled
 					ref={c => completer.ddt = c}
 					trigger={trigger}
@@ -161,10 +174,9 @@ export default class Autocompleter extends PureComponent {
 					onOpen={props.onOpen}
 					onClose={props.onClose}
 					closeOnSelect={props.closeOnSelect}
-					className={dropdownToggledClasses}
 					triggerClickAction={props.triggerClickAction}
 					forceDesktop={props.forceDesktop}
-					matchTriggerWidth={props.matchTriggerWidth}
+					matchTriggerWidth={props.matchTriggerWidth && !props.dropdownSize}
 				/>
 			</div>
 		);
@@ -194,6 +206,9 @@ Autocompleter.propTypes = {
 
 	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
+
+	/** CSS class(es) to go on the trigger element which contains the input and pills */
+	triggerClassName: PropTypes.string,
 
 	/** Placeholder for the input */
 	placeholder: PropTypes.string,

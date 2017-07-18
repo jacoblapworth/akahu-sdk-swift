@@ -6,6 +6,7 @@ import Pill from '../../pill/XUIPill';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
+import DropDownToggled from '../../dropdown/DropDownToggled'
 
 describe('Autocompleter', () => {
 	let wrapper;
@@ -29,9 +30,9 @@ describe('Autocompleter', () => {
 	});
 
 
-	it('renders with medium sizing when declared', () => {
+	it('uses the correct size variant if one is defined and doesn\'t try match trigger width', () => {
 		expect(wrapper.find('.xui-dropdown-medium')).toBeDefined();
-		expect(wrapper.find('.dropdown-toggled-wrapper').hasClass('xui-u-fullwidth')).toBeFalsy();
+		expect(wrapper.find(DropDownToggled).node.props).toHaveProperty('matchTriggerWidth',false);
 	});
 
 	it('has data-automationid set on the input, list and container', () => {
@@ -105,7 +106,7 @@ describe('Autocompleter', () => {
 		expect(wrapper.instance().ddt.state.isHidden).toBeTruthy();
 	});
 
-	it('applies the xui-u-fullwidth class if no dropdownSize is provided in the component props', () => {
+	it('sets the dropdown to match trigger width if no dropdownSize is provided in the component props', () => {
 		const wrapper = mount(
 			<Autocompleter forceDesktop>
 				<Picklist>
@@ -113,6 +114,6 @@ describe('Autocompleter', () => {
 				</Picklist>
 			</Autocompleter>, {attachTo: div}
 		);
-		expect(wrapper.find('.dropdown-toggled-wrapper').hasClass('xui-u-fullwidth')).toBeTruthy();
+		expect(wrapper.find(DropDownToggled).node.props).toHaveProperty('matchTriggerWidth',true);
 	});
 });

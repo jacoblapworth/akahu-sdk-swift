@@ -85,15 +85,15 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 					id={item.id}
 					onSelect={(value, instance) => example.setState({value: item.name, selectedItem: instance})}
 				>
-					<div className="xui-column-2-of-12">
+					<div className="xui-u-flex">
 						<XUIAvatar value={item.name} imageUrl={item.avatar} />
-					</div>
-					<div className="xui-column-10-of-12">
-						<div className="xui-item-title xui-text-truncated">
-							{decorateSubStr(item.name, value || '', boldMatch)}
-						</div>
-						<div className="xui-text-secondary xui-text-truncated">
-							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
+						<div className="xui-u-grow xui-padding-left">
+							<div className="xui-item-title xui-text-truncated">
+								{decorateSubStr(item.name, value || '', boldMatch)}
+							</div>
+							<div className="xui-text-secondary xui-text-truncated">
+								{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
+							</div>
 						</div>
 					</div>
 				</Pickitem>
@@ -110,8 +110,13 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						onSearch={example.onSearchChangeHandler}
 						placeholder="Search"
 						searchValue={value}
-						dropdownSize="xlarge"
 						dropdownFixedWidth
+						pills={
+							[
+								<XUIPill value="Selected" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>,
+								<XUIPill value="Items" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>
+							]
+						}
 					>
 						<Picklist>
 							{example.getItems()}

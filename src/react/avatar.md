@@ -5,7 +5,17 @@
 	</div>
 </div>
 
-## Circular and Rectangular avatars
+Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.
+
+XUI provides ten approved colors for Avatars.
+The Avatar component handles selecting a color for you based on its contents, as well as calculating the abbreviated text value from the full value you pass it.
+
+Avatars can be grouped together using the `<XUIAvatarGroup>` component.
+
+
+## Examples
+
+### Avatar variants
 
 Circular avatars are used to represent people. This is the default avatar variant.
 
@@ -58,7 +68,7 @@ class XUIAvatarWithErrorHandler extends Component {
 					value="Failure"
 					imageUrl="/this/is/a/broken/path/to/an/image.jpg"
 					onError={this.onError} />
-				{this.state.message}
+				<span className="xui-margin-left-small">{this.state.message}</span>
 			</div>
 		);
 	}
@@ -74,12 +84,12 @@ The colour of an Avatar is determined by the contents of either the `value` or `
 
 ```
 <div>
-	<XUIAvatar value="Xero" identifier="a" />
-	<XUIAvatar value="Xero" identifier="b" />
-	<XUIAvatar value="Xero" identifier="c" />
-	<XUIAvatar value="Xero" identifier="d" />
-	<XUIAvatar value="Xero" identifier="e" />
-	<XUIAvatar value="Xero" identifier="f" />
+	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="a" />
+	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="b" />
+	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="c" />
+	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="d" />
+	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="e" />
+	<XUIAvatar className="xui-margin-right-small" value="Xero" identifier="f" />
 </div>
 ```
 
@@ -112,7 +122,7 @@ Providing a `maxAvatars` prop will only show a maximum of that many avatar space
 Providing an `avatarSize` prop will override the sizing of any Avatar in the group.
 
 ```
-<XUIAvatarGroup maxAvatars="4" avatarSize="large">
+<XUIAvatarGroup maxAvatars={4} avatarSize="large">
 	<XUIAvatar value="Bandicoot" />
 	<XUIAvatar size="small" value="Quokka" />
 	<XUIAvatar size="xlarge" value="Wombat" />

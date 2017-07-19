@@ -1,5 +1,25 @@
 # Want to contribute?
 
+## First Timers
+
+XUI is built using [nodejs](https://nodejs.org/) and we recommend using [Node version Manager](https://github.com/creationix/nvm) or similar ([nvm-windows](https://github.com/coreybutler/nvm-windows)) to manage node versions as the minimum version required does change from time to time.
+
+XUI currently has two build pipelines, one for CSS and one for React components. For now there are two separate CONTRIBUTING.md docs for getting a local build up and running these are linked bellow in the [Development Workflow](#development-workflow) section.
+
+We use an "up-for-grabs" label to indicate issues that are suitable for first timers and new contributers these shoud be relatively straight forward. You can [filter issues to show just up-for-grabs](https://github.dev.xero.com/UXE/xui/issues?q=is%3Aopen+is%3Aissue+label%3Aup-for-grabs) and look out for ones you might like to try.
+
+We always want help improving documentation, examples and test coverage. Even if we don't have specific issues for these if you see something you want to improve, [raise and issue](https://github.dev.xero.com/UXE/xui/issues/new), assign yourself and give it a go.
+
+**Some useful info**
+
+* If you are working on an issue, assign it to yourself in Github so we know you're having a look at it.
+* Ensure you're working on a forked copy of XUI and preferably a sensibly named branch.
+* Include relevant documentation updates and tests in along with any code changes.
+* Write meaningful commit and PR messages ([Anatomy Of a Good Commit Message](https://adamcod.es/2012/07/03/anatomy-of-a-good-commit-message.html) has some good info).
+* Always add a "rel|ref|fixes:" issue reference and always ensure an issue exists before opening a PR.
+* cc @UXE/uxe-team or @UXE/developers for code reviews.
+* Ask questions on issues, PRs or in Slack.
+
 ## Bugs
 
 ### Where to Find Issues

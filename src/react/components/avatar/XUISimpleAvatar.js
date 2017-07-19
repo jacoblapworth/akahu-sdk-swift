@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cn from 'classnames';
 import {sizeClassNames, classNames, colorClassNames, variantClassNames} from './constants';
 
-const ignoreChars = /[(){}\[\]]/; // ignore braces
+const ignoreChars = /[(){}[\]]/; // ignore braces
 
 /**
  * @private

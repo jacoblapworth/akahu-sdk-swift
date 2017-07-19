@@ -2,7 +2,7 @@ module.exports = {
   bail: true,
   verbose: true,
   roots: ['<rootDir>/src/react/components'],
-  testRegex: '\-test\\.(js|jsx)$',
+  testRegex: '-test\\.(js|jsx)$',
   testResultsProcessor: 'jest-teamcity-reporter',
   moduleDirectories: ['node_modules'],
   collectCoverageFrom: [

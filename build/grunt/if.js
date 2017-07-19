@@ -7,8 +7,8 @@ module.exports = function(grunt) {
 				test: function() {
 					var filepath = 'README.md';
 
-					var edgeRegex = /(http[s]?:\/\/edge.xero.com\/style\/xui\/)(\d+.\d+.\d+[^\/]*)(\/\w+.*\w*?)/g;
-					var githubRegex = /(git(@|:\/\/)github\.dev\.xero\.com(\/|:)UXE\/xui\.git#\^?)(\d+.\d+.\d+[^\/^ ]*)(.*)/g;
+					var edgeRegex = /(http[s]?:\/\/edge.xero.com\/style\/xui\/)(\d+.\d+.\d+[^/]*)(\/\w+.*\w*?)/g;
+					var githubRegex = /(git(@|:\/\/)github\.dev\.xero\.com(\/|:)UXE\/xui\.git#\^?)(\d+.\d+.\d+[^/^ ]*)(.*)/g;
 
 					var options = { encoding: 'utf8' };
 					var packageJson = require('../../package.json');

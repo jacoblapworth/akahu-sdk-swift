@@ -64,10 +64,37 @@ export default class Autocompleter extends PureComponent {
 		this.state = {
 			focused: false
 		};
+		this.focusInput = this.focusInput.bind(this);
+		this.scrollInputIntoView = this.scrollInputIntoView.bind(this);
 	}
 
 	componentWillUnmount() {
 		HandlersMap.delete(this);
+		window.removeEventListener('resize', this.scrollInputIntoView);
+	}
+
+	componentWillMount() {
+		if (!this.props.wrapPills) {
+			window.addEventListener('resize', this.scrollInputIntoView);
+		}
+	}
+
+	componentDidMount() {
+		this.scrollInputIntoView();
+	}
+
+	componentDidUpdate(prevProps) {
+		const completer = this;
+		if (completer.props.pills > prevProps.pills) {
+			completer.scrollInputIntoView();
+		}
+		if (completer.props.wrapPills && !prevProps.wrapPills) {
+			window.addEventListener('resize', this.scrollInputIntoView);
+		}
+	}
+
+	scrollInputIntoView() {
+		this.trigger.scrollLeft = this.trigger.scrollWidth;
 	}
 
 	/**
@@ -94,6 +121,14 @@ export default class Autocompleter extends PureComponent {
 		this.dropdown.highlightItem(item);
 	}
 
+	/**
+	 * @public
+	 * Focuses the text input
+	 */
+	focusInput() {
+		this.input.inputNode.focus();
+	}
+
 	render() {
 		const completer = this;
 		const props = completer.props;
@@ -111,10 +146,11 @@ export default class Autocompleter extends PureComponent {
 			'xui-input',
 			'xui-u-flex',
 			'xui-u-flex-verticallycentered',
+			props.wrapPills ? 'ac-trigger-pillwrap' : 'ac-trigger',
 			props.triggerClassName
 		);
 		const trigger = (
-			<div className={triggerClasses}>
+			<div className={triggerClasses} id="trigger" ref={tg => this.trigger=tg}>
 				{props.pills}
 				<AutocompleterInput
 					refFn={c => completer.input = c}
@@ -174,7 +210,7 @@ export default class Autocompleter extends PureComponent {
 					onOpen={props.onOpen}
 					onClose={props.onClose}
 					closeOnSelect={props.closeOnSelect}
-					triggerClickAction={props.triggerClickAction}
+					triggerClickAction="none"
 					forceDesktop={props.forceDesktop}
 					matchTriggerWidth={props.matchTriggerWidth && !props.dropdownSize}
 				/>
@@ -240,13 +276,10 @@ Autocompleter.propTypes = {
 	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,
 
-	/** What action to take when the user clicks the trigger.  Default is to open the dropdown.  Can toggle the dropdown open/closed ('toggle') or do nothing ('none'). */
-	triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
-
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
+	/** If a size is set, this will force the dropdown to that size instead of settinhg it as a max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
 	/**
@@ -254,6 +287,9 @@ Autocompleter.propTypes = {
 	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
+
+	/** Whether the pills should wrap instead of scroll on overflow */
+	wrapPills: PropTypes.bool,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node
@@ -263,8 +299,7 @@ Autocompleter.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,
-	triggerClickAction: 'open',
 	forceDesktop: false,
 	dropdownFixedWidth: false,
-	matchTriggerWidth: true,
+	matchTriggerWidth: true
 };

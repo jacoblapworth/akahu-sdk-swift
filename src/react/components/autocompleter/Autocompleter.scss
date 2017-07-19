@@ -27,6 +27,7 @@
 }
 
 .ac-input-wrapper {
+	flex: 1 0 50%;
 	padding: 8px 0.5em;
 	vertical-align: middle;
 	display: flex;
@@ -54,8 +55,14 @@
 	color: $xui-color-secondary-text;
 }
 
-.ac-toggled-wrapper {
-	position: static;
-	//grow to fill the rest of the space available.
-	flex-grow: 1;
+.ac-trigger {
+	display: flex;
+	overflow: auto;
+	max-width: 100%;
+}
+
+.ac-trigger-pillwrap {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
 }

@@ -28,113 +28,144 @@ The autocompleter can be passed a list of `pills` to display to the left of the 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const { Component } = require('react');
-const people  = require('./components/autocompleter/private/people').default;
+const peopleDataSet  = require('./components/autocompleter/private/people').default;
 
-const filterPeopleByValue = (data, value, excludedItem) => {
+const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
 		const val = value.toLowerCase();
 
 		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
-		return (!excludedItem || excludedItem.key !== node.id) && (node.name.toLowerCase().indexOf(val) > -1
+		return !peopleToExclude.find(person => person.id === node.id) && (node.name.toLowerCase().indexOf(val) > -1
 		|| node.email.toLowerCase().indexOf(val) > -1
 		|| node.subtext.toLowerCase().indexOf(val) > -1);
 	});
 };
 
-	//Example to show how the children can be styled however and you also define your own search criteria.
-	class DetailedListExample extends Component {
-		constructor() {
-			super();
+//Example to show how the children can be styled however and you also define your own search criteria.
+class DetailedListExample extends Component {
+	constructor() {
+		super();
 
-			const example = this;
+		const example = this;
 
-			example.state = {
-				value: '',
-				people: people,
-				selectedItem: null
-			};
+		example.state = {
+			value: '',
+			people: peopleDataSet,
+			selectedPeople: [peopleDataSet[0]]
+		};
 
-			example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
-		}
+		example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
+		example.deletePerson = example.deletePerson.bind(example);
+	}
 
-		onSearchChangeHandler(value) {
-			const example = this;
-			const { selectedItem } = example.state;
-			example.completer.openDropDown();
-			example.setState({
-				value: value,
-				people: filterPeopleByValue(people, value, selectedItem)
-			});
-		}
+	onSearchChangeHandler(value) {
+		const example = this;
+		const { selectedPeople } = example.state;
+		example.completer.openDropDown();
+		example.setState({
+			value: value,
+			people: filterPeople(peopleDataSet, value, selectedPeople)
+		});
+	}
 
-		filterDataByValue(value){
-			const people = people.filter(person => {
-				return person.name.toLowerCase().includes(value.toLowerCase())
-					|| person.email.toLowerCase().includes(value.toLowerCase())
-					|| person.subtext.toLowerCase().includes(value.toLowerCase())
-			});
-
-			this.setState({
-				loading: false,
-				data: people
-			});
-		}
-
-		getItems(){
-			const example = this;
-			const { value, people } = example.state;
-			const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
-
-			if(!Array.isArray(people) || people.length <= 0){
-				return noResults;
+	deletePerson(id) {
+		this.setState(prevState => {
+			const selectedPeople = [...prevState.selectedPeople.filter(person => person.id !== id)];
+			return {
+				selectedPeople: selectedPeople,
+				people: filterPeople(peopleDataSet, prevState.value, selectedPeople)
 			}
+		});
+	}
 
-			return people.map(item => (
-				<Pickitem
-					key={item.id}
-					id={item.id}
-					onSelect={(value, instance) => example.setState({value: item.name, selectedItem: instance})}
-				>
-					<div className="xui-u-flex">
-						<XUIAvatar value={item.name} imageUrl={item.avatar} />
-						<div className="xui-u-grow xui-padding-left">
-							<div className="xui-item-title xui-text-truncated">
-								{decorateSubStr(item.name, value || '', boldMatch)}
-							</div>
-							<div className="xui-text-secondary xui-text-truncated">
-								{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
-							</div>
+	selectPerson(person) {
+		this.setState(prevState => {
+			const selectedPeople = [...prevState.selectedPeople, person];
+			return {
+				value: '',
+				selectedPeople: selectedPeople,
+				people: filterPeople(peopleDataSet, '', selectedPeople)
+			}
+		});
+	}
+
+	filterDataByValue(value){
+		const people = people.filter(person => {
+			return person.name.toLowerCase().includes(value.toLowerCase())
+				|| person.email.toLowerCase().includes(value.toLowerCase())
+				|| person.subtext.toLowerCase().includes(value.toLowerCase())
+		});
+
+		this.setState({
+			loading: false,
+			data: people
+		});
+	}
+
+	getItems(){
+		const example = this;
+		const {
+			value,
+			people,
+			selectedPeople
+		} = example.state;
+		const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
+
+		if(!Array.isArray(people) || people.length <= 0){
+			return noResults;
+		}
+
+		return people.map(item => (
+			<Pickitem
+				key={item.id}
+				id={item.id}
+				onSelect={() => this.selectPerson(item)}
+			>
+				<div className="xui-u-flex">
+					<XUIAvatar value={item.name} imageUrl={item.avatar} />
+					<div className="xui-u-grow xui-padding-left">
+						<div className="xui-item-title xui-text-truncated">
+							{decorateSubStr(item.name, value || '', boldMatch)}
+						</div>
+						<div className="xui-text-secondary xui-text-truncated">
+							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
 						</div>
 					</div>
-				</Pickitem>
-			));
-		}
-
-		render(){
-			const example = this;
-			const { value } = example.state;
-
-			return (
-					<Autocompleter
-						ref={ac => example.completer = ac}
-						onSearch={example.onSearchChangeHandler}
-						placeholder="Search"
-						searchValue={value}
-						dropdownFixedWidth
-						pills={
-							[
-								<XUIPill key="selected-pill" value="Selected" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>,
-								<XUIPill key="items-pill" value="Items" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>
-							]
-						}
-					>
-						<Picklist>
-							{example.getItems()}
-						</Picklist>
-					</Autocompleter>
-			)
-		}
+				</div>
+			</Pickitem>
+		));
 	}
+
+	render(){
+		const example = this;
+		const { value, selectedPeople } = example.state;
+
+		return (
+				<Autocompleter
+					ref={ac => example.completer = ac}
+					onSearch={example.onSearchChangeHandler}
+					placeholder="Search"
+					searchValue={value}
+					dropdownFixedWidth
+					pills={
+						selectedPeople.map(person =>
+							<XUIPill
+								value={person.name}
+								onDeleteClick={()=>this.deletePerson(person.id)}
+								onClick={() => example.completer.focusInput()}
+								className="xui-margin-right-xsmall"
+								key={person.id}
+							/>
+						)
+					}
+				>
+					<Picklist>
+						{example.getItems()}
+					</Picklist>
+				</Autocompleter>
+		)
+	}
+}
 
 <DetailedListExample />
 ```

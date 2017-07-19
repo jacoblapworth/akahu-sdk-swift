@@ -1,16 +1,11 @@
-### XUI Docs
+A Switch uses an HTML checkbox under the hood.
 
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-switch.html#switch">Switch</a></span>
+		<span><a href="../section-switch.html#switch">Switch in the XUI Documentation</a></span>
 	</div>
 </div>
-
-### Related
-
-* [Checkbox](#checkbox)
-* [Radio](#radio)
 
 ```
 const { PureComponent } = require('react');
@@ -22,29 +17,19 @@ class Example extends PureComponent {
 		super(props);
 
 		this.state = {
-			a: false,
-			b: true,
-			c: false
+			checked: true,
 		};
 	}
 
 	render() {
 		return (
-			<div className="xui-page-width-standard xui-margin-top">
-				<div className="xui-margin-bottom-small">
-					<XUISwitch checked={this.state.a} onChange={() => this.setState(prevState => ({ a: !prevState.a }))} />
+			<div>
+				<h3>Click the switch</h3>
+				<div className="xui-margin-bottom">
+					<XUISwitch checked={this.state.checked} onChange={() => this.setState(prevState => ({ checked: !prevState.checked }))} />
 				</div>
-				<div className="xui-margin-bottom-small">
-					<XUISwitch checked={this.state.b} onChange={() => this.setState(prevState => ({ b: !prevState.b }))} />
-				</div>
-				<div className="xui-margin-bottom-small">
-					<XUISwitch checked={this.state.c} onChange={() => this.setState(prevState => ({ c: !prevState.c }))} />
-				</div>
-				<div className="xui-margin-bottom-small">
-					<XUISwitch disabled onChange={NOOP} />Disabled
-				</div>
-				<div className="xui-margin-bottom-small">
-					<XUISwitch disabled checked onChange={NOOP} />Disabled &amp; Checked
+				<div>
+					<XUISwitch disabled checked={this.state.checked} onChange={NOOP} />
 				</div>
 			</div>
 		);

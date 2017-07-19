@@ -1,15 +1,13 @@
-### XUI Docs
+
 
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-datepicker.html#datepicker">Datepicker</a></span>
+		<span><a href="../section-datepicker.html#datepicker">Datepicker in the XUI Documentation</a></span>
 	</div>
 </div>
 
-### Related
-
-* [DropDown](#dropdown)
+For information about things to take into consideration when using a `Datepicker` within a `Dropdown` component, check the [DropDown documentation](#dropdown).
 
 ```
 const XUIDatePicker = require('./datepicker').default;
@@ -72,7 +70,7 @@ ExamplePicker.propTypes = {
 	locale: PropTypes.string,
 };
 
-<section>
-	<div className="xui-panel xui-padding"><ExamplePicker /></div>
-</section>
+<div className="xui-panel xui-dropdown-large">
+	<ExamplePicker />
+</div>
 ```

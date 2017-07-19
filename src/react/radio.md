@@ -1,84 +1,72 @@
 Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.
 
-### XUI Docs
+The XUI Radio  supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
 
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-checkboxes-and-radios.html#checkboxes-and-radios-1">Checkboxes and Radios</a></span>
+		<span><a href="../section-checkboxes-and-radios.html#checkboxes-and-radios-1">Radio in the XUI Documentation</a></span>
 	</div>
 </div>
 
+## Examples
+
+You can hook into the `onChange` event to update them when the user interacts with the radio.
+
 ```
-const rowClasses = 'xui-space-around xui-margin-bottom-small';
+	<div className="xui-u-flex xui-space-around">
+		<XUIRadio isChecked={false}>Unchecked</XUIRadio>
+		<XUIRadio isChecked>Checked</XUIRadio>
+		<XUIRadio isDisabled isChecked={false}>Unchecked</XUIRadio>
+		<XUIRadio isDisabled isChecked>Checked</XUIRadio>
+	</div>
+```
 
-const normal = (
-	<section>
-		<h3>Standard Radio</h3>
-		<div className={rowClasses}>
-			<XUIRadio>Uncontrolled</XUIRadio>
-			<XUIRadio isChecked={false}>Unchecked</XUIRadio>
-			<XUIRadio isChecked>Checked</XUIRadio>
-			<XUIRadio isRequired>Required</XUIRadio>
-			<XUIRadio isDisabled>Disabled Unchecked</XUIRadio>
-			<XUIRadio isDisabled isChecked>Disabled Checked</XUIRadio>
-		</div>
-	</section>
-);
+### Reversed labels
 
-const reversed = (
-	<section>
-		<h3>Reversed Radio</h3>
-		<div className={rowClasses}>
-			<XUIRadio isReversed isChecked={false}>Unchecked</XUIRadio>
-			<XUIRadio isReversed isChecked>Checked</XUIRadio>
-			<XUIRadio isReversed isRequired>Required Reversed</XUIRadio>
-			<XUIRadio isReversed isDisabled>Disabled Unchecked</XUIRadio>
-			<XUIRadio isReversed isDisabled isChecked>Disabled Checked</XUIRadio>
-		</div>
-	</section>
-);
+Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
-const group = (
-	<section>
-		<h3>Radio Group</h3>
-		<XUIRadioGroup>
-			<XUIRadio name="radioGroup" isReversed>Reversed</XUIRadio>
-			<XUIRadio name="radioGroup" defaultChecked>Check me</XUIRadio>
-			<XUIRadio name="radioGroup">Nah check me</XUIRadio>
-			<XUIRadio name="radioGroup" iconMainPath={customIcon}>You really want to check me</XUIRadio>
-			<XUIRadio name="radioGroup" isDisabled>Disabled</XUIRadio>
-		</XUIRadioGroup>
-	</section>
-);
+```
+<div className="xui-u-flex xui-space-around">
+		<XUIRadio isReversed isChecked={false}>Unchecked</XUIRadio>
+		<XUIRadio isReversed isChecked>Checked</XUIRadio>
+		<XUIRadio isReversed isDisabled isChecked={false}>Unchecked</XUIRadio>
+		<XUIRadio isReversed isDisabled isChecked>Checked</XUIRadio>
+	</div>
+```
 
-const customIcon = (
-	<section>
-		<h3>Radio with custom icons</h3>
-		<div className={rowClasses}>
-			<XUIRadio iconMainPath={customIcon} isChecked={false}>
-				Unchecked
-			</XUIRadio>
-			<XUIRadio iconMainPath={customIcon} isChecked>
-				Checked
-			</XUIRadio>
-			<XUIRadio iconMainPath={customIcon} isChecked isRequired>
-				Required
-			</XUIRadio>
-			<XUIRadio iconMainPath={customIcon} isDisabled>
-				Disabled Unchecked
-			</XUIRadio>
-			<XUIRadio iconMainPath={customIcon} isDisabled isChecked>
-				Disabled Checked
-			</XUIRadio>
-		</div>
-	</section>
-);
+### Custom Icons
 
-<div className="xui-page-width-large">
-	{normal}
-	{reversed}
-	{customIcon}
-	{group}
+Because the Radio component uses [`Icon`](#icon) to style the presentation of the element, you can overwrite the paths that the radio uses.
+
+ `iconMainPath` is the path for the Radio outline; `iconCheckPath` is the indicator that the radio is selected.
+
+```
+const customMainIcon = require ('@xero/xui-icon/icons/star').default;
+const customCheckIcon = require ('@xero/xui-icon/icons/suggestion').default;
+<div className="xui-u-flex xui-justify-center">
+	<XUIRadio name="customRadio" isChecked iconMainPath={customMainIcon}>
+		Favourite
+	</XUIRadio>
+	<XUIRadio name="customRadio" iconCheckPath={customCheckIcon}>
+		Favourite
+	</XUIRadio>
 </div>
+```
+
+### Radio Groups
+
+Radios can be grouped together, which makes it easier to include them alongside inputs and other form elements.
+When grouping radios together, you still need to add a `name` to each Radio so that only one can be selected at a time.
+
+The touch target for Radios in a group is the entire "row" of the Radio Group.
+
+```
+const customCheckIcon = require ('@xero/xui-icon/icons/url').default;
+<XUIRadioGroup>
+	<XUIRadio name="radioGroup" isChecked iconCheckPath={customCheckIcon}>Wellington</XUIRadio>
+	<XUIRadio name="radioGroup" iconCheckPath={customCheckIcon}>Canberra</XUIRadio>
+	<XUIRadio name="radioGroup" iconCheckPath={customCheckIcon}>Washington D.C</XUIRadio>
+	<XUIRadio name="radioGroup" isDisabled iconCheckPath={customCheckIcon}>Carthage</XUIRadio>
+</XUIRadioGroup>
 ```

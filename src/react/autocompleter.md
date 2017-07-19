@@ -1,4 +1,6 @@
-### XUI Docs
+Autocompleter is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
+
+Refer to the following sections of the XUI Documentation for more information about the components that make up an Autocompleter.
 
 <div class="xui-margin-vertical">
 	<div>
@@ -13,7 +15,15 @@
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="../section-dropdowns.html#dropdowns">Dropdown</a></span>
 	</div>
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-pills-and-tags.html#pills-and-tags-2">Pills and Tags</a></span>
+	</div>
 </div>
+
+## Examples
+
+The autocompleter can be passed a list of `pills` to display to the left of the input.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
@@ -113,8 +123,8 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						dropdownFixedWidth
 						pills={
 							[
-								<XUIPill value="Selected" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>,
-								<XUIPill value="Items" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>
+								<XUIPill key="selected-pill" value="Selected" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>,
+								<XUIPill key="items-pill" value="Items" className="xui-margin-right-xsmall" onDeleteClick={()=>{}}/>
 							]
 						}
 					>

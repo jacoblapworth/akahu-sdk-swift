@@ -1,11 +1,9 @@
 Select Box is an opinionated component which wraps [DropDown](#dropdown) and [DropDownToggled](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [DropDown](#dropdown) components directly.
 
-### XUI Docs
-
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="/section-forms.html#forms-9">Select Box</a></span>
+		<span><a href="/section-forms.html#forms-9">Select Box in the XUI Documentation</a></span>
 	</div>
 </div>
 
@@ -13,6 +11,10 @@ Select Box is an opinionated component which wraps [DropDown](#dropdown) and [Dr
 
 * [Dropdown](#dropdown)
 * [Autocompleter](#autocompleter)
+
+## Examples
+
+In the following example, the `buttonContent` of the SelectBox is being set to value of the selected item in the example's state.
 
 ```
 const { Component }= require('react');
@@ -77,8 +79,9 @@ class MiniApp extends Component {
 	<MiniApp />
 ```
 
+### Multi Select
 
-
+You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
 ```
 const { Component }= require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;

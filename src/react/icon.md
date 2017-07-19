@@ -1,16 +1,16 @@
-### Usage
+<div class="xui-margin-vertical">
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="../section-icons.html#icons">Icon in the XUI Documentation</a></span>
+	</div>
+</div>
+
+## How to use the XUI Icon
+
 
 1. Import required icon paths (the below examples use require; you should use es2015 import).
 2. Instance `<XUIIcon />` with imported icon path.
 
-### XUI Docs
-
-<div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-icons.html#icons">Icon</a></span>
-	</div>
-</div>
 
 ```
 	const star = require ('@xero/xui-icon/icons/star').default;
@@ -30,21 +30,15 @@
 	</section>
 ```
 
-### Migration to XUI v11 Icons
+### Migrating to XUI 11 Icons from previous versions of XUIIcon
 
-Two main points to consider here:
-1. `<XUICustomIcon />` has now become the default icon component for XUI.  That means that `<XUICustomIcon />` has been renamed to `<XUIIcon />` and the older XUIIcon implementation has been removed.
-2. The icon paths are still in a separate repository called `xui-icon`.  If you plan on using icons in your project, you'll need to install `@xero/xui-icon` >=5.0.0.  This is the version that exports individual icon paths.
-
-This means your calls to `<XUIIcon />` should now pass in a `path` prop, the value of which should be imported from `@xero/xui-icon/icons/[icon name]`].  The icon name you should use in the aforementioned import statement should be identical to the value of the `icon` prop you used in prior versions of `<XUIIcon />`.
-
-Before:
+#### Before
 ```js
 import XUIIcon from 'xui-icon';
 ...
 <XUIIcon icon="accessibility" />
 ```
-After (v11):
+#### After (v11)
 ```js
 import XUIIcon from '@xero/xui/react/icon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
@@ -52,17 +46,23 @@ import accessibility from '@xero/xui-icon/icons/accessibility';
 <XUIIcon path={accessibility} />
 ```
 
-#### Reasons for xui-icon not being in the monorepo
+#### Notes
+1. `<XUICustomIcon />` has now become the default icon component for XUI. `<XUICustomIcon />` has been renamed to `<XUIIcon />` and the previous XUIIcon implementation has been removed.
+2. The icon paths themselves are still in a separate repository called `xui-icon`.  To use these icons in your project, you'll need to install `@xero/xui-icon` >=5.0.0.  This is the version that exports individual icon paths.
 
-There are a couple of reasons.  First of all, we still need to keep the iconBlob around for non-React customers and previous implementations.  That necessitates custom build setps which we don't really want to maintain in the monorepo.
+Your calls to `<XUIIcon />` should now pass in a `path` prop, the value of which should be imported from `@xero/xui-icon/icons/[icon name]`.  The icon name in your import statement is the same as the `icon` prop used in prior versions of `<XUIIcon />`.
+
+### Reasons for xui-icon not being in the monorepo
+
+First of all, we still need to keep the `iconBlob` around for non-React customers and legacy projects.  That requires custom build steps which we don't want to maintain from the XUI repo.
 
 Secondly, and more importantly, SVG icon paths are truly separate from the implementation of the React icon.  Having a separate Github repository with an associated deployed artifact in Artifactory allows consumers to request and use new icons without necessarily having to update to the latest version of XUI.  This should allow our icon library to grow and adapt quickly without requiring high maintenance costs for our customers.
 
-#### Reasons for the XUIIcon component change
+### Explanation for the XUIIcon component change
 
 A common issue that consumers had with icons in the past is that they were required to add every single SVG icon into their built artifact if they wanted to add a single icon on their page.  This caused the size of their JS artifacts to explode, and it was often the largest part of their deployed JavaScript asset.
 
-We recently took that feedback on board and created the XUICustomIcon component that accepted only the path of the icon that you wanted to use, thus decoupling the SVG icon itself from the React component that output the SVG icon and only requiring the icons that you want to be in your asset.
+We recently took that feedback on board and created the XUICustomIcon component that accepted only the path of the icon that you wanted to use, decoupling the SVG icon itself from the React component that output the SVG icon.
 
 Unfortunately, XUICustomIcon wasn't a good final solution.  XUI components often didn't use XUICustomIcon and if just a single instance of the older XUIIcon was anywhere in your build dependencies, you got every single SVG path in your final asset.
 

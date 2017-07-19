@@ -21,14 +21,25 @@ Different styles of button are provided for by passing different `variants`.
 
 ```
 	<div>
-		<XUIButton className="xui-margin-right" variant="standard">Standard</XUIButton>
-		<XUIButton className="xui-margin-right" variant="primary">Primary</XUIButton>
-		<XUIButton className="xui-margin-right" variant="create">Create</XUIButton>
-		<XUIButton className="xui-margin-right" variant="negative">Negative</XUIButton>
+		<div>
+			<XUIButton className="xui-margin-right" variant="standard">Standard</XUIButton>
+			<XUIButton className="xui-margin-right" variant="primary">Primary</XUIButton>
+			<XUIButton className="xui-margin-right" variant="create">Create</XUIButton>
+			<XUIButton className="xui-margin-right" variant="negative">Negative</XUIButton>
+		</div>
+		<div className="xui-padding-xsmall">
+			<XUIButton className="xui-margin-right" variant="borderless-standard">Borderless Standard</XUIButton>
+			<XUIButton className="xui-margin-right" variant="borderless-primary">Borderless Primary</XUIButton>
+			<XUIButton className="xui-margin-right" variant="borderless-create">Borderless Create</XUIButton>
+			<XUIButton className="xui-margin-right" variant="borderless-negative">Borderless Negative</XUIButton>
+		</div>
+		<div className="xui-padding-xsmall xui-background-grey-1">
+			<XUIButton className="xui-margin-right" variant="borderless-inverted">Borderless Inverted</XUIButton>
+		</div>
 	</div>
 ```
 
-Icon buttons (for things like overflow dropdown menus, close buttons, etc.) are supported by the `icon` and `icon-inverted` variants.
+Icon buttons (for things like overflow dropdown menus, close buttons, etc.) are supported by the `icon`, `icon-inverted`, 'icon-large' and 'icon-inverted-large' variants.
 
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
 As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefox compatibility.

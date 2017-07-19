@@ -3,7 +3,7 @@
 // Borderless
 //
 // Borderless buttons take up the same amount of physical space as a regular button (to retain an appropriate hit area), but are used in situations where a regular button would draw too much attention.
-// To use an icon inside a borderless button, add the class `.xui-icon-inline` to the svg. All standard variants can also be applied, ie. `.xui-buttongroup` `.xui-button-is-disabled` and `.xui-button-small`. 
+// To use an icon inside a borderless button, add the class `.xui-icon-inline` to the svg. All standard variants can also be applied, ie. `.xui-buttongroup` `.xui-button-is-disabled` and `.xui-button-small`.
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-borderless-standard">Standard</button>
@@ -12,7 +12,7 @@
 // <button type="button" class="xui-button xui-button-borderless-create">Create</button>
 // <button type="button" class="xui-button xui-button-borderless-negative">Negative</button>
 // <button type="button" class="xui-button xui-button-borderless-standard xui-button-is-disabled">Disabled</button>
-// <div class="xui-text-inverted">
+// <div class="xui-background-grey-1">
 // 	<button type="button" class="xui-button xui-button-borderless-inverted">Inverted</button>
 // 	<button type="button" class="xui-button xui-button-borderless-inverted">
 // 		<svg focusable="false" class="xui-icon xui-icon-inline">

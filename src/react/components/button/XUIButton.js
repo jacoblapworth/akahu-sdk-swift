@@ -217,7 +217,7 @@ XUIButton.propTypes = {
 	/** Bind a function to fire when the button is clicked */
 	onClick: PropTypes.func,
 
-	/** Determines what the purpose of this button is. `standard`, `primary`, `create`, `negative`, `link` or `unstyled`. */
+	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`, 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative', 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or `unstyled`. */
 	variant: PropTypes.oneOf(Object.keys(VariantClassNames)),
 
 	/** Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */

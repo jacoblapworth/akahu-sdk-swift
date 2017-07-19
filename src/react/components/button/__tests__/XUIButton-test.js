@@ -124,6 +124,23 @@ describe('<XUIButton/>', () => {
 		assert.isTrue(invertedLargeIconButton.rootNode.classList.contains('xui-button-icon-inverted'));
 	});
 
+	it('renders borderless buttons with the correct classes', () => {
+		const primary = renderIntoDocument(<XUIButton variant="borderless-primary" onClick={() => {}} />);
+		assert.isTrue(primary.rootNode.classList.contains('xui-button-borderless-primary'));
+
+		const create = renderIntoDocument(<XUIButton variant="borderless-create" onClick={() => {}} />);
+		assert.isTrue(create.rootNode.classList.contains('xui-button-borderless-create'));
+
+		const standard = renderIntoDocument(<XUIButton variant="borderless-standard" onClick={() => {}} />);
+		assert.isTrue(standard.rootNode.classList.contains('xui-button-borderless-standard'));
+
+		const negative = renderIntoDocument(<XUIButton variant="borderless-negative" onClick={() => {}} />);
+		assert.isTrue(negative.rootNode.classList.contains('xui-button-borderless-negative'));
+
+		const inverted = renderIntoDocument(<XUIButton variant="borderless-inverted" onClick={() => {}} />);
+		assert.isTrue(inverted.rootNode.classList.contains('xui-button-borderless-inverted'));
+	});
+
 	it('has a role attribute for links which function like buttons', () => {
 		const button = renderIntoDocument(<XUIButton isLink href="https://www.xero.com/" onClick={() => {}} />);
 		assert.strictEqual(button.rootNode.getAttribute('role'), 'button');

@@ -13,11 +13,16 @@ export const SizeClassNames = {
  * Map of variants to class names
  */
 export const VariantClassNames = {
+	'standard': 'xui-button-standard',
 	'primary': 'xui-button-main',
 	'create': 'xui-button-create',
 	'link': 'xui-button-link',
 	'negative': 'xui-button-negative',
-	'standard': 'xui-button-standard',
+	'borderless-standard': 'xui-button-borderless-standard',
+	'borderless-primary': 'xui-button-borderless-primary',
+	'borderless-create': 'xui-button-borderless-create',
+	'borderless-negative': 'xui-button-borderless-negative',
+	'borderless-inverted': 'xui-button-borderless-inverted',
 	'icon': 'xui-button-icon',
 	'icon-large': 'xui-button-icon xui-button-icon-large',
 	'icon-inverted': 'xui-button-icon xui-button-icon-inverted',

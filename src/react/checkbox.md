@@ -15,7 +15,7 @@ Checkbox presentation is driven by the two props, `isChecked` and `isIndetermina
 You can hook into the `onChange` event to update them when the user interacts with the checkbox.
 
 ```
-	<div className="xui-u-flex xui-space-around">
+	<div>
 		<XUICheckbox isChecked={false}>Unchecked</XUICheckbox>
 		<XUICheckbox isChecked>Checked</XUICheckbox>
 		<XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
@@ -25,7 +25,7 @@ You can hook into the `onChange` event to update them when the user interacts wi
 ### Disabled
 
 ```
-<div className="xui-u-flex xui-space-around">
+<div>
 	<XUICheckbox isDisabled>Unchecked</XUICheckbox>
 	<XUICheckbox isDisabled isChecked>Checked</XUICheckbox>
 	<XUICheckbox isDisabled isIndeterminate>Indeterminate</XUICheckbox>
@@ -37,7 +37,7 @@ You can hook into the `onChange` event to update them when the user interacts wi
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
 ```
-<div className="xui-u-flex xui-space-around">
+<div>
 	<XUICheckbox isReversed isChecked={false}>Unchecked</XUICheckbox>
 	<XUICheckbox isReversed isChecked>Checked</XUICheckbox>
 	<XUICheckbox isReversed isIndeterminate>Indeterminate</XUICheckbox>

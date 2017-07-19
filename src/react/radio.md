@@ -14,7 +14,7 @@ The XUI Radio  supports properties for use with forms like the HTML radio input,
 You can hook into the `onChange` event to update them when the user interacts with the radio.
 
 ```
-	<div className="xui-u-flex xui-space-around">
+	<div>
 		<XUIRadio isChecked={false}>Unchecked</XUIRadio>
 		<XUIRadio isChecked>Checked</XUIRadio>
 		<XUIRadio isDisabled isChecked={false}>Unchecked</XUIRadio>
@@ -27,7 +27,7 @@ You can hook into the `onChange` event to update them when the user interacts wi
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
 ```
-<div className="xui-u-flex xui-space-around">
+<div>
 		<XUIRadio isReversed isChecked={false}>Unchecked</XUIRadio>
 		<XUIRadio isReversed isChecked>Checked</XUIRadio>
 		<XUIRadio isReversed isDisabled isChecked={false}>Unchecked</XUIRadio>
@@ -44,8 +44,8 @@ Because the Radio component uses [`Icon`](#icon) to style the presentation of th
 ```
 const customMainIcon = require ('@xero/xui-icon/icons/star').default;
 const customCheckIcon = require ('@xero/xui-icon/icons/suggestion').default;
-<div className="xui-u-flex xui-justify-center">
-	<XUIRadio name="customRadio" isChecked iconMainPath={customMainIcon}>
+<div>
+	<XUIRadio name="customRadio" iconMainPath={customMainIcon}>
 		Favourite
 	</XUIRadio>
 	<XUIRadio name="customRadio" iconCheckPath={customCheckIcon}>
@@ -64,7 +64,7 @@ The touch target for Radios in a group is the entire "row" of the Radio Group.
 ```
 const customCheckIcon = require ('@xero/xui-icon/icons/url').default;
 <XUIRadioGroup>
-	<XUIRadio name="radioGroup" isChecked iconCheckPath={customCheckIcon}>Wellington</XUIRadio>
+	<XUIRadio name="radioGroup" iconCheckPath={customCheckIcon}>Wellington</XUIRadio>
 	<XUIRadio name="radioGroup" iconCheckPath={customCheckIcon}>Canberra</XUIRadio>
 	<XUIRadio name="radioGroup" iconCheckPath={customCheckIcon}>Washington D.C</XUIRadio>
 	<XUIRadio name="radioGroup" isDisabled iconCheckPath={customCheckIcon}>Carthage</XUIRadio>

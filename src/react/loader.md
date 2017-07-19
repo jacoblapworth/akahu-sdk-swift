@@ -27,8 +27,6 @@ Apart from the `standard` size, Loaders can be `small` or `large`.
 
 ```
 <div>
-<XUILoader className="xui-margin-bottom" size="small" defaultLayout={false} />
-<XUILoader className="xui-margin-bottom" defaultLayout={false} />
 <XUILoader size="large" defaultLayout={false} />
 </div>
 ```

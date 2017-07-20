@@ -220,21 +220,22 @@ export default class XUIDatePicker extends PureComponent {
 
 	render() {
 		const {
-			selectedDate,
-			showFixedNumberOfWeeks,
-			showDaysInOtherMonths,
+			dir,
+			firstDayOfWeek,
+			isCompact,
+			locale,
+			maxDate,
+			minDate,
+			months,
 			nextButtonLabel,
 			prevButtonLabel,
+			qaHook,
+			selectedDate,
 			selectedRange,
-			minDate,
-			maxDate,
-			isCompact,
-			months,
+			showDaysInOtherMonths,
+			showFixedNumberOfWeeks,
 			weekdaysLong,
 			weekdaysShort,
-			firstDayOfWeek,
-			dir,
-			locale,
 		} = this.props;
 		const normalizedRange = normalizeRange(selectedRange);
 		const modifiers = selectedRange
@@ -271,40 +272,45 @@ export default class XUIDatePicker extends PureComponent {
 
 		return (
 			<ReactDayPicker
-				ref={c => this.dayPicker = c}
+				captionElement={customCaptionElement}
+				classNames={classes}
+				containerProps={{
+					'data-automationid': qaHook,
+				}}
+				dir={dir}
+				disabledDays={this.isDayDisabled}
+				enableOutsideDays={showDaysInOtherMonths}
+				firstDayOfWeek={firstDayOfWeek}
+				fixedWeeks={showFixedNumberOfWeeks}
+				fromMonth={minDate}
 				labels={{
 					nextMonth: nextButtonLabel,
 					previousMonth: prevButtonLabel,
 				}}
-				fromMonth={minDate}
-				toMonth={maxDate}
+				locale={locale}
 				modifiers={modifiers}
 				month={this.state.currentMonth}
-				selectedDays={selectedDays}
-				classNames={classes}
-				disabledDays={this.isDayDisabled}
-				onDayClick={this.onSelectDate}
-				captionElement={customCaptionElement}
-				navbarElement={customNavbarElement}
-				weekdayElement={customWeekdayElement}
-				renderDay={this.renderDay}
-				onDayMouseEnter={this.onDayMouseEnter}
-				onDayFocus={this.onDayFocus}
-				onMonthChange={this.onMonthChange}
-				enableOutsideDays={showDaysInOtherMonths}
-				fixedWeeks={showFixedNumberOfWeeks}
 				months={months}
+				navbarElement={customNavbarElement}
+				onDayClick={this.onSelectDate}
+				onDayFocus={this.onDayFocus}
+				onDayMouseEnter={this.onDayMouseEnter}
+				onMonthChange={this.onMonthChange}
+				ref={c => this.dayPicker = c}
+				renderDay={this.renderDay}
+				selectedDays={selectedDays}
+				toMonth={maxDate}
+				weekdayElement={customWeekdayElement}
 				weekdaysLong={weekdaysLong}
 				weekdaysShort={weekdaysShort}
-				firstDayOfWeek={firstDayOfWeek}
-				dir={dir}
-				locale={locale}
 			/>
 		);
 	}
 }
 
 XUIDatePicker.propTypes = {
+	qaHook: PropTypes.string,
+
 	/** Callback for when the user selects a date.  Will fire even if the date has already been selected.  Will not fire for disbled days. */
 	onSelectDate: PropTypes.func.isRequired,
 
@@ -370,12 +376,13 @@ XUIDatePicker.propTypes = {
 };
 
 XUIDatePicker.defaultProps = {
+	dir: 'ltr',
+	isCompact: false,
+	locale: 'en',
 	nextButtonLabel: 'Next Month',
 	prevButtonLabel: 'Previous Month',
-	isCompact: false,
+	qaHook: undefined,
 	showDaysInOtherMonths: true,
 	showFixedNumberOfWeeks: false,
-	dir: 'ltr',
-	locale: 'en',
 	weekdaysShort: ['S','M','T','W','T','F','S']
 };

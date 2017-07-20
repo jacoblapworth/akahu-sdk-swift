@@ -147,10 +147,10 @@ export default class CustomNavbar extends PureComponent {
 					<XUIIcon path={arrow} rotation="90" />
 				</XUIButton>
 
-				<form className="xui-datepicker--heading-dates">
+				<div className="xui-datepicker--heading-dates">
 					{dir === 'rtl' ? yearSelector : monthSelector}
 					{dir === 'rtl' ? monthSelector : yearSelector}
-				</form>
+				</div>
 
 				<XUIButton
 					variant={navButtonVariant}

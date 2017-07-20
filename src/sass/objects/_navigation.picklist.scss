@@ -97,7 +97,6 @@
 	display: flex;
 	font-family: $xui-font-family;
 	font-size: $xui-font-size-text;
-	justify-content: space-between;
 	line-height: $xui-line-height;
 	min-height: 40px;
 	outline: none;
@@ -317,6 +316,11 @@
 	color: $xui-color-grey-alpha-2;
 	margin: 3px;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+
+	// For (non-split) submenus, ensure left spacing between pickitem text and the control icon
+	.#{$ns}-pickitem--text + & {
+		margin-left: auto;
+	}
 }
 
 .#{$ns}-pickitem--submenucontrol {
@@ -478,8 +482,8 @@
 	display: flex;
 	padding: 3px;
 
-	&:hover
-	&:focus, {
+	&:hover,
+	&:focus {
 		background: $xui-color-grey-alpha-7;
 	}
 

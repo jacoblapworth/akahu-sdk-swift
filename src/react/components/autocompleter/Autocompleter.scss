@@ -8,45 +8,45 @@
 }
 
 .ac-wrapper {
-		flex-wrap: wrap;
-		width: 100%;
-		position: relative;
-		//Need to override padding to avoid dropdown being offset.
-		padding: 0;
+	flex-wrap: wrap;
+	//Need to override padding to avoid dropdown being offset.
+	padding: 0;
+	position: relative;
 	// Need this thing to have the same focus state and the input.  Unfortunately, the only mixin I could find used
 	// the :focus selector and that won't work when the child input has focus.
+	width: 100%;
 	&--focus {
-		transition: box-shadow $xui-transition-duration-short;
 		box-shadow: $xui-shadow-focus;
 		outline: none;
-	}
-
-	.ac-pill {
-		margin: $xui-s-xsmall;
+		transition: box-shadow $xui-transition-duration-short;
 	}
 }
 
+.ac-pill {
+	margin: $xui-s-xsmall;
+}
+
 .ac-input-wrapper {
+	display: flex;
 	flex: 1 0 50%;
+	height: 100%;
 	padding: 8px 0.5em;
 	vertical-align: middle;
-	display: flex;
-	height: 100%;
 	width: 100%;
 }
 
 .ac-search-wrapper {
-	background: rgba($xui-color-grey-1,0.05);
+	background: rgba($xui-color-grey-1, 0.05);
 	padding: 0;
 
 	.ac-input {
-		padding: 8px 0.5em;
-		background: rgba($xui-color-grey-1,0.05);
-		font-size: $xui-font-size-medium;
+		background: rgba($xui-color-grey-1, 0.05);
 		border-radius: $xui-selected-item-border-width;
+		font-size: $xui-font-size-medium;
+		padding: 8px 0.5em;
 
-		&:focus{
-			 background: rgba($xui-color-grey-1,0.1);
+		&:focus {
+			background: rgba($xui-color-grey-1, 0.1);
 		}
 	}
 }
@@ -57,8 +57,8 @@
 
 .ac-trigger {
 	display: flex;
-	overflow: auto;
 	max-width: 100%;
+	overflow: auto;
 }
 
 .ac-trigger-pillwrap {

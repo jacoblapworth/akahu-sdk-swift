@@ -19,7 +19,7 @@ Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
 ```
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.0.0-rc.3/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.0.0-rc.4/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -64,7 +64,7 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/style/xui/11.0.0-rc.3/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/11.0.0-rc.4/xui.min.css" rel="stylesheet" />
     <script type="application/json" id="header-data" data-render-to="#header">
       {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
     </script>

@@ -174,7 +174,7 @@ export default class Autocompleter extends PureComponent {
 		const dropdown = (
 			<DropDown
 				ref={c => completer.dropdown = c}
-				ignoreKeyboardEvents={[32]} /* Space doesn't select in an autocompleter */
+				ignoreKeyboardEvents={[32,37,39]} /* Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input */
 				id={props.id}
 				onSelect={props.onOptionSelect}
 				hasKeyboardEvents={false}

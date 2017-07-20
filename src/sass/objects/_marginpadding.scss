@@ -274,7 +274,7 @@
 // Styleguide: Margin and Padding.Padding.1
 
 // Collections of XUI layout classes in standard, small and large
-@include xui-generate-padding(none, $xui-class-suffix-none, false);
+@include xui-generate-padding(0, $xui-class-suffix-none, false);
 @include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard, true);
 @include xui-generate-padding($xui-s-small, $xui-class-suffix-small, true);
 @include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall, true);

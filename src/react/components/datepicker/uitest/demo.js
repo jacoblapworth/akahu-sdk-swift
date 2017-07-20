@@ -123,15 +123,17 @@ ReactDOM.render(
 		</section>
 		<section>
 			<h3>Panel - maxDate = next month</h3>
-			<div className="xui-panel xui-padding"><ExamplePicker maxDate={nextMonth} /></div>
+			<div className="xui-panel xui-dropdown-large"><ExamplePicker maxDate={nextMonth} /></div>
 		</section>
 		<section>
 			<h3>Compact - fixed weeks && minDate = last week && maxDate = next month</h3>
+			<div className="xui-dropdown-large">
 			<ExamplePicker isCompact showFixedNumberOfWeeks minDate={lastWeek} maxDate={nextMonth} />
+			</div>
 		</section>
 		<section>
 			<h3>Arabic - RTL</h3>
-			<div className="xui-panel xui-padding">
+			<div className="xui-panel xui-dropdown-large">
 				<ExamplePicker
 					months={arabic.months}
 					weekdaysLong={arabic.weekdaysLong}

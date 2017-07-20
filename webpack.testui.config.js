@@ -10,7 +10,7 @@ module.exports = function (env) {
 
   const uiTestDir = path.join(__dirname, 'src', 'react', 'components', componentName, 'uitest');
 	return {
-		entry: [path.join(uiTestDir, 'demo.js'), path.join(__dirname, 'src', 'sass', 'xui.scss')],
+		entry: [path.join(__dirname, 'src', 'sass', 'xui.scss'), path.join(uiTestDir, 'demo.js')],
 		target: 'web',
 		devtool: 'inline-source-map',
 		output: {

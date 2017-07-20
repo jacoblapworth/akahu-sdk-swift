@@ -36,11 +36,8 @@ describe('Autocompleter', () => {
 	});
 
 	it('has data-automationid set on the input, list and container', () => {
-		const input = wrapper.find('input[type="search"]');
-		const container = wrapper.find('.ac-input-wrapper');
-
-		expect(input.prop('data-automationid')).toEqual('baseAC-input');
-		expect(container.prop('data-automationid')).toEqual('baseAC-input-container');
+		expect(wrapper.find({'data-automationid':'baseAC-input'})).toHaveLength(1);
+		expect(wrapper.find({'data-automationid':'baseAC-input-container'})).toHaveLength(1);
 		expect(wrapper.instance().ddt.props.dropdown.props.qaHook).toEqual('baseAC-list');
 	});
 

@@ -194,16 +194,14 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 					key={item.id}
 					id={item.id}
 					onSelect={(value, instance) => example.setState({value: item.name, selectedItem: instance})}>
-					<div>
-						<div>
-							<XUIAvatar value={item.name} imageUrl={item.avatar}/>
-							<span className="xui-margin-left-small">
-											{decorateSubStr(item.name, value || '', boldMatch)}
-										</span>
-						</div>
-						<div className="xui-text-secondary xui-margin-top-small">
-							{decorateSubStr(item.email, value || '', boldMatch)},
-							{decorateSubStr(item.subtext, value || '', boldMatch)}
+					<div className="xui-u-flex xui-u-flex-verticallycentered">
+						<XUIAvatar value={item.name} imageUrl={item.avatar}/>
+						<div className="xui-u-flex-grow xui-padding-left-small">
+							{decorateSubStr(item.name, value || '', boldMatch)}
+							<div className="xui-text-secondary">
+								{decorateSubStr(item.email, value || '', boldMatch)},
+								{decorateSubStr(item.subtext, value || '', boldMatch)}
+							</div>
 						</div>
 					</div>
 				</Pickitem>
@@ -225,7 +223,6 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						onSearch={example.onSearchChangeHandler}
 						placeholder="Search"
 						searchValue={value}
-						dropdownSize="large"
 					>
 						<Picklist>
 							{example.getItems()}
@@ -318,7 +315,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 			if(Object.keys(selectedItems).length) {
 				for(const key in selectedItems) {
 					const person = findPerson(key);
-					pills.push(<XUIPill value={person.name} id={person.id} key={person.id} className="ac-pill" onDeleteClick={this.onPillDelete} />)
+					pills.push(<XUIPill className="xui-autocompleter--pill" value={person.name} id={person.id} key={person.id} onDeleteClick={this.onPillDelete} />)
 				}
 			}
 
@@ -460,7 +457,7 @@ class SecondarySearchExample extends Component {
 	/*eslint-enable no-console */
 
 	ReactDOM.render(
-		<div>
+		<div className="xui-page-width-standard">
 			<InteractiveExample />
 			<DetailedListExample />
 			<MultiselectExample />

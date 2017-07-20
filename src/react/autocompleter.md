@@ -23,7 +23,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ## Examples
 
-The autocompleter can be passed a list of `pills` to display to the left of the input.
+The autocompleter can be passed a list of `pills` to display to the left of the input. These should all have the `xui-autocompleter--pill` class applied to receive the correct padding.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
@@ -50,7 +50,7 @@ class DetailedListExample extends Component {
 
 		example.state = {
 			value: '',
-			people: peopleDataSet,
+			people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
 			selectedPeople: [peopleDataSet[0]]
 		};
 
@@ -151,9 +151,9 @@ class DetailedListExample extends Component {
 						selectedPeople.map(person =>
 							<XUIPill
 								value={person.name}
+								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(person.id)}
 								onClick={() => example.completer.focusInput()}
-								className="xui-margin-right-xsmall"
 								key={person.id}
 							/>
 						)

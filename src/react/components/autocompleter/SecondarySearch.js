@@ -5,6 +5,7 @@ import AutocompleterInput from './AutocompleterInput';
 import Picklist from '../picklist/Picklist';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
+import search from '@xero/xui-icon/icons/search'
 
 import { intervalRunner, isVisible } from './private/helpers';
 
@@ -80,7 +81,6 @@ export default class SecondarySearch extends PureComponent {
 			listQaHook = `${props.qaHook}-list`;
 			containerQaHook = `${props.qaHook}-container`;
 		}
-		const classNames = cn('ac-wrapper', 'xui-u-flex', props.className);
 		const dropdownClasses = cn(
 			{ 'xui-u-fullwidth': !props.dropdownSize },
 			props.dropdownClassName,
@@ -89,15 +89,18 @@ export default class SecondarySearch extends PureComponent {
 			<Picklist className="xui-padding-none">
 				<li className="xui-margin-horizontal xui-margin-vertical-small" >
 					<AutocompleterInput
+						defaultStyling={false}
+						className="xui-input xui-input-borderless xui-input-borderless-solid"
 						id={props.inputId}
 						value={props.searchValue}
-						iconAttributes={{ icon: 'search' }}
+						iconAttributes={{
+							path: search,
+							position: 'left'
+						}}
 						placeholder={props.placeholder}
-						className="xui-input-borderless"
 						searchThrottleInterval={props.searchThrottleInterval}
 						onSearch={props.onSearch}
 						refFn={c => completer.input = c}
-						containerClassNames="ac-search-wrapper"
 					/>
 				</li>
 			</Picklist>
@@ -122,7 +125,7 @@ export default class SecondarySearch extends PureComponent {
 		return (
 			<div
 				ref={c => completer.rootNode = c}
-				className={classNames}
+				className={props.className}
 				data-automationid={containerQaHook}
 			>
 				<DropDownToggled

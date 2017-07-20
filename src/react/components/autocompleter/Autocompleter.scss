@@ -1,68 +1,46 @@
 @import '../../../sass/vars';
 
-.ac-input {
+.#{$ns}-autocompleter--input {
 	// Otherwise, the box surrounding the input gets ridiculously tall
 	min-height: 0;
+	padding: $xui-s-xsmall $xui-s-small;
 	//Force the input to be 100% of the wrapper.
 	width: 100%;
 }
 
-.ac-wrapper {
-	flex-wrap: wrap;
-	//Need to override padding to avoid dropdown being offset.
-	padding: 0;
+.#{$ns}-autocompleter--trigger {
+	align-items: center;
+	display: flex;
+	min-height: 40px;
+	overflow: auto;
 	position: relative;
+	padding: 2px 0;
+	padding-left:5px;
+	width: 100%;
+
 	// Need this thing to have the same focus state and the input.  Unfortunately, the only mixin I could find used
 	// the :focus selector and that won't work when the child input has focus.
 	width: 100%;
-	&--focus {
+	&-focus {
 		box-shadow: $xui-shadow-focus;
 		outline: none;
 		transition: box-shadow $xui-transition-duration-short;
 	}
 }
 
-.ac-pill {
-	margin: $xui-s-xsmall;
+.#{$ns}-autocompleter--pill {
+	margin-bottom: 2px;
+	margin-top: 2px;
+	margin-right: 5px;
 }
 
-.ac-input-wrapper {
-	display: flex;
+.#{$ns}-autocompleter--trigger-pillwrap {
+	flex-wrap: wrap;
+}
+
+
+.#{$ns}-autocompleter--input-wrapper {
 	flex: 1 0 50%;
-	height: 100%;
-	padding: 8px 0.5em;
 	vertical-align: middle;
 	width: 100%;
-}
-
-.ac-search-wrapper {
-	background: rgba($xui-color-grey-1, 0.05);
-	padding: 0;
-
-	.ac-input {
-		background: rgba($xui-color-grey-1, 0.05);
-		border-radius: $xui-selected-item-border-width;
-		font-size: $xui-font-size-medium;
-		padding: 8px 0.5em;
-
-		&:focus {
-			background: rgba($xui-color-grey-1, 0.1);
-		}
-	}
-}
-
-.ac-emptystate {
-	color: $xui-color-secondary-text;
-}
-
-.ac-trigger {
-	display: flex;
-	max-width: 100%;
-	overflow: auto;
-}
-
-.ac-trigger-pillwrap {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
 }

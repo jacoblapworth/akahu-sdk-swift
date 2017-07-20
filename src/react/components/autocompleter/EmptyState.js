@@ -5,7 +5,7 @@ import XUIIcon from '../icon/XUIIcon';
 
 const EmptyState = props => (
 	<div
-		className="xui-u-flex xui-justify-center xui-u-flex-verticalalign-center xui-u-flex-row ac-emptystate"
+		className="xui-u-flex xui-justify-center xui-u-flex-verticalalign-center xui-u-flex-row xui-text-muted"
 		data-automationid={props.qaHook}
 		id={props.id}
 	>

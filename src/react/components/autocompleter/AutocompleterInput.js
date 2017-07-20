@@ -59,7 +59,10 @@ export default class AutocompleterInput extends Component {
 	}
 
 	render() {
-		const { props, onChange } = this;
+		const {
+			props,
+			onChange,
+		} = this;
 		const inputProps = {
 			...props.ariaAttributes,
 			type: 'search',
@@ -71,8 +74,17 @@ export default class AutocompleterInput extends Component {
 			onFocus: props.onFocus,
 			id: props.id
 		};
-		const classNames = cn('xui-input-borderless', { 'xui-padding-none' : !props.iconAttributes }, 'ac-input', props.className);
-		const containerClassNames = cn('ac-input-wrapper', props.containerClassNames);
+		const classNames = cn(
+			{
+				'xui-input-borderless': props.defaultStyling,
+				'xui-autocompleter--input': props.defaultStyling
+			},
+			props.className
+		);
+		const containerClassNames = cn(
+			{'xui-autocompleter--input-wrapper': props.defaultStyling},
+			props.containerClassNames
+		);
 		return (
 			<XUIInput
 				ref={props.refFn}
@@ -103,9 +115,11 @@ AutocompleterInput.propTypes = {
 	id: PropTypes.string,
 	iconAttributes: PropTypes.object,
 	containerClassNames: PropTypes.string,
+	defaultStyling: PropTypes.bool
 };
 
 AutocompleterInput.defaultProps = {
 	throttleInterval: 0,
 	ariaAttributes: {},
+	defaultStyling: true
 };

@@ -53,32 +53,3 @@
 		border-radius: $xui-selected-item-border-width;
 	}
 }
-
-
-//Secondary Search Mock
-.ac-input-wrapper {
-	padding: 8px 0.5em;
-	vertical-align: middle;
-	display: flex;
-	height: 100%;
-	width: 100%;
-}
-
-.ac-search-wrapper {
-	.xui-input-wrapper {
-		padding: 0;
-		width: 100%
-	}
-
-	.ac-input {
-		padding: 8px 0.5em;
-		background: rgba($xui-color-grey-1,0.05);
-		font-size: $xui-font-size-medium;
-		border-radius: $xui-selected-item-border-width;
-		width: 100%;
-
-		&:focus{
-			 background: rgba($xui-color-grey-1,0.1);
-		}
-	}
-}

@@ -144,9 +144,8 @@ export default class Autocompleter extends PureComponent {
 		const handlers = getHandlers(completer);
 		const triggerClasses = cn(
 			'xui-input',
-			'xui-u-flex',
-			'xui-u-flex-verticallycentered',
-			props.wrapPills ? 'ac-trigger-pillwrap' : 'ac-trigger',
+			'xui-autocompleter--trigger',
+			{'xui-autocompleter--trigger-pillwrap': props.wrapPills},
 			props.triggerClassName
 		);
 		const trigger = (
@@ -191,7 +190,7 @@ export default class Autocompleter extends PureComponent {
 		const classNames = cn(
 			props.className,
 			{
-				'ac-wrapper--focus': completer.state.focused
+				'xui-autocompleter--trigger-focus': completer.state.focused
 			}
 		);
 

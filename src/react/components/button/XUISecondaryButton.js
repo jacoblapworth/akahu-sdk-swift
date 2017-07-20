@@ -49,7 +49,7 @@ XUISplitButton.propTypes = {
 	isLink: PropTypes.bool,
 
 	/** The type attribute of this button. `submit`, `button`, or `reset`. */
-	type: PropTypes.oneOf(Object.values(ButtonTypes)),
+	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])), // Can't use Object.values without polyfilling for older supported browsers
 
 	/** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	href: PropTypes.string,

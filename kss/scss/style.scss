@@ -130,6 +130,19 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 		padding: 15px 25px;
 		width: 100%;
 	}
+
+	table {
+		width: 100%;
+	}
+
+	td {
+		border: $xui-border-standard;
+		padding: $xui-s-xsmall $xui-s-small;
+	}
+
+	.xui-contentblock td {
+		border: none;
+	}
 }
 
 .ds-markup-wrap,

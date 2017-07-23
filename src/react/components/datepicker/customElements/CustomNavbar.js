@@ -105,6 +105,7 @@ export default class CustomNavbar extends PureComponent {
 			minDate,
 			isCompact,
 			locale,
+			qaHook
 		} = this.props;
 		const currentMonthDate = DateUtils.addMonths(previousMonth, 1);
 		const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
@@ -143,6 +144,7 @@ export default class CustomNavbar extends PureComponent {
 					className={classNames.navButtonPrev}
 					onClick={() => previousClickHandler()} // If you just pass the fuction, shit blows up since the internals of DayPicker expect a function callback arg
 					aria-label={labels.previousMonth}
+					qaHook={`${qaHook}--previous-month-button`}
 				>
 					<XUIIcon path={arrow} rotation="90" />
 				</XUIButton>
@@ -158,6 +160,7 @@ export default class CustomNavbar extends PureComponent {
 					className={classNames.navButtonNext}
 					onClick={() => nextClickHandler()} // If you just pass the fuction, shit blows up since the internals of DayPicker expect a function callback arg
 					aria-label={labels.nextMonth}
+					qaHook={`${qaHook}--next-month-button`}
 				>
 					<XUIIcon path={arrow} rotation="270" />
 				</XUIButton>
@@ -182,6 +185,7 @@ CustomNavbar.propTypes = {
 	maxDate: PropTypes.instanceOf(Date),
 	isCompact: PropTypes.bool,
 	locale: PropTypes.string,
+	qaHook: PropTypes.string
 };
 
 CustomNavbar.defaultProps = {

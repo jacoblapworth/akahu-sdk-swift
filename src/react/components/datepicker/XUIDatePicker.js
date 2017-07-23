@@ -251,6 +251,7 @@ export default class XUIDatePicker extends PureComponent {
 				maxDate={maxDate}
 				months={months}
 				locale={locale}
+				qaHook={qaHook}
 			/>
 		);
 		if (selectedDate != null) {

@@ -1,5 +1,3 @@
-Select Box is an opinionated component which wraps [DropDown](#dropdown) and [DropDownToggled](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [DropDown](#dropdown) components directly.
-
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
@@ -7,12 +5,16 @@ Select Box is an opinionated component which wraps [DropDown](#dropdown) and [Dr
 	</div>
 </div>
 
+Select Box is an opinionated component which wraps [DropDown](#dropdown) and [DropDownToggled](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [DropDown](#dropdown) components directly.
+
 ### Related Components
 
 * [Dropdown](#dropdown)
 * [Autocompleter](#autocompleter)
 
 ## Examples
+
+### Single Select
 
 In the following example, the `buttonContent` of the SelectBox is being set to value of the selected item in the example's state.
 

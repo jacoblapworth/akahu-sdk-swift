@@ -7,7 +7,7 @@
 	</div>
 </div>
 
-For information about things to take into consideration when using a `Datepicker` within a `Dropdown` component, check the [DropDown documentation](#dropdown).
+For information about what to consider when using a `Datepicker` within a `Dropdown` component, check the [DropDown documentation](#dropdown).
 
 ```
 const XUIDatePicker = require('./datepicker').default;

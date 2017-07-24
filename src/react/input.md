@@ -1,11 +1,15 @@
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-forms.html#forms-4">Inputs in the XUI Documentation</a></span>
+		<span><a href="../section-forms.html#forms-4">Input in the XUI Documentation</a></span>
 	</div>
 </div>
 
 Input is an enhanced HTML `<input />` field. It supports icons and validation styling.
+
+## Examples
+
+### Input Attributes
 
 HTML input properties can be passed in via the `inputAttributes` prop.
 
@@ -38,6 +42,7 @@ HTML input properties can be passed in via the `inputAttributes` prop.
 	/>
 </div>
 ```
+### Change Events
 
 Input change events can be subscribed to by passing a callback to `onChange`.
 
@@ -79,6 +84,7 @@ class Example extends PureComponent {
 
 <Example />
 ```
+### Validation
 
 Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop.
 
@@ -101,6 +107,7 @@ Validation messages and styling should be added to inputs using the `validationM
 	/>
 </div>
 ```
+### Icons
 
 Icons can be added to inputs using the `iconAttributes` prop. `iconAttributes` is an object, which can contain `path`, `position` ('left' or 'right'), and `wrapperColor` ('twitter', 'facebook', or 'linkedin').
 
@@ -133,8 +140,9 @@ const search = require ('@xero/xui-icon/icons/search').default;
 	/>
 </div>
 ```
+### Search Bar
 
-For some inputs such as search bars, you may want to add a clear button so users can easily remove the typed in text. Passing in the `hasClearButton` prop will add a clear button which appears when the input isn't empty, and will clear the field when clicked.
+For some inputs, such as search bars, you may want to add a clear button so users can easily remove the typed in text. Passing in the `hasClearButton` prop will add a clear button which appears when the input isn't empty, and will clear the field when clicked.
 
 ```
 const search = require ('@xero/xui-icon/icons/search').default;

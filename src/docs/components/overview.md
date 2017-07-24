@@ -27,4 +27,4 @@ import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
 import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 ```
 
-Individual component documentation can be found below the Getting Started section.
+Individual component documentation can be found below the [Getting Started](#getting-started) section.

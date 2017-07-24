@@ -1,14 +1,12 @@
-Toggles are a control that can behave like a radio, or like a checkbox.
-They support different layout patterns for different use cases.
-
-
-
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="../section-toggle.html#toggle">Toggle in the XUI Documentation</a></span>
 	</div>
 </div>
+
+Toggles are a control that can behave like a radio, or like a checkbox. They support different layout patterns for a variety of use cases.
+
 
 ## Examples
 

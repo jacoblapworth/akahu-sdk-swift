@@ -22,15 +22,15 @@ DropDowns are deceptively complex, so it's important to understand the terms use
 
 #### DropDown
 
-This is the container for the elements that are conditionally shown on the page.  It's an absolutely positioned element that floats on top of other content.  Examples of content include the selectable items in a select box or the calendar inside of a DatePicker paired up with a text input.
+This is the container for the elements that are conditionally shown on the page. It's an absolutely positioned element that floats on top of other content.  Examples of content include the selectable items in a select box or the calendar inside of a DatePicker paired up with a text input.
 
 #### Trigger
 
-The trigger is the element that the user interacts with to open the dropdown.  Examples include the button that opens the selectable list in a select or the text input that users type into in order to search for items in an autocompleter.
+The trigger is the element that the user interacts with to open or close the dropdown. Examples include the button that opens the selectable list in a select box or the text input that users type into in order to search for items in an autocompleter.
 
 ## Basic Use Cases
 
-At the heart of all of our Dropdown implementations is the `<DropDownToggled />` component.  It's what connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, and the dropdown itself will actually render as an immediate child of the body no matter where it sits in the React virtual DOM tree, but both have to know about each other.  Actions on the button have to open and close the dropdown and, for accessibility reasons, the trigger has to know both the ID of the dropdown element and the currently selected element.  However, React's one-way data flow means that we need something sitting on top of both of these components to send information back and forth.
+At the heart of all of our Dropdown implementations is the `<DropDownToggled />` component. It's what connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, and the dropdown itself will actually render as an immediate child of the body no matter where it sits in the React virtual DOM tree, but both have to know about each other.  Actions on the button have to open and close the dropdown so for accessibility reasons, the trigger has to know both the ID of the dropdown element and the ID of the currently selected element.  However, React's one-way data flow means that we need something sitting on top of both of these components to send information back and forth.
 
 **Important Note:**
 If you want standard picklist behavior (close on select, keyboard handlers, etc) then you **must** have a `<Picklist />` as an immediate child of the `<DropDown />`.  If you are missing these features, make sure that you are correctly using the `<Picklist />` component.
@@ -100,8 +100,7 @@ class ToggledDropDown extends Component {
 ```
 
 ### Multiselect
-
-Enabling multiselect behavior is a simple matter of setting a couple of props on the right components.  First, set `closeOnSelect` to `false` on the `<DropDownToggled />` to ensure that the user can select multiple items while the dropdown is open.  Then set the `multiselect` prop on your Pickitems to `true`.  Example:
+To enable multiselect behaviour you will need to set two props.  First, set `closeOnSelect` to `false` on the `<DropDownToggled />` to ensure that the user can select multiple items while the dropdown is open. Then set the `multiselect` prop on your Pickitems to `true`.
 
 ```
 const { Component } = require('react');
@@ -179,8 +178,6 @@ class MultiselectExample extends Component {
 ### With Header and Footer
 
 The `<DropDownHeader />` and `<DropDownFooter />` components are used to add a fixed header and/or footer element to the dropdown.  These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers.  Add these components via the `header` and `footer` prop on the `<DropDown />` component.
-
-Here is the first example extended with the header and footer:
 
 ```
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
@@ -340,11 +337,11 @@ class XDD extends Component {
 
 ## Common Use Cases
 
-The DropDown's API had to have default behavior, and the Picklist use case was chosen to be that default.  However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
+The DropDown's API had to have default behavior, and the Picklist use case was chosen to be that default. However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
 
 ### DropDown with DatePicker
 
-While the `<DropDown />` API is optimized for the `<Picklist />` use case, it can contain any element.  Here is an example of a `<XUIDatePicker />` inside of a `<DropDown />`:
+While the `<DropDown />` API is optimized for the `<Picklist />` use case, it can contain any element.
 
 ```
 const XUIDatePicker = require('./datepicker').default;
@@ -414,21 +411,19 @@ class SimpleDropDownDatePicker extends React.Component {
 
 Since this example is no longer using the dropdown for the optimized use case, there are certain user interactions that need to be handled manually.
 
-First, the `restrictToViewPort` prop of `<DropDownToggled />` is set to `false` to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This does mean that the date picker might hang off the edge of the screen or slightly cover the button, but this is prerrable to having to scroll inside of the dropdown.
+**First, the `restrictToViewPort` prop of `<DropDownToggled />` is set to `false`** to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This does mean that the date picker might hang off the edge of the screen or slightly cover the button, but this is prerrable to having to scroll inside of the dropdown.
 
-The `<DropDown />` component is also not able to focus the datepicker automatically.  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `<DropDown />` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `<DropDownToggled />` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
+**The `<DropDown />` component is also not able to focus the datepicker automatically.**  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `<DropDown />` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `<DropDownToggled />` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
 
-Keyboard users also need to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
+**Keyboard users also need to use the tab key to navigate** to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
 
-Lastly, the dropdown must be manually closed when the user has selected a date.  The `XUIDatePicker.onSelectDate` callback is used to set state and call `DropDownToggled.closeDropDown`.
+**Lastly, the dropdown must be manually closed when the user has selected a date.**  The `XUIDatePicker.onSelectDate` callback is used to set state and call `DropDownToggled.closeDropDown`.
 
 ### DropDown with Text Input Trigger
 
 It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case.  It handles theses customizations by default.
 
 By default, the DropDown handles keyboard events for you because focus is actually placed on the DropDown's DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
-
-Here's an example of a possible way that this could be handled:
 
 ```
 require('array.prototype.find').shim();
@@ -538,21 +533,21 @@ class InputTriggerExample extends Component {
 <InputTriggerExample />
 ```
 
-This example illustrates how several props can be used to achieve your desired UX.
+The above example illustrates how several props can be used to achieve your desired UX.
 
-`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.  By default, we toggle the dropdown's open state, but you can turn this off with "none" or use "open" to always open.
+**`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.**  By default, we toggle the dropdown's open state, but you can turn this off with "none" or use "open" to always open.
 
-If you want the focus to remain on the trigger once the dropdown is open, you have to set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure that focus does not shift to the dropdown.
+**If you want the focus to remain on the trigger once the dropdown is open**, you have to set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure that focus does not shift to the dropdown.
 
-However, the combination of setting those props means that the dropdown no longer automatically opens.  If you choose to go this route, you'll now need to manually open the dropdown by calling the `DropDownToggled.openDropDown` API.  The example above just does it on any keypress in the input, but this is not required, and the dropdown can be opened at any time.
+**However, the combination of setting those props means that the dropdown no longer automatically opens.**  If you choose to go this route, you'll now need to manually open the dropdown by calling the `DropDownToggled.openDropDown` API.  The example above just does it on any keypress in the input, but this is not required, and the dropdown can be opened at any time.
 
-While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.  The `DropDown.onKeyDown` API is a public API for this very reason.  Simply pass the keydown event to the DropDown and all normal keyboard handlers will take effect without moving focus from your trigger node.  Calling the public API is the equivalent of simulating a keydown event on the DropDown, so you get the same behavior as if the keydown did happen on the dropdown.
+**While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.** The `DropDown.onKeyDown` API is a public API for this very reason.  Simply pass the keydown event to the DropDown and all normal keyboard handlers will take effect without moving focus from your trigger node.  Calling the public API is the equivalent of simulating a keydown event on the DropDown, so you get the same behavior as if the keydown did happen on the dropdown.
 
 ### (BETA) NestedDropDown Example
 
 **Note:** This component is still considered beta, and it's API may change before it is officially released.
 
-The `<NestedDropDown />` component is designed as a `<DropDown />` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like so:
+The `<NestedDropDown />` component is designed as a `<DropDown />` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
 ```
 require('array.prototype.find').shim();
@@ -735,14 +730,14 @@ class NestedExample extends Component {
 <NestedExample />
 ```
 
-As you can see, this example is a bit more involved than the other examples.  This is due to handling state for switching between two different experiences inside of the same dropdown:  A custom Picklist and a DatePicker.  Each experience is wrapped in a `<DropDownPanel />` and both panels are wrapped in a `<NestedDropDown />` instead of a `<DropDown />`.  Each panel gets a `panelId`, the currently active panel's ID gets passed to the nested dropdown, and the implementing class keeps track of the currently active panel in state.
+As you can see, this example is a bit more involved than the other examples.  This is due to **handling state for switching between two different experiences inside of the same dropdown: A custom Picklist and a DatePicker.**  Each experience is wrapped in a `<DropDownPanel />` and both panels are wrapped in a `<NestedDropDown />` instead of a `<DropDown />`.  Each panel gets a `panelId`, the currently active panel's ID gets passed to the nested dropdown, and the implementing class keeps track of the currently active panel in state.
 
-Also note that the datepicker panel has a `<DropDownHeader />` as well.  While this isn't strictly necessary, it's very useful to tell the user where they are in the work flow while providing an easy mechanism to go back a step.  The header's back button becomes visible when you pass in an `onBackButtonClick` callback to the header component.  In this case, the active panel is just switched back to the picklist panel.
+**Also note that the datepicker panel has a `<DropDownHeader />` as well.**  While this isn't strictly necessary, it's very useful to tell the user where they are in the work flow while providing an easy mechanism to go back a step.  The header's back button becomes visible when you pass in an `onBackButtonClick` callback to the header component.  In this case, the active panel is just switched back to the picklist panel.
 
-Just like the dropdown, the nested dropdown is also optimized for the picklist use case.  This means some behavior will have to be either overridden or conditionally disabled through props and API calls.
+Just like the dropdown, **the nested dropdown is also optimized for the picklist use case**.  This means some behavior will have to be either overridden or conditionally disabled through props and API calls.
 
-Since some items in the Picklist will result in the active panel switching, pass in `closeOnSelect={false}` to prevent the dropdown from closing when the user selects "Custom Date", then manually call the `DropDownToggled.closeDropDown` API inside of the `onSelect` callback when appropriate.
+**Since some items in the Picklist will result in the active panel switching**, pass in `closeOnSelect={false}` to prevent the dropdown from closing when the user selects "Custom Date", then manually call the `DropDownToggled.closeDropDown` API inside of the `onSelect` callback when appropriate.
 
-When the picklist is shown, default behavior like closing the dropdown when the user hits the tab key and restricting the dimensions of the dropdown so that its contents scroll instead of dropping off the screen are desirable.  However, these experiences are actually quite detrimental when displaying a datepicker.  That's why these behaviors are turned off when the datepicker panel is visible.
+When the picklist is shown, default behavior like closing the dropdown when the user hits the tab key, or restricting the dimensions of the dropdown so that its contents scroll instead of dropping off the screen are desirable. However, these experiences are actually quite detrimental when displaying a datepicker. **That's why these behaviors are turned off by default when the datepicker panel is visible.**
 
-Lastly, when the datepicker panel becomes active, we need to ensure that the datepicker has focus so that keyboard users can actually select a date.  Since it's not possible set focus onto the DOM node until it's visible, the `focusDatePicker` method is passed to the `NestedDropDown.onPanelChange` callback.  It will fire after the panel has already switched, so the components and DOM nodes will actually be rendered and visible at this point.
+Lastly, when the **datepicker panel becomes active, we need to ensure that the datepicker has focus** so that keyboard users can actually select a date.  Since it's not possible set focus onto the DOM node until it's visible, the `focusDatePicker` method is passed to the `NestedDropDown.onPanelChange` callback.  It will fire after the panel has already switched, so the components and DOM nodes will actually be rendered and visible at this point.

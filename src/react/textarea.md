@@ -1,13 +1,17 @@
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-forms.html#forms-4">Text inputs in the XUI Documentation</a></span>
+		<span><a href="../section-forms.html#forms-4">Textarea in the XUI Documentation</a></span>
 	</div>
 </div>
 
-TextArea is an enhanced version of the HTML <textarea> element. It supports auto grow, fixed row height and validation styling.
+TextArea is an enhanced version of the HTML `<textarea />` element. It supports auto grow, fixed row height and validation styling.
 
-Adding the `minRows` and/or `maxRows` props will enable TextArea to automatically resize as users type into them.
+## Examples
+
+### Min/Max Rows
+
+Adding the `minRows` and/or `maxRows` props will enable the `TextArea` to automatically resize as users type into them.
 
 ```
 <XUITextArea
@@ -17,6 +21,7 @@ Adding the `minRows` and/or `maxRows` props will enable TextArea to automaticall
 	<label className="xui-text-label xui-fieldlabel-layout">This textarea auto-resizes</label>
 </XUITextArea>
 ```
+### Fixed Height
 
 Alternatively, a fixed height can be set using the `rows` prop.
 
@@ -28,8 +33,9 @@ Alternatively, a fixed height can be set using the `rows` prop.
 	<label className="xui-text-label xui-fieldlabel-layout">This textarea has a fixed height</label>
 </XUITextArea>
 ```
+### Character Limit
 
-A character limit counter can be added to `TextArea` by passing a number to the `maxCharacters` prop. The input text will not be truncated if the character limit is exceeded. Instead, the character counter will go into negative values, and the `TextArea` will be rendered as invalid.
+A character limit counter can be added to the `TextArea` by passing a number to the `maxCharacters` prop. The input text will not be truncated if the character limit is exceeded. Instead, the character counter will go into negative values, and the `TextArea` will be rendered as invalid.
 
 ```
 <XUITextArea
@@ -39,6 +45,7 @@ A character limit counter can be added to `TextArea` by passing a number to the 
 	<label className="xui-text-label xui-fieldlabel-layout">Character counter</label>
 </XUITextArea>
 ```
+### Validation
 
 Validation errors can be shown to the user by passing in the `isInvalid` and `validationMessage`.
 
@@ -51,8 +58,9 @@ Validation errors can be shown to the user by passing in the `isInvalid` and `va
 	defaultLayout={false}
 />
 ```
+### Disabled
 
-TextArea can be rendered as disabled by passing in the `isDisabled` prop.
+A `TextArea` can be rendered as disabled by passing in the `isDisabled` prop.
 
 ```
 <XUITextArea

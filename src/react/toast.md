@@ -7,9 +7,11 @@
 	</div>
 </div>
 
-### Example configurations
+## Examples
 
-Standard toasts are given a layout class by default. The close button is added when a `onCloseClick` callback prop is added.
+### Default Layout
+
+Standard toasts are given a layout class by default and with no actionale buttons. The close button is only added when a `onCloseClick` callback prop is added.
 
 ```
 const onToastClose = () => {alert( 'Standard toast closed' )};
@@ -23,6 +25,7 @@ const onToastClose = () => {alert( 'Standard toast closed' )};
 	</XUIToast>
 </div>
 ```
+### Single Action
 
 Single action toasts provide an additional call to action inside the toast.
 ```
@@ -39,8 +42,9 @@ const onToastClose = () => {alert( 'Single action toast closed' )};
 	</XUIToast>
 </div>
 ```
+### Multi Action
 
-Multi action toasts can be wrapped in a `XUIToastActions` component to provide more than one call to action.
+Multi action toasts can be wrapped in a `XUIToastActions` component to provide more than one call to action. The message inside the `Toast` can also wrap larger descriptions, however this should be avoided if possible.
 ```
 const onToastClose = () => {alert( 'Multi action toast closed' )};;
 
@@ -53,7 +57,7 @@ const onToastClose = () => {alert( 'Multi action toast closed' )};;
 		</XUIToastActions>
 	</XUIToast>
 	<XUIToast onCloseClick={onToastClose}>
-		<XUIToastMessage> Closable </XUIToastMessage>
+		<XUIToastMessage> Avoid long descriptions. However, it's helpful to know that text does wrap by default. </XUIToastMessage>
 		<XUIToastActions>
 			<XUIToastAction href="#"> Action One </XUIToastAction>
 			<XUIToastAction href="#"> Action Two </XUIToastAction>
@@ -62,12 +66,15 @@ const onToastClose = () => {alert( 'Multi action toast closed' )};;
 </div>
 ```
 
-### Toast positioning
+### Toast Positioning
+
 Use `<XUIToastWrapper />` to position toast components at the bottom-left corner of the screen. This component will ensure consistent positioning if toast positioning changes in the future.
 
 ```jsx
+const NOOP = () => {};
+
 <XUIToastWrapper>
-    <XUIToast onCloseClick={()=>{})}>
+    <XUIToast onCloseClick={NOOP}>
         <XUIToastMessage> Wrapper Toast </XUIToastMessage>
     </XUIToast>
 </XUIToastWrapper>

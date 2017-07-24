@@ -1,11 +1,13 @@
-A Switch uses an HTML checkbox under the hood.
-
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="../section-switch.html#switch">Switch in the XUI Documentation</a></span>
 	</div>
 </div>
+
+A Switch uses an HTML checkbox under the hood and can be styled just as other control components.
+
+## Example
 
 ```
 const { PureComponent } = require('react');

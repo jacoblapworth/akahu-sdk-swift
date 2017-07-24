@@ -7,7 +7,6 @@
 
 ## How to use the XUI Icon
 
-
 1. Import required icon paths (the below examples use require; you should use es2015 import).
 2. Instance `<XUIIcon />` with imported icon path.
 
@@ -54,16 +53,16 @@ Your calls to `<XUIIcon />` should now pass in a `path` prop, the value of which
 
 ### Reasons for xui-icon not being in the monorepo
 
-First of all, we still need to keep the `iconBlob` around for non-React customers and legacy projects.  That requires custom build steps which we don't want to maintain from the XUI repo.
+First of all, **we still need to keep the `iconBlob` around** for non-React customers and legacy projects.  That requires custom build steps which we don't want to maintain from the XUI repo.
 
-Secondly, and more importantly, SVG icon paths are truly separate from the implementation of the React icon.  Having a separate Github repository with an associated deployed artifact in Artifactory allows consumers to request and use new icons without necessarily having to update to the latest version of XUI.  This should allow our icon library to grow and adapt quickly without requiring high maintenance costs for our customers.
+Secondly, and more importantly, **SVG icon paths are truly separate from the implementation of the React icon**.  Having a separate Github repository with an associated deployed artifact in Artifactory allows consumers to request and use new icons without necessarily having to update to the latest version of XUI.  This should allow our icon library to grow and adapt quickly without requiring high maintenance costs for our customers.
 
 ### Explanation for the XUIIcon component change
 
-A common issue that consumers had with icons in the past is that they were required to add every single SVG icon into their built artifact if they wanted to add a single icon on their page.  This caused the size of their JS artifacts to explode, and it was often the largest part of their deployed JavaScript asset.
+A common issue that consumers had with icons in the past is that **they were required to add every single SVG icon into their built artifact** if they wanted to add a single icon on their page.  This caused the size of their JS artifacts to explode, and it was often the largest part of their deployed JavaScript asset.
 
-We recently took that feedback on board and created the XUICustomIcon component that accepted only the path of the icon that you wanted to use, decoupling the SVG icon itself from the React component that output the SVG icon.
+We recently **took that feedback on board and created the XUICustomIcon component that accepted only the path of the icon** that you wanted to use, decoupling the SVG icon itself from the React component that output the SVG icon.
 
 Unfortunately, XUICustomIcon wasn't a good final solution.  XUI components often didn't use XUICustomIcon and if just a single instance of the older XUIIcon was anywhere in your build dependencies, you got every single SVG path in your final asset.
 
-With XUI v11, we've decided to take the plunge and remove the old implementation of XUIIcon that depended on the iconBlob.  `<XUICustomIcon />` has been renamed `<XUIIcon />` and we use this internally as well.  We're hoping this leads to substantial file size savings for our consumers.
+With XUI v11, we've decided to take the plunge and **remove the old implementation of XUIIcon that depended on the iconBlob.** `<XUICustomIcon />` has been renamed to `<XUIIcon />` and we use this internally as well.  We're hoping this leads to substantial file size savings for our consumers.

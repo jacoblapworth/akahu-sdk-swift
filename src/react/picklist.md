@@ -7,20 +7,22 @@
 
 ## What is a Picklist?
 
-Picklist is a set of components that brings in the XUI styles for a list of items or Picklist. The Picklist and Pickitems are presentational components with a StatefulPicklist wrapper available to handle keyboard navigation on it's children.
+Picklist is a set of components that brings in the XUI styles for a list of items or Picklist. The `Picklist` and `Pickitems` are presentational components with a `StatefulPicklist` wrapper available to handle keyboard navigation on it's children.
 
 ### Is this just a Menu and MenuItems?
 A menu is often in the context of a dropdown or navigational menu so to avoid that assumption
 we've named this picklist, a list of things you can pick from. It can be used in the context of a sidebar,
-navigation, filtering, dropdowns etc.
+navigation, filtering, dropdowns and more.
 
 ### Notes on Stateful Picklist
-The StatefulPicklist is a component that wraps the Picklist to keep track of which element is highlighted and APIs to manipulate highlighting behavior.  These APIs are used by components like the dropdown to allow the user to navigate through the menu and select an item.  Detailed information on these APIs is displayed below.
+The StatefulPicklist is a component that wraps the Picklist to keep track of which element is highlighted and APIs to manipulate highlighting behavior. These APIs are used by components like the `DropDown` to allow the user to navigate through the menu and select an item.  Detailed information on these APIs can be found in the [DropDown section](#dropdown).
 
 ### Related
 * [DropDown](#dropdown)
 
 ## Examples
+
+### Standard Picklist
 
 ```
 <Picklist>

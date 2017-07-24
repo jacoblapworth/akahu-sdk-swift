@@ -1,13 +1,13 @@
-Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.
-
-The XUI Radio  supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
-
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="../section-checkboxes-and-radios.html#checkboxes-and-radios-1">Radio in the XUI Documentation</a></span>
 	</div>
 </div>
+
+Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.
+
+The XUI Radio  supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
 
 ## Examples
 

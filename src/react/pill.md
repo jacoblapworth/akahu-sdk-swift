@@ -7,6 +7,8 @@
 
 Pills are used for signifying a selection has been made, either single or multiple, and may include the option to remove the selection with a delete button. To see pills used in context, refer to the [Autocompleter section](#autocompleter).
 
+## Examples
+
 ### Click actions
 
 Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and `href` props. If `onDeleteClick` is added, a delete button will be rendered into the pill. `onClick`, and `href` will be triggered if the user clicks anywhere on the pill other than the delete button
@@ -33,7 +35,9 @@ Pills can trigger actions passed in through the `onDeleteClick`, `onClick`, and 
 
 ### Pill Avatars
 
-Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching the API for <a href="#avatar">Avatar</a>. Note: the small sized avatar variant should be used.
+Avatars can be added to `XUIPill` by passing an object to `avatarProps` matching the API for <a href="#avatar">Avatar</a>.
+
+**Note:** the small sized avatar variant should be used.
 
 ```
 <div>

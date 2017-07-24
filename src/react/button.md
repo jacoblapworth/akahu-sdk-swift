@@ -1,14 +1,14 @@
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-buttons.html#buttons">Button in the XUI documentation</a></span>
+		<span><a href="../section-buttons.html#buttons">Button in the XUI Documentation</a></span>
 	</div>
 </div>
 
 ## Examples
 
 Whatever you put between the start and end tags of the button will appear as the content of the button.
-You can give it a click handler to perform actions when the button is triggered (either by clicking on it, or by pressing `space` or `enter` when it has focus).
+You can give it a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
 
 ```
 	function handleClick() { alert('You clicked the button!'); }
@@ -39,7 +39,7 @@ Different styles of button are provided for by passing different `variants`.
 	</div>
 ```
 
-Icon buttons (for things like overflow dropdown menus, close buttons, etc.) are supported by the `icon`, `icon-inverted`, 'icon-large' and 'icon-inverted-large' variants.
+Icon buttons (for things like overflow dropdown menus, close buttons, etc.) are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
 
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
 As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefox compatibility.
@@ -62,7 +62,7 @@ As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefo
 
 ### Size
 
-The `size` prop allows you to modify the default button size. You can make make buttons smaller, or span the width of their container.
+The `size` prop allows you to modify the default button size. You can make buttons smaller, or span the width of their container.
 
 ```
 <XUIButton size='small'>Smaller button</XUIButton>
@@ -137,7 +137,7 @@ Check out the [Dropdown](#dropdown) examples to see Buttons being used as trigge
 	</XUIButton>
 ```
 
-But you can just as easily drop in other icons:
+But you can just as easily drop in other icons too.
 
 ```
 	const XUIIcon = require('./components/icon/XUIIcon').default;

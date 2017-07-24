@@ -7,6 +7,8 @@
 
 ## Examples
 
+### Default Layout
+
 By default, the Loader component is given a layout class. This is good for putting in large empty states, like panels, while loading data.
 
 We recommend using the `label` prop to provide information to screen readers.
@@ -14,8 +16,9 @@ We recommend using the `label` prop to provide information to screen readers.
 ```
 <XUILoader label="Loading more data" />
 ```
+### Disabled Layout
 
-For more flexibility in using Loaders in your application, set `defaultLayout={false}`.
+For more flexibility in styling and using Loaders in your application, set the prop `defaultLayout` to `false}`.
 
 ```
 <XUILoader defaultLayout={false} />
@@ -23,7 +26,7 @@ For more flexibility in using Loaders in your application, set `defaultLayout={f
 
 ### Sizes
 
-Apart from the `standard` size, Loaders can be `small` or `large`.
+Apart from the `standard` size, Loaders can also be `small` or `large`.
 
 ```
 <div>

@@ -1,4 +1,4 @@
-Prior to XUI 11, React components were all located in their own git repositories and installed via bower.  However, some things have changed that make bringing XUI CSS and components together much more desirable.
+Prior to XUI 11, React components were all located in their own git repositories and installed via bower.  However, as the library has matured, bringing XUI CSS and components together has become much more desirable.
 
 Because of this, we have moved all the React components here into the XUI repository.  This will enable us to improve consistency, testability, and release cadence.  All components will now version together and be released simultaneously as a single artifact in Artifactory.
 

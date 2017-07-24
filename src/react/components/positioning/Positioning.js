@@ -46,12 +46,17 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 		? '0px'
 		: `${Math.floor(popupLeftPos + scrollLeftAmount())}px`
 	const translateY = placeBelow
-		? (triggerRect.height + gap) + 'px'
-		: `calc(-100% - ${gap}px)`;
+		? `${triggerRect.height}px`
+		: '-100%';
 	const translate = `translate(${translateX},${translateY})`;
+	// Initially the gap offset here was done through css calc properties in the translate function. Unfortunately
+	// this caused issues, as calc is invalid as a parameter of translate within IE11
+	const topValue = placeBelow ?
+		triggerRect.top + scrollTopAmount() + gap
+		: triggerRect.top + scrollTopAmount() - gap;
 
 	popup.setState({
-		top: triggerRect.top + scrollTopAmount(),
+		top: topValue,
 		alignTop: !placeBelow,
 		transform: translate,
 		bottom: null,

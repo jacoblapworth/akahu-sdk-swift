@@ -431,6 +431,7 @@ By default, the DropDown handles keyboard events for you because focus is actual
 Here's an example of a possible way that this could be handled:
 
 ```
+require('array.prototype.find').shim();
 const debounce = require('lodash.debounce');
 const { Component } = require('react');
 const { boldMatch, decorateSubStr, EmptyState } = require('./autocompleter');
@@ -554,6 +555,7 @@ While this opens the dropdown, the arrow keys, escape key, etc no longer allow t
 The `<NestedDropDown />` component is designed as a `<DropDown />` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like so:
 
 ```
+require('array.prototype.find').shim();
 const NestedDropDown = require('./components/dropdown/NestedDropDown').default;
 const DropDownPanel = require('./components/dropdown/DropDownPanel').default;
 const XUIButton = require('./button').default;

@@ -79,6 +79,7 @@ const config = {
 	},
 	title: 'XUI React Docs',
 	styleguideDir: outputPath,
+	highlightTheme: 'erlang-dark',
 	assetsDir: path.resolve(__dirname, '..', 'uitest'),
 	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [

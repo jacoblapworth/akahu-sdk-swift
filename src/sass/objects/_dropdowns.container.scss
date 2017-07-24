@@ -128,31 +128,6 @@
 //
 // Styleguide: Dropdowns.1.3
 
-// Full width dropdown
-//
-// Markup:
-// <div class="xui-dropdown-layout xui-u-fullwidth xui-dropdown-is-open xui-dropdown-is-opening">
-//   <div class="xui-dropdown--mask"></div>
-//   <div class="xui-dropdown--body">
-//		<div class="xui-dropdown--scrollable-content">
-//     <ul class="xui-picklist">
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Monthly</button>
-//       </li>
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Two-monthly</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Six-monthly</button>
-//       </li>
-//     </ul>
-//		</div>
-//   </div>
-// </div>
-//
-// Styleguide: Dropdowns.1.4
-
-
 .#{$ns}-dropdown-layout {
 	display: none;
 	flex-direction: column;

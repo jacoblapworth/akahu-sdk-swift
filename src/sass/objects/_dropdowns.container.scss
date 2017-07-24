@@ -21,16 +21,7 @@
 
 // Dropdowns
 //
-// ### Behaviour
-//
-// Correct dropdown behaviour comes default with using the Dropdown react component. However,
-// if you need to implement your own for some reason, please use the following guidelines.
-//
-// Implementations should make the most of the screen space available when showing dropdowns.
-// Scrollbars can be used when there is not enough screen space to fit all menu items. When there
-// is more space above than below the dropdown trigger, the menu should be positioned above the
-// trigger. The same applies for whether the menu should be left-aligned or right-aligned against
-// the trigger.
+// Following is the CSS documentation for styling dropdowns. Behaviorally dropdowns are deceptively complex. It is strongly recommended that you use the available React components or [native Select boxes](section-forms.html#forms-8) instead of rolling your own.
 //
 // Components: Dropdown
 //

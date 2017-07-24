@@ -3,84 +3,62 @@
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-toast.html#toast-2">Toast</a></span>
+		<span><a href="../section-toast.html#toast-2">Toasts in the XUI Documentation</a></span>
 	</div>
 </div>
 
 ### Example configurations
 
+Standard toasts are given a layout class by default. The close button is added when a `onCloseClick` callback prop is added.
+
 ```
-const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
-const noop = () => {};
+const onToastClose = () => {alert( 'Standard toast closed' )};
 
-const standard = (
-	<section>
-		<h3> Standard Toasts </h3>
-		<div className={rowClasses}>
-			<XUIToast>
-				<XUIToastMessage> Standard  </XUIToastMessage>
-			</XUIToast>
-			<XUIToast sentiment={'positive'}>
-				<XUIToastMessage> Positive </XUIToastMessage>
-			</XUIToast>
-			<XUIToast sentiment={'negative'}>
-				<XUIToastMessage> Negative </XUIToastMessage>
-			</XUIToast>
-			<XUIToast onCloseClick={noop}>
-				<XUIToastMessage> Closable </XUIToastMessage>
-			</XUIToast>
-		</div>
-	</section>
-);
+<div>
+	<XUIToast>
+		<XUIToastMessage> System Message </XUIToastMessage>
+	</XUIToast>
+	<XUIToast onCloseClick={onToastClose}>
+		<XUIToastMessage> Standard </XUIToastMessage>
+	</XUIToast>
+</div>
+```
 
-const action = (
-	<section>
-		<h3>Single Action Toasts </h3>
-		<div className={rowClasses}>
-			<XUIToast>
-				<XUIToastMessage> Standard  </XUIToastMessage>
-				<XUIToastAction> Action </XUIToastAction>
-			</XUIToast>
-			<XUIToast sentiment={'positive'}>
-				<XUIToastMessage> Positive </XUIToastMessage>
-				<XUIToastAction href="https://xero.com"> Action </XUIToastAction>
-			</XUIToast>
-			<XUIToast sentiment={'negative'}>
-				<XUIToastMessage> Negative </XUIToastMessage>
-				<XUIToastAction> Action </XUIToastAction>
-			</XUIToast>
-			<XUIToast onCloseClick={noop}>
-				<XUIToastMessage> Closable </XUIToastMessage>
-				<XUIToastAction> Action </XUIToastAction>
-			</XUIToast>
-		</div>
-	</section>
-);
+Single action toasts provide an additional call to action inside the toast.
+```
+const onToastClose = () => {alert( 'Single action toast closed' )};
 
-const actions = (
-	<section>
-		<h3>Multi Action Toasts </h3>
-		<XUIToast>
-			<XUIToastMessage> Standard  </XUIToastMessage>
-			<XUIToastActions>
-				<XUIToastAction> Action One  </XUIToastAction>
-				<XUIToastAction> Action Two  </XUIToastAction>
-			</XUIToastActions>
-		</XUIToast>
-		<XUIToast onCloseClick={noop}>
-			<XUIToastMessage> Closable  </XUIToastMessage>
-			<XUIToastActions>
-				<XUIToastAction> Action One  </XUIToastAction>
-				<XUIToastAction> Action Two  </XUIToastAction>
-			</XUIToastActions>
-		</XUIToast>
-	</section>
-);
+<div>
+	<XUIToast>
+		<XUIToastMessage> Standard </XUIToastMessage>
+		<XUIToastAction href="#"> Action </XUIToastAction>
+	</XUIToast>
+	<XUIToast onCloseClick={onToastClose}>
+		<XUIToastMessage> Closable </XUIToastMessage>
+		<XUIToastAction href="#"> Action </XUIToastAction>
+	</XUIToast>
+</div>
+```
 
-<div className="xui-page-width-large">
-	{standard}
-	{action}
-	{actions}
+Multi action toasts can be wrapped in a `XUIToastActions` component to provide more than one call to action.
+```
+const onToastClose = () => {alert( 'Multi action toast closed' )};;
+
+<div>
+	<XUIToast>
+		<XUIToastMessage> Standard </XUIToastMessage>
+		<XUIToastActions>
+			<XUIToastAction href="#"> Action One </XUIToastAction>
+			<XUIToastAction href="#"> Action Two </XUIToastAction>
+		</XUIToastActions>
+	</XUIToast>
+	<XUIToast onCloseClick={onToastClose}>
+		<XUIToastMessage> Closable </XUIToastMessage>
+		<XUIToastActions>
+			<XUIToastAction href="#"> Action One </XUIToastAction>
+			<XUIToastAction href="#"> Action Two </XUIToastAction>
+		</XUIToastActions>
+	</XUIToast>
 </div>
 ```
 

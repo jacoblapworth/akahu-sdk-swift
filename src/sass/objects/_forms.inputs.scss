@@ -455,6 +455,19 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //     </div>
 //   </div>
 // </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Inputgroup with a single child (not recommended, just for regression testing)</label>
+//   <div class="xui-inputgroup">
+//     <div class="xui-select xui-column-2-of-12">
+//       <select class="xui-select--control">
+//         <option>Invalid</option>
+//         <option>Value 2</option>
+//         <option>Value 3</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//   </div>
+// </div>
 //
 // Styleguide: Forms.4.5
 
@@ -465,7 +478,9 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 .#{$ns}-input-group > .#{$ns}-input,
-.#{$ns}-inputgroup > .#{$ns}-input {
+.#{$ns}-inputgroup > .#{$ns}-input,
+.#{$ns}-inputgroup > .#{$ns}-button,
+.#{$ns}-inputgroup .#{$ns}-select--control {
 	border-radius: 0;
 
 	// All but the first child have a left border
@@ -483,36 +498,27 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 .#{$ns}-inputgroup {
 	.#{$ns}-input-is-invalid:nth-child(n+2),
-	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control {
+	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-input-is-invalid {
 		border-left: 1px solid $xui-color-xero-red;
 		margin-left: -1px;
 	}
-
 }
 
 // TODO: Remove input-group
 .#{$ns}-input-group > .#{$ns}-input:first-child,
 .#{$ns}-inputgroup > .#{$ns}-input:first-child,
-.#{$ns}-inputgroup > .#{$ns}-button:first-child {
-	border-radius: $xui-radius 0 0 $xui-radius;
-}
-
-.#{$ns}-inputgroup > .#{$ns}-select:first-child {
-	.#{$ns}-select--control {
-		border-radius: $xui-radius 0 0 $xui-radius;
-	}
+.#{$ns}-inputgroup > .#{$ns}-button:first-child,
+.#{$ns}-inputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
+	border-bottom-left-radius: $xui-radius;
+	border-top-left-radius: $xui-radius;
 }
 
 .#{$ns}-input-group > .#{$ns}-input:last-child,
 .#{$ns}-inputgroup > .#{$ns}-input:last-child,
-.#{$ns}-inputgroup > .#{$ns}-button:last-child {
-	border-radius: 0 $xui-radius $xui-radius 0;
-}
-
-.#{$ns}-inputgroup > .#{$ns}-select:last-child {
-	.#{$ns}-select--control {
-		border-radius: 0 $xui-radius $xui-radius 0;
-	}
+.#{$ns}-inputgroup > .#{$ns}-button:last-child,
+.#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
+	border-bottom-right-radius: $xui-radius;
+	border-top-right-radius: $xui-radius;
 }
 
 // TODO: This is deprecated, text areas should use xui-input

@@ -1,4 +1,5 @@
 @import '../../../sass/vars';
+@import '../../../sass/mixins';
 
 .#{$ns}-autocompleter--input {
 	// Otherwise, the box surrounding the input gets ridiculously tall
@@ -21,11 +22,24 @@
 	// Need this thing to have the same focus state and the input.  Unfortunately, the only mixin I could find used
 	// the :focus selector and that won't work when the child input has focus.
 	width: 100%;
+
 	&-focus {
+		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-focus;
 		outline: none;
 		transition: box-shadow $xui-transition-duration-short;
 	}
+}
+
+.#{$ns}-autocompleter--trigger-is-disabled {
+	cursor: default;
+	pointer-events: none;
+
+	@include xui-disabled-form;
+}
+
+.#{$ns}-autocompleter--input {
+	background-color: transparent;
 }
 
 .#{$ns}-autocompleter--pill {
@@ -37,7 +51,6 @@
 .#{$ns}-autocompleter--trigger-pillwrap {
 	flex-wrap: wrap;
 }
-
 
 .#{$ns}-autocompleter--input-wrapper {
 	flex: 1 0 50%;

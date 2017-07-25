@@ -145,8 +145,15 @@ export default class Autocompleter extends PureComponent {
 		const triggerClasses = cn(
 			'xui-input',
 			'xui-autocompleter--trigger',
-			{'xui-autocompleter--trigger-pillwrap': props.wrapPills},
+			{
+				'xui-autocompleter--trigger-is-disabled': props.isDisabled,
+				'xui-autocompleter--trigger-pillwrap': props.wrapPills
+			},
 			props.triggerClassName
+		);
+		const inputClasses = cn(
+			props.inputClassName,
+			'xui-autocompleter--input'
 		);
 		const trigger = (
 			<div className={triggerClasses} id="trigger" ref={tg => this.trigger=tg}>
@@ -158,7 +165,7 @@ export default class Autocompleter extends PureComponent {
 					maxLength={props.maxLength}
 					onSearch={props.onSearch}
 					onKeyDown={handlers.onInputKeyDown}
-					className={props.inputClassName}
+					className={inputClasses}
 					throttleInterval={props.searchThrottleInterval}
 					qaHook={inputQaHook}
 					onFocus={props.openOnFocus ? handlers.onInputFocus : null}
@@ -166,10 +173,6 @@ export default class Autocompleter extends PureComponent {
 			</div>
 		);
 
-		const dropdownClasses = cn({
-			'xui-u-fullwidth': !props.dropdownSize },
-			props.dropdownClassName,
-		);
 		const dropdown = (
 			<DropDown
 				ref={c => completer.dropdown = c}
@@ -177,7 +180,7 @@ export default class Autocompleter extends PureComponent {
 				id={props.id}
 				onSelect={props.onOptionSelect}
 				hasKeyboardEvents={false}
-				className={dropdownClasses}
+				className={props.dropdownClassName}
 				qaHook={listQaHook}
 				restrictFocus={false}
 				size={props.dropdownSize}
@@ -289,6 +292,9 @@ Autocompleter.propTypes = {
 
 	/** Whether the pills should wrap instead of scroll on overflow */
 	wrapPills: PropTypes.bool,
+
+	/** Whether to render as disabled */
+	isDisabled: PropTypes.bool,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node

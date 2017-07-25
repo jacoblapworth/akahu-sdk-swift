@@ -109,162 +109,149 @@
 //         <label for="45aa1e5a-5278-a4d5-6a07-cd9b2fc8a406" class="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall">June</label>
 //       </div>
 //       <div class="xui-datepicker--heading xui-item-title xui-datepicker--heading-year">
-//          <select id="befca3c2-ab64-f168-eb49-36ebadd2b4a2" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout" name="year">
-//            <option value="2017">2017</option>
-//            <option value="2018">2018</option>
-//            <option value="2019">2019</option>
-//          </select>
-//          <label for="befca3c2-ab64-f168-eb49-36ebadd2b4a2" class="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall xui-text-deemphasis">2017</label>
+//         <select id="befca3c2-ab64-f168-eb49-36ebadd2b4a2" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
+//          name="year">
+//           <option value="2017">2017</option>
+//           <option value="2018">2018</option>
+//           <option value="2019">2019</option>
+//         </select>
+//         <label for="befca3c2-ab64-f168-eb49-36ebadd2b4a2" class="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall xui-text-deemphasis">2017</label>
 //       </div>
 //     </form>
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--button-is-disabled" aria-label="Go to next month" title="Go to next month">
 //       <svg focusable="false" class="xui-icon xui-icon-rotate-270 xui-u-hidden-visually"> <use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //     </button>
 //   </header>
-//   <table class="xui-popover--section xui-datepicker--body" role="grid" aria-label="Select a day">
-//     <thead>
-//       <tr class="xui-datepicker--weekdays xui-row-flex xui-justify-center" role="row">
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Sunday">Su</abbr>
-//         </th>
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Monday">Mo</abbr>
-//         </th>
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Tuesday">Tu</abbr>
-//         </th>
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Wednesday">We</abbr>
-//         </th>
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Thursday">Th</abbr>
-//         </th>
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Friday">Fr</abbr>
-//         </th>
-//         <th class="xui-datepicker--weekday-container" role="columnheader">
-//           <abbr class="xui-datepicker--weekday" title="Saturday">Sa</abbr>
-//         </th>
-//       </tr>
-//     </thead>
-//     <tbody role="rowgroup">
-//       <tr role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
-//         <td class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//   <div class="xui-popover--section xui-datepicker--body" role="grid" aria-label="Select a day">
+//     <div class="" role="rowgroup">
+//       <div class="xui-datepicker--weekdays xui-row-flex xui-justify-center" role="row">
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Sunday">S</abbr></div>
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Monday">M</abbr></div>
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Tuesday">T</abbr></div>
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Wednesday">W</abbr></div>
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Thursday">T</abbr></div>
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Friday">F</abbr></div>
+//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Saturday">S</abbr></div>
+//       </div>
+//     </div>
+//     <div role="rowgroup">
+//       <div role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
+//         <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
 //           <time datetime="2016-09-27" class="xui-datepicker--day--time">27</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
 //           <time datetime="2016-09-28" class="xui-datepicker--day--time">28</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
 //           <time datetime="2016-09-29" class="xui-datepicker--day--time">29</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
 //           <time datetime="2016-09-30" class="xui-datepicker--day--time">30</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-1" class="xui-datepicker--day--time">1</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-2" class="xui-datepicker--day--time">2</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-start" role="gridcell" aria-selected="true">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-start" role="gridcell" aria-selected="true">
 //           <time datetime="2016-10-3" class="xui-datepicker--day--time">3</time>
-//         </td>
-//       </tr>
-//       <tr role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
-//         <td class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">
+//         </div>
+//       </div>
+//       <div role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
+//         <div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">
 //           <time datetime="2016-10-4" class="xui-datepicker--day--time">4</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-hovered-end" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-hovered-end" role="gridcell">
 //           <time datetime="2016-10-5" class="xui-datepicker--day--time">5</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-today" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-today" role="gridcell">
 //           <time datetime="2016-10-6" class="xui-datepicker--day--time">6</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-hovered-start" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-hovered-start" role="gridcell">
 //           <time datetime="2016-10-7" class="xui-datepicker--day--time">7</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">
 //           <time datetime="2016-10-8" class="xui-datepicker--day--time">8</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">
 //           <time datetime="2016-10-9" class="xui-datepicker--day--time">9</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-end" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-end" role="gridcell">
 //           <time datetime="2016-10-10" class="xui-datepicker--day--time">10</time>
-//         </td>
-//       </tr>
-//       <tr role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//       </div>
+//       <div role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-11" class="xui-datepicker--day--time">11</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected-start" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected-start" role="gridcell">
 //           <time datetime="2016-10-12" class="xui-datepicker--day--time">12</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected-middle" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected-middle" role="gridcell">
 //           <time datetime="2016-10-13" class="xui-datepicker--day--time">13</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected-middle" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected-middle" role="gridcell">
 //           <time datetime="2016-10-14" class="xui-datepicker--day--time">14</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected-end" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected-end" role="gridcell">
 //           <time datetime="2016-10-15" class="xui-datepicker--day--time">15</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-16" class="xui-datepicker--day--time">16</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-17" class="xui-datepicker--day--time">17</time>
-//         </td>
-//       </tr>
-//       <tr role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//       </div>
+//       <div role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-18" class="xui-datepicker--day--time">18</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-19" class="xui-datepicker--day--time">19</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-20" class="xui-datepicker--day--time">20</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-21" class="xui-datepicker--day--time">21</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-selected" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected" role="gridcell">
 //           <time datetime="2016-10-22" class="xui-datepicker--day--time">22</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-23" class="xui-datepicker--day--time">23</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-24" class="xui-datepicker--day--time">24</time>
-//         </td>
-//       </tr>
-//       <tr role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//       </div>
+//       <div role="row" class="xui-datepicker--week xui-row-flex xui-justify-center">
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-25" class="xui-datepicker--day--time">25</time>
-//         </td>
-//         <td class="xui-datepicker--day" role="gridcell">
+//         </div>
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-26" class="xui-datepicker--day--time">26</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
 //           <time datetime="2016-10-27" class="xui-datepicker--day--time">27</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
 //           <time datetime="2016-10-28" class="xui-datepicker--day--time">28</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
 //           <time datetime="2016-10-29" class="xui-datepicker--day--time">29</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
 //           <time datetime="2016-10-30" class="xui-datepicker--day--time">30</time>
-//         </td>
-//         <td class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
+//         </div>
+//         <div class="xui-datepicker--day xui-datepicker--day-is-disabled" role="gridcell" aria-disabled="true">
 //           <time datetime="2016-10-21" class="xui-datepicker--day--time">31</time>
-//         </td>
-//       </tr>
-//     </tbody>
-//   </table>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
 // </div>
 //
 // Weight: 4.1

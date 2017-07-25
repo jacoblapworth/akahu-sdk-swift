@@ -143,7 +143,9 @@ export default class DropDownToggled extends PureComponent {
 			}
 			if (!state.isHidden) {
 				if (isScrollLocked() && !state.isNarrowViewport) {
-					unlockScroll();
+					if (prevState.isNarrowViewport) {
+						unlockScroll();
+					}
 					scrollIntoViewIfNecessary(this.wrapper.firstChild);
 				}
 				if (shouldLockScroll(ddt)) {

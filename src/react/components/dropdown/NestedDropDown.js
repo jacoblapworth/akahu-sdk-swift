@@ -128,14 +128,11 @@ NestedDropDown.propTypes = {
 	/** Callback for when the highlighted item in the dropdown changes. */
 	onHighlightChange: PropTypes.func,
 
-	/** The `panelId` propety of the panel which should currently be open */
+	/** The `panelId` property of the panel which should currently be open */
 	currentPanel: PropTypes.string,
 
 	/** Callback for when the open DropDownPanel changes. Receives the name of the selected panel, and the previously selected panel. */
 	onPanelChange: PropTypes.func,
-
-	/** Callback to trigger opening of another panel. Takes destination panel name as a parameter. */
-	onPanelSelect: PropTypes.func,
 
 	/** Whether the fixed width class variant should be used for the size prop.  Does nothing if no size is provided. */
 	fixedWidth: PropTypes.bool,

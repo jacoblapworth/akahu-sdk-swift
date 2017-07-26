@@ -1,38 +1,36 @@
+<!-- 
 *Please label your issue with one of the following:*
-
 - Bug
 - Design QA
 - Enhancement
 - Feature request
-- Design concept
-- Design enhancement
 - Documentation
+-->
 
----
 
+
+<!-- Section: Enhancements or Feature Requests or Documentation -->
+<!-- delete section if not applicable -->
 ## Request
-*Use for non bug/design QA requests – delete if not applicable*
 
 ### What
 
 ### Why 
 
 ### Screenshot
-*Please include a screenshot of what you want (if applicable)*
+<!-- *Please include a screenshot of what you want (if applicable)* -->
 
----
 
+
+<!-- Section: Bugs or Design QA -->
+<!-- delete section if not applicable -->
 ## Bug | Design QA
-*Use for bug/design QA requests – delete if not applicable*
 
 ### Expected Behaviour
 
-
 ### Actual Behaviour
 
-
 ### Where it is visible
-
 
 ### Specifications
 
@@ -41,7 +39,4 @@
   - Components (& versions) affected: 
   
 ### Screenshot
-
-*Please include a screenshot of any bugs*
-
----
+<!-- *Please include a screenshot of any bugs* -->

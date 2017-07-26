@@ -349,7 +349,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						onOptionSelect={example.onOptionSelectHandler}
-						placeholder="Search"
+						placeholder="Search but we want a longer word"
 						searchValue={value}
 						dropdownSize="medium"
 						closeOnSelect={false}
@@ -480,7 +480,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						onOptionSelect={example.onOptionSelectHandler}
-						placeholder="Search"
+						placeholder="Search but we want a longer word"
 						searchValue={value}
 						dropdownSize="medium"
 						closeOnSelect={false}

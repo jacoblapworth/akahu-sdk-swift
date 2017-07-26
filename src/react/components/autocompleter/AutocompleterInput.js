@@ -94,6 +94,7 @@ export default class AutocompleterInput extends Component {
 				onChange={onChange}
 				qaHook={props.qaHook}
 				iconAttributes={props.iconAttributes}
+				button={<span className="xui-autocompleter--placeholder">{props.placeholder}</span>}
 			/>
 		);
 	}

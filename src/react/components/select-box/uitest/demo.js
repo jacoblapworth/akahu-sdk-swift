@@ -120,6 +120,25 @@ class MiniApp extends Component {
 						The thing
 					</SelectBoxOption>
 				</SelectBox>
+
+				<h3>Button variant: standard</h3>
+				<SelectBox
+					ref={c => this.selectOne = c}
+					label="Field Label"
+					buttonContent={TextHelpers.getText(MiniApp.state.selectedDog, 'Choose a Dog')}
+					onSelect={MiniApp.onDogSelect}
+					buttonVariant="primary"
+				>
+					<SelectBoxOption
+						id="thing"
+						isSelected={MiniApp.state.selectedDog === 'thing'}
+						value="thing"
+						defaultLayout={false}
+						truncatedText
+					>
+						The thing
+					</SelectBoxOption>
+				</SelectBox>
 			</form>
 		);
 	}

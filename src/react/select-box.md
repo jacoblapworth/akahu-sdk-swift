@@ -150,3 +150,81 @@ class MiniApp extends Component {
 
 <MiniApp/>
 ```
+
+### Button variants
+
+The standard button variants available in the [Button](#button) component can be applied here through the `buttonVariant` prop.
+
+```
+const { Component }= require('react');
+const TextHelpers = require ('./components/select-box/TextHelpers').default;
+const bank = require('@xero/xui-icon/icons/bank').default;
+
+const banks = [
+	'ANZ',
+	'ASB',
+	'Kiwi Bank',
+	'Westpac',
+];
+
+class MiniApp extends Component {
+	constructor (props, context) {
+		super(props, context);
+
+		this.state = {
+			selectedBank: banks[2]
+		};
+		[
+			this.onBankSelect,
+		].forEach(fn => {
+			this[fn.name] = fn.bind(this);
+		});
+	}
+
+	onBankSelect(value) {
+		this.setState({
+			selectedBank: value
+		});
+	}
+
+
+
+	render () {
+		const MiniApp = this;
+
+		return (
+				<SelectBox
+					ref={c => this.selectOne = c}
+					name="selectOne"
+					label="Select a Bank"
+					buttonContent={
+						<span>
+							<XUIIcon inline path={bank} className="xui-margin-right-none"/>
+							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+						</span>
+					}
+					isTextTruncated={false}
+					buttonVariant="primary"
+				>
+					{banks.map((opt, idx) => {
+						return (
+							<SelectBoxOption
+								id={opt}
+								key={idx + opt + 'userDefined Key'}
+								isSelected={opt === MiniApp.state.selectedBank}
+								value={opt}
+								onSelect={MiniApp.onBankSelect}
+							>
+								{opt}
+							</SelectBoxOption>
+						);
+					})}
+				</SelectBox>
+
+
+		);
+	}
+}
+
+	<MiniApp />
+```

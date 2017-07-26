@@ -53,8 +53,8 @@ export default class SelectBox extends Component {
 		});
 		const buttonClasses = cn({
 			'xui-text-truncated': props.isTextTruncated,
-			'xui-select--button-is-selected': selectBox.isDropDownOpen(),
-			'xui-select--button': true,
+			'xui-select--button-is-selected': !props.buttonVariant && selectBox.isDropDownOpen(),
+			'xui-select--button': !props.buttonVariant,
 			[props.buttonClasses]: !!props.buttonClasses
 		});
 		const inputGroupClasses = cn({
@@ -67,6 +67,7 @@ export default class SelectBox extends Component {
 			[props.labelClasses]: !!props.labelClasses
 		});
 		const dropDownClasses = props.dropDownClasses;
+		const caretClasses = props.buttonVariant ? 'xui-button--caret' : 'xui-select--caret';
 
 		const trigger = (
 			<XUIButton
@@ -77,7 +78,11 @@ export default class SelectBox extends Component {
 				qaHook={setQaHook(props.qaHook, qaHooks.button)}
 			>
 				{props.buttonContent}
-				<XUIIcon className="xui-select--caret" path={caret} title="Toggle List" />
+				<XUIIcon
+					className={caretClasses}
+					path={caret}
+					title="Toggle List"
+				/>
 			</XUIButton>
 		);
 

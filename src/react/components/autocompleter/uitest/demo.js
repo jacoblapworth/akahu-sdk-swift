@@ -343,7 +343,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 				<div className="xui-panel xui-padding xui-margin-top">
 					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter</div>
 					<p className='xui-text-label'>
-						Selecting Multiple items will be rendered inside Pills.
+						Selecting Multiple items will be rendered inside Pills, wrapping them when they grow to be wider than it's container.
 					</p>
 					<Autocompleter
 						ref={ac => example.completer = ac}

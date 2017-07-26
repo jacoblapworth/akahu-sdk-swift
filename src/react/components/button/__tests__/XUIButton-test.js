@@ -126,7 +126,7 @@ describe('<XUIButton/>', () => {
 
 	it('renders borderless buttons with the correct classes', () => {
 		const primary = renderIntoDocument(<XUIButton variant="borderless-primary" onClick={() => {}} />);
-		assert.isTrue(primary.rootNode.classList.contains('xui-button-borderless-primary'));
+		assert.isTrue(primary.rootNode.classList.contains('xui-button-borderless-main'));
 
 		const create = renderIntoDocument(<XUIButton variant="borderless-create" onClick={() => {}} />);
 		assert.isTrue(create.rootNode.classList.contains('xui-button-borderless-create'));
@@ -139,6 +139,9 @@ describe('<XUIButton/>', () => {
 
 		const inverted = renderIntoDocument(<XUIButton variant="borderless-inverted" onClick={() => {}} />);
 		assert.isTrue(inverted.rootNode.classList.contains('xui-button-borderless-inverted'));
+
+		const muted = renderIntoDocument(<XUIButton variant="borderless-muted" onClick={() => {}} />);
+		assert.isTrue(muted.rootNode.classList.contains('xui-button-borderless-muted'));
 	});
 
 	it('has a role attribute for links which function like buttons', () => {

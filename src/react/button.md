@@ -32,6 +32,7 @@ Different styles of button are provided for by passing different `variants`.
 			<XUIButton className="xui-margin-right" variant="borderless-primary">Borderless Primary</XUIButton>
 			<XUIButton className="xui-margin-right" variant="borderless-create">Borderless Create</XUIButton>
 			<XUIButton className="xui-margin-right" variant="borderless-negative">Borderless Negative</XUIButton>
+			<XUIButton className="xui-margin-right" variant="borderless-muted">Borderless Muted</XUIButton>
 		</div>
 		<div className="xui-padding-xsmall xui-background-grey-1">
 			<XUIButton className="xui-margin-right" variant="borderless-inverted">Borderless Inverted</XUIButton>
@@ -96,7 +97,8 @@ You can programatically disable a button (which prevents interaction, including 
 ```
 <div>
 	<XUIButton className="xui-margin-right" isDisabled={true}>Standard Button</XUIButton>
-	<XUIButton variant="create" isDisabled={true}>Variant Button</XUIButton>
+	<XUIButton className="xui-margin-right" variant="create" isDisabled={true}>Variant Button</XUIButton>
+	<XUIButton variant="borderless-standard" isDisabled={true}>Borderless Button</XUIButton>
 </div>
 ```
 

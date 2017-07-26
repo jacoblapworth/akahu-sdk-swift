@@ -54,6 +54,7 @@ export default class SelectBox extends Component {
 		const buttonClasses = cn({
 			'xui-text-truncated': props.isTextTruncated,
 			'xui-select--button-is-selected': selectBox.isDropDownOpen(),
+			'xui-select--button': true,
 			[props.buttonClasses]: !!props.buttonClasses
 		});
 		const inputGroupClasses = cn({
@@ -76,7 +77,7 @@ export default class SelectBox extends Component {
 				qaHook={setQaHook(props.qaHook, qaHooks.button)}
 			>
 				{props.buttonContent}
-				<XUIIcon className="xui-button--caret" path={caret} title="Toggle List" />
+				<XUIIcon className="xui-select--caret" path={caret} title="Toggle List" />
 			</XUIButton>
 		);
 
@@ -160,7 +161,7 @@ SelectBox.propTypes = {
 	defaultLayout: PropTypes.bool,
 
 	/** Display text to be rendered on SelectBox button. */
-	buttonContent: PropTypes.string.isRequired,
+	buttonContent: PropTypes.node.isRequired,
 
 	/** Selection callback */
 	onSelect: PropTypes.func,

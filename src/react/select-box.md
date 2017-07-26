@@ -21,26 +21,32 @@ In the following example, the `buttonContent` of the SelectBox is being set to v
 ```
 const { Component }= require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
+const bank = require('@xero/xui-icon/icons/bank').default;
 
-const bikes = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona', ];
+const banks = [
+	'ANZ',
+	'ASB',
+	'Kiwi Bank',
+	'Westpac',
+];
 
 class MiniApp extends Component {
 	constructor (props, context) {
 		super(props, context);
 
 		this.state = {
-			selectedBike: bikes[2]
+			selectedBank: banks[2]
 		};
 		[
-			this.onBikeSelect,
+			this.onBankSelect,
 		].forEach(fn => {
 			this[fn.name] = fn.bind(this);
 		});
 	}
 
-	onBikeSelect(value) {
+	onBankSelect(value) {
 		this.setState({
-			selectedBike: value
+			selectedBank: value
 		});
 	}
 
@@ -51,21 +57,25 @@ class MiniApp extends Component {
 
 		return (
 				<SelectBox
-					containerClasses="xui-fieldlabel-layout"
 					ref={c => this.selectOne = c}
 					name="selectOne"
-					label="Select a Bike"
-					buttonContent={TextHelpers.getText(MiniApp.state.selectedBike, 'Choose a Bike')}
+					label="Select a Bank"
+					buttonContent={
+						<span>
+							<XUIIcon inline path={bank} className="xui-margin-right-none"/>
+							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
+						</span>
+					}
 					isTextTruncated={false}
 				>
-					{bikes.map((opt, idx) => {
+					{banks.map((opt, idx) => {
 						return (
 							<SelectBoxOption
 								id={opt}
 								key={idx + opt + 'userDefined Key'}
-								isSelected={opt === MiniApp.state.selectedBike}
+								isSelected={opt === MiniApp.state.selectedBank}
 								value={opt}
-								onSelect={MiniApp.onBikeSelect}
+								onSelect={MiniApp.onBankSelect}
 							>
 								{opt}
 							</SelectBoxOption>
@@ -113,7 +123,6 @@ class MiniApp extends Component {
 		const MiniApp = this;
 		return (
 			<SelectBox
-				containerClasses="xui-fieldlabel-layout"
 				ref={c => this.multiSelect = c}
 				name="multiSelect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}

@@ -161,12 +161,12 @@ export default class Autocompleter extends PureComponent {
 				<AutocompleterInput
 					refFn={c => completer.input = c}
 					value={props.searchValue}
+					placeholder={props.placeholder}
 					maxLength={props.maxLength}
 					onSearch={props.onSearch}
 					onKeyDown={handlers.onInputKeyDown}
 					className={inputClasses}
 					throttleInterval={props.searchThrottleInterval}
-					placeholder={props.placeholder}
 					qaHook={inputQaHook}
 					onFocus={props.openOnFocus ? handlers.onInputFocus : null}
 				/>

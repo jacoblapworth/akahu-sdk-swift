@@ -343,13 +343,13 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 				<div className="xui-panel xui-padding xui-margin-top">
 					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter</div>
 					<p className='xui-text-label'>
-						Selecting Multiple items will be rendered inside Pills, wrapping them when they grow to be wider than it's container.
+						Selecting Multiple items will be rendered inside Pills.
 					</p>
 					<Autocompleter
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						onOptionSelect={example.onOptionSelectHandler}
-						placeholder="Search but we want a longer word"
+						placeholder="Search"
 						searchValue={value}
 						dropdownSize="medium"
 						closeOnSelect={false}
@@ -480,7 +480,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						onOptionSelect={example.onOptionSelectHandler}
-						placeholder="Search but we want a longer word"
+						placeholder="Search"
 						searchValue={value}
 						dropdownSize="medium"
 						closeOnSelect={false}

@@ -252,7 +252,7 @@ class StatefulPicklist extends Component {
 		const spl = this;
 		const { ignoreKeyboardEvents } = spl.props;
 		if (ignoreKeyboardEvents.indexOf(event.keyCode) === -1) {
-			switch (event.keyCode){
+			switch (event.keyCode) {
 				// 'space' and 'enter' keys
 				case 13:
 				case 32: {

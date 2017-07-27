@@ -200,8 +200,10 @@ class XDD extends Component {
 		items.forEach(item => selected[item.id]=false);
 
 		this.state = {
+			items,
+			search: '',
 			selected,
-			selectedCount: 0
+			selectedCount: 0,
 		};
 
 		this.onApplyClick = this.onApplyClick.bind(this);
@@ -209,6 +211,23 @@ class XDD extends Component {
 		this.closeDropDown = this.closeDropDown.bind(this);
 		this.onClose = this.onClose.bind(this);
 		this.onOpen = this.onOpen.bind(this);
+		this.onSearch = this.onSearch.bind(this);
+		this.onSearchKeyDown = this.onSearchKeyDown.bind(this);
+	}
+
+	onSearch(event) {
+		const val = event.target.value;
+		this.setState({
+			search: val,
+			items: items.filter(item => item.text.toLowerCase().indexOf(val.toLowerCase()) > -1),
+		});
+	}
+
+	onSearchKeyDown(event) {
+		// Allow users to type spaces without selecting
+		if (event.keyCode !== 32) {
+			this.dropdown.onKeyDown(event);
+		}
 	}
 
 	onSelect(value) {
@@ -250,6 +269,7 @@ class XDD extends Component {
 	}
 
 	render() {
+		const { items, search } = this.state;
 		const dropdownHeader = (
 			<DropDownHeader
 				title="Select Fruit"
@@ -259,15 +279,19 @@ class XDD extends Component {
 				secondaryButtonContent="Cancel"
 			>
 				<XUIInput
+					ref={c => this.searchComponent = c}
 					className="xui-input-borderless xui-input-borderless-solid"
 					containerClassName="xui-inputwrapper-borderless xui-u-fullwidth"
+					onKeyDown={this.onSearchKeyDown}
+					value={this.search}
+					onChange={this.onSearch}
 					iconAttributes={{
 						path: searchIcon,
 						position: 'left',
 					}}
 					inputAttributes={{
 						type: 'search',
-						placeholder: 'Fake search box',
+						placeholder: 'Search box',
 					}}
 					hasClearButton
 				/>
@@ -299,10 +323,12 @@ class XDD extends Component {
 		);
 		const dropdown = (
 			<DropDown
+				ref={c => this.dropdown = c}
 				onSelect={this.onSelect}
 				header={dropdownHeader}
 				footer={dropdownFooter}
 				size="large"
+				hasKeyboardEvents={false}
 				fixedWidth
 			>
 				<Picklist>
@@ -323,6 +349,7 @@ class XDD extends Component {
 		return (
 			<DropDownToggled
 				ref={c => this.ddt = c}
+				onOpenAnimationEnd={() => this.searchComponent.focus()}
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}

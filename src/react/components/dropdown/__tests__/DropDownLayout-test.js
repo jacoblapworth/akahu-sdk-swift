@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import DropDownListBox from '../DropDownListBox';
+import DropDownLayout from '../DropDownLayout';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 
 function getWrapper(props={}) {
 	return mount(
-		<DropDownListBox {...props}>
+		<DropDownLayout {...props}>
 			<Picklist>
 				<Pickitem id="1">
 					Im the whole shabang!
@@ -24,7 +24,7 @@ function getWrapper(props={}) {
 					Absolutely Necessary Costs
 				</Pickitem>
 			</Picklist>
-		</DropDownListBox>
+		</DropDownLayout>
 	);
 }
 describe('onOpenAnimationEnd', () => {
@@ -32,7 +32,7 @@ describe('onOpenAnimationEnd', () => {
 		const onOpenAnimationEnd = jest.fn();
 		const wrapper = getWrapper({ isHidden: false, onOpenAnimationEnd, animateOpen: true });
 
-		wrapper.find('.xui-dropdown--body').simulate('animationEnd', {
+		wrapper.simulate('animationEnd', {
 			animationName: 'xui-dropdown-mobile-show'
 		});
 		expect(onOpenAnimationEnd).toBeCalled();
@@ -41,7 +41,7 @@ describe('onOpenAnimationEnd', () => {
 		const onOpenAnimationEnd = jest.fn();
 		const wrapper = getWrapper({ isHidden: false, onOpenAnimationEnd, animateClosed: true });
 
-		wrapper.find('.xui-dropdown--body').simulate('animationEnd', {
+		wrapper.childAt(0).simulate('animationEnd', {
 			animationName: 'xui-dropdown-mobile-hide'
 		});
 		expect(onOpenAnimationEnd).not.toBeCalled();
@@ -53,7 +53,7 @@ describe('onCloseAnimationEnd', () => {
 		const onCloseAnimationEnd = jest.fn();
 		const wrapper = getWrapper({ isHidden: true, onCloseAnimationEnd, animateClosed: true });
 
-		wrapper.find('.xui-dropdown--body').simulate('animationEnd', {
+		wrapper.childAt(0).simulate('animationEnd', {
 			animationName: 'xui-dropdown-mobile-hide'
 		});
 		expect(onCloseAnimationEnd).toBeCalled();
@@ -62,7 +62,7 @@ describe('onCloseAnimationEnd', () => {
 		const onCloseAnimationEnd = jest.fn();
 		const wrapper = getWrapper({ isHidden: true, onCloseAnimationEnd, animateOpen: true });
 
-		wrapper.find('.xui-dropdown--body').simulate('animationEnd', {
+		wrapper.childAt(0).simulate('animationEnd', {
 			animationName: 'xui-dropdown-mobile-show'
 		});
 		expect(onCloseAnimationEnd).not.toBeCalled();

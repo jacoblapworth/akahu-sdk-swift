@@ -40,6 +40,18 @@ export default class XUIInput extends Component {
 		};
 	}
 
+	/**
+	 * Focus the input node if we can.
+	 *
+	 * @public
+	 * @memberof XUIInput
+	 */
+	focus() {
+		if (this.inputNode) {
+			this.inputNode.focus();
+		}
+	}
+
 	render() {
 		const statefulInput = this;
 		const {

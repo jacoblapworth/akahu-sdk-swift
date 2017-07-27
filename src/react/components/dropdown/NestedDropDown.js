@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import DropDownListBox from './DropDownListBox';
+import DropDownLayout from './DropDownLayout';
 import DropDown from './DropDown';
 import { compose } from '../helpers/compose';
 
@@ -31,7 +31,6 @@ export default class NestedDropDown extends DropDown {
 		const dropdown = this;
 		const {
 			size,
-			footer,
 			className,
 			isHidden,
 			children,
@@ -49,13 +48,9 @@ export default class NestedDropDown extends DropDown {
 
 		const dropdownClasses = cn('xui-dropdown-fullheight', className);
 
-		let currentPanelHeader;
 		const childrenToRender =
 			React.Children.map(children, (child) => {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
-				if (isCurrentPanel) {
-					currentPanelHeader = child.props.header;
-				}
 				return (
 					<div className={cn({ 'xui-u-hidden': !isCurrentPanel })}>
 						{
@@ -63,7 +58,8 @@ export default class NestedDropDown extends DropDown {
 								React.cloneElement(child, {
 									ref: oc => dropdown.panel = oc,
 									onSelect: compose(child.props.onSelect, onSelect),
-									onHighlightChange: compose(child.props.onHighlightChange, dropdown.onHighlightChange)
+									onHighlightChange: compose(child.props.onHighlightChange, dropdown.onHighlightChange),
+									onKeyDown: dropdown.keyDownHandler,
 								})
 								: child
 						}
@@ -72,16 +68,12 @@ export default class NestedDropDown extends DropDown {
 			});
 
 		return (
-			<DropDownListBox
+			<DropDownLayout
 				id={dropdown.dropdownId}
 				isHidden={isHidden}
-				footer={footer}
-				header={currentPanelHeader}
 				className={dropdownClasses}
 				size={size}
 				qaHook={qaHook}
-				ref={c => dropdown.listBox = c}
-				onKeyDown={dropdown.onKeyDown}
 				style={style}
 				onOpenAnimationEnd={onOpenAnimationEnd}
 				onCloseAnimationEnd={onCloseAnimationEnd}
@@ -91,7 +83,7 @@ export default class NestedDropDown extends DropDown {
 				forceDesktop={forceDesktop}
 			>
 				{childrenToRender}
-			</DropDownListBox>
+			</DropDownLayout>
 		);
 	}
 }

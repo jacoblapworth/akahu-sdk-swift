@@ -1,29 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import DropDownLayout from './DropDownLayout';
+import DropDownPanel from './DropDownPanel';
 import {
 	maxWidthDropdownSizes,
-	fixedWidthDropdownSizes,
 } from './private/constants';
-import {
-	isVisible,
-	intervalRunner,
-	scrollTopPosition,
-	isNarrowViewport,
-} from './private/helpers';
 
 /**
- * Utilize the intervalRunner to execute a callback when the list box and its children become visible to the user.
+ * DEPRECATED in XUI 11.  Please use DropDownLayout and/or DropDownPanel instead
  *
- * @private
- * @param {DropDownListBox} listBox
- * @param {Function} callback
- */
-function whenVisible(listBox, callback) {
-	intervalRunner(() => isVisible(listBox.rootNode), callback);
-}
-
-/**
  * Presentational component that ensures the the contents of a dropdown are rendered with the
  * correct CSS classes.  This component is also what addes the mask to the DOM when going into
  * narrow viewport.
@@ -32,55 +17,6 @@ function whenVisible(listBox, callback) {
  * @extends {PureComponent}
  */
 class DropDownListBox extends PureComponent {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			maxHeight: (props.style && props.style.maxHeight) || null,
-		};
-	}
-
-	/**
-	 * When -webkit-overflow-scrolling: touch is set in iOS, scrolling elements inside of a fixed
-	 * position div have a decent (aka > 75%) chance of simply not updating when clicking on a
-	 * checkbox after scrolling the content.  However, divs without this property don't have this
-	 * problem.  I experimented with some CSS solutions, but didn't find anything that helped.
-	 * That's why I've gone with this approach.  It's simple, -webkit-overflow-scrolling: touch
-	 * causes the problem, so get rid of it while DOM updates happen, then add it back.
-	 *
-	 * I've added some simple safety checks to prevent JS errors and prevent this code from running
-	 * in non-iOS browsers.  After all, creating a timer does actually affect performance...
-	 *
-	 * @author dev-johnsanders
-	 *
-	 * @memberof DropDownListBox
-	 */
-	iOSHack = () => {
-		const content = this._scrollableContent;
-		if (
-			content != null &&
-			content.style.hasOwnProperty('webkitOverflowScrolling') &&
-			navigator != null &&
-			navigator.userAgent.indexOf('Edge/') === -1
-		) {
-			content.style.webkitOverflowScrolling = 'auto';
-			this._scrollStyleTimer = setTimeout(() => {
-				content.style.webkitOverflowScrolling = '';
-			}, 600);
-		}
-	}
-
-	onAnimationEnd = event => {
-		if (event.target === this.bodyNode) {
-			if (this.props.animateOpen && this.props.onOpenAnimationEnd != null) {
-				this.props.onOpenAnimationEnd(event);
-			}
-			if (this.props.animateClosed && this.props.onCloseAnimationEnd != null) {
-				this.props.onCloseAnimationEnd(event);
-			}
-		}
-	}
-
 	/**
 	 * Attempts to focus this element.  If the element either doesn't exist yet or is set to "visibility: isHidden", the
 	 * component will try to focus the element again several times over five seconds.  If it still can't after that
@@ -94,7 +30,7 @@ class DropDownListBox extends PureComponent {
 	 * @public
 	 */
 	focus() {
-		whenVisible(this, () => this.rootNode.focus());
+		return this.panel != null && this.panel.focus();
 	}
 
 	/**
@@ -105,15 +41,7 @@ class DropDownListBox extends PureComponent {
 	 * @param {String} id
 	 */
 	scrollIdIntoView(id) {
-		whenVisible(this, () => {
-			const element = document.getElementById(id);
-			if (element != null) {
-				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
-				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
-				// yet...
-				setTimeout(() => this._scrollableContent.scrollTop = newScrollTop, 0);
-			}
-		});
+		return this.panel != null && this.panel.scrollIdIntoView(id);
 	}
 
 	/**
@@ -124,73 +52,26 @@ class DropDownListBox extends PureComponent {
 	 * @memberof DropDownListBox
 	 */
 	hasFocus() {
-		return this.rootNode && this.rootNode.contains(document.activeElement);
+		return this.panel != null && this.panel.hasFocus();
 	}
 
 	render() {
-		const listBox = this;
-		const {
-			className,
-			isHidden,
-			size,
-			children,
-			footer,
-			id,
-			qaHook,
-			onKeyDown,
-			style,
-			header,
-			fixedWidth,
-			animateClosed,
-			animateOpen,
-			forceDesktop,
-		} = listBox.props;
-		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
-		const sizeClass = size ? dropdownSizes[size] : null;
-		const classNames = cn('xui-dropdown-layout', sizeClass, className, {
-			'xui-dropdown-is-open': !isHidden,
-			'xui-dropdown-is-closing': animateClosed,
-			'xui-dropdown-is-opening': animateOpen,
-			'xui-dropdown--force-desktop': forceDesktop,
-		});
-
-		let maxHeight = null;
-		if (isNarrowViewport()) {
-			maxHeight = header == null ? '80vh' : '100vh';
+		if (process.env.NODE_ENV !== 'production') {
+			// eslint-disable-next-line no-console
+			console.warn('[DEPRECATED] - This component has been deprecated and will be removed in XUI 12.');
 		}
-
+		const newProps = {};
+		Object.keys(this.props).forEach(name => {
+			if (name !== 'children') {
+				newProps[name] = this.props[name];
+			}
+		});
 		return (
-			<div
-				data-automationid={qaHook}
-				className={classNames}
-				aria-hidden={isHidden}
-				id={id}
-				role="listbox"
-				tabIndex={0}
-				ref={n => listBox.rootNode = n}
-				onKeyDown={onKeyDown}
-				style={style}
-				onAnimationEnd={listBox.onAnimationEnd}
-			>
-				<div className="xui-dropdown--mask"></div>
-				<div
-					ref={n => this.bodyNode = n}
-					onMouseUp={this.iOSHack}
-					className="xui-dropdown--body"
-					style={{
-						maxHeight
-					}}
-				>
-					{header}
-					<div
-						className="xui-dropdown--scrollable-content"
-						ref={sc => this._scrollableContent = sc}
-					>
-						{children}
-					</div>
-					{footer}
-				</div>
-			</div>
+			<DropDownLayout {...newProps}>
+				<DropDownPanel {...newProps} ref={c => this.panel = c}>
+					{this.props.children}
+				</DropDownPanel>
+			</DropDownLayout>
 		);
 	}
 

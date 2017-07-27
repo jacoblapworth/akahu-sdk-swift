@@ -6,9 +6,9 @@
 	z-index: 0;
 	//fix so inline drodowns are visible.
 	.xui-dropdown--body {
+		bottom: 0;
 		position: relative;
 		width: 100%;
-	  	bottom: 0;
 	}
 
 	//override for inline dropdown
@@ -44,12 +44,4 @@
 	box-shadow: 0 -1px 0 0 $xui-color-shadow-medium;
 	//Any padding should be in a layout class, if we even want to dictate that.
 	padding: none;
-}
-
-.xui-dropdown-layout:focus{
-	//New focus state not in XUI 10.22
-	outline: none;
-	@include xui-breakpoint-narrow-up {
-		border-radius: $xui-selected-item-border-width;
-	}
 }

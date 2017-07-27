@@ -8,8 +8,12 @@ const consoleWarn = console.warn;
 const consoleError = console.error;
 
 function logToError(...rest) {
-  const error = util.format.apply(this, rest);
-  throw new Error(error);
+	const error = util.format.apply(this, rest);
+	const xuiWarnings = /\[DEPRECATED\]/.test(error);
+
+	if (!xuiWarnings) {
+		throw new Error(error);
+	}
 }
 
 jasmine.getEnv().beforeEach(() => {

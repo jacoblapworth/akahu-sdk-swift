@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-@keyframes #{ns}-dropdown-mobile-show {
+@keyframes #{$ns}-dropdown-mobile-show {
 	0% {
 		transform: translateY(100%);
 	}
@@ -10,7 +10,7 @@
 	}
 }
 
-@keyframes #{ns}-dropdown-mobile-hide {
+@keyframes #{$ns}-dropdown-mobile-hide {
 	0% {
 		transform: translateY(0);
 	}
@@ -77,53 +77,53 @@
 //
 // Markup:
 // <div class="xui-dropdown-layout xui-dropdown-small xui-dropdown-is-open xui-dropdown-is-opening">
-//   <div class="xui-dropdown--mask"></div>
-//   <div class="xui-dropdown--body">
-//		<div class="xui-dropdown--scrollable-content">
-//     <ul class="xui-picklist">
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">All Reports</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
-//       </li>
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">GST Return</button>
-//       </li>
-//     </ul>
-//		</div>
-//		<div class="xui-dropdown--footer">
-//			<ul class="xui-picklist">
-//				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
-//					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
-//				</li>
-//				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
-//					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
-//				</li>
-//			</ul>
-//		</div>
-//   </div>
+// 	<div class="xui-dropdown--mask"></div>
+// 	<div class="xui-dropdown--body">
+// 		<div class="xui-dropdown--scrollable-content">
+// 		<ul class="xui-picklist">
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">All Reports</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
+// 			</li>
+// 			<li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">GST Return</button>
+// 			</li>
+// 		</ul>
+// 		</div>
+// 		<div class="xui-dropdown--footer">
+// 			<ul class="xui-picklist">
+// 				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
+// 					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
+// 				</li>
+// 				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
+// 					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	</div>
 // </div>
 //
 // Styleguide: Dropdowns.1.3
@@ -188,6 +188,10 @@
 				max-height: 100%;
 			}
 		}
+	}
+
+	.#{$ns}-dropdown--panel {
+		outline: none;
 	}
 
 	.#{$ns}-dropdown--header-container {
@@ -289,7 +293,7 @@
 	@include xui-breakpoint-narrow {
 		&:not(.#{$ns}-dropdown--force-desktop) {
 			.#{$ns}-dropdown--body {
-				animation: #{ns}-dropdown-mobile-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+				animation: #{$ns}-dropdown-mobile-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 			}
 		}
 	}
@@ -305,7 +309,7 @@
 			}
 
 			.#{$ns}-dropdown--body {
-				animation: #{ns}-dropdown-mobile-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+				animation: #{$ns}-dropdown-mobile-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
 			}
 		}
 	}

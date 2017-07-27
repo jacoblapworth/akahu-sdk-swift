@@ -401,11 +401,18 @@ class FullHeightToggledDropDown extends Component {
 		};
 		this.onSelect = this.onSelect.bind(this);
 		this.onSearch = this.onSearch.bind(this);
+		this.onSearchKeyDown = this.onSearchKeyDown.bind(this);
 	}
 	onSearch(event) {
 		this.setState({
 			searchValue: event.target.value,
 		});
+	}
+	onSearchKeyDown(event) {
+		// Let users type a space without selecting
+		if (event.keyCode !== 32) {
+			this.dropdown.onKeyDown(event);
+		}
 	}
 	onSelect(value) {
 		this.setState({
@@ -432,9 +439,11 @@ class FullHeightToggledDropDown extends Component {
 				onlyShowForMobile
 			>
 				<XUIInput
+					ref={c => this.searchComponent = c}
 					type="search"
 					value={this.state.searchValue}
 					onChange={this.onSearch}
+					onKeyDown={this.onSearchKeyDown}
 					placeholder="Im a fake search box"
 					className="xui-input-borderless xui-input-borderless-solid xui-u-fullwidth"
 					containerClassName="xui-u-fullwidth"
@@ -453,10 +462,12 @@ class FullHeightToggledDropDown extends Component {
 		);
 		const dropdown = (
 			<DropDown
+				ref={c => this.dropdown = c}
 				onSelect={this.onSelect}
 				header={dropdownHeader}
 				footer={dropdownFooter}
 				restrictFocus={false}
+				hasKeyboardEvents={false}
 			>
 				<Picklist>
 					{createItems(toggledItems, this.state.selectedId)}
@@ -465,10 +476,11 @@ class FullHeightToggledDropDown extends Component {
 		);
 		return (
 			<DropDownToggled
-				onOpen={() => console.log('dropdown is open.')}
+				onOpenAnimationEnd={() => this.searchComponent.focus()}
 				trigger={trigger}
 				dropdown={dropdown}
 				ref={c => this._dropdownToggled = c}
+				closeOnTab={false}
 			/>
 		);
 	}

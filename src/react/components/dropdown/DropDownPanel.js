@@ -24,8 +24,8 @@ function whenVisible(panel, callback) {
 }
 
 /**
- * Presentational component that ensures the the contents of a dropdown are rendered with the
- * correct CSS classes.  This component is also what addes the mask to the DOM when going into
+ * Presentational component that ensures the contents of a dropdown are rendered with the
+ * correct CSS classes.  This component is also what adds the mask to the DOM when going into
  * narrow viewport.
  *
  * @class DropDownPanel

@@ -21,7 +21,7 @@
 	min-height: 40px;
 	overflow: auto;
 	position: relative;
-	padding: 0;
+	padding: 2px 0;
 	padding-left: 5px;
 
 	// Need this thing to have the same focus state and the input.  Unfortunately, the only mixin I could find used
@@ -48,8 +48,8 @@
 }
 
 .#{$ns}-autocompleter--pill {
-	margin-bottom: 4px;
-	margin-top: 4px;
+	margin-bottom: 2px;
+	margin-top: 2px;
 	margin-right: 5px;
 }
 
@@ -60,7 +60,7 @@
 .#{$ns}-autocompleter--input-wrapper {
 	display: inline-flex;
 	flex: 1;
-	min-height: 38px;
+	min-height: 34px;
 	padding: 0 $xui-s-small;
 	align-items: center;
 }

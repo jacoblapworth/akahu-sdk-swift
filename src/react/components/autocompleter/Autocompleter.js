@@ -74,7 +74,7 @@ export default class Autocompleter extends PureComponent {
 	}
 
 	componentWillMount() {
-		if (!this.props.wrapPills) {
+		if (this.props.disableWrapPills) {
 			window.addEventListener('resize', this.scrollInputIntoView);
 		}
 	}
@@ -88,7 +88,7 @@ export default class Autocompleter extends PureComponent {
 		if (completer.props.pills > prevProps.pills) {
 			completer.scrollInputIntoView();
 		}
-		if (completer.props.wrapPills && !prevProps.wrapPills) {
+		if (!completer.props.disableWrapPills && prevProps.disableWrapPills) {
 			window.addEventListener('resize', this.scrollInputIntoView);
 		}
 	}
@@ -147,7 +147,7 @@ export default class Autocompleter extends PureComponent {
 			'xui-autocompleter--trigger',
 			{
 				'xui-autocompleter--trigger-is-disabled': props.isDisabled,
-				'xui-autocompleter--trigger-pillwrap': props.wrapPills
+				'xui-autocompleter--trigger-pillwrap': !props.disableWrapPills
 			},
 			props.triggerClassName
 		);
@@ -291,7 +291,7 @@ Autocompleter.propTypes = {
 	matchTriggerWidth: PropTypes.bool,
 
 	/** Whether the pills should wrap instead of scroll on overflow */
-	wrapPills: PropTypes.bool,
+	disableWrapPills: PropTypes.bool,
 
 	/** Whether to render as disabled */
 	isDisabled: PropTypes.bool,
@@ -306,5 +306,6 @@ Autocompleter.defaultProps = {
 	openOnFocus: false,
 	forceDesktop: false,
 	dropdownFixedWidth: false,
-	matchTriggerWidth: true
+	matchTriggerWidth: true,
+	disableWrapPills: false
 };

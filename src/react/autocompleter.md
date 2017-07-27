@@ -172,6 +172,156 @@ class DetailedListExample extends Component {
 <DetailedListExample />
 ```
 
+### Disable Wrapping Pills
+
+By default the pills and search bar will wrap inside the autocompleter input container. To disable this, set the prop `disableWrapPills` to true.
+
+```
+const { boldMatch, decorateSubStr } = require('./autocompleter');
+const { Component } = require('react');
+const peopleDataSet  = require('./components/autocompleter/private/people').default;
+
+const filterPeople = (data, value, peopleToExclude) => {
+	return data.filter(node => {
+		const val = value.toLowerCase();
+
+		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
+		return !peopleToExclude.find(person => person.id === node.id) && (node.name.toLowerCase().indexOf(val) > -1
+		|| node.email.toLowerCase().indexOf(val) > -1
+		|| node.subtext.toLowerCase().indexOf(val) > -1);
+	});
+};
+
+//Example to show how the children can be styled however and you also define your own search criteria.
+class DetailedListExample extends Component {
+	constructor() {
+		super();
+
+		const example = this;
+
+		example.state = {
+			value: '',
+			people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
+			selectedPeople: [peopleDataSet[0]]
+		};
+
+		example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
+		example.deletePerson = example.deletePerson.bind(example);
+	}
+
+	onSearchChangeHandler(value) {
+		const example = this;
+		const { selectedPeople } = example.state;
+		example.completer.openDropDown();
+		example.setState({
+			value: value,
+			people: filterPeople(peopleDataSet, value, selectedPeople)
+		});
+	}
+
+	deletePerson(id) {
+		this.setState(prevState => {
+			const selectedPeople = [...prevState.selectedPeople.filter(person => person.id !== id)];
+			return {
+				selectedPeople: selectedPeople,
+				people: filterPeople(peopleDataSet, prevState.value, selectedPeople)
+			}
+		});
+	}
+
+	selectPerson(person) {
+		this.setState(prevState => {
+			const selectedPeople = [...prevState.selectedPeople, person];
+			return {
+				value: '',
+				selectedPeople: selectedPeople,
+				people: filterPeople(peopleDataSet, '', selectedPeople)
+			}
+		});
+	}
+
+	filterDataByValue(value){
+		const people = people.filter(person => {
+			return person.name.toLowerCase().includes(value.toLowerCase())
+				|| person.email.toLowerCase().includes(value.toLowerCase())
+				|| person.subtext.toLowerCase().includes(value.toLowerCase())
+		});
+
+		this.setState({
+			loading: false,
+			data: people
+		});
+	}
+
+	getItems(){
+		const example = this;
+		const {
+			value,
+			people,
+			selectedPeople
+		} = example.state;
+		const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
+
+		if(!Array.isArray(people) || people.length <= 0){
+			return noResults;
+		}
+
+		return people.map(item => (
+			<Pickitem
+				key={item.id}
+				id={item.id}
+				onSelect={() => this.selectPerson(item)}
+			>
+				<div className="xui-u-flex">
+					<XUIAvatar value={item.name} imageUrl={item.avatar} />
+					<div className="xui-u-grow xui-padding-left">
+						<div className="xui-item-title xui-text-truncated">
+							{decorateSubStr(item.name, value || '', boldMatch)}
+						</div>
+						<div className="xui-text-secondary xui-text-truncated">
+							{decorateSubStr(item.email, value || '', boldMatch)}, {decorateSubStr(item.subtext, value || '', boldMatch)}
+						</div>
+					</div>
+				</div>
+			</Pickitem>
+		));
+	}
+
+	render(){
+		const example = this;
+		const { value, selectedPeople } = example.state;
+
+		return (
+				<Autocompleter
+					ref={ac => example.completer = ac}
+					onSearch={example.onSearchChangeHandler}
+					placeholder="Search"
+					searchValue={value}
+					dropdownFixedWidth
+					disableWrapPills
+					pills={
+						selectedPeople.map(person =>
+							<XUIPill
+								value={person.name}
+								className="xui-autocompleter--pill"
+								onDeleteClick={()=>this.deletePerson(person.id)}
+								onClick={() => example.completer.focusInput()}
+								key={person.id}
+							/>
+						)
+					}
+				>
+					<Picklist>
+						{example.getItems()}
+					</Picklist>
+				</Autocompleter>
+		)
+	}
+}
+
+<DetailedListExample />
+```
+
 ### Secondary Search
 
 This component behaves similarly to an autocompleter, however is triggered by a button instead of an input field. The input field is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.

@@ -364,6 +364,138 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 		}
 	}
 
+	//Multiselect Scrolling Container
+	class MultiselectScrollExample extends Component {
+		constructor(){
+			super();
+
+			const example = this;
+			example.state = {
+				value: '',
+				data: people,
+				selectedItems: {}
+			};
+
+			example.onOptionSelect= example.onOptionSelect.bind(example);
+			example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
+			example.onPillDelete = example.onPillDelete.bind(example);
+
+		}
+
+		onSearchChangeHandler(value) {
+			const example = this;
+			example.completer.openDropDown();
+			example.setState({
+				value: value,
+				data: this.filterDataByValue(value)
+			});
+		}
+
+		onOptionSelect(value, item) {
+			const example = this;
+
+			if(example.state.selectedItems[item.props.id]){
+				example.removeSelectedItem(item)
+			} else {
+				example.addSelectedItem(item)
+			}
+		}
+
+		removeSelectedItem(item){
+			const { selectedItems } = this.state;
+			const clonedSelectedItems = {...selectedItems};
+
+			delete clonedSelectedItems[item.props.id];
+
+			this.setState({
+				selectedItems: clonedSelectedItems
+			});
+		}
+
+		addSelectedItem(item){
+			this.setState({
+				selectedItems: {
+					...this.state.selectedItems,
+					[item.props.id] : item
+				}
+			});
+		}
+
+		filterDataByValue(value){
+			if(!value){
+				return people;
+			}
+
+			return people.filter(person => {
+				return person.name.toLowerCase().includes(value.toLowerCase())
+					|| person.email.toLowerCase().includes(value.toLowerCase())
+					|| person.subtext.toLowerCase().includes(value.toLowerCase())
+			});
+		}
+
+		onPillDelete(pill) {
+			this.removeSelectedItem(pill);
+		}
+
+		getPills(){
+			const example = this;
+			const { selectedItems } = example.state;
+			const findPerson = id => people.find(person => person.id === id);
+			let pills = [];
+
+			if(Object.keys(selectedItems).length) {
+				for(const key in selectedItems) {
+					const person = findPerson(key);
+					pills.push(<XUIPill className="xui-autocompleter--pill" value={person.name} id={person.id} key={person.id} onDeleteClick={this.onPillDelete} />)
+				}
+			}
+
+			return pills;
+		}
+
+		render() {
+			const example = this;
+			const { data, value, selectedItems } = example.state;
+			const noResults = <EmptyState id="no_people_multi">No People Found</EmptyState>;
+			function getItems(data) {
+				if (Array.isArray(data) && data.length) {
+					return data.map(item => {
+						return (
+							<Pickitem key={`multi-${item.id}`} id={item.id} multiselect={true} disableSelectedStyles={true} isSelected={!!selectedItems[item.id]} onSelect={example.onOptionSelect}>
+								{decorateSubStr(item.name, value || '', boldMatch)}
+							</Pickitem>
+						)
+					})
+				}
+				return noResults;
+			}
+
+			return (
+				<div className="xui-panel xui-padding xui-margin-top">
+					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter On A Single Line</div>
+					<p className='xui-text-label'>
+						By setting the `disableWrapPill` prop, this will enable the search bar and pills to flow on a single line instead of wrap.
+					</p>
+					<Autocompleter
+						ref={ac => example.completer = ac}
+						onSearch={example.onSearchChangeHandler}
+						onOptionSelect={example.onOptionSelectHandler}
+						placeholder="Search"
+						searchValue={value}
+						dropdownSize="medium"
+						closeOnSelect={false}
+						pills={this.getPills()}
+						disableWrapPills
+					>
+						<Picklist>
+							{getItems(data)}
+						</Picklist>
+					</Autocompleter>
+				</div>
+			);
+		}
+	}
+
 const SecondarySearchData = [
 	{ props: { id: 'ss1' }, text: "Cost" },
 	{ props: { id: 'ss2' }, text: "More Costs" },
@@ -461,6 +593,7 @@ class SecondarySearchExample extends Component {
 			<InteractiveExample />
 			<DetailedListExample />
 			<MultiselectExample />
+			<MultiselectScrollExample />
 			<SecondarySearchExample />
 		</div>, app
 	);

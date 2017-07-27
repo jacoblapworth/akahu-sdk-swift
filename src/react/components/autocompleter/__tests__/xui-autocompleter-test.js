@@ -113,4 +113,19 @@ describe('Autocompleter', () => {
 		);
 		expect(wrapper.find(DropDownToggled).node.props).toHaveProperty('matchTriggerWidth',true);
 	});
+
+	it('when disableWrapPill prop is applied adds a pillwrap class, but not by default', () => {
+		expect(wrapper.find('.xui-autocompleter--trigger-pillwrap')).toBeDefined();
+
+		const disableWrapPills = mount(
+			<Autocompleter disableWrapPills>
+				<Picklist>
+					<Pickitem id="item1">Item 1</Pickitem>
+				</Picklist>
+			</Autocompleter>, {attachTo: div}
+		);
+		expect(disableWrapPills.find('.xui-autocompleter--trigger').hasClass('xui-autocompleter--trigger-pillwrap')).toBeFalsy();
+	});
+
+
 });

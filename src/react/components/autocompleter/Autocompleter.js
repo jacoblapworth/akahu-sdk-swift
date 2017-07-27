@@ -132,6 +132,7 @@ export default class Autocompleter extends PureComponent {
 	render() {
 		const completer = this;
 		const props = completer.props;
+		const state = completer.state;
 		let inputQaHook = null;
 		let listQaHook = null;
 		let containerQaHook = null;
@@ -156,7 +157,12 @@ export default class Autocompleter extends PureComponent {
 			'xui-autocompleter--input'
 		);
 		const trigger = (
-			<div className={triggerClasses} id="trigger" ref={tg => this.trigger=tg}>
+			<div
+				className={triggerClasses}
+				id="trigger"
+				ref={tg => this.trigger=tg}
+				onFocus={this.focusInput}
+			>
 				{props.pills}
 				<AutocompleterInput
 					refFn={c => completer.input = c}
@@ -169,6 +175,7 @@ export default class Autocompleter extends PureComponent {
 					throttleInterval={props.searchThrottleInterval}
 					qaHook={inputQaHook}
 					onFocus={props.openOnFocus ? handlers.onInputFocus : null}
+					id={props.inputId}
 				/>
 			</div>
 		);
@@ -193,7 +200,7 @@ export default class Autocompleter extends PureComponent {
 		const classNames = cn(
 			props.className,
 			{
-				'xui-autocompleter--trigger-focus': completer.state.focused
+				'xui-autocompleter--trigger-focus': state.focused
 			}
 		);
 
@@ -295,6 +302,9 @@ Autocompleter.propTypes = {
 
 	/** Whether to render as disabled */
 	isDisabled: PropTypes.bool,
+
+	/** ID to apply to the input element. Useful for labels. */
+	inputId: PropTypes.string,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node

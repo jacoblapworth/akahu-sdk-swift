@@ -155,7 +155,6 @@ class DetailedListExample extends Component {
 								value={person.name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(person.id)}
-								onClick={() => example.completer.focusInput()}
 								key={person.id}
 							/>
 						)

@@ -138,18 +138,20 @@ export default class DropDownToggled extends PureComponent {
 		}
 
 		if (!props.disableScrollLocking) {
-			if ((state.isHidden || state.isClosing) && isScrollLocked()) {
+			if ((state.isHidden || state.isClosing) && state.shouldUnlockScroll) {
 				unlockScroll();
 			}
 			if (!state.isHidden) {
-				if (isScrollLocked() && !state.isNarrowViewport) {
+				if (state.shouldUnlockScroll && !state.isNarrowViewport) {
 					if (prevState.isNarrowViewport) {
 						unlockScroll();
 					}
 					scrollIntoViewIfNecessary(this.wrapper.firstChild);
 				}
 				if (shouldLockScroll(ddt)) {
-					lockScroll();
+					this.setState({
+						shouldUnlockScroll: lockScroll()
+					});
 				}
 			}
 		}

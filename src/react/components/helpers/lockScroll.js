@@ -11,7 +11,8 @@ export const isScrollLocked = () => document.documentElement.classList.contains(
 
 /**
  * Will set the scroll on the browser to be locked and visibly hidden so the content
- * underneath cannot be scrolled.
+ * underneath cannot be scrolled. Returns a boolean indicating whether this function
+ * call was responsible for locking the scroll.
  *
  * @export
  */
@@ -32,7 +33,9 @@ export const lockScroll = () => {
 
 		html.classList.add('xui-u-lockscroll');
 		body.style.paddingRight = `${newPadding}px`;
+		return true;
 	}
+	return false;
 };
 
 /**

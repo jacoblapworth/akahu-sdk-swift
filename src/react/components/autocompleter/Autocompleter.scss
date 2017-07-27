@@ -45,6 +45,11 @@
 
 .#{$ns}-autocompleter--input {
 	background-color: transparent;
+	top: 0px;
+
+	&:focus ~ .#{$ns}-autocompleter--placeholder, &:not([value=""]) ~ .#{$ns}-autocompleter--placeholder {
+		color: transparent;
+	}
 }
 
 .#{$ns}-autocompleter--pill {
@@ -61,17 +66,18 @@
 	display: inline-flex;
 	flex: 1;
 	min-height: 34px;
+	height: 34px;
 	align-items: center;
 }
 
 .#{$ns}-autocompleter--placeholder {
-	color: transparent;
+	color: $xui-color-grey-3;
 	white-space: nowrap;
 	padding: 0 $xui-s-small;
 }
 
-:placeholder-shown ~ .#{$ns}-autocompleter--placeholder {
-	color: $xui-color-grey-3;
-}
+
+
+
 
 

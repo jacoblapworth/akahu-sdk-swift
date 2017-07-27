@@ -5,10 +5,10 @@
 	height: 100%;
 	// Otherwise, the box surrounding the input gets ridiculously tall
 	min-height: 0px;
-	padding: 0;
+	padding: 0 $xui-s-small;
 	position: absolute;
 	//Force the input to be 100% of the wrapper.
-	width: calc(100% - 25px);
+	//width: calc(100% - 25px);
 
 	&::placeholder {
 		color: transparent;
@@ -61,13 +61,13 @@
 	display: inline-flex;
 	flex: 1;
 	min-height: 34px;
-	padding: 0 $xui-s-small;
 	align-items: center;
 }
 
 .#{$ns}-autocompleter--placeholder {
 	color: transparent;
 	white-space: nowrap;
+	padding: 0 $xui-s-small;
 }
 
 :placeholder-shown ~ .#{$ns}-autocompleter--placeholder {

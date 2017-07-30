@@ -218,7 +218,7 @@ class DropDownPanel extends PureComponent {
 					{header}
 					{containsPicklist ? (
 							<StatefulPicklist
-								className="xui-u-flex xui-u-flex-vertical"
+								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
 								ref={c => this.list = c}
 								onSelect={onSelect}
 								ignoreKeyboardEvents={ignoreKeyboardEvents}

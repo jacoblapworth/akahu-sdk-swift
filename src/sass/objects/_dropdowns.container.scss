@@ -194,6 +194,12 @@
 		outline: none;
 	}
 
+	// This class allows flex to correctly constrain the scrollable content in IE11. - FP
+	.#{$ns}-dropdown--scrollable-container {
+		max-height: inherit;
+		overflow: hidden;
+	}
+
 	.#{$ns}-dropdown--header-container {
 		align-items: center;
 		border-bottom: $xui-shadow-border-bottom;

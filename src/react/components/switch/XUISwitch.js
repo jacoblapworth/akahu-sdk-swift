@@ -4,11 +4,20 @@ import cn from 'classnames';
 
 export default class XUISwitch extends PureComponent {
 	render() {
-		const {props} = this;
+		const {
+			onChange,
+			checked,
+			disabled,
+			name,
+			value,
+			qaHook,
+			className
+		} = this.props;
 
 		const labelClasses = cn(
+			className,
 			'xui-switch',
-			{'xui-is-disabled': props.disabled}
+			{'xui-is-disabled': disabled}
 		);
 
 		const inputClasses = cn(
@@ -17,10 +26,14 @@ export default class XUISwitch extends PureComponent {
 		);
 
 		return (
-			<label className={labelClasses}>
+			<label data-automationid={qaHook} className={labelClasses}>
 				<input
 					type="checkbox"
-					{...props}
+					onChange={onChange}
+					checked={checked}
+					name={name}
+					value={value}
+					disabled={disabled}
 					className={inputClasses} />
 				<div className="xui-switch--control"></div>
 			</label>
@@ -29,8 +42,10 @@ export default class XUISwitch extends PureComponent {
 }
 
 XUISwitch.propTypes = {
-	/**onChange Fires parent onChange handler */
+	/** Fires when the switch is turned on or off */
 	onChange : PropTypes.func.isRequired,
+	qaHook: PropTypes.string,
+	className: PropTypes.string,
 	/** Determines whether the switch is checked or unchecked */
 	checked : PropTypes.bool,
 	/** Determines whether the switch is enabled or disabled */

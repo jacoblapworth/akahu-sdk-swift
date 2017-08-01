@@ -50,6 +50,7 @@
 
 	&:focus ~ .#{$ns}-autocompleter--placeholder, &:not([value=""]) ~ .#{$ns}-autocompleter--placeholder {
 		color: transparent;
+		-webkit-text-fill-color: transparent
 	}
 }
 

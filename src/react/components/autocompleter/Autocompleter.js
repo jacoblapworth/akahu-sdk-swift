@@ -36,7 +36,9 @@ function getHandlers(instance) {
 				}
 			},
 			onInputFocus: () => {
-				instance.openDropDown();
+				if (!instance.state.focused) {
+					instance.openDropDown();
+				}
 			},
 			onFocus: () => {
 				instance.setState({

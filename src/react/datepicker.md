@@ -199,7 +199,7 @@ This view will slim down some of the padding to allow for a smaller view when ne
 		}
 	}
 
-	<div className="xui-panel xui-dropdown-large">
+	<div className="xui-panel xui-dropdown-medium">
 		<CompactPicker />
 	</div>
 ```

@@ -41,7 +41,7 @@ export default class Pickitem extends PureComponent {
 		const classes = cn('xui-pickitem', className, {
 			'xui-pickitem-is-hovered': isHighlighted,
 			'xui-pickitem-is-selected': isSelected && !disableSelectedStyles,
-			'xui-pickitem-multiselect': multiselect,
+			'xui-pickitem--multiselect': multiselect,
 			'xui-pickitem--split': isSplit,
 			'xui-is-disabled': isDisabled,
 			'xui-text-truncated': shouldTruncate

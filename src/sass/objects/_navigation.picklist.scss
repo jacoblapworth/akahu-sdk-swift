@@ -150,7 +150,7 @@
 	}
 }
 
-.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body {
+.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect) > .#{$ns}-pickitem--body {
 	color: $xui-color-xero-blue;
 
 	&::before {
@@ -503,8 +503,12 @@
 }
 
 .#{$ns}-pickitem--multiselect-label {
-	padding: 0 $xui-s-small 0 $xui-s-4xlarge;
+	padding: 0 $xui-s-large 0 $xui-s-4xlarge;
 	width: 100%;
+}
+
+.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckbox--label {
+	padding: 6px 0 0;
 }
 
 // Icon menus

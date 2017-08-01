@@ -285,7 +285,7 @@ $xui-datepicker-day-size-compact: 30px;
 	position: relative;
 	width: 100%;
 
-	#{$ns}-datepicker-compact & {
+	&.#{$ns}-datepicker-compact {
 		padding-bottom: $xui-s-xsmall;
 	}
 }
@@ -294,6 +294,7 @@ $xui-datepicker-day-size-compact: 30px;
 	@include xui-flex-children(center, space-between);
 	flex-flow: row nowrap;
 	padding: $xui-s-small;
+
 	.#{$ns}-datepicker-compact & {
 		padding: $xui-s-xsmall;
 	}
@@ -401,6 +402,11 @@ $xui-datepicker-day-size-compact: 30px;
 	border-top: 1px solid transparent;
 	padding-left: $xui-s-small;
 	padding-right: $xui-s-small;
+
+	.#{$ns}-datepicker-compact & {
+		padding-left: $xui-s-xsmall;
+		padding-right: $xui-s-xsmall;
+	}
 }
 
 .#{$ns}-datepicker--weekdays {
@@ -410,9 +416,9 @@ $xui-datepicker-day-size-compact: 30px;
 	padding-left: $xui-s-small;
 	padding-right: $xui-s-small;
 
-	#{$ns}-datepicker-compact & {
+	.#{$ns}-datepicker-compact & {
 		margin-bottom: $xui-s-xsmall;
-		padding-bottom: $xui-s-xsmall;
+		padding: $xui-s-xsmall;
 	}
 }
 

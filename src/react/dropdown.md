@@ -308,7 +308,7 @@ class XDD extends Component {
 								path={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>
-							Add New Field
+							Add New Fruit
 							</span>
 					</Pickitem>
 				</Picklist>
@@ -702,11 +702,26 @@ class NestedExample extends Component {
 				{triggerText} <XUIButtonCaret />
 			</XUIButton>
 		);
+
+		const dropdownFooter = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem
+						id="custom"
+						key="custom"
+						onSelect={this.selectConvenienceDate('custom')}
+					>
+						Custom Date
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
 		const dropdown = (
-			<NestedDropDown currentPanel={activePanel} onPanelChange={this.focusDatePicker}>
-				<DropDownPanel panelId="convenienceDates">
+			<NestedDropDown currentPanel={activePanel} onPanelChange={this.focusDatePicker} >
+				<DropDownPanel panelId="convenienceDates" footer={dropdownFooter}>
 					<Picklist>
-						{convenienceDates.concat({ id: 'custom', text: 'Custom Date' }).map(cd => (
+						{convenienceDates.map(cd => (
 							<Pickitem
 								key={cd.id}
 								id={cd.id}

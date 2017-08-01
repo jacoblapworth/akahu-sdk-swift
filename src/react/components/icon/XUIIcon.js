@@ -6,6 +6,7 @@ import { sizeClasses, rotationClasses, colorClasses } from './private/constants'
 export default function XUIIcon(props) {
 	const {
 		className,
+		qaHook,
 		size,
 		title,
 		desc,
@@ -32,7 +33,7 @@ export default function XUIIcon(props) {
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
 
 	return(
-		<svg focusable="false" className={ classes } viewBox={ viewBox }>
+		<svg data-automationid={qaHook} focusable="false" className={ classes } viewBox={ viewBox }>
 			{ optionalTitle }
 			{ optionalDescription }
 			<path d={ path } role={ role } />
@@ -43,8 +44,8 @@ export default function XUIIcon(props) {
 XUIIcon.propTypes = {
 	/**path The path to use in the SVG */
 	path: PropTypes.string.isRequired,
-	/** Additional classes to be applied to the icon */
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/** Adds a size modifier to the icon */
 	size: PropTypes.oneOf(Object.keys(sizeClasses)),
 	/** Title to be read by screen readers */

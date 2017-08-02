@@ -3,13 +3,17 @@
 
 // Panels
 //
-// Panels are bordered containers for other items.  They can contain several
-// sections, and usually consist of at least 1 header section, a footer section,
-// and as many body sections as they need.
+// Weight: 4.1
 //
-// Because panels are generic containers panel sections do not provide padding
-// by default. You can add padding using the `xui-padding-*` classes available.
-// It is recommended to use the `xui-padding-large` class for a panel inset.
+// Styleguide: Panels
+
+// Best Practice
+//
+// Markdown: panels/overview.md
+//
+// Styleguide: Panels.1
+
+// CSS Class Reference
 //
 // Classes:
 // xui-panel: Container for a panel
@@ -22,9 +26,11 @@
 // xui-sectionheading-layout: Recommended layout for a section heading
 // xui-panel--sidebar: Container for a panel sidebar
 //
-// Weight: 4.1
+// Styleguide: Panels.10
+
+// Implementation
 //
-// Styleguide: Panels
+// Styleguide: Panels.2
 
 // With Table
 //
@@ -63,7 +69,7 @@
 //   </footer>
 // </div>
 //
-// Styleguide: Panels.1
+// Styleguide: Panels.2.1
 
 // With Content Block
 //
@@ -151,7 +157,7 @@
 //   </footer>
 // </div>
 //
-// Styleguide: Panels.2
+// Styleguide: Panels.2.2
 
 // With Form
 //
@@ -185,7 +191,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Panels.3
+// Styleguide: Panels.2.3
 
 // Multi-Step
 //
@@ -216,7 +222,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Panels.4
+// Styleguide: Panels.2.4
 
 // With Sidebar
 //
@@ -267,7 +273,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Panels.5
+// Styleguide: Panels.2.5
 
 .#{$ns}-panel {
 	@include xui-box-shadow-border($xui-shadow-border-all);

@@ -16,11 +16,12 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 ### XUI custom KSS props
 
 * `heading` {bool}
-* `tokens` 
-* `colorTokens` 
+* `tokens`
+* `colorTokens`
 * `noExample`
 * `classes`
 * `markdown`
+* `components`
 
 ### Heading
 
@@ -28,8 +29,8 @@ The `Heading` prop is used for navigation it marks a KSS block as a heading and 
 
 ### Tokens & ColorTokens
 
-Tokens and color tokens parse out the following style code comments. 
-These are all generated in a pre-parse step that creates src/sass/tmp/_colors.scss files with the following code comment format that is passed into KSS.
+Tokens and color tokens parse out the following style code comments.
+These are all generated in a pre-parse step that creates `src/sass/tmp/_colors.scss` files with the following code comment format that is passed into KSS.
 
 ```
 // Tokens:
@@ -62,3 +63,12 @@ Allows authoring of markdown documents to be included with KSS blocks.
 
 Example of adding in `overview.md` into the toast section.
 https://github.dev.xero.com/UXE/xui/pull/1678/files#diff-96f1935c2eb02812d31a3ada2243c1fdR12
+
+## Components
+
+Creates links under the description of the KSS block to the relevant React Component examples available at `react/`. Component names must match an anchor in the XUI Component Styleguide, e.g. `Select-box`, not `Select Box`. It uses the custom helper [components.js](https://github.dev.xero.com/UXE/xui/blob/master/kss/builder/extend/classes.js) to parse the list of component names.
+
+Supports specifying multiple components separated by commas:
+```
+// Components: Checkbox, Radio
+```

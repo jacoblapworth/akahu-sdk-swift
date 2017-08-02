@@ -1,0 +1,78 @@
+@import '../../../sass/vars';
+@import '../../../sass/mixins';
+
+.#{$ns}-autocompleter--input {
+	height: 100%;
+	// Otherwise, the box surrounding the input gets ridiculously tall
+	min-height: 0px;
+	padding: 0 $xui-s-small;
+	position: absolute;
+	//Force the input to be 100% of the wrapper.
+	//width: calc(100% - 25px);
+
+	&::placeholder {
+		color: transparent;
+	}
+}
+
+.#{$ns}-autocompleter--trigger {
+	align-items: center;
+	display: flex;
+	min-height: 40px;
+	overflow: auto;
+	position: relative;
+	padding: 2px 0;
+	padding-left: 5px;
+
+	// Need this thing to have the same focus state and the input.  Unfortunately, the only mixin I could find used
+	// the :focus selector and that won't work when the child input has focus.
+	width: 100%;
+
+	&-focus {
+		border-radius: $xui-radius;
+		box-shadow: $xui-shadow-focus;
+		outline: none;
+		transition: box-shadow $xui-transition-duration-short;
+	}
+}
+
+.#{$ns}-autocompleter--trigger-is-disabled {
+	cursor: default;
+	pointer-events: none;
+
+	@include xui-disabled-form;
+}
+
+.#{$ns}-autocompleter--input {
+	background-color: transparent;
+	// In order for the input to align with it's wrapper in IE11, this property is needed.
+	top: 0px;
+
+	&:focus ~ .#{$ns}-autocompleter--placeholder, &:not([value=""]) ~ .#{$ns}-autocompleter--placeholder {
+		color: transparent;
+		-webkit-text-fill-color: transparent
+	}
+}
+
+.#{$ns}-autocompleter--pill {
+	margin-bottom: 2px;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+
+.#{$ns}-autocompleter--trigger-pillwrap {
+	flex-wrap: wrap;
+}
+
+.#{$ns}-autocompleter--input-wrapper {
+	display: inline-flex;
+	flex: 1;
+	height: 34px;
+	align-items: center;
+}
+
+.#{$ns}-autocompleter--placeholder {
+	color: $xui-color-grey-3;
+	white-space: nowrap;
+	padding: 0 $xui-s-small;
+}

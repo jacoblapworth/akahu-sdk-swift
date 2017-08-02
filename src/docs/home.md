@@ -1,9 +1,8 @@
 # XUI – Xero's design system
 
 ### Always get the latest versions here:
-* XUI documentation: https://github.dev.xero.com/pages/UXE/xui/
+* XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
-* Component Registry: https://github.dev.xero.com/pages/UXE/Components-Registry/ 
 
 ## Getting Started
 
@@ -13,6 +12,7 @@ XUI provides guidelines and best practices for when to use certain patterns,
 when not to use them and what alternatives could be considered.
 
 * Start with:  [Colors](section-colors.html), [Icons](section-icons.html) & [Typography](section-typography.html)
+* Download the latest Sketch template from [XUI Toolkit: releases](https://github.dev.xero.com/designers/xui-toolkit/releases).
 * Then explore the components and patterns that XUI CSS provides
 
 #### Limitations
@@ -27,7 +27,7 @@ a better time.
 
 CSS is hard. XUI's goal is for you to not write CSS. We do this by providing CSS for a suite of validated components and design patterns.
 
-* Start with the supported [React components](https://github.dev.xero.com/pages/UXE/Components-Registry/)
+* Explore the components in the [XUI React Docs](react/)
 * Explore [Colors](section-colors.html), [Icons](section-icons.html) & [Typography](section-typography.html)
 * Explore the patterns and other components that XUI CSS provides
 

@@ -6,7 +6,7 @@
 // XUI has a number of layout concerns. These include:
 // 1. General page containers
 // 2. A mobile first grid system
-// 3. Margin and padding primitive classes to space components consistantly
+// 3. Margin and padding primitive classes to space components consistently
 //
 // Weight: 3.1
 //
@@ -14,8 +14,14 @@
 
 // Margin
 //
-// The basic make-up of the margin  is to apply one or more of the
-// margin classes to acheive the desired layout.
+// Apply one or more of the margin classes to acheive the desired layout.
+//
+// Note that the generic `xui-margin-none` class sets `margin: 0 !important;` so it is not possible to use it as a reset and then
+// apply other margins on top. Instead, use specific classes like `margin-bottom-none`.
+//
+// Be careful when using top margins as there are unintuitive rules around when
+// [collapsing margins kick in](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).
+// We recommend applying margins on the bottom, or using padding instead.
 //
 // #### Class Names
 //
@@ -187,8 +193,7 @@
 
 // Padding
 //
-// The basic make-up of the padding primitives is to apply one or more of the
-// padding classes to acheive the desired layout.
+// Apply one or more of the padding classes to acheive the desired layout.
 //
 // #### Class Names
 //
@@ -269,7 +274,7 @@
 // Styleguide: Margin and Padding.Padding.1
 
 // Collections of XUI layout classes in standard, small and large
-@include xui-generate-padding(none, $xui-class-suffix-none, false);
+@include xui-generate-padding(0, $xui-class-suffix-none, false);
 @include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard, true);
 @include xui-generate-padding($xui-s-small, $xui-class-suffix-small, true);
 @include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall, true);

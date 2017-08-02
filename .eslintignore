@@ -1,0 +1,7 @@
+node_modules
+react/*
+docs/*
+kss
+src/components/icon
+umd/assets
+uitest/assets

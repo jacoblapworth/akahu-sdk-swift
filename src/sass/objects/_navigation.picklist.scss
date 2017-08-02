@@ -24,6 +24,7 @@
 //
 // Keyboard support should be implemented [as suggested by the W3C wiki article](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees#Keyboard_Support)
 //
+// Components: Picklist
 //
 // Weight: 4.1
 //
@@ -65,15 +66,14 @@
 
 .#{$ns}-picklist {
 	@include xui-listreset;
-	padding: $xui-s-small 0; //ToDo: remove in XUI11 in favour of the layout class.
 	position: relative;
 
 	& + .#{$ns}-picklist {
-		border-top: 1px solid rgba($xui-color-black, 0.1);
+		border-top: 1px solid $xui-color-grey-alpha-5;
 	}
 }
 
-.#{$ns}-picklist-layout{
+.#{$ns}-picklist-layout {
 	padding: $xui-s-small 0;
 }
 
@@ -97,7 +97,6 @@
 	display: flex;
 	font-family: $xui-font-family;
 	font-size: $xui-font-size-text;
-	justify-content: space-between;
 	line-height: $xui-line-height;
 	min-height: 40px;
 	outline: none;
@@ -124,7 +123,7 @@
 
 .#{$ns}-pickitem--text {
 	padding-bottom: 10px;
-	padding-right: 10px;
+	padding-right: 20px;
 	padding-top: 10px;
 }
 
@@ -151,7 +150,7 @@
 	}
 }
 
-.#{$ns}-pickitem-is-selected > .#{$ns}-pickitem--body {
+.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect) > .#{$ns}-pickitem--body {
 	color: $xui-color-xero-blue;
 
 	&::before {
@@ -173,6 +172,55 @@
 
 	> .#{$ns}-pickitem--split {
 		border-right: 1px solid rgba(50, 70, 90, 0.1);
+	}
+}
+
+// Horizontal
+//
+// A horizontal variant of the datepicker is provided through the use of a modifier class. It is recommended that you do not use `xui-pickitem--text`
+// within horizontal pickitems as their padding is already provided, or with `xui-picklist-layout` as horizontal picklists should not have vertical padding.
+//
+// Classes:
+// xui-picklist-horizontal: Modifier class to be applied to the picklist for a horizontal variant
+//
+// Markup:
+// <ul class="xui-picklist xui-picklist-horizontal" role="tree">
+//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//     <a href="#" class="xui-pickitem--body" tabindex="0">
+//       Selected item
+//     </a>
+//   </li>
+//   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
+//       Item two
+//     </button>
+//   </li>
+//   <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
+//       Item three
+//     </button>
+//   </li>
+// </ul>
+//
+// Styleguide: Picklist.1.2
+
+
+.#{$ns}-picklist-horizontal {
+	display: inline-flex;
+	flex-direction: row;
+	.#{$ns}-pickitem--body {
+		height: 100%;
+		min-height: $xui-input-height;
+		padding: $xui-s-small $xui-s-standard;
+		text-align: center;
+	}
+	.#{$ns}-pickitem-is-selected {
+		.#{$ns}-pickitem--body:before {
+			border-bottom: 3px solid currentColor;
+			/* Remove default left border */
+			border-left: none;
+			width: 100%;
+		}
 	}
 }
 
@@ -268,6 +316,11 @@
 	color: $xui-color-grey-alpha-2;
 	margin: 3px;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+
+	// For (non-split) submenus, ensure left spacing between pickitem text and the control icon
+	.#{$ns}-pickitem--text + & {
+		margin-left: auto;
+	}
 }
 
 .#{$ns}-pickitem--submenucontrol {
@@ -429,8 +482,8 @@
 	display: flex;
 	padding: 3px;
 
-	&:hover
-	&:focus, {
+	&:hover,
+	&:focus {
 		background: $xui-color-grey-alpha-7;
 	}
 
@@ -450,8 +503,12 @@
 }
 
 .#{$ns}-pickitem--multiselect-label {
-	padding: 0 $xui-s-small 0 $xui-s-4xlarge;
+	padding: 0 $xui-s-large 0 $xui-s-4xlarge;
 	width: 100%;
+}
+
+.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckbox--label {
+	padding: 6px 0 0;
 }
 
 // Icon menus

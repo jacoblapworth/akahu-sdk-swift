@@ -1,0 +1,173 @@
+<div class="xui-margin-vertical">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+	<span><a href="../section-modals.html#modals">Modals in the XUI Documentation</a></span>
+</div>
+
+A modal component which provides a container for custom content, along with a background mask. They should primarily be used for prompting user actions, such as confirming a change, providing additional information, or copying some text.
+
+## Examples
+
+### Read only modal
+
+Modals should use `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key, and by the close button which will be rendered on the right side of the header.
+
+```
+const  { PureComponent } = require ( 'react' );
+const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
+
+class Example extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			showModal: false
+		};
+	}
+
+	render() {
+		return (
+			<div>
+				<XUIButton onClick={() => this.setState({ showModal: true })}>Read-only modal</XUIButton>
+				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+					<XUIModalHeader><h3>Get link</h3></XUIModalHeader>
+					<XUIModalBody className="xui-padding">
+						<div className="xui-padding-bottom">
+							Anyone with this link can view this invoice.
+						</div>
+						<XUIInput
+							containerClassName="xui-padding-bottom xui-inputgroup xui-u-flex"
+							className="xui-u-flex-grow"
+							inputAttributes={{
+								value: exampleURL,
+								readOnly: true,
+								id: "copyUrlExampleInput"
+							}}
+							inputRef={i => this.input = i}
+							button={
+								<XUIButton
+									onClick={() => {
+										this.input.select();
+										document.execCommand('copy')
+									}}
+									variant="primary"
+								>
+									Copy
+								</XUIButton>
+							}
+						/>
+					</XUIModalBody>
+				</XUIModal>
+			</div>
+		);
+	}
+}
+
+<Example />
+```
+
+### Confirmation modal
+
+Modals are often used for user confirmation. A footer for adding actions can be added using the `XUIModalFooter` component. It's also recommended to use the [actions layout](../section-buttons.html#buttons-9) to display the buttons as this provides standard padding and responsive behaviour.
+
+```
+const  { PureComponent } = require ( 'react' );
+
+class Example extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			showModal: false
+		};
+		this.toggleModal = this.toggleModal.bind(this);
+	}
+
+	toggleModal() {
+		this.setState(prevState => ({
+			showModal: !prevState.showModal
+		}));
+	}
+
+	render() {
+		return (
+			<div>
+				<XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
+				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+					<XUIModalHeader><h3>Delete John Smith</h3></XUIModalHeader>
+					<XUIModalBody>
+						This cannot be undone
+					</XUIModalBody>
+					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
+						<XUIButton
+							variant="negative"
+							className="xui-actions--primary"
+							onClick={this.toggleModal}
+						>
+							Delete
+						</XUIButton>
+						<XUIButton
+							className="xui-actions--secondary"
+							onClick={this.toggleModal}
+						>
+							Cancel
+						</XUIButton>
+					</XUIModalFooter>
+				</XUIModal>
+			</div>
+		);
+	}
+}
+
+<Example />
+```
+
+### Modal with user input
+
+Modals can be used as a step for users to fill in required fields before opening a new page.
+
+```
+const  { PureComponent } = require ( 'react' );
+
+class Example extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			showModal: false
+		};
+		this.toggleModal = this.toggleModal.bind(this);
+	}
+
+	toggleModal() {
+		this.setState(prevState => ({
+			showModal: !prevState.showModal
+		}));
+	}
+
+	render() {
+		return (
+			<div>
+				<XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
+				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+					<XUIModalHeader><h3>New project</h3></XUIModalHeader>
+					<XUIModalBody>
+						<XUIInput
+							inputAttributes={{ placeholder: 'Give it a title'}}
+						/>
+					</XUIModalBody>
+					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
+						<XUIButton variant="primary"
+							className="xui-actions--primary"
+							onClick={this.toggleModal}
+						>
+							Create project
+						</XUIButton>
+					</XUIModalFooter>
+				</XUIModal>
+			</div>
+		);
+	}
+}
+
+<Example />
+```

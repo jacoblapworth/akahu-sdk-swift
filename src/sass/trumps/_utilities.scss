@@ -11,6 +11,10 @@
 //
 // Styleguide: Utilities
 
+// Deprecated
+//
+// Styleguide: Utilities.10
+
 // Display
 //
 // Classes that can be added to any element to hide it from view.
@@ -126,13 +130,13 @@
 // Deprecated flex utility classes
 //
 // ![](https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
 // Classes:
 // xui-u-flex-row: Use xui-u-flex-verticallycentered instead
 // xui-u-flex-col: Use xui-u-flex-horizontal instead
 //
-// Styleguide: Utilities.2.1
+// Styleguide: Utilities.10.1
 
 .#{$ns}-u-flex {
 	display: flex;
@@ -163,6 +167,10 @@
 
 .#{$ns}-u-spacebetween {
 	justify-content: space-between;
+}
+
+.#{$ns}-u-flex-1 {
+	flex: 1;
 }
 
 .#{$ns}-u-flex-grow {

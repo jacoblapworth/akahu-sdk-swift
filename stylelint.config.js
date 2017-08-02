@@ -1,8 +1,9 @@
 module.exports = {
-	"ignoreFiles": [
+	plugins: ["stylelint-order"],
+	ignoreFiles: [
 		['src/sass/_conflicts.scss', 'src/sass/tmp/*']
 	],
-	"rules": {
+	rules: {
 		"indentation": "tab",
 		"max-line-length": 305,
 		"max-nesting-depth": 3,
@@ -12,7 +13,7 @@ module.exports = {
 		"no-extra-semicolons": true,
 		"no-missing-end-of-source-newline": true,
 
-		"declaration-block-properties-order": "alphabetical",
+		"order/properties-alphabetical-order": true,
 
 		"declaration-bang-space-after": "never",
 		"declaration-bang-space-before": "always",

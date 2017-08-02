@@ -1,25 +1,29 @@
 @import "../vars";
 @import "../mixins";
 
-@keyframes #{$ns}-dropdown-show {
-	0% { max-height: 0; z-index: 1000; }
-	100% { max-height: 100vh; }
+@keyframes #{$ns}-dropdown-mobile-show {
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
-@keyframes #{$ns}-dropdown-hide {
-	0% { max-height: 100vh; z-index: 1000; }
-	100% { border: none; box-shadow: none; max-height: 0; }
+@keyframes #{$ns}-dropdown-mobile-hide {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(100%);
+	}
 }
 
 // Dropdowns
 //
-// ### Behaviour
+// Following is the CSS documentation for styling dropdowns. Behaviorally dropdowns are deceptively complex. It is strongly recommended that you use the available React components or [native Select boxes](section-forms.html#forms-8) instead of rolling your own.
 //
-// Implementations should make the most of the screen space available when showing dropdowns.
-// Scrollbars can be used when there is not enough screen space to fit all menu items. When there
-// is more space above than below the dropdown trigger, the menu should be positioned above the
-// trigger. The same applies for whether the menu should be left-aligned or right-aligned against
-// the trigger.
+// Components: Dropdown
 //
 // Classes:
 // xui-dropdown-layout: Parent dropdown layout container
@@ -30,6 +34,10 @@
 // xui-dropdown-medium: Style for a medium width dropdown
 // xui-dropdown-large: Style for a large width dropdown
 // xui-dropdown-xlarge: Style for an extra large width dropdown
+// xui-dropdown-fixed-small: Style for a small fixed-width dropdown
+// xui-dropdown-fixed-medium: Style for a medium fixed-width dropdown
+// xui-dropdown-fixed-large: Style for a large fixed-width dropdown
+// xui-dropdown-fixed-xlarge: Style for an extra large fixed-width dropdown
 // xui-dropdown-positionright: Style for aligning the right of dropdown with the right of its nearest explictly positioned parent
 // xui-dropdown-positionleft: Style for aligning the left of the dropdown to the left of its nearest explictly positioned parent
 // xui-dropdown-positionabove: Style for positioning the dropdown above its nearest explictly positioned parent
@@ -69,81 +77,56 @@
 //
 // Markup:
 // <div class="xui-dropdown-layout xui-dropdown-small xui-dropdown-is-open xui-dropdown-is-opening">
-//   <div class="xui-dropdown--mask"></div>
-//   <div class="xui-dropdown--body">
-//		<div class="xui-dropdown--scrollable-content">
-//     <ul class="xui-picklist">
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">All Reports</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
-//       </li>
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">GST Return</button>
-//       </li>
-//     </ul>
-//		</div>
-//		<div class="xui-dropdown--footer">
-//			<ul class="xui-picklist">
-//				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
-//					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
-//				</li>
-//				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
-//					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
-//				</li>
-//			</ul>
-//		</div>
-//   </div>
+// 	<div class="xui-dropdown--mask"></div>
+// 	<div class="xui-dropdown--body">
+// 		<div class="xui-dropdown--scrollable-content">
+// 		<ul class="xui-picklist">
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">All Reports</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
+// 			</li>
+// 			<li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">GST Return</button>
+// 			</li>
+// 		</ul>
+// 		</div>
+// 		<div class="xui-dropdown--footer">
+// 			<ul class="xui-picklist">
+// 				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
+// 					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
+// 				</li>
+// 				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
+// 					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	</div>
 // </div>
 //
 // Styleguide: Dropdowns.1.3
-
-// Full width dropdown
-//
-// Markup:
-// <div class="xui-dropdown-layout xui-u-fullwidth xui-dropdown-is-open xui-dropdown-is-opening">
-//   <div class="xui-dropdown--mask"></div>
-//   <div class="xui-dropdown--body">
-//		<div class="xui-dropdown--scrollable-content">
-//     <ul class="xui-picklist">
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Monthly</button>
-//       </li>
-//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Two-monthly</button>
-//       </li>
-//       <li class="xui-pickitem" tabindex="0">
-//         <button class="xui-pickitem--body" tabindex="-1">Six-monthly</button>
-//       </li>
-//     </ul>
-//		</div>
-//   </div>
-// </div>
-//
-// Styleguide: Dropdowns.1.4
-
 
 .#{$ns}-dropdown-layout {
 	display: none;
@@ -156,55 +139,76 @@
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
+			max-height: inherit;
+			overflow: hidden;
+			transform-origin: top;
+		}
+	}
+	&.#{$ns}-dropdown--force-desktop {
+		z-index: 1000;
+
+		.#{$ns}-dropdown--body {
 			overflow: hidden;
 			transform-origin: top;
 		}
 	}
 
 	@include xui-breakpoint-narrow {
-		height: 100%;
-		left: 0;
-		position: fixed;
-		top: 100%;
-		width: 100%;
-		z-index: 9999;
-
-		.#{$ns}-dropdown--body {
+		&:not(.#{$ns}-dropdown--force-desktop) {
+			height: 100%;
 			left: 0;
-			max-width: 100vw;
-			position: absolute;
-			top: 100%;
-			transform: translateY(0);
-			width: 100vw;
-			z-index: inherit;
-
-			.#{$ns}-dropdown--scrollable-content {
-				max-height: 80vh;
-			}
-		}
-
-		.#{$ns}-dropdown--header {
-			display: block;
-		}
-
-		&.#{$ns}-dropdown-fullheight {
-			height: 100vh;
+			position: fixed;
+			width: 100%;
+			z-index: 9999;
 
 			.#{$ns}-dropdown--body {
-				height: 100vh;
-				max-height: 100vh;
+				bottom: 0;
+				left: 0;
+				max-width: 100%;
+				position: absolute;
+				transform: translateY(0);
+				width: 100%;
+			}
+
+			.#{$ns}-dropdown--header {
+				display: block;
+				flex-grow: 0;
+			}
+		}
+		// I know this is dumb, but it makes the linter happy.  Linter doesn't like nesting,
+		// but apparently doesn't care about specificity, so just un-indenting this and
+		// making it harder to read is apparently better...
+		//
+		// @author dev-johnsanders
+		&.#{$ns}-dropdown-fullheight:not(.#{$ns}-dropdown--force-desktop) {
+			height: 100%;
+
+			.#{$ns}-dropdown--body {
+				height: 100%;
+				max-height: 100%;
 			}
 		}
 	}
 
+	.#{$ns}-dropdown--panel {
+		outline: none;
+	}
+
+	// This class allows flex to correctly constrain the scrollable content in IE11. - FP
+	.#{$ns}-dropdown--scrollable-container {
+		max-height: inherit;
+		overflow: hidden;
+	}
+
 	.#{$ns}-dropdown--header-container {
 		align-items: center;
-		border-bottom: $xui-border-muted;
+		border-bottom: $xui-shadow-border-bottom;
 		display: flex;
-		height: 60px;
+		height: $xui-navigation-height;
 		justify-content: space-between;
 		min-height: $xui-s-6xlarge;
-		padding: $xui-s-small;
+		padding-left: $xui-s-small;
+		padding-right: $xui-s-small;
 	}
 
 	.#{$ns}-dropdown--header-leftcontent {
@@ -221,23 +225,24 @@
 	}
 
 	.#{$ns}-dropdown--mask {
-		bottom: 0;
+		/*
+		Top and bottom are supposed to be -60px;  If they're not, unmasked content may become visible
+		while the address bar slides out of view on Android Chrome, Android Opera, and iOS Safari.
+
+		@author dev-johnsanders
+		*/
+		bottom: -60px;
 		left: 0;
 		position: absolute;
-		right: 0;
-		top: 0;
+		top: -60px;
 		transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
+		width: 100%;
 	}
 
 	.#{$ns}-dropdown--footer {
-		@include xui-box-shadow-border($xui-shadow-border-top);
-		bottom: 0;
-		padding: $xui-s-small 0;
+		border-top: $xui-shadow-border-top;
+		flex-grow: 0;
 		width: 100%;
-		//ToDo: Remove this in XUI11 in favour of a layout class on the picklist.
-		.#{$ns}-picklist {
-			padding: 0;
-		}
 	}
 }
 
@@ -249,88 +254,91 @@
 
 .#{$ns}-dropdown--body {
 	background-color: $xui-color-white;
+	display: flex;
+	flex-direction: column;
 
 	@include xui-breakpoint-narrow-up {
-		@include xui-box-shadow-border($xui-shadow-depth-lift);
 		border-radius: $xui-radius;
+		box-shadow: $xui-shadow-depth-lift;
+	}
+	.#{$ns}-dropdown--force-desktop & {
+		border-radius: $xui-radius;
+		box-shadow: $xui-shadow-depth-lift;
 	}
 
 	.#{$ns}-dropdown--scrollable-content {
+		flex-grow: 1;
+		-webkit-overflow-scrolling: touch;
 		overflow-y: auto;
+		transform: translate3d(0, 0, 0);
 	}
 }
 
 .#{$ns}-dropdown-is-open {
 	display: flex;
-	z-index: 1;
 
 	@include xui-breakpoint-narrow {
-		top: 0;
+		&:not(.#{$ns}-dropdown--force-desktop) {
+			.#{$ns}-dropdown--mask {
+				flex-grow: 1;
+				opacity: 1;
+				pointer-events: auto;
+				width: 100vw;
+			}
 
-		.#{$ns}-dropdown--mask {
-			flex-grow: 1;
-			pointer-events: auto;
-			width: 100vw;
-		}
-
-		.#{$ns}-dropdown--body {
-			flex-grow: 0;
-			max-height: 100%;
-			opacity: 1;
+			.#{$ns}-dropdown--body {
+				flex-grow: 0;
+				max-height: 100%;
+				opacity: 1;
+			}
 		}
 	}
 }
 
 .#{$ns}-dropdown-is-opening {
-
-	@include xui-breakpoint-narrow-up {
-
-		.#{$ns}-dropdown--body {
-			animation: #{$ns}-dropdown-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
-		}
-	}
-
 	@include xui-breakpoint-narrow {
-
-		.#{$ns}-dropdown--mask {
-			opacity: 1;
-		}
-
-		.#{$ns}-dropdown--body {
-			transform: translateY(-100%);
-			transition: transform $xui-motion-speed-medium $xui-motion-curve-standard;
+		&:not(.#{$ns}-dropdown--force-desktop) {
+			.#{$ns}-dropdown--body {
+				animation: #{$ns}-dropdown-mobile-show $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			}
 		}
 	}
 }
 
 .#{$ns}-dropdown-is-closing {
 	display: flex;
-	@include xui-breakpoint-narrow-up {
-
-		.#{$ns}-dropdown--body {
-			animation: #{$ns}-dropdown-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
-		}
-	}
 
 	@include xui-breakpoint-narrow {
+		&:not(.#{$ns}-dropdown--force-desktop) {
+			.#{$ns}-dropdown--mask {
+				opacity: 0;
+			}
 
-		.#{$ns}-dropdown--mask {
-			opacity: 0;
-		}
-
-		.#{$ns}-dropdown--body {
-			transition: transform $xui-motion-speed-medium $xui-motion-curve-standard;
+			.#{$ns}-dropdown--body {
+				animation: #{$ns}-dropdown-mobile-hide $xui-motion-speed-medium $xui-motion-curve-standard forwards;
+			}
 		}
 	}
 }
 
-@each $number, $variant in $xui-width-variants-dropdown{
-	.#{$ns}-dropdown-#{$variant} {
-		max-width: $xui-starting-width + ($xui-base-width * $number);
-	}
+@each $number, $variant in $xui-width-variants-dropdown {
+	@include xui-breakpoint-narrow-up {
+		.#{$ns}-dropdown-#{$variant} {
+			max-width: $xui-starting-width + ($xui-base-width * $number);
+		}
 
-	.#{$ns}-dropdown-fixed-#{$variant} {
-		width: $xui-starting-width + ($xui-base-width * $number);
+		.#{$ns}-dropdown-fixed-#{$variant} {
+			width: $xui-starting-width + ($xui-base-width * $number);
+		}
+	}
+	@include xui-breakpoint-narrow {
+		.#{$ns}-dropdown-#{$variant}.#{$ns}-dropdown--force-desktop {
+			max-width: $xui-starting-width + ($xui-base-width * $number);
+		}
+
+		.#{$ns}-dropdown-fixed-#{$variant}.#{$ns}-dropdown--force-desktop {
+			width: $xui-starting-width + ($xui-base-width * $number);
+		}
 	}
 }
 

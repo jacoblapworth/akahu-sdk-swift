@@ -1,0 +1,130 @@
+[
+	{
+		"name": "Introduction",
+		"content": "../src/docs/components/introduction.md",
+		"sections": [
+			{
+				"name": "Getting Started",
+				"content": "../src/docs/components/overview.md"
+			},
+			{
+				"name": "Upgrading",
+				"content": "../src/docs/components/upgrading.md"
+			},
+			{
+				"name": "Contributing",
+				"content": "../src/docs/components/contributing.md"
+			}
+		]
+	},
+	{
+		"name": "Components",
+		"sections": [
+			{
+				"name": "Avatar",
+				"components": "../src/react/components/avatar/**/[A-Z]*.js",
+				"content": "../src/react/avatar.md"
+			},
+			{
+				"name": "Button",
+				"components": "../src/react/components/button/**/[A-Z]*.js",
+				"content": "../src/react/button.md"
+			},
+			{
+				"name": "Controls",
+				"sections": [
+					{
+						"name": "Checkbox",
+						"components": "../src/react/components/checkbox/**/[A-Z]*.js",
+						"content": "../src/react/checkbox.md"
+					},
+					{
+						"name": "Radio",
+						"components": "../src/react/components/radio/**/[A-Z]*.js",
+						"content": "../src/react/radio.md"
+					},
+					{
+						"name": "Switch",
+						"components": "../src/react/components/switch/**/[A-Z]*.js",
+						"content": "../src/react/switch.md"
+					},
+					{
+						"name": "Toggle",
+						"components": "../src/react/components/toggle/**/[A-Z]*.js",
+						"content": "../src/react/toggle.md"
+					}
+				]
+			},
+			{
+				"name": "Datepicker",
+				"components": "../src/react/components/datepicker/**/[A-Z]*.js",
+				"content": "../src/react/datepicker.md"
+			},
+			{
+				"name": "Dropdowns",
+				"content": "../src/react/dropdown.md",
+				"sections": [
+					{
+						"name": "Dropdown",
+						"components": "../src/react/components/dropdown/**/[A-Z]*.js"
+					},
+					{
+						"name": "Autocompleter",
+						"components": "../src/react/components/autocompleter/**/[A-Z]*.js",
+						"content": "../src/react/autocompleter.md"
+					},
+					{
+						"name": "Select-box",
+						"components": "../src/react/components/select-box/**/[A-Z]*.js",
+						"content": "../src/react/select-box.md"
+					}
+				]
+			},
+			{
+				"name": "Icon",
+				"components": "../src/react/components/icon/**/[A-Z]*.js",
+				"content": "../src/react/icon.md"
+			},
+			{
+				"name": "Inputs",
+				"sections": [
+					{
+						"name": "Input",
+						"components": "../src/react/components/input/**/[A-Z]*.js",
+						"content": "../src/react/input.md"
+					},
+					{
+						"name": "TextArea",
+						"components": "../src/react/components/textarea/**/[A-Z]*.js",
+						"content": "../src/react/textarea.md"
+					}
+				]
+			},
+			{
+				"name": "Loader",
+				"components": "../src/react/components/loader/**/[A-Z]*.js",
+				"content": "../src/react/loader.md"
+			},
+			{
+				"name": "Modal",
+				"components": "../src/react/components/modal/**/[A-Z]*.js",
+				"content": "../src/react/modal.md"
+			},
+			{
+				"name": "Picklist",
+				"components": "../src/react/components/picklist/**/[A-Z]*.js",
+				"content": "../src/react/picklist.md"
+			},
+			{
+				"name": "Pill",
+				"components": "../src/react/components/pill/**/[A-Z]*.js",
+				"content": "../src/react/pill.md"
+			},
+			{
+				"name": "Toast",
+				"components": "../src/react/components/toast/**/[A-Z]*.js",
+				"content": "../src/react/toast.md"
+			}
+		]
+	}
+]

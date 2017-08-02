@@ -102,9 +102,9 @@
 // Carets
 //
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
-// *This component has been deprecated, alternatively, use use <a href="#icons-1">icons</a>*
+// *This component has been deprecated. Alternatively, use <a href="#icons-1">icons</a> instead.*
 //
 // Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
 //
@@ -116,7 +116,7 @@
 //  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
 //  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
 //
-// Styleguide: Icons.1.1
+// Styleguide: Icons.99.1
 
 .#{$ns}-caret {
 	@include xui-caret;

@@ -69,6 +69,8 @@
 //
 // Dropdown Not hidden state : Add class `xui-dropdown-is-open`
 //
+// Components: Select-box
+//
 // Classes:
 // xui-select-layout: Recommended layout for a custom select box
 // xui-select--button: Subcomponent for a custom select box button
@@ -129,17 +131,17 @@
 //
 // Styleguide: Forms.9
 
-// Deprecated CSS Classes
+// Deprecated Select classes
 //
 // <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
-// <img src="https://img.shields.io/badge/Removed%20in-11.0.0-lightgrey.svg" />
+// <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
 //
 // No additional styling is neccessary now.
 //
 // Classes:
 // xui-select--button-is-selected: Selected class
 //
-// Styleguide: Forms.11
+// Styleguide: Forms.99.1
 
 .#{$ns}-select--button {
 	background-color: transparent;
@@ -179,7 +181,7 @@
 	}
 }
 
-.#{$ns}-select--button-is-selected { // TODO: deprecated, remove in XUI 11
+.#{$ns}-select--button-is-selected { // TODO: deprecated, remove in XUI 12
 	border: $xui-border-standard;
 	border-color: $xui-color-grey-alpha-4;
 

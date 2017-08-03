@@ -41,6 +41,10 @@
 	pointer-events: none;
 
 	@include xui-disabled-form;
+
+	.#{$ns}-autocompleter--placeholder {
+		-webkit-text-fill-color: $xui-color-grey-3;
+	}
 }
 
 .#{$ns}-autocompleter--input {

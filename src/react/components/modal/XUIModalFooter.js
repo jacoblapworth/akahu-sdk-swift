@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { propTypes, defaultProps } from './private/props';
 
 export default function XUIModalFooter({ className, children, defaultLayout }) {
 	const classNames = cn(
@@ -10,11 +10,20 @@ export default function XUIModalFooter({ className, children, defaultLayout }) {
 	);
 
 	return (
-		<div className={classNames}>
+		<footer className={classNames}>
 			{children}
-		</div>
+		</footer>
 	);
 }
 
-XUIModalFooter.propTypes = propTypes;
-XUIModalFooter.defaultProps = defaultProps;
+XUIModalFooter.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+
+	/** If the modal will use the default XUI style layout */
+	defaultLayout: PropTypes.bool
+};
+
+XUIModalFooter.defaultProps = {
+	defaultLayout: true,
+};

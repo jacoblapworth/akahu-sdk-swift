@@ -35,12 +35,14 @@ describe('XUIModal', () => {
 				<XUIModal isUsingPortal={false} id="test-modal-small" size="small"></XUIModal>
 				<XUIModal isUsingPortal={false} id="test-modal-medium" size="medium"></XUIModal>
 				<XUIModal isUsingPortal={false} id="test-modal-large" size="large"></XUIModal>
+				<XUIModal isUsingPortal={false} id="test-modal-xlarge" size="xlarge"></XUIModal>
 			</div>
 		);
 
 		const modal1 = component.find('#test-modal-small').childAt(0);
 		const modal2 = component.find('#test-modal-medium').childAt(0);
 		const modal3 = component.find('#test-modal-large').childAt(0);
+		const modalXLarge = component.find('#test-modal-xlarge').childAt(0);
 
 		expect(modal1.hasClass('xui-modal-width-medium')).toBeFalsy();
 		expect(modal1.hasClass('xui-modal-width-large')).toBeFalsy();
@@ -50,6 +52,9 @@ describe('XUIModal', () => {
 
 		expect(modal3.hasClass('xui-modal-width-large')).toBeTruthy();
 		expect(modal3.hasClass('xui-modal-width-medium')).toBeFalsy();
+
+		expect(modalXLarge.hasClass('xui-modal-width-xlarge')).toBeTruthy();
+		expect(modalXLarge.hasClass('xui-modal-width-large')).toBeFalsy();
 	});
 
 	it('Should correctly pass close handlers to close button and mask', function () {

@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { propTypes, defaultProps } from './private/props';
 
 export default function XUIModalBody({ className, children, defaultLayout }) {
 	const classNames = cn(
@@ -16,5 +16,14 @@ export default function XUIModalBody({ className, children, defaultLayout }) {
 	);
 }
 
-XUIModalBody.propTypes = propTypes;
-XUIModalBody.defaultProps = defaultProps;
+XUIModalBody.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+
+	/** If the modal will use the default XUI style layout */
+	defaultLayout: PropTypes.bool
+};
+
+XUIModalBody.defaultProps = {
+	defaultLayout: true,
+};

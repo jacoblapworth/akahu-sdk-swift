@@ -32,7 +32,7 @@ export default class XUIStatelessInput extends PureComponent {
 		);
 
 		const inputWrapperClasses = cn(
-			`${baseClass}-wrapper`,
+			`${baseClass}wrapper`,
 			containerClassName
 		);
 
@@ -63,6 +63,7 @@ export default class XUIStatelessInput extends PureComponent {
 			)
 		}
 
+		// TODO: clean this up in XUI12. Don't use both ...other and inputAttributes
 		const inputProps = {...other, ...XUIStatelessInput.defaultProps.inputAttributes, ...inputAttributes};
 
 		const message = (validationMessage || hintMessage) && (

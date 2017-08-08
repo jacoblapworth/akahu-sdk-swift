@@ -66,6 +66,15 @@ export default class XUIStatelessInput extends PureComponent {
 		// TODO: clean this up in XUI12. Don't use both ...other and inputAttributes
 		const inputProps = {...other, ...XUIStatelessInput.defaultProps.inputAttributes, ...inputAttributes};
 
+		// null is not a valid value
+		if(inputProps.defaultValue === null) {
+			inputProps.defaultValue = '';
+		}
+
+		if(inputProps.value === null) {
+			inputProps.value = '';
+		}
+
 		const message = (validationMessage || hintMessage) && (
 			<div className={cn(
 				'xui-validation',

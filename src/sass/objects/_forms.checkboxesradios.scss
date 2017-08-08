@@ -1,17 +1,12 @@
-/**
- * Styles for grouped inputs like checkbox and radio button groups.
- */
-
 @import "../settings/structure";
 @import "../mixins";
 
-// Checkboxes and Radios
+// Native Checkboxes and Radios
 //
-// Currently XUI supports native checkboxes and radio buttons. If we want to go
-// down the path of XUI styled controls we want to provide full components and
-// not just CSS with bring your own behaviour.
+// ![](https://img.shields.io/badge/Deprecated%20in-11.0.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
-// The following examples show laying out radio and checkboxes with clickable
+// The following examples show laying out native radio and checkboxes with clickable
 // labels.
 //
 // Classes:
@@ -40,9 +35,7 @@
 //  You can't pick me!
 // </label>
 //
-// Weight: 4.1
-//
-// Styleguide: Checkboxes and Radios
+// Styleguide: Checkboxes and Radios.9
 
 .#{$ns}-checkbox,
 .#{$ns}-radio {
@@ -82,7 +75,10 @@
 	}
 }
 
-// Checkbox and Radio Groups
+// Native Checkbox and Radio Group Styling
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.0.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
 // A collection of checkbox/radio items within a single container, grouped as
 // such so that on mobile, their appearance resembles that of a
@@ -118,7 +114,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Checkboxes and Radios.1
+// Styleguide: Checkboxes and Radios.10
 
 .#{$ns}-checkboxgroup,
 .#{$ns}-radiogroup {

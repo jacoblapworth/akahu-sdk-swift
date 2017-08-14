@@ -46,9 +46,7 @@ const radioToggle = {
 </div>
 ```
 
-### Icon Toggles
-
-For toggles that only require icon content, you can use the `icon` layout.
+Toggles can also be used with icons:
 
 ```
 const bold = require('@xero/xui-icon/icons/bold').default
@@ -63,16 +61,10 @@ const iconToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="icon">
-			<XUIToggleOption { ...iconToggle }><XUIIcon path={bold} /></XUIToggleOption>
+		<XUIToggle>
+			<XUIToggleOption { ...iconToggle } isChecked><XUIIcon path={bold} /></XUIToggleOption>
 			<XUIToggleOption { ...iconToggle }><XUIIcon path={italic} /></XUIToggleOption>
 			<XUIToggleOption { ...iconToggle }><XUIIcon path={underline} /></XUIToggleOption>
-		</XUIToggle>
-	</div><div>
-		<XUIToggle layout="icon">
-			<XUIToggleOption { ...iconToggle } isChecked isDisabled><XUIIcon path={bold} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle } isDisabled><XUIIcon path={italic} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle } isDisabled><XUIIcon path={underline} /></XUIToggleOption>
 		</XUIToggle>
 	</div>
 </div>
@@ -81,7 +73,6 @@ const iconToggle = {
 ### Inverted Color
 
 To use a Toggle from within content that has the class `xui-text-inverted` providing inverted colors, use `color=inverted`.
-
 
 ```
 const checkboxToggle = {

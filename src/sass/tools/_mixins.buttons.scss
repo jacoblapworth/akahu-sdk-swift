@@ -29,6 +29,7 @@
 	&:focus {
 		box-shadow: $shadow;
 		text-decoration: none;
+		z-index: 2;
 	}
 }
 
@@ -113,6 +114,7 @@
 	line-height: $xui-line-height-button; // CUSTOM FOR HEIGHT REASONS
 	min-height: $xui-input-height;
 	padding: 11px $xui-input-padding-horizontal;
+	position: relative; // Set to enable z-index to take effect on focus
 	text-align: center;
 	text-decoration: none;
 	transition-duration: $xui-motion-speed-fast;

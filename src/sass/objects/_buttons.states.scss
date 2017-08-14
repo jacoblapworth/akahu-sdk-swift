@@ -4,7 +4,7 @@
 //
 // Styleguide: Buttons.8
 
-.#{$ns}-button[disabled] {
+.#{$ns}-button:disabled {
 	cursor: default;
 	pointer-events: none;
 }

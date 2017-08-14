@@ -85,8 +85,8 @@ describe('XUITextArea additional functionality:', () => {
 
 		const firstField = wrapper.find('.field-1').first();
 		const secondField = wrapper.find('.field-2').first();
-		const firstCounter = firstField.find('.xui-margin-auto-top').first();
-		const secondCounter = secondField.find('.xui-margin-auto-top').first();
+		const firstCounter = firstField.find('.xui-margin-top-auto').first();
+		const secondCounter = secondField.find('.xui-margin-top-auto').first();
 		expect(firstCounter.text()).toEqual(expect.stringContaining('10'));
 		expect(secondCounter.text()).toEqual(expect.stringContaining('9'));
 	});

@@ -10,7 +10,7 @@
 
 // Center components horizontally while allowing them to set
 // their own vertical margins
-@mixin xui-margin-auto-horizontal {
+@mixin xui-margin-horizontal-auto {
 	margin-left: auto;
 	margin-right: auto;
 }

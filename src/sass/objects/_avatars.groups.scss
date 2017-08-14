@@ -33,8 +33,6 @@
 //
 // Styleguide: Avatars.2
 
-// TODO: remove avatar-group in breaking change
-.#{$ns}-avatar-group,
 .#{$ns}-avatargroup {
 	.#{$ns}-avatar {
 		@include xui-all-but-first {

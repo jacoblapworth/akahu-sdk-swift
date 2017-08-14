@@ -245,10 +245,10 @@ export default class XUITextArea extends Component {
 		return (
 			<div className={fieldClasses}>
 				<div className={labelClasses}>
-					<div className='xui-u-flex-col xui-u-flex-grow' >
+					<div className='xui-u-flex-horizontal xui-u-flex-grow' >
 						{children}
 					</div>
-					<div className='xui-u-flex-col xui-margin-auto-left xui-margin-auto-top' >
+					<div className='xui-u-flex-horizontal xui-margin-left-auto xui-margin-top-auto' >
 						{counter}
 					</div>
 				</div>

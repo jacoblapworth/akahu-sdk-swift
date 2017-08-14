@@ -37,8 +37,8 @@
 // Markup:
 // <div class="xui-panel">
 //   <header class="xui-panel--header xui-u-flex xui-u-flex-verticallycentered xui-padding">
-//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">57 bills don't have files added</h3>
-//     <button type="button" class="xui-button xui-button-standard xui-u-flex-col">Button</button>
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-horizontal xui-u-flex-grow">57 bills don't have files added</h3>
+//     <button type="button" class="xui-button xui-button-standard xui-u-flex-horizontal">Button</button>
 //   </header>
 //   <table class="xui-panel--section xui-contentblock">
 //     <thead>
@@ -76,8 +76,8 @@
 //  Markup:
 // <div class="xui-panel">
 //   <header class="xui-panel--header xui-u-flex xui-u-flex-verticallycentered xui-padding">
-//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-col xui-u-flex-grow">Needs your attention</h3>
-//     <label class="xui-switch xui-u-flex-col">
+//     <h3 class="xui-panel--heading xui-text-panelheading xui-u-flex-horizontal xui-u-flex-grow">Needs your attention</h3>
+//     <label class="xui-switch xui-u-flex-horizontal">
 //       <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
 //       <span class="xui-switch--control"></span>
 //     </label>
@@ -86,32 +86,32 @@
 //     <header class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Due this week</header>
 //     <ol class="xui-contentblock">
 //       <li class="xui-contentblock--item xui-padding xui-u-flex">
-//         <div class="xui-u-flex-col">
+//         <div class="xui-u-flex-horizontal">
 //           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-1">A</abbr>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//         <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
 //           <a href="#">All Good Organics</a>
 //           <div>
 //             GST Return due this week
 //             <div class="xui-text-secondary">162 unreconciled lines, due 21 Aug 2015</div>
 //           </div>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left">
+//         <div class="xui-u-flex-horizontal xui-margin-left">
 //           <button type="button" class="xui-button xui-button-standard">Reconcile</button>
 //         </div>
 //       </li>
 //       <li class="xui-contentblock--item xui-padding xui-u-flex">
-//         <div class="xui-u-flex-col">
+//         <div class="xui-u-flex-horizontal">
 //           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2">C</abbr>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//         <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
 //           <a href="#">Coffee Supreme</a>
 //           <div>
 //             GST Return due this week
 //             <div class="xui-text-secondary">Reconciled up to date, due 21 Aug 2015</div>
 //           </div>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left">
+//         <div class="xui-u-flex-horizontal xui-margin-left">
 //           <button type="button" class="xui-button xui-button-standard">Prepare</button>
 //         </div>
 //       </li>
@@ -121,32 +121,32 @@
 //     <header class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Due this month</header>
 //     <ol class="xui-contentblock">
 //       <li class="xui-contentblock--item xui-padding xui-u-flex">
-//         <div class="xui-u-flex-col">
+//         <div class="xui-u-flex-horizontal">
 //           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-3">B</abbr>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//         <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
 //           <a href="#">Bluebells Cakery</a>
 //           <div>
 //             GST Return due this month
 //             <div class="xui-text-secondary">134 unreconciled lines, 3 comments, due 28 Aug 2015</div>
 //           </div>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left">
+//         <div class="xui-u-flex-horizontal xui-margin-left">
 //           <button type="button" class="xui-button xui-button-standard">Reconcile</button>
 //         </div>
 //       </li>
 //       <li class="xui-contentblock--item xui-padding xui-u-flex">
-//         <div class="xui-u-flex-col">
+//         <div class="xui-u-flex-horizontal">
 //           <abbr class="xui-avatar xui-avatar-small xui-avatar-color-4">G</abbr>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left xui-u-flex-grow">
+//         <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
 //           <a href="#">Good as Gold</a>
 //           <div>
 //             GST Return due this week
 //             <div class="xui-text-secondary">Reconciled up to date, due 28 Aug 2015</div>
 //           </div>
 //         </div>
-//         <div class="xui-u-flex-col xui-margin-left">
+//         <div class="xui-u-flex-horizontal xui-margin-left">
 //           <button type="button" class="xui-button xui-button-standard">Prepare</button>
 //         </div>
 //       </li>
@@ -307,7 +307,7 @@
 	text-align: center;
 
 	@media(min-width: 600px) {
-		@include xui-margin-auto-horizontal;
+		@include xui-margin-horizontal-auto;
 	}
 }
 

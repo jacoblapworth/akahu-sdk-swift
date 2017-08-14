@@ -44,7 +44,7 @@
 // Styleguide: Forms.1.1
 
 .#{$ns}-form-layout {
-	@include xui-margin-auto-horizontal;
+	@include xui-margin-horizontal-auto;
 	max-width: $xui-form-width;
 }
 

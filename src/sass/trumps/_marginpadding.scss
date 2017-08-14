@@ -121,27 +121,27 @@
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-auto-horizontal" style="width: 300px">
+//  <div class="xui-margin-horizontal-auto" style="width: 300px">
 //   Auto horizontal (arbitrary width demo)
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-auto-left" style="width: 300px">
+//  <div class="xui-margin-left-auto" style="width: 300px">
 //   Auto left (arbitrary width demo)
 //  </div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-auto-right" style="width: 300px">
+//  <div class="xui-margin-right-auto" style="width: 300px">
 //   Auto right (arbitrary width demo)
 //  </div>
 // </div>
 // <div class="margin-example xui-u-flex" style="height: 100px">
-//  <div class="xui-margin-auto-top">
+//  <div class="xui-margin-top-auto">
 //   Auto top (arbitrary height demo; useful for bottom alignment with flexbox)
 //  </div>
 // </div>
 // <div class="margin-example xui-u-flex" style="height: 100px">
-//  <div class="xui-margin-auto-vertical">
+//  <div class="xui-margin-vertical-auto">
 //   Auto vertical (arbitrary height demo; useful for vertical centering with flexbox)
 //  </div>
 // </div>
@@ -154,42 +154,14 @@
 // Styleguide: Margin and Padding.Margin.1
 
 // Collections of XUI layout classes in standard, small and large
-@include xui-generate-margin(auto, $xui-class-suffix-auto, true);
-@include xui-generate-margin(0, $xui-class-suffix-none, false);
-@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard, true);
-@include xui-generate-margin($xui-s-small, $xui-class-suffix-small, true);
-@include xui-generate-margin($xui-s-xsmall, $xui-class-suffix-xsmall, true);
-@include xui-generate-margin($xui-s-large, $xui-class-suffix-large, true);
-@include xui-generate-margin($xui-s-xlarge, $xui-class-suffix-xlarge, true);
-@include xui-generate-margin($xui-s-huge, $xui-class-suffix-huge, true);
-
-// TODO Breaking: remove the !important
-// scss-lint:disable ImportantRule
-.#{$ns}-margin-none {
-	margin: 0 !important;
-}
-
-// TODO: Breaking: remove these - they should be xui-margin-left-auto, etc
-.#{$ns}-margin-auto-left {
-	margin-left: auto;
-}
-
-.#{$ns}-margin-auto-right {
-	margin-right: auto;
-}
-
-.#{$ns}-margin-auto-top {
-	margin-top: auto;
-}
-
-.#{$ns}-margin-auto-horizontal {
-	@include xui-margin-auto-horizontal;
-}
-
-.#{$ns}-margin-auto-vertical {
-	margin-bottom: auto;
-	margin-top: auto;
-}
+@include xui-generate-margin(auto, $xui-class-suffix-auto);
+@include xui-generate-margin(0, $xui-class-suffix-none);
+@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-margin($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-margin($xui-s-xsmall, $xui-class-suffix-xsmall);
+@include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-margin($xui-s-xlarge, $xui-class-suffix-xlarge);
+@include xui-generate-margin($xui-s-huge, $xui-class-suffix-huge);
 
 // Padding
 //
@@ -267,26 +239,14 @@
 // <div class="xui-padding-left-large">
 //  <div>Left large</div>
 // </div>
-// <div class="xui-padding-actionlink">
-//  <div>Action link padding</div>
-// </div>
 //
 // Styleguide: Margin and Padding.Padding.1
 
 // Collections of XUI layout classes in standard, small and large
-@include xui-generate-padding(0, $xui-class-suffix-none, false);
-@include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard, true);
-@include xui-generate-padding($xui-s-small, $xui-class-suffix-small, true);
-@include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall, true);
-@include xui-generate-padding($xui-s-large, $xui-class-suffix-large, true);
-@include xui-generate-padding($xui-s-xlarge, $xui-class-suffix-xlarge, true);
-@include xui-generate-padding($xui-s-huge, $xui-class-suffix-huge, true);
-
-// scss-lint:disable ImportantRule
-.#{$ns}-padding-none {
-	padding: 0 !important;
-}
-
-.#{$ns}-padding-actionlink {
-	padding: $xui-s-actionlink;
-}
+@include xui-generate-padding(0, $xui-class-suffix-none);
+@include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-padding($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall);
+@include xui-generate-padding($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-padding($xui-s-xlarge, $xui-class-suffix-xlarge);
+@include xui-generate-padding($xui-s-huge, $xui-class-suffix-huge);

@@ -16,7 +16,7 @@ export const sizeClassNames = {
 export const classNames = {
 	base: 'xui-avatar',
 	counter: 'xui-avatar-counter',
-	group: 'xui-avatar-group'
+	group: 'xui-avatargroup'
 };
 
 /**

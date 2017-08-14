@@ -32,10 +32,9 @@
 
 // Margin primitive css classes
 // For generating a collection of XUI layout classes with a given $margin and $suffix
-@mixin xui-generate-margin($margin, $suffix, $legacyIncludeFullMarginClass) {
-	@if $legacyIncludeFullMarginClass == true {
-		.#{$ns}-margin#{$suffix} { @include xui-margin($margin); }
-	}
+@mixin xui-generate-margin($margin, $suffix) {
+
+	.#{$ns}-margin#{$suffix} { @include xui-margin($margin); }
 
 	.#{$ns}-margin-vertical#{$suffix} { @include xui-margin-vertical($margin); }
 	.#{$ns}-margin-horizontal#{$suffix} { @include xui-margin-horizontal($margin); }
@@ -80,10 +79,8 @@
 
 // Padding primitive css classes
 // For generating a collection of XUI layout classes with a given $padding and $suffix
-@mixin xui-generate-padding($padding, $suffix, $legacyIncludeFullPaddingClass) {
-	@if $legacyIncludeFullPaddingClass == true {
-		.#{$ns}-padding#{$suffix} { @include xui-padding($padding); }
-	}
+@mixin xui-generate-padding($padding, $suffix) {
+	.#{$ns}-padding#{$suffix} { @include xui-padding($padding); }
 
 	.#{$ns}-padding-vertical#{$suffix} { @include xui-padding-vertical($padding); }
 	.#{$ns}-padding-horizontal#{$suffix} { @include xui-padding-horizontal($padding); }

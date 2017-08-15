@@ -23,23 +23,9 @@
 // xui-toast--message: Style for a toast description
 // xui-toast-is-hidden: Hide the toast
 // xui-toast-layout: Recommended layout for a toast
-// xui-toast-wrapper: Positions toast in bottom left corner of viewport
+// xui-toastwrapper: Positions toast in bottom left corner of viewport
 //
 // Styleguide: Toast.10
-
-// Deprecated CSS Classes
-//
-// <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
-// <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
-//
-// Classes:
-// xui-toast-wrapper: Container for a group of toasts
-// xui-toast-positive: Positive sentiment
-// xui-toast-negative: Negative sentiment
-// xui-toast-list: Bulleted list toasts
-//
-// Styleguide: Toast.11
-
 
 .#{$ns}-toast {
 	@include xui-clearfix;
@@ -56,16 +42,6 @@
 	@include xui-breakpoint-narrow {
 		border-radius: 0;
 	}
-}
-
-.#{$ns}-toast-positive::before {
-	@include xui-highlight-left($xui-radius, true);
-	background: $xui-color-xero-light-green;
-}
-
-.#{$ns}-toast-negative::before {
-	@include xui-highlight-left($xui-radius, true);
-	background: $xui-color-xero-red;
 }
 
 .#{$ns}-toast-layout {
@@ -108,16 +84,6 @@
 	}
 }
 
-.#{$ns}-toast-wrapper {
-	bottom: 0;
-	left: 0;
-	position: fixed;
-
-	@include xui-breakpoint-narrow {
-		width: 100%;
-	}
-}
-
 // Implementation
 //
 // Components: Toast
@@ -129,6 +95,9 @@
 // * Always include a description
 // * Always include a close button
 // * Avoid long descriptions
+//
+// Use `xui-toastwrapper` to position toast elements at the bottom-left corner of the screen.
+// This class will ensure consistent positioning if toast positioning changes in the future.s
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
@@ -215,21 +184,6 @@
 //
 // Styleguide: Toast.2.3
 
-// Placement
-//
-// Use `xui-toast-wrapper` to position toast elements at the bottom-left corner of the screen.
-// This class will ensure consistent positioning if toast positioning changes in the future.
-//
-// Markup:
-// <div class="xui-toast xui-toast-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//   </button>
-//   <div class="xui-toast--message">Image uploaded</div>
-// </div>
-//
-// Styleguide: Toast.2.4
-
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,
 .#{$ns}-toast--action {
@@ -259,7 +213,12 @@
 	pointer-events: none;
 }
 
-.#{$ns}-toast-list {
-	color: $xui-color-white;
-	list-style: disc;
+.#{$ns}-toastwrapper {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+
+	@include xui-breakpoint-narrow {
+		width: 100%;
+	}
 }

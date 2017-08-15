@@ -5,24 +5,8 @@ import cross from '@xero/xui-icon/icons/cross';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
 
-const sentimentMap = {
-	positive: {
-		class: 'xui-toast-positive',
-		role: 'alert'
-	},
-	negative: {
-		class: 'xui-toast-negative',
-		role: 'alert'
-	}
-};
-
-const sentiments = Object.keys(sentimentMap);
-
 export default function XUIToast(props) {
-	const { qaHook, isHidden, sentiment, onCloseClick, onMouseOver, onMouseLeave, children, defaultLayout } = props;
-	const sentimentData = sentimentMap[sentiment];
-	const sentimentClass = sentimentData && sentimentData.class;
-	const role = props.role || (sentimentData && sentimentData.role) || 'status';
+	const { qaHook, role, isHidden, onCloseClick, onMouseOver, onMouseLeave, children, defaultLayout } = props;
 	const buttonQAHook = qaHook ? `${qaHook}-close-button` : null;
 
 	const classNames = cn(
@@ -30,8 +14,7 @@ export default function XUIToast(props) {
 		{
 			'xui-toast-is-hidden' : isHidden,
 			'xui-toast-layout': defaultLayout
-		},
-		sentimentClass
+		}
 	);
 
 	const close = onCloseClick ?
@@ -62,14 +45,11 @@ export default function XUIToast(props) {
 }
 
 XUIToast.propTypes = {
-
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
 	/** Hides the component when set to true */
 	isHidden : PropTypes.bool,
-	/** The sentiment of the toast (positive or negative) */
-	sentiment : PropTypes.oneOf(sentiments),
 	/** When defined, displays the close button */
 	onCloseClick : PropTypes.func,
 	/** Handles the event for when the mouse hovers over the toast */
@@ -81,7 +61,9 @@ XUIToast.propTypes = {
 	/** Applies a role attribute to the toast element. This will override any component-determined value. */
 	role: PropTypes.string
 };
+
 XUIToast.defaultProps = {
 	isHidden : false,
-	defaultLayout: true
+	defaultLayout: true,
+	role: 'status'
 };

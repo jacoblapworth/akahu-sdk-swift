@@ -33,6 +33,8 @@ Use picklists instead.
 * `xui-icon-rotate-270` has been removed. Use `xui-u-rotate-270` instead.
 
 ### Toasts
+* `xui-toast-negative`, `xui-toast-positive`, and `xui-toast-list` have been removed.
+* `xui-toast-wrapper` has been removed. Use `xui-toastwrapper` instead.
 * `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
 
 ### Inputs

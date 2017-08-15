@@ -3,9 +3,7 @@
 
 // Toggles
 //
-// Toggles can be made using either `radio` or `checkbox` inputs and come in three colorways:
-// * `xui-toggle-form` (white text on blue background)
-// * `xui-toggle-inverted` (light text on dark background)
+// Toggles can be made using either `radio` or `checkbox` inputs.
 //
 // The colorway classes should be applied alongside `xui-toggle`.
 // Note that `xui-toggle-inverted` must be used with `xui-text-inverted` to achieve the correct style.
@@ -43,7 +41,8 @@
 // Form layout
 //
 // The recommended form layout can be achieved using `xui-toggle-form-layout` alongside `xui-toggle`
-// and is suitable for mixed label content.
+// and is suitable for mixed label content. The form layout is intended for text-based
+// labels. It provides vertical padding and line height in addition to being full width.
 //
 // Styleguide: Toggle.1
 
@@ -376,17 +375,6 @@
 	position: relative; // For z-index
 	text-align: center;
 	transition: all $xui-motion-speed-fast ease;
-
-	// Border radius
-	&:first-of-type { // TODO: Remove this style on next breaking-changes release
-		border-bottom-left-radius: $xui-radius;
-		border-top-left-radius: $xui-radius;
-	}
-
-	&:last-of-type { // TODO: Remove this style on next breaking-changes release
-		border-bottom-right-radius: $xui-radius;
-		border-top-right-radius: $xui-radius;
-	}
 }
 
 // Inverted styles
@@ -446,11 +434,6 @@
 // Option styles
 .#{$ns}-toggle-option {
 	display: flex;
-
-	// Border radius
-	.#{$ns}-toggle--label { // TODO: Remove this override on next breaking-changes release
-		border-radius: 0;
-	}
 
 	&:nth-of-type(n+2) .#{$ns}-toggle--label {
 		border-left: none;

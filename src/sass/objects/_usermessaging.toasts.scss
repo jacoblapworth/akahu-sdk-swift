@@ -36,10 +36,19 @@
 // xui-toast-wrapper: Container for a group of toasts
 // xui-toast-positive: Positive sentiment
 // xui-toast-negative: Negative sentiment
-// xui-toast--link: Subcomponent for a toast link button
 // xui-toast-list: Bulleted list toasts
 //
 // Styleguide: Toast.11
+
+// Additional Deprecations
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.0.2-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-toast--link: Styling for toast link. Use `xui-button-borderless-main` and `xui-button-small`
+//
+// Styleguide: Toast.11.1
 
 
 .#{$ns}-toast {

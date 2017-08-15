@@ -19,6 +19,12 @@ The following classes are no longer available:
  * `xui-checkboxgroup`
  * `xui-radiogroup`
 
+### Filters
+
+* `xui-sidebarfilter`, `xui-sidebarfilter-is-selected`, `xui-sidebarfilter--body`, `xui-sidebarfilter--control`,
+`xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control` have all been removed.
+Use picklists instead.
+
 ### Icons
 * `xui-icon-svg` has been removed. Use `xui-iconsymbol` instead.
 * `xui-newicon` has been removed. This never ended up being used.
@@ -62,6 +68,10 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 ### Mixins
 
 The following mixins have been removed:
+
+* `xui-navigation-filters-hide-control`
+* `xui-navigation-filters-collapse-list`
+* `xui-navigation-filters-expand-list`
 
 ### Variables
 

@@ -34,14 +34,14 @@
 	.xui-dropdown--header-container {
 		border-bottom: none;
 		//Currently a hex value
-		box-shadow: 0 1px 0 0 $xui-color-shadow-medium;
+		box-shadow: 0 1px 0 0 $xui-color-grey-alpha-6;
 	}
 }
 
 .xui-dropdown-layout .xui-dropdown--footer {
 	border-top: none;
 	//Currently too light, makes this darker and matches the header.
-	box-shadow: 0 -1px 0 0 $xui-color-shadow-medium;
+	box-shadow: 0 -1px 0 0 $xui-color-grey-alpha-6;
 	//Any padding should be in a layout class, if we even want to dictate that.
 	padding: none;
 }

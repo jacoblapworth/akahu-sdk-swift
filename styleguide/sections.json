@@ -22,8 +22,17 @@
 		"sections": [
 			{
 				"name": "Avatar",
-				"components": "../src/react/components/avatar/**/[A-Z]*.js",
-				"content": "../src/react/avatar.md"
+				"content": "../src/react/avatar.md",
+				"sections": [
+					{
+						"components": "../src/react/components/avatar/XUIAvatar.js"
+					},
+					{
+						"name": "Avatar Groups",
+						"components": "../src/react/components/avatar/XUIAvatarGroup.js",
+						"content": "../src/react/components/avatar/avatar.group.md"
+					}
+				]
 			},
 			{
 				"name": "Button",

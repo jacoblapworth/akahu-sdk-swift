@@ -709,7 +709,7 @@ class NestedExample extends Component {
 					<Pickitem
 						id="custom"
 						key="custom"
-						onSelect={this.selectConvenienceDate('custom')}
+						onSelect={() => this.selectConvenienceDate('custom')}
 					>
 						Custom Date
 					</Pickitem>

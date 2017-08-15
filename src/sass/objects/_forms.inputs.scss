@@ -456,6 +456,32 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 // <div class="xui-field-layout">
+//   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Mix with input wrappers</label>
+//   <div class="xui-inputgroup">
+//     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-select xui-column-2-of-12">
+//       <select class="xui-select--control xui-input-is-invalid">
+//         <option>Invalid</option>
+//         <option>Value 2</option>
+//         <option>Value 3</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Inputgroup with a single child (not recommended, just for regression testing)</label>
 //   <div class="xui-inputgroup">
 //     <div class="xui-select xui-column-2-of-12">
@@ -490,6 +516,15 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
+// This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper > .#{$ns}-input {
+	border-radius: 0;
+}
+
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper:nth-child(n+2) > .#{$ns}-input {
+	border-left: 0;
+}
+
 .#{$ns}-inputgroup > .#{$ns}-select:nth-child(n+2) {
 	.#{$ns}-select--control {
 		border-left: 0;
@@ -507,6 +542,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 // TODO: Remove input-group
 .#{$ns}-input-group > .#{$ns}-input:first-child,
 .#{$ns}-inputgroup > .#{$ns}-input:first-child,
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper:first-child > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button:first-child,
 .#{$ns}-inputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
 	border-bottom-left-radius: $xui-radius;
@@ -515,6 +551,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 .#{$ns}-input-group > .#{$ns}-input:last-child,
 .#{$ns}-inputgroup > .#{$ns}-input:last-child,
+.#{$ns}-inputgroup > .#{$ns}.inputwrapper:last-child > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button:last-child,
 .#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
 	border-bottom-right-radius: $xui-radius;

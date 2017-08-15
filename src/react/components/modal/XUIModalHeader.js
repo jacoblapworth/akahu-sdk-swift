@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { propTypes, defaultProps } from './private/props';
 
 export default function XUIModalHeader({ className, children, defaultLayout }) {
 	const classNames = cn(
@@ -9,11 +9,20 @@ export default function XUIModalHeader({ className, children, defaultLayout }) {
 		className
 	);
 	return (
-		<div className={classNames}>
+		<header className={classNames}>
 			{children}
-		</div>
+		</header>
 	);
 }
 
-XUIModalHeader.propTypes = propTypes;
-XUIModalHeader.defaultProps = defaultProps;
+XUIModalHeader.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+
+	/** If the modal will use the default XUI style layout */
+	defaultLayout: PropTypes.bool
+};
+
+XUIModalHeader.defaultProps = {
+	defaultLayout: true,
+};

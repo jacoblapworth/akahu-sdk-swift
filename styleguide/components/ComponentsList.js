@@ -4,9 +4,12 @@ import cx from 'classnames';
 import Link from 'rsg-components/Link'; // eslint-disable-line import/no-unresolved
 import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unresolved
 
-const styles = ({ color, fontFamily, fontSize, space, mq }) => ({
+const styles = ({ color, fontFamily, fontSize, space }) => ({
 	list: {
-		margin: 0
+		margin: 0, // eslint-disable-line quote-props
+		'& :last-child': {
+			borderBottom: 'none'
+		}
 	},
 	item: {
 		color: color.base,
@@ -16,16 +19,7 @@ const styles = ({ color, fontFamily, fontSize, space, mq }) => ({
 		listStyle: 'none',
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
-		borderBottom: '1px solid #d6dade'
-	},
-	isChild: {
-		fontSize: fontSize.small,
-		borderBottom: 'none',
-		margin: [[0, 0, 0, space[2]]],
-		[mq.small]: {
-			display: 'inline-block',
-			margin: [[0, space[1], 0, 0]]
-		},
+		borderBottom: '1px solid #d6dade',
 	},
 	heading: {
 		color: color.base,
@@ -44,14 +38,17 @@ export function ComponentsListRenderer({ classes, items }) {
 
 	return (
 		<ul className={classes.list}>
-			{items.map(({ heading, name, slug, content }) =>
+			{items.map(({ heading, name, slug, content }) => heading ?
 				<li
-					className={cx(classes.item, (!content || !content.props.items.length) && classes.isChild)}
+					className={cx(classes.item)}
 					key={name}
 				>
-					<Link className={cx(heading && classes.heading)} href={`#${slug}`}>{name}</Link>
+					<Link className={cx(heading && classes.heading)} href={`#${slug}`}>
+						{name}
+					</Link>
 					{content}
 				</li>
+				: null
 			)}
 		</ul>
 	);

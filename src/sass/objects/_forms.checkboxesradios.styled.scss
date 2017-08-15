@@ -45,7 +45,9 @@
 // xui-styledradio--check: Subcomponent for checkmark layer of a styled radio
 // xui-styledradio--label: Subcomponent for label text of a styled radio
 //
-// Styleguide: Checkboxes and Radios.1
+// Weight: 4.1
+//
+// Styleguide: Checkboxes and Radios
 
 // Styled Inline Checkboxes
 //
@@ -488,8 +490,6 @@ input:checked:active + svg {
 	}
 }
 
-
-
 // Indeterminate checkbox styles
 // =============================
 
@@ -530,7 +530,6 @@ input:indeterminate:active + svg {
 		stroke: darken($xui-color-xero-blue, 7%);
 	}
 }
-
 
 // Disabled styles
 // ===============

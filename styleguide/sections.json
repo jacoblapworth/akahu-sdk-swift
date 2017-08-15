@@ -36,8 +36,27 @@
 			},
 			{
 				"name": "Button",
-				"components": "../src/react/components/button/**/[A-Z]*.js",
-				"content": "../src/react/button.md"
+				"content": "../src/react/button.md",
+				"sections": [
+					{
+						"components": "../src/react/components/button/XUIButton.js"
+					},
+					{
+						"name": "Button Caret",
+						"components": "../src/react/components/button/XUIButtonCaret.js",
+						"content": "../src/react/components/button/button.caret.md"
+					},
+					{
+						"name": "Button Groups",
+						"components": "../src/react/components/button/XUIButtonGroup.js",
+						"content": "../src/react/components/button/button.group.md"
+					},
+					{
+						"name": "Split Buttons",
+						"components": "../src/react/components/button/XUIS*.js",
+						"content": "../src/react/components/button/button.split.md"
+					}
+				]
 			},
 			{
 				"name": "Controls",

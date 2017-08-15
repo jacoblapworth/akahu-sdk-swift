@@ -14,17 +14,12 @@ A menu is often in the context of a dropdown or navigational menu so to avoid th
 we've named this picklist, a list of things you can pick from. It can be used in the context of a sidebar,
 navigation, filtering, dropdowns and more.
 
-### Notes on Stateful Picklist
-The StatefulPicklist is a component that wraps the Picklist to keep track of which element is highlighted and APIs to manipulate highlighting behavior. These APIs are used by components like the `DropDown` to allow the user to navigate through the menu and select an item.  Detailed information on these APIs can be found in the [DropDown section](#dropdown).
-
-### Related
-* [DropDown](#dropdown)
-
 ## Examples
 
 ### Standard Picklist
 
 ```
+const { Pickitem } = require ( './picklist.js' );
 <Picklist>
 	<Pickitem id="plain1" isSelected={true}>I literally come with nothing, I am just here to look pretty</Pickitem>
 	<Pickitem id="plain2">Next Item</Pickitem>
@@ -37,6 +32,7 @@ The StatefulPicklist is a component that wraps the Picklist to keep track of whi
 ### Horizontal variant
 
 ```
+const { Pickitem } = require ( './picklist.js' );
 <Picklist isHorizontal>
 	<Pickitem id="plain1" isSelected shouldTruncate>
 		Projects

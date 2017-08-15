@@ -187,40 +187,103 @@
 				"sections": [
 					{
 						"name": "Input",
-						"components": "../src/react/components/input/**/[A-Z]*.js",
-						"content": "../src/react/input.md"
+						"content": "../src/react/input.md",
+						"sections": [
+							{
+								"components": "../src/react/components/input/XUIInput.js"
+							}
+						]
 					},
 					{
 						"name": "TextArea",
-						"components": "../src/react/components/textarea/**/[A-Z]*.js",
-						"content": "../src/react/textarea.md"
+						"content": "../src/react/textarea.md",
+						"sections": [
+							{
+								"components": "../src/react/components/textarea/XUITextArea.js"
+							}
+						]
 					}
 				]
 			},
 			{
 				"name": "Loader",
-				"components": "../src/react/components/loader/**/[A-Z]*.js",
-				"content": "../src/react/loader.md"
+				"content": "../src/react/loader.md",
+				"sections": [
+					{
+						"components": "../src/react/components/loader/XUILoader.js"
+					}
+				]
 			},
 			{
 				"name": "Modal",
-				"components": "../src/react/components/modal/**/[A-Z]*.js",
-				"content": "../src/react/modal.md"
+				"content": "../src/react/modal.md",
+				"sections": [
+					{
+						"components": "../src/react/components/modal/XUIModal.js"
+					},
+					{
+						"name": "Modal Header & Footer",
+						"components": "../src/react/components/modal/*(XUIModalHeader|XUIModalFooter).js",
+						"content": "../src/react/components/modal/modal.headerfooter.md"
+					},
+					{
+						"name": "Modal Body",
+						"components": "../src/react/components/modal/XUIModalBody.js",
+						"content": "../src/react/components/modal/modal.body.md"
+					}
+				]
 			},
 			{
 				"name": "Picklist",
-				"components": "../src/react/components/picklist/**/[A-Z]*.js",
-				"content": "../src/react/picklist.md"
+				"content": "../src/react/picklist.md",
+				"sections": [
+					{
+						"components": "../src/react/components/picklist/Picklist.js"
+					},
+					{
+						"name": "Pick Item",
+						"components": "../src/react/components/picklist/PickItem*(Body).js",
+						"content": "../src/react/components/picklist/picklist.pickitem.md"
+					},
+					{
+						"name": "Stateful Picklist",
+						"components": "../src/react/components/picklist/StatefulPicklist.js",
+						"content": "../src/react/components/picklist/picklist.stateful.md"
+					},
+					{
+						"name": "Nested Picklist",
+						"components": "../src/react/components/picklist/NestedPicklist*.js",
+						"content": "../src/react/components/picklist/picklist.nested.md"
+					}
+				]
 			},
 			{
 				"name": "Pill",
-				"components": "../src/react/components/pill/**/[A-Z]*.js",
-				"content": "../src/react/pill.md"
+				"content": "../src/react/pill.md",
+				"sections": [
+					{
+						"components": "../src/react/components/pill/XUIPill.js"
+					}
+				]
 			},
 			{
 				"name": "Toast",
-				"components": "../src/react/components/toast/**/[A-Z]*.js",
-				"content": "../src/react/toast.md"
+				"content": "../src/react/toast.md",
+				"sections": [
+					{
+						"components": "../src/react/components/toast/XUIToast.js"
+					},
+					{
+						"name": "Toast Actions",
+						"components": "../src/react/components/toast/XUIToastAction*(s).js",
+						"content": "../src/react/components/toast/toast.action.md"
+					},
+					{
+						"name": "Toast Message",
+						"components": "../src/react/components/toast/XUIToastMessage.js",
+						"content": "../src/react/components/toast/toast.message.md"
+					}
+				]
 			}
 		]
 	}

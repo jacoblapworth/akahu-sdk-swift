@@ -35,8 +35,6 @@ form {
 	/*
 	Must be min-height.  If it's not, then the scroll-locking CSS will cause the page to have its
 	scroll position reset when a modal or mobile dropdown opens.
-
-	@author dev-johnsanders
 	*/
 	min-height: 100%;
 
@@ -46,7 +44,7 @@ form {
 }
 
 /*
-Should work with or without the xui-html class on the html element so land as xui-html has
+Should work with or without the xui-html class on the html element so long as xui-html has
 a min-height and not a height.
 */
 html.#{$ns}-u-lockscroll {

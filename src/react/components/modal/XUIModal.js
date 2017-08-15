@@ -6,8 +6,15 @@ import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
-import { modalSizes } from './private/sizes';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
+
+const modalSizes = {
+	small: 'xui-modal-width-small',
+	medium: 'xui-modal-width-medium',
+	large: 'xui-modal-width-large',
+	xlarge: 'xui-modal-width-xlarge',
+	fullscreen: 'xui-modal-fullscreen'
+};
 
 export default class XUIModal extends Component {
 	componentDidMount() {
@@ -139,24 +146,26 @@ export default class XUIModal extends Component {
 
 		const closeButton = onClose ?
 			<XUIButton
+				qaHook={`${qaHook}-close`}
 				onClick={onClose}
 				title="Close"
 				className={ cn( 'xui-margin-small', 'xui-button-icon', closeClassName) }
 				key="close-button"
 				type="button"
-				variant="unstyled">
+				variant="unstyled"
+			>
 				<XUIIcon path={cross}/>
 			</XUIButton> : null;
 		let containsHeader = false;
 		const finalChildren = Children.map(children, child => {
 			if (child && child.type === XUIModalHeader) {
 				containsHeader = true;
-				return cloneElement(child, {...child.props, key: undefined, ref: undefined}, [child.props.children,closeButton]);
+				return cloneElement(child, {...child.props}, [child.props.children,closeButton]);
 			} else {
 				return child;
 			}
 		});
-		const MainElement = isForm ? 'form' : 'div';
+		const MainElement = isForm ? 'form' : 'section';
 		const childNodes = (
 			<div
 				id={id}
@@ -189,67 +198,49 @@ export default class XUIModal extends Component {
 
 
 XUIModal.propTypes = {
-	/**
-	 * @property {boolean} [closeOnEsc=true] If the modal will be hidden when the user presses the Esc key
-	 */
+	/** If the modal will be hidden when the user presses the Esc key */
 	hideOnEsc: PropTypes.bool,
 
-	/**
-	 * @property {boolean} [hideOnOverlayClick=true] If the modal will be hidden when the user clicks the overlay
-	 */
+	/** If the modal will be hidden when the user clicks the overlay */
 	hideOnOverlayClick: PropTypes.bool,
 
-	/**
-	 * @property {function} [onClose] Bind a function to fire when the modal requests to be hidden
-	 */
+	/** Bind a function to fire when the modal requests to be hidden */
 	onClose: PropTypes.func,
 
-	/**
-	 * @property {string} [size='medium'] The size of this modal. `small`, `medium`, `large`, or `fullscreen` Defaults to `medium`
-	 */
-	size: PropTypes.oneOf(Object.keys(modalSizes)),
+	/** The size (aka width) of this modal */
+	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
 
-	/**
-	 * @property {boolean} [isHidden=true] Whether the modal is hidden
-	 */
+	/** Whether the modal is hidden */
 	isHidden: PropTypes.bool,
 
-	/**
-	 * @property {boolean} [isForm=false] Whether the modal wrapping element should be a `<form>` rather than a `<div>`. Allows the enter key to activate the submit button inside native form controls.
-	 */
+	/** Whether the modal wrapping element should be a `<form>` rather than a `<section>`. Allows the enter key to activate the submit button inside native form controls. */
 	isForm: PropTypes.bool,
 
 	/** The target that should listen to key presses. Defaults to the window */
 	keyListenerTarget: PropTypes.object,
 
-	/**maskClassName Optional custom classes for the mask */
+	/** Custom classes for the mask */
 	maskClassName: PropTypes.string,
 
-	/**closeClassName Optional custom classes for the close button */
+	/** Custom classes for the close button */
 	closeClassName: PropTypes.string,
 
-	/**
-	 * @property {boolean} [restrictFocus=true] Restricts focus to elements within the modal while it is open
-	 */
+	/** Restricts focus to elements within the modal while it is open */
 	restrictFocus: PropTypes.bool,
 
-	/**
-	 * @property {string} [ariaLabelledBy] ID for the element containing an appropriate label for screen readers
-	 */
+	/** ID for the element containing an appropriate label for screen readers */
 	ariaLabelledBy: PropTypes.string,
 
-	/**
-	 * @property {string} [ariaDescribedBy] ID for the element containing an appropriate description for screen readers
-	 */
+	/** ID for the element containing an appropriate description for screen readers */
 	ariaDescribedBy: PropTypes.string,
 
-	/**
-	 * @property {boolean} [isUsingPortal=true] Renders the modal to the bottom of the current document when true. Otherwise inline.
-	 */
+	/** Renders the modal to the bottom of the current document when true. Otherwise inline. */
 	isUsingPortal: PropTypes.bool,
 
-	children: PropTypes.node,
+	/** If the modal will use the default XUI style layout */
 	defaultLayout: PropTypes.bool,
+
+	children: PropTypes.node,
 	className: PropTypes.string,
 	id: PropTypes.string,
 	qaHook: PropTypes.string

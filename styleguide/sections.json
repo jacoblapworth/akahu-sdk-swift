@@ -36,103 +36,254 @@
 			},
 			{
 				"name": "Button",
-				"components": "../src/react/components/button/**/[A-Z]*.js",
-				"content": "../src/react/button.md"
+				"content": "../src/react/button.md",
+				"sections": [
+					{
+						"components": "../src/react/components/button/XUIButton.js"
+					},
+					{
+						"name": "Button Caret",
+						"components": "../src/react/components/button/XUIButtonCaret.js",
+						"content": "../src/react/components/button/button.caret.md"
+					},
+					{
+						"name": "Button Groups",
+						"components": "../src/react/components/button/XUIButtonGroup.js",
+						"content": "../src/react/components/button/button.group.md"
+					},
+					{
+						"name": "Split Buttons",
+						"components": "../src/react/components/button/XUIS*.js",
+						"content": "../src/react/components/button/button.split.md"
+					}
+				]
 			},
 			{
 				"name": "Controls",
 				"sections": [
 					{
 						"name": "Checkbox",
-						"components": "../src/react/components/checkbox/**/[A-Z]*.js",
-						"content": "../src/react/checkbox.md"
+						"content": "../src/react/checkbox.md",
+						"sections": [
+							{
+								"components": "../src/react/components/checkbox/XUICheckbox.js"
+							},
+							{
+								"name": "Checkbox Groups",
+								"components": "../src/react/components/checkbox/XUICheckboxGroup.js",
+								"content": "../src/react/components/checkbox/checkbox.group.md"
+							}
+						]
 					},
 					{
 						"name": "Radio",
-						"components": "../src/react/components/radio/**/[A-Z]*.js",
-						"content": "../src/react/radio.md"
+						"content": "../src/react/radio.md",
+						"sections": [
+							{
+								"components": "../src/react/components/radio/XUIRadio.js"
+							},
+							{
+								"name": "Radio Groups",
+								"components": "../src/react/components/radio/XUIRadioGroup.js",
+								"content": "../src/react/components/radio/radio.group.md"
+							}
+						]
 					},
 					{
 						"name": "Switch",
-						"components": "../src/react/components/switch/**/[A-Z]*.js",
-						"content": "../src/react/switch.md"
+						"content": "../src/react/switch.md",
+						"sections": [
+							{
+								"components": "../src/react/components/switch/XUISwitch.js"
+							}
+						]
 					},
 					{
 						"name": "Toggle",
-						"components": "../src/react/components/toggle/**/[A-Z]*.js",
-						"content": "../src/react/toggle.md"
+						"content": "../src/react/toggle.md",
+						"sections": [
+							{
+								"components": "../src/react/components/toggle/XUIToggle*.js"
+							}
+						]
 					}
 				]
 			},
 			{
 				"name": "Datepicker",
-				"components": "../src/react/components/datepicker/**/[A-Z]*.js",
-				"content": "../src/react/datepicker.md"
+				"content": "../src/react/datepicker.md",
+				"sections": [
+					{
+						"components": "../src/react/components/datepicker/XUIDatepicker.js"
+					}
+				]
 			},
 			{
 				"name": "Dropdowns",
-				"content": "../src/react/dropdown.md",
 				"sections": [
 					{
 						"name": "Dropdown",
-						"components": "../src/react/components/dropdown/**/[A-Z]*.js"
+						"components": "../src/react/components/dropdown/Dropdown.js",
+						"content": "../src/react/dropdown.md",
+						"sections": [
+							{
+								"name": "Dropdown Header & Footer",
+								"components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
+								"content": "../src/react/components/dropdown/dropdown.headerfooter.md"
+							},
+							{
+								"name": "Nested Dropdowns",
+								"components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
+								"content": "../src/react/components/dropdown/dropdown.nested.md"
+							},
+							{
+								"name": "Dropdown Toggled",
+								"components": "../src/react/components/dropdown/DropDownToggled.js",
+								"content": "../src/react/components/dropdown/dropdown.toggled.md"
+							}
+						]
 					},
 					{
 						"name": "Autocompleter",
-						"components": "../src/react/components/autocompleter/**/[A-Z]*.js",
-						"content": "../src/react/autocompleter.md"
+						"content": "../src/react/autocompleter.md",
+						"sections": [
+								{
+									"components": "../src/react/components/autocompleter/Autocompleter.js"
+								},
+								{
+									"name": "Secondary Search",
+									"components": "../src/react/components/autocompleter/SecondarySearch.js",
+									"content": "../src/react/components/autocompleter/secondarysearch.md"
+								}
+							]
 					},
 					{
 						"name": "Select-box",
-						"components": "../src/react/components/select-box/**/[A-Z]*.js",
-						"content": "../src/react/select-box.md"
+						"content": "../src/react/select-box.md",
+						"sections": [
+							{
+								"components": "../src/react/components/select-box/SelectBox.js"
+							},
+							{
+								"name": "Select Box Option",
+								"components": "../src/react/components/select-box/SelectBoxOption.js",
+								"content": "../src/react/components/select-box/selectbox.option.md"
+							}
+						]
 					}
 				]
 			},
 			{
 				"name": "Icon",
-				"components": "../src/react/components/icon/**/[A-Z]*.js",
-				"content": "../src/react/icon.md"
+				"content": "../src/react/icon.md",
+				"sections": [
+					{
+						"components": "../src/react/components/icon/XUIIcon.js"
+					}
+				]
 			},
 			{
 				"name": "Inputs",
 				"sections": [
 					{
 						"name": "Input",
-						"components": "../src/react/components/input/**/[A-Z]*.js",
-						"content": "../src/react/input.md"
+						"content": "../src/react/input.md",
+						"sections": [
+							{
+								"components": "../src/react/components/input/XUIInput.js"
+							}
+						]
 					},
 					{
 						"name": "TextArea",
-						"components": "../src/react/components/textarea/**/[A-Z]*.js",
-						"content": "../src/react/textarea.md"
+						"content": "../src/react/textarea.md",
+						"sections": [
+							{
+								"components": "../src/react/components/textarea/XUITextArea.js"
+							}
+						]
 					}
 				]
 			},
 			{
 				"name": "Loader",
-				"components": "../src/react/components/loader/**/[A-Z]*.js",
-				"content": "../src/react/loader.md"
+				"content": "../src/react/loader.md",
+				"sections": [
+					{
+						"components": "../src/react/components/loader/XUILoader.js"
+					}
+				]
 			},
 			{
 				"name": "Modal",
-				"components": "../src/react/components/modal/**/[A-Z]*.js",
-				"content": "../src/react/modal.md"
+				"content": "../src/react/modal.md",
+				"sections": [
+					{
+						"components": "../src/react/components/modal/XUIModal.js"
+					},
+					{
+						"name": "Modal Header & Footer",
+						"components": "../src/react/components/modal/*(XUIModalHeader|XUIModalFooter).js",
+						"content": "../src/react/components/modal/modal.headerfooter.md"
+					},
+					{
+						"name": "Modal Body",
+						"components": "../src/react/components/modal/XUIModalBody.js",
+						"content": "../src/react/components/modal/modal.body.md"
+					}
+				]
 			},
 			{
 				"name": "Picklist",
-				"components": "../src/react/components/picklist/**/[A-Z]*.js",
-				"content": "../src/react/picklist.md"
+				"content": "../src/react/picklist.md",
+				"sections": [
+					{
+						"components": "../src/react/components/picklist/Picklist.js"
+					},
+					{
+						"name": "Pick Item",
+						"components": "../src/react/components/picklist/PickItem*(Body).js",
+						"content": "../src/react/components/picklist/picklist.pickitem.md"
+					},
+					{
+						"name": "Stateful Picklist",
+						"components": "../src/react/components/picklist/StatefulPicklist.js",
+						"content": "../src/react/components/picklist/picklist.stateful.md"
+					},
+					{
+						"name": "Nested Picklist",
+						"components": "../src/react/components/picklist/NestedPicklist*.js",
+						"content": "../src/react/components/picklist/picklist.nested.md"
+					}
+				]
 			},
 			{
 				"name": "Pill",
-				"components": "../src/react/components/pill/**/[A-Z]*.js",
-				"content": "../src/react/pill.md"
+				"content": "../src/react/pill.md",
+				"sections": [
+					{
+						"components": "../src/react/components/pill/XUIPill.js"
+					}
+				]
 			},
 			{
 				"name": "Toast",
-				"components": "../src/react/components/toast/**/[A-Z]*.js",
-				"content": "../src/react/toast.md"
+				"content": "../src/react/toast.md",
+				"sections": [
+					{
+						"components": "../src/react/components/toast/XUIToast.js"
+					},
+					{
+						"name": "Toast Actions",
+						"components": "../src/react/components/toast/XUIToastAction*(s).js",
+						"content": "../src/react/components/toast/toast.action.md"
+					},
+					{
+						"name": "Toast Message",
+						"components": "../src/react/components/toast/XUIToastMessage.js",
+						"content": "../src/react/components/toast/toast.message.md"
+					}
+				]
 			}
 		]
 	}

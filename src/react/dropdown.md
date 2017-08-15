@@ -38,6 +38,7 @@ If you want standard picklist behavior (close on select, keyboard handlers, etc)
 Here's a quick example of creating a selectable list of items with a button trigger:
 
 ```
+const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownToggled = require('./components/dropdown/DropDownToggled').default;
 const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
 const { Component } = require ('react');
@@ -106,6 +107,7 @@ To enable multiselect behaviour you will need to set two props.  First, set `clo
 ```
 const { Component } = require('react');
 const DropDownToggled = require('./components/dropdown/DropDownToggled').default;
+const Pickitem = require('./components/picklist/Pickitem').default;
 const items = [
 	{ id: 'a', text: 'First' },
 	{ id: 'b', text: 'Second' },

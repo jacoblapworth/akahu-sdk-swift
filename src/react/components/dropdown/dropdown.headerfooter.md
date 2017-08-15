@@ -4,6 +4,7 @@ The `<DropDownHeader />` and `<DropDownFooter />` components are used to add a f
 ```
 const DropDownToggled = require('./DropDownToggled').default;
 const DropDownFooter = require('./DropDownFooter').default;
+const Pickitem = require('../picklist/Pickitem').default;
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
 const searchIcon = require ( '@xero/xui-icon/icons/search' ).default;
 const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;

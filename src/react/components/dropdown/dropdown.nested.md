@@ -11,7 +11,7 @@ const DropDownFooter = require('./DropDownFooter').default;
 const XUIButton = require('../../button').default;
 const XUIDatePicker = require('../../datepicker').default;
 const Picklist = require('../../picklist').default;
-const { Pickitem } = require('../../picklist');
+const Pickitem = require('../picklist/Pickitem').default;
 const { Component } = require('react');
 
 const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

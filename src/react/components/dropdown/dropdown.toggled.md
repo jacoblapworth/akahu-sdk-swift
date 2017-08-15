@@ -5,6 +5,7 @@ The DropDown's API had to have default behavior, and the Picklist use case was c
 While the `<DropDown />` API is optimized for the `<Picklist />` use case, it can contain any element.
 
 ```
+const Pickitem = require('../picklist/Pickitem').default;
 const XUIDatePicker = require('../../datepicker').default;
 const XUIButton = require('../../button').default;
 
@@ -91,6 +92,7 @@ require('array.prototype.find').shim();
 const debounce = require('lodash.debounce');
 const { Component } = require('react');
 const { boldMatch, decorateSubStr, EmptyState } = require('../../autocompleter');
+const Pickitem = require('../picklist/Pickitem').default;
 
 const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map((text, id) => {
 	return { id, text };

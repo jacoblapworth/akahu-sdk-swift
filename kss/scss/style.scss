@@ -86,7 +86,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	padding: $xui-s-small;
 
 	@include xui-breakpoint-wide {
-		font-size: $xui-font-size-text;
+		font-size: $xui-font-size-small;
 		width: 100%;
 	}
 }
@@ -421,7 +421,7 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--header-title {
 	display: inline-block;
-	font-size: $xui-font-size-heading;
+	font-size: $xui-font-size-extended-xlarge;
 	font-weight: bold;
 	margin-left: 60px;
 	vertical-align: middle;
@@ -480,7 +480,7 @@ $kss-color-padding: #eeebff;
 .ds-token-text {
 	background: none;
 	color: inherit;
-	font-size: $xui-font-size-section-title;
+	font-size: $xui-font-size-medium;
 	font-weight: bold;
 	padding: 0
 }

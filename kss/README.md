@@ -34,9 +34,9 @@ These are all generated in a pre-parse step that creates `src/sass/tmp/_colors.s
 
 ```
 // Tokens:
-// $xui-font-size-heading : 22px : font-size
-// $xui-font-size-page-title : 18px : font-size
-// $xui-font-size-section-title : 15px : font-size
+// $xui-font-size-large : 17px : font-size
+// $xui-font-size-medium : 15px : font-size
+// $xui-font-size-small : 13px : font-size
 ```
 
 ```

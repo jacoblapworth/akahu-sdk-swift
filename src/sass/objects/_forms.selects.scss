@@ -180,12 +180,3 @@
 		width: 100%;
 	}
 }
-
-.#{$ns}-select--button-is-selected { // TODO: deprecated, remove in XUI 12
-	border: $xui-border-standard;
-	border-color: $xui-color-grey-alpha-4;
-
-	@include xui-breakpoint-narrow {
-		border-radius: $xui-radius;
-	}
-}

@@ -102,7 +102,7 @@
 // xui-text-color-icon: used for styling characters for use in place of icons
 //
 // Markup:
-// <div class="xui-input-wrapper xui-margin">
+// <div class="xui-inputwrapper xui-margin">
 //  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
 //    €
 //  </div>
@@ -128,11 +128,8 @@
 //
 // Styleguide: Icons.99
 
-/* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
-// TODO: remove xui-icon-svg in XUI 12 since it applies on the <symbol> element
-// and is not a modifier of child of xui-icon
-.#{$ns}-iconsymbol,
-.#{$ns}-icon-svg {
+/* xui-iconsymbol is added to the icon blob produced by the xui-icon repository */
+.#{$ns}-iconsymbol {
 	fill-rule: evenodd;
 	shape-rendering: auto;
 }
@@ -145,8 +142,6 @@
 	width: $xui-icon-standard;
 }
 
-// TODO: remove sizing assumptions in XUI 12
-// The successors to this class split the fill from the display/width/height
 .#{$ns}-icon {
 	display: inline-block;
 	fill: currentColor;
@@ -157,13 +152,6 @@
 	width: $xui-icon-standard;
 }
 
-// TODO: this becomes xui-icon in XUI 12
-.#{$ns}-newicon {
-	fill: currentColor;
-	transform: rotate(360deg); // Blurry icon fix for Firefox if icon is rendered on a subpixel
-}
-
-// TODO: remove from XUI 12
 .#{$ns}-icon-inline {
 	margin: -10px -8px -6px;
 	vertical-align: middle;
@@ -179,20 +167,6 @@
 .#{$ns}-iconwrapper-xlarge {
 	height: $xui-icon-xlarge;
 	width: $xui-icon-xlarge;
-}
-
-// TODO: consider making these more generic in XUI 12
-.#{$ns}-icon-rotate-90 {
-	transform: rotate(90deg);
-}
-
-.#{$ns}-icon-rotate-180 {
-	transform: rotate(180deg);
-}
-
-
-.#{$ns}-icon-rotate-270 {
-	transform: rotate(-90deg);
 }
 
 .#{$ns}-icon-color-standard {

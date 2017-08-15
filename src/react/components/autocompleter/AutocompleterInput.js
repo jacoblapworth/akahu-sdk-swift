@@ -82,7 +82,7 @@ export default class AutocompleterInput extends Component {
 			props.className
 		);
 		const containerClassNames = cn(
-			{'xui-autocompleter--input-wrapper': props.defaultStyling},
+			{'xui-autocompleter--inputwrapper': props.defaultStyling},
 			props.containerClassNames
 		);
 		const placeholderElement = !props.iconAttributes ? <span className="xui-autocompleter--placeholder">{props.placeholder}</span> : null;

@@ -11,10 +11,6 @@
 //
 // Styleguide: Utilities
 
-// Deprecated
-//
-// Styleguide: Utilities.10
-
 // Display
 //
 // Classes that can be added to any element to hide it from view.
@@ -235,4 +231,32 @@
 
 .#{$ns}-u-resize-vertical {
 	resize: vertical;
+}
+
+// Rotation
+//
+// May be applied to elements such as icons to rotate them.
+//
+// Classes:
+// xui-u-rotate-90: Modifier to rotate the element by 90 degrees
+// xui-u-rotate-180: Modifier to rotate the element by 180 degrees
+// xui-u-rotate-270: Modifier to rotate the element by 270 degrees
+//
+// Markup:
+// <svg class="xui-icon xui-u-rotate-90"><use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+// <svg class="xui-icon xui-u-rotate-180"><use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+// <svg class="xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+//
+// Styleguide: Utilities.8
+
+.#{$ns}-u-rotate-90 {
+	transform: rotate(90deg);
+}
+
+.#{$ns}-u-rotate-180 {
+	transform: rotate(180deg);
+}
+
+.#{$ns}-u-rotate-270 {
+	transform: rotate(-90deg);
 }

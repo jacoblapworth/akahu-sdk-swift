@@ -19,6 +19,23 @@ The following classes are no longer available:
  * `xui-checkboxgroup`
  * `xui-radiogroup`
 
+### Icons
+* `xui-icon-svg` has been removed. Use `xui-iconsymbol` instead.
+* `xui-newicon` has been removed. This never ended up being used.
+* `xui-icon-rotate-90` has been removed. Use `xui-u-rotate-90` instead.
+* `xui-icon-rotate-180` has been removed. Use `xui-u-rotate-180` instead.
+* `xui-icon-rotate-270` has been removed. Use `xui-u-rotate-270` instead.
+
+### Inputs
+* `xui-input-group` has ben removed. Use `xui-inputgroup` instead.
+* `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
+* `xui-input-wrapper-borderless` has been removed. Use `xui-inputwrapper-borderless` instead.
+* `xui-input-wrapper-borderless-layout` has been removed. Use `xui-inputwrapper-borderless-layout` instead.
+* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and `xui-inputwrapper-borderless-layout` have been removed. 
+There are no replacements for these; use the standard borderless classes.
+* `xui-textarea` has been removed. Use `xui-input` on `<textarea>` elements instead.
+* `xui-select--button-is-selected` has been removed and should no longer be used.
+
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
 * `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.

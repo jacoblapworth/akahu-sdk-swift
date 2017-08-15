@@ -98,8 +98,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	@extend %#{$ns}-commoninput;
 }
 
-// TODO: Remove xui-input-wrapper in XUI 12
-.#{$ns}-input-wrapper,
 .#{$ns}-inputwrapper {
 	position: relative;
 
@@ -147,18 +145,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	top: 1px;
 	width: $xui-input-icon-width;
 	z-index: $xui-input-icon-zindex;
-}
-
-// TODO: remove in XUI 12
-.#{$ns}-input-borderless-layout {
-	@include xui-padding($xui-s-standard);
-}
-
-// TODO: remove in XUI 12
-.#{$ns}-inputwrapper-borderless-layout {
-	.#{$ns}-input--iconwrapper {
-		top: $xui-s-xsmall + 1px; // Layout class adds extra vertical height
-	}
 }
 
 .#{$ns}-input--iconwrapper-left {
@@ -268,17 +254,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Styleguide: Forms.4.2
 
-// Deprecated Text Input classes
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-10.24.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// Classes:
-// xui-inputwrapper-borderless-layout: Layout of the borderless input wrapper, mainly padding changes to alter icons
-// xui-input-borderless-layout: Layout of the borderless input, mainly padding
-//
-// Styleguide: Forms.99.2
-
 .#{$ns}-input-borderless {
 	border: 0;
 
@@ -326,8 +301,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
-// TODO: Remove xui-input-wrapper-borderless in XUI 12
-.#{$ns}-input-wrapper-borderless,
 .#{$ns}-inputwrapper-borderless {
 
 	.#{$ns}-input--icon-left {
@@ -336,18 +309,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 	.#{$ns}-input--icon-right {
 		right: $xui-s-xsmall + $xui-input-icon-offset;
-	}
-}
-
-// TODO: Remove xui-input-wrapper-borderless-layout in XUI 12
-.#{$ns}-input-wrapper-borderless-layout,
-.#{$ns}-inputwrapper-borderless-layout {
-	.#{$ns}-input--icon-left ~ .#{$ns}-input {
-		@include xui-padding-left($xui-s-5xlarge);
-	}
-
-	.#{$ns}-icon {
-		top: 6px;
 	}
 }
 
@@ -497,13 +458,16 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Styleguide: Forms.4.5
 
-// TODO: Remove xui-input-group in XUI 12
-.#{$ns}-input-group,
 .#{$ns}-inputgroup {
 	@include xui-clearfix;
+
+	.#{$ns}-input-is-invalid:nth-child(n+2),
+	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-input-is-invalid {
+		border-left: 1px solid $xui-color-xero-red;
+		margin-left: -1px;
+	}
 }
 
-.#{$ns}-input-group > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button,
 .#{$ns}-inputgroup .#{$ns}-select--control {
@@ -531,16 +495,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
-.#{$ns}-inputgroup {
-	.#{$ns}-input-is-invalid:nth-child(n+2),
-	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-input-is-invalid {
-		border-left: 1px solid $xui-color-xero-red;
-		margin-left: -1px;
-	}
-}
-
-// TODO: Remove input-group
-.#{$ns}-input-group > .#{$ns}-input:first-child,
 .#{$ns}-inputgroup > .#{$ns}-input:first-child,
 .#{$ns}-inputgroup > .#{$ns}-inputwrapper:first-child > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button:first-child,
@@ -549,22 +503,10 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	border-top-left-radius: $xui-radius;
 }
 
-.#{$ns}-input-group > .#{$ns}-input:last-child,
 .#{$ns}-inputgroup > .#{$ns}-input:last-child,
 .#{$ns}-inputgroup > .#{$ns}.inputwrapper:last-child > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button:last-child,
 .#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
 	border-bottom-right-radius: $xui-radius;
 	border-top-right-radius: $xui-radius;
-}
-
-// TODO: This is deprecated, text areas should use xui-input
-.#{$ns}-textarea {
-	@extend %#{$ns}-commoninput;
-
-	display: block;
-	margin: 0;
-	min-height: 90px;
-	padding: 5px 0.5em;
-	resize: none;
 }

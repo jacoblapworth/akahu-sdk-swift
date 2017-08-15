@@ -36,7 +36,6 @@
 // xui-toast-wrapper: Container for a group of toasts
 // xui-toast-positive: Positive sentiment
 // xui-toast-negative: Negative sentiment
-// xui-toast--link: Subcomponent for a toast link button
 // xui-toast-list: Bulleted list toasts
 //
 // Styleguide: Toast.11
@@ -94,12 +93,6 @@
 	.#{$ns}-toast--actions {
 		margin: 0;
 		padding: 0;
-	}
-
-	.#{$ns}-toast--link {
-		@include xui-state-focus-transparent;
-		display: inline-block;
-		padding: $xui-s-actionlink;
 	}
 
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {

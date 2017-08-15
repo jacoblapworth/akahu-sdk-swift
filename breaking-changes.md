@@ -32,12 +32,15 @@ Use picklists instead.
 * `xui-icon-rotate-180` has been removed. Use `xui-u-rotate-180` instead.
 * `xui-icon-rotate-270` has been removed. Use `xui-u-rotate-270` instead.
 
+### Toasts
+* `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
+
 ### Inputs
 * `xui-input-group` has ben removed. Use `xui-inputgroup` instead.
 * `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
 * `xui-input-wrapper-borderless` has been removed. Use `xui-inputwrapper-borderless` instead.
 * `xui-input-wrapper-borderless-layout` has been removed. Use `xui-inputwrapper-borderless-layout` instead.
-* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and `xui-inputwrapper-borderless-layout` have been removed. 
+* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and `xui-inputwrapper-borderless-layout` have been removed.
 There are no replacements for these; use the standard borderless classes.
 * `xui-textarea` has been removed. Use `xui-input` on `<textarea>` elements instead.
 * `xui-select--button-is-selected` has been removed and should no longer be used.
@@ -48,7 +51,7 @@ There are no replacements for these; use the standard borderless classes.
 * `xui-u-flex-verticalalign-center` has been removed. Use `xui-u-flex-vertical` and `xui-u-flex-horizontallycentered` instead.
 * `xui-button-link` has been removed. Use `xui-button-borderless-main` instead.
 * Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of XUI's CSS file. Previously, it
-was possible for margin and padding classes to be undone by others (e.g. `xui-panel--section`) specified further down 
+was possible for margin and padding classes to be undone by others (e.g. `xui-panel--section`) specified further down
 the CSS file.
 * `xui-margin-none` no longer has `!important`
 * `xui-padding-none` no longer has `!important`
@@ -62,7 +65,7 @@ the CSS file.
 * `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, `xui-dropdownmenu-large`,
 `xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`, `xui-dropdownmenu--groupheading`,
 `xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, `xui-menuitem-layout`, `xui-menuitem--body`,
-`xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed. 
+`xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
 These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
 
 ### Mixins

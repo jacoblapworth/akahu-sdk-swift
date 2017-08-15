@@ -216,13 +216,13 @@
 // Styleguide: Motion.5
 
 .#{$ns}-u-transition-short {
-	transition: $xui-transition-duration-short;
+	transition: $xui-motion-speed-fast;
 }
 
 .#{$ns}-u-transition-medium {
-	transition: $xui-transition-duration-medium;
+	transition: $xui-motion-speed-medium;
 }
 
 .#{$ns}-u-transition-long {
-	transition: $xui-transition-duration-long;
+	transition: $xui-motion-speed-slow;
 }

@@ -12,7 +12,7 @@
 	&:focus {
 		box-shadow: $xui-shadow-focus-inverted;
 		outline: none;
-		transition: box-shadow $xui-transition-duration-short;
+		transition: box-shadow $xui-motion-speed-fast;
 	}
 }
 

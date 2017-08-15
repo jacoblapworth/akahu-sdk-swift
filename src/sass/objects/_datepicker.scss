@@ -524,7 +524,7 @@ $xui-datepicker-day-size-compact: 30px;
 			background: $xui-color-xero-blue;
 			box-shadow: 0 0 0 0 $xui-color-xero-blue;
 			color: $xui-color-white;
-			transition: box-shadow $xui-transition-duration-short $xui-motion-curve-standard;
+			transition: box-shadow $xui-motion-speed-fast $xui-motion-curve-standard;
 		}
 	}
 	&:focus {

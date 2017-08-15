@@ -120,28 +120,67 @@
 			},
 			{
 				"name": "Dropdowns",
-				"content": "../src/react/dropdown.md",
 				"sections": [
 					{
 						"name": "Dropdown",
-						"components": "../src/react/components/dropdown/**/[A-Z]*.js"
+						"components": "../src/react/components/dropdown/Dropdown.js",
+						"content": "../src/react/dropdown.md",
+						"sections": [
+							{
+								"name": "Dropdown Header & Footer",
+								"components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
+								"content": "../src/react/components/dropdown/dropdown.headerfooter.md"
+							},
+							{
+								"name": "Nested Dropdowns",
+								"components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
+								"content": "../src/react/components/dropdown/dropdown.nested.md"
+							},
+							{
+								"name": "Dropdown Toggled",
+								"components": "../src/react/components/dropdown/DropDownToggled.js",
+								"content": "../src/react/components/dropdown/dropdown.toggled.md"
+							}
+						]
 					},
 					{
 						"name": "Autocompleter",
-						"components": "../src/react/components/autocompleter/**/[A-Z]*.js",
-						"content": "../src/react/autocompleter.md"
+						"content": "../src/react/autocompleter.md",
+						"sections": [
+								{
+									"components": "../src/react/components/autocompleter/Autocompleter.js"
+								},
+								{
+									"name": "Secondary Search",
+									"components": "../src/react/components/autocompleter/SecondarySearch.js",
+									"content": "../src/react/components/autocompleter/secondarysearch.md"
+								}
+							]
 					},
 					{
 						"name": "Select-box",
-						"components": "../src/react/components/select-box/**/[A-Z]*.js",
-						"content": "../src/react/select-box.md"
+						"content": "../src/react/select-box.md",
+						"sections": [
+							{
+								"components": "../src/react/components/select-box/SelectBox.js"
+							},
+							{
+								"name": "Select Box Option",
+								"components": "../src/react/components/select-box/SelectBoxOption.js",
+								"content": "../src/react/components/select-box/selectbox.option.md"
+							}
+						]
 					}
 				]
 			},
 			{
 				"name": "Icon",
-				"components": "../src/react/components/icon/**/[A-Z]*.js",
-				"content": "../src/react/icon.md"
+				"content": "../src/react/icon.md",
+				"sections": [
+					{
+						"components": "../src/react/components/icon/XUIIcon.js"
+					}
+				]
 			},
 			{
 				"name": "Inputs",

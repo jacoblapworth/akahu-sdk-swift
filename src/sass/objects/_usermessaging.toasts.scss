@@ -23,7 +23,7 @@
 // xui-toast--message: Style for a toast description
 // xui-toast-is-hidden: Hide the toast
 // xui-toast-layout: Recommended layout for a toast
-// xui-toast-wrapper: Positions toast in bottom left corner of viewport
+// xui-toastwrapper: Positions toast in bottom left corner of viewport
 //
 // Styleguide: Toast.10
 
@@ -33,7 +33,7 @@
 // <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
 //
 // Classes:
-// xui-toast-wrapper: Container for a group of toasts
+// xui-toast-wrapper: Container for a group of toasts - use `xui-toastwrapper` instead.
 // xui-toast-positive: Positive sentiment
 // xui-toast-negative: Negative sentiment
 // xui-toast-list: Bulleted list toasts
@@ -124,6 +124,7 @@
 	}
 }
 
+.#{$ns}-toastwrapper,
 .#{$ns}-toast-wrapper {
 	bottom: 0;
 	left: 0;
@@ -233,7 +234,7 @@
 
 // Placement
 //
-// Use `xui-toast-wrapper` to position toast elements at the bottom-left corner of the screen.
+// Use `xui-toastwrapper` to position toast elements at the bottom-left corner of the screen.
 // This class will ensure consistent positioning if toast positioning changes in the future.
 //
 // Markup:

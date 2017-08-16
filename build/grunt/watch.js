@@ -3,7 +3,7 @@ module.exports = function(grunt, opts) {
 		options: {
 			livereload: !!opts.livereload
 		},
-		files: ['src/**/*'],
-		tasks: ['build', 'kss', 'doc']
+		files: ['src/**/*', 'kss/**/*'],
+		tasks: ['build', 'kss']
 	}
 };

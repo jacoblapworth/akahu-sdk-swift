@@ -84,7 +84,7 @@
 	}
 
 	dt {
-		@include xui-bold;
+		font-weight: bold;
 
 		&::after {
 			content: ":";

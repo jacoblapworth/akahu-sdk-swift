@@ -5,7 +5,7 @@ import XUIPill from '../XUIPill';
 import cn from 'classnames';
 
 const onDelete = () => console.log('deleted pill');
-const baseClass = 'xui-newpill';
+const baseClass = 'xui-pill';
 const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small');
 const avatarProps = {
 	value: 'SJ',

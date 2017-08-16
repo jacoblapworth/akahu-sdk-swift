@@ -18,16 +18,16 @@ class InnerPill extends PureComponent {
 
 		const avatarClasses = avatarProps && cn(
 			avatarProps.className,
-			'xui-newpill--avatar'
+			'xui-pill--avatar'
 		);
 
 		const avatar = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
-		const text = secondaryText && <span className="xui-text-color-muted xui-newpill--secondary">{secondaryText}</span>;
+		const text = secondaryText && <span className="xui-text-color-muted xui-pill--secondary">{secondaryText}</span>;
 
 		const className = cn(
-			'xui-newpill--content',
+			'xui-pill--content',
 			{
-				'xui-newpill--button': !href
+				'xui-pill--button': !href
 			}
 		);
 

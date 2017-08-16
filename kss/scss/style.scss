@@ -323,33 +323,6 @@ $kss-color-padding: #eeebff;
 	}
 }
 
-.ds-nav--container {
-	background: $xui-color-white;
-	margin: auto;
-
-	.xui-tabgroup-vertical:nth-child(n+2) {
-		border-top: 0;
-	}
-
-	.xui-verticaltab {
-		&:not(.xui-section-title):hover {
-			background-color: $ds-inverted--light;
-		}
-
-		&:not(.xui-verticaltab-is-selected):hover {
-			border-left-color: transparent;
-		}
-	}
-
-	.xui-verticaltab-is-selected {
-		background-color: $ds-inverted--light;
-	}
-
-	.xui-section-title:hover {
-		background-color: transparent;
-	}
-}
-
 .ds-nav--icon {
 	pointer-events: none;
 	position: absolute;
@@ -542,3 +515,14 @@ $ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
 
 @import "./markdown";
 @import "./prettyprint";
+
+.ds-tabgroup-vertical {
+ 	display: flex;
+ 	flex-flow: column nowrap;
+ 	list-style: none;
+ 	padding: 0;
+ }
+
+.ds-verticaltab-is-selected {
+	border-left: solid 4px $xui-color-xero-blue;
+}

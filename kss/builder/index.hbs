@@ -80,10 +80,10 @@
 
 				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
 				<nav class="ds-section-part">
-					<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+					<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup ds-tabgroup-vertical">
 						{{#each children}} {{#ifDepth 2}}
 						<li>
-						<a class="ds-nav-item xui-verticaltab" href="section-{{../referenceURI}}.html#{{referenceURI}}">
+						<a class="ds-nav-item" href="section-{{../referenceURI}}.html#{{referenceURI}}">
 							<span>{{header}}</span>
 						</a>
 						</li>
@@ -243,7 +243,7 @@
 </article>
 
 <nav id="navigation-primary" class="ds-nav ds-nav--menu">
-	<ul class="xui-u-hidden ds-nav--container xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
+	<ul class="xui-u-hidden ds-nav--container xui-tabgroup ds-tabgroup-vertical">
 		<li class="xui-padding ds-nav--header xui-text-inverted">
 			<a class="xui-text-color-white" href="./index.html">
 				<img class="ds-xero-icon" src="https://edge.xero.com/images/1.0.0/logo/xero-logo-100.png" />
@@ -255,7 +255,7 @@
 		{{#if heading}}{{#unless @first}}</li></ul>{{/unless}}
 			{{! section headings }}
     <li class="ds-nav--title xui-padding-vertical">
-			<label class="ds-nav--link xui-section-title xui-padding-horizontal-large xui-padding-vertical-small xui-verticaltab" for="ds-input-{{referenceURI}}">
+			<label class="ds-nav--link xui-section-title xui-padding-horizontal-large xui-padding-vertical-small" for="ds-input-{{referenceURI}}">
 				{{header}}
 			</label>
 			<input id="ds-input-{{referenceURI}}" type="checkbox" class="ds-input" checked data-persistedmenu/>
@@ -263,11 +263,11 @@
 
 		{{else}}
 			{{! else li for the leaf nodes }}
-		<li class="xui-verticaltab {{#isEqual header @root.sections.0.header}} xui-verticaltab-is-selected{{/isEqual}}">
+		<li class="{{#isEqual header @root.sections.0.header}} ds-verticaltab-is-selected{{/isEqual}}">
 			<a class="ds-nav__menu-link ds-nav--link xui-padding-horizontal-large xui-padding-vertical-small" href="section-{{referenceURI}}.html"> {{header}} </a>
 		{{/if}}
 
-		{{#if heading}}<ul class="ds-nav--submenu xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">{{else}}</li>{{/if}}
+		{{#if heading}}<ul class="ds-nav--submenu xui-tabgroup ds-tabgroup-vertical">{{else}}</li>{{/if}}
 		{{/each}}
 	</ul>
 </nav>

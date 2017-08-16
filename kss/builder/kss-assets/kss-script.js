@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	new Clipboard('.ds-copy-button');
 	var spy = new ScrollSpy('#kss-node', {
 		nav: '#ds-nav-section > li > a',
-		className: 'xui-verticaltab-is-selected'
+		className: 'ds-verticaltab-is-selected'
 	});
 
 	//Adding 'target="_blank"' to external refs so they can be accessed from iframes

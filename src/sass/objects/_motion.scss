@@ -85,21 +85,6 @@
 //
 // Styleguide: Motion.3
 
-// Deprecated Keyframes
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-10.23.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// The following keyframes are available:
-//
-// `xui-animation-show` and `xui-animation-hide`
-//
-// `xui-animation-slideup` and `xui-animation-slidedown`
-//
-// `xui-animation-fadein` and `xui-animation-fadeout`
-//
-// Styleguide: Motion.4
-
 .#{$ns}-transition-scaleup {
 	opacity: 1;
 	pointer-events: auto;
@@ -155,9 +140,9 @@
 }
 
 .#{$ns}-transition {
-	transition-curve: $xui-motion-curve-standard;
+	transition-duration: $xui-motion-speed-medium;
 	transition-property: all;
-	transition-speed: $xui-motion-speed-medium;
+	transition-timing-function: $xui-motion-curve-standard;
 }
 
 .#{$ns}-transition-speed-fast {
@@ -194,35 +179,4 @@
 
 .#{$ns}-transition-delay-long {
 	transition-delay: $xui-motion-delay-long;
-}
-
-// Deprecated utility classes
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-10.21.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// Classes:
-// xui-u-transition-long: Modifier for long animation transition between transforms
-// xui-u-transition-medium: Modifier for medium animation transition between transforms
-// xui-u-transition-short: Modifier for short animation transition between transforms
-//
-// Markup:
-// <div>
-// 	<div><span class="xui-panel-title">Short transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-short"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// 	<div><span class="xui-panel-title">Medium transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-medium"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// 	<div><span class="xui-panel-title">Long transition</span><svg focusable="false" class="xui-icon xui-icon xui-icon-rotate-270 xui-u-transition-long"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg></div>
-// </div>
-//
-// Styleguide: Motion.5
-
-.#{$ns}-u-transition-short {
-	transition: $xui-motion-speed-fast;
-}
-
-.#{$ns}-u-transition-medium {
-	transition: $xui-motion-speed-medium;
-}
-
-.#{$ns}-u-transition-long {
-	transition: $xui-motion-speed-slow;
 }

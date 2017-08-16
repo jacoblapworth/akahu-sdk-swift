@@ -37,6 +37,10 @@ Use picklists instead.
 * `xui-toast-wrapper` has been removed. Use `xui-toastwrapper` instead.
 * `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
 
+### Datepicker
+* `xui-datepicker--weekday-container` has been removed. Use `xui-datepicker--weekdaywrapper` instead.
+* `xui-datepicker--othermonth` has been removed. Use `xui-datepicker--day-is-othermonth` instead.
+
 ### Pills
 * `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
 
@@ -57,8 +61,20 @@ There are no replacements for these; use the standard borderless classes.
 * `xui-tabgroup-vertical`,`xui-tabgroup-vertical-layout`, `xui-verticaltab` `xui-verticaltab--body` and
 `xui-verticaltab-is-selected` have been removed. Use picklists instead.
 
+### Toggles
+* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer necessary to achieve the desired look.
+
+### Dropdowns
+
+* `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, `xui-dropdownmenu-large`,
+`xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`, `xui-dropdownmenu--groupheading`,
+`xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, `xui-menuitem-layout`, `xui-menuitem--body`,
+`xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
+These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
+
 ### Typography
-* `xui-heading-mini` has been removed. Use `xui-text-minor` instead
+* `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
+
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
 * `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.
@@ -71,16 +87,15 @@ the CSS file.
 * `xui-padding-none` no longer has `!important`
 * `xui-margin-auto-*` classes have been removed. Use `xui-margin-*-auto` instead.
 
-### Toggles
-* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer necessary to achieve the desired look.
+### Motion
+* `xui-u-transition-short` has been removed. Use `xui-transition-speed-fast` instead.
+* `xui-u-transition-medium` has been removed. Use `xui-transition-speed-medium` instead.
+* `xui-u-transition-long` has been removed. Use `xui-transition-speed-slow` instead.
 
-### Dropdowns
-
-* `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, `xui-dropdownmenu-large`,
-`xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`, `xui-dropdownmenu--groupheading`,
-`xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, `xui-menuitem-layout`, `xui-menuitem--body`,
-`xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
-These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
+#### Animation keyframes
+* `xui-animation-show` and `xui-animation-hide` have been removed.
+* `xui-animation-slideup` and `xui-animation-slidedown` have been removed.
+* `xui-animation-fadein` and `xui-animation-fadeout` have been removed. Use `xui-transition-fadein` and `xui-transition-fadeout` classes instead.
 
 ### Mixins
 

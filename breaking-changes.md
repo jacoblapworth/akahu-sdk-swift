@@ -37,6 +37,9 @@ Use picklists instead.
 * `xui-toast-wrapper` has been removed. Use `xui-toastwrapper` instead.
 * `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
 
+### Pills
+* `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
+
 ### Inputs
 * `xui-input-group` has ben removed. Use `xui-inputgroup` instead.
 * `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
@@ -57,7 +60,7 @@ was possible for margin and padding classes to be undone by others (e.g. `xui-pa
 the CSS file.
 * `xui-margin-none` no longer has `!important`
 * `xui-padding-none` no longer has `!important`
-* `xui-margin-auto-($1)` classes have been removed. Use `xui-margin-($1)-auto` instead.
+* `xui-margin-auto-*` classes have been removed. Use `xui-margin-*-auto` instead.
 
 ### Toggles
 * `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer necessary to achieve the desired look.

@@ -11,8 +11,8 @@ describe('<XUIPill />', () => {
 			<XUIPill />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill');
-		assert.isTrue(node.classList.contains('xui-newpill-layout'));
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
+		assert.isTrue(node.classList.contains('xui-pill-layout'));
 	});
 
 	it('render pill text in a button by default', () => {
@@ -20,7 +20,7 @@ describe('<XUIPill />', () => {
 			<XUIPill />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill').firstChild;
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill').firstChild;
 		assert.strictEqual(node.tagName, 'BUTTON')
 	});
 
@@ -29,7 +29,7 @@ describe('<XUIPill />', () => {
 			<XUIPill className='xui-test-class' value="Classy Pill" />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill');
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
 		assert.isTrue(node.classList.contains('xui-test-class'));
 	});
 
@@ -38,7 +38,7 @@ describe('<XUIPill />', () => {
 			<XUIPill value="Value Pill" />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill--content');
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content');
 		assert.strictEqual(node.textContent, 'Value Pill');
 	});
 
@@ -47,7 +47,7 @@ describe('<XUIPill />', () => {
 			<XUIPill value="Linky Pill" href="xero.com"/>
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill--content');
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content');
 		assert.strictEqual(node.tagName, 'A');
 	});
 
@@ -56,8 +56,8 @@ describe('<XUIPill />', () => {
 			<XUIPill isInvalid={true} value="Invalid Pill" />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill');
-		assert.isTrue(node.classList.contains('xui-newpill-is-invalid'));
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
+		assert.isTrue(node.classList.contains('xui-pill-is-invalid'));
 	});
 
 	it('will render avatars when passed as an avatar prop', () => {
@@ -76,13 +76,13 @@ describe('<XUIPill />', () => {
 		assert.strictEqual(node.src, link);
 	});
 
-	it('renders the pill without the xui-newpill--layout class when hasLayout prop is false', () => {
+	it('renders the pill without the xui-pill--layout class when hasLayout prop is false', () => {
 		const pill = TestUtils.renderIntoDocument(
 			<XUIPill hasLayout={false} value="Ugly Pill" />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill');
-		assert.isFalse(node.classList.contains('xui-newpill-layout'));
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
+		assert.isFalse(node.classList.contains('xui-pill-layout'));
 	});
 
 	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
@@ -103,7 +103,7 @@ describe('<XUIPill />', () => {
 			<XUIPill onClick={callback} />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill--content');
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content');
 		TestUtils.Simulate.click(node);
 		expect(callback).toHaveBeenCalled();
 	});
@@ -113,7 +113,7 @@ describe('<XUIPill />', () => {
 			<XUIPill secondaryText='supplementary' />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill--content').firstChild;
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content').firstChild;
 		assert.strictEqual(node.textContent, 'supplementary')
 	});
 
@@ -122,9 +122,9 @@ describe('<XUIPill />', () => {
 			<XUIPill />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill');
-		assert.isFalse(node.classList.contains('xui-newpill-is-focussed'));
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
+		assert.isFalse(node.classList.contains('xui-pill-is-focussed'));
 		TestUtils.Simulate.focus(node);
-		assert.isTrue(node.classList.contains('xui-newpill-is-focussed'));
+		assert.isTrue(node.classList.contains('xui-pill-is-focussed'));
 	});
 });

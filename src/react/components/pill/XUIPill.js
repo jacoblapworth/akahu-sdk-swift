@@ -53,7 +53,7 @@ export default class XUIPill extends Component {
 			value
 		} = pill.props;
 
-		const baseClass = 'xui-newpill';
+		const baseClass = 'xui-pill';
 
 		const pillClasses = cn(
 			className,

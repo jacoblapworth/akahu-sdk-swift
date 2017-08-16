@@ -192,14 +192,6 @@
 	}
 }
 
-.#{$ns}-modal-medium {
-	width: 560px;
-}
-
-.#{$ns}-modal-large {
-	width: 860px;
-}
-
 .#{$ns}-modal-fullscreen {
 	border-radius: 0;
 	display: flex;
@@ -277,16 +269,3 @@
 // </div>
 //
 // Styleguide: Modals.2
-
-// Deprecated Modal Widths
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// *The following modal widths will be removed in the next major release version of XUI.*
-//
-// `xui-modal-medium` replaced by `xui-modal-width-large`
-//
-// `xui-modal-large` replaced by `xui-modal-width-xlarge`
-//
-// Styleguide: Modals.99

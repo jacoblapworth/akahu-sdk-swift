@@ -2,7 +2,8 @@
 This component behaves similarly to an autocompleter, however is triggered by a button instead of an input field. The input field is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
 
 ```
-const { boldMatch, decorateSubStr } = require('./autocompleter');
+const { boldMatch, decorateSubStr } = require('./helpers/highlighting');
+const Pickitem = require('../picklist/Pickitem').default;
 
 const SecondarySearchData = [
 	{ props: { id: 'ss1' }, text: "Cost" },

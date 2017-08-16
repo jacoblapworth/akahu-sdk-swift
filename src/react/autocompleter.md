@@ -32,6 +32,7 @@ const { boldMatch, decorateSubStr } = require('./autocompleter');
 const EmptyState = require('./components/autocompleter/EmptyState').default;
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
+const Pickitem = require('./components/picklist/Pickitem').default;
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
@@ -181,6 +182,7 @@ const { boldMatch, decorateSubStr } = require('./autocompleter');
 const EmptyState = require('./components/autocompleter/EmptyState').default;
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
+const Pickitem = require('./components/picklist/Pickitem').default;
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {

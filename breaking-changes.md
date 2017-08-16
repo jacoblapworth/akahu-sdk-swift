@@ -50,6 +50,15 @@ There are no replacements for these; use the standard borderless classes.
 * `xui-textarea` has been removed. Use `xui-input` on `<textarea>` elements instead.
 * `xui-select--button-is-selected` has been removed and should no longer be used.
 
+### Page Heading
+* `xui-pageheading-has-tabs` has been removed as it is no longer necessary.
+
+### Tabs
+* `xui-tabgroup-vertical`,`xui-tabgroup-vertical-layout`, `xui-verticaltab` `xui-verticaltab--body` and
+`xui-verticaltab-is-selected` have been removed. Use picklists instead.
+
+### Typography
+* `xui-heading-mini` has been removed. Use `xui-text-minor` instead
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
 * `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.

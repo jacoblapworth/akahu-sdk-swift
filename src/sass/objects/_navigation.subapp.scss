@@ -163,12 +163,6 @@
 //
 // Styleguide: Navigation.3.2
 
-// TODO: remove in XUI 12
-.#{$ns}-pageheading-has-tabs {
-	flex-direction: column;
-	justify-content: space-between;
-}
-
 .#{$ns}-pageheading--title {
 	flex: 1 1 auto;
 	font-size: $xui-font-size-large;

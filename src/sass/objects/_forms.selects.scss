@@ -74,7 +74,6 @@
 // Classes:
 // xui-select-layout: Recommended layout for a custom select box
 // xui-select--button: Subcomponent for a custom select box button
-// xui-select--button-is-selected: Modifier for a selected select box button
 //
 // Markup:
 // <!-- Dropdown closed -->
@@ -107,7 +106,7 @@
 // <!-- Dropdown open -->
 // <div class="xui-select xui-select-layout">
 //   <input type="hidden" value="Select option 1"/>
-//   <button type="button" class="xui-button xui-select--button xui-select--button-is-selected pseudo-class-active" aria-haspopup="true">
+//   <button type="button" class="xui-button xui-select--button pseudo-class-active" aria-haspopup="true">
 //     Select option 3
 //   </button>
 //   <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
@@ -130,18 +129,6 @@
 // </div>
 //
 // Styleguide: Forms.9
-
-// Deprecated Select classes
-//
-// <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
-// <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
-//
-// No additional styling is neccessary now.
-//
-// Classes:
-// xui-select--button-is-selected: Selected class
-//
-// Styleguide: Forms.99.1
 
 .#{$ns}-select--button {
 	background-color: transparent;

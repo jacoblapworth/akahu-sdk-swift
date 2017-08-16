@@ -29,10 +29,7 @@
 	@include xui-text-small;
 }
 
-// New tiny muted text helper
-// TODO: remove xui-heading-mini
-.#{$ns}-text-minor,
-.#{$ns}-heading-mini {
+.#{$ns}-text-minor {
 	@include xui-text-muted;
 	@include xui-text-xsmall;
 }

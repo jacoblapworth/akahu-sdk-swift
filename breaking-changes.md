@@ -74,6 +74,7 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 
 ### Typography
 * `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
+* `xui-caret` has been removed. Use the SVG caret icon instead.
 
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
@@ -104,6 +105,7 @@ The following mixins have been removed:
 * `xui-navigation-filters-hide-control`
 * `xui-navigation-filters-collapse-list`
 * `xui-navigation-filters-expand-list`
+* `xui-bold`
 
 ### Variables
 

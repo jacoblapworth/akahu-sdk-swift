@@ -99,30 +99,6 @@
 	border: 1px solid $xui-color-grey-alpha-6;
 }
 
-// Carets
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// *This component has been deprecated. Alternatively, use <a href="#icons-1">icons</a> instead.*
-//
-// Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
-//
-// Classes:
-// xui-caret: Style for a CSS caret, replaced by `xui-icon-inline`
-//
-// Markup:
-//  <p>Text <span class="xui-caret"></span></p>
-//  <p class="xui-text-secondary">Text <span class="xui-caret"></span></p>
-//  <span class="xui-text-status-positive">Text <span class="xui-caret"></span></span>
-//
-// Styleguide: Icons.99.1
-
-.#{$ns}-caret {
-	@include xui-caret;
-	vertical-align: middle;
-}
-
 // Line Height
 //
 // Default line height: `line-height: 1.5`

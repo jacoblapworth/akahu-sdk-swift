@@ -200,7 +200,7 @@
 // xui-u-noselect: Modifier for an element that should not allow user selection
 //
 // Markup:
-// <p class="xui-u-noselect">Text <span class="xui-caret"></span></p>
+// <p class="xui-u-noselect">Text <svg class="xui-icon xui-icon-inline"><use xlink:href="#xui-icon-caret" role="presentation"/></svg</p>
 //
 // Styleguide: Utilities.5
 

@@ -187,26 +187,26 @@
 //
 // Styleguide: Typography.101
 .#{$ns}-heading {
-	@include xui-bold;
 	color: $xui-color-grey-1;
 	font-size: $xui-font-size-extended-xlarge;
+	font-weight: bold;
 }
 
 .#{$ns}-page-title {
-	@include xui-bold;
 	color: $xui-color-grey-1;
 	font-size: $xui-font-size-extended-large;
+	font-weight: bold;
 }
 
 .#{$ns}-section-title {
-	@include xui-bold;
 	color: $xui-color-grey-1;
 	font-size: $xui-font-size-medium;
+	font-weight: bold;
 }
 
 .#{$ns}-text-panelheading {
-	@include xui-bold;
 	font-size: $xui-font-size-medium;
+	font-weight: bold;
 }
 
 .#{$ns}-text-sectionheading {

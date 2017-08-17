@@ -242,7 +242,7 @@
 					},
 					{
 						"name": "Pick Item",
-						"components": "../src/react/components/picklist/PickItem*(Body).js",
+						"components": "../src/react/components/picklist/Pickitem.js",
 						"content": "../src/react/components/picklist/picklist.pickitem.md"
 					},
 					{

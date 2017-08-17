@@ -43,7 +43,7 @@
 // xui-dropdown-positionabove: Style for positioning the dropdown above its nearest explictly positioned parent
 // xui-dropdown-positionbelow: Style for positioning the dropdown below its nearest explictly positioned parent
 //
-// Styleguide: Dropdowns.1
+// Styleguide: Dropdown.1
 
 // State Transitions
 //
@@ -71,7 +71,7 @@
 // Remove `xui-dropdown-is-opening` and apply `xui-dropdown-is-closing`.
 // Set a timeout for 200ms and then remove both `xui-dropdown-is-closing` and `xui-dropdown-is-open`.
 //
-// Styleguide: Dropdowns.1.2
+// Styleguide: Dropdown.1.2
 
 // Narrow Dropdown
 //
@@ -126,7 +126,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Dropdowns.1.3
+// Styleguide: Dropdown.1.3
 
 .#{$ns}-dropdown-layout {
 	display: none;

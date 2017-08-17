@@ -7,9 +7,12 @@ import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unr
 const styles = ({ color, fontFamily, fontSize, space }) => ({
 	list: {
 		margin: 0, // eslint-disable-line quote-props
-		'& :last-child': {
-			borderBottom: 'none'
-		}
+	},
+	heading: {
+		color: color.base,
+		marginTop: space[1],
+		fontFamily: fontFamily.base,
+		fontWeight: 'bold',
 	},
 	item: {
 		color: color.base,
@@ -20,12 +23,10 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
 		borderBottom: '1px solid #d6dade',
-	},
-	heading: {
-		color: color.base,
-		marginTop: space[1],
-		fontFamily: fontFamily.base,
-		fontWeight: 'bold',
+		'&:last-child': {
+			isolate: false,
+			borderBottom: 'none'
+		}
 	},
 });
 

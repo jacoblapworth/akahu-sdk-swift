@@ -1,3 +1,4 @@
+/* eslint quote-props: ["error", "as-needed"] */
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -6,7 +7,7 @@ import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unr
 
 const styles = ({ color, fontFamily, fontSize, space }) => ({
 	list: {
-		margin: 0, // eslint-disable-line quote-props
+		margin: 0,
 		'& :last-child': {
 			borderBottom: 'none'
 		}
@@ -24,8 +25,10 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 	heading: {
 		color: color.base,
 		marginTop: space[1],
-		fontFamily: fontFamily.base,
-		fontWeight: 'bold',
+		'&:last-child': {
+			isolate: false,
+			borderBottom: 'none'
+		}
 	},
 });
 

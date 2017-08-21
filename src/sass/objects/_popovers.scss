@@ -36,8 +36,8 @@
 //     </svg>
 //   </div>
 //   <div class="xui-padding-small">
-//   	<p>Tue Mar 08 2016</p>
-//   	<p class="xui-text-secondary">Active between 6:02 and 6:07</p>
+//   	<h4 class="xui-heading-item xui-margin-none xui-padding-vertical-small" id="popover-header">Tue Mar 08 2016</h4>
+//   	<p class="xui-text-secondary xui-margin-none">Active between 6:02 and 6:07</p>
 //   </div>
 // </div>
 //
@@ -144,54 +144,5 @@
 
 	&--border {
 		stroke: $xui-color-grey-alpha-5;
-	}
-}
-
-// TODO: Remove all header, body, footer and link classes
-// Deprecated in favour of just using popovers as simple containers
-// Note that the date picker currently uses these classes
-
-.#{$ns}-popover--body {
-	max-height: 400px;
-	overflow: auto;
-	position: relative;
-	z-index: 0;
-}
-
-.#{$ns}-popover--header {
-	position: relative;
-	z-index: 1;
-}
-
-.#{$ns}-popover--header-standard {
-	padding: 0.5rem 0.8rem;
-}
-
-.#{$ns}-popover--header-can-scroll-up {
-	box-shadow: 0 2px 3px $xui-color-grey-alpha-4;
-}
-
-.#{$ns}-popover--heading {
-	margin: 0;
-}
-
-.#{$ns}-popover--footer {
-	border-top: $xui-border-muted;
-	position: relative;
-}
-
-.#{$ns}-popover--footer-standard {
-	padding: 0.5rem 0.8rem;
-}
-
-.#{$ns}-popover--footer-can-scroll-down {
-	box-shadow: 0 -2px 3px $xui-color-grey-alpha-4;
-}
-
-.#{$ns}-popover--link {
-	&:nth-of-type(n+2) {
-		border-left: $xui-border-standard;
-		margin-left: $xui-s-small;
-		padding: 0 0 0 $xui-s-small;
 	}
 }

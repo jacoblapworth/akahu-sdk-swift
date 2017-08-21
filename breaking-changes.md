@@ -76,6 +76,11 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 * `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
 * `xui-caret` has been removed. Use the SVG caret icon instead.
 
+### Popover
+* `xui-popover--body`, `xui-popover--header`, `xui-popover--header-standard`, `xui-popover--header-can-scroll-up`,
+`xui-popover--heading`, `xui-popover--footer`, `xui-popover--footer-standard`, `xui-popover--footer-can-scroll-down`,
+and `xui-popover--link` have been removed. These classes were not documented and there is no replacement for them.
+
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
 * `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.

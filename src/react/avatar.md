@@ -7,8 +7,7 @@
 
 Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.
 
-XUI provides ten approved colors for Avatars.
-The Avatar component handles selecting a color for you based on its contents, as well as calculating the abbreviated text value from the full value you pass it.
+XUI provides ten approved colours for Avatars. The Avatar component handles selecting a colour for you based on its contents, as well as calculating the abbreviated text value from the full value you pass it.
 
 Avatars can be grouped together using the `<XUIAvatarGroup>` component.
 

@@ -1,5 +1,4 @@
-The StatefulPicklist is a component that wraps the Picklist to keep track of which element is highlighted and APIs to manipulate highlighting behavior. These APIs are used by components like the `DropDown` to allow the user to navigate through the menu and select an item.  Detailed information on these APIs can be found in the [DropDown section](#dropdown).
-
+The `StatefulPicklist` wraps the `Picklist` to keep track of which element is highlighted and can take care of highlighting behaviour within itself. It also Exposes these methods to control highlighting behavior from a wrapping component. A good example is `DropDown` which manages the users navigation on the menu and selecting an item. They're also available if a custom wrapper for `StatefulPicklist` is needed. Detailed information on the API can be found in the [DropDown section](#dropdown).
 
 ### Components Using Stateful Picklists
 * [DropDown](#dropdown)

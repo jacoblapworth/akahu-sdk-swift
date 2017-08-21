@@ -3,13 +3,13 @@
 	<span><a href="../section-modals.html#modals">Modals in the XUI Documentation</a></span>
 </div>
 
-A modal component which provides a container for custom content, along with a background mask. They should primarily be used for prompting user actions, such as confirming a change, providing additional information, or copying some text.
+A wrapping component for custom content to provide default modal styles and a background mask. It can primarily be used for prompting user actions, such as confirming a change, providing additional information or copying some text.
 
 ## Examples
 
 ### Read only modal
 
-Modals should use `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key, and by the close button which will be rendered on the right side of the header.
+Header content should be displayed inside a `XUIModalHeader` component. Required props include a handler on the  `onClose` prop passed to the `XUIModal` component. By default this will enable closing via the `esc` key, and by the close button rendered to the right of the header.
 
 ```
 const  { PureComponent } = require ( 'react' );
@@ -67,7 +67,7 @@ class Example extends PureComponent {
 
 ### Confirmation modal
 
-Modals are often used for user confirmation. A footer for adding actions can be added using the `XUIModalFooter` component. It's also recommended to use the [actions layout](../section-buttons.html#buttons-9) to display the buttons as this provides standard padding and responsive behaviour.
+Modals are often used for user confirmation. A footer for adding actions can be added using the `XUIModalFooter` component. It's recommended to use the [actions layout](../section-buttons.html#buttons-9) to display the buttons as it provides a default layout.
 
 ```
 const  { PureComponent } = require ( 'react' );

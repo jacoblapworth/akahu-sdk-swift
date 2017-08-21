@@ -11,7 +11,7 @@
 
 ### Default Layout
 
-Standard toasts are given a layout class by default and with no actionale buttons. The close button is only added when a `onCloseClick` callback prop is added.
+Standard toasts are given a layout class by default and with no actionable buttons. The close button is only added when a `onCloseClick` callback prop is added.
 
 ```
 const onToastClose = () => {alert( 'Standard toast closed' )};

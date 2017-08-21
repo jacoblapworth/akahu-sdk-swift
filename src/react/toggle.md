@@ -12,7 +12,7 @@ Toggles are a control that can behave like a radio, or like a checkbox. They sup
 
 ### Checkboxes or Radios
 
-Use the `type` prop to specify whether the Toggle Options should behave like checkboxes or like radios.
+Use the `type` prop to specify whether the `ToggleOption`s should behave like checkboxes or like radios.
 
 ```
 const checkboxToggle = {
@@ -93,7 +93,7 @@ const checkboxToggle = {
 
 ### Other Supported Layouts
 
-We recommend using the `form` layout when using a toggle in a form, and the `fullwidth` layout to specify that the children should grow to fill the space made available to the Toggle.
+We recommend using the `form` layout when there is a toggle inside a form. This provides vertical padding, line height and full width styles. The `fullwidth` layout will allow children to fill the space made available to the Toggle. It's worth noting this layout will only provide full width styles and not the padding and line height settings as the `form` layout does.
 
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 

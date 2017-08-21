@@ -47,7 +47,7 @@ A character limit counter can be added to the `TextArea` by passing a number to 
 ```
 ### Validation
 
-Validation errors can be shown to the user by passing in the `isInvalid` and `validationMessage`.
+Validation errors can be shown by passing in the `isInvalid` and `validationMessage`.
 
 ```
 <XUITextArea

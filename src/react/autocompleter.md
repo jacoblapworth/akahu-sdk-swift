@@ -25,7 +25,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ### Standard
 
-The autocompleter can be passed a list of `pills` to display to the left of the input. These should all have the `xui-autocompleter--pill` class applied to receive the correct padding. It also provides a configurable empty state for when no search results are returned.
+The autocompleter can be passed a list of `pills` to display to the left of the input. These should all have the `xui-autocompleter--pill` class applied to receive the correct padding. The autocompleter also includes a configurable empty state for when no search results are returned.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
@@ -195,7 +195,6 @@ const filterPeople = (data, value, peopleToExclude) => {
 	});
 };
 
-//Example to show how the children can be styled however and you also define your own search criteria.
 class DetailedListExample extends Component {
 	constructor() {
 		super();

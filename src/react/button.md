@@ -7,8 +7,7 @@
 
 ## Examples
 
-Whatever you put between the start and end tags of the button will appear as the content of the button.
-You can give it a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
+Button can accept children to display their content. When a click handler is provided for the button's actions, they will be called when the button is clicked and if `space` or `enter` keys are hit when the button has focus.
 
 ```
 	function handleClick() { alert('You clicked the button!'); }
@@ -17,7 +16,7 @@ You can give it a click handler to perform actions when the button is triggered,
 
 ### Variants
 
-Different styles of button are provided for by passing different `variants`.
+Different styles of button are provided for by passing different `variants`. All accepted values are displayed below.
 
 ```
 	<div>
@@ -40,7 +39,7 @@ Different styles of button are provided for by passing different `variants`.
 	</div>
 ```
 
-Icon buttons (for things like overflow dropdown menus, close buttons, etc.) are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
+Icon buttons are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
 
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
 As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefox compatibility.
@@ -69,21 +68,21 @@ The `size` prop allows you to modify the default button size. You can make butto
 <XUIButton size='small'>Smaller button</XUIButton>
 ```
 
-There are two options for "full-width" buttons. `full-width-mobile` only creates a full-width button at mobile breakpoints.
+There are two options for "full-width" buttons. `full-width-mobile` only creates a full-width button at mobile breakpoints. `full-width` will be a full-width button at any breakpoint.
 
 ```
 	<div>
 		<div className="xui-margin-bottom">
 
 			<XUIButton variant="primary" size='full-width'>
-				Big button
+				Full-width Button
 			</XUIButton>
 
 		</div>
 		<div>
 
 			<XUIButton variant="create" size='full-width-mobile'>
-				Mobile button
+				Mobile Full-width Button
 			</XUIButton>
 
 		</div>
@@ -92,7 +91,7 @@ There are two options for "full-width" buttons. `full-width-mobile` only creates
 
 ### Disabled / Loading States
 
-You can programatically disable a button (which prevents interaction, including preventing it gaining focus) by setting the `isDisabled` prop to `true`.
+You can programatically disable a button by setting the `isDisabled` prop to `true`. This will prevent interaction, including preventing it gaining focus.
 
 ```
 <div>

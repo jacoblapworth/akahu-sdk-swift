@@ -1,5 +1,5 @@
 
-This component behaves similarly to an autocompleter, however is triggered by a button instead of an input field. The input field is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
+This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
 
 ```
 const { boldMatch, decorateSubStr } = require('./helpers/highlighting');
@@ -30,7 +30,6 @@ function createItems(items, selectedId) {
 	}, items.text);
 }
 
-//Example to show how the children can be styled however and you also define your own search criteria.
 class SecondarySearchExample extends React.Component {
 	constructor() {
 		super();

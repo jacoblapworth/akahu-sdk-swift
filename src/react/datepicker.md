@@ -13,7 +13,7 @@ For information about what to consider when using a `Datepicker` within a `Dropd
 
 ### Standard
 
-To get a standard Datepicker running you should record the selected date in state by using the required onSelectDate callback. This prop will pass in the new selected date that can be recorded in state.
+To build a standard Datepicker, you should record the selected date in state by using the required `onSelectDate` callback. This prop will pass in the new selected date that can be recorded.
 
 ```
    const XUIDatePicker = require('./datepicker').default;
@@ -118,7 +118,7 @@ Allows you to select between one date and another. Simply set the `selectRange` 
 
  ### Disabled Dates
 
-Setting disabled date ranges requires a callback on the `isDateDisabled` prop. It should determine if the date selected is within a allowable range. Below is an example of disabled dates a week either side of today's date.
+Setting disabled date ranges requires a callback on the `isDateDisabled` prop. It should determine if the date selected is within an allowable range. Below is an example of disabled dates a week either side of today's date.
 
  ```
 	const XUIDatePicker = require('./datepicker').default;
@@ -168,7 +168,7 @@ Setting disabled date ranges requires a callback on the `isDateDisabled` prop. I
 
  ### Compact
 
-This view will slim down some of the padding to allow for a smaller view when needed.
+A slimmer version designed to work inside a small sized dropdown for a compact look.
 
 ```
 	const XUIDatePicker = require('./datepicker').default;
@@ -205,7 +205,7 @@ This view will slim down some of the padding to allow for a smaller view when ne
 ```
 ### Fixed Number of Weeks
 
-To keep consistency of height, you can set the prop `showFixedNumberOfWeeks` to true. this will always display 6 week rows no matter how many are in the displayed month.
+To keep consistency of height, you can set the prop `showFixedNumberOfWeeks` to true. This will always display 6 week rows no matter how many are in the displayed month.
 
 ```
 	const XUIDatePicker = require('./datepicker').default;

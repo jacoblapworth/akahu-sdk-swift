@@ -153,7 +153,12 @@
 								{
 									"name": "Secondary Search",
 									"components": "../src/react/components/autocompleter/SecondarySearch.js",
-									"content": "../src/react/components/autocompleter/secondarysearch.md"
+									"content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
+								},
+								{
+									"name": "Empty State",
+									"components": "../src/react/components/autocompleter/EmptyState.js",
+									"content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
 								}
 							]
 					},

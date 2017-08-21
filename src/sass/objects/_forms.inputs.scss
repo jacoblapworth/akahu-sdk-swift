@@ -504,7 +504,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 .#{$ns}-inputgroup > .#{$ns}-input:last-child,
-.#{$ns}-inputgroup > .#{$ns}.inputwrapper:last-child > .#{$ns}-input,
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper:last-child > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button:last-child,
 .#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
 	border-bottom-right-radius: $xui-radius;

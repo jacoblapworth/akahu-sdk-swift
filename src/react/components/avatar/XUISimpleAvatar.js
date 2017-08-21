@@ -13,13 +13,14 @@ const ignoreChars = /[(){}[\]]/; // ignore braces
  * @param {Number} maxChars The max number of chars desired in the resulting abbreviation
  * @returns {String} The abbreviation
  */
-function abbreviateAvatar(name='', maxChars=1) {
+function abbreviateAvatar(name='', maxChars) {
 	let destructuredName = [...name];
+	let lengthCounter = 0;
 	let nextChar;
 	let newName = '';
 	let includeNextNonWhitespaceChar = true;
 
-	for(let i = 0; (i < destructuredName.length && newName.length < maxChars); i++) {
+	for(let i = 0; (i < destructuredName.length && lengthCounter < maxChars); i++) {
 		nextChar = destructuredName[i];
 
 		if(/\s/.test(nextChar)) {
@@ -27,6 +28,7 @@ function abbreviateAvatar(name='', maxChars=1) {
 		} else if(includeNextNonWhitespaceChar && !ignoreChars.test(nextChar)) {
 			newName += nextChar.toLocaleUpperCase();
 			includeNextNonWhitespaceChar = false;
+			lengthCounter++;
 		}
 	}
 
@@ -67,7 +69,7 @@ export default class XUISimpleAvatar extends PureComponent {
 			imageUrl ? null : getAvatarColorClass(identifier || value)
 		);
 
-		const displayValue = value ? abbreviateAvatar(value, variant === 'business' ? 3 : 1) : '';
+		const displayValue = value ? abbreviateAvatar(value, variant === 'business' ? 3 : 2) : '';
 
 		if (imageUrl) {
 			return <img onError={onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>;

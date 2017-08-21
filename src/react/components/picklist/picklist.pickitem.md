@@ -1,1 +1,1 @@
-** ToDo **
+Although not a required child of Picklists, Pickitems are the standard wrapper for children inside a Picklist. They seamlessly work with the keyboard handling of a `StatefulPickilist` and provide the standard XUI layout needed.

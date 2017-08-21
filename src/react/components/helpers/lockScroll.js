@@ -1,4 +1,5 @@
 import calcScrollbarWidth from 'scrollbar-width';
+import getComputedStyle from './getComputedStyle';
 
 let scrollState = null;
 
@@ -20,7 +21,7 @@ export const lockScroll = () => {
 	if (!isScrollLocked()) {
 		const body = document.body;
 		const html = document.documentElement;
-		const existingPadding = parseInt(window.getComputedStyle(body).paddingRight, 10);
+		const existingPadding = parseInt(getComputedStyle(body, 'paddingRight'), 10);
 		const scrollbarSize = calcScrollbarWidth();
 		const newPadding = isNaN(existingPadding) || !isFinite(existingPadding) ? scrollbarSize : scrollbarSize + existingPadding;
 

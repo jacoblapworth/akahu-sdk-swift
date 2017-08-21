@@ -1,8 +1,83 @@
-
 The StatefulPicklist is a component that wraps the Picklist to keep track of which element is highlighted and APIs to manipulate highlighting behavior. These APIs are used by components like the `DropDown` to allow the user to navigate through the menu and select an item.  Detailed information on these APIs can be found in the [DropDown section](#dropdown).
 
-### Related
-* [DropDown](#dropdown)
 
-** ToDo **
-Should add some related info to DropDown and Friends here, why this is a thing and when to use it.
+### Components Using Stateful Picklists
+* [DropDown](#dropdown)
+* [SelectBox, inherited from Dropdown](#selectbox)
+* [Autocompleter](#autocompleter)
+
+
+### Using Stateful Picklists
+In most cases you would be able to use a wrapper around the StatefulPicklist, such as the ones listed above.  However, for some cases you may need to roll your own. To understand how to correctly implement the component, you should be aware of what behaviours StatefulPicklist covers:
+
+#### It Includes
+* Manages state of highlighted items.
+* Exposes API methods to set and find highlighted items.
+* Handles mouse events on items.
+* Hooks to use the keyboard navigation.
+
+#### It Doesn't Include
+* Managing state of selected items.
+* Automatically hook up keyboard events.
+* Focus of DOM elements.
+
+### Example
+A thin wrapper around the Stateful Picklist to demonstrate the bare minimum to build a working component.
+
+```
+const Pickitem = require('../picklist/Pickitem').default;
+
+class BasicStatefulPicklist extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			selectedItem: 2
+		}
+
+		this.onSelect = this.onSelect.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
+	}
+
+	onSelect(value, item) {
+		this.setState({
+			selectedItem: item.props.id
+		});
+		this._rootNode.focus();
+	}
+
+	onKeyDown(event) {
+		this._list.onKeyDown(event);
+	}
+
+	render () {
+		return (
+				<div
+					id="spl-wrapper"
+					ref={comp => this._rootNode = comp}
+					tabIndex={0}
+					onKeyDown={this.onKeyDown}
+				>
+					<StatefulPicklist onSelect={this.onSelect} ref={comp => this._list = comp}>
+						<Picklist>
+							{[1, 2, 3, 4].map(i => {
+								return (
+									<Pickitem id={i} key={i} isSelected={this.state.selectedItem === i}>
+										{`Item ${i}`}
+									</Pickitem>
+									)
+								})
+							}
+						</Picklist>
+					</StatefulPicklist>
+				</div>
+			)
+		}
+};
+<BasicStatefulPicklist />;
+```
+
+#### Key Things To Note
+* **The wrapping element must be in focus** for the keyboard handling to work.
+* You need to **hook in the keyDown event**, this is so it can be managed by the wrapper and not assume it should be called with every valid keyboard event. This is so certain keyDown events or DOM nodes can be filtered out by the custom wrapper. See the DropdownPanel for a good example of this.
+* You need to **manage select state**. The `StatefulPicklist` provides an `onSelect` handler to let you know when an item has been selected. You will need to store this in your wrapper's state and pass this to the selected `Pickitem`s using the `isSelected` prop. This is because the `StatefulPicklist` can handle single or multiple item selections and the wrapper should determine which to use.

@@ -166,11 +166,11 @@ class Positioning extends PureComponent {
 		// that everything is rendered with "visibility: hidden".  Wait a bit to make sure all children also render,
 		// then measure things and position the popup correctly on the screen.
 		if (!props.renderHidden && !state.positioned) {
-			setTimeout(positionOnShow, 50, this);
+			this._positionTimer = setTimeout(positionOnShow, 50, this);
 		}
 
 		if (!prevState.positioned && state.positioned && props.onVisible != null) {
-			setTimeout(props.onVisible, 50);
+			this._visibleTimer = setTimeout(props.onVisible, 50);
 		}
 
 		if (props.renderHidden !== prevProps.renderHidden) {
@@ -179,6 +179,10 @@ class Positioning extends PureComponent {
 				// reposition everything.
 				this.setState(getDefaultState());
 				detachListeners(this);
+
+				// In case these haven't fired for some reason, kill them now to prevent errors
+				clearTimeout(this._positionTimer);
+				clearTimeout(this._visibleTimer);
 			} else {
 				attachListeners(this);
 			}
@@ -197,6 +201,8 @@ class Positioning extends PureComponent {
 
 	componentWillUnmount() {
 		detachListeners(this);
+		clearTimeout(this._positionTimer);
+		clearTimeout(this._visibleTimer);
 	}
 
 	/**

@@ -24,6 +24,8 @@
 // xui-toast-is-hidden: Hide the toast
 // xui-toast-layout: Recommended layout for a toast
 // xui-toastwrapper: Positions toast in bottom left corner of viewport
+// xui-toast-positive: Positive sentiment
+// xui-toast-negative: Negative sentiment
 //
 // Styleguide: Toast.10
 
@@ -34,8 +36,6 @@
 //
 // Classes:
 // xui-toast-wrapper: Container for a group of toasts - use `xui-toastwrapper` instead.
-// xui-toast-positive: Positive sentiment
-// xui-toast-negative: Negative sentiment
 // xui-toast-list: Bulleted list toasts
 //
 // Styleguide: Toast.11
@@ -232,6 +232,33 @@
 //
 // Styleguide: Toast.2.3
 
+// Toast Sentiment
+//
+// * Toast sentiment classes should be restricted to events such as network connection errors.
+// * Do not use them for form validation.
+//
+// ### Positive
+//
+// <div class="xui-toast xui-toast-layout xui-toast-positive" role="alert">
+//   <div class="xui-toast--message">Connection successful</div>
+// </div>
+//
+// ### Negative
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout xui-toast-negative" role="alert">
+//   <div class="xui-toast--message">No internet connection</div>
+// </div>
+//
+// ### Accessibility
+//
+// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
+// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
+// the users attention to the toast when you require their immediate attention. For further information, please
+// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
+//
+// Styleguide: Toast.2.4
+
 // Placement
 //
 // Use `xui-toastwrapper` to position toast elements at the bottom-left corner of the screen.
@@ -245,7 +272,7 @@
 //   <div class="xui-toast--message">Image uploaded</div>
 // </div>
 //
-// Styleguide: Toast.2.4
+// Styleguide: Toast.2.5
 
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,

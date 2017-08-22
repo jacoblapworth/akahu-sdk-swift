@@ -80,17 +80,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	padding: $xui-s-standard 0;
 }
 
-.ds-nav-item {
-	display: inline-block;
-	font-size: 15px;
-	padding: $xui-s-small;
-
-	@include xui-breakpoint-wide {
-		font-size: $xui-font-size-small;
-		width: 100%;
-	}
-}
-
 .ds-section-wrap {
 	margin: 4em 0;
 }
@@ -323,24 +312,6 @@ $kss-color-padding: #eeebff;
 	}
 }
 
-.ds-nav--icon {
-	pointer-events: none;
-	position: absolute;
-	right: $xui-s-standard;
-	top: 25px;
-	transition: 0.1s all ease;
-}
-
-.ds-nav--submenu {
-	font-weight: normal;
-	margin: 0;
-	max-height: 0;
-	opacity: 0.8;
-	overflow: hidden;
-	padding: 0;
-	visibility: hidden;
-}
-
 .ds-nav--link {
 	color: rgba($xui-color-grey-1, 0.95);
 	display: block;
@@ -353,52 +324,17 @@ $kss-color-padding: #eeebff;
 	padding-bottom: 2rem;
 
 	@include xui-breakpoint-wide {
+		border-right: $xui-border-standard;
 		bottom: 0;
 		max-width: 320px;
 		width: calc(20% - 1px);
 	}
 }
 
-.ds-footer {
-	background: $xui-color-grey-6;
-
-	@include xui-breakpoint-wide {
-		float: right;
-		margin-left: calc(20% - 1px);
-		min-width: calc(100% - 320px);
-		width: calc(100% - 20% + 1px);
-	}
+.ds-is-selected {
+	@include xui-text-emphasis;
 }
 
-.ds-nav--title {
-	border-bottom: 1px solid $xui-color-grey-alpha-6;
-	border-left: 0;
-	font-weight: bold;
-	position: relative;
-
-	&:hover {
-		background: transparent;
-		border-left: 0;
-	}
-}
-
-.ds-nav--header {
-	&::before {
-		content: "";
-		display: inline-block;
-		height: 50px;
-		margin-right: -0.25rem;
-		vertical-align: middle;
-	}
-}
-
-.ds-nav--header-title {
-	display: inline-block;
-	font-size: $xui-font-size-extended-xlarge;
-	font-weight: bold;
-	margin-left: 60px;
-	vertical-align: middle;
-}
 
 .ds-xero-icon {
 	height: 60px;
@@ -408,7 +344,6 @@ $kss-color-padding: #eeebff;
 
 .ds-nav {
 	@include xui-breakpoint-wide {
-		border-right: $xui-border-standard;
 		position: fixed;
 		top: 0;
 	}
@@ -516,13 +451,4 @@ $ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
 @import "./markdown";
 @import "./prettyprint";
 
-.ds-tabgroup-vertical {
- 	display: flex;
- 	flex-flow: column nowrap;
- 	list-style: none;
- 	padding: 0;
- }
-
-.ds-verticaltab-is-selected {
-	border-left: solid 4px $xui-color-xero-blue;
-}
+@import "./redesign";

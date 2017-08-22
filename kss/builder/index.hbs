@@ -78,6 +78,7 @@
 					{{/if}}
 				</div>
 
+<<<<<<< HEAD
 				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
 				<div class="ds-section-part">
 					<nav class="xui-select xui-dropdown-fixed-medium">
@@ -93,6 +94,11 @@
 					</nav>
 				</div>
 				{{/if}} {{/if}} {{/each}} {{/if}}
+=======
+				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#each menu}} {{#if isActive}} {{#if children}}
+				{{> sectionMenu }}
+				{{/if}} {{/if}} {{/each}} {{/if}} {{/each}} {{/if}}
+>>>>>>> Add custom KSS menu
 
 				{{#if components}}
 				<div class="kss-style ds-section-part">
@@ -244,49 +250,12 @@
 	</div>
 </article>
 
-<nav id="navigation-primary" class="ds-nav ds-nav--menu">
-	<ul class="xui-u-hidden ds-nav--container xui-tabgroup ds-tabgroup-vertical">
-		<li class="xui-padding ds-nav--header xui-text-inverted">
-			<a class="xui-text-color-white" href="./index.html">
-				<img class="ds-xero-icon" src="https://edge.xero.com/images/1.0.0/logo/xero-logo-100.png" />
-				<span class="ds-nav--header-title xui-padding">{{@root.options.title}}</span>
-			</a>
-		</li>
-		{{#each menu}}
-		{{! close previous section }}
-		{{#if heading}}{{#unless @first}}</li></ul>{{/unless}}
-			{{! section headings }}
-    <li class="ds-nav--title xui-padding-vertical">
-			<label class="ds-nav--link xui-heading-section xui-padding-horizontal-large xui-padding-vertical-small" for="ds-input-{{referenceURI}}">
-				{{header}}
-			</label>
-			<input id="ds-input-{{referenceURI}}" type="checkbox" class="ds-input" checked data-persistedmenu/>
-			<svg class="ds-nav--icon xui-icon xui-u-rotate-270 xui-button-icon-inverted"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
-
-		{{else}}
-			{{! else li for the leaf nodes }}
-		<li class="{{#isEqual header @root.sections.0.header}} ds-verticaltab-is-selected{{/isEqual}}">
-			<a class="ds-nav__menu-link ds-nav--link xui-padding-horizontal-large xui-padding-vertical-small" href="section-{{referenceURI}}.html"> {{header}} </a>
-		{{/if}}
-
-		{{#if heading}}<ul class="ds-nav--submenu xui-tabgroup ds-tabgroup-vertical">{{else}}</li>{{/if}}
-		{{/each}}
+<nav>
+	<ul id="navigation-primary" class="ds-nav ds-nav--menu">
+		<li><a class="ds-nav-li xui-text-color-black" href="./"><h1 class="xui-padding-left-large">Xero User Interface</h1></a></li>
+		{{> menu }}
 	</ul>
 </nav>
-
-<div class = "ds-footer xui-padding" aria-label = "Default example settings">
-	<span class="xui-text-status xui-padding">
-		<svg class="xui-icon xui-icon-inline">
-			<use xlink:href="#xui-icon-view" role="presentation"/>
-		</svg>
-		<span class="xui-padding-horizontal-small">Set Default View:</span>
-	</span>
-
-	<button class="xui-button ds-defaultexample-label xui-padding-horizontal" onclick="changeExampleView(this)" data-statetype="markup">Markup</button>
-	<button class="xui-button ds-defaultexample-label xui-padding-horizontal" onclick="changeExampleView(this)" data-statetype="example">Demo</button>
-	<button class="xui-button ds-defaultexample-label xui-padding-horizontal" onclick="changeExampleView(this)" data-statetype="all">Both</button>
-</div>
-
 <!-- SCRIPTS -->
 {{{scripts}}}
 </body>

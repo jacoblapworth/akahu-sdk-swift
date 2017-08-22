@@ -1,13 +1,12 @@
 {
 	"source": "../src/sass",
-	"custom": ["heading", "tokens", "colorTokens", "noExample", "classes", "markdown", "components"],
+	"custom": ["tokens", "colorTokens", "noExample", "classes", "markdown", "components"],
 	"destination": "../docs",
 	"css": [
 		"./kss-assets/xui.css",
 		"./style.css"
 	],
 	"js": [
-		"./kss-assets/menu.js",
 		"./kss-assets/kss-script.js",
 		"./kss-assets/kss.js",
 		"./kss-assets/scrollspy.js",

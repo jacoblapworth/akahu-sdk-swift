@@ -1,0 +1,44 @@
+/**
+ * TODO: This SCSS file is a place holder until we fully
+ * implement the new menu design. It's designed to test
+ * the new IA. Nothing more.
+ **/
+
+ nav ul {
+	 margin:0;
+	 padding:0;
+ }
+
+.ds-nav-li {
+	list-style-type: none;
+}
+
+.ds-nav-1 {
+	font-size: 15px;
+	border-bottom: 1px solid rgba(50, 70, 90, 0.1);
+
+}
+
+.ds-nav-2 {
+	font-size: 13px;
+
+	.ds-is-active {
+		display: inline-block;
+		background: $xui-color-grey-6;
+	}
+}
+
+.ds-nav-3 {
+	background: $xui-color-grey-6;
+}
+
+.ds-nav-link {
+	display: inline-block;
+	padding: 1em 20px;
+	width: 100%;
+
+	span {
+		display: inline-block;
+		color: $xui-color-grey-1;
+	}
+}

@@ -7,7 +7,18 @@ XUI has been built on KSS a living style guide system that works by annotating C
 - [ ] Add info on bespoke template
 - [ ] Add info on custom CSS (responsive, making certain examples work (margin, position relative overrides, etc))
 - [ ] improve the customisation docs
-- [ ] spell check
+
+## Custom Menu
+
+We have added a custom Handlebars builder that creates a custom menu object that better supports nesting to support our desired menu structure. The custom menu is built by comparing the KSS weights of sections and building a nested tree. The class lives in `kss/builder/index.js`.
+
+Example Weights:
+
+Weight: 4.0 Building, Blocks – top level, primarily for content overview pages.
+Weight: 4.3 Controls, second level, for detail content or landing pages of grouped content.
+Weight: 4.35 Toggles, third level, for detail content under landing pages.
+
+This customisation is not fool proof and if second or third level pages are added without the correct parent page they will most probably be hiding in the previous section ordered by weight.
 
 ## Customisations
 
@@ -15,17 +26,12 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 
 ### XUI custom KSS props
 
-* `heading` {bool}
 * `tokens`
 * `colorTokens`
 * `noExample`
 * `classes`
 * `markdown`
 * `components`
-
-### Heading
-
-The `Heading` prop is used for navigation it marks a KSS block as a heading and will render a collapsable menu of sub elements. Headings are all defined in [xui.scss](https://github.dev.xero.com/UXE/xui/blob/master/src/sass/xui.scss#L75) but may move to a navigation.scss or ia.scss partial. Headings are positioned using the KSS `Weight` property and the convention is to set the Heading as the x.0 and all sections inside a heading get marked as x.1 weight and are alpha ordered.
 
 ### Tokens & ColorTokens
 

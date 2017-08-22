@@ -70,17 +70,17 @@ class SimpleDropDownDatePicker extends React.Component {
 ```
 As mentioned, the above example is not using dropdown with its optimised use case so we need to manually handle some interactions. See the key points below for more details.
 
- - Set the `restrictToViewPort` to `false` on the DropDownToggled component to disable scrolling on the datepicker's panel. Enabled by default for lists, this isn't desirable for a datepicker. Instead should be full width and height of the datepicker. This might cause it to hang off the edge of the screen or cover the button but this is preferable to having the scroll inside the dropdown.
+ - Set the `restrictToViewPort` to `false` on the DropDownToggled component to disable scrolling on the datepicker's panel. Enabled by default for lists, this isn't desirable for a datepicker. Instead it should be the full width and height of the datepicker. This might cause it to hang off the edge of the screen or cover the button but this is preferable to having the scroll inside the dropdown.
 
-- **The `DropDown` component isn't able to focus the datepicker automatically**. It first has to receive focus to handle keyboard events. Using the `onAnimationEnd` prop of `DropDownToggled`, we can call `XUIDatePicker.focus`. Knowing it's in position and visible, unlike the `onOpen` prop. This method fires immediately after the user opens the dropdown. At this moment we can't be sure the datepicker is completely rendered.
+- **The `DropDown` component isn't able to focus the datepicker automatically**. It first has to receive focus to handle keyboard events. Using the `onAnimationEnd` prop of `DropDownToggled`, we can call `XUIDatePicker.focus` knowing it's in position and visible, unlike the `onOpen` prop. This method fires immediately after the user opens the dropdown. At this moment we can't be sure the datepicker is completely rendered.
 
-- **Keyboard users need to use the tab key to navigate** to the next/previous month buttons or year buttons. Yet the dropdown will close when the user hits the tab key by default. To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
+- **Keyboard users need to use the tab key to navigate** to the next/previous month buttons or year buttons. By default the dropdown will close when the user hits the tab key by default. To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
 
 - **The dropdown must be manually closed when the user has selected a date**. The `XUIDatePicker.onSelectDate` callback will set state and call `DropDownToggled.closeDropDown`.
 
 ### DropDown with Text Input Trigger
 
-It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case. It handles theses customizations by default.
+It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case. It handles theses customisations by default.
 
 The DropDown handles keyboard events for you because focus is placed on the DropDown's DOM node. This may not be desirable for all situations. One common scenario is when the trigger is a text input, the user wants to type in the text box. For this, keyboard events should be disabled and manually handled in the component.
 
@@ -197,7 +197,7 @@ The above example illustrates how to use several props to achieve your desired U
 
 - **`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.**  By default, we toggle the dropdown's open state. You can turn this off with "none" or use "open" to always open.
 
-- **For the focus to remain on the trigger when the dropdown is open**. Set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false`. Ensuring that focus doesn't shift to the dropdown.
+- **For the focus to remain on the trigger when the dropdown is open**. Set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure focus doesn't shift to the dropdown.
 
 - The combination of setting those props means the **dropdown no longer automatically open**. To handle this, call the `DropDownToggled.openDropDown` method to open it. The example above does it on any keypress inside the input, but this is not required, the dropdown can open at any time.
 

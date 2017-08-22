@@ -75,7 +75,7 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 ### Typography
 * `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
 * `xui-caret` has been removed. Use the SVG caret icon instead.
-* `xui-heading` has been removed. Use `xui-heading-large` instead.
+* `xui-heading` has become `xui-heading-large`; `xui-heading` is now the equivalent of `xui-heading-medium`.
 * `xui-page-title` has been removed. Use `xui-heading` instead.
 * `xui-section-title` has been removed. Use `xui-heading-small` instead.
 * `xui-text-panelheading` has been removed. Use `xui-heading` instead.

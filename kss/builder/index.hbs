@@ -79,17 +79,19 @@
 				</div>
 
 				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
-				<nav class="ds-section-part">
-					<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-tabgroup ds-tabgroup-vertical">
-						{{#each children}} {{#ifDepth 2}}
-						<li>
-						<a class="ds-nav-item" href="section-{{../referenceURI}}.html#{{referenceURI}}">
-							<span>{{header}}</span>
-						</a>
-						</li>
-						{{/ifDepth}} {{/each}}
-					</ul>
-				</nav>
+				<div class="ds-section-part">
+					<nav class="xui-select xui-dropdown-fixed-medium">
+						<select id="ds-nav-section" class="xui-select--control">
+							<option value="-1" disabled selected hidden>Jump To...</option>
+							{{#each children}} {{#ifDepth 2}}
+							<option value="{{referenceURI}}">
+								{{header}}
+							</option>
+							{{/ifDepth}} {{/each}}
+						</select>
+						<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+					</nav>
+				</div>
 				{{/if}} {{/if}} {{/each}} {{/if}}
 
 				{{#if components}}

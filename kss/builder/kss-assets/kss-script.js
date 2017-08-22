@@ -3,9 +3,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	prettyPrint();
 	new Clipboard('.ds-copy-button');
-	var spy = new ScrollSpy('#kss-node', {
-		nav: '#ds-nav-section > li > a',
-		className: 'ds-verticaltab-is-selected'
+
+	const navSectionSelect = document.querySelector('#ds-nav-section');
+	navSectionSelect.addEventListener('change', e => {
+		document.location.hash = navSectionSelect.value;
+	});
+
+	const spy = new ScrollSpy('#kss-node', {
+		callback: e => {
+			if (spy.isInView(navSectionSelect)) {
+				navSectionSelect.value = "-1";
+			};
+		}
 	});
 
 	//Adding 'target="_blank"' to external refs so they can be accessed from iframes

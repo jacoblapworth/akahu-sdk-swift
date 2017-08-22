@@ -25,7 +25,7 @@ A container for the elements that are conditionally shown on the page. The eleme
 
 #### Trigger
 
-The trigger element is how the user interacts to open and close the dropdown. Examples include the button that opens the selectable list in a select box. Or the text input that users type into in order to search for items in an autocompleter.
+The trigger element is how the user interacts with the dropdown to open and close it. One example is the button that opens the selectable list in a select box.
 
 ## Basic Use Cases
 
@@ -102,7 +102,7 @@ class ToggledDropDown extends Component {
 
 ### Multiselect
 To enable multiselect behaviour you will need to set two props:
--  `closeOnSelect` to `false` on the `DropDownToggled` will ensure multiple items can be selected while the dropdown is open.
+-  `closeOnSelect` needs to be to `false` on the `DropDownToggled`. This ensures multiple items are selectable while the dropdown is open.
 - `multiselect` needs to be `true` on your Pickitems.
 
 ```

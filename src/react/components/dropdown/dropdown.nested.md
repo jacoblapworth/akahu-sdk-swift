@@ -1,6 +1,6 @@
 **Note:** This component is still considered beta, and it's API may change before it is officially released.
 
-The `NestedDropDown` component is designed to be a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A common case is allowing the user to choose between some convenience dates and a fixed custom date. See below for an example of this.
+The `NestedDropDown` component is designed to be a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A common case is allowing the user to choose between some convenience dates and a fixed custom date. See below for an example of this.
 
 ```
 require('array.prototype.find').shim();
@@ -202,15 +202,12 @@ class NestedExample extends Component {
 
 There are a few things to consider when replicating this example, below are the key points:
 
-- **State handling** between two different components such as a `Datepicker` and `Picklist`. Each needs wrapping in the a `DropDownPanel` contained inside a  `NestedDropDown` instead of a `DropDown`. Each panel provides a `panelId` so the currently active panel's ID can be passed to the nested dropdown. This component records in state the currently active panel.
+- **State handling** between two different components such as a `Datepicker` and `Picklist`. Each needs wrapping in the a `DropDownPanel` inside a  `NestedDropDown`, instead of a `DropDown`. Each panel provides a `panelId` so the currently active panel's ID can be passed to the nested dropdown. This component records in state the currently active panel.
 
-- **When you need a `DropDownHeader` **, such as the Datepicker panel above. Its recommended to tell the user where they are in the workflow. By passing in a `onBackButtonClick` handler, a back button will appear in the header. This provides an easy mechanism for them to go back to the previous step.
-
-
-- **The `NestedDropdown` is optimized for wrapping Picklists**, similarly to the `DropDown` component. This means some behaviour will have to be either overridden or conditionally disabled through props and API calls.
+- **When you need a `DropDownHeader`**, such as the Datepicker panel above. Its recommended to tell the user where they are in the workflow. By passing in a `onBackButtonClick` handler, a back button will appear in the header. This provides an easy mechanism for them to go back to the previous step.
 
 - By setting **`closeOnSelect` to `false`, it prevents the dropdown from closing after a selection.** In the above example, this is shown when you select a "Custom Date". It conditionally calls `DropDownToggle.closeDropDown` manually inside of the internal `onSelect` callback `selectConvenienceDate`.
 
-- Various keyboard behaviour inside the `DropDownPanel` is implemented depending on the NestedPicklists content. For example, default behaviour in like closing the dropdown when the user hits the tab key. Or restricting the dimensions of the dropdown so that its contents scroll, instead of dropping off the screen are desirable with a list. But for datepickers they aren't, so this behaviour is disabled when the datepicker panel is visible.
+- Various keyboard behaviour inside the `DropDownPanel` is implemented depending on the NestedPicklists content. For example, default behaviour for closing the dropdown when the user hits the tab key. Or restricting the dimensions of the dropdown so that its contents scroll instead of dropping off the screen are desirable with a list. But for datepickers they aren't, so this behaviour is disabled when the datepicker panel is visible.
 
-- When the **datepicker panel becomes active, the datepicker should be in focus** so you can select a date with the keyboard. This isn't possible until the DOM node is visible, so focus has to be set manually when the panel changes. Like the `onFocusChange` handler we can passed to the `onPanelChange` prop above. It will fire after the panel has already switched. So the components and DOM nodes will be rendered and visible at this point.
+- When the **datepicker panel becomes active, the datepicker should be in focus** so you can select a date with the keyboard. This isn't possible until the DOM node is visible, so focus has to be set manually when the panel changes. Like the above example, the `onFocusChange` handler we can passed to the `onPanelChange` prop. It will fire after the panel has already switched. So the components and DOM nodes will be rendered and visible at this point.

@@ -1,12 +1,12 @@
-import Autocompleter from './components/autocompleter/Autocompleter';
-import SecondarySearch from './components/autocompleter/SecondarySearch';
-import EmptyState from './components/autocompleter/EmptyState';
+import XUIAutocompleter from './components/autocompleter/XUIAutocompleter';
+import XUIAutocompleterSecondarySearch from './components/autocompleter/XUIAutocompleterSecondarySearch';
+import XUIAutocompleterEmptyState from './components/autocompleter/XUIAutocompleterEmptyState';
 import { boldMatch, decorateSubStr } from './components/autocompleter/helpers/highlighting';
 
 export {
-	Autocompleter as default,
-	EmptyState,
-	SecondarySearch,
+	XUIAutocompleter as default,
+	XUIAutocompleterEmptyState,
+	XUIAutocompleterSecondarySearch,
 	boldMatch,
 	decorateSubStr
 };

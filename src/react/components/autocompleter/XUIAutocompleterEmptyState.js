@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import search from '@xero/xui-icon/icons/search';
 import XUIIcon from '../icon/XUIIcon';
 
-const EmptyState = props => (
+const XUIAutocompleterEmptyState = props => (
 	<div
 		className="xui-u-flex xui-justify-center xui-u-flex-vertical xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-text-muted"
 		data-automationid={props.qaHook}
@@ -14,16 +14,16 @@ const EmptyState = props => (
 	</div>
 );
 
-EmptyState.propTypes = {
+XUIAutocompleterEmptyState.propTypes = {
 	qaHook: PropTypes.string,
 	id: PropTypes.string,
 	path: PropTypes.string,
 	children: PropTypes.node
 };
 
-EmptyState.defaultProps = {
+XUIAutocompleterEmptyState.defaultProps = {
 	children: 'No results found',
 	path: search,
 };
 
-export default EmptyState;
+export default XUIAutocompleterEmptyState;

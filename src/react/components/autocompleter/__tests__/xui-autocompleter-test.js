@@ -1,19 +1,19 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import div from './helpers/container';
-import Autocompleter from '../Autocompleter';
+import XUIAutocompleter from '../XUIAutocompleter';
 import Pill from '../../pill/XUIPill';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
 import DropDownToggled from '../../dropdown/DropDownToggled'
 
-describe('Autocompleter', () => {
+describe('XUIAutocompleter', () => {
 	let wrapper;
 	let searched = false;
 	beforeEach(() => {
 		wrapper = mount(
-			<Autocompleter
+			<XUIAutocompleter
 				onSearch={() => searched = true }
 				placeholder="Search"
 				searchValue="a"
@@ -25,7 +25,7 @@ describe('Autocompleter', () => {
 					<Pickitem id="item1">Item 1</Pickitem>
 					<Pickitem id="item2">Item 2</Pickitem>
 				</Picklist>
-			</Autocompleter>, { attachTo: div }
+			</XUIAutocompleter>, { attachTo: div }
 		);
 	});
 
@@ -63,7 +63,7 @@ describe('Autocompleter', () => {
 
 	it('displays a XUILoader when loading is true', () => {
 		const wrapper = mount(
-			<Autocompleter
+			<XUIAutocompleter
 				searchValue="a"
 				loading
 				forceDesktop
@@ -71,7 +71,7 @@ describe('Autocompleter', () => {
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
 				</Picklist>
-			</Autocompleter>, {attachTo: div}
+			</XUIAutocompleter>, {attachTo: div}
 		);
 
 		expect(wrapper.find(XUILoader)).toBeDefined();
@@ -80,14 +80,14 @@ describe('Autocompleter', () => {
 
 	it('renders pills as children passed in through the pills prop', () => {
 		const wrapper = mount(
-			<Autocompleter
+			<XUIAutocompleter
 				pills={<Pill value="ABC" />}
 				forceDesktop
 			>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
 				</Picklist>
-			</Autocompleter>, {attachTo: div}
+			</XUIAutocompleter>, {attachTo: div}
 		);
 
 		expect(wrapper.find(Pill)).toBeDefined();
@@ -105,11 +105,11 @@ describe('Autocompleter', () => {
 
 	it('sets the dropdown to match trigger width if no dropdownSize is provided in the component props', () => {
 		const wrapper = mount(
-			<Autocompleter forceDesktop>
+			<XUIAutocompleter forceDesktop>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
 				</Picklist>
-			</Autocompleter>, {attachTo: div}
+			</XUIAutocompleter>, {attachTo: div}
 		);
 		expect(wrapper.find(DropDownToggled).node.props).toHaveProperty('matchTriggerWidth',true);
 	});
@@ -118,11 +118,11 @@ describe('Autocompleter', () => {
 		expect(wrapper.find('.xui-autocompleter--trigger-pillwrap')).toBeDefined();
 
 		const disableWrapPills = mount(
-			<Autocompleter disableWrapPills>
+			<XUIAutocompleter disableWrapPills>
 				<Picklist>
 					<Pickitem id="item1">Item 1</Pickitem>
 				</Picklist>
-			</Autocompleter>, {attachTo: div}
+			</XUIAutocompleter>, {attachTo: div}
 		);
 		expect(disableWrapPills.find('.xui-autocompleter--trigger').hasClass('xui-autocompleter--trigger-pillwrap')).toBeFalsy();
 	});

@@ -75,7 +75,7 @@ class SecondarySearchExample extends React.Component {
 
 		return (
 		<div>
-				<SecondarySearch
+				<XUIAutocompleterSecondarySearch
 					trigger={trigger}
 					onOptionSelect={sse.onOptionSelect}
 					onSearch={sse.onSearch}
@@ -86,7 +86,7 @@ class SecondarySearchExample extends React.Component {
 					<Picklist>
 						{items}
 					</Picklist>
-				</SecondarySearch>
+				</XUIAutocompleterSecondarySearch>
 			</div>)
 	}
 }

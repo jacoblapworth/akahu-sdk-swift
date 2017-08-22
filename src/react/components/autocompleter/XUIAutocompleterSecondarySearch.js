@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import AutocompleterInput from './AutocompleterInput';
+import XUIAutocompleterInput from './XUIAutocompleterInput';
 import Picklist from '../picklist/Picklist';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
@@ -11,7 +11,7 @@ import { intervalRunner, isVisible } from './private/helpers';
 
 import './Autocompleter.scss';
 
-export default class SecondarySearch extends PureComponent {
+export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.openDropDown = this.openDropDown.bind(this);
@@ -58,7 +58,7 @@ export default class SecondarySearch extends PureComponent {
 	}
 
 	/**
-	 * Focus the AutocompleterInput input element, if visible.
+	 * Focus the XUIAutocompleterInput input element, if visible.
 	 *
 	 * @public
 	 */
@@ -88,7 +88,7 @@ export default class SecondarySearch extends PureComponent {
 		const searchItem = (
 			<Picklist className="xui-padding-none">
 				<li className="xui-margin-horizontal xui-margin-vertical-small" >
-					<AutocompleterInput
+					<XUIAutocompleterInput
 						defaultStyling={false}
 						className="xui-input xui-input-borderless xui-input-borderless-solid"
 						id={props.inputId}
@@ -142,7 +142,7 @@ export default class SecondarySearch extends PureComponent {
 	}
 }
 
-SecondarySearch.propTypes = {
+XUIAutocompleterSecondarySearch.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
 
@@ -197,7 +197,7 @@ SecondarySearch.propTypes = {
 	/** Will be passed directly down to the DropDownToggled component as the main trigger. */
 	trigger: PropTypes.element.isRequired,
 
-	/** ID to be applied to the AutocompleterInput component. */
+	/** ID to be applied to the XUIAutocompleterInput component. */
 	inputId: PropTypes.string,
 
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
@@ -210,7 +210,7 @@ SecondarySearch.propTypes = {
 	children: PropTypes.node,
 };
 
-SecondarySearch.defaultProps = {
+XUIAutocompleterSecondarySearch.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,

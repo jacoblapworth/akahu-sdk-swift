@@ -23,7 +23,7 @@ function onChange(event) {
  * Bind an optionally throttled onSearch handler to the component instance.
  *
  * @private
- * @param {AutocompleterInput} acInput
+ * @param {XUIAutocompleterInput} acInput
  * @param {number} interval
  */
 function bindOnChange (acInput, interval) {
@@ -38,7 +38,7 @@ function bindOnChange (acInput, interval) {
 	};
 }
 
-export default class AutocompleterInput extends Component {
+export default class XUIAutocompleterInput extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -106,7 +106,7 @@ export default class AutocompleterInput extends Component {
 	}
 }
 
-AutocompleterInput.propTypes = {
+XUIAutocompleterInput.propTypes = {
 	className: PropTypes.string,
 	value: PropTypes.string,
 	placeholder: PropTypes.string,
@@ -125,7 +125,7 @@ AutocompleterInput.propTypes = {
 	defaultStyling: PropTypes.bool
 };
 
-AutocompleterInput.defaultProps = {
+XUIAutocompleterInput.defaultProps = {
 	throttleInterval: 0,
 	ariaAttributes: {},
 	defaultStyling: true

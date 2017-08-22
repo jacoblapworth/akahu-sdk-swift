@@ -29,7 +29,7 @@ The autocompleter can be passed a list of `pills` to display to the left of the 
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
-const EmptyState = require('./components/autocompleter/EmptyState').default;
+const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
@@ -113,7 +113,7 @@ class DetailedListExample extends Component {
 			people,
 			selectedPeople
 		} = example.state;
-		const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
+		const noResults = <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 
 		if(!Array.isArray(people) || people.length <= 0){
 			return noResults;
@@ -145,7 +145,7 @@ class DetailedListExample extends Component {
 		const { value, selectedPeople } = example.state;
 
 		return (
-				<Autocompleter
+				<XUIAutocompleter
 					ref={ac => example.completer = ac}
 					onSearch={example.onSearchChangeHandler}
 					placeholder="Search"
@@ -165,7 +165,7 @@ class DetailedListExample extends Component {
 					<Picklist>
 						{example.getItems()}
 					</Picklist>
-				</Autocompleter>
+				</XUIAutocompleter>
 		)
 	}
 }
@@ -179,7 +179,7 @@ By default the pills and search bar will wrap inside the autocompleter input con
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
-const EmptyState = require('./components/autocompleter/EmptyState').default;
+const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
@@ -262,7 +262,7 @@ class DetailedListExample extends Component {
 			people,
 			selectedPeople
 		} = example.state;
-		const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
+		const noResults = <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 
 		if(!Array.isArray(people) || people.length <= 0){
 			return noResults;
@@ -294,7 +294,7 @@ class DetailedListExample extends Component {
 		const { value, selectedPeople } = example.state;
 
 		return (
-				<Autocompleter
+				<XUIAutocompleter
 					ref={ac => example.completer = ac}
 					onSearch={example.onSearchChangeHandler}
 					placeholder="Search"
@@ -316,7 +316,7 @@ class DetailedListExample extends Component {
 					<Picklist>
 						{example.getItems()}
 					</Picklist>
-				</Autocompleter>
+				</XUIAutocompleter>
 		)
 	}
 }

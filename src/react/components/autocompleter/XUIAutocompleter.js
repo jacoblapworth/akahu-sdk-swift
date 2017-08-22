@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import AutocompleterInput from './AutocompleterInput';
+import XUIAutocompleterInput from './XUIAutocompleterInput';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
@@ -60,7 +60,7 @@ function getHandlers(instance) {
 	return handlers;
 }
 
-export default class Autocompleter extends PureComponent {
+export default class XUIAutocompleter extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -166,7 +166,7 @@ export default class Autocompleter extends PureComponent {
 				onFocus={this.focusInput}
 			>
 				{props.pills}
-				<AutocompleterInput
+				<XUIAutocompleterInput
 					refFn={c => completer.input = c}
 					value={props.searchValue}
 					placeholder={props.placeholder}
@@ -230,7 +230,7 @@ export default class Autocompleter extends PureComponent {
 	}
 }
 
-Autocompleter.propTypes = {
+XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
 
@@ -312,7 +312,7 @@ Autocompleter.propTypes = {
 	children: PropTypes.node
 };
 
-Autocompleter.defaultProps = {
+XUIAutocompleter.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,

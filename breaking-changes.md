@@ -1,6 +1,13 @@
 ## XUI 12
 
-## Breaking changes
+## Component Breaking changes
+
+* `Autocompleter` exported by autocompleter is now `XUIAutocompleter`
+* `AutocompleterInput` exported by autocompleter is now `XUIAutocompleterInput`
+* `EmptyState` exported by autocompleter is now `XUIAutocompleterEmptyState`
+* `SecondarySearch` exported by autocompleter is now `XUIAutocompleterSecondarySearch`
+
+## CSS Breaking changes
 
 ### Buttons
 * `xui-button` has `position: relative` by default. This is to enable buttons to have a z-index value when focused.

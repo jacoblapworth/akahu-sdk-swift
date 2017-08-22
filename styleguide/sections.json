@@ -114,7 +114,7 @@
 				"content": "../src/react/datepicker.md",
 				"sections": [
 					{
-						"components": "../src/react/components/datepicker/XUIDatepicker.js"
+						"components": "../src/react/components/datepicker/XUIDatePicker.js"
 					}
 				]
 			},
@@ -148,16 +148,16 @@
 						"content": "../src/react/autocompleter.md",
 						"sections": [
 								{
-									"components": "../src/react/components/autocompleter/Autocompleter.js"
+									"components": "../src/react/components/autocompleter/XUIAutocompleter.js"
 								},
 								{
-									"name": "Secondary Search",
-									"components": "../src/react/components/autocompleter/SecondarySearch.js",
+									"name": "Autocompleter Secondary Search",
+									"components": "../src/react/components/autocompleter/XUIAutocompleterSecondarySearch.js",
 									"content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
 								},
 								{
-									"name": "Empty State",
-									"components": "../src/react/components/autocompleter/EmptyState.js",
+									"name": "Autocompleter Empty State",
+									"components": "../src/react/components/autocompleter/XUIAutocompleterEmptyState.js",
 									"content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
 								}
 							]

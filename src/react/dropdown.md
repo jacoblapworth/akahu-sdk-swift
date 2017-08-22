@@ -34,7 +34,7 @@ The recommended approach to implementing this behaviour is to use the provided `
 **Important Note:**
 If you want standard picklist behaviour (close on select, keyboard handlers, etc) then you **must** have a `Picklist` as an immediate child of the `DropDown`. If you are missing these features, please see the [`Picklist`](#picklist) documentation to ensuring it's  implemented correctly.
 
-Below demonstrates a selectable list of items with a button trigger.
+Below is an example of a selectable list of items with a button trigger.
 
 ```
 const Pickitem = require('./components/picklist/Pickitem').default;

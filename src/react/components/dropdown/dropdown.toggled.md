@@ -1,4 +1,6 @@
-By default the Picklist determines the default behaviour of the Dropdown API. However, it is very configurable for use with other child components. Below are some examples of common use cases to demonstrate this.
+By default the Picklist determines the default behaviour of the Dropdown API.
+
+The `DropDown` component is built to provide required functionality by default when used with a Picklist. However, it is very configurable for use with other child components. Below are some examples of common use cases to demonstrate this.
 
 ### DropDown with DatePicker
 

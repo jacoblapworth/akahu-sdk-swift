@@ -5,7 +5,7 @@
 	</div>
 </div>
 
-A set of components used to associate a trigger (button, text input etc) with a popup containing content. It can handle any content such as [DatePickers](#datepicker) or forms. While providing the user similar behaviour to a native `<select />` element.
+A set of components used to associate a trigger (button, text input etc) with a popup containing content. It can handle any content such as [DatePickers](#datepicker) or forms. They provide the user similar behaviour to a native `<select />` element.
 
 The `DropDownToggled` component is provided to wrap a trigger with a dropdown and connect the two. These will need to be created separately and passed in via the corresponding props.
 
@@ -21,7 +21,7 @@ Dropdowns are deceptively complex, so it's important to understand the terms use
 
 #### DropDown
 
-A container for the elements that are conditionally shown on the page. The element is absolutely positioned to float on top of other page content. Typical content can include selectable items in a `SelectBox` or a `Datepicker` paired with a text input.
+A container for the elements that are conditionally shown on the page. The element is absolutely positioned to appear on top of other page content. Typical content can include selectable items in a `SelectBox` or a `Datepicker` paired with a text input.
 
 #### Trigger
 
@@ -29,7 +29,7 @@ The trigger element is how the user interacts to open and close the dropdown. Ex
 
 ## Basic Use Cases
 
-The most recommended approach to implementing this behaviour is to use the provided `DropDownToggled` component, the wrapper for the individual trigger and dropdown components. The two elements are siblings in the React render tree and the dropdown itself will render as an immediate child of the body no matter where it sits in the React virtual DOM tree. The `DropDownToggled` component allows them both to be aware of each other. Actions on the button have to open and close the dropdown so for accessibility reasons, the trigger has to know both the ID of the dropdown element and the ID of the currently selected element. However, React's one-way data flow means that we need something sitting on top of both components to send information back and forth.
+The recommended approach to implementing this behaviour is to use the provided `DropDownToggled` component, the wrapper for the individual trigger and dropdown components. The two elements are siblings in the React render tree and the dropdown itself will render as the last child of the body no matter where it sits in the React virtual DOM tree. The `DropDownToggled` component allows them both to be aware of each other. Actions on the button have to open and close the dropdown so for accessibility reasons, the trigger has to know both the ID of the dropdown element and the ID of the currently selected element. However, React's one-way data flow means that we need something sitting on top of both components to send information back and forth.
 
 **Important Note:**
 If you want standard picklist behaviour (close on select, keyboard handlers, etc) then you **must** have a `Picklist` as an immediate child of the `DropDown`. If you are missing these features, please see the [`Picklist`](#picklist) documentation to ensuring it's  implemented correctly.

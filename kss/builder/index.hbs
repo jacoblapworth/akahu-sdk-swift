@@ -78,7 +78,7 @@
 					{{/if}}
 				</div>
 
-				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#if children}}
+				{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#each menu}} {{#if isActive}} {{#if children}}
 				<div class="ds-section-part">
 					<nav class="xui-select xui-dropdown-fixed-medium">
 						<select id="ds-nav-section" class="xui-select--control">
@@ -92,7 +92,7 @@
 						<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 					</nav>
 				</div>
-				{{/if}} {{/if}} {{/each}} {{/if}}
+				{{/if}} {{/if}} {{/each}} {{/if}} {{/each}} {{/if}}
 
 				{{#if components}}
 				<div class="kss-style ds-section-part">

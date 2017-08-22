@@ -61,7 +61,7 @@ export default class SelectBox extends Component {
 			'xui-select-layout': !!props.defaultLayout,
 			[props.inputGroupClasses]: !!props.inputGroupClasses
 		});
-		const labelClasses = cn({
+		const labelClasses = cn('xui-text-label', {
 			'xui-fieldlabel-layout': !!props.defaultLayout,
 			'xui-u-hidden-visually': props.labelHidden,
 			[props.labelClasses]: !!props.labelClasses

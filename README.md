@@ -18,7 +18,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
-```
+```html
 <link rel="stylesheet" href="https://edge.xero.com/style/xui/11.0.2/xui.min.css"/>
 ```
 
@@ -58,7 +58,7 @@ XUI provides CSS and React components for implementing user interfaces at Xero.
 Example Page Markup
 -------------------
 <!--?prettify lang=html?-->
-```
+```html
 <!DOCTYPE html>
 <html class="xui-html" lang="en">
   <head>

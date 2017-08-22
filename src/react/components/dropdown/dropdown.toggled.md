@@ -1,8 +1,8 @@
-The DropDown's API had to have default behavior, and the Picklist use case was chosen to be that default. However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
+By default the Picklist determines the default behaviour of the Dropdown API.
+
+The `DropDown` component is built to provide required functionality by default when used with a Picklist. However, it is very configurable for use with other child components. Below are some examples of common use cases to demonstrate this.
 
 ### DropDown with DatePicker
-
-While the `<DropDown />` API is optimized for the `<Picklist />` use case, it can contain any element.
 
 ```
 const Pickitem = require('../picklist/Pickitem').default;
@@ -70,22 +70,21 @@ class SimpleDropDownDatePicker extends React.Component {
 }
 <SimpleDropDownDatePicker />
 ```
+As mentioned, the above example is not using dropdown with its optimised use case so we need to manually handle some interactions. See the key points below for more details.
 
-Since this example is no longer using the dropdown for the optimized use case, there are certain user interactions that need to be handled manually.
+ - Set the `restrictToViewPort` to `false` on the DropDownToggled component to disable scrolling on the datepicker's panel. Enabled by default for lists, this isn't desirable for a datepicker. Instead it should be the full width and height of the datepicker. This might cause it to hang off the edge of the screen or cover the button but this is preferable to having the scroll inside the dropdown.
 
-**First, the `restrictToViewPort` prop of `<DropDownToggled />` is set to `false`** to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This does mean that the date picker might hang off the edge of the screen or slightly cover the button, but this is prerrable to having to scroll inside of the dropdown.
+- **The `DropDown` component isn't able to focus the datepicker automatically**. It first has to receive focus to handle keyboard events. Using the `onAnimationEnd` prop of `DropDownToggled`, we can call `XUIDatePicker.focus` knowing it's in position and visible, unlike the `onOpen` prop. This method fires immediately after the user opens the dropdown. At this moment we can't be sure the datepicker is completely rendered.
 
-**The `<DropDown />` component is also not able to focus the datepicker automatically.**  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `<DropDown />` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `<DropDownToggled />` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
+- **Keyboard users need to use the tab key to navigate** to the next/previous month buttons or year buttons. By default the dropdown will close when the user hits the tab key by default. To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
 
-**Keyboard users also need to use the tab key to navigate** to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
-
-**Lastly, the dropdown must be manually closed when the user has selected a date.**  The `XUIDatePicker.onSelectDate` callback is used to set state and call `DropDownToggled.closeDropDown`.
+- **The dropdown must be manually closed when the user has selected a date**. The `XUIDatePicker.onSelectDate` callback will set state and call `DropDownToggled.closeDropDown`.
 
 ### DropDown with Text Input Trigger
 
-It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case.  It handles theses customizations by default.
+It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case. It handles theses customisations by default.
 
-By default, the DropDown handles keyboard events for you because focus is actually placed on the DropDown's DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
+The DropDown handles keyboard events for you because focus is placed on the DropDown's DOM node. This may not be desirable for all situations. One common scenario is when the trigger is a text input, the user wants to type in the text box. For this, keyboard events should be disabled and manually handled in the component.
 
 ```
 require('array.prototype.find').shim();
@@ -196,12 +195,13 @@ class InputTriggerExample extends Component {
 <InputTriggerExample />
 ```
 
-The above example illustrates how several props can be used to achieve your desired UX.
+The above example illustrates how to use several props to achieve your desired UX. We'll cover these in more detail below.
 
-**`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.**  By default, we toggle the dropdown's open state, but you can turn this off with "none" or use "open" to always open.
+- **`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.**  By default, we toggle the dropdown's open state. You can turn this off with "none" or use "open" to always open.
 
-**If you want the focus to remain on the trigger once the dropdown is open**, you have to set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure that focus does not shift to the dropdown.
+- **For the focus to remain on the trigger when the dropdown is open**. Set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure focus doesn't shift to the dropdown.
 
-**However, the combination of setting those props means that the dropdown no longer automatically opens.**  If you choose to go this route, you'll now need to manually open the dropdown by calling the `DropDownToggled.openDropDown` API.  The example above just does it on any keypress in the input, but this is not required, and the dropdown can be opened at any time.
+- The combination of setting those props means the **dropdown no longer automatically open**. To handle this, call the `DropDownToggled.openDropDown` method to open it. The example above does it on any keypress inside the input, but this is not required, the dropdown can open at any time.
 
-**While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.** The `DropDown.onKeyDown` API is a public API for this very reason.  Simply pass the keydown event to the DropDown and all normal keyboard handlers will take effect without moving focus from your trigger node.  Calling the public API is the equivalent of simulating a keydown event on the DropDown, so you get the same behavior as if the keydown did happen on the dropdown.
+- This combination also means **the arrow keys, escape key, etc no longer allow the user to navigate the dropdown**.
+The public API `DropDown.onKeyDown` takes the keydown event, enabling all the normal keyboard handlers. You do not need to move focus from the trigger node to do this. Calling this public API method is comparable to simulating a keydown event on the dropdown. It provides the same behaviour as if the keydown did happen on the dropdown.

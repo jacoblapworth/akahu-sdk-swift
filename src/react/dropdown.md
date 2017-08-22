@@ -5,37 +5,36 @@
 	</div>
 </div>
 
-## What is a XUI Dropdown?
+A set of components used to associate a trigger (button, text input etc) with a popup containing content. It can handle any content such as [DatePickers](#datepicker) or forms. They provide the user similar behaviour to a native `<select />` element.
 
-This is a set of components that can be used to associate a trigger (button, text input,etc) with a popup containing content.
-
-Using a [Picklist](#picklist) in the `DropDown` gives behaviour similar to a `select` element. But `DropDown` can accomodate any content from [DatePickers](#datepicker) to forms. The basic idea involves creating a trigger element and a dropdown element, then passing both as props to the `<DropDownToggled />` component.
+The `DropDownToggled` component is provided to wrap a trigger with a dropdown and connect the two. These will need to be created separately and passed in via the corresponding props.
 
 You may find one of these simpler components meets your requirements:
 
 * [Select Box](#select-box) A simplified wrapper for `DropDown` and `DropDownToggled`, acts like a `<select/>` element
 * [Autocompleter](#autocompleter) Has a text input for a trigger and allows the user to search through and select from a list of items.
+* [Secondary Search](#secondary-search) Has a text input as a child of the dropdown, acting as a secondary action to a button trigger. Commonly used for lists that need search functionality but not the primary behaviour.
 
 ### Terminology
 
-DropDowns are deceptively complex, so it's important to understand the terms used throughout this documentation.
+Dropdowns are deceptively complex, so it's important to understand the terms used throughout this documentation.
 
 #### DropDown
 
-This is the container for the elements that are conditionally shown on the page. It's an absolutely positioned element that floats on top of other content.  Examples of content include the selectable items in a select box or the calendar inside of a DatePicker paired up with a text input.
+A container for the elements that are conditionally shown on the page. The element is absolutely positioned to appear on top of other page content. Typical content can include selectable items in a `SelectBox` or a `Datepicker` paired with a text input.
 
 #### Trigger
 
-The trigger is the element that the user interacts with to open or close the dropdown. Examples include the button that opens the selectable list in a select box or the text input that users type into in order to search for items in an autocompleter.
+The trigger element is how the user interacts with the dropdown to open and close it. One example is the button that opens the selectable list in a select box.
 
 ## Basic Use Cases
 
-At the heart of all of our Dropdown implementations is the `<DropDownToggled />` component. It's what connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, and the dropdown itself will actually render as an immediate child of the body no matter where it sits in the React virtual DOM tree, but both have to know about each other.  Actions on the button have to open and close the dropdown so for accessibility reasons, the trigger has to know both the ID of the dropdown element and the ID of the currently selected element.  However, React's one-way data flow means that we need something sitting on top of both of these components to send information back and forth.
+The recommended approach to implementing this behaviour is to use the provided `DropDownToggled` component, the wrapper for the individual trigger and dropdown components. The two elements are siblings in the React render tree and the dropdown itself will render as the last child of the body no matter where it sits in the React virtual DOM tree. The `DropDownToggled` component allows them both to be aware of each other. Actions on the button have to open and close the dropdown so for accessibility reasons, the trigger has to know both the ID of the dropdown element and the ID of the currently selected element. However, React's one-way data flow means that we need something sitting on top of both components to send information back and forth.
 
 **Important Note:**
-If you want standard picklist behavior (close on select, keyboard handlers, etc) then you **must** have a `<Picklist />` as an immediate child of the `<DropDown />`.  If you are missing these features, make sure that you are correctly using the `<Picklist />` component.
+If you want standard picklist behaviour (close on select, keyboard handlers, etc) then you **must** have a `Picklist` as an immediate child of the `DropDown`. If you are missing these features, please see the [`Picklist`](#picklist) documentation to ensuring it's  implemented correctly.
 
-Here's a quick example of creating a selectable list of items with a button trigger:
+Below is an example of a selectable list of items with a button trigger.
 
 ```
 const Pickitem = require('./components/picklist/Pickitem').default;
@@ -102,7 +101,9 @@ class ToggledDropDown extends Component {
 ```
 
 ### Multiselect
-To enable multiselect behaviour you will need to set two props.  First, set `closeOnSelect` to `false` on the `<DropDownToggled />` to ensure that the user can select multiple items while the dropdown is open. Then set the `multiselect` prop on your Pickitems to `true`.
+To enable multiselect behaviour you will need to set two props:
+-  `closeOnSelect` needs to be to `false` on the `DropDownToggled`. This ensures multiple items are selectable while the dropdown is open.
+- `multiselect` needs to be `true` on your Pickitems.
 
 ```
 const { Component } = require('react');

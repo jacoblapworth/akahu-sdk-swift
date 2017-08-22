@@ -75,6 +75,19 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 ### Typography
 * `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
 * `xui-caret` has been removed. Use the SVG caret icon instead.
+* `xui-heading` has been removed. Use `xui-heading-large` instead.
+* `xui-page-title` has been removed. Use `xui-heading` instead.
+* `xui-section-title` has been removed. Use `xui-heading-small` instead.
+* `xui-text-panelheading` has been removed. Use `xui-heading` instead.
+* `xui-text-sectionheading` has been removed. Use `xui-heading-small` instead.
+* `xui-panel-title` has been removed. Use `xui-heading-title` instead.
+* `xui-modal-title` has been removed. Use `xui-heading-modal` instead.
+* `xui-item-title` has been removed. Use `xui-heading-item` instead.
+* `xui-separator-title` has been removed. Use `xui-heading-separator` instead.
+* `xui-heading-medium` has been removed. Use `xui-heading` instead.
+* `xui-heading-display` has been removed. Use `xui-heading-xlarge` instead.
+* `xui-heading-display-xl` has been removed. Use `xui-heading-xxlarge` instead.
+* `xui-heading-display-xxl` has been removed. Use `xui-heading-xxxlarge` instead.
 
 ### Popover
 * `xui-popover--body`, `xui-popover--header`, `xui-popover--header-standard`, `xui-popover--header-can-scroll-up`,

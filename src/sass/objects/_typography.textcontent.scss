@@ -50,11 +50,18 @@
 	}
 
 	h1 {
-		@include xui-heading-large;
+		@include xui-text-spacing-tight;
+		@include xui-text-emphasis;
+		@include xui-text-line-height-tight;
+		@include xui-text-proportional-nums;
 		font-size: $xui-font-size-extended-4xlarge;
 	}
 
 	h2 {
+		@include xui-text-spacing-tight;
+		@include xui-text-emphasis;
+		@include xui-text-line-height-tight;
+		@include xui-text-proportional-nums;
 		@include xui-heading-large;
 	}
 
@@ -68,7 +75,8 @@
 
 	h5 {
 		@include xui-heading-small;
-		font-weight: normal;
+		@include xui-text-muted;
+		@include xui-text-deemphasis;
 	}
 
 	h6 {

@@ -80,7 +80,7 @@ Example Page Markup
     </header>
     <div class="xui-margin-horizontal-small">
       <main role="main" class="xui-page-width-standard xui-padding-vertical-large">
-        <h1 class="xui-heading-display xui-margin-none">Hello World</h1>
+        <h1 class="xui-heading-xlarge xui-margin-none">Hello World</h1>
       </main>
     </div>
   </body>

@@ -19,7 +19,7 @@
 //
 // Markup:
 // <section>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Today</h2>
+//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Today</h2>
 //   <ol class="xui-contentblock">
 //     <li class="xui-contentblock--item xui-contentblock--item-negative xui-contentblock--item-layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-horizontal">
@@ -46,7 +46,7 @@
 //       </div>
 //     </li>
 //   </ol>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Tomorrow</h2>
+//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Tomorrow</h2>
 //   <ol class="xui-contentblock">
 //     <li class="xui-contentblock--item xui-contentblock--item--layout xui-padding xui-u-flex">
 //       <div class="xui-u-flex-horizontal">
@@ -72,7 +72,7 @@
 //
 // Markup:
 // <section>
-//   <header class="xui-sectionheading xui-sectionheading-layout xui-separator-title">Account Number: 12345678</header>
+//   <header class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Account Number: 12345678</header>
 //   <ol class="xui-contentblock">
 //     <li class="xui-contentblock--item xui-contentblock--item-layout">
 //       <a href="/Contacts/View/b8942fdc-ad0f-4cc0-967e-9a6f619a992d" class="xui-row xui-padding xui-rowlink">
@@ -136,10 +136,10 @@
 // <table class="xui-contentblock">
 //  <thead>
 //    <tr class="xui-sectionheading">
-//      <th class="xui-separator-title xui-sectionheading-layout">Code</th>
-//      <th class="xui-separator-title xui-sectionheading-layout">Account</th>
-//      <th class="xui-separator-title xui-sectionheading-layout">Account Type</th>
-//      <th class="xui-separator-title xui-sectionheading-layout xui-text-number">Amount</th>
+//      <th class="xui-heading-separator xui-sectionheading-layout">Code</th>
+//      <th class="xui-heading-separator xui-sectionheading-layout">Account</th>
+//      <th class="xui-heading-separator xui-sectionheading-layout">Account Type</th>
+//      <th class="xui-heading-separator xui-sectionheading-layout xui-text-number">Amount</th>
 //    </tr>
 //  </thead>
 //  <tbody>

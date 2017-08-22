@@ -115,7 +115,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 			}
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Interactive Autocompleter</div>
+					<div className="xui-heading-panel xui-margin-bottom">Interactive Autocompleter</div>
 					<p className='xui-text-label'>
 						Includes loading a list of data...or trump quotes.
 						Opens on focus of the Input.
@@ -214,7 +214,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Detailed List Autocompleter</div>
+					<div className="xui-heading-panel xui-margin-bottom">Detailed List Autocompleter</div>
 					<p className='xui-text-label'>
 						You can define your own children so they can be displayed in more complex ways if needed. This uses static data to search over.
 					</p>
@@ -341,7 +341,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter</div>
+					<div className="xui-heading-panel xui-margin-bottom">Multiselect Autocompleter</div>
 					<p className='xui-text-label'>
 						Selecting Multiple items will be rendered inside Pills.
 					</p>
@@ -472,7 +472,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter On A Single Line</div>
+					<div className="xui-heading-panel xui-margin-bottom">Multiselect Autocompleter On A Single Line</div>
 					<p className='xui-text-label'>
 						By setting the `disableWrapPill` prop, this will enable the search bar and pills to flow on a single line instead of wrap.
 					</p>
@@ -566,7 +566,7 @@ class SecondarySearchExample extends Component {
 
 		return (
 			<div className="xui-panel xui-padding xui-margin-top">
-				<div className="xui-text-panelheading xui-margin-bottom">Search is a secondary action in the Autocompleter</div>
+				<div className="xui-heading-panel xui-margin-bottom">Search is a secondary action in the Autocompleter</div>
 				<p className='xui-text-label'>
 					This autocompleter is triggered by a button.
 				</p>

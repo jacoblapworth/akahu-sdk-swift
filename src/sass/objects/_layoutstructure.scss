@@ -262,7 +262,7 @@
 // ### Example
 //
 // Markup:
-// <h4 class="xui-section-title">Space between columns</h4>
+// <h4 class="xui-heading-section">Space between columns</h4>
 // <div class="xui-row-flex xui-space-between">
 //   <div class="xui-column-3-of-12">
 //     .xui-column-3-of-12
@@ -274,7 +274,7 @@
 //     .xui-column-3-of-12
 //   </div>
 // </div>
-// <h4 class="xui-section-title">Space around columns</h4>
+// <h4 class="xui-heading-section">Space around columns</h4>
 // <div class="xui-row-flex xui-space-around">
 //   <div class="xui-column-3-of-12">
 //     .xui-column-3-of-12
@@ -286,7 +286,7 @@
 //     .xui-column-3-of-12
 //   </div>
 // </div>
-// <h4 class="xui-section-title">Group and align center</h4>
+// <h4 class="xui-heading-section">Group and align center</h4>
 // <div class="xui-row-flex xui-justify-center">
 //   <div class="xui-column-3-of-12">
 //     .xui-column-3-of-12
@@ -298,7 +298,7 @@
 //     .xui-column-3-of-12
 //   </div>
 // </div>
-// <h4 class="xui-section-title">Group and align left</h4>
+// <h4 class="xui-heading-section">Group and align left</h4>
 // <div class="xui-row-flex xui-justify-left">
 //   <div class="xui-column-3-of-12">
 //     .xui-column-3-of-12
@@ -310,7 +310,7 @@
 //     .xui-column-3-of-12
 //   </div>
 // </div>
-// <h4 class="xui-section-title">Group and align right</h4>
+// <h4 class="xui-heading-section">Group and align right</h4>
 // <div class="xui-row-flex xui-justify-right">
 //   <div class="xui-column-3-of-12">
 //     .xui-column-3-of-12
@@ -403,9 +403,9 @@
 // <table class="xui-contentblock xui-margin-bottom">
 //  <thead>
 //   <tr class="xui-sectionheading">
-//    <th class="xui-separator-title xui-padding-small">Viewport size</th>
-//    <th class="xui-separator-title xui-padding-vertical-small">Modifier</th>
-//    <th class="xui-separator-title xui-padding-vertical-small">Example</th>
+//    <th class="xui-heading-separator xui-padding-small">Viewport size</th>
+//    <th class="xui-heading-separator xui-padding-vertical-small">Modifier</th>
+//    <th class="xui-heading-separator xui-padding-vertical-small">Example</th>
 //   </tr>
 //  </thead>
 //  <tbody>

@@ -264,7 +264,7 @@ class ToggledNestedDropdown extends Component {
 						</Pickitem>
 					</Picklist>
 					<Picklist>
-						<div className="xui-separator-title xui-padding-horizontal-large xui-padding-bottom-small">Multiple lists can be added</div>
+						<div className="xui-heading-separator xui-padding-horizontal-large xui-padding-bottom-small">Multiple lists can be added</div>
 						<Pickitem
 							id="dog"
 							onSelect={() => this.selectPanel('checkboxes')}
@@ -540,25 +540,25 @@ ReactDOM.render(
 			{<ToggledDropDown repositionOnScroll />}
 		</div>
 		<div className="xui-margin-bottom-large xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Toggled Dropdown</div>
+			<div className="xui-heading-panel xui-margin-bottom">Toggled Dropdown</div>
 			<p className='xui-text-label'>A simple dropdown containing a picklist.</p>
 			<p className='xui-text-label'>The dropdown can be opened on click, or by pressing enter, space, or down arrow while the trigger has focus.</p>
 			<p className='xui-text-label'>StatefulPicklist is applied as a wrapper for keyboard nav functionality.</p>
 			{<ToggledDropDown />}
 		</div>
 		<div className="xui-margin-bottom-large xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Full Height Toggled Dropdown</div>
+			<div className="xui-heading-panel xui-margin-bottom">Full Height Toggled Dropdown</div>
 			<p className='xui-text-label'>The dropdown can be controlled as the above example. An additional header is present to give context and further close options.</p>
 			{<FullHeightToggledDropDown />}
 		</div>
 		<div className="xui-margin-bottom-large xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Nested Dropdown</div>
+			<div className="xui-heading-panel xui-margin-bottom">Nested Dropdown</div>
 			<p className="xui-text-label">This dropdown contains multiple panels that can be switched between to provide nesting. It contains examples of Datepickers and checkboxes that can be placed in a dropdown.</p>
 			<p className="xui-text-label">A header is applied to nested dropdowns to allow navigation back to parent panels, and display the name of the current panel.</p>
 			{<ToggledNestedDropdown />}
 		</div>
 		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Simple Dropdown Styling</div>
+			<div className="xui-heading-panel xui-margin-bottom">Simple Dropdown Styling</div>
 			<p className='xui-text-label'>
 				Presentational only applies XUI classes but not logic.
 			</p>
@@ -571,7 +571,7 @@ ReactDOM.render(
 			</Picklist>
 		</div>
 		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Desktop Dropdown with a Form Inside</div>
+			<div className="xui-heading-panel xui-margin-bottom">Desktop Dropdown with a Form Inside</div>
 			<p className='xui-text-label'>
 				Simple test case for putting a form in a dropdown.  Also has the <strong>forceDesktop</strong>
 				flag set to true.
@@ -579,7 +579,7 @@ ReactDOM.render(
 			<WithForm />
 		</div>
 		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Dropdown width matches trigger width</div>
+			<div className="xui-heading-panel xui-margin-bottom">Dropdown width matches trigger width</div>
 			<p className='xui-text-label'>
 				Making sure that the &ldquo;matchTriggerWidth&rdquo; prop works
 			</p>

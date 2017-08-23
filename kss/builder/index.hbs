@@ -131,6 +131,27 @@
 				</div>
 				{{/if}}
 
+				{{#if definitions}}
+				<div class="kss-style ds-section-part">
+					<dl class="ds-definition {{renderTwoCols definitions}}">
+						{{#renderDefinitions definitions}}
+							<dt class="ds-definition--term">{{definition.dt}}</dt>
+							<dd class="ds-definition--description">
+							{{#each definition.dd }}
+								{{{this}}}
+							{{/each}}
+							</dd>
+						{{/renderDefinitions}}
+						</dt>
+					</dl>
+				</div>
+				{{/if}}
+				{{#if note}}
+				<div class="kss-style ds-section-part">
+					<p class="ds-note">{{note}}</p>
+				</div>
+				{{/if}}
+
 				{{#if tokens}}
 				<div class="kss-modifier__example ds-section-part">
 					<div class="ds-token-wrap">

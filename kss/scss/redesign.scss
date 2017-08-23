@@ -42,3 +42,52 @@
 		color: $xui-color-grey-1;
 	}
 }
+
+.ds-definition {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 3vh 0;
+	font-size: 15px;
+}
+
+.ds-definition--term,
+.ds-definition--description {
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	border-bottom: 1px solid $xui-color-grey-6;
+	&:first-of-type {
+		border-top: 1px solid $xui-color-grey-6;
+	}
+}
+
+.ds-definition--term {
+	font-weight: bold;
+	color: $xui-color-grey-1;
+	flex: 1 0 20%;
+	.ds-definition-two-cols & {
+		flex-basis: 40%;
+	}
+}
+
+.ds-definition--description {
+	display: flex;
+	flex: 1 0 80%;
+	margin:0;
+	.ds-definition-two-cols & {
+		flex-basis: 60%;
+	}
+	p {
+		margin: 0;
+		flex: 1 0 70%;
+		&:first-child {
+			flex-basis: 30%;
+		}
+		&:only-child {
+			flex-basis: 100%;
+		}
+	}
+}
+
+.ds-note {
+	font-size: 85%;
+}

@@ -39,6 +39,18 @@
 //
 // `xui-margin-none`, `xui-margin-small`, `xui-margin`, `xui-margin-large` (vertical, horizontal)
 //
+// Definitions:
+// Extra small: 5px:      `-xsmall`
+// Small:       10px:     `-small`
+// Medium:      15px:     No modifier needed
+// Large:       20px:     `-large`
+// Extra large: 25px:     `xlarge`
+// None*:       0:        `-none`
+// Auto:        Flexible: `-auto` (margin only)
+//
+// Note:
+// *.xui-margin-none applies an !important
+//
 // Markup:
 // <div class="margin-example">
 //  <div class="xui-margin-top">

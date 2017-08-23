@@ -18,7 +18,7 @@ Using in Your Project
 Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
-```
+```html
 <link rel="stylesheet" href="https://edge.xero.com/style/xui/11.0.2/xui.min.css"/>
 ```
 
@@ -58,7 +58,7 @@ XUI provides CSS and React components for implementing user interfaces at Xero.
 Example Page Markup
 -------------------
 <!--?prettify lang=html?-->
-```
+```html
 <!DOCTYPE html>
 <html class="xui-html" lang="en">
   <head>
@@ -144,7 +144,6 @@ Major releases with breaking changes may be made at a maximum every 90 days in a
 
 Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to enable you to upgrade as seamlessly as possible.
 
-
 Consuming Future Breaking Changes
 ---------------------------------
 
@@ -165,6 +164,40 @@ Contributing to XUI
 XUI is "internal open source" at Xero, meaning that we welcome contributions from anyone.
 See [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md) for details on how to contribute.
 
+Documentation style guide
+-------------------------
+
+Our documentation writing style is based on [the Financial Times Origami documentation style guide](https://github.com/Financial-Times/ft-origami/blob/gh-pages/README.md#origami). It exists as guidance to help keep our documentation consistent.
+
+1. Be conversational
+	* Use contractions: "we're" over "we are"
+	* Starting sentences with conjunctions like 'but' or 'so' is allowed
+1. Prefer "we" to "I"
+	* **good**: "we recommend you do X"
+	* **bad**: "I recommend you do X"
+1. Use the active voice. If you need help with this one, use [http://www.hemingwayapp.com/](http://www.hemingwayapp.com/)
+	* **good**: "we recommend you do X"
+	* **bad**: "it is recommended you do X"
+1. Omit fluff. Avoid qualifiers like "pretty", "mostly", "probably"
+1. Prefer short sentences to long sentences
+1. Use British English
+	* **good**: organise, favour
+	* **bad**: organize, favor
+1. Avoid metaphors or turns of phrase that non-native English speakers may not be familiar with
+	* **good**: "this site has everything you need to know"
+	* **bad**: "this site is a one stop shop for XUI"
+1. [Avoid "simply" and other words that trivialise concepts and ideas that might not be trivial](https://css-tricks.com/words-avoid-educational-writing/)
+1. Structure documentation for skim readers
+	* Code variables go in `back-ticks`
+	* Use tables
+	* Use asides for extra tidbits
+	* Use **strong** and _emphasis_ where appropriate
+	* Use lists
+	* Break things up with informative headings
+1. Always capitalise XUI when referring to the product
+1. Never capitalise modules
+	* **good**: avatar, button
+	* **bad**: Avatar, Button
 
 Help
 ----

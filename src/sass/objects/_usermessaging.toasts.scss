@@ -24,8 +24,31 @@
 // xui-toast-is-hidden: Hide the toast
 // xui-toast-layout: Recommended layout for a toast
 // xui-toastwrapper: Positions toast in bottom left corner of viewport
+// xui-toast-positive: Positive sentiment
+// xui-toast-negative: Negative sentiment
 //
 // Styleguide: Toast.10
+
+// Deprecated CSS Classes
+//
+// <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
+// <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
+//
+// Classes:
+// xui-toast-wrapper: Container for a group of toasts - use `xui-toastwrapper` instead.
+// xui-toast-list: Bulleted list toasts
+//
+// Styleguide: Toast.11
+
+// Additional Deprecations
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.0.2-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-toast--link: Styling for toast link. Use `xui-button-borderless-main` and `xui-button-small`
+//
+// Styleguide: Toast.11.1
 
 .#{$ns}-toast {
 	@include xui-clearfix;
@@ -183,6 +206,48 @@
 // </div>
 //
 // Styleguide: Toast.2.3
+
+// Toast Sentiment
+//
+// * Toast sentiment classes should be restricted to events such as network connection errors.
+// * Do not use them for form validation.
+//
+// ### Positive
+//
+// <div class="xui-toast xui-toast-layout xui-toast-positive" role="alert">
+//   <div class="xui-toast--message">Connection successful</div>
+// </div>
+//
+// ### Negative
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout xui-toast-negative" role="alert">
+//   <div class="xui-toast--message">No internet connection</div>
+// </div>
+//
+// ### Accessibility
+//
+// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
+// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
+// the users attention to the toast when you require their immediate attention. For further information, please
+// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
+//
+// Styleguide: Toast.2.4
+
+// Placement
+//
+// Use `xui-toastwrapper` to position toast elements at the bottom-left corner of the screen.
+// This class will ensure consistent positioning if toast positioning changes in the future.
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Image uploaded</div>
+// </div>
+//
+// Styleguide: Toast.2.5
 
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,

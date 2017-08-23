@@ -21,6 +21,15 @@
 		"name": "Components",
 		"sections": [
 			{
+				"name": "Loader",
+				"content": "../src/react/loader.md",
+				"sections": [
+					{
+						"components": "../src/react/components/loader/XUILoader.js"
+					}
+				]
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [
@@ -31,6 +40,15 @@
 						"name": "Avatar Groups",
 						"components": "../src/react/components/avatar/XUIAvatarGroup.js",
 						"content": "../src/react/components/avatar/avatar.group.md"
+					}
+				]
+			},
+			{
+				"name": "Icon",
+				"content": "../src/react/icon.md",
+				"sections": [
+					{
+						"components": "../src/react/components/icon/XUIIcon.js"
 					}
 				]
 			},
@@ -55,6 +73,86 @@
 						"name": "Split Buttons",
 						"components": "../src/react/components/button/XUIS*.js",
 						"content": "../src/react/components/button/button.split.md"
+					}
+				]
+			},
+			{
+				"name": "Pill",
+				"content": "../src/react/pill.md",
+				"sections": [
+					{
+						"components": "../src/react/components/pill/XUIPill.js"
+					}
+				]
+			},
+			{
+				"name": "Datepicker",
+				"content": "../src/react/datepicker.md",
+				"sections": [
+					{
+						"components": "../src/react/components/datepicker/XUIDatepicker.js"
+					}
+				]
+			},
+			{
+				"name": "Modal",
+				"content": "../src/react/modal.md",
+				"sections": [
+					{
+						"components": "../src/react/components/modal/XUIModal.js"
+					},
+					{
+						"name": "Modal Header & Footer",
+						"components": "../src/react/components/modal/*(XUIModalHeader|XUIModalFooter).js",
+						"content": "../src/react/components/modal/modal.headerfooter.md"
+					},
+					{
+						"name": "Modal Body",
+						"components": "../src/react/components/modal/XUIModalBody.js",
+						"content": "../src/react/components/modal/modal.body.md"
+					}
+				]
+			},
+			{
+				"name": "Toast",
+				"content": "../src/react/toast.md",
+				"sections": [
+					{
+						"components": "../src/react/components/toast/XUIToast.js"
+					},
+					{
+						"name": "Toast Actions",
+						"components": "../src/react/components/toast/XUIToastAction*(s).js",
+						"content": "../src/react/components/toast/toast.action.md"
+					},
+					{
+						"name": "Toast Message",
+						"components": "../src/react/components/toast/XUIToastMessage.js",
+						"content": "../src/react/components/toast/toast.message.md"
+					}
+				]
+			},
+			{
+				"name": "Picklist",
+				"content": "../src/react/picklist.md",
+				"sections": [
+					{
+						"components": "../src/react/components/picklist/Picklist.js"
+					},
+					{
+						"name": "Pick Item",
+						"components": "../src/react/components/picklist/Pickitem.js",
+						"content": "../src/react/components/picklist/picklist.pickitem.md"
+					},
+					{
+						"name": "Stateful Picklist",
+						"components": "../src/react/components/picklist/StatefulPicklist.js",
+						"content": "../src/react/components/picklist/picklist.stateful.md"
+					},
+					{
+						"name": "Nested Picklist",
+						"components": "../src/react/components/picklist/NestedPicklist*.js",
+						"content": "../src/react/components/picklist/picklist.nested.md"
 					}
 				]
 			},
@@ -179,15 +277,6 @@
 				]
 			},
 			{
-				"name": "Icon",
-				"content": "../src/react/icon.md",
-				"sections": [
-					{
-						"components": "../src/react/components/icon/XUIIcon.js"
-					}
-				]
-			},
-			{
 				"name": "Inputs",
 				"sections": [
 					{
@@ -207,86 +296,6 @@
 								"components": "../src/react/components/textarea/XUITextArea.js"
 							}
 						]
-					}
-				]
-			},
-			{
-				"name": "Loader",
-				"content": "../src/react/loader.md",
-				"sections": [
-					{
-						"components": "../src/react/components/loader/XUILoader.js"
-					}
-				]
-			},
-			{
-				"name": "Modal",
-				"content": "../src/react/modal.md",
-				"sections": [
-					{
-						"components": "../src/react/components/modal/XUIModal.js"
-					},
-					{
-						"name": "Modal Header & Footer",
-						"components": "../src/react/components/modal/*(XUIModalHeader|XUIModalFooter).js",
-						"content": "../src/react/components/modal/modal.headerfooter.md"
-					},
-					{
-						"name": "Modal Body",
-						"components": "../src/react/components/modal/XUIModalBody.js",
-						"content": "../src/react/components/modal/modal.body.md"
-					}
-				]
-			},
-			{
-				"name": "Picklist",
-				"content": "../src/react/picklist.md",
-				"sections": [
-					{
-						"components": "../src/react/components/picklist/Picklist.js"
-					},
-					{
-						"name": "Pick Item",
-						"components": "../src/react/components/picklist/Pickitem.js",
-						"content": "../src/react/components/picklist/picklist.pickitem.md"
-					},
-					{
-						"name": "Stateful Picklist",
-						"components": "../src/react/components/picklist/StatefulPicklist.js",
-						"content": "../src/react/components/picklist/picklist.stateful.md"
-					},
-					{
-						"name": "Nested Picklist",
-						"components": "../src/react/components/picklist/NestedPicklist*.js",
-						"content": "../src/react/components/picklist/picklist.nested.md"
-					}
-				]
-			},
-			{
-				"name": "Pill",
-				"content": "../src/react/pill.md",
-				"sections": [
-					{
-						"components": "../src/react/components/pill/XUIPill.js"
-					}
-				]
-			},
-			{
-				"name": "Toast",
-				"content": "../src/react/toast.md",
-				"sections": [
-					{
-						"components": "../src/react/components/toast/XUIToast.js"
-					},
-					{
-						"name": "Toast Actions",
-						"components": "../src/react/components/toast/XUIToastAction*(s).js",
-						"content": "../src/react/components/toast/toast.action.md"
-					},
-					{
-						"name": "Toast Message",
-						"components": "../src/react/components/toast/XUIToastMessage.js",
-						"content": "../src/react/components/toast/toast.message.md"
 					}
 				]
 			}

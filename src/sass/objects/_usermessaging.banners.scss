@@ -93,15 +93,34 @@
 //
 // Styleguide: Banner.4
 
-// Deprecated classes
+// Sentiment
 //
-// <img src="https://img.shields.io/badge/Deprecated%20in-10.23.0-%23f6534e.svg" />
-// <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
+// Positive and negative sentiment can be applied to banners through `xui-banner-positive` and `xui-banner-negative`.
 //
-// Classes:
-// xui-banner--link: Subcomponent for a banner link button
-// xui-banner-negative: Modifier for a negative highlight banner
-// xui-banner-positive: Modifier for a positive highlight banner
+// ### Accessibility
+//
+// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
+// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
+// the users attention to the banner when you require their immediate attention. For further information, please
+// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
+//
+// Markup:
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-positive" role="status">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
+//   </ul>
+// </div>
+// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
+//   <p class="xui-banner--message">Banner Message</p>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
+//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
+//   </ul>
+// </div>
 //
 // Styleguide: Banner.5
 

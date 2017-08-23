@@ -7,7 +7,11 @@
 
 Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.
 
-The XUI Radio  supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
+The XUI Radio supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
+
+XUI Radio can be used as a controlled component by providing the `isChecked` property.
+It can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `defaultValue` property.
+
 
 ## Examples
 

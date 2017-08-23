@@ -55,6 +55,7 @@ export default class XUICheckbox extends Component {
 			iconCheckPath,
 			iconIndeterminatePath,
 			iconMainPath,
+			defaultChecked,
 			isChecked,
 			isDisabled,
 			isRequired,
@@ -87,8 +88,8 @@ export default class XUICheckbox extends Component {
 		// If the user has not passed in anything for the isChecked prop, we need to set the
 		// `defaultChecked` prop on the input in order to prevent React from outputting warnings
 		// in the console.
-		if (isChecked == null) {
-			inputProps.defaultChecked = this.props.defaultChecked;
+		if (typeof isChecked !== 'boolean') {
+			inputProps.defaultChecked = !!defaultChecked;
 		} else {
 			inputProps.checked = isChecked;
 			// checked prop without an onChange handler means this is readonly, so set that to prevent
@@ -176,6 +177,5 @@ XUICheckbox.defaultProps = {
 	isDisabled: false,
 	isIndeterminate: false,
 	isRequired: false,
-	isReversed: false,
-	defaultChecked: false,
+	isReversed: false
 };

@@ -59,17 +59,17 @@ export default class XUIRadio extends React.Component {
 			name,
 			onChange,
 			value,
-		}
+		};
 
-		if (isChecked) {
+		if (typeof isChecked !== 'boolean') {
+			inputProps.defaultChecked = !!defaultChecked;
+		} else {
 			inputProps.checked = isChecked;
 			// checked prop without an onChange handler means this is readonly, so set that to prevent
 			// warnings in the console.
 			if (onChange == null) {
 				inputProps.readOnly = true;
 			}
-		} else {
-			inputProps.defaultChecked = defaultChecked;
 		}
 
 		return (
@@ -139,6 +139,5 @@ XUIRadio.defaultProps = {
 	isDisabled: false,
 	isIndeterminate: false,
 	isRequired: false,
-	isReversed: false,
-	defaultChecked: false
+	isReversed: false
 };

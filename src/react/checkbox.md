@@ -9,6 +9,9 @@ Enhanced version of HTML checkbox using SVGs. Use in place of `<input type="chec
 
 The XUI Checkbox supports properties for use with forms like the HTML checkbox input, including `isRequired`, `name`, and `value`.
 
+XUI Checkbox can be used as a controlled component by providing the `isChecked` property.
+It can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `defaultValue` property.
+
 ## Examples
 
 Checkbox presentation is driven by the two props, `isChecked` and `isIndeterminate`.

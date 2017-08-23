@@ -8,8 +8,6 @@ import XUIButton from '../button/XUIButton';
 import { compose } from '../helpers/compose';
 
 const onInputChange = (statefulInput) => {
-	const { inputAttributes } = statefulInput.props;
-
 	if (statefulInput.inputNode.value === '' && statefulInput.state.showClearButton) {
 		statefulInput.setState({showClearButton: false});
 	}
@@ -17,15 +15,17 @@ const onInputChange = (statefulInput) => {
 	if (statefulInput.inputNode.value !== '' && !statefulInput.state.showClearButton) {
 		statefulInput.setState({showClearButton: true});
 	}
-
-	if (inputAttributes && inputAttributes.onChange && typeof inputAttributes.onChange === 'function') {
-		statefulInput.props.inputAttributes.onChange();
-	}
 };
 
 const onClearInputClick = (statefulInput) => {
+	const { inputAttributes } = statefulInput.props;
 	statefulInput.inputNode.value = '';
 	statefulInput.inputNode.focus();
+	
+	if (inputAttributes && typeof inputAttributes.onChange === 'function') {
+		statefulInput.props.inputAttributes.onChange({target: statefulInput.inputNode});
+	}
+
 	onInputChange(statefulInput);
 };
 
@@ -95,8 +95,21 @@ export default class XUIInput extends Component {
 XUIInput.propTypes = {
 	/** Object containing button element related properties. */
 	clearButtonProps: PropTypes.object,
-	/** Determines if the input has a clear button or not. */
-	hasClearButton: PropTypes.bool,
+	/** Determines if the input has a clear button or not. Should not be used if consuming application is managing input value manually */
+	hasClearButton: function(props, propName, componentName) {
+		if (props[propName] && typeof props[propName] !== 'boolean'){
+			return new Error(
+				`Value of \`${propName}\` supplied to \`${componentName}\` is not a boolean` 
+			);	
+		}
+
+		if (props[propName] && props.inputAttributes && props.inputAttributes.value){
+			return new Error(
+				`Do not supply \`inputAttributes.value\` to \`${componentName}\` when using \`hasClearButton\`. Use \`defaultValue\` instead`
+			);		
+		}
+	},
+
 	/** Object containing any additional properties and their values to the Input element.
 	 * Includes defaultValue event handler callbacks i.e. onChange, onSelect, onClick, onKeyDown etc. */
 	inputAttributes: PropTypes.object,

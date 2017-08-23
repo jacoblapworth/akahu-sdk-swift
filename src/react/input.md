@@ -140,9 +140,11 @@ const search = require ('@xero/xui-icon/icons/search').default;
 	/>
 </div>
 ```
-### Search Bar
+### Clear button
 
 For some inputs, such as search bars, you may want to add a clear button so users can easily remove the typed in text. Passing in the `hasClearButton` prop will add a clear button which appears when the input isn't empty, and will clear the field when clicked.
+
+When using the `hasClearButton` functionality, the consuming application should not be managing the input value manually. When the clear button is clicked, it will trigger an `onChange` event with the property `target: statefulInput.inputNode`. 
 
 ```
 const search = require ('@xero/xui-icon/icons/search').default;

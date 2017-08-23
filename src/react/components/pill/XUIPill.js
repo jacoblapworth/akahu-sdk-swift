@@ -5,7 +5,7 @@ import crossSmall from '@xero/xui-icon/icons/cross-small';
 
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
-import InnerPill from './InnerPill';
+import XUIInnerPill from './XUIInnerPill';
 
 /**
  * @private
@@ -97,7 +97,7 @@ export default class XUIPill extends Component {
 				onFocus={pill.toggleFocus}
 				onBlur={pill.toggleFocus}
 				data-automationid={qaHook}>
-				<InnerPill {...innerPillProps} />
+				<XUIInnerPill {...innerPillProps} />
 				{deleteButton}
 			</div>
 		)

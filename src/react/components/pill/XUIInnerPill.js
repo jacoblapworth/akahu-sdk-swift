@@ -4,7 +4,7 @@ import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import XUIAvatar from '../avatar/XUIAvatar';
 
-class InnerPill extends PureComponent {
+class XUIInnerPill extends PureComponent {
 	render() {
 		const {
 			avatarProps,
@@ -49,7 +49,7 @@ class InnerPill extends PureComponent {
 	}
 }
 
-InnerPill.propTypes = {
+XUIInnerPill.propTypes = {
 	/** Props for the avatar to be displayed, must adhere to the XUIAvatar component API described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing props will omit the avatar entirely. */
 	avatarProps: PropTypes.object,
 	/** This will make the value an `anchor` element instead of a `span` element and adds the href as the link. */
@@ -66,4 +66,4 @@ InnerPill.propTypes = {
 	value: PropTypes.string
 };
 
-export default InnerPill;
+export default XUIInnerPill;

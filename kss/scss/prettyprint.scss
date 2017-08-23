@@ -8,7 +8,8 @@
 // modified to absolute or fixed the top needs undoing.
 .ds-code-layout,
 .ds-markup-wrap code,
-.ds-description code {
+.ds-description code,
+.kss-style code {
 	display: inline-block;
 	position: relative;
 	top: -1px;

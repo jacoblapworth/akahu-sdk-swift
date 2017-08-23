@@ -70,7 +70,9 @@ const config = {
 				"rsg-components/StyleGuide/StyleGuideRenderer": path.resolve(styleguidePath, "components/StyleGuide"),
 				"rsg-components/TableOfContents/TableOfContentsRenderer": path.resolve(styleguidePath, "components/TableOfContents"),
 				"rsg-components/Preview": path.resolve(styleguidePath, "components/Preview"),
-				"rsg-components/Pathline": path.resolve(styleguidePath, "components/Pathline")
+				"rsg-components/Pathline": path.resolve(styleguidePath, "components/Pathline"),
+				"rsg-components/Playground/PlaygroundRenderer": path.resolve(styleguidePath, "components/PlaygroundRenderer")
+
 			},
 			extensions: [
 				".js",

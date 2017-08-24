@@ -63,7 +63,7 @@ export default class XUIStatelessInput extends PureComponent {
 			)
 		}
 
-		// TODO: clean this up in XUI12. Don't use both ...other and inputAttributes
+		// TODO: clean this up. Don't use both ...other and inputAttributes
 		const inputProps = {...other, ...XUIStatelessInput.defaultProps.inputAttributes, ...inputAttributes};
 
 		// null is not a valid value

@@ -112,6 +112,21 @@ the CSS file.
 * `xui-margin-none` no longer has `!important`
 * `xui-padding-none` no longer has `!important`
 * `xui-margin-auto-*` classes have been removed. Use `xui-margin-*-auto` instead.
+* `xui-space-between` has been removed; use `xui-u-flex-space-between` instead.
+* `xui-space-around` has been removed; use `xui-u-flex-space-around` instead.
+* `xui-justify-left` has been removed; use `xui-u-flex-justify-left` instead.
+* `xui-justify-right` has been removed; use `xui-u-flex-justify-right` instead.
+* `xui-justify-center` has been removed; use `xui-u-flex-justify-center` instead.
+* `xui-space-between-medium` has been removed; use `xui-u-flex-space-between-medium` instead.
+* `xui-space-around-medium` has been removed; use `xui-u-flex-space-around-medium` instead.
+* `xui-justify-left-medium` has been removed; use `xui-u-flex-justify-left-medium` instead.
+* `xui-justify-right-medium` has been removed; use `xui-u-flex-justify-right-medium` instead.
+* `xui-justify-center-medium` has been removed; use `xui-u-flex-justify-center-medium` instead.
+* `xui-space-between-wide` has been removed; use `xui-u-flex-space-between-wide` instead.
+* `xui-space-around-wide` has been removed; use `xui-u-flex-space-around-wide` instead.
+* `xui-justify-left-wide` has been removed; use `xui-u-flex-justify-left-wide` instead.
+* `xui-justify-right-wide` has been removed; use `xui-u-flex-justify-right-wide` instead.
+* `xui-justify-center-wide` has been removed; use `xui-u-flex-justify-center-wide` instead.
 
 ### Motion
 * `xui-u-transition-short` has been removed. Use `xui-transition-speed-fast` instead.

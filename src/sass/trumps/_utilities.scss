@@ -82,7 +82,32 @@
 
 // Flex
 //
-// Flex classes can be used to create flexible mutli-column layouts.
+// Flex classes can be used to create flexible multi-column layouts.
+//
+// * Even space between the columns, takes up the full width of the row container
+//   * `xui-u-flex-space-between`	Modifier for all viewport sizes
+//   * `xui-u-flex-space-between-medium`	Modifier for medium breakpoint
+//   * `xui-u-flex-space-between-wide`	Modifier for large breakpoint
+//
+// * Even space between and around the columns
+//   * `xui-u-flex-space-around`	Modifier for all viewport sizes
+//   * `xui-u-flex-space-around-medium`	Modifier for medium breakpoint
+//   * `xui-u-flex-space-around-wide`	Modifier for large breakpoint
+//
+// * Group and center the columns within the row container
+//   * `xui-u-flex-justify-center` Modifier for all viewport sizes
+//   * `xui-u-flex-justify-center-medium` Modifier for medium breakpoint
+//   * `xui-u-flex-justify-center-wide` Modifier for large breakpoint
+//
+// * Group and align the columns within the row container to the left hand side
+//   * `xui-u-flex-justify-left` Modifier for all viewport sizes
+//   * `xui-u-flex-justify-left-medium` Modifier for medium breakpoint
+//   * `xui-u-flex-justify-left-wide` Modifier for large breakpoint
+//
+// * Group and align the columns within the row container to the right hand side
+//   * `xui-u-flex-justify-right` Modifier for all viewport sizes
+//   * `xui-u-flex-justify-right-medium` Modifier for medium breakpoint
+//   * `xui-u-flex-justify-right-wide` Modifier for large breakpoint
 //
 // Classes:
 // xui-u-flex: Applies `display: flex` to an element
@@ -93,6 +118,21 @@
 // xui-u-flex-verticallycentered: Modifier to display child items vertically centered
 // xui-u-flex-grow: Modifier for a flex child which fills remaining space
 // xui-u-flex-inherit: Inherit flex properties. Firefox does not handle display: flex on buttons, so this can be applied to a child wrapper node inside the button element to achieve the desired effect.
+// xui-u-flex-space-between: Sets justify-content: space-between
+// xui-u-flex-space-around: Sets justify-content: space-around
+// xui-u-flex-justify-left: Sets justify-content: flex-start
+// xui-u-flex-justify-right: Sets justify-content: flex-end
+// xui-u-flex-justify-center: Sets justify-content: center
+// xui-u-flex-space-between-medium: Sets justify-content: space-between for the medium viewport width breakpoint
+// xui-u-flex-space-around-medium: Sets justify-content: space-around for the medium viewport width breakpoint
+// xui-u-flex-justify-left-medium: Sets justify-content: flex-start for the medium viewport width breakpoint
+// xui-u-flex-justify-right-medium: Sets justify-content: flex-end for the medium viewport width breakpoint
+// xui-u-flex-justify-center-medium: Sets justify-content: center for the medium viewport width breakpoint
+// xui-u-flex-space-between-wide: Sets justify-content: space-between for the wide viewport width breakpoint
+// xui-u-flex-space-around-wide: Sets justify-content: space-around for the wide viewport width breakpoint
+// xui-u-flex-justify-left-wide: Sets justify-content: flex-start for the wide viewport width breakpoint
+// xui-u-flex-justify-right-wide: Sets justify-content: flex-end for the wide viewport width breakpoint
+// xui-u-flex-justify-center-wide: Sets justify-content: center for the wide viewport width breakpoint
 //
 // Markup:
 // <div class="xui-panel">
@@ -170,6 +210,71 @@
 	width: inherit; // For IE11 and Chrome
 }
 
+// Flex row utilities
+.#{$ns}-u-flex-space-between {
+	justify-content: space-between;
+}
+
+.#{$ns}-u-flex-space-around {
+	justify-content: space-around;
+}
+
+.#{$ns}-u-flex-justify-left {
+	justify-content: flex-start;
+}
+
+.#{$ns}-u-flex-justify-right {
+	justify-content: flex-end;
+}
+
+.#{$ns}-u-flex-justify-center {
+	justify-content: center;
+}
+
+// Flex row responsive utilities
+@include xui-breakpoint-medium {
+	.#{$ns}-u-flex-space-between-medium {
+		justify-content: space-between;
+	}
+
+	.#{$ns}-u-flex-space-around-medium {
+		justify-content: space-around;
+	}
+
+	.#{$ns}-u-flex-justify-left-medium {
+		justify-content: flex-start;
+	}
+
+	.#{$ns}-u-flex-justify-right-medium {
+		justify-content: flex-end;
+	}
+
+	.#{$ns}-u-flex-justify-center-medium {
+		justify-content: center;
+	}
+}
+
+@include xui-breakpoint-wide {
+	.#{$ns}-u-flex-space-between-wide {
+		justify-content: space-between;
+	}
+
+	.#{$ns}-u-flex-space-around-wide {
+		justify-content: space-around;
+	}
+
+	.#{$ns}-u-flex-justify-left-wide {
+		justify-content: flex-start;
+	}
+
+	.#{$ns}-u-flex-justify-right-wide {
+		justify-content: flex-end;
+	}
+
+	.#{$ns}-u-flex-justify-center-wide {
+		justify-content: center;
+	}
+}
 
 // Full Width
 //

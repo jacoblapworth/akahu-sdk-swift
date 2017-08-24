@@ -232,32 +232,7 @@
 //
 // `xui-column-[1-12]-of-12-wide`	Number of columns to fill at wide breakpoint
 //
-// Additional classes give flavour to the positioning of content.
-//
-// * Even space between the columns, takes up the full width of the row container
-//   * `xui-space-between`	Modifier for all viewport sizes
-//   * `xui-space-between-medium`	Modifier for medium breakpoint
-//   * `xui-space-between-wide`	Modifier for large breakpoint
-//
-// * Even space between and around the columns
-//   * `xui-space-around`	Modifier for all viewport sizes
-//   * `xui-space-around-medium`	Modifier for medium breakpoint
-//   * `xui-space-around-wide`	Modifier for large breakpoint
-//
-// * Group and center the columns within the row container
-//   * `xui-justify-center` Modifier for all viewport sizes
-//   * `xui-justify-center-medium` Modifier for medium breakpoint
-//   * `xui-justify-center-wide` Modifier for large breakpoint
-//
-// * Group and align the columns within the row container to the left hand side
-//   * `xui-justify-left` Modifier for all viewport sizes
-//   * `xui-justify-left-medium` Modifier for medium breakpoint
-//   * `xui-justify-left-wide` Modifier for large breakpoint
-//
-// * Group and align the columns within the row container to the right hand side
-//   * `xui-justify-right` Modifier for all viewport sizes
-//   * `xui-justify-right-medium` Modifier for medium breakpoint
-//   * `xui-justify-right-wide` Modifier for large breakpoint
+// [Additional utility classes give flavour to the positioning of content.](section-utilities.html#utilities-2)
 //
 // ### Example
 //
@@ -324,73 +299,6 @@
 // </div>
 //
 // Styleguide: Grid Layout.4
-
-// Flex row utilities
-// TODO: These should all be converted into utility classes in XUI 12
-.#{$ns}-space-between {
-	justify-content: space-between;
-}
-
-.#{$ns}-space-around {
-	justify-content: space-around;
-}
-
-.#{$ns}-justify-left {
-	justify-content: flex-start;
-}
-
-.#{$ns}-justify-right {
-	justify-content: flex-end;
-}
-
-.#{$ns}-justify-center {
-	justify-content: center;
-}
-
-// Flex row responsive utilities
-@include xui-breakpoint-medium {
-	.#{$ns}-space-between-medium {
-		justify-content: space-between;
-	}
-
-	.#{$ns}-space-around-medium {
-		justify-content: space-around;
-	}
-
-	.#{$ns}-justify-left-medium {
-		justify-content: flex-start;
-	}
-
-	.#{$ns}-justify-right-medium {
-		justify-content: flex-end;
-	}
-
-	.#{$ns}-justify-center-medium {
-		justify-content: center;
-	}
-}
-
-@include xui-breakpoint-wide {
-	.#{$ns}-space-between-wide {
-		justify-content: space-between;
-	}
-
-	.#{$ns}-space-around-wide {
-		justify-content: space-around;
-	}
-
-	.#{$ns}-justify-left-wide {
-		justify-content: flex-start;
-	}
-
-	.#{$ns}-justify-right-wide {
-		justify-content: flex-end;
-	}
-
-	.#{$ns}-justify-center-wide {
-		justify-content: center;
-	}
-}
 
 // Responsive Layout
 //

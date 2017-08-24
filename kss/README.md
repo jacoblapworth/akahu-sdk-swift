@@ -32,6 +32,8 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 * `classes`
 * `markdown`
 * `components`
+* `definitions`
+* `note`
 
 ### Tokens & ColorTokens
 
@@ -78,3 +80,21 @@ Supports specifying multiple components separated by commas:
 ```
 // Components: Checkbox, Radio
 ```
+
+## Definitions
+
+Creates a definition table of "name", "value" and "description" rows. The properties are colon separated and the tables will be two or three columns wide based on the number of columns in the first row.
+
+```
+// Definitions:
+// Extra small: 5px: `-xsmall`
+// Small: 10px: `-small`
+...
+```
+
+## Note
+
+Creates a note which is simply a paragraph styled at 85%
+
+// Note:
+// *.xui-margin-none applies an !important

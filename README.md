@@ -187,6 +187,9 @@ Our documentation writing style is based on [the Financial Times Origami documen
 	* **good**: "this site has everything you need to know"
 	* **bad**: "this site is a one stop shop for XUI"
 1. [Avoid "simply" and other words that trivialise concepts and ideas that might not be trivial](https://css-tricks.com/words-avoid-educational-writing/)
+1. When referring to XUI React components; use back-ticks, correct capitalisation, and no spaces
+	* **good**: `XUIButton`, `DropDown`
+	* **bad**: `XUI Button`, DropDown
 1. Structure documentation for skim readers
 	* Code variables go in `back-ticks`
 	* Use tables

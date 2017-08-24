@@ -30,8 +30,12 @@ const calculateMinMaxHeights = (textComponent) => {
 	const singleLineHeight = textArea.scrollHeight - verticalPadding;
 	textArea.value = value;
 
-	const minHeight = minRows? minRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMinHeight;
-	const maxHeight = maxRows? maxRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMaxHeight;
+	let minHeight = minRows? minRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMinHeight;
+	let maxHeight = maxRows? maxRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMaxHeight;
+
+	// Ensure min and max height are not negative, if, for example, the textarea is hidden
+	minHeight = Math.max(0, minHeight);
+	maxHeight = Math.max(0, maxHeight);
 
 	textComponent.setState({
 		sizeData: {
@@ -121,7 +125,6 @@ const updateCounter = (textComponent) => {
 const calculateAstralLength = (string) => {
 	return [...string].length;
 };
-
 
 export default class XUITextArea extends Component {
 

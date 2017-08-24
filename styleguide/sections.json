@@ -90,7 +90,7 @@
 				"content": "../src/react/datepicker.md",
 				"sections": [
 					{
-						"components": "../src/react/components/datepicker/XUIDatepicker.js"
+						"components": "../src/react/components/datepicker/XUIDatePicker.js"
 					}
 				]
 			},
@@ -110,6 +110,25 @@
 						"name": "Modal Body",
 						"components": "../src/react/components/modal/XUIModalBody.js",
 						"content": "../src/react/components/modal/modal.body.md"
+					}
+				]
+			},
+			{
+				"name": "Banner",
+				"content": "../src/react/banner.md",
+				"sections": [
+					{
+						"components": "../src/react/components/banner/XUIBanner.js"
+					},
+					{
+						"name": "Banner Actions",
+						"components": "../src/react/components/banner/XUIBannerAction*(s).js",
+						"content": "../src/react/components/banner/banner.action.md"
+					},
+					{
+						"name": "Banner Message",
+						"components": "../src/react/components/banner/XUIBannerMessage.js",
+						"content": "../src/react/components/banner/banner.message.md"
 					}
 				]
 			},

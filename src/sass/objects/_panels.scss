@@ -229,19 +229,25 @@
 // Markup:
 // <div class="xui-panel xui-u-flex">
 //   <div class="xui-panel--sidebar">
-//     <div class="xui-verticaltabbed-navigation" role="navigation" aria-label="sidebar">
-//       <ul class="xui-tabgroup xui-tabgroup-vertical xui-tabgroup-vertical-layout">
-//         <li class="xui-verticaltab" aria-selected="false">
-//           <a class="xui-verticaltab--body xui-u-flex xui-u-spacebetween" href="#default">Default <span class="xui-text-secondary">ON</span></a>
-//         </li>
-//         <li class="xui-verticaltab xui-verticaltab-is-selected" aria-selected="true">
-//           <a class="xui-verticaltab--body" href="#selected_default">Selected Default</a>
-//         </li>
-//         <li class="xui-verticaltab" aria-selected="false">
-//           <a class="xui-verticaltab--body" href="#">Selected Default</a>
-//         </li>
-//       </ul>
-//     </div>
+//     <ul class="xui-picklist xui-picklist-layout" role="tree">
+//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//         <a href="#" class="xui-pickitem--body" tabindex="0">
+//           <span class="xui-pickitem--text">Item one - Selected</span>
+//         </a>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
+//         <button type="button" class="xui-pickitem--body" tabindex="0">
+//           <span class="xui-pickitem--text xui-text-truncated">
+//             Another item
+//           </span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//         <button type="button" class="xui-pickitem--body" tabindex="0">
+//           <span class="xui-pickitem--text">Item three</span>
+//         </button>
+//       </li>
+//     </ul>
 //   </div>
 //   <div class="xui-u-flex-grow">
 //     <div class="xui-panel--header xui-padding">

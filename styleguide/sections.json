@@ -90,7 +90,7 @@
 				"content": "../src/react/datepicker.md",
 				"sections": [
 					{
-						"components": "../src/react/components/datepicker/XUIDatepicker.js"
+						"components": "../src/react/components/datepicker/XUIDatePicker.js"
 					}
 				]
 			},

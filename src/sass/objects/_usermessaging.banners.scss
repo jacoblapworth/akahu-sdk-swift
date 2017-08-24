@@ -79,8 +79,8 @@
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <p class="xui-banner--message">Banner Message</p>
-//   <div class="xui-banner--messagedetail">
-//     <ul class="xui-margin-none">
+//   <div class="xui-banner--messagedetail xui-textcontent">
+//     <ul>
 //         <li>We've got this request</li>
 //     </ul>
 //   </div>
@@ -183,6 +183,10 @@
 	.#{$ns}-banner--messagedetail {
 		@include xui-margin-vertical($xui-s-xsmall);
 		@include xui-margin-horizontal($xui-s-small);
+	}
+
+	.#{$ns}-banner--close {
+		@include xui-margin-vertical(-2px);
 	}
 
 	.#{$ns}-banner--actions {

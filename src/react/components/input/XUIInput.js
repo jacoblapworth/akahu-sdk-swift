@@ -21,7 +21,7 @@ const onClearInputClick = (statefulInput) => {
 	const { inputAttributes } = statefulInput.props;
 	statefulInput.inputNode.value = '';
 	statefulInput.inputNode.focus();
-	
+
 	if (inputAttributes && typeof inputAttributes.onChange === 'function') {
 		statefulInput.props.inputAttributes.onChange({target: statefulInput.inputNode});
 	}
@@ -59,6 +59,7 @@ export default class XUIInput extends Component {
 			hasClearButton,
 			inputAttributes,
 			inputRef,
+			isBorderless,
 			...other
 		} = statefulInput.props;
 
@@ -80,12 +81,12 @@ export default class XUIInput extends Component {
 				</XUIButton>
 			</div> : null;
 
-
 		return (
 			<XUIStatelessInput
 				inputAttributes={{...inputAttributes, onKeyUp: compose(inputAttributes && inputAttributes.onKeyUp, () => { onInputChange(statefulInput) })}}
 				inputRef={compose(inputRef, n => statefulInput.inputNode = n)}
 				button={clearButton}
+				isBorderless={isBorderless}
 				{...other}
 			/>
 		);
@@ -99,20 +100,21 @@ XUIInput.propTypes = {
 	hasClearButton: function(props, propName, componentName) {
 		if (props[propName] && typeof props[propName] !== 'boolean'){
 			return new Error(
-				`Value of \`${propName}\` supplied to \`${componentName}\` is not a boolean` 
-			);	
+				`Value of \`${propName}\` supplied to \`${componentName}\` is not a boolean`
+			);
 		}
 
 		if (props[propName] && props.inputAttributes && props.inputAttributes.value){
 			return new Error(
 				`Do not supply \`inputAttributes.value\` to \`${componentName}\` when using \`hasClearButton\`. Use \`defaultValue\` instead`
-			);		
+			);
 		}
 	},
-
 	/** Object containing any additional properties and their values to the Input element.
 	 * Includes defaultValue event handler callbacks i.e. onChange, onSelect, onClick, onKeyDown etc. */
 	inputAttributes: PropTypes.object,
+	/** Whether text area has a border. */
+	isBorderless: PropTypes.bool,
 	/** Function to add a reference to the Input element */
 	inputRef: PropTypes.func
 };

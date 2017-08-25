@@ -170,31 +170,33 @@ class DropDownPanel extends PureComponent {
 		return this.rootNode && this.rootNode.contains(document.activeElement);
 	}
 
+	containsPicklist() {
+		const { children } = this.props;
+		const checkType = child => child.type === Picklist;
+		return React.Children.map(children, checkType).some(Boolean);
+	}
+
 	render() {
 		const {
 			children,
 			footer,
+			forceStatefulPicklist,
 			header,
-			panelId,
 			ignoreKeyboardEvents,
 			isHidden,
 			onHighlightChange,
 			onSelect,
+			panelId,
 			qaHook,
 			style,
 		} = this.props;
-
-		let containsPicklist = false;
-		React.Children.forEach(children, child => {
-			if (child.type === Picklist) {
-				containsPicklist = true;
-			}
-		});
 
 		let maxHeight = style && style.maxHeight;
 		if (isNarrowViewport()) {
 			maxHeight = header == null ? '80vh' : '100vh';
 		}
+
+		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
 
 		return (
 			<div
@@ -216,7 +218,7 @@ class DropDownPanel extends PureComponent {
 					}}
 				>
 					{header}
-					{containsPicklist ? (
+					{shouldAddStatefulPicklist ? (
 							<StatefulPicklist
 								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
 								ref={c => this.list = c}
@@ -281,9 +283,13 @@ DropDownPanel.propTypes = {
 
 	/** Used by NestedDropDown to identify each panel. */
 	panelId: PropTypes.string,
+
+	/** Force wrapping Panel childrens in a StatefulPicklist  */
+	forceStatefulPicklist: PropTypes.bool
 };
 
 DropDownPanel.defaultProps = {
+	forceStatefulPicklist: false,
 	ignoreKeyboardEvents: [],
 	isHidden: false,
 };

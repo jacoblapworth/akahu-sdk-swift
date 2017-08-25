@@ -28,7 +28,7 @@
 // xui-pill--secondary: Adds an extra small horizontal margin to the secondary items within the pill.
 // xui-pill--avatar: Allows avatars to sit nicely in the initial curve of the pill.
 // xui-pill-is-invalid: Invalid state of a pill.
-// xui-pill-is-focussed: Focus state of a pill.
+// xui-pill-is-focused: Focus state of a pill.
 // xui-pill-is-deleteable: Allows the pill to house a delete icon button.
 // xui-pill--button: Allows buttons within pills to inherit colors from their containing element.
 // xui-pill--button-icon: Allows the delete icon button to be positioned on top of other content within the pill.
@@ -45,8 +45,8 @@
 // </div>
 // <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-margin-top-small">
 //   <span class="xui-pill--content">
-//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar" style="background-color: #FCAD59" role="presentation">PE</abbr>
-//     pill@withemailaddress.com
+//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar xui-avatar-color-8" role="presentation">PE</abbr>
+//     <span class="xui-pill--text">pill@withemailaddress.com</span>
 //   </span>
 //   <button class="xui-button xui-button-icon xui-pill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
@@ -59,7 +59,11 @@
 //   </button>
 // </div>
 // <div class="xui-pill xui-pill-layout xui-pill-is-invalid xui-pill-is-deleteable xui-margin-top-small">
-//   <button class="xui-pill--content xui-button xui-pill--button">Invalid</button>
+//   <button class="xui-pill--content xui-button xui-pill--button">
+//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar xui-avatar-color-2" role="presentation">PE</abbr>
+//     <span class="xui-text-color-muted xui-pill--secondary">Status</span>
+//     <span class="xui-pill--text">Invalid</span>
+//   </button>
 //   <button class="xui-button xui-button-icon xui-pill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
@@ -73,8 +77,8 @@
 // <div class="xui-pill xui-pill-layout xui-margin-top-small">
 //   <span class="xui-pill--content">Readonly</span>
 // </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focussed xui-margin-top-small">
-//   <button class="xui-pill--content xui-button xui-pill--button">Focussed</button>
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focused xui-margin-top-small">
+//   <button class="xui-pill--content xui-button xui-pill--button">Focused</button>
 //   <button class="xui-button xui-button-icon xui-pill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
@@ -103,6 +107,11 @@
 	padding: 5px 5px 5px 15px;
 }
 
+.#{$ns}-pill--text,
+.#{$ns}-pill--secondary {
+	vertical-align: middle;
+}
+
 .#{$ns}-pill--secondary {
 	margin-right: 5px;
 }
@@ -110,6 +119,7 @@
 .#{$ns}-pill--avatar {
 	margin-left: -12px;
 	margin-right: 10px;
+	pointer-events: none;
 }
 
 .#{$ns}-pill--button-icon {
@@ -118,7 +128,7 @@
 	right: 0;
 }
 
-&.#{$ns}-pill-is-focussed {
+&.#{$ns}-pill-is-focused {
 	background-color: rgba($xui-color-black, 0.15);
 }
 
@@ -126,9 +136,18 @@
 	padding-right: $xui-icon-standard;
 }
 
-.#{$ns}-pill-is-invalid,
-.#{$ns}-pill-invalid {
-	color: $xui-color-xero-red;
+.#{$ns}-pill-is-invalid {
+	background-color: $xui-color-xero-red;
+	color: $xui-color-white;
+
+	.#{$ns}-pill--button-icon,
+	.#{$ns}-pill--content {
+		color: $xui-color-white;
+	}
+
+	.#{$ns}-pill--secondary {
+		color: $xui-color-inverted-alpha-2;
+	}
 }
 
 .#{$ns}-pill--button {
@@ -147,7 +166,7 @@
 // <div class="xui-input xui-margin-top">
 //   <div class="xui-pill xui-pill-single xui-space-between">
 //     <span>
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1" role="presentation">X</abbr>
 //       pill@withemailaddress.com
 //     </span>
 //     <button class="xui-button xui-button-icon">

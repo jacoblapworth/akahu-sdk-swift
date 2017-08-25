@@ -114,6 +114,25 @@
 				]
 			},
 			{
+				"name": "Banner",
+				"content": "../src/react/banner.md",
+				"sections": [
+					{
+						"components": "../src/react/components/banner/XUIBanner.js"
+					},
+					{
+						"name": "Banner Actions",
+						"components": "../src/react/components/banner/XUIBannerAction*(s).js",
+						"content": "../src/react/components/banner/banner.action.md"
+					},
+					{
+						"name": "Banner Message",
+						"components": "../src/react/components/banner/XUIBannerMessage.js",
+						"content": "../src/react/components/banner/banner.message.md"
+					}
+				]
+			},
+			{
 				"name": "Toast",
 				"content": "../src/react/toast.md",
 				"sections": [
@@ -204,15 +223,6 @@
 								"components": "../src/react/components/toggle/XUIToggle*.js"
 							}
 						]
-					}
-				]
-			},
-			{
-				"name": "Datepicker",
-				"content": "../src/react/datepicker.md",
-				"sections": [
-					{
-						"components": "../src/react/components/datepicker/XUIDatePicker.js"
 					}
 				]
 			},

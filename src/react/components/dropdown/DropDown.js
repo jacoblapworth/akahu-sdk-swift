@@ -6,8 +6,6 @@ import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 
-import './scss/_dropDown.scss';
-
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
  * presentational components are used to output content, scrolling is managed properly,
@@ -167,6 +165,7 @@ export default class DropDown extends PureComponent {
 			animateClosed,
 			animateOpen,
 			forceDesktop,
+			forceStatefulPicklist,
 		} = this.props;
 
 		const dropdownClasses = cn(className, {
@@ -189,6 +188,7 @@ export default class DropDown extends PureComponent {
 			>
 				<DropDownPanel
 					footer={footer}
+					forceStatefulPicklist={forceStatefulPicklist}
 					header={header}
 					ignoreKeyboardEvents={ignoreKeyboardEvents}
 					onHighlightChange={this.onHighlightChange}
@@ -265,13 +265,17 @@ DropDown.propTypes = {
 
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
+
+	/** Force wrapping Panel childrens in a StatefulPicklist  */
+	forceStatefulPicklist: PropTypes.bool
 };
 
 DropDown.defaultProps = {
-	ignoreKeyboardEvents: [],
-	isHidden: false,
-	hasKeyboardEvents: true,
-	restrictFocus: true,
 	fixedWidth: false,
 	forceDesktop: false,
+	forceStatefulPicklist: false,
+	hasKeyboardEvents: true,
+	ignoreKeyboardEvents: [],
+	isHidden: false,
+	restrictFocus: true,
 };

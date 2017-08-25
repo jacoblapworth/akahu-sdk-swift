@@ -8,7 +8,7 @@ import XUIToastMessage from '../XUIToastMessage';
 describe('XUIToast', () => {
 
 	it('should render without a sentiment modifier if no sentiment is provided', function () {
-		const wrapper = render(<XUIToast/>);
+		const wrapper = mount(<XUIToast/>);
 		const toast = wrapper.find('.xui-toast');
 		expect(toast.hasClass('xui-toast')).toBeTruthy();
 		expect(toast.hasClass('xui-toast-negative')).toBeFalsy();
@@ -16,7 +16,7 @@ describe('XUIToast', () => {
 	});
 
 	it('should render with the negative sentiment modifier when sentiment is set to negative', function () {
-		const wrapper = render(<XUIToast sentiment="negative" />);
+		const wrapper = mount(<XUIToast sentiment="negative" />);
 		const toast = wrapper.find('.xui-toast');
 
 		expect(toast.hasClass('xui-toast-negative')).toBeTruthy();
@@ -33,7 +33,7 @@ describe('XUIToast', () => {
 
 	it('should render the provided XUIToastMessage element', function () {
 		const message = '💩 Pile of Poo'
-		const wrapper = render(<XUIToastMessage>{message}</XUIToastMessage>);
+		const wrapper = mount(<XUIToastMessage>{message}</XUIToastMessage>);
 		expect(wrapper.text()).toEqual(message);
 	});
 
@@ -59,9 +59,9 @@ describe('XUIToast', () => {
 		);
 
 		const toasts = wrapper.find('.xui-toast');
-		expect(toasts[0].attribs['role']).toEqual('alert');
-		expect(toasts[1].attribs['role']).toEqual('alert');
-		expect(toasts[2].attribs['role']).toEqual('status');
+		expect(toasts[0].attribs.role).toEqual('alert');
+		expect(toasts[1].attribs.role).toEqual('alert');
+		expect(toasts[2].attribs.role).toEqual('status');
 	});
 
 	it('should allow a custom `role` to be set', function () {
@@ -73,8 +73,8 @@ describe('XUIToast', () => {
 		);
 
 		const toasts = wrapper.find('.xui-toast');
-		expect(toasts[0].attribs['role']).toEqual('alert');
-		expect(toasts[1].attribs['role']).toEqual('status');
+		expect(toasts[0].attribs.role).toEqual('alert');
+		expect(toasts[1].attribs.role).toEqual('status');
 	});
 
 	it('should render toast actions as buttons and/or links with the appropriate classes', function () {

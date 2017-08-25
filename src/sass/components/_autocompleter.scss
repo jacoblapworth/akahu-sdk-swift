@@ -1,17 +1,25 @@
-@import '../../../sass/vars';
-@import '../../../sass/mixins';
+@import "../vars";
+@import "../mixins";
 
 .#{$ns}-autocompleter--input {
+	background-color: transparent;
 	height: 100%;
 	// Otherwise, the box surrounding the input gets ridiculously tall
 	min-height: 0;
 	padding: 0 $xui-s-small;
 	position: absolute;
-	//Force the input to be 100% of the wrapper.
-	//width: calc(100% - 25px);
+	// In order for the input to align with its wrapper in IE11, this property is needed.
+	top: 0;
 
 	&::placeholder {
 		color: transparent;
+	}
+
+	// This rule prevents a noticeable delay between when some text is entered
+	// in the input and when the custom placeholder disappears in IE11
+	&:not([value=""]) ~ .#{$ns}-autocompleter--placeholder {
+		color: transparent;
+		-webkit-text-fill-color: transparent
 	}
 }
 
@@ -43,19 +51,6 @@
 
 	.#{$ns}-autocompleter--placeholder {
 		-webkit-text-fill-color: $xui-color-grey-3;
-	}
-}
-
-.#{$ns}-autocompleter--input {
-	background-color: transparent;
-	// In order for the input to align with its wrapper in IE11, this property is needed.
-	top: 0;
-
-	// This rule prevents a noticeable delay between when some text is entered
-	// in the input and when the custom placeholder disappears in IE11
-	&:not([value=""]) ~ .#{$ns}-autocompleter--placeholder {
-		color: transparent;
-		-webkit-text-fill-color: transparent
 	}
 }
 

@@ -23,7 +23,7 @@ export default class XUIPill extends Component {
 		super(props);
 
 		this.state = {
-			isFocussed: false
+			isFocused: false
 		};
 
 		this.toggleFocus = this.toggleFocus.bind(this);
@@ -31,7 +31,7 @@ export default class XUIPill extends Component {
 
 	toggleFocus() {
 		this.setState(prevState => ({
-			isFocussed: !prevState.isFocussed
+			isFocused: !prevState.isFocused
 		}));
 	}
 
@@ -50,6 +50,7 @@ export default class XUIPill extends Component {
 			qaHook,
 			secondaryText,
 			target,
+			title,
 			value
 		} = pill.props;
 
@@ -61,7 +62,7 @@ export default class XUIPill extends Component {
 			{
 				[`${baseClass}-layout`]: hasLayout,
 				[`${baseClass}-is-invalid`] : isInvalid,
-				[`${baseClass}-is-focussed`]: pill.state.isFocussed,
+				[`${baseClass}-is-focused`]: pill.state.isFocused,
 				[`${baseClass}-is-deleteable`]: onDeleteClick
 			}
 		);
@@ -73,6 +74,7 @@ export default class XUIPill extends Component {
 			qaHook,
 			secondaryText,
 			target,
+			title,
 			value
 		};
 
@@ -133,6 +135,8 @@ XUIPill.propTypes = {
 	qaHook: PropTypes.string,
 	/** When an `href` is supplied, adds a target attribute, else is ignored. */
 	target: PropTypes.string,
+	/** The title attribute to apply on the pill. */
+	title: PropTypes.string,
 	/** Adds a muted secondary text for the pill, appears before the main value. */
 	secondaryText: PropTypes.string,
 	/** The text to display inside the pill. */

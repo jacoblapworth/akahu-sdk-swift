@@ -167,6 +167,7 @@ export default class DropDown extends PureComponent {
 			animateClosed,
 			animateOpen,
 			forceDesktop,
+			forceStatefulPicklist,
 		} = this.props;
 
 		const dropdownClasses = cn(className, {
@@ -189,6 +190,7 @@ export default class DropDown extends PureComponent {
 			>
 				<DropDownPanel
 					footer={footer}
+					forceStatefulPicklist={forceStatefulPicklist}
 					header={header}
 					ignoreKeyboardEvents={ignoreKeyboardEvents}
 					onHighlightChange={this.onHighlightChange}
@@ -265,13 +267,17 @@ DropDown.propTypes = {
 
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
+
+	/** Force wrapping Panel childrens in a StatefulPicklist  */
+	forceStatefulPicklist: PropTypes.bool
 };
 
 DropDown.defaultProps = {
-	ignoreKeyboardEvents: [],
-	isHidden: false,
-	hasKeyboardEvents: true,
-	restrictFocus: true,
 	fixedWidth: false,
 	forceDesktop: false,
+	forceStatefulPicklist: false,
+	hasKeyboardEvents: true,
+	ignoreKeyboardEvents: [],
+	isHidden: false,
+	restrictFocus: true,
 };

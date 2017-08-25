@@ -1,6 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import DropDown from '../DropDown';
+
+import Picklist from '../../picklist/Picklist';
+import Pickitem from '../../picklist/Pickitem';
+
 import { maxWidthDropdownSizes, fixedWidthDropdownSizes } from '../private/constants';
 
 describe('<DropDown size classes />', () => {
@@ -16,5 +20,35 @@ describe('<DropDown size classes />', () => {
 			expect(wrapper.getDOMNode().classList.contains(fixedWidthDropdownSizes[size])).toBeTruthy();
 		});
 	});
+});
 
+describe('forceStatefulPicklist prop', () => {
+	it('do not wrap children in StatefulPicklist if is not a Picklist children', () => {
+		const wrapper = mount(
+			<DropDown>
+				<p>Panel Content</p>
+			</DropDown>
+		);
+		expect(wrapper.find('StatefulPicklist').length).toBe(0);
+	});
+
+	it('force wrap children in StatefulPicklist even if is not a Picklist children', () => {
+		const wrapper = mount(
+			<DropDown forceStatefulPicklist>
+				<p>Panel Content</p>
+			</DropDown>
+		);
+		expect(wrapper.find('StatefulPicklist').length).toBe(1);
+	});
+
+	it('wrap children in StatefulPicklist when Picklist is children', () => {
+		const wrapper = mount(
+			<DropDown>
+				<Picklist>
+					<Pickitem id="required-id">List Item</Pickitem>
+				</Picklist>
+			</DropDown>
+		);
+		expect(wrapper.find('StatefulPicklist').length).toBe(1);
+	});
 });

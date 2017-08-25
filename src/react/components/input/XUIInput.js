@@ -59,6 +59,7 @@ export default class XUIInput extends Component {
 			hasClearButton,
 			inputAttributes,
 			inputRef,
+			isBorderless,
 			...other
 		} = statefulInput.props;
 
@@ -80,12 +81,12 @@ export default class XUIInput extends Component {
 				</XUIButton>
 			</div> : null;
 
-
 		return (
 			<XUIStatelessInput
 				inputAttributes={{...inputAttributes, onKeyUp: compose(inputAttributes && inputAttributes.onKeyUp, () => { onInputChange(statefulInput) })}}
 				inputRef={compose(inputRef, n => statefulInput.inputNode = n)}
 				button={clearButton}
+				isBorderless={isBorderless}
 				{...other}
 			/>
 		);
@@ -109,10 +110,11 @@ XUIInput.propTypes = {
 			);		
 		}
 	},
-
 	/** Object containing any additional properties and their values to the Input element.
 	 * Includes defaultValue event handler callbacks i.e. onChange, onSelect, onClick, onKeyDown etc. */
 	inputAttributes: PropTypes.object,
+	/** Whether text area has a border. */	
+	isBorderless: PropTypes.bool,
 	/** Function to add a reference to the Input element */
 	inputRef: PropTypes.func
 };

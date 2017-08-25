@@ -4,7 +4,7 @@ import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 
 export default function XUIToastAction(props) {
-	const classNames = cn(props.className, 'xui-toast--link');
+	const classNames = cn(props.className, 'xui-button-small');
 	const isLink = !!props.href;
 
 	return (

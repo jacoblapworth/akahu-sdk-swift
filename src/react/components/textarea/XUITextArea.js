@@ -185,6 +185,7 @@ export default class XUITextArea extends Component {
 			hintMessage,
 			manualResize,
 			isDisabled,
+			isBorderless,
 			textareaId,
 			qaHook,
 			textareaRef,
@@ -197,7 +198,8 @@ export default class XUITextArea extends Component {
 				inputClass,
 				className,
 				{
-					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid
+					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid,
+					[`${inputClass}-borderless`] : isBorderless
 				},
 				manualResize ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
 			);
@@ -303,6 +305,8 @@ XUITextArea.propTypes = {
 	textareaRef: PropTypes.func,
 	/** Additional classes to be added to the textarea itself. */
 	className: PropTypes.string,
+	/** Whether text area has a border. */	
+	isBorderless: PropTypes.bool,
 	/** QaHook for testing. */
 	qaHook: PropTypes.string,
 	/** Optional children to be rendered within the component (i.e. a label). */

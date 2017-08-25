@@ -52,8 +52,8 @@
 // </div>
 // <div class="xui-newpill xui-newpill-layout xui-newpill-is-deleteable xui-margin-top-small">
 //   <span class="xui-newpill--content">
-//     <abbr class="xui-avatar xui-avatar-small xui-newpill--avatar" style="background-color: #FCAD59" role="presentation">PE</abbr>
-//     pill@withemailaddress.com
+//     <abbr class="xui-avatar xui-avatar-small xui-newpill--avatar xui-avatar-color-8" role="presentation">PE</abbr>
+//     <span class="xui-newpill--text">pill@withemailaddress.com</span>
 //   </span>
 //   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
@@ -66,7 +66,11 @@
 //   </button>
 // </div>
 // <div class="xui-newpill xui-newpill-layout xui-newpill-is-invalid xui-newpill-is-deleteable xui-margin-top-small">
-//   <button class="xui-newpill--content xui-button xui-newpill--button">Invalid</button>
+//   <button class="xui-newpill--content xui-button xui-newpill--button">
+//     <abbr class="xui-avatar xui-avatar-small xui-newpill--avatar xui-avatar-color-2" role="presentation">PE</abbr>
+//     <span class="xui-text-color-muted xui-newpill--secondary">Status</span>
+//     <span class="xui-newpill--text">Invalid</span>
+//   </button>
 //   <button class="xui-button xui-button-icon xui-newpill--button-icon">
 //     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //   </button>
@@ -140,6 +144,11 @@
 	padding: 5px 5px 5px 15px;
 }
 
+.#{$ns}-newpill--text,
+.#{$ns}-newpill--secondary {
+	vertical-align: middle;
+}
+
 .#{$ns}-newpill--secondary {
 	margin-right: 5px;
 }
@@ -147,6 +156,7 @@
 .#{$ns}-newpill--avatar {
 	margin-left: -12px;
 	margin-right: 10px;
+	pointer-events: none;
 }
 
 .#{$ns}-newpill--button-icon {
@@ -165,7 +175,17 @@
 
 .#{$ns}-newpill-is-invalid,
 .#{$ns}-pill-invalid {
-	color: $xui-color-xero-red;
+	background-color: $xui-color-xero-red;
+	color: $xui-color-white;
+
+	.#{$ns}-newpill--button-icon,
+	.#{$ns}-newpill--content {
+		color: $xui-color-white;
+	}
+
+	.#{$ns}-newpill--secondary {
+		color: $xui-color-inverted-alpha-2;
+	}
 }
 
 .#{$ns}-newpill--button {
@@ -185,7 +205,7 @@
 // <div class="xui-input xui-margin-top">
 //   <div class="xui-pill xui-pill-single xui-space-between">
 //     <span>
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small" style="background-color: #FCAD59" role="presentation">X</abbr>
+//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1" role="presentation">X</abbr>
 //       pill@withemailaddress.com
 //     </span>
 //     <button class="xui-button xui-button-icon">

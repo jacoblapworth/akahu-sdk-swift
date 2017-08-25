@@ -22,8 +22,9 @@ class InnerPill extends PureComponent {
 			'xui-newpill--avatar'
 		);
 
-		const avatar = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
-		const text = secondaryText && <span className="xui-text-color-muted xui-newpill--secondary">{secondaryText}</span>;
+		const avatarEl = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
+		const secondaryTextEl = secondaryText && <span className="xui-text-color-muted xui-newpill--secondary">{secondaryText}</span>;
+		const valueEl = value && <span className="xui-newpill--text">{value}</span>;
 
 		const className = cn(
 			'xui-newpill--content',
@@ -43,9 +44,9 @@ class InnerPill extends PureComponent {
 				onClick={onClick}
 				qaHook={qaHook ? `pillButton-${qaHook}` : null}
 			>
-				{avatar}
-				{text}
-				{value}
+				{avatarEl}
+				{secondaryTextEl}
+				{valueEl}
 			</XUIButton>
 		);
 	}

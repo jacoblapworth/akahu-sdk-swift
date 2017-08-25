@@ -13,6 +13,7 @@ class InnerPill extends PureComponent {
 			qaHook,
 			secondaryText,
 			target,
+			title,
 			value
 		} = this.props;
 
@@ -37,6 +38,7 @@ class InnerPill extends PureComponent {
 				isLink={!!href}
 				href={href}
 				target={target}
+				title={title}
 				variant="unstyled"
 				onClick={onClick}
 				qaHook={qaHook ? `pillButton-${qaHook}` : null}
@@ -62,6 +64,8 @@ InnerPill.propTypes = {
 	secondaryText: PropTypes.string,
 	/** When an `href` is supplied, adds a target attribute, else is ignored. */
 	target: PropTypes.string,
+	/** The title attribute to apply on the pill. */
+	title: PropTypes.string,
 	/** The text to display inside the pill. */
 	value: PropTypes.string
 };

@@ -21,7 +21,16 @@ describe('<XUIPill />', () => {
 		);
 
 		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill').firstChild;
-		assert.strictEqual(node.tagName, 'BUTTON')
+		assert.strictEqual(node.tagName, 'BUTTON');
+	});
+
+	it('render pill with provided title', () => {
+		const pill = TestUtils.renderIntoDocument(
+			<XUIPill title="test"/>
+		);
+
+		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-newpill').firstChild;
+		assert.strictEqual(node.title, 'test');
 	});
 
 	it('renders the pill with the specified className prop', () => {

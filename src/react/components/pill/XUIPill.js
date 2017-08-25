@@ -50,6 +50,7 @@ export default class XUIPill extends Component {
 			qaHook,
 			secondaryText,
 			target,
+			title,
 			value
 		} = pill.props;
 
@@ -73,6 +74,7 @@ export default class XUIPill extends Component {
 			qaHook,
 			secondaryText,
 			target,
+			title,
 			value
 		};
 
@@ -133,6 +135,8 @@ XUIPill.propTypes = {
 	qaHook: PropTypes.string,
 	/** When an `href` is supplied, adds a target attribute, else is ignored. */
 	target: PropTypes.string,
+	/** The title attribute to apply on the pill. */
+	title: PropTypes.string,
 	/** Adds a muted secondary text for the pill, appears before the main value. */
 	secondaryText: PropTypes.string,
 	/** The text to display inside the pill. */

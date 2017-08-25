@@ -49,7 +49,6 @@
 @import "objects/actions";
 @import "objects/avatars";
 @import "objects/avatars.groups";
-@import "objects/dropdowns";
 @import "objects/datepicker";
 @import "objects/popovers";
 @import "objects/contentblocks";
@@ -68,9 +67,12 @@
 @import "objects/typography";
 @import "objects/usermessaging";
 @import "objects/overview";
+@import "objects/dropdowns";
 @import "objects/colors";
 
 @import "objects/globalstates";
+
+@import "components/autocompleter";
 
 @import "trumps/utilities";
 

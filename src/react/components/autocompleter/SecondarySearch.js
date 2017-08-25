@@ -9,8 +9,6 @@ import search from '@xero/xui-icon/icons/search'
 
 import { intervalRunner, isVisible } from './private/helpers';
 
-import './Autocompleter.scss';
-
 export default class SecondarySearch extends PureComponent {
 	constructor(props) {
 		super(props);

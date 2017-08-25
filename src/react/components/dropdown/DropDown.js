@@ -6,8 +6,6 @@ import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 
-import './scss/_dropDown.scss';
-
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
  * presentational components are used to output content, scrolling is managed properly,

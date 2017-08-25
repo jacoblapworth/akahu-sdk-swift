@@ -8,8 +8,6 @@ import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 
-import './Autocompleter.scss';
-
 /**
  * Autocompleter instance => event handlers/callbacks map
  *

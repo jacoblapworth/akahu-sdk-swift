@@ -134,6 +134,7 @@ export default class SecondarySearch extends PureComponent {
 					onClose={props.onClose}
 					closeOnSelect={props.closeOnSelect}
 					className={dropdownToggledClasses}
+					matchTriggerWidth={props.matchTriggerWidth}
 				/>
 			</div>
 		);
@@ -204,6 +205,13 @@ SecondarySearch.propTypes = {
 	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
+	/**
+	 * Setting to true will allow the dropdown's width to be set dependent of the trigger width.
+	 * Note: Setting this to true will override any size prop on DropDown. XUI design has also decided  
+	 * to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 */
+	matchTriggerWidth: PropTypes.bool,
+
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
 };
@@ -212,5 +220,5 @@ SecondarySearch.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,
-	inputId: 'secondary_search_input',
+	inputId: 'secondary_search_input'
 };

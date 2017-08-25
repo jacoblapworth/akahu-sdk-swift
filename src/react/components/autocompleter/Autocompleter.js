@@ -288,12 +288,13 @@ Autocompleter.propTypes = {
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** If a size is set, this will force the dropdown to that size instead of settinhg it as a max width. */
+	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
 	/**
 	 * Setting to false will allow the dropdown's width to be set independent of the trigger width.
-	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided
+	 * to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
 

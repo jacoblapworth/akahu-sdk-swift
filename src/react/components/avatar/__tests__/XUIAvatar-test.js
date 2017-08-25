@@ -55,7 +55,7 @@ describe('XUIAvatar', function () {
 
 		const node = dom.firstElementChild;
 		assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been rendered with an ABBR element');
-		assert.strictEqual(node.innerHTML, 'DD', 'ABBR innerHTML contains the first character of the value');
+		assert.strictEqual(node.innerHTML, 'D', 'ABBR innerHTML contains the first character of the value');
 	});
 
 	it('should render as an abbreviation element with the first non-whitespace character if no imageUrl prop is provided', function () {
@@ -68,7 +68,7 @@ describe('XUIAvatar', function () {
 
 		const node = dom.firstElementChild;
 		assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been rendered with an ABBR element');
-		assert.strictEqual(node.innerHTML, 'DD', 'ABBR innerHTML contains the first character of the value');
+		assert.strictEqual(node.innerHTML, 'D', 'ABBR innerHTML contains the first character of the value');
 	});
 
 	it('should render values starting with a unicode astral symbol correctly', function () {
@@ -80,7 +80,7 @@ describe('XUIAvatar', function () {
 
 		const node = dom.firstElementChild;
 		assert.strictEqual(node.tagName, 'ABBR', 'Avatar has been rendered with an ABBR element');
-		assert.strictEqual(node.innerHTML, '💩P', 'ABBR innerHTML contains the first character of the value');
+		assert.strictEqual(node.innerHTML, '💩', 'ABBR innerHTML contains the first character of the value');
 	});
 
 	it('should give different color classes to avatars with the same values but different identifiers', function () {

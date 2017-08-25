@@ -5,8 +5,6 @@ import DropDownLayout from './DropDownLayout';
 import DropDown from './DropDown';
 import { compose } from '../helpers/compose';
 
-import './scss/_dropDown.scss';
-
 /**
  * <strong>BETA</strong> This component is still under active development and it's API may change.
  *

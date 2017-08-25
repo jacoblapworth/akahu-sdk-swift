@@ -13,6 +13,7 @@ class XUIInnerPill extends PureComponent {
 			qaHook,
 			secondaryText,
 			target,
+			title,
 			value
 		} = this.props;
 
@@ -21,8 +22,9 @@ class XUIInnerPill extends PureComponent {
 			'xui-pill--avatar'
 		);
 
-		const avatar = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
-		const text = secondaryText && <span className="xui-text-color-muted xui-pill--secondary">{secondaryText}</span>;
+		const avatarEl = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
+		const secondaryTextEl = secondaryText && <span className="xui-text-color-muted xui-pill--secondary">{secondaryText}</span>;
+		const valueEl = value && <span className="xui-pill--text">{value}</span>;
 
 		const className = cn(
 			'xui-pill--content',
@@ -37,13 +39,14 @@ class XUIInnerPill extends PureComponent {
 				isLink={!!href}
 				href={href}
 				target={target}
+				title={title}
 				variant="unstyled"
 				onClick={onClick}
 				qaHook={qaHook ? `pillButton-${qaHook}` : null}
 			>
-				{avatar}
-				{text}
-				{value}
+				{avatarEl}
+				{secondaryTextEl}
+				{valueEl}
 			</XUIButton>
 		);
 	}
@@ -62,6 +65,8 @@ XUIInnerPill.propTypes = {
 	secondaryText: PropTypes.string,
 	/** When an `href` is supplied, adds a target attribute, else is ignored. */
 	target: PropTypes.string,
+	/** The title attribute to apply on the pill. */
+	title: PropTypes.string,
 	/** The text to display inside the pill. */
 	value: PropTypes.string
 };

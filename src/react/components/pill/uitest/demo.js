@@ -21,8 +21,8 @@ const pills = (
 			onDeleteClick = {onDelete}
 			value="Deleteable Pill"/>
 			<XUIPill
-			className={`${baseClass}-is-focussed`}
-			value="Focussed Pill"/>
+			className={`${baseClass}-is-focused`}
+			value="Focused Pill"/>
 			<XUIPill
 			className={`${baseClass}-is-invalid`}
 			value="Invalid Pill"/>

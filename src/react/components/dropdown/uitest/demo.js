@@ -534,6 +534,138 @@ class MatchTriggerWidth extends Component {
 	}
 }
 
+class ForceStatefulPicklist extends Component {
+	state = {
+		list: toggledItems,
+		valueTrigger: '',
+	}
+
+	onSelect = value => {
+		console.log('DropDrown item selected...', value);
+	}
+
+	onSelectFooter = () => {
+		console.log('DropDrownFooter item selected...');
+	}
+
+	onChangeTrigger = event => {
+		const { dd, ddt } = this;
+		const isOpen = ddt && ddt.isDropDownOpen();
+
+		this.setState({ valueTrigger: event.target.value }, () => {
+			// the callback here is important, because we need to
+			// update the StatefulPicklist AFTER the re-render of
+			// the change from the trigger value
+			const firstResultsFiltered = this.getListFiltered()[0];
+
+			if (!isOpen && this.state.valueTrigger !== '') {
+				ddt.openDropDown();
+			}
+
+			// here is why we're using the callback fn in setState;
+			// StatefulPicklist keeps the current highlightedElement
+			// in internal state, and it DOESN'T reset it after mount;
+			// the `componentDidUpdate` call's `.highlightInitial()` but
+			// `this.getHighlighted()` will always return the last highlighted
+			// item, even if the item isn't in the scrollView or in the Picklist
+			// tree, because the StatefulPicklist doesn't know/check if the children
+			// has changed or not, so here, we're manually doing the same work
+			// as `.highlightInitial()` when the List is filtered and there's
+			// different results
+			if (firstResultsFiltered && dd && dd.panel && dd.panel.list) {
+				dd.panel.list.highlightItem({
+					props: {
+						id: firstResultsFiltered.props.id,
+						value: firstResultsFiltered,
+						onSelect: this.onSelect,
+					},
+				})
+			}
+		})
+	}
+
+	onKeyDownTrigger = event => {
+		const { dd, ddt } = this;
+		const isOpen = ddt && ddt.isDropDownOpen();
+
+		if (isOpen) {
+			dd.onKeyDown(event);
+		}
+	}
+
+	getListFiltered = () => {
+		const includeText = ({ text }) => text.includes(this.state.valueTrigger);
+		const listFiltered = this.state.list.filter(includeText);
+		return listFiltered;
+	}
+
+	createItems = results => results.map(item => {
+		return React.createElement(Pickitem, {
+			...item.props,
+			onSelect: this.onSelect,
+			value: item.props.id,
+			key: item.props.id,
+		}, item.text);
+	})
+
+	render() {
+		const resultsFiltered = this.getListFiltered();
+		const trigger = (
+			<XUIInput
+				inputAttributes={{
+					placeholder: "Filter your results",
+					onKeyDown: this.onKeyDownTrigger,
+					value: this.state.valueTrigger
+				}}
+				onChange={this.onChangeTrigger}
+				containerClassName="xui-margin-bottom-small"
+			/>
+		);
+		// The ID in the Pickitem here is REALLY important
+		// Because is used by StatefulPicklist in `.findItemById` method
+		// Without the ID here, onSelect doesn't work
+		const dropdownFooter = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="DropDownFooter-IdIsRequired" onSelect={this.onSelectFooter}>
+						Some action in DropDownFooter
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+		const dropdown = (
+			<DropDown
+				// Make DropDownPanel to always render StatefulPicklist
+				forceStatefulPicklist
+				footer={dropdownFooter}
+				// do not force the focus in the List
+				hasKeyboardEvents={false}
+				// Using Input as trigger, we need to allow the user to
+				// use ArrowLeft, ArrowRight and SpaceBar as normal typing
+				// experience, that's why we're disabling it here
+				ignoreKeyboardEvents={[32, 37, 39]}
+				ref={dd => this.dd = dd}
+				restrictFocus={false}
+			>
+				<Picklist
+					// Remove the extra space in the top when there's no results
+					defaultLayout={resultsFiltered.length > 0}
+				>
+					{this.createItems(resultsFiltered)}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				dropdown={dropdown}
+				ref={ddt => this.ddt = ddt}
+				trigger={trigger}
+				triggerClickAction="none"
+			/>
+		);
+	}
+}
+
 ReactDOM.render(
 	<div className="xui-form-layout">
 		<div style={{ position: 'fixed', right: 0, top: '20px' }}>
@@ -584,6 +716,13 @@ ReactDOM.render(
 				Making sure that the &ldquo;matchTriggerWidth&rdquo; prop works
 			</p>
 			<MatchTriggerWidth />
+		</div>
+		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
+			<div className="xui-text-panelheading xui-margin-bottom">Dropdown with no results but footer action</div>
+			<p className='xui-text-label'>
+				Based on XUI Design Patterns, when we have a Footer inside the DropdDown, you can reach it via keyboard, even if there is no results in your list.
+			</p>
+			<ForceStatefulPicklist />
 		</div>
 	</div>,
 	document.getElementById('app')

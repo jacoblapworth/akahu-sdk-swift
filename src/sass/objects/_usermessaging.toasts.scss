@@ -107,6 +107,16 @@
 	}
 }
 
+.#{$ns}-toastwrapper {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+
+	@include xui-breakpoint-narrow {
+		width: 100%;
+	}
+}
+
 // Implementation
 //
 // Components: Toast
@@ -276,14 +286,4 @@
 	opacity: 0;
 	overflow: hidden;
 	pointer-events: none;
-}
-
-.#{$ns}-toastwrapper {
-	bottom: 0;
-	left: 0;
-	position: fixed;
-
-	@include xui-breakpoint-narrow {
-		width: 100%;
-	}
 }

@@ -30,8 +30,12 @@ const calculateMinMaxHeights = (textComponent) => {
 	const singleLineHeight = textArea.scrollHeight - verticalPadding;
 	textArea.value = value;
 
-	const minHeight = minRows? minRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMinHeight;
-	const maxHeight = maxRows? maxRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMaxHeight;
+	let minHeight = minRows? minRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMinHeight;
+	let maxHeight = maxRows? maxRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMaxHeight;
+
+	// Ensure min and max height are not negative, if, for example, the textarea is hidden
+	minHeight = Math.max(0, minHeight);
+	maxHeight = Math.max(0, maxHeight);
 
 	textComponent.setState({
 		sizeData: {
@@ -122,7 +126,6 @@ const calculateAstralLength = (string) => {
 	return [...string].length;
 };
 
-
 export default class XUITextArea extends Component {
 
 	constructor(props) {
@@ -182,6 +185,7 @@ export default class XUITextArea extends Component {
 			hintMessage,
 			manualResize,
 			isDisabled,
+			isBorderless,
 			textareaId,
 			qaHook,
 			textareaRef,
@@ -194,7 +198,8 @@ export default class XUITextArea extends Component {
 				inputClass,
 				className,
 				{
-					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid
+					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid,
+					[`${inputClass}-borderless`] : isBorderless
 				},
 				manualResize ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
 			);
@@ -300,6 +305,8 @@ XUITextArea.propTypes = {
 	textareaRef: PropTypes.func,
 	/** Additional classes to be added to the textarea itself. */
 	className: PropTypes.string,
+	/** Whether text area has a border. */	
+	isBorderless: PropTypes.bool,
 	/** QaHook for testing. */
 	qaHook: PropTypes.string,
 	/** Optional children to be rendered within the component (i.e. a label). */

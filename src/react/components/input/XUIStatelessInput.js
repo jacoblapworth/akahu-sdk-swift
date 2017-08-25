@@ -18,6 +18,7 @@ export default class XUIStatelessInput extends PureComponent {
 			validationMessage,
 			hintMessage,
 			isInvalid,
+			isBorderless,
 			...other
 		} = input.props;
 
@@ -27,7 +28,8 @@ export default class XUIStatelessInput extends PureComponent {
 			baseClass,
 			className,
 			{
-				[`${baseClass}-is-invalid`]: isInvalid
+				[`${baseClass}-is-invalid`] : isInvalid,
+				[`${baseClass}-borderless`] : isBorderless
 			}
 		);
 

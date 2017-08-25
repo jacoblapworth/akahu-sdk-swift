@@ -50,6 +50,7 @@ Use picklists instead.
 
 ### Pills
 * `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
+* `xui-pill-is-focussed` has been renamed to `xui-pill-is-focused` (one `s`)
 
 ### Inputs
 * `xui-input-group` has ben removed. Use `xui-inputgroup` instead.

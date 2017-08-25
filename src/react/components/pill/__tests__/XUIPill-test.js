@@ -117,14 +117,14 @@ describe('<XUIPill />', () => {
 		assert.strictEqual(node.textContent, 'supplementary')
 	});
 
-	it('renders itself as focussed appropriately', () => {
+	it('renders itself as focused appropriately', () => {
 		const pill = TestUtils.renderIntoDocument(
 			<XUIPill />
 		);
 
 		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
-		assert.isFalse(node.classList.contains('xui-pill-is-focussed'));
+		assert.isFalse(node.classList.contains('xui-pill-is-focused'));
 		TestUtils.Simulate.focus(node);
-		assert.isTrue(node.classList.contains('xui-pill-is-focussed'));
+		assert.isTrue(node.classList.contains('xui-pill-is-focused'));
 	});
 });

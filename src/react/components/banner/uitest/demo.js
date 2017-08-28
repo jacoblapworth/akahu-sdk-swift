@@ -13,7 +13,7 @@ const messageDetails = [
 	'Goo goo g\' joob'
 ];
 
-const onClick = () => { console.log('Clicked banner action'); };
+const onClick = () => { console.log('Clicked banner action'); }; // eslint-disable-line no-console
 
 ReactDOM.render(
 	<div className="xui-page-width-large xui-padding-vertical-large">

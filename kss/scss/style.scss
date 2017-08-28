@@ -15,6 +15,13 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
+.ds-main-fullwidth {
+	@include xui-breakpoint-wide {
+		margin-left: calc(20% - 1px);
+		width: 80%;
+	}
+}
+
 .ds-node {
 	background: $xui-color-white;
 }

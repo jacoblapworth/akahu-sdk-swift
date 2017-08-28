@@ -44,6 +44,10 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 			menuItem.isActive = (menuItem.reference === pageReference);
 			// Mark any "deep" menu items.
 			menuItem.isGrandChild = (menuItem.depth > 2);
+			menuItem.hasActiveParent = false;
+			menuItem.parentHeader = null;
+			menuItem.pageReference = pageReference;
+
 			return menuItem;
 		};
 
@@ -80,13 +84,18 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 				// Current page is first child of the previous page
 				parentItem = previousItem;
 				parentItem.menu = [menuItem];
+				menuItem.parentHeader = parentItem.header;
+
 			} else if (menuItem.menuDepth < previousItem.menuDepth) {
 				// Current page is a sibling of the parent page
 				parentItem = menu[menu.length - 1];
 				parentItem.menu.push(menuItem);
+				menuItem.parentHeader = parentItem.header;
+
 			} else {
 				// Curent page is child (not first) of previous page
 				parentItem.menu.push(menuItem);
+				menuItem.parentHeader = parentItem.header;
 			}
 
 			if (menuItem.isActive) {

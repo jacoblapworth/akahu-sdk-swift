@@ -14,7 +14,7 @@ module.exports = {
 			name: 'Margin and Padding.Tokens',
 			source: './src/sass/settings/_layout.scss',
 			isSubsection: true,
-		},
+		}
 	],
 
 	types: {

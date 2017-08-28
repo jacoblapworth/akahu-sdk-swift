@@ -23,6 +23,7 @@ module.exports = function(handlebars) {
 			options = upperBound;
 			upperBound = lowerBound;
 		}
+
 		return (this.depth && this.depth >= lowerBound && this.depth <= upperBound) ? options.fn(this) : options.inverse(this);
 	});
 

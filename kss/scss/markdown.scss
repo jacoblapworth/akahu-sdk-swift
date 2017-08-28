@@ -1,5 +1,8 @@
-#home {
+// scss-lint:disable Prefix
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
 
+#home {
 	font-size: 15px;
 	line-height: 1.8;
 
@@ -18,5 +21,40 @@
 	h4 {
 		font-size: 1.25rem;
 	}
+}
 
+.ds-card {
+	background: $xui-color-white;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-border-all;
+	cursor: pointer;
+	flex-direction: column;
+	flex: 1;
+	margin: $xui-s-small;
+	max-height: 200px;
+	max-width: calc(50% - 20px);
+	min-width: calc(100% - 20px);
+	position: relative;
+	overflow: hidden;
+	width: $xui-starting-width;
+
+	@include xui-breakpoint-medium {
+		min-width: calc(50% - 20px);
+	}
+
+	@include xui-breakpoint-wide {
+		max-width: calc(33.33% - 20px);
+		min-width: calc(33.33% - 20px);
+	}
+
+	.ds-card-header {
+		margin-bottom: $xui-s-small;
+	}
+}
+
+
+
+.ds-card-wrapper {
+	flex-flow: wrap;
+	display: flex;
 }

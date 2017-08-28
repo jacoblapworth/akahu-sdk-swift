@@ -19,7 +19,7 @@
 
 		@if $variant == standard {
 			// TODO: in XUI 12, figure out a way to do this without a border, as it adds unwanted width
-			@include xui-button-variant($color, $xui-color-xero-blue, linear-gradient($xui-color-white, $xui-color-white), $xui-border-standard);
+			@include xui-button-variant($color, $xui-color-xero-blue, linear-gradient($xui-color-white, $xui-color-white), $xui-color-grey-alpha-4);
 		} @else {
 			@include xui-button-variant($color, $xui-color-white);
 		}

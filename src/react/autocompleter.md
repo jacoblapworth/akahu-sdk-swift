@@ -25,7 +25,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ### Standard
 
-`Autocompleter` can be passed a array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `Autocompleter` also provides a configurable empty state for when no search results are returned.
+`Autocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `Autocompleter` also provides a configurable empty state for when no search results are returned.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');

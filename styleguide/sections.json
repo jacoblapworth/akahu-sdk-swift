@@ -235,6 +235,11 @@
 						"content": "../src/react/dropdown.md",
 						"sections": [
 							{
+								"name": "Dropdown Toggled",
+								"components": "../src/react/components/dropdown/DropDownToggled.js",
+								"content": "../src/react/components/dropdown/dropdown.toggled.md"
+							},
+							{
 								"name": "Dropdown Header & Footer",
 								"components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
 								"content": "../src/react/components/dropdown/dropdown.headerfooter.md"
@@ -243,11 +248,6 @@
 								"name": "Nested Dropdowns",
 								"components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
 								"content": "../src/react/components/dropdown/dropdown.nested.md"
-							},
-							{
-								"name": "Dropdown Toggled",
-								"components": "../src/react/components/dropdown/DropDownToggled.js",
-								"content": "../src/react/components/dropdown/dropdown.toggled.md"
 							}
 						]
 					},

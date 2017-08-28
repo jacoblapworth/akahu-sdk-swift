@@ -1,8 +1,161 @@
-`DropDown`'s API had to have default behaviour, and the `Picklist` use case was chosen to be that default. However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
+At the heart of all of our Dropdown implementations is `DropDownToggled`. It connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, but `DropDown` itself will render as an immediate child of the body no matter where it is in the React virtual DOM. Because of this, `DropDownToggled` is required to assist with positioning and interaction between the two components.
+
+## Basic Use Cases
+
+### Using with `Picklist`
+
+If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have a `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
+
+```
+const Pickitem = require('../picklist/Pickitem').default;
+const DropDownToggled = require('./DropDownToggled').default;
+const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+const { Component } = require ('react');
+
+function createItems(items, selectedId) {
+	if (Array.isArray(items)) {
+		return items.map(i => createItems(i, selectedId));
+	}
+	return React.createElement(Pickitem, {
+		...items.props,
+		value: items.props.id,
+		key: items.props.id,
+		isSelected: isSelected(items, selectedId),
+	}, items.text);
+}
+
+const toggledItems = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
+	return { props: { id }, text };
+});
+
+class ToggledDropDown extends Component {
+	constructor() {
+		super();
+		this.state = {
+			selectedId: null,
+		};
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onSelect(value) {
+		this.setState({
+			selectedId: value,
+		});
+	}
+
+	render() {
+		const trigger = (
+			<XUIButton>
+				{this.state.selectedId ? toggledItems[this.state.selectedId].text : 'Trigger Button'}
+				<XUIButtonCaret />
+			</XUIButton>
+		);
+		const dropdown = (
+			<DropDown onSelect={this.onSelect}>
+				<Picklist>
+					{createItems(toggledItems, this.state.selectedId)}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				className="exampleClass"
+				onOpen={() => console.log('user wants to open the dropdown')}
+				trigger={trigger}
+				dropdown={dropdown}
+			/>
+		);
+	}
+}
+<ToggledDropDown />
+```
+
+### Multiselect `Picklist`
+
+```
+const { Component } = require('react');
+const DropDownToggled = require('./DropDownToggled').default;
+const Pickitem = require('../picklist/Pickitem').default;
+const items = [
+	{ id: 'a', text: 'First' },
+	{ id: 'b', text: 'Second' },
+	{ id: 'c', text: 'Third' },
+	{ id: 'd', text: 'Fourth' },
+];
+
+class MultiselectExample extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			selected: {
+				a: false,
+				b: false,
+				c: false,
+				d: false,
+			},
+		};
+
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onSelect(value) {
+		this.setState(state => ({
+			selected: {
+				...state.selected,
+				[value]: !state.selected[value],
+			},
+		}));
+	}
+
+	render() {
+		const { selected } = this.state;
+		const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
+		const trigger = (
+			<XUIButton>
+				{selectedItems.length == 0 ? 'Select Items' : selectedItems.join(', ')}
+				<XUIButtonCaret />
+			</XUIButton>
+		)
+		const dropdown = (
+			<DropDown onSelect={this.onSelect}>
+				<Picklist>
+					{items.map(item => (
+						<Pickitem
+							key={item.id}
+							id={item.id}
+							value={item.id}
+							isSelected={selected[item.id]}
+							multiselect
+						>
+							{item.text} Option
+						</Pickitem>
+					))}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				trigger={trigger}
+				dropdown={dropdown}
+				closeOnSelect={false}
+			/>
+		);
+	}
+}
+<MultiselectExample />
+```
+
+#### Props required for this behaviour
+
+* `closeOnSelect=false` -> `DropDownToggled`: Allows user to select multiple items without the dropdown closing
+* `multiselect=true` -> `Pickitem`: Renders the `Pickitem` as a checkbox
+
+## Complex examples
+
+Although using `DropDown` with `Picklist` provides the default behaviour, the API is configurable enough to handle almost any content.
 
 ### Dropdown with a date picker
-
-While `DropDown`'s API is optimised for the `Picklist` use case, it can contain any element.
 
 ```
 const Pickitem = require('../picklist/Pickitem').default;
@@ -71,21 +224,16 @@ class SimpleDropDownDatePicker extends React.Component {
 <SimpleDropDownDatePicker />
 ```
 
-Since this example is no longer using the dropdown for the optimized use case, there are certain user interactions that need to be handled manually.
+#### Props required for this behaviour
 
-**First, the `restrictToViewPort` prop of `DropDownToggled` is set to `false`** to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
-
-**The `DropDown` component is also not able to focus the datepicker automatically.**  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `DropDown` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `DropDownToggled` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
-
-**Keyboard users also need to use the tab key to navigate** to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `DropDownToggled`.
-
-**Lastly, the dropdown must be manually closed when the user has selected a date.**  The `XUIDatePicker.onSelectDate` callback is used to set state and call `DropDownToggled.closeDropDown`.
+* `restrictToViewPort=false` -> `DropDownToggled`: Ensure that the user is never required to scroll the contents of the date picker. Scrolling is fine for lists. But scrolling a date picker is a bad user experience. This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
+* `closeOnTab=false` -> `DropDownToggled`: Enables user to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.
+* `onOpenAnimationEnd=function` -> `DropDownToggled`: This function should call `XUIDatePicker.focus` as focus is required to enable keyboard navigation on the datepicker.
+* `onSelectDate` -> `XUIDatePicker`: This function should call `DropDownToggled.closeDropDown` manually close the dropdown when appropriate.
 
 ### DropDown with Text Input Trigger
 
-It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customizations by default.
-
-By default, `DropDown` handles keyboard events for you because focus is actually placed on the `DropDown`'s DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
+It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customisations by default.
 
 ```
 require('array.prototype.find').shim();
@@ -196,12 +344,11 @@ class InputTriggerExample extends Component {
 <InputTriggerExample />
 ```
 
-The above example illustrates how several props can be used to achieve your desired UX.
+#### Props required for this behaviour
 
-**`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.**  By default, we toggle the dropdown's open state, but you can turn this off with "none" or use "open" to always open.
-
-**If you want the focus to remain on the trigger once the dropdown is open**, you have to set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure that focus does not shift to the dropdown.
-
-**However, the combination of setting those props means that the dropdown no longer automatically opens.**  If you choose to go this route, you'll now need to manually open the dropdown by calling the `DropDownToggled.openDropDown` API.  The example above just does it on any keypress in the input, but this is not required, and the dropdown can be opened at any time.
-
-**While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.** The `DropDown.onKeyDown` is in public API for this reason.  Simply pass the keydown event to `DropDown` and all normal keyboard handlers will take effect without moving focus from your trigger node. Calling the public API is the equivalent of simulating a keydown event on the `DropDown`, so you get the same behaviour as if the keydown did happen on the `DropDown`.
+* `triggerClickAction="none"/"open"` -> `DropDownToggled`: By default trigger clicks will toggle open state. When using with an input, click should only open the dropdown or do nothing.
+* `hasKeyboardEvents=false` -> `DropDown`: Required to keep focus on the input while typing.
+* `restrictFocus=false` -> `DropDown`: Required to keep focus on the input while typing.
+* `inputAttributes.onKeyDown=function` -> `XUIInput`:
+  * If `triggerClickAction="none"`, you should open the dropdown here by calling `DropDownToggled.openDropDown`.
+  * `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.

@@ -5,7 +5,7 @@
 	</div>
 </div>
 
-A Switch uses an HTML checkbox under the hood and can be styled just as other control components.
+`XUISwitch` uses an HTML checkbox under the hood and can be styled just as other control components.
 
 ## Example
 

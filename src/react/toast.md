@@ -11,7 +11,7 @@
 
 ### Default Layout
 
-Standard toasts are given a layout class by default and with no actionale buttons. The close button is only added when a `onCloseClick` callback prop is added.
+`XUIToast` is given a layout class by default with no actionable buttons. The close button is only added when a `onCloseClick` callback prop is added.
 
 ```
 const onToastClose = () => {alert( 'Standard toast closed' )};
@@ -28,7 +28,7 @@ const onToastClose = () => {alert( 'Standard toast closed' )};
 
 ### Toast Positioning
 
-Use `<XUIToastWrapper />` to position toast components at the bottom-left corner of the screen. This component will ensure consistent positioning if toast positioning changes in the future.
+Use `XUIToastWrapper` to position toast components at the bottom-left corner of the screen. This component will ensure consistent positioning if toast positioning changes in the future.
 
 ```jsx
 const NOOP = () => {};

@@ -1,6 +1,6 @@
-Autocompleter is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
+`Autocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 
-Refer to the following sections of the XUI Documentation for more information about the components that make up an Autocompleter.
+Refer to the following sections of the XUI Documentation for more information about the components that make up an `Autocompleter`.
 
 <div class="xui-margin-vertical">
 	<div>
@@ -25,7 +25,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ### Standard
 
-The autocompleter can be passed a list of `pills` to display to the left of the input. These should all have the `xui-autocompleter--pill` class applied to receive the correct padding. It also provides a configurable empty state for when no search results are returned.
+`Autocompleter` can be passed a array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `Autocompleter` also provides a configurable empty state for when no search results are returned.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
@@ -175,7 +175,7 @@ class DetailedListExample extends Component {
 
 ### Disable Wrapping Pills
 
-By default the pills and search bar will wrap inside the autocompleter input container. To disable this, set the prop `disableWrapPills` to true.
+By default the pills and search bar will wrap inside the `Autocompleter` input container. To disable this, set `disableWrapPills` to true.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');

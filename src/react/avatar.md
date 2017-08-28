@@ -7,11 +7,9 @@
 
 Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.
 
-XUI provides ten approved colors for Avatars.
-The Avatar component handles selecting a color for you based on its contents, as well as calculating the abbreviated text value from the full value you pass it.
+XUI provides ten approved colors for Avatars. `XUIAvatar` handles selecting a color for you based on its contents, and calculating the abbreviated text value from the full value you pass it.
 
-Avatars can be grouped together using the `<XUIAvatarGroup>` component.
-
+`XUIAvatar`s can be grouped together using `XUIAvatarGroup`.
 
 ## Examples
 
@@ -41,7 +39,7 @@ Although the CSS will attempt to scale the image to fit, as best practice we rec
 	imageUrl="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
 ```
 
-If the image supplied to the avatar fails to load, the default avatar will be displayed as a fallback. If you need to handle other behaviour, you can also provide an `onError` handler.
+If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback. If you need to handle other behaviour, you can also provide an `onError` handler.
 
 ```
 const { Component } = require ('react');
@@ -80,7 +78,7 @@ class XUIAvatarWithErrorHandler extends Component {
 
 ### Colours
 
-The colour of an Avatar is determined by the contents of either the `value` or `identifier` props. It is recommended that you provide an `identifier` key so that a unique attribute of the entity determines the colour – different entities with the same value (e.g. name) should have different colours.
+The colour of `XUIAvatar` is determined by the contents of either the `value` or `identifier` props. It is recommended that you provide an `identifier` key so that a unique attribute of the entity determines the colour – different entities with the same value (e.g. name) should have different colours.
 
 ```
 <div>
@@ -95,7 +93,7 @@ The colour of an Avatar is determined by the contents of either the `value` or `
 
 ### Sizes
 
-The `size` prop is an enum. The default value is "medium".
+The `size` prop is an enum. The default value is `"medium"`.
 
 ```
 // Try changing 'size' in this example to 'large' or 'small'.

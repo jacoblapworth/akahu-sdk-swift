@@ -7,8 +7,9 @@
 
 ## Examples
 
-Whatever you put between the start and end tags of the button will appear as the content of the button.
-You can give it a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
+Whatever you put between the start and end tags of `XUIButton` will appear as the contents.
+
+You can give `XUIButton` a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
 
 ```
 	function handleClick() { alert('You clicked the button!'); }
@@ -17,7 +18,7 @@ You can give it a click handler to perform actions when the button is triggered,
 
 ### Variants
 
-Different styles of button are provided for by passing different `variants`.
+Different styles of button are available by passing different values to the `variant` prop.
 
 ```
 	<div>

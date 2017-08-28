@@ -1,8 +1,8 @@
-The DropDown's API had to have default behavior, and the Picklist use case was chosen to be that default. However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
+`DropDown`'s API had to have default behaviour, and the `Picklist` use case was chosen to be that default. However, the API is very configurable to allow consumers to handle almost any use case.  These are some examples of relatively common use cases.
 
-### DropDown with DatePicker
+### Dropdown with a date picker
 
-While the `<DropDown />` API is optimized for the `<Picklist />` use case, it can contain any element.
+While `DropDown`'s API is optimised for the `Picklist` use case, it can contain any element.
 
 ```
 const Pickitem = require('../picklist/Pickitem').default;
@@ -73,19 +73,19 @@ class SimpleDropDownDatePicker extends React.Component {
 
 Since this example is no longer using the dropdown for the optimized use case, there are certain user interactions that need to be handled manually.
 
-**First, the `restrictToViewPort` prop of `<DropDownToggled />` is set to `false`** to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This does mean that the date picker might hang off the edge of the screen or slightly cover the button, but this is prerrable to having to scroll inside of the dropdown.
+**First, the `restrictToViewPort` prop of `DropDownToggled` is set to `false`** to ensure that the user is never required to scroll the contents of the date picker.  Scrolling is fine for lists, but scrolling a date picker is a cumbersome user experience.  This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
 
-**The `<DropDown />` component is also not able to focus the datepicker automatically.**  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `<DropDown />` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `<DropDownToggled />` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
+**The `DropDown` component is also not able to focus the datepicker automatically.**  Since the date picker has to receive focus in order to handle keyboard events, it's essential that focus is moved. To accomplish this, call `XUIDatePicker.focus` once the `DropDown` is positioned and visible by passing it as a callback to the `onOpenAnimationEnd` prop of `DropDownToggled` instead of the `onOpen` prop.  `onOpen` is called as soon as the user takes an action to open the dropdown, so the date picker isn't able to receive focus yet.
 
-**Keyboard users also need to use the tab key to navigate** to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
+**Keyboard users also need to use the tab key to navigate** to the next/previous month buttons or the selects controlling the month and year.  However, the dropdown will close when the user hits the tab key by default.  To prevent this, set the `closeOnTab` prop to false on `DropDownToggled`.
 
 **Lastly, the dropdown must be manually closed when the user has selected a date.**  The `XUIDatePicker.onSelectDate` callback is used to set state and call `DropDownToggled.closeDropDown`.
 
 ### DropDown with Text Input Trigger
 
-It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case.  It handles theses customizations by default.
+It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customizations by default.
 
-By default, the DropDown handles keyboard events for you because focus is actually placed on the DropDown's DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
+By default, `DropDown` handles keyboard events for you because focus is actually placed on the `DropDown`'s DOM node.  In many situations, that may not be desirable.  One common use case is where the trigger is actually a text input, since the user generally wants to be able to type in the text box.
 
 ```
 require('array.prototype.find').shim();
@@ -204,4 +204,4 @@ The above example illustrates how several props can be used to achieve your desi
 
 **However, the combination of setting those props means that the dropdown no longer automatically opens.**  If you choose to go this route, you'll now need to manually open the dropdown by calling the `DropDownToggled.openDropDown` API.  The example above just does it on any keypress in the input, but this is not required, and the dropdown can be opened at any time.
 
-**While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.** The `DropDown.onKeyDown` API is a public API for this very reason.  Simply pass the keydown event to the DropDown and all normal keyboard handlers will take effect without moving focus from your trigger node.  Calling the public API is the equivalent of simulating a keydown event on the DropDown, so you get the same behavior as if the keydown did happen on the dropdown.
+**While this opens the dropdown, the arrow keys, escape key, etc no longer allow the user to navigate the dropdown.** The `DropDown.onKeyDown` is in public API for this reason.  Simply pass the keydown event to `DropDown` and all normal keyboard handlers will take effect without moving focus from your trigger node. Calling the public API is the equivalent of simulating a keydown event on the `DropDown`, so you get the same behaviour as if the keydown did happen on the `DropDown`.

@@ -7,11 +7,9 @@
 
 Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.
 
-The XUI Radio supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
+The `XUIRadio` supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
 
-XUI Radio can be used as a controlled component by providing the `isChecked` property.
-It can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `defaultValue` property.
-
+`XUIRadio` can be used as a controlled component by providing the `isChecked` property. Alternatively, it can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `defaultValue` property.
 
 ## Examples
 
@@ -41,9 +39,9 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 
 ### Custom Icons
 
-Because the Radio component uses [`Icon`](#icon) to style the presentation of the element, you can overwrite the paths that the radio uses.
+Because `XUIRadio` uses [`XUIIcon`](#icon) to style the presentation of the element, you can overwrite the paths that the radio uses.
 
- `iconMainPath` is the path for the Radio outline; `iconCheckPath` is the indicator that the radio is selected.
+`iconMainPath` is the path for the Radio outline; `iconCheckPath` is the indicator that the radio is selected.
 
 ```
 const customMainIcon = require ('@xero/xui-icon/icons/star').default;

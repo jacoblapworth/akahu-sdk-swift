@@ -5,7 +5,7 @@
 	</div>
 </div>
 
-Pills are used for signifying a selection has been made, either single or multiple, and may include the option to remove the selection with a delete button. To see pills used in context, refer to the [Autocompleter section](#autocompleter).
+Pills are used for signifying a selection has been made, either single or multiple, and may include the option to remove the selection with a delete button. To see pills used in context, refer to the [`Autocompleter` section](#autocompleter).
 
 ## Examples
 

@@ -29,27 +29,6 @@
 //
 // Styleguide: Toast.10
 
-// Deprecated CSS Classes
-//
-// <img src="https://img.shields.io/badge/Deprecated%20in-10.22.0-%23f6534e.svg" />
-// <img src="https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg" />
-//
-// Classes:
-// xui-toast-wrapper: Container for a group of toasts - use `xui-toastwrapper` instead.
-// xui-toast-list: Bulleted list toasts
-//
-// Styleguide: Toast.11
-
-// Additional Deprecations
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-11.0.2-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// Classes:
-// xui-toast--link: Styling for toast link. Use `xui-button-borderless-main` and `xui-button-small`
-//
-// Styleguide: Toast.11.1
-
 .#{$ns}-toast {
 	@include xui-clearfix;
 	@include xui-box-shadow-border($xui-shadow-depth-lift);
@@ -80,7 +59,7 @@
 		}
 
 		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-			max-width: calc(100% - 80px);
+			max-width: calc(100% - 50px);
 		}
 	}
 
@@ -96,14 +75,6 @@
 
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
 		max-width: 320px;
-	}
-}
-
-@include xui-breakpoint-narrow {
-	.#{$ns}-toast-layout {
-		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-			max-width: calc(100% - 50px);
-		}
 	}
 }
 
@@ -272,11 +243,6 @@
 .#{$ns}-toast--close,
 .#{$ns}-toast--actions {
 	float: right;
-}
-
-.#{$ns}-toast--action {
-	display: inline-block;
-	font-weight: bold;
 }
 
 .#{$ns}-toast-is-hidden {

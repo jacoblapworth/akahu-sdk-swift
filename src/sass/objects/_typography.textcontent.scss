@@ -59,9 +59,6 @@
 
 	h2 {
 		@include xui-text-spacing-tight;
-		@include xui-text-emphasis;
-		@include xui-text-line-height-tight;
-		@include xui-text-proportional-nums;
 		@include xui-heading-large;
 	}
 
@@ -74,9 +71,11 @@
 	}
 
 	h5 {
-		@include xui-heading-small;
+		@include xui-text-line-height-compact;
 		@include xui-text-muted;
 		@include xui-text-deemphasis;
+
+		font-size: $xui-font-size-medium;
 	}
 
 	h6 {

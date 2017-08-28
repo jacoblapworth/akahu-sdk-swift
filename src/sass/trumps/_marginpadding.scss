@@ -16,9 +16,6 @@
 //
 // Apply one or more of the margin classes to acheive the desired layout.
 //
-// Note that the generic `xui-margin-none` class sets `margin: 0 !important;` so it is not possible to use it as a reset and then
-// apply other margins on top. Instead, use specific classes like `margin-bottom-none`.
-//
 // Be careful when using top margins as there are unintuitive rules around when
 // [collapsing margins kick in](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).
 // We recommend applying margins on the bottom, or using padding instead.

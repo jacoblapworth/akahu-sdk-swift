@@ -17,7 +17,9 @@
 // Styleguide: Forms
 
 %#{$ns}-commoninput {
-	@include xui-state-focus;
+	@include xui-state-focus {
+		z-index: 2;
+	}
 	@include xui-text-line-height; // 1.5
 	appearance: none; // For removing drop-shadow on iOS and select arrows in Firefox
 	background-color: $xui-color-white;
@@ -36,10 +38,6 @@
 
 	&:hover {
 		border-color: $xui-color-grey-alpha-3;
-	}
-
-	&:focus {
-		z-index: 2;
 	}
 
 	&:disabled {

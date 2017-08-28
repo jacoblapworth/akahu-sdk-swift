@@ -200,14 +200,7 @@ class NestedExample extends Component {
 <NestedExample />
 ```
 
-As you can see, this is more involved than the other dropdowns.  This is due to **handling state for switching between two different experiences inside of the same dropdown: A custom Picklist and a DatePicker.**  Each experience is wrapped in a `DropDownPanel` and both panels are wrapped in a `NestedDropDown` instead of a `DropDown`.  Each panel gets a `panelId`, the currently active panel's ID gets passed to the nested dropdown, and the implementing class keeps track of the currently active panel in state.
-
-**Note that the datepicker panel also has a `DropDownHeader`.**  While this isn't required, it's useful for telling the user where they are in the workflow while providing a way to go back a step. The header's back button becomes visible when you pass a callback to `onBackButtonClick` in `DropDownHeader`. In this case, the active panel is just switched back to the picklist panel.
-
-Just like the `DropDown`, **the `NestedDropDown` is also optimised for the `Picklist`s**.  This means some behaviour will have to be either overridden or conditionally disabled through props and API calls.
-
-**Since some items in the `Picklist` will result in the active panel switching**, pass in `closeOnSelect={false}` to prevent the dropdown from closing when the user selects "Custom Date", then manually call the `DropDownToggled.closeDropDown` API inside of the `onSelect` callback when appropriate.
-
-When `Picklist` is shown, default behaviour like closing the dropdown when the user hits the tab key, or restricting the dimensions of the dropdown so that its contents scroll instead of dropping off the screen are desirable. However, these experiences are undesirable when displaying a datepicker. **That's why these behaviours are turned off by default when the datepicker panel is visible.**
-
-Lastly, when the **datepicker panel becomes active, we need to ensure that the datepicker has focus** so that keyboard users can actually select a date.  Since it's not possible set focus onto the DOM node until it's visible, the `focusDatePicker` method is passed to the `NestedDropDown.onPanelChange` callback.  It will fire after the panel has already switched, so the components and DOM nodes will actually be rendered and visible at this point.
+* Each panel must be wrapped in a `DropDownPanel` and passed as children to `NestedDropDown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `NestedDropDown` via the `currentPanel` prop.
+* Navigation to previous steps should be handled in the `onBackButtonClick` callback in `DropDownHeader`. `DropDownHeader` should be passed into `DropDownPanel` for panels that require one.
+* `closeOnSelect={false}` should be set on `DropDownToggled` to prevent closing on `Pickitem` selection. `DropDownToggled.closeDropDown` should then be called in the `onSelect` callback when appropriate.
+* `XUIDatePicker` should be given focus explicitly. `XUIDatePicker.focusDatePicker` should be called in `NestedDropDown.onPanelChange` when the datepicker panel becomes active.

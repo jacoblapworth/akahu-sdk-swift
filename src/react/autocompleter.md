@@ -113,13 +113,12 @@ class DetailedListExample extends Component {
 			people,
 			selectedPeople
 		} = example.state;
-		const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return noResults;
+			return <EmptyState id="no_people">No People Found</EmptyState>;
 		}
 
-		return people.map(item => (
+		const items = people.map(item => (
 			<Pickitem
 				key={item.id}
 				id={item.id}
@@ -138,6 +137,10 @@ class DetailedListExample extends Component {
 				</div>
 			</Pickitem>
 		));
+		
+		return (
+			<Picklist>{items}</Picklist>
+		);
 	}
 
 	render(){
@@ -162,9 +165,7 @@ class DetailedListExample extends Component {
 						)
 					}
 				>
-					<Picklist>
-						{example.getItems()}
-					</Picklist>
+					{example.getItems()}
 				</Autocompleter>
 		)
 	}
@@ -263,13 +264,12 @@ class DetailedListExample extends Component {
 			people,
 			selectedPeople
 		} = example.state;
-		const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return noResults;
+			return <EmptyState id="no_people">No People Found</EmptyState>;
 		}
 
-		return people.map(item => (
+		const items = people.map(item => (
 			<Pickitem
 				key={item.id}
 				id={item.id}
@@ -288,6 +288,10 @@ class DetailedListExample extends Component {
 				</div>
 			</Pickitem>
 		));
+		
+		return (
+			<Picklist>{items}</Picklist>
+		);
 	}
 
 	render(){
@@ -314,9 +318,7 @@ class DetailedListExample extends Component {
 						)
 					}
 				>
-					<Picklist>
-						{example.getItems()}
-					</Picklist>
+					{example.getItems()}
 				</Autocompleter>
 		)
 	}

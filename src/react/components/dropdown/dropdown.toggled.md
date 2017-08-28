@@ -1,8 +1,161 @@
-By default the Picklist determines the default behaviour of the Dropdown API.
+At the heart of all of our Dropdown implementations is `DropDownToggled`. It connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, but `DropDown` itself will render as an immediate child of the body no matter where it is in the React virtual DOM. Because of this, `DropDownToggled` is required to assist with positioning and interaction between the two components.
 
-The `DropDown` component is built to provide required functionality by default when used with a Picklist. However, it is very configurable for use with other child components. Below are some examples of common use cases to demonstrate this.
+## Basic Use Cases
 
-### DropDown with DatePicker
+### Using with `Picklist`
+
+If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have a `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
+
+```
+const Pickitem = require('../picklist/Pickitem').default;
+const DropDownToggled = require('./DropDownToggled').default;
+const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+const { Component } = require ('react');
+
+function createItems(items, selectedId) {
+	if (Array.isArray(items)) {
+		return items.map(i => createItems(i, selectedId));
+	}
+	return React.createElement(Pickitem, {
+		...items.props,
+		value: items.props.id,
+		key: items.props.id,
+		isSelected: isSelected(items, selectedId),
+	}, items.text);
+}
+
+const toggledItems = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
+	return { props: { id }, text };
+});
+
+class ToggledDropDown extends Component {
+	constructor() {
+		super();
+		this.state = {
+			selectedId: null,
+		};
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onSelect(value) {
+		this.setState({
+			selectedId: value,
+		});
+	}
+
+	render() {
+		const trigger = (
+			<XUIButton>
+				{this.state.selectedId ? toggledItems[this.state.selectedId].text : 'Trigger Button'}
+				<XUIButtonCaret />
+			</XUIButton>
+		);
+		const dropdown = (
+			<DropDown onSelect={this.onSelect}>
+				<Picklist>
+					{createItems(toggledItems, this.state.selectedId)}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				className="exampleClass"
+				onOpen={() => console.log('user wants to open the dropdown')}
+				trigger={trigger}
+				dropdown={dropdown}
+			/>
+		);
+	}
+}
+<ToggledDropDown />
+```
+
+### Multiselect `Picklist`
+
+```
+const { Component } = require('react');
+const DropDownToggled = require('./DropDownToggled').default;
+const Pickitem = require('../picklist/Pickitem').default;
+const items = [
+	{ id: 'a', text: 'First' },
+	{ id: 'b', text: 'Second' },
+	{ id: 'c', text: 'Third' },
+	{ id: 'd', text: 'Fourth' },
+];
+
+class MultiselectExample extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			selected: {
+				a: false,
+				b: false,
+				c: false,
+				d: false,
+			},
+		};
+
+		this.onSelect = this.onSelect.bind(this);
+	}
+
+	onSelect(value) {
+		this.setState(state => ({
+			selected: {
+				...state.selected,
+				[value]: !state.selected[value],
+			},
+		}));
+	}
+
+	render() {
+		const { selected } = this.state;
+		const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
+		const trigger = (
+			<XUIButton>
+				{selectedItems.length == 0 ? 'Select Items' : selectedItems.join(', ')}
+				<XUIButtonCaret />
+			</XUIButton>
+		)
+		const dropdown = (
+			<DropDown onSelect={this.onSelect}>
+				<Picklist>
+					{items.map(item => (
+						<Pickitem
+							key={item.id}
+							id={item.id}
+							value={item.id}
+							isSelected={selected[item.id]}
+							multiselect
+						>
+							{item.text} Option
+						</Pickitem>
+					))}
+				</Picklist>
+			</DropDown>
+		);
+		return (
+			<DropDownToggled
+				trigger={trigger}
+				dropdown={dropdown}
+				closeOnSelect={false}
+			/>
+		);
+	}
+}
+<MultiselectExample />
+```
+
+#### Props required for this behaviour
+
+* `closeOnSelect=false` -> `DropDownToggled`: Allows user to select multiple items without the dropdown closing
+* `multiselect=true` -> `Pickitem`: Renders the `Pickitem` as a checkbox
+
+## Complex examples
+
+Although using `DropDown` with `Picklist` provides the default behaviour, the API is configurable enough to handle almost any content.
+
+### Dropdown with a date picker
 
 ```
 const Pickitem = require('../picklist/Pickitem').default;
@@ -72,19 +225,16 @@ class SimpleDropDownDatePicker extends React.Component {
 ```
 As mentioned, the above example is not using dropdown with its optimised use case so we need to manually handle some interactions. See the key points below for more details.
 
- - Set the `restrictToViewPort` to `false` on the DropDownToggled component to disable scrolling on the datepicker's panel. Enabled by default for lists, this isn't desirable for a datepicker. Instead it should be the full width and height of the datepicker. This might cause it to hang off the edge of the screen or cover the button but this is preferable to having the scroll inside the dropdown.
+#### Props required for this behaviour
 
-- **The `DropDown` component isn't able to focus the datepicker automatically**. It first has to receive focus to handle keyboard events. Using the `onAnimationEnd` prop of `DropDownToggled`, we can call `XUIDatePicker.focus` knowing it's in position and visible, unlike the `onOpen` prop. This method fires immediately after the user opens the dropdown. At this moment we can't be sure the datepicker is completely rendered.
-
-- **Keyboard users need to use the tab key to navigate** to the next/previous month buttons or year buttons. By default the dropdown will close when the user hits the tab key by default. To prevent this, set the `closeOnTab` prop to false on `<DropDownToggled />`.
-
-- **The dropdown must be manually closed when the user has selected a date**. The `XUIDatePicker.onSelectDate` callback will set state and call `DropDownToggled.closeDropDown`.
+* `restrictToViewPort=false` -> `DropDownToggled`: Ensure that the user is never required to scroll the contents of the date picker. Scrolling is fine for lists. But scrolling a date picker is a bad user experience. This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
+* `closeOnTab=false` -> `DropDownToggled`: Enables user to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.
+* `onOpenAnimationEnd=function` -> `DropDownToggled`: This function should call `XUIDatePicker.focus` as focus is required to enable keyboard navigation on the datepicker.
+* `onSelectDate` -> `XUIDatePicker`: This function should call `DropDownToggled.closeDropDown` manually close the dropdown when appropriate.
 
 ### DropDown with Text Input Trigger
 
-It is highly recommended that you use the [Autocompleter](#autocompleter) to implement this pattern if it fits your use case. It handles theses customisations by default.
-
-The DropDown handles keyboard events for you because focus is placed on the DropDown's DOM node. This may not be desirable for all situations. One common scenario is when the trigger is a text input, the user wants to type in the text box. For this, keyboard events should be disabled and manually handled in the component.
+It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case.  It handles these customisations by default.
 
 ```
 require('array.prototype.find').shim();
@@ -195,13 +345,11 @@ class InputTriggerExample extends Component {
 <InputTriggerExample />
 ```
 
-The above example illustrates how to use several props to achieve your desired UX. We'll cover these in more detail below.
+#### Props required for this behaviour
 
-- **`DropDownToggled.triggerClickAction` determines what happens when the user clicks on the trigger.**  By default, we toggle the dropdown's open state. You can turn this off with "none" or use "open" to always open.
-
-- **For the focus to remain on the trigger when the dropdown is open**. Set the `DropDown.hasKeyboardEvents` and `DropDown.restrictFocus` props to `false` to ensure focus doesn't shift to the dropdown.
-
-- The combination of setting those props means the **dropdown no longer automatically open**. To handle this, call the `DropDownToggled.openDropDown` method to open it. The example above does it on any keypress inside the input, but this is not required, the dropdown can open at any time.
-
-- This combination also means **the arrow keys, escape key, etc no longer allow the user to navigate the dropdown**.
-The public API `DropDown.onKeyDown` takes the keydown event, enabling all the normal keyboard handlers. You do not need to move focus from the trigger node to do this. Calling this public API method is comparable to simulating a keydown event on the dropdown. It provides the same behaviour as if the keydown did happen on the dropdown.
+* `triggerClickAction="none"/"open"` -> `DropDownToggled`: By default trigger clicks will toggle open state. When using with an input, click should only open the dropdown or do nothing.
+* `hasKeyboardEvents=false` -> `DropDown`: Required to keep focus on the input while typing.
+* `restrictFocus=false` -> `DropDown`: Required to keep focus on the input while typing.
+* `inputAttributes.onKeyDown=function` -> `XUIInput`:
+  * If `triggerClickAction="none"`, you should open the dropdown here by calling `DropDownToggled.openDropDown`.
+  * `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.

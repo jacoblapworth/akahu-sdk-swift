@@ -5,13 +5,13 @@
 	</div>
 </div>
 
-TextArea is an enhanced version of the HTML `<textarea />` element. It supports auto grow, fixed row height and validation styling.
+`XUITextArea` is an enhanced version of the HTML `<textarea />` element. It supports auto grow, fixed row height and validation styling.
 
 ## Examples
 
 ### Min/Max Rows
 
-Adding the `minRows` and/or `maxRows` props will enable the `TextArea` to automatically resize as users type into them.
+Adding the `minRows` and/or `maxRows` props will enable `XUITextArea` to automatically resize as users type into them.
 
 ```
 <XUITextArea
@@ -35,7 +35,7 @@ Alternatively, a fixed height can be set using the `rows` prop.
 ```
 ### Character Limit
 
-A character limit counter can be added to the `TextArea` by passing a number to the `maxCharacters` prop. The input text will not be truncated if the character limit is exceeded. Instead, the character counter will go into negative values, and the `TextArea` will be rendered as invalid.
+A character limit counter can be added to `XUITextArea` by passing a number to the `maxCharacters` prop. The input text will not be truncated if the character limit is exceeded. Instead, the character counter will go into negative values, and `XUITextArea` will be rendered as invalid.
 
 ```
 <XUITextArea
@@ -60,7 +60,7 @@ Validation errors can be shown by passing in the `isInvalid` and `validationMess
 ```
 ### Disabled
 
-A `TextArea` can be rendered as disabled by passing in the `isDisabled` prop.
+A `XUITextArea` can be rendered as disabled by passing in the `isDisabled` prop.
 
 ```
 <XUITextArea

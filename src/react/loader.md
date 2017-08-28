@@ -9,7 +9,7 @@
 
 ### Default Layout
 
-By default, the Loader component is given a layout class. This is good for putting in large empty states like panels while loading data.
+`XUILoader` is given a layout class by default. This is good for putting in large empty states, like panels, while loading data.
 
 We recommend using the `label` prop to provide information to screen readers.
 

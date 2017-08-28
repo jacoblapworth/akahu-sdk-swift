@@ -167,7 +167,7 @@
 
 .#{$ns}-banner-positive::before {
 	@include xui-highlight-left($xui-radius, true);
-	background: $xui-color-xero-light-green;
+	background: $xui-color-xero-green;
 }
 
 .#{$ns}-banner-negative::before {

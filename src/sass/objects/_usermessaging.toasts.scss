@@ -46,6 +46,16 @@
 	}
 }
 
+.#{$ns}-toast-positive::before {
+	@include xui-highlight-left($xui-radius, true);
+	background: $xui-color-xero-green;
+}
+
+.#{$ns}-toast-negative::before {
+	@include xui-highlight-left($xui-radius, true);
+	background: $xui-color-xero-red;
+}
+
 .#{$ns}-toast-layout {
 	@include xui-margin($xui-s-large);
 	@include xui-padding($xui-s-small);

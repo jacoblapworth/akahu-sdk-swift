@@ -5,12 +5,9 @@
 	</div>
 </div>
 
-A set of components  to create a list of items otherwise known in XUI as a Picklist. The `Picklist` and `Pickitems` are presentational components with a `StatefulPicklist` wrapper available to handle keyboard navigation on its children.
+## What is a Picklist?
 
-### Is this just a Menu and MenuItems?
-A menu is often in the context of a dropdown or navigational menu so to avoid that assumption
-we've named this picklist, a list of things you can pick from. It's commonly used in the context of a sidebar,
-navigation, filtering and dropdown.
+A set of components that brings in the XUI styles to render a list of items. `Picklist` and `Pickitems` are presentational components, and `StatefulPicklist` is a wrapper available to handle keyboard navigation.
 
 ## Examples
 

@@ -5,14 +5,13 @@
 	</div>
 </div>
 
-Toggles are a control that can behave like a radio, or like a checkbox. They support different layout patterns for a variety of use cases.
-
+`XUIToggle` is a control that can behave like a radio, or like a checkbox. It supports different layout patterns for a variety of use cases.
 
 ## Examples
 
 ### Checkboxes or Radios
 
-Use the `type` prop to specify whether the `ToggleOption`s should behave like checkboxes or like radios.
+Use the `type` prop on `XUIToggleOption`s to specify whether they should behave like checkboxes or like radios.
 
 ```
 const checkboxToggle = {
@@ -46,7 +45,9 @@ const radioToggle = {
 </div>
 ```
 
-Toggles can also be used with icons:
+### Icon Toggles
+
+To create `XUIToggleOption`s that only contain icons, `icon` should be passed to the `layout` prop on `XUIToggle`.
 
 ```
 const bold = require('@xero/xui-icon/icons/bold').default
@@ -72,7 +73,7 @@ const iconToggle = {
 
 ### Inverted Color
 
-To use a Toggle from within content that has the class `xui-text-inverted` providing inverted colors, use `color=inverted`.
+To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s `color` prop.
 
 ```
 const checkboxToggle = {
@@ -93,7 +94,7 @@ const checkboxToggle = {
 
 ### Other Supported Layouts
 
-We recommend using the `form` layout when there is a toggle inside a form. This provides vertical padding, line height and full width styles. The `fullwidth` layout will allow children to fill the space made available to the Toggle. It's worth noting this layout will only provide full width styles and not the padding and line height settings as the `form` layout does.
+When using `XUIToggle` with text content, it's recommended to use the `form` layout.
 
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 

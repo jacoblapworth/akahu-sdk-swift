@@ -35,25 +35,25 @@ export default class DropDownHeader extends PureComponent {
 			{ 'xui-u-hidden-mobile-up': onlyShowForMobile }
 		);
 
-		const backButton = onBackButtonClick &&
+		const backButton = onBackButtonClick ?
 			<XUIButton
 				variant="icon"
 				className="xui-button-icon-large xui-u-flex-none"
 				onClick={onBackButtonClick}
 			>
 				<XUIIcon path={back} />
-			</XUIButton>;
+			</XUIButton> : null;
 
-		const secondaryButton = onSecondaryButtonClick != null &&
+		const secondaryButton = onSecondaryButtonClick ?
 			<XUIButton
 				size="small"
 				onClick={onSecondaryButtonClick}
 				isDisabled={isSecondaryButtonDisabled}
 			>
 				{secondaryButtonContent}
-			</XUIButton>;
+			</XUIButton> : null;
 
-		const primaryButton = onPrimaryButtonClick != null &&
+		const primaryButton = onPrimaryButtonClick ?
 			<XUIButton
 				className={cn({'xui-margin-left-small': secondaryButtonContent})}
 				size="small"
@@ -62,24 +62,39 @@ export default class DropDownHeader extends PureComponent {
 				isDisabled={isPrimaryButtonDisabled}
 			>
 				{primaryButtonContent}
-			</XUIButton>;
+			</XUIButton> : null;
+
+		const leftHeader = (backButton || title) ?
+			(
+				<div className="xui-dropdown--header-leftcontent">
+					{backButton}
+					<div className="xui-heading-small xui-margin-left-small xui-text-truncated">
+						{title}
+					</div>
+				</div>
+			) : null;
+
+		const rightHeader = (secondaryButton || primaryButton) ?
+			(
+				<div className="xui-dropdown--header-rightcontent">
+					<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+						{secondaryButton}
+						{primaryButton}
+					</div>
+				</div>
+			) : null;
+
+		const header = (leftHeader || rightHeader) ?
+			(
+				<div className={headerClasses}>
+					{leftHeader}
+					{rightHeader}
+				</div>
+			) : null;
 
 		return (
 			<div ref={h => this.rootNode = h} className={classes}>
-				<div className={headerClasses}>
-					<div className="xui-dropdown--header-leftcontent">
-						{backButton}
-						<div className="xui-heading-small xui-margin-left-small xui-text-truncated">
-							{title}
-						</div>
-					</div>
-					<div className="xui-dropdown--header-rightcontent">
-						<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
-							{secondaryButton}
-							{primaryButton}
-						</div>
-					</div>
-				</div>
+				{header}
 				{Children.map(children, child => (
 					<div className="xui-dropdown--header-container">
 						{child}

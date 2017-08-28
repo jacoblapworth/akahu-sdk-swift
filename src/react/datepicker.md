@@ -5,7 +5,7 @@
 	</div>
 </div>
 
-For information about what to consider when using a `Datepicker` within a `Dropdown` component, check the [DropDown documentation](#dropdown).
+For information about what to consider when using a `XUIDatePicker` within a `DropDown` component, check the [DropDown documentation](#dropdown).
 
 **Note:** This component is a wrapper around the [OSS component, `react-day-picker`](http://react-day-picker.js.org/)
 
@@ -13,7 +13,7 @@ For information about what to consider when using a `Datepicker` within a `Dropd
 
 ### Standard
 
-To build a standard Datepicker, you should record the selected date in state by using the required `onSelectDate` callback. This prop will pass in the new selected date that can be recorded.
+To use a standard `XUIDatePicker`, you should use the `onSelectDate` callback to update state in your application. This callback will receive the new selected date as a parameter.
 
 ```
    const XUIDatePicker = require('./datepicker').default;
@@ -54,9 +54,10 @@ To build a standard Datepicker, you should record the selected date in state by 
    	<ExamplePicker />
    </div>
 ```
+
 ### Date Ranges
 
-Allows you to select between one date and another. Simply set the `selectRange` prop to true and store the selected range in state for the `selectRange` prop.
+To enable date range selection, you should set `selectRange` to true, handle the date selection in `onSelectDate`, and pass the selected range to `XUIDatePicker` using the `selectedRange` prop.
 
 ```
  const XUIDatePicker = require('./datepicker').default;
@@ -74,7 +75,7 @@ Allows you to select between one date and another. Simply set the `selectRange` 
 		 super();
 
 		 this.state = {
-			 selectedDate: null,
+			 selectedRange: null,
 		 };
 
 		 this.onSelectDate = this.onSelectDate.bind(this);
@@ -82,17 +83,17 @@ Allows you to select between one date and another. Simply set the `selectRange` 
 
 	 onSelectDate(newDate){
 		this.setState(prevState => {
-			const { selectedDate } = prevState;
-			if (selectedDate && selectedDate.from && !selectedDate.to) {
+			const { selectedRange } = prevState;
+			if (selectedRange && selectedRange.from && !selectedRange.to) {
 				return {
-					selectedDate: {
-						from: minDate(selectedDate.from, newDate),
-						to: maxDate(selectedDate.from, newDate),
+					selectedRange: {
+						from: minDate(selectedRange.from, newDate),
+						to: maxDate(selectedRange.from, newDate),
 					},
 				};
 			}
 			return {
-				selectedDate: {
+				selectedRange: {
 					from: newDate,
 					to: null,
 				},
@@ -104,7 +105,7 @@ Allows you to select between one date and another. Simply set the `selectRange` 
 		 return (
 			<XUIDatePicker
 				onSelectDate={this.onSelectDate}
-				selectedRange={this.state.selectedDate}
+				selectedRange={this.state.selectedRange}
 				selectRange
 			/>
 		 );
@@ -116,9 +117,9 @@ Allows you to select between one date and another. Simply set the `selectRange` 
  </div>
  ```
 
- ### Disabled Dates
+### Disabled Dates
 
-Setting disabled date ranges requires a callback on the `isDateDisabled` prop. It should determine if the date selected is within an allowable range. Below is an example of disabled dates a week either side of today's date.
+To disable selection of certain dates, pass a callback to `isDateDisabled`. It should take a date as an argument and return true if it's disabled. Below is an example that only allows the selection of dates within a week of today's date.
 
  ```
 	const XUIDatePicker = require('./datepicker').default;
@@ -166,9 +167,9 @@ Setting disabled date ranges requires a callback on the `isDateDisabled` prop. I
 	</div>
 ```
 
- ### Compact
+### Compact
 
-A slimmer version designed to work inside a small sized dropdown for a compact look.
+This view slims down some of the padding to allow for a smaller view when needed.
 
 ```
 	const XUIDatePicker = require('./datepicker').default;
@@ -205,7 +206,7 @@ A slimmer version designed to work inside a small sized dropdown for a compact l
 ```
 ### Fixed Number of Weeks
 
-To keep consistency of height, you can set the prop `showFixedNumberOfWeeks` to true. This will always display 6 week rows no matter how many are in the displayed month.
+To keep `XUIDatePicker`'s height consistent, you can set `showFixedNumberOfWeeks` to true. This will display 6 week rows no matter how many are in the displayed month.
 
 ```
 	const XUIDatePicker = require('./datepicker').default;

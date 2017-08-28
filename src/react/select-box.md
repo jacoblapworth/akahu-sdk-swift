@@ -5,18 +5,18 @@
 	</div>
 </div>
 
-Select Box is an opinionated component which wraps [DropDown](#dropdown) and [DropDownToggled](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more control or other behaviour you should use the suite of [DropDown](#dropdown) components directly.
+`SelectBox` is an opinionated component which wraps [`DropDown`](#dropdown) and [`DropDownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [`DropDown`](#dropdown) components directly.
 
 ### Related Components
 
-* [Dropdown](#dropdown)
-* [Autocompleter](#autocompleter)
+* [`Dropdown`](#dropdown)
+* [`Autocompleter`](#autocompleter)
 
 ## Examples
 
 ### Single Select
 
-In the following example, the `buttonContent` of the SelectBox is being set to value of the selected item in the example's state.
+In the following example, the `buttonContent` of `SelectBox` is being set to value of the selected item in the example's state.
 
 ```
 const { Component }= require('react');
@@ -94,6 +94,7 @@ class MiniApp extends Component {
 ### Multi Select
 
 You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
+
 ```
 const { Component }= require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
@@ -153,7 +154,7 @@ class MiniApp extends Component {
 
 ### Button variants
 
-The standard button variants available in the [Button](#button) component can be applied here through the `buttonVariant` prop.
+The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop.
 
 ```
 const { Component }= require('react');

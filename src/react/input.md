@@ -5,13 +5,13 @@
 	</div>
 </div>
 
-Input is an enhanced HTML `<input />` field. It supports icons and validation styling.
+`XUIInput` is an enhanced HTML `input` field. It supports icons and validation styling.
 
 ## Examples
 
 ### Input Attributes
 
-HTML input properties can be passed in via the `inputAttributes` prop.
+HTML `input` properties can be passed in via the `inputAttributes` prop.
 
 ```
 <div>
@@ -42,9 +42,10 @@ HTML input properties can be passed in via the `inputAttributes` prop.
 	/>
 </div>
 ```
+
 ### Change Events
 
-Input change events can be subscribed to by passing a callback to `onChange`.
+`XUIInput` change events can be subscribed to by passing a callback to `onChange`.
 
 ```
 const  { PureComponent } = require ( 'react' );
@@ -84,6 +85,7 @@ class Example extends PureComponent {
 
 <Example />
 ```
+
 ### Validation
 
 Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop.
@@ -140,11 +142,12 @@ const search = require ('@xero/xui-icon/icons/search').default;
 	/>
 </div>
 ```
+
 ### Clear button
 
 For some inputs, such as search bars, you may want to add a clear button so users can easily remove the typed in text. Passing in the `hasClearButton` prop will add a clear button which appears when the input isn't empty, and will clear the field when clicked.
 
-When using the `hasClearButton` functionality, the consuming application should not be managing the input value manually. When the clear button is clicked, it will trigger an `onChange` event with the property `target: statefulInput.inputNode`. 
+When using the `hasClearButton` functionality, the consuming application should not be managing the input value manually. When the clear button is clicked, it will trigger an `onChange` event with the parameter `{target: statefulInput.inputNode}`.
 
 ```
 const search = require ('@xero/xui-icon/icons/search').default;

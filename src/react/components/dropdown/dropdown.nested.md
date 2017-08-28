@@ -1,6 +1,6 @@
 **Note:** This component is still considered beta, and it's API may change before it is officially released.
 
-The `NestedDropDown` component is designed to be a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A common case is allowing the user to choose between some convenience dates and a fixed custom date. See below for an example of this.
+`NestedDropDown` is designed as a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
 ```
 require('array.prototype.find').shim();

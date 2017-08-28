@@ -7,7 +7,9 @@
 
 ## Examples
 
-Button can accept children to display their content. When a click handler is provided for the button's actions, they will be called when the button is clicked and if `space` or `enter` keys are hit when the button has focus.
+Whatever you put between the start and end tags of `XUIButton` will appear as the contents.
+
+You can give `XUIButton` a click handler to perform actions when the button is triggered, either by clicking on it, or by pressing `space` or `enter` when it has focus.
 
 ```
 	function handleClick() { alert('You clicked the button!'); }
@@ -16,7 +18,7 @@ Button can accept children to display their content. When a click handler is pro
 
 ### Variants
 
-Different styles of button are provided for by passing different `variants`. All accepted values are displayed below.
+Different styles of button are available by passing different values to the `variant` prop.
 
 ```
 	<div>

@@ -89,15 +89,11 @@
 		&::before {
 			border-radius: 0;
 		}
-
-		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-			max-width: calc(100% - 80px);
-		}
 	}
 
 	.#{$ns}-toast--message {
-		@include xui-margin-horizontal($xui-s-small);
-		@include xui-margin-vertical($xui-s-xsmall);
+		// The 7px here is to clear the standard paragraph height - 5px is too small
+		margin: $xui-s-xsmall $xui-s-small 7px $xui-s-xsmall;
 	}
 
 	.#{$ns}-toast--actions {
@@ -112,15 +108,7 @@
 	}
 
 	.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-		max-width: 320px;
-	}
-}
-
-@include xui-breakpoint-narrow {
-	.#{$ns}-toast-layout {
-		.#{$ns}-toast--close ~ .#{$ns}-toast--message {
-			max-width: calc(100% - 50px);
-		}
+		max-width: calc(100% - 45px);
 	}
 }
 
@@ -134,7 +122,7 @@
 		width: 100%;
 	}
 }
-
+no connection
 // Implementation
 //
 // Components: Toast

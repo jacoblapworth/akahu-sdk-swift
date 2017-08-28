@@ -201,13 +201,39 @@
 //     </button>
 //   </li>
 // </ul>
+// <ul class="xui-picklist xui-picklist-horizontal" role="tree">
+//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
+//       <span class="xui-pickitem--text xui-text-truncated">
+//         The epic force of his boiling-up was on par with Bazza's thermo-nuclear packet of Wheetbix.
+//       </span>
+//     </button>
+//   </li>
+//   <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//     <button type="button" class="xui-pickitem--body" tabindex="0">
+//       <span class="xui-pickitem--text xui-text-truncated">
+//         The first prize for munting goes to James Cook and his same same but different Bell Bird, what a egg.
+//       </span>
+//     </button>
+//   </li>
+// </ul>
 //
 // Styleguide: Picklist.1.2
 
 
 .#{$ns}-picklist-horizontal {
 	display: inline-flex;
-	flex-direction: row;
+	flex-direction: row; // TODO: this is redundant; remove in a future version
+	max-width: 100%;
+	.#{$ns}-pickitem {
+		// Fix for text truncation - see https://scottwhittaker.net/flexbox/2017/02/05/flexbox-and-text-truncation.html
+		min-width: 0;
+	}
+	.#{$ns}-pickitem--text {
+		// TODO: adding vertical padding on pickitem--body below was probably a mistake given it's
+		// not applied on non-horizontal pickitems. Move vertical padding to this class in a breaking change release.
+		padding: 0;
+	}
 	.#{$ns}-pickitem--body {
 		height: 100%;
 		min-height: $xui-input-height;

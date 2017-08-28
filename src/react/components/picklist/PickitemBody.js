@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import XUICheckbox from '../checkbox/XUICheckbox';
 
 const NOOP = () => {};
@@ -12,7 +13,7 @@ const NOOP = () => {};
  *
  * @param {Object} props
  */
-const PickitemBody = ({ onClick, onKeyDown, onMouseOver, isSelected, href, multiselect, children, checkboxClassName, target }) => {
+const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, multiselect, children, checkboxClassName, target }) => {
 	if (multiselect) {
 		return (
 			<div className="xui-pickitem--body" onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver}>
@@ -22,9 +23,9 @@ const PickitemBody = ({ onClick, onKeyDown, onMouseOver, isSelected, href, multi
 			</div>
 		);
 	}
-	const rel = target ? "noopener noreferrer" : null
+	const rel = target ? "noopener noreferrer" : null;
 	const childProps = {
-		className: 'xui-pickitem--body xui-pickitem--text',
+		className: 'xui-pickitem--body',
 		tabIndex: '-1',
 		onClick,
 		onKeyDown,
@@ -32,11 +33,16 @@ const PickitemBody = ({ onClick, onKeyDown, onMouseOver, isSelected, href, multi
 		rel
 	};
 
-	if (href) {
-		return <a {...childProps} href={href} target={target} >{children}</a>;
-	}
+	const textClassName = cn('xui-pickitem--text', {
+		'xui-text-truncated': shouldTruncate
+	});
 
-	return <button type="button" {...childProps}>{children}</button>;
+	const text = <span className={textClassName}>{children}</span>;
+	return href ? (
+		<a {...childProps} href={href} target={target}>{text}</a>
+	) : (
+		<button type="button" {...childProps}>{text}</button>
+	);
 };
 
 PickitemBody.propTypes = {
@@ -48,7 +54,8 @@ PickitemBody.propTypes = {
 	onClick: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	onMouseOver: PropTypes.func,
-	target: PropTypes.string
+	target: PropTypes.string,
+	shouldTruncate: PropTypes.bool
 };
 
 export default PickitemBody;

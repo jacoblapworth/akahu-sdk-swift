@@ -29,8 +29,8 @@ The following classes are no longer available:
 ### Filters
 
 * `xui-sidebarfilter`, `xui-sidebarfilter-is-selected`, `xui-sidebarfilter--body`, `xui-sidebarfilter--control`,
-`xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control` have all been removed.
-Use picklists instead.
+`xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control` 
+have all been removed. Use picklists instead.
 
 ### Icons
 * `xui-icon-svg` has been removed. Use `xui-iconsymbol` instead.
@@ -57,7 +57,8 @@ Use picklists instead.
 * `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
 * `xui-input-wrapper-borderless` has been removed. Use `xui-inputwrapper-borderless` instead.
 * `xui-input-wrapper-borderless-layout` has been removed. Use `xui-inputwrapper-borderless-layout` instead.
-* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and `xui-inputwrapper-borderless-layout` have been removed.
+* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and 
+`xui-inputwrapper-borderless-layout` have been removed.
 There are no replacements for these; use the standard borderless classes.
 * `xui-textarea` has been removed. Use `xui-input` on `<textarea>` elements instead.
 * `xui-select--button-is-selected` has been removed and should no longer be used.
@@ -66,18 +67,21 @@ There are no replacements for these; use the standard borderless classes.
 * `xui-pageheading-has-tabs` has been removed as it is no longer necessary.
 
 ### Tabs
+* `xui-tabgroup`, `xui-tab`, `xui-tab--body`, `xui-tabgroup-layout`, `xui-tabgroup-layout-inline`, `xui-tab-inlinenav`,
+`xui-tab-inlinenav-is-selected` have been removed. Use horizontal picklists instead.
 * `xui-tabgroup-vertical`,`xui-tabgroup-vertical-layout`, `xui-verticaltab` `xui-verticaltab--body` and
-`xui-verticaltab-is-selected` have been removed. Use picklists instead.
+`xui-verticaltab-is-selected` have been removed. Use vertical picklists instead.
 
 ### Toggles
-* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer necessary to achieve the desired look.
+* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer 
+necessary to achieve the desired look.
 
 ### Dropdowns
 
-* `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, `xui-dropdownmenu-large`,
-`xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`, `xui-dropdownmenu--groupheading`,
-`xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, `xui-menuitem-layout`, `xui-menuitem--body`,
-`xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
+* `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, 
+`xui-dropdownmenu-large`, `xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`,
+`xui-dropdownmenu--groupheading`, `xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, 
+`xui-menuitem-layout`, `xui-menuitem--body`, `xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
 These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
 
 ### Typography
@@ -105,11 +109,12 @@ and `xui-popover--link` have been removed. These classes were not documented and
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
 * `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.
-* `xui-u-flex-verticalalign-center` has been removed. Use `xui-u-flex-vertical` and `xui-u-flex-horizontallycentered` instead.
+* `xui-u-flex-verticalalign-center` has been removed. Use `xui-u-flex-vertical` and 
+`xui-u-flex-horizontallycentered` instead.
 * `xui-button-link` has been removed. Use `xui-button-borderless-main` instead.
-* Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of XUI's CSS file. Previously, it
-was possible for margin and padding classes to be undone by others (e.g. `xui-panel--section`) specified further down
-the CSS file.
+* Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of 
+XUI's CSS file. Previously, it was possible for margin and padding classes to be undone by others 
+(e.g. `xui-panel--section`) specified further down the CSS file.
 * `xui-margin-none` no longer has `!important`
 * `xui-padding-none` no longer has `!important`
 * `xui-margin-auto-*` classes have been removed. Use `xui-margin-*-auto` instead.
@@ -137,7 +142,8 @@ the CSS file.
 #### Animation keyframes
 * `xui-animation-show` and `xui-animation-hide` have been removed.
 * `xui-animation-slideup` and `xui-animation-slidedown` have been removed.
-* `xui-animation-fadein` and `xui-animation-fadeout` have been removed. Use `xui-transition-fadein` and `xui-transition-fadeout` classes instead.
+* `xui-animation-fadein` and `xui-animation-fadeout` have been removed. Use `xui-transition-fadein` and 
+`xui-transition-fadeout` classes instead.
 
 ### Mixins
 
@@ -146,7 +152,8 @@ The following mixins have been removed:
 * `xui-navigation-filters-hide-control`
 * `xui-navigation-filters-collapse-list`
 * `xui-navigation-filters-expand-list`
-* `xui-bold`
+* `xui-bold`. Use `xui-text-emphasis` instead.
+* `xui-tab-variation`
 
 ### Variables
 

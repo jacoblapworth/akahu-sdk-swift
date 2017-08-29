@@ -1,9 +1,16 @@
+var marked = require('../../../node_modules/marked');
+
 module.exports = function (handlebars) {
 	const menuPartial = `
-			{{#each menu}} {{! Each item is an "li" }}
+			{{#each menu as |menuItem|}} {{! Each item is an "li" }}
 			<li class="ds-nav-li ds-nav-{{menuDepth}}">
 				<a class="ds-nav-link {{#if isActive}} ds-is-active {{/if}}{{#isEqual header @root.sections.0.header}} ds-is-selected{{/isEqual}}" href="section-{{referenceURI}}.html">
 					<span>{{header}}</span>
+					{{#if menuItem.menu}}
+						<svg focusable="false" class="xui-icon xui-icon-inline xui-text-color-faint {{#unless isActive}}xui-u-rotate-270{{/unless}} ds-nav-icon">
+							<use xlink:href="#xui-icon-arrow" role="presentation"/>
+						</svg>
+					{{/if}}
 				</a>
 				{{#if isActive}}
 				<ul>

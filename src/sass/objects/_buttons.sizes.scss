@@ -1,3 +1,5 @@
+@import "../vars";
+
 // Sizes
 //
 // Styleguide: Buttons.4
@@ -20,7 +22,7 @@
 // Styleguide: Buttons.4.1
 
 .#{$ns}-button-small {
-	min-height: 30px;
+	min-height: $xui-input-height-small;
 	padding: 6px $xui-s-small;
 }
 

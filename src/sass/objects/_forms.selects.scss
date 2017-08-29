@@ -3,10 +3,14 @@
 
 // Selects
 
-// Native Selects
+// Select Box
 //
-// For use when you want to display native controls on devices that support pretty controls
+// For use when you want to display native controls on devices that support pretty controls.
 // Examples include iOS and Android devices.
+//
+// Weight: 4.45
+//
+// Teaser: For use when you want to display native controls on devices that support pretty controls.
 //
 // Classes:
 // xui-select: Container for a native or custom select box
@@ -23,7 +27,7 @@
 //    <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 //  </div>
 //
-// Styleguide: Forms.8
+// Styleguide: Select Box
 
 .#{$ns}-select {
 	position: relative;
@@ -128,7 +132,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Forms.9
+// Styleguide: Select Box.1
 
 .#{$ns}-select--button {
 	background-color: transparent;

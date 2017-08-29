@@ -2,13 +2,6 @@
 XUI dropdowns can be used in a wide range of ways from replacing an HTML `< select />` in a form to revealing complex additional interactions.
 </p>
 
-## Types of dropdown
-
-### Select dropdowns
-One of the most common uses of a dropdown is a 1:1 replacement for a native HTML select. XUI provides at cut-down Selectbox component for this. By default the dropdown will match the width of the trigger.
-
-### Autocompleting dropdowns
-Triggered off a text input, enables a user to filter results by partially typing values
 
 ### Nested dropdowns
 Useful for grouping  items of similar types when multiple types may be available e.g. filter a list of items by (US) state or status.

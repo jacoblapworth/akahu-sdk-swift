@@ -15,7 +15,11 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // The number inputs have had their up and down arrows removed to sync browser styles
 //
-// Components: Input, TextArea
+// Teaser: Covers styles for all types of &lt;input/> controls.
+//
+// Components: Input
+//
+// Weight: 4.55
 //
 // Classes:
 // xui-input: Style for a text input
@@ -29,10 +33,22 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 // <input class="xui-input" type="email" placeholder="example@xero.com" aria-label="Email"/>
 // <input class="xui-input" type="text" placeholder="13 December 1989" aria-label="Date"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
 // <input class="xui-input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled />
+//
+// Styleguide: Text Input
+
+// Textarea
+//
+// Teaser: Styles for &lt;textarea/> fields.
+//
+// Weight: 4.55
+//
+// Components: TextArea
+//
+// Note: Please see <a href="section-text-input.html">Text Inputs</a> for more details on the CSS avaiable for textareas.
+//
 // <textarea class="xui-input xui-u-resize-none" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
 //
-// Styleguide: Forms.4
-
+// Styleguide: Textarea
 
 // Text Icon Prompts
 //
@@ -92,7 +108,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   <input class="xui-input" type="text" placeholder="X.XX" aria-label="Amount"/>
 // </div>
 //
-// Styleguide: Forms.4.1
+// Styleguide: Icon Input
 
 .#{$ns}-input {
 	@extend %#{$ns}-commoninput;
@@ -170,6 +186,10 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 // Borderless Text Inputs
+//
+// Weight: 4.55
+//
+// Teaser: For use in contexts where a regular bordered input attracts too much visual attention.
 //
 // There are two borderless input variants, each with differing levels of visual impact, and each with an inverted modifier.
 // One is transparent by default (but tints on focus), the other is tinted by default (and darkens on focus).
@@ -252,7 +272,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 //
-// Styleguide: Forms.4.2
+// Styleguide: Borderless Input
 
 .#{$ns}-input-borderless {
 	border: 0;
@@ -314,7 +334,9 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 // Vertically Grouped Inputs
 //
-// Inputs can be grouped vertically.
+// Teaser: Inputs can be grouped vertically or horizontally.
+//
+// Weight: 4.55
 //
 // Classes:
 // xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
@@ -336,7 +358,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 //
-// Styleguide: Forms.4.4
+// Styleguide: Grouped Inputs
 
 .#{$ns}-verticalinputgroup {
 	// Only add top border radius to the first element
@@ -456,7 +478,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //   </div>
 // </div>
 //
-// Styleguide: Forms.4.5
+// Styleguide: Grouped Inputs.1
 
 .#{$ns}-inputgroup {
 	@include xui-clearfix;

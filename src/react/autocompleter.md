@@ -106,6 +106,10 @@ class DetailedListExample extends Component {
 		});
 	}
 
+	onClose(){
+		this.setState({value: ''})
+	}
+
 	getItems(){
 		const example = this;
 		const {
@@ -154,6 +158,7 @@ class DetailedListExample extends Component {
 					placeholder="Search"
 					searchValue={value}
 					dropdownFixedWidth
+					onClose={() => this.onClose()}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill
@@ -233,6 +238,10 @@ class DetailedListExample extends Component {
 		});
 	}
 
+	onClose(){
+		this.setState({value: ''})
+	}
+
 	selectPerson(person) {
 		this.setState(prevState => {
 			const selectedPeople = [...prevState.selectedPeople, person];
@@ -306,6 +315,7 @@ class DetailedListExample extends Component {
 					searchValue={value}
 					dropdownFixedWidth
 					disableWrapPills
+					onClose={() => this.onClose()}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill

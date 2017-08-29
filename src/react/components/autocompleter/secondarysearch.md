@@ -62,6 +62,13 @@ class SecondarySearchExample extends React.Component {
 			})
 	}
 
+	onClose(){
+		this.setState({
+			value: '',
+			data: SecondarySearchData
+		})
+	}
+
 	render() {
 		const sse = this;
 		const { value } = sse.state;
@@ -72,7 +79,7 @@ class SecondarySearchExample extends React.Component {
 			</XUIButton>
 		);
 
-		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<EmptyState />);
+		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): null;
 
 		return (
 		<div>
@@ -83,6 +90,7 @@ class SecondarySearchExample extends React.Component {
 					searchValue={value}
 					dropdownSize='medium'
 					qaHook='secondary-search'
+					onClose={() => this.onClose()}
 				>
 					<Picklist>
 						{items}

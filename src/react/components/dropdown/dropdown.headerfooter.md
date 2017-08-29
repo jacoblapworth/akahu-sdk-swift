@@ -82,7 +82,9 @@ class XDD extends Component {
 			return {
 				selected: newSelected,
 				previousSelected: null,
-				selectedCount: getNumberOfTrueValues(newSelected)
+				selectedCount: getNumberOfTrueValues(newSelected),
+				search: '',
+				items: items
 			};
 		});
 	}

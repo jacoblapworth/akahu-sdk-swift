@@ -105,10 +105,10 @@ export default class DropDown extends PureComponent {
 
 	onHighlightChange(item) {
 		const dropdown = this;
-		if (typeof item !== 'undefined') {
+		if (item != null) {
 			dropdown.panel.scrollIdIntoView(item.props.id);
+			dropdown.props.onHighlightChange && dropdown.props.onHighlightChange(item);
 		}
-		dropdown.props.onHighlightChange && dropdown.props.onHighlightChange(item);
 	}
 
 	/**

@@ -3,38 +3,34 @@
 
 // Margin and Padding
 //
-// XUI has a number of layout concerns. These include:
-// 1. General page containers
-// 2. A mobile first grid system
-// 3. Margin and padding primitive classes to space components consistently
+// Be careful when using top margins as there are unintuitive rules around when
+// [collapsing margins kick in](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).
+// We recommend applying margins on the bottom, or using padding instead.
 //
 // Weight: 3.1
 //
 // Styleguide: Margin and Padding
 
-// Margin
+// Size
 //
-// Apply one or more of the margin classes to acheive the desired layout.
-//
-// Be careful when using top margins as there are unintuitive rules around when
-// [collapsing margins kick in](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).
-// We recommend applying margins on the bottom, or using padding instead.
-//
-// #### Class Names
-//
-// `xui-margin-top-auto`, `xui-margin-top-none`, `xui-margin-top-small`, `xui-margin-top`, `xui-margin-top-large` (top)
-//
-// `xui-margin-right-auto`, `xui-margin-right-none`, `xui-margin-right-small`, `xui-margin-right`, `xui-margin-right-large` (right)
-//
-// `xui-margin-bottom-auto`, `xui-margin-bottom-none`, `xui-margin-bottom-small`, `xui-margin-bottom`, `xui-margin-bottom-large` (bottom)
-//
-// `xui-margin-left-auto`, `xui-margin-left-none`, `xui-margin-left-small`, `xui-margin-left`, `xui-margin-left-large` (left)
-//
-// `xui-margin-vertical-auto`, `xui-margin-vertical-none`, `xui-margin-vertical-small`, `xui-margin-vertical`, `xui-margin-vertical-large` (vertical)
-//
-// `xui-margin-horizontal-auto`, `xui-margin-horizontal-none`, `xui-margin-horizontal-small`, `xui-margin-horizontal`, `xui-margin-horizontal-large` (horizontal)
-//
-// `xui-margin-none`, `xui-margin-small`, `xui-margin`, `xui-margin-large` (vertical, horizontal)
+// <div class="margin-example">
+//  <div class="xui-margin-xsmall margin-padding-example-box"></div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-small margin-padding-example-box"></div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin margin-padding-example-box"></div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-large margin-padding-example-box"></div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-xlarge margin-padding-example-box"></div>
+// </div>
+// <div class="margin-example">
+//  <div class="xui-margin-none margin-padding-example-box"></div>
+// </div>
 //
 // Definitions:
 // Extra small: 5px:      `-xsmall`
@@ -42,125 +38,72 @@
 // Medium:      15px:     No modifier needed
 // Large:       20px:     `-large`
 // Extra large: 25px:     `xlarge`
-// None*:       0:        `-none`
+// None:        0:        `-none`
 // Auto:        Flexible: `-auto` (margin only)
 //
-// Note:
-// *.xui-margin-none applies an !important
+// Styleguide: Margin and Padding.1
+
+// Placement
 //
-// Markup:
+// Margin and padding can be applied to any direction, either individually or as groups.
+//
 // <div class="margin-example">
-//  <div class="xui-margin-top">
-//   Top
-//  </div>
+//  <div class="xui-margin margin-padding-example-box"></div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-right">
-//   Right
-//  </div>
+//  <div class="xui-margin-vertical margin-padding-example-box"></div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-bottom">
-//   Bottom
-//  </div>
+//  <div class="xui-margin-horizontal margin-padding-example-box"></div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-left">
-//   Left
-//  </div>
+//  <div class="xui-margin-top margin-padding-example-box"></div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-vertical">
-//   Vertical
-//  </div>
+//  <div class="xui-margin-left margin-padding-example-box"></div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin-horizontal">
-//   Horizontal
-//  </div>
+//  <div class="xui-margin-bottom margin-padding-example-box"></div>
 // </div>
 // <div class="margin-example">
-//  <div class="xui-margin">
-//   All
-//  </div>
+//  <div class="xui-margin-right margin-padding-example-box"></div>
 // </div>
-// <div class="margin-example">
-//  <div class="xui-margin-none">
-//   None
-//  </div>
-// </div>
+//
+// Definitions:
+// All:         All:            No modifier needed
+// Vertical:    Top and bottom: `-vertical`
+// Horizontal:  Left and right: `-horizontal`
+// Individual:  Any:            `-top` `-left` `-bottom` `-right`
+//
+// Styleguide: Margin and Padding.2
+
+// Margin Class Names
+//
+// Definitions:
+// Top: `xui-margin-top-auto` `xui-margin-top-none` `xui-margin-top-small` `xui-margin-top` `xui-margin-top-large`
+// Right: `xui-margin-right-auto` `xui-margin-right-none` `xui-margin-right-small` `xui-margin-right` `xui-margin-right-large`
+// Bottom: `xui-margin-bottom-auto` `xui-margin-bottom-none` `xui-margin-bottom-small` `xui-margin-bottom` `xui-margin-bottom-large`
+// Left: `xui-margin-left-auto` `xui-margin-left-none` `xui-margin-left-small` `xui-margin-left` `xui-margin-left-large`
+// Vertical: `xui-margin-vertical-auto` `xui-margin-vertical-none` `xui-margin-vertical-small` `xui-margin-vertical` `xui-margin-vertical-large`
+// Horizontal: `xui-margin-horizontal-auto` `xui-margin-horizontal-none` `xui-margin-horizontal-small` `xui-margin-horizontal` `xui-margin-horizontal-large`
+// All: `xui-margin-small` `xui-margin` `xui-margin-large`
+// None: `xui-margin-none`
 //
 // Styleguide: Margin and Padding.Margin
 
-// Margin variations
+// Padding Class Names
 //
-// All the above primitives  are available at small, standard and large.
-// Standard is as per above, `-small` and `-large` suffixes can be used to vary the
-// margin.
+// Definitions:
+// Top: `xui-padding-top-small` `xui-padding-top` `xui-padding-top-large`
+// Right: `xui-padding-right-small` `xui-padding-right` `xui-padding-right-large`
+// Bottom: `xui-padding-bottom-small` `xui-padding-bottom` `xui-padding-bottom-large`
+// Left: `xui-padding-left-small` `xui-padding-left` `xui-padding-left-large`
+// Vertical: `xui-padding-vertical-small` `xui-padding-vertical` `xui-padding-vertical-large`
+// Horizontal: `xui-padding-horizontal-small` `xui-padding-horizontal` `xui-padding-horizontal-large`
+// All: `xui-padding-small` `xui-padding` `xui-padding-large`
+// None: `xui-padding-none`
 //
-// Markup:
-// <div class="margin-example">
-//  <div class="xui-margin-vertical-small">
-//   Vertical Small
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-horizontal-small xui-margin-bottom">
-//   Horizontal small, bottom standard
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-large">
-//   All large
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-horizontal-small xui-margin-vertical-large">
-//   Horizontal small, vertical large
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-right-small">
-//   Right small
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-right-large">
-//   Right large
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-horizontal-auto" style="width: 300px">
-//   Auto horizontal (arbitrary width demo)
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-left-auto" style="width: 300px">
-//   Auto left (arbitrary width demo)
-//  </div>
-// </div>
-// <div class="margin-example">
-//  <div class="xui-margin-right-auto" style="width: 300px">
-//   Auto right (arbitrary width demo)
-//  </div>
-// </div>
-// <div class="margin-example xui-u-flex" style="height: 100px">
-//  <div class="xui-margin-top-auto">
-//   Auto top (arbitrary height demo; useful for bottom alignment with flexbox)
-//  </div>
-// </div>
-// <div class="margin-example xui-u-flex" style="height: 100px">
-//  <div class="xui-margin-vertical-auto">
-//   Auto vertical (arbitrary height demo; useful for vertical centering with flexbox)
-//  </div>
-// </div>
-// <div class="margin-example xui-u-flex" style="height: 100px">
-//  <div class="xui-margin-auto" style="width: 300px;">
-//   Auto (arbitrary width demo; useful for centering with flexbox)
-//  </div>
-// </div>
-//
-// Styleguide: Margin and Padding.Margin.1
+// Styleguide: Margin and Padding.Padding
 
 // Collections of XUI layout classes in standard, small and large
 @include xui-generate-margin(auto, $xui-class-suffix-auto);
@@ -171,85 +114,6 @@
 @include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
 @include xui-generate-margin($xui-s-xlarge, $xui-class-suffix-xlarge);
 @include xui-generate-margin($xui-s-huge, $xui-class-suffix-huge);
-
-// Padding
-//
-// Apply one or more of the padding classes to acheive the desired layout.
-//
-// #### Class Names
-//
-// `xui-padding-top-small`, `xui-padding-top`, `xui-padding-top-large` (top)
-//
-// `xui-padding-right-small`, `xui-padding-right`, `xui-padding-right-large` (right)
-//
-// `xui-padding-bottom-small`, `xui-padding-bottom`, `xui-padding-bottom-large` (bottom)
-//
-// `xui-padding-left-small`, `xui-padding-left`, `xui-padding-left-large` (left)
-//
-// `xui-padding-vertical-small`, `xui-padding-vertical`, `xui-padding-vertical-large` (vertical)
-//
-// `xui-padding-horizontal-small`, `xui-padding-horizontal`, `xui-padding-horizontal-large` (horizontal)
-//
-// `xui-padding-small`, `xui-padding`, `xui-padding-large` (vertical, horizontal)
-//
-// `xui-padding-none` Padding Xero (0)
-//
-// Markup:
-// <div class="xui-padding-top">
-//  <div>Top</div>
-// </div>
-// <div class="xui-padding-right">
-//  <div>Right</div>
-// </div>
-// <div class="xui-padding-bottom">
-//  <div>Bottom</div>
-// </div>
-// <div class="xui-padding-left">
-//  <div>Left</div>
-// </div>
-// <div class="xui-padding-vertical">
-//  <div>Vertical</div>
-// </div>
-// <div class="xui-padding-horizontal">
-//  <div>Horizontal</div>
-// </div>
-// <div class="xui-padding">
-//  <div>All</div>
-// </div>
-// <div class="xui-padding-none">
-//  <div>None</div>
-// </div>
-//
-// Styleguide: Margin and Padding.Padding
-
-
-// Padding variations
-//
-// All the above primitives  are available at small, standard and large.
-// Standard is as per above, `-small` and `-large` suffixes can be used to vary the
-// padding.
-//
-// Markup:
-// <div class="xui-padding-vertical-small">
-//  <div>Vertical Small</div>
-// </div>
-// <div class="xui-padding-horizontal-small xui-padding-bottom">
-//  <div>Horizontal small, bottom standard</div>
-// </div>
-// <div class="xui-padding-large">
-//  <div>All large</div>
-// </div>
-// <div class="xui-padding-horizontal-small xui-padding-vertical-large">
-//  <div>Horizontal Small, vertical large</div>
-// </div>
-// <div class="xui-padding-left-small">
-//  <div>Left small</div>
-// </div>
-// <div class="xui-padding-left-large">
-//  <div>Left large</div>
-// </div>
-//
-// Styleguide: Margin and Padding.Padding.1
 
 // Collections of XUI layout classes in standard, small and large
 @include xui-generate-padding(0, $xui-class-suffix-none);

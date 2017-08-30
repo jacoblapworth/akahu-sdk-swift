@@ -213,14 +213,18 @@ $kss-color-padding: #eeebff;
 [id*="margin-and-padding"] [class*="xui-padding"],
 .margin-example {
 	border: 1px solid $xui-color-grey-5;
-	margin-bottom: 1vw;
+	display: inline-block;
 
 	// scss-lint:disable SelectorDepth
 	> * {
 		background: $xui-color-white;
 		outline: 1px solid $xui-color-grey-5;
-		padding: 1vw;
 	}
+}
+
+.margin-padding-example-box {
+	height: $xui-s-6xlarge;
+	width: $xui-s-5xlarge;
 }
 
 // Dropdowns

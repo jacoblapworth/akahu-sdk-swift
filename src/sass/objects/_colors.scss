@@ -5,12 +5,31 @@
 // Classes:
 // xui-background-grey-1: Applies $xui-color-grey-1 as the background color
 // xui-background-grey-2: Applies $xui-color-grey-2 as the background color
+// xui-background-grey-3: Applies $xui-color-grey-3 as the background color
+// xui-background-grey-4: Applies $xui-color-grey-4 as the background color
+// xui-background-grey-5: Applies $xui-color-grey-5 as the background color
+// xui-background-grey-6: Applies $xui-color-grey-6 as the background color
+// xui-background-grey-7: Applies $xui-color-grey-7 as the background color
+// xui-background-white: Applies $xui-color-white as the background color
 //
 // Markup:
-// <div class="xui-padding xui-background-grey-1 xui-text-color-white">Hello</div>
-// <div class="xui-padding xui-background-grey-2 xui-text-color-white">Hello</div>
+// <div class="xui-u-flex" style="height: 50px; border: 1px solid #000">
+//   <div class="xui-background-grey-1 xui-u-flex-grow"></div>
+//   <div class="xui-background-grey-2 xui-u-flex-grow"></div>
+//   <div class="xui-background-grey-3 xui-u-flex-grow"></div>
+//   <div class="xui-background-grey-4 xui-u-flex-grow"></div>
+//   <div class="xui-background-grey-5 xui-u-flex-grow"></div>
+//   <div class="xui-background-grey-6 xui-u-flex-grow"></div>
+//   <div class="xui-background-grey-7 xui-u-flex-grow"></div>
+//   <div class="xui-background-white xui-u-flex-grow"></div>
+// </div>
 //
 // Styleguide: Colors.200
+
+
+.#{$ns}-background-white {
+	background-color: $xui-color-white;
+}
 
 .#{$ns}-background-grey-1 {
 	background-color: $xui-color-grey-1;
@@ -18,4 +37,24 @@
 
 .#{$ns}-background-grey-2 {
 	background-color: $xui-color-grey-2;
+}
+
+.#{$ns}-background-grey-3 {
+	background-color: $xui-color-grey-3;
+}
+
+.#{$ns}-background-grey-4 {
+	background-color: $xui-color-grey-4;
+}
+
+.#{$ns}-background-grey-5 {
+	background-color: $xui-color-grey-5;
+}
+
+.#{$ns}-background-grey-6 {
+	background-color: $xui-color-grey-6;
+}
+
+.#{$ns}-background-grey-7 {
+	background-color: $xui-color-grey-7;
 }

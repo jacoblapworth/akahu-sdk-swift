@@ -166,7 +166,7 @@ class DetailedListExample extends Component {
 					}
 				>
 					{example.getItems()}
-				</Autocompleter>
+				</XUIAutocompleter>
 		)
 	}
 }
@@ -318,7 +318,7 @@ class DetailedListExample extends Component {
 					}
 				>
 					{example.getItems()}
-				</Autocompleter>
+				</XUIAutocompleter>
 		)
 	}
 }

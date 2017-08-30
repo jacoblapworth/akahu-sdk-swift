@@ -42,6 +42,39 @@ module.exports = function(handlebars) {
 	});
 
 	/**
+	 * Compares two objects to see if they're not the same. Shotcircuit for isEqual helper
+	 *
+	 * e.g.
+	 * {{#isNotEqual object1 object2}}
+	 * 		EXECUTE THIS IF NOT EQUAL
+	 * 		{{else}} [optional]
+	 * 		WILL EXECUTE THIS
+	 * {{/isNotEqual}}
+	 */
+	handlebars.registerHelper('isNotEqual', function(a, b, options) {
+		return a !== b  ? options.fn(this) : options.inverse(this);
+	});
+
+ /**
+	* Checks an item isn't included inside the list (array).
+	*
+	* e.g
+	* {{#isNotIn item array}}
+	*	EXECUTE IF DOESN'T APPEAR IN ARRAY
+	*	{{else}} [optional]
+	* 	EXECUTE IF IT DOES
+	* {{/ifNotIn}}
+	*
+	*/
+	handlebars.registerHelper('ifNotInMenu', function(elem, menu, options) {
+		var found = menu.find(function(menuItem){
+			return menuItem.header === elem;
+		});
+
+		return found ? options.inverse(this): options.fn(this);
+	});
+
+	/**
 	 * Outputs console.log() debugging information for each parameter given.
 	 *
 	 * If no parameters are given, the entire context is output with

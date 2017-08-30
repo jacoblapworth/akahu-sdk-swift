@@ -18,6 +18,11 @@
 </header>
 
 <article role="main" class="ds-main{{#if sections.0.markdown}}-fullwidth{{/if}}">
+
+	{{#unless homepage}}
+		{{> breadcrumbs}}
+	{{/unless}}
+
 	<div class="ds-section-wrap">
 
 		{{#if homepage}}

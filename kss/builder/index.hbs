@@ -10,13 +10,12 @@
 {{{styles}}}
 </head>
 
+<body id="kss-node" class="ds-body xui-container">
+
 <header class="ds-nav--responsive ds-nav--header xui-padding xui-text-inverted">
 	<a href="#navigation-primary" class="ds-hamburger"></a>
 	<span class="ds-nav--header-title xui-padding-small">{{options.title}}</span>
 </header>
-
-<body id="kss-node" class="ds-node xui-body">
-
 
 <article role="main" class="ds-main{{#if sections.0.markdown}}-fullwidth{{/if}}">
 	<div class="ds-section-wrap">
@@ -199,60 +198,58 @@
 
 			{{#if example}}
 			<div class="ds-markup-example-switcher ds-section-part" data-sectionid="{{referenceNumber}}">
-					<!-- These come first because they are used for styling siblings -->
-					<input type="radio" id="markup-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-markup" />
-					<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
-					<input type="radio" id="all-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-all" />
+				<!-- These come first because they are used for styling siblings -->
+				<input type="radio" id="markup-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-markup" />
+				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
 
-					<!-- hide markup switcher if it is only an example -->
-
-					<div>
-						<label for="markup-{{referenceNumber}}" class="ds-markup-label">Markup </label>
-						<label for="example-{{referenceNumber}}" class="ds-example-label">Demo</label>
-						<label for="all-{{referenceNumber}}" class="ds-all-label">Both</label>
-					</div>
-
-
-					<div class="ds-example-wrap">
-						{{#if modifiers}}
-						<div class="kss-modifier__default-name kss-style ds-section-part">
-							Default styling
-						</div>
-						{{/if}}
-
-						<div class="kss-modifier__example ds-section-part">
-							{{{example}}}
-						</div>
-
-						{{#each modifiers}}
-						<div class="kss-modifier__name kss-style ds-section-part">
-							{{name}}
-						</div>
-						<div class="kss-modifier__description kss-style ds-section-part">
-							{{{description}}}
-						</div>
-						<div class="kss-modifier__example ds-section-part">
-							{{{markup}}}
-						</div>
-						{{/each}}
-						<!--</div>-->
-
-					</div> <!--ds example  wrap-->
-
-					{{#if example}}
-					<div class="ds-markup-wrap">
-						<div class="kss-markup kss-style ds-section-part">
-							<button data-clipboard-text="{{markup}}" class="ds-copy-button xui-button xui-button-standard xui-button-small">Copy</button>
-							<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
-					</div>
-
-					{{#if sourceFile.name}}
-					<div class="kss-source kss-style ds-section-part">
-						Source: <a class="xui-text-minorlink" href="https://github.dev.xero.com/UXE/xui/blob/{{version}}/src/sass/{{sourceFile.name}}#L{{sourceFile.line}}">{{sourceFile.name}}</a></code>, line {{sourceFile.line}}
+				<div class="ds-example-wrap xui-margin-bottom-xlarge">
+					{{#if modifiers}}
+					<div class="kss-modifier__default-name kss-style ds-section-part">
+						Default styling
 					</div>
 					{{/if}}
-							</div>
-							{{/if}}
+
+					<div class="kss-modifier__example ds-section-part">
+						{{{example}}}
+					</div>
+
+					{{#each modifiers}}
+					<div class="kss-modifier__name kss-style ds-section-part">
+						{{name}}
+					</div>
+					<div class="kss-modifier__description kss-style ds-section-part">
+						{{{description}}}
+					</div>
+					<div class="kss-modifier__example ds-section-part">
+						{{{markup}}}
+					</div>
+					{{/each}}
+					<!--</div>-->
+
+				</div>
+				<!--ds example  wrap-->
+
+				{{#if example}}
+				<div class="ds-markup-wrap">
+					<header class="ds-markup--actions">
+						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon xui-button-icon-inverted" title="Close markup pane"
+						 aria-label="Close markup pane">
+								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg>
+							</label>
+						<button data-copyHook data-clipboard-text="{{markup}}" class="xui-button xui-button-icon xui-button-icon-inverted" title="Copy code example"
+						 aria-label="Copy code example">
+							<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-copy"></use></svg>
+						</button>
+						<h3 class="xui-text-inverted xui-u-flex-grow xui-margin-none">{{header}}</h3>
+					</header>
+					<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
+				</div>
+				<div>
+					<label for="markup-{{referenceNumber}}" class="ds-markup--label">Show Markup</label>
+				</div>
+				{{/if}}
+
+
 
 			</div>
 			{{/if}}
@@ -271,6 +268,16 @@
 	</ul>
 </nav>
 <!-- SCRIPTS -->
+
+	<div id="copiedToast" class="xui-toastwrapper xui-transition-fadeout xui-transition-speed-slow">
+		<div class="xui-toast xui-toast-layout " role="status">
+			<button id="copiedToastClose" type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+				<svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+			</button>
+			<div class="xui-toast--message">Example copied</div>
+		</div>
+	</div>
+
 {{{scripts}}}
 </body>
 

@@ -17,7 +17,7 @@
 
 // specific styling for overview readme
 #home .prettyprinted {
-	background: $xui-color-grey-6;
+	background: $xui-color-grey-1;
 	border: $xui-border-standard;
 	padding: $xui-s-standard $xui-s-xlarge;
 }
@@ -31,23 +31,9 @@ code {
 //   $group prettyprint.js styling
 // ------------------------------------------------------------------------------
 
-.kss-markup {
-	button {
-		margin: 10px;
-		opacity: 0;
-		transition: all 0.2s ease;
-	}
-
-	&:hover {
-		button {
-			opacity: 1;
-		}
-	}
-}
-
 pre {
-	border-radius: $xui-radius;
 	overflow: auto;
+	height: 100%;
 
 	@mixin xui-breakpoint-narrow {
 		left: -20px;
@@ -60,18 +46,18 @@ pre {
 // scss-lint:disable SingleLinePerProperty
 // scss-lint:disable SingleLinePerSelector
 /* SPAN elements with the classes below are added by prettyprint. */
-.pln { color: $xui-color-grey-1; }  /* plain text */
-.str { color: $xui-color-grey-1; }  /* string content */
-.kwd { color: $xui-color-grey-1; }  /* a keyword */
+.pln { color: $xui-color-grey-6; }  /* plain text */
+.str { color: $xui-color-grey-6; }  /* string content */
+.kwd { color: $xui-color-grey-6; }  /* a keyword */
 .com { color: $xui-color-grey-3; }  /* a comment */
-.typ { color: $xui-color-grey-1; }  /* a type name */
-.lit { color: $xui-color-grey-1; }  /* a literal value */
+.typ { color: $xui-color-grey-6; }  /* a type name */
+.lit { color: $xui-color-grey-6; }  /* a literal value */
 /* punctuation, lisp open bracket, lisp close bracket */
-.pun, .opn, .clo { color: $xui-color-grey-2; }
-.tag { color: $xui-color-grey-2; }  /* a markup tag name */
+.pun, .opn, .clo { color: $xui-color-grey-5; }
+.tag { color: $xui-color-grey-5; }  /* a markup tag name */
 .atn { color: $xui-color-xero-light-green; }  /* a markup attribute name */
 .atv { color: $xui-color-xero-blue; }  /* a markup attribute value */
-.dec, .var { color: $xui-color-grey-2; }  /* a declaration; a variable name */
+.dec, .var { color: $xui-color-grey-5; }  /* a declaration; a variable name */
 .fun { color: $xui-color-xero-red; }  /* a function name */
 // scss-lint:enable SingleLinePerProperty
 // scss-lint:enable SingleLinePerSelector
@@ -90,8 +76,12 @@ pre {
 // }
 
 
-.prettyprint {
-	background: $xui-color-grey-6;
+.prettyprinted {
+	background: $xui-color-grey-1;
+
+	code {
+		background: $xui-color-grey-1;
+	}
 }
 
 .linenums {

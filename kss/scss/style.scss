@@ -6,12 +6,19 @@ $ds-nav-width: 15rem;
 $ds-inverted--light: rgba(0, 0, 0, 0.06);
 $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
+.ds-body {
+	background: $xui-color-white;
+}
+
 .ds-main {
 	margin: auto;
 	min-height: 100%;
+	font-size: 15px;
+	width: 90%;
 
 	@include xui-breakpoint-wide {
-		width: calc(70% - 200px);
+		width: 100%;
+		padding: 0 5% 0 25%;
 	}
 }
 
@@ -22,9 +29,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
-.ds-node {
-	background: $xui-color-white;
-}
 
 .ds-anchor {
 	margin-left: -21px;
@@ -93,20 +97,21 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-section-part {
 	padding: 0 $xui-s-xlarge;
+	max-width: 42rem;
 }
 
-.ds-input-all,
+.ds-section-part-wide {
+	max-width: 70rem;
+}
+
 .ds-input-markup,
 .ds-input-example {
 	display: none;
 }
 
-.ds-all-label,
-.ds-markup-label,
-.ds-example-label {
-	display: inline-block;
-	margin-right: 15px;
-	padding-bottom: 10px;
+.ds-markup--label{
+	font-size: $xui-font-size-small;
+	color: $xui-color-xero-blue;
 }
 
 // Labels need to be nested in another element for other styling reasons (full bleed)
@@ -121,8 +126,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	line-height: 1.8;
 
 	pre {
-		background: $xui-color-grey-alpha-6;
-		border: $xui-border-standard;
 		padding: 15px 25px;
 		width: 100%;
 	}
@@ -141,12 +144,32 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
-.ds-markup-wrap,
+.ds-markup-wrap {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 100%;
+	padding: $xui-s-large;
+	z-index: 100;
+	background: $xui-color-grey-1;
+	box-shadow: $xui-shadow-depth-pop;
+
+	@include xui-breakpoint-wide {
+		min-width: $xui-breakpoint-medium;
+		width: 40%;
+	}
+}
+
+.ds-markup--actions {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row-reverse;
+}
+
 .ds-example-wrap {
-	border: $xui-border-standard;
-	display: none;
-	padding-bottom: 15px;
-	padding-top: 15px;
+	padding: $xui-s-standard;
+	background: $xui-color-grey-7;
 	position: relative;
 	width: 100%;
 
@@ -176,19 +199,8 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
-.ds-markup-wrap {
-	background: $xui-color-grey-alpha-6;
-}
-
-.ds-input-all:checked ~ .ds-markup-wrap,
-.ds-input-all:checked ~ .ds-example-wrap,
-.ds-input-markup:checked ~ .ds-markup-wrap,
-.ds-input-example:checked ~ .ds-example-wrap {
-	display: block;
-}
-
-.ds-input-all:checked ~ .ds-markup-wrap {
-	border-top: 0;
+.ds-input-example:checked ~ .ds-markup-wrap {
+	display:none;
 }
 
 // Layout.Margin and Layout.Padding

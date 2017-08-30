@@ -2,7 +2,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	'use strict';
 
 	prettyPrint();
-	new Clipboard('.ds-copy-button');
+	const clipboard = new Clipboard('[data-copyHook]');
+
+	const copiedToast = document.querySelector('#copiedToast');
+	let timeOut;
+	clipboard.on('success', e => {
+		copiedToast.classList.remove('xui-transition-fadeout', 'xui-transition-speed-slow');
+		window.clearTimeout(timeOut);
+		timeOut = window.setTimeout(() => {
+			copiedToast.classList.add('xui-transition-fadeout', 'xui-transition-speed-slow');
+		}, 5000);
+	});
+
+	const copiedToastClose =  document.querySelector('#copiedToastClose');
+	copiedToastClose.addEventListener('click', e => {
+		window.clearTimeout(timeOut);
+		copiedToast.classList.add('xui-transition-fadeout', 'xui-transition-speed-slow');
+	});
 
 	const navSectionSelect = document.querySelector('#ds-nav-section');
 	navSectionSelect.addEventListener('change', e => {
@@ -33,49 +49,3 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 });
-
-// =============================================================
-// Default Example Settings
-// =============================================================
-var states = JSON.parse(localStorage.getItem('xui-states'));
-
-var setDefaultExampleStates = function() {
-	// if this is the first time they have opened xui, then show both by default
-	// initialise the states in localStorage
-	if (!states) {
-		states = {};
-		states.default = 'example';
-		localStorage.setItem('xui-states', JSON.stringify(states));
-	}
-
-	// Stores new state if user changes a specific sections layout view
-	var markupOptions = document.querySelectorAll('[name^=a-]');
-	for(var i = 0; i < markupOptions.length; i++) {
-		markupOptions[i].addEventListener('click', function (e) {
-			// matches type and section id
-			var matches = /(.*)\-(.*)/.exec(e.target.id);
-			states[matches[2]] = matches[1];
-			localStorage.setItem('xui-states', JSON.stringify(states));
-		});
-	}
-	loadExamples();
-};
-
-function changeExampleView(el) {
-	var type = el.attributes['data-statetype'].value;
-	states = { default: type };
-	localStorage.setItem('xui-states', JSON.stringify(states));
-	loadExamples();
-	window.scrollTo(0, document.body.scrollHeight);
-}
-
-var loadExamples = function() {
-	var examples = document.querySelectorAll('[data-sectionid]');
-	for(var i = 0; i < examples.length; i++) {
-		var sectionId = examples[i].attributes['data-sectionid'].value;
-		var state = states[sectionId] ? states[sectionId] : states.default;
-		document.getElementById(state + '-' + sectionId).checked = true;
-	}
-};
-
-setDefaultExampleStates();

@@ -50,9 +50,13 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 //
 // Styleguide: Textarea
 
-// Text Icon Prompts
+// Text Input Icon Prompts
 //
 // Icons may be used to prompt users on what each input is for, or as buttons to enable functionality such as clearing a field.
+//
+// Weight: 4.55
+//
+// Teaser: To prompt users on what each input is for, or as buttons to enable functionality such as clearing a field.
 //
 // #### Usage Requirements
 //  - Icon prompt `svg` tags should be placed within the `xui-inputwrapper` at the same level as `xui-input` (if no background color is required) or within

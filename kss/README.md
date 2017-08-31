@@ -27,13 +27,19 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 ### XUI custom KSS props
 
 * `tokens`
-* `colorTokens`
-* `noExample`
+* `colortokens`
+* `noexample`
 * `classes`
 * `markdown`
 * `components`
 * `definitions`
 * `note`
+* `teaser`
+* `exampleclass`
+
+#### Adding new properties
+
+A new customisation can be cerated by adding a new property into `kss/config.json` in the `custom` array (look for the above list). Custom properties should be added to the config in lower case and must always be referenced in handlebars as lowercase. The case is not checked in the scss annotations and the KSS convention is to use PascalCase here.
 
 ### Tokens & ColorTokens
 

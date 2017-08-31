@@ -207,15 +207,12 @@
 				<input type="radio" id="markup-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-markup" />
 				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
 
-				<div class="ds-example-wrap xui-margin-bottom-xlarge">
-					{{#if modifiers}}
-					<div class="kss-modifier__default-name kss-style ds-section-part">
-						Default styling
-					</div>
-					{{/if}}
-
-					<div class="kss-modifier__example ds-section-part">
+				<!--ds-example-->
+				<div class="ds-example xui-margin-bottom-xlarge">
+					<div class="ds-section-part ds-example-default {{exampleclass}}">
+						<div class="ds-example--inner xui-container">
 						{{{example}}}
+						</div>
 					</div>
 
 					{{#each modifiers}}
@@ -229,13 +226,16 @@
 						{{{markup}}}
 					</div>
 					{{/each}}
-					<!--</div>-->
 
 				</div>
-				<!--ds example  wrap-->
+				<!--ds-example-->
 
-				{{#if example}}
-				<div class="ds-markup-wrap">
+				<div>
+					<label for="markup-{{referenceNumber}}" class="ds-markup--label">Show Markup</label>
+				</div>
+
+				<!--ds-markup-->
+				<div class="ds-markup">
 					<header class="ds-markup--actions">
 						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon xui-button-icon-inverted" title="Close markup pane"
 						 aria-label="Close markup pane">
@@ -249,12 +249,7 @@
 					</header>
 					<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
 				</div>
-				<div>
-					<label for="markup-{{referenceNumber}}" class="ds-markup--label">Show Markup</label>
-				</div>
-				{{/if}}
-
-
+				<!--ds-markup-->
 
 			</div>
 			{{/if}}

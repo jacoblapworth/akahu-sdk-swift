@@ -2,14 +2,15 @@
 	"source": "../src/sass",
 	"custom": [
 		"tokens",
-		"colorTokens",
-		"noExample",
+		"colortokens",
+		"noexample",
 		"classes",
 		"markdown",
 		"components",
 		"definitions",
 		"note",
-		"teaser"
+		"teaser",
+		"exampleclass"
 	],
 	"destination": "../docs",
 	"css": [

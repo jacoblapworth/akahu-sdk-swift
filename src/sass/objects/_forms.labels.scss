@@ -2,6 +2,8 @@
 //
 // General usage for a label to accompany an input element.
 //
+// ExampleClass: ds-example-narrow
+//
 // Markup:
 // <label class="xui-text-label xui-fieldlabel-layout" for="label-example">Name</label>
 // <input class="xui-input" id="label-example" type="text" placeholder="Zero Cool"/>
@@ -12,6 +14,8 @@
 //
 // When nesting an `<input>` element inside a `<label>`,
 // the layout classes should be applied to a span to add the correct spacing between the `<label>` and `<input>`.
+//
+// ExampleClass: ds-example-inverted
 //
 // Markup:
 // <label>

@@ -114,14 +114,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	color: $xui-color-xero-blue;
 }
 
-// Labels need to be nested in another element for other styling reasons (full bleed)
-.ds-input-all:checked ~ * .ds-all-label,
-.ds-input-markup:checked ~ * .ds-markup-label,
-.ds-input-example:checked ~ * .ds-example-label {
-	border-bottom: 3px $xui-color-xero-blue solid;
-	color: $xui-color-xero-blue;
-}
-
 .ds-description {
 	line-height: 1.8;
 
@@ -144,7 +136,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
-.ds-markup-wrap {
+.ds-markup {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -167,9 +159,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	flex-direction: row-reverse;
 }
 
-.ds-example-wrap {
-	padding: $xui-s-standard;
-	background: $xui-color-grey-7;
+.ds-example{
 	position: relative;
 	width: 100%;
 
@@ -199,7 +189,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
-.ds-input-example:checked ~ .ds-markup-wrap {
+.ds-input-example:checked ~ .ds-markup {
 	display:none;
 }
 
@@ -476,3 +466,4 @@ $ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
 @import "./copy-code-blocks";
 
 @import "./redesign";
+@import "./example";

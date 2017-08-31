@@ -33,6 +33,9 @@ const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutoco
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
+const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
+const XUIIcon = require('./components/icon/XUIIcon').default;
+const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
@@ -147,6 +150,23 @@ class DetailedListExample extends Component {
 		const example = this;
 		const { value, selectedPeople } = example.state;
 
+		const footer = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								inline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Person
+							</span>
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
 		return (
 				<XUIAutocompleter
 					ref={ac => example.completer = ac}
@@ -154,6 +174,7 @@ class DetailedListExample extends Component {
 					placeholder="Search"
 					searchValue={value}
 					dropdownFixedWidth
+					footer={footer}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill
@@ -184,6 +205,10 @@ const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutoco
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
+const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
+const XUIIcon = require('./components/icon/XUIIcon').default;
+const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
+
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
@@ -297,6 +322,23 @@ class DetailedListExample extends Component {
 		const example = this;
 		const { value, selectedPeople } = example.state;
 
+		const footer = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								inline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Person
+							</span>
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
 		return (
 				<XUIAutocompleter
 					ref={ac => example.completer = ac}
@@ -305,6 +347,7 @@ class DetailedListExample extends Component {
 					searchValue={value}
 					dropdownFixedWidth
 					disableWrapPills
+					footer={footer}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill

@@ -192,6 +192,7 @@ export default class XUIAutocompleter extends PureComponent {
 				restrictFocus={false}
 				size={props.dropdownSize}
 				fixedWidth={props.dropdownFixedWidth}
+				footer={props.footer}
 			>
 				{props.loading ? <Picklist><XUILoader /></Picklist> : props.children}
 			</DropDown>
@@ -306,6 +307,9 @@ XUIAutocompleter.propTypes = {
 
 	/** ID to apply to the input element. Useful for labels. */
 	inputId: PropTypes.string,
+
+	/** A footer element can be added. */
+	footer: PropTypes.element,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node

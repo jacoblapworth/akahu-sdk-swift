@@ -4,6 +4,9 @@ This component behaves similarly to an autocompleter, except that it is triggere
 ```
 const { boldMatch, decorateSubStr } = require('./helpers/highlighting');
 const Pickitem = require('../picklist/Pickitem').default;
+const DropDownFooter = require('../dropdown/DropDownFooter').default;
+const XUIIcon = require('../icon/XUIIcon').default;
+const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 
 const SecondarySearchData = [
 	{ props: { id: 'ss1' }, text: "Cost" },
@@ -73,6 +76,23 @@ class SecondarySearchExample extends React.Component {
 
 		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<EmptyState />);
 
+		const footer = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								inline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Person
+							</span>
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
 		return (
 		<div>
 				<XUIAutocompleterSecondarySearch
@@ -82,6 +102,7 @@ class SecondarySearchExample extends React.Component {
 					searchValue={value}
 					dropdownSize='medium'
 					qaHook='secondary-search'
+					footer={footer}
 				>
 					<Picklist>
 						{items}

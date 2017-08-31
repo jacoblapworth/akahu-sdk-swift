@@ -115,6 +115,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				qaHook={listQaHook}
 				size={props.dropdownSize}
 				fixedWidth={props.dropdownFixedWidth}
+				footer={props.footer}
 			>
 			{searchItem}
 			{props.children}
@@ -211,6 +212,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	 * to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
+
+	/** A Footer element can be added. */
+	footer: PropTypes.element,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node,

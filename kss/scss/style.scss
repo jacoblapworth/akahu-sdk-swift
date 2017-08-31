@@ -2,120 +2,119 @@
 @import "../../src/sass/mixins";
 @import "../../src/sass/vars";
 
-$ds-nav-width: 15rem;
+$ds-nav-width: 17rem;
 $ds-inverted--light: rgba(0, 0, 0, 0.06);
 $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
+
+
+.ds-html {
+	background: $xui-color-grey-6;
+}
+
 .ds-body {
 	background: $xui-color-white;
+	font-size: 15px;
+	max-width: 120rem;
+	min-height: 100vh;
+	@include xui-breakpoint-wide {
+		padding-left: $ds-nav-width;
+	}
 }
 
 .ds-main {
 	margin: auto;
-	min-height: 100%;
-	font-size: 15px;
-	width: 90%;
-
+	padding: 7vh 5vw;
 	@include xui-breakpoint-wide {
-		width: 100%;
-		padding: 0 5% 0 25%;
+		width: auto;
+		padding-left: 8vw;
+		padding-right: 8vw;
 	}
 }
 
-.ds-main-fullwidth {
-	@include xui-breakpoint-wide {
-		margin-left: calc(20% - 1px);
-		width: 80%;
-	}
+// Outdent to compensate for padding on each card
+.ds-card-wrapper {
+	margin-left: -10px;
+	margin-right: -10px;
 }
 
 
-.ds-anchor {
-	margin-left: -21px;
-	visibility: hidden;
+.ds-example {
+	background: $xui-color-grey-7;
+	border: 0;
+	padding: 20px;
 }
 
-.ds-title:hover > .ds-anchor {
-	visibility: visible;
-}
+
+//--------------------------
+// Headings
+//--------------------------
+
+// Most vertical space should be controlled by heading elements
+// to keep parity between markdown and KSS pages
 
 .ds-title {
 	color: $xui-color-black;
 	font-family: $xui-font-family;
 	margin-left: -$xui-s-large;
 	padding-left: $xui-s-large;
+	position: relative;
 }
 
 .ds-title--level-1 {
-	font-size: 32px;
+	font-size: calc(1.6em + 1.5vw);
+	letter-spacing: -0.006em;
+	line-height: 1.15;
 }
 
-.ds-title--level-2 {
+.ds-title--level-2, h2 {
+	font-size: calc(1.2em + .4vw);
+	padding-top: 8vh;
+	letter-spacing: -0.006em;
+}
+
+.ds-title--level-3, h3 {
+	font-size: 15px;
+	padding-top: 4vh;
 	margin-top: 0;
-	padding-top: 2em;
-
-	@include xui-breakpoint-wide {
-		padding-top: 3em;
-	}
 }
 
-.ds-title--level-3 {
-	padding-top: 1em;
-
-	@include xui-breakpoint-wide {
-		padding-top: 2em;
-	}
+*[class^="ds-title"] + *[class^="ds-title"] {
+	margin-top: 0;
 }
 
-.ds-nav-section {
-	background: $xui-color-white;
-	color: $xui-color-xero-blue;
-	list-style: none;
-	padding: 0;
-
-	@include xui-breakpoint-wide {
-		background: $xui-color-white;
-		margin: 3rem 0;
-		max-height: calc(100vh - 6rem);
-		max-width: 200px;
-		overflow: auto;
-		position: fixed;
-		right: 0;
-		width: 20%;
-	}
+*[class^="ds-title"]:first-child {
+	margin-top: 0;
 }
 
-.ds-nav-section::before {
-	color: $xui-color-grey-alpha-2;
-	content: "In this section";
-	padding: $xui-s-standard 0;
+// Page anchors
+
+.ds-anchor {
+	visibility: hidden;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-align: left;
+	margin-left: -20px;
+	font-size: 13px;
+	transform: translateY(-20%);
 }
 
-.ds-section-wrap {
-	margin: 0 0 4em 0;
+.ds-title:hover > .ds-anchor {
+	visibility: visible;
 }
 
-.ds-section-part {
-	padding: 0 $xui-s-xlarge;
-	max-width: 42rem;
-}
+// -----------------------------------------------------------------------------
+// Descriptions & typography
+// -----------------------------------------------------------------------------
 
-.ds-section-part-wide {
-	max-width: 70rem;
-}
 
-.ds-input-markup,
-.ds-input-example {
-	display: none;
-}
-
-.ds-markup--label{
-	font-size: $xui-font-size-small;
-	color: $xui-color-xero-blue;
+.intro {
+    font-size: 19px;
+    color: $xui-color-grey-2;
 }
 
 .ds-description {
-	line-height: 1.8;
 
 	pre {
 		padding: 15px 25px;
@@ -136,7 +135,49 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
+
+// -----------------------------------------------------------------------------
+// KSS added structure
+// -----------------------------------------------------------------------------
+
+.ds-section-wrap {
+	@include xui-breakpoint-wide {
+		max-width: 46rem;
+	}
+}
+
+.ds-section-part-wide {
+	@include xui-breakpoint-wide {
+		width: calc(100% + 20vw);
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// Examples
+// -----------------------------------------------------------------------------
+
+
+.ds-input-markup,
+.ds-input-example {
+	display: none;
+}
+
+.ds-markup--label{
+	font-size: $xui-font-size-small;
+	color: $xui-color-xero-blue;
+}
+
+// Labels need to be nested in another element for other styling reasons (full bleed)
+.ds-input-all:checked ~ * .ds-all-label,
+.ds-input-markup:checked ~ * .ds-markup-label,
+.ds-input-example:checked ~ * .ds-example-label {
+	border-bottom: 3px $xui-color-xero-blue solid;
+	color: $xui-color-xero-blue;
+}
+
 .ds-markup {
+
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -326,7 +367,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--link {
-	color: rgba($xui-color-grey-1, 0.95);
+	color: $xui-color-grey-2;
 	display: block;
 	-webkit-font-smoothing: antialiased;
 }
@@ -337,15 +378,11 @@ $kss-color-padding: #eeebff;
 	padding-bottom: 2rem;
 
 	@include xui-breakpoint-wide {
-		border-right: $xui-border-standard;
+		border-right: 1px solid $xui-color-grey-6;
 		bottom: 0;
 		max-width: 320px;
 		width: calc(20% - 1px);
 	}
-}
-
-.ds-is-selected {
-	@include xui-text-emphasis;
 }
 
 
@@ -359,6 +396,8 @@ $kss-color-padding: #eeebff;
 	@include xui-breakpoint-wide {
 		position: fixed;
 		top: 0;
+		left: 0;
+		width: $ds-nav-width;
 	}
 }
 
@@ -430,35 +469,14 @@ $kss-color-padding: #eeebff;
 	padding: 2vh;
 }
 
-// ------------------------------------------------------
-// Show and style scrollbars (for our massively mac audience)
-// ------------------------------------------------------
-$ds-scrollbar-xlight: rgba(0, 0, 0, 0.05);
-$ds-scrollbar-light: rgba(0, 0, 0, 0.1);
-$ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
+// -----------------------------------------------------------------------------
+// Breadcrumb
+// -----------------------------------------------------------------------------
 
-
-::-webkit-scrollbar {
-	height: 7px;
-	width: 7px;
-}
-
-::-webkit-scrollbar-track {
-	background: $ds-scrollbar-light;
-	border-radius: 0;
-}
-
-::-webkit-scrollbar-thumb {
-	background: $ds-inverted--medium;
-	border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: $xui-color-grey-alpha-5;
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-	background: $ds-scrollbar-xlight;
+.ds-step--body {
+	padding: 0;
+	font-size: 13px;
+	color: $xui-color-grey-2 !important;
 }
 
 @import "./markdown";

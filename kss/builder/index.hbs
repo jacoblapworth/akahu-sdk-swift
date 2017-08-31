@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="no-js xui-html" lang="en">
+<html class="no-js ds-html xui-html" lang="en">
 
 <head>
 <title>{{options.title}} {{#unless homepage}} – {{sections.0.header}}{{/unless}} </title>
@@ -17,7 +17,7 @@
 	<span class="ds-nav--header-title xui-padding-small">{{options.title}}</span>
 </header>
 
-<article role="main" class="ds-main{{#if sections.0.markdown}}-fullwidth{{/if}}">
+<article role="main" class="ds-main">
 
 	{{#unless homepage}}
 		{{> breadcrumbs}}
@@ -44,8 +44,7 @@
 					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
 						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
 							<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
-						</a>
-						{{header}}
+						</a>{{header}}
 					</h{{depth}}>
 
 					{{#if markdown}}
@@ -263,7 +262,7 @@
 
 <nav>
 	<ul id="navigation-primary" class="ds-nav ds-nav--menu">
-		<li><a class="ds-nav-li xui-text-color-black" href="./index.html"><h1 class="xui-padding-left-large">Xero User Interface</h1></a></li>
+		<li class="ds-nav--header"><a class="ds-xui-logo ds-nav-li xui-text-color-black" href="./index.html"><h1 class="xui-padding-left-large">Xero User Interface</h1></a></li>
 		{{> menu }}
 	</ul>
 </nav>

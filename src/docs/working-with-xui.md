@@ -1,4 +1,4 @@
-<p class="intro">
+<p class="ds-intro">
 	Set some expectations about what it is and does. It’s unlikely to solve everything. You’ll still need to design. We’re here to help — and link off to [feedback](./section-feedback.html) and [updates](./section-updates.html) pages
 <p>
 

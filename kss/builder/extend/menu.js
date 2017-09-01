@@ -12,11 +12,11 @@ module.exports = function (handlebars) {
 						</svg>
 					{{/if}}
 				</a>
-				{{#if isActive}}
+				{{#if menu }} {{#if isActive}}
 				<ul>
 				{{> menu}} {{! Recursively render the partial }}
 				</ul>
-				{{/if}}
+				{{/if}} {{/if}}
 		</li>
 		{{/each}}
 	`;

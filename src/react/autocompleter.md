@@ -118,7 +118,7 @@ class DetailedListExample extends Component {
 		} = example.state;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return <EmptyState id="no_people">No People Found</EmptyState>;
+			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
 		const items = people.map(item => (
@@ -290,7 +290,7 @@ class DetailedListExample extends Component {
 		} = example.state;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return <EmptyState id="no_people">No People Found</EmptyState>;
+			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
 		const items = people.map(item => (

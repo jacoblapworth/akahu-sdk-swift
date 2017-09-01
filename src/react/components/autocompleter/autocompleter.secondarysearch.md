@@ -74,7 +74,7 @@ class SecondarySearchExample extends React.Component {
 			</XUIButton>
 		);
 
-		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<EmptyState />);
+		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<XUIAutocompleterEmptyState />);
 
 		const footer = (
 			<DropDownFooter>

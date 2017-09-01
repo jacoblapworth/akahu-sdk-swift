@@ -8,6 +8,8 @@
 // Avatars can be either an image or text. If no image is available then the `<abbr>` tag should be used to display the first character of the entity.
 // They can either be singular or grouped together.
 //
+// Components: Avatar
+//
 // Weight: 4.1
 //
 // Styleguide: Avatars
@@ -27,7 +29,6 @@
 // The experimental `object-fit` property is used to scale up/down images appropriately, however support in IE/Edge is limited so as a best
 // practice we recommend using pre-processed images that have been scaled and resized appropriately.
 //
-// Components: Avatar
 //
 // Classes:
 // xui-avatar: Style for an avatar

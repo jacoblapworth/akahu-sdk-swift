@@ -2,8 +2,8 @@
  * This source is pre-parsed and looks similar to KSS but is not the same.
  */
 
-// Spacing constants
-//
+
+// TokenParserIgnore
 $xui-s-xsmall: 5px;
 $xui-s-small: 10px;
 $xui-s-standard: 15px;
@@ -16,15 +16,15 @@ $xui-s-4xlarge: 40px;
 $xui-s-5xlarge: 50px;
 $xui-s-6xlarge: 60px;
 
-// Avatars
-//
+
+// TokenParserIgnore
 $xui-font-size-avatar-small:  0.625rem; // 10/16
 $xui-font-size-avatar:        0.6875rem; // 11/16
 $xui-font-size-avatar-large:  0.875rem; // 14/16
 $xui-font-size-avatar-xlarge: 1.3125rem; // 21/16
 
-// Icons
-//
+
+// TokenParserIgnore
 $xui-icon-standard: 30px;
 $xui-icon-large: 40px;
 $xui-icon-xlarge: 60px;
@@ -32,19 +32,19 @@ $xui-icon-xlarge: 60px;
 // TokenParserIgnore
 $xui-s-actionlink: $xui-s-xsmall $xui-s-small;
 $xui-selected-item-border-width: 3px;
-
+// TokenParserIgnore
 $xui-grid-gutter: $xui-s-large;
 $xui-layout-columns: 12;
 $xui-layout-column-start: 1;
-
+// TokenParserIgnore
 $xui-navigation-height: 60px;
-
+// TokenParserIgnore
 $xui-form-width: 400px;
 $xui-input-height: 40px;
 $xui-input-padding-horizontal: $xui-s-standard;
 $xui-input-padding-vertical: 8px;
 $xui-input-padding: $xui-input-padding-vertical $xui-input-padding-horizontal;
-
+// TokenParserIgnore
 $xui-class-suffix-auto: "-auto";
 $xui-class-suffix-none: "-none";
 $xui-class-suffix-small: "-small";
@@ -54,10 +54,12 @@ $xui-class-suffix-large: "-large";
 $xui-class-suffix-xlarge: "-xlarge";
 $xui-class-suffix-huge: "-huge";
 
+// TokenParserIgnore
 $xui-base-width: 80px;
 $xui-starting-width: 140px;
 
 // These are multiples of a certain value ($xui-starting-width + ($xui-base-width * $number))
+
+// TokenParserIgnore
 $xui-width-variants-dropdown: (0, "small"), (1, "medium"), (2, "large"), (3, "xlarge");
 $xui-width-variants-modal: (2, "small"), (4, "medium"), (6, "large"), (9, "xlarge");
-// TokenParserEndIgnore

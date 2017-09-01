@@ -1,6 +1,7 @@
 // scss-lint:disable Prefix
 @import "../../src/sass/mixins";
 @import "../../src/sass/vars";
+@import "./mixins";
 
 $ds-nav-width: 17rem;
 $ds-inverted--light: rgba(0, 0, 0, 0.06);
@@ -17,6 +18,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	font-size: 15px;
 	max-width: 120rem;
 	min-height: 100vh;
+	position: relative;
 	@include xui-breakpoint-wide {
 		padding-left: $ds-nav-width;
 	}
@@ -24,7 +26,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-main {
 	margin: auto;
-	padding: 7vh 5vw;
+	padding: 7vh 5vw 7vh;
 	@include xui-breakpoint-wide {
 		width: auto;
 		padding-left: 8vw;
@@ -36,7 +38,16 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 .ds-card-wrapper {
 	margin-left: -10px;
 	margin-right: -10px;
+	@include embiggen;
 }
+
+
+.ds-example-wrap {
+	background: $xui-color-grey-7;
+	border: 0;
+	padding: 20px;
+}
+
 
 //--------------------------
 // Headings
@@ -44,6 +55,8 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 // Most vertical space should be controlled by heading elements
 // to keep parity between markdown and KSS pages
+
+$ds-section-space: 8vh;
 
 .ds-title {
 	color: $xui-color-black;
@@ -61,9 +74,55 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-title--level-2, h2 {
 	font-size: calc(1.2em + .4vw);
-	padding-top: 8vh;
+	padding-top: $ds-section-space;
 	letter-spacing: -0.006em;
 }
+
+.ds-title--level-3, h3 {
+	font-size: 15px;
+	padding-top: $ds-section-space / 2;
+	margin-top: 0;
+}
+
+*[class^="ds-title"] + *[class^="ds-title"] {
+	margin-top: 0;
+}
+
+*[class^="ds-title"]:first-child,
+.ds-h0:first-child {
+	margin-top: 0;
+}
+
+// Page anchors
+
+.ds-anchor {
+	visibility: hidden;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-align: left;
+	margin-left: -20px;
+	font-size: 13px;
+	transform: translateY(-20%);
+}
+
+.ds-title:hover > .ds-anchor {
+	visibility: visible;
+}
+
+// Masssive heading
+
+.ds-h0 {
+	font-size: calc(2.4rem + 3vw);
+	letter-spacing: -0.006em;
+	line-height: 1;
+	margin-bottom: 0.4em;
+}
+
+// -----------------------------------------------------------------------------
+// Descriptions & typography
+// -----------------------------------------------------------------------------
+
 
 .ds-title--level-3, h3 {
 	font-size: 15px;
@@ -99,7 +158,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 // -----------------------------------------------------------------------------
 // Descriptions & typography
 // -----------------------------------------------------------------------------
-
 
 .ds-intro {
     font-size: 19px;
@@ -144,6 +202,10 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
+section[class*="kss-section"] {
+	position: relative;
+}
+
 
 // -----------------------------------------------------------------------------
 // Examples
@@ -169,7 +231,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 }
 
 .ds-markup {
-
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -213,7 +274,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 
 	.xui-mask {
-		border-radius: 3px;
+		// border-radius: 3px;
 		opacity: 1;
 		padding: 20px 0;
 		position: relative;
@@ -474,6 +535,29 @@ $kss-color-padding: #eeebff;
 	padding: 0;
 	font-size: 13px;
 	color: $xui-color-grey-2 !important;
+}
+
+// -----------------------------------------------------------------------------
+// Jump nav
+// -----------------------------------------------------------------------------
+
+.ds-page-nav {
+	position: absolute;
+	top: 10px; // magic number
+	right: 5vw;
+}
+
+// -----------------------------------------------------------------------------
+// Component link
+// -----------------------------------------------------------------------------
+
+.ds-component-link  {
+	position: absolute;
+	right: 0;
+	top: 0.7em;
+	.kss-section--depth-2 & {
+		top: $ds-section-space; // different positioning if used in a secondary section
+	}
 }
 
 @import "./markdown";

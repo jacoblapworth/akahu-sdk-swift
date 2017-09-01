@@ -1,4 +1,8 @@
-# XUI – Xero's design system
+<h1 class="ds-h0">Make things people know and love</h1>
+
+<p class="ds-intro intro">
+XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
+</p>
 
 ### Always get the latest versions here:
 * XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
@@ -59,4 +63,3 @@ CSS is hard. XUI's goal is for you to not write CSS. We do this by providing CSS
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 * XUI Contributing guidelines [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md)
 * [Tell us what you think](https://github.dev.xero.com/UXE/xui/issues)
-

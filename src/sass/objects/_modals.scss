@@ -3,9 +3,87 @@
 
 // Modals
 //
-// Teaser: Popover combined with a mask that draws the user to the attention of it's contents.
+// Components: Modal
 //
-// ### Behaviour
+// Teaser: Add layers of infromation or interaction
+//
+// <p class="ds-intro">Use modal dialogs to provide additional functionality or to interrupt users with things which they really, really need to pay attention to.</p>
+//
+// Weight: 4.1
+//
+// Styleguide: Modals
+
+// Anatomy
+//
+// A standard modal is comprised of a header, body and footer. The header contains the modal title with a class of .xui-modal-title and an svg close button.
+//
+// ExampleClass: ds-example-nopadding
+//
+// Markup:
+// <div class="xui-mask xui-mask-is-active">
+//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
+//     <button type="button" class="xui-button xui-button-icon xui-modal--close" title="Close" aria-label="Close">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <header class="xui-modal--header xui-padding-left-large">
+//       <h3 id="modal-heading" class="xui-modal--heading">Smart Rule: Bank</h3>
+//     </header>
+//     <div class="xui-modal--body xui-padding-horizontal-large">
+//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
+//       <form class="xui-form-layout xui-margin-top-large xui-padding-top">
+//         <div class="xui-field-layout">
+//           <div class="xui-select" aria-describedby="modal-text">
+//             <select class="xui-select--control" id="group-button-example3">
+//               <option>If items are negative</option>
+//             </select>
+//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//           </div>
+//         </div>
+//         <div class="xui-field-layout">
+//           <label class="xui-text-label xui-fieldlabel-layout" for="move-to">Move To</label>
+//           <div class="xui-select" aria-describedby="modal-text">
+//             <select id="move-to" class="xui-select--control" id="group-button-example3">
+//               <option>Current Liabilities</option>
+//             </select>
+//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//           </div>
+//         </div>
+//       </form>
+//     </div>
+//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
+//       <button type="button" class="xui-actions--secondary xui-button xui-button-negative">Delete</button>
+//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
+//     </footer>
+//   </section>
+// </div>
+//
+// Styleguide: Modals.1
+
+// Sizes
+//
+// Definitions:
+// Small: 300px: `xui-modal-width-small`
+// Medium: 460px: `xui-modal-width-medium`
+// Large: 620px: `xui-modal-width-large`
+// Extra large: 860px: `xui-modal-width-xlarge`
+//
+// Styleguide: Modals.2
+
+// Full screen modals
+//
+// You can do a full screen modal it's a touch different
+//
+// Styleguide: Modals.2.1
+
+// Modals on small screens
+//
+// All modal sizes full-screen on small screens
+//
+// Styleguide: Modals.2.2
+
+
+// Implementation
+//
 // * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
 // * The `.xui-mask` class sets `opacity: 0;` which hides the modal by default
 // * Apply the `.xui-mask-is-active` class alongside `.xui-mask` when you wish to display the modal
@@ -61,7 +139,9 @@
 //      ...
 //```
 //
-// Components: Modal
+// Styleguide: Modals.10
+
+// Class list
 //
 // Classes:
 // xui-modal: Container for a modal
@@ -78,53 +158,36 @@
 // xui-mask: Mask for a modal
 // xui-mask-is-active: Enable the mask
 //
-// Weight: 4.1
-//
-// Styleguide: Modals
+// Styleguide: Modals.20
 
-// Standard Modal
+
+
+// Dark Modal
 //
-// ExampleClass: ds-example-nopadding ds-example-wide
+// Useful when showing dynamic content in the modal body and want the modal chrome to get out of the way.
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
-//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-//     <button type="button" class="xui-button xui-button-icon xui-modal--close" title="Close" aria-label="Close">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//     <header class="xui-modal--header xui-padding-left-large">
-//       <h3 id="modal-heading" class="xui-modal--heading">Smart Rule: Bank</h3>
-//     </header>
-//     <div class="xui-modal--body xui-padding-horizontal-large">
-//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
-//       <form class="xui-form-layout xui-margin-top-large xui-padding-top">
-//         <div class="xui-field-layout">
-//           <div class="xui-select" aria-describedby="modal-text">
-//             <select class="xui-select--control" id="group-button-example3">
-//               <option>If items are negative</option>
-//             </select>
-//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//           </div>
-//         </div>
-//         <div class="xui-field-layout">
-//           <label class="xui-text-label xui-fieldlabel-layout" for="move-to">Move To</label>
-//           <div class="xui-select" aria-describedby="modal-text">
-//             <select id="move-to" class="xui-select--control" id="group-button-example3">
-//               <option>Current Liabilities</option>
-//             </select>
-//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//           </div>
-//         </div>
-//       </form>
+//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
+//     <div class="xui-u-flex xui-text-inverted xui-modal--header">
+//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-margin-small" title="Settings" aria-label="Settings">
+//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>
+//       </button>
+//       <h3 id="dark-modal-heading" class="xui-margin-horizontal-auto xui-modal--heading">Preview</h3>
+//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-modal--close" title="Close" aria-label="Close">
+//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//       </button>
+//     </div>
+//     <div id="dark-modal-text" class="xui-modal--body xui-padding-horizontal-large">
+//       <p>Something to preview here</p>
 //     </div>
 //     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
-//       <button type="button" class="xui-actions--secondary xui-button xui-button-negative">Delete</button>
 //       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
 //     </footer>
 //   </section>
 // </div>
 //
-// Styleguide: Modals.1
+// Styleguide: Modals.10
 
 .#{$ns}-mask {
 	align-items: center;
@@ -246,30 +309,3 @@
 .#{$ns}-modal--close {
 	float: right;
 }
-
-// Dark Modal
-//
-// Useful when showing dynamic content in the modal body and want the modal chrome to get out of the way.
-//
-// Markup:
-// <div class="xui-mask xui-mask-is-active">
-//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
-//     <div class="xui-u-flex xui-text-inverted xui-modal--header">
-//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-margin-small" title="Settings" aria-label="Settings">
-//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>
-//       </button>
-//       <h3 id="dark-modal-heading" class="xui-margin-horizontal-auto xui-modal--heading">Preview</h3>
-//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-modal--close" title="Close" aria-label="Close">
-//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//       </button>
-//     </div>
-//     <div id="dark-modal-text" class="xui-modal--body xui-padding-horizontal-large">
-//       <p>Something to preview here</p>
-//     </div>
-//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
-//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
-//     </footer>
-//   </section>
-// </div>
-//
-// Styleguide: Modals.2

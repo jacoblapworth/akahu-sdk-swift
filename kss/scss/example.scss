@@ -1,6 +1,5 @@
 .ds-example-wide {
-	max-width: none;
-	width: 1024px;
+	@include embiggen;
 }
 
 .ds-example-default {

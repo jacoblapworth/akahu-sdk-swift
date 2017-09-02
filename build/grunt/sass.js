@@ -1,9 +1,6 @@
 module.exports = {
   options: {
-    sourceMap: true,
-    includePaths: [
-      './bower_components/'
-    ]
+    sourceMap: true
   },
   dist: {
     files: {

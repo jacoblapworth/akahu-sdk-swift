@@ -1,16 +1,13 @@
-/*eslint-env node */
-
+/* eslint-env node */
 module.exports = function (grunt) {
-	'use strict';
-
-	var nopt = require('nopt');
-	var knownOpts = {
+	const nopt = require('nopt');
+	const knownOpts = {
 		livereload: [Number, Boolean, null]
 	};
-	var shortHands = {
+	const shortHands = {
 		lr: ['--livereload']
 	};
-	var opts = nopt(knownOpts, shortHands, process.argv, 2);
+	const opts = nopt(knownOpts, shortHands, process.argv, 2);
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json')
@@ -24,67 +21,47 @@ module.exports = function (grunt) {
 		data: opts
 	});
 
-	grunt.registerTask('build', ['sass', 'autoprefixer:dist']);
+	grunt.registerTask('build', ['sass', 'postcss:dist']);
 	grunt.registerTask('dist', ['cssmin']);
 	grunt.registerTask('doc', ['if:readme', 'kss']);
-	grunt.registerTask('kss', ['shell:kss', 'autoprefixer:styleguide', 'copy:xui']);
+	grunt.registerTask('kss', ['shell:kss', 'postcss:styleguide', 'copy:xui']);
 
-	var gitOperations = ['gitadd', 'gitcommit', 'gitpush'];
-
-	grunt.registerTask('gh-pages', gitOperations.map(function (name) {
-		return name + ':styleguide';
-	}));
+	const gitOperations = ['gitadd', 'gitcommit', 'gitpush'];
+	grunt.registerTask('gh-pages', gitOperations.map(name => name + ':styleguide'));
 
 	grunt.registerTask('doiuse', 'Task to run doiuse', function () {
-		var postcss = require('postcss');
-		var doiuse = require('doiuse');
-		var fs = require('fs');
-		var os = require('os');
-		var done = this.async();
+		const postcss = require('postcss');
+		const doiuse = require('doiuse');
+		const done = this.async();
+		const browsers = require('@xero/browserslist-autoprefixer');
+		const selectorArray = [];
+		let count = 0;
 
-		fs.readFile('browserslist', { encoding: 'utf8' }, function (err, data) {
-			if (err) {
-				throw err;
-			}
-
-			var browsers = data.split(os.EOL).filter(function (browser) {
-				return browser && typeof browser === 'string';
-			});
-
-			var count = 0;
-			var selectorArray = [];
-
-			postcss(doiuse({
-				browsers: browsers,
-				ignore: [
-					'css-appearance',
-					'css-resize',
-					'viewport-units',
-					'font-feature'
-				],
-				onFeatureUsage: function(usageInfo) {
-					if (usageInfo.feature === 'flexbox'){
-						var found = selectorArray.find(function(selector){
-							return selector === usageInfo.usage.parent.selector;
-						});
-						if (!found) {
-							grunt.log.warn('The selector', usageInfo.usage.parent.selector, 'uses flexbox which has partial support in IE11, please ensure you test any changes in IE11');
-							selectorArray[selectorArray.length]=usageInfo.usage.parent.selector;
-						}
-					} else {
-						grunt.log.error(usageInfo.message);
-						count++;
+		postcss(doiuse({
+			browsers,
+			ignore: [
+				'css-appearance',
+				'css-resize',
+				'viewport-units',
+				'font-feature'
+			],
+			onFeatureUsage: function (usageInfo) {
+				if (usageInfo.feature === 'flexbox') {
+					if (!selectorArray.includes(usageInfo.usage.parent.selector)) {
+						grunt.log.warn(`The selector ${usageInfo.usage.parent.selector} uses flexbox which has partial support in IE11, please ensure you test any changes in IE11`);
+						selectorArray.push(usageInfo.usage.parent.selector);
 					}
+				} else {
+					grunt.log.error(usageInfo.message);
+					count++;
 				}
-			}))
-			.process(grunt.file.read('./dist/xui.css'), 'utf8')
-			.catch(function (reason) {
-				grunt.log.error(reason);
-				done(false);
-			})
-			.then(function () {
-				done(count === 0);
-			});
-		});
+			}
+		}))
+		.process(grunt.file.read('./dist/xui.css'), 'utf8')
+		.catch(reason => {
+			grunt.log.error(reason);
+			done(false);
+		})
+		.then(() => done(count === 0));
 	});
 };

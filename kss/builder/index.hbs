@@ -175,21 +175,17 @@
 
 				{{#if colortokens}}
 				<div class="kss-modifier__example ds-section-part">
-					<div class="ds-token-wrap {{#isInverted header}}xui-text-inverted{{/isInverted}}">
-					<div class="ds-token-table ds-token-table-color xui-row-flex xui-justify-left">
 					{{#renderTokens colortokens}}
-					<div class="ds-token-table--row xui-column-3-of-12">
-						<div class="ds-token-grid--cell">
-								<code class="ds-token-text">{{token.name}}</code>
+						<div class="ds-colour-section xui-margin-bottom">
+							<div class="ds-colour-example-container">
+								{{{token.example}}}
+							</div>
+							<div class="ds-colour-description xui-margin-horizontal xui-margin-vertical-small">
+								<div class="xui-heading-item xui-margin-none">{{token.title}}</div>
+								<div>{{{token.description}}}</div>
+							</div>
 						</div>
-						<div class="ds-token-grid--cell">
-							{{{token.example}}}
-							<code class="ds-token-text--floating">{{token.value}}</code>
-						</div>
-					</div>
 					{{/renderTokens}}
-					</div>
-					</div>
 				</div>
 				{{/if}}
 

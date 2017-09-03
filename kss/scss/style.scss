@@ -495,6 +495,43 @@ $kss-color-padding: #eeebff;
 	padding-bottom: 100%;
 }
 
+.ds-colour-example {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+	height: 100%;
+	width: 100%;
+
+	code {
+		font-size: 12px;
+		background: transparent;
+	}
+}
+
+.ds-colour-example-container {
+	flex: 0 0 33%;
+	height: 100px;
+	background-image: url("./kss-assets/checkerboard.png");
+	background-size: 24px 24px;
+	content: "";
+	display: block;
+	position: relative;
+}
+
+.ds-colour-section {
+	align-items: flex-end;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.ds-colour-description {
+	flex: 1;
+}
+
+.ds-colour-code-light {
+	color: $xui-color-white
+}
+
 .ds-token-text {
 	background: none;
 	color: inherit;

@@ -60,10 +60,6 @@ These are all generated in a pre-parse step that creates `src/sass/tmp/_colors.s
 // $xui-color-grey-3 : #99a3ad : color
 ```
 
-### NoExample
-
-Used by `tokens` and `colorTokens` to prevent KSS from rendering certain token blocks.
-
 ### Classes
 
 Classes processes a : separate list of class names and descriptions and places them in a table. It uses the custom helper [classes.js](https://github.dev.xero.com/UXE/xui/blob/master/kss/builder/extend/classes.js) to extract colon separated key value pairs of classes and descriptions.

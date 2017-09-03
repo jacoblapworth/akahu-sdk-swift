@@ -1,4 +1,5 @@
 const { regexDictionary, types } = require('../parser/constants');
+const tinycolor = require('tinycolor2');
 
 module.exports = function(handlebars) {
 	/**
@@ -27,47 +28,57 @@ const testString = 'To understand what recursion is, you must first understand r
 
 function renderTokens(variables, block) {
 	var newBlock = '';
-	var regex = /^(\S+)\s*:\s+(.*)\s+:\s*(.*)$/gm;
-	var test;
+	variables.split('\n').forEach(line => {
+		var test;
+		const matches = line.match(/[^:]+/g).map(match => match.trim());
 
-	while ((test = regex.exec(variables)) !== null) {
-		this.token = {};
-		this.token.name = test[1];
-		this.token.value = test[2];
-
-		if (!!test[3]) {
-			this.token.example = getExample(test[3], this.token.value);
+		if (matches[1]) {
+			this.token = {};
+			this.token.name = matches[0];
+			this.token.value = matches[1];
+			this.token.title = matches[3];
+			this.token.description = matches[4];
+			if (matches[2] != undefined) {
+				this.token.example = getExample(matches[2], this.token);
+			}
+			newBlock += block.fn(this);
 		}
-		newBlock += block.fn(this);
-	}
+	});
 	return newBlock;
 }
 
-function getExample(type, value) {
-	var example = '';
-
-	if (type === types.color) {
-		example = `<div class="ds-token-box" style="background-color:${value};"></div>`;
-
-	} else if (type === types.border) {
-		example = `<div style="border-top:${value};"></div>`;
-
-	} else if (type === types.shadow) {
-		example = `<div class="ds-token-box" style="box-shadow:${value};"></div>`;
-
-	} else if (type === types.fontSize) {
-		example = `<span class="xui-text-truncated" style="font-size:${value};">Aa</span>`;
-
-	} else if (type === types.fontWeight) {
-		example = `<span style="font-weight:${value};">Aa</span>`;
-
-	}	else if (type === types.lineHeight) {
-		example = `<span style="line-height:${value}">${testString}</span>`;
-
-	} else if (type === types.spacing) {
-		example = `<div class="ds-spacing-example" style="height:${value};width:${value};"></div>`;
+function getExample(type, token) {
+	switch(type) {
+		case types.color:
+			const codeTextClass = tinycolor(token.value).isDark() ?
+				'ds-colour-code-light'
+				: null;
+			return `
+					<div class="ds-colour-example" style="background-color:${token.value}">
+						<code class="${codeTextClass}">${token.value}</code>
+						<code class="${codeTextClass}">${token.name}</code>
+					</div>`;
+		case types.border:
+			return `
+				<div class="ds-colour-example" style="border:${token.value}">
+					<code>${token.name}</code>
+				</div>`;
+		case types.shadow:
+			return `
+					<div class="ds-colour-example" style="box-shadow:${token.value}">
+						<code>${token.name}</code>
+					</div>`;
+		case types.fontSize:
+			return  `<span class="xui-text-truncated" style="font-size:${token.value};">Aa</span>`;
+		case types.fontWeight:
+			return `<span style="font-weight:${token.value};">Aa</span>`;
+		case types.lineHeight:
+			return `<span style="line-height:${token.value}">${testString}</span>`;
+		case types.spacing:
+			return `<div class="ds-spacing-example" style="height:${token.value};width:${token.value};"></div>`;
+		default:
+			return '';
 	}
-	return example;
 }
 
 function isInverted(name, options) {

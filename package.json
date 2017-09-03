@@ -39,7 +39,7 @@
     "lint:sass": "stylelint --syntax scss ./src/sass/**/*.scss",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint . --fix",
-    "watch": "cross-env NODE_ENV=development grunt watch --livereload",
+    "watch": "cross-env NODE_ENV=production grunt watch --livereload",
     "bump-major": "bumper major \"Bump to {version}\" --tag \"{version}\"",
     "bump-minor": "bumper minor \"Bump to {version}\" --tag \"{version}\"",
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\"",
@@ -130,6 +130,7 @@
     "style-loader": "0.18.2",
     "stylelint": "8.0.0",
     "stylelint-order": "0.6.0",
+    "tinycolor2": "1.4.1",
     "uppercamelcase": "3.0.0",
     "webpack": "3.3.0",
     "yargs": "8.0.2"

@@ -36,6 +36,8 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 * `note`
 * `teaser`
 * `exampleclass`
+* `card`
+* `introduction`
 
 #### Adding new properties
 
@@ -100,3 +102,8 @@ Creates a note which is simply a paragraph styled at 85%
 
 // Note:
 // *.xui-margin-none applies an !important
+
+## Introduction
+Adds a defined introduction wrapped in <p/> tag with a `.ds-intro` class.
+
+//Introduction: Some wise words

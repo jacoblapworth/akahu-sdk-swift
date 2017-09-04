@@ -10,7 +10,8 @@
 		"definitions",
 		"note",
 		"teaser",
-		"exampleclass"
+		"exampleclass",
+		"introduction"
 	],
 	"destination": "../docs",
 	"css": [

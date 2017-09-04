@@ -1,9 +1,3 @@
-/**
- * This source is pre-parsed and looks similar to KSS but is not the same.
- */
-
-
-// @tokenparserignore
 $xui-s-xsmall: 5px;
 $xui-s-small: 10px;
 $xui-s-standard: 15px;
@@ -59,4 +53,3 @@ $xui-starting-width: 140px;
 
 $xui-width-variants-dropdown: (0, "small"), (1, "medium"), (2, "large"), (3, "xlarge");
 $xui-width-variants-modal: (2, "small"), (4, "medium"), (6, "large"), (9, "xlarge");
-// @tokenparserendignore

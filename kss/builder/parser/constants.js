@@ -9,11 +9,6 @@ module.exports = {
 			name: 'Typography',
 			source: './src/sass/settings/_typography.scss',
 			isSubsection: true
-		},
-		{
-			name: 'Margin and Padding.Tokens',
-			source: './src/sass/settings/_layout.scss',
-			isSubsection: true,
 		}
 	],
 

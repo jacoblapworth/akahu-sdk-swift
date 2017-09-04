@@ -25,22 +25,18 @@ form {
 	padding: 0;
 }
 
+// If you plan on changing any of these, please ensure you test with modals and dropdowns (incl. with scrolling content)
+// on mobile (on pages that scroll and that don't scroll) in both landscape and portrait mode
+.#{$ns}-html {
+	height: 100%;
+	min-height: 100%; // For android
+}
+
 .#{$ns}-body {
 	@include xui-container;
 	background-color: $xui-color-grey-7;
-	overflow-y: scroll;
-}
-
-.#{$ns}-html {
-	/*
-	Must be min-height.  If it's not, then the scroll-locking CSS will cause the page to have its
-	scroll position reset when a modal or mobile dropdown opens.
-	*/
 	min-height: 100%;
-
-	> .#{$ns}-body {
-		height: 100%;
-	}
+	overflow-y: scroll;
 }
 
 /*
@@ -49,6 +45,12 @@ a min-height and not a height.
 */
 html.#{$ns}-u-lockscroll {
 	overflow: hidden;
+
+	&.#{$ns}-html {
+		// Undoes the height set in xui-html. Without this, the scroll-locking CSS will cause the page to scroll
+		// to the top when a modal or mobile dropdown is opened
+		height: auto;
+	}
 
 	/*
 	We have to set overflow: hidden on both the body and html elements.  If only the body

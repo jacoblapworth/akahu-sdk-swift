@@ -64,6 +64,13 @@ class SecondarySearchExample extends React.Component {
 			})
 	}
 
+	onClose(){
+		this.setState({
+			value: '',
+			data: SecondarySearchData
+		})
+	}
+
 	render() {
 		const sse = this;
 		const { value } = sse.state;
@@ -103,6 +110,7 @@ class SecondarySearchExample extends React.Component {
 					dropdownSize='medium'
 					qaHook='secondary-search'
 					footer={footer}
+					onClose={() => this.onClose()}
 				>
 					<Picklist>
 						{items}

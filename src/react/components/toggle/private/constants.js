@@ -4,6 +4,10 @@ export const colorMap = {
 	standard: ''
 };
 
+/** @private variantMap - Map variants to classes */
+export const variantMap = {
+	small: 'xui-toggle-small'
+};
 
 /** @private layoutMap - Map layouts to classes */
 export const layoutMap = {

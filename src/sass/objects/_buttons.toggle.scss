@@ -22,6 +22,8 @@
 //
 // `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
 //
+// `xui-toggle-small` Modifier for smaller toggles. You can use any layout in conjunction with this.
+//
 // `xui-toggle-inverted` Style for a light on dark toggle container (use with `xui-text-inverted`)
 //
 // `xui-toggle-option` Container for a toggle option
@@ -56,6 +58,23 @@
 //     <div class="xui-field-layout">
 //       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled</label>
 //       <div class="xui-toggle xui-toggle-form-layout">
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input"/>
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//       </div>
+//    </div>
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled (small)</label>
+//       <div class="xui-toggle xui-toggle-small xui-toggle-form-layout">
 //         <label class="xui-toggle-option">
 //           <input type="radio" name="tg1" class="xui-toggle--input" checked/>
 //           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
@@ -124,6 +143,26 @@
 //       </span>
 //     </label>
 //   </div>
+//   <div class="xui-toggle xui-toggle-small xui-toggle-inverted xui-toggle-fullwidth-layout xui-padding-bottom-small">
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3" checked/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//   </div>
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
 //     <label class="xui-toggle-option xui-is-disabled">
 //       <input type="radio" class="xui-toggle--input" name="tg2" checked disabled/>
@@ -138,7 +177,7 @@
 //       </span>
 //     </label>
 //     <label class="xui-toggle-option xui-is-disabled">
-//       <input type="radio" class="xui-toggle--input"  name="tg2" disabled/>
+//       <input type="radio" class="xui-toggle--input" name="tg2" disabled/>
 //       <span class="xui-toggle--label">
 //         Radio
 //       </span>
@@ -297,11 +336,23 @@
 	padding-top: 8px;
 }
 
+// Small variant
+.#{$ns}-toggle-small .#{$ns}-toggle--label {
+	padding-bottom: 4px; // 5px leads to a height of 31px
+	padding-top: 4px;
+}
+
+.#{$ns}-toggle-small .#{$ns}-toggle--label,
+.#{$ns}-toggle-small .#{$ns}-toggle-option {
+	min-height: $xui-input-height-small;
+}
+
 .#{$ns}-toggle-form-layout .#{$ns}-toggle-option,
 .#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
 	flex-grow: 1;
 }
 
+// Base toggle (form and standard variant deprecated, removed in XUI 12)
 .#{$ns}-toggle {
 	align-items: stretch;
 	display: flex;
@@ -370,8 +421,8 @@
 	flex-direction: column;
 	justify-content: center;
 	margin-left: -1px;
-	min-height: $xui-input-height;
-	min-width: $xui-input-height;
+	min-height: $xui-input-height; // TODO: remove layout assumption
+	min-width: $xui-input-height; // TODO: remove layout assumption
 	position: relative; // For z-index
 	text-align: center;
 	transition: all $xui-motion-speed-fast ease;

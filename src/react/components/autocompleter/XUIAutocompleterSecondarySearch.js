@@ -107,7 +107,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		const dropdown = (
 			<DropDown
 				ref={d => completer.dropdown = d}
-				ignoreKeyboardEvents={[32]} /* Space doesn't select in an autocompleter */
+				ignoreKeyboardEvents={[32,37,39]} /* Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input */
 				hasKeyboardEvents={false}
 				onSelect={props.onOptionSelect}
 				id={props.id}

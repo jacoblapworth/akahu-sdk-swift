@@ -1,0 +1,51 @@
+//------------------------------------------------------------------------------
+// Dropdowns landing page
+//------------------------------------------------------------------------------
+
+// Dropdowns
+//
+// Teaser: Used in a wide range of ways from replacing an HTML &lt;select /&gt; in a form to revealing complex additional interactions.
+//
+// Weight: 4.40
+//
+// Styleguide: Dropdowns
+
+// Size
+//
+// Generic stuff
+//
+// Styleguide: Dropdowns.1
+
+// Width
+//
+// Dropdowns have a minimum width of 140px and, by default, will grow to fit the width of their content.
+//
+// Definitions:
+// Default: Min-width 140px: No class needed
+// Small: Max-width 140px: `xui-dropdown-small `
+// Medium: Max-width 220px: `xui-dropdown-medium`
+// Large: Max-width 300px: `xui-dropdown-large`
+// Extra large: Max-width 380px: `xui-dropdown-xlarge`
+// Match: Same as trigger: React only
+//
+// Styleguide: Dropdowns.1.1
+
+
+// Height
+//
+// Dropdowns will grow to fill the greatest available vertical space either above or below the trigger. They scroll internally if the content is taller than the available space.
+//
+//
+// Styleguide: Dropdowns.1.2
+
+
+// Positioning
+//
+// By default, dropdowns are **aligned to the left edge and positioned just below the bottom edge** of their trigger.
+//
+// If the trigger is in the bottom half of the viewport, and there’s insufficient space to draw it contents below, the dropdown will position just above the top edge of the trigger.
+// This automatic positioning will not change as a result of scrolling but does reset if the viewport changes to prevent dropdowns displaying offscreen.
+//
+// Automatic repositioning can be overridden with explicit vertical or horizontal positioning.
+//
+// Styleguide: Dropdowns.2

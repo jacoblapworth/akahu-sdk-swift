@@ -1,0 +1,93 @@
+//-----------------------
+// Tiles on home page
+//-----------------------
+
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
+@import "./mixins";
+
+
+.tile-group {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 10vh 0;
+	@include xui-breakpoint-wide {
+		@include embiggen;
+	}
+}
+
+.tile {
+	width: 30%;
+	height: 45vh;
+	min-height: 20rem;
+	max-height: 28rem;
+	padding: 2vw;
+	border-radius: 3px;
+	margin-bottom: 2vw;
+	margin-left: 2vw;
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px transparent;
+	transition-duration: 0.3s;
+	&:nth-child(3n-2) {
+		margin-left: 0;
+	}
+}
+
+.tile:hover {
+	transform: scale(1.03);
+	transition-timing-function: cubic-bezier(0.37, 1.85, 0.43, 0.86);
+	box-shadow: 0 4px 15px rgba($xui-color-grey-1, 0.2);
+}
+
+.tile a {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.tile h2,
+.tile h3 {
+	color: #fff;
+	margin-top: 0;
+}
+
+.tile.getting-started {
+	background-image: url(./kss-assets/illustration/balloon.jpg);
+	background-size: 130% auto;
+	background-color: #65bdcb;
+}
+
+.tile.building-blocks {
+	background-image: url(./kss-assets/illustration/lego.png);
+	background-size: 130% auto;
+	background-color: #223557;
+}
+
+.tile.react {
+	background-image: url(./kss-assets/illustration/sushi.png);
+	background-size: 130% auto;
+	background-color: #f8e392;
+}
+
+.tile.recipes {
+	background-image: url(./kss-assets/illustration/cheesecake.png);
+	background-size: 130% auto;
+	background-color: #71cbea;
+}
+
+.tile.contribute {
+	background-image: url(./kss-assets/illustration/chameleon.png);
+	background-size: 130% auto;
+	background-color: #30e278;
+}
+
+.tile.foundations {
+	background-image: url(./kss-assets/illustration/easel.png);
+	background-size: 130% auto;
+	background-color: #633161;
+}

@@ -37,7 +37,9 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 .ds-card-wrapper {
 	margin-left: -10px;
 	margin-right: -10px;
-	@include embiggen;
+	@include xui-breakpoint-wide {
+		@include embiggen;
+	}
 }
 
 
@@ -71,13 +73,13 @@ $ds-section-space: 8vh;
 	line-height: 1.15;
 }
 
-.ds-title--level-2, h2 {
+.ds-title--level-2, .ds-description h2 {
 	font-size: calc(1.2em + .4vw);
 	padding-top: $ds-section-space;
 	letter-spacing: -0.006em;
 }
 
-.ds-title--level-3, h3 {
+.ds-title--level-3, .ds-description h3 {
 	font-size: 15px;
 	padding-top: $ds-section-space / 2;
 	margin-top: 0;
@@ -122,12 +124,6 @@ $ds-section-space: 8vh;
 // Descriptions & typography
 // -----------------------------------------------------------------------------
 
-
-.ds-title--level-3, h3 {
-	font-size: 15px;
-	padding-top: 4vh;
-	margin-top: 0;
-}
 
 *[class^="ds-title"] + *[class^="ds-title"] {
 	margin-top: 0;
@@ -611,9 +607,37 @@ $kss-color-padding: #eeebff;
 	}
 }
 
+a.ds-component-link:before {
+    content: "React component";
+    display: block;
+    position: absolute;
+    width: 9em;
+    background: $xui-color-grey-6;
+    right: 100%;
+    padding: 0.3em 0.3em 0.2em;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    transform: translateY(-2px);
+}
+
+a.ds-component-link:after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid $xui-color-grey-6;
+    transform: translateX(-1px) translateY(-2px);
+    z-index: 10;
+    right: calc(100% - 5px);
+}
+
 @import "./markdown";
 @import "./prettyprint";
 @import "./copy-code-blocks";
-
+@import "./home";
 @import "./redesign";
 @import "./example";

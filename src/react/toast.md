@@ -25,17 +25,3 @@ const onToastClose = () => {alert( 'Standard toast closed' )};
 	</XUIToast>
 </div>
 ```
-
-### Toast Positioning
-
-Use `XUIToastWrapper` to position toast components at the bottom-left corner of the screen. This component will ensure consistent positioning of the toast at all times.
-
-```jsx
-const NOOP = () => {};
-
-<XUIToastWrapper>
-    <XUIToast onCloseClick={NOOP}>
-        <XUIToastMessage> Wrapper Toast </XUIToastMessage>
-    </XUIToast>
-</XUIToastWrapper>
-```

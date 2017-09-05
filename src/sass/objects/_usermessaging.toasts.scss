@@ -79,7 +79,8 @@
 }
 
 .#{$ns}-toast-layout {
-	@include xui-margin($xui-s-large);
+	margin: 0 $xui-s-large $xui-s-large $xui-s-large;
+
 	@include xui-padding($xui-s-small);
 	@include xui-breakpoint-narrow {
 		margin: 0;
@@ -115,6 +116,8 @@
 .#{$ns}-toastwrapper,
 .#{$ns}-toast-wrapper {
 	bottom: 0;
+	display: flex;
+	flex-flow: column nowrap;
 	left: 0;
 	position: fixed;
 

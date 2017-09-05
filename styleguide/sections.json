@@ -148,6 +148,11 @@
 						"name": "Toast Message",
 						"components": "../src/react/components/toast/XUIToastMessage.js",
 						"content": "../src/react/components/toast/toast.message.md"
+					},
+					{
+						"name": "Toast Wrapper",
+						"components": "../src/react/components/toast/XUIToastWrapper.js",
+						"content": "../src/react/components/toast/toast.wrapper.md"
 					}
 				]
 			},

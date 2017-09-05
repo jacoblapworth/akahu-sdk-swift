@@ -26,11 +26,10 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 
 .ds-main {
 	margin: auto;
-	padding: 7vh 5vw 7vh;
+	padding: 3vh 5vw 3vh;
 	@include xui-breakpoint-wide {
+		padding: 7vh 8vw 7vh;
 		width: auto;
-		padding-left: 8vw;
-		padding-right: 8vw;
 	}
 }
 
@@ -568,10 +567,25 @@ $kss-color-padding: #eeebff;
 // Breadcrumb
 // -----------------------------------------------------------------------------
 
+.ds-steps {
+ margin-left: -10px;
+}
+
+.ds-step:nth-last-child(n+2) {
+	margin-right: 10px;
+}
+
+.ds-step--icon {
+	right: -20px;
+}
+
 .ds-step--body {
-	padding: 0;
+	padding: 5px 10px;
 	font-size: 13px;
 	color: $xui-color-grey-2 !important;
+	&:hover {
+		color: $xui-color-grey-1 !important;
+	}
 }
 
 // -----------------------------------------------------------------------------

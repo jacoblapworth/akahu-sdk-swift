@@ -1,33 +1,26 @@
-.ds-example-wide {
-	@include embiggen;
-}
-
 .ds-example-default {
 	background: $xui-color-grey-7;
-	padding: $xui-s-standard;
+	padding: $xui-s-large;
 }
 
-.ds-example-inverted {
+.ds-example-dark {
 	background: $xui-color-grey-1;
+}
+
+.ds-example-transparent {
+	background: transparent;
+}
+
+.ds-example-flush {
+	padding: 0;
 }
 
 .ds-example-narrow {
 	.ds-example--inner  {
-		width: 200px;
+		width: 200px; // TBA
 	}
 }
 
-.ds-example-nopadding {
-	padding: 0;
-}
-
-.ds-example-field {
-	background: transparent;
-	border: $xui-border-standard;
-	.ds-example--inner {
-		width: 220px;
-	}
-	input {
-		margin-bottom: $xui-s-xsmall;
-	}
+.ds-example-wide {
+	@include embiggen;
 }

@@ -17,7 +17,7 @@
 //
 // A standard modal is comprised of a header, body and footer. The header contains the modal title with a class of .xui-modal-title and an svg close button.
 //
-// ExampleClass: ds-example-nopadding
+// ExampleClass: ds-example-flush
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active">
@@ -165,6 +165,8 @@
 // Dark Modal
 //
 // Useful when showing dynamic content in the modal body and want the modal chrome to get out of the way.
+//
+// ExampleClass: ds-example-flush
 //
 // Markup:
 // <div class="xui-mask xui-mask-is-active">

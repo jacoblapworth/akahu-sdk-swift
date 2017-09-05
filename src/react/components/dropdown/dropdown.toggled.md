@@ -1,10 +1,10 @@
-At the heart of all of our Dropdown implementations is `DropDownToggled`. It connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, but `DropDown` itself will render as an immediate child of the body no matter where it is in the React virtual DOM. Because of this, `DropDownToggled` is required to assist with positioning and interaction between the two components.
+`DropDownToggled` connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, but `DropDown` itself will render as an immediate child of the body no matter where it is in the React virtual DOM. Because of this, `DropDownToggled` is required to assist with positioning and interaction between the two components.
 
 ## Basic Use Cases
 
 ### Using with `Picklist`
 
-If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have a `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
+If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `Picklist` as an immediate child of the `DropDown`.  If you are missing these features, make sure that you are correctly using the `Picklist` component.
 
 ```
 const Pickitem = require('../picklist/Pickitem').default;
@@ -24,7 +24,7 @@ function createItems(items, selectedId) {
 	}, items.text);
 }
 
-const toggledItems = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
+const toggledItems = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map( (text,id) => {
 	return { props: { id }, text };
 });
 
@@ -243,7 +243,7 @@ const { Component } = require('react');
 const { boldMatch, decorateSubStr, EmptyState } = require('../../autocompleter');
 const Pickitem = require('../picklist/Pickitem').default;
 
-const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map((text, id) => {
+const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map((text, id) => {
 	return { id, text };
 });
 

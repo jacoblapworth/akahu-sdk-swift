@@ -7,7 +7,7 @@
 
 Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.
 
-XUI provides ten approved colours for avatars. `XUIAvatar` handles selecting a colour for you based on its contents, as well as calculating the abbreviated text value from the full value you pass it.
+XUI provides ten approved colours for Avatars. `XUIAvatar` handles selecting a colour for you based on its contents and calculating the abbreviated text value from the full value you pass it.
 
 `XUIAvatar`s can be grouped together using `XUIAvatarGroup`.
 

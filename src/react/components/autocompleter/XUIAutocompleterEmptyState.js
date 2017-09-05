@@ -5,7 +5,7 @@ import XUIIcon from '../icon/XUIIcon';
 
 const XUIAutocompleterEmptyState = props => (
 	<div
-		className="xui-u-flex xui-justify-center xui-u-flex-vertical xui-padding-vertical-large xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-text-muted"
+		className="xui-u-flex xui-justify-center xui-padding-vertical-large xui-u-flex-verticalalign-center xui-u-flex-row xui-text-muted"
 		data-automationid={props.qaHook}
 		id={props.id}
 	>

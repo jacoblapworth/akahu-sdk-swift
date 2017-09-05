@@ -9,7 +9,7 @@ const searchIcon = require ( '@xero/xui-icon/icons/search' ).default;
 const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 const { Component } = require ('react');
 
-const items = [ 'Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grape Fruit', 'Honeydew', 'Iceberg Lettuce', 'Jakefruit', 'Kiwi Fruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tmato', 'Ugl Fruit', 'ValenciaOrange', 'Watermelon', 'Xigua','Yellow quash', 'Zuchini'].map( (text,id) => {
+const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map( (text,id) => {
 	return { id, text };
 });
 
@@ -81,7 +81,9 @@ class XDD extends Component {
 			return {
 				selected: newSelected,
 				previousSelected: null,
-				selectedCount: getNumberOfTrueValues(newSelected)
+				selectedCount: getNumberOfTrueValues(newSelected),
+				search: '',
+				items: items
 			};
 		});
 	}

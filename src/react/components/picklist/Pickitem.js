@@ -43,8 +43,7 @@ export default class Pickitem extends PureComponent {
 			'xui-pickitem-is-selected': isSelected && !disableSelectedStyles,
 			'xui-pickitem--multiselect': multiselect,
 			'xui-pickitem--split': isSplit,
-			'xui-is-disabled': isDisabled,
-			'xui-text-truncated': shouldTruncate
+			'xui-is-disabled': isDisabled
 		});
 		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
 
@@ -61,6 +60,7 @@ export default class Pickitem extends PureComponent {
 				aria-label={ariaLabel}
 			>
 				<PickitemBody
+					shouldTruncate={shouldTruncate}
 					isSelected={isSelected}
 					multiselect={multiselect}
 					href={href}

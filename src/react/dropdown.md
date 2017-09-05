@@ -15,7 +15,6 @@ You may find one of these simpler components meets your requirements:
 
 * [`SelectBox`](#select-box) A simplified wrapper for `DropDown` and `DropDownToggled`, acts like a `<select/>` element
 * [`Autocompleter`](#autocompleter) Has a text input for a trigger and allows the user to search through and select from a list of items.
-* [Secondary Search](#secondary-search) Has a text input as a child of the dropdown, acting as a secondary action to a button trigger. Commonly used for lists that need search functionality but not the primary behaviour.
 
 ### Terminology
 

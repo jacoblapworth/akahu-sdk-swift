@@ -34,7 +34,7 @@ const radioToggle = {
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		</XUIToggle>
-	</div><div>
+	</div><div className="xui-margin-bottom">
 		<XUIToggle layout="fullwidth">
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
@@ -77,7 +77,7 @@ To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s 
 
 ```
 const checkboxToggle = {
-	name: 'toggle-checkbox',
+	name: 'toggle-checkbox-inverted',
 	onChange: () => {},
 	type: 'checkbox'
 };
@@ -89,6 +89,33 @@ const checkboxToggle = {
 			<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle } isDisabled>Disabled</XUIToggleOption>
 		</XUIToggle>
+</div>
+```
+
+### Variants
+
+To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `variant` prop.
+
+```
+const radioToggle = {
+	name: 'toggle-radio-layout-size',
+	onChange: () => {},
+	type: 'radio'
+};
+
+const checkboxToggle = {
+	name: 'toggle-checkbox-layout-size',
+	onChange: () => {},
+	type: 'checkbox'
+};
+
+<div>
+	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth">
+		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
+		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
+		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>
+		<XUIToggleOption { ...radioToggle }>Cuatro</XUIToggleOption>
+	</XUIToggle>
 </div>
 ```
 

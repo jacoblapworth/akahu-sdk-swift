@@ -7,14 +7,14 @@ import cx from 'classnames';
 
 import '../styles.scss';
 
-const styles = ({ color, fontFamily, fontSize, sidebarWidth, mq, space, maxWidth }) => ({
+const styles = ({ color, fontFamily, fontSize, mq, space, maxWidth }) => ({
 	root: {
 		color: color.base,
 		backgroundColor: color.baseBackground,
 		fontFamily: fontFamily.base,
 	},
 	hasSidebar: {
-		paddingLeft: sidebarWidth,
+		paddingLeft: '17rem',
 		[mq.small]: {
 			paddingLeft: 0,
 		},
@@ -36,7 +36,7 @@ const styles = ({ color, fontFamily, fontSize, sidebarWidth, mq, space, maxWidth
 		top: 0,
 		left: 0,
 		bottom: 0,
-		width: sidebarWidth,
+		width: '17rem',
 		overflow: 'auto',
 		[mq.small]: {
 			position: 'static',

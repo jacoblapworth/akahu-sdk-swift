@@ -7,28 +7,26 @@ import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unr
 
 const styles = ({ color, fontFamily, fontSize, space }) => ({
 	list: {
-		list: {
-			margin: 0, // eslint-disable-line quote-props
-		},
-		heading: {
-			color: color.base,
-			marginTop: space[1],
-			fontFamily: fontFamily.base,
-			fontWeight: 'bold',
-		},
-		item: {
-			color: color.base,
-			display: 'block',
-			fontFamily: fontFamily.base,
-			fontSize: fontSize.base,
-			listStyle: 'none',
-			overflow: 'hidden',
-			textOverflow: 'ellipsis',
-			borderBottom: '1px solid #d6dade',
-			'&:last-child': {
-				isolate: false,
-				borderBottom: 'none'
-			}
+		margin: 0, // eslint-disable-line quote-props
+	},
+	heading: {
+		color: color.base,
+		marginTop: space[1],
+		fontFamily: fontFamily.base,
+		fontWeight: 'bold',
+	},
+	item: {
+		color: color.base,
+		display: 'block',
+		fontFamily: fontFamily.base,
+		fontSize: fontSize.base,
+		listStyle: 'none',
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		borderBottom: '1px solid #d6dade',
+		'&:last-child': {
+			isolate: false,
+			borderBottom: 'none'
 		}
 	}
 });

@@ -77,7 +77,6 @@ There are no replacements for these; use the standard borderless classes.
 necessary to achieve the desired look.
 
 ### Dropdowns
-
 * `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, 
 `xui-dropdownmenu-large`, `xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`,
 `xui-dropdownmenu--groupheading`, `xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, 
@@ -85,8 +84,10 @@ necessary to achieve the desired look.
 These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
 
 ### Typography
-* `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
 * `xui-caret` has been removed. Use the SVG caret icon instead.
+
+#### Headings
+* `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
 * `xui-heading` has become `xui-heading-large`; `xui-heading` is now the equivalent of `xui-heading-medium`.
 * `xui-page-title` has been removed. Use `xui-heading` instead.
 * `xui-section-title` has been removed. Use `xui-heading-small` instead.
@@ -100,6 +101,20 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 * `xui-heading-display` has been removed. Use `xui-heading-xlarge` instead.
 * `xui-heading-display-xl` has been removed. Use `xui-heading-xxlarge` instead.
 * `xui-heading-display-xxl` has been removed. Use `xui-heading-xxxlarge` instead.
+
+#### Alignment
+* `xui-text-leftaligned` has been removed. Use `xui-text-align-left` instead.
+* `xui-text-centered` has been removed. Use `xui-text-align-center` instead.
+* `xui-text-rightaligned` has been removed. Use `xui-text-align-right` instead.
+
+#### Colors
+* `xui-text-color-*` has been renamed to `xui-color-*`
+* `xui-text-color-black` has been removed. Use `xui-color-grey-standard` instead.
+* `xui-text-muted` has been removed. Use `xui-color-grey-muted` instead.
+* `xui-text-color-faint` has been removed. Use `xui-color-grey-faint` instead.
+* `xui-text-negative` has been removed. Use `xui-color-negative` instead.
+* `xui-text-positive` has been removed. Use `xui-color-positive` instead.
+* `xui-text-inverted` has been removed. Use `xui-color-white` and `xui-background-grey-1` instead.
 
 ### Popover
 * `xui-popover--body`, `xui-popover--header`, `xui-popover--header-standard`, `xui-popover--header-can-scroll-up`,

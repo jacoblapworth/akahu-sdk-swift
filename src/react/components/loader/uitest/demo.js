@@ -9,7 +9,7 @@ ReactDOM.render(
 			<h3>Sizes</h3>
 			{Object.keys(sizeClassNames).map(size => (
 				<div key={size}>
-					<h4 className="xui-text-centered">{size}</h4>
+					<h4 className="xui-text-align-center">{size}</h4>
 					<XUILoader size={size} />
 				</div>
 			))}

@@ -23,7 +23,7 @@ class XUIInnerPill extends PureComponent {
 		);
 
 		const avatarEl = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
-		const secondaryTextEl = secondaryText && <span className="xui-text-color-muted xui-pill--secondary">{secondaryText}</span>;
+		const secondaryTextEl = secondaryText && <span className="xui-color-grey-muted xui-pill--secondary">{secondaryText}</span>;
 		const valueEl = value && <span className="xui-pill--text">{value}</span>;
 
 		const className = cn(

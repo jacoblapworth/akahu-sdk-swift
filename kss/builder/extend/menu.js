@@ -7,7 +7,7 @@ module.exports = function (handlebars) {
 				<a class="ds-nav-link {{#if isActive}} ds-is-active {{/if}}{{#isEqual header @root.sections.0.header}} ds-is-selected{{/isEqual}}" href="section-{{referenceURI}}.html">
 					<span class="ds-nav-link--body">{{header}}</span>
 					{{#if menuItem.menu}}
-						<svg focusable="false" class="xui-icon xui-icon-inline xui-text-color-faint {{#unless isActive}}xui-u-rotate-270{{/unless}} ds-nav-icon">
+						<svg focusable="false" class="xui-icon xui-icon-inline xui-color-grey-faint {{#unless isActive}}xui-u-rotate-270{{/unless}} ds-nav-icon">
 							<use xlink:href="#xui-icon-arrow" role="presentation"/>
 						</svg>
 					{{/if}}

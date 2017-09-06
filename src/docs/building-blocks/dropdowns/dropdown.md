@@ -1,4 +1,4 @@
-<p class="xui-heading xui-text-deemphasis xui-text-color-muted">
+<p class="xui-heading xui-text-deemphasis xui-color-grey-muted">
 XUI dropdowns can be used in a wide range of ways from replacing an HTML &lt;select /&gt; in a form to revealing complex additional interactions.
 </p>
 

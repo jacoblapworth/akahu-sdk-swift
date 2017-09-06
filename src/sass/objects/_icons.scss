@@ -98,11 +98,11 @@
 // XUI supports styling a character to look like an icon.
 //
 // Classes:
-// xui-text-color-icon: used for styling characters for use in place of icons
+// xui-color-icon: used for styling characters for use in place of icons
 //
 // Markup:
 // <div class="xui-inputwrapper xui-margin">
-//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
+//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-color-icon">
 //    €
 //  </div>
 //  <input class="xui-input" aria-label="Amount"/>
@@ -164,7 +164,7 @@
 	width: $xui-icon-xlarge;
 }
 
-.#{$ns}-icon-color-standard {
+.#{$ns}-icon-color-grey-standard {
 	fill: $xui-color-grey-alpha-2;
 }
 

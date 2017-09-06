@@ -21,7 +21,7 @@ const buttonVariants = (
 		<h3>Button Variants</h3>
 		{variants.map(variant => {
 			const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small', {
-				'xui-background-grey-1 xui-text-color-white': variant === 'icon-inverted'
+				'xui-background-grey-1 xui-color-white': variant === 'icon-inverted'
 			});
 			const icon = variant.startsWith('icon') ? <XUIIcon path={desktop} /> : null;
 			return (
@@ -93,7 +93,7 @@ const splitButtonVariants = (
 		<h3>Split Button Variants</h3>
 		{variants.map(variant => {
 			const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small', {
-				'xui-background-grey-1 xui-text-color-white': variant === 'icon-inverted'
+				'xui-background-grey-1 xui-color-white': variant === 'icon-inverted'
 			});
 			const icon = variant.startsWith('icon') ? <XUIIcon path={desktop} /> : null;
 			return (
@@ -135,7 +135,7 @@ const icons = (
 				<XUIIcon path={desktop} />
 			</XUIButton>
 		</div>
-		<div className="xui-row-flex xui-space-around xui-margin-bottom-small xui-background-grey-1 xui-text-color-white">
+		<div className="xui-row-flex xui-space-around xui-margin-bottom-small xui-background-grey-1 xui-color-white">
 			<XUIButton variant="icon-inverted">
 				<XUIIcon path={desktop} />
 			</XUIButton>

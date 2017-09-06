@@ -82,7 +82,7 @@ const checkboxToggle = {
 	type: 'checkbox'
 };
 
-<div className="xui-padding xui-text-inverted">
+<div className="xui-padding xui-color-white xui-background-grey-1">
 		<XUIToggle layout="fullwidth" color="inverted">
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

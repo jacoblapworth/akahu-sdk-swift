@@ -32,7 +32,7 @@
 <header class="ds-nav--responsive ds-nav--header">
 	<div class="xui-u-flex xui-u-flex-row">
 		<a class="ds-xui-logo xui-u-flex-grow" href="./index.html"><h1>Xero User Interface</h1></a>
-		<a href="#navigation-primary">Menu</a>
+		<a class='ds-menu-link' href="#navigation-primary">Menu</a>
 	</div>
 	<span class="ds-nav--header-title xui-padding-small">{{options.title}}</span>
 </header>
@@ -61,7 +61,7 @@
 		{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#each menu}} {{#if isActive}} {{#if children}}
 		<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav">
 			<select id="ds-nav-section" class="xui-select--control">
-				<option value="-1" disabled selected hidden>Jump To...</option>
+				<option value="-1" disabled selected hidden>Jump to...</option>
 				{{#each children}} {{#ifDepth 2}}
 				<option value="{{referenceURI}}">
 					{{header}}
@@ -127,7 +127,7 @@
 					<a class="ds-component-link xui-button xui-button-icon xui-button-icon-large" href="{{url}}" title="See the {{name}} React component">
 						<svg
 							focusable="false"
-							class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"
+							class="xui-icon xui-icon-large xui-icon-color-blue"
 							xmlns:svg="http://www.w3.org/2000/svg"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 30 30">
@@ -144,9 +144,9 @@
 					<table class="xui-contentblock xui-margin-bottom">
 						<tbody>
 							{{#renderClasses classes}}
-								<tr class="xui-contentblock--item xui-contentblock--item-layout">
-									<td class="xui-text-cell xui-padding-small ds-classtable-classname"><code>{{classes.name}}</code></td>
-									<td class="xui-text-cell xui-padding-small">{{classes.value}}</td>
+								<tr class="ds-classtable-row xui-contentblock--item xui-contentblock--item-layout">
+									<td class="xui-text-cell ds-classtable-classname"><code>{{classes.name}}</code></td>
+									<td class="xui-text-cell ds-classtable-description">{{classes.value}}</td>
 								</tr>
 							{{/renderClasses}}
 						</tbody>

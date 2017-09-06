@@ -16,7 +16,6 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 .ds-body {
 	background: $xui-color-white;
 	font-size: 15px;
-	max-width: 120rem;
 	min-height: 100vh;
 	position: relative;
 	@include xui-breakpoint-wide {
@@ -37,18 +36,16 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 .ds-card-wrapper {
 	margin-left: -10px;
 	margin-right: -10px;
-	@include xui-breakpoint-wide {
+	@include xui-breakpoint-wide { 
 		@include embiggen;
 	}
 }
-
 
 .ds-example-wrap {
 	background: $xui-color-grey-7;
 	border: 0;
 	padding: 20px;
 }
-
 
 //--------------------------
 // Headings
@@ -200,7 +197,6 @@ $ds-section-space: 8vh;
 section[class*="kss-section"] {
 	position: relative;
 }
-
 
 // -----------------------------------------------------------------------------
 // Examples
@@ -386,9 +382,28 @@ $kss-color-padding: #eeebff;
 	top: 0;
 }
 
+.ds-classtable-row {
+	display: flex;
+	flex-direction: column;
+	@include xui-breakpoint-medium-and-wide {
+		display: table-row;
+	}
+}
+
 .ds-classtable-classname {
+	padding: $xui-s-large 0 0 0;
 	white-space: nowrap;
 	width: 40%;
+	@include xui-breakpoint-medium-and-wide {
+		padding: $xui-s-small $xui-s-small $xui-s-small 0;
+	}
+}
+
+.ds-classtable-description {
+	padding: $xui-s-xsmall 0 $xui-s-large;
+	@include xui-breakpoint-medium-and-wide{
+		padding: $xui-s-small 0 $xui-s-small $xui-s-small;
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -575,12 +590,12 @@ $kss-color-padding: #eeebff;
 	right: -20px;
 }
 
-.ds-step--body {
+.xui-steps-interactive .xui-step-is-complete .ds-step--body {
 	padding: 5px 10px;
 	font-size: 13px;
-	color: $xui-color-grey-2 !important;
+	color: $xui-color-grey-2;
 	&:hover {
-		color: $xui-color-grey-1 !important;
+		color: $xui-color-grey-1;
 	}
 }
 
@@ -590,8 +605,22 @@ $kss-color-padding: #eeebff;
 
 .ds-page-nav {
 	position: absolute;
-	top: 10px; // magic number
-	right: 5vw;
+	top: $xui-s-large;
+	right: $xui-s-large;
+	width: 120px;
+	z-index: 2;
+	@include xui-breakpoint-wide {
+		top: 7vh;
+		right: 8vw;
+	}
+}
+
+.ds-menu-link {
+	@include xui-breakpoint-medium-and-narrow {
+		position: relative;
+		top: 30px;
+		left: -30px;
+	}
 }
 
 // -----------------------------------------------------------------------------

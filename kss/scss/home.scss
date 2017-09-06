@@ -18,7 +18,7 @@
 }
 
 .tile {
-	width: 30%;
+	width: calc(33.33% - 2vw);
 	height: 45vh;
 	min-height: 20rem;
 	max-height: 28rem;
@@ -34,6 +34,17 @@
 	box-shadow: 0 0 1px transparent;
 	transition-duration: 0.3s;
 	&:nth-child(3n-2) {
+		margin-left: 0;
+	}
+	@include xui-breakpoint-medium {
+		width: calc(50% - 2vw);
+		margin-left: 0;
+		&:nth-child(even) {
+			margin-left: 2vw;
+		}
+	}
+	@include xui-breakpoint-narrow {
+		width: 100%;
 		margin-left: 0;
 	}
 }

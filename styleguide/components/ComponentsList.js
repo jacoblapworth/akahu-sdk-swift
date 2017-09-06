@@ -23,7 +23,6 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 		listStyle: 'none',
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
-		borderBottom: '1px solid #d6dade',
 		'&:last-child': {
 			isolate: false,
 			borderBottom: 'none'

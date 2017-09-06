@@ -13,8 +13,8 @@ export const color = {
 	base: '#333',
 	light: '#999',
 	lightest: '#ccc',
-	link: '#32465a',
-	linkHover: '#32465a',
+	link: '#657483',
+	linkHover: '#657483',
 	border: '#e8e8e8',
 	name: '#7f9a44',
 	type: '#b77daa',
@@ -22,7 +22,7 @@ export const color = {
 	baseBackground: '#fff',
 	errorBackground: '#c00',
 	codeBackground: '#ebedef',
-	sidebarBackground: '#ebedef',
+	sidebarBackground: 'rgb(255, 255, 255)',
 };
 
 export const fontFamily = {

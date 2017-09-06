@@ -6,7 +6,7 @@
 	}
 
 	ul ul li {
-		margin-left: 16px;
+		padding-left: calc(0.7em + .7vw);
 	}
 
 	main h1 {
@@ -29,4 +29,3 @@
 		overflow-x: auto;
 	}
 }
-

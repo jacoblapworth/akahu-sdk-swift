@@ -6,16 +6,20 @@ import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unr
 export const styles = ({ color }) => ({
 	link: {
 		'&, &:link, &:visited': {
+			borderBottom: '1px solid #d6dade',
 			display: 'block',
-			margin: [['1.3vh', 0, '1.3vh', 0]],
 			lineHeight: 1.5,
-			fontSize: 'inherit',
+			fontSize: '15px',
 			color: color.link,
-			textDecoration: 'none'
+			textDecoration: 'none',
+			'padding-top': 'calc(1em + 0.5vh)',
+			'padding-bottom': 'calc(1em + 0.5vh)',
+			'padding-left': 'calc(0.7em + .7vw)'
 		},
 		'&:hover, &:active': {
 			isolate: false,
 			color: color.linkHover,
+			'background-color': '#f5f6f7',
 			cursor: 'pointer',
 		},
 	},

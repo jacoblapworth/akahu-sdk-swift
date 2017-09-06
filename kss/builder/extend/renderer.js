@@ -1,4 +1,4 @@
-const { regexDictionary, types } = require('../parser/constants');
+const { types } = require('../parser/constants');
 const tinycolor = require('tinycolor2');
 
 module.exports = function(handlebars) {
@@ -36,10 +36,11 @@ function renderTokens(variables, block) {
 			this.token = {};
 			this.token.name = matches[0];
 			this.token.value = matches[1];
+			type = matches[2];
 			this.token.title = matches[3];
 			this.token.description = matches[4];
-			if (matches[2] != undefined) {
-				this.token.example = getExample(matches[2], this.token);
+			if (type != undefined) {
+				this.token.example = getExample(type, this.token);
 			}
 			newBlock += block.fn(this);
 		}
@@ -75,12 +76,12 @@ function getExample(type, token) {
 		case types.lineHeight:
 			return `<span style="line-height:${token.value}">${testString}</span>`;
 		case types.spacing:
-			return `<div class="ds-spacing-example" style="height:${token.value};width:${token.value};"></div>`;
+			return `<span style="letter-spacing:${token.value}">${testString}</span>`;
 		default:
 			return '';
 	}
 }
 
 function isInverted(name, options) {
-	return regexDictionary.inverted.test(name) ? options.fn(this) : options.inverse(this);
+	return /inverted/i.test(name) ? options.fn(this) : options.inverse(this);
 }

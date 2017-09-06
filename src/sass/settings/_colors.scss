@@ -2,7 +2,7 @@
  * This source is pre-parsed and looks similar to KSS but is not the same.
  */
 
-// @tokenparserignore
+// @tokenparserstartignore
 $xui-color-black: #32465a;
 $xui-color-white: #fff;
 // @tokenparserendignore
@@ -133,7 +133,7 @@ $xui-color-xero-dark-red: mix($xui-color-xero-red, #000, 90%);
 // Dark Purple
 $xui-color-xero-dark-purple: #643cfa;
 
-// xuidoc:ignore:start
+// @tokenparserstartignore
 
 // @section Avatar colors
 //
@@ -161,4 +161,4 @@ $xui-color-shadow-inverted-light: $xui-color-inverted-alpha-7;
 $xui-color-shadow-inverted-medium: $xui-color-inverted-alpha-6;
 $xui-color-shadow-inverted-strong: $xui-color-inverted-alpha-5;
 
-// xuidoc:ignore:end
+// @tokenparserendignore

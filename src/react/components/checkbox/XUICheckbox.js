@@ -67,12 +67,12 @@ export default class XUICheckbox extends Component {
 			svgClassName,
 			labelClassName,
 		} = this.props;
-		const classes = cn(className, 'xui-styledcheckbox', {
-			'xui-styledcheckbox-reversed': isReversed,
+		const classes = cn(className, 'xui-styledcheckboxradio', {
+			'xui-styledcheckboxradio-reversed': isReversed,
 			'xui-is-disabled': isDisabled
 		});
 		const svgClasses = cn('xui-icon', svgClassName);
-		const labelClasses = cn('xui-styledcheckbox--label', labelClassName);
+		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
 		const labelElement = isLabelHidden ? null : <span className={labelClasses}>{children}</span>;
 		const inputProps = {
 			type: 'checkbox',
@@ -101,12 +101,12 @@ export default class XUICheckbox extends Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input ref={cb => this._input = cb} {...inputProps} />
+				<input className="xui-styledcheckboxradio--input" ref={cb => this._input = cb} {...inputProps} />
 				<svg className={svgClasses}>
-					<path d={iconMainPath || checkboxMain} className="xui-styledcheckbox--focus" role="presentation" />
-					<path d={iconMainPath || checkboxMain} className="xui-styledcheckbox--main" role="presentation" />
-					{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className="xui-styledcheckbox--check" role="presentation" />}
-					{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className="xui-styledcheckbox--indeterminate" role="presentation" />}
+					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--focus" role="presentation" />
+					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--main" role="presentation" />
+					{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className="xui-styledcheckboxradio--check" role="presentation" />}
+					{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className="xui-styledcheckboxradio--indeterminate" role="presentation" />}
 				</svg>
 				{labelElement}
 			</label>

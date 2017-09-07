@@ -17,6 +17,10 @@ This is to ensure correct styling when placed next to inputs in a grouped input 
 * `xui-avatar-group` has been removed. Use `xui-avatargroup` instead.
 
 ### Radios and Checkboxes
+* Styled radio and checkbox classes have been merged under the `xui-styledcheckboxradio` class. This means any class
+that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-styledcheckboxradio`
+* Styled checkboxes and radios no longer use `input` and `svg` element selectors. The hidden underlying input element
+must have the `xui-styledcheckboxradio--input` class and any accompanying SVGs must have the `xui-icon` class.
 * Native checkbox and radio styling classes have been removed. Use styled checkboxes and radios instead.
 The following classes are no longer available:
  * `xui-checkbox`

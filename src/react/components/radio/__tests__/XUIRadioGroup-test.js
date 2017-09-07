@@ -18,7 +18,7 @@ describe('XUIRadioGroup', function() {
 		);
 
 		expect(wrapper.children()).toHaveLength(3);
-		wrapper.children().forEach(child => expect(child.hasClass('xui-styledradio')).toBeTruthy());
+		wrapper.children().forEach(child => expect(child.hasClass('xui-styledcheckboxradio')).toBeTruthy());
 	});
 
 
@@ -43,7 +43,7 @@ describe('XUIRadioGroup', function() {
 		const wrapper = mount(
 			<XUIRadioGroup className="dogs-are-totes-patotes" />
 		);
-		expect(wrapper.find('.dogs-are-totes-patotes.xui-styledradio-group')).toHaveLength(1);
+		expect(wrapper.find('.dogs-are-totes-patotes.xui-styledcheckboxradio-group')).toHaveLength(1);
 	});
 
 

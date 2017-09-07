@@ -440,14 +440,14 @@
 //   <li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
 //     <input class="xui-pickitem--submenucontrol" id="submenu-check" type="checkbox" tabindex="-1" />
 //     <div class="xui-pickitem xui-pickitem--split">
-//       <label class="xui-pickitem--body xui-styledcheckbox">
+//       <label class="xui-pickitem--body xui-styledcheckboxradio">
 //         <input type="checkbox" tabindex="-1">
 //         <svg focusable="false" class="xui-icon xui-pickitem--input">
-//           <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//           <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"></use>
-//           <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"></use>
+//           <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//           <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+//           <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 //         </svg>
-//         <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
+//         <span class="xui-styledcheckboxradio--label xui-pickitem--multiselect-label xui-pickitem--text">
 //           This is how long text looks with split menu
 //         </span>
 //       </label>
@@ -459,27 +459,27 @@
 //     </label>
 //     <ul class="xui-submenu xui-submenu-layout" role="group">
 //       <li class="xui-pickitem" role="treeitem">
-//         <label class="xui-pickitem--body xui-styledcheckbox">
+//         <label class="xui-pickitem--body xui-styledcheckboxradio">
 //           <input type="checkbox" tabindex="-1">
 //             <svg focusable="false" class="xui-icon xui-pickitem--input">
-//               <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//               <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//               <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
+//               <use role="presentation" class="xui-styledcheckboxradio--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//               <use role="presentation" class="xui-styledcheckboxradio--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//               <use role="presentation" class="xui-styledcheckboxradio--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
 //             </svg>
-//             <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
+//             <span class="xui-styledcheckboxradio--label xui-pickitem--multiselect-label xui-pickitem--text">
 //               This is how long text looks in a submenu
 //             </span>
 //           </label>
 //         </li>
 //         <li class="xui-pickitem" role="treeitem">
-//           <label class="xui-pickitem--body xui-styledcheckbox">
+//           <label class="xui-pickitem--body xui-styledcheckboxradio">
 //             <input type="checkbox" checked="checked" tabindex="-1">
 //               <svg focusable="false" class="xui-icon xui-pickitem--input">
-//                 <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//                 <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//                 <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
+//                 <use role="presentation" class="xui-styledcheckboxradio--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//                 <use role="presentation" class="xui-styledcheckboxradio--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//                 <use role="presentation" class="xui-styledcheckboxradio--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
 //               </svg>
-//               <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
+//               <span class="xui-styledcheckboxradio--label xui-pickitem--multiselect-label xui-pickitem--text">
 //                 two two
 //               </span>
 //             </label>
@@ -487,14 +487,14 @@
 //         </ul>
 //       </li>
 //       <li class="xui-pickitem" role="treeitem">
-//         <label class="xui-pickitem--body xui-styledcheckbox">
+//         <label class="xui-pickitem--body xui-styledcheckboxradio">
 //           <input type="checkbox" checked="checked" tabindex="-1" />
 //           <svg focusable="false" class="xui-icon xui-pickitem--input">
-//             <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
 //           </svg>
-//           <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
+//           <span class="xui-styledcheckboxradio--label xui-pickitem--multiselect-label xui-pickitem--text">
 //             This is how long text looks normally
 //           </span>
 //         </label>
@@ -535,7 +535,7 @@
 	width: 100%;
 }
 
-.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckbox--label {
+.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label {
 	padding: 6px 0 0;
 }
 

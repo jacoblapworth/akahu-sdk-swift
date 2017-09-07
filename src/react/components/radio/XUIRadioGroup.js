@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 export default function XUIRadioGroup ({ children, className, qaHook }) {
-	const classes = cn(className, 'xui-styledradio-group');
+	const classes = cn(className, 'xui-styledcheckboxradio-group');
 	return (
 		<div className={classes} data-automationid={qaHook}>
 			{children}

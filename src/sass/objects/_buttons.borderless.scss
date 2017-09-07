@@ -60,7 +60,7 @@
 		}
 	}
 	&-inverted {
-		@include xui-button-borderless($xui-color-inverted-alpha-2, $xui-color-white, $xui-color-inverted-alpha-7, $xui-color-inverted-alpha-6);
+		@include xui-button-borderless($xui-color-inverted-alpha-2, $xui-color-white, $xui-color-inverted-alpha-6, $xui-color-inverted-alpha-5);
 		&.#{$ns}-button-is-disabled {
 			@include xui-button-is-disabled(none, $xui-color-inverted-alpha-4);
 		}

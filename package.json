@@ -29,7 +29,7 @@
     "clean": "npm-run-all -p clean:babel clean:css clean:umd clean:testui clean:design-system",
     "clean:babel": "rimraf react sass",
     "clean:css": "rimraf dist",
-    "clean:design-system": "rimraf src/sass/tmp",
+    "clean:design-system": "rimraf src/sass/tmp docs",
     "clean:testui": "rimraf uitest/assets",
     "clean:umd": "rimraf src/react/umd.js umd/assets",
     "clean:umd:post-build": "rimraf src/react/umd.js",

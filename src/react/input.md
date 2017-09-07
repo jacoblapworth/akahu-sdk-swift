@@ -70,12 +70,13 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<p className="xui-text-label">
-					{`The input contains: ${this.state.text}`}
+					<label htmlFor="input-change-example">{`The input contains: ${this.state.text}`}</label>
 				</p>
 				<XUIInput
 					onChange={this.updateText}
 					inputAttributes={{
-						placeholder: 'Text typed here will go up there ☝️'
+						placeholder: 'Text typed here will go up there ☝️',
+						id: 'input-change-example'
 					}}
 				/>
 			</div>

@@ -7,7 +7,7 @@ export default function XUIToastWrapper({ className, qaHook, children }) {
 	const classNames = cn(className, 'xui-toastwrapper');
 
 	return (
-		<Portal isOpened={children != null && children.length > 0}>
+		<Portal isOpened={React.Children.count(children) > 0}>
 			<div data-automationid={qaHook} className={cn(classNames, 'xui-container')}>
 				{children}
 			</div>

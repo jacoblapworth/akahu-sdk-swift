@@ -155,9 +155,9 @@
 }
 
 .#{$ns}-transition {
-	transition-curve: $xui-motion-curve-standard;
+	transition-duration: $xui-motion-speed-medium;
 	transition-property: all;
-	transition-speed: $xui-motion-speed-medium;
+	transition-timing-function: $xui-motion-curve-standard;
 }
 
 .#{$ns}-transition-speed-fast {

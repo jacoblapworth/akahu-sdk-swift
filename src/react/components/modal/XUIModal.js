@@ -16,46 +16,92 @@ const modalSizes = {
 	fullscreen: 'xui-modal-fullscreen'
 };
 
-export default class XUIModal extends Component {
-	componentDidMount() {
-		const modal = this;
-		const { onClose, keyListenerTarget, restrictFocus, hideOnEsc, isHidden } = modal.props;
+/**
+ * Predicate to determine if the props of a modal have changed in such as way as to necessitate
+ * adding/removing global event listeners.
+ *
+ * @private
+ * @param {Object} props
+ * @param {Object} otherProps
+ * @returns {Boolean}
+ */
+function shouldUpdateListeners(props, otherProps) {
+	return (!!props.onClose !== !!otherProps.onClose)
+		|| props.hideOnEsc !== otherProps.hideOnEsc
+		|| props.restrictFocus !== otherProps.restrictFocus
+		|| props.keyListenerTarget !== otherProps.keyListenerTarget;
+}
+
+/**
+ * Add the global event listeners necessary to ensure that props like hideOnEsc
+ * can function properly.
+ *
+ * @private
+ * @param {XUIModal} modal
+ */
+function addListeners(modal) {
+	const { onClose, keyListenerTarget, restrictFocus, hideOnEsc } = modal.props;
+	const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
+
+	// Be paranoid.  Some test environments won't have a window object.
+	if (listenerTarget != null) {
 		if (onClose && hideOnEsc) {
 			modal._keyUpHandler = modal._keyUpHandler.bind(modal);
-			keyListenerTarget.addEventListener('keyup', modal._keyUpHandler);
+			listenerTarget.addEventListener('keyup', modal._keyUpHandler);
 		}
 		if (restrictFocus) {
 			modal._restrictFocus = modal._restrictFocus.bind(modal);
-			keyListenerTarget.addEventListener('focus', modal._restrictFocus, true);
+			listenerTarget.addEventListener('focus', modal._restrictFocus, true);
 		}
-		if(!isHidden) {
+	}
+}
+
+/**
+ * Remove any global event listeners associated with a given modal.
+ *
+ * @private
+ * @param {XUIModal} modal
+ */
+function removeListeners(modal) {
+	const { keyListenerTarget } = modal.props;
+	const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
+
+	// Be paranoid.  Some test environments won't have a window object.
+	if (listenerTarget != null) {
+		listenerTarget.removeEventListener('keyup', modal._keyUpHandler);
+		listenerTarget.removeEventListener('focus', modal._restrictFocus, true);
+	}
+}
+
+export default class XUIModal extends Component {
+	componentDidMount() {
+		addListeners(this);
+		if (!this.props.isHidden) {
 			lockScroll();
 			this._isScrollLocked = true;
 		}
 	}
 
 	componentWillUnmount() {
-		const modal = this;
-		const { keyListenerTarget, hideOnEsc, restrictFocus } = modal.props;
-		const listenerTarget = keyListenerTarget;
-		/*
-		 * When the component unmounts, we need to remove any key listeners that were listening
-		 * for the esc key press
-		 */
-		if (hideOnEsc) {
-			listenerTarget.removeEventListener('keyup', modal._keyUpHandler);
-		}
-		if (restrictFocus) {
-			listenerTarget.removeEventListener('focus', modal._restrictFocus, true);
-		}
+		removeListeners(this);
 
 		unlockScroll();
-		modal._isScrollLocked = false;
+		this._isScrollLocked = false;
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (shouldUpdateListeners(this.props, nextProps)) {
+			removeListeners(this);
+		}
 	}
 
 	componentDidUpdate(prevProps) {
 		const modal = this;
 		const { isHidden, restrictFocus } = modal.props;
+
+		if (shouldUpdateListeners(this.props, prevProps)) {
+			addListeners(this);
+		}
 
 		if (!isHidden && !modal._isScrollLocked) {
 			lockScroll();
@@ -83,7 +129,7 @@ export default class XUIModal extends Component {
 	_keyUpHandler(event) {
 		const { isHidden, onClose } = this.props;
 		const escapeKeyCode = 27;
-		if(event.keyCode === escapeKeyCode && !isHidden && onClose) {
+		if (event.keyCode === escapeKeyCode && !isHidden && onClose) {
 			onClose();
 		}
 	}
@@ -216,7 +262,7 @@ XUIModal.propTypes = {
 	/** Whether the modal wrapping element should be a `<form>` rather than a `<section>`. Allows the enter key to activate the submit button inside native form controls. */
 	isForm: PropTypes.bool,
 
-	/** The target that should listen to key presses. Defaults to the window */
+	/** The target that should listen to key presses. Defaults to the window. */
 	keyListenerTarget: PropTypes.object,
 
 	/** Custom classes for the mask */
@@ -250,7 +296,6 @@ XUIModal.defaultProps = {
 	hideOnEsc: true,
 	hideOnOverlayClick: false,
 	isHidden: true,
-	keyListenerTarget: window,
 	size: 'medium',
 	defaultLayout: true,
 	restrictFocus: true,

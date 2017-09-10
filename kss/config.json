@@ -1,8 +1,8 @@
 {
 	"source": "../src/sass",
 	"custom": [
+		"tokentype",
 		"tokens",
-		"colortokens",
 		"noexample",
 		"classes",
 		"markdown",

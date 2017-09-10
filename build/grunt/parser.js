@@ -33,12 +33,8 @@ templates.forEach(function (template) {
 
 function parseCss(template, nodes, source) {
 	const sections = [];
-	const renderType = template.isGrid ? 'ColorTokens' : 'Tokens';
-
 	let majorNumber = 100;
 	let sectionCounter = 0;
-	let newSection = true;
-	let type = null;
 	let firstSection = true;
 
 	nodes.forEach(function (node) {
@@ -57,14 +53,12 @@ function parseCss(template, nodes, source) {
 					firstSection = false;
 				}
 				sections.push(`// ${headingRegexMatch[1].trim()}`, '//');
-
-				newSection = true;
 				sectionCounter += 1;
 			}
 
 			if (typeRegexMatch != null) {
 				if (Object.values(types).includes(typeRegexMatch[1])) {
-					type = typeRegexMatch[1];
+					sections.push(`// TokenType: ${typeRegexMatch[1]}`,'//','// Tokens:');
 				} else {
 					console.error(`Unknown type '${typeRegexMatch[1]}' found`);
 				}
@@ -72,19 +66,10 @@ function parseCss(template, nodes, source) {
 
 		} else if (node.type === 'decl') {
 			const value = compileSass(node.value, source);
-
-			if (newSection) {
-				sections.push(`// ${renderType}:`);
-				newSection = false;
-			}
-
 			const prev = node.prev();
-			const additionalInfo =
-				(prev.type === 'comment' && prev.text != null)
-				? `: ${prev.text}`
-				: '';
+			const additionalInfo = (prev.type === 'comment' && prev.text != null) ? `${prev.text}` : '';
 
-			sections.push(`// ${node.prop} : ${value} : ${type} ${additionalInfo}`);
+			sections.push(`// ${node.prop} : ${value} : ${additionalInfo}`);
 		}
 	});
 

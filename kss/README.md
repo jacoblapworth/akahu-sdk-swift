@@ -27,8 +27,7 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 ### XUI custom KSS props
 
 * `tokens`
-* `colortokens`
-* `noexample`
+* `tokenType`
 * `classes`
 * `markdown`
 * `components`
@@ -43,23 +42,22 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 
 A new customisation can be cerated by adding a new property into `kss/config.json` in the `custom` array (look for the above list). Custom properties should be added to the config in lower case and must always be referenced in handlebars as lowercase. The case is not checked in the scss annotations and the KSS convention is to use PascalCase here.
 
-### Tokens & ColorTokens
+### Tokens
 
-Tokens and color tokens parse out the following style code comments.
-These are all generated in a pre-parse step that creates `src/sass/tmp/_colors.scss` files with the following code comment format that is passed into KSS.
+PostCSS is used to document information about sass variables.
 
-```
-// Tokens:
-// $xui-font-size-large : 17px : font-size
-// $xui-font-size-medium : 15px : font-size
-// $xui-font-size-small : 13px : font-size
-```
+`@section` can be used to specify a section heading, `@type`, can be used to indicate the type of token that's being rendered, name and description can be passed in the line above each item separated by a colon. These will then be parsed into blocks of KSS which will be rendered by the `rendertokens` handlebars partial.
+
+Files listed in the `templates` section of `kss/builder/parser/constants.js` will be run through the PostCSS parser, with their output placed in a temp folder.
 
 ```
-// ColorTokens:
-// $xui-color-grey-1 : #32465a : color
-// $xui-color-grey-2 : #657483 : color
-// $xui-color-grey-3 : #99a3ad : color
+// @section Greys
+// @type color
+//
+// Grey 1 : Primary text, some backgrounds.
+$xui-color-grey-1: $xui-color-black;
+// Grey 2 : Secondary text, some backgrounds.
+$xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
 ```
 
 ### Classes

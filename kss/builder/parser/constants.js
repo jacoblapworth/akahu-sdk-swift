@@ -2,8 +2,7 @@ module.exports = {
 	templates: [
 		{
 			name: 'Colors',
-			source: './src/sass/settings/_colors.scss',
-			isGrid: true
+			source: './src/sass/settings/_colors.scss'
 		},
 		{
 			name: 'Typography',

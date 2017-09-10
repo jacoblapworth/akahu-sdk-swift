@@ -9,6 +9,7 @@ $xui-color-white: #fff;
 
 // @section Greys
 // @type color
+//
 // Grey 1 : Primary text, some backgrounds.
 $xui-color-grey-1: $xui-color-black;
 // Grey 2 : Secondary text, some backgrounds.
@@ -25,6 +26,8 @@ $xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
 $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 
 // @section Primary interaction colours
+// @type color
+//
 // Blue: Main masthead & button backgrounds, link text
 $xui-color-xero-blue: #2baaed;
 // Dark Blue: Link text and button background hover states
@@ -36,6 +39,7 @@ $xui-color-xero-red: #f6534e;
 
 // @section Misc
 // @type color
+//
 // Light Blue
 $xui-color-xero-light-blue: #3adcf6;
 // Light Green
@@ -52,6 +56,7 @@ $xui-color-xero-purple: #b450c8;
 
 // @section Greys with opacity
 // @type color
+//
 // Grey Alpha 2
 $xui-color-grey-alpha-2: rgba($xui-color-grey-1, 0.75);
 // Grey Alpha 3
@@ -82,6 +87,7 @@ $xui-color-inverted-alpha-7: rgba($xui-color-white, 0.05);
 
 // @section Specialty colours
 // @type color
+//
 // Twitter: Fill colour for Twitter icon and other relaated elements
 $xui-color-twitter: #1dadea;
 // Facebook: Fill colour for Facebook icon and other relaated elements
@@ -95,6 +101,7 @@ $xui-color-file-pdf: #db4437;
 
 // @section Depth
 // @type shadow
+//
 // Overlap Top Shadow
 $xui-shadow-depth-overlap-top: 0 1px 0 0 $xui-color-grey-alpha-5, 0 3px 0 0 $xui-color-grey-alpha-7;
 // Overlap Bottom Shadow
@@ -113,6 +120,7 @@ $xui-border-muted: 1px solid $xui-color-grey-5;
 
 // @section External borders
 // @type shadow
+//
 // All Borders
 $xui-shadow-border-all: 0 0 0 1px $xui-color-grey-alpha-5;
 // Top Border
@@ -126,6 +134,7 @@ $xui-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-5;
 
 // @section Dark variants
 // @type color
+//
 // Dark Green
 $xui-color-xero-dark-green: mix($xui-color-xero-green, #000, 90%);
 // Dark Red
@@ -135,8 +144,6 @@ $xui-color-xero-dark-purple: #643cfa;
 
 // @tokenparserstartignore
 
-// @section Avatar colors
-//
 $xui-color-avatar-1: mix($xui-color-xero-red, #FFF, 60%);
 $xui-color-avatar-2: mix($xui-color-xero-orange, #FFF, 60%);
 $xui-color-avatar-3: mix($xui-color-xero-yellow, #FFF, 60%);
@@ -148,13 +155,9 @@ $xui-color-avatar-8: mix($xui-color-xero-dark-purple, #FFF, 60%);
 $xui-color-avatar-9: mix($xui-color-xero-purple, #FFF, 60%);
 $xui-color-avatar-10: mix($xui-color-xero-pink, #FFF, 60%);
 
-// @section Focus ring
-//
 $xui-shadow-focus: 0 0 0 3px $xui-color-grey-alpha-6;
 $xui-shadow-focus-inverted: 0 0 0 3px $xui-color-inverted-alpha-6;
 
-// @section Inverted colors
-//
 $xui-color-white-muted: $xui-color-inverted-alpha-2;
 $xui-color-white-faint: $xui-color-inverted-alpha-3;
 $xui-color-shadow-inverted-light: $xui-color-inverted-alpha-7;

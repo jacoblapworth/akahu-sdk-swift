@@ -174,45 +174,8 @@
 					<p class="ds-note">{{{note}}}</p>
 				</div>
 				{{/if}}
-
 				{{#if tokens}}
-				<div class="kss-modifier__example ds-section-part">
-					<div class="ds-token-wrap">
-					<div class="ds-token-table xui-row-flex xui-justify-left">
-						<div class="xui-column-12-of-12 xui-sectionheading xui-sectionheading-layout xui-heading-section">
-							<div class="xui-column-5-of-12">Token</div>
-							<div class="xui-column-3-of-12">Value</div>
-							{{#unless noexample}}<div class="xui-column-3-of-12">Example</div>{{/unless}}
-						</div>
-						{{#renderTokens tokens}}
-						<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
-							<div class="xui-column-5-of-12"><code class="ds-token-text">{{token.name}}</code></div>
-								<div {{#if token.example}}class="xui-column-3-of-12"{{/if}}>
-										<code class="ds-token-text">{{token.value}}</code></div>
-								{{#if token.example}}
-								<div class="xui-column-4-of-12">{{{token.example}}}</div>
-								{{/if}}
-						</div>
-						{{/renderTokens}}
-					</div>
-					</div>
-				</div>
-				{{/if}}
-
-				{{#if colortokens}}
-				<div class="kss-modifier__example ds-section-part">
-					{{#renderTokens colortokens}}
-						<div class="ds-colour-section xui-margin-bottom">
-							<div class="ds-colour-example-container">
-								{{{token.example}}}
-							</div>
-							<div class="ds-colour-description xui-margin-horizontal xui-margin-vertical-small">
-								<div class="xui-heading-item xui-margin-none">{{token.title}}</div>
-								<div>{{{token.description}}}</div>
-							</div>
-						</div>
-					{{/renderTokens}}
-				</div>
+					{{{renderTokens tokens tokentype}}}
 				{{/if}}
 
 			</div>  {{! end data-search-section }}

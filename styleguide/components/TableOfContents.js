@@ -9,9 +9,6 @@ const styles = ({ space, color, fontFamily, fontSize, borderRadius }) => ({
 	search: {
 		padding: space[2],
 	},
-	clw: {
-		paddingLeft: space[2]
-	},
 	input: {
 		'display': 'block',
 		'width': '100%',
@@ -48,9 +45,7 @@ export function TableOfContentsRenderer({ classes, children, searchTerm, onSearc
 						onChange={event => onSearchTermChange(event.target.value)}
 					/>
 				</div>
-				<div className={classes.clw}>
-					{children}
-				</div>
+				{children}
 			</div>
 		</div>
 	);

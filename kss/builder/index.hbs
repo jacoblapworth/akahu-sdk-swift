@@ -58,19 +58,6 @@
 		}}
 
 		{{#each sections}}
-		{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#each menu}} {{#if isActive}} {{#if children}}
-		<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav">
-			<select id="ds-nav-section" class="xui-select--control">
-				<option value="-1" disabled selected hidden>Jump to...</option>
-				{{#each children}} {{#ifDepth 2}}
-				<option value="{{referenceURI}}">
-					{{header}}
-				</option>
-				{{/ifDepth}} {{/each}}
-			</select>
-			<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-		</nav>
-		{{/if}} {{/if}} {{/each}} {{/if}} {{/each}} {{/if}}
 		{{#wrapSection referenceURI}}
 			<div data-search-section>
 				<div class="kss-style ds-section-part">
@@ -85,6 +72,20 @@
 								{{introduction}}
 						</p>
 					{{/if}}
+
+					{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#each menu}} {{#if isActive}} {{#if children}}
+					<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav">
+						<select id="ds-nav-section" class="xui-select--control">
+							<option value="-1" disabled selected>Jump to...</option>
+							{{#each children}} {{#ifDepth 2}}
+							<option value="{{referenceURI}}">
+								{{header}}
+							</option>
+							{{/ifDepth}} {{/each}}
+						</select>
+						<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+					</nav>
+					{{/if}} {{/if}} {{/each}} {{/if}} {{/each}} {{/if}}
 
 					{{#ifDepth 1}}
 						{{> card }}

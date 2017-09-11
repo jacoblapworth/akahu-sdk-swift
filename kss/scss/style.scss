@@ -36,7 +36,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 .ds-card-wrapper {
 	margin-left: -10px;
 	margin-right: -10px;
-	@include xui-breakpoint-wide { 
+	@include xui-breakpoint-wide {
 		@include embiggen;
 	}
 }
@@ -54,7 +54,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 // Most vertical space should be controlled by heading elements
 // to keep parity between markdown and KSS pages
 
-$ds-section-space: 8vh;
+$ds-section-space: calc(6rem + 2vh);
 
 .ds-title {
 	color: $xui-color-black;
@@ -68,6 +68,11 @@ $ds-section-space: 8vh;
 	font-size: calc(1.6em + 1.5vw);
 	letter-spacing: -0.006em;
 	line-height: 1.15;
+	// Add padding to accommodate react link
+	padding-right: 10rem;
+	@include xui-breakpoint-narrow {
+		padding-right: 3rem;
+	}
 }
 
 .ds-title--level-2, .ds-description h2 {
@@ -77,9 +82,18 @@ $ds-section-space: 8vh;
 }
 
 .ds-title--level-3, .ds-description h3 {
-	font-size: 15px;
-	padding-top: $ds-section-space / 2;
+	padding-top: calc(4rem + 2vh);
 	margin-top: 0;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: $xui-letter-spacing-loose;
+}
+
+// use 4th level blocks as callouts
+.kss-section--depth-4 {
+	padding: 20px;
+	border: 1px solid $xui-color-grey-6;
+	border-radius: 3px;
 }
 
 *[class^="ds-title"] + *[class^="ds-title"] {
@@ -604,14 +618,13 @@ $kss-color-padding: #eeebff;
 // -----------------------------------------------------------------------------
 
 .ds-page-nav {
-	position: absolute;
-	top: $xui-s-large;
-	right: $xui-s-large;
-	width: 120px;
+	width: 100%;
 	z-index: 2;
-	@include xui-breakpoint-wide {
-		top: 7vh;
-		right: 8vw;
+	@include xui-breakpoint-narrow-up {
+		position: absolute;
+		width: 10rem;
+		top: -3rem;
+		right: 0;
 	}
 }
 
@@ -630,7 +643,10 @@ $kss-color-padding: #eeebff;
 .ds-component-link  {
 	position: absolute;
 	right: 0;
-	top: 0.7em;
+	top: 0;
+	@include xui-breakpoint-narrow-up {
+		top: 0.7em; // visual correction when text bigger
+	}
 	.kss-section--depth-2 & {
 		top: $ds-section-space; // different positioning if used in a secondary section
 	}
@@ -662,6 +678,27 @@ a.ds-component-link:after {
     transform: translateX(-1px) translateY(-2px);
     z-index: 10;
     right: calc(100% - 5px);
+}
+
+.ds-component-link:after,
+.ds-component-link:before {
+	transition-timing-function: cubic-bezier(0.565, -10, 0.605, 10);
+	transition-property: transform;
+	transition-duration: 0.25s;
+	@include xui-breakpoint-narrow {
+		display: none;
+	}
+}
+
+.ds-component-link:hover {
+	@include xui-breakpoint-narrow-up {
+		&:after {
+			transform: translateX(-2px) translateY(-2px);
+		}
+		&:before {
+			transform: translateX(-1px) translateY(-2px);
+		}
+	}
 }
 
 @import "./markdown";

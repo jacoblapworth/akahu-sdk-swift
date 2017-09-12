@@ -36,17 +36,12 @@ CSS is hard. XUI's goal is for you to not write CSS. We do this by providing CSS
  * Add the `xui-body` class to your `<body>` element and `xui-html` to your
    `<html>` element, unless you are targeting legacy pages.
    The `xui-body` class provides background color, baseline font
-   styling and line height. Note that if you use this, you must use at least
-   version 3.0.3 of the Shared Header.
+   styling and line height.
    The `xui-html` class sets the height of the `html` element to 100%, and
    the body element with `xui-body` directly under it.
  * For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
    which has the `xui-container` class applied. This sets properties that XUI relies on,
    such as `box-sizing: border-box`, its default line-height, fonts, etc.
-   For tricky legacy CSS that might override those rules, you can also use the
-   `xui-container` mixin to apply these rules to more specific selectors in your own CSS.
- * Do not create any classes that use the `xui-` namespace outside this project.
-   The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.
  * Avoid writing your own CSS as much as possible, particularly if your CSS
    overrides XUI's styling. The less custom CSS you have, the easier it will be

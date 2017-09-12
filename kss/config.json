@@ -11,7 +11,8 @@
 		"note",
 		"teaser",
 		"exampleclass",
-		"introduction"
+		"introduction",
+		"tips"
 	],
 	"destination": "../docs",
 	"css": [

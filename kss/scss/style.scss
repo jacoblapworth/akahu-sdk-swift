@@ -193,6 +193,36 @@ $ds-section-space: calc(6rem + 2vh);
 
 
 // -----------------------------------------------------------------------------
+// Tips (Do's and Don'ts)
+// -----------------------------------------------------------------------------
+
+.ds-tips {
+	display: flex;
+	align-items: flex-start;
+}
+.ds-tips--icon {
+	margin-top: -4px;
+	vertical-align: text-top;
+}
+
+.ds-tips-positive {
+	color: #57c40a;
+}
+
+.ds-tips-negative {
+	color: #f6534e;
+}
+
+.ds-tips-warning {
+	color: #f8a900;
+}
+
+.ds-tips--detail {
+	display: flex;
+	align-items: center;
+}
+
+// -----------------------------------------------------------------------------
 // KSS added structure
 // -----------------------------------------------------------------------------
 

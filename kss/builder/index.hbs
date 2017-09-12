@@ -97,6 +97,17 @@
 					</div>
 					{{/if}}
 
+					{{#if tips}}
+						{{#renderTips tips}}
+							<div class="ds-tips">
+								<svg focusable="false" class="xui-icon ds-tips--icon {{tip.iconClass}}">
+									<use xlink:href={{tip.iconName}} role="presentation"/>
+								</svg>
+								<span class="ds-tips--detail xui-padding-left-small">{{tip.details}}</span>
+							</div>
+						{{/renderTips}}
+					{{/if}}
+
 					{{#if description}}
 					<div class="ds-description">
 						{{{description}}}

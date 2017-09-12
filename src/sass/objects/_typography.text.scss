@@ -2,21 +2,6 @@
 @import "../vars";
 
 // Standard Text
-//
-// Classes:
-// xui-text-secondary: for supporting copy like extra meta data
-// xui-text-minor: use sparingly for fine-print and inconsequential labelling
-// xui-text-label: for labeling form fields. Labels clasees should only be used for forms.
-// xui-text-placeholder: for showing placeholder content. Placeholder clasees should only be used for forms.
-//
-// Markup:
-// <p>Plain old paragraph</p>
-// <p class="xui-text-secondary">Secondary text</p>
-// <p class="xui-text-minor">Minor text</p>
-// <p class="xui-text-label">Form Labels</p>
-// <p class="xui-text-placeholder">Placeholder</p>
-//
-// Styleguide: Typography.50
 
 .#{$ns}-text-label {
 	@include xui-text-emphasis;
@@ -39,41 +24,6 @@
 }
 
 // Links
-//
-// Default link styling is applied to the `<a>` element. `.xui-text-link` can be
-// used to provide full underline on hover and focus behaviour. Minor link styling is
-// provided for supplementary links that are clickable but for which we do not
-// want to draw attention to. This could be for secondary links or lists of links.
-// Minor links should not be used in strings of text.
-//
-// Classes:
-// xui-text-link: adds link hover and focus highlighting.
-// xui-text-minorlink: inherits its parent's text colour, but has standard link hover and focus highlighting
-//
-// Markup:
-// <div class="xui-panel xui-padding" style="display:inline-block">
-// <table><tbody>
-// <tr>
-// <th class="xui-text-align-left">Account</th><th class="xui-text-align-right xui-padding-left-large">This month</th><th class="xui-text-align-right xui-padding-left-large">Year to date</th></tr>
-// <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Advertising (600)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">10,453.75</a></td>
-// </tr>
-// <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Entertainment (620)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">53.60</a></td>
-// </tr>
-// <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Inventory (140)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-// </tr>
-// </tbody></table>
-// </div>
-//
-// Styleguide: Typography.51
 
 .#{$ns}-text-link {
 	&:hover,
@@ -93,16 +43,6 @@
 }
 
 // Emphasis
-//
-// Classes:
-// xui-text-emphasis: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
-// xui-text-deemphasis: To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
-//
-// Markup:
-// <p>Please add a <span class="xui-text-emphasis">minimum of 3</span> employees</p>
-// <p class="xui-heading-item">Edit Invoice <span class="xui-text-deemphasis">INV0001</span></p>
-//
-// Styleguide: Typography.56
 
 .#{$ns}-text-emphasis {
 	font-weight: $xui-font-weight-emphasis;
@@ -113,20 +53,6 @@
 }
 
 // Letter Spacing
-//
-// Common components should declare their own letter spacing where required
-// and these classes should not be used very often.
-//
-// Classes:
-// xui-text-spacing-tight: Tight letter spacing helps retain the impact of large copy.  This styling is already included on `xui-heading-xlarge`, `xui-heading-xxlarge` and `xui-heading-xxxlarge`
-// xui-text-spacing-loose: Loose letter spacing assists legibility for letterforms in smaller text blocks, especially those in uppercase
-//
-// Markup:
-// <p>Default letter spacing</p>
-// <p class="xui-heading-xlarge xui-text-spacing-tight">3 March</p>
-// <p class="xui-text-minor xui-text-spacing-loose">ABC</p>
-//
-// Styleguide: Typography.57
 
 .#{$ns}-text-spacing-tight {
 	@include xui-text-spacing-tight;

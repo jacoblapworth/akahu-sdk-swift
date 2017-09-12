@@ -1,40 +1,3 @@
-
-//  Statuses
-//
-// Statuses provide text colors that match the sentiment used for banner and toast components.
-//
-// Classes:
-// xui-text-status: Style for status text
-// xui-text-status-negative: Modifier for negative status text
-// xui-text-status-positive: Modifier for positive status text
-//
-// Markup:
-// <span class="xui-text-status">
-//   Draft
-// </span>
-// <span class="xui-text-status xui-text-status-positive">
-//   Accepted
-// </span>
-// <span class="xui-text-status xui-text-status-negative">
-//   Declined
-// </span>
-// <p class="xui-heading-large">
-//   Heading
-//   <span class="xui-text-status">Draft</span>
-// </p>
-// <p class="xui-heading">
-//   Page Titles
-//   <span class="xui-text-status xui-text-status-positive">Approved</span>
-// </p>
-// <p class="xui-heading-mini">
-//   Headers
-//   <span class="xui-text-status xui-text-status-negative">Overdue</span>
-// </p>
-//
-// Styleguide: Typography.60
-
-// Parent container
-// The coloured background goes full width of the page
 .#{$ns}-text-status {
 	color: $xui-color-grey-alpha-2;
 }
@@ -100,31 +63,7 @@
 }
 
 // Line Height
-//
-// Default line height: `line-height: 1.5`
-//
-// Common components should declare their own line height and these classes
-// should not be used very often.
-//
-// Classes:
-// xui-text-reset: Modifier to reset `line-height: 1`
-// xui-text-tight: use to retain impact of large copy
-// xui-text-compact: group UI text when it wraps
-//
-// Markup:
-// <div style="max-width: 200px" class="xui-text-tight">
-//   <p class="xui-heading-xlarge">Display Typography</p>
-// </div>
-// <div style="max-width: 100px" class="xui-text-compact">
-//   <p class="xui-text-emphasis">Hornblower Enterprises
-//   <span class="xui-text-deemphasis">Due 3 Mar, 2017</span>
-//   <span class="xui-text-deemphasis">INV00021</span></p>
-// </div>
-// <div style="max-width: 200px" class="xui-text-longform">
-//   <p >Find clients and their contact information on a single list.</p>
-// </div>
-//
-// Styleguide: Typography.70
+
 
 .#{$ns}-text-reset {
 	@include xui-text-line-height-reset;

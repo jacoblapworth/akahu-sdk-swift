@@ -1,26 +1,4 @@
 // Presets
-//
-// We’ve got a few standardised classes to deal with the different types of content across our app.
-// At surface level they bear some similarities, but the separation has been done so to anticipate future changes at a component level.
-// When choosing the right class to use, a good rule of thumb is to ask yourself, ‘what kind of content is this’ and then apply the one that best fits that use case.
-//
-// XUI does not provide a CSS reset for semantic heading elements (e.g. `<h2>`). Use these classes in conjunction with XUI's spacing classes.
-//
-// Classes:
-// xui-heading-panel: Standard title for each block of content within a page. Should only be used once per panel
-// xui-heading-modal: for consistent application across all modal headers
-// xui-heading-item: for consistent application across all content blocks & line items
-// xui-heading-separator: for consistent application across all dropdown vertical separators
-// xui-heading-section: for consistent application across sections
-//
-// Markup:
-// <h2 class="xui-heading-panel xui-margin-none">All tasks</h2>
-// <h2 class="xui-heading-modal xui-margin-none">Assign task</h2>
-// <h2 class="xui-heading-item xui-margin-none">Homepage redesign</h2>
-// <h2 class="xui-heading-separator xui-margin-none">Export options</h2>
-// <h2 class="xui-heading-section xui-margin-none">Grouping</h2>
-//
-// Styleguide: Typography.10
 
 .#{$ns}-heading-panel {
 	@include xui-heading-medium;
@@ -48,28 +26,6 @@
 }
 
 // Generic Headings
-//
-// For other contexts that don’t quite fit the examples above, we offer a few other classes to provide some flexibility while still conforming to XUI proportions and style.
-//
-// Classes:
-// xui-heading-xsmall: for minute headings that group content but aren’t strictly within tables or dropdowns
-// xui-heading-small: for second-tier headings
-// xui-heading: mid-weight heading useful for breaking up long forms etc.
-// xui-heading-large: for large in-page headings
-// xui-heading-xlarge: for relatively dense display text
-// xui-heading-xxlarge: for short amounts of display text
-// xui-heading-xxxlarge: for only a few digits of display text
-//
-// Markup:
-// <h1 class="xui-heading-xxxlarge xui-text-truncated xui-margin-none">82.1%</h1>
-// <h1 class="xui-heading-xxlarge xui-text-truncated xui-margin-none">$3,724.00</h1>
-// <h2 class="xui-heading-xlarge xui-text-truncated xui-margin-none">Welcome aboard</h2>
-// <h3 class="xui-heading-large xui-margin-none">Directory Listing</h1>
-// <h4 class="xui-heading xui-margin-none">Location</h2>
-// <h5 class="xui-heading-small xui-margin-none">Street Address</h3>
-// <h6 class="xui-heading-xsmall xui-margin-none">Map</h4>
-//
-// Styleguide: Typography.20
 
 .#{$ns}-heading-xsmall {
 	@include xui-heading-xsmall;

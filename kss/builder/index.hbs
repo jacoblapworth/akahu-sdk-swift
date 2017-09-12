@@ -64,7 +64,11 @@
 					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
 						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
 							<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
-						</a>{{header}}
+						</a>{{header}}{{#if flag}}
+							<span class="ds-flag {{getStatusClass flag}}">
+									{{flag}}
+							</span>
+						{{/if}}
 					</h{{depth}}>
 
 					{{#if introduction}}

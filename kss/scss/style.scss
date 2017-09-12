@@ -731,6 +731,44 @@ a.ds-component-link:after {
 	}
 }
 
+// -----------------------------------------------------------------------------
+// Status Flags
+// -----------------------------------------------------------------------------
+
+.ds-flag {
+	background: $xui-color-grey-3;
+	display: inline-block;
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: $xui-letter-spacing-loose;
+	text-transform: uppercase;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	margin-right: 0.2em;
+	position: relative;
+	top: -0.1em;
+	&:not(:first-child) {
+		margin-left: 0.2em;
+	}
+}
+
+.ds-status--experimental {
+	background: $xui-color-xero-purple;
+}
+
+.ds-status--underreview {
+	background: $xui-color-xero-yellow;
+}
+
+.ds-status--seekingfeedback {
+	background: $xui-color-xero-green;
+}
+
+.ds-status--deprecated {
+	background: $xui-color-xero-red;
+}
+
 @import "./markdown";
 @import "./prettyprint";
 @import "./copy-code-blocks";

@@ -55,6 +55,15 @@ module.exports = function(handlebars) {
 		return a !== b  ? options.fn(this) : options.inverse(this);
 	});
 
+	/**
+	 * convert string to a class friendly lowercased space free output
+	 */
+
+	handlebars.registerHelper("getStatusClass", function(input) {
+		const stripped = input.toLowerCase().match(/[a-z\s]*/)[0].replace(/\s/g, "");
+		return `ds-status--${stripped}`;
+	});
+
  /**
 	* Checks an item isn't included inside the list (array).
 	*

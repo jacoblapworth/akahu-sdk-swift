@@ -12,7 +12,8 @@
 		"teaser",
 		"exampleclass",
 		"introduction",
-		"tips"
+		"tips",
+		"flag"
 	],
 	"destination": "../docs",
 	"css": [

@@ -21,9 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	const navSectionSelect = document.querySelector('#ds-nav-section');
-	navSectionSelect.addEventListener('change', e => {
-		document.location.hash = navSectionSelect.value;
-	});
+	if (navSectionSelect) {
+		navSectionSelect.addEventListener('change', e => {
+			document.location.hash = navSectionSelect.value;
+		});
+	}
 
 	const spy = new ScrollSpy('#kss-node', {
 		callback: e => {

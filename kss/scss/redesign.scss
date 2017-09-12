@@ -133,7 +133,7 @@ $ds-nav-gutter-mobile: 5vw;
 	will-change: background-size;
 	transition-property: background-size;
 	transition-duration: $xui-motion-speed-fast;
-	transition-timing-function: $xui-motion-curve-standard;
+	transition-timing-function: $ds-motion-curve-bouncy;
 	h1 {
 		text-indent: -9999em;
 	}

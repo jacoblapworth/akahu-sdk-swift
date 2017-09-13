@@ -1,14 +1,17 @@
 module.exports = {
 	templates: [
 		{
+			section: 'Fundamentals',
 			name: 'Depth & Borders',
 			source: './src/sass/settings/_borders.scss'
 		},
 		{
+			section: 'Fundamentals',
 			name: 'Colors',
 			source: './src/sass/settings/_colors.scss'
 		},
 		{
+			section: 'Fundamentals',
 			name: 'Typography',
 			source: './src/sass/settings/_typography.scss',
 			isSubsection: true

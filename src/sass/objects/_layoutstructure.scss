@@ -21,7 +21,7 @@
 //
 // Weight: 2.8
 //
-// Styleguide: Grid Layout
+// Styleguide: Fundamentals.Grid Layout
 
 // Typical Page Layouts
 //
@@ -83,7 +83,7 @@
 //  --><div class="xui-panel xui-page-layout-split-right xui-margin-bottom">Hello two</div>
 // </div>
 //
-// Styleguide: Grid Layout.1
+// Styleguide: Fundamentals.Grid Layout.1
 
 .#{$ns}-page-width-standard {
 	@include xui-clearfix;
@@ -136,7 +136,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.2
+// Styleguide: Fundamentals.Grid Layout.2
 
 .#{$ns}-row,
 .#{$ns}-row-grid {
@@ -194,7 +194,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.3
+// Styleguide: Fundamentals.Grid Layout.3
 
 // Setting up the parent class for padded columns
 // This is our "Grid" since we want a nice even space between the columns
@@ -298,7 +298,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.4
+// Styleguide: Fundamentals.Grid Layout.4
 
 // Responsive Layout
 //
@@ -345,7 +345,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.7
+// Styleguide: Fundamentals.Grid Layout.7
 
 @include xui-column-responsive-generator();
 @include xui-column-responsive-generator(true);
@@ -371,4 +371,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Grid Layout.8
+// Styleguide: Fundamentals.Grid Layout.8

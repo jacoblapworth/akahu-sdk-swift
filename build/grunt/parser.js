@@ -49,7 +49,7 @@ function parseCss(template, nodes, source) {
 					: `${template.name}.${sectionCounter + majorNumber}`;
 
 				if (!firstSection) {
-					sections.push(`//`,`// Styleguide: ${styleGuide}`, ``);
+					sections.push(`//`,`// Styleguide: ${template.section}.${styleGuide}`, ``);
 				} else {
 					firstSection = false;
 				}
@@ -75,7 +75,7 @@ function parseCss(template, nodes, source) {
 	});
 
 	const styleGuide = template.isSubsection ? `${template.name}.${majorNumber}.${sectionCounter}` : `${template.name}.${sectionCounter + majorNumber}`;
-	sections.push(`//`,`// Styleguide: ${styleGuide}`, ``);
+	sections.push(`//`,`// Styleguide: ${template.section}.${styleGuide}`, ``);
 	return sections;
 }
 

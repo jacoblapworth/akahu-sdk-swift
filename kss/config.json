@@ -41,6 +41,7 @@
 	"builder": "./builder",
 	"extend": "./builder/extend",
 	"child-pages": [
+		"Getting Started",
 		"Building Blocks",
 		"Building Blocks.User Messaging",
 		"Fundamentals",

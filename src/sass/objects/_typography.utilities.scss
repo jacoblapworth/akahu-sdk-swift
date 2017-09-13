@@ -15,7 +15,7 @@
 //  <p class="xui-text-align-center xui-text-muted">No Results Found</p>
 //  <p class="xui-text-align-right xui-heading-large xui-margin-none">100.00</p>
 //
-// Styleguide: Typography.52
+// Styleguide: Fundamentals.Typography.52
 
 .#{$ns}-text-align-left {
 	text-align: left;
@@ -43,7 +43,7 @@
 //    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
 //  </div>
 //
-// Styleguide: Typography.53
+// Styleguide: Fundamentals.Typography.53
 
 .#{$ns}-text-truncated {
 	@include xui-text-truncated;
@@ -64,7 +64,7 @@
 //    <p class="xui-text-wordbreak">https://github.dev.xero.com/pages/UXE/xui/#10.14.0/index.html</p>
 //  </div>
 //
-// Styleguide: Typography.54
+// Styleguide: Fundamentals.Typography.54
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
@@ -89,7 +89,7 @@
 
 //  Colors
 //
-// Styleguide: Typography.58
+// Styleguide: Fundamentals.Typography.58
 
 // Common colors
 //
@@ -111,7 +111,7 @@
 // <p class="xui-text-positive">The quick brown fox jumps over the lazy dog</p>
 // <p class="xui-text-negative">The quick brown fox jumps over the lazy dog</p>
 //
-// Styleguide: Typography.58.1
+// Styleguide: Fundamentals.Typography.58.1
 
 .#{$ns}-color-grey-standard {
 	color: $xui-color-black;
@@ -160,7 +160,7 @@
 //  </div>
 // </div>
 //
-// Styleguide: Typography.58.3
+// Styleguide: Fundamentals.Typography.58.3
 
 .#{$ns}-color-white {
 	color: $xui-color-white;

@@ -6,7 +6,7 @@
 //
 // Weight: 2.4
 //
-// Styleguide: Typography
+// Styleguide: Fundamentals.Typography
 
 
 
@@ -19,7 +19,7 @@
 // Definitions:
 // Font stack: "Helvetica Neue", Helvetica, Arial, sans-serif
 //
-// Styleguide: Typography.10
+// Styleguide: Fundamentals.Typography.10
 
 
 
@@ -33,7 +33,7 @@
 // Default: 13px: Majority of any interface
 // Small: 11px: Provided in components like notes and subheads
 //
-// Styleguide: Typography.20
+// Styleguide: Fundamentals.Typography.20
 
 
 // Everyday headings
@@ -46,7 +46,7 @@
 // Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Street Address</h5>
 // Extra Small: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">Map</h6>
 //
-// Styleguide: Typography.20.1
+// Styleguide: Fundamentals.Typography.20.1
 
 
 // Display headings
@@ -60,7 +60,7 @@
 // XXL: `xui-heading-xxlarge`: <h1 class="xui-heading-xxlarge xui-text-truncated xui-margin-none">$3,724.00</h1>
 // XXL: `xui-heading-xxxlarge`: <h1 class="xui-heading-xxxlarge xui-text-truncated xui-margin-none">82.1%</h1>
 //
-// Styleguide: Typography.20.2
+// Styleguide: Fundamentals.Typography.20.2
 
 
 // Preset headings
@@ -73,7 +73,7 @@
 // Secondary: `xui-text-secondary`: Applies -muted colour, use for things like metadata
 // Minor: `xui-text-minor`: 11px and -muted, use sparingly for minor things like field notes
 //
-// Styleguide: Typography.20.3
+// Styleguide: Fundamentals.Typography.20.3
 
 
 
@@ -83,7 +83,7 @@
 
 //  Color
 //
-// Styleguide: Typography.30
+// Styleguide: Fundamentals.Typography.30
 
 
 // Common colours
@@ -93,7 +93,7 @@
 // Muted: `xui-color-grey-muted`: for text that requires reduced hierarchy. It can be used independently or via `.xui-text-secondary`
 // Faint: `xui-color-grey-faint`: should be used very sparingly for inconsequential things due to it's poor accessibility
 //
-// Styleguide: Typography.30.1
+// Styleguide: Fundamentals.Typography.30.1
 
 
 // Sentiment colours
@@ -102,7 +102,7 @@
 // Positive: `xui-color-positive`:	<div class="xui-container"><span class="xui-color-positive">21.3% decrease</span></div>
 // Negative: `xui-color-negative`:	<div class="xui-container"><span class="xui-color-negative">Yes, delete this invoice</span></div>
 //
-// Styleguide: Typography.30.2
+// Styleguide: Fundamentals.Typography.30.2
 
 // Status colours
 //
@@ -111,7 +111,7 @@
 // Older versions of XUI contained specific 'status' classes: `xui-text-status`, `xui-text-status-negative` and `xui-text-status-positive`.
 // Please use either tags or the sentiment colours above.
 //
-// Styleguide: Typography.30.2.1
+// Styleguide: Fundamentals.Typography.30.2.1
 
 
 // Text on dark backgrounds
@@ -139,7 +139,7 @@
 //  </div>
 // </div>
 //
-// Styleguide: Typography.30.3
+// Styleguide: Fundamentals.Typography.30.3
 
 
 
@@ -183,7 +183,7 @@
 // </tbody></table>
 // </div>
 //
-// Styleguide: Typography.40
+// Styleguide: Fundamentals.Typography.40
 
 
 
@@ -193,7 +193,7 @@
 
 // Fine-tuning
 //
-// Styleguide: Typography.50
+// Styleguide: Fundamentals.Typography.50
 
 
 // Emphasis
@@ -206,7 +206,7 @@
 // Bold: `xui-text-emphasis`: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
 // Normal: `xui-text-deemphasis`: To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
 //
-// Styleguide: Typography.50.1
+// Styleguide: Fundamentals.Typography.50.1
 
 
 // Letter Spacing
@@ -218,7 +218,7 @@
 // Tight: -0.005em: `xui-text-spacing-tight` <br/>Makes display type better - already on appropriate XUI headings.
 // Loose: 0.01em: `xui-text-spacing-loose` <br/>Can improve legibility of very small text, especially uppercase.
 //
-// Styleguide: Typography.50.2
+// Styleguide: Fundamentals.Typography.50.2
 
 
 // Line Height
@@ -232,7 +232,7 @@
 // Tight: 1.15: `xui-text-tight` use to retain impact of large copy
 // Reset: 1: `xui-text-reset`
 //
-// Styleguide: Typography.50.3
+// Styleguide: Fundamentals.Typography.50.3
 
 
 // Alignment
@@ -244,7 +244,7 @@
 // xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
 // xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
 //
-// Styleguide: Typography.50.4
+// Styleguide: Fundamentals.Typography.50.4
 
 
 // Truncation
@@ -261,7 +261,7 @@
 //    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
 //  </div>
 //
-// Styleguide: Typography.50.5
+// Styleguide: Fundamentals.Typography.50.5
 
 
 // Word-break
@@ -279,7 +279,7 @@
 //    <p class="xui-text-wordbreak">https://github.dev.xero.com/pages/UXE/xui/#10.14.0/index.html</p>
 //  </div>
 //
-// Styleguide: Typography.50.6
+// Styleguide: Fundamentals.Typography.50.6
 
 
 
@@ -352,4 +352,4 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Typography.80
+// Styleguide: Fundamentals.Typography.80

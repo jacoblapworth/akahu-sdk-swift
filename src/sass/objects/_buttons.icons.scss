@@ -3,7 +3,7 @@
 
 // Icons
 //
-// Styleguide: Buttons.7
+// Styleguide: Building Blocks.Buttons.7
 
 // Icon
 //
@@ -38,7 +38,7 @@
 //   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-button-icon-large" title="Apply discount" aria-label="More options"><svg focusable="false" class="xui-icon xui-u-flex-inherit"> <use xlink:href="#xui-icon-overflow"></use></svg></button>
 // </div>
 //
-// Styleguide: Buttons.7.1
+// Styleguide: Building Blocks.Buttons.7.1
 
 .#{$ns}-button-icon {
 	@include xui-button-icon-states;

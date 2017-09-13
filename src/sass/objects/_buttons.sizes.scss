@@ -2,7 +2,7 @@
 
 // Sizes
 //
-// Styleguide: Buttons.4
+// Styleguide: Building Blocks.Buttons.4
 
 .#{$ns}-button-fullwidth-layout {
 	@include xui-breakpoint-narrow {
@@ -19,7 +19,7 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-standard xui-button-small {{modifier_class}}">Text</button>
 //
-// Styleguide: Buttons.4.1
+// Styleguide: Building Blocks.Buttons.4.1
 
 .#{$ns}-button-small {
 	min-height: $xui-input-height-small;
@@ -33,7 +33,7 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-main xui-u-fullwidth">Big Button</button>
 //
-// Styleguide: Buttons.4.2
+// Styleguide: Building Blocks.Buttons.4.2
 
 // Full-width for mobile devices
 //
@@ -42,4 +42,4 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-main xui-button-fullwidth-layout">Mobile Button</button>
 //
-// Styleguide: Buttons.4.3
+// Styleguide: Building Blocks.Buttons.4.3

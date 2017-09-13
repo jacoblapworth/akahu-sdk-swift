@@ -19,16 +19,14 @@
 // xui-icon-large: Modifier for a large icon
 // xui-icon-xlarge: Modifier for an extra-large icon
 //
-// Weight: 2.2
-//
-// Styleguide: Icons
+// Styleguide: Fundamentals.Icons
 
 // Available Icons
 //
 // <div id="xuiIconShowcase"  class="prettyprint"></div>
 // <script src="https://edge.xero.com/style/xui-icon/4.17.0/xuiIconsDocs.js" defer></script>
 //
-// Styleguide: Icons.1
+// Styleguide: Fundamentals.Icons.1
 
 // Using the icons in your project
 //
@@ -42,7 +40,7 @@
 //
 // **Plese Note:** this may not be the latest version. Please check the [XUI Icon releases page](https://github.dev.xero.com/UXE/xui-icon/releases) to see what versions are available.
 //
-// Styleguide: Icons.2
+// Styleguide: Fundamentals.Icons.2
 
 // Inline placement
 //
@@ -65,7 +63,7 @@
 // </div>
 //
 //
-// Styleguide: Icons.3
+// Styleguide: Fundamentals.Icons.3
 
 // Rotations
 //
@@ -74,7 +72,7 @@
 // Markup:
 //  <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg><svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
 //
-// Styleguide: Icons.4
+// Styleguide: Fundamentals.Icons.4
 
 // Colours
 //
@@ -91,7 +89,7 @@
 //	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet"> <use xlink:href="#xui-icon-file-excel" role="presentation"/></svg>
 //	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet"> <use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/></svg>
 //
-// Styleguide: Icons.5
+// Styleguide: Fundamentals.Icons.5
 
 // Text colour
 //
@@ -108,7 +106,7 @@
 //  <input class="xui-input" aria-label="Amount"/>
 //</div>
 //
-// Styleguide: Icons.5.1
+// Styleguide: Fundamentals.Icons.5.1
 
 // Accessibility
 //
@@ -121,7 +119,7 @@
 //		<use xlink:href="#xui-icon-print" role="presentation"/>
 //	</svg>
 //
-// Styleguide: Icons.6
+// Styleguide: Fundamentals.Icons.6
 
 /* xui-iconsymbol is added to the icon blob produced by the xui-icon repository */
 .#{$ns}-iconsymbol {

@@ -39,5 +39,13 @@
 	"title": "XUI",
 	"homepage": "../../src/docs/home.md",
 	"builder": "./builder",
-	"extend": "./builder/extend"
+	"extend": "./builder/extend",
+	"child-pages": [
+		"Building Blocks",
+		"Building Blocks.User Messaging",
+		"Fundamentals",
+		"Building Blocks.Controls",
+		"Building Blocks.Dropdowns",
+		"Building Blocks.Inputs"
+	]
 }

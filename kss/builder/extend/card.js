@@ -11,8 +11,7 @@ module.exports = function (handlebars) {
 
 	const cardContentsPartial = `
 	{{#each menu as |menuItem|}}
-
-		{{#isEqual parentHeader pageReference}}
+		{{#isEqual parentHeader @root.sections.0.header}}
 			<a href="section-{{referenceURI}}.html" class="xui-u-flex ds-card xui-padding">
 					<div class="xui-heading-small ds-card-header">{{header}}</div>
 					<div class="xui-text-secondary ds-card-content">{{{teaser}}}</div>

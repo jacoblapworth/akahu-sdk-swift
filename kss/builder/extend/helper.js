@@ -104,6 +104,13 @@ module.exports = function(handlebars) {
 	});
 
 	/**
+	 * Add {{debugger}} to a handlebars template or partial to enable debugging using node inspecting
+	 */
+	handlebars.registerHelper('debugger', function() {
+		debugger;
+	});
+
+	/**
 	 * Determines which the html prefixes and suffixes to wrap each of the sections
 	 * - Sections of depth 3 or more should be nested in their parent section
 	 *

@@ -11,9 +11,9 @@
 // The challenge is to be able to communicate these changes in an understandable way to our users.
 // Motion is another tool under our belt to help us do this.
 //
-// Weight: 2.10
+// Weight: 1
 //
-// Styleguide: Motion
+// Styleguide: Fundamentals.Motion
 
 // Classes
 //
@@ -37,7 +37,7 @@
 // For animating scale & opacity (other properties will not animate). A good example of where this is used, is our modals.
 // Additionally, this could be used for showing & hiding tooltips or other temporary elements.
 //
-// Styleguide: Motion.1
+// Styleguide: Fundamentals.Motion.1
 
 
 // Modifiers
@@ -66,7 +66,7 @@
 //
 // `.xui-transition-delay-short`, `.xui-transition-delay-medium`, `.xui-transition-delay-long`
 //
-// Styleguide: Motion.2
+// Styleguide: Fundamentals.Motion.2
 
 // Tokens
 //
@@ -85,7 +85,7 @@
 //
 // `$xui-motion-delay-short`, `$xui-motion-delay-medium`, `$xui-motion-delay-long`
 //
-// Styleguide: Motion.3
+// Styleguide: Fundamentals.Motion.3
 
 .#{$ns}-transition-scaleup {
 	opacity: 1;

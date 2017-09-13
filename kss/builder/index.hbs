@@ -64,7 +64,8 @@
 					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
 						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
 							<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
-						</a>{{header}}{{#if flag}}
+						</a>{{header}}
+						{{#if flag}}
 							<span class="ds-flag {{getStatusClass flag}}">
 									{{flag}}
 							</span>
@@ -77,23 +78,11 @@
 						</p>
 					{{/if}}
 
-					{{#if @first}} {{#each @root.menu}} {{#if isActive}} {{#each menu}} {{#if isActive}} {{#if children}}
-					<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav">
-						<select id="ds-nav-section" class="xui-select--control">
-							<option value="-1" disabled selected>Jump to...</option>
-							{{#each children}} {{#ifDepth 2}}
-							<option value="{{referenceURI}}">
-								{{header}}
-							</option>
-							{{/ifDepth}} {{/each}}
-						</select>
-						<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-					</nav>
-					{{/if}} {{/if}} {{/each}} {{/if}} {{/each}} {{/if}}
+					{{#if @first}}
+						{{> jumpto }}
+					{{/if}}
 
-					{{#ifDepth 1}}
-						{{> card }}
-					{{/ifDepth}}
+					{{> card }}
 
 					{{#if markdown}}
 					<div class="ds-description">

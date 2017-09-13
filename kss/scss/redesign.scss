@@ -12,11 +12,6 @@ $ds-nav-gutter-mobile: 5vw;
 	padding:0;
  }
 
- .ds-nav-1 ul {
-	 display: none; // hack to see if it's better to force on page nav
- }
-
-
 .ds-nav-link {
 	display: block;
 }
@@ -43,21 +38,6 @@ $ds-nav-gutter-mobile: 5vw;
 	color: $xui-color-grey-2;
 }
 
-// Tier 2
-
-.ds-nav-2 .ds-nav-link--body {
-	font-size: 13px;
-	color: $xui-color-grey-1;
-}
-
-// Tier 3
-
-.ds-nav-3 .ds-nav-link--body {
-	padding-left: 2.5em;
-	padding-top: calc(.4em + 0.3vh);
-	padding-bottom: calc(.4em + 0.3vh);
-}
-
 // Show the current section clearly
 .ds-is-active:before {
     content: "";
@@ -69,21 +49,6 @@ $ds-nav-gutter-mobile: 5vw;
     right: 0;
     bottom: 0;
     z-index: -1;
-}
-
-// Show selected item clearly
-.ds-nav-2 .ds-is-selected .ds-nav-link--body {
-	position: relative;
-	&:after {
-    display: block;
-    content: "";
-    background: $xui-color-xero-blue;
-    width: 3px;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-	}
 }
 
 // Add some breathing room under open nested lists

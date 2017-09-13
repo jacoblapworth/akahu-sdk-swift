@@ -1,40 +1,35 @@
 var marked = require('../../../node_modules/marked');
 
 module.exports = function (handlebars) {
-	const menuPartial = `
-			{{#each menu as |menuItem|}} {{! Each item is an "li" }}
-			<li class="ds-nav-li ds-nav-{{menuDepth}}">
+	handlebars.registerPartial('menu', `
+		{{#each menu as |menuItem|}} {{! Each item is an "li" }}
+			<li class="ds-nav-li ds-nav-{{depth}}">
 				<a class="ds-nav-link {{#if isActive}} ds-is-active {{/if}}{{#isEqual header @root.sections.0.header}} ds-is-selected{{/isEqual}}" href="section-{{referenceURI}}.html">
 					<span class="ds-nav-link--body">{{header}}</span>
-					{{#if menuItem.menu}}
-						<svg focusable="false" class="xui-icon xui-icon-inline xui-color-grey-faint {{#unless isActive}}xui-u-rotate-270{{/unless}} ds-nav-icon">
-							<use xlink:href="#xui-icon-arrow" role="presentation"/>
-						</svg>
-					{{/if}}
 				</a>
-				{{#if menu }} {{#if isActive}}
-				<ul>
-				{{> menu}} {{! Recursively render the partial }}
-				</ul>
-				{{/if}} {{/if}}
-		</li>
+			</li>
 		{{/each}}
-	`;
+	`);
 
-	const sectionMenuPartial = `
-		<nav class="ds-section-part">
-			<ul id="ds-nav-section" class="ds-nav ds-nav-section xui-picklist xui-picklist-layout">
-				{{#each children}} {{#ifDepth 2}}
-				<li>
-					<a class="xui-pickitem" href="section-{{../referenceURI}}.html#{{referenceURI}}">
-						<span class="ds-nav-link--body xui-pickitem--body">{{header}}</span>
-					</a>
-				</li>
-				{{/ifDepth}} {{/each}}
-			</ul>
+	handlebars.registerPartial('jumpto', `
+	{{#ifSections @root.sections}}
+		<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav">
+			<select id="ds-nav-section" class="xui-select--control">
+				<option value="-1" disabled selected>Jump to...</option>
+				{{#each  @root.sections}} {{#ifDepth 2 }}
+				<option value="{{referenceURI}}">
+					{{header}}
+				</option>
+			{{/ifDepth}} {{/each}}
+			</select>
+			<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 		</nav>
-		`;
+	{{/ifSections}}
+	`);
 
-	handlebars.registerPartial('menu', menuPartial);
-	handlebars.registerPartial('sectionMenu', sectionMenuPartial);
+	// Returns true if there is more than 1 depth 2 block
+	handlebars.registerHelper('ifSections', function(sections, options) {
+		return (sections.filter(s => s.depth === 2).length > 0) ? options.fn(this) : options.inverse(this);
+	});
+
 }

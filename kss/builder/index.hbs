@@ -73,9 +73,9 @@
 					</h{{depth}}>
 
 					{{#if introduction}}
-						<p class="xui-u-flex ds-intro">
-								{{introduction}}
-						</p>
+						<div class="xui-u-flex ds-intro">
+							{{{renderSectionInMarkdown introduction}}}
+						</div>
 					{{/if}}
 
 					{{#if @first}}

@@ -5,9 +5,7 @@
 //
 // Teaser: Used for signifying a selection has been made, either single or multiple.
 //
-// Weight: 4.1
-//
-// Styleguide: Pills and Tags
+// Styleguide: Building Blocks.Pills and Tags
 
 // Pills vs Tags
 //
@@ -15,7 +13,7 @@
 //
 // Tags are used for displaying read-only information. Their usage implies an existing selection/association.
 //
-// Styleguide: Pills and Tags.1
+// Styleguide: Building Blocks.Pills and Tags.1
 
 // Pills Used in Multi Selections
 //
@@ -86,7 +84,7 @@
 //   </button>
 // </div>
 //
-// Styleguide: Pills and Tags.2
+// Styleguide: Building Blocks.Pills and Tags.2
 
 .#{$ns}-pill-layout {
 	height: $xui-icon-standard;
@@ -200,7 +198,7 @@
 // </div>
 //
 //
-// Styleguide: Pills and Tags.3
+// Styleguide: Building Blocks.Pills and Tags.3
 
 .#{$ns}-pill-single {
 	background-color: $xui-color-white;

@@ -42,11 +42,12 @@
 	"extend": "./builder/extend",
 	"child-pages": [
 		"Getting Started",
+		"Fundamentals",
 		"Building Blocks",
 		"Building Blocks.User Messaging",
-		"Fundamentals",
 		"Building Blocks.Controls",
 		"Building Blocks.Dropdowns",
-		"Building Blocks.Inputs"
+		"Building Blocks.Inputs",
+		"Patterns"
 	]
 }

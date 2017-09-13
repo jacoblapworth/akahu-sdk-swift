@@ -28,9 +28,7 @@
 //
 // Components: Picklist
 //
-// Weight: 4.1
-//
-// Styleguide: Picklist
+// Styleguide: Building Blocks.Picklist
 
 // Simple
 //
@@ -64,7 +62,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.1
+// Styleguide: Building Blocks.Picklist.1
 
 .#{$ns}-picklist {
 	@include xui-listreset;
@@ -220,7 +218,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.1.2
+// Styleguide: Building Blocks.Picklist.1.2
 
 
 .#{$ns}-picklist-horizontal {
@@ -291,7 +289,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.2
+// Styleguide: Building Blocks.Picklist.2
 
 // Submenu more specificity for layout adjustments
 .#{$ns}-submenu {
@@ -410,7 +408,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.3
+// Styleguide: Building Blocks.Picklist.3
 
 .#{$ns}-pickitem--split {
 	align-items: stretch;
@@ -503,7 +501,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.4
+// Styleguide: Building Blocks.Picklist.4
 
 .#{$ns}-pickitem--uicontrol {
 	align-items: center;
@@ -592,7 +590,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.5
+// Styleguide: Building Blocks.Picklist.5
 
 .#{$ns}-pickitem--icon {
 	display: inline;
@@ -648,4 +646,4 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Picklist.6
+// Styleguide: Building Blocks.Picklist.6

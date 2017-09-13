@@ -8,8 +8,6 @@
 // For use when you want to display native controls on devices that support pretty controls.
 // Examples include iOS and Android devices.
 //
-// Weight: 4.45
-//
 // Teaser: For use when you want to display native controls on devices that support pretty controls.
 //
 // Classes:
@@ -27,7 +25,7 @@
 //    <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 //  </div>
 //
-// Styleguide: Select Box
+// Styleguide: Building Blocks.Dropdowns.Select Box
 
 .#{$ns}-select {
 	position: relative;
@@ -132,7 +130,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Select Box.1
+// Styleguide: Building Blocks.Dropdowns.Select Box.1
 
 .#{$ns}-select--button {
 	background-color: transparent;

@@ -9,7 +9,7 @@
 // xui-validation-layout: Recommended layout for text below inputs
 // xui-validation-is-invalid: Modifier for text below inputs that are in an error state
 //
-// Styleguide: Forms.1
+// Styleguide: Building Blocks.Forms.1
 
 // Stacked Forms
 //
@@ -41,7 +41,7 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 //
-// Styleguide: Forms.1.1
+// Styleguide: Building Blocks.Forms.1.1
 
 .#{$ns}-form-layout {
 	@include xui-margin-horizontal-auto;
@@ -103,7 +103,7 @@
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
 //
-// Styleguide: Forms.1.2
+// Styleguide: Building Blocks.Forms.1.2
 
 .#{$ns}-form-inline {
 	// Narrow-first breakpoint style

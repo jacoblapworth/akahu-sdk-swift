@@ -3,59 +3,31 @@
  */
 
 // @tokenparserstartignore
-$xui-color-black: #32465a;
 $xui-color-white: #fff;
 // @tokenparserendignore
 
 // @section Greys
+// @description The following palette consisting of seven shades of grey is sufficient for most elements within our application. These are also available as background colors using the namespace `.xui-background-*`.
 // @type color
 //
-// Grey 1 : Primary text, some backgrounds.
-$xui-color-grey-1: $xui-color-black;
-// Grey 2 : Secondary text, some backgrounds.
+// Grey 1 : Primary text
+$xui-color-grey-1: #32465a;
+// Grey 2 : Secondary text
 $xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
-// Grey 3 : Placeholder or faint text (not WCAG compliant by a long way).<br/>Standard icon colour.
+// Grey 3 : Placeholder text
 $xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 50%);
-// Grey 4 : Something
+// Grey 4 : Standard borders
 $xui-color-grey-4: mix($xui-color-grey-1, $xui-color-white, 35%);
-// Grey 5 : Standard border colour and other things
+// Grey 5 : Subtle borders
 $xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 20%);
-// Grey 6 : Backgrounds and super-subtle dividers
+// Grey 6 : Page background
 $xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
-// Grey 7 : Subtle backgrounds - blows out to white on many screens
+// Grey 7 : Hover states
 $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 
-// @section Primary interaction colours
-// @type color
-//
-// Blue: Main masthead & button backgrounds, link text
-$xui-color-xero-blue: #2baaed;
-// Dark Blue: Link text and button background hover states
-$xui-color-xero-dark-blue: mix($xui-color-xero-blue, #000, 90%);
-// Green: Used for create button backgrounds. Can be used as a positive indicator for western localisations.
-$xui-color-xero-green: #57c40a;
-// Red: Used for destroy actions either as text or button background
-$xui-color-xero-red: #f6534e;
-
-// @section Misc
-// @type color
-//
-// Light Blue
-$xui-color-xero-light-blue: #3adcf6;
-// Light Green
-$xui-color-xero-light-green: #51daaf;
-// Orange
-$xui-color-xero-orange: #fa8100;
-// Yellow
-$xui-color-xero-yellow: #f8a900;
-// Pink
-$xui-color-xero-pink: #ff6496;
-// Purple
-$xui-color-xero-purple: #b450c8;
-
-
-// @section Greys with opacity
-// @type color
+// @section Transparent greys
+// @description Greys with an alpha channel are also recommended when multiplying with the background color is desired. These values are a 1:1 match with the luminocity of the regular greys when placed on a white background.
+// @type transparent-color
 //
 // Grey Alpha 2
 $xui-color-grey-alpha-2: rgba($xui-color-grey-1, 0.75);
@@ -70,98 +42,156 @@ $xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.1);
 // Grey Alpha 7
 $xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.05);
 
-// @section Inverted with opacity
-// @type color
-// Grey Inverted Alpha 2
-$xui-color-inverted-alpha-2: rgba($xui-color-white, 0.75);
-// Grey Inverted Alpha 3
-$xui-color-inverted-alpha-3: rgba($xui-color-white, 0.5);
-// Grey Inverted Alpha 4
-$xui-color-inverted-alpha-4: rgba($xui-color-white, 0.35);
-// Grey Inverted Alpha 5
-$xui-color-inverted-alpha-5: rgba($xui-color-white, 0.2);
-// Grey Inverted Alpha 6
-$xui-color-inverted-alpha-6: rgba($xui-color-white, 0.1);
-// Grey Inverted Alpha 7
-$xui-color-inverted-alpha-7: rgba($xui-color-white, 0.05);
+// @section Transparent whites
+// @description For contexts that require an inverted color scheme, an inverted color palette is also available. These are only available in the alpha channel.
+// @type transparent-color
+//
+// White
+$xui-color-white: $xui-color-white;
+// White Alpha 2
+$xui-color-white-alpha-2: rgba($xui-color-white, 0.75);
+// White Alpha 3
+$xui-color-white-alpha-3: rgba($xui-color-white, 0.5);
+// White Alpha 4
+$xui-color-white-alpha-4: rgba($xui-color-white, 0.35);
+// White Alpha 5
+$xui-color-white-alpha-5: rgba($xui-color-white, 0.2);
+// White Alpha 6
+$xui-color-white-alpha-6: rgba($xui-color-white, 0.1);
+// White Alpha 7
+$xui-color-white-alpha-7: rgba($xui-color-white, 0.05);
 
-// @section Specialty colours
+// @section Key colors
+// @description Several key colors are available to indicate sentiment and infer interactivity.
 // @type color
 //
-// Twitter: Fill colour for Twitter icon and other relaated elements
+// Action: Indicating interactivity or neutral sentiment
+$xui-color-action: #2baaed;
+// Negative: Destructive actions or indicating negative sentiment
+$xui-color-red: #f6534e;
+// Positive: Creating new items or indicating positive sentiment
+$xui-color-green: #57c40a;
+
+// @section Brights
+// @description On occassion you may need an extended color set for use in graphical elements, or to add empahsis to certain UI features. To achieve the lighter and darker variants, use the modifiers `-xlight`, `-light`, `-dark`, and `-xdark`.
+// @type brights
+//
+$xui-color-red: #F6534E;
+$xui-color-red-xlight:        mix(#FFF, $xui-color-red, 80%);
+$xui-color-red-light:         mix(#FFF, $xui-color-red, 40%);
+$xui-color-red-dark:          mix(#000, $xui-color-red, 10%);
+$xui-color-red-xdark:         mix(#000, $xui-color-red, 20%);
+
+$xui-color-orange: #FA8100;
+$xui-color-orange-xlight:     mix(#FFF, $xui-color-orange, 80%);
+$xui-color-orange-light:      mix(#FFF, $xui-color-orange, 40%);
+$xui-color-orange-dark:       mix(#000, $xui-color-orange, 10%);
+$xui-color-orange-xdark:      mix(#000, $xui-color-orange, 20%);
+
+$xui-color-yellow: #F8A900;
+$xui-color-yellow-xlight:     mix(#FFF, $xui-color-yellow, 80%);
+$xui-color-yellow-light:      mix(#FFF, $xui-color-yellow, 40%);
+$xui-color-yellow-dark:       mix(#000, $xui-color-yellow, 10%);
+$xui-color-yellow-xdark:      mix(#000, $xui-color-yellow, 20%);
+
+$xui-color-green: #57c40a;
+$xui-color-green-xlight:      mix(#FFF, $xui-color-green, 80%);
+$xui-color-green-light:       mix(#FFF, $xui-color-green, 40%);
+$xui-color-green-dark:        mix(#000, $xui-color-green, 10%);
+$xui-color-green-xdark:       mix(#000, $xui-color-green, 20%);
+
+$xui-color-mint: #51DAAF;
+$xui-color-mint-xlight:       mix(#FFF, $xui-color-mint, 80%);
+$xui-color-mint-light:        mix(#FFF, $xui-color-mint, 40%);
+$xui-color-mint-dark:         mix(#000, $xui-color-mint, 10%);
+$xui-color-mint-xdark:        mix(#000, $xui-color-mint, 20%);
+
+$xui-color-turquoise: #3ADCF6;
+$xui-color-turquoise-xlight:  mix(#FFF,$xui-color-turquoise, 80%);
+$xui-color-turquoise-light:   mix(#FFF,$xui-color-turquoise, 40%);
+$xui-color-turquoise-dark:    mix(#000, $xui-color-turquoise, 10%);
+$xui-color-turquoise-xdark:   mix(#000, $xui-color-turquoise, 20%);
+
+$xui-color-blue: #2BAAED;
+$xui-color-blue-xlight:       mix(#FFF, $xui-color-blue, 80%);
+$xui-color-blue-light:        mix(#FFF, $xui-color-blue, 40%);
+$xui-color-blue-dark:         mix(#000, $xui-color-blue, 10%);
+$xui-color-blue-xdark:        mix(#000, $xui-color-blue, 20%);
+
+$xui-color-violet: #5C5CE6;
+$xui-color-violet-xlight:     mix(#FFF,$xui-color-violet, 80%);
+$xui-color-violet-light:      mix(#FFF,$xui-color-violet, 40%);
+$xui-color-violet-dark:       mix(#000,$xui-color-violet, 10%);
+$xui-color-violet-xdark:      mix(#000,$xui-color-violet, 20%);
+
+$xui-color-grape: #B450C8;
+$xui-color-grape-xlight:      mix(#FFF, $xui-color-grape, 80%);
+$xui-color-grape-light:       mix(#FFF, $xui-color-grape, 40%);
+$xui-color-grape-dark:        mix(#000, $xui-color-grape, 10%);
+$xui-color-grape-xdark:       mix(#000, $xui-color-grape, 20%);
+
+$xui-color-pink: #FF6496;
+$xui-color-pink-xlight:       mix(#FFF, $xui-color-pink, 80%);
+$xui-color-pink-light:        mix(#FFF, $xui-color-pink, 40%);
+$xui-color-pink-dark:         mix(#000, $xui-color-pink, 10%);
+$xui-color-pink-xdark:        mix(#000, $xui-color-pink, 20%);
+
+// @section Specialty colors
+// @type color
+//
+// Twitter
 $xui-color-twitter: #1dadea;
-// Facebook: Fill colour for Facebook icon and other relaated elements
+// Facebook
 $xui-color-facebook: #3c5a96;
-// LinkedIn: Fill colour for LinkedIn icon and other relaated elements
+// LinkedIn
 $xui-color-linkedin: #1178b3;
-// Spreadsheet: Fill colour for Spreadsheet icon and other relaated elements
+// Spreadsheet
 $xui-color-file-spreadsheet: #0f9d58;
-// PDFs: Fill colour for PDFs icon and other relaated elements
+// PDFs
 $xui-color-file-pdf: #db4437;
-
-// @section Depth
-// @type shadow
-//
-// Overlap Top Shadow
-$xui-shadow-depth-overlap-top: 0 1px 0 0 $xui-color-grey-alpha-5, 0 3px 0 0 $xui-color-grey-alpha-7;
-// Overlap Bottom Shadow
-$xui-shadow-depth-overlap-bottom: 0 -1px 0 0 $xui-color-grey-alpha-5, 0 -3px 0 0 $xui-color-grey-alpha-7;
-// Shadow Lift
-$xui-shadow-depth-lift: 0 0 0 1px $xui-color-grey-alpha-5, 0 3px 6px 0 $xui-color-grey-alpha-5;
-// Shadow Pop
-$xui-shadow-depth-pop: 0 0 0 1px $xui-color-grey-alpha-5, 0 8px 16px 0 $xui-color-grey-alpha-5;
-
-// @section Borders
-// @type border
-// Standard Border
-$xui-border-standard: 1px solid $xui-color-grey-4;
-// Muted Border
-$xui-border-muted: 1px solid $xui-color-grey-5;
-
-// @section External borders
-// @type shadow
-//
-// All Borders
-$xui-shadow-border-all: 0 0 0 1px $xui-color-grey-alpha-5;
-// Top Border
-$xui-shadow-border-top: 0 -1px 0 0 $xui-color-grey-alpha-5;
-// Right Border
-$xui-shadow-border-right: 1px 0 0 0 $xui-color-grey-alpha-5;
-// Bottom Border
-$xui-shadow-border-bottom: 0 1px 0 0 $xui-color-grey-alpha-5;
-// Left Border
-$xui-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-5;
-
-// @section Dark variants
-// @type color
-//
-// Dark Green
-$xui-color-xero-dark-green: mix($xui-color-xero-green, #000, 90%);
-// Dark Red
-$xui-color-xero-dark-red: mix($xui-color-xero-red, #000, 90%);
-// Dark Purple
-$xui-color-xero-dark-purple: #643cfa;
 
 // @tokenparserstartignore
 
-$xui-color-avatar-1: mix($xui-color-xero-red, #FFF, 60%);
-$xui-color-avatar-2: mix($xui-color-xero-orange, #FFF, 60%);
-$xui-color-avatar-3: mix($xui-color-xero-yellow, #FFF, 60%);
-$xui-color-avatar-4: mix($xui-color-xero-green, #FFF, 60%);
-$xui-color-avatar-5: mix($xui-color-xero-light-green, #FFF, 60%);
-$xui-color-avatar-6: mix($xui-color-xero-light-blue, #FFF, 60%);
-$xui-color-avatar-7: mix($xui-color-xero-blue, #FFF, 60%);
-$xui-color-avatar-8: mix($xui-color-xero-dark-purple, #FFF, 60%);
-$xui-color-avatar-9: mix($xui-color-xero-purple, #FFF, 60%);
-$xui-color-avatar-10: mix($xui-color-xero-pink, #FFF, 60%);
+$xui-color-avatar-1: $xui-color-red-light;
+$xui-color-avatar-2: $xui-color-orange-light;
+$xui-color-avatar-3: $xui-color-yellow-light;
+$xui-color-avatar-4: $xui-color-green-light;
+$xui-color-avatar-5: $xui-color-mint-light;
+$xui-color-avatar-6: $xui-color-turquoise-light;
+$xui-color-avatar-7: $xui-color-blue-light;
+$xui-color-avatar-8: $xui-color-violet-light;
+$xui-color-avatar-9: $xui-color-grape-light;
+$xui-color-avatar-10: $xui-color-pink-light;
 
 $xui-shadow-focus: 0 0 0 3px $xui-color-grey-alpha-6;
-$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-inverted-alpha-6;
+$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-white-alpha-6;
 
-$xui-color-white-muted: $xui-color-inverted-alpha-2;
-$xui-color-white-faint: $xui-color-inverted-alpha-3;
-$xui-color-shadow-inverted-light: $xui-color-inverted-alpha-7;
-$xui-color-shadow-inverted-medium: $xui-color-inverted-alpha-6;
-$xui-color-shadow-inverted-strong: $xui-color-inverted-alpha-5;
+$xui-color-white-muted: $xui-color-white-alpha-2;
+$xui-color-white-faint: $xui-color-white-alpha-3;
+$xui-color-shadow-inverted-light: $xui-color-white-alpha-7;
+$xui-color-shadow-inverted-medium: $xui-color-white-alpha-6;
+$xui-color-shadow-inverted-strong: $xui-color-white-alpha-5;
+
+// TODO: remove in XUI 13
+$xui-color-black: #32465a;
+$xui-color-xero-green: #57c40a;
+$xui-color-xero-red: #f6534e;
+$xui-color-xero-dark-green: mix($xui-color-xero-green, #000, 90%);
+$xui-color-xero-dark-red: mix($xui-color-xero-red, #000, 90%);
+$xui-color-xero-dark-purple: #643cfa;
+$xui-color-xero-light-blue: #3adcf6;
+$xui-color-xero-light-green: #51daaf;
+$xui-color-xero-orange: #fa8100;
+$xui-color-xero-yellow: #f8a900;
+$xui-color-xero-pink: #ff6496;
+$xui-color-xero-purple: #b450c8;
+$xui-color-xero-blue: #2baaed;
+$xui-color-xero-dark-blue: mix($xui-color-xero-blue, #000, 90%);
+$xui-color-inverted-alpha-2: rgba($xui-color-white, 0.75);
+$xui-color-inverted-alpha-3: rgba($xui-color-white, 0.5);
+$xui-color-inverted-alpha-4: rgba($xui-color-white, 0.35);
+$xui-color-inverted-alpha-5: rgba($xui-color-white, 0.2);
+$xui-color-inverted-alpha-6: rgba($xui-color-white, 0.1);
+$xui-color-inverted-alpha-7: rgba($xui-color-white, 0.05);
 
 // @tokenparserendignore

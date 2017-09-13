@@ -33,7 +33,7 @@ The following classes are no longer available:
 ### Filters
 
 * `xui-sidebarfilter`, `xui-sidebarfilter-is-selected`, `xui-sidebarfilter--body`, `xui-sidebarfilter--control`,
-`xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control` 
+`xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control`
 have all been removed. Use picklists instead.
 
 ### Icons
@@ -61,7 +61,7 @@ have all been removed. Use picklists instead.
 * `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
 * `xui-input-wrapper-borderless` has been removed. Use `xui-inputwrapper-borderless` instead.
 * `xui-input-wrapper-borderless-layout` has been removed. Use `xui-inputwrapper-borderless-layout` instead.
-* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and 
+* `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and
 `xui-inputwrapper-borderless-layout` have been removed.
 There are no replacements for these; use the standard borderless classes.
 * `xui-textarea` has been removed. Use `xui-input` on `<textarea>` elements instead.
@@ -77,13 +77,13 @@ There are no replacements for these; use the standard borderless classes.
 `xui-verticaltab-is-selected` have been removed. Use vertical picklists instead.
 
 ### Toggles
-* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer 
+* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer
 necessary to achieve the desired look.
 
 ### Dropdowns
-* `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`, 
+* `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`,
 `xui-dropdownmenu-large`, `xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`,
-`xui-dropdownmenu--groupheading`, `xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`, 
+`xui-dropdownmenu--groupheading`, `xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`,
 `xui-menuitem-layout`, `xui-menuitem--body`, `xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
 These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
 
@@ -128,11 +128,11 @@ and `xui-popover--link` have been removed. These classes were not documented and
 ### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
 * `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.
-* `xui-u-flex-verticalalign-center` has been removed. Use `xui-u-flex-vertical` and 
+* `xui-u-flex-verticalalign-center` has been removed. Use `xui-u-flex-vertical` and
 `xui-u-flex-horizontallycentered` instead.
 * `xui-button-link` has been removed. Use `xui-button-borderless-main` instead.
-* Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of 
-XUI's CSS file. Previously, it was possible for margin and padding classes to be undone by others 
+* Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of
+XUI's CSS file. Previously, it was possible for margin and padding classes to be undone by others
 (e.g. `xui-panel--section`) specified further down the CSS file.
 * `xui-margin-none` no longer has `!important`
 * `xui-padding-none` no longer has `!important`
@@ -161,7 +161,7 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 #### Animation keyframes
 * `xui-animation-show` and `xui-animation-hide` have been removed.
 * `xui-animation-slideup` and `xui-animation-slidedown` have been removed.
-* `xui-animation-fadein` and `xui-animation-fadeout` have been removed. Use `xui-transition-fadein` and 
+* `xui-animation-fadein` and `xui-animation-fadeout` have been removed. Use `xui-transition-fadein` and
 `xui-transition-fadeout` classes instead.
 
 ### Mixins
@@ -186,6 +186,27 @@ The following variables have been removed:
 
 #### Colors
 
+* `xui-color-xero-dark-green`; use `xui-color-green-dark` instead
+* `xui-color-xero-dark-red`; use `xui-color-red-dark` instead
+* `xui-color-xero-dark-purple`; use `xui-color-grape-dark` instead
+* `xui-color-xero-light-blue`; use `xui-color-blue-light` instead
+* `xui-color-xero-light-green`; use `xui-color-green-light` instead
+* `xui-color-xero-orange`; use `xui-color-orange` instead
+* `xui-color-xero-yellow`; use `xui-color-yellow` instead
+* `xui-color-xero-pink`; use `xui-color-pink` instead
+* `xui-color-xero-purple`; use `xui-color-purple` instead
+* `xui-color-xero-blue`; use `xui-color-blue` instead
+* `xui-color-xero-dark-blue`; use `xui-color-blue-dark` instead
+* `xui-color-xero-green`; use `xui-color-green` instead
+* `xui-color-xero-red`; use `xui-color-red` instead
+* `xui-color-inverted-alpha-2`; use `xui-color-white-alpha-2` instead
+* `xui-color-inverted-alpha-3`; use `xui-color-white-alpha-3` instead
+* `xui-color-inverted-alpha-4`; use `xui-color-white-alpha-4` instead
+* `xui-color-inverted-alpha-5`; use `xui-color-white-alpha-5` instead
+* `xui-color-inverted-alpha-6`; use `xui-color-white-alpha-6` instead
+* `xui-color-inverted-alpha-7`; use `xui-color-white-alpha-7` instead
+
+Removed:
 * `$xui-color-highlight-light`
 * `$xui-color-highlight-medium`
 * `$xui-color-highlight-strong`

@@ -41,6 +41,7 @@ function parseCss(template, nodes, source) {
 		if (node.type === 'comment') {
 			const headingRegexMatch = /@section\s*([\w\s]*)/.exec(node.text);
 			const typeRegexMatch = /@type\s*([\S]*)/.exec(node.text);
+			const descriptionRegexMatch = /@description\s*(.*)/.exec(node.text);
 
 			if (headingRegexMatch != null) {
 				const styleGuide = template.isSubsection
@@ -54,14 +55,14 @@ function parseCss(template, nodes, source) {
 				}
 				sections.push(`// ${headingRegexMatch[1].trim()}`, '//');
 				sectionCounter += 1;
-			}
-
-			if (typeRegexMatch != null) {
+			} else if (typeRegexMatch != null) {
 				if (Object.values(types).includes(typeRegexMatch[1])) {
 					sections.push(`// TokenType: ${typeRegexMatch[1]}`,'//','// Tokens:');
 				} else {
 					console.error(`Unknown type '${typeRegexMatch[1]}' found`);
 				}
+			} else if (descriptionRegexMatch != null) {
+				sections.push(`// ${descriptionRegexMatch[1]}`,'//');
 			}
 
 		} else if (node.type === 'decl') {

@@ -4,8 +4,7 @@
  * the new IA. Nothing more.
  **/
 
-$ds-nav-gutter: calc(0.7em + .7vw);
-$ds-nav-gutter-mobile: 5vw;
+
 
  nav ul {
 	margin:0;
@@ -111,7 +110,8 @@ $ds-nav-gutter-mobile: 5vw;
 
 .ds-nav--header .ds-xui-logo {
 	@include xui-breakpoint-wide {
-		padding: calc(4rem + 3vh) 0;
+    width: 100%;
+    min-height: calc(24vh + 21px);
 		background-position: 50% 50%;
 	}
 }

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const spy = new ScrollSpy('#kss-node', {
 		callback: e => {
-			if (spy.isInView(navSectionSelect)) {
+			if (navSectionSelect && spy.isInView(navSectionSelect)) {
 				navSectionSelect.value = "-1";
 			};
 		}

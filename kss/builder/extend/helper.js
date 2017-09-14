@@ -149,16 +149,19 @@ module.exports = function(handlebars) {
 
 
 	/**
-	 * Test against the page name and the current styleguide
+	 * Test against list of styleguides and evaluate if current matches
 	 *
 	 * e.g.
-	 * {{#ifStyleguide pageName}}
-	 * 		EXECUTE THIS IF NOT A MATCHING REFERENCE
-	 * 		{{else}} [optional]
+	 * {{#ifStyleguide "Styleguide ref1" "Styleguide ref2"}}
 	 * 		WILL EXECUTE THIS
+	 * 		{{else}} [optional]
+	 * 		EXECUTE THIS IF NOT A MATCHING REFERENCE
 	 * {{/ifStyleguide}}
 	 */
-	handlebars.registerHelper('ifStyleguide', function(pageName, options) {
-		return this.reference === pageName ? options.fn(this) : options.inverse(this);
+	handlebars.registerHelper('ifStyleguide', function() {
+		const styleguides = Array.from(arguments);
+		const options = styleguides.splice( -1)[0];
+		const matchesStyleguide = (styleguides.indexOf(this.reference) !== -1);
+		return (matchesStyleguide) ? options.fn(this) : options.inverse(this);
 	});
 };

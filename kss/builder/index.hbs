@@ -87,7 +87,11 @@
 					{{/if}}
 
 					{{#if @first}}
-						{{> landingpage}}
+						{{#ifStyleguide "Getting Started" }}
+							{{! noop }}
+						{{ else }}
+							{{> landingpage }}
+						{{/ifStyleguide}}
 					{{/if}}
 
 					{{#if markdown}}

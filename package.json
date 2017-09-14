@@ -17,7 +17,7 @@
     "sass"
   ],
   "scripts": {
-    "prepublish": "npm-run-all check:security check:engines",
+    "prepare": "npm-run-all check:security check:engines",
     "check:security": "nsp check",
     "check:engines": "check-engines",
     "build": "grunt build",

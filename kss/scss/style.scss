@@ -49,6 +49,44 @@ $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
 	padding: 20px;
 }
 
+.ds-column-wrapper {
+	column-count: 1;
+	display: block;
+	padding-top: calc(1em + 1vh);
+
+	@include xui-breakpoint-medium {
+		column-count: 2;
+	}
+
+	@include xui-breakpoint-wide {
+		column-count: 3;
+	}
+}
+
+.ds-column {
+	margin-bottom: calc(1.5em + 1vh);
+	break-inside: avoid;
+}
+
+.ds-column-item {
+	font-size: $xui-font-size-medium;
+	font-weight: $xui-font-weight-emphasis;
+	display: block;
+	padding-right: calc(0.75em + 0.7vh);
+}
+
+.ds-column-child-wrapper {
+	padding-top: calc(0.5em + 0.5vh);
+}
+
+.ds-column-child-item {
+	font-size: $xui-font-size-small;
+	font-weight: normal;
+	padding-bottom: calc(0.5em + 0.5vh);
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
 //--------------------------
 // Headings
 //--------------------------

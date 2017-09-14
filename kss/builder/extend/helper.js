@@ -146,4 +146,19 @@ module.exports = function(handlebars) {
 		}
 		return openSection + body.fn(this) + closeSection;
 	})
+
+
+	/**
+	 * Test against the page name and the current styleguide
+	 *
+	 * e.g.
+	 * {{#ifStyleguide pageName}}
+	 * 		EXECUTE THIS IF NOT A MATCHING REFERENCE
+	 * 		{{else}} [optional]
+	 * 		WILL EXECUTE THIS
+	 * {{/ifStyleguide}}
+	 */
+	handlebars.registerHelper('ifStyleguide', function(pageName, options) {
+		return this.reference === pageName ? options.fn(this) : options.inverse(this);
+	});
 };

@@ -32,4 +32,8 @@ module.exports = function (handlebars) {
 		return (sections.filter(s => s.depth === 2).length > 0) ? options.fn(this) : options.inverse(this);
 	});
 
+	// Returns true if the current header is in the child config options.
+	handlebars.registerHelper('hasChildren', function( options) {
+		return (options.data.root.options.childPages.indexOf(this.header) !== -1) ? options.fn(this) : options.inverse(this);
+	});
 }

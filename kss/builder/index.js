@@ -289,49 +289,41 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 			// Group all of the sections by their root reference, and make a page for
 			// each.
 			sectionRoots.forEach(rootReference => {
-
 				// Create Top level page
-				// TODO don't build all the children in on the top level.
-
 				const hasChildren = this.options.childPages.indexOf(rootReference) !== -1;
 				if (hasChildren) {
 					// If has children get all sections and build
-					const sectionsXX = this.styleGuide.sections(rootReference + '.*');
-					let currentRoot = rootReference;
+					const sectionRootSections = this.styleGuide.sections(rootReference + '.*');
 
 					buildPageTasks.push(this.buildPage('section', options, rootReference, [this.styleGuide.sections(rootReference)]));
-					sectionsXX.forEach(xx => {
-						const rootReference = xx.reference();
+
+					sectionRootSections.forEach(s => {
+						const rootReference = s.reference();
 						const refParts = rootReference.split('.');
 						const hasChildren = this.options.childPages.indexOf(rootReference) !== -1;
-						const isChild = currentRoot.split('.').length + 1 === refParts.length;
+						const offset = 1 - s.depth();
+						// All sections for root reference.
+						let selector = rootReference + '.*';
 
-						// Don't build full section pages for sub sections that are numberic.
+						// Don't build full section pages for sub sections that are numeric.
 						if (!isNaN(refParts[refParts.length - 1])) {
 							return;
 						}
 
 						if (hasChildren) {
-							currentRoot = rootReference;
-							const currentAndChildrenNotLandingPages = new RegExp(rootReference + '(\\.\\d+)*');
-							buildPageTasks.push(this.buildPage('section', options, rootReference, this.styleGuide.sections(currentAndChildrenNotLandingPages)));
-						} else {
-							// check has child / ischild and set the selector bellow.
-							// because these are custom page build tasks we need to reset the depth so the headings match up
-							// This effects menu depth. But we are currently moving away from nested navigation so this is
-							// an acceptable compromise for today.
-							const offset = 1 - xx.depth();
-							const sectionsWithModifiedDepth = this.styleGuide.sections(rootReference + '.*').map( s => s.depth(s.depth()+offset));
-
-							buildPageTasks.push(this.buildPage('section', options, rootReference, sectionsWithModifiedDepth ));
+							// Landing Pages
+							// All content sections no child page sections (Selectors ending in numbers)
+							selector = new RegExp(rootReference + '(\\.\\d+)*');
 						}
+						// query sections and offset to ensure top levels start at depth 1
+						sections = this.styleGuide.sections(selector).map( s => s.depth(s.depth() + offset));
+						buildPageTasks.push(this.buildPage('section', options, rootReference, sections ));
 					});
 				} else {
-					// ROOT no children, as you were
-					// NEED THIS FOR UPDATES, FEEDBACK ETC.
+					// Root pages without children (Updates, feedback, etc.)
+					// All sections for root reference.
 					buildPageTasks.push(this.buildPage('section', options, rootReference, this.styleGuide.sections(rootReference + '.*')));
 				}
-
 			});
 
 			// For each section, build a page which only has a single section on it.

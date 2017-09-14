@@ -79,7 +79,11 @@
 					{{/if}}
 
 					{{#if @first}}
-						{{> jumpto }}
+						{{#hasChildren}}
+							{{! noop }}
+						{{else}}
+							{{> jumpto }}
+						{{/hasChildren}}
 					{{/if}}
 
 					{{#if @first}}

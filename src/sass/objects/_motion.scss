@@ -2,90 +2,63 @@
 
 // Motion
 //
-// Teaser: To communicate a change of elements over time for a less jarring experience.
+// Teaser: Communicating change over time.
 //
-// In the physical world, objects adhere to the laws of physics. Things cannot simply appear and disappear, or change
-// their nature in an instant. Change occurs over time.
-// In the digital world however, this isn’t necessarily the case, and change can happen in a matter of milliseconds.
-// This can be jarring to say the least.
-// The challenge is to be able to communicate these changes in an understandable way to our users.
-// Motion is another tool under our belt to help us do this.
+// Introduction: XUI utilises a number of transitions to help communicate change to the customer in a meaningful way.
 //
 // Weight: 1
 //
 // Styleguide: Fundamentals.Motion
 
-// Classes
+// Common transitions
 //
-// `.xui-transition`
-//
-// Simply add this class to an element, and it will add a default XUI transition to it. This method animates all properties by default.
-// An example of where this could be used is changing basic properties like text colour on hover, or position on screen of an object after the addition of a class.
-//
-// `.xui-transition-fadein` & `.xui-transition-fadeout`
-//
-// For animating opacity only (other properties will not animate). A good example of where this is used, is the masks on our modals.
-// Additionally, this could be used for toggling visibility of elements based on other content being selected.
-//
-// `.xui-transition-grow` & `.xui-transition-shrink`
-//
-// For animating max-height & opacity (other properties will not animate). A good example of where this is used, is our dropdown.
-// Additionally, this could be used for adding and deleting rows dynamically from a list.
-//
-// `.xui-transition-scaleup` & `.xui-transition-scaledown`
-//
-// For animating scale & opacity (other properties will not animate). A good example of where this is used, is our modals.
-// Additionally, this could be used for showing & hiding tooltips or other temporary elements.
+// For most use cases, one of the following transition classes will suffice.
+// 
+// Definitions:
+// All: Animate all properties: `.xui-transition`
+// Fade in: Animate opacity in: `.xui-transition-fadein`
+// Fade out: Animate opacity out: `.xui-transition-fadeout`
+// Grow: Increase height to reveal content:`.xui-transition-grow`
+// Shrink: Decrease height to conceal content: `.xui-transition-shrink`
+// Scale up: Increase size and animate opacity in:`.xui-transition-scaleup`
+// Scale down: Decrease size and animate opacity out: `.xui-transition-scaledown`
 //
 // Styleguide: Fundamentals.Motion.1
 
 
-// Modifiers
+// Custom transitions
 //
-// Alternatively, you can use a combination of the following classes, for more granular control.
-//
-// ### Speed
-//
-// You can specify the speed of the transition if you like, by using the following modifiers:
-//
-// `.xui-transition-speed-slow`, `.xui-transition-speed-medium`, `.xui-transition-speed-fast`
-//
-// ### Curve
-//
-// You can specify what kind of motion it is you’re animating by using the following modifiers:
-//
-// `.xui-transition-curve-standard`, `.xui-transition-curve-enter`, `.xui-transition-curve-exit`
-//
-// For example, if something is entering the point of focus, it responds differently to something leaving it.
-// The effects of friction are different in each context. If it is difficult to define, use standard. This eases in both directions.
-//
-// ### Delay
-//
-// Often it doesn't make sense to animate all elements simultaneously, and you want to wait until another element has finished its own transition.
-// To save you having to delay the application of classes via javascript, you can use the following modifiers which match the speed classes exactly:
-//
-// `.xui-transition-delay-short`, `.xui-transition-delay-medium`, `.xui-transition-delay-long`
+// Alternatively, you can also use a combination of the following `.xui-transition-*-*` classes for more granular control of transition properties, whilst still retaining the recommended XUI values.
+// These are also available as `$xui-motion-*-*` variables for use in keyframes.
 //
 // Styleguide: Fundamentals.Motion.2
 
-// Tokens
+// Duration
 //
-// If you're interested in using the XUI motion variables themselves in SCSS code, you can use the following tokens.
-// They have been created using the motion namespace, as they can be used in both basic transitions, as well as more complex `@keyframe` animations.
+// Definitions:
+// Fast:0.1s:`-speed-fast`
+// Medium:0.3s:`-speed-fast`
+// Slow:0.5s:`-speed-fast`
 //
-// ### Speed
+// Styleguide: Fundamentals.Motion.2.1
+
+// Easing curves
 //
-// `$xui-motion-speed-slow`, `$xui-motion-speed-medium`, `$xui-motion-speed-fast`
+// Definitions:
+// Enter: Ease in: `-curve-enter`
+// Standard: Ease in a nd out: `-curve-standard`
+// Exit: Ease out:`-curve-exit`
 //
-// ### Curve
+// Styleguide: Fundamentals.Motion.2.2
+
+// Delay
 //
-// `$xui-motion-curve-standard`, `$xui-motion-curve-enter`, `$xui-motion-curve-exit`
+// Definitions:
+// Short: 0.1s: `-delay-short`
+// Medium: 0.3s: `-delay-medium`
+// Long: 0.5s: `-delay-long`
 //
-// ### Delay
-//
-// `$xui-motion-delay-short`, `$xui-motion-delay-medium`, `$xui-motion-delay-long`
-//
-// Styleguide: Fundamentals.Motion.3
+// Styleguide: Fundamentals.Motion.2.3
 
 .#{$ns}-transition-scaleup {
 	opacity: 1;

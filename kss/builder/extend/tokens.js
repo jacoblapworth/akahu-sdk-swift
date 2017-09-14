@@ -49,12 +49,19 @@ const renderColorTokens = (tokens, tokenType) => {
 		const value = matches[1];
 		const heading = matches[2];
 		const description = matches[3];
+		const variable = matches[4];
 
 		const isPartOfGradient = name.match(/[0-9]\b/) != null || name === "$xui-color-white";
 		const isBorderish = tokenType === types.border || tokenType === types.shadow;
 
 		const isMainSwatch =
 			name.endsWith('-1')
+			|| name == "$xui-color-white";
+		const isTop =
+			name.indexOf('overlap-top') !== -1
+			|| name == "$xui-color-white";
+		const isBottom =
+			name.indexOf('overlap-bottom') !== -1
 			|| name == "$xui-color-white";
 		const shouldHaveTopPadding =
 			index === 0
@@ -86,8 +93,11 @@ const renderColorTokens = (tokens, tokenType) => {
 			'xui-padding-xsmall',
 			{
 				'ds-color-swatch-main': isMainSwatch,
+				'ds-border-swatch-top': isTop,
+				'ds-border-swatch-bottom': isBottom,
 				'ds-color-swatch': !isBorderish,
 				'ds-border-swatch': isBorderish,
+
 			}
 		);
 		const swatchStyle = `${styleAttributeMap[tokenType]}: ${value};`;
@@ -105,8 +115,9 @@ const renderColorTokens = (tokens, tokenType) => {
 					</div>
 				</div>
 				<div class="xui-u-flex-1 xui-margin-left xui-margin-top-small ${verticalPadding}">
-					<div class="xui-heading-item xui-margin-none">${heading}</div>
-					<div>${description || ''}</div>
+					<div class="xui-heading-item">${heading}</div>
+					<div class="xui-margin-top-xsmall">${description || ''}</div>
+					<div>${variable ? "<code class='ds-border-variable xui-margin-top-xsmall'>"+ variable + "</code>" : ''}</div>
 				</div>
 			</div>`;
 	}).join('');
@@ -155,7 +166,7 @@ const renderBrightsTokens = tokens => {
 			`.replace('\n\t','');
 		}).join('');
 		return `
-			<div class="ds-brights-group xui-margin-right xui-margin-bottom">
+			<div class="ds-brights-group xui-margin-right-large xui-margin-bottom-large">
 				${swatches}
 			</div>
 		`;

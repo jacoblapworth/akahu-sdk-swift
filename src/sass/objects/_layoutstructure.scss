@@ -8,23 +8,23 @@
 //
 // Weight: 2.8
 //
-// Styleguide: Layout
+// Styleguide: Fundamentals.Layout
 
 // Page width
 //
 // To specify a sensible max-width on page content, apply one of the following width classes.
-// 
+//
 // Definitions:
 // Standard: 		940px:		`.xui-page-width-standard`
 // Large: 			1160px:			`.xui-page-width-large`
 //
-// Styleguide: Layout.1
+// Styleguide: Fundamentals.Layout.1
 
 // Creating columns
 //
 // Utilising XUI's 12 column grid provides easy access to the common layout divisors of halves, thirds, and quarters, as well as many  other fractions between 1 and 12.
 //
-// Styleguide: Layout.2
+// Styleguide: Fundamentals.Layout.2
 
 // Rows
 //
@@ -36,12 +36,12 @@
 // Flex: 					Flex based row: 			`.xui-row-flex`
 //
 //
-// Styleguide: Layout.2.1
+// Styleguide: Fundamentals.Layout.2.1
 
 // Columns
 //
 // To specify the widths of the children, use the following `.xui-column-*-12` percentage classes.
-// 
+//
 // Definitions:
 // 1/12: 	Twelfth:								`-1-of-12`
 // 1/6: 		Sixth: 									`-2-of-12`
@@ -82,12 +82,12 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Layout.2.2
+// Styleguide: Fundamentals.Layout.2.2
 
 // Breakpoints
 //
 // All columns are also available as responsive modifiers that alter layout at different viewports. Simply add one of the following modifiers to specify the desired behaviour.
-// 
+//
 // Definitions:
 // Always: 	∞:													none
 // Medium: 	940px—1160px: 	`-medium`
@@ -103,7 +103,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Layout.3
+// Styleguide: Fundamentals.Layout.3
 
 // Nesting
 //
@@ -121,7 +121,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Layout.4
+// Styleguide: Fundamentals.Layout.4
 
 // Flex utilities
 //
@@ -139,15 +139,15 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Layout.5
+// Styleguide: Fundamentals.Layout.5
 
 // Accessibility
 //
 // If you are using interactive elements within a tabular layout containing rows and columns, please refer to the <a href="https://www.w3.org/TR/wai-aria/roles#grid">aria grid role documentation</a>.
 // Each column of the grid must be able to be either active, selectable or editable, as well as being keyboard accessible, in order to apply the appropriate roles.
-//	Using the grid role means that the table is considered editable by default, unless the aria-readonlyattribute on the grid is set to true. 
+//	Using the grid role means that the table is considered editable by default, unless the aria-readonlyattribute on the grid is set to true.
 //
-// Styleguide: Layout.6
+// Styleguide: Fundamentals.Layout.6
 
 .#{$ns}-page-width-standard {
 	@include xui-clearfix;

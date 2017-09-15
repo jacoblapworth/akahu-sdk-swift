@@ -11,7 +11,7 @@
 //
 // Weight: 5.99
 //
-// Styleguide: Utilities
+// Styleguide: Building Blocks.Utilities
 
 // Display
 //
@@ -29,7 +29,7 @@
 //  <section class="xui-u-container xui-u-hidden-visually">hidden visually</section>
 //  <section class="xui-u-container xui-u-hidden-mobile">hidden on mobile</section>
 //
-// Styleguide: Utilities.1
+// Styleguide: Building Blocks.Utilities.1
 
 // scss-lint:disable ImportantRule
 .#{$ns}-u-hidden {
@@ -76,7 +76,7 @@
 //   </p>
 // </section>
 //
-// Styleguide: Utilities.1.1
+// Styleguide: Building Blocks.Utilities.1.1
 
 .#{$ns}-u-overflow-hidden {
 	overflow: hidden !important;
@@ -162,7 +162,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Utilities.2
+// Styleguide: Building Blocks.Utilities.2
 
 .#{$ns}-u-flex {
 	display: flex;
@@ -290,7 +290,7 @@
 //   <span class="xui-button xui-button-standard xui-u-fullwidth">Wide</span>
 // </div>
 //
-// Styleguide: Utilities.3
+// Styleguide: Building Blocks.Utilities.3
 
 .#{$ns}-u-fullwidth {
 	display: block;
@@ -309,7 +309,7 @@
 // Markup:
 // <p class="xui-u-noselect">Text <svg class="xui-icon xui-icon-inline"><use xlink:href="#xui-icon-caret" role="presentation"/></svg</p>
 //
-// Styleguide: Utilities.5
+// Styleguide: Building Blocks.Utilities.5
 
 .#{$ns}-u-noselect {
 	user-select: none;
@@ -330,7 +330,7 @@
 //   <textarea class="xui-input xui-u-resize-vertical">Vertically resizable</textarea>
 // </div>
 //
-// Styleguide: Utilities.7
+// Styleguide: Building Blocks.Utilities.7
 
 .#{$ns}-u-resize-none {
 	resize: none;
@@ -354,7 +354,7 @@
 // <svg class="xui-icon xui-u-rotate-180"><use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
 // <svg class="xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
 //
-// Styleguide: Utilities.8
+// Styleguide: Building Blocks.Utilities.8
 
 .#{$ns}-u-rotate-90 {
 	transform: rotate(90deg);

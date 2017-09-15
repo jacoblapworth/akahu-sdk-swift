@@ -426,6 +426,14 @@ $kss-color-padding: #eeebff;
 	}
 }
 
+.icon-main {
+	h4 {
+		margin-top: $xui-s-xlarge;
+		margin-bottom: $xui-s-large;
+		color: $xui-color-grey-1;
+	}
+}
+
 .ds-icons {
 	box-shadow: -1px -1px 0 $ds-inverted--light inset;
 	margin: 0;

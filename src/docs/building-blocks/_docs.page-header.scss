@@ -1,0 +1,114 @@
+// Page header
+//
+// New styles for app sub-navigation, meant to show more detail around the current page, and give optional patterns for displaying action buttons, or breadcrumbs for navigation.
+//
+// This component uses the `xui-page-width-standard` class to center align its navigation, and title sub-components to the widths of your content.
+//
+// Styleguide: Building Blocks.Page Header
+
+// Standard
+//
+// Classes:
+// xui-pageheading: Container for a page heading (eg navigation)
+// xui-pageheading--breadcrumbs: Container for page heading breadcrumbs
+// xui-pageheading--content: Container for page heading content (eg headings and buttons)
+// xui-pageheading--content-layout: Recommended layout for page heading content
+// xui-pageheading--content-layout-titleonly: Layout class for page heading content that only has a title (includes IE11 fix).
+// xui-pageheading--title: Style for a page heading title
+// xui-breadcrumb: Style for breadcrumb text
+// xui-breadcrumb--icon: Style for icons between breadcrumb text
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-pageheading--content-layout-titleonly xui-page-width-standard">
+//     <h1 class="xui-pageheading--title">Sales</h1>
+//   </div>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
+//     <h1 class="xui-pageheading--title">Sales</h1>
+//     <div class="xui-actions">
+//        <button type="button" class="xui-button xui-button-standard" style="width:initial">
+//           Options
+//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//        </button>
+//        <button type="button" class="xui-button xui-button-create xui-margin-left-small" style="width:initial">
+//           New
+//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//        </button>
+//     </div>
+//   </div>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
+//      <ol class="xui-pageheading--breadcrumbs">
+//         <li class="xui-breadcrumb" aria-selected="false">
+//         	<a href="#">Sales</a></li>
+//         	<svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+//         <li class="xui-breadcrumb" aria-selected="true">
+//         	Invoices
+//         </li>
+//      </ol>
+//      <div class="xui-buttongroup">
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create" style="width:initial">New Invoice</button>
+//         <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split" style="width:initial;">
+//            <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//         </button>
+//      </div>
+//   </nav>
+// </header>
+// <br />
+// <header class="xui-pageheading">
+//   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
+//     <ol class="xui-pageheading--breadcrumbs">
+//       <li class="xui-breadcrumb" aria-selected="false">
+//       	 <a href="#">Sales</a></li>
+//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+//       <li class="xui-breadcrumb" aria-selected="false">
+//       	 <a href="#">Invoices</a></li>
+//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+//       <li class="xui-breadcrumb" aria-selected="true">
+//       	 INV-001
+//       </li>
+//     </ol>
+//     <button type="button" class="xui-button xui-button-standard" style="width:initial;">
+//       Options
+//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </button>
+//   </nav>
+// </header>
+//
+// Styleguide: Building Blocks.Page Header.4
+
+
+// With Tabs
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-page-width-standard">
+//     <div class="xui-pageheading--content xui-pageheading--content-layout">
+//       <h1 id="page-title" class="xui-pageheading--title">Sales</h1>
+//     </div>
+//     <ul class="xui-picklist xui-picklist-horizontal" role="tree">
+//       <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//         <a href="#" class="xui-pickitem--body" tabindex="0">
+//           Selected item
+//         </a>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
+//         <button type="button" class="xui-pickitem--body" tabindex="0">
+//           Item two
+//         </button>
+//       </li>
+//       <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//         <button type="button" class="xui-pickitem--body" tabindex="0">
+//           Item three
+//         </button>
+//       </li>
+//     </ul>
+//   </div>
+// </header>
+//
+// Styleguide: Building Blocks.Page Header.5

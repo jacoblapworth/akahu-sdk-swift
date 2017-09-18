@@ -1,0 +1,308 @@
+// Toggles
+//
+// Teaser: Grouped buttons that act as form controls. Either composed of checkboxes or radio elements.
+//
+// Toggles can be made using either `radio` or `checkbox` inputs.
+//
+// The colorway classes should be applied alongside `xui-toggle`.
+// Note that `xui-toggle-inverted` should be used with `xui-color-white` and `xui-background-grey-1` classes.
+// See [Typography](./section-typography.html) for more details.
+//
+// Toggle labels can contain any combination of images, multiline text and [SVG icons](./section-icons.html).
+// Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
+//
+// #### Class Names
+//
+// `xui-toggle` Container for one or more toggle options
+//
+// `xui-toggle-form-layout` Recommended layout for form based toggles
+//
+// `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
+//
+// `xui-toggle-small` Modifier for smaller toggles. You can use any layout in conjunction with this.
+//
+// `xui-toggle-inverted` Style for a light on dark toggle container
+//
+// `xui-toggle-option` Container for a toggle option
+//
+// `xui-toggle--input` Style for a toggle input (hides HTML control)
+//
+// `xui-toggle--label` Style for a toggle label
+//
+// `xui-toggle--text` Style for toggle text within the label. Fixes a bug with text not wrapping if using `xui-toggle-fullwidth-layout` and IE11
+//
+// `xui-is-disabled` Style for a disabled toggle
+//
+// Components: Toggle
+//
+// Styleguide: Building Blocks.Toggle
+
+// Form layout
+//
+// The recommended form layout can be achieved using `xui-toggle-form-layout` alongside `xui-toggle`
+// and is suitable for mixed label content. The form layout is intended for text-based
+// labels. It provides vertical padding and line height in addition to being full width.
+//
+// Styleguide: Building Blocks.Toggle.1
+
+// Form layout radio
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding">
+//   <form class="xui-form-layout">
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled</label>
+//       <div class="xui-toggle xui-toggle-form-layout">
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" checked />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//       </div>
+//    </div>
+//     <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field1">Enabled (small)</label>
+//       <div class="xui-toggle xui-toggle-small xui-toggle-form-layout">
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" checked />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option">
+//           <input type="radio" name="tg1" class="xui-toggle--input" />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//       </div>
+//    </div>
+//    <div class="xui-field-layout">
+//       <label class="xui-text-label xui-fieldlabel-layout" for="field2">Disabled</label>
+//       <div class="xui-toggle xui-toggle-form-layout">
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled checked />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//         <label class="xui-toggle-option xui-is-disabled">
+//           <input type="radio" name="tg0" class="xui-toggle--input" disabled />
+//           <span class="xui-toggle--label xui-padding-vertical-small">Radio</span>
+//         </label>
+//       </div>
+//    </div>
+//   </form>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.1.1
+
+// Full width layout
+//
+// The recommended full-width layout can be achieved using `xui-toggle-fullwidth-layout` alongside `xui-toggle`
+// and is suitable for mixed label content.
+//
+// Styleguide: Building Blocks.Toggle.2
+
+// Full width inverted radio
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding xui-color-white xui-background-grey-1">
+//   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout xui-padding-bottom-small">
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3" checked/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//   </div>
+//   <div class="xui-toggle xui-toggle-small xui-toggle-inverted xui-toggle-fullwidth-layout xui-padding-bottom-small">
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3" checked/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" class="xui-toggle--input" name="tg3"/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//   </div>
+//   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout">
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" name="tg2" checked disabled/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" name="tg2" disabled/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" class="xui-toggle--input" name="tg2" disabled/>
+//       <span class="xui-toggle--label">
+//         Radio
+//       </span>
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.2.1
+
+// Icon only
+//
+// No additional classes are required for icon only toggles. Simply use svg content instead of text.
+//
+// Styleguide: Building Blocks.Toggle.3
+
+// Icon only chekbox
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding">
+//   <div class="xui-toggle xui-padding-bottom-small">
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input" checked/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-bold" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input" />
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-italic" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="checkbox" class="xui-toggle--input"/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-underline" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//   </div>
+//   <div class="xui-toggle">
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="checkbox" class="xui-toggle--input" disabled checked/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-bold" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="checkbox" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-italic" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="checkbox" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-underline" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.3.1
+
+// Icon only inverted radio
+//
+// Markup:
+// <div class="xui-panel xui-margin xui-padding xui-color-white xui-background-grey-1">
+//   <div class="xui-toggle xui-toggle-inverted xui-padding-bottom-small">
+//     <label class="xui-toggle-option">
+//       <input type="radio" name="tg0" class="xui-toggle--input"/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" name="tg0" class="xui-toggle--input" checked/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-mobile" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option">
+//       <input type="radio" name="tg0" class="xui-toggle--input"/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-print" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//   </div>
+//   <div class="xui-toggle xui-toggle-inverted">
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" name="tg1" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" name="tg1" class="xui-toggle--input" disabled checked/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-mobile" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//     <label class="xui-toggle-option xui-is-disabled">
+//       <input type="radio" name="tg1" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-print" role="presentation"/>
+//         </svg>
+//       </span>
+//     </label>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.3.2

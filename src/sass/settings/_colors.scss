@@ -4,7 +4,7 @@
 
 // @tokenparserstartignore
 $xui-color-white: #fff;
-$xui-color-blue: #2BAAED;
+$xui-color-blue: #028DDE;
 $xui-color-red: #F6534E;
 $xui-color-green: #57c40a;
 // @tokenparserendignore
@@ -189,7 +189,7 @@ $xui-color-xero-orange: #fa8100;
 $xui-color-xero-yellow: #f8a900;
 $xui-color-xero-pink: #ff6496;
 $xui-color-xero-purple: #b450c8;
-$xui-color-xero-blue: #2baaed;
+$xui-color-xero-blue: $xui-color-blue;
 $xui-color-xero-dark-blue: mix($xui-color-xero-blue, #000, 90%);
 $xui-color-inverted-alpha-2: rgba($xui-color-white, 0.75);
 $xui-color-inverted-alpha-3: rgba($xui-color-white, 0.5);

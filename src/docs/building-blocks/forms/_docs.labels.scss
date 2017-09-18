@@ -1,0 +1,54 @@
+// Labels
+//
+// Teaser: Styled versions of a native Checkbox and Radio element used inside forms.
+//
+// Introduction:
+// Things about adding good labels
+//
+// Styleguide: Building Blocks.Forms.Labels
+
+// Standard labels
+//
+// General usage for a label to accompany an input element.
+//
+// Markup:
+// <label class="xui-text-label xui-fieldlabel-layout" for="label-example">Name</label>
+// <input class="xui-input" id="label-example" type="text" placeholder="Zero Cool"/>
+//
+// Styleguide: Building Blocks.Forms.Labels.1
+
+// Inline labels
+//
+// When nesting an `<input>` element inside a `<label>`,
+// the layout classes should be applied to a span to add the correct spacing between the `<label>` and `<input>`.
+//
+// Markup:
+// <label>
+//   <span class="xui-text-label xui-fieldlabel-layout">Name</span>
+//   <input class="xui-input" type="text" placeholder="Acid Burn"/>
+// </label>
+//
+// Styleguide: Building Blocks.Forms.Labels.2
+
+// Implementation
+//
+// Labels can be added either as siblings to, or wrapping around, their matching input.
+// Apply classes to a `label` or `div` if a sibling, or on a nested `span` if wrapping.
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label>
+//     <span class="xui-text-label xui-fieldlabel-layout">Name</span>
+//     <input class="xui-input" type="text" placeholder="Acid Burn"/>
+//   </label>
+// </div>
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Name</label>
+//   <input class="xui-input" id="sibling-example" type="text" placeholder="Zero Cool"/>
+// </div>
+//
+// Classes:
+// xui-text-label: Adds text styling only
+// xui-fieldlabel-layout: Adds correct spacing.
+//
+// Styleguide: Building Blocks.Forms.Labels.50

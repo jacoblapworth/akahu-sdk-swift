@@ -1,11 +1,11 @@
 @import "../vars";
 @import "../mixins";
 
-// Content Blocks and Tables
+// Slats
 //
 // Teaser: Containers for multiple pieces of content, commonly displayed as a row or slat.
 //
-// Styleguide: Patterns.Content Blocks
+// Styleguide: Building Blocks.Slats
 
 // Content Block with Actions
 //
@@ -63,7 +63,7 @@
 //   </ol>
 // </section>
 //
-// Styleguide: Patterns.Content Blocks.1
+// Styleguide: Building Blocks.Slats.1
 
 // Content Block with Linked Rows
 //
@@ -93,7 +93,7 @@
 //   </ol>
 // </section>
 //
-// Styleguide: Patterns.Content Blocks.2
+// Styleguide: Building Blocks.Slats.2
 
 .#{$ns}-contentblock {
 	border-collapse: collapse;
@@ -158,4 +158,4 @@
 //  </tbody>
 // </table>
 //
-// Styleguide: Patterns.Content Blocks.3
+// Styleguide: Building Blocks.Tables

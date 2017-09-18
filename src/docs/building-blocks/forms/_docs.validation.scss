@@ -1,0 +1,21 @@
+
+
+
+
+// Validation
+//
+// We support the use of a manual class, or HTML5 invalid pseudo class
+//
+// Markup:
+// <input type="text" class="xui-input xui-input-is-invalid" aria-label="Text input"/>
+// <textarea class="xui-input xui-u-resize-vertical xui-input-is-invalid" aria-label="Text area field"></textarea>
+// <div class="xui-field-layout">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Form label 1</label>
+//   <div class="xui-input-group">
+//     <input class="xui-input xui-column-2-of-12 xui-input-is-invalid" placeholder="2 columns"/>
+//     <input class="xui-input xui-column-5-of-12 xui-input-is-invalid" placeholder="5 columns"/>
+//     <input class="xui-input xui-column-5-of-12 xui-input-is-invalid" placeholder="5 columns"/>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.Validation

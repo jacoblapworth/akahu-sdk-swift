@@ -4,7 +4,14 @@
 
 // Dropdowns
 //
-// Teaser: Used in a wide range of ways from replacing an HTML &lt;select /&gt; in a form to revealing complex additional interactions.
+// Teaser:
+// Used in a wide range of ways from replacing an HTML &lt;select /&gt; in a form
+// to revealing complex additional interactions.
+//
+// Introduction:
+// Dropdown panes can be used to reveal many extra interactions from simple menus
+// to complex nested forms. XUI provides a set of React components based on common
+// CSS for styling and sizing to deliver these different interfaces.
 //
 // Styleguide: Building Blocks.Dropdowns
 
@@ -47,3 +54,34 @@
 // Automatic repositioning can be overridden with explicit vertical or horizontal positioning.
 //
 // Styleguide: Building Blocks.Dropdowns.2
+
+
+// Interaction and behaviour
+//
+// Bit of info about how there's some shared things and probably some specific things
+//
+// Styleguide: Building Blocks.Dropdowns.3
+
+// Opening and closing
+//
+// Enter and down arrow will always open the dropdown unless it’s an Autocompleter with this behaviour turned off.
+// Dropdowns should not open on focus.
+// Clicking away or clicking the trigger closes the dropdown.
+// With a single selection dropdown enter will apply the selection and close the dropdown.
+//
+// Styleguide: Building Blocks.Dropdowns.3.1
+
+
+// Applying selections and cancelling
+//
+// Things: apply and close on selection; multi-selection with instant application; multi-selection with explicit application.
+// Modifications pending an explicit application will not be applied.
+//
+// Styleguide: Building Blocks.Dropdowns.3.2
+
+// Customising
+//
+// There might be times you want to do something highly custom but still use common
+// styling. Maybe. Really? if so you need the styling... do we need to provide that here?
+//
+// Styleguide: Building Blocks.Dropdowns.4

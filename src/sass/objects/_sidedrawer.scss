@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Side Drawers
+// Drawers
 //
 // Teaser: Used as application layout components. By default they will appear fixed to the right-hand side of the browser window.
 //
@@ -39,7 +39,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Sidedrawer
+// Styleguide: Building Blocks.Drawer
 $xui-drawer-width: 350px;
 
 .#{$ns}-sidedrawer {

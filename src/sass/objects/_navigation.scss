@@ -1,17 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Navigation and Filters
-//
-// Teaser: Best practices to navigate between applications or pages within applications.
-//
-// ### Accessibility
-// When clicking a tab results in a URL change,
-// it is recommended to apply the `role="navigation"` and aria-label attributes. When the intent is to have a panel, that exhibits behaviour similar
-// to on-page JS tabs (i.e switches to a corresponding view without changing the URL), then it is recommended to apply the `tablist` role instead of `navigation`.
-//
-// Styleguide: Patterns.Navigation
 
-@import "navigation.sharedheader";
+
 @import "navigation.subapp";
 @import "navigation.picklist";

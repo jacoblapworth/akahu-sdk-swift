@@ -1,13 +1,8 @@
-@import "../mixins";
-
-
 // Layout
 //
 // Teaser: Defining rows, columns and responsive layouts.
 //
 // Introduction: XUI offers several basic tools to create rows, columns and responsive layouts.
-//
-// Weight: 2.8
 //
 // Styleguide: Fundamentals.Layout
 
@@ -33,8 +28,9 @@
 //
 // Definitions:
 // Standard: 	Standard row:						`.xui-row`
-// Grid: 					Row with 20px gutters: 	`.xui-row-grid`
+// Grid: 					Row with gutters: 	`.xui-row-grid`
 // Flex: 					Flex based row: 			`.xui-row-flex`
+//
 //
 // Styleguide: Fundamentals.Layout.2.1
 
@@ -130,12 +126,12 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class='xui-row-flex xui-u-flex-space-between ds-column-example'>
-// 	<div>
+// <div class='xui-row-flex xui-u-spacebetween ds-column-example'>
+// 	<div class="xui-column-3-of-12">
 // 	</div>
-// 	<div>
+// 	<div class="xui-column-3-of-12">
 // 	</div>
-// 	<div>
+// 	<div class="xui-column-3-of-12">
 // 	</div>
 // </div>
 //
@@ -148,60 +144,3 @@
 //	Using the grid role means that the table is considered editable by default, unless the aria-readonlyattribute on the grid is set to true.
 //
 // Styleguide: Fundamentals.Layout.6
-
-.#{$ns}-page-width-standard {
-	@include xui-clearfix;
-	@include xui-page-width-and-spacing-standard;
-}
-
-.#{$ns}-page-width-large {
-	@include xui-clearfix;
-	@include xui-page-width-and-spacing-large;
-}
-
-@include xui-page-layout-sidebar-right;
-@include xui-page-layout-sidebar-right(9, 7, "-small");
-@include xui-page-layout-sidebar-left;
-@include xui-page-layout-sidebar-left(9, 7, "-small");
-@include xui-page-layout-split;
-
-/*
-Grid types
-*/
-.#{$ns}-row,
-.#{$ns}-row-grid {
-	@include xui-clearfix;
-}
-
-.#{$ns}-row-flex {
-	display: flex;
-	flex-flow: row wrap;
-}
-
-/*
-Generate Regular columns, 1 to 12 with responsive variants
-Responsive variants are : -medium, -wide
-*/
-@include xui-column-width-generator2();
-
-/*
-Setting up the parent class for padded columns
-This is our "Grid" since we want a nice even space between the columns
-*/
-.#{$ns}-row-grid {
-	margin-left: - $xui-s-small;
-	margin-right: - $xui-s-small;
-
-	> [class*="xui-column"] {
-		margin-left: $xui-s-small;
-		margin-right: $xui-s-small;
-	}
-}
-
-/*
-Generate padded columns, 1 to 12 with responsive variants
-Responsive variants are : -medium, -wide
-*/
-@include xui-column-width-generator2(true);
-@include xui-column-responsive-generator();
-@include xui-column-responsive-generator(true);

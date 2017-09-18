@@ -5,13 +5,13 @@
 //
 // Components: Toast
 //
-// Styleguide: Building Blocks.User Messaging.Toast
+// Styleguide: Building Blocks.Toast
 
 // Best Practice
 //
 // Markdown: building-blocks/toasts.md
 //
-// Styleguide: Building Blocks.User Messaging.Toast.1
+// Styleguide: Building Blocks.Toast.1
 
 // CSS Class Reference
 //
@@ -27,7 +27,7 @@
 // xui-toast-positive: Positive sentiment
 // xui-toast-negative: Negative sentiment
 //
-// Styleguide: Building Blocks.User Messaging.Toast.10
+// Styleguide: Building Blocks.Toast.10
 
 .#{$ns}-toast {
 	@include xui-clearfix;
@@ -100,7 +100,7 @@
 // Implementation
 //
 //
-// Styleguide: Building Blocks.User Messaging.Toast.2
+// Styleguide: Building Blocks.Toast.2
 
 // Standard
 //
@@ -119,7 +119,7 @@
 //   <div class="xui-toast--message">Invoice deleted</div>
 // </div>
 //
-// Styleguide: Building Blocks.User Messaging.Toast.2.1
+// Styleguide: Building Blocks.Toast.2.1
 
 // System messages
 //
@@ -131,7 +131,7 @@
 // </div>
 // <br>
 //
-// Styleguide: Building Blocks.User Messaging.Toast.2.2
+// Styleguide: Building Blocks.Toast.2.2
 
 // Actions
 //
@@ -194,7 +194,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.User Messaging.Toast.2.3
+// Styleguide: Building Blocks.Toast.2.3
 
 // Toast Sentiment
 //
@@ -221,7 +221,7 @@
 // the users attention to the toast when you require their immediate attention. For further information, please
 // refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
-// Styleguide: Building Blocks.User Messaging.Toast.2.4
+// Styleguide: Building Blocks.Toast.2.4
 
 // Placement
 //
@@ -236,7 +236,7 @@
 //   <div class="xui-toast--message">Image uploaded</div>
 // </div>
 //
-// Styleguide: Building Blocks.User Messaging.Toast.2.5
+// Styleguide: Building Blocks.Toast.2.5
 
 .#{$ns}-toast--message,
 .#{$ns}-toast--actions,

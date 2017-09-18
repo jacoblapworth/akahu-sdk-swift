@@ -1,0 +1,125 @@
+// Dropdown menus
+//
+// Teaser: A list of stuff in a dropdown
+//
+// Introduction:
+// Things
+//
+// Components: Dropdown
+//
+// Weight: -1
+//
+// Styleguide: Building Blocks.Dropdowns.Menus
+
+
+// State Transitions
+//
+// Classes:
+// xui-dropdown-is-open: Style for an open, visible dropdown
+// xui-dropdown-is-opening: Style for animating the opening of a dropdown
+// xui-dropdown-is-closing: Style for animating the closing of a dropdown
+//
+// The following classes are involved in setting the state of the dropdown, which is closed by default:
+// * `xui-dropdown-is-open`
+// * `xui-dropdown-is-opening`
+// * `xui-dropdown-is-closing`
+//
+// #### Closed
+// None of the above classes should be applied.
+//
+// #### Opening
+// Apply `xui-dropdown-is-open`, then, after a brief delay (enough for a repaint), apply `xui-dropdown-is-opening`.
+// If you apply both classes without giving the browser a chance to repaint, then there will be no animation.
+//
+// #### Open
+// While the dropdown is open, it should have both `xui-dropdown-is-open` and `xui-dropdown-is-opening` applied.
+//
+// #### Closing
+// Remove `xui-dropdown-is-opening` and apply `xui-dropdown-is-closing`.
+// Set a timeout for 200ms and then remove both `xui-dropdown-is-closing` and `xui-dropdown-is-open`.
+//
+// Styleguide: Building Blocks.Dropdowns.Menus.1
+
+// Narrow Dropdown
+//
+// Markup:
+// <div class="xui-dropdown-layout xui-dropdown-small xui-dropdown-is-open xui-dropdown-is-opening">
+// 	<div class="xui-dropdown--mask"></div>
+// 	<div class="xui-dropdown--body">
+// 		<div class="xui-dropdown--scrollable-content">
+// 		<ul class="xui-picklist">
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">All Reports</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Budget Manager</button>
+// 			</li>
+// 			<li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Account Transactions</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Payables</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Receivables</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Aged Receivables Detail</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Balance Sheet</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">Cash Summary</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">GST Reconciliation</button>
+// 			</li>
+// 			<li class="xui-pickitem" tabindex="0">
+// 				<button class="xui-pickitem--body" tabindex="-1">GST Return</button>
+// 			</li>
+// 		</ul>
+// 		</div>
+// 		<div class="xui-dropdown--footer">
+// 			<ul class="xui-picklist">
+// 				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer1">
+// 					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Footer Item</button>
+// 				</li>
+// 				<li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="footer2">
+// 					<button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">This is a secondary footer item</button>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	</div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Menus.2
+
+// Nested dropdowns
+//
+// Flag: Beta
+//
+// Styleguide: Building Blocks.Dropdowns.Menus.4
+
+
+// Class list
+//
+// Classes:
+// xui-dropdown-layout: Parent dropdown layout container
+// xui-dropdown--mask: Mask that is displayed when dropdown takes on narrow screen responsive behaviour.
+// xui-dropdown--body: Container for the content section of a drop down
+// xui-dropdown--footer: Footer class for the dropdown.
+// xui-dropdown-small: Style for a small width dropdown
+// xui-dropdown-medium: Style for a medium width dropdown
+// xui-dropdown-large: Style for a large width dropdown
+// xui-dropdown-xlarge: Style for an extra large width dropdown
+// xui-dropdown-fixed-small: Style for a small fixed-width dropdown
+// xui-dropdown-fixed-medium: Style for a medium fixed-width dropdown
+// xui-dropdown-fixed-large: Style for a large fixed-width dropdown
+// xui-dropdown-fixed-xlarge: Style for an extra large fixed-width dropdown
+// xui-dropdown-positionright: Style for aligning the right of dropdown with the right of its nearest explictly positioned parent
+// xui-dropdown-positionleft: Style for aligning the left of the dropdown to the left of its nearest explictly positioned parent
+// xui-dropdown-positionabove: Style for positioning the dropdown above its nearest explictly positioned parent
+// xui-dropdown-positionbelow: Style for positioning the dropdown below its nearest explictly positioned parent
+//
+// Styleguide: Building Blocks.Dropdowns.Menus.50

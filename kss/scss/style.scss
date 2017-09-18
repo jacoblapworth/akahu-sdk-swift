@@ -50,16 +50,17 @@ $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
 }
 
 .ds-column-wrapper {
-	column-count: 1;
+	column-count: 2;
 	display: block;
 	padding-top: calc(1em + 1vh);
 
 	@include xui-breakpoint-medium {
-		column-count: 2;
+		column-count: 3;
 	}
 
 	@include xui-breakpoint-wide {
-		column-count: 3;
+		column-count: 4;
+		@include embiggen;
 	}
 }
 
@@ -69,7 +70,7 @@ $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
 }
 
 .ds-column-item {
-	font-size: $xui-font-size-medium;
+	font-size: $xui-font-size-large;
 	font-weight: $xui-font-weight-emphasis;
 	display: block;
 	padding-right: calc(0.75em + 0.7vh);

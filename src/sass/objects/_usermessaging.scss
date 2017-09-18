@@ -1,32 +1,4 @@
 // User Messaging
-//
-// Teaser: Covers validation messaging, tone of messages and how best to display the message.
-//
-// Styleguide: Building Blocks.User Messaging
-//
-
-// Validation
-//
-// Inline validation is covered in [Form Elements > Validation](section-forms.html#kssref-forms-10) section. Error banners
-// (`xui-banner-error` below) may be used to display form validation errors if they have come
-// from a round trip to the server.
-//
-// Styleguide: Building Blocks.User Messaging.1
-
-// More Info
-//
-// Useful article discussing [Indicators, Validations and Notifications](https://www.nngroup.com/articles/indicators-validations-notifications/)
-// some of these terms are quite overloaded in their use at Xero, but the
-// guidelines hold up.
-//
-// This is an ongoing discussion as we consolidate our current user messaging
-// story and work towards a more consistent system and vernacular to discuss
-// it.
-//
-// Further reading on the discussion (Jan 2016) is in [Toasts #412](https://github.dev.xero.com/UXE/xui/issues/412)
-// on GitHub.
-//
-// Styleguide: Building Blocks.User Messaging.2
 
 @import "usermessaging.banners";
 @import "usermessaging.toasts";

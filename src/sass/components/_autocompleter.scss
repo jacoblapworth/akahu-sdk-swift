@@ -1,26 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-// Autocomplete
-//
-// Teaser: trigger a dropdown from a text input that filters as the user types.
-//
-// Note: Please read the best practices associated with <a href="section-dropdown.html">dropdowns</a> for information on positioning,
-// sizing, interactions and behaviour as these also apply to Autocompleter's.
-//
-// Trigger a dropdown from a text input that filters as the user types. Common in places where a user will need to search a long list of items
-// such as people or inventory.
-//
-// Classes:
-// xui-autcompleter--input: Styling specific to the input associated with the autcompleter.
-// xui-autcompleter--trigger: Styling around focus styles aroudn the trigger, shoudl contain the input and any active pills.
-// xui-autocompleter--trigger-is-disabled: Standard disabled behaviour with additional styling around the placeholder.
-// xui-autocompleter--pill: Pill alignment within the trigger, mainly using margins.
-// xui-autocompleter--trigger-pillwrap: Allow pills to wrap when they fill their container.
-// xui-autocompleter--inputwrapper: Apply flex properties for central alignment.
-// xui-autocompleter--placeholder: Styling for the custom placeholder
-//
-// Styleguide: Building Blocks.Dropdowns.Autocomplete
 
 .#{$ns}-autocompleter--input {
 	background-color: transparent;

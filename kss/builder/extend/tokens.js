@@ -202,7 +202,7 @@ const renderTypographyTokens = (tokens, tokenType) =>
 			default:
 				return '';
 		}
-		return typographySection(example);
+		return typographySection(example, name, value);
 	}).join('');
 
 const typographySection = (example, name, value) => `

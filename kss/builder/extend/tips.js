@@ -40,7 +40,7 @@ const renderTips = (data, block) => {
 
 	tips.forEach(tip => {
 		const parts = tip.match(notColonRegex);
-		const icon = matchTitleToIcon(parts[0].toLowerCase());
+		const icon = matchTitleToIcon(parts[0].toLowerCase().replace(/'/g, ''));
 		const details = parts.slice(1).map( s => s.trim() );
 
 		this.tip = {

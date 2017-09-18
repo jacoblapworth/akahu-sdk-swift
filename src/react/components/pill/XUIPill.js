@@ -67,6 +67,13 @@ export default class XUIPill extends Component {
 			}
 		);
 
+		const closebuttonClasses = cn(
+			`${baseClass}--button-icon`,
+			{
+				[`xui-button-icon-inverted`]: isInvalid,
+			},
+		);
+
 		const innerPillProps = {
 			avatarProps,
 			href,
@@ -82,7 +89,7 @@ export default class XUIPill extends Component {
 
 		const deleteButton = onDeleteCallback && (
 			<XUIButton
-				className={`${baseClass}--button-icon`}
+				className={closebuttonClasses}
 				variant="icon"
 				onClick={onDeleteCallback}
 				title={deleteButtonLabel}

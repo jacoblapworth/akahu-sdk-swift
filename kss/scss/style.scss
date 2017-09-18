@@ -385,17 +385,40 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-column-example {
-	background: $xui-color-xero-blue;
-	border: 1px solid $xui-color-xero-blue;
-	padding: $xui-s-standard;
+	background: $xui-color-blue;
+	border: 1px solid $xui-color-blue;
+	padding: calc(#{$xui-s-standard} - 2px);
 	&:nth-child(n+2) {
-		padding-top: 0;
+		margin-top: $xui-s-standard;
+	}
+	> * {
+		border: 1px solid $xui-color-blue;
+		background: $xui-color-inverted-alpha-3;
+		min-height: $xui-s-5xlarge;
+		min-width: $xui-s-5xlarge;
+	}
+	> .ds-column-example {
+		border: none;
+		padding: $xui-s-standard;
+	}
+}
+
+.ds-flex-example {
+	background: $xui-color-violet;
+	border: 1px solid $xui-color-violet;
+	padding: $xui-s-standard;
+
+	&.xui-u-flex-verticallycentered {
+		min-height: 200px;
+	}
+	&:nth-child(n+2) {
+		margin-top: $xui-s-standard;
 	}
 	> * {
 		background: $xui-color-inverted-alpha-3;
-		border: 1px solid $xui-color-xero-blue;
-		min-height: $xui-s-5xlarge;
-		padding: $xui-s-standard;
+		border: 1px solid $xui-color-violet;
+		height: $xui-s-5xlarge;
+		width: $xui-s-5xlarge;
 	}
 }
 

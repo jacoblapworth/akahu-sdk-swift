@@ -32,9 +32,8 @@
 //
 // Definitions:
 // Standard: 	Standard row:						`.xui-row`
-// Grid: 					Row with gutters: 	`.xui-row-grid`
+// Grid: 					Row with 20px gutters: 	`.xui-row-grid`
 // Flex: 					Flex based row: 			`.xui-row-flex`
-//
 //
 // Styleguide: Fundamentals.Layout.2.1
 
@@ -130,12 +129,12 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class='xui-row-flex xui-u-spacebetween ds-column-example'>
-// 	<div class="xui-column-3-of-12">
+// <div class='xui-row-flex xui-u-flex-space-between ds-column-example'>
+// 	<div>
 // 	</div>
-// 	<div class="xui-column-3-of-12">
+// 	<div>
 // 	</div>
-// 	<div class="xui-column-3-of-12">
+// 	<div>
 // 	</div>
 // </div>
 //

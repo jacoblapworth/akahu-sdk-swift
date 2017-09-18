@@ -1,49 +1,13 @@
-// Global State Classes
+// Disabling
 //
-// Teaser: Classes that can be added to any element.
+// Flag: Under review
 //
-// Styleguide: Building Blocks.Utilities.20
-
-// Disabled
-//
-// Class that can be added to any element to make it appear disabled by reducing opacity and
-// preventing click/pointer events.
+// Many components already have styles defined for their disabled state, so please refer to those guidelines first. However, this class is available as a fallback if none are available.
 //
 // Classes:
-// xui-is-disabled: Modifier for disabled objects
+// xui-is-disabled: Reduce opacity and disable pointer events
 //
-// Markup:
-// <section>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-heading-section">Today</h2>
-//   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-contentblock--item-layout xui-padding xui-u-flex">
-//       <div class="xui-u-flex-horizontal">
-//         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
-//         <a href="#">Parrot Dog</a> - Workpaper available for review
-//         <div class="xui-text-secondary">1 January - 28 February 2015</div>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left">
-//         <button type="button" class="xui-button xui-button-standard">Action</button>
-//       </div>
-//     </li>
-//     <li class="xui-contentblock--item xui-contentblock--item-layout xui-padding xui-u-flex xui-is-disabled">
-//       <div class="xui-u-flex-horizontal">
-//         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
-//         <a href="#">Garage Project</a> - Workpaper available for review
-//         <div class="xui-text-secondary">1 January - 28 February 2015</div>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left">
-//         <button type="button" class="xui-button xui-button-standard">Action</button>
-//       </div>
-//     </li>
-//   </ol>
-// </section>
-//
-// Styleguide: Building Blocks.Utilities.21
+// Styleguide: Building Blocks.Utilities.8
 
 .#{$ns}-is-disabled {
 	cursor: default;

@@ -96,9 +96,9 @@
 // Markup:
 // <div class="xui-input xui-margin-top">
 //   <div class="xui-pill xui-pill-single xui-u-spacebetween">
-//     <span>
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1" role="presentation">X</abbr>
-//       pill@withemailaddress.com
+//     <span class="xui-pill--content">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">X</abbr>
+//       <span class="xui-pill--text">pill@withemailaddress.com</span>
 //     </span>
 //     <button class="xui-button xui-button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
@@ -106,10 +106,10 @@
 //   </div>
 // </div>
 // <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-u-spacebetween xui-pill-invalid">
-//     <span>
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-5">M</abbr>
-//       Invalid Content
+//   <div class="xui-pill xui-pill-single xui-u-spacebetween xui-pill-single-is-invalid">
+//     <span class="xui-pill--content">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-5">M</abbr>
+//       <span class="xui-pill--text">Invalid Content</span>
 //     </span>
 //     <button class="xui-button xui-button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
@@ -118,8 +118,8 @@
 // </div>
 // <div class="xui-input xui-margin-top">
 //   <div class="xui-pill xui-pill-single xui-u-spacebetween">
-//     <span class="xui-text-truncated">
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1">C</abbr>
+//     <span class="xui-pill--content">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1">C</abbr>
 //       <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
 //     </span>
 //     <button class="xui-button xui-button-icon">
@@ -163,7 +163,7 @@
 
 .#{$ns}-pill--avatar {
 	margin-left: -12px;
-	margin-right: 10px;
+	margin-right: $xui-s-xsmall;
 	pointer-events: none;
 }
 
@@ -201,6 +201,16 @@
 }
 
 .#{$ns}-pill-single {
-	background-color: $xui-color-white;
-	width: 100%;
+	align-items: center;
+	background-color: transparent;
+	bottom: 0;
+	display: flex;
+	left: $xui-s-xsmall;
+	position: absolute;
+	right: $xui-s-xsmall;
+	top: 0;
+}
+
+.#{$ns}-pill-single-is-invalid {
+	color: $xui-color-red;
 }

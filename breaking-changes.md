@@ -263,3 +263,9 @@ Removed:
 * `$xui-font-size-text-mobile`; use `$xui-font-size-extended-small` instead
 * `$xui-font-size-heading-small`; use `$xui-font-size-xsmall` instead
 * `$xui-font-size-regular`; use `$xui-font-size-small` instead
+
+#### Tags
+
+* `xui-tag-outline` has been removed; this is now the base style provided by `xui-tag`
+* `xui-tag-solid` has been removed; use `xui-tag-neutral` instead
+* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and `xui-tag-negative'

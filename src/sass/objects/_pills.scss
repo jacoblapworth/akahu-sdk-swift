@@ -3,21 +3,15 @@
 
 // Pills
 //
-// Teaser: Used for signifying a selection has been made, either single or multiple.
+// Teaser: Used to indicate a selection has been made.
 //
-// INtroduction:
-// Pills are used for signifying a selection has been made, either single or multiple, and may include the option to remove the selection (via a cross).
-//
-// Components: Pill
+// Introduction: Pills are used to indicate a selection has been made, either single or multiple, and may include the option to clear the selection.
 //
 // Styleguide: Building Blocks.Pills
 
-
-// Pills Used in Multi Selections
+// Multi select pills
 //
 // Used to highlight that more than one selection can be made.
-//
-//
 //
 // Classes:
 // xui-pill: Pill container class
@@ -82,8 +76,52 @@
 //   </button>
 // </div>
 //
-// Styleguide: Building Blocks.Pills.2
+// Styleguide: Building Blocks.Pills.1
 
+// Single select pills
+//
+// Signifies only one selection can be made here rather than multiple, and typically will live inside an input field.
+//
+// Classes:
+// xui-pill-single: Class for the case when only one selection can be made
+//
+// Markup:
+// <div class="xui-input xui-margin-top">
+//   <div class="xui-pill xui-pill-single xui-u-spacebetween">
+//     <span class="xui-pill--content">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">X</abbr>
+//       <span class="xui-pill--text">pill@withemailaddress.com</span>
+//     </span>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-input xui-margin-top">
+//   <div class="xui-pill xui-pill-single xui-u-spacebetween xui-pill-single-is-invalid">
+//     <span class="xui-pill--content">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-5">M</abbr>
+//       <span class="xui-pill--text">Invalid Content</span>
+//     </span>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-input xui-margin-top">
+//   <div class="xui-pill xui-pill-single xui-u-spacebetween">
+//     <span class="xui-pill--content">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1">C</abbr>
+//       <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
+//     </span>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+//
+//
+// Styleguide: Building Blocks.Pills.2
 
 .#{$ns}-pill-layout {
 	height: $xui-icon-standard;
@@ -153,51 +191,6 @@
 	border-radius: $xui-s-large;
 	color: inherit;
 }
-
-// Pills Used in Single Selection
-//
-// Signifies only one selection can be made here rather than multiple, typically will live inside an input field.
-//
-// Classes:
-// xui-pill-single: Class for the case when only one selection can be made
-//
-// Markup:
-// <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-space-between">
-//     <span>
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1" role="presentation">X</abbr>
-//       pill@withemailaddress.com
-//     </span>
-//     <button class="xui-button xui-button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//   </div>
-// </div>
-// <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-space-between xui-pill-invalid">
-//     <span>
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-5">M</abbr>
-//       Invalid Content
-//     </span>
-//     <button class="xui-button xui-button-icon xui-button-icon-inverted">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//   </div>
-// </div>
-// <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-space-between">
-//     <span class="xui-text-truncated">
-//       <abbr class="xui-avatar xui-avatar-small xui-margin-right-small xui-avatar-color-1">C</abbr>
-//       <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
-//     </span>
-//     <button class="xui-button xui-button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//   </div>
-// </div>
-//
-//
-// Styleguide: Building Blocks.Pills.3
 
 .#{$ns}-pill-single {
 	align-items: center;

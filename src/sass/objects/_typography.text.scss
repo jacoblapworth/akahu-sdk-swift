@@ -61,3 +61,30 @@
 .#{$ns}-text-spacing-loose {
 	@include xui-text-spacing-loose;
 }
+
+// Line Height
+.#{$ns}-text-reset {
+	@include xui-text-line-height-reset;
+}
+
+.#{$ns}-text-tight {
+	@include xui-text-line-height-tight;
+}
+
+.#{$ns}-text-compact {
+	@include xui-text-line-height-compact;
+}
+
+// Color
+
+.#{$ns}-text-status {
+	color: $xui-color-grey-alpha-2;
+}
+
+.#{$ns}-text-status-positive {
+	color: $xui-color-xero-green;
+}
+
+.#{$ns}-text-status-negative {
+	color: $xui-color-xero-red;
+}

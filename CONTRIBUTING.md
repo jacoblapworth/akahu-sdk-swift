@@ -45,14 +45,16 @@ If you're only fixing a bug, it's fine to submit a pull request right away.
 
 The [UXE team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team) coordinate releases.
 
-### Breaking Changes
+The release description should provide clear documentation describing what has changed since the last release.
 
-For each merge into the `breaking-changes` branch, an `-alpha.n` release should be created, where `n` is the alpha
-release number.
-The release description needs to include the following:
+All releases from `breaking-changes` should also supply an up-to-date list of all changes since the last major release.
 
-* Clear documentation describing the change and any changes that need to be made by consumers
-* The release notes from any previous alpha release (each alpha release should detail ALL previous alpha changes)
+The release notes can be organised under the following sections:
+ * New features
+ * Bug fixes
+ * Deprecations
+ * Any notable documentation updates
+ * Removals (`breaking-changes` only)
 
 ### Need help?
 

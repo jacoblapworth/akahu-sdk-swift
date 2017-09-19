@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-datepicker.html#datepicker">Datepicker in the XUI Documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-datepicker.html">Datepicker in the XUI Documentation</a>
 </div>
 
 For information about what to consider when using a `XUIDatePicker` within a `DropDown` component, check the [DropDown documentation](#dropdown).

@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-checkboxes-and-radios.html#checkboxes-and-radios-1">Radio in the XUI Documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-forms-radios.html">Radio in the XUI Documentation</a>
 </div>
 
 Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.

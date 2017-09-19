@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-pills-and-tags.html#pills-and-tags-2">Pills in the XUI documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-pills.html#pills-and-tags-2">Pills in the XUI documentation</a>
 </div>
 
 Pills are used for signifying a selection has been made, either single or multiple. They can include the option to remove the selection with a delete button. To see pills used in context, refer to the [`Autocompleter` section](#autocompleter).

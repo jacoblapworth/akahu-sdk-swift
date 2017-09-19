@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-dropdowns.html#dropdowns">Dropdown in the XUI Documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-dropdowns-menus.html">Dropdown in the XUI Documentation</a>
 </div>
 
 A set of components used to associate a trigger (button, text input etc) with a popup containing content. It can handle any content such as [DatePickers](#datepicker) or forms. They provide the user similar behaviour to a native `<select />` element.

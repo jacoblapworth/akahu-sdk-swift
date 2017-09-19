@@ -29,8 +29,6 @@
 		"./kss-assets/scrollspy.js",
 		"./kss-assets/prettify.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js",
-		"https://edge.xero.com/style/xui-icon/5.1.3/xuiIconBlobES5.js",
-		"https://edge.xero.com/style/xui-icon/5.1.3/xuiIconsDocs.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js",
 		"https://cdn.polyfill.io/v2/polyfill.js?features=Promise,fetch",
 		"https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js",

@@ -17,7 +17,7 @@
 // To include these, you will need to import the icons into your page using the following script, and then reference their name via the `xlink:href` attribute.
 // If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>XUI icon repository</a>. 
 //
-// <code style='white-space: nowrap;'>&lt;script src=&quot;https://edge.xero.com/style/xui-icon/5.1.1/xuiIconBlobES5.js &quot;&gt;&lt;/script&gt;</code>
+// @xuiIconBlobURL
 //
 // Definitions:
 // Class: Apply to `<svg>` tag: `.xui-icon`
@@ -159,7 +159,7 @@
 
 // Available icons
 //
-// <div id="xuiIconShowcase"  class="prettyprint"></div>
+// <div id="xuiIconShowcase" class="prettyprint"></div>
 //
 // Styleguide: Fundamentals.Icons.7
 

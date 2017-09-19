@@ -56,7 +56,6 @@
 		The "root" element comes first in this loop, and can be detected using
 		the "#if @first" block as seen below.
 		}}
-
 		{{#each sections}}
 		{{#wrapSection referenceURI}}
 			<div data-search-section>
@@ -93,6 +92,14 @@
 							{{> landingpage }}
 						{{/ifStyleguide}}
 					{{/if}}
+
+					{{#ifStyleguide "Fundamentals.Icons.1" }}
+						{{injectXuiIconBlobExample}}
+					{{/ifStyleguide}}
+
+					{{#ifStyleguide "Fundamentals.Icons.7" }}
+						{{xuiIconScripts}}
+					{{/ifStyleguide}}
 
 					{{#if markdown}}
 					<div class="ds-description">
@@ -271,6 +278,7 @@
 			<div class="xui-toast--message">Example copied</div>
 		</div>
 	</div>
+
 
 {{{scripts}}}
 </body>

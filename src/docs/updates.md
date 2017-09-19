@@ -1,17 +1,39 @@
-The Github repository holds the most detailed information on exactly what has been released and when. You can view those details in the [releases tab](https://github.dev.xero.com/UXE/xui/releases)
+## Release schedule
+In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about these in [Confluence](https://confluence.inside.xero.com/display/FED/The+UX+Engineering+Team+and+XUI#TheUXEngineeringTeamandXUI-SoftwareLovabilityObjectives).
 
-We also offer a slack channel, [#platform-fed-releases](https://xero.slack.com/messages/C57H6G0RM) announcing releases as they happen.
+**Major**
+<span class='xui-margin-left-large'>
+  Once every 90 days maximum
+<span>
 
-## Updates Schedule
-In order to provide predictability to teams, the UXE team has made a commitment to their release schedule.
+**Minor**
+<span class='xui-margin-left-large'>
+  Once a month maximum
+<span>
 
-- Major - once every 90 days maximum
-- Minor - once a month maximum
-- Patch - once a week maximum, unless the fix is critical or a security concern.
+**Patch**
+<span class='xui-margin-left-large'>
+  Once a week maximum, unless the fix is critical or a security concern
+<span>
 
-To read more on our commitments around updates and releases, please see our [Software Lovability Objective in Confluence](https://confluence.inside.xero.com/display/FED/The+UX+Engineering+Team+and+XUI#TheUXEngineeringTeamandXUI-SoftwareLovabilityObjectives)
+## Slack channel
+We announce releases as they happen via Slack. 
 
-## Future Updates
-You may find sections of code marked as 'Deprecated' but not removed. The intention is these pieces of code and supporting documentation will be removed in an upcoming major release.
+[#platform-fed-releases](https://xero.slack.com/messages/C57H6G0RM)
 
-There's also an 'Experimental' flags added to newer sections of the design system. These patterns are available in the underlying code. However, they are not guaranteed to be in the next major release. This gives us a way to test out patterns and solidify them as they're put through their paces.
+## Github releases
+Our Github repository also holds the most detailed information on exactly what has been released and when.
+
+[uxe/xui/releases](https://github.dev.xero.com/UXE/xui/releases)
+
+## Sketch files
+There is a seperate Github repository managed by design, that holds the most recent Sketch file. The file name provides an indication of the XUI version it corresponds to.
+
+[designers/xui-toolkit/releases](https://github.dev.xero.com/designers/xui-toolkit/releases)
+
+
+## Deprecation
+You may find sections of code marked for deprecation. This means they are still available in our codebase, but will be removed in an upcoming major release. 
+
+## Experimental flags
+You’ll also find an experimental flag alongside newer sections of the design system. These patterns are available to use, but are not guaranteed to be in the next major release. At the very least, they may be subject to change. This gives us a way to test patterns and solidify them before they are fully endorsed.

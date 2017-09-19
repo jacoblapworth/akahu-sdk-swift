@@ -19,6 +19,7 @@ export default class XUIStatelessInput extends PureComponent {
 			hintMessage,
 			isInvalid,
 			isBorderless,
+			isFieldLayout,
 			...other
 		} = input.props;
 
@@ -35,7 +36,10 @@ export default class XUIStatelessInput extends PureComponent {
 
 		const inputWrapperClasses = cn(
 			`${baseClass}wrapper`,
-			containerClassName
+			containerClassName,
+			{
+				'xui-field-layout': isFieldLayout
+			}
 		);
 
 		const hasIcon = !!(iconAttributes && iconAttributes.path);
@@ -128,7 +132,9 @@ XUIStatelessInput.propTypes = {
 	/** Explanatory message to show */
 	hintMessage: PropTypes.string,
 	/** Whether the input should be show as invalid */
-	isInvalid: PropTypes.bool
+	isInvalid: PropTypes.bool,
+	/** Whether to use the input field layout */
+	isFieldLayout: PropTypes.bool
 };
 
 XUIStatelessInput.defaultProps = {

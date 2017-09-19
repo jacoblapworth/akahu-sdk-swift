@@ -40,12 +40,12 @@
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
 //     <input class="xui-input" type="text" id="field1" placeholder="" />
 //   </div>
-//   <div> <!-- optional wrapper for clarity -->
+//   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
 //     <input class="xui-input" type="text" id="field2" placeholder="" />
 //     <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
 //   </div>
-//   <div> <!-- optional wrapper for clarity -->
+//   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Bank account number</label>
 //     <input class="xui-input xui-input-is-invalid" type="text" id="field3" placeholder="" />
 //     <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>

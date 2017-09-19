@@ -47,6 +47,46 @@ The [UXE team](https://github.dev.xero.com/orgs/UXE/teams/uxe-team) coordinate r
 
 The release description should provide clear documentation describing what has changed since the last release.
 
+Any PRs to XUI containing breaking changes should be opened against the `breaking-changes` branch.
+
+#### Documenting current breaking changes
+
+The `breaking-changes` branch should contain `breaking-changes.md`, a markdown file with two main sections. One detailing changes to React components, and the other detailing changes to CSS.
+
+Both sections should cover renames, additions, removals, or altered behaviour.
+
+#### Deprecations
+
+* All deprecations should come with a suggested alternative. This may mean just changing classes used, DOM structure, or the Component used.
+* Search through the docs and components of the version the deprecation is being made at to make sure all usage of the deprecated item is replaced with the suggested alternative.
+* Add TODO comments next to the deprecations to highlight their future removal.
+
+##### CSS deprecation documentation
+
+CSS deprecations should be detailed in a 5th level KSS block, with a deprecated flag applied. If the deprecated classes are in the same page as their suggested replacement, they should appear beneath their replacement. Alternatively, they should be positioned at the bottom of the page.
+
+e.g.
+```
+// Sentiment colours
+//
+// Definitions:
+// Positive: `xui-color-positive`:	<div class="xui-container"><span class="xui-color-positive">21.3% decrease</span></div>
+// Negative: `xui-color-negative`:	<div class="xui-container"><span class="xui-color-negative">Yes, delete this invoice</span></div>
+//
+// Styleguide: Fundamentals.Typography.30.2
+
+// Status colours
+//
+// Flag: Deprecated
+//
+// Older versions of XUI contained specific 'status' classes: `xui-text-status`, `xui-text-status-negative` and `xui-text-status-positive`.
+// Please use either tags or the sentiment colours above.
+//
+// Styleguide: Fundamentals.Typography.30.2.1
+```
+
+#### Alpha/beta releases
+
 All releases from `breaking-changes` should also supply an up-to-date list of all changes since the last major release.
 
 The release notes can be organised under the following sections:

@@ -10,10 +10,14 @@ module.exports = function(handlebars) {
 		return new handlebars.SafeString(version);
 	});
 
-	handlebars.registerHelper('xuiIconScripts', function() {
-		// Returns XUI version as per package.json
-		return new handlebars.SafeString(`<script src="${xuiIconBlob}"></script>
-			<script src="${xuiIcon}/xuiIconsDocs.js"></script>`);
+	handlebars.registerHelper('xuiIconDocs', function() {
+		// Injects newest version of XUI Icon Docs
+		return new handlebars.SafeString(`<script src="${xuiIcon}/xuiIconsDocs.js"></script>`);
+	});
+
+	handlebars.registerHelper('xuiIconBlob', function() {
+		// Injects newest version of XUI Icon Blob
+		return new handlebars.SafeString(`<script src="${xuiIconBlob}"></script>`);
 	});
 
 	handlebars.registerHelper('injectXuiIconBlobExample', function() {

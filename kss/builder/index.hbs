@@ -87,8 +87,6 @@
 						</div>
 					{{/if}}
 
-
-
 					{{#if @first}}
 						{{#ifStyleguide "Getting Started" }}
 							{{! noop }}
@@ -99,6 +97,10 @@
 
 					{{#ifStyleguide "Fundamentals.Icons.1" }}
 						{{injectXuiIconBlobExample}}
+					{{/ifStyleguide}}
+
+					{{#ifStyleguide "Fundamentals.Icons.7" }}
+						{{xuiIconDocs}}
 					{{/ifStyleguide}}
 
 					{{#if markdown}}
@@ -279,8 +281,7 @@
 		</div>
 	</div>
 
-
-{{xuiIconScripts}}
+{{xuiIconBlob}}
 {{{scripts}}}
 </body>
 

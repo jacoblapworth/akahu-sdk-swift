@@ -2,6 +2,8 @@
 
 Refer to the following sections of the XUI Documentation for more information about the components that make up an `Autocompleter`.
 
+**Note:** Autocompleter will be renamed to `XUIAutocompleter` in XUI 12. All components provided by `Autocompleter` will be prefixed with `XUIAutocompleter` from XUI 12 (e.g. `EmptyState` will become `XUIAutocompleterEmptyState`)
+
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>

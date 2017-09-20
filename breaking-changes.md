@@ -53,6 +53,7 @@ have all been removed. Use picklists instead.
 * `xui-datepicker--othermonth` has been removed. Use `xui-datepicker--day-is-othermonth` instead.
 
 ### Pills
+* Single select pills have been changed to use the same DOM structure as regular pills, and are now absolutely positioned to ensure they fit within a standard input
 * `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
 * `xui-pill-is-focussed` has been renamed to `xui-pill-is-focused` (one `s`)
 

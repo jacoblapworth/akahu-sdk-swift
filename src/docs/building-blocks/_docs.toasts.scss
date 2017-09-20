@@ -1,0 +1,194 @@
+
+// Toasts
+//
+// Components: Toast
+//
+// Toast messages are a visual representation of a system event which does not require immediate action.
+// Unless the toast is an error toast, things will not fall apart if a user misses them or takes no action.
+//
+// Styleguide: Building Blocks.Toast
+
+
+// Best Practice
+//
+// Tips:
+// Do: Show immediately after a direct user action.
+// Do: If a related task is often desired for the context (and otherwise not accessible on screen).
+// Do: If there is a system error unrelated to user action.
+// Dont: Use for validation messages. For errors in simple forms, use inline form validation.
+// Dont: Use toast actions if they are already available on the screen.
+//
+// Styleguide: Building Blocks.Toast.1
+
+// Behaviour
+//
+// Tips:
+// Do: Animate toasts up from the bottom left corner of the viewport, positioned above content.
+// Do: Wait until the page loads before starting the transition.
+// Do: Only show one toast at a time.
+// Do: Automatically animate toasts away after 5 seconds. Unless the user’s mouse is positioned above the element, OR it has gained DOM focus.
+// Do: Animate toasts away immediately after an additional action has been taken by the user (eg, clicking a button, navigating to a separate part of the app) instead of relying on the default delay.
+// Do: Refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role) for more standardised details on toast behaviour.
+// Dont: Use another toast to confirm a toast action.
+// Dont: Persist toast for more than 5 seconds.
+// Warning: If another toast is required, immediately hide the current toast, before showing the new one.
+//
+//Styleguide: Building Blocks.Toast.2
+
+
+// CSS Class Reference
+//
+// Classes:
+// xui-toast: Container for a toast
+// xui-toast--action: Container for a toast action
+// xui-toast--actions: Container for a group of toast actions
+// xui-toast--close: Subcomponent for a toast close button
+// xui-toast--message: Style for a toast description
+// xui-toast-is-hidden: Hide the toast
+// xui-toast-layout: Recommended layout for a toast
+// xui-toastwrapper: Positions toast in bottom left corner of viewport
+// xui-toast-positive: Positive sentiment
+// xui-toast-negative: Negative sentiment
+//
+// Styleguide: Building Blocks.Toast.10
+
+// Implementation
+//
+//
+// Styleguide: Building Blocks.Toast.3
+
+// Standard
+//
+// * Always include a description
+// * Always include a close button
+// * Avoid long descriptions
+//
+// Use `xui-toastwrapper` to position toast elements at the bottom-left corner of the screen.
+// This class will ensure consistent positioning if toast positioning changes in the future.
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Invoice deleted</div>
+// </div>
+//
+// Styleguide: Building Blocks.Toast.3.1
+
+// System messages
+//
+// * System messages persist indefinitely, and don't have a close button.
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <div class="xui-toast--message">No connection</div>
+// </div>
+// <br>
+//
+// Styleguide: Building Blocks.Toast.3.2
+
+// Actions
+//
+// * Additional actions are optional (maximum of two, in addition to the close button)
+// * Actions should be related to the task at hand
+// * Layout adjusts based on length of description
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Short description</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//   </ul>
+// </div>
+// <br>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Avoid long descriptions. However, it's helpful to know that text does wrap by default.</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//   </ul>
+// </div>
+// <br>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Short description</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//     <li class="xui-toast--action">
+//       <a class="xui-button xui-button-borderless-main xui-button-small" href="#ToastLink">Action</a>
+//     </li>
+//   </ul>
+// </div>
+// <br>
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Avoid long descriptions.  However, it's helpful to know that text does wrap by default.</div>
+//   <ul class="xui-toast--actions">
+//     <li class="xui-toast--action">
+//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Action</button>
+//     </li>
+//     <li class="xui-toast--action">
+//       <a class="xui-button xui-button-borderless-main xui-button-small" href="#ToastLink">Action</a>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Building Blocks.Toast.3.3
+
+// Toast Sentiment
+//
+// * Toast sentiment classes should be restricted to events such as network connection errors.
+// * Do not use them for form validation.
+//
+// ### Positive
+//
+// <div class="xui-toast xui-toast-layout xui-toast-positive" role="alert">
+//   <div class="xui-toast--message">Connection successful</div>
+// </div>
+//
+// ### Negative
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout xui-toast-negative" role="alert">
+//   <div class="xui-toast--message">No internet connection</div>
+// </div>
+//
+// ### Accessibility
+//
+// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
+// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
+// the users attention to the toast when you require their immediate attention. For further information, please
+// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
+//
+// Styleguide: Building Blocks.Toast.3.4
+
+// Placement
+//
+// Use `xui-toastwrapper` to position toast elements at the bottom-left corner of the screen.
+// This class will ensure consistent positioning if toast positioning changes in the future.
+//
+// Markup:
+// <div class="xui-toast xui-toast-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
+//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <div class="xui-toast--message">Image uploaded</div>
+// </div>
+//
+// Styleguide: Building Blocks.Toast.3.5

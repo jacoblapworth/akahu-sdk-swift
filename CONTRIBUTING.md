@@ -60,6 +60,7 @@ Both sections should cover renames, additions, removals, or altered behaviour.
 * All deprecations should come with a suggested alternative. This may mean just changing classes used, DOM structure, or the Component used.
 * Search through the docs and components of the version the deprecation is being made at to make sure all usage of the deprecated item is replaced with the suggested alternative.
 * Add TODO comments next to the deprecations to highlight their future removal.
+* Deprecations may be introduced in patch releases so long as they are documentation-only (e.g. signaling that something will be removed in a future version).
 
 ##### CSS deprecation documentation
 

@@ -1,4 +1,12 @@
 @mixin embiggen {
 		width: 150%;
 		max-width: 65vw;
-};
+}
+
+$ds-breakpoint-massive: 120rem;
+
+@mixin ds-breakpoint-massive {
+	@media screen and (min-width: $ds-breakpoint-massive) {
+		@content;
+	}
+}

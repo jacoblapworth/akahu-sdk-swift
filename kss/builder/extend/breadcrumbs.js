@@ -1,6 +1,6 @@
 module.exports = function (handlebars) {
 	const breadcrumbPartial = `
-		{{#ifNotInMenu sections.0.header menu}}
+		{{#ifNotInMenu sections.1.header menu}}
 	    <nav>
 	      <ul class="ds-steps xui-steps xui-steps-interactive xui-u-flex-justify-left">
 				<li class="ds-step xui-step xui-step-layout xui-step-is-complete">

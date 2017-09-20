@@ -3,7 +3,7 @@
 <html class="no-js ds-html xui-html" lang="en">
 
 <head>
-<title>XUI {{#unless homepage}} – {{sections.0.header}}{{/unless}} </title>
+<title>XUI{{#unless homepage}} – {{sections.0.header}}{{/unless}}</title>
 <meta charset="utf-8">
 <meta name="generator" content="kss-node">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
 {{{styles}}}
 </head>
 
-<body id="kss-node" class="ds-body xui-container">
+<body id="kss-node" class="ds-body xui-container{{#if homepage}} ds-home{{/if}}">
 
 <header class="ds-nav--responsive ds-nav--header">
 	<div class="xui-u-flex xui-u-flex-row">
@@ -36,12 +36,22 @@
 	</div>
 	<span class="ds-nav--header-title xui-padding-small">{{options.title}}</span>
 </header>
-
+{{#unless homepage}}
+<div class="ds-page-header">
+	{{> breadcrumbs}}
+	{{#each sections}}
+		{{#if @first}}
+			{{#hasChildren}}
+		{{else}}
+			{{> jumpto }}
+			{{/hasChildren}}
+		{{/if}}
+	{{/each}}
+</div>
+{{/unless}}
 <article role="main" class="ds-main">
 
-	{{#unless homepage}}
-		{{> breadcrumbs}}
-	{{/unless}}
+
 
 	<div class="ds-section-wrap">
 
@@ -77,13 +87,7 @@
 						</div>
 					{{/if}}
 
-					{{#if @first}}
-						{{#hasChildren}}
-							{{! noop }}
-						{{else}}
-							{{> jumpto }}
-						{{/hasChildren}}
-					{{/if}}
+
 
 					{{#if @first}}
 						{{#ifStyleguide "Getting Started" }}
@@ -205,7 +209,7 @@
 				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
 
 				<!--ds-example-->
-				<div class="ds-example xui-margin-bottom-xlarge">
+				<div class="ds-example{{#isEqual exampleclass "markup-only"}} xui-u-hidden{{/isEqual}}">
 					<div class="ds-section-part ds-example-default {{exampleclass}}">
 						<div class="ds-example--inner xui-container">
 						{{{example}}}
@@ -226,27 +230,27 @@
 
 				</div>
 				<!--ds-example-->
-
 				<div>
-					<label for="markup-{{referenceNumber}}" class="ds-markup--label">Show Markup</label>
+					<label for="markup-{{referenceNumber}}" class="ds-markup--label{{#isEqual exampleclass "inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "markup-only"}} xui-u-hidden{{/isEqual}}">Show Markup</label>
 				</div>
-
 				<!--ds-markup-->
-				<div class="ds-markup">
+
+				<div class="ds-markup{{#isEqual exampleclass "inline"}} ds-markup-inline{{/isEqual}}{{#isEqual exampleclass "markup-only"}} ds-markup-inline{{/isEqual}}">
 					<header class="ds-markup--actions">
-						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon xui-button-icon-inverted" title="Close markup pane"
+						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon xui-button-icon-inverted ds-button-closemarkup" title="Close markup pane"
 						 aria-label="Close markup pane">
 								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg>
 							</label>
-						<button data-copyHook data-clipboard-text="{{markup}}" class="xui-button xui-button-icon xui-button-icon-inverted" title="Copy code example"
+						<button data-copyHook data-clipboard-text="{{markup}}" class="xui-button xui-button-icon xui-button-icon-inverted ds-copy-button--fixed" title="Copy code example"
 						 aria-label="Copy code example">
 							<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-copy"></use></svg>
 						</button>
-						<h3 class="xui-color-white xui-background-grey-1 xui-u-flex-grow xui-margin-none xui-padding-none">{{header}}</h3>
+						<h3 class="xui-color-white xui-u-flex-grow xui-margin-none xui-padding-none">{{header}}</h3>
 					</header>
 					<pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
 				</div>
 				<!--ds-markup-->
+
 
 			</div>
 			{{/if}}

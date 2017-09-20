@@ -4,11 +4,14 @@
 @import "./mixins";
 
 $ds-nav-width: 17rem;
+$ds-page-width: 80rem;
+$ds-page-header-height: 56px;
 $ds-nav-gutter: calc(0.7em + .7vw);
 $ds-nav-gutter-mobile: 5vw;
 $ds-inverted--light: rgba(0, 0, 0, 0.06);
 $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
+$ds-color-black: #1c242c;
 
 
 .ds-html {
@@ -29,7 +32,7 @@ $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
 	margin: auto;
 	padding: 3vh 5vw 3vh;
 	@include xui-breakpoint-wide {
-		padding: 12vh 8vw 12vh;
+		padding: 12vh 7vmax 12vh;
 		width: auto;
 	}
 }
@@ -202,6 +205,10 @@ $ds-section-space: calc(6rem + 2vh);
 	visibility: visible;
 }
 
+code {
+	font-family: "SFMono-Regular", monospace;
+}
+
 // -----------------------------------------------------------------------------
 // Descriptions & typography
 // -----------------------------------------------------------------------------
@@ -306,28 +313,7 @@ section[class*="kss-section"] {
 	color: $xui-color-xero-blue;
 }
 
-.ds-markup {
-	position: fixed;
-	top: 0;
-	right: 0;
-	height: 100vh;
-	width: 100%;
-	padding: $xui-s-large;
-	z-index: 100;
-	background: $xui-color-grey-1;
-	box-shadow: $xui-shadow-depth-pop;
 
-	@include xui-breakpoint-wide {
-		min-width: $xui-breakpoint-medium;
-		width: 40%;
-	}
-}
-
-.ds-markup--actions {
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: row-reverse;
-}
 
 .ds-example{
 	position: relative;
@@ -357,10 +343,6 @@ section[class*="kss-section"] {
 		width: 100%;
 		z-index: 0;
 	}
-}
-
-.ds-input-example:checked ~ .ds-markup {
-	display:none;
 }
 
 // Layout.Margin and Layout.Padding
@@ -742,20 +724,32 @@ $kss-color-padding: #eeebff;
 // Breadcrumb
 // -----------------------------------------------------------------------------
 
-.ds-steps {
-	margin-left: -10px;
-	@include xui-breakpoint-wide {
-	 	margin: 0;
-		padding-left: calc(#{$ds-nav-gutter} - 10px);
-		position: fixed;
+.ds-page-header {
+		margin: 0;
+		padding: 0 $ds-nav-gutter;
+		position: sticky;
 		top: 0;
-		left: $ds-nav-width;
-		width: calc(100vw - #{$ds-nav-width});
+		left: 0;
+		right: 0;
+		width: auto;
 		z-index: 100;
 		background: #fff;
 		border-bottom: 1px solid $xui-color-grey-6;
-		height: 56px;
+		height: $ds-page-header-height;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+	@include xui-breakpoint-wide {
+		position: fixed;
+		left: $ds-nav-width;
+		width: calc(100vw - #{$ds-nav-width});
 	}
+}
+
+.ds-steps {
+	margin-left: -10px;
+
 }
 
 .ds-step:nth-last-child(n+2) {
@@ -779,22 +773,6 @@ $kss-color-padding: #eeebff;
 // Jump nav
 // -----------------------------------------------------------------------------
 
-.ds-page-nav {
-	width: 100%;
-	z-index: 2;
-	@include xui-breakpoint-narrow-up {
-		position: absolute;
-		width: 10rem;
-		top: -3rem;
-		right: 0;
-	}
-	@include xui-breakpoint-wide {
-		position: fixed;
-		top: 8px;
-		right: $ds-nav-gutter;
-		z-index: 100;
-	}
-}
 
 .ds-menu-link {
 	@include xui-breakpoint-medium-and-narrow {
@@ -908,7 +886,7 @@ a.ds-component-link:after {
 }
 
 @import "./markdown";
-@import "./prettyprint";
+@import "./markup";
 @import "./copy-code-blocks";
 @import "./home";
 @import "./redesign";

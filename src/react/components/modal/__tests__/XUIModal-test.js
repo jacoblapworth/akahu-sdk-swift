@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
@@ -7,6 +8,19 @@ import XUIModalHeader from '../XUIModalHeader';
 
 // NOTE: The esc key functionality has not been tested here as event listeners don't work very well in React testing
 describe('XUIModal', () => {
+	it('Should be possible to do snapshot testing on the modal', () => {
+		const component = shallow(
+			<XUIModal
+				isUsingPortal={false}
+				id="test-modal"
+				onClose={() => {}}
+			>
+				<div>test</div>
+			</XUIModal>
+		);
+		expect(toJson(component)).toMatchSnapshot();
+	});
+
 	it('Should render with any additional classes provided through the className, maskClassName and closeClassName props', function () {
 		const component = mount(
 			<XUIModal

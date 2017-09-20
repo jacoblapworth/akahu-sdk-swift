@@ -63,7 +63,7 @@ const actions = (
 			</XUIToastActions>
 		</XUIToast>
 	</section>
-)
+);
 
 ReactDOM.render(
 	<div className="xui-page-width-large">

@@ -19,7 +19,7 @@ Include the following `link` in your page:
 
 <!--?prettify lang=html?-->
 ```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.1.0-beta.1/xui.min.css"/>
+<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.1.0/xui.min.css"/>
 ```
 
 #### Sherlock
@@ -64,7 +64,7 @@ Example Page Markup
   <head>
     <meta charset="utf-8" />
     <title>Page Title</title>
-    <link href="https://edge.xero.com/style/xui/11.1.0-beta.1/xui.min.css" rel="stylesheet" />
+    <link href="https://edge.xero.com/style/xui/11.1.0/xui.min.css" rel="stylesheet" />
     <script type="application/json" id="header-data" data-render-to="#header">
       {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
     </script>
@@ -93,15 +93,12 @@ Using XUI
  * Add the `xui-body` class to your `<body>` element and `xui-html` to your
    `<html>` element, unless you are targeting legacy pages.
    The `xui-body` class provides background color, baseline font
-   styling and line height. Note that if you use this, you must use at least
-   version 3.0.3 of the Shared Header.
+   styling and line height.
    The `xui-html` class sets the height of the `html` element to 100%, and
    the body element with `xui-body` directly under it.
  * For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
    which has the `xui-container` class applied. This sets properties that XUI relies on,
    such as `box-sizing: border-box`, its default line-height, fonts, etc.
-   For tricky legacy CSS that might override those rules, you can also use the
-   `xui-container` mixin to apply these rules to more specific selectors in your own CSS.
  * Do not create any classes that use the `xui-` namespace outside this project.
    The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
  * Namespace your project's classes appropriately and separately to XUI.
@@ -127,7 +124,7 @@ If you want access to XUI's variables and mixins, you can import XUI as a depend
   * For variables, `@import '@xero/xui/sass/vars';`
   * For mixins, `@import '@xero/xui/sass/mixins';`
 
-We do not recommend importing any other files as they are not considered a part of XUI's public API; they might move around between versions, which could end up breaking your project.
+We do not recommend importing any other files as they are not considered a part of XUI's public API; they might move around between patch and minor versions, which could end up breaking your project.
 
 Updating
 --------

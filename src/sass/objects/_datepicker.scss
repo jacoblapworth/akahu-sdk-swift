@@ -27,6 +27,21 @@
 //   </thead>
 //   <tbody>
 //     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--weekdays` (Use with flex classes to achieve layout), `xui-datepicker--weekdaywrapper` and `xui-datepicker-weekday`</td>
+//       <td class="xui-text-cell xui-padding">Subcomponents for weekday headings</td>
+//       <td class="xui-text-cell xui-padding">
+//         <div class="xui-datepicker--weekdays xui-row-flex xui-justify-center" style="width: 150px">
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Sunday">S</abbr></div>
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Monday">M</abbr></div>
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Tuesday">T</abbr></div>
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Wednesday">W</abbr></div>
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Thursday">T</abbr></div>
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Friday">F</abbr></div>
+//           <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Saturday">S</abbr></div>
+//         </div>
+//       </td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
 //       <td class="xui-text-cell xui-padding">`xui-datepicker--day`</td>
 //       <td class="xui-text-cell xui-padding">Style for a date picker day</td>
 //       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-u-flex xui-u-flex-verticalalign-center">1</div></td>
@@ -89,10 +104,6 @@
 //   </tbody>
 // </table>
 //
-// `xui-datepicker--weekday`	**Deprecated** Style for weekday text
-//
-// `xui-datepicker--othermonth`	**Deprecated** Subcomponent for a day in a previous month, use `xui-datepicker--day-is-othermonth`
-//
 // Markup:
 // <div class="xui-popover xui-datepicker">
 //   <header class="xui-datepicker--header">
@@ -125,13 +136,13 @@
 //   <div class="xui-popover--section xui-datepicker--body" role="grid" aria-label="Select a day">
 //     <div class="" role="rowgroup">
 //       <div class="xui-datepicker--weekdays xui-row-flex xui-justify-center" role="row">
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Sunday">S</abbr></div>
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Monday">M</abbr></div>
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Tuesday">T</abbr></div>
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Wednesday">W</abbr></div>
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Thursday">T</abbr></div>
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Friday">F</abbr></div>
-//         <div class="xui-datepicker--weekday-container" role="columnheader"><abbr class="xui-datepicker--weekday" title="Saturday">S</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Sunday">S</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Monday">M</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Tuesday">T</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Wednesday">W</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Thursday">T</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Friday">F</abbr></div>
+//         <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Saturday">S</abbr></div>
 //       </div>
 //     </div>
 //     <div role="rowgroup">
@@ -257,6 +268,17 @@
 // Weight: 4.1
 //
 // Styleguide: Datepicker
+
+// Deprecated Classes
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.1.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-datepicker--weekday-container: Use xui-datepicker--weekdaywrapper instead.
+// xui-datepicker--othermonth: Use `xui-datepicker--day-is-othermonth` instead.
+//
+// Styleguide: Datepicker.99
 
 $xui-datepicker-day-size: 40px;
 $xui-datepicker-day-size-compact: 30px;
@@ -503,6 +525,7 @@ $xui-datepicker-day-size-compact: 30px;
 	text-decoration: none;
 	user-select: none;
 
+	&wrapper,
 	&-container {
 		flex: 1;
 		text-align: center;

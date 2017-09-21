@@ -36,9 +36,9 @@
 //
 // Classes:
 // xui-toast-wrapper: Container for a group of toasts - use `xui-toastwrapper` instead.
-// xui-toast-list: Bulleted list toasts
+// xui-toast-list: Bulleted list toasts. Will no longer be necessary.
 //
-// Styleguide: Toast.11
+// Styleguide: Toast.99
 
 // Additional Deprecations
 //
@@ -46,9 +46,9 @@
 // ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
 // Classes:
-// xui-toast--link: Styling for toast link. Use `xui-button-borderless-main` and `xui-button-small`
+// xui-toast--link: Styling for toast link. Use `xui-button-borderless-main` and `xui-button-small` instead.
 //
-// Styleguide: Toast.11.1
+// Styleguide: Toast.99.1
 
 
 .#{$ns}-toast {

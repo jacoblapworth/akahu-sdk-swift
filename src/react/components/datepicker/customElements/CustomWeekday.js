@@ -25,7 +25,7 @@ export default function CustomWeekday(
   }
 
   return (
-    <div className="xui-datepicker--weekday-container" role="columnheader">
+    <div className="xui-datepicker--weekdaywrapper" role="columnheader">
       <abbr className="xui-datepicker--weekday" title={title}>
         {content}
       </abbr>

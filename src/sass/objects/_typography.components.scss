@@ -99,12 +99,12 @@
 	border: 1px solid $xui-color-grey-alpha-6;
 }
 
-// Carets
+// Deprecated Carets
 //
 // ![](https://img.shields.io/badge/Deprecated%20in-10.15.0-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
 //
-// *This component has been deprecated. Alternatively, use <a href="#icons-1">icons</a> instead.*
+// *Use the <a href="#icons-1">`arrow-small`</a> icon with a rotation applied instead.
 //
 // Simple caret using CSS border tricks. Will inherit its colour from the text it's placed with.
 //

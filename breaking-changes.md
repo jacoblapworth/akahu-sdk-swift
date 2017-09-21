@@ -47,6 +47,7 @@ have all been removed. Use picklists instead.
 * `xui-toast-list` has been removed.
 * `xui-toast-wrapper` has been removed. Use `xui-toastwrapper` instead.
 * `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
+* Limit toast actions to a max of 2.
 
 ### Datepicker
 * `xui-datepicker--weekday-container` has been removed. Use `xui-datepicker--weekdaywrapper` instead.

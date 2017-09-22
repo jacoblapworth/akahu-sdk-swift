@@ -77,26 +77,55 @@
 // Specific background images
 
 .ds-tile--home-getting-started {
+	background: $xui-color-blue;
+	.xui-heading-large {
+		color: $xui-color-white;
+	}
+	background-image: url(./kss-assets/illustration/symbol.png);
+	background-size: 250%;
+	background-repeat: no-repeat;
+	background-position: 1% -200%;
+}
 
+.ds-tile--home-fundamentals {
+	background-image: url(./kss-assets/illustration/spiral.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 50% -60%;
 }
 
 .ds-tile--home-building-blocks {
-	background-image: url(./kss-assets/illustration/building-blocks.png);
+	background: $xui-color-turquoise;
+	.xui-heading-large {
+		color: $xui-color-white;
+	}
+	background-image: url(./kss-assets/illustration/block.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 10% 400%;
 }
 
 .ds-tile--home-react {
-	background-image: url(./kss-assets/illustration/react.png);
+	background-image: url(./kss-assets/illustration/gradient.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 0 100%;
 }
 
-.ds-tile--home-recipes {
-	background-image: url(./kss-assets/illustration/patterns.png);
+.ds-tile--home-updates {
+	background: $xui-color-grey-1;
+	.xui-heading-large {
+		color: $xui-color-white;
+	}
+	background-image: url(./kss-assets/illustration/x.png);
+	background-size: 300%;
+	background-repeat: no-repeat;
+	background-position: 2% -200%;
 }
 
 .ds-tile--home-contribute {
-	background-image: url(./kss-assets/illustration/contribute.png);
-
-}
-
-.ds-tile--home-foundations {
-
+	background-image: url(./kss-assets/illustration/code.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 5% -200%;
 }

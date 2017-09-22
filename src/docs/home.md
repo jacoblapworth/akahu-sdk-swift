@@ -10,14 +10,14 @@
 			<h3 class="xui-heading-large">Working with XUI</h3>
 		</a>
 	</div>
-  <div class="ds-tile--home ds-tile--home-foundations">
+  <div class="ds-tile--home ds-tile--home-fundamentals">
     <a href="section-fundamentals.html">
       <h3 class="xui-heading-large">Fundamentals</h3>
     </a>
   </div>
   <div class="ds-tile--home ds-tile--home-building-blocks">
     <a href="section-building-blocks.html">
-      <h3 class="xui-heading-large">Building Blocks</h3>
+      <h3 class="xui-heading-large">Building blocks</h3>
     </a>
   </div>
 	<div class="ds-tile--home ds-tile--home-react">
@@ -32,7 +32,7 @@
   </div>
   <div class="ds-tile--home ds-tile--home-contribute">
     <a href="section-feedback.html">
-      <h3 class="xui-heading-large">Contribute</h3>
+      <h3 class="xui-heading-large">Feedback</h3>
     </a>
   </div>
 </div>

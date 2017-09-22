@@ -243,7 +243,7 @@
 						 aria-label="Close markup pane">
 								<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross"></use></svg>
 							</label>
-						<button data-copyHook data-clipboard-text="{{markup}}" class="xui-button xui-button-icon xui-button-icon-inverted ds-copy-button--fixed" title="Copy code example"
+						<button data-copyHook data-clipboard-text="{{markup}}" class="code-copy xui-button xui-button-icon xui-button-icon-inverted ds-copy-button--fixed" title="Copy code example"
 						 aria-label="Copy code example">
 							<svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-copy"></use></svg>
 						</button>
@@ -271,15 +271,6 @@
 	</ul>
 </nav>
 <!-- SCRIPTS -->
-
-	<div id="copiedToast" class="xui-toastwrapper xui-transition-fadeout xui-transition-speed-slow">
-		<div class="xui-toast xui-toast-layout " role="status">
-			<button id="copiedToastClose" type="button" class="xui-button xui-button-icon xui-toast--close" title="Close" aria-label="Close">
-				<svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-			</button>
-			<div class="xui-toast--message">Example copied</div>
-		</div>
-	</div>
 
 {{xuiIconBlob}}
 {{{scripts}}}

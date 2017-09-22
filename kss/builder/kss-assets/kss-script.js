@@ -2,23 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	'use strict';
 
 	prettyPrint();
-	const clipboard = new Clipboard('[data-copyHook]');
-
-	const copiedToast = document.querySelector('#copiedToast');
-	let timeOut;
-	clipboard.on('success', e => {
-		copiedToast.classList.remove('xui-transition-fadeout', 'xui-transition-speed-slow');
-		window.clearTimeout(timeOut);
-		timeOut = window.setTimeout(() => {
-			copiedToast.classList.add('xui-transition-fadeout', 'xui-transition-speed-slow');
-		}, 5000);
-	});
-
-	const copiedToastClose =  document.querySelector('#copiedToastClose');
-	copiedToastClose.addEventListener('click', e => {
-		window.clearTimeout(timeOut);
-		copiedToast.classList.add('xui-transition-fadeout', 'xui-transition-speed-slow');
-	});
 
 	const navSectionSelect = document.querySelector('#ds-nav-section');
 	if (navSectionSelect) {

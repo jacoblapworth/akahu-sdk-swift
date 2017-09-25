@@ -26,6 +26,23 @@
 //
 // Components: Button
 //
+// Styleguide: Building Blocks.Buttons
+
+// Unstyled
+//
+// Styleguide: Building Blocks.Buttons.1
+
+// Unstyled
+//
+// This class can be used to undo OS/User Agent styling on buttons so that they can be used in places where anchors would have been used otherwise.
+//
+// Markup:
+// <button type="button" class="xui-button">This is an unstyled button</button>
+//
+// Styleguide: Building Blocks.Buttons.1.1
+
+// Class list
+//
 // Classes:
 // xui-button: Style for a button
 // xui-button--caret: Subcomponent for a caret button
@@ -48,7 +65,6 @@
 // xui-button-borderless-negative: Modifier for a borderless button with negative consequences
 // xui-button-small: Modifier for a small button
 // xui-button-split: Modifier for a split button (eg button and dropdown)
-//
 // xui-actions: Container to be used when creating layouts with a primary and secondary button
 // xui-actions-layout: Provides spacing between primary and secondary buttons as well as a mobile responsive layout
 // xui-actions-linear: Places primary and secondary buttons at opposite sides of the container
@@ -57,20 +73,8 @@
 // xui-button--loader: Modifier for a loader inside a button.
 // xui-button-inverted: Modifier for button focus styling against dark backgrounds
 //
-// Styleguide: Building Blocks.Buttons
+// Styleguide: Building Blocks.Buttons.50
 
-// Unstyled
-//
-// Styleguide: Building Blocks.Buttons.1
-
-// Unstyled
-//
-// This class can be used to undo OS/User Agent styling on buttons so that they can be used in places where anchors would have been used otherwise.
-//
-// Markup:
-// <button type="button" class="xui-button">This is an unstyled button</button>
-//
-// Styleguide: Building Blocks.Buttons.1.1
 
 .#{$ns}-button {
 	@include xui-button-reset;

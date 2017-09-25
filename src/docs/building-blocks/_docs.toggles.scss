@@ -11,28 +11,6 @@
 // Toggle labels can contain any combination of images, multiline text and [SVG icons](./section-icons.html).
 // Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
 //
-// #### Class Names
-//
-// `xui-toggle` Container for one or more toggle options
-//
-// `xui-toggle-form-layout` Recommended layout for form based toggles
-//
-// `xui-toggle-fullwidth-layout` Recommended layout for full-width toggles
-//
-// `xui-toggle-small` Modifier for smaller toggles. You can use any layout in conjunction with this.
-//
-// `xui-toggle-inverted` Style for a light on dark toggle container
-//
-// `xui-toggle-option` Container for a toggle option
-//
-// `xui-toggle--input` Style for a toggle input (hides HTML control)
-//
-// `xui-toggle--label` Style for a toggle label
-//
-// `xui-toggle--text` Style for toggle text within the label. Fixes a bug with text not wrapping if using `xui-toggle-fullwidth-layout` and IE11
-//
-// `xui-is-disabled` Style for a disabled toggle
-//
 // Components: Toggle
 //
 // Styleguide: Building Blocks.Toggle
@@ -306,3 +284,19 @@
 // </div>
 //
 // Styleguide: Building Blocks.Toggle.3.2
+
+// Class list
+//
+// Classes:
+// xui-toggle: Container for one or more toggle options
+// xui-toggle-form-layout: Recommended layout for form based toggles
+// xui-toggle-fullwidth-layout: Recommended layout for full-width toggles
+// xui-toggle-small: Modifier for smaller toggles. You can use any layout in conjunction with this.
+// xui-toggle-inverted: Style for a light on dark toggle container
+// xui-toggle-option: Container for a toggle option
+// xui-toggle--input: Style for a toggle input (hides HTML control)
+// xui-toggle--label: Style for a toggle label
+// xui-toggle--text: Style for toggle text within the label. Fixes a bug with text not wrapping if using `xui-toggle-fullwidth-layout` and IE11
+// xui-is-disabled: Style for a disabled toggle
+//
+// Styleguide: Building Blocks.Toggle.50

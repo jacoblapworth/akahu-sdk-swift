@@ -9,14 +9,6 @@
 
 // Content Block with Actions
 //
-// Classes:
-// xui-contentblock: Container for a content block
-// xui-contentblock--item: Container for a content block item
-// xui-contentblock--item-layout: Modifier to provide content block item layout
-// xui-contentblock--item-negative: Modifier for a negative highlight content block item
-// xui-contentblock--item-selected: Modifier for a selected content block item
-// xui-rowlink: Modifier for a content block item which acts as a hyperlink
-//
 // Markup:
 // <section>
 //   <h2 class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Today</h2>
@@ -94,6 +86,18 @@
 // </section>
 //
 // Styleguide: Building Blocks.Slats.2
+
+// Class list
+//
+// Classes:
+// xui-contentblock: Container for a content block
+// xui-contentblock--item: Container for a content block item
+// xui-contentblock--item-layout: Modifier to provide content block item layout
+// xui-contentblock--item-negative: Modifier for a negative highlight content block item
+// xui-contentblock--item-selected: Modifier for a selected content block item
+// xui-rowlink: Modifier for a content block item which acts as a hyperlink
+//
+// Styleguide: Building Blocks.Slats.50
 
 .#{$ns}-contentblock {
 	border-collapse: collapse;

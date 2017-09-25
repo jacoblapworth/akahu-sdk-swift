@@ -11,6 +11,23 @@
 // * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed.
 //   ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
 //
+// Markup:
+// <div class="xui-popover xui-margin-top-small" role="dialog" aria-labelledby="popover-header">
+//   <div class="xui-popover--arrow xui-popover--arrow-topleft">
+//     <svg focusable="false" viewbox="0 0 100 100">
+//       <polyline points="0,50 50,0 100, 50" stroke-width="7" class="xui-popover--arrow--border"/>
+//     </svg>
+//   </div>
+//   <div class="xui-padding-small">
+//   	<h4 class="xui-heading-item xui-margin-none xui-padding-vertical-small" id="popover-header">Tue Mar 08 2016</h4>
+//   	<p class="xui-text-secondary xui-margin-none">Active between 6:02 and 6:07</p>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Popovers
+
+// Class list
+//
 // Classes:
 // xui-popover: Container for a popover
 // xui-popover--arrow: Container for a popover arrow
@@ -28,20 +45,7 @@
 // xui-popover--arrow-topleft: Modifier for a top-left arrow
 // xui-popover--arrow-topright: Modifier for a top-right arrow
 //
-// Markup:
-// <div class="xui-popover xui-margin-top-small" role="dialog" aria-labelledby="popover-header">
-//   <div class="xui-popover--arrow xui-popover--arrow-topleft">
-//     <svg focusable="false" viewbox="0 0 100 100">
-//       <polyline points="0,50 50,0 100, 50" stroke-width="7" class="xui-popover--arrow--border"/>
-//     </svg>
-//   </div>
-//   <div class="xui-padding-small">
-//   	<h4 class="xui-heading-item xui-margin-none xui-padding-vertical-small" id="popover-header">Tue Mar 08 2016</h4>
-//   	<p class="xui-text-secondary xui-margin-none">Active between 6:02 and 6:07</p>
-//   </div>
-// </div>
-//
-// Styleguide: Building Blocks.Popovers
+// Styleguide: Building Blocks.Popovers.50
 
 .#{$ns}-popover {
 	@include xui-box-shadow-border($xui-shadow-depth-lift);

@@ -15,84 +15,6 @@
 //
 // Components: Datepicker
 //
-// Classes:
-// xui-datepicker: Container for a date picker
-// xui-datepicker-compact: Datepicker that fits into a space a bit too narrow for the standard size
-// xui-datepicker--weekdaywrapper: Container for day headings
-// xui-datepicker--weekday: Text style for day headings
-//
-// <table class="xui-contentblock">
-//   <thead>
-//     <tr class="xui-sectionheading">
-//       <th class="xui-heading-separator xui-sectionheading-layout">Day Classes</th>
-//       <th class="xui-heading-separator xui-sectionheading-layout">Description</th>
-//       <th class="xui-heading-separator xui-sectionheading-layout">Example</th>
-//     </tr>
-//   </thead>
-//   <tbody>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day`</td>
-//       <td class="xui-text-cell xui-padding">Style for a date picker day</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-disabled`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a disabled day</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-disabled xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-othermonth`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a day that exists outside the primarily visible month</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-othermonth xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected day</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-start`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the first date. <br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-start xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-middle`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the dates between the first and last dates.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-middle xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-end`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the last date.<br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-end xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-hovered-start`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is after the selected date. This should be applied to the selected date.<br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-start xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-end`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is after the selected date. This should be applied to the hovered date.<br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-end xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-middle`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and a hovered start, or end date exists. This should be applied to the dates between start and end dates.<br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-start`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is before the selected date. This should be applied to the hovered date.<br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-start xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-hovered-end`</td>
-//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is before the selected date. This should be applied to the selected date.<br /><br />A `data-content` attribute is also required.</td>
-//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-end xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
-//     </tr>
-//   </tbody>
-// </table>
-//
 // Markup:
 // <div class="xui-popover xui-datepicker">
 //   <header class="xui-datepicker--header">
@@ -255,6 +177,92 @@
 // </div>
 //
 // Styleguide: Building Blocks.Datepicker
+
+// Class list
+//
+// Classes:
+// xui-datepicker: Container for a date picker
+// xui-datepicker-compact: Datepicker that fits into a space a bit too narrow for the standard size
+// xui-datepicker--weekdaywrapper: Container for day headings
+// xui-datepicker--weekday: Text style for day headings
+//
+// <table class="xui-contentblock">
+//   <thead>
+//     <tr class="xui-sectionheading">
+//       <th class="xui-heading-separator xui-sectionheading-layout">Day Classes</th>
+//       <th class="xui-heading-separator xui-sectionheading-layout">Description</th>
+//       <th class="xui-heading-separator xui-sectionheading-layout">Example</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day`</td>
+//       <td class="xui-text-cell xui-padding">Style for a date picker day</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-disabled`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a disabled day</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-disabled xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-othermonth`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a day that exists outside the primarily visible month</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-othermonth xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected day</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-start`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the first date. <br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-start xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-middle`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the dates between the first and last dates.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-middle xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-end`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is the last date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-end xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-hovered-start`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is after the selected date. This should be applied to the selected date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-start xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-end`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is after the selected date. This should be applied to the hovered date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-end xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-middle`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and a hovered start, or end date exists. This should be applied to the dates between start and end dates.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-hovered-start`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is before the selected date. This should be applied to the hovered date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-hovered-start xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//     <tr class="xui-contentblock--item xui-contentblock--item-layout">
+//       <td class="xui-text-cell xui-padding">`xui-datepicker--day-is-selected-hovered-end`</td>
+//       <td class="xui-text-cell xui-padding">Modifier for a selected date range. This is when a selected date exists and the currently hovered date is before the selected date. This should be applied to the selected date.<br /><br />A `data-content` attribute is also required.</td>
+//       <td class="xui-text-cell xui-padding"><div class="xui-datepicker--day xui-datepicker--day-is-selected-hovered-end xui-u-flex xui-u-flex-vertical xui-u-flex-horizontallycentered" data-content="1">1</div></td>
+//     </tr>
+//   </tbody>
+// </table>
+//
+// Styleguide: Building Blocks.Datepicker.50
+
+
+
+
 
 $xui-datepicker-day-size: 40px;
 $xui-datepicker-day-size-compact: 30px;

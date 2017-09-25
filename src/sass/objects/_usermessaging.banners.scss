@@ -7,19 +7,6 @@
 //
 // Components: Banner
 //
-// Classes:
-// xui-banner: Container for a banner
-// xui-banner--action: Container for a banner action
-// xui-banner--actions: Container for a group of banner actions
-// xui-banner--close: Subcomponent for a banner close button
-// xui-banner--link: Subcomponent for a banner link button
-// xui-banner--message: Style for a banner message
-// xui-banner--messagedetail: Style for additional banner message details
-// xui-banner-animated: Recommended animation for a banner
-// xui-banner-layout: Recommended layout for a banner
-// xui-banner-negative: Modifier for a negative highlight banner
-// xui-banner-positive: Modifier for a positive highlight banner
-//
 // Styleguide: Building Blocks.Banner
 
 // Basic usage
@@ -123,6 +110,23 @@
 // </div>
 //
 // Styleguide: Building Blocks.Banner.5
+
+// Class list
+//
+// Classes:
+// xui-banner: Container for a banner
+// xui-banner--action: Container for a banner action
+// xui-banner--actions: Container for a group of banner actions
+// xui-banner--close: Subcomponent for a banner close button
+// xui-banner--link: Subcomponent for a banner link button
+// xui-banner--message: Style for a banner message
+// xui-banner--messagedetail: Style for additional banner message details
+// xui-banner-animated: Recommended animation for a banner
+// xui-banner-layout: Recommended layout for a banner
+// xui-banner-negative: Modifier for a negative highlight banner
+// xui-banner-positive: Modifier for a positive highlight banner
+//
+// Styleguide: Building Blocks.Banner.50
 
 .#{$ns}-banner {
 	background-color: $xui-color-white;

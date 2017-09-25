@@ -7,15 +7,6 @@
 //
 // The accordion is used to display an expandable/collapsible list to users.
 //
-// Classes:
-// xui-accordion: Container for an accordion
-// xui-accordion--header: Style for an accordion item heading
-// xui-accordionitem: Container for an accordion item
-// xui-accordionitem--collapsed: Container for collapsed state of an accordion item
-// xui-accordionitem--expanded: Container for expanded state of an accordion item
-// xui-accordionitem-is-open: Enable the expanded state of an accordion item
-// xui-accordionitem-layout: Recommended layout for an accordion item
-//
 // Markup:
 // <ul class="xui-accordion" role="tablist" aria-multiselectable="true">
 //   <li class="xui-accordionitem xui-accordionitem-layout">
@@ -57,6 +48,20 @@
 // </ul>
 //
 // Styleguide: Building Blocks.Accordion
+
+
+// Class list
+//
+// Classes:
+// xui-accordion: Container for an accordion
+// xui-accordion--header: Style for an accordion item heading
+// xui-accordionitem: Container for an accordion item
+// xui-accordionitem--collapsed: Container for collapsed state of an accordion item
+// xui-accordionitem--expanded: Container for expanded state of an accordion item
+// xui-accordionitem-is-open: Enable the expanded state of an accordion item
+// xui-accordionitem-layout: Recommended layout for an accordion item
+//
+// Styleguide: Building Blocks.Accordion.50
 
 .#{$ns}-accordion {
 	list-style: none;

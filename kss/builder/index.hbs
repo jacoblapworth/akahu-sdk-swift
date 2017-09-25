@@ -72,8 +72,9 @@
 				<div class="kss-style ds-section-part">
 					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
 						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
-							<svg class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
-						</a>{{header}}
+							<svg class="xui-icon ds-anchor-hash"> <use xlink:href="#xui-icon-hash" role="presentation"/></svg>
+						</a>
+						<span>{{header}}</span>
 						{{#if flag}}
 							<span class="ds-flag {{getStatusClass flag}}">
 									{{flag}}

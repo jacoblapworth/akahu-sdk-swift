@@ -3,7 +3,7 @@ module.exports = function (handlebars) {
 		{{#if isActive}}
 			{{#if parentHeader}}
 				<li class="ds-step xui-step xui-step-layout xui-step-is-complete">
-					<a class="ds-step--body xui-step--body" href="section-{{referenceURI}}.html">
+					<a class="ds-step--body xui-step--body" href="section-{{parentReferenceURI}}.html">
 						<span class="">{{parentHeader}}</span>
 						<svg focusable="false" class="ds-step--icon xui-step--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 					</a>

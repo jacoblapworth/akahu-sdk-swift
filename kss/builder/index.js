@@ -375,12 +375,13 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 
 		// Recursive function to build up the nested navigation
 		// curried to take a parentHeader
-		const buildMenu = parentHeader => rootSection => {
+		const buildMenu = (parentHeader, parentReferenceURI) => rootSection => {
 			const menuItem = toMenuItem(rootSection);
 			const reference = rootSection.reference();
 
 			menuItem.children = this.styleGuide.sections(rootSection.reference() + '.*').slice(1).map(toMenuItem);
 			menuItem.parentHeader = parentHeader;
+			menuItem.parentReferenceURI = parentReferenceURI ? parentReferenceURI: rootSection.reference();
 			// Check if the current menu item has child pages
 			if (this.options.childPages.indexOf(reference) !== -1) {
 				// get all child sections and remove any that are not pages
@@ -389,7 +390,7 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 					return isNaN(x.reference().split('.').pop());
 				});
 				// set the child pages of the current menu item
-				menuItem.menu = items.map(buildMenu(menuItem.header));
+				menuItem.menu = items.map(buildMenu(menuItem.header, menuItem.referenceURI));
 				menuItem.isActive = menuItem.menu.some( i => i.isActive ) || menuItem.isActive;
 			}
 

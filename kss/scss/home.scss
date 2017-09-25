@@ -106,10 +106,10 @@
 }
 
 .ds-tile--home-react {
-	background-image: url(./kss-assets/illustration/gradient.png);
-	background-size: 100%;
+	background-image: url(./kss-assets/illustration/code.png);
+	background-size: 200%;
 	background-repeat: no-repeat;
-	background-position: 0 100%;
+	background-position: 5% -200%;
 }
 
 .ds-tile--home-updates {
@@ -124,8 +124,8 @@
 }
 
 .ds-tile--home-contribute {
-	background-image: url(./kss-assets/illustration/code.png);
-	background-size: 200%;
+	background-image: url(./kss-assets/illustration/gradient.png);
+	background-size: 100%;
 	background-repeat: no-repeat;
-	background-position: 5% -200%;
+	background-position: 0 100%;
 }

@@ -139,6 +139,8 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 * `xui-margin-none` no longer has `!important`
 * `xui-padding-none` no longer has `!important`
 * `xui-margin-auto-*` classes have been removed. Use `xui-margin-*-auto` instead.
+* `xui-margin-*-huge` class has been removed. Use `xui-margin-*-2xlarge` instead.
+* `xui-padding-*-huge` class has been removed. Use `xui-padding-*-2xlarge` instead.
 * `xui-space-between` has been removed; use `xui-u-flex-space-between` instead.
 * `xui-space-around` has been removed; use `xui-u-flex-space-around` instead.
 * `xui-justify-left` has been removed; use `xui-u-flex-justify-left` instead.
@@ -154,6 +156,8 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 * `xui-justify-left-wide` has been removed; use `xui-u-flex-justify-left-wide` instead.
 * `xui-justify-right-wide` has been removed; use `xui-u-flex-justify-right-wide` instead.
 * `xui-justify-center-wide` has been removed; use `xui-u-flex-justify-center-wide` instead.
+* `xui-u-hidden-mobile` has been removed; use `xui-u-hidden-narrow` instead.
+* `xui-u-hidden-mobile-up` has been removed; use `xui-u-hidden-medium` and `xui-u-hidden-wide` instead.
 
 ### Motion
 * `xui-u-transition-short` has been removed. Use `xui-transition-speed-fast` instead.

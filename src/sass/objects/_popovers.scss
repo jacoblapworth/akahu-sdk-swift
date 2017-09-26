@@ -48,9 +48,9 @@
 // Styleguide: Building Blocks.Popovers.50
 
 .#{$ns}-popover {
-	@include xui-box-shadow-border($xui-shadow-depth-lift);
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-lift;
 	position: relative;
 }
 

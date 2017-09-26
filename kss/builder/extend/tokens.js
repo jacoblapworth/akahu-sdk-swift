@@ -8,14 +8,17 @@ module.exports = function(handlebars) {
 
 const testString = 'To understand what recursion is, you must first understand recursion.';
 
-const typographyTokenTypes = [
+const tableTokens = [
 	types.fontSize,
 	types.fontWeight,
 	types.lineHeight,
-	types.spacing
+	types.fontSpacing,
+	types.spacing,
+	types.icon,
+	types.table
 ];
 
-const colorTokenTypes = [
+const swatchTokens = [
 	types.color,
 	types.transparentColor,
 	types.border,
@@ -30,10 +33,10 @@ const styleAttributeMap = {
 };
 
 function renderTokens(tokens, tokenType) {
-	if (typographyTokenTypes.includes(tokenType)) {
-		return renderTypographyTokens(tokens, tokenType);
-	} else if (colorTokenTypes.includes(tokenType)) {
-		return renderColorTokens(tokens, tokenType);
+	if (tableTokens.includes(tokenType)) {
+		return renderTableTokens(tokens, tokenType);
+	} else if (swatchTokens.includes(tokenType)) {
+		return renderSwatchTokens(tokens, tokenType);
 	} else if (tokenType === types.brights) {
 		return renderBrightsTokens(tokens, tokenType);
 	}
@@ -42,7 +45,7 @@ function renderTokens(tokens, tokenType) {
 const exampleHasBackground = tokenType =>
 	[types.border, types.shadow, types.transparentColor].includes(tokenType);
 
-const renderColorTokens = (tokens, tokenType) => {
+const renderSwatchTokens = (tokens, tokenType) => {
 	const swatches = tokens.split('\n').map((token, index, totalArray) => {
 		const matches = token.match(/[^:]+/g).map(match => match.trim());
 		const name = matches[0];
@@ -179,8 +182,8 @@ const renderBrightsTokens = tokens => {
 	`;
 }
 
-const renderTypographyTokens = (tokens, tokenType) =>
-	tokens.split('\n').map(token => {
+const renderTableTokens = (tokens, tokenType) => {
+	const examples = tokens.split('\n').map(token => {
 		tokens.split('\n')
 		const matches = token.match(/[^:]+/g).map(match => match.trim());
 		const name = matches[0];
@@ -196,30 +199,38 @@ const renderTypographyTokens = (tokens, tokenType) =>
 			case types.lineHeight:
 				example = `<span style="line-height:${value}">${testString}</span>`;
 				break;
-			case types.spacing:
+			case types.fontSpacing:
 				example = `<span style="letter-spacing:${value}">${testString}</span>`;
+				break;
+			case types.spacing:
+				example = `<div style="width:${value};height:${value};" class="ds-spacing-example"></div>`;
+				break;
+			case types.icon:
+				example = `<svg focusable="false" style="width:${value};height:${value}" class="xui-icon"><use xlink:href="#xui-icon-search" role="presentation"/></svg>`;
+				break;
+			case types.table:
+				example = '';
 				break;
 			default:
 				return '';
 		}
-		return typographySection(example, name, value);
+		return typographyRow(example, name, value);
 	}).join('');
+	return `
+		<ul class="xui-contentblock">
+			${examples}
+		</ul>`;
+}
 
-const typographySection = (example, name, value) => `
-<div class="kss-modifier__example ds-section-part">
-	<div class="ds-token-wrap">
-		<div class="xui-row-flex xui-justify-left">
-			<div class="ds-token-table--row ds-token-vertical-align xui-column-12-of-12">
-				<div class="xui-column-5-of-12">
-					<code class="ds-token-text">${name}</code>
-				</div>
-				<div class="xui-column-3-of-12">
-					<code class="ds-token-text">${value}</code>
-				</div>
-				<div class="xui-column-4-of-12">
-					${example}
-				</div>
-			</div>
+const typographyRow = (example, name, value) => `
+	<li class="xui-contentblock--item xui-padding-vertical-small xui-u-flex">
+		<div class="xui-column-5-of-12">
+			<code>${name}</code>
 		</div>
-	</div>
-</div>`;
+		<div class="xui-column-3-of-12">
+			<code>${value}</code>
+		</div>
+		<div class="xui-column-4-of-12">
+			${example}
+		</div>
+	</li>`;

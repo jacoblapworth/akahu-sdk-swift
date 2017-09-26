@@ -17,5 +17,38 @@
 //
 // Styleguide: Building Blocks.Buttons.5.1
 
-@include xui-buttongroup;
-@include xui-button-grouped;
+.#{$ns}-buttongroup {
+	display: inline-flex;
+}
+
+.#{$ns}-button-grouped {
+	border-radius: 0;
+
+	&:hover {
+		z-index: 2; // show full border on hover
+	}
+
+	&:focus,
+	&:active {
+		z-index: 3; // override full border on focus/active
+	}
+
+	&:first-of-type {
+		border-bottom-left-radius: $xui-radius;
+		border-top-left-radius: $xui-radius;
+	}
+
+	&:nth-child(n+2) {
+		border-left: 0;
+		margin-left: 1px;
+
+		&.#{$ns}-button-standard {
+			margin-left: 0;
+		}
+	}
+
+	&:last-of-type {
+		border-bottom-right-radius: $xui-radius;
+		border-top-right-radius: $xui-radius;
+	}
+}

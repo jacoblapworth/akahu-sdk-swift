@@ -124,9 +124,8 @@
 	}
 }
 
-.#{$ns}-contentblock--item-negative::before {
-	@include xui-highlight-left;
-	background: $xui-color-xero-red;
+.#{$ns}-contentblock--item-negative {
+	@include xui-highlight-left($xui-color-xero-red);
 }
 
 .#{$ns}-rowlink {

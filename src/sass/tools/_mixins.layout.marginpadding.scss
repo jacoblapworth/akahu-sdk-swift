@@ -1,37 +1,80 @@
 // Margin primitive scss mixins
 // For use when composing XUI-endorsed component layout classes
+
+/*
+Adds the given value as margin-top
+
+$margin - Value to be applied to margin top
+*/
 @mixin xui-margin-top($margin) {
 	margin-top: $margin;
 }
 
+/*
+Adds the given value as margin-right
+
+$margin - Value to be applied to margin right
+*/
 @mixin xui-margin-right($margin) {
 	margin-right: $margin;
 }
 
+/*
+Adds the given value as margin-bottom
+
+$margin - Value to be applied to margin bottom
+*/
 @mixin xui-margin-bottom($margin) {
 	margin-bottom: $margin;
 }
 
+/*
+Adds the given value as margin-left
+
+$margin - Value to be applied to margin left
+*/
 @mixin xui-margin-left($margin) {
 	margin-left: $margin;
 }
 
+/*
+Adds the given value as vertical margin
+
+$margin - Value to be applied to top and bottom margins
+*/
 @mixin xui-margin-vertical($margin) {
 	@include xui-margin-top($margin);
 	@include xui-margin-bottom($margin);
 }
 
+/*
+Adds the given value as horizontal margins
+
+$margin - Value to be applied to left and right margins
+*/
 @mixin xui-margin-horizontal($margin) {
 	@include xui-margin-left($margin);
 	@include xui-margin-right($margin);
 }
 
+/*
+Adds the given value as margin (all)
+
+$margin - Value to be applied to margin
+*/
 @mixin xui-margin($margin) {
 	margin: $margin;
 }
 
 // Margin primitive css classes
-// For generating a collection of XUI layout classes with a given $margin and $suffix
+
+/*
+For generating a collection of XUI layout classes with a given $margin and $suffix. Will create a `-vertical`, `-horizontal`, `-top`, `-right`,
+`-bottom`, `-left`, and standard variants. Renders as `.$ns-margin-vertical$suffix`
+
+$margin - Value to be appleid to each margin size
+$suffix - Suffix to add for each generated class
+*/
 @mixin xui-generate-margin($margin, $suffix) {
 
 	.#{$ns}-margin#{$suffix} { @include xui-margin($margin); }
@@ -46,39 +89,81 @@
 }
 
 // Padding primitive scss mixins
-// For use when composing XUI-endorsed component layout classes
+
+/*
+Adds the given value as padding-top
+
+$padding - Value to be applied to padding-top
+*/
 @mixin xui-padding-top($padding) {
 	padding-top: $padding;
 }
 
+/*
+Adds the given value as padding-right
+
+$padding - Value to be applied to padding-right
+*/
 @mixin xui-padding-right($padding) {
 	padding-right: $padding;
 }
 
+/*
+Adds the given value as padding-bottom
+
+$padding - Value to be applied to padding-bottom
+*/
 @mixin xui-padding-bottom($padding) {
 	padding-bottom: $padding;
 }
 
+/*
+Adds the given value as padding-left
+
+$padding - Value to be applied to padding-left
+*/
 @mixin xui-padding-left($padding) {
 	padding-left: $padding;
 }
 
+/*
+Adds the given value as vertical padding
+
+$padding - Value to be applied to top and bottom padding
+*/
 @mixin xui-padding-vertical($padding) {
 	@include xui-padding-top($padding);
 	@include xui-padding-bottom($padding);
 }
 
+/*
+Adds the given value as horizontal padding
+
+$padding - Value to be applied to top and bottom
+*/
 @mixin xui-padding-horizontal($padding) {
 	@include xui-padding-left($padding);
 	@include xui-padding-right($padding);
 }
 
+/*
+Adds the given value as padding
+
+$padding - Value to be applied to padding
+*/
 @mixin xui-padding($padding) {
 	padding: $padding;
 }
 
 // Padding primitive css classes
-// For generating a collection of XUI layout classes with a given $padding and $suffix
+
+/*
+For generating a collection of XUI layout classes with a given $padding and $suffix. Will create a `-vertical`, `-horizontal`, `-top`, `-right`,
+`-bottom`, `-left`, and standard variants. Renders as `.$ns-padding-vertical$suffix`.
+
+$padding - Value to be appleid to each padding size
+$suffix - Suffix to add for each generated class
+*/
 @mixin xui-generate-padding($padding, $suffix) {
 	.#{$ns}-padding#{$suffix} { @include xui-padding($padding); }
 
@@ -89,4 +174,10 @@
 	.#{$ns}-padding-right#{$suffix} { @include xui-padding-right($padding); }
 	.#{$ns}-padding-bottom#{$suffix} { @include xui-padding-bottom($padding); }
 	.#{$ns}-padding-left#{$suffix} { @include xui-padding-left($padding); }
+}
+
+// Provides margin-left and margin-right auto for horizontal centering in flex
+@mixin xui-margin-horizontal-auto {
+	margin-left: auto;
+	margin-right: auto;
 }

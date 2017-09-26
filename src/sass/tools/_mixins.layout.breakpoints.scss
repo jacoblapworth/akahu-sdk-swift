@@ -9,44 +9,42 @@ $xui-breakpoint-narrow: 520px;
 $xui-breakpoint-medium: 940px;
 $xui-breakpoint-wide: 1160px;
 
+// Content will be applied for narrow screens
 @mixin xui-breakpoint-narrow {
 	@media screen and (max-width: $xui-breakpoint-narrow) {
 		@content;
 	}
 }
 
-// This is an effective alias to what I think the medium-and-wide should be but isn't currently.
-
-@mixin xui-breakpoint-narrow-up {
-	@media screen and (min-width: $xui-breakpoint-narrow) {
-		@content;
-	}
-}
-
+// Content will be applied for medium screens
 @mixin xui-breakpoint-medium {
 	@media screen and (min-width: $xui-breakpoint-narrow) and (max-width: $xui-breakpoint-medium) {
 		@content;
 	}
 }
 
+// Content will be applied for medium and wide screens
 @mixin xui-breakpoint-medium-and-wide {
 	@media screen and (min-width: $xui-breakpoint-medium) {
 		@content;
 	}
 }
 
+// Content will be applied for medium and narrow screens
 @mixin xui-breakpoint-medium-and-narrow {
 	@media screen and (max-width: $xui-breakpoint-medium) {
 		@content;
 	}
 }
 
+// Content will be applied for wide screens
 @mixin xui-breakpoint-wide {
 	@media screen and (min-width: $xui-breakpoint-medium){
 		@content;
 	}
 }
 
+// Content will be applied for extra wide screens
 @mixin xui-breakpoint-huge {
 	@media screen and (min-width: $xui-breakpoint-wide){
 		@content;

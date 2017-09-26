@@ -489,6 +489,23 @@ $kss-color-padding: #eeebff;
 	}
 }
 
+.ds-parameters-table-header {
+	color: $xui-color-grey-1;
+	font-weight: bold;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.ds-parameters-table-name {
+	white-space: nowrap;
+	width: 1%;
+}
+
+.ds-parameters-table-defaultvalue {
+	white-space: nowrap;
+	width: 1%;
+}
+
 // -----------------------------------------------------------------------------
 // Main Menu
 // -----------------------------------------------------------------------------
@@ -798,7 +815,7 @@ $kss-color-padding: #eeebff;
 	position: absolute;
 	right: 0;
 	top: 0;
-	@include xui-breakpoint-narrow-up {
+	@include xui-breakpoint-medium-and-wide {
 		top: 0.7em; // visual correction when text bigger
 	}
 	.kss-section--depth-2 & {
@@ -845,7 +862,7 @@ a.ds-component-link:after {
 }
 
 .ds-component-link:hover {
-	@include xui-breakpoint-narrow-up {
+	@include xui-breakpoint-medium-and-wide {
 		&:after {
 			transform: translateX(-2px) translateY(-2px);
 		}

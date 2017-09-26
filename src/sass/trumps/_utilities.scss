@@ -11,8 +11,6 @@
 //
 // Teaser: Helpers for layout, visibility and more.
 //
-// Weight: 5.99
-//
 // Styleguide: Building Blocks.Utilities
 
 // Flex
@@ -58,7 +56,7 @@
 
 // Alignment
 //
-// Apply to flex parent. These are also available as responsive modifiers by appending `-medium` (940px—1160px) or `-wide` (1160px—∞). 
+// Apply to flex parent. These are also available as responsive modifiers by appending `-medium` (940px—1160px) or `-wide` (1160px—∞).
 //
 // Classes:
 // xui-u-flex-justify-left: Align children to the start
@@ -153,8 +151,9 @@
 // Classes:
 // xui-u-hidden: Set display and visibility to none
 // xui-u-hidden-visually: Set width and height to 0
-// xui-u-hidden-mobile: Set display to none below 520px
-// xui-u-hidden-mobile-up: Set display to none above 520px
+// xui-u-hidden-narrow: Set display to none below 520px
+// xui-u-hidden-medium: Set display to none between 520px and 940px
+// xui-u-hidden-wide: Set display to none above 940px
 //
 // Styleguide: Building Blocks.Utilities.2
 
@@ -310,6 +309,7 @@
 	}
 }
 
+// scss-lint:disable ImportantRule
 .#{$ns}-u-hidden {
 	display: none !important;
 	// Screen readers sometimes ignore display:none as per
@@ -321,15 +321,20 @@
 	@include xui-utility-hidden-visually;
 }
 
-// scss-lint:disable ImportantRule
-.#{$ns}-u-hidden-mobile {
+.#{$ns}-u-hidden-narrow {
 	@include xui-breakpoint-narrow {
 		display: none !important;
 	}
 }
 
-.#{$ns}-u-hidden-mobile-up {
-	@include xui-breakpoint-narrow-up {
+.#{$ns}-u-hidden-medium {
+	@include xui-breakpoint-medium {
+		display: none !important;
+	}
+}
+
+.#{$ns}-u-hidden-wide {
+	@include xui-breakpoint-wide {
 		display: none !important;
 	}
 }

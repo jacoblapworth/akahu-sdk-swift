@@ -4,6 +4,7 @@
 		"../src/docs"
 	],
 	"custom": [
+		"mixin",
 		"tokentype",
 		"tokens",
 		"noexample",

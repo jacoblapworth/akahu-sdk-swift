@@ -128,22 +128,7 @@
 					{{/if}}
 
 					{{#if parameters}}
-					<div class="kss-parameters__title">Parameters:</div>
-					<ul class="kss-parameters">
-						{{#each parameters}}
-						<li class="kss-parameters__item">
-						<div class="kss-parameters__name"><code>{{name}}</code></div>
-						<div class="kss-parameters__description">
-							{{{description}}}
-							{{#if defaultValue}}
-							<div class="kss-parameters__default-value">
-								Defaults to: <code>{{defaultValue}}</code>
-							</div>
-							{{/if}}
-						</div>
-						</li>
-						{{/each}}
-					</ul>
+						{{>renderParameters}}
 					{{/if}}
 				</div>
 

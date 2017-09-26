@@ -47,4 +47,7 @@
 //
 // Styleguide: Building Blocks.Buttons.6.2
 
-@include xui-button-split; // Creates the class as a standalone component
+.#{$ns}-button-split {
+	min-width: 0;
+	padding: 0;
+}

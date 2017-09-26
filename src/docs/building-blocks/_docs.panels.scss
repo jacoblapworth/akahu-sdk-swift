@@ -33,7 +33,7 @@
 // @import '@xero/xui/sass/mixins';
 //
 // .example-container {
-//	@include xui-box-shadow-border($xui-shadow-border-all);
+//	box-shadow: $xui-shadow-border-all;
 //	background-color: $xui-color-white;
 //	border-radius: $xui-radius;
 // }

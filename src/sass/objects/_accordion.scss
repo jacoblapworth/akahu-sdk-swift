@@ -99,7 +99,7 @@
 }
 
 .#{$ns}-accordionitem-is-open {
-	@include xui-box-shadow-border($xui-shadow-depth-lift);
+	box-shadow: $xui-shadow-depth-lift;
 	height: auto;
 	margin: 0;
 	max-width: 100vw;

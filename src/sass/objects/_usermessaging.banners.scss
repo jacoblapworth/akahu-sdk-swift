@@ -138,14 +138,12 @@
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
-.#{$ns}-banner-positive::before {
-	@include xui-highlight-left($xui-radius, true);
-	background: $xui-color-xero-green;
+.#{$ns}-banner-positive {
+	@include xui-highlight-left($xui-color-xero-green, $xui-radius, true);
 }
 
-.#{$ns}-banner-negative::before {
-	@include xui-highlight-left($xui-radius, true);
-	background: $xui-color-xero-red;
+.#{$ns}-banner-negative {
+	@include xui-highlight-left($xui-color-xero-red, $xui-radius, true);
 }
 
 .#{$ns}-banner-layout {
@@ -184,7 +182,7 @@
 	}
 
 	.#{$ns}-banner--link {
-		@include xui-state-focus-transparent;
+		@include xui-states-transparent;
 		display: inline-block;
 		padding: $xui-s-actionlink;
 	}

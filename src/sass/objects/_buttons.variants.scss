@@ -24,7 +24,7 @@
 			@include xui-button-variant($color, $xui-color-white);
 		}
 
-		@include xui-button-focus(0.1, $xui-shadow-focus);
+		@include xui-button-focus($xui-shadow-focus);
 
 		@include xui-button-hover {
 			@include xui-button-shadow(0.05);

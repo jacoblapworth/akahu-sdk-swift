@@ -26,7 +26,7 @@
 	outline: none;
 	position: absolute;
 
-	@include xui-breakpoint-narrow-up {
+	@include xui-breakpoint-medium-and-wide {
 		z-index: 1000;
 
 		.#{$ns}-dropdown--body {
@@ -147,7 +147,7 @@
 	display: flex;
 	flex-direction: column;
 
-	@include xui-breakpoint-narrow-up {
+	@include xui-breakpoint-medium-and-wide {
 		border-radius: $xui-radius;
 		box-shadow: $xui-shadow-depth-lift;
 	}
@@ -212,7 +212,7 @@
 }
 
 @each $number, $variant in $xui-width-variants-dropdown {
-	@include xui-breakpoint-narrow-up {
+	@include xui-breakpoint-medium-and-wide {
 		.#{$ns}-dropdown-#{$variant} {
 			max-width: $xui-starting-width + ($xui-base-width * $number);
 		}

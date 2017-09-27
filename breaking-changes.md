@@ -274,4 +274,8 @@ Removed:
 
 * `xui-tag-outline` has been removed; this is now the base style provided by `xui-tag`
 * `xui-tag-solid` has been removed; use `xui-tag-neutral` instead
-* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and `xui-tag-negative'
+* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and `xui-tag-negative`
+
+#### Drawer
+
+* `xui-sidedrawer`, `xui-sidedrawer-is-closed`, `xui-sidedrawer--header`, `xui-sidedrawer--footer`, `xui-sidedrawer--layout` and `xui-sidedrawer--content` have been removed. There is no replacement for them.

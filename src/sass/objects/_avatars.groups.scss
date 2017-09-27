@@ -1,42 +1,10 @@
 @import "../vars";
 @import "../mixins";
 
-// Grouped Avatars
-//
-// Group a colection of avatars together.
-//
-// Classes:
-// xui-avatargroup: Container for a group of avatars
-//
-// Markup:
-// <div class="xui-avatargroup">
-//   <abbr class="xui-avatar xui-avatar-color-1">A</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-2">B</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-3">C</abbr>
-//   <abbr class="xui-avatar xui-avatar-color-4">D</abbr>
-//   <span class="xui-avatar xui-avatar-counter">+1</span>
-// </div>
-// <div class="xui-avatargroup xui-margin-top">
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">A</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">B</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">C</abbr>
-//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-4">D</abbr>
-//   <span class="xui-avatar xui-avatar-large xui-avatar-counter">+2</span>
-// </div>
-// <div class="xui-avatargroup xui-margin-top">
-//   <abbr class="xui-avatar xui-avatar-business xui-avatar-color-5">W</abbr>
-//   <abbr class="xui-avatar xui-avatar-business xui-avatar-color-6">X</abbr>
-//   <abbr class="xui-avatar xui-avatar-business xui-avatar-color-7">Y</abbr>
-//   <abbr class="xui-avatar xui-avatar-business xui-avatar-color-8">Z</abbr>
-//   <span class="xui-avatar xui-avatar-business xui-avatar-counter">+2</span>
-// </div>
-//
-// Styleguide: Building Blocks.Avatars.2
-
 .#{$ns}-avatargroup {
 	.#{$ns}-avatar {
 		@include xui-all-but-first {
-			box-shadow: -2px 0 0 0 $xui-color-grey-alpha-6;
+			@include xui-box-shadow-border(-2px 0 0 0 $xui-color-grey-alpha-6);
 			margin-left: -1.25em;
 		}
 	}

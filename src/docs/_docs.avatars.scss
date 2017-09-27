@@ -1,0 +1,153 @@
+// Avatars
+//
+// Introduction:
+// Use avatars for businesses and people to enhance recognition and give interfaces a sense of humanity.
+// XUI avatars use images when available and acronyms if they are not.
+//
+// Components: Avatar
+//
+// <div class="xui-u-flex" style="align-items: flex-end">
+//   <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+//   <img class="xui-avatar xui-avatar-small xui-margin-right" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
+//   <img class="xui-avatar xui-avatar xui-avatar-business xui-margin-right" alt="" role="presentation" src="./kss-assets/content/bbc-logo.png"/>
+//   <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-large xui-margin-right" role="presentation">DK</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation">CNN</abbr>
+//   <img class="xui-avatar xui-avatar-xxlarge xui-avatar-business xui-margin-right" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// </div>
+//
+// Styleguide: Building Blocks.Avatars
+
+// Best practice
+//
+// Tips:
+// Do: Ensure they're consistent to the user throughout Xero
+// Dont: Avoid using as the only means of identifying a business or person
+//
+// Styleguide: Building Blocks.Avatars.1
+
+// Types
+//
+// There are 2 types of avatar in XUI. This helps users identify between clients and employees and between businesses and the individuals within them.
+//
+// Definitions:
+// Contacts: <abbr class="xui-avatar xui-avatar-color-9 xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>: Square avatars with 1—3 letter acronyms. Suppliers, customers, clients... essentially any 'accounting entity.
+// Users: <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xlarge xui-margin-right" role="presentation" title="Sharon Marks">SM</abbr>: Round avatars with 2 letter acronyms. These will be users with accounts – essentially any singular **person*.**
+//
+// Note: *Avoid using avatars for payroll or expense employees if they cannot be resolved to a unique user account.
+//
+// Styleguide: Building Blocks.Avatars.2
+
+// Sizes
+//
+// Definitions:
+// xSmall: 18px: <code>xui-avatar-xsmall</code>
+// Small: 24px: <code>xui-avatar-small</code>
+// Medium: 32px: default
+// Large: 48px: <code>xui-avatar-large</code>
+// xLarge: 80px: <code>xui-avatar-xlarge</code>
+// 2xLarge: 120px: <code>xui-avatar-2xlarge</code>
+//
+// Styleguide: Building Blocks.Avatars.3
+
+
+// Implementation
+//
+// Avatars exist to aid recognition so consistency is key. Only use avatars if
+// you can ensure the same entity will look the same, **in all parts of Xero,** to a single user.
+//
+// #### Images in avatars
+//
+// If a logo or profile picture is available this should always be used. These
+// should be drawn from a consistent source – the contact or user record. That
+// image should update if it is changed at the source.
+//
+// Ideally the image will be pre-processed to square and appropriately resized. If the image is not square
+// it will be displayed in it’s entirety with the experimental `object-contain` property. However support in IE/Edge is limited.
+//
+// #### Colors in avatars
+//
+// If no image exists, then it’s background color and acronym should be displayed.
+// The color is selected deterministically from one of the ten approved colors
+// based on a unique **shared** attribute of the entity (eg. GUID).
+// If two entities share the same name then the color should be different.
+//
+// See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more detail.
+//
+// Styleguide: Building Blocks.Avatars.4
+
+// Grouping avatars
+//
+// Avatars can be displayed as an overlapping group. If more exist than it’s reasonable to display an additional counter can be added to the end.
+// The avatars can be displayed in any order considered useful eg. largest contributor or most recent addition.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-avatargroup">
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">AA</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">BB</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">Cc</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-4">Dd</abbr>
+//   <span class="xui-avatar xui-avatar-large xui-avatar-counter">+1</span>
+// </div>
+// <div class="xui-avatargroup xui-margin-top">
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-5">W</abbr>
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-6">X</abbr>
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-7">Y</abbr>
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-8">Z</abbr>
+//   <span class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-counter">+2</span>
+// </div>
+//
+// Styleguide: Building Blocks.Avatars.5
+
+// Class list
+//
+// Classes:
+// xui-avatar: Style for an avatar
+// xui-avatar-color-[1-10]: Modifiers for a color avatar
+// xui-avatar-xlarge: Modifier for an extra large avatar
+// xui-avatar-large: Modifier for a large avatar
+// xui-avatar-small: Modifier for a small avatar
+// xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
+// xui-avatar-business: Modifier for an avatar representing a business
+//
+// Styleguide: Building Blocks.Avatars.50
+
+
+// Markup:
+// <h3>Small</h3>
+// <img class="xui-avatar xui-avatar-small" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-small" role="presentation">IM</abbr>
+// <img class="xui-avatar xui-avatar-small xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-small xui-avatar-business" role="presentation">ABC</abbr>
+// <h3>Medium</h3>
+// <img class="xui-avatar" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-3" role="presentation">JM</abbr>
+// <img class="xui-avatar xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business" role="presentation">CNN</abbr>
+// <h3>Large</h3>
+// <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-5 xui-avatar-large" role="presentation">TR</abbr>
+// <img class="xui-avatar xui-avatar-large xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-6 xui-avatar-large xui-avatar-business" role="presentation">NBC</abbr>
+// <h3>Extra Large</h3>
+// <img class="xui-avatar xui-avatar-xlarge" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xlarge" role="presentation">FP</abbr>
+// <img class="xui-avatar xui-avatar-business xui-avatar-xlarge" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// <abbr class="xui-avatar xui-avatar-color-8 xui-avatar-xlarge xui-avatar-business" role="presentation">CBS</abbr>
+// <h3>Avatar Colours</h3>
+// <abbr class="xui-avatar xui-avatar-color-1" role="presentation">1</abbr>
+// <abbr class="xui-avatar xui-avatar-color-2" role="presentation">2</abbr>
+// <abbr class="xui-avatar xui-avatar-color-3" role="presentation">3</abbr>
+// <abbr class="xui-avatar xui-avatar-color-4" role="presentation">4</abbr>
+// <abbr class="xui-avatar xui-avatar-color-5" role="presentation">5</abbr>
+// <abbr class="xui-avatar xui-avatar-color-6" role="presentation">6</abbr>
+// <abbr class="xui-avatar xui-avatar-color-7" role="presentation">7</abbr>
+// <abbr class="xui-avatar xui-avatar-color-8" role="presentation">8</abbr>
+// <abbr class="xui-avatar xui-avatar-color-9" role="presentation">9</abbr>
+// <abbr class="xui-avatar xui-avatar-color-10" role="presentation">10</abbr>
+// <h3>Avatar with Descriptive Text</h3>
+// <div class="xui-u-flex xui-u-flex-verticallycentered">
+//   <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
+//   <span class="xui-margin-left-small">Sue Denim</span>
+// </div>

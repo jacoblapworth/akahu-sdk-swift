@@ -35,7 +35,7 @@
 // xui-banner--actions: Container for actions
 // xui-banner--action: Banner actions
 // xui-banner--close: Close button
-// 
+//
 // Markup:
 // <div class="xui-banner xui-banner-layout" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
@@ -114,9 +114,9 @@
 // Styleguide: Building Blocks.Banner.4
 
 .#{$ns}-banner {
-	@include xui-box-shadow-border($xui-shadow-border-all);
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-border-all;
 	color: $xui-color-grey-1;
 	opacity: 1;
 	position: relative;

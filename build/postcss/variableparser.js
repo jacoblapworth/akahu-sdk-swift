@@ -27,7 +27,7 @@ module.exports = (template, root, source, types) => {
 				sections.push(`// ${headingRegexMatch[1].trim()}`, '//');
 				sectionCounter += 1;
 			} else if (typeRegexMatch != null) {
-				if (Object.values(types).includes(typeRegexMatch[1])) {
+				if (Object.keys(types).map(type => types[type]).includes(typeRegexMatch[1])) {
 					sections.push(`// TokenType: ${typeRegexMatch[1]}`,'//','// Tokens:');
 				} else {
 					console.error(`Unknown type '${typeRegexMatch[1]}' found`);
@@ -46,8 +46,8 @@ module.exports = (template, root, source, types) => {
 	});
 
 	const styleGuide = template.name != null
-	? `${template.page}.${template.name}.${sectionCounter}`
-	: `${template.page}.${sectionCounter + majorNumber}`;
+		? `${template.page}.${template.name}.${sectionCounter}`
+		: `${template.page}.${sectionCounter + majorNumber}`;
 	sections.push(`//`,`// Styleguide: ${template.section}.${styleGuide}`, ``);
 	return sections;
 }

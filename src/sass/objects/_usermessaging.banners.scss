@@ -3,134 +3,119 @@
 
 // Banners
 //
-// Use banners in places where inline validation is not possible.
+// Teaser: To provide in-page feedback or introduce additional actions.
+//
+// Introduction: Banners are used to provide in-page feedback or introduce additional actions.
 //
 // Components: Banner
 //
 // Styleguide: Building Blocks.Banner
 
-// Basic usage
+// Best practice
 //
-// Banner messages will default to left aligned.
-//
-// ### Accessibility
-//
-// **role="status"**: Use the `status` role when you want to convey relevant advisory information that doesn't justify
-// using the alert role. For further information, please refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
-//
-// Markup:
-//<div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
-//    <p class="xui-banner--message">Banner Message</p>
-//</div>
+// Tips:
+// Do: Use banners when inline validation is not possible
+// Do: Use banners at the top of page content
+// Warning: Avoid banners for non-blocking actions – use a toast instead
+// Warning: Avoid hiding banners automatically – use a toast instead
+// Dont: Don't use banners for client-side validation
 //
 // Styleguide: Building Blocks.Banner.1
 
-// With Actions
+// Anatomy
 //
-// Actions will be right aligned
+// To create a banner, use the following classes.
+// Note that close buttons must come first in the DOM order to provide the correct conditional formatting.
 //
+// Classes:
+// xui-banner: Base class
+// xui-banner-layout: Default layout for banners
+// xui-banner--message: Primary message
+// xui-banner--messagedetail: Optional secondary message
+// xui-banner--actions: Container for actions
+// xui-banner--action: Banner actions
+// xui-banner--close: Close button
+// 
 // Markup:
-// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
-//   <p class="xui-banner--message">Banner Message</p>
+// <div class="xui-banner xui-banner-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <p class="xui-banner--message">Standard banner</p>
+// </div>
+// <div class="xui-banner xui-banner-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <p class="xui-banner--message">Banner with actions</p>
 //   <ul class="xui-banner--actions">
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main" type="button">Action One</button></li>
-//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main" type="button">Action Three</button></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
+//   </ul>
+// </div>
+// <div class="xui-banner xui-banner-layout" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <p class="xui-banner--message">Banner with secondary message</p>
+//   <div class="xui-banner--messagedetail">Secondary message</div>
+//   <ul class="xui-banner--actions">
+//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
+//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-button-small" type="button">Action</button></li>
 //   </ul>
 // </div>
 //
 // Styleguide: Building Blocks.Banner.2
 
-// Dismissible
+// Sentiment
 //
-// Some banners are dismissible and styled with a right aligned close cross.
+// Positive and negative sentiment can be applied to banners by adding the following modifiers to `xui-banner`.
+//
+// Definitions:
+// Positive: Adds green border: `-positive`
+// Negative: Adds red border: `-negative`
 //
 // Markup:
-// <div class="xui-banner xui-banner-layout xui-banner-animated" role="status">
+// <div class="xui-banner xui-banner-layout xui-banner-positive" role="status">
 //   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
 //       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
-//   <p class="xui-banner--message">Banner Message</p>
+//   <p class="xui-banner--message">Banner message</p>
+// </div>
+// <div class="xui-banner xui-banner-layout xui-banner-negative" role="status">
+//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
+//       <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//   </button>
+//   <p class="xui-banner--message">Banner message</p>
 // </div>
 //
 // Styleguide: Building Blocks.Banner.3
 
-// With message detail
+// Animation
 //
-// Additional detail may be used for success and error banners and should be
-// styled as left aligned secondary text.
+// Flag: Under review
 //
-// Markup:
-// <div class="xui-banner xui-banner-layout" role="status">
-//   <button type="button" class="xui-button xui-button-icon xui-banner--close" title="Close" aria-label="Close">
-//     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//   </button>
-//   <p class="xui-banner--message">Banner Message</p>
-//   <div class="xui-banner--messagedetail">
-//     <ul class="xui-margin-none">
-//         <li>We've got this request</li>
-//     </ul>
-//   </div>
-//   <ul class="xui-banner--actions">
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-banner--link" type="button">Action One</button></li>
-//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
-//     <li class="xui-banner--action"><button class="xui-button xui-button-borderless-main xui-banner--link" type="button">Action Three</button></li>
-//   </ul>
-// </div>
+// To draw attention to banners on entry, animate them by adding the following modifier to `xui-banner`.
+//
+// Classes:
+// -animated: Animates vertical position
+//
+// Styleguide: Building Blocks.Banner.3
+
+// Accessibility
+//
+// It is recommended to use the `alert` role when using the error banner variant.
+// Only use this role when you require the user's immediate attention.
+// For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
+//
+// Use the `status` role when presenting any other information that doesn't justify using the alert role.
+// For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
 //
 // Styleguide: Building Blocks.Banner.4
 
-// Sentiment
-//
-// Positive and negative sentiment can be applied to banners through `xui-banner-positive` and `xui-banner-negative`.
-//
-// ### Accessibility
-//
-// **role="alert"**: It is recommended to use the `alert` role when using the error variant.
-// `role="alert"` is limited to important and usually time-sensitive messages. Use only when you want to draw
-// the users attention to the banner when you require their immediate attention. For further information, please
-// refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
-//
-// Markup:
-// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-positive" role="status">
-//   <p class="xui-banner--message">Banner Message</p>
-//   <ul class="xui-banner--actions">
-//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
-//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
-//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
-//   </ul>
-// </div>
-// <div class="xui-banner xui-banner-layout xui-banner-animated xui-banner-negative" role="alert">
-//   <p class="xui-banner--message">Banner Message</p>
-//   <ul class="xui-banner--actions">
-//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action One</button></li>
-//     <li class="xui-banner--action"><a class="xui-banner--link" href="#someUrl">Action Two</a></li>
-//     <li class="xui-banner--action"><button class="xui-button xui-button-link xui-banner--link" type="button">Action Three</button></li>
-//   </ul>
-// </div>
-//
-// Styleguide: Building Blocks.Banner.5
-
-// Class list
-//
-// Classes:
-// xui-banner: Container for a banner
-// xui-banner--action: Container for a banner action
-// xui-banner--actions: Container for a group of banner actions
-// xui-banner--close: Subcomponent for a banner close button
-// xui-banner--link: Subcomponent for a banner link button
-// xui-banner--message: Style for a banner message
-// xui-banner--messagedetail: Style for additional banner message details
-// xui-banner-animated: Recommended animation for a banner
-// xui-banner-layout: Recommended layout for a banner
-// xui-banner-negative: Modifier for a negative highlight banner
-// xui-banner-positive: Modifier for a positive highlight banner
-//
-// Styleguide: Building Blocks.Banner.50
-
 .#{$ns}-banner {
+	@include xui-box-shadow-border($xui-shadow-border-all);
 	background-color: $xui-color-white;
-	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	color: $xui-color-grey-1;
 	opacity: 1;
@@ -156,7 +141,6 @@
 
 	@include xui-breakpoint-narrow {
 		border-left: 0;
-		border-radius: 0;
 		border-right: 0;
 		border-top: 0;
 		margin-top: 0;
@@ -168,19 +152,20 @@
 	}
 
 	.#{$ns}-banner--message {
-		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-small);
+		// The 7px here is to clear the standard paragraph height - 5px is too small
+		margin: $xui-s-xsmall $xui-s-small 7px $xui-s-xsmall;
 	}
 
 	.#{$ns}-banner--messagedetail {
 		@include xui-margin-vertical($xui-s-xsmall);
-		@include xui-margin-horizontal($xui-s-small);
+		@include xui-margin-horizontal($xui-s-xsmall);
 	}
 
 	.#{$ns}-banner--actions {
 		margin: 0;
 	}
 
+	// TODO: Deprecated in XUI12; remove in XUI13
 	.#{$ns}-banner--link {
 		@include xui-states-transparent;
 		display: inline-block;
@@ -202,6 +187,7 @@
 	display: inline-block;
 }
 
+// TODO: Deprecated in XUI12; remove in XUI13
 .#{$ns}-banner-animated {
 	animation: #{$ns}-banner-animation $xui-motion-speed-fast;
 }

@@ -7,6 +7,13 @@
 	background: $xui-color-grey-1;
 }
 
+.ds-example-verticallycentered {
+  .ds-example--inner {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .ds-example-transparent {
 	background: transparent;
 }

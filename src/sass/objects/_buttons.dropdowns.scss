@@ -1,9 +1,5 @@
 @import "../mixins";
 
-// Dropdowns
-//
-// Styleguide: Building Blocks.Buttons.6
-
 .#{$ns}-button--caret {
 	@include xui-margin-top(-7px);
 	@include xui-margin-left(-6px);
@@ -21,31 +17,6 @@
 	}
 }
 
-// Single Button Dropdowns
-//
-// These buttons are used when you want to provide a list of primary actions, instead of a single action
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">
-//    Dropdown
-//   <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-// </button>
-//
-// Styleguide: Building Blocks.Buttons.6.1
-
-// Split Button Dropdowns
-//
-// These buttons are used when you want to provide a primary action, and single or multiple secondary actions
-//
-// Markup:
-// <div class="xui-buttongroup">
-//   <button type="button" class="xui-button xui-button-standard xui-button-grouped {{modifier_class}}">Dropdown</button>
-//   <button type="button" class="xui-button xui-button-standard xui-button-grouped xui-button-split {{modifier_class}}">
-//     <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//   </button>
-// </div>
-//
-// Styleguide: Building Blocks.Buttons.6.2
 
 .#{$ns}-button-split {
 	min-width: 0;

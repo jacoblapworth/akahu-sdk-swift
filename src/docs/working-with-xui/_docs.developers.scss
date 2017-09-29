@@ -1,53 +1,127 @@
 // Developing with XUI
 //
-// Introduction: Set some expectations about what it is and does. It’s unlikely to solve everything. You’ll still need to design. We’re here to help — and link off to [feedback](./section-feedback.html) and [updates](./section-updates.html) pages
+// Introduction: XUI provides CSS and React components. The best way to get started with XUI is to include the CSS via CDN and install the components via NPM.
 //
 // Weight: 1.1
 //
 // Styleguide: Getting Started.Developing with XUI
 
-
-// Using XUI CSS
+// Getting Started
 //
-//  * Make sure XUI is loaded or imported before any of your other stylesheets.
-//  * Add the `xui-body` class to your `<body>` element
-//  * Add the `xui-html` class to your `<html>` element
+// #### Load CSS via CDN (Recommended)
+//
+// Include the following `link` in your page:
+//
+// <!--?prettify lang=html?-->
+// ```html
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/12.0.0/xui.min.css"/>
+// ```
+//
+// #### Sherlock
+//
+// You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to resolve the latest version of XUI for a given semver range.
+// A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
+//
+// #### Add base classes to HTML template
+//
+// XUI CSS is designed to work as well with legacy projects as with greenfield projects. It is almost exclusively class based with only the bare minimum element selectors to initialise pages.
+//
+// For new projects add the `xui-body` class to your `<body>` element and `xui-html` class to your `<html>` element.
+//
+// For legacy pages where `xui-body` can not be used globally `xui-container` should wrap any XUI sections to provide XUI base styling to a specific part of a page.
 //
 // Styleguide: Getting Started.Developing with XUI.1
 
-// Adding XUI elements to legacy pages
+// Structure of CSS
 //
-// For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
-// with the `xui-container` class applied. This sets base level styling.
+// XUI CSS can be generally thought of as three parts:
 //
-// If you find legacy CSS is overriding XUI rules, you can also use the `xui-container` mixin to apply these rules to more specific selectors in your own CSS.
+// 1. **Foundational CSS** can be used for page layout, typography, spacing, etc. that will never have an associated React component and will be frequently used directly to layout pages and content within applications.
+// 2. **Component CSS** organised under Building Blocks this CSS is used to style React components. It will work with HTML or another template language, however it is always preferable to use a premade React component over these classes directly.
+// 3. **Utilities and helpers** provide CSS classes to do common things that might need managing and in a consistent way eg hiding, rotating. The Utilities are found at the end of the Building Blocks section.
 //
 // Styleguide: Getting Started.Developing with XUI.1.1
 
-// Using XUI React components
+// Conventions and standards
+//
+// * XUI uses a SMACSS and BEM inspired syntax to name things
+// * We strongly favour a flat class based approach to CSS.
+// * We don't support CSS in JavaScript.
+// * We author in SCSS and ship as a single CSS.
+// * XUI styling should be additive and avoid overwriting styled properties.
+// * XUI CSS works without React components but components are prefered.
+// * Margin, padding and positioning styles should be provided in optional `-layout` classes.
+// * All rules get the `xui-` namespace - please use your own namespace for any custom code never this.
+// * XUI does not provide a reset style as to not make assumptions about resetting elements that may have already been styled.
+//
+// Styleguide: Getting Started.Developing with XUI.1.2
+
+// Staying up-to-date
+//
+// An important goal of XUI is to allow our applications to remain consistent as technology and our UI evolves. The best way to ease the upgrade process is to:
+//
+// Avoid writing your own CSS as much as possible, particularly if your CSS overrides XUI's styling. The less custom CSS you have, the easier it will be to upgrade to future versions of XUI.
+//
+// Prefer XUI React components over custom components. XUI components are tested to work as suite of components and will work across upgrades automatically or have a tested migration path.
+//
+// Styleguide: Getting Started.Developing with XUI.1.3
+
+// Installing React components
+//
+// We use an internal artifactory server to host XUI Components. Make them available to NPM by adding the following to .npmrc in your projects root folder. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).
+//
+// <!--?prettify?-->
+// ```js
+// @xero:registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-dev
+// registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-upstream
+// ```
+//
+// Install XUI with npm
+//
+// <!--?prettify?-->
+// ```bash
+// npm install --save @xero/xui
+// ```
+//
+// This will install all the XUI components into `node_modules/@xero/xui` and should be correctly pathed for using with Webpack or Rollup.
+//
+// Related components are grouped together in a single entry point to make importing related components easier. Components will always export a default and may have additional named exports.
+//
+// Use standard es6 import syntax to import XUI components.
+//
+// <!--?prettify lang=js?-->
+// ```
+// import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
+// import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+// ```
+//
+// Full component documentation can be found in the [XUI React Docs](react/).
 //
 // Styleguide: Getting Started.Developing with XUI.2
 
 // Conventions and standards
 //
-// * XUI uses BEM to name things
-// * Something about using separate -layout classes
-// * All rules get the `xui-` namespace - please use your own namespace for any custom code never this
-// * We don't have a reset
+// * We use vanilla React (and don't provide any redux/application state management)
+// * We prefer stateless and pure components for performance reasons
+// * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are ok, but must be overridable via props)
+// * We use PropTypes but not Flow or TS
+//
+// Styleguide: Getting Started.Developing with XUI.2.1
+
+// Extending XUI
+//
+// We would really like you to use XUI provided CSS and React components but if what you need isn't in the library we provide a couple of ways of extending XUI.
+//
+// 1. XUI exposes its variables and mixins and these can be brought into an application or component to gain access to things like colours and spacing.
+// 2. XUI React components can be used to compose new and interesting components that can be used inside an app and shared with your friends
 //
 // Styleguide: Getting Started.Developing with XUI.3
 
-// Staying up-to-date
+// Contributing
 //
-// An important goal of XUI is to allow our applications to remain consistent as
-// technology and our UI evolves. There's a few strategies for making upgrades relatively painless.
+// We would love your help. XUI is structured to work like an inner source project however in practice this has been difficult to maintain. XUI has a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
 //
-// * Avoid writing your own CSS as much as possible, particularly if your CSS
-//    overrides XUI's styling. The less custom CSS you have, the easier it will be
-//    to upgrade to future versions of XUI.
+// We encourage you to join the discussions on issues and pull requests. As the core of XUI evolves we are putting in support structures to make it easier to contribute. [CONTRIBUTING.md](#) will always contain the detailed information around the process to contribute to the project.
 //
 // Styleguide: Getting Started.Developing with XUI.4
 
-// Custom code and contributing
-//
-// Styleguide: Getting Started.Developing with XUI.5

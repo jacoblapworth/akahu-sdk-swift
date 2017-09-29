@@ -22,14 +22,12 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 .#{$ns}-inputwrapper {
 	position: relative;
 
-	.#{$ns}-input--icon-right ~ .#{$ns}-input,
-	.#{$ns}-input--iconwrapper-right ~ .#{$ns}-input {
-		padding-right: $xui-input-height + 1;
+	.#{$ns}-input-has-left-icon {
+		padding-left: $xui-input-height + 1;
 	}
 
-	.#{$ns}-input--icon-left ~ .#{$ns}-input,
-	.#{$ns}-input--iconwrapper-left ~ .#{$ns}-input {
-		padding-left: $xui-input-height + 1;
+	.#{$ns}-input-has-right-icon {
+		padding-right: $xui-input-height + 1;
 	}
 
 	.#{$ns}-icon {

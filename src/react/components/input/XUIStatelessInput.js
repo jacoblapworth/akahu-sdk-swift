@@ -24,8 +24,10 @@ export default class XUIStatelessInput extends PureComponent {
 		} = input.props;
 
 		const baseClass = 'xui-input';
+		const hasLeftIcon = `${baseClass}-has-left-icon`;
+		const hasRightIcon = `${baseClass}-has-right-icon`;
 
-		const inputClasses = cn(
+		let inputClasses = cn(
 			baseClass,
 			className,
 			{
@@ -47,12 +49,24 @@ export default class XUIStatelessInput extends PureComponent {
 		let iconComponent;
 
 		if (hasIcon) {
+			if ((!iconAttributes.position || iconAttributes.position == "left") && !inputClasses.includes(hasLeftIcon)) {
+				inputClasses += ` ${hasLeftIcon}`;
+				if (button && !inputClasses.includes(hasRightIcon)) {
+					inputClasses += ` ${hasRightIcon}`
+				}
+			} else if (!inputClasses.includes(hasRightIcon)) {
+				inputClasses += ` ${hasRightIcon}`;
+			}
+
 			const iconClass = `${baseClass}--icon-${iconAttributes.position || 'left'}`;
 			const iconWrapperClass = hasIcon && `${baseClass}--iconwrapper`;
 
-			const iconWrapperClasses = cn(iconWrapperClass, `${iconWrapperClass}-${iconAttributes.position}`, {
-				[`${iconWrapperClass}-${iconAttributes.wrapperColor}`]: iconAttributes.wrapperColor != null
-			});
+			const iconWrapperClasses = cn(
+				iconWrapperClass,
+				`${iconWrapperClass}-${iconAttributes.position}`,
+				{
+					[`${iconWrapperClass}-${iconAttributes.wrapperColor}`]: iconAttributes.wrapperColor != null
+				});
 
 			iconComponent = iconWrapperClass ? (
 				<div className={iconWrapperClasses}>
@@ -67,6 +81,8 @@ export default class XUIStatelessInput extends PureComponent {
 					{...iconAttributes}
 				/>
 			)
+		} else if (button && !inputClasses.includes(hasRightIcon)) {
+			inputClasses += ` ${hasRightIcon}`;
 		}
 
 		// TODO: clean this up. Don't use both ...other and inputAttributes

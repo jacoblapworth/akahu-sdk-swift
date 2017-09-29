@@ -151,6 +151,7 @@
 // Classes:
 // xui-u-hidden: Set display and visibility to none
 // xui-u-hidden-visually: Set width and height to 0
+// xui-u-hidden-content: Set opacity to 0 and pointer events to 0
 // xui-u-hidden-narrow: Set display to none below 520px
 // xui-u-hidden-medium: Set display to none between 520px and 940px
 // xui-u-hidden-wide: Set display to none above 940px
@@ -319,6 +320,12 @@
 
 .#{$ns}-u-hidden-visually {
 	@include xui-utility-hidden-visually;
+}
+
+.#{$ns}-u-hidden-content {
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
 }
 
 .#{$ns}-u-hidden-narrow {

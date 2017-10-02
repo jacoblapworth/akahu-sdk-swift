@@ -56,7 +56,7 @@ export default function MonthSelector({
 		);
 
 	return (
-		<div className="xui-datepicker--heading xui-heading-item xui-datepicker--heading-month">
+		<div className="xui-datepicker--heading xui-datepicker--heading-month">
 			{select}
 			{label}
 		</div>

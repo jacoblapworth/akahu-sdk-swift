@@ -60,9 +60,9 @@
 //
 // An important goal of XUI is to allow our applications to remain consistent as technology and our UI evolves. The best way to ease the upgrade process is to:
 //
-// Avoid writing your own CSS as much as possible, particularly if your CSS overrides XUI's styling. The less custom CSS you have, the easier it will be to upgrade to future versions of XUI.
+// * Avoid writing your own CSS as much as possible, particularly if your CSS overrides XUI's styling. The less custom CSS you have, the easier it will be to upgrade to future versions of XUI.
 //
-// Prefer XUI React components over custom components. XUI components are tested to work as suite of components and will work across upgrades automatically or have a tested migration path.
+// * Prefer XUI React components over custom components. XUI components are tested to work as suite of components and will work across upgrades automatically or have a tested migration path.
 //
 // Styleguide: Getting Started.Developing with XUI.1.3
 
@@ -119,9 +119,8 @@
 
 // Contributing
 //
-// We would love your help. XUI is structured to work like an inner source project however in practice this has been difficult to maintain. XUI has a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
+// We would love your help. XUI is structured to work like an inner source project, however in practice this has been difficult to maintain. XUI has a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
 //
 // We encourage you to join the discussions on issues and pull requests. As the core of XUI evolves we are putting in support structures to make it easier to contribute. [CONTRIBUTING.md](#) will always contain the detailed information around the process to contribute to the project.
 //
 // Styleguide: Getting Started.Developing with XUI.4
-

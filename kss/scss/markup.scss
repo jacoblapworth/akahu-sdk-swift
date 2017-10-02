@@ -37,7 +37,7 @@
 	bottom: 0;
 	height: 100vh;
 	overflow: auto;
-	z-index: 100;
+	z-index: 9999;
 	padding-top: calc(1rem + #{$ds-page-header-height});
 	@include ds-breakpoint-massive {
 		left: 80rem;

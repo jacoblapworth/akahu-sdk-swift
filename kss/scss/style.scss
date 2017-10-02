@@ -278,6 +278,10 @@ code {
 	align-items: center;
 }
 
+.ds-tips:last-child {
+	margin-bottom: $xui-s-large;
+}
+
 // -----------------------------------------------------------------------------
 // KSS added structure
 // -----------------------------------------------------------------------------
@@ -757,7 +761,7 @@ $kss-color-padding: #eeebff;
 		left: 0;
 		right: 0;
 		width: auto;
-		z-index: 100;
+		z-index: 8888;
 		background: #fff;
 		border-bottom: 1px solid $xui-color-grey-6;
 		height: $ds-page-header-height;

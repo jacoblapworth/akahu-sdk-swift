@@ -28,14 +28,15 @@
 // you can use XUI's variables and mixins to provide the same look by creating your own
 // application-specific classes.
 //
+// <!--?prettify lang=css?-->
 // ```
 // @import '@xero/xui/sass/vars';
 // @import '@xero/xui/sass/mixins';
 //
 // .example-container {
-//	box-shadow: $xui-shadow-border-all;
-//	background-color: $xui-color-white;
-//	border-radius: $xui-radius;
+// 	box-shadow: $xui-shadow-border-all;
+// 	background-color: $xui-color-white;
+// 	border-radius: $xui-radius;
 // }
 // ```
 //

@@ -1,36 +1,3 @@
-// Actions Layout
-//
-// Styleguide: Building Blocks.Buttons.9
-
-// Standard Layout
-//
-// This should be used in most cases where two buttons are required on a page. Using the `xui-actions-layout` class will provide padding between the buttons
-// as well as adding mobile responsive behaviour at smaller screen sizes. The ordering of buttons will be automatic as long as `xui-actions--primary` and `xui-actions--secondary`
-// are applied.
-//
-// Markup:
-// <div class="xui-panel xui-padding xui-u-fullwidth">
-// 	<div class="xui-actions xui-actions-layout">
-// 		<button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
-// 		<button type="button" class="xui-button xui-button-main xui-actions--primary">Primary</button>
-// 	</div>
-// </div>
-//
-// Styleguide: Building Blocks.Buttons.9.1
-
-// Linear Layout
-//
-// The addtion of the `xui-actions-linear` class will make the buttons sit at opposite sides of the container. This should only be used when creating a wizard.
-//
-// Markup:
-// <div class="xui-panel xui-padding xui-u-fullwidth">
-// 	<div class="xui-actions xui-actions-linear xui-actions-layout">
-// 		<button type="button" class="xui-button xui-button-standard xui-actions--secondary">Secondary</button>
-// 		<button type="button" class="xui-button xui-button-main xui-actions--primary">Primary</button>
-// 	</div>
-// </div>
-//
-// Styleguide: Building Blocks.Buttons.9.2
 
 .#{$ns}-actions {
 	display: flex;
@@ -62,6 +29,12 @@
 		.#{$ns}-actions--secondary {
 			margin: $xui-s-standard 0 0;
 			order: 1;
+		}
+	}
+
+	@include xui-breakpoint-medium {
+		.#{$ns}-actions--primary {
+			margin-left: $xui-s-small;
 		}
 	}
 

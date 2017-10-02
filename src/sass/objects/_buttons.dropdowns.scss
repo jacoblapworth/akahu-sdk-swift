@@ -15,6 +15,9 @@
 	.#{$ns}-button-split & {
 		margin: 4px 0 0;
 	}
+	.#{$ns}-button-small & {
+		margin: -1px -2px -4px -2px;
+	}
 }
 
 

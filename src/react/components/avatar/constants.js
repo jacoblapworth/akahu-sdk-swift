@@ -3,10 +3,12 @@
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
+	xsmall: 'xui-avatar-xsmall',
 	small: 'xui-avatar-small',
 	medium: '',
 	large: 'xui-avatar-large',
-	xlarge: 'xui-avatar-xlarge'
+	xlarge: 'xui-avatar-xlarge',
+	xxlarge: 'xui-avatar-xxlarge'
 };
 
 /**

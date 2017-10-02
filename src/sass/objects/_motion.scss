@@ -6,6 +6,8 @@
 //
 // Introduction: XUI utilises a number of transitions to help communicate change to the customer in a meaningful way.
 //
+// Flag: Under review
+//
 // Weight: 1
 //
 // Styleguide: Fundamentals.Motion
@@ -13,7 +15,7 @@
 // Common transitions
 //
 // For most use cases, one of the following transition classes will suffice.
-// 
+//
 // Definitions:
 // All: Animate all properties: `.xui-transition`
 // Fade in: Animate opacity in: `.xui-transition-fadein`
@@ -37,8 +39,8 @@
 //
 // Definitions:
 // Fast:0.1s:`-speed-fast`
-// Medium:0.3s:`-speed-fast`
-// Slow:0.5s:`-speed-fast`
+// Medium:0.3s:`-speed-medium`
+// Slow:0.5s:`-speed-slow`
 //
 // Styleguide: Fundamentals.Motion.2.1
 
@@ -46,7 +48,7 @@
 //
 // Definitions:
 // Enter: Ease in: `-curve-enter`
-// Standard: Ease in a nd out: `-curve-standard`
+// Standard: Ease in and out: `-curve-standard`
 // Exit: Ease out:`-curve-exit`
 //
 // Styleguide: Fundamentals.Motion.2.2

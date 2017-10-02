@@ -77,6 +77,59 @@ class BasicStatefulPicklist extends React.Component {
 <BasicStatefulPicklist />;
 ```
 
+```
+const Pickitem = require('../picklist/Pickitem').default;
+
+class BasicHorizontalStatefulPicklist extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			selectedItem: 2
+		}
+
+		this.onSelect = this.onSelect.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
+	}
+
+	onSelect(value, item) {
+		this.setState({
+			selectedItem: item.props.id
+		});
+		this._rootNode.focus();
+	}
+
+	onKeyDown(event) {
+		this._list.onKeyDown(event);
+	}
+
+	render () {
+		return (
+				<div
+					id="spl-wrapper"
+					ref={comp => this._rootNode = comp}
+					tabIndex={0}
+					onKeyDown={this.onKeyDown}
+				>
+					<StatefulPicklist isHorizontal onSelect={this.onSelect} ref={comp => this._list = comp}>
+						<Picklist isHorizontal>
+							{[1, 2, 3, 4].map(i => {
+								return (
+									<Pickitem id={i} key={i} isSelected={this.state.selectedItem === i}>
+										{`Item ${i}`}
+									</Pickitem>
+									)
+								})
+							}
+						</Picklist>
+					</StatefulPicklist>
+				</div>
+			)
+		}
+};
+<BasicHorizontalStatefulPicklist />;
+```
+
 #### Key Things To Note
 * **The wrapping element must be in focus** for the keyboard handling to work.
 * You need to **hook in the keyDown event**, this is so it can be managed by the wrapper and not assume it should be called with every valid keyboard event. This is so certain keyDown events or DOM nodes can be filtered out by the custom wrapper. See the DropdownPanel for a good example of this.

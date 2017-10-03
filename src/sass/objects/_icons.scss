@@ -15,7 +15,7 @@
 //
 // The classes outlined here are only responsible for styling the icons, and do not contain the SVG data themselves.
 // To include these, you will need to import the icons into your page using the following script, and then reference their name via the `xlink:href` attribute.
-// If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>XUI icon repository</a>. 
+// If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>XUI icon repository</a>.
 //
 // @xuiIconBlobURL
 //
@@ -85,41 +85,41 @@
 // Blue: 				`.xui-icon-color-blue`
 // Red: 				`.xui-icon-color-red`
 // Green: 			`.xui-icon-color-green`
-// PDF: 				`.xui-color-color-pdf`
-// Spreadsheet: `.xui-color-color-spreadsheet`
+// PDF: 				`.xui-icon-color-file-pdf`
+// Spreadsheet: `.xui-icon-color-file-spreadsheet`
 // White: 			`.xui-icon-color-white`
 // White muted: `.xui-icon-color-white-muted`
 // White faint: `.xui-icon-color-white-faint`
 //
 // Markup:
-//	<svg focusable="false" class="xui-icon"> 
+//	<svg focusable="false" class="xui-icon">
 // 		<use xlink:href="#xui-icon-filter" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-standard"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-standard">
 // 		<use xlink:href="#xui-icon-contact" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-blue"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-blue">
 // 		<use xlink:href="#xui-icon-xero" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-red"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-red">
 // 		<use xlink:href="#xui-icon-stop" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-green"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-green">
 // 		<use xlink:href="#xui-icon-checkbox-check" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-pdf"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-file-pdf">
 // 		<use xlink:href="#xui-icon-file-pdf" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet">
 // 		<use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white xui-background-grey-1"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-white xui-background-grey-1">
 // 		<use xlink:href="#xui-icon-notification" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white-muted xui-background-grey-1"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-white-muted xui-background-grey-1">
 // 		<use xlink:href="#xui-icon-link" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white-faint xui-background-grey-1"> 
+//	<svg focusable="false" class="xui-icon xui-icon-color-white-faint xui-background-grey-1">
 // 		<use xlink:href="#xui-icon-print" role="presentation"/>
 // 	</svg>
 //

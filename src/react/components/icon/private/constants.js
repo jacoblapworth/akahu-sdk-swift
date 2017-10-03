@@ -14,6 +14,8 @@ export const rotationClasses = {
 export const colorClasses = {
 	standard: 'xui-icon-color-standard',
 	white: 'xui-icon-color-white',
+	white_muted: 'xui-icon-color-white-muted',
+	white_faint: 'xui-icon-color-white-faint',
 	blue: 'xui-icon-color-blue',
 	green: 'xui-icon-color-green',
 	red: 'xui-icon-color-red',

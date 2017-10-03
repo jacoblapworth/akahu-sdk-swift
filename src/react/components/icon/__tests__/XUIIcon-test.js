@@ -58,6 +58,10 @@ describe('XUIIcon', () => {
 				<XUIIcon path={accessibility} color={'green'} />
 				<XUIIcon path={accessibility} color={'white'} />
 				<XUIIcon path={accessibility} color={'blue'} />
+				<XUIIcon path={accessibility} color={'file_spreadsheet'} />
+				<XUIIcon path={accessibility} color={'file_pdf'} />
+				<XUIIcon path={accessibility} color={'white_faint'} />
+				<XUIIcon path={accessibility} color={'white_muted'} />
 			</div>
 		);
 
@@ -67,6 +71,10 @@ describe('XUIIcon', () => {
 		expect(icons.at(0).hasClass('xui-icon-color-green')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-white')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-blue')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-file-spreadsheet')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-file-pdf')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-white-faint')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-white-muted')).toBeFalsy();
 
 		expect(icons.at(1).hasClass('xui-icon-color-standard')).toBeTruthy();
 
@@ -77,6 +85,14 @@ describe('XUIIcon', () => {
 		expect(icons.at(4).hasClass('xui-icon-color-white')).toBeTruthy();
 
 		expect(icons.at(5).hasClass('xui-icon-color-blue')).toBeTruthy();
+
+		expect(icons.at(6).hasClass('xui-icon-color-file-spreadsheet')).toBeTruthy();
+
+		expect(icons.at(7).hasClass('xui-icon-color-file-pdf')).toBeTruthy();
+
+		expect(icons.at(8).hasClass('xui-icon-color-white-faint')).toBeTruthy();
+
+		expect(icons.at(9).hasClass('xui-icon-color-white-muted')).toBeTruthy();
 	});
 
 	it('Should render title and desc elements within the SVG element based on the props provided', function () {

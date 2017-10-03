@@ -16,7 +16,7 @@ class Uncontrolled extends React.Component {
 	}
 }
 
-const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
+const rowClasses = 'xui-row-flex xui-u-flex-space-around xui-margin-bottom-small';
 const normal = (
 	<section>
 		<h3>Standard Checkbox</h3>

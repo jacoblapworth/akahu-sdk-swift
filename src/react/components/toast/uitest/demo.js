@@ -7,7 +7,7 @@ import XUIToastActions from '../XUIToastActions';
 import XUIToastMessage from '../XUIToastMessage';
 import XUIToastWrapper from '../XUIToastWrapper';
 
-const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
+const rowClasses = 'xui-row-flex xui-u-flex-space-around xui-margin-bottom-small';
 const noop = () => {};
 
 const standard = (

@@ -20,7 +20,7 @@ const buttonVariants = (
 	<section>
 		<h3>Button Variants</h3>
 		{variants.map(variant => {
-			const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small', {
+			const containerClasses = cn('xui-row-flex xui-u-flex-space-around xui-margin-bottom-small', {
 				'xui-background-grey-1 xui-color-white': variant === 'icon-inverted'
 			});
 			const icon = variant.startsWith('icon') ? <XUIIcon path={desktop} /> : null;
@@ -62,7 +62,7 @@ const buttonSizes = (
 	<section>
 		<h3>Button Sizes</h3>
 		{sizes.map(size => (
-			<div key={size} className="xui-row-flex xui-space-around xui-margin-bottom-small">
+			<div key={size} className="xui-row-flex xui-u-flex-space-around xui-margin-bottom-small">
 				<XUIButton size={size} onClick={onClick}>
 					{size}
 				</XUIButton>
@@ -92,7 +92,7 @@ const splitButtonVariants = (
 	<section>
 		<h3>Split Button Variants</h3>
 		{variants.map(variant => {
-			const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small', {
+			const containerClasses = cn('xui-row-flex xui-u-flex-space-around xui-margin-bottom-small', {
 				'xui-background-grey-1 xui-color-white': variant === 'icon-inverted'
 			});
 			const icon = variant.startsWith('icon') ? <XUIIcon path={desktop} /> : null;
@@ -121,7 +121,7 @@ const splitButtonVariants = (
 const icons = (
 	<section>
 		<h3>Icon Buttons (only icons)</h3>
-		<div className="xui-row-flex xui-space-around xui-margin-bottom-small">
+		<div className="xui-row-flex xui-u-flex-space-around xui-margin-bottom-small">
 			<XUIButton variant="icon">
 				<XUIIcon path={desktop} />
 			</XUIButton>
@@ -135,7 +135,7 @@ const icons = (
 				<XUIIcon path={desktop} />
 			</XUIButton>
 		</div>
-		<div className="xui-row-flex xui-space-around xui-margin-bottom-small xui-background-grey-1 xui-color-white">
+		<div className="xui-row-flex xui-u-flex-space-around xui-margin-bottom-small xui-background-grey-1 xui-color-white">
 			<XUIButton variant="icon-inverted">
 				<XUIIcon path={desktop} />
 			</XUIButton>

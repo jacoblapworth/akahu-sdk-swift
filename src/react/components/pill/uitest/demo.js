@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 const onDelete = () => console.log('deleted pill');
 const baseClass = 'xui-pill';
-const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small');
+const containerClasses = cn('xui-row-flex xui-u-flex-space-around xui-margin-bottom-small');
 const avatarProps = {
 	value: 'SJ',
 	imageUrl: 'logo.png',

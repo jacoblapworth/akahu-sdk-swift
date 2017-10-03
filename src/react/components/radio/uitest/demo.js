@@ -4,7 +4,7 @@ import XUIRadio from '../XUIRadio';
 import XUIRadioGroup from '../XUIRadioGroup';
 import desktop from '@xero/xui-icon/icons/desktop';
 
-const rowClasses = 'xui-row-flex xui-space-around xui-margin-bottom-small';
+const rowClasses = 'xui-row-flex xui-u-flex-space-around xui-margin-bottom-small';
 
 const normal = (
 	<section>

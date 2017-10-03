@@ -29,5 +29,7 @@
 }
 
 .ds-example-wide {
-	@include embiggen;
+  @include ds-breakpoint-massive {
+    @include embiggen;
+  }
 }

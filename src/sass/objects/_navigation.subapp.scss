@@ -1,17 +1,13 @@
-
-// Parent container
-// The coloured background goes full width of the page
 .#{$ns}-pageheading {
 	align-items: center;
 	background-color: $xui-color-white;
-	border-bottom: $xui-border-standard;
+	box-shadow: $xui-shadow-border-bottom;
 	display: flex;
 	flex-wrap: no-wrap;
 	min-height: 60px;
 	overflow: hidden;
 }
 
-// Content container
 .#{$ns}-pageheading--content {
 	align-items: center;
 	display: flex;
@@ -28,22 +24,35 @@
 }
 
 .#{$ns}-pageheading--content-layout {
-	@include xui-margin-vertical($xui-s-small);
 	flex-flow: row wrap;
-
+	width: 100%;
+	@include xui-margin-horizontal($xui-s-small); // so page widths are not necessary
 	&.#{$ns}-page-width-standard {
-		@media (max-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
-			@include xui-margin-horizontal($xui-s-small);
+		@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+			@include xui-margin-horizontal(auto);
 		}
 	}
-
 	&.#{$ns}-page-width-large {
-		@media (max-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
-			@include xui-margin-horizontal($xui-s-small);
+		@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+			@include xui-margin-horizontal(auto);
+		}
+	}
+	.#{$ns}-pageheading--title {
+		@include xui-padding-left($xui-s-small);
+		&.#{$ns}-page-width-standard {
+			@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+				@include xui-padding-left(0);
+			}
+		}
+		&.#{$ns}-page-width-large {
+			@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+				@include xui-padding-left(0);
+			}
 		}
 	}
 }
 
+// Deprecated in XUI12, remove in XUI13
 .#{$ns}-pageheading--content-layout-titleonly {
 	height: 40px;
 }
@@ -53,18 +62,49 @@
 	font-weight: bold;
 }
 
-.#{$ns}-breadcrumb--icon {
-	color: $xui-color-grey-alpha-2;
+.#{$ns}-breadcrumb--link {
+	@include xui-button-borderless($xui-color-xero-blue, $xui-color-xero-dark-blue);
+	min-height: $xui-input-height-small;
+	outline: none;
+	padding: 6px $xui-s-small;
+	.#{$ns}-breadcrumb:first-of-type & {
+		@include xui-margin-right(-$xui-s-small);
+	}
+	.#{$ns}-breadcrumb:nth-of-type(n+2) & {
+		@include xui-margin-horizontal(-$xui-s-small);
+	}
 }
 
-
-
-
-
+.#{$ns}-breadcrumb--icon {
+	color: $xui-color-grey-alpha-2;
+	margin-top: 3px;
+}
 
 .#{$ns}-pageheading--title {
 	flex: 1 1 auto;
 	font-size: $xui-font-size-large;
 	font-weight: bold;
-	margin: 0 $xui-s-small 0 0;
+	margin: 10px 0; // Replaces margins removed from .xui-pageheading--content-layout, remove in XUI13
+}
+
+.#{$ns}-pageheading--tabs {
+	align-items: center;
+	display: flex;
+	.#{$ns}-picklist-horizontal {
+		margin-left: $xui-s-2xlarge;
+		min-height: 60px;
+	}
+}
+
+.#{$ns}-pageheading--actions {
+	align-items: center; /* Required for button height not to stretch */
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+	> .#{$ns}-button {
+		margin-left: $xui-s-small;
+	}
+	> .#{$ns}-buttongroup {
+		margin-left: $xui-s-small;
+	}
 }

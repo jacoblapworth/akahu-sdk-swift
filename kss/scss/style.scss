@@ -348,12 +348,12 @@ section[class*="kss-section"] {
 	}
 
 	.xui-mask {
-		// border-radius: 3px;
 		opacity: 1;
 		padding: 20px 0;
 		position: relative;
 		width: 100%;
 		z-index: 0;
+		min-height: 667px;
 	}
 }
 

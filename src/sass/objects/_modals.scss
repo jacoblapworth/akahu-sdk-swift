@@ -7,187 +7,158 @@
 //
 // Teaser: Add layers of infromation or interaction
 //
-// <p class="ds-intro">Use modal dialogs to provide additional functionality or to interrupt users with things which they really, really need to pay attention to.</p>
+// Introduction: Modals are used to provide additional functionality not available on the base page, and provide intermediary steps between larger flows.
 //
 // Styleguide: Building Blocks.Modals
 
-// Anatomy
+// Best practice
 //
-// A standard modal is comprised of a header, body and footer. The header contains the modal title with a class of .xui-modal-title and an svg close button.
-//
-// ExampleClass: ds-example-flush
-//
-// Markup:
-// <div class="xui-mask xui-mask-is-active">
-//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
-//     <button type="button" class="xui-button xui-button-icon xui-modal--close" title="Close" aria-label="Close">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//     <header class="xui-modal--header xui-padding-left-large">
-//       <h3 id="modal-heading" class="xui-modal--heading">Smart Rule: Bank</h3>
-//     </header>
-//     <div class="xui-modal--body xui-padding-horizontal-large">
-//       <p id="modal-text">Select which items from your bank should be automatically allocated to which account.</p>
-//       <form class="xui-form-layout xui-margin-top-large xui-padding-top">
-//         <div class="xui-field-layout">
-//           <div class="xui-select" aria-describedby="modal-text">
-//             <select class="xui-select--control" id="group-button-example3">
-//               <option>If items are negative</option>
-//             </select>
-//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//           </div>
-//         </div>
-//         <div class="xui-field-layout">
-//           <label class="xui-text-label xui-fieldlabel-layout" for="move-to">Move To</label>
-//           <div class="xui-select" aria-describedby="modal-text">
-//             <select id="move-to" class="xui-select--control" id="group-button-example3">
-//               <option>Current Liabilities</option>
-//             </select>
-//             <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
-//       <button type="button" class="xui-actions--secondary xui-button xui-button-negative">Delete</button>
-//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
-//     </footer>
-//   </section>
-// </div>
+// Tips:
+// Do: Select a modal size that reflects the complexity of the content.
+// Warning: Where possible, avoid using modals to confirm user actions. Instead, action them immediately, and provide an undo option via a toast.
+// Warning: Avoid ambiguous words like `OK` or `Yes` for footer actions. Be specific.
 //
 // Styleguide: Building Blocks.Modals.1
 
-// Sizes
+// Masks
 //
-// Definitions:
-// Small: 300px: `xui-modal-width-small`
-// Medium: 460px: `xui-modal-width-medium`
-// Large: 620px: `xui-modal-width-large`
-// Extra large: 860px: `xui-modal-width-xlarge`
+// Modals are positioned inside a semi-transparent mask that prevents the user from clicking background elements while the modal is open. 
+// Masks are hidden by default, and require an additional modifier to be visible.
+//
+// Classes:
+// xui-mask: Mask for a modal, hidden by default
+// xui-mask-is-active:  Add to show the mask
 //
 // Styleguide: Building Blocks.Modals.2
 
-// Full screen modals
+// Layout
 //
-// You can do a full screen modal it's a touch different
-//
-// Styleguide: Building Blocks.Modals.2.1
-
-// Modals on small screens
-//
-// All modal sizes full-screen on small screens
-//
-// Styleguide: Building Blocks.Modals.2.2
-
-
-// Implementation
-//
-// * The modal has a semi-transparent mask to prevent the user from clicking on other elements on the page while the modal is open
-// * The `.xui-mask` class sets `opacity: 0;` which hides the modal by default
-// * Apply the `.xui-mask-is-active` class alongside `.xui-mask` when you wish to display the modal
-// * There are several different classes for modal width variations eg. `.xui-modal-width-small`, `.xui-modal-width-medium`, `.xui-modal-width-large`
-// * Closing modals should be handled in the following ways:
-//   * Clicking on the cross in the modal should close the modal
-//   * Pressing ESC while the modal is open should close the modal
-//   * Clicking on a button in the modal footer can optionally close the modal (e.g. 'Submit')
-//   * Clicking on the mask should **not** close the modal
-//
-// ### Accessibility
-// Adding a `dialog` role to the modal is usually not enough to make it accessible. The modal also needs to be labelled appropriately and focus around the modal needs to be managed.
-//
-// #### Labelling
-//  * The `aria-labelledby` and `aria-describedby` attributes can be used to ensure the purpose of the modal is clear.
-//
-// #### Keyboard interaction
-//  * When the modal is opened, the keyboard focus should be moved to a default focusable control with the modal. For example, this could be a button in the footer of the modal or the first element in a form within the modal.
-//  * The main page content that the mask covers should be temporarily disabled and therefore not accessible by the keyboard while the modal is open.
-//
-// ### Usage
-//
-// Modals longer than the viewport height should use one of the following patterns
-// to correctly manage overflow.
-//
-// #### Scroll the mask
-// The recommended pattern is to vertically scroll the modal's overflow on the mask.
-// This provides the best responsive pattern from narrow to wide displays.
-// When using this pattern, a class should be toggled on the document's body
-// element that sets `overflow: hidden;` this will prevent two scroll bars on the page.
-//
-// <!--?prettify lang=html?-->
-// ```
-//<body class="xui-u-overflow-hidden">
-//  ...
-//  <div class="xui-mask xui-mask-is-active">
-//    ...
-// ```
-//
-// #### Scroll the modal body
-// Alternately  we support applying a max-height on the body of the modal that
-// provides inner scroll on the modal. Long pages should still add the
-// `xui-u-overflow-hidden` class to the document's body, this will prevent a
-// double scroll effect when the inner scroll reaches its end.
-//
-// <!--?prettify lang=html?-->
-//```html
-//<body class="xui-u-overflow-hidden">
-//  ...
-//  <div class="xui-mask xui-mask-is-active">
-//    ...
-//    <div class="xui-modal--body xui-modal--body-layout">
-//      ...
-//```
-//
-// Styleguide: Building Blocks.Modals.10
-
-// Class list
+// By default, modals are absolutely centered within their mask.
+// If however, their content is taller than the height of the viewport, they pin to the top, and the entire mask is scrollable.
 //
 // Classes:
 // xui-modal: Container for a modal
-// xui-modal--body: Container for the body of a modal
-// xui-modal--body-layout: For long modals when mask scrolling is not desired. Adds a max-height and overflow-y to the modal body.
-// xui-modal--header: Container for the header of a modal
-// xui-modal--heading: Style for the modal heading
 // xui-modal-layout: Recommended layout for a modal
-// xui-modal-width-small: Modifier for a small modal
-// xui-modal-width-medium: Modifier for a medium sized modal
-// xui-modal-width-large: Modifier for a large modal
-// xui-modal-width-xlarge: Modifier for an extra large modal
-// xui-modal-fullscreen: Modifier for a full screen modal (like an overlay)
-// xui-mask: Mask for a modal
-// xui-mask-is-active: Enable the mask
 //
-// Styleguide: Building Blocks.Modals.20
+// Styleguide: Building Blocks.Modals.3
 
-
-
-// Dark Modal
+// Anatomy
 //
-// Useful when showing dynamic content in the modal body and want the modal chrome to get out of the way.
+// A standard modal is comprised of three sections.
+// The header must contain a title and a close button, the body contains the main content and the footer may contain up to three buttons, one of which must be a primary button.
 //
-// ExampleClass: ds-example-flush
+// Classes:
+// xui-modal--header | Container for the modal body
+// xui-modal--body | Container for the modal body
+// xui-modal--footer | Container for the modal body
+// xui-modal--heading | Style for the modal heading
+//
+// ExampleClass: ds-example-flush ds-example-transparent ds-example-tall
 //
 // Markup:
-// <div class="xui-mask xui-mask-is-active">
-//   <section class="xui-modal xui-modal-layout xui-modal-width-medium" role="dialog" aria-labelledby="dark-modal-heading" aria-describedby="dark-modal-text">
-//     <div class="xui-u-flex xui-text-inverted xui-modal--header">
-//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-margin-small" title="Settings" aria-label="Settings">
-//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-settings" role="presentation" /></svg>
-//       </button>
-//       <h3 id="dark-modal-heading" class="xui-margin-horizontal-auto xui-modal--heading">Preview</h3>
-//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted xui-modal--close" title="Close" aria-label="Close">
-//         <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//       </button>
-//     </div>
-//     <div id="dark-modal-text" class="xui-modal--body xui-padding-horizontal-large">
-//       <p>Something to preview here</p>
-//     </div>
-//     <footer class="xui-modal--footer xui-actions xui-actions-layout xui-padding-large">
-//       <button type="button" class="xui-actions--primary xui-button xui-button-main">Done</button>
-//     </footer>
-//   </section>
-// </div>
+//	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
+//		<section class="xui-modal xui-modal-layout" tabindex="0" role="dialog">
+//			<header class="xui-modal--header">
+//				<div class='xui-modal--heading'>New project</div>
+//				<button title="Close" class="xui-modal--close xui-button xui-button-icon" tabindex="0" type="button">
+//					<svg focusable="false" class="xui-icon">
+//						<use xlink:href="#xui-icon-cross" role="presentation"/>
+//					</svg>
+//				</button>
+//			</header>
+//			<div class="xui-modal--body">
+//				<div class="xui-inputwrapper">
+//					<input type="text" class="xui-input" placeholder="Give it a title">
+//				</div>
+//			</div>
+//			<footer class="xui-modal--footer xui-actions xui-actions-layout">
+//				<button class="xui-button xui-actions--primary xui-button-main" tabindex="0" type="button">Create project</button>
+//				<button class="xui-button xui-actions--secondary xui-button-standard" tabindex="0" type="button">Cancel</button>
+//			</footer>
+//		</section>
+//	</div>
 //
-// Styleguide: Building Blocks.Modals.10
+// Styleguide: Building Blocks.Modals.4
+
+// Header
+//
+// Classes:
+// xui-modal--header: Container for header content
+// xui-modal--heading: Title within the header
+// xui-modal--close: Close button within the header
+//
+// Styleguide: Building Blocks.Modals.4.1
+
+// Body
+//
+// Classes:
+// xui-modal--body: Container for body content
+//
+// Styleguide: Building Blocks.Modals.4.2
+
+// Footer
+//
+// In order to be able to alter button layout across the board in the future, please use the following system.
+//
+// Classes:
+// xui-modal--footer: Container for footer content
+// xui-actions: Apply to footer to set the correct display alignment
+// xui-actions-layout: Apply to footer to stack buttons at narrow viewports
+// xui-actions--primary: Apply to primary button to set the correct order
+// xui-actions--secondary: Apply to primary button to set the correct order
+//
+// Styleguide: Building Blocks.Modals.4.3
+
+
+// Sizes
+//
+// To change the size of your modal, apply the following modifieres to `xui-modal`.
+// Take note that at narrow viewports, a max-width of 100% overrides any class you may have selected.
+//
+// Definitions:
+// Small: 300px wide: `xui-modal-width-small`
+// Default: 380px wide: none
+// Medium: 460px wide: `xui-modal-width-medium`
+// Large: 620px wide: `xui-modal-width-large`
+// xLarge: 860px wide: `xui-modal-width-xlarge`
+// Full screen: 100vh height, 100vw width: `xui-modal-fullscreen`
+//
+// Styleguide: Building Blocks.Modals.5
+
+// Closing a modal
+//
+// Modals can be closed by either tapping the close button, tapping a button in the modal footer, or pressing ESC while the modal is open.
+// Tapping the mask should not close the modal, as accidental clicks may lose any changes made within the modal.
+//
+// Styleguide: Building Blocks.Modals.6
+
+// Handling overflow
+// 
+// When dealing with modal content taller than the viewport height, the default behavior is to scroll the entire mask.
+// However, if neccessary, we also support applying a max-height on `xui-modal--body`, to provide inner scroll.
+// In both cases, always disable scroll on the background `body` when the mask is active, to prevent double scroll bars.
+//
+// Classes:
+// xui-u-overflow-hidden: Apply to body to temporarily disable scroll
+// xui-modal--body-layout: Apply to modal body to set a max height of 45vh
+//
+// Styleguide: Building Blocks.Modals.7
+
+// Keyboard focus
+//
+// When a modal is opened, keyboard focus should be moved to the first focusable control within the modal.
+// For example, this could the first form element or a button in the footer.
+// The concealed page content must also be temporarily disabled and should not be accessible via the keyboard while the modal is open.
+//
+// Styleguide: Building Blocks.Modals.8
+
+// Accessibility
+//
+// Adding a `dialog` role to a modal is usually not enough to make it accessible.
+// It also needs to be labelled appropriately and keyboard focus must be managed.
+// The `aria-labelledby` and `aria-describedby` attributes can be used to ensure the purpose of the modal is clear.
+//
+// Styleguide: Building Blocks.Modals.9
 
 .#{$ns}-mask {
 	align-items: center;
@@ -218,34 +189,53 @@
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-pop;
+	margin-bottom: auto; // Margin top & bottom required to fix flex > align-items: center for children taller than the container.
+	margin-top: auto;
 	outline: none;
+	position: relative;
 }
 
 .#{$ns}-modal-layout {
-	margin-bottom: auto; // Margin top & bottom required to fix flex > align-items: center for children taller than the container.
-	margin-top: auto;
 	max-width: calc(100vw - 2.5rem);  // Allows for minimum margin at the left/right of modal
-	position: relative;
-	width: 360px;
-
-	.#{$ns}-modal--close ~ .#{$ns}-modal--header {
-		min-height: 50px;
-		padding-right: 50px;
+	width: $xui-starting-width + ($xui-base-width * 3);
+	// Modal header
+	// -----------------------------------------------------------------------------
+	.#{$ns}-modal--header {
+		align-content: stretch;
+		align-items: center;
+		// If a background color is specified, ensure the border radius stays
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+		display: flex;
+		justify-content: space-between;
+		padding: $xui-s-small $xui-s-large;
 	}
 
-	.#{$ns}-modal--body {
-		flex: 1 0 250px; // I chose 250px as it was small, but not too small allowing for header and footer height.
-	}
-
-	.#{$ns}-modal--footer {
-		flex-shrink: 0;
-	}
-
+	// Modal close
+	// -----------------------------------------------------------------------------
 	.#{$ns}-modal--close {
-		margin: $xui-s-small;
-		position: absolute;
-		right: 0;
+		align-self: flex-start;
+		margin-left: auto;
+		margin-right: -$xui-s-small;
 	}
+
+	// If a heading exists
+	.#{$ns}-modal--heading ~ .#{$ns}-modal--close {
+		margin-left: $xui-s-large;
+	}
+
+	// Modal body
+	// -----------------------------------------------------------------------------
+	.#{$ns}-modal--body {
+		padding: $xui-s-small $xui-s-large;
+	}
+
+	// Modal footer
+	// -----------------------------------------------------------------------------
+	.#{$ns}-modal--footer {
+		padding: $xui-s-large;
+	}
+
 }
 
 .#{$ns}-modal--body-layout {
@@ -273,39 +263,10 @@
 	width: 100vw;
 }
 
-// Modal header
+// Modal heading
 // -----------------------------------------------------------------------------
-.#{$ns}-modal--header {
-	align-content: stretch;
-	align-items: flex-start;
-	// If a background color is specified, ensure the border radius stays
-	border-top-left-radius: inherit;
-	border-top-right-radius: inherit;
-	display: flex;
-	justify-content: space-between;
-
-	.#{$ns}-button-icon {
-		flex: 0 0 30px;
-	}
-}
 
 .#{$ns}-modal--heading {
 	font-size: $xui-font-size-medium;
 	font-weight: bold;
-}
-
-// Modal body
-// -----------------------------------------------------------------------------
-
-.#{$ns}-modal--body {
-	overflow-y: visible;
-}
-
-// Modal footer
-// -----------------------------------------------------------------------------
-
-// .#{$ns}-modal--footer is reserved
-
-.#{$ns}-modal--close {
-	float: right;
 }

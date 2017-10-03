@@ -274,7 +274,20 @@ Removed:
 
 * `xui-tag-outline` has been removed; this is now the base style provided by `xui-tag`
 * `xui-tag-solid` has been removed; use `xui-tag-neutral` instead
-* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and `xui-tag-negative`
+* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and xui-tag-negative'
+
+#### Modals
+
+* Dark modals have been deprecated. Use a regular modal instead.
+* `dark-modal-heading` has been removed; use a regular modal heading instead.
+* `dark-modal-text` has been removed; use a regular modal body instead.
+* `xui-modal-layout` default width is now 380px, not 360px.
+* `xui-modal--close` no longer needs to precede the header in the markup.
+* `xui-modal--body` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--header` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--close` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--footer` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--heading` now handles wrapping text.
 
 #### Drawer
 

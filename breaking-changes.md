@@ -293,6 +293,12 @@ Removed:
 
 * `xui-sidedrawer`, `xui-sidedrawer-is-closed`, `xui-sidedrawer--header`, `xui-sidedrawer--footer`, `xui-sidedrawer--layout` and `xui-sidedrawer--content` have been removed. There is no replacement for them.
 
+#### Overview blocks
+
+* `xui-overview` border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect
+* `xui-overview--label` has been added, use this instead of utility classes
+* `xui-overview--value` has been added, use this instead of utility classes
+
 #### Page header
 
 * `xui-pageheading--content-layout-titleonly` has been deprecated, use `xui-pagehading--title` instead.

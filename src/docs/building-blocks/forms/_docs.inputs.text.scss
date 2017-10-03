@@ -52,11 +52,11 @@
 // Markup:
 // <div class="xui-inputwrapper xui-margin">
 //   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-url" role="presentation" /></svg>
-//   <input class="xui-input" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
+//   <input class="xui-input xui-input-has-left-icon" type="url" placeholder="http://www.xero.com" aria-label="URL"/>
 // </div>
 // <div class="xui-inputwrapper xui-margin">
 //   <svg focusable="false" class="xui-icon xui-input--icon-right"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
-//   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+//   <input class="xui-input xui-input-has-right-icon" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-inputwrapper xui-margin">
 //   <svg focusable="false" class="xui-icon xui-input--icon-left"> <use xlink:href="#xui-icon-search" role="presentation" /></svg>
@@ -65,25 +65,25 @@
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-clear" role="presentation"/></svg>
 //     </button>
 //   </div>
-//   <input class="xui-input" type="search" placeholder="Search" aria-label="Search"/>
+//   <input class="xui-input xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Search" aria-label="Search"/>
 // </div>
 // <div class="xui-inputwrapper xui-margin">
 //   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-input--iconwrapper-twitter">
 //     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-left"> <use xlink:href="#xui-icon-social-twitter" role="presentation" /></svg>
 //   </div>
-//   <input class="xui-input" type="text" placeholder="@username" aria-label="Twitter username"/>
+//   <input class="xui-input xui-input-has-left-icon" type="text" placeholder="@username" aria-label="Twitter username"/>
 // </div>
 // <div class="xui-inputwrapper xui-margin">
 //   <div class="xui-input--iconwrapper xui-input--iconwrapper-right xui-input--iconwrapper-facebook" >
 //     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-right"> <use xlink:href="#xui-icon-social-facebook" role="presentation" /></svg>
 //   </div>
-//   <input class="xui-input" type="text" placeholder="Facebook URL" aria-label="Facebook URL"/>
+//   <input class="xui-input xui-input-has-right-icon" type="text" placeholder="Facebook URL" aria-label="Facebook URL"/>
 // </div>
 // <div class="xui-inputwrapper xui-margin">
 //   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-color-icon">
 //     €
 //   </div>
-//   <input class="xui-input" type="text" placeholder="X.XX" aria-label="Amount"/>
+//   <input class="xui-input xui-input-has-left-icon" type="text" placeholder="X.XX" aria-label="Amount"/>
 // </div>
 //
 // Styleguide: Building Blocks.Forms.Inputs.4
@@ -120,7 +120,7 @@
 //     <svg focusable="false" class="xui-icon xui-input--icon-left">
 //       <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
-//     <input class="xui-input xui-input-borderless xui-input-borderless-transparent xui-padding-right-huge" type="search" placeholder="Transparent input with icons" aria-label="Transparent input with icons" />
+//     <input class="xui-input xui-input-borderless xui-input-borderless-transparent xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Transparent input with icons" aria-label="Transparent input with icons" />
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
 //       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
 //         <svg focusable="false" class="xui-icon">
@@ -134,7 +134,7 @@
 //     <svg focusable="false" class="xui-icon xui-input--icon-left">
 //        <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
-//     <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-padding-right-huge" type="search" placeholder="Solid input with icons" aria-label="Solid input with icons"/>
+//     <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Solid input with icons" aria-label="Solid input with icons"/>
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
 //       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
 //         <svg focusable="false" class="xui-icon">
@@ -150,7 +150,7 @@
 //     <svg focusable="false" class="xui-icon xui-input--icon-left">
 //       <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
-//     <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-transparent xui-padding-right-huge" type="search" placeholder="Transparent inverted input with icons" aria-label="Transparent inverted input with icons" />
+//     <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-transparent xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Transparent inverted input with icons" aria-label="Transparent inverted input with icons" />
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
 //       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Clear" aria-label="Clear">
 //         <svg focusable="false" class="xui-icon">
@@ -164,7 +164,7 @@
 //     <svg focusable="false" class="xui-icon xui-input--icon-left">
 //        <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
-//     <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-solid xui-padding-right-huge" type="search" placeholder="Solid inverted input with icons" aria-label="Solid inverted input with icons"/>
+//     <input class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Solid inverted input with icons" aria-label="Solid inverted input with icons"/>
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
 //       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Clear" aria-label="Clear">
 //         <svg focusable="false" class="xui-icon">

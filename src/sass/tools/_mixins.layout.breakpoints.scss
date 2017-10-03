@@ -25,7 +25,7 @@ $xui-breakpoint-wide: 1160px;
 
 // Content will be applied for medium and wide screens
 @mixin xui-breakpoint-medium-and-wide {
-	@media screen and (min-width: $xui-breakpoint-medium) {
+	@media screen and (min-width: $xui-breakpoint-narrow) {
 		@content;
 	}
 }

@@ -113,7 +113,7 @@ Used to create the borderless variants of XUI button
 $text-color - Text color to use
 $text-hover-color - Text color to use on hover
 $background-focus - Background color to use on focus
-$background-active - Backgroun color to use while active
+$background-active - Background color to use while active
 */
 @mixin xui-button-borderless($text-color, $text-hover-color, $background-focus: $xui-color-grey-alpha-7, $background-active: $xui-color-grey-alpha-6) {
 	background: transparent;

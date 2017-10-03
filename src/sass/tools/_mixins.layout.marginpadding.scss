@@ -72,7 +72,7 @@ $margin - Value to be applied to margin
 For generating a collection of XUI layout classes with a given $margin and $suffix. Will create a `-vertical`, `-horizontal`, `-top`, `-right`,
 `-bottom`, `-left`, and standard variants. Renders as `.$ns-margin-vertical$suffix`
 
-$margin - Value to be appleid to each margin size
+$margin - Value to be applied to each margin size
 $suffix - Suffix to add for each generated class
 */
 @mixin xui-generate-margin($margin, $suffix) {
@@ -161,7 +161,7 @@ $padding - Value to be applied to padding
 For generating a collection of XUI layout classes with a given $padding and $suffix. Will create a `-vertical`, `-horizontal`, `-top`, `-right`,
 `-bottom`, `-left`, and standard variants. Renders as `.$ns-padding-vertical$suffix`.
 
-$padding - Value to be appleid to each padding size
+$padding - Value to be applied to each padding size
 $suffix - Suffix to add for each generated class
 */
 @mixin xui-generate-padding($padding, $suffix) {

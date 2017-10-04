@@ -59,6 +59,16 @@ As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefo
 			<XUIIcon path={icon} className="xui-u-flex-inherit" />
 		</XUIButton>
 
+		<div className="xui-padding-xsmall xui-background-grey-1">
+			<XUIButton variant="icon-inverted">
+				<XUIIcon path={icon} className="xui-u-flex-inherit" />
+			</XUIButton>
+
+			<XUIButton variant="icon-inverted" className="xui-button-icon-large">
+				<XUIIcon path={icon} className="xui-u-flex-inherit" />
+			</XUIButton>
+		</div>
+
 	</div>
 ```
 

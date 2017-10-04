@@ -154,16 +154,64 @@ describe('<XUIButton/>', () => {
 		assert.isNull(button.rootNode.getAttribute('role'));
 	});
 
-	it('focus() should focus the DOM node', function () {
+	it('focus() should focus the DOM node', () => {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		button.focus();
 		assert.isTrue(button.rootNode === document.activeElement);
 	});
 
-	it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', function () {
+	it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', () => {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		assert.isFalse(button.hasFocus(), 'said has focus when it does not');
 		button.focus();
 		assert.isTrue(button.hasFocus(), 'said does not have focus when does');
+	});
+
+	it('renders inverted buttons in different variations correctly', () => {
+		const standardInvertedbutton = renderIntoDocument(<XUIButton isInverted variant="primary">test</XUIButton>);
+		assert.isTrue(
+			standardInvertedbutton.rootNode.classList.contains('xui-button-main'),
+			'Primary button has primary class'
+		);
+		assert.isTrue(
+			standardInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
+			'Primary button has inverted class'
+		);
+		assert.isFalse(
+			standardInvertedbutton.rootNode.classList.contains('xui-button-borderless-main'),
+			'Primary button does not have borderless main class'
+		);
+
+		const borderlessInvertedbutton = renderIntoDocument(<XUIButton isInverted variant="borderless-primary">test</XUIButton>);
+		assert.isTrue(
+			borderlessInvertedbutton.rootNode.classList.contains('xui-button-borderless-main'),
+			'Borderless primary button has borderless primary class'
+		);
+		assert.isTrue(
+			borderlessInvertedbutton.rootNode.classList.contains('xui-button-borderless-inverted'),
+			'Borderless primary button has borderless inverted class'
+		);
+		assert.isFalse(
+			borderlessInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
+			'Borderless primary button does not have regular inverted class'
+		);
+
+		const iconInvertedbutton = renderIntoDocument(<XUIButton variant="icon-inverted">test</XUIButton>);
+		assert.isTrue(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-icon'),
+			'Icon button has borderless primary class'
+		);
+		assert.isTrue(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-icon-inverted'),
+			'Icon button has borderless inverted class'
+		);
+		assert.isFalse(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-borderless-inverted'),
+			'Icon button does not have borderless inverted class'
+		);
+		assert.isFalse(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
+			'Icon button does not have regular inverted class'
+		);
 	});
 });

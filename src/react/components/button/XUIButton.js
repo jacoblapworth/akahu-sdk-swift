@@ -5,6 +5,28 @@ import XUILoader from '../loader/XUILoader';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
 
 /**
+ * Returns true if the button is a borderless variant
+ *
+ * @private
+ * @param {string} variant - The button variant
+ * @return {boolean} True if is a borderless button
+ */
+const isBorderlessVariant = variant => {
+	return variant.indexOf('borderless') > -1;
+}
+
+/**
+ * Returns true if the button is an icon variant
+ *
+ * @private
+ * @param {string} variant - The button variant
+ * @return {boolean} True if is an icon button
+ */
+const isIconVariant = variant => {
+	return variant.indexOf('icon') > -1;
+}
+
+/**
  * Returns a class name for the button depending on the button variant string given. Will return
  * undefined if no matching variant is given.
  *
@@ -149,6 +171,7 @@ export default class XUIButton extends React.Component {
 			target,
 			rel,
 			isLink,
+			isInverted,
 			...spreadProps
 		} = xuiButton.props;
 		const ElementType = isLink ? 'a' : 'button';
@@ -158,7 +181,9 @@ export default class XUIButton extends React.Component {
 
 		const buttonClassNames = cn('xui-button', className, variantClass, SizeClassNames[size], {
 			'xui-button-is-disabled': isDisabled,
-			'xui-button-grouped': isGrouped
+			'xui-button-grouped': isGrouped,
+			'xui-button-inverted': isInverted && !isBorderlessVariant(variantClass) && !isIconVariant(variantClass),
+			'xui-button-borderless-inverted': isInverted && isBorderlessVariant(variantClass) && !isIconVariant(variantClass)
 		});
 
 		const clickHandler = function() {
@@ -243,6 +268,9 @@ XUIButton.propTypes = {
 
 	/** The `title` attribute for this button */
 	title: PropTypes.string,
+
+	/** The `isInverted` attribute to style the button in an inverted way */
+	isInverted: PropTypes.bool
 };
 
 XUIButton.defaultProps = {

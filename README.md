@@ -105,7 +105,16 @@ Script              | Description
 
 ## Releasing XUI
 
-The UXE team manage releasing XUI via a CI/CD pipeline run on Team City.
+The UXE team manage releases of XUI via TeamCity. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
+
+### Builds
+
+* [Pull request](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
+* [Update-gh-pages](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_UpdateGhPages) builds and releases documentation for all releases, `master` and `breaking-changes` branches. Triggered by successful merge to `master` or `breaking-changes` branches.
+* [Master](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master) and [breaking-changes](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_BreakingChanges) build XUI for deployment to edge.xero.com. Triggered on successful merge to `master` or `breaking-changes` branches.
+* [Deploy to Production](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployToProduction) deploy a release build of XUI to production. Depends on successful build of master (above). Triggered by successful build of master.
+* [Deploy to Production [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployS3BreakingChanges) deploy a pre-release build of XUI to production. Depends on successful build of breaking-changes (above). Triggered manually.
+* [Deploy Monorepo Components to Artifactory](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=XeroJS_SharedReactComponents_DeployMonorepoComponentsToArtifactory) and [Deploy Monorepo Components to Artifactory [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployBreakingChangesMonorepoComponentsToArtifactory) prepare and deploy React components to artifactory.
 
 ## Contributing to XUI
 

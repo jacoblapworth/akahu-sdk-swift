@@ -66,6 +66,7 @@ export default class XUIAutocompleter extends PureComponent {
 		};
 		this.focusInput = this.focusInput.bind(this);
 		this.scrollInputIntoView = this.scrollInputIntoView.bind(this);
+		this.onHighlightChange = this.onHighlightChange.bind(this);
 	}
 
 	componentWillUnmount() {
@@ -127,6 +128,16 @@ export default class XUIAutocompleter extends PureComponent {
 	 */
 	focusInput() {
 		this.input.inputNode.focus();
+	}
+
+	/**
+	* @public
+	* If a onHighlightChange prop is passed to the completer, it's called passing in the highlighted item.
+	*
+	* @param {item} Object
+	*/
+	onHighlightChange(item) {
+		this.props.onHighlightChange && this.props.onHighlightChange(item);
 	}
 
 	render() {
@@ -193,6 +204,7 @@ export default class XUIAutocompleter extends PureComponent {
 				size={props.dropdownSize}
 				fixedWidth={props.dropdownFixedWidth}
 				footer={props.footer}
+				onHighlightChange={completer.onHighlightChange}
 			>
 				{props.loading ? <Picklist><XUILoader /></Picklist> : props.children}
 			</DropDown>
@@ -310,6 +322,9 @@ XUIAutocompleter.propTypes = {
 
 	/** A footer element can be added. */
 	footer: PropTypes.element,
+
+	/** Callback for when the highlighted item changes. */
+	onHighlightChange: PropTypes.func,
 
 	qaHook: PropTypes.string,
 	children: PropTypes.node

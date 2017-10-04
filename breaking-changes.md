@@ -6,6 +6,7 @@
 * `AutocompleterInput` exported by autocompleter is now `XUIAutocompleterInput`
 * `EmptyState` exported by autocompleter is now `XUIAutocompleterEmptyState`
 * `SecondarySearch` exported by autocompleter is now `XUIAutocompleterSecondarySearch`
+* `Autocompleter` exposes `onHighlightChange` prop mapped from the underlying `Dropdown`
 * `Toast` now limits toast actions to a max of 2.
 
 ## CSS changes

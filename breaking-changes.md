@@ -1,26 +1,65 @@
-## XUI 12
+# XUI 12
 
-## Component Breaking changes
+## Component changes
 
 * `Autocompleter` exported by autocompleter is now `XUIAutocompleter`
 * `AutocompleterInput` exported by autocompleter is now `XUIAutocompleterInput`
 * `EmptyState` exported by autocompleter is now `XUIAutocompleterEmptyState`
 * `SecondarySearch` exported by autocompleter is now `XUIAutocompleterSecondarySearch`
+* `Toast` now limits toast actions to a max of 2.
 
-## CSS Breaking changes
+## CSS changes
 
-### Buttons
+### CSS properties changed
+
+#### Radios & Checkboxes
+* Styled checkboxes and radios no longer use `input` and `svg` element selectors. The hidden underlying input element
+must have the `xui-styledcheckboxradio--input` class and any accompanying SVGs must have the `xui-icon` class.
+
+#### Buttons
 * `xui-button` has `position: relative` by default. This is to enable buttons to have a z-index value when focused.
 This is to ensure correct styling when placed next to inputs in a grouped input context.
 
-### Avatars
-* `xui-avatar-group` has been removed. Use `xui-avatargroup` instead.
+#### Pills
+* Single select pills have been changed to use the same DOM structure as regular pills, and are now absolutely positioned to ensure they fit within a standard input
 
-### Radios and Checkboxes
-* Styled radio and checkbox classes have been merged under the `xui-styledcheckboxradio` class. This means any class
-that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-styledcheckboxradio`
-* Styled checkboxes and radios no longer use `input` and `svg` element selectors. The hidden underlying input element
-must have the `xui-styledcheckboxradio--input` class and any accompanying SVGs must have the `xui-icon` class.
+#### Utilities
+* Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of
+XUI's CSS file. Previously, it was possible for margin and padding classes to be undone by others
+(e.g. `xui-panel--section`) specified further down the CSS file.
+* `xui-margin-none` no longer has `!important`
+* `xui-padding-none` no longer has `!important`
+
+#### Modals
+* Dark modals have been deprecated. Use a regular modal instead.
+* `dark-modal-heading` has been removed; use a regular modal heading instead.
+* `dark-modal-text` has been removed; use a regular modal body instead.
+* `xui-modal-layout` default width is now 380px, not 360px.
+* `xui-modal--close` no longer needs to precede the header in the markup.
+* `xui-modal--body` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--header` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--close` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--footer` now has default spacing when using `xui-modal--layout`.
+* `xui-modal--heading` now handles wrapping text.
+
+#### Overview blocks
+* `xui-overview` border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect
+* `xui-overview--label` has been added, use this instead of utility classes
+* `xui-overview--value` has been added, use this instead of utility classes
+
+#### Page header
+* `xui-pageheading--tabs` has been added to provide inline tabs.
+* `xui-pageheading--actions` has been added to provide better button alignment and inter-button spacing without the need for utility classes.
+* `xui-breadcrumb--link` has been added to provide focus styles for breadcrumb links.
+* `xui-pageheading` border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect.
+* `xui-pageheading--content-layout` vertical margins have been moved to `xui-pageheading--title` so tabs can extend the full height of the header.
+* `xui-pageheading--content-layout` horizontal margin has been applied so max-width is not required for it to work on mobile devices.
+* `xui-pageheading--title` left padding will be added if placed inside layout class, to provide horizontal alignment on mobile devices.
+
+
+### Classes removed
+
+#### Radios & checkboxes
 * Native checkbox and radio styling classes have been removed. Use styled checkboxes and radios instead.
 The following classes are no longer available:
  * `xui-checkbox`
@@ -30,71 +69,90 @@ The following classes are no longer available:
  * `xui-checkboxgroup`
  * `xui-radiogroup`
 
-### Filters
+#### Filters (replace with Picklist)
+ * `xui-sidebarfilter`, `xui-sidebarfilter-is-selected`, `xui-sidebarfilter--body`, `xui-sidebarfilter--control`,
+ `xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control`
+ have all been removed. Use picklists instead.
 
-* `xui-sidebarfilter`, `xui-sidebarfilter-is-selected`, `xui-sidebarfilter--body`, `xui-sidebarfilter--control`,
-`xui-sidebarfilters`, `xui-sidebarfilters-multiple` ,`xui-sidebarsummary`, and `xui-sidebarsummary--control`
-have all been removed. Use picklists instead.
-
-### Icons
-* `xui-icon-svg` has been removed. Use `xui-iconsymbol` instead.
-* `xui-newicon` has been removed. This never ended up being used.
-* `xui-icon-rotate-90` has been removed. Use `xui-u-rotate-90` instead.
-* `xui-icon-rotate-180` has been removed. Use `xui-u-rotate-180` instead.
-* `xui-icon-rotate-270` has been removed. Use `xui-u-rotate-270` instead.
-
-### Toasts
+#### Toasts
 * `xui-toast-list` has been removed.
-* `xui-toast-wrapper` has been removed. Use `xui-toastwrapper` instead.
-* `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
-* Limit toast actions to a max of 2.
 
-### Datepicker
-* `xui-datepicker--weekday-container` has been removed. Use `xui-datepicker--weekdaywrapper` instead.
-* `xui-datepicker--othermonth` has been removed. Use `xui-datepicker--day-is-othermonth` instead.
-
-### Pills
-* Single select pills have been changed to use the same DOM structure as regular pills, and are now absolutely positioned to ensure they fit within a standard input
-* `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
-* `xui-pill-is-focussed` has been renamed to `xui-pill-is-focused` (one `s`)
-
-### Inputs
-* `xui-input-group` has ben removed. Use `xui-inputgroup` instead.
-* `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
-* `xui-input-wrapper-borderless` has been removed. Use `xui-inputwrapper-borderless` instead.
-* `xui-input-wrapper-borderless-layout` has been removed. Use `xui-inputwrapper-borderless-layout` instead.
+#### Inputs
 * `xui-input-borderless-layout`, `xui-input-wrapper-borderless-layout` and
 `xui-inputwrapper-borderless-layout` have been removed.
 There are no replacements for these; use the standard borderless classes.
 * `xui-textarea` has been removed. Use `xui-input` on `<textarea>` elements instead.
 * `xui-select--button-is-selected` has been removed and should no longer be used.
 
-### Page Heading
+#### Page Heading
 * `xui-pageheading-has-tabs` has been removed as it is no longer necessary.
 
-### Tabs
+### Tabs (replaced with Picklists)
 * `xui-tabgroup`, `xui-tab`, `xui-tab--body`, `xui-tabgroup-layout`, `xui-tabgroup-layout-inline`, `xui-tab-inlinenav`,
 `xui-tab-inlinenav-is-selected` have been removed. Use horizontal picklists instead.
 * `xui-tabgroup-vertical`,`xui-tabgroup-vertical-layout`, `xui-verticaltab` `xui-verticaltab--body` and
 `xui-verticaltab-is-selected` have been removed. Use vertical picklists instead.
 
-### Toggles
+#### Toggles
 * `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer
 necessary to achieve the desired look.
 
-### Dropdowns
+#### Dropdown Menus (replaced with Picklists and Dropdowns)
 * `xui-dropdownmenu`, `xui-dropdownmenu-layout`, `xui-dropdownmenu-small`, `xui-dropdownmenu-medium`,
 `xui-dropdownmenu-large`, `xui-dropdownmenu-is-closed`, `xui-dropdownmenu--body`, `xui-dropdownmenu--footer`,
 `xui-dropdownmenu--groupheading`, `xui-dropdownmenu--groupheading-layout`, `xui-menugroup`, `xui-menuitem`,
 `xui-menuitem-layout`, `xui-menuitem--body`, `xui-menuitem--input`, and `xui-menuitem-is-selected` have been removed.
 These are all succeeded by the `xui-dropdown` and `xui-picklist` component classes.
 
-### Typography
+#### Typography
 * `xui-caret` has been removed. Use the SVG caret icon instead.
 
-#### Headings
+#### Popover
+* `xui-popover--body`, `xui-popover--header`, `xui-popover--header-standard`, `xui-popover--header-can-scroll-up`,
+`xui-popover--heading`, `xui-popover--footer`, `xui-popover--footer-standard`, `xui-popover--footer-can-scroll-down`,
+and `xui-popover--link` have been removed. These classes were not documented and there is no replacement for them.
+
+#### Drawer
+* `xui-sidedrawer`, `xui-sidedrawer-is-closed`, `xui-sidedrawer--header`, `xui-sidedrawer--footer`, `xui-sidedrawer--layout` and `xui-sidedrawer--content` have been removed. There is no replacement for them.
+
+
+### Classes renamed
+
+#### Avatars
+* `xui-avatar-group` has been removed. Use `xui-avatargroup` instead.
+
+#### Radios & Checkboxes
+* Styled radio and checkbox classes have been merged under the `xui-styledcheckboxradio` class. This means any class
+that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-styledcheckboxradio`
+
+#### Icons
+* `xui-icon-svg` has been removed. Use `xui-iconsymbol` instead.
+* `xui-newicon` has been removed. This never ended up being used.
+* `xui-icon-rotate-90` has been removed. Use `xui-u-rotate-90` instead.
+* `xui-icon-rotate-180` has been removed. Use `xui-u-rotate-180` instead.
+* `xui-icon-rotate-270` has been removed. Use `xui-u-rotate-270` instead.
+
+#### Toasts
+* `xui-toast-wrapper` has been removed. Use `xui-toastwrapper` instead.
+* `xui-toast--link` has been removed. Use `xui-button-borderless-main xui-button-small` instead.
+
+#### Datepicker
+* `xui-datepicker--weekday-container` has been removed. Use `xui-datepicker--weekdaywrapper` instead.
+* `xui-datepicker--othermonth` has been removed. Use `xui-datepicker--day-is-othermonth` instead.
+
+#### Pills
+* `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
+* `xui-pill-is-focussed` has been renamed to `xui-pill-is-focused` (one `s`)
+
+#### Inputs
+* `xui-input-group` has ben removed. Use `xui-inputgroup` instead.
+* `xui-input-wrapper` has been removed. Use `xui-inputwrapper` instead.
+* `xui-input-wrapper-borderless` has been removed. Use `xui-inputwrapper-borderless` instead.
+* `xui-input-wrapper-borderless-layout` has been removed. Use `xui-inputwrapper-borderless-layout` instead.
+
+#### Typography
+##### Headings
 * `xui-heading-mini` has been removed. Use `xui-text-minor` instead.
-* `xui-heading` has become `xui-heading-large`; `xui-heading` is now the equivalent of `xui-heading-medium`.
 * `xui-page-title` has been removed. Use `xui-heading` instead.
 * `xui-section-title` has been removed. Use `xui-heading-small` instead.
 * `xui-text-panelheading` has been removed. Use `xui-heading` instead.
@@ -108,12 +166,12 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 * `xui-heading-display-xl` has been removed. Use `xui-heading-xxlarge` instead.
 * `xui-heading-display-xxl` has been removed. Use `xui-heading-xxxlarge` instead.
 
-#### Alignment
+##### Alignment
 * `xui-text-leftaligned` has been removed. Use `xui-text-align-left` instead.
 * `xui-text-centered` has been removed. Use `xui-text-align-center` instead.
 * `xui-text-rightaligned` has been removed. Use `xui-text-align-right` instead.
 
-#### Colors
+##### Colors
 * `xui-text-color-*` has been renamed to `xui-color-*`
 * `xui-text-color-black` has been removed. Use `xui-color-grey-standard` instead.
 * `xui-text-muted` has been removed. Use `xui-color-grey-muted` instead.
@@ -122,22 +180,12 @@ These are all succeeded by the `xui-dropdown` and `xui-picklist` component class
 * `xui-text-positive` has been removed. Use `xui-color-positive` instead.
 * `xui-text-inverted` has been removed. Use `xui-color-white` and `xui-background-grey-1` instead.
 
-### Popover
-* `xui-popover--body`, `xui-popover--header`, `xui-popover--header-standard`, `xui-popover--header-can-scroll-up`,
-`xui-popover--heading`, `xui-popover--footer`, `xui-popover--footer-standard`, `xui-popover--footer-can-scroll-down`,
-and `xui-popover--link` have been removed. These classes were not documented and there is no replacement for them.
-
-### Utilities
+#### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.
-* `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead.
+* `xui-u-flex-col` has been removed. Use `xui-u-flex-horizontal` instead (not a typo).
 * `xui-u-flex-verticalalign-center` has been removed. Use `xui-u-flex-vertical` and
 `xui-u-flex-horizontallycentered` instead.
 * `xui-button-link` has been removed. Use `xui-button-borderless-main` instead.
-* Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of
-XUI's CSS file. Previously, it was possible for margin and padding classes to be undone by others
-(e.g. `xui-panel--section`) specified further down the CSS file.
-* `xui-margin-none` no longer has `!important`
-* `xui-padding-none` no longer has `!important`
 * `xui-margin-auto-*` classes have been removed. Use `xui-margin-*-auto` instead.
 * `xui-margin-*-huge` class has been removed. Use `xui-margin-*-2xlarge` instead.
 * `xui-padding-*-huge` class has been removed. Use `xui-padding-*-2xlarge` instead.
@@ -159,60 +207,38 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 * `xui-u-hidden-mobile` has been removed; use `xui-u-hidden-narrow` instead.
 * `xui-u-hidden-mobile-up` has been removed; use `xui-u-hidden-medium` and `xui-u-hidden-wide` instead.
 
-### Motion
+#### Motion
 * `xui-u-transition-short` has been removed. Use `xui-transition-speed-fast` instead.
 * `xui-u-transition-medium` has been removed. Use `xui-transition-speed-medium` instead.
 * `xui-u-transition-long` has been removed. Use `xui-transition-speed-slow` instead.
 
-#### Animation keyframes
+##### Animation keyframes
 * `xui-animation-show` and `xui-animation-hide` have been removed.
 * `xui-animation-slideup` and `xui-animation-slidedown` have been removed.
 * `xui-animation-fadein` and `xui-animation-fadeout` have been removed. Use `xui-transition-fadein` and
 `xui-transition-fadeout` classes instead.
 
-### Mixins
+#### Tags
+* `xui-tag-outline` has been removed; this is now the base style provided by `xui-tag`
+* `xui-tag-solid` has been removed; use `xui-tag-neutral` instead
+* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and `xui-tag-negative`
 
-The following mixins have been removed:
+#### Page header
+* `xui-pageheading--content-layout-titleonly` has been removed, use `xui-pageheading--title` instead.
 
+
+### Mixins removed
 * `xui-navigation-filters-hide-control`
 * `xui-navigation-filters-collapse-list`
 * `xui-navigation-filters-expand-list`
-* `xui-bold`. Use `xui-text-emphasis` instead.
 * `xui-tab-variation`
 
-### Variables
+### Mixins renamed
+* `xui-bold`. Use `xui-text-emphasis` instead.
 
-The following variables have been removed:
-
-#### Motion
-
-* `$xui-transition-duration-short`; use `$xui-motion-speed-fast` instead
-* `$xui-transition-duration-medium`; use `$xui-motion-speed-medium` instead
-* `$xui-transition-duration-long`; use `$xui-motion-speed-slow` instead
+### Variables removed
 
 #### Colors
-
-* `xui-color-xero-dark-green`; use `xui-color-green-dark` instead
-* `xui-color-xero-dark-red`; use `xui-color-red-dark` instead
-* `xui-color-xero-dark-purple`; use `xui-color-grape-dark` instead
-* `xui-color-xero-light-blue`; use `xui-color-blue-light` instead
-* `xui-color-xero-light-green`; use `xui-color-green-light` instead
-* `xui-color-xero-orange`; use `xui-color-orange` instead
-* `xui-color-xero-yellow`; use `xui-color-yellow` instead
-* `xui-color-xero-pink`; use `xui-color-pink` instead
-* `xui-color-xero-purple`; use `xui-color-purple` instead
-* `xui-color-xero-blue`; use `xui-color-blue` instead
-* `xui-color-xero-dark-blue`; use `xui-color-blue-dark` instead
-* `xui-color-xero-green`; use `xui-color-green` instead
-* `xui-color-xero-red`; use `xui-color-red` instead
-* `xui-color-inverted-alpha-2`; use `xui-color-white-alpha-2` instead
-* `xui-color-inverted-alpha-3`; use `xui-color-white-alpha-3` instead
-* `xui-color-inverted-alpha-4`; use `xui-color-white-alpha-4` instead
-* `xui-color-inverted-alpha-5`; use `xui-color-white-alpha-5` instead
-* `xui-color-inverted-alpha-6`; use `xui-color-white-alpha-6` instead
-* `xui-color-inverted-alpha-7`; use `xui-color-white-alpha-7` instead
-
-Removed:
 * `$xui-color-highlight-light`
 * `$xui-color-highlight-medium`
 * `$xui-color-highlight-strong`
@@ -260,6 +286,37 @@ Removed:
 * `$xui-color-xero-red-divider`
 * `$xui-color-toast-link`
 
+
+### Variables renamed
+
+#### Motion
+
+* `$xui-transition-duration-short`; use `$xui-motion-speed-fast` instead
+* `$xui-transition-duration-medium`; use `$xui-motion-speed-medium` instead
+* `$xui-transition-duration-long`; use `$xui-motion-speed-slow` instead
+
+#### Colors
+
+* `xui-color-xero-dark-green`; use `xui-color-green-dark` instead
+* `xui-color-xero-dark-red`; use `xui-color-red-dark` instead
+* `xui-color-xero-dark-purple`; use `xui-color-grape-dark` instead
+* `xui-color-xero-light-blue`; use `xui-color-blue-light` instead
+* `xui-color-xero-light-green`; use `xui-color-green-light` instead
+* `xui-color-xero-orange`; use `xui-color-orange` instead
+* `xui-color-xero-yellow`; use `xui-color-yellow` instead
+* `xui-color-xero-pink`; use `xui-color-pink` instead
+* `xui-color-xero-purple`; use `xui-color-purple` instead
+* `xui-color-xero-blue`; use `xui-color-blue` instead
+* `xui-color-xero-dark-blue`; use `xui-color-blue-dark` instead
+* `xui-color-xero-green`; use `xui-color-green` instead
+* `xui-color-xero-red`; use `xui-color-red` instead
+* `xui-color-inverted-alpha-2`; use `xui-color-white-alpha-2` instead
+* `xui-color-inverted-alpha-3`; use `xui-color-white-alpha-3` instead
+* `xui-color-inverted-alpha-4`; use `xui-color-white-alpha-4` instead
+* `xui-color-inverted-alpha-5`; use `xui-color-white-alpha-5` instead
+* `xui-color-inverted-alpha-6`; use `xui-color-white-alpha-6` instead
+* `xui-color-inverted-alpha-7`; use `xui-color-white-alpha-7` instead
+
 #### Typography
 
 * `$xui-font-size-heading`; use `$xui-font-size-extended-xlarge` instead
@@ -269,43 +326,3 @@ Removed:
 * `$xui-font-size-text-mobile`; use `$xui-font-size-extended-small` instead
 * `$xui-font-size-heading-small`; use `$xui-font-size-xsmall` instead
 * `$xui-font-size-regular`; use `$xui-font-size-small` instead
-
-#### Tags
-
-* `xui-tag-outline` has been removed; this is now the base style provided by `xui-tag`
-* `xui-tag-solid` has been removed; use `xui-tag-neutral` instead
-* Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and xui-tag-negative'
-
-#### Modals
-
-* Dark modals have been deprecated. Use a regular modal instead.
-* `dark-modal-heading` has been removed; use a regular modal heading instead.
-* `dark-modal-text` has been removed; use a regular modal body instead.
-* `xui-modal-layout` default width is now 380px, not 360px.
-* `xui-modal--close` no longer needs to precede the header in the markup.
-* `xui-modal--body` now has default spacing when using `xui-modal--layout`.
-* `xui-modal--header` now has default spacing when using `xui-modal--layout`.
-* `xui-modal--close` now has default spacing when using `xui-modal--layout`.
-* `xui-modal--footer` now has default spacing when using `xui-modal--layout`.
-* `xui-modal--heading` now handles wrapping text.
-
-#### Drawer
-
-* `xui-sidedrawer`, `xui-sidedrawer-is-closed`, `xui-sidedrawer--header`, `xui-sidedrawer--footer`, `xui-sidedrawer--layout` and `xui-sidedrawer--content` have been removed. There is no replacement for them.
-
-#### Overview blocks
-
-* `xui-overview` border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect
-* `xui-overview--label` has been added, use this instead of utility classes
-* `xui-overview--value` has been added, use this instead of utility classes
-
-#### Page header
-
-* `xui-pageheading--content-layout-titleonly` has been deprecated, use `xui-pagehading--title` instead.
-* `xui-pageheading--tabs` has been added to provide inline tabs.
-* `xui-pageheading--actions` has been added to provide better button alignment and inter-button spacing without the need for utility classes.
-* `xui-breadcrumb--link` has been added to provide focus styles for breadcrumb links.
-* `xui-pageheading` border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect.
-* `xui-pageheading--content-layout` vertical margins have been moved to `xui-pageheading--title` so tabs can extend the full height of the header.
-* `xui-pageheading--content-layout` horizontal margin has been applied so max-width is not required for it to work on mobile devices.
-* `xui-pageheading--title` left padding will be added if placed inside layout class, to provide horizontal alignment on mobile devices.

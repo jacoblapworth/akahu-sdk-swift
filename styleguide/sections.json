@@ -74,6 +74,11 @@
 				"components": "../src/react/components/pill/XUIPill.js"
 			},
 			{
+				"name": "Tag",
+				"content": "../src/react/tag.md",
+				"components": "../src/react/components/tag/XUITag.js"
+			},
+			{
 				"name": "Datepicker",
 				"content": "../src/react/datepicker.md",
 				"components": "../src/react/components/datepicker/XUIDatePicker.js"

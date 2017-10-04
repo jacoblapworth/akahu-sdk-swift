@@ -56,6 +56,13 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 * `xui-pageheading--content-layout` horizontal margin has been applied so max-width is not required for it to work on mobile devices.
 * `xui-pageheading--title` left padding will be added if placed inside layout class, to provide horizontal alignment on mobile devices.
 
+#### Panels
+
+* `xui-panel--header` now has a min-height of 60px.
+* `xui-panel--footer` now has a min-height of 60px.
+* `xui-panel--section--header` now has a default font size and weight.
+* `xui-panel--heading` now has a default font size and weight.
+* `xui-panel--sidebar` width is now 220px.
 
 ### Classes removed
 

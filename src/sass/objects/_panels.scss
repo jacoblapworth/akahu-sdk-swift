@@ -11,8 +11,13 @@
 // -----------------------------------------------------------------------------
 
 // .#{$ns}-panel--header is reserved
+.#{$ns}-panel--header {
+	min-height: 60px;
+}
+
 
 .#{$ns}-panel--heading {
+	@include xui-heading-medium;
 	margin: 0;
 }
 
@@ -29,6 +34,7 @@
 }
 
 .#{$ns}-panel--section--header {
+	@include xui-heading-small;
 	margin: 0;
 	text-align: center;
 
@@ -42,7 +48,7 @@
 
 .#{$ns}-panel--footer {
 	border-top: $xui-border-muted;
-
+	min-height: 60px;
 	&:first-child {
 		border-top: 0;
 	}
@@ -53,5 +59,6 @@
 
 .#{$ns}-panel--sidebar {
 	border-right: $xui-border-muted;
-	flex: 0 0 200px;
+	flex: 0 0 220px;
 }
+

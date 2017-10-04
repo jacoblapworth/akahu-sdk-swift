@@ -27,9 +27,11 @@ describe('XUIAvatar', function () {
 		const dom = TestUtils.renderIntoDocument(
 			<div>
 				<XUIAvatar value="123" />
+				<XUIAvatar size="xsmall" value="123" />
 				<XUIAvatar size="small" value="123" />
 				<XUIAvatar size="large" value="123" />
 				<XUIAvatar size="xlarge" value="123" />
+				<XUIAvatar size="xxlarge" value="123" />
 			</div>
 		);
 
@@ -37,13 +39,19 @@ describe('XUIAvatar', function () {
 		const node2 = dom.children[1];
 		const node3 = dom.children[2];
 		const node4 = dom.children[3];
+		const node5 = dom.children[4];
+		const node6 = dom.children[5];
 		assert.isTrue(node1.classList.contains(classNames.base), 'Avatar has the base class');
-		assert.isTrue(node2.classList.contains(classNames.base), 'Avatar with size="small" has the base class');
-		assert.isTrue(node2.classList.contains(sizeClassNames.small), 'Avatar with size="small" has the small class');
-		assert.isTrue(node3.classList.contains(classNames.base), 'Avatar with size="large" has the base class');
-		assert.isTrue(node3.classList.contains(sizeClassNames.large), 'Avatar with size="large" has the large class');
-		assert.isTrue(node4.classList.contains(classNames.base), 'Avatar with size="xlarge" has the base class');
-		assert.isTrue(node4.classList.contains(sizeClassNames.xlarge), 'Avatar with size="xlarge" has the xlarge class');
+		assert.isTrue(node2.classList.contains(classNames.base), 'Avatar with size="xsmall" has the base class');
+		assert.isTrue(node2.classList.contains(sizeClassNames.xsmall), 'Avatar with size="xsmall" has the xsmall class');
+		assert.isTrue(node3.classList.contains(classNames.base), 'Avatar with size="small" has the base class');
+		assert.isTrue(node3.classList.contains(sizeClassNames.small), 'Avatar with size="small" has the small class');
+		assert.isTrue(node4.classList.contains(classNames.base), 'Avatar with size="large" has the base class');
+		assert.isTrue(node4.classList.contains(sizeClassNames.large), 'Avatar with size="large" has the large class');
+		assert.isTrue(node5.classList.contains(classNames.base), 'Avatar with size="xlarge" has the base class');
+		assert.isTrue(node5.classList.contains(sizeClassNames.xlarge), 'Avatar with size="xlarge" has the xlarge class');
+		assert.isTrue(node6.classList.contains(classNames.base), 'Avatar with size="xxlarge" has the base class');
+		assert.isTrue(node6.classList.contains(sizeClassNames.xxlarge), 'Avatar with size="xxlarge" has the xlarge class');
 	});
 
 	it('should render as an abbreviation element if no imageUrl prop is provided', function () {

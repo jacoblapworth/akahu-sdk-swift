@@ -22,7 +22,7 @@
 
 // Masks
 //
-// Modals are positioned inside a semi-transparent mask that prevents the user from clicking background elements while the modal is open. 
+// Modals are positioned inside a semi-transparent mask that prevents the user from clicking background elements while the modal is open.
 // Masks are hidden by default, and require an additional modifier to be visible.
 //
 // Classes:
@@ -133,7 +133,7 @@
 // Styleguide: Building Blocks.Modals.6
 
 // Handling overflow
-// 
+//
 // When dealing with modal content taller than the viewport height, the default behavior is to scroll the entire mask.
 // However, if neccessary, we also support applying a max-height on `xui-modal--body`, to provide inner scroll.
 // In both cases, always disable scroll on the background `body` when the mask is active, to prevent double scroll bars.
@@ -207,6 +207,7 @@
 		border-top-left-radius: inherit;
 		border-top-right-radius: inherit;
 		display: flex;
+		flex-shrink: 0;
 		justify-content: space-between;
 		padding: $xui-s-small $xui-s-large;
 	}

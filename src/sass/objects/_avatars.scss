@@ -1,85 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-// Avatars
-//
-// Teaser: Either images or text representing a person or business. They can be grouped together or displayed on their own.
-//
-// Avatars can be either an image or text. If no image is available then the `<abbr>` tag should be used to display the first character of the entity.
-// They can either be singular or grouped together.
-//
-// Components: Avatar
-//
-// Styleguide: Building Blocks.Avatars
-
-// Avatars
-//
-// There are 2 styles of avatars:
-// * Circular - used to represent people: a user, an employee, etc. This is the default when using `xui-avatar`. May contain 1 - 2 characters.
-// * Rectangular - used to represent businesses: a company, an org, a practice, etc. Use the `xui-avatar-business` modifier for this. May contain 1 - 3 characters.
-//
-// If the avatar is not an image, then its background color should be selected deterministically from one of the ten approved colors
-// based on a unique attribute of the entity (not their name, as there may be more than one entity with the same name).
-// This allows the user to associate a color/letter pair with a particular entity.
-// If two entities share the same name then the color should be different.
-// See the [sample solution](https://github.dev.xero.com/gist/dev-ivanm/dce61c6f9127dab0d7fa) for more detail.
-//
-// The experimental `object-fit` property is used to scale up/down images appropriately, however support in IE/Edge is limited so as a best
-// practice we recommend using pre-processed images that have been scaled and resized appropriately.
-//
-// Markup:
-// <h3>Small</h3>
-// <img class="xui-avatar xui-avatar-small" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-small" role="presentation">IM</abbr>
-// <img class="xui-avatar xui-avatar-small xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-small xui-avatar-business" role="presentation">ABC</abbr>
-// <h3>Medium</h3>
-// <img class="xui-avatar" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-3" role="presentation">JM</abbr>
-// <img class="xui-avatar xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business" role="presentation">CNN</abbr>
-// <h3>Large</h3>
-// <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-5 xui-avatar-large" role="presentation">TR</abbr>
-// <img class="xui-avatar xui-avatar-large xui-avatar-business" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-6 xui-avatar-large xui-avatar-business" role="presentation">NBC</abbr>
-// <h3>Extra Large</h3>
-// <img class="xui-avatar xui-avatar-xlarge" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xlarge" role="presentation">FP</abbr>
-// <img class="xui-avatar xui-avatar-business xui-avatar-xlarge" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
-// <abbr class="xui-avatar xui-avatar-color-8 xui-avatar-xlarge xui-avatar-business" role="presentation">CBS</abbr>
-// <h3>Avatar Colours</h3>
-// <abbr class="xui-avatar xui-avatar-color-1" role="presentation">1</abbr>
-// <abbr class="xui-avatar xui-avatar-color-2" role="presentation">2</abbr>
-// <abbr class="xui-avatar xui-avatar-color-3" role="presentation">3</abbr>
-// <abbr class="xui-avatar xui-avatar-color-4" role="presentation">4</abbr>
-// <abbr class="xui-avatar xui-avatar-color-5" role="presentation">5</abbr>
-// <abbr class="xui-avatar xui-avatar-color-6" role="presentation">6</abbr>
-// <abbr class="xui-avatar xui-avatar-color-7" role="presentation">7</abbr>
-// <abbr class="xui-avatar xui-avatar-color-8" role="presentation">8</abbr>
-// <abbr class="xui-avatar xui-avatar-color-9" role="presentation">9</abbr>
-// <abbr class="xui-avatar xui-avatar-color-10" role="presentation">10</abbr>
-// <h3>Avatar with Descriptive Text</h3>
-// <div class="xui-u-flex xui-u-flex-verticallycentered">
-//   <img class="xui-avatar xui-avatar-large" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg"/>
-//   <span class="xui-margin-left-small">Sue Denim</span>
-// </div>
-//
-// Styleguide: Building Blocks.Avatars.1
-
-// Class list
-//
-// Classes:
-// xui-avatar: Style for an avatar
-// xui-avatar-color-[1-10]: Modifiers for a color avatar
-// xui-avatar-xlarge: Modifier for an extra large avatar
-// xui-avatar-large: Modifier for a large avatar
-// xui-avatar-small: Modifier for a small avatar
-// xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
-// xui-avatar-business: Modifier for an avatar representing a business
-//
-// Styleguide: Building Blocks.Avatars.50
-
 
 /* doiuse-disable object-fit*/
 .#{$ns}-avatar {
@@ -90,15 +11,25 @@
 	display: inline-flex;
 	flex: none;
 	font-size: $xui-font-size-avatar;
+	font-weight: bold;
 	height: 32px;
 	justify-content: center;
 	line-height: $xui-font-size-small;
 	object-fit: contain;
 	overflow: hidden;
+	text-decoration: none;
+	text-transform: uppercase;
 	vertical-align: middle;
 	width: 32px;
 }
 /* doiuse-enable object-fit*/
+
+.#{$ns}-avatar-xsmall {
+	font-size: 8px;
+	height: 18px;
+	line-height: 8px;
+	width: 18px;
+}
 
 .#{$ns}-avatar-small {
 	font-size: $xui-font-size-avatar-small;
@@ -121,8 +52,15 @@
 	width: 80px;
 }
 
+.#{$ns}-avatar-xxlarge {
+	font-size: 36px;
+	height: 120px;
+	line-height: 36px;
+	width: 120px;
+}
+
 .#{$ns}-avatar-business {
-	border-radius: $xui-radius;
+	border-radius: 9.375%;
 }
 
 .#{$ns}-avatar-color-1 {

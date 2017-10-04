@@ -11,12 +11,12 @@ XUI is a design system for Xero web applications. It includes standard approache
 * XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
-[<img src="https://github.dev.xero.com/dev-jamesmagness/xui/blob/tools/npm-start/.github/working-with-xui.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-getting-started.html) 
-[<img src="https://github.dev.xero.com/dev-jamesmagness/xui/blob/tools/npm-start/.github/fundamentals.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-fundamentals.html)
-[<img src="https://github.dev.xero.com/dev-jamesmagness/xui/blob/tools/npm-start/.github/building-blocks.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-building-blocks.html)
-[<img src="https://github.dev.xero.com/dev-jamesmagness/xui/blob/tools/npm-start/.github/react.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/react/)
-[<img src="https://github.dev.xero.com/dev-jamesmagness/xui/blob/tools/npm-start/.github/update.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-updates.html)
-[<img src="https://github.dev.xero.com/dev-jamesmagness/xui/blob/tools/npm-start/.github/feedback.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-feedback.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/working-with-xui.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-getting-started.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/fundamentals.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-fundamentals.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/building-blocks.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-building-blocks.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/react.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/react/)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/update.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-updates.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/feedback.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-feedback.html)
 
 ## Setting up XUI for local development
 
@@ -53,6 +53,8 @@ cat .nvmrc
 nvm list [available]
 nvm use x.x.x
 ```
+
+Install dependencies and start development server.
 
 ```
 npm install

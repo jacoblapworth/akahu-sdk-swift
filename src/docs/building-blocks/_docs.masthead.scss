@@ -1,40 +1,44 @@
-// Masthead
+// Global header
 //
-// The Shared header is the recommended tool for displaying navigation within your application.
+// Teaser: The global header for navigating around Xero.
 //
-// Styleguide: Building Blocks.Masthead
+// Introduction: Our global navigation is currently in a state of flux. A migration strategy is underway to replace the existing fixed-width header, with a forward-facing, responsive one.
+//
+// Styleguide: Building Blocks.Global header
 
-// Version 4 (Responsive)
+// Best practice
 //
-// **Notes**
-// - To get the header rendering in your application, please follow [these instructions](https://github.dev.xero.com/xero/responsive-header) instead of copying the code here.
-// - The header is run based on a strict JSON api. You can [read up on the JSON API here](https://github.dev.xero.com/Xero/Responsive-Header/wiki/Header-Model-Structure).
-//
-// Markup:
-// <div id="header4"></div>
-// <script type="application/json" id="header-data" data-render-to="#header4">
-//   {}
-// </script>
-// <link rel="stylesheet" href="https://edge.xero.com/platform/header/4.0.0-beta.10/header.min.css" />
-// <script src="https://edge.xero.com/platform/header/4.0.0-beta.10/header.min.js" defer></script>
-//
-// Styleguide: Building Blocks.Masthead.1
+// Tips:
+// Do: Design and build with the knowledge that a responsive header is coming
+// Do: Utilise full-screen modes in older sections of the product to manage the transition to a responsive site
+// Warning: Take care not to include the new header other than in completely new features
+// 
+// Styleguide: Building Blocks.Global header.1
 
-// Version 3 (Deprecated)
+// Responsive 
 //
-// **Notes**
-// - To get the header rendering in your application, please follow [these instructions](https://github.dev.xero.com/Xero/Header.Renderer/blob/master/README.md) instead of copying the code here.
-// - The header is run based on a strict JSON api. You can [read up on the JSON API here](https://confluence.inside.xero.com/display/SELF/Header-FrontEnd+JSON+API).
-// - The header is currently **not responsive** and will break your pages on small screen widths despite looking amazing in these docs.
-// - The header is not currently designed to help you run navigation within an SPA, i.e expects hard server routes to exist.
+// Flag: Experimental
 //
+// The markup included here is for illustration purposes only.
+// For the most up to date information on how to use the responsive header in your application, follow the instructions in the responsive header [repository](https://github.dev.xero.com/xero/responsive-header).
+//
+// ExampleClass: ds-example-wide ds-example-flush ds-example-header
+// 
 // Markup:
-// <link rel="stylesheet" type="text/css" href="https://edge.xero.com/platform/header/3.0.4/stylesheets/all.css"/>
-// <div id="header"></div>
-// <script type="text/javascript" src="https://edge.xero.com/platform/header/3.0.8/scripts/header.min.js"></script>
-// <script type="text/javascript">
-//   document.getElementById("header").innerHTML="";
-//   XERO.Header.init({},"#header");
-// </script>
+// <iframe style="width: 100%; height: 650px; border: 0;" src='https://github.dev.xero.com/pages/Xero/Responsive-Header/business.html#'>
+// </iframe>
 //
-// Styleguide: Building Blocks.Masthead.3
+// Styleguide: Building Blocks.Global header.2
+
+// Existing
+//
+// The markup included here is for illustration purposes only.
+// To use the existing header in your application, follow the instructions in the header [repository](https://github.dev.xero.com/Xero/Header.Renderer/blob/master/README.md).
+//
+// ExampleClass: ds-example-wide ds-example-flush ds-example-header 
+// 
+// Markup:
+// <iframe style="width: 100%; height: 700px; border: 0;" src='https://github.dev.xero.com/pages/dev-joshbarr/v3-header-mock/'>
+// </iframe>
+//
+// Styleguide: Building Blocks.Global header.3

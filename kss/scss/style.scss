@@ -306,6 +306,12 @@ section[class*="kss-section"] {
 // Examples
 // -----------------------------------------------------------------------------
 
+.ds-markup.ds-markup-inline {
+	position: relative;
+  @include xui-breakpoint-huge {
+    @include embiggen;
+  }
+}
 
 .ds-input-markup,
 .ds-input-example {

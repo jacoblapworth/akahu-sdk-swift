@@ -46,6 +46,7 @@
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\"",
     "update-readme": "grunt if:readme",
     "tokens": "grunt postcss:tokens",
+    "start": "npm run doc && npm-run-all -p -n watch styleguide",
     "styleguide": "cross-env NODE_ENV=development styleguidist server --config=styleguide/config.js",
     "styleguide:build": "cross-env NODE_ENV=production styleguidist build --config=styleguide/config.js",
     "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache",

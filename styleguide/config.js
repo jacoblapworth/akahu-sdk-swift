@@ -13,6 +13,7 @@ const config = {
 	webpackConfig: {
 		devServer: {
 			disableHostCheck: true,
+			publicPath: 'http://localhost:6060/react/'
 		},
 		module: {
 			loaders: [
@@ -84,7 +85,7 @@ const config = {
 	title: 'XUI React Docs',
 	styleguideDir: outputPath,
 	highlightTheme: 'erlang-dark',
-	assetsDir: path.resolve(__dirname, '..', 'uitest'),
+	assetsDir: path.resolve(__dirname, '..', 'docs'),
 	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",

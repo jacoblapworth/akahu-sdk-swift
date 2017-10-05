@@ -41,6 +41,19 @@ describe('forceStatefulPicklist prop', () => {
 		expect(wrapper.find('StatefulPicklist').length).toBe(1);
 	});
 
+	it('handles null elements without throwing', () => {
+		const check = null;
+		const wrapper = mount(
+			<DropDown>
+				{check}
+				<Picklist>
+					<Pickitem id="required-id">List Item</Pickitem>
+				</Picklist>
+			</DropDown>
+		);
+		expect(wrapper.find('StatefulPicklist').length).toBe(1);
+	});
+
 	it('wrap children in StatefulPicklist when Picklist is children', () => {
 		const wrapper = mount(
 			<DropDown>

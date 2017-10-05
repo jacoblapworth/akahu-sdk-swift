@@ -7,8 +7,8 @@ import { compose } from '../../helpers/compose';
  *
  * @public
  * @param {Object} idCache
- * @param {Component} component
- * @returns {Component}
+ * @param {React.element} component
+ * @returns {React.element}
  */
 export function getInstanceForChild(idCache, component) {
 	return idCache[getId(component)];
@@ -18,7 +18,7 @@ export function getInstanceForChild(idCache, component) {
  * Safely get the ID of a child node.
  *
  * @public
- * @param {Component} node
+ * @param {React.element} node
  * @returns {string|undefined}
  */
 export const getId = node => node && node.props && node.props.id;
@@ -27,7 +27,7 @@ export const getId = node => node && node.props && node.props.id;
  * @private
  * Test for a react component.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 const isComponent = node => node && node.props;
@@ -36,7 +36,7 @@ const isComponent = node => node && node.props;
  * @private
  * Test to see if a node is a NestedGroupContainer
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 const isNestedListContainer = node => isComponent(node) && node.props._isGroupContainer;
@@ -45,7 +45,7 @@ const isNestedListContainer = node => isComponent(node) && node.props._isGroupCo
  * @private
  * Test to see if a given node is a collapsed NestedGroupContainer.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @param {Object} idCache
  * @returns {boolean}
  */
@@ -56,7 +56,7 @@ const isCollapsedNestedListContainer =
  * @public
  * Test to see if a given node is the trigger that will open/close a nested group.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 export const isNestedListTrigger = node => isComponent(node) && node.props._isGroupTrigger;
@@ -65,7 +65,7 @@ export const isNestedListTrigger = node => isComponent(node) && node.props._isGr
  * @private
  * Test to see if a given node is a nested group.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 const isNestedList = node => isComponent(node) && node.props._isGroup;
@@ -74,7 +74,7 @@ const isNestedList = node => isComponent(node) && node.props._isGroup;
  * @public
  * Generic walk method over dropdown children
  *
- * @param {Component} node
+ * @param {React.element} node
  * @param {Function} test
  * @param {{[idCache]: Object, [inCollapsedGroup]: boolean}} [opts]
  *
@@ -107,8 +107,8 @@ export function walk(node, test, opts={}) {
  * Determine if the given parent node contains the target node.
  *
  * @private
- * @param {Component} parent
- * @param {Component} target
+ * @param {React.element} parent
+ * @param {React.element} target
  * @returns {boolean}
  */
 function contains(parent, target) {
@@ -127,7 +127,7 @@ function contains(parent, target) {
  * @public
  * Test for a menu item on a node.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 export const isMenuItem = node => isComponent(node) && node.props._isMenuItem;
@@ -136,7 +136,7 @@ export const isMenuItem = node => isComponent(node) && node.props._isMenuItem;
  * @public
  * Test to see if a given node is a split menu item.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 export const isSplitMenuItem = node => isComponent(node) && node.props.isSplit;
@@ -145,7 +145,7 @@ export const isSplitMenuItem = node => isComponent(node) && node.props.isSplit;
  * @private
  * Test to see if a node is a selected menu item.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 const isSelectedMenuItem = node => isMenuItem(node) && node.props.isSelected;
@@ -154,8 +154,8 @@ const isSelectedMenuItem = node => isMenuItem(node) && node.props.isSelected;
  * @private
  * Compared against their IDs to find the matching element.
  *
- * @param {Component} node
- * @param {Component} el
+ * @param {React.element} node
+ * @param {React.element} el
  * @returns {boolean}
  */
 const matches = (node, el) => getId(node) === getId(el);
@@ -164,7 +164,7 @@ const matches = (node, el) => getId(node) === getId(el);
  * @private
  * Tests if the node is a react component and if the component is disabled.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @returns {boolean}
  */
 const isEnabledMenuItem = node  => isMenuItem(node) && !node.props.isDisabled;
@@ -173,7 +173,7 @@ const isEnabledMenuItem = node  => isMenuItem(node) && !node.props.isDisabled;
  * @private
  * Returns the very last item in the dropdown even if this is in a nested group.
  *
- * @param {Component} node
+ * @param {React.element} node
  * @param {Object} idCache
  * @return {Component|null} Last Menu Item in the dropdown
  */
@@ -194,8 +194,8 @@ function findLastMenuItem(node, idCache) {
  * previous group or from the top of the list to the very end.
  *
  * @public
- * @param {Component} node - That contains children in the list, could be a single element or an array of nodes.
- * @param {Component} el - element to find
+ * @param {React.element} node - That contains children in the list, could be a single element or an array of nodes.
+ * @param {React.element} el - element to find
  * @param {Object} idCache
  *
  * @return (Component|null) nextItem that should be highlighted.
@@ -227,8 +227,8 @@ export function findPreviousItem(node, el, idCache) {
  * Returns the very first menu item in the dropdown.
  *
  * @public
- * @param {Component} node
- * @return {Component} First item in the dropdown.
+ * @param {React.element} node
+ * @return {React.element} First item in the dropdown.
  */
 function findFirstMenuItem(node) {
 	let item = null;
@@ -247,8 +247,8 @@ function findFirstMenuItem(node) {
  * list loop back to the beginning of the list even if this is in a different group to the current item.
  *
  * @public
- * @param {Component} node - That contains children in the list, could be a single element or an array of nodes.
- * @param {Component} el - The item that's been identified as the next to be highlighted
+ * @param {React.element} node - That contains children in the list, could be a single element or an array of nodes.
+ * @param {React.element} el - The item that's been identified as the next to be highlighted
  * @param {Object} idCache
  *
  * @return {Component|null} nextItem that should be highlighted.
@@ -286,7 +286,7 @@ export function findNextItem(node, el, idCache) {
  * the first selected item or the first item in the menu.
  *
  * @public
- * @param {Component} node
+ * @param {React.element} node
  * @param {Object} idCache
  * @returns {Component|null}
  */
@@ -307,8 +307,8 @@ export function findInitialHighlightedItem(node, idCache) {
  * If the given target is a child of a nested group, return the group container node that wraps it.
  *
  * @public
- * @param {Component} list
- * @param {Component} target
+ * @param {React.element} list
+ * @param {React.element} target
  * @returns {Component|null}
  */
 export function findParentGroupContainer(list, target) {
@@ -336,9 +336,9 @@ export function findParentGroupContainer(list, target) {
  * well as cloning the children tree to ensure all menu items are cloned.
  *
  * @private
- * @param {Component} node
+ * @param {React.element} node
  * @param {StatefulPicklist} spl
- * @returns {Component}
+ * @returns {React.element}
  */
 function cloneMenuItem(node, spl) {
 	const id = node.props.id;
@@ -359,9 +359,9 @@ function cloneMenuItem(node, spl) {
  * Clone branch of the children tree.  If the given element is a menu item, make sure that gets handled as well.
  *
  * @private
- * @param {Component} node
+ * @param {React.element} node
  * @param {StatefulPicklist} spl
- * @returns {Component}
+ * @returns {React.element}
  */
 function cloneChildElement(node, spl) {
 	if (isComponent(node)) {

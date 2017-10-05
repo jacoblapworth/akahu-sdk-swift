@@ -172,8 +172,8 @@ class DropDownPanel extends PureComponent {
 
 	containsPicklist() {
 		const { children } = this.props;
-		const checkType = child => child.type === Picklist;
-		return React.Children.map(children, checkType).some(Boolean);
+		const checkType = child => (child && child.type === Picklist);
+		return children != null && React.Children.map(children, checkType).some(Boolean);
 	}
 
 	render() {
@@ -284,7 +284,7 @@ DropDownPanel.propTypes = {
 	/** Used by NestedDropDown to identify each panel. */
 	panelId: PropTypes.string,
 
-	/** Force wrapping Panel childrens in a StatefulPicklist  */
+	/** Force wrapping Panel children in a StatefulPicklist  */
 	forceStatefulPicklist: PropTypes.bool
 };
 

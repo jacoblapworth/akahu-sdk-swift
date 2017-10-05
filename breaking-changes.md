@@ -57,10 +57,15 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 * `xui-pageheading--tabs` has been added to provide inline tabs.
 * `xui-pageheading--actions` has been added to provide better button alignment and inter-button spacing without the need for utility classes.
 * `xui-breadcrumb--link` has been added to provide focus styles for breadcrumb links.
-* `xui-pageheading` border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect.
+* `xui-pageheading`
+	* border has been replaced with box-shadow, take care to re-introduce your own spacing if collapsing margins take effect.
+	* Children will now match height of this element
+* `xui-pageheading--content` children will now match height of this element
 * `xui-pageheading--content-layout` vertical margins have been moved to `xui-pageheading--title` so tabs can extend the full height of the header.
 * `xui-pageheading--content-layout` horizontal margin has been applied so max-width is not required for it to work on mobile devices.
-* `xui-pageheading--title` left padding will be added if placed inside layout class, to provide horizontal alignment on mobile devices.
+* `xui-pageheading--title`
+	* left padding will be added if placed inside layout class, to provide horizontal alignment on mobile devices.
+	* Now center aligns children
 
 #### Panels
 * `xui-panel--header` now has a min-height of 60px.

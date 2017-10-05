@@ -31,7 +31,7 @@ describe('XUIAvatar', function () {
 				<XUIAvatar size="small" value="123" />
 				<XUIAvatar size="large" value="123" />
 				<XUIAvatar size="xlarge" value="123" />
-				<XUIAvatar size="xxlarge" value="123" />
+				<XUIAvatar size="2xlarge" value="123" />
 			</div>
 		);
 
@@ -51,7 +51,7 @@ describe('XUIAvatar', function () {
 		assert.isTrue(node5.classList.contains(classNames.base), 'Avatar with size="xlarge" has the base class');
 		assert.isTrue(node5.classList.contains(sizeClassNames.xlarge), 'Avatar with size="xlarge" has the xlarge class');
 		assert.isTrue(node6.classList.contains(classNames.base), 'Avatar with size="xxlarge" has the base class');
-		assert.isTrue(node6.classList.contains(sizeClassNames.xxlarge), 'Avatar with size="xxlarge" has the xlarge class');
+		assert.isTrue(node6.classList.contains(sizeClassNames['2xlarge']), 'Avatar with size="2xlarge" has the 2xlarge class');
 	});
 
 	it('should render as an abbreviation element if no imageUrl prop is provided', function () {

@@ -12,7 +12,7 @@
 //   <img class="xui-avatar xui-avatar xui-avatar-business xui-margin-right" alt="" role="presentation" src="./kss-assets/content/bbc-logo.png"/>
 //   <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-large xui-margin-right" role="presentation">DK</abbr>
 //   <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation">CNN</abbr>
-//   <img class="xui-avatar xui-avatar-xxlarge xui-avatar-business xui-margin-right" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+//   <img class="xui-avatar xui-avatar-2xlarge xui-avatar-business xui-margin-right" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
 // </div>
 //
 // Styleguide: Building Blocks.Avatars
@@ -31,7 +31,7 @@
 //
 // Definitions:
 // Contacts: `xui-avatar-business`: Square avatars with 1—3 letter acronyms. Suppliers, customers, clients... essentially any 'accounting entity.
-// Users: Default: Round avatars with 2 letter acronyms. These will be users with accounts – essentially any singular **person*.**
+// Users: Default: Round avatars with 2 letter acronyms. These will be users with accounts – essentially any singular person*.
 //
 // Note: *Avoid using avatars for payroll or expense employees if they cannot be resolved to a unique user account.
 //
@@ -102,7 +102,7 @@
 // </div>
 //
 // Classes:
-// xui-avatargroup: wrapping div around group
+// xui-avatargroup: Class to be used as a wrapper div around an avatar group
 // xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
 //
 // Styleguide: Building Blocks.Avatars.5

@@ -27,10 +27,34 @@
 // To create a column based layout, first specify which kind of layout is desired by adding one of the following classes to the parent.
 //
 // Definitions:
-// Standard: 	Standard row:						`.xui-row`
-// Grid: 					Row with gutters: 	`.xui-row-grid`
-// Flex: 					Flex based row: 			`.xui-row-flex`
+// Standard:			Standard row:					`.xui-row`
+// Grid:					Row with gutters:			`.xui-row-grid`
+// Flex:					Flex based row:				`.xui-row-flex`
 //
+// Note: The `.xui-row-grid` variant uses negative margins
+//
+// Markup:
+// <div class='xui-row ds-column-example'>
+// 	<div class='xui-column-4-of-12'></div>
+// 	<div class='xui-column-4-of-12 xui-u-flex'>
+// 		<span>Standard</span>
+// 	</div>
+// 	<div class='xui-column-4-of-12'></div>
+// </div>
+// <div class='xui-row-grid ds-column-example'>
+// 	<div class='xui-column-4-of-12'></div>
+// 	<div class='xui-column-4-of-12 xui-u-flex'>
+// 		<span>Grid</span>
+// 	</div>
+// 	<div class='xui-column-4-of-12'></div>
+// </div>
+// <div class='xui-row-flex xui-u-flex-space-between ds-column-example'>
+// 	<div class='xui-column-3-of-12'></div>
+// 	<div class='xui-column-3-of-12 xui-u-flex'>
+// 		<span>Flex</span>
+// 	</div>
+// 	<div class='xui-column-3-of-12'></div>
+// </div>
 //
 // Styleguide: Fundamentals.Layout.2.1
 
@@ -126,7 +150,7 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class='xui-row-flex xui-u-spacebetween ds-column-example'>
+// <div class='xui-row-flex xui-u-flex-space-between ds-column-example'>
 // 	<div>
 // 	</div>
 // 	<div>

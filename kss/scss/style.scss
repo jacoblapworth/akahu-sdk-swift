@@ -402,6 +402,12 @@ $kss-color-padding: #eeebff;
 		border: none;
 		padding: $xui-s-standard;
 	}
+	span {
+		color: $xui-color-white;
+		align-self: center;
+		text-align: center;
+		width: 100%;
+	}
 }
 
 .ds-flex-example {

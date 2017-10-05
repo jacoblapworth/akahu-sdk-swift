@@ -224,7 +224,7 @@
 	flex-direction: column;
 }
 
-.#{$ns}-u-spacebetween {
+.#{$ns}-u-spacebetween { // TODO: Deprecate and remove this class
 	justify-content: space-between;
 }
 

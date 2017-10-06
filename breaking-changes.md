@@ -135,6 +135,10 @@ and `xui-popover--link` have been removed. These classes were not documented and
 #### Drawer
 * `xui-sidedrawer`, `xui-sidedrawer-is-closed`, `xui-sidedrawer--header`, `xui-sidedrawer--footer`, `xui-sidedrawer--layout` and `xui-sidedrawer--content` have been removed. There is no replacement for them.
 
+#### Popovers
+* `xui-popover--arrow` had been deprecated, apply the new `xui-popover-arrow` modifier on `xui-popover` instead.
+* `xui-popover--arrow--border` had been deprecated, this now is set by `xui-popover-arrow`.
+* `xui-popover--arrow--*` position classes have been deprecated, use `xui-popover-arrow-*` instead.
 
 ### Classes renamed
 

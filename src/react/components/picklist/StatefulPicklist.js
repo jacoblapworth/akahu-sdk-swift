@@ -24,10 +24,14 @@ import {
  */
 function handleArrowKeyEvents(event, spl) {
 	const highlighted = spl.getHighlighted();
+	const {isHorizontal} = spl.props;
+
 	switch (event.keyCode) {
 		case 37: { // Arrow Left
 			const container = findParentGroupContainer(spl.list, highlighted);
-			if (container) {
+			if (isHorizontal) {
+				spl.highlightPrevious(highlighted);
+			} else if (container) {
 				if (isNestedListTrigger(highlighted)) {
 					const containerInstance = getInstanceForChild(spl.idCache, container);
 
@@ -52,7 +56,9 @@ function handleArrowKeyEvents(event, spl) {
 			spl.highlightPrevious(highlighted);
 			break;
 		case 39: // Arrow Right
-			if (isSplitMenuItem(highlighted)) {
+			if (isHorizontal) {
+				spl.highlightNext(highlighted);
+			} else if (isSplitMenuItem(highlighted)) {
 				spl.highlightNext(highlighted);
 			} else if (isNestedListTrigger(highlighted)) {
 				const container = findParentGroupContainer(spl.list, highlighted);
@@ -75,7 +81,7 @@ function handleArrowKeyEvents(event, spl) {
  *
  * @export
  * @class StatefulPicklist
- * @extends {Component}
+ * @extends {React.element}
  */
 class StatefulPicklist extends Component {
 	constructor(props) {
@@ -146,7 +152,7 @@ class StatefulPicklist extends Component {
 	 * the menu item before closing the list.
 	 *
 	 * @public
-	 * @param {Component} item to be selected
+	 * @param {React.element} item to be selected
 	 */
 	selectHighlighted(item) {
 		const spl = this;
@@ -164,7 +170,7 @@ class StatefulPicklist extends Component {
 	 * Highlights the previous item in the list.
 	 *
 	 * @public
-	 * @param {Component} currentItem - Current item highlighted
+	 * @param {React.element} currentItem - Current item highlighted
 	 */
 	highlightPrevious(currentItem) {
 		const prevItem = findPreviousItem(this.list, currentItem, this.idCache);
@@ -175,7 +181,7 @@ class StatefulPicklist extends Component {
 	 * Highlights the next item in the list.
 	 *
 	 * @public
-	 * @param {Component} currentItem - Current item highlighted
+	 * @param {React.element} currentItem - Current item highlighted
 	 */
 	highlightNext(currentItem) {
 		const nextItem = findNextItem(this.list, currentItem, this.idCache);
@@ -186,7 +192,7 @@ class StatefulPicklist extends Component {
 	 * Highlights the item passed in and fires the onHighlightChange callback.
 	 *
 	 * @public
-	 * @param {Component} item - Item to highlight
+	 * @param {React.element} item - Item to highlight
 	 * @param {Event} [event]
 	 */
 	highlightItem(item, event) {
@@ -350,7 +356,10 @@ StatefulPicklist.propTypes = {
 	onHighlightChange: PropTypes.func,
 
 	/** An object of props that can be spread on the stateful picklist, useful for aria attributes. */
-	secondaryProps: PropTypes.object
+	secondaryProps: PropTypes.object,
+
+	/** Whether to use left/right arrow keys to move between pickitems as opposed to up/down */
+	isHorizontal: PropTypes.bool
 };
 
 StatefulPicklist.defaultProps = {

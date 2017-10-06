@@ -233,6 +233,7 @@
 }
 
 .#{$ns}-u-flex-grow {
+	flex-basis: auto;
 	flex-grow: 1;
 }
 

@@ -27,6 +27,7 @@ export default class SelectBoxOption extends PureComponent {
 				href={props.href}
 				ariaRole={props.ariaRole}
 				onMouseOver={props.onMouseOver}
+				qaHook={props.qaHook}
 			>
 				{contents}
 			</Pickitem>
@@ -73,7 +74,9 @@ SelectBoxOption.propTypes = {
 	/** link to be used in child, will render an a tag if used and button if not */
 	href: PropTypes.string,
 	/** defaults to `option` for the aria role attribute, but can be defined for other uses. */
-	ariaRole: PropTypes.string
+	ariaRole: PropTypes.string,
+	/** The automation-id to add to the item */
+	qaHook: PropTypes.string
 };
 
 SelectBoxOption.defaultProps = {
@@ -83,5 +86,6 @@ SelectBoxOption.defaultProps = {
 	isDisabled: false,
 	truncatedText: false,
 	defaultLayout: true,
-	_isMenuItem: true
+	_isMenuItem: true,
+	ariaRole: 'option'
 };

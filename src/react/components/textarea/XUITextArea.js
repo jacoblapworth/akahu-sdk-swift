@@ -241,22 +241,30 @@ export default class XUITextArea extends Component {
 		const counter = maxCharacters ? (
 			<span
 				ref={c => textComponent._counter = c}
-				className='xui-text-secondary'
+				className="xui-text-secondary"
 				data-automationid={`${qaHook}-counter`}>
 				{textComponent.state.charactersLeft}
 			</span>
 		) : null;
 
-		return (
-			<div className={fieldClasses}>
-				<div className={labelClasses}>
-					<div className='xui-u-flex-horizontal xui-u-flex-grow' >
+		const label = children != null || counter != null ? (
+			<div className={labelClasses}>
+				{children != null && (
+					<div className="xui-u-flex-horizontal xui-u-flex-grow">
 						{children}
 					</div>
-					<div className='xui-u-flex-horizontal xui-margin-left-auto xui-margin-top-auto' >
+				)}
+				{counter != null && (
+					<div className="xui-u-flex-horizontal xui-margin-left-auto xui-margin-top-auto">
 						{counter}
 					</div>
-				</div>
+				)}
+			</div>
+		) : null;
+
+		return (
+			<div className={fieldClasses}>
+				{label}
 				{textArea}
 				{message}
 			</div>
@@ -305,7 +313,7 @@ XUITextArea.propTypes = {
 	textareaRef: PropTypes.func,
 	/** Additional classes to be added to the textarea itself. */
 	className: PropTypes.string,
-	/** Whether text area has a border. */	
+	/** Whether text area has a border. */
 	isBorderless: PropTypes.bool,
 	/** QaHook for testing. */
 	qaHook: PropTypes.string,

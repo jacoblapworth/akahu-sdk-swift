@@ -242,6 +242,7 @@
 .#{$ns}-modal--body-layout {
 	@include xui-overflow-shadow;
 	max-height: 45vh;
+	overflow-y: scroll;
 }
 
 @each $number, $variant in $xui-width-variants-modal {

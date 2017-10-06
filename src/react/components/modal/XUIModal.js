@@ -174,7 +174,6 @@ export default class XUIModal extends Component {
 		const maskClasses = cn(
 			'xui-mask',
 			maskClassName,
-			{ ['xui-u-hidden'] : isHidden },
 			{ ['xui-mask-is-active'] : !isHidden }
 		);
 		const modalClasses = cn(
@@ -195,7 +194,11 @@ export default class XUIModal extends Component {
 				qaHook={`${qaHook}-close`}
 				onClick={onClose}
 				title="Close"
-				className={ cn( 'xui-margin-small', 'xui-button-icon', closeClassName) }
+				className={cn(
+					'xui-modal--close',
+					'xui-button-icon',
+					closeClassName
+				)}
 				key="close-button"
 				type="button"
 				variant="unstyled"
@@ -230,7 +233,9 @@ export default class XUIModal extends Component {
 					data-automationid={qaHook}
 					ref={m => this._modalNode = m}
 				>
-					{!containsHeader ? closeButton : null}
+					{!containsHeader
+						? <XUIModalHeader>{closeButton}</XUIModalHeader>
+						: null}
 					{finalChildren}
 				</MainElement>
 			</div>);

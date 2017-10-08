@@ -7,123 +7,224 @@
 //
 // Components: Pill
 //
-// Introduction: Pills are used to indicate a selection has been made, either single or multiple, and may include the option to clear the selection.
+// Introduction: Pills are used to build up a collection of filters, or indicate a single selection has been made within an input.
 //
 // Styleguide: Building Blocks.Pills
 
-// Multi select pills
+// Best practice
 //
-// Used to highlight that more than one selection can be made.
-//
-// Classes:
-// xui-pill: Pill container class
-// xui-pill-layout: Layout assumptions for pills, both internally and externally.
-// xui-pill--content: Any content inside the pill should truncate when it reaches it max width.
-// xui-pill--secondary: Adds an extra small horizontal margin to the secondary items within the pill.
-// xui-pill--avatar: Allows avatars to sit nicely in the initial curve of the pill.
-// xui-pill-is-invalid: Invalid state of a pill.
-// xui-pill-is-focused: Focus state of a pill.
-// xui-pill-is-deleteable: Allows the pill to house a delete icon button.
-// xui-pill--button: Allows buttons within pills to inherit colors from their containing element.
-// xui-pill--button-icon: Allows the delete icon button to be positioned on top of other content within the pill.
-//
-// Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-margin-top-small">
-//   <button class="xui-button xui-pill--content xui-pill--button">
-//     <span class="xui-color-grey-muted xui-pill--secondary">Status</span>
-//     Draft
-//   </button>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-margin-top-small">
-//   <span class="xui-pill--content">
-//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar xui-avatar-color-8" role="presentation">PE</abbr>
-//     <span class="xui-pill--text">pill@withemailaddress.com</span>
-//   </span>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-margin-top-small">
-//   <span class="xui-pill--content">Pill with a really long piece of text, for example you might have a long name</span>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-invalid xui-pill-is-deleteable xui-margin-top-small">
-//   <button class="xui-pill--content xui-button xui-pill--button">
-//     <abbr class="xui-avatar xui-avatar-small xui-pill--avatar xui-avatar-color-2" role="presentation">PE</abbr>
-//     <span class="xui-color-grey-muted xui-pill--secondary">Status</span>
-//     <span class="xui-pill--text">Invalid</span>
-//   </button>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon xui-button-icon-inverted">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-margin-top-small">
-//   <a href='#kssref-pills-2' class="xui-pill--content">With a destination</a>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-margin-top-small">
-//   <span class="xui-pill--content">Readonly</span>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focused xui-margin-top-small">
-//   <button class="xui-pill--content xui-button xui-pill--button">Focused</button>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
-//   </button>
-// </div>
+// Tips:
+// Do: Use multiple pills when building up a list of filters
+// Do: Use a single pill if explicit removal or replace functionality is desired within an input
+// Warning: Take care to provide the recommended focus state when using keyboard interaction
 //
 // Styleguide: Building Blocks.Pills.1
 
-// Single select pills
+// Anatomy
 //
-// Signifies only one selection can be made here rather than multiple, and typically will live inside an input field.
+// At the very minimum, a pill contains a text value.
+// To create one, use the following classes.
 //
 // Classes:
-// xui-pill-single: Class for the case when only one selection can be made
+// xui-pill: Base class
+// xui-pill-layout: Default layout for pills
+// xui-pill--content: Text container
+// xui-pill--text: Text style
 //
 // Markup:
-// <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-u-flex-space-between">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">X</abbr>
-//       <span class="xui-pill--text">pill@withemailaddress.com</span>
-//     </span>
-//     <button class="xui-button xui-button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//   </div>
+// <div class="xui-pill xui-pill-layout">
+//   <span class="xui-pill--content">
+//     <span class="xui-pill--text">Readonly</span>
+//   </span>
 // </div>
-// <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-u-flex-space-between xui-pill-single-is-invalid">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-5">M</abbr>
-//       <span class="xui-pill--text">Invalid Content</span>
-//     </span>
-//     <button class="xui-button xui-button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//   </div>
-// </div>
-// <div class="xui-input xui-margin-top">
-//   <div class="xui-pill xui-pill-single xui-u-flex-space-between">
-//     <span class="xui-pill--content">
-//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1">C</abbr>
-//       <a href="#kssref-pills-2" class="xui-pill--text">pill@withemailaddress.com</a>
-//     </span>
-//     <button class="xui-button xui-button-icon">
-//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
-//     </button>
-//   </div>
-// </div>
-//
 //
 // Styleguide: Building Blocks.Pills.2
+
+// Click-able pills
+//
+// In some cases, clicking a pill triggers an action, such as opening a list of filters to that particular choice. 
+// To indicate that a pill is click-able, make sure to wrap the content in an [unstyled button](section-building-blocks-buttons.html#building-blocks-buttons-2) and apply the following class.
+//
+// Classes:
+// xui-button: Resets user agent styles
+// xui-pill--button: Provides correct pill style
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout">
+//   <button type='button' class="xui-button xui-pill--button xui-pill--content">
+//     <span class="xui-pill--text">Clickable</span>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.3
+
+// Clearing selection
+//
+// To offer quick access to clearing individual pills, include a clear button.
+// To add one, insert a standard [icon button](section-building-blocks-buttons.html#building-blocks-buttons-5), and apply the following classes.
+//
+// Classes:
+// xui-pill-is-deleteable: Apply to pill
+// xui-pill--button-icon: Apply to icon button
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable">
+//   <span class="xui-pill--content">
+//     <span class="xui-pill--text">Nearby</span>
+//   </span>
+//   <button class="xui-button xui-button-icon xui-pill--button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.4
+
+// Including a label
+//
+// In the case of a list of applied filters, it is helpful to include the category alongside the selected value, to provide context.
+// To add one, insert an additional inside `xui-pill--content` and  apply the following class.
+//
+// Classes:
+// xui-pill--secondary: Apply to label
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable">
+//   <button type='button' class="xui-button xui-pill--button xui-pill--content">
+//     <span class="xui-pill--secondary">Status</span>
+//     <span class="xui-pill--text">Draft</span>
+//   </button>
+//   <button class="xui-button xui-button-icon xui-pill--button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.5
+
+// Including an avatar
+//
+// If a selection is associated with a person or business, make sure to include an avatar.
+// To do this, insert a small [avatar](section-building-blocks-avatars.html) and apply the following class.
+//
+// Classes:
+// xui-pill--avatar: Apply to avatar
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable">
+//   <button type='button' class="xui-button xui-pill--button xui-pill--content">
+//     <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
+//     <span class="xui-pill--text">zoe@deschanel.com</span>
+//   </button>
+//   <button class="xui-button xui-button-icon xui-pill--button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.6
+
+// Including a link
+//
+// If a pill contains a link to an external destination, wrap it in an anchor tag and apply the following class.
+//
+// Classes:
+// xui-pill--link: Apply to anchor tag
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable">
+//   <a href="#" class="xui-pill--content xui-pill--link">
+//     <span class="xui-pill--text">Link</span>
+//   </a>
+//   <button class="xui-button xui-button-icon xui-pill--button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.7
+
+// Indicating focus
+//
+// Focus styles can also be applied programatically to pills, in the case of providing keyboard interaction.
+// To do this, add the following class.
+//
+// Classes:
+// xui-pill-is-focused: Apply to pill
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focused">
+//   <button type='button' class="xui-button xui-pill--button xui-pill--content">
+//     <span class="xui-pill--text">Focused</span>
+//   </button>
+//   <button class="xui-button xui-button-icon xui-pill--button-icon">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.8
+
+// Invalid pills
+//
+// To indicate that a pill is invalid or incomplete, apply the following class.
+//
+// Classes:
+// xui-pill-is-invalid: Apply to pill
+//
+// Markup:
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-invalid">
+//   <span class="xui-pill--content">
+//     <span class="xui-pill--text">Invalid</span>
+//   </span>
+//   <button class="xui-button xui-button-icon xui-pill--button-icon xui-button-icon-inverted">
+//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   </button>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.9
+
+// Single select pills
+//
+// Often, only a single selection is allowed within an input.
+// This allows additional actions such as surfacing contact details to be provided. 
+// To do this, replace the entire input with a pseudo `xui-input` and apply the following class to the pill.
+// All other classes will update accordingly.
+//
+// Classes:
+// xui-pill-single: Apply to pill
+//
+// Markup:
+// <div class="xui-input" tabindex='0'>
+//   <div class="xui-pill xui-pill-single">
+//     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
+//       <span class="xui-pill--text">zoe@deschanel.com</span>
+//     </button>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-input xui-margin-top" tabindex='0'>
+//   <div class="xui-pill xui-pill-single xui-pill-is-invalid">
+//     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
+//       <span class="xui-pill--text">zoe@deschanel.com</span>
+//     </button>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-input xui-margin-top" tabindex='0'>
+//   <div class="xui-pill xui-pill-single">
+//   	 <a href="#" class="xui-pill--content xui-pill--link" tabindex='-1'>
+//     	 <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
+//       <span class="xui-pill--text">zoe@deschanel.com</span>
+//   	 </a>
+//     <button class="xui-button xui-button-icon">
+//       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Pills.10
 
 .#{$ns}-pill-layout {
 	height: $xui-icon-standard;
@@ -148,10 +249,12 @@
 
 .#{$ns}-pill--text,
 .#{$ns}-pill--secondary {
+	line-height: $xui-line-height-compact;
 	vertical-align: middle;
 }
 
 .#{$ns}-pill--secondary {
+	color: $xui-color-grey-alpha-2;
 	margin-right: 5px;
 }
 
@@ -159,6 +262,10 @@
 	margin-left: -12px;
 	margin-right: $xui-s-xsmall;
 	pointer-events: none;
+}
+
+.#{$ns}-pill--link {
+	outline: none;
 }
 
 .#{$ns}-pill--button-icon {
@@ -179,8 +286,17 @@
 	background-color: $xui-color-xero-red;
 	color: $xui-color-white;
 
+	&.#{$ns}-pill-is-focused {
+		background-color: $xui-color-red-dark;
+	}
+
+	// TODO: Deprecated, remove in XUI13 as we now use inverted buttons for this
 	.#{$ns}-pill--button-icon,
 	.#{$ns}-pill--content {
+		color: $xui-color-white;
+	}
+
+	.#{$ns}-pill--text {
 		color: $xui-color-white;
 	}
 
@@ -192,6 +308,7 @@
 .#{$ns}-pill--button {
 	border-radius: $xui-s-large;
 	color: inherit;
+	text-align: left;
 }
 
 .#{$ns}-pill-single {
@@ -203,8 +320,23 @@
 	position: absolute;
 	right: $xui-s-xsmall;
 	top: 0;
+
+	&.#{$ns}-pill-is-invalid {
+		.#{$ns}-pill--text {
+			color: $xui-color-red;
+		}
+
+		.#{$ns}-pill--secondary {
+			color: $xui-color-grey-alpha-2;
+		}
+
+		&.#{$ns}-pill-is-focused {
+			background: $xui-color-white;
+		}
+	}
 }
 
+// TODO: Deprecated, remove in XUI13 as now we use the standard invalid class
 .#{$ns}-pill-single-is-invalid {
 	color: $xui-color-red;
 }

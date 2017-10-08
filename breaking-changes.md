@@ -28,6 +28,12 @@ This is to ensure correct styling when placed next to inputs in a grouped input 
 
 #### Pills
 * Single select pills have been changed to use the same DOM structure as regular pills, and are now absolutely positioned to ensure they fit within a standard input
+* `xui-pill--secondary` line height has been added to fix vertical text alignment when placed alongside `xui-pill--text`.
+* `xui-pill--text` line height has been added to fix vertical text alignment when placed alongside `xui-pill--secondary`.
+* `xui-pill--secondary` now has a default grey color and line-height, instead of relying on utility classes.
+* `xui-pill--link` has been added, use this to clear outlines on anchors, and use `xui-pill-is-focused` to indicate focus instead.
+* `xui-pill--button` text align has been set to left, to support use inside `xui-input`.
+* `xui-pill--content` white text color has been moved to `xui-pill--text` and `xui-pill--secondary` when invalid.
 
 #### Utilities
 * Margin and padding classes are now considered trumps (utilities), meaning they are included at the bottom of
@@ -167,6 +173,7 @@ that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-s
 #### Pills
 * `xui-pill-*` has been removed (old pills), and `xui-newpill-*` has been renamed to `xui-pill`
 * `xui-pill-is-focussed` has been renamed to `xui-pill-is-focused` (one `s`)
+* `xui-pill-single-is-invalid` has been removed, use `xui-pill-is-invalid` instead.
 
 #### Inputs
 * `xui-input-group` has ben removed. Use `xui-inputgroup` instead.

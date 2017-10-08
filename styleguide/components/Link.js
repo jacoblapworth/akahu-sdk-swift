@@ -9,12 +9,10 @@ export const styles = ({ color }) => ({
 			display: 'block',
 			fontSize: '15px',
 			lineHeight: 1.5,
-			paddingTop: 'calc(0.75em + 0.5vh)',
-			paddingBottom: 'calc(0.75em + 0.5vh)',
-			paddingLeft: 'calc(0.7em + .7vw)',
 			color: color.link,
 			textDecoration: 'none'
-		}
+		},
+
 	},
 });
 

@@ -9,6 +9,7 @@ import allSections from '../sections.json';
 const styles = ({ color, fontFamily, fontSize, space }) => ({
 	list: {
 		margin: 0, // eslint-disable-line quote-props
+		padding: 0,
 	},
 	item: {
 		color: color.base,
@@ -30,7 +31,17 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 	heading: {
 		color: color.base,
 		marginTop: space[1],
-		fontFamily: fontFamily.base
+		fontFamily: fontFamily.base,
+		'&, &:link, &:visited': {
+			display: 'block',
+			fontSize: '15px',
+			lineHeight: 1.5,
+			paddingTop: 'calc(0.75em + 0.5vh)',
+			paddingBottom: 'calc(0.75em + 0.5vh)',
+			paddingLeft: 'calc(0.7em + .7vw)',
+			color: color.link,
+			textDecoration: 'none'
+		},
 	}
 });
 

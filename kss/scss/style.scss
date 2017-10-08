@@ -12,6 +12,7 @@ $ds-inverted--light: rgba(0, 0, 0, 0.06);
 $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
 $ds-color-black: #1c242c;
+$ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
 
 
 .ds-html {
@@ -32,7 +33,7 @@ $ds-color-black: #1c242c;
 	margin: auto;
 	padding: 3vh 5vw 3vh;
 	@include xui-breakpoint-wide {
-		padding: 12vh 7vmax 12vh;
+		padding: 12vh $ds-main-side-padding 12vh;
 		width: auto;
 	}
 }

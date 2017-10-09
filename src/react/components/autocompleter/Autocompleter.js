@@ -16,6 +16,13 @@ import DropDownToggled from '../dropdown/DropDownToggled';
  */
 const HandlersMap = new Map();
 
+/*
+ * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input
+ * @private
+ * @type {Array}
+ */
+const ignoreKeyboardEvents = [32,37,39];
+
 /**
  * Create private event handlers and callbacks for the associated instance, then cache them.  Retrieve from cache on
  * subsequent calls.
@@ -183,7 +190,7 @@ export default class Autocompleter extends PureComponent {
 		const dropdown = (
 			<DropDown
 				ref={c => completer.dropdown = c}
-				ignoreKeyboardEvents={[32,37,39]} /* Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input */
+				ignoreKeyboardEvents={ignoreKeyboardEvents}
 				id={props.id}
 				onSelect={props.onOptionSelect}
 				hasKeyboardEvents={false}

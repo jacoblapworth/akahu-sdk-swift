@@ -22,14 +22,14 @@ export default [
 		id: "4",
 		email: "Mario@thekartbiz.com",
 		subtext: "misses Luigi",
-		avatar: "avatars/mario_icon.png"
+		avatar: "https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png"
 	},
 	{
 		name: "Batman",
 		id: "5",
 		email: "Batman@thecave.com",
 		subtext: "Has a nice car",
-		avatar: "avatars/batman.gif"
+		avatar: "https://s3-ap-southeast-2.amazonaws.com/uxe-internal/batman.gif"
 	},
 	{
 		name: "Anonymous",

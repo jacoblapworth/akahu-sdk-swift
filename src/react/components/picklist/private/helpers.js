@@ -352,7 +352,9 @@ function cloneMenuItem(node, spl) {
 		injectedProps.onClick = compose(node.props.onClick, event => spl.onClick(event, id));
 	}
 
-	return React.cloneElement(node, injectedProps, cloneChildren(node.props.children, spl));
+	const children = isNestedListTrigger(node) ? cloneChildren(node.props.children, spl) : node.props.children;
+
+	return React.cloneElement(node, injectedProps, children);
 }
 
 /**

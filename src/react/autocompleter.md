@@ -95,19 +95,6 @@ class DetailedListExample extends Component {
 		});
 	}
 
-	filterDataByValue(value){
-		const people = people.filter(person => {
-			return person.name.toLowerCase().includes(value.toLowerCase())
-				|| person.email.toLowerCase().includes(value.toLowerCase())
-				|| person.subtext.toLowerCase().includes(value.toLowerCase())
-		});
-
-		this.setState({
-			loading: false,
-			data: people
-		});
-	}
-
 	onClose(){
 		this.setState({value: ''})
 	}
@@ -143,7 +130,7 @@ class DetailedListExample extends Component {
 				</div>
 			</Pickitem>
 		));
-		
+
 		return (
 			<Picklist>{items}</Picklist>
 		);
@@ -255,19 +242,6 @@ class DetailedListExample extends Component {
 		});
 	}
 
-	filterDataByValue(value){
-		const people = people.filter(person => {
-			return person.name.toLowerCase().includes(value.toLowerCase())
-				|| person.email.toLowerCase().includes(value.toLowerCase())
-				|| person.subtext.toLowerCase().includes(value.toLowerCase())
-		});
-
-		this.setState({
-			loading: false,
-			data: people
-		});
-	}
-
 	getItems(){
 		const example = this;
 		const {
@@ -299,7 +273,7 @@ class DetailedListExample extends Component {
 				</div>
 			</Pickitem>
 		));
-		
+
 		return (
 			<Picklist>{items}</Picklist>
 		);

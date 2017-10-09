@@ -1,21 +1,7 @@
 [
 	{
 		"name": "Introduction",
-		"content": "../src/docs/react/introduction.md",
-		"sections": [
-			{
-				"name": "Getting Started",
-				"content": "../src/docs/react/overview.md"
-			},
-			{
-				"name": "Upgrading",
-				"content": "../src/docs/react/upgrading.md"
-			},
-			{
-				"name": "Contributing",
-				"content": "../src/docs/react/contributing.md"
-			}
-		]
+		"content": "../src/docs/react/introduction.md"
 	},
 	{
 		"name": "Components",

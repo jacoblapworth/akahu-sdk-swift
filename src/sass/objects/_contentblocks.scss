@@ -1,103 +1,313 @@
 @import "../vars";
 @import "../mixins";
 
-// Slats
+// Content blocks
 //
-// Teaser: Containers for multiple pieces of content, commonly displayed as a row or slat.
+// Teaser: Top-level views of detailed sub pages.
 //
-// Styleguide: Building Blocks.Slats
+// Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions. 
+//
+// Styleguide: Building Blocks.Content blocks
 
-// Content Block with Actions
+// Anatomy
 //
-// Markup:
-// <section>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Today</h2>
-//   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-contentblock--item-negative xui-contentblock--item-layout xui-padding xui-u-flex">
-//       <div class="xui-u-flex-horizontal">
-//         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
-//         <a href="#">Parrot Dog</a> - Workpaper available for review
-//         <div class="xui-text-secondary">1 January - 28 February 2015</div>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left">
-//         <button type="button" class="xui-button xui-button-standard">Action</button>
-//       </div>
-//     </li>
-//     <li class="xui-contentblock--item xui-contentblock--item-selected xui-contentblock--item-layout xui-padding xui-u-flex">
-//       <div class="xui-u-flex-horizontal">
-//         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
-//         <a href="#">Garage Project</a> - Workpaper available for review
-//         <div class="xui-text-secondary">1 January - 28 February 2015</div>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left">
-//         <button type="button" class="xui-button xui-button-standard">Action</button>
-//       </div>
-//     </li>
-//   </ol>
-//   <h2 class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Tomorrow</h2>
-//   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-contentblock--item--layout xui-padding xui-u-flex">
-//       <div class="xui-u-flex-horizontal">
-//         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/chrismerritt/48.jpg" alt="Not Hasslehoff " class="xui-avatar"/>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left xui-u-flex-grow">
-//         <a href="#">Parrot Dog</a> - Workpaper available for review
-//         <div class="xui-text-secondary">1 January - 28 February 2015</div>
-//       </div>
-//       <div class="xui-u-flex-horizontal xui-margin-left">
-//         <button type="button" class="xui-button xui-button-standard">Action</button>
-//       </div>
-//     </li>
-//   </ol>
-// </section>
+// Flag: Under review
 //
-// Styleguide: Building Blocks.Slats.1
-
-// Content Block with Linked Rows
+// ExampleClass: ds-example-wide
 //
-// Use the `xui-rowlink` class to provide styling to an anchor that wraps around a number of elements representing
-// columns of data
-//
-// Markup:
-// <section>
-//   <header class="xui-sectionheading xui-sectionheading-layout xui-heading-separator">Account Number: 12345678</header>
-//   <ol class="xui-contentblock">
-//     <li class="xui-contentblock--item xui-contentblock--item-layout">
-//       <a href="/Contacts/View/b8942fdc-ad0f-4cc0-967e-9a6f619a992d" class="xui-row xui-padding xui-rowlink">
-//         <div class="xui-column-5-of-12">Arya Stark</div>
-//         <div class="xui-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
-//           <div class="xui-text-secondary">25 January 2016</div>
-//         </div>
-//       </a>
-//     </li>
-//     <li class="xui-contentblock--item xui-contentblock--item-layout">
-//       <a href="/Contacts/View/3e057826-6a71-4567-bae0-8834db2b6c71" class="xui-row xui-padding xui-rowlink">
-//         <div class="xui-column-5-of-12">Basil Cafe</div>
-//         <div class="xui-column-7-of-12 xui-text-truncated">Edited by Finn O'Cool
-//           <div class="xui-text-secondary">25 January 2016</div>
-//         </div>
-//       </a>
-//     </li>
-//   </ol>
-// </section>
-//
-// Styleguide: Building Blocks.Slats.2
-
-// Class list
+// The current approach for creating content blocks is to use standard XUI typography presets, form controls, and components in parallel with layout classes.
+// There are, however, several component specific classes to help define groups of content blocks, and provide vertical borders between them.
 //
 // Classes:
-// xui-contentblock: Container for a content block
-// xui-contentblock--item: Container for a content block item
-// xui-contentblock--item-layout: Modifier to provide content block item layout
-// xui-contentblock--item-negative: Modifier for a negative highlight content block item
-// xui-contentblock--item-selected: Modifier for a selected content block item
-// xui-rowlink: Modifier for a content block item which acts as a hyperlink
+// xui-contentblock: A group of content blocks
+// xui-contentblock--item: An individual content block
+// xui-rowlink: Modifier to reset type styles for content block links
 //
-// Styleguide: Building Blocks.Slats.50
+// Styleguide: Building Blocks.Content blocks.1
+
+// Standard
+//
+// Classes:
+// xui-background-grey-7: Apply on hover
+//
+// Tips:
+// Do: Tint the entire row on hover to clarify that it is clickable
+// Do: Include an overflow menu to surface any related actions that can be performed on the row
+// Dont: Don't use content blocks for read-only data
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-padding-left-large xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//   </span>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.1
+
+// With secondary info
+//
+// Tips:
+// Do: Indicate the destination by including it as the primary piece of data in the content block hierarchy
+// Warning: Only show the most pertinent information, reserve all else for the detailed sub page
+// Warning: Avoid using secondary data as separate links, use the overflow menu to surface them instead
+// Warning: Take care to truncate long text content
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-padding-left-large xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>Secondary</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Secondary</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.2
+
+// With bulk select
+//
+// Tips:
+// Warning: Avoid showing bulk select controls on content blocks by default, unless it is a primary use case
+// Warning: Only show resulting bulk actions on select
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <div class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
+// 	<label class="xui-styledcheckboxradio">
+//  	 <input class="xui-styledcheckboxradio--input" type="checkbox">
+//  	 <svg focusable="false" class="xui-icon">
+//  	   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//  	   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+//  	   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+//  	   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
+//  	 </svg>
+// 	</label>
+// </div>
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>Secondary</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Secondary</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.3
+
+// With avatar
+//
+// Tips:
+// Do: When users or businesses are the primary data involved, include avatars to add personality
+// Warning: When bulk select actions are required but avatars are present, take care to surface them on hover and long press of the entire row
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <div class="xui-margin-horizontal">
+//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+// </div>
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>Secondary</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Secondary</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.4
+
+// With value
+//
+// Tips:
+// Do: When a single crucial figure or piece of data is present, give it special attention by pinning it to the right
+// Warning: Avoid truncating pinned figures
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <div class="xui-margin-horizontal">
+//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+// </div>
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>Secondary</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Secondary</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.5
+
+// With action
+//
+// Tips:
+// Do: Promote encouraged actions to bypass the need to visit each content block
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <div class="xui-margin-horizontal">
+//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+// </div>
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>Secondary</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Secondary</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-large">0.00</div>
+//			 <button class="xui-button xui-button-small xui-button-standard xui-margin-right-small">Action</button>
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.6
+
+// With sentiment
+//
+// Tips:
+// Warning: Avoid statuses in contexts where they are all the same, use section headers instead to avoid duplication
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered xll-listitem">
+// <div class="xui-margin-horizontal">
+//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+// </div>
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Primary</span>
+//     <span class="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>Secondary</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Secondary</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-large">0.00</div>
+//			 <button class="xui-button xui-button-small xui-button-standard xui-margin-right-small">Action</button>
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+// </div>
+//
+// Styleguide: Building Blocks.Content blocks.1.7
+
+// Content block modifiers
+//
+// Flag: Deprecated
+//
+// Classes:
+// xui-contentblock--item-layout: Use utility classes instead
+// xui-contentblock--item-negative: This style is no longer supported
+// xui-contentblock--item-selected: This style is no longer supported
+//
+// Styleguide: Building Blocks.Content blocks.2
 
 .#{$ns}-contentblock {
 	border-collapse: collapse;
@@ -111,6 +321,7 @@
 	list-style: none;
 	position: relative;
 
+	// TODO Deprecated in XUI12, remove in XUI13
 	&.#{$ns}-contentblock--item-selected {
 		background-color: fade-out($xui-color-xero-blue, 0.9);
 	}
@@ -118,12 +329,13 @@
 	&:first-of-type {
 		border-top: 0;
 	}
-
+	// TODO Deprecated in XUI12, remove in XUI13
 	&-layout {
 		@include xui-text-line-height; // 1.5
 	}
 }
 
+// TODO Deprecated in XUI12, remove in XUI13
 .#{$ns}-contentblock--item-negative {
 	@include xui-highlight-left($xui-color-xero-red);
 }
@@ -134,31 +346,300 @@
 }
 
 // Tables
+// 
+// Teaser: Used to compare, contrast and sort large amounts of data.
+//
+// Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
+//
+// Styleguide: Building Blocks.Tables
+
+
+// Anatomy
+//
+// To create a table, use the following content block classes.
+// 
+// Classes:
+// xui-contentblock: Apply to table
+// xui-contentblock--item: Apply to each row, including headers
+//
+// Styleguide: Building Blocks.Tables.1
+
+// Headers
+//
+// To create a standard table header, the following typography presets and utility classes are required to create the desired layout.
+// In the case of a sortable table, make sure to include an inline sort icon also.
+//
+// Classes:
+// xui-heading-separator: Sets correct text style for table headers
+// xui-heading-align-right: Apply to the last column if it is numerical data
+// xui-padding-x: Set the desired spacing
+//
+// Styleguide: Building Blocks.Tables.2
+
+// Standard
+//
+// Tips:
+// Warning: Avoid including too many columns
 //
 // Markup:
-// <table class="xui-contentblock">
+// <table class="xui-panel xui-contentblock">
 //  <thead>
-//    <tr class="xui-sectionheading">
-//      <th class="xui-heading-separator xui-sectionheading-layout">Code</th>
-//      <th class="xui-heading-separator xui-sectionheading-layout">Account</th>
-//      <th class="xui-heading-separator xui-sectionheading-layout">Account Type</th>
-//      <th class="xui-heading-separator xui-sectionheading-layout xui-text-number">Amount</th>
+//    <tr class="xui-u-flex xui-contentblock--item xui-text-align-left">
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-right-small xui-padding-left-large">Column</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">Column</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">Column</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-left-small xui-padding-right-large xui-text-align-right">Column</th>
 //    </tr>
 //  </thead>
-//  <tbody>
-//    <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//      <td class="xui-text-cell xui-padding">300</td>
-//      <td class="xui-text-cell xui-padding">Bank Account 01</td>
-//      <td class="xui-text-cell xui-padding">3</td>
-//      <td class="xui-text-cell xui-padding xui-text-number">400.00</td>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.2.1
+
+// Sortable ascending
+//
+// Tips:
+// Do: Include an icon to indicate which column is currently selected
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <thead>
+//    <tr class="xui-u-flex xui-contentblock--item xui-text-align-left">
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-right-small xui-padding-left-large">
+//				<button class="xui-button">
+//					Column
+//					<svg focusable="false" class="xui-icon xui-icon-inline">
+//						<use role="presentation" xlink:href="#xui-icon-sort-single"></use>
+//					</svg>
+//				</button>
+//			</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
+//				<button class="xui-button">
+//					Column
+//				</button>
+//			</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
+//				<button class="xui-button">
+//					Column
+//				</button>
+//			</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-text-align-right xui-padding-vertical-small xui-padding-left-small xui-padding-right-large"">
+//				<button class="xui-button">
+//					Column
+//				</button>
+//			</th>
 //    </tr>
-//    <tr class="xui-contentblock--item xui-contentblock--item-layout">
-//      <td class="xui-text-cell xui-padding">301</td>
-//      <td class="xui-text-cell xui-padding">Bank Account 01</td>
-//      <td class="xui-text-cell xui-padding">3</td>
-//      <td class="xui-text-cell xui-padding xui-text-number">400.00</td>
+//  </thead>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.2.2
+
+// Sortable descending
+//
+// Tips:
+// Do: Reverse the sort direction with each subsequent click
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <thead>
+//    <tr class="xui-u-flex xui-contentblock--item xui-text-align-left">
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-right-small xui-padding-left-large">
+//				<button class="xui-button">
+//					Column
+//					<svg focusable="false" class="xui-icon xui-icon-inline xui-u-rotate-180">
+//						<use role="presentation" xlink:href="#xui-icon-sort-single"></use>
+//					</svg>
+//				</button>
+//			</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
+//				<button class="xui-button">
+//					Column
+//				</button>
+//			</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
+//				<button class="xui-button">
+//					Column
+//				</button>
+//			</th>
+//      <th class="xui-u-flex-1 xui-heading-separator xui-text-align-right xui-padding-vertical-small xui-padding-left-small xui-padding-right-large"">
+//				<button class="xui-button">
+//					Column
+//				</button>
+//			</th>
+//    </tr>
+//  </thead>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.2.3
+
+// Rows
+//
+// To create a standard table body, the folllwing typography presets and utility classes are required to create the desired layout.
+//
+// Classes:
+// xui-text-emphasis: Apply to primary content
+// xui-text-secondary: Apply to secondary information
+// xui-text-align-right: Apply to numerical values
+// xui-padding-x: Set the desired spacing
+//
+// Styleguide: Building Blocks.Tables.3
+
+// Standard
+//
+// Tips:
+// Warning: Avoid including too many columns
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <tbody>
+//    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
+//			<td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//				<span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
+//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
+//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//				<span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
+//			</td>
 //    </tr>
 //  </tbody>
 // </table>
 //
-// Styleguide: Building Blocks.Tables
+// Styleguide: Building Blocks.Tables.3.1
+
+// With actions
+//
+// Tips:
+// Do: Include an overflow menu to surface any actions that can be performed on the individual row
+// Do: Always include bulk select controls if any action can be performed, as this is an advanced view mode
+// Warning: Only show resulting bulk actions on select
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <tbody>
+//    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
+// 			<td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
+// 				<label class="xui-styledcheckboxradio">
+//  				 <input class="xui-styledcheckboxradio--input" type="checkbox">
+//  				 <svg focusable="false" class="xui-icon">
+//  				   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//  				   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+//  				   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+//  				   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
+//  				 </svg>
+// 				</label>
+// 			</td>
+//			<td colspan="6" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//				<span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-2">Primary</span>
+//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
+//				<span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-5">0.00</span>
+//			</td>
+//    	<td class="xui-margin-horizontal-small">
+//     	 <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//      	 <svg focusable="false" class="xui-icon">
+//      	   <use xlink:href="#xui-icon-overflow"></use>
+//       	 </svg>
+//       </button>
+//     </td>
+//    </tr>
+//  </tbody>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.3.2
+
+// With avatar
+//
+// Tips:
+// Do: When users or businesses are the primary data involved, include avatars to add personality
+// Warning: Avoid hiding bulk actions behind the avatar in tables, as this is an advanced view mode
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <tbody>
+//    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
+// 		<td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
+// 				<label class="xui-styledcheckboxradio">
+//  				 <input class="xui-styledcheckboxradio--input" type="checkbox">
+//  				 <svg focusable="false" class="xui-icon">
+//  				   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//  				   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+//  				   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+//  				   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
+//  				 </svg>
+// 				</label>
+// 			</td>
+//			<td colspan="7" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+// 				<span class="xui-margin-right xui-u-flex xui-u-flex-verticallycentered">
+//   				<abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+// 				</span>
+//				<span class="xui-padding-vertical xui-padding-right-small xui-text-emphasis xui-u-flex-1" aria-labelledby="column-3">Primary</span>
+//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
+//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-5">Secondary</span>
+//				<span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-6">0.00</span>
+//			</td>
+//    	<td class="xui-margin-horizontal-small">
+//     	 <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//      	 <svg focusable="false" class="xui-icon">
+//      	   <use xlink:href="#xui-icon-overflow"></use>
+//       	 </svg>
+//       </button>
+//     </td>
+//    </tr>
+//  </tbody>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.3.4
+
+// Destinations
+//
+// In the case of a row with a single destination, you cannot wrap `<tr>` or `<td>` elements in an anchor tag, so only include one `<td>` element, and specify a `colspan` number instead.
+// Make sure you also add the appropriate `aria-labelledby` attributes to each column to indicate which header they relate to.
+// Additionally, a `tabindex`, `data-ref` and link `role` must also be added to the `<td>` element.
+// When a row has multiple destinations, simply nest an anchor tag within each `<td>` element.
+//
+// Styleguide: Building Blocks.Tables.4
+
+// Single destination
+//
+// Tips:
+// Do: Tint the entire row on hover to clarify that it is clickable
+//
+// Classes:
+// xui-background-grey-7:	Apply to row on hover
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <tbody class="xui-u-flex xui-u-flex-vertical">
+//    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
+//				<td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//					<span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
+//					<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
+//					<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//					<span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
+//				</td>
+//    </tr>
+//  </tbody>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.4.1
+
+// Multiple destinations
+//
+// Tips:
+// Do: Highlight each separate link on hover
+// Dont: Don't nest buttons or anchor tags inside each other
+//
+// Classes:
+// xui-text-minorlink:	Apply to each anchor tag
+//
+// Markup:
+// <table class="xui-panel xui-contentblock">
+//  <tbody>
+//    <tr class="xui-contentblock--item xui-u-flex">
+//      <td class="xui-text-emphasis xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-u-flex-1"><a href="#" class="xui-text-minorlink">Primary link</a></td>
+//      <td class="xui-text-secondary xui-padding-vertical xui-padding-horizontal-small xui-u-flex-1"><a href="#" class="xui-text-minorlink">Secondary link</a></td>
+//      <td class="xui-text-secondary xui-padding-vertical xui-padding-horizontal-small xui-u-flex-1"><a href="#" class="xui-text-minorlink">Secondary link</a></td>
+//      <td class="xui-text-align-right xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-u-flex-1">0.00</td>
+//    </tr>
+//  </tbody>
+// </table>
+//
+// Styleguide: Building Blocks.Tables.4.2

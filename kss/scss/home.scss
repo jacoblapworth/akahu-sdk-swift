@@ -18,8 +18,8 @@
 }
 
 .ds-tile--home {
+	height: 23vw;
 	width: calc(33.33% - 2vw);
-	padding-top: 40%;
 	border-radius: 3px;
 	margin-bottom: 2vw;
 	margin-left: 2vw;
@@ -35,16 +35,16 @@
 		margin-left: 0;
 	}
 	@include xui-breakpoint-medium {
+		height: 52vw;
 		width: calc(50% - 2vw);
-		padding-top: 60%;
 		margin-left: 0;
 		&:nth-child(even) {
 			margin-left: 2vw;
 		}
 	}
 	@include xui-breakpoint-narrow {
+		height: 52vw;
 		width: calc(50% - 2vw);
-		padding-top: 60%;
 		margin-left: 0;
 		&:nth-child(even) {
 			margin-left: 2vw;
@@ -102,7 +102,7 @@
 	background-image: url(./kss-assets/illustration/block.png);
 	background-size: 200%;
 	background-repeat: no-repeat;
-	background-position: 10% 400%;
+	background-position: 10px 100px;
 }
 
 .ds-tile--home-react {

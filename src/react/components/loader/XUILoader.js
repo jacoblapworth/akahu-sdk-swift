@@ -12,7 +12,8 @@ const XUILoader = (props) => {
     sizeClass,
     props.className,
     {
-      [`${baseClass}-layout`] : props.defaultLayout
+      [`${baseClass}-layout`] : props.defaultLayout,
+      [`${baseClass}-inverted`] : props.isInverted
     }
   );
 
@@ -39,7 +40,10 @@ XUILoader.propTypes = {
   defaultLayout: PropTypes.bool,
 
   /** Sets the size of the loader to be, small, standard (no class added), and large */
-  size: PropTypes.oneOf(Object.keys(sizeClassNames))
+  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+
+  /** Sets the loader to the inverted colour scheme */
+  isInverted: PropTypes.bool
 };
 
 XUILoader.defaultProps = {

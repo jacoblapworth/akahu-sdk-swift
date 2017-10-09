@@ -29,7 +29,16 @@ For more flexibility in styling and using Loaders in your application, set the p
 Apart from the `standard` size, Loaders can also be `small` or `large`.
 
 ```
-<div>
 <XUILoader size="large" defaultLayout={false} />
+```
+
+### Inverted
+
+Loaders support inverted backgrounds
+
+```
+<div className="xui-background-grey-1">
+  <XUILoader isInverted={true} />
 </div>
 ```
+

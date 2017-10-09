@@ -10,6 +10,7 @@
 * `XUIButton` now supports the inverted variant.
 * `Toast` now limits toast actions to a max of 2.
 * `Avatar` sizing support to cover xsmall all the way up to xxlarge.
+* `Loader` now supports the inverted variant.
 
 ### New Components
 * `XUITag` is now added as a simple, stateless component.

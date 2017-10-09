@@ -22,7 +22,7 @@ describe('XUILoader', function () {
 	});
 
 	it('should not add the layout class if `defaultLayout` is set to `false`', function () {
-		const wrapper = mount(<XUILoader defaultLayout={false}label="Something is loading, please wait" />);
+		const wrapper = mount(<XUILoader defaultLayout={false} label="Something is loading, please wait" />);
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeFalsy();
 	});
 
@@ -39,5 +39,15 @@ describe('XUILoader', function () {
 		expect(loaders.at(0).hasClass('xui-loader')).toBeTruthy();
 		expect(loaders.at(1).hasClass('xui-loader-small')).toBeTruthy();
 		expect(loaders.at(2).hasClass('xui-loader-large')).toBeTruthy();
+	});
+
+	it('should add the inverted class if `isInverted` is set to `true`', () => {
+		const wrapper = mount(
+			<XUILoader
+				isInverted={true}
+				label="Something is loading, please wait" />
+		);
+
+		expect(wrapper.getDOMNode().classList.contains('xui-loader-inverted')).toBeTruthy();
 	});
 });

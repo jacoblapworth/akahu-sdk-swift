@@ -33,37 +33,39 @@
 //
 //
 // Markup:
-// <div class="xui-panel xui-contentblock--item xui-contentblock--item-layout xui-u-flex xui-u-flex-verticallycentered xui-padding-vertical-xsmall xll-listitem">
-//	<div class="xui-margin-horizontal">
-//		<abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
-//	</div>
-//	<div class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical-small">
-// 	<span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-// 		<span class='xui-heading-small'>Hornblower Enterprises</span>
-// 		<span class="xui-tag xui-tag-positive xui-margin-left-xsmall">Paid</span>
-// 	</span>
-// 	<div class="xui-text-secondary">
-//		<span>INV0021</span>
-//		<span class='xui-margin-horizontal-xsmall'>•</span>
-//		<span>Due 13 Dec 17</span>
-//	</div>
-//	</div>
-//	<div class="xui-margin-left xui-heading-small xui-text-deemphasis">346.50</div>
-//	<div class="xui-margin-horizontal-small">
-// 		<div class="dropdown-toggled-wrapper xui-u-flex" data-ref="toggled-wrapper">
-// 			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-// 				<svg focusable="false" class="xui-icon" viewBox="0 0 30 30">
-// 					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-overflow"></use>
-// 				</svg>
-// 			</button>
-// 		</div>
-// 	</div>
+// <div class='xui-panel xui-contentblock'>
+// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
+// <div class="xui-margin-horizontal">
+//   <abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
+// </div>
+// <a href="#" class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical xui-rowlink">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//     <span class="xui-heading-small">Hornblower Enterprises</span>
+//     <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
+//   </span>
+//   <div class="xui-text-secondary xui-text-truncated">
+//   	<span>INV0021</span>
+//   	<span class="xui-margin-horizontal-xsmall">•</span>
+//   	<span>Due 8 Dec 2017</span>
+// 	 </div>
+// </a>
+// <div class="xui-margin-horizontal-small">
+//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
+// </div>
 // </div>
 // <div class="xui-dropdown xui-dropdown-is-open xui-dropdown-is-opening xui-margin-top-large">
 // 	<div class='xui-dropdown--body xui-u-fullwidth'>
 // 		<ul class="xui-picklist xui-picklist-layout">
 // 			<li class="xui-pickitem" aria-selected="false">
-// 				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text xui-u-flex xui-u-flex-space-between ">
+// 				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text xui-u-flex xui-u-flex-space-between">
 // 					<span>
 // 						Resene paint – 15L<br>
 // 						<span class="xui-text-secondary">Canary yellow</span>
@@ -72,7 +74,7 @@
 // 				</button>
 // 			</li>
 // 			<li class="xui-pickitem" aria-selected="false">
-// 				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text xui-u-flex xui-u-flex-space-between ">
+// 				<button type="button" class="xui-button xui-pickitem--body xui-pickitem--text xui-u-flex xui-u-flex-space-between">
 // 					<span>
 // 						Paint roller<br>
 // 						<span class="xui-text-secondary">300 × 80 mm</span>

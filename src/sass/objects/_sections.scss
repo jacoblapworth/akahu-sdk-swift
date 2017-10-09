@@ -1,6 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
+// TODO: Unsupported in XUI 12, remove borders in XUI13
 .#{$ns}-sectionheading {
 	border-bottom: $xui-border-muted;
 	border-top: $xui-border-muted;
@@ -8,6 +9,7 @@
 	text-align: left;
 }
 
+// TODO: Unsupported in XUI 12, increase spacing in XUI13
 .#{$ns}-sectionheading-layout {
 	@include xui-padding-horizontal($xui-s-standard);
 	@include xui-padding-vertical($xui-s-small);

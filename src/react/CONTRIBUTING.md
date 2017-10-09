@@ -1,56 +1,27 @@
 # Development Documentation for the XUI React Component Library
 
-## Requirements
-
-You'll need:
-
- * [NodeJS](https://nodejs.org/)
- * [ESLint](http://eslint.org/)j plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
- * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
-
-[nvm](https://github.com/creationix/nvm) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
-
-## Important npm Scripts
-
-Script                     | Description
----------------------------|-------------
-`npm install`              | Installs dependencies; required for other steps
-`npm run lint`             | Lints the React components and SCSS files
-`npm run lint:js`          | Lints the React components
-`npm run lint:js:fix`      | Runs ESLint with the [autofix feature](http://eslint.org/docs/user-guide/command-line-interface#--fix) enabled
-`npm run test`             | Runs all the React component unit tests
-`npm run test:watch`       | Runs all the React component unit tests and watches for file changes
-`npm run test:ui`          | Compiles and sets up the uitest demo page for a given component to do visual testing during development.  See the UI Testing section for more details.
-`npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible
-`npm run build:prepublish` | Cleans and creates the root level `react` and `sass` folders that will be deployed to Artifactory.
-`npm run build:babel`      | Creates a `react` folder containing babel'd code ready to be deployed
-`npm run build:umd`        | Creates a single JS artifact that can be dropped into any browser or Codepen sample
-`npm run clean`            | Many of our build tasks create temporary files that are ignored by git and can/should be deleted before doing another build.  This task removes those temporary files and is used by other tasks as well.
-`styleguide`               | Build and start up the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components.
-`styleguide:build`         | Build a static version of the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components that is suitable for deployment.
-
 ## File Structure
 
-XUI includes many components, and not every consumer will use every component. To ensure a smaller build artifact for our consumers, XUI's folder structure has been set up to enable people to include only what they need. This means that the React components folder has one entry point for each major component.
+XUI includes many components, to ensure a smaller build artifact, XUI's folder structure has been set up to enable developers to include only what they need. The React components folder has one entry point for each major component.
 
 ### Entry Points
 
-Each major component has a single file inside of the `src/react` folder. Its only job is to import individual component and re-export them. This ensures an easy transition from the older bower_components, makes it easy to import related components on a single line, and reduces the amount of code that ends up in consumers' final built artifact.
+Each component has a single entry point file inside of the `src/react` folder. This imports related components and re-exports them making it easier to import into applications via a single statement.
 
 ### Components folder
 
-The actual source code for the React components lives in `src/react/components` with each entry point file having an associated `components` folder. Source files for the individual components can be found in the component folder with one or more of the following subfolders:
+Component source lives in `src/react/components` with each entry point file having an associated `components` folder. Source files for the individual components can be found in the component folder with one or more of the following subfolders:
 
 * `__tests__` for unit tests
 * `uitest` containing a `demo.js` file that is used for interactive UI development test pages.
 * `helpers` for helper functions
 * `private` for constants
 
-Only actual XUI components should live in the root of the associated component folder. Tests should always live in the `__tests__` folder, and any private helpers, constants, etc should live in a `private` folder. This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
+Only public XUI components should live in the root of the associated component folder. Tests should always live in the `__tests__` folder, and any private helpers, constants, etc should live in a `private` folder. This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
 
 ## ESLint
 
-Code quality is extremely important for a component library like XUI. ESLint helps us catch common errors that cause bugs in many programs. While some extremely opinionated rule sets (ie AirBnB's rule set) are welcome for some, many of those rules don't actually improve code quality and can just get in the way of developer productivity. That's why we've chosen to extend a simple rule set based on `eslint:recommended` and `react:recommended`. These rules provide value without making developers want to flip their desks in frustration.
+ESLint helps us catch common errors that cause bugs in many programs. XUI extends a simple rule set based on `eslint:recommended` and `react:recommended`.
 
 ### npm Scripts
 
@@ -58,25 +29,23 @@ Code quality is extremely important for a component library like XUI. ESLint hel
 
 `npm run lint:js` will just run ESLint on all the JavaScript.
 
-`npm run lint:js:fix` will also run ESLint, but with the [autofix feature](http://eslint.org/docs/user-guide/command-line-interface#--fix) enabled. This is an extremely handy feature, especially when a rule has been changed, or outside code has been imported into the project. While not all errors can be automatically fixed, it does take quite a bit of tedium out of the process.
+`npm run lint:js:fix` will also run ESLint, but with the [autofix feature](http://eslint.org/docs/user-guide/command-line-interface#--fix) enabled. Not all errors can be automatically fixed but it does take quite a bit of tedium out of the process.
 
 ## Unit Tests
 
 ### Conventions
 
-In order to make it easy for us to both target our unit tests and ignore them when doing various build tasks, we have some naming/file structure conventions around test files.  First, all test files should have a name that ends with `-test.js`.  Second, they should be included in a `__tests__` folder inside of the component's folder.  For example, the unit tests for the SelectBox component live at `src/react/components/select-box/__tests__/SelectBox-test.js`.
+We have some naming/file structure conventions around test files. All test files should have a name that ends with `-test.js`. Second, they should be included in a `__tests__` folder inside the component's folder. e.g. unit tests for the SelectBox component live at `src/react/components/select-box/__tests__/SelectBox-test.js`.
 
-If you need to create a new unit test file, you should be sure to follow this convention or your tests might end up being deployed to Artifactory or just not run.
+When adding new unit test files, you should follow this convention to prevent side effects e.g. tests might end up being deployed to Artifactory or just not run.
 
 ### Jest Test Runner
 
-Over the years, there have been many test runners like Mocha and Karma. However, each has its drawbacks. Mocha is focused on Node development so many browser APIs will be undefined. Karma will actually run your tests in a browser, but the CLI isn't great, tests take a while to start, and you have to have the appropriate browsers installed, which makes teasting on TeamCity painful.
-
-This is why we've chosen to use the [Jest Test Runner](http://facebook.github.io/jest/) developed by Facebook. The CLI is quite excellent, tests run fast, and it comes with its own assertion library. If you're unfamiliar with Jest or just want to read up on specific APIs you come across, hit up the [Jest documentation](http://facebook.github.io/jest/docs/en/api.html). Jest's configuration lives in `jest.config.js` in the root folder of this project.
+We use the [Jest Test Runner](http://facebook.github.io/jest/) developed by Facebook. If you're unfamiliar with Jest or just want to read up on specific APIs you come across, hit up the [Jest documentation](http://facebook.github.io/jest/docs/en/api.html). Jest's configuration lives in `jest.config.js` in the root folder of this project.
 
 ### Enzyme
 
-Many unit tests for React components require checking the state and/or props of child components, simulating DOM events, and traversing the DOM to make sure DOM elements look the way they're supposed to. Many of our tests use the [Enzyme library](http://airbnb.io/enzyme/) developed by AirBnB to accomplish these tasks. It has a very clean, jQuery'esque API that makes finding and testing React components much easier.
+Many unit tests for React components require checking the state and/or props of child components, simulating DOM events, and traversing the DOM to make sure DOM elements look the way they're supposed to. For this we use the [Enzyme library](http://airbnb.io/enzyme/) developed by AirBnB. It has a very clean, jQuery'esque API that makes finding and testing React components much easier.
 
 ### npm Scripts
 
@@ -84,45 +53,41 @@ Many unit tests for React components require checking the state and/or props of 
 
 `npm run test:watch` will run all the tests with the `--watch` flag set. Jest will attempt to only run appropriate tests based on which files have been modified.
 
-## Development UI Test Pages
+## Development UI Test Pages (Under review)
 
-Linting and unit tests are an extremely important part of ensuring code quality for XUI, but they both have their limitations.  Does the DatePicker work well when put inside of a DropDown? Is a DropDown positioned correctly when the trigger button is in the top-right hand part of the screen? Does that animation actually look smooth in the browser? These kinds of questions require you to actually look at and interact with the components on an web page. To facilitate this, we've created some tools for creating these pages for each component.
+Linting and unit tests are an extremely important part of ensuring code quality for XUI, but they both have their limitations. UI test pages provide interactive pages for each component to test various configurations manually in the browser.
 
 ### npm Script
 
 `npm run test:ui -- --env.c=[component name]` uses [webpack](https://webpack.js.org/) to build and bundle the `demo.js` file for the given component name and output the result on the page located at `uitest/index.html`.
 
-Yes, the `-- --env.c=` is the correct syntax.  The first `--` is how arguments are passed to the scripts invoked by an npm script.  The `--env.c` argument tells webpack which component's test page you want to look at.
+The first `--` passes arguments to an npm script. The `--env.c` argument tells webpack which component's test page you want to look at.
 
 ### demo.js
 
-Code for the UI test pages live in a file called `demo.js` inside of the component's `uitest` folder. So, the UI test page for button lives at `src/react/components/button/uitest/demo.js`.  This is where you can create however many fanciful test cases you may need. If you need some extra CSS to set things up, just create a `.scss` file in the `uitest` folder and import it at the top of `demo.js`.
+Code for the UI test pages live in `demo.js` inside of the component's `uitest` folder.  This is where you can create however many test cases you need. If you need some extra CSS to set things up, just create a `.scss` file in the `uitest` folder and import it at the top of `demo.js`.
 
-All UI test pages also include the contents of `src/sass` on the page.  This ensures that when you're testing, you're testing against the latests XUI CSS and won't be surprised by CSS differences between latest master and the last release.
+All UI test pages also include the contents of `src/sass` on the page. This ensures that when you're testing, you're testing against the latest XUI CSS.
 
 ### Viewing test pages
 
-Since all the demo.js pages require the exact same HTML scaffolding, a single HTML file at `uitest/index.html` exists.  After each build, you can just open up this HTML in your browser using the `file://` protocol.  For example, if the source code for the XUI project lives at `/source/xui` on your computer, you could visit `file:///source/xui/uitest/index.html` to see the build demo.js page in action.
+All `demo.js` pages require the same HTML scaffolding, `uitest/index.html`. After each build, you can just open up this file in your browser using the `file://` protocol or your favourite localhost webserver.
 
 ## Developer Documentation
 
-As a library, we need a way to allow developers to see all of the components that the library offers, read some documentation on what that component does, see a couple of examples, and know which props can be passed to that component to control behavior.  Manually creating this kind of documentation can and is both time consuming and error prone since it means duplicating much of the information already contained in source JSDoc comments used by developers and React PropTypes for runtime validation.  Keeping the two in sync is difficult and, quite frankly, annoying. But it's very important for consumers of the library.
-
-Past efforts on this front have taught us quite a bit, and we've found a tool that utilizes existing markdown files and JSDoc comments to reduce the amount of work necessary to create these important docs.
-
 ### react-styleguidist
 
-[react-styleguidist](https://react-styleguidist.js.org/) is a lovely tool that makes generating these docs easier on the development team. It allows us to create a single searchable documentation page that combines markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
+[react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
 ### File Structure
 
 Each component entry point has an accompanying `.md` file with a short description and some examples wrapped in a three backtick block. Most of your written documentation about what use case components serve and how they fit together would go here.
 
-react-styleguidist is also configured to scan all of our components and generate automatic documentation using [react-docgen](https://www.npmjs.com/package/react-docgen). This tool uses static analysis of the component's propTypes object and any associated JSDoc comments to create documentation on props and any public APIs that have JSDoc comments.  Therefore, it's very important to both create and maintain these JSDoc style comments.
+react-styleguidist is configured to scan all of our components and generate automatic API documentation using [react-docgen](https://www.npmjs.com/package/react-docgen). It uses static analysis of the component's propTypes object and any associated JSDoc comments to create documentation on props and any public APIs that have JSDoc comments. Therefore, **It's very important to both create and maintain these JSDoc style comments**.
 
 ## Build Targets
 
-XUI's primary uses are as a stand-alone CSS library and a dependency installed in a consuming application. However, you might also want to stick all of the React components into a Codepen for a demonstration or bug report.  These various use cases require different build tasks to get us the right build artifact.
+XUI's primary uses are as a stand-alone CSS library and as a dependency installed in a consuming application. However, you might also want to stick all of the React components into a Codepen for a demonstration or bug report. These various use cases require different build tasks to get us the right build artifact.
 
 ### CSS Build
 
@@ -136,7 +101,7 @@ Every consumer of XUI includes the CSS library in a `<link>` tag on their page. 
 
 ### Babel Build for Artifactory Deployment
 
-React components use JSX syntax, ES6 classes, and other features that aren't available in all our supported browsers. That means that we need to transpile our raw source code down to ES5 compatible JavaScript. The [babel CLI](https://babeljs.io/) allows us to transpile all of our components without bundling up anything, which will ensure the smallest possible built artifact for our consumers.
+React components use JSX syntax, ES6 classes, and other features that aren't available in all our supported browsers. That means that we need to transpile our ES2017 source code down to ES5 compatible JavaScript. The [babel CLI](https://babeljs.io/) allows us to transpile all of our components without bundling up anything, which will ensure the smallest possible built artifact for our consumers.
 
 `npm run build:prepublish` is the build task that is executed just before we deploy to Artifactory. It combines several other build tasks to create our Artifactory deployable build artifacts.
 

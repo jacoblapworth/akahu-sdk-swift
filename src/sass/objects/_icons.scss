@@ -16,9 +16,6 @@
 // xui-icon-inline: Modifier for an inline icon
 // xui-icon-large: Modifier for a large icon
 // xui-icon-xlarge: Modifier for an extra-large icon
-// xui-icon-rotate-90: Modifier for 90 degree clockwise icon rotation
-// xui-icon-rotate-180: Modifier for 180 degree clockwise icon rotation
-// xui-icon-rotate-270: Modifier for 270 degree clockwise icon rotation
 //
 // Weight: 2.2
 //
@@ -70,10 +67,10 @@
 
 // Rotations
 //
-// The classes `xui-icon-rotate-90`, `xui-icon-rotate-180`, and `xui-icon-rotate-270` may be used to rotate the icon to various orientations.
+// The classes `xui-u-rotate-90`, `xui-u-rotate-180`, and `xui-u-rotate-270` may be used to rotate the icon to various orientations.
 //
 // Markup:
-//  <svg focusable="false" class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg><svg focusable="false" class="xui-icon xui-icon-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+//  <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg><svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
 //
 // Styleguide: Icons.4
 
@@ -124,7 +121,19 @@
 //
 // Styleguide: Icons.6
 
-// Deprecated
+// Deprecated Icon Rotation
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// Classes:
+// xui-icon-rotate-90: Use xui-u-rotate-90 instead
+// xui-icon-rotate-180: Use xui-u-rotate-180 instead
+// xui-icon-rotate-270: Use xui-u-rotate-270 instead
+//
+// Styleguide: Icons.99
+
+// Deprecated Icon Symbol
 //
 // ![](https://img.shields.io/badge/Deprecated%20in-11.1.1-%23f6534e.svg)
 // ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)

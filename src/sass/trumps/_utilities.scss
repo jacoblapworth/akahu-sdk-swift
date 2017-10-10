@@ -254,3 +254,40 @@
 .#{$ns}-u-resize-vertical {
 	resize: vertical;
 }
+
+// Rotating elements
+//
+// To rotate any icon in increments of 90 degrees, use one of the following utilities.
+//
+// Classes:
+// xui-u-rotate-90: Rotate 90 degrees
+// xui-u-rotate-180: Rotate 180 degrees
+// xui-u-rotate-270: Rotate 270 degrees
+//
+// Markup:
+// <svg focusable="false" class="xui-icon">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+// <svg focusable="false" class="xui-icon xui-u-rotate-90">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+// <svg focusable="false" class="xui-icon xui-u-rotate-180">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+// <svg focusable="false" class="xui-icon xui-u-rotate-270">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+//
+// Styleguide: Utilities.8
+
+.#{$ns}-u-rotate-90 {
+	transform: rotate(90deg);
+}
+
+.#{$ns}-u-rotate-180 {
+	transform: rotate(180deg);
+}
+
+.#{$ns}-u-rotate-270 {
+	transform: rotate(-90deg);
+}

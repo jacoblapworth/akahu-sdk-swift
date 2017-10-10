@@ -719,12 +719,14 @@ input:disabled:hover + svg {
 		}
 	}
 
-	&:indeterminate + .#{$ns}-icon {
+	&[type=checkbox]:indeterminate + .#{$ns}-icon {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: $xui-color-xero-blue;
 			stroke: $xui-color-xero-blue;
 		}
+	}
 
+	&:indeterminate + .#{$ns}-icon {
 		.#{$ns}-styledcheckboxradio--check {
 			fill: transparent;
 			opacity: 0; // Hide checkmark

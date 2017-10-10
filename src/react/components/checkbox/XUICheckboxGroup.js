@@ -11,7 +11,7 @@ import cn from 'classnames';
  * @returns
  */
 export default function XUICheckboxGroup({ children, className, qaHook }) {
-	const classes = cn(className, 'xui-styledcheckbox-group');
+	const classes = cn(className, 'xui-styledcheckboxradio-group');
 
 	return (
 		<div className={classes} data-automationid={qaHook}>

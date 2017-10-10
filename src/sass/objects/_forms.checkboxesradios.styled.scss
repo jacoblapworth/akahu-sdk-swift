@@ -1,3 +1,5 @@
+
+
 @import "../vars";
 
 // Checkboxes and Radios
@@ -23,21 +25,14 @@
 // Components: Checkbox, Radio
 //
 // Classes:
-// xui-styledcheckbox-group: Container for a group of styled checkboxes
-// xui-styledcheckbox: Container for a styled checkbox
-// xui-styledcheckbox-reversed: Modifier for a right-aligned styled checkbox
-// xui-styledcheckbox--focus: Subcomponent for focus layer of a styled checkbox
-// xui-styledcheckbox--main: Subcomponent for main layer of a styled checkbox
-// xui-styledcheckbox--check: Subcomponent for checkmark layer of a styled checkbox
-// xui-styledcheckbox--indeterminate: Subcomponent for indeterminate layer of a styled checkbox
-// xui-styledcheckbox--label: Subcomponent for label text of a styled checkbox
-// xui-styledradio-group: Container for a group of styled radios
-// xui-styledradio: Container for a styled radio
-// xui-styledradio-reversed: Modifier for a right-aligned styled radio
-// xui-styledradio--focus: Subcomponent for focus layer of a styled radio
-// xui-styledradio--main: Subcomponent for main layer of a styled radio
-// xui-styledradio--check: Subcomponent for checkmark layer of a styled radio
-// xui-styledradio--label: Subcomponent for label text of a styled radio
+// xui-styledcheckboxradio-group: Container for a group of styled checkboxes and radios
+// xui-styledcheckboxradio: Container for a styled checkbox and radio
+// xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox and radio
+// xui-styledcheckboxradio--focus: Subcomponent for focus layer of a styled checkbox and radios
+// xui-styledcheckboxradio--main: Subcomponent for main layer of a styled checkbox and radios
+// xui-styledcheckboxradio--check: Subcomponent for checkmark layer of a styled checkbox and radios
+// xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of a styled checkbox and radio
+// xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox and radio
 //
 // Weight: 4.1
 //
@@ -294,6 +289,32 @@
 //
 // Styleguide: Checkboxes and Radios.8
 
+// Deprecated Styled Checkbox
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// The following link classes have been deprecated and will removed in a future version of XUI.
+//
+// Classes:
+// xui-styledcheckbox: Use xui-styledcheckboxradio instead.
+// xui-styledcheckbox-group: Use xui-styledcheckboxradio-group instead.
+// xui-styledcheckbox-reversed: Use xui-styledcheckboxradio-reversed instead.
+// xui-styledcheckbox--focus: Use xui-styledcheckboxradio--focus instead.
+// xui-styledcheckbox--main: Use xui-styledcheckboxradio--main instead.
+// xui-styledcheckbox--check: Use xui-styledcheckboxradio--check instead.
+// xui-styledcheckbox--indeterminate: Use xui-styledcheckboxradio--indeterminate instead.
+// xui-styledcheckbox--label: Use xui-styledcheckboxradio--label instead.
+// xui-styledradio-group: Use xui-styledcheckboxradio-group instead.
+// xui-styledradio: Use xui-styledcheckboxradio instead.
+// xui-styledradio-reversed: Use xui-styledcheckboxradio-reversed instead.
+// xui-styledradio--focus: Use xui-styledcheckboxradio--focus instead.
+// xui-styledradio--main: Use xui-styledcheckboxradio--main instead.
+// xui-styledradio--check: Use xui-styledcheckboxradio--check instead.
+// xui-styledradio--label: Use xui-styledcheckboxradio--label instead.
+//
+// Styleguide: Checkboxes and Radios.99
+
 
 // Group styles
 // ============
@@ -540,5 +561,212 @@ input:disabled:hover + svg {
 	.#{$ns}-styledcheckbox--indeterminate,
 	.#{$ns}-styledradio--check {
 		fill: $xui-color-grey-4; // TODO: Update $xui-color-grey-alpha-4 to use $xui-color-grey-4
+	}
+}
+
+
+// New Styles
+// ===========
+
+
+// Group styles
+// ============
+.#{$ns}-styledcheckboxradio-group {
+	border: $xui-border-standard;
+	border-radius: $xui-radius;
+
+	.#{$ns}-styledcheckboxradio {
+		display: flex; // Stacked inputs
+		padding: 4px; // Border padding
+	}
+
+	.#{$ns}-styledcheckboxradio:nth-last-of-type(n+2) {
+		border-bottom: $xui-border-standard;
+	}
+}
+
+// Label spacing
+// =============
+.#{$ns}-styledcheckboxradio--label {
+	flex-grow: 1;
+	padding: 6px 3px 3px;
+
+	.#{$ns}-is-disabled & {
+		color: $xui-color-grey-alpha-4;
+	}
+}
+
+
+// Right-aligned input
+// ===================
+.#{$ns}-styledcheckboxradio-reversed {
+	flex-direction: row-reverse;
+	justify-content: space-between;
+}
+
+
+// Main styles
+// ===========
+.#{$ns}-styledcheckboxradio {
+	@include xui-text-line-height; // 1.5
+	align-items: flex-start;
+	display: inline-flex; // Inline inputs
+	user-select: none;
+
+	// TODO: Opacity override
+	&.#{$ns}-is-disabled {
+		fill: $xui-color-grey-alpha-4;
+		opacity: 1;
+	}
+}
+
+.#{$ns}-styledcheckboxradio .#{$ns}-icon {
+	flex-shrink: 0; // Prevent SVG from shrinking when label text is long
+	pointer-events: none;
+}
+
+.#{$ns}-styledcheckboxradio--focus,
+.#{$ns}-styledcheckboxradio--main,
+.#{$ns}-styledcheckboxradio--check,
+.#{$ns}-styledcheckboxradio--indeterminate {
+	transition: all $xui-motion-speed-fast ease;
+}
+
+.#{$ns}-styledcheckboxradio--focus {
+	opacity: 0; // Hide focus
+	stroke: transparent;
+	stroke-linejoin: round;
+	stroke-width: 6;
+}
+
+.#{$ns}-styledcheckboxradio--main {
+	fill: $xui-color-white;
+	stroke: $xui-color-grey-alpha-4;
+	stroke-linejoin: round;
+}
+
+.#{$ns}-styledcheckboxradio--check,
+.#{$ns}-styledcheckboxradio--indeterminate {
+	fill: transparent;
+	opacity: 0; // Hide checkmark
+}
+
+
+// Unchecked styles
+// ================
+
+// Hover
+.#{$ns}-styledcheckboxradio--input {
+	@include xui-position-offscreen-input;
+
+	&:hover + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			stroke: $xui-color-grey-3;
+		}
+	}
+
+	&:focus:not(:hover) + .#{$ns}-icon {
+
+		// Focus layer to match box-shadow on standard HTML inputs ($xui-shadow-focus)
+		// TODO: Remove focus layer and use CSS filters on main layer instead
+		// 			 At time of commit (27 May 2016) CSS filters lack sufficient browser support
+		// 			 https://developer.mozilla.org/en/docs/Web/CSS/filter
+		.#{$ns}-styledcheckboxradio--focus {
+			opacity: 1; // Show focus
+			stroke: $xui-color-grey-alpha-6;
+		}
+
+		.#{$ns}-styledcheckboxradio--main {
+			stroke: $xui-color-grey-3;
+		}
+	}
+
+	&:active + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--focus {
+			opacity: 0; // Hide focus
+			stroke: transparent;
+		}
+
+		.#{$ns}-styledcheckboxradio--main {
+			fill: darken($xui-color-white, 7%);
+		}
+	}
+
+	&:checked + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: $xui-color-xero-blue;
+			stroke: $xui-color-xero-blue;
+		}
+
+		.#{$ns}-styledcheckboxradio--check {
+			fill: $xui-color-white;
+			opacity: 1; // Show checkmark
+		}
+	}
+
+	&:checked:hover + .#{$ns}-icon,
+	&:checked:focus + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: darken($xui-color-xero-blue, 7%);
+			stroke: darken($xui-color-xero-blue, 7%);
+		}
+	}
+
+	&:checked:active + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: $xui-color-xero-blue;
+			stroke: darken($xui-color-xero-blue, 7%);
+		}
+	}
+
+	&[type=checkbox]:indeterminate + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: $xui-color-xero-blue;
+			stroke: $xui-color-xero-blue;
+		}
+	}
+
+	&:indeterminate + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--check {
+			fill: transparent;
+			opacity: 0; // Hide checkmark
+		}
+
+		.#{$ns}-styledcheckboxradio--indeterminate {
+			fill: $xui-color-white;
+			opacity: 1; // Show indeterminate
+		}
+	}
+
+	// Indeterminate, hover/focus
+	&:indeterminate:hover + .#{$ns}-icon,
+	&:indeterminate:focus + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: darken($xui-color-xero-blue, 7%);
+			stroke: darken($xui-color-xero-blue, 7%);
+		}
+	}
+
+	// Indeterminate, active
+	&:indeterminate:active + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: $xui-color-xero-blue;
+			stroke: darken($xui-color-xero-blue, 7%);
+		}
+	}
+
+	// Disabled styles
+	// ===============
+	&:disabled + .#{$ns}-icon,
+	&:disabled:hover + .#{$ns}-icon {
+		.#{$ns}-styledcheckboxradio--main {
+			fill: $xui-color-grey-6; // TODO: Update $xui-color-grey-alpha-5 to use $xui-color-grey-6
+			stroke: $xui-color-grey-alpha-4;
+		}
+
+		.#{$ns}-styledcheckboxradio--check,
+		.#{$ns}-styledcheckboxradio--indeterminate {
+			fill: $xui-color-grey-4; // TODO: Update $xui-color-grey-alpha-4 to use $xui-color-grey-4
+		}
 	}
 }

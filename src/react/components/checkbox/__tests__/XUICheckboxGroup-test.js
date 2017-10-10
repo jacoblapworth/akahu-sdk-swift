@@ -17,7 +17,7 @@ describe('XUICheckboxGroup', function() {
 			</XUICheckboxGroup>
 		);
 
-		expect(wrapper.find('.xui-styledcheckbox')).toHaveLength(3);
+		expect(wrapper.find('.xui-styledcheckboxradio')).toHaveLength(3);
 	});
 
 

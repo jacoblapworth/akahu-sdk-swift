@@ -300,9 +300,9 @@ XUITextArea.propTypes = {
 	/** Whether the text area should have isInvalid state styling. */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show */
-	validationMessage: PropTypes.string,
+	validationMessage: PropTypes.node,
 	/** Explanatory message to show */
-	hintMessage: PropTypes.string,
+	hintMessage: PropTypes.node,
 	/** Whether default field layout should be applied to the container. */
 	defaultLayout: PropTypes.bool,
 	/** Additional classes to add to the wrapping div. */

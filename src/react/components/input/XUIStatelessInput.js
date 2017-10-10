@@ -144,9 +144,9 @@ XUIStatelessInput.propTypes = {
 	/** Value of the automationId attribute */
 	qaHook: PropTypes.string,
 	/** Validation message to show */
-	validationMessage: PropTypes.string,
+	validationMessage: PropTypes.node,
 	/** Explanatory message to show */
-	hintMessage: PropTypes.string,
+	hintMessage: PropTypes.node,
 	/** Whether the input should be show as invalid */
 	isInvalid: PropTypes.bool,
 	/** Whether to use the input field layout */

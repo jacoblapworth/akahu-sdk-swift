@@ -147,6 +147,11 @@ and `xui-popover--link` have been removed. These classes were not documented and
 * `xui-popover--arrow--border` had been deprecated, this now is set by `xui-popover-arrow`.
 * `xui-popover--arrow--*` position classes have been deprecated, use `xui-popover-arrow-*` instead.
 
+#### Switch
+* `xui-u-hiddenvisually` is no longer required to hide the checkbox, `xui-switch--checkbox` now does this by default.
+* `xui-switch` now has unique disabled styles when the global `xui-is-disabled` class is applied.
+* `xui-switch--labeltext` had been deprecated, use typography presets and utility classes instead.
+
 ### Classes renamed
 
 #### Avatars

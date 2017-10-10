@@ -12,10 +12,12 @@
 		// Disabled due to iOS - no cursor, but we still want this for desktop clients
 		/* doiuse-disable */
 		cursor: not-allowed;
+		opacity: 1;
 		/* doiuse-enable */
 	}
 }
 
+// TODO: Deprecated in XUI12, remove in XUI13
 .#{$ns}-switch--labeltext {
 	display: inline-block;
 	margin-left: 5px;
@@ -34,7 +36,6 @@
 	user-select: none;
 	vertical-align: middle;
 	width: 40px;
-
 	&::before {
 		background-color: $xui-color-white;
 		border-radius: 50%;
@@ -46,17 +47,22 @@
 		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 		width: 18px;
 	}
-
+	.#{$ns}-is-disabled & {
+		background: $xui-color-grey-alpha-6;
+	}
 }
 
 .#{$ns}-switch--checkbox {
+	@include xui-utility-hidden-visually;
 	&:focus + .#{$ns}-switch--control {
 		box-shadow: $xui-shadow-focus;
 	}
 
 	&:checked + .#{$ns}-switch--control {
 		background: $xui-color-xero-blue;
-
+		.#{$ns}-is-disabled & {
+			background: $xui-color-blue-xlight;
+		}
 		&::before {
 			left: auto;
 			transform: translate(18px);

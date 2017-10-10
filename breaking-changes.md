@@ -7,7 +7,7 @@
 * `EmptyState` exported by autocompleter is now `XUIAutocompleterEmptyState`
 * `SecondarySearch` exported by autocompleter is now `XUIAutocompleterSecondarySearch`
 * `Autocompleter` exposes `onHighlightChange` prop mapped from the underlying `Dropdown`
-* `XUIButton` now supports the inverted variant.
+* `XUIButton` now supports the inverted variant. Also now supports retaining layout when used with loaders. Also now supports adding a min-width, useful for small buttons that use loaders
 * `Toast` now limits toast actions to a max of 2.
 * `Avatar` sizing support to cover xsmall all the way up to xxlarge.
 * `Loader` now supports the inverted variant.
@@ -26,6 +26,7 @@ must have the `xui-styledcheckboxradio--input` class and any accompanying SVGs m
 #### Buttons
 * `xui-button` has `position: relative` by default. This is to enable buttons to have a z-index value when focused.
 This is to ensure correct styling when placed next to inputs in a grouped input context.
+* `xui-button-min-loader-width` class added to allow <small>small</small> buttons with loaders to maintain an even width during state changes.
 
 #### Pills
 * Single select pills have been changed to use the same DOM structure as regular pills, and are now absolutely positioned to ensure they fit within a standard input

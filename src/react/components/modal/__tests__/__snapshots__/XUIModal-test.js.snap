@@ -26,6 +26,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
         isLoading={false}
         onClick={[Function]}
         qaHook="xui-modal-close"
+        retainLayout={true}
         tabIndex={0}
         title="Close"
         type="button"

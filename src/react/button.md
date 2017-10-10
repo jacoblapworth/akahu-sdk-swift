@@ -115,10 +115,31 @@ You can programatically disable a button by setting the `isDisabled` prop to `tr
 
 The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button.
 
+The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
+
+The `minLoaderWidth` prop modifies the button by applying a 75px min width on it. Useful for short content buttons.
+
 The supplied loader inherits the text color of the button component.
 
 ```
-<XUIButton variant="primary" isLoading={true}>
-	This text won't be displayed, because of the loader.
-</XUIButton>
+<div>
+	<span className="xui-margin-right">
+		<XUIButton variant="primary" isLoading>
+			This text won't be displayed, because of the loader.
+		</XUIButton>
+	</span>
+	<span className="xui-margin-right">
+		<XUIButton variant="primary" isLoading minLoaderWidth>
+			No
+		</XUIButton>
+	</span>
+	<span className="xui-margin-right">
+		<XUIButton variant="primary" minLoaderWidth>
+			No
+		</XUIButton>
+	</span>
+	<XUIButton variant="primary" isLoading retainLayout={false}>
+		This text won't be displayed, because of the loader.
+	</XUIButton>
+</div>
 ```

@@ -13,9 +13,10 @@ const XUILoader = (props) => {
     props.className,
     {
       [`${baseClass}-layout`] : props.defaultLayout,
-      [`${baseClass}-inverted`] : props.isInverted
+      [`${baseClass}-inverted`] : props.isInverted,
+      [`${baseClass}-retain-layout`] : props.retainLayout
     }
-  );
+	);
 
   return (
     <div data-automationid={props.qaHook} className={className} role="progressbar" aria-label={props.label}>
@@ -43,7 +44,10 @@ XUILoader.propTypes = {
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
   /** Sets the loader to the inverted colour scheme */
-  isInverted: PropTypes.bool
+  isInverted: PropTypes.bool,
+
+  /** Adds the retain layout class, used in combination with buttons */
+  retainLayout: PropTypes.bool
 };
 
 XUILoader.defaultProps = {

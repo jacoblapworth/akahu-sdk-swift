@@ -13,7 +13,7 @@
 
 // Best practice
 //
-// Tips: 
+// Tips:
 // Do: In most circumstances, the standard and main button variants will suffice
 // Do: Borderless buttons are the element of choice for text-only controls
 // Do: Use the small button variant in toolbars
@@ -100,7 +100,7 @@
 //
 // To force a button to occupy the entire width of its parent at all times, apply the following utility class.
 //
-// Classes: 
+// Classes:
 // xui-u-fullwidth: 100% width
 //
 // ExampleClass: ds-example-flush ds-example-transparent
@@ -114,7 +114,7 @@
 //
 // To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
 //
-// Classes: 
+// Classes:
 // xui-button-fullwidth-layout: 100% width below 520px
 //
 // ExampleClass: ds-example-flush ds-example-transparent
@@ -366,6 +366,7 @@
 // xui-actions--secondary: Subcomponent to be applied directly to the secondary button
 // xui-button--loader: Modifier for a loader inside a button.
 // xui-button-inverted: Modifier for button focus styling against dark backgrounds
+// xui-button-loaderminwidth: Modifier to add a button specific min-width of 75px. Useful for small buttons that you expect to be loaders as well
 //
 // Styleguide: Building Blocks.Buttons.50
 
@@ -385,7 +386,7 @@
 .#{$ns}-button-inverted {
 	@include xui-state-focus-inverted;
 	&.#{$ns}-button-standard {
-		// Corrects button height when placed on inverted background 
+		// Corrects button height when placed on inverted background
 		border-color: $xui-color-white;
 		// Retains left-hand border style for buttongroups
 		&.#{$ns}-button-grouped:nth-child(n+2) {

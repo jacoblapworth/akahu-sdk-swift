@@ -2,6 +2,7 @@ import { assert } from 'chai';
 import React from 'react';
 import sinon from 'sinon';
 import XUIButton from '../XUIButton';
+import renderer from 'react-test-renderer';
 
 const { renderIntoDocument, Simulate } = require('react-dom/test-utils');
 const noop = () => {};
@@ -74,8 +75,8 @@ describe('<XUIButton/>', () => {
 		);
 
 		const node = button.rootNode;
-		assert.strictEqual(node.children.length, 1);
-		assert.isTrue(node.firstChild.classList.contains('xui-button--loader'));
+		assert.strictEqual(node.children.length, 2);
+		assert.isTrue(node.children[1].classList.contains('xui-button--loader'));
 	});
 
 	it('should not allow clicks if the `isLoading` prop is true', () => {
@@ -213,5 +214,43 @@ describe('<XUIButton/>', () => {
 			iconInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
 			'Icon button does not have regular inverted class'
 		);
+	});
+
+	it('does retain layout checks with a myriad of combinations', () => {
+
+		const defaultRetainLayout = renderer.create(
+			<XUIButton variant="primary">
+				Hello, I am a long bit of text
+			</XUIButton>
+		);
+
+		expect(defaultRetainLayout).toMatchSnapshot();
+
+		const defaultRetainLayoutWhileLoading = renderer.create(
+			<XUIButton variant="primary" isLoading>
+				Hello, I am a long bit of text
+			</XUIButton>
+		);
+
+		expect(defaultRetainLayoutWhileLoading).toMatchSnapshot();
+
+		const loadingButtonNoRetain = renderer.create(
+			<XUIButton variant="primary" isLoading retainLayout={false}>
+				Hello, I am a long bit of text
+			</XUIButton>
+		);
+
+		expect(loadingButtonNoRetain).toMatchSnapshot();
+
+	});
+
+	it('adds minwidth when we need it to, for short buttons', () => {
+		const shortButton = renderer.create(
+			<XUIButton variant="primary" minLoaderWidth>
+				75px
+			</XUIButton>
+		);
+
+		expect(shortButton).toMatchSnapshot();
 	});
 });

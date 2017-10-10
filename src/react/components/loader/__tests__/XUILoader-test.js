@@ -50,4 +50,13 @@ describe('XUILoader', function () {
 
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-inverted')).toBeTruthy();
 	});
+
+	it('should add the retain layout class if `retainLayout` is set to `true`', function () {
+		const wrapper = mount(
+			<XUILoader
+				retainLayout={true}
+				label="Something is loading, please wait" />
+		);
+		expect(wrapper.getDOMNode().classList.contains('xui-loader-retain-layout')).toBeTruthy();
+	});
 });

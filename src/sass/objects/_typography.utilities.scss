@@ -6,28 +6,29 @@
 // Classes that can be added to change the alignment of text.
 //
 // Classes:
-// xui-text-leftaligned: The default alignment for most other UI elements and body copy
-// xui-text-centered: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
-// xui-text-rightaligned: Mostly for numeric data, to assist with scanning via the decimal place
+// xui-text-align-left: The default alignment for most other UI elements and body copy
+// xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
+// xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
 //
 // Markup:
-//  <p class="xui-text-leftaligned xui-text-emphasis">Email Address</p>
-//  <p class="xui-text-centered xui-text-muted">No Results Found</p>
-//  <p class="xui-text-rightaligned xui-heading-large xui-margin-none">100.00</p>
-//  <p class="xui-text-rightaligned xui-heading-large xui-margin-none">10.00</p>
+//  <p class="xui-text-align-left xui-text-emphasis">Email Address</p>
+//  <p class="xui-text-align-center xui-text-muted">No Results Found</p>
+//  <p class="xui-text-align-right xui-heading-large xui-margin-none">100.00</p>
+//  <p class="xui-text-align-right xui-heading-large xui-margin-none">10.00</p>
 //
 // Styleguide: Typography.52
 
-.#{$ns}-text-leftaligned {
+.#{$ns}-text-leftaligned, .#{$ns}-text-align-left {
 	text-align: left;
 }
 
-.#{$ns}-text-centered {
+.#{$ns}-text-centered, .#{$ns}-text-align-center {
 	text-align: center;
 }
 
 .#{$ns}-text-number,
-.#{$ns}-text-rightaligned {
+.#{$ns}-text-rightaligned,
+.#{$ns}-text-align-right {
 	text-align: right;
 }
 
@@ -169,13 +170,27 @@
 //  <div class="xui-column-4-of-12 xui-text-color-white-faint xui-text-centered">
 //    Saving...
 //  </div>
-//  <div class="xui-column-4-of-12 xui-text-rightaligned xui-text-color-white-muted">
+//  <div class="xui-column-4-of-12 xui-text-align-right xui-text-color-white-muted">
 //  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
 //  Edit
 //  </div>
 // </div>
 //
 // Styleguide: Typography.58.3
+
+// Deprecated Text Alignment
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// The following alignment classes have been renamed.
+//
+// Classes:
+// xui-text-leftaligned: Use xui-text-align-left instead
+// xui-text-centered: Use xui-text-align-center instead
+// xui-text-rightaligned: Use xui-text-align-right instead
+//
+// Styleguide: Typography.103
 
 .#{$ns}-text-inverted {
 	background-color: $xui-color-grey-1;

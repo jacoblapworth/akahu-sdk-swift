@@ -6,7 +6,7 @@ import XUIIcon from '../XUIIcon';
 (function() {
 	const iconUseTags = Object.keys(iconData).map(name => {
 		return (
-			<div key={name} className="xui-text-centered xui-padding-vertical-small" style={{ width:'100px' }}>
+			<div key={name} className="xui-text-align-center xui-padding-vertical-small" style={{ width:'100px' }}>
 				<XUIIcon path={iconData[name]} title={name} />
 				<div>{name}</div>
 			</div>

@@ -718,7 +718,7 @@ ReactDOM.render(
 			<MatchTriggerWidth />
 		</div>
 		<div className="xui-margin-bottom-large xui-margin-top xui-panel xui-padding">
-			<div className="xui-text-panelheading xui-margin-bottom">Dropdown with no results but footer action</div>
+			<div className="xui-heading xui-margin-bottom">Dropdown with no results but footer action</div>
 			<p className='xui-text-label'>
 				Based on XUI Design Patterns, when we have a Footer inside the DropdDown, you can reach it via keyboard, even if there is no results in your list.
 			</p>

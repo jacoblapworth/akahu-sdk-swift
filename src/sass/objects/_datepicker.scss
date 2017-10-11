@@ -20,9 +20,9 @@
 // <table class="xui-contentblock">
 //   <thead>
 //     <tr class="xui-sectionheading">
-//       <th class="xui-separator-title xui-sectionheading-layout">Day Classes</th>
-//       <th class="xui-separator-title xui-sectionheading-layout">Description</th>
-//       <th class="xui-separator-title xui-sectionheading-layout">Example</th>
+//       <th class="xui-heading-separator xui-sectionheading-layout">Day Classes</th>
+//       <th class="xui-heading-separator xui-sectionheading-layout">Description</th>
+//       <th class="xui-heading-separator xui-sectionheading-layout">Example</th>
 //     </tr>
 //   </thead>
 //   <tbody>
@@ -111,7 +111,7 @@
 //       <svg focusable="false" class="xui-icon xui-icon-rotate-90"> <use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
 //     </button>
 //     <form class="xui-datepicker--heading-dates">
-//       <div class="xui-datepicker--heading xui-item-title xui-datepicker--heading-month">
+//       <div class="xui-datepicker--heading xui-heading-item xui-datepicker--heading-month">
 //         <select id="45aa1e5a-5278-a4d5-6a07-cd9b2fc8a406" class="xui-datepicker--heading-select xui-datepicker--monthselect-layout" name="month">
 //           <option value="5">June</option>
 //           <option value="6">July</option>
@@ -119,7 +119,7 @@
 //         </select>
 //         <label for="45aa1e5a-5278-a4d5-6a07-cd9b2fc8a406" class="xui-datepicker--heading-label xui-text-compact xui-padding-xsmall">June</label>
 //       </div>
-//       <div class="xui-datepicker--heading xui-item-title xui-datepicker--heading-year">
+//       <div class="xui-datepicker--heading xui-heading-item xui-datepicker--heading-year">
 //         <select id="befca3c2-ab64-f168-eb49-36ebadd2b4a2" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout"
 //          name="year">
 //           <option value="2017">2017</option>

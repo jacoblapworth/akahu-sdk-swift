@@ -7,44 +7,45 @@
 // XUI does not provide a CSS reset for semantic heading elements (e.g. `<h2>`). Use these classes in conjunction with XUI's spacing classes.
 //
 // Classes:
-// xui-panel-title: Standard title for each block of content within a page. Should only be used once per panel
+// xui-heading-panel: Standard title for each block of content within a page. Should only be used once per panel
 // xui-modal-title: for consistent application across all modal headers
-// xui-item-title: for consistent application across all content blocks & line items
-// xui-separator-title: for consistent application across all dropdown vertical separators
+// xui-heading-item: for consistent application across all content blocks & line items
+// xui-heading-separator: for consistent application across all dropdown vertical separators
 //
 // Markup:
-// <h2 class="xui-panel-title xui-margin-none">All tasks</h2>
+// <h2 class="xui-heading-panel xui-margin-none">All tasks</h2>
 // <h2 class="xui-modal-title xui-margin-none">Assign task</h2>
-// <h2 class="xui-item-title xui-margin-none">Homepage redesign</h2>
-// <h2 class="xui-separator-title xui-margin-none">Export options</h2>
+// <h2 class="xui-heading-item xui-margin-none">Homepage redesign</h2>
+// <h2 class="xui-heading-separator xui-margin-none">Export options</h2>
 //
 // Styleguide: Typography.10
 
 // TODO: reconsider these class names for XUI 12.
 // xui-panel-title is not a modifier of xui-panel
-.#{$ns}-panel-title {
+.#{$ns}-panel-title, .#{$ns}-heading-panel {
 	@include xui-heading-medium;
 	// other specific stuff to this element might go here???
 }
 
 .#{$ns}-section-title,
-.#{$ns}-text-sectionheading {
+.#{$ns}-text-sectionheading,
+.#{$ns}-heading-section {
 	color: $xui-color-grey-1;
 	font-size: $xui-font-size-medium;
 	font-weight: $xui-font-weight-deemphasis;
 }
 
-.#{$ns}-modal-title {
+.#{$ns}-modal-title, .#{$ns}-heading-modal {
 	@include xui-heading-medium;
 	// other specific stuff to this element might go here???
 }
 
-.#{$ns}-item-title {
+.#{$ns}-item-title, .#{$ns}-heading-item {
 	@include xui-heading-small;
 	// other specific stuff to this element might go here???
 }
 
-.#{$ns}-separator-title {
+.#{$ns}-separator-title, .#{$ns}-heading-separator {
 	@include xui-heading-xsmall;
 }
 
@@ -174,9 +175,9 @@
 // Classes:
 // xui-heading: replaced with `xui-heading-large`
 // xui-page-title: replaced with `xui-heading-medium`
-// xui-section-title: replaced with `xui-item-title`
-// xui-text-panelheading: replaced with `xui-panel-title`
-// xui-text-sectionheading: replaced with `xui-separator-title`
+// xui-section-title: replaced with `xui-heading-item`
+// xui-text-panelheading: replaced with `xui-heading-panel`
+// xui-text-sectionheading: replaced with `xui-heading-separator`
 //
 // Markup:
 // <p class="xui-heading">The quick brown fox jumps over the lazy dog</p>
@@ -185,7 +186,24 @@
 // <p class="xui-text-panelheading">The quick brown fox jumps over the lazy dog</p>
 // <p class="xui-text-sectionheading">The quick brown fox jumps over the lazy dog</p>
 //
+// Styleguide: Typography.102
+
+// Deprecated Headings
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// The following headings have been renamed.
+//
+// Classes:
+// xui-heading-panel: replaced with `xui-heading-panel`
+// xui-modal-title: replaced with `xui-heading-modal`
+// xui-separator-title: replaced with `xui-heading-separator`
+// xui-item-title: replaced with `xui-heading-item`
+// xui-text-sectionheading: replaced with `xui-heading-separator`
+//
 // Styleguide: Typography.101
+
 .#{$ns}-heading {
 	@include xui-bold;
 	color: $xui-color-grey-1;

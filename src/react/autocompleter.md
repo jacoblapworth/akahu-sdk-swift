@@ -120,7 +120,7 @@ class DetailedListExample extends Component {
 				<div className="xui-u-flex">
 					<XUIAvatar value={item.name} imageUrl={item.avatar} />
 					<div className="xui-u-grow xui-padding-left">
-						<div className="xui-item-title xui-text-truncated">
+						<div className="xui-heading-item xui-text-truncated">
 							{decorateSubStr(item.name, value || '', boldMatch)}
 						</div>
 						<div className="xui-text-secondary xui-text-truncated">
@@ -263,7 +263,7 @@ class DetailedListExample extends Component {
 				<div className="xui-u-flex">
 					<XUIAvatar value={item.name} imageUrl={item.avatar} />
 					<div className="xui-u-grow xui-padding-left">
-						<div className="xui-item-title xui-text-truncated">
+						<div className="xui-heading-item xui-text-truncated">
 							{decorateSubStr(item.name, value || '', boldMatch)}
 						</div>
 						<div className="xui-text-secondary xui-text-truncated">

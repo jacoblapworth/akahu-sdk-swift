@@ -49,7 +49,7 @@ export default function YearSelector({
 		);
 
 	return (
-		<div className="xui-datepicker--heading xui-item-title xui-datepicker--heading-year">
+		<div className="xui-datepicker--heading xui-heading-item xui-datepicker--heading-year">
 			{select}
 			{label}
 		</div>

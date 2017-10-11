@@ -264,7 +264,7 @@ class ToggledNestedDropdown extends Component {
 						</Pickitem>
 					</Picklist>
 					<Picklist>
-						<div className="xui-separator-title xui-padding-horizontal-large xui-padding-bottom-small">Multiple lists can be added</div>
+						<div className="xui-heading-separator xui-padding-horizontal-large xui-padding-bottom-small">Multiple lists can be added</div>
 						<Pickitem
 							id="dog"
 							onSelect={() => this.selectPanel('checkboxes')}

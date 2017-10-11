@@ -101,7 +101,7 @@ export default class XUICheckbox extends Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input className="xui-styledcheckboxradio--input" ref={cb => this._input = cb} {...inputProps} />
+				<input ref={cb => this._input = cb} {...inputProps} className={cn("xui-styledcheckboxradio--input", inputProps.classname)}/>
 				<svg className={svgClasses}>
 					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--focus" role="presentation" />
 					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--main" role="presentation" />

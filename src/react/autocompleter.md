@@ -104,19 +104,6 @@ class DetailedListExample extends Component {
 		});
 	}
 
-	filterDataByValue(value){
-		const people = people.filter(person => {
-			return person.name.toLowerCase().includes(value.toLowerCase())
-				|| person.email.toLowerCase().includes(value.toLowerCase())
-				|| person.subtext.toLowerCase().includes(value.toLowerCase())
-		});
-
-		this.setState({
-			loading: false,
-			data: people
-		});
-	}
-
 	onClose(){
 		this.setState({value: ''})
 	}
@@ -152,6 +139,7 @@ class DetailedListExample extends Component {
 				</div>
 			</Pickitem>
 		));
+
 		return (
 			<Picklist>{items}</Picklist>
 		);
@@ -221,7 +209,6 @@ const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const XUIIcon = require('./components/icon/XUIIcon').default;
 const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 
-
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
 		const val = value.toLowerCase();
@@ -284,19 +271,6 @@ class DetailedListExample extends Component {
 		});
 	}
 
-	filterDataByValue(value){
-		const people = people.filter(person => {
-			return person.name.toLowerCase().includes(value.toLowerCase())
-				|| person.email.toLowerCase().includes(value.toLowerCase())
-				|| person.subtext.toLowerCase().includes(value.toLowerCase())
-		});
-
-		this.setState({
-			loading: false,
-			data: people
-		});
-	}
-
 	getItems(){
 		const example = this;
 		const {
@@ -328,6 +302,7 @@ class DetailedListExample extends Component {
 				</div>
 			</Pickitem>
 		));
+
 		return (
 			<Picklist>{items}</Picklist>
 		);

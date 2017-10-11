@@ -364,7 +364,6 @@
 //
 // Styleguide: Building Blocks.Content blocks.3.2
 
-
 // With pinned value
 //
 // Tips:
@@ -503,69 +502,16 @@
 	display: block;
 }
 
+
 // Tables
 // 
 // Teaser: Used to compare, contrast and sort large amounts of data.
 //
 // Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
 //
-// Styleguide: Building Blocks.Tables
-
-
-// Anatomy
-//
-// To create a table, use the following content block classes.
-// 
-// Classes:
-// xui-contentblock: Apply to table
-// xui-contentblock--item: Apply to each row, including headers
-//
-// Styleguide: Building Blocks.Tables.1
-
-// Headers
-//
-// To create a standard table header, the following typography presets and utility classes are required to create the desired layout.
-// In the case of a sortable table, make sure to include an inline sort icon also.
-//
-// Classes:
-// xui-heading-separator: Sets correct text style for table headers
-// xui-heading-align-right: Apply to the last column if it is numerical data
-// xui-padding-x: Set the desired spacing
-//
-// Styleguide: Building Blocks.Tables.2
-
-// Standard
-//
-// Tips:
-// Warning: Avoid including too many columns
-//
-// Markup:
-// <table class="xui-panel xui-contentblock">
-//  <thead>
-//    <tr class="xui-u-flex xui-contentblock--item xui-text-align-left">
-//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-right-small xui-padding-left-large">Column</th>
-//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">Column</th>
-//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">Column</th>
-//      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-left-small xui-padding-right-large xui-text-align-right">Column</th>
-//    </tr>
-//  </thead>
-// </table>
-//
-// Styleguide: Building Blocks.Tables.2.1
-
-// Sortable ascending
-//
-// Tips:
-// Do: Include an icon to indicate which column is currently selected
-//
 // Flag: Experimental
-// 
-// Teaser: Used to compare, contrast and sort large amounts of data.
-//
-// Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
 //
 // Styleguide: Building Blocks.Tables
-
 
 // Anatomy
 //
@@ -619,28 +565,28 @@
 //  <thead>
 //    <tr class="xui-u-flex xui-contentblock--item xui-text-align-left">
 //      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-right-small xui-padding-left-large">
-//				<button class="xui-button">
-//					Column
-//					<svg focusable="false" class="xui-icon xui-icon-inline">
-//						<use role="presentation" xlink:href="#xui-icon-sort-single"></use>
-//					</svg>
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//          <svg focusable="false" class="xui-icon xui-icon-inline">
+//            <use role="presentation" xlink:href="#xui-icon-sort-single"></use>
+//          </svg>
+//        </button>
+//      </th>
 //      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
-//				<button class="xui-button">
-//					Column
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//        </button>
+//      </th>
 //      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
-//				<button class="xui-button">
-//					Column
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//        </button>
+//      </th>
 //      <th class="xui-u-flex-1 xui-heading-separator xui-text-align-right xui-padding-vertical-small xui-padding-left-small xui-padding-right-large"">
-//				<button class="xui-button">
-//					Column
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//        </button>
+//      </th>
 //    </tr>
 //  </thead>
 // </table>
@@ -657,28 +603,28 @@
 //  <thead>
 //    <tr class="xui-u-flex xui-contentblock--item xui-text-align-left">
 //      <th class="xui-u-flex-1 xui-heading-separator xui-padding-vertical-small xui-padding-right-small xui-padding-left-large">
-//				<button class="xui-button">
-//					Column
-//					<svg focusable="false" class="xui-icon xui-icon-inline xui-u-rotate-180">
-//						<use role="presentation" xlink:href="#xui-icon-sort-single"></use>
-//					</svg>
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//          <svg focusable="false" class="xui-icon xui-icon-inline xui-u-rotate-180">
+//            <use role="presentation" xlink:href="#xui-icon-sort-single"></use>
+//          </svg>
+//        </button>
+//      </th>
 //      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
-//				<button class="xui-button">
-//					Column
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//        </button>
+//      </th>
 //      <th class="xui-u-flex-1 xui-heading-separator xui-padding-small">
-//				<button class="xui-button">
-//					Column
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//        </button>
+//      </th>
 //      <th class="xui-u-flex-1 xui-heading-separator xui-text-align-right xui-padding-vertical-small xui-padding-left-small xui-padding-right-large"">
-//				<button class="xui-button">
-//					Column
-//				</button>
-//			</th>
+//        <button class="xui-button">
+//          Column
+//        </button>
+//      </th>
 //    </tr>
 //  </thead>
 // </table>
@@ -705,12 +651,12 @@
 // <table class="xui-panel xui-contentblock">
 //  <tbody>
 //    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-//			<td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
-//				<span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
-//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
-//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
-//				<span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
-//			</td>
+//      <td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//        <span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
+//      </td>
 //    </tr>
 //  </tbody>
 // </table>
@@ -728,28 +674,28 @@
 // <table class="xui-panel xui-contentblock">
 //  <tbody>
 //    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// 			<td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
-// 				<label class="xui-styledcheckboxradio">
-//  				 <input class="xui-styledcheckboxradio--input" type="checkbox">
-//  				 <svg focusable="false" class="xui-icon">
-//  				   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//  				   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//  				   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//  				   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
-//  				 </svg>
-// 				</label>
-// 			</td>
-//			<td colspan="6" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
-//				<span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-2">Primary</span>
-//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
-//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
-//				<span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-5">0.00</span>
-//			</td>
-//    	<td class="xui-margin-horizontal-small">
-//     	 <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//      	 <svg focusable="false" class="xui-icon">
-//      	   <use xlink:href="#xui-icon-overflow"></use>
-//       	 </svg>
+//      <td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
+//        <label class="xui-styledcheckboxradio">
+//           <input class="xui-styledcheckboxradio--input" type="checkbox">
+//           <svg focusable="false" class="xui-icon">
+//             <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
+//           </svg>
+//        </label>
+//      </td>
+//      <td colspan="6" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//        <span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-2">Primary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-5">0.00</span>
+//      </td>
+//      <td class="xui-margin-horizontal-small">
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
 //       </button>
 //     </td>
 //    </tr>
@@ -768,31 +714,31 @@
 // <table class="xui-panel xui-contentblock">
 //  <tbody>
 //    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// 		<td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
-// 				<label class="xui-styledcheckboxradio">
-//  				 <input class="xui-styledcheckboxradio--input" type="checkbox">
-//  				 <svg focusable="false" class="xui-icon">
-//  				   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//  				   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//  				   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//  				   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
-//  				 </svg>
-// 				</label>
-// 			</td>
-//			<td colspan="7" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
-// 				<span class="xui-margin-right xui-u-flex xui-u-flex-verticallycentered">
-//   				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">P</abbr>
-// 				</span>
-//				<span class="xui-padding-vertical xui-padding-right-small xui-text-emphasis xui-u-flex-1" aria-labelledby="column-3">Primary</span>
-//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
-//				<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-5">Secondary</span>
-//				<span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-6">0.00</span>
-//			</td>
-//    	<td class="xui-margin-horizontal-small">
-//     	 <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//      	 <svg focusable="false" class="xui-icon">
-//      	   <use xlink:href="#xui-icon-overflow"></use>
-//       	 </svg>
+//    <td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
+//        <label class="xui-styledcheckboxradio">
+//           <input class="xui-styledcheckboxradio--input" type="checkbox">
+//           <svg focusable="false" class="xui-icon">
+//             <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+//             <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
+//           </svg>
+//        </label>
+//      </td>
+//      <td colspan="7" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//        <span class="xui-margin-right xui-u-flex xui-u-flex-verticallycentered">
+//          <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">P</abbr>
+//        </span>
+//        <span class="xui-padding-vertical xui-padding-right-small xui-text-emphasis xui-u-flex-1" aria-labelledby="column-3">Primary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-5">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-6">0.00</span>
+//      </td>
+//      <td class="xui-margin-horizontal-small">
+//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
 //       </button>
 //     </td>
 //    </tr>
@@ -816,18 +762,18 @@
 // Do: Tint the entire row on hover to clarify that it is a link
 //
 // Classes:
-// xui-background-grey-7:	Apply to row on hover
+// xui-background-grey-7: Apply to row on hover
 //
 // Markup:
 // <table class="xui-panel xui-contentblock">
 //  <tbody class="xui-u-flex xui-u-flex-vertical">
 //    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-//				<td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
-//					<span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
-//					<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
-//					<span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
-//					<span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
-//				</td>
+//        <td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
+//          <span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
+//          <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
+//          <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//          <span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
+//        </td>
 //    </tr>
 //  </tbody>
 // </table>
@@ -841,7 +787,7 @@
 // Dont: Don't nest buttons or anchor tags inside each other
 //
 // Classes:
-// xui-text-minorlink:	Apply to each anchor tag
+// xui-text-minorlink: Apply to each anchor tag
 //
 // Markup:
 // <table class="xui-panel xui-contentblock">
@@ -866,3 +812,4 @@
 // xui-sectionheading-layout: Use utility classes instead
 //
 // Styleguide: Building Blocks.Tables.5
+

@@ -51,9 +51,12 @@
 //
 // Used to display read-only, categorical information. For example, assigning contacts to a particular group.
 //
+// Classes:
+// xui-tag: Will add an outline
+//
 // Markup:
-//	<span class="xui-text-tag xui-text-tag-solid">Dark tag</span>
-//	<span class="xui-text-tag xui-text-tag-outline">Light tag</span>
+//	<span class="xui-tag xui-tag-neutral">Dark tag</span>
+//	<span class="xui-tag">Light tag</span>
 //	<div class="xui-panel xui-margin-top">
 //		<ul class="xui-picklist">
 //			<li class="xui-pickitem" aria-selected="false">
@@ -62,7 +65,7 @@
 //						Erlich Bachman<br />
 //						<span class="xui-text-secondary">erlich@bachmanity.com</span>
 //					</span>
-//					<span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Bachmanity Capital</span>
+//					<span class="xui-tag xui-margin-auto-left xui-margin-auto-vertical">Bachmanity Capital</span>
 //				</button>
 //			</li>
 //			<li class="xui-pickitem" aria-selected="false">
@@ -71,13 +74,27 @@
 //						Donald J Trump<br />
 //						<span class="xui-text-secondary">thedon@trump.com</span>
 //					</span>
-//					<span class="xui-text-tag xui-text-tag-outline xui-margin-auto-left xui-margin-auto-vertical">Trump University</span>
+//					<span class="xui-tag xui-margin-auto-left xui-margin-auto-vertical">Trump University</span>
 //				</button>
 //			</li>
 //		</ul>
 //	</div>
 //
 // Styleguide: Pills and Tags.4
+
+// Deprecated Tags
+//
+// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
+// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+//
+// The following tag classes have been deprecated with the intention of adding additional sentiments in XUI 12.
+//
+// Classes:
+// xui-text-tag: Use xui-tag instead
+// xui-text-tag-outline: Use xui-tag instead
+// xui-text-solid: Use xui-neutral instead
+//
+//Styleguide: Pills and Tags.99
 
 .#{$ns}-text-tag {
 	border-radius: $xui-radius;
@@ -94,7 +111,19 @@
 	border: 1px solid $xui-color-grey-alpha-4;
 }
 
-.#{$ns}-text-tag-solid {
+.#{$ns}-tag {
+	background-color: $xui-color-white;
+	border: 1px solid $xui-color-grey-alpha-4;
+	border-radius: $xui-radius;
+	color: $xui-color-grey-alpha-2;
+	display: inline-block;
+	font-size: $xui-font-size-xsmall;
+	line-height: $xui-font-size-xsmall;
+	padding: 3px $xui-s-xsmall;
+	vertical-align: middle;
+}
+
+.#{$ns}-text-tag-solid, .#{$ns}-tag-neutral {
 	background-color: $xui-color-grey-alpha-6;
 	border: 1px solid $xui-color-grey-alpha-6;
 }

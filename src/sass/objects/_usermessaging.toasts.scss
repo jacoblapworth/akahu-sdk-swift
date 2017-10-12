@@ -85,7 +85,6 @@
 .#{$ns}-toast-is-hidden {
 	@include xui-margin-vertical(0);
 	@include xui-padding-vertical(0);
-	height: 0;
 	opacity: 0;
 	overflow: hidden;
 	pointer-events: none;

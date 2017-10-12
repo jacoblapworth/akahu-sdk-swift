@@ -66,7 +66,43 @@ Open http://localhost:6060 to view the docs.
 
 This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement.
 
-#### npm Scripts
+#### Folder structure
+
+XUI has a number of top level folders. When contributing all the interesting files are under the `src` folder.
+* `src/docs/` contain SCSS and markdown files used by the documentation system.
+* `src/react/` has entry points for all the components.
+* Each component has a sub folder inside `src/react/components/`.
+  * Only public  UI components should live in the root of the associated component folder.
+  * Tests should always live in the `__tests__` folder.
+  * Private helpers, constants, etc should live in a `private` folder.
+  * This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
+* `src/sass/` contains all the SCSS partials and is organised following ITCSS conventions.
+
+```
+src/
+├─ docs/
+│  ├─ building-blocks/
+│  ├─ fundamentals/
+│  ├─ react/
+│  └─ working-with-xui/
+├─ react/
+│  └─ components/
+│     ├─ component1/
+│     │  ├─ __tests__/
+│     │  ├─ helpers/
+│     │  ├─ private/
+│     │  └─ uitest/
+│     └─ component2/
+└─ sass/
+   ├─ components/
+   ├─ elements
+   ├─ objects/
+   ├─ settings/
+   ├─ tools/
+   └─ trumps
+```
+
+#### npm scripts
 
 XUI has a lot of npm scripts. These are under review. `npm start` should be enough for most development. If the watches or dev server give you troubles you will need to run the following commands that will have a similar result to `npm start`, the built files will live in the `docs` directory and you'll need to use [http-server]() or [serve]() as a test webserver.
 
@@ -79,7 +115,6 @@ npm run lint:sass && npm run build && npm run doc
 # Build Component docs
 npm run lint:js && npm run styleguide:build
 ```
-
 
 Script              | Description
 --------------------|-------------
@@ -103,11 +138,70 @@ Script              | Description
 `styleguide`               | Build and start up the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components.
 `styleguide:build`         | Build a static version of the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components that is suitable for deployment.
 
+## Post-install scripts
+
+After an install, there are a couple of things we want to do in order to help ensure the quality of our applications.
+
+First, we'll want to make sure that you're using an appropriate version of node and npm, so there's a `npm run check:engines` script that runs.
+
+Second, if we're using a library with a known security vulnerability, we **DEFINITELY** want to know about and fix that. Luckily, there's a centrally [maintained list of known vulnerabilities](https://nodesecurity.io/advisories/) in node packages. It may not be exhaustive, but it's better than nothing. The `npm run check:security` script utilizes the [nsp package](https://www.npmjs.com/package/nsp) to check and see if we're exposed to one of those known vulnerabilities.
+
+## Hooks
+
+### Pre-commit
+
+Add the [pre-commit hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to lint your code and catch problems that will cause your build to fail in the CI environment. This will run automatically before a commit.
+
+Install the hook by running the following command:
+
+```bash
+$ ln -s ../../pre-commit.sh .git/hooks/pre-commit
+```
+
+## Post-merge
+
+You can also add a post-merge hook so that your local environment is updated after a merge. This will not trigger when rebasing upstream but is still good to have active.
+
+Install the hook by running the following command:
+
+```bash
+$ ln -s ../../post-merge.sh .git/hooks/post-merge
+```
+## Developer Documentation
+
+XUI is a living design system that uses source annotations and markdown files to document itself. XUI provides two layers of documentation. XUI Guide contains the best practices and CSS examples and XUI React Docs contain component documentation and examples. Both systems provide running example code and in the React Docs this can be edited in the browser. These tools are configured separatly and we have a number of customisations that are unique to Xero.
+
+### XUI Guide (KSS)
+
+Configured in `kss/` folder. Checkout our [kss/README.md](kss/README.md) for notes on our customisation and configuration.
+
+### React Docs (react-styleguidist)
+
+Configured in `styleguide/` folder. Checkout our [styleguide/README.md](styleguide/README.md) for notes on customisation and configuration.
+
+[react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
+
 ## Releasing XUI
 
-The UXE team manage releases of XUI via TeamCity. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
+1. Draft up the Release notes in GitHub
+2. Open a PR with the version bump to package.json
 
-### Builds
+The release description should provide clear documentation describing what has changed since the last release.
+
+The release notes can be organised under the following sections:
+ * New features
+ * Bug fixes
+ * Deprecations
+ * Any notable documentation updates
+ * Removals (`breaking-changes` only)
+
+### Alpha/beta releases
+
+All releases from `breaking-changes` should also supply an up-to-date list of all changes since the last major release.
+
+### CI & CD builds
+
+The UXE team manage releases of XUI via TeamCity. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
 
 * [Pull request](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
 * [Update-gh-pages](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_UpdateGhPages) builds and releases documentation for all releases, `master` and `breaking-changes` branches. Triggered by successful merge to `master` or `breaking-changes` branches.

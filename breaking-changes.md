@@ -9,7 +9,7 @@
 * `Autocompleter` exposes `onHighlightChange` prop mapped from the underlying `Dropdown`
 * `XUIButton` now supports the inverted variant. Also now supports retaining layout when used with loaders. Also now supports adding a min-width, useful for small buttons that use loaders
 * `Toast` now limits toast actions to a max of 2.
-* `Avatar` sizing support to cover xsmall all the way up to xxlarge.
+* `Avatar` sizing support to cover xsmall all the way up to 2xlarge.
 * `Loader` now supports the inverted variant.
 
 ### New Components
@@ -83,7 +83,7 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 * `xui-panel--sidebar` width is now 220px.
 
 #### Avatars
-* `xui-avatar-xsmall`, `xui-avatar-small`, `xui-avatar-large`, `xui-avatar-xlarge`, `xui-avatar-xxlarge` sizing support to cover xsmall all the way up to xxlarge.
+* `xui-avatar-xsmall`, `xui-avatar-small`, `xui-avatar-large`, `xui-avatar-xlarge`, `xui-avatar-2xlarge` sizing support to cover xsmall all the way up to 2xlarge.
 
 ### Classes removed
 
@@ -201,8 +201,8 @@ that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-s
 * `xui-separator-title` has been removed. Use `xui-heading-separator` instead.
 * `xui-heading-medium` has been removed. Use `xui-heading` instead.
 * `xui-heading-display` has been removed. Use `xui-heading-xlarge` instead.
-* `xui-heading-display-xl` has been removed. Use `xui-heading-xxlarge` instead.
-* `xui-heading-display-xxl` has been removed. Use `xui-heading-xxxlarge` instead.
+* `xui-heading-display-xl` has been removed. Use `xui-heading-2xlarge` instead.
+* `xui-heading-display-xxl` has been removed. Use `xui-heading-3xlarge` instead.
 
 ##### Alignment
 * `xui-text-leftaligned` has been removed. Use `xui-text-align-left` instead.

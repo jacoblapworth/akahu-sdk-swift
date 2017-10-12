@@ -47,7 +47,7 @@
 //     <div id="tab-3" class="xui-accordionitem--collapsed" aria-selected="true" aria-controls="panel-3" aria-expanded="true" role="tab">
 //       <div>Collapsed title</div>
 //     </div>
-//     <div id="panel-3" class="xui-accordionitem--expanded" aria-labelledby="tab-3" aria-hidden="false" role="tabpanel"> 
+//     <div id="panel-3" class="xui-accordionitem--expanded" aria-labelledby="tab-3" aria-hidden="false" role="tabpanel">
 // 				<div class='xui-u-flex xui-u-flex-space-between xui-u-flex-verticallycentered'>
 // 					<div>
 //						<h3 class="xui-heading xui-accordion--header">Expanded title</h3>
@@ -73,9 +73,9 @@
 // Opening and closing
 //
 // To animate an accordion item between its two states, toggle the following class.
-// 
+//
 // Classes:
-// xui-accordionitem-is-open: Expand accordion item 
+// xui-accordionitem-is-open: Expand accordion item
 //
 // Styleguide: Building Blocks.Accordion.3
 
@@ -165,7 +165,7 @@
 	> .#{$ns}-accordionitem--expanded {
 		height: auto;
 		opacity: 1;
-		padding: $xui-s-huge;
+		padding: $xui-s-2xlarge;
 		transform: scaleY(1);
 		transition-delay: $xui-motion-speed-fast, 0s, -2s;
 		transition-duration: $xui-motion-speed-medium;

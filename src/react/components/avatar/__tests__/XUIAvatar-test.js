@@ -50,7 +50,7 @@ describe('XUIAvatar', function () {
 		assert.isTrue(node4.classList.contains(sizeClassNames.large), 'Avatar with size="large" has the large class');
 		assert.isTrue(node5.classList.contains(classNames.base), 'Avatar with size="xlarge" has the base class');
 		assert.isTrue(node5.classList.contains(sizeClassNames.xlarge), 'Avatar with size="xlarge" has the xlarge class');
-		assert.isTrue(node6.classList.contains(classNames.base), 'Avatar with size="xxlarge" has the base class');
+		assert.isTrue(node6.classList.contains(classNames.base), 'Avatar with size="2xlarge" has the base class');
 		assert.isTrue(node6.classList.contains(sizeClassNames['2xlarge']), 'Avatar with size="2xlarge" has the 2xlarge class');
 	});
 

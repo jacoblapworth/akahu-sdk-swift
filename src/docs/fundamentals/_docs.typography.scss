@@ -2,7 +2,7 @@
 //
 // Teaser: Heading types and when to use them. Details on text colouring, emphasis and spacing.
 //
-// Introduction: Words are 99% of our interfaces and good type hierarchy is the strongest tool to provide clarity. It’s important we get it right.
+// Introduction: Text is 99% of our interfaces – it’s important to get it right. The levers of size, weight, space and colour are some of the best ways to bring hierarchy and clarity to an interface.
 //
 // Weight: -2
 //
@@ -27,7 +27,7 @@
 
 // Sizes
 //
-// XUI does not provide a CSS reset. Heading and paragraph elements will pickup user agent margins if not specified using [XUI spacing classes](section-spacing.html).
+// XUI does not provide a CSS reset. Heading and paragraph elements will pickup user agent margins if not specified using [XUI spacing classes](./section-fundamentals-spacing.html).
 //
 // Definitions:
 // Default: 13px: Majority of any interface
@@ -38,7 +38,7 @@
 
 // Everyday headings
 //
-// Important! If you're using headings in a modal or dropdown please use one of our [presets](#typography-20-3) instead.
+// Important! If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-20-3) instead.
 //
 // Definitions:
 // Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Directory Listing</h3>
@@ -63,9 +63,11 @@
 // Styleguide: Fundamentals.Typography.20.2
 
 
-// Preset headings
+// Text presets
 //
 // Flag: Under review
+//
+// Preset combinations of size and color for specific elements enables future application-wide change with CSS only.
 //
 // Definitions:
 // Modal: `xui-heading-modal`: Standard heading for all modals
@@ -89,9 +91,9 @@
 // Common colours
 //
 // Definitions:
-// Default: `xui-color-grey-standard`: the primary text color in XUI.
-// Muted: `xui-color-grey-muted`: for text that requires reduced hierarchy. It can be used independently or via `.xui-text-secondary`
-// Faint: `xui-color-grey-faint`: should be used very sparingly for inconsequential things due to it's poor accessibility
+// Standard: `xui-textcolor-standard`: Default primary text color in XUI.
+// Muted: `xui-textcolor-muted`: Reduced hierarchy. It can be used independently or via `.xui-text-secondary`
+// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to it’s poor accessibility.
 //
 // Styleguide: Fundamentals.Typography.30.1
 
@@ -99,8 +101,8 @@
 // Sentiment colours
 //
 // Definitions:
-// Positive: `xui-color-positive`:	<div class="xui-container"><span class="xui-color-positive">21.3% decrease</span></div>
-// Negative: `xui-color-negative`:	<div class="xui-container"><span class="xui-color-negative">Yes, delete this invoice</span></div>
+// Positive: `xui-textcolor-positive`:	<div class="xui-container"><span class="xui-textcolor-positive">21.3% decrease</span></div>
+// Negative: `xui-textcolor-negative`:	<div class="xui-container"><span class="xui-textcolor-negative">Yes, delete this invoice</span></div>
 //
 // Styleguide: Fundamentals.Typography.30.2
 
@@ -116,24 +118,24 @@
 
 // Text on dark backgrounds
 //
-// Text colors for use with a dark background. For inverted buttons please see [Icons](section-buttons.html#buttons-7) and [Toggles](section-buttons.html#buttons-10) in Buttons.
+// Text colors for use with a dark background. Inverted [buttons](./section-building-blocks-buttons.html#building-blocks-buttons-10) and [Toggles](./section-building-blocks-toggle.html#building-blocks-toggle-2-1) are handled differently.
 //
 // Definitions:
-// White: `xui-color-white`: white color for text
-// Muted white: `xui-color-white-muted`: white at 80%
-// Faint white: `xui-color-white-faint`: white at 50%
+// White: `xui-textcolor-inverted`: white color for text
+// Muted white: `xui-textcolor-inverted-muted`: white at 75%
+// Faint white: `xui-textcolor-inverted-faint`: white at 50%
 //
 // ExampleClass: ds-example-flush
 //
 // Markup:
-// <div class="xui-row xui-color-white xui-background-grey-1 xui-padding">
+// <div class="xui-row xui-textcolor-inverted xui-background-grey-1 xui-padding">
 //  <div class="xui-column-4-of-12 xui-heading">
 //    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
 //  </div>
-//  <div class="xui-column-4-of-12 xui-color-white-faint xui-text-align-center">
+//  <div class="xui-column-4-of-12 xui-textcolor-inverted-faint xui-text-align-center">
 //    Saving...
 //  </div>
-//  <div class="xui-column-4-of-12 xui-text-align-right xui-color-white-muted">
+//  <div class="xui-column-4-of-12 xui-text-align-right xui-textcolor-inverted-muted">
 //  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
 //  Edit
 //  </div>
@@ -148,13 +150,9 @@
 
 // Links
 //
-// Make sure every element that triggers interaction looks like it does.
+// With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
+// Links in XUI should only be used for elements that have an `href` – use a [button](/section-building-blocks-buttons.html) if not.
 //
-// Default link styling is applied to the `<a>` element. `.xui-text-link` can be
-// used to provide full underline on hover and focus behaviour. Minor link styling is
-// provided for supplementary links that are clickable but for which we do not
-// want to draw attention to. This could be for secondary links or lists of links.
-// Minor links should not be used in strings of text.
 //
 // Definitions:
 // Standard link: `xui-text-link`: Adds link hover and focus highlighting
@@ -188,37 +186,28 @@
 
 
 
-
-
-
-// Fine-tuning
-//
-// Styleguide: Fundamentals.Typography.50
-
-
 // Emphasis
 //
-// <span class="xui-color-positive"><svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-checkbox-check" role="presentation"/></svg>&nbsp;</span> Add bold tactically to highlight important information.
-//
-// <span class="xui-color-negative"><svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-cross" role="presentation"/></svg>&nbsp;</span> Avoid bolding long stretches of text or using where a [standard heading]() makes more sense.
+// Tips:
+// Do: Add bold tactically to highlight important information.
+// Dont: Avoid bolding long stretches of text or using where a [standard heading](#fundamentals-typography-20-1) makes more sense.
 //
 // Definitions:
 // Bold: `xui-text-emphasis`: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
 // Normal: `xui-text-deemphasis`: To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
 //
-// Styleguide: Fundamentals.Typography.50.1
+// Styleguide: Fundamentals.Typography.51
 
 
 // Letter Spacing
 //
-// Common components should declare their own letter spacing where required
-// and these classes should not be used very often.
+// Common components, like headings, declare their own letter spacing where required – these classes should not be used very often.
 //
 // Definitions:
 // Tight: -0.005em: `xui-text-spacing-tight` <br/>Makes display type better - already on appropriate XUI headings.
 // Loose: 0.01em: `xui-text-spacing-loose` <br/>Can improve legibility of very small text, especially uppercase.
 //
-// Styleguide: Fundamentals.Typography.50.2
+// Styleguide: Fundamentals.Typography.52
 
 
 // Line Height
@@ -232,7 +221,7 @@
 // Tight: 1.15: `xui-text-tight` use to retain impact of large copy
 // Reset: 1: `xui-text-reset`
 //
-// Styleguide: Fundamentals.Typography.50.3
+// Styleguide: Fundamentals.Typography.53
 
 
 // Alignment
@@ -244,24 +233,20 @@
 // xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
 // xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
 //
-// Styleguide: Fundamentals.Typography.50.4
+// Styleguide: Fundamentals.Typography.54
 
 
 // Truncation
 //
-// Forces text to truncate after a single line of text, to suggest overflow, whilst still remaining within the bounds of the parent container.
+// Truncate a single line of text and add an ellipsis to suggest overflow. To truncate after more than one line, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping).
 //
-// To truncate after an arbitrary number of lines, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
+// Tips:
+// Dont: Avoid truncating text important to identifying an element - allow multiple lines or larger widths instead.
 //
 // Classes:
 // xui-text-truncated: Modifier for truncated text with an ellipsis
 //
-// Markup:
-//  <div style="width: 250px;">
-//    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
-//  </div>
-//
-// Styleguide: Fundamentals.Typography.50.5
+// Styleguide: Fundamentals.Typography.55
 
 
 // Word-break
@@ -274,63 +259,19 @@
 // Classes:
 // xui-text-wordbreak: Helps long words like URLs not break out of their parent container
 //
-// Markup:
-//  <div style="width: 200px;">
-//    <p class="xui-text-wordbreak">https://github.dev.xero.com/pages/UXE/xui/#10.14.0/index.html</p>
-//  </div>
+// Styleguide: Fundamentals.Typography.56
+
+
+// Long-form text
 //
-// Styleguide: Fundamentals.Typography.50.6
-
-
-
-
-
-
-//  Statuses
+// XUI’s type styling is designed primarily for application interfaces and does not target HTML elements like `h1` or `p`.
+// Use the `xui-textcontent` wrapper class to enclose any long-form text which needs basic margins and typographic scale.
 //
-// Statuses provide text colors that match the sentiment used for banner and toast components.
-//
-// Classes:
-// xui-text-status: Style for status text
-// xui-text-status-negative: Modifier for negative status text
-// xui-text-status-positive: Modifier for positive status text
+// Tips:
+// Warning: These styles are fairly basic, you may need to fine-tune - let us know how it goes!
 //
 // Markup:
-// <span class="xui-text-status">
-//   Draft
-// </span>
-// <span class="xui-text-status xui-text-status-positive">
-//   Accepted
-// </span>
-// <span class="xui-text-status xui-text-status-negative">
-//   Declined
-// </span>
-// <p class="xui-heading-large">
-//   Heading
-//   <span class="xui-text-status">Draft</span>
-// </p>
-// <p class="xui-heading">
-//   Page Titles
-//   <span class="xui-text-status xui-text-status-positive">Approved</span>
-// </p>
-// <p class="xui-text-minor">
-//   Headers
-//   <span class="xui-text-status xui-text-status-negative">Overdue</span>
-// </p>
-
-
-
-
-
-
-// Text Content
-//
-// Use the `xui-textcontent` wrapper class to enclose content that is represented by simple HTML elements.
-//
-// HTML elements inside `xui-textcontent` will be basically formatted in a way that makes sense for displaying user generated content.
-//
-// Markup:
-// <div class="xui-panel xui-padding-horizontal xui-padding-bottom xui-textcontent">
+// <div class="xui-textcontent">
 //   <h1>Getting started with Xero Payroll</h1>
 //   <p>Here's what you'll need to sign up to Xero, how to set up your organisation, and links to pages that'll help you get started using Xero.</p>
 //   <hr>

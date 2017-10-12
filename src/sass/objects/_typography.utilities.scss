@@ -2,20 +2,7 @@
 @import "../vars";
 
 // Alignment
-//
-// Classes that can be added to change the alignment of text.
-//
-// Classes:
-// xui-text-align-left: The default alignment for most other UI elements and body copy
-// xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
-// xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
-//
-// Markup:
-//  <p class="xui-text-align-left xui-text-emphasis">Email Address</p>
-//  <p class="xui-text-align-center xui-text-muted">No Results Found</p>
-//  <p class="xui-text-align-right xui-heading-large xui-margin-none">100.00</p>
-//
-// Styleguide: Fundamentals.Typography.52
+
 
 .#{$ns}-text-align-left {
 	text-align: left;
@@ -30,41 +17,14 @@
 }
 
 // Truncation
-//
-// Forces text to truncate after a single line of text, to suggest overflow, whilst still remaining within the bounds of the parent container.
-//
-// To truncate after an arbitrary number of lines, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
-//
-// Classes:
-// xui-text-truncated: Modifier for truncated text with an ellipsis
-//
-// Markup:
-//  <div style="width: 250px;">
-//    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
-//  </div>
-//
-// Styleguide: Fundamentals.Typography.53
+
 
 .#{$ns}-text-truncated {
 	@include xui-text-truncated;
 }
 
 // Word-break
-//
-// Long words without hyphens won't automatically break when they reach the edge of their container.
-// They either enlarge the container, overflow or a scrollbar is created.
-// Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
-// and losing some information.
-//
-// Classes:
-// xui-text-wordbreak: Helps long words like URLs not break out of their parent container
-//
-// Markup:
-//  <div style="width: 200px;">
-//    <p class="xui-text-wordbreak">https://github.dev.xero.com/pages/UXE/xui/#10.14.0/index.html</p>
-//  </div>
-//
-// Styleguide: Fundamentals.Typography.54
+
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
@@ -88,88 +48,43 @@
 /* doiuse-enable */
 
 //  Colors
-//
-// Styleguide: Fundamentals.Typography.58
 
-// Common colors
-//
-// `xui-color-grey-standard` the primary text color in XUI.
-//
-// `xui-color-grey-muted` for text that requires reduced hierarchy. It can be used independently or via `.xui-text-secondary`
-//
-// `xui-color-grey-faint` should be used very sparingly for inconsequential things due to it's poor accessibility
-//
-// `xui-text-positive`	Positive sentiment text
-//
-// `xui-text-negative`	Negative sentiment text
-//
-//
-// Markup:
-// <p class="xui-color-grey-standard">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-color-grey-muted">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-color-grey-faint">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-positive">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-negative">The quick brown fox jumps over the lazy dog</p>
-//
-// Styleguide: Fundamentals.Typography.58.1
 
-.#{$ns}-color-grey-standard {
+.#{$ns}-textcolor-standard {
 	color: $xui-color-black;
 }
 
-.#{$ns}-color-grey-muted {
+.#{$ns}-textcolor-muted {
 	@include xui-text-muted;
 }
 
-.#{$ns}-color-grey-faint {
+.#{$ns}-textcolor-faint {
 	color: $xui-color-grey-alpha-3;
 }
 
-.#{$ns}-color-icon {
+.#{$ns}-textcolor-icon {
 	color: $xui-color-grey-alpha-2;
 }
 
-.#{$ns}-color-positive {
+.#{$ns}-textcolor-positive {
 	@include xui-text-positive;
 }
 
-.#{$ns}-color-negative {
+.#{$ns}-textcolor-negative {
 	@include xui-text-negative;
 }
 
 // Inverted colors
-//
-// Text colors for use with a dark background. For inverted buttons please see [Icons](section-buttons.html#buttons-7) and [Toggles](section-buttons.html#buttons-10) in Buttons.
-//
-// Classes:
-// xui-color-white: white color for text
-// xui-color-white-muted: white at 80%
-// xui-color-white-faint: white at 50%
-//
-// Markup:
-// <div class="xui-row xui-color-white xui-background-grey-1 xui-padding">
-//  <div class="xui-column-4-of-12 xui-heading">
-//    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
-//  </div>
-//  <div class="xui-column-4-of-12 xui-color-white-faint xui-text-align-center">
-//    Saving...
-//  </div>
-//  <div class="xui-column-4-of-12 xui-text-align-right xui-color-white-muted">
-//  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
-//  Edit
-//  </div>
-// </div>
-//
-// Styleguide: Fundamentals.Typography.58.3
 
-.#{$ns}-color-white {
+
+.#{$ns}-textcolor-inverted {
 	color: $xui-color-white;
 }
 
-.#{$ns}-color-white-muted {
+.#{$ns}-textcolor-inverted-muted {
 	color: $xui-color-white-muted;
 }
 
-.#{$ns}-color-white-faint {
+.#{$ns}-textcolor-inverted-faint {
 	color: $xui-color-white-faint;
 }

@@ -210,13 +210,16 @@ that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-s
 * `xui-text-rightaligned` has been removed. Use `xui-text-align-right` instead.
 
 ##### Colors
-* `xui-text-color-*` has been renamed to `xui-color-*`
-* `xui-text-color-black` has been removed. Use `xui-color-grey-standard` instead.
-* `xui-text-muted` has been removed. Use `xui-color-grey-muted` instead.
-* `xui-text-color-faint` has been removed. Use `xui-color-grey-faint` instead.
-* `xui-text-negative` has been removed. Use `xui-color-negative` instead.
-* `xui-text-positive` has been removed. Use `xui-color-positive` instead.
-* `xui-text-inverted` has been removed. Use `xui-color-white` and `xui-background-grey-1` instead.
+* `xui-text-color-*` has been renamed to `xui-textcolor-*`
+* `xui-text-color-black` has been removed. Use `xui-textcolor-standard` instead.
+* `xui-text-muted` has been removed. Use `xui-textcolor-muted` instead.
+* `xui-text-color-faint` has been removed. Use `xui-textcolor-faint` instead.
+* `xui-text-negative` has been removed. Use `xui-textcolor-negative` instead.
+* `xui-text-positive` has been removed. Use `xui-textcolor-positive` instead.
+* `xui-text-color-white` has been removed. Use `xui-textcolor-inverted` instead.
+* `xui-text-inverted` has been removed. Previously this set both color and background-color. Use `xui-textcolor-inverted` and the background of your choice (more than likely `xui-background-grey-1`).
+* `xui-text-color-white-muted` has been removed. Use `xui-textcolor-inverted-muted` instead.
+* `xui-text-color-white-faint` has been removed. Use `xui-textcolor-inverted-faint` instead.
 
 #### Utilities
 * `xui-u-flex-row` has been removed. Use `xui-u-flex-verticallycentered` instead.

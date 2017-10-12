@@ -3,6 +3,15 @@
 @import "../../src/sass/vars";
 
 
+// Outdent to compensate for padding on each card
+.ds-card-wrapper {
+	margin-left: -10px;
+	margin-right: -10px;
+	@include xui-breakpoint-wide {
+		@include embiggen;
+	}
+}
+
 .ds-card {
 	background: $xui-color-white;
 	border-radius: $xui-radius;
@@ -11,7 +20,7 @@
 	flex-direction: column;
 	flex: 1;
 	margin: $xui-s-small;
-	max-height: 200px;
+	min-height: 8rem;
 	max-width: calc(50% - 20px);
 	min-width: calc(100% - 20px);
 	position: relative;

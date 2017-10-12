@@ -5,7 +5,7 @@
 // Toggles can be made using either `radio` or `checkbox` inputs.
 //
 // The colorway classes should be applied alongside `xui-toggle`.
-// Note that `xui-toggle-inverted` should be used with `xui-color-white` and `xui-background-grey-1` classes.
+// Note that `xui-toggle-inverted` should be used with `xui-textcolor-inverted` and `xui-background-grey-1` classes.
 // See [Typography](./section-typography.html) for more details.
 //
 // Toggle labels can contain any combination of images, multiline text and [SVG icons](./section-icons.html).
@@ -94,7 +94,7 @@
 // Full width inverted radio
 //
 // Markup:
-// <div class="xui-panel xui-margin xui-padding xui-color-white xui-background-grey-1">
+// <div class="xui-panel xui-margin xui-padding xui-background-grey-1">
 //   <div class="xui-toggle xui-toggle-inverted xui-toggle-fullwidth-layout xui-padding-bottom-small">
 //     <label class="xui-toggle-option">
 //       <input type="radio" class="xui-toggle--input" name="tg3" checked/>
@@ -228,7 +228,7 @@
 // Icon only inverted radio
 //
 // Markup:
-// <div class="xui-panel xui-margin xui-padding xui-color-white xui-background-grey-1">
+// <div class="xui-panel xui-margin xui-padding xui-textcolor-inverted xui-background-grey-1">
 //   <div class="xui-toggle xui-toggle-inverted xui-padding-bottom-small">
 //     <label class="xui-toggle-option">
 //       <input type="radio" name="tg0" class="xui-toggle--input"/>

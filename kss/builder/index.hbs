@@ -151,10 +151,10 @@
 
 				{{#if classes}}
 				<div class="kss-style ds-section-part">
-					<table class="xui-contentblock xui-margin-bottom">
+					<table class="ds-classtable xui-margin-bottom">
 						<tbody>
 							{{#renderClasses classes}}
-								<tr class="ds-classtable-row xui-contentblock--item xui-contentblock--item-layout">
+								<tr class="ds-classtable-row">
 									<td class="xui-text-cell ds-classtable-classname"><code>{{classes.name}}</code></td>
 									<td class="xui-text-cell ds-classtable-description">{{classes.value}}</td>
 								</tr>
@@ -219,7 +219,7 @@
 				</div>
 				<!--ds-example-->
 				<div class='xui-margin-top-large'>
-					<label for="markup-{{referenceNumber}}" class="ds-markup--label{{#isEqual exampleclass "inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "markup-only"}} xui-u-hidden{{/isEqual}}">Show markup</label>
+					<label for="markup-{{referenceNumber}}" class="xui-text-link ds-markup--label{{#isEqual exampleclass "inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "markup-only"}} xui-u-hidden{{/isEqual}}">Show markup</label>
 				</div>
 				<!--ds-markup-->
 

@@ -40,15 +40,6 @@ $ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
 	}
 }
 
-// Outdent to compensate for padding on each card
-.ds-card-wrapper {
-	margin-left: -10px;
-	margin-right: -10px;
-	@include xui-breakpoint-wide {
-		@include embiggen;
-	}
-}
-
 .ds-example-wrap {
 	background: $xui-color-grey-7;
 	border: 0;
@@ -484,11 +475,19 @@ $kss-color-padding: #eeebff;
 	top: 0;
 }
 
+.ds-classtable {
+	width: 100%;
+}
+
 .ds-classtable-row {
 	display: flex;
 	flex-direction: column;
 	@include xui-breakpoint-medium-and-wide {
 		display: table-row;
+	}
+	border-bottom: 1px solid $xui-color-grey-6;
+	&:first-of-type {
+		border-top: 1px solid $xui-color-grey-6;
 	}
 }
 
@@ -927,7 +926,7 @@ a.ds-component-link:after {
 	background: $xui-color-xero-red;
 }
 
-@import "./markdown";
+@import "./cards";
 @import "./markup";
 @import "./copy-code-blocks";
 @import "./home";

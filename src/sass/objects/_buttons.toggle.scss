@@ -42,6 +42,7 @@
 // Base toggle (form and standard variant deprecated, removed in XUI 12)
 .#{$ns}-toggle {
 	align-items: stretch;
+	color: $xui-color-grey-1;
 	display: flex;
 
 	// Disabled toggles should not appear semi-transparent
@@ -117,6 +118,7 @@
 
 // Inverted styles
 .#{$ns}-toggle-inverted {
+	color: $xui-color-white;
 
 	.#{$ns}-toggle--label {
 		border-color: $xui-color-inverted-alpha-4;

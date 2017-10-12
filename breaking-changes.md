@@ -85,6 +85,10 @@ XUI's CSS file. Previously, it was possible for margin and padding classes to be
 #### Avatars
 * `xui-avatar-xsmall`, `xui-avatar-small`, `xui-avatar-large`, `xui-avatar-xlarge`, `xui-avatar-2xlarge` sizing support to cover xsmall all the way up to 2xlarge.
 
+#### Toggles
+* `xui-toggle--text` has been deprecated, to fix the IE11 wrapping bug, apply the `xui-u-fullwidth` utility class to a div instead.
+* `xui-toggle-form-layout` has been deprecated, use the `xui-toggle-fullwidth-layout` modifier to achieve this behaviour instead.
+
 ### Classes removed
 
 #### Radios & checkboxes
@@ -122,7 +126,7 @@ There are no replacements for these; use the standard borderless classes.
 `xui-verticaltab-is-selected` have been removed. Use vertical picklists instead.
 
 #### Toggles
-* `xui-toggle-form`, `xui-toggle-standard` and `xui-toggle-icon-layout` have been removed. They are no longer
+* `xui-toggle-form`, `xui-toggle-standard`, and `xui-toggle-icon-layout` have been removed. They are no longer
 necessary to achieve the desired look.
 
 #### Dropdown Menus (replaced with Picklists and Dropdowns)

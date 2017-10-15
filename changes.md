@@ -264,8 +264,8 @@ that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-s
 `xui-transition-fadeout` classes instead.
 
 #### Tags
-* `xui-tag-outline` has been removed; this is now the base style provided by `xui-tag`
-* `xui-tag-solid` has been removed; use `xui-tag-neutral` instead
+* `xui-text-tag-outline` has been removed; this is now the base style provided by `xui-tag`
+* `xui-text-tag-solid` has been removed; use `xui-tag-neutral` instead
 * Additionally, sentiment color options are now available: `xui-tag-positive`, `xui-tag-warning`, and `xui-tag-negative`
 
 #### Page header

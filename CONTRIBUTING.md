@@ -230,7 +230,7 @@ it will be included in the next major release.
 
 ### Documenting current breaking changes
 
-The `breaking-changes` branch should contain `breaking-changes.md`, a markdown file with two main sections. One detailing changes to React components, and the other detailing changes to CSS.
+The `breaking-changes` branch should contain `changes.md`, a markdown file with two main sections. One detailing changes to React components, and the other detailing changes to CSS.
 
 Both sections should cover renames, additions, removals, or altered behaviour.
 

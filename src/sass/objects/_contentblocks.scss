@@ -33,7 +33,7 @@
 // xui-heading-small: Apply to primary content and pinned values
 // xui-text-deemphasis: Apply to pinned values
 // xui-text-align-right: Apply to pinned values
-// xui-text-secondary: Apply to secondary information
+// xui-textcolor-muted: Apply to secondary information
 //
 // Styleguide: Building Blocks.Content blocks.2
 
@@ -88,7 +88,7 @@
 //   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
 //     <span class="xui-heading-small">Primary</span>
 //   </span>
-//   <div class="xui-text-secondary xui-text-truncated">
+//   <div class="xui-textcolor-muted xui-text-truncated">
 //   	<span>Secondary</span>
 //   	<span class="xui-margin-horizontal-xsmall">•</span>
 //   	<span>Secondary</span>
@@ -134,7 +134,7 @@
 //   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
 //     <span class="xui-heading-small">Primary</span>
 //   </span>
-//   <div class="xui-text-secondary xui-text-truncated">
+//   <div class="xui-textcolor-muted xui-text-truncated">
 //   	<span>Secondary</span>
 //   	<span class="xui-margin-horizontal-xsmall">•</span>
 //   	<span>Secondary</span>
@@ -172,7 +172,7 @@
 //   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
 //     <span class="xui-heading-small">Primary</span>
 //   </span>
-//   <div class="xui-text-secondary xui-text-truncated">
+//   <div class="xui-textcolor-muted xui-text-truncated">
 //   	<span>Secondary</span>
 //   	<span class="xui-margin-horizontal-xsmall">•</span>
 //   	<span>Secondary</span>
@@ -210,7 +210,7 @@
 //   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
 //     <span class="xui-heading-small">Primary</span>
 //   </span>
-//   <div class="xui-text-secondary xui-text-truncated">
+//   <div class="xui-textcolor-muted xui-text-truncated">
 //   	<span>Secondary</span>
 //   	<span class="xui-margin-horizontal-xsmall">•</span>
 //   	<span>Secondary</span>
@@ -246,7 +246,7 @@
 //   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
 //     <span class="xui-heading-small">Primary</span>
 //   </span>
-//   <div class="xui-text-secondary xui-text-truncated">
+//   <div class="xui-textcolor-muted xui-text-truncated">
 //   	<span>Secondary</span>
 //   	<span class="xui-margin-horizontal-xsmall">•</span>
 //   	<span>Secondary</span>
@@ -284,7 +284,7 @@
 //     <span class="xui-heading-small">Primary</span>
 //     <span class="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>
 //   </span>
-//   <div class="xui-text-secondary xui-text-truncated">
+//   <div class="xui-textcolor-muted xui-text-truncated">
 //   	<span>Secondary</span>
 //   	<span class="xui-margin-horizontal-xsmall">•</span>
 //   	<span>Secondary</span>
@@ -311,7 +311,7 @@
 //
 // Classes:
 // xui-heading-small: Apply to entire row
-// xui-color-grey-muted: Apply to entire row
+// xui-textcolor-muted: Apply to entire row
 // xui-text-deemphasis: Apply to numerical values
 // xui-text-align-right: Apply to pinned values
 //
@@ -325,7 +325,7 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-color-grey-muted ">
+// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
 // <div class="xui-u-flex-1 xui-padding-vertical xui-padding-left-large">
 //    Section
 // </div>
@@ -348,7 +348,7 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-color-grey-muted ">
+// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
 // <div class="xui-u-flex-1 xui-padding-vertical xui-padding-left-large">
 //    <span>Section</span>
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
@@ -372,7 +372,7 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-color-grey-muted">
+// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted">
 // <div class="xui-u-flex-1 xui-padding-vertical xui-padding-left-large">
 //    <span>Section</span>
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
@@ -399,7 +399,7 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-color-grey-muted ">
+// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
 // <div class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
 // 	<label class="xui-styledcheckboxradio">
 //  	 <input class="xui-styledcheckboxradio--input" type="checkbox">
@@ -435,7 +435,7 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-color-grey-muted ">
+// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
 // <div class="xui-margin-horizontal">
 //   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">S</abbr>
 // </div>
@@ -637,7 +637,7 @@
 //
 // Classes:
 // xui-text-emphasis: Apply to primary content
-// xui-text-secondary: Apply to secondary information
+// xui-textcolor-muted: Apply to secondary information
 // xui-text-align-right: Apply to numerical values
 //
 // Styleguide: Building Blocks.Tables.3
@@ -653,8 +653,8 @@
 //    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
 //      <td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
 //        <span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
-//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
-//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
 //        <span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
 //      </td>
 //    </tr>
@@ -686,9 +686,9 @@
 //        </label>
 //      </td>
 //      <td colspan="6" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
-//        <span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-2">Primary</span>
-//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
-//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-right-small xui-text-emphasis xui-u-flex-1" aria-labelledby="column-2">Primary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
 //        <span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-5">0.00</span>
 //      </td>
 //      <td class="xui-margin-horizontal-small">
@@ -730,8 +730,8 @@
 //          <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">P</abbr>
 //        </span>
 //        <span class="xui-padding-vertical xui-padding-right-small xui-text-emphasis xui-u-flex-1" aria-labelledby="column-3">Primary</span>
-//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
-//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-5">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-4">Secondary</span>
+//        <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-5">Secondary</span>
 //        <span class="xui-padding-vertical xui-padding-left-small xui-text-align-right xui-u-flex-1" aria-labelledby="column-6">0.00</span>
 //      </td>
 //      <td class="xui-margin-horizontal-small">
@@ -770,8 +770,8 @@
 //    <tr class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
 //        <td colspan="4" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
 //          <span class="xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-text-emphasis xui-u-flex-1" aria-labelledby="column-1">Primary</span>
-//          <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
-//          <span class="xui-padding-vertical xui-padding-horizontal-small xui-text-secondary xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
+//          <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-2">Secondary</span>
+//          <span class="xui-padding-vertical xui-padding-horizontal-small xui-textcolor-muted xui-u-flex-1" aria-labelledby="column-3">Secondary</span>
 //          <span class="xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-text-align-right xui-u-flex-1" aria-labelledby="column-4">0.00</span>
 //        </td>
 //    </tr>
@@ -794,8 +794,8 @@
 //  <tbody>
 //    <tr class="xui-contentblock--item xui-u-flex">
 //      <td class="xui-text-emphasis xui-padding-vertical xui-padding-right-small xui-padding-left-large xui-u-flex-1"><a href="#" class="xui-text-minorlink">Primary link</a></td>
-//      <td class="xui-text-secondary xui-padding-vertical xui-padding-horizontal-small xui-u-flex-1"><a href="#" class="xui-text-minorlink">Secondary link</a></td>
-//      <td class="xui-text-secondary xui-padding-vertical xui-padding-horizontal-small xui-u-flex-1"><a href="#" class="xui-text-minorlink">Secondary link</a></td>
+//      <td class="xui-textcolor-muted xui-padding-vertical xui-padding-horizontal-small xui-u-flex-1"><a href="#" class="xui-text-minorlink">Secondary link</a></td>
+//      <td class="xui-textcolor-muted xui-padding-vertical xui-padding-horizontal-small xui-u-flex-1"><a href="#" class="xui-text-minorlink">Secondary link</a></td>
 //      <td class="xui-text-align-right xui-padding-vertical xui-padding-left-small xui-padding-right-large xui-u-flex-1">0.00</td>
 //    </tr>
 //  </tbody>

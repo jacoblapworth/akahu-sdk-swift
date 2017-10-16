@@ -769,7 +769,7 @@ $kss-color-padding: #eeebff;
 
 .ds-page-header {
 		margin: 0;
-		padding: 0 5vw;
+		padding: 0 $ds-nav-gutter;
 		position: sticky;
 		top: 0;
 		left: 0;
@@ -782,6 +782,9 @@ $kss-color-padding: #eeebff;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	@include xui-breakpoint-medium-and-narrow {
+		padding: 0 5vw;
+	}
 	@include xui-breakpoint-wide {
 		position: fixed;
 		left: $ds-nav-width;

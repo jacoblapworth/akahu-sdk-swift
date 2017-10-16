@@ -312,7 +312,7 @@
 // 		</div>
 // 		<div class="xui-u-overflow-hidden xui-u-flex-grow xui-padding-vertical-small">
 // 			<span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered"><span class="xui-heading-small">Hornblower Enterprises</span> <span class="xui-tag xui-tag-positive xui-margin-left-xsmall">Paid</span></span>
-// 			<div class="xui-text-secondary">
+// 			<div class="xui-textcolor-muted">
 // 				<span>INV0021</span> <span class="xui-margin-horizontal-xsmall">•</span> <span>Due 13 Dec 17</span>
 // 			</div>
 // 		</div>
@@ -364,8 +364,8 @@
 
 // Accessibility
 //
-// Apply the `aria-busy="true"` attribute on the element that is loading, not on the loader itself.
-// Don't forget to apply the `xui-button-is-disabled` class and `disabled` attribute on buttons that are loading to prevent keyboard accesbillity.
+// When loading, set the aria-busy attribute to `true` on the element that is loading, not on the loader itself.
+// Additionally, make sure to apply the `xui-button-is-disabled` class and `disabled` attribute on buttons that are loading to prevent keyboard interactivity.
 //
 // Styleguide: Building Blocks.Loaders.12
 

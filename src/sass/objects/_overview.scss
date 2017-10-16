@@ -54,9 +54,9 @@
 // To indicate sentiment, apply one of our standard text color utilities.
 //
 // Classes:
-// xui-color-positive: Posative sentiment
-// xui-color-negative: Negative sentiment
-// xui-text-secondary: Neutral sentiment
+// xui-textcolor-positive: Posative sentiment
+// xui-textcolor-negative: Negative sentiment
+// xui-textcolor-muted: Neutral sentiment
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -64,15 +64,15 @@
 // <div class="xui-overview xui-overview-layout">
 //   <section class="xui-overview--section">
 //     <div class="xui-overview--label">Draft</div>
-//     <div class="xui-overview--value xui-text-secondary">103.75</div>
+//     <div class="xui-overview--value xui-textcolor-muted">103.75</div>
 //   </section>
 //   <section class="xui-overview--section">
 //     <div class="xui-overview--label">Paid</div>
-//     <div class="xui-overview--value xui-color-positive">20.00</div>
+//     <div class="xui-overview--value xui-textcolor-positive">20.00</div>
 //   </section>
 //   <section class="xui-overview--section">
 //     <div class="xui-overview--label">Unpaid</div>
-//     <div class="xui-overview--value xui-color-negative">18.50</div>
+//     <div class="xui-overview--value xui-textcolor-negative">18.50</div>
 //   </section>
 // </div>
 //

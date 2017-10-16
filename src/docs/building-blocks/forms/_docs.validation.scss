@@ -1,8 +1,6 @@
-
-
-
-
 // Validation
+//
+// Teaser: Prevent and deal with errors
 //
 // We support the use of a manual class, or HTML5 invalid pseudo class
 //
@@ -19,3 +17,13 @@
 // </div>
 //
 // Styleguide: Building Blocks.Forms.Validation
+
+
+// Classes:
+// xui-field-layout: Recommended layout for a form field (eg label and input)
+// xui-fieldlabel-layout: Recommended layout for a form label
+// xui-form-inline: Recommended layout for an inline form
+// xui-form-layout: Recommended layout for a stacked form
+// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
+// xui-validation-layout: Recommended layout for text below inputs
+// xui-validation-is-invalid: Modifier for text below inputs that are in an error state

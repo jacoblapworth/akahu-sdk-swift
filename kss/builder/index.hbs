@@ -110,6 +110,12 @@
 					</div>
 					{{/if}}
 
+					{{#if description}}
+					<div class="ds-description">
+						{{{description}}}
+					</div>
+					{{/if}}
+
 					{{#if tips}}
 						{{#renderTips tips}}
 							<div class="ds-tips">
@@ -119,12 +125,6 @@
 								<span class="ds-tips--detail xui-padding-left-small">{{tip.details}}</span>
 							</div>
 						{{/renderTips}}
-					{{/if}}
-
-					{{#if description}}
-					<div class="ds-description">
-						{{{description}}}
-					</div>
 					{{/if}}
 
 					{{#if parameters}}
@@ -197,7 +197,7 @@
 				<input checked type="radio" id="example-{{referenceNumber}}" name="a-{{referenceNumber}}" class="ds-input-example" />
 
 				<!--ds-example-->
-				<div class="ds-example{{#isEqual exampleclass "markup-only"}} xui-u-hidden{{/isEqual}}">
+				<div class="ds-example{{#isEqual exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isEqual}}">
 					<div class="ds-section-part ds-example-default {{exampleclass}}">
 						<div class="ds-example--inner xui-container">
 						{{{example}}}
@@ -218,12 +218,12 @@
 
 				</div>
 				<!--ds-example-->
-				<div class='xui-margin-top-large'>
-					<label for="markup-{{referenceNumber}}" class="xui-text-link ds-markup--label{{#isEqual exampleclass "inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "markup-only"}} xui-u-hidden{{/isEqual}}">Show markup</label>
+				<div>
+					<label for="markup-{{referenceNumber}}" class="ds-markup--label xui-margin-top-large{{#isEqual exampleclass "ds-example-inline"}} xui-u-hidden{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} xui-u-hidden{{/isEqual}}">Show markup</label>
 				</div>
 				<!--ds-markup-->
 
-				<div class="ds-markup{{#isEqual exampleclass "inline"}} ds-markup-inline{{/isEqual}}{{#isEqual exampleclass "markup-only"}} ds-markup-inline{{/isEqual}}">
+				<div class="ds-markup{{#isEqual exampleclass "ds-example-inline"}} ds-example-inline{{/isEqual}}{{#isEqual exampleclass "ds-example-markuponly"}} ds-example-inline{{/isEqual}}">
 					<header class="ds-markup--actions">
 						<label for="example-{{referenceNumber}}" class="xui-button xui-button-icon xui-button-icon-inverted ds-button-closemarkup" title="Close markup pane"
 						 aria-label="Close markup pane">

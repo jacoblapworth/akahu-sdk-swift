@@ -44,6 +44,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 	.#{$ns}-input--icon-left {
 		left: $xui-input-icon-offset;
+		pointer-events: none; // allows "click-through" to focus the underlying field
 		top: 1px; // Border offset
 	}
 
@@ -69,6 +70,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 .#{$ns}-input--iconwrapper-left {
 	border-radius: $xui-radius-iconwrapper 0 0 $xui-radius-iconwrapper;
 	left: 1px;
+	pointer-events: none; // allows "click-through" to focus the underlying field
 }
 
 .#{$ns}-input--iconwrapper-right {

@@ -1,196 +1,72 @@
 // Text Inputs
 //
-// The number inputs have had their up and down arrows removed to sync browser styles
 //
-// Teaser: Covers styles for all types of &lt;input/> controls.
+// Teaser: Standard and special purpose inputs for text and search
 //
 // Components: Input
 //
-// Classes:
-// xui-input: Style for a text input
-// xui-input-is-invalid: Modifier for an invalid text input
 //
-// Markup:
-// <input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
-// <input class="xui-input" type="password" placeholder="Password Input" aria-label="Password"/>
-// <input class="xui-input" type="number" placeholder="0.00" aria-label="Number input"/>
-// <input class="xui-input" type="tel" placeholder="telephone #" aria-label="Telephone"/>
-// <input class="xui-input" type="email" placeholder="example@xero.com" aria-label="Email"/>
-// <input class="xui-input" type="text" placeholder="13 December 1989" aria-label="Date"/><!--avoid type="date" due to webkit placeholder, styling and formatting constraints-->
-// <input class="xui-input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled />
 //
 // Weight: -10
 //
 // Styleguide: Building Blocks.Forms.Inputs
 
-
-// Adding icons
+// Standard inputs
 //
-// Icons may be used to prompt users on what each input is for, or as buttons to enable functionality such as clearing a field.
+// Use the correct type attribute on inputs so soft-keyboards display the best options for the content. XUI normalises the display of input types so browser specific up/down arrows will not display.
 //
-// Weight: 4.55
+// Tips:
+// Warning: Inputs in XUI do not currently adjust font-size for small screens – this can trigger page zooming on focus in some mobile browsers
 //
-// Teaser: To prompt users on what each input is for, or as buttons to enable functionality such as clearing a field.
+// Definitions:
+// Default: <div class="xui-container"><input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/></div>
+// Read-only: <div class="xui-container"><div class="xui-container"><input class="xui-input" type="text" value="Read-only" aria-label="Standard input" readonly/></div></div>
+// Disabled: <div class="xui-container"><input class="xui-input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled /></div>
+// Password: <div class="xui-container"><input class="xui-input" type="password" placeholder="Password Input" aria-label="Password"/></div>
+// Number: <div class="xui-container"><input class="xui-input" type="number" placeholder="0.00" aria-label="Number input"/></div>
+// Email: <div class="xui-container"><input class="xui-input" type="email" placeholder="example@xero.com" aria-label="Email"/></div>
+// Tel: <div class="xui-container"><input class="xui-input" type="tel" placeholder="telephone #" aria-label="Telephone"/></div>
 //
-// #### Usage Requirements
-//  - Icon prompt `svg` tags should be placed within the `xui-inputwrapper` at the same level as `xui-input` (if no background color is required) or within
-//    `xui-input--iconwrapper` (if a background color is required). You can also use text in place of an icon, but it must be wrapped with `xui-input--iconwrapper`
-//  - Buttons should be formatted like the icon buttons [shown in the docs](https://github.dev.xero.com/pages/UXE/xui/docs/10.2.0/section-buttons.html#kssref-buttons-7)
-//  - Both prompts and buttons should be placed before the `input` tag to ensure the correct padding is applied to `xui-input` due to our implementation using sibling selectors
+// Note: Avoid using type="date" due to severe browser inconsistency. Use type="text" aria-label="date" instead.
 //
-// Classes:
-// xui-inputwrapper: Container for a text input with an icon
-// xui-input--iconwrapper: Wrapper around the icon (use only if you want to apply a background color to the icon).
-// xui-input--iconwrapper-left: Left-aligned icon wrapper
-// xui-input--iconwrapper-right: Right-aligned icon wrapper
-// xui-input--icon-left: Modifier for a left-aligned input icon
-// xui-input--icon-right: Modifier for a right-aligned input icon
-// xui-input--iconwrapper-facebook: Facebook color for icon wrapper
-// xui-input--iconwrapper-twitter: Twitter background color for icon wrapper
-// xui-input--iconwrapper-linkedin: LinkedIn background color for icon wrapper
+// exampleclass: ds-example-markuponly
 //
 // Markup:
-// <!-- Icon left -->
-// <div class="xui-inputwrapper xui-margin">
-//   <svg focusable="false" class="xui-icon xui-input--icon-left">
-//     <use xlink:href="#xui-icon-url" role="presentation" />
-//   </svg>
-//   <input
-//     class="xui-input xui-input-has-left-icon"
-//     type="url"
-//     placeholder="http://www.xero.com"
-//     aria-label="URL"/>
-// </div>
-// <!-- Search icon right -->
-// <div class="xui-inputwrapper xui-margin">
-//   <svg focusable="false" class="xui-icon xui-input--icon-right">
-//     <use xlink:href="#xui-icon-search" role="presentation" />
-//   </svg>
-//   <input
-//     class="xui-input xui-input-has-right-icon"
-//     type="search"
-//     placeholder="Search"
-//     aria-label="Search"/>
-// </div>
-// <!-- Search icon left with clear button right -->
-// <div class="xui-inputwrapper xui-margin">
-//   <svg focusable="false" class="xui-icon xui-input--icon-left">
-//     <use xlink:href="#xui-icon-search" role="presentation" />
-//   </svg>
-//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
-//     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-clear" role="presentation"/>
-//       </svg>
-//     </button>
-//   </div>
-//   <input
-//     class="xui-input xui-input-has-left-icon xui-input-has-right-icon"
-//     type="search"
-//     placeholder="Search"
-//     aria-label="Search"/>
-// </div>
-// <!-- Twitter icon left -->
-// <div class="xui-inputwrapper xui-margin">
-//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-input--iconwrapper-twitter">
-//     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-left">
-//       <use xlink:href="#xui-icon-social-twitter" role="presentation" />
-//     </svg>
-//   </div>
-//   <input
-//     class="xui-input xui-input-has-left-icon"
-//     type="text"
-//     placeholder="@username"
-//     aria-label="Twitter username"/>
-// </div>
-// <!-- Facebook icon right -->
-// <div class="xui-inputwrapper xui-margin">
-//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right xui-input--iconwrapper-facebook" >
-//     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-right">
-//       <use xlink:href="#xui-icon-social-facebook" role="presentation" />
-//     </svg>
-//   </div>
-//   <input
-//     class="xui-input xui-input-has-right-icon"
-//     type="text"
-//     placeholder="Facebook URL"
-//     aria-label="Facebook URL"/>
-// </div>
-// <!-- Arbitrary content as icon -->
-// <div class="xui-inputwrapper xui-margin">
-//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-color-icon">
-//     €
-//   </div>
-//   <input
-//     class="xui-input xui-input-has-left-icon"
-//     type="text"
-//     placeholder="X.XX"
-//     aria-label="Amount"/>
-// </div>
+// <input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
 //
-// Styleguide: Building Blocks.Forms.Inputs.4
+// Styleguide: Building Blocks.Forms.Inputs.1
 
 
 
-// Borderless Text Inputs
+// Textarea
 //
-// Teaser: For use in contexts where a regular bordered input attracts too much visual attention.
+// The [textarea component](./react/#textarea) can be set to **autogrow** within limits or a fixed height. It includes an
+// optional character count — but be seriously skeptical about the need for one!
 //
-// There are two borderless input variants, each with differing levels of visual impact, and each with an inverted modifier.
-// One is transparent by default (but tints on focus), the other is tinted by default (and darkens on focus).
+// Non-React implementations need `xui-u-resize-none` added if you want to prevent users resizing.
 //
-// Use them in contexts where a regular bordered input attracts too much visual attention.
-// A common use is search, where nesting a regular input creates undesirable double borders.
+// Components: TextArea
 //
-// Gauge the level of importance of the input in the overall flow, to determine which variant to use.
-// For example, if search is not a primary use case, decrease its visual significance, and use the transparent variant.
-//
-// Please note that this kind of input is not for use in contexts that require validation.
-// Additionally, if extra space is required, consider nesting the element.
-//
-// Classes:
-// xui-inputwrapper-borderless: Modifier for the borderless inputs container
-// xui-inputwrapper-borderless-transparent: Modifier for a transparent borderless input (use with light backgrounds)
-// xui-inputwrapper-borderless-solid: Modifier for a solid borderless input (use with light backgrounds)
-// xui-inputwrapper-borderless-inverted: Modifier for an inverted borderless input (use with dark backgrounds)
-// xui-input-borderless: Modifier for borderless input fields
+// exampleClass: ds-example-inline
 //
 // Markup:
-// <div class="xui-padding">
-//   <!-- Transparent input -->
-//   <input
-//     class="xui-input xui-input-borderless xui-input-borderless-transparent"
-//     type="text"
-//     placeholder="Transparent input"
-//     aria-label="Transparent input" />
-//   <!-- Transparent with Icons -->
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
-//     <svg focusable="false" class="xui-icon xui-input--icon-left">
-//       <use xlink:href="#xui-icon-search" role="presentation" />
-//     </svg>
-//     <input
-//       class="xui-input xui-input-borderless xui-input-borderless-transparent xui-input-has-left-icon xui-input-has-right-icon"
-//       type="search"
-//       placeholder="Transparent input with icons"
-//       aria-label="Transparent input with icons" />
-//     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
-//       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-clear" role="presentation"/>
-//         </svg>
-//       </button>
-//     </div>
-//   </div>
-//   <!-- Solid -->
-//   <div class="xui-margin-top">
-//     <input
-//       class="xui-input xui-input-borderless xui-input-borderless-solid"
-//       type="text"
-//       placeholder="Solid input"
-//       aria-label="Solid input"/>
-//   </div>
-//   <!-- Solid with icons -->
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
+// <textarea class="xui-input xui-u-resize-none" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
+//
+// Styleguide: Building Blocks.Forms.Inputs.2
+
+
+
+// Solid text inputs
+//
+// Add `xui-input-borderless` for inputs with a grey background and no borders.
+//
+// Tips:
+// Do: Use for isolated secondary elements where a standard inputs are too prominent
+// Dont: Avoid using for linear forms or where validation is required
+// Warning: Full range of elements like selects are not yet supported
+//
+// Markup:
+//   <div class="xui-inputwrapper xui-inputwrapper-borderless">
 //     <svg focusable="false" class="xui-icon xui-input--icon-left">
 //        <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
@@ -207,16 +83,53 @@
 //       </button>
 //     </div>
 //   </div>
+//
+// Styleguide: Building Blocks.Forms.Inputs.4
+
+
+
+
+// Transparent text inputs
+//
+// Add `xui-input-borderless` and `xui-input-borderless-transparent` for inputs which only have a background on focus.
+//
+// Tips:
+// Warning: Only use where it’s clear that it’s still a field and what it’s for
+// Do: Include an icon and placeholder
+// Do: Ensure the input has an aria-label
+// Dont: Avoid using if validation is required
+//
+// exampleClass: ds-example-flush
+//
+// Markup:
+// <!-- Inline styles for example purposes only -->
+// <div class="xui-background-grey-6 xui-padding-left-xlarge" style="overflow: hidden;">
+//  <div class="xui-row">
+// 	<div class="xui-margin-top-xlarge xui-margin-bottom-small xui-column-6-of-12">
+// 	 <div class="xui-inputwrapper xui-inputwrapper-borderless">
+// 		<svg focusable="false" class="xui-icon xui-input--icon-left">
+// 			<use xlink:href="#xui-icon-search" role="presentation" />
+// 		</svg>
+// 		<input id="transparent-example" class="xui-input xui-input-borderless xui-input-borderless-transparent xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Search all expenses" aria-label="Transparent input with icons" />
+// 	 </div>
+// 	</div>
+//  </div>
+//  <div class="xui-panel" style="height: 5rem; margin: 1px -20px -20px 1px"></div>
 // </div>
+//
+// Styleguide: Building Blocks.Forms.Inputs.5
+
+
+// Inverted inputs
+//
+// Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
+//
+// exampleClass: ds-example-flush
+//
+// Markup:
 // <div class="xui-padding xui-background-grey-1">
-//   <!-- Transparent + Inverted -->
-//   <input
-//     class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-transparent"
-//     type="text"
-//     placeholder="Transparent inverted input"
-//     aria-label="Transparent inverted input" />
 //   <!-- Transparent + Inverted with icons-->
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
+//   <div class="xui-inputwrapper xui-inputwrapper-borderless">
 //     <svg focusable="false" class="xui-icon xui-input--icon-left">
 //       <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
@@ -225,13 +138,6 @@
 //       type="search"
 //       placeholder="Transparent inverted input with icons"
 //       aria-label="Transparent inverted input with icons" />
-//     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
-//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Clear" aria-label="Clear">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-clear" role="presentation"/>
-//         </svg>
-//       </button>
-//     </div>
 //   </div>
 //   <!-- Solid + Inverted -->
 //   <div class="xui-margin-top">
@@ -241,39 +147,134 @@
 //       placeholder="Solid inverted input"
 //       aria-label="Solid inverted input"/>
 //   </div>
-//   <!-- Solid + Inverted with icons -->
-//   <div class="xui-inputwrapper xui-inputwrapper-borderless xui-margin-top">
-//     <svg focusable="false" class="xui-icon xui-input--icon-left">
-//        <use xlink:href="#xui-icon-search" role="presentation" />
+// </div>
+//
+// Styleguide: Building Blocks.Forms.Inputs.6
+
+
+// Adding icons
+//
+//
+// Styleguide: Building Blocks.Forms.Inputs.7
+
+// Content prompts
+//
+// Tips:
+// Do: Add to the left only
+// Do: Use either XUI icon or text
+// Do: Can be used instead of a label if content easily understood
+// Warning: Ensure the input has an aria-label if not including a label
+//
+// exampleclass: ds-example-narrow
+//
+// Markup:
+// <!-- Icon left -->
+// <div class="xui-inputwrapper xui-margin">
+//   <input
+//     class="xui-input xui-input-has-left-icon"
+//     type="url"
+//     placeholder="http://www.xero.com"
+//     aria-label="URL"/>
+//   <svg focusable="false" class="xui-icon xui-input--icon-left">
+//     <use xlink:href="#xui-icon-url" role="presentation" />
+//   </svg>
+// </div>
+// <div class="xui-inputwrapper xui-margin">
+//   <input
+//     class="xui-input xui-input-has-left-icon"
+//     type="search"
+//     placeholder="Search"
+//     aria-label="Search"/>
+//   <svg focusable="false" class="xui-icon xui-input--icon-left">
+//     <use xlink:href="#xui-icon-search" role="presentation" />
+//   </svg>
+// </div>
+// <div class="xui-inputwrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-color-icon">
+//     €
+//   </div>
+//   <input
+//     class="xui-input xui-input-has-left-icon"
+//     type="text"
+//     placeholder="0.00"
+//     aria-label="Amount"/>
+// </div>
+// <div class="xui-inputwrapper xui-margin">
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-input--iconwrapper-twitter">
+//     <svg focusable="false" class="xui-icon xui-icon-color-white xui-input--icon-left">
+//       <use xlink:href="#xui-icon-social-twitter" role="presentation" />
 //     </svg>
+//   </div>
+//   <input
+//     class="xui-input xui-input-has-left-icon"
+//     type="text"
+//     placeholder="@username"
+//     aria-label="Twitter username"/>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.Inputs.7.1
+
+// Indicating actions
+//
+// Icons on the **right** are used to indicate actions. These can be either the main input behaviour (eg. a caret for a dropdown) or supplementary actions like clearing or picking a date.
+//
+// exampleclass: ds-example-narrow
+//
+// Markup:
+// <div class="xui-inputwrapper xui-margin">
+//   <input
+//     class="xui-input xui-input-has-left-icon xui-input-has-right-icon"
+//     type="search"
+//     placeholder="Search"
+//     aria-label="Search"/>
+//   <svg focusable="false" class="xui-icon xui-input--icon-left">
+//     <use xlink:href="#xui-icon-search" role="presentation" />
+//   </svg>
+//   <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+//     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-clear" role="presentation"/>
+//       </svg>
+//     </button>
+//   </div>
+// </div>
+// <div class="xui-margin">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="issue-date">Issued</label>
+//   <div class="xui-inputwrapper">
 //     <input
-//       class="xui-input xui-input-borderless xui-input-borderless-inverted xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon"
-//       type="search"
-//       placeholder="Solid inverted input with icons"
-//       aria-label="Solid inverted input with icons"/>
+//       id="issue-date"
+//       class="xui-input xui-input-has-right-icon"
+//       type="text"
+//       placeholder="Try 'next month'"
+//       aria-label="Issue date"/>
 //     <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
-//       <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Clear" aria-label="Clear">
+//       <button type="button" class="xui-button xui-button-icon" title="Select a date" aria-label="Select a date">
 //         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-clear" role="presentation"/>
+//           <use xlink:href="#xui-icon-date-start" role="presentation"/>
 //         </svg>
 //       </button>
 //     </div>
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Inputs.3
+// Styleguide: Building Blocks.Forms.Inputs.7.2
 
 
-// Textarea
+// Implementation
 //
-// Teaser: Styles for &lt;textarea/> fields.
+// Use [XUI icon buttons](./section-building-blocks-buttons.html#building-blocks-buttons-5) for secondary actions
 //
-// Weight: 4.55
 //
-// Components: TextArea
 //
-// Note: Please see <a href="section-text-input.html">Text Inputs</a> for more details on the CSS avaiable for textareas.
+// Classes:
+// xui-inputwrapper: Container for a text input with an icon
+// xui-input--iconwrapper: Wrapper around the icon (use only if you want to apply a background color to the icon).
+// xui-input--iconwrapper-left: Left-aligned icon wrapper
+// xui-input--iconwrapper-right: Right-aligned icon wrapper
+// xui-input--icon-left: Modifier for a left-aligned input icon
+// xui-input--icon-right: Modifier for a right-aligned input icon
+// xui-input--iconwrapper-facebook: Facebook color for icon wrapper
+// xui-input--iconwrapper-twitter: Twitter background color for icon wrapper
+// xui-input--iconwrapper-linkedin: LinkedIn background color for icon wrapper
 //
-// <textarea class="xui-input xui-u-resize-none" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
-//
-// Styleguide: Building Blocks.Forms.Inputs.7
+// Styleguide: Building Blocks.Forms.Inputs.7.9

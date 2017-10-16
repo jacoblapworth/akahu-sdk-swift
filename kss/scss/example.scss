@@ -34,6 +34,18 @@
 	}
 }
 
+.ds-example-inline,
+.ds-example-markuponly {
+	padding-right: 3rem;
+}
+
+.ds-markup.ds-example-markuponly {
+	position: relative;
+  @include xui-breakpoint-huge {
+    @include embiggen;
+  }
+}
+
 .ds-example-wide {
   @include ds-breakpoint-massive {
     @include embiggen;

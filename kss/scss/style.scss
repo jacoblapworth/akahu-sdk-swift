@@ -13,7 +13,7 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 $ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
 $ds-color-black: #1c242c;
 // $ds-main-side-padding provides left and right padding for the XUI Docs landing page (via the .ds-main class) when screen
-// width > 940 px. It is a temporary workaround and can be replaced by 7vmax as soon as IE/Edge support the vmax unit 
+// width > 940 px. It is a temporary workaround and can be replaced by 7vmax as soon as IE/Edge support the vmax unit
 $ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
 
 
@@ -300,13 +300,6 @@ section[class*="kss-section"] {
 // Examples
 // -----------------------------------------------------------------------------
 
-.ds-markup.ds-markup-inline {
-	position: relative;
-  @include xui-breakpoint-huge {
-    @include embiggen;
-  }
-}
-
 .ds-input-markup,
 .ds-input-example {
 	display: none;
@@ -315,6 +308,7 @@ section[class*="kss-section"] {
 .ds-markup--label{
 	font-size: $xui-font-size-small;
 	color: $xui-color-xero-blue;
+	display: inline-block;
 }
 
 // Labels need to be nested in another element for other styling reasons (full bleed)

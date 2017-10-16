@@ -2,38 +2,33 @@
 //
 // Teaser: A container for interactive controls to submit information. This section uses different layouts based on the information type and content.
 //
-// ### Accessibility
+// Styleguide: Building Blocks.Forms
+
+// Accessibility
+//
 // All form elements should have labels to ensure the purpose of each element is clear.
 // This can be done by using the `<label>` tag or by adding `aria-label` or `aria-labelledby` attributes to each element.
 //
 // If there are instructions or context information associated with the form element, `aria-describedby` should be used to ensure it is not missed by the assistive technology.
 //
-// Styleguide: Building Blocks.Forms
+// Styleguide: Building Blocks.Forms.9
 
-// Class list
-//
-// Classes:
-// xui-field-layout: Recommended layout for a form field (eg label and input)
-// xui-fieldlabel-layout: Recommended layout for a form label
-// xui-form-inline: Recommended layout for an inline form
-// xui-form-layout: Recommended layout for a stacked form
-// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
-// xui-validation-layout: Recommended layout for text below inputs
-// xui-validation-is-invalid: Modifier for text below inputs that are in an error state
-//
-// Styleguide: Building Blocks.Forms.50
+
 
 // Stacked Forms
 //
-// Use the `xui-form-layout` class with a `<form>` element to create a responsive stacked form with `max-width: 400px;`.
+// Standard linear forms in XUI are `max-width: 400px` and centre within their container.
+// Add `xui-form-layout` to the `<form>` wrapping all headings and fields.
 //
-// Use the `xui-field-layout` class as a container for related form elements (e.g. `<label>` and `<input>`)
-// to give the suggested spacing between form fields.
+// Each label-field pair, plus notes and validation, are wrapped in `xui-field-layout` to provide consistent spacing.
 //
-// Note that using `xui-validation-layout` eliminates the need to wrap the parent in `xui-field-layout`.
-// In this way, vertical spacing between form fields will not be altered unless the text is more than one line long.
+// Notes and validation messages are added under fields in a `xui-validation-layout` wrapper.
+// This will only affect the form layout if it is multiple lines.
+//
+// exampleclass: ds-example-flush ds-example-transparent
 //
 // Markup:
+// <div class="xui-panel xui-padding">
 // <form class="xui-form-layout">
 //   <p class="xui-heading-panel">Stacked Form</p>
 //   <div class="xui-field-layout">
@@ -52,55 +47,82 @@
 //   </div>
 //   <input class="xui-button xui-button-main" type="submit" value="Submit" />
 // </form>
+// </div>
 //
-// Styleguide: Building Blocks.Forms.1
+// Styleguide: Building Blocks.Forms.2
+
+
+
 
 // Inline Forms
 //
-// Use the `xui-form-inline` class with a `<form>` element to create an inline form.
-//
-// Inline forms will stack at the smallest breakpoint with `max-width: 400px;` by default.
-//
-// Use the `xui-u-hidden` utility class if you only want screen-readers to see `<label>` elements.
+// Small interactions can be delivered with inline forms. Inline forms will stack at the smallest breakpoint with `max-width: 400px;` by default.
 //
 // Markup:
 // <!-- Inline Form -->
 // <form class="xui-form-inline">
-//   <p class="xui-heading-panel">Inline Form</p>
 //   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Field One</label>
-//     <input class="xui-input" type="text" id="field3" placeholder="Placeholder for field one" />
+//     <label class="xui-text-label xui-fieldlabel-layout" for="inline-name">Name</label>
+//     <input class="xui-input" type="text" id="inline-name" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="field4">Field Two</label>
-//     <input class="xui-input" type="text" id="field4" placeholder="Placeholder for field two" />
+//     <label class="xui-text-label xui-fieldlabel-layout" for="inline-email">Email address</label>
+//     <input class="xui-input" type="email" id="inline-email" placeholder="" />
 //   </div>
-//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
-// </form>
-// <!-- Hidden Labels -->
-// <form class="xui-form-inline">
-//   <p class="xui-heading-panel">Hidden Labels</p>
-//   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-u-hidden" for="field5">Field One</label>
-//     <input class="xui-input" type="text" id="field5" placeholder="Field One" />
-//   </div>
-//   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-u-hidden" for="field6">Field Two</label>
-//     <input class="xui-input" type="text" id="field6" placeholder="Field Two" />
-//   </div>
-//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+//   <input class="xui-button xui-button-main" type="submit" value="Sign up" />
 // </form>
 //
-// Styleguide: Building Blocks.Forms.2
+// Styleguide: Building Blocks.Forms.3
+
+
+
 
 // Grouping
 //
+// In a few situations multiple fields can be grouped under a single label.
+// These are likely to be where one field (probably a select) modifies another or
+// the combination of both is closely tied and a common convention.
+//
 // Styleguide: Building Blocks.Forms.5
+
+
+
 
 // Horizontal
 //
-// Inputs can be grouped horizontally
+// exampleClass: ds-example-narrow
 //
+// Markup:
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout">Total amount</label>
+//   <div class="xui-inputgroup">
+//     <div class="xui-select xui-column-4-of-12">
+//       <select class="xui-select--control" aria-label="Currency">
+//         <option>NZD</option>
+//         <option>AUD</option>
+//         <option>CAD</option>
+//         <option>USD</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//     <div class="xui-column-8-of-12 xui-inputwrapper">
+//       <input class="xui-input" id="horizontaldemofield1" />
+//     </div>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Your name</label>
+//   <div class="xui-inputgroup">
+//       <input class="xui-column-4-of-12 xui-input" id="horizontaldemofield2" placeholder="First" aria-label="First name"/>
+//       <input class="xui-column-4-of-12 xui-input xui-input-is-invalid" placeholder="Middle" aria-label="Middle name"/>
+//       <input class="xui-column-4-of-12 xui-input" placeholder="Last" aria-label="Last name"/>
+//   </div>
+//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">We need your middle name for a full identity check</div>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.5.1
+
+
 // Classes:
 // xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
 //
@@ -188,31 +210,49 @@
 //     </div>
 //   </div>
 // </div>
-//
-// Styleguide: Building Blocks.Forms.5.1
+
+
+
 
 // Vertical
 //
-// Teaser: Inputs can be grouped vertically or horizontally.
+// exampleClass: ds-example-narrow
 //
-// Classes:
-// xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
-//
-// Markup
-// <div class="xui-verticalinputgroup">
-//   <input class="xui-input" />
-//   <input class="xui-input" />
-//   <input class="xui-input" />
+// Markup:
+// <div class="xui-field-layout">
+//   <label for="street-address" class="xui-text-label xui-fieldlabel-layout">Street address</label>
+//   <div class="xui-verticalinputgroup">
+//   <input id="street-address" class="xui-input" aria-label="Street Address Line 1"/>
+//   <input class="xui-input"  aria-label="Street Address Line 2"/>
+//   <input class="xui-input"  aria-label="Street Address Line 3"/>
 // </div>
-// <div class="xui-verticalinputgroup xui-margin-top-large">
+// </div>
+// <div class="xui-heading xui-margin-top-large xui-margin-bottom">Log in to continue</div>
+// <div class="xui-verticalinputgroup">
 //   <div class="xui-inputwrapper">
-//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
 //     <input class="xui-input xui-input-has-left-icon" placeholder="Email" />
+//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
 //   </div>
 //   <div class="xui-inputwrapper">
-//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
 //     <input class="xui-input xui-input-has-left-icon" placeholder="Password" />
+//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
 //   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Forms.5.2
+
+
+// Class list
+//
+// Classes:
+// xui-field-layout: Recommended layout for a form field (eg label and input)
+// xui-fieldlabel-layout: Recommended layout for a form label
+// xui-form-inline: Recommended layout for an inline form
+// xui-form-layout: Recommended layout for a stacked form
+// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
+// xui-validation-layout: Recommended layout for text below inputs
+// xui-validation-is-invalid: Modifier for text below inputs that are in an error state
+// xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
+//
+// Styleguide: Building Blocks.Forms.50

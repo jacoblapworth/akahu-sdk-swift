@@ -1,5 +1,5 @@
 
-.ds-input-example:checked ~ .ds-markup:not(.ds-markup-inline) {
+.ds-input-example:checked ~ .ds-markup:not(.ds-example-inline) {
 	display:none;
 }
 
@@ -8,13 +8,13 @@
 }
 
 .ds-markup {
-	display: block;
-	width: 100%;
 	background: mix(black, $xui-color-grey-1, 40%);
+	display: block;
 	padding-top: 1rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-bottom: 1rem;
+	width: 100%;
 }
 
 .ds-markup--actions {
@@ -29,7 +29,7 @@
 }
 
 
-.ds-markup:not(.ds-markup-inline) {
+.ds-markup:not(.ds-example-inline) {
 	position: fixed;
 	top: 0;
 	right: 0;

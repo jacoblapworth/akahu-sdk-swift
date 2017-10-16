@@ -820,9 +820,9 @@ $kss-color-padding: #eeebff;
 
 .ds-menu-link {
 	@include xui-breakpoint-medium-and-narrow {
-		position: relative;
-		top: 0;
-		left: -30px;
+		position: absolute;
+		top: 30px;
+		right: 20px;
 	}
 }
 

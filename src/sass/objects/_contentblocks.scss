@@ -540,6 +540,8 @@
 //
 // Tips:
 // Warning: Avoid including too many columns
+// Warning: Prioritise columns based on viewport width
+// Warning: Avoid using tables to represent data in a narrow viewport
 //
 // Markup:
 // <table class="xui-panel xui-contentblock">

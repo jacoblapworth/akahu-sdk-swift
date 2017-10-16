@@ -18,9 +18,11 @@
 // Tips:
 // Do: Use banners when inline validation is not possible
 // Do: Use banners at the top of page content
+// Do: Actions that relate to the task at hand may be included
+// Dont: Don't use banners for client-side validation
 // Warning: Avoid banners for non-blocking actions – use a toast instead
 // Warning: Avoid hiding banners automatically – use a toast instead
-// Dont: Don't use banners for client-side validation
+// Warning: Avoid more than two actions, excluding the close button
 //
 // Styleguide: Building Blocks.Banner.1
 

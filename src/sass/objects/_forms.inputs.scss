@@ -179,18 +179,6 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 
-
-.#{$ns}-inputgroup {
-	@include xui-clearfix;
-
-	.#{$ns}-input-is-invalid:nth-child(n+2),
-	.#{$ns}-inputwrapper:nth-child(n+2) .#{$ns}-input-is-invalid,
-	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-input-is-invalid {
-		border-left: 1px solid $xui-color-xero-red;
-		margin-left: -1px;
-	}
-}
-
 .#{$ns}-inputgroup > .#{$ns}-input,
 .#{$ns}-inputgroup > .#{$ns}-button,
 .#{$ns}-inputgroup .#{$ns}-select--control {
@@ -232,4 +220,15 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 .#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
 	border-bottom-right-radius: $xui-radius;
 	border-top-right-radius: $xui-radius;
+}
+
+.#{$ns}-inputgroup {
+	@include xui-clearfix;
+
+	.#{$ns}-input-is-invalid:nth-child(n+2),
+	.#{$ns}-inputwrapper:nth-child(n+2) .#{$ns}-input-is-invalid,
+	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-input-is-invalid {
+		border-left: 1px solid $xui-color-xero-red;
+		margin-left: -1px;
+	}
 }

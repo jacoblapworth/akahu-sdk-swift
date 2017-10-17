@@ -629,7 +629,6 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-color-swatch {
-	margin-top: 1px;
 	min-height: 60px;
 	padding: $xui-s-small;
 	align-items: flex-start;
@@ -660,7 +659,7 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-color-swatch-main {
-	min-height: 240px;
+	min-height: 150px;
 }
 
 .ds-border-swatch-top {

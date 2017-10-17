@@ -9,7 +9,7 @@ $xui-color-red: #F6534E;
 $xui-color-green: #57c40a;
 // @tokenparserendignore
 
-// @section Solids
+// @section Neutrals
 // @description The following palette consisting of seven shades of grey is sufficient for most elements within our application. These are also available as background colors using the namespace `.xui-background-*`.
 // @type color
 //
@@ -30,8 +30,18 @@ $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
 // White : Element backgrounds
 $xui-color-white: $xui-color-white;
 
+// @section Interaction colors
+// @type color
+//
+// Action: Primary color for any interactive element
+$xui-color-action: $xui-color-blue;
+// Negative: Destructive actions or indicating negative sentiment
+$xui-color-negative: $xui-color-red;
+// Positive: Creating new items or indicating positive sentiment
+$xui-color-positive: $xui-color-green;
+
 // @section Transparent greys
-// @description Greys with an alpha channel are also recommended when multiplying with the background color is desired. These values are a 1:1 match with the luminocity of the regular greys when placed on a white background.
+// @description Use transparent greys to create borders and backgrounds which darken any underlying color.
 // @type transparent-color
 //
 // Grey alpha 2
@@ -48,12 +58,12 @@ $xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.1);
 $xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.05);
 
 // @section Transparent whites
-// @description For contexts that require an inverted color scheme, an inverted color palette is also available. These are only available in the alpha channel.
+// @description Use transparent whites to create interfaces on strongly colored backgrounds. Be careful to ensure primary and secondary text has sufficent contrast.
 // @type transparent-color
 //
-// White alpha 2
+// White alpha 2: Secondary text
 $xui-color-white-alpha-2: rgba($xui-color-white, 0.75);
-// White alpha 3
+// White alpha 3: Faint or placeholder text
 $xui-color-white-alpha-3: rgba($xui-color-white, 0.5);
 // White alpha 4
 $xui-color-white-alpha-4: rgba($xui-color-white, 0.35);
@@ -64,19 +74,8 @@ $xui-color-white-alpha-6: rgba($xui-color-white, 0.1);
 // White alpha 7
 $xui-color-white-alpha-7: rgba($xui-color-white, 0.05);
 
-// @section Interaction colors
-// @description Several key colors are available to indicate sentiment and infer interactivity.
-// @type color
-//
-// Action: Indicating interactivity or neutral sentiment
-$xui-color-action: $xui-color-blue;
-// Negative: Destructive actions or indicating negative sentiment
-$xui-color-negative: $xui-color-red;
-// Positive: Creating new items or indicating positive sentiment
-$xui-color-positive: $xui-color-green;
-
 // @section Brights
-// @description On occassion you may need an extended color set for use in graphical elements, or to add empahsis to certain UI features. To achieve the lighter and darker variants, use the modifiers `-xlight`, `-light`, `-dark`, and `-xdark`.
+// @description Use the brights to sprinkle <strong>occasional</strong> pings of color into Xero applications – they're great for charts or to create moments of punch. If you need to indicate status try a <a href="./section-building-blocks-tags.html">standard tag</a> instead. For lighter and darker variants use the modifiers `-xlight`, `-light`, `-dark`, and `-xdark`.
 // @type brights
 //
 $xui-color-red: $xui-color-red;
@@ -140,7 +139,7 @@ $xui-color-pink-dark:         mix(#000, $xui-color-pink, 10%);
 $xui-color-pink-xdark:        mix(#000, $xui-color-pink, 20%);
 
 // @section Specialty colors
-// @description In some contexts, applying colors that signify brands or specific file formats are also necessary.
+// @description Provide extra recognition for common brand or file types. Most often used for icons.
 // @type color
 //
 // Twitter

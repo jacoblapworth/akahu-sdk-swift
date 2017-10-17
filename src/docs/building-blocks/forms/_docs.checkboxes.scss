@@ -230,12 +230,12 @@
 // Adding custom icons
 //
 // A minimum of two layers are required to create a styled input; a main layer and a focus layer.
-// The `xui-styledcheckboxradio--main` and `xui-styledcheckboxradio--main` classes provide the main layer for a styled input.
+// The `xui-styledcheckboxradio--main` class provides the main layer for a styled input.
 //
-// The `xui-styledcheckboxradio--focus` and `xui-styledcheckboxradio--focus` classes provide the focus layer for a styled input.
+// The `xui-styledcheckboxradio--focus` class provides the focus layer for a styled input.
 // The focus layer is needed in order to mimic the CSS `box-shadow` property and should use the same SVG as the main layer.
 //
-// The `xui-styledcheckboxradio--check` and `xui-styledcheckboxradio-check` classes provide the checkmark layer for a styled input.
+// The `xui-styledcheckboxradio--check` class provide the checkmark layer for a styled input.
 // They are intended for use with the `xui-icon-checkbox-check` and `xui-icon-radio-check` icons.
 //
 // If you need to indicate an indeterminate state please use the standard checkbox icon.

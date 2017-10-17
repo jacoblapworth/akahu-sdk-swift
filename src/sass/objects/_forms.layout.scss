@@ -38,8 +38,9 @@
 		max-width: none;
 
 		.#{$ns}-field-layout {
-			display: inline-block;
-			vertical-align: top;
+			display: inline-flex;
+			vertical-align: bottom;
+			flex-direction: column;
 		}
 	}
 }

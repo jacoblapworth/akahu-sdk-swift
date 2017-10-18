@@ -90,7 +90,7 @@
 //         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-2" class="xui-datepicker--day--time">2</time>
 //         </div>
-//         <div class="xui-datepicker--day" role="gridcell" aria-selected="true">
+//         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-3" class="xui-datepicker--day--time">3</time>
 //         </div>
 //       </div>
@@ -104,7 +104,7 @@
 //         <div class="xui-datepicker--day" role="gridcell">
 //           <time datetime="2016-10-6" class="xui-datepicker--day--time">6</time>
 //         </div>
-//         <div class="xui-datepicker--day xui-datepicker--day-is-selected xui-datepicker--day-is-selected-hovered-start" role="gridcell">
+//         <div class="xui-datepicker--day xui-datepicker--day-is-selected xui-datepicker--day-is-selected-hovered-start" role="gridcell" aria-selected="true">
 //           <time datetime="2016-10-7" class="xui-datepicker--day--time">7</time>
 //         </div>
 //         <div class="xui-datepicker--day xui-datepicker--day-is-hovered-middle" role="gridcell">

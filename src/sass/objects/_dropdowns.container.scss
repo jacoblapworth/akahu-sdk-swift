@@ -106,7 +106,7 @@
 
 	.#{$ns}-dropdown--header-container {
 		align-items: center;
-		box-shadow: 0 1px 0 0 $xui-color-grey-alpha-6;
+		box-shadow: 0 1px 0 0 $xui-color-grey-alpha-5;
 		display: flex;
 		height: $xui-navigation-height;
 		justify-content: space-between;
@@ -129,7 +129,7 @@
 	}
 
 	.#{$ns}-dropdown--footer {
-		box-shadow: 0 -1px 0 0 $xui-color-grey-alpha-6;
+		box-shadow: 0 -1px 0 0 $xui-color-grey-alpha-5;
 		flex-grow: 0;
 		width: 100%;
 	}

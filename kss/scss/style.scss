@@ -348,6 +348,10 @@ section[class*="kss-section"] {
 		width: 100%;
 		z-index: 0;
 	}
+	// This is handled in React, but this is here just so that the docs are more accurate
+	.xui-autocompleter--input:not(:placeholder-shown) ~ .xui-autocompleter--placeholder {
+		color: transparent;
+	}
 }
 
 // Layout.Margin and Layout.Padding
@@ -418,14 +422,15 @@ $kss-color-padding: #eeebff;
 
 // Dropdowns
 .xui-dropdown-layout {
-	position: relative;
-
+	&:not(.xui-dropdown--force-desktop) {
+		position: relative; // makes dropdowns visible at mobile
+		z-index: 1000; // fixes overlapping breadcrumb
+	}
 	@include xui-breakpoint-narrow {
-		margin: -15px -25px;
 		min-height: 50vh;
 		max-width: initial;
 		width: initial;
-		overflow: auto;
+		overflow: hidden;
 
 
 		.#{$ns}-select & {
@@ -434,6 +439,7 @@ $kss-color-padding: #eeebff;
 
 		.#{$ns}-dropdown--mask {
 			position: absolute;
+			width: 100%;
 		}
 
 		.#{$ns}-dropdown--body {

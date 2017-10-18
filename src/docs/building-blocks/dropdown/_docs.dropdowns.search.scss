@@ -1,0 +1,206 @@
+// Search
+//
+// Teaser: Refine a long list of options.
+//
+// Introduction: Refining a long list of options within within a dropdown.
+//
+// Components: Dropdown
+//
+// Styleguide: Building Blocks.Dropdowns.Search
+
+// Best practice
+//
+// Tips:
+// Do: Show a clear button when a value has been entered to enable quick reseting
+// Warning: Make sure to allow space for the software keyboard at narrow viewports
+// Warning: Always include a header at narrow viewports to enable dismissing the dropdown
+//
+// Styleguide: Building Blocks.Dropdowns.Search.1
+
+// Anatomy
+//
+// At times, dropdown options are too numerous to show all at once, or the space available for the trigger is not suitable for it to be an input. 
+// In these cases, nest a search field inside the dropdown.
+// To do this, use the following classes in combination with a [borderless input](section-building-blocks-forms-inputs.html#building-blocks-forms-inputs-4) and [picklist](section-building-blocks-picklist.html).
+//
+// Classes:
+// xui-dropdown-header: Header container
+// xui-dropdown-header-container: Header content
+// xui-dropdown--scrollable-content: Picklist container
+// xui-dropdown-fullheight: Apply to dropdown to make room for the software keyboard
+// xui-u-hidden-medium: Apply to header to hide between 520px and 940px
+// xui-u-hidden-wide: Apply to header to hide above 940px
+//
+// Styleguide: Building Blocks.Dropdowns.Search.2
+
+// Standard
+//
+// Markup:
+// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <div class="xui-dropdown--header">
+//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//        <div class="xui-dropdown--header-leftcontent">
+//          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
+//            Assign to staff
+//          </div>
+//        </div>
+//        <div class="xui-dropdown--header-rightcontent">
+//          <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+//            <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button>
+//          </div>
+//        </div>
+//       </div>
+//       <div class="xui-dropdown--header-container">
+//         <div class="xui-inputwrapper xui-inputwrapper-borderless xui-u-fullwidth">
+//           <svg focusable="false" class="xui-icon xui-input--icon-left">
+//              <use xlink:href="#xui-icon-search" role="presentation"></use>
+//           </svg>
+//           <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon" type="search" placeholder="Search" aria-label="Search">
+//         </div>
+//       </div>
+//     </div>
+//     <div class='xui-dropdown--scrollable-content'>
+//       <ul class="xui-picklist xui-picklist-layout" role="tree">
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right">JM</abbr>
+//            <span class="xui-pickitem--text xui-text-truncated">James Magness</span>
+//          </button>
+//        </li>
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right">KH</abbr>
+//            <span class="xui-pickitem--text xui-text-truncated">Kirk Holloway</span>
+//          </button>
+//        </li>
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right">FP</abbr>
+//            <span class="xui-pickitem--text xui-text-truncated">Fay Pickering</span>
+//          </button>
+//        </li>
+//       </ul>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Search.2.1
+
+
+// Create new
+//
+// Tips:
+// Do: Consider creating new items on the fly by including the search value as the last item in the list
+//
+// Markup:
+// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <div class="xui-dropdown--header">
+//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//        <div class="xui-dropdown--header-leftcontent">
+//          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
+//            Assign to staff
+//          </div>
+//        </div>
+//        <div class="xui-dropdown--header-rightcontent">
+//          <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+//            <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button>
+//          </div>
+//        </div>
+//       </div>
+//       <div class="xui-dropdown--header-container">
+//         <div class="xui-inputwrapper xui-inputwrapper-borderless xui-u-fullwidth">
+//           <svg focusable="false" class="xui-icon xui-input--icon-left">
+//              <use xlink:href="#xui-icon-search" role="presentation"></use>
+//           </svg>
+//           <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Search" aria-label="Search" value='Tim'>
+//           <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+//             <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//               <svg focusable="false" class="xui-icon">
+//                 <use xlink:href="#xui-icon-clear" role="presentation"></use>
+//               </svg>
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//     <div class='xui-dropdown--scrollable-content'>
+//       <ul class="xui-picklist xui-picklist-layout" role="tree">
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar-small xui-avatar-color-7 xui-margin-right">TR</abbr>
+//            <span class="xui-pickitem--text xui-text-truncated">Tim Redmond</span>
+//          </button>
+//        </li>
+//         <li class="xui-pickitem" role="treeitem">
+//           <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//             <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//           </svg>
+//           <span class="xui-pickitem--body">
+//               <span class="xui-pickitem--text xui-u-flex-inherit">
+//               <span class="xui-u-flex-1 xui-text-truncated">Tim</span>
+//               <span class="xui-text-minor xui-padding-left-small">NEW</span>
+//            </span>
+//           </span>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Search.2.2
+
+
+// Empty state
+//
+// Tips:
+// Do: Include a suitable empty state if no results are found
+//
+// Markup:
+// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <div class="xui-dropdown--header">
+//      <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//        <div class="xui-dropdown--header-leftcontent">
+//          <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
+//            Assign to staff
+//          </div>
+//        </div>
+//        <div class="xui-dropdown--header-rightcontent">
+//          <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+//            <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button>
+//          </div>
+//        </div>
+//       </div>
+//       <div class="xui-dropdown--header-container">
+//         <div class="xui-inputwrapper xui-inputwrapper-borderless xui-u-fullwidth">
+//           <svg focusable="false" class="xui-icon xui-input--icon-left">
+//              <use xlink:href="#xui-icon-search" role="presentation"></use>
+//           </svg>
+//           <input class="xui-input xui-input-borderless xui-input-borderless-solid xui-input-has-left-icon xui-input-has-right-icon" type="search" placeholder="Search" aria-label="Search" value='David Bowie'>
+//           <div class="xui-input--iconwrapper xui-input--iconwrapper-right">
+//             <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//               <svg focusable="false" class="xui-icon">
+//                 <use xlink:href="#xui-icon-clear" role="presentation"></use>
+//               </svg>
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//     <div class='xui-dropdown--scrollable-content xui-u-flex xui-u-flex-horizontallycentered'>
+//       <div class="xui-u-flex xui-padding-large xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted">
+//          <svg focusable="false" class="xui-icon xui-icon-large">
+//             <use xlink:href="#xui-icon-search" role="presentation"></use>
+//          </svg>
+//        <div>No results found</div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Search.2.3

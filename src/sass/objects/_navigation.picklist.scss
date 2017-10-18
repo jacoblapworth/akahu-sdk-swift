@@ -335,7 +335,7 @@
 // 					<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 					<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 				</svg>
-// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
 // 					Discount
 // 				</span>
 // 			</label>
@@ -348,7 +348,7 @@
 // 					<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 					<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 				</svg>
-// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
 // 					Reference
 // 				</span>
 // 			</label>
@@ -361,7 +361,7 @@
 // 					<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 					<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 				</svg>
-// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
 // 					Quantity
 // 				</span>
 // 			</label>
@@ -381,19 +381,19 @@
 // 	<ul class="xui-picklist xui-picklist-layout" role="tree">
 // 		<li class="xui-pickitem" role="treeitem">
 // 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right-small">JM</abbr>
+// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right">JM</abbr>
 // 				<span class="xui-pickitem--text xui-text-truncated">James Magness</span>
 // 			</button>
 // 		</li>
 // 		<li class="xui-pickitem" role="treeitem">
 // 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right-small">KH</abbr>
+// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right">KH</abbr>
 // 				<span class="xui-pickitem--text xui-text-truncated">Kirk Holloway</span>
 // 			</button>
 // 		</li>
 // 		<li class="xui-pickitem" role="treeitem">
 // 			<button type="button" class="xui-pickitem--body">
-// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right-small">FP</abbr>
+// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right">FP</abbr>
 // 				<span class="xui-pickitem--text xui-text-truncated">Fay Pickering</span>
 // 			</button>
 // 		</li>
@@ -517,7 +517,7 @@
 // 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 					</svg>
-// 					<span class=" xui-pickitem--text xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 					<span class=" xui-pickitem--text xui-pickitem--multiselect-label">
 // 						Staff
 // 					</span>
 // 				</label>
@@ -536,7 +536,7 @@
 // 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 					</svg>
-// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
 // 						Gareth Price
 // 					</span>
 // 				</label>
@@ -549,7 +549,7 @@
 // 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 					</svg>
-// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
 // 						Isaac Minogue
 // 					</span>
 // 				</label>
@@ -562,7 +562,7 @@
 // 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
 // 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
 // 					</svg>
-// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
+// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
 // 						Tim Redmond
 // 					</span>
 // 				</label>

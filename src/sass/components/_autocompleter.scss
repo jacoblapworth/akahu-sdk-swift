@@ -75,4 +75,8 @@
 	color: $xui-color-grey-3;
 	padding: 0 $xui-s-small;
 	white-space: nowrap;
+
+	&-hidden {
+		opacity: 0;
+	}
 }

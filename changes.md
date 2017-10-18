@@ -19,6 +19,11 @@
 
 ### CSS properties changed
 
+#### Color shifts
+
+* The main blue in XUI is now darker `#028DDE`.
+* The standard page background set on `xui-body` is now the slightly darker `$xui-color-grey-6`.
+
 #### Radios & Checkboxes
 * Styled checkboxes and radios no longer use `input` and `svg` element selectors. The hidden underlying input element
 must have the `xui-styledcheckboxradio--input` class and any accompanying SVGs must have the `xui-icon` class.

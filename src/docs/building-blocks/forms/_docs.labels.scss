@@ -1,54 +1,106 @@
-// Labels
+// Labels, placeholders, and notes
 //
 // Teaser: Help users know what they need to do
 //
 // Introduction:
-// Things about adding good labels
+// The words used with form elements can make or break an interface. Labels are almost always needed
+// and need writing well - get some [tips in the Language Guide](https://github.dev.xero.com/pages/Xero/product-language-guide/components/examples/#form-labels).
 //
 // Styleguide: Building Blocks.Forms.Labels
 
-// Standard labels
+// Labels
 //
-// General usage for a label to accompany an input element.
+// The default position for labels is above a field, left-aligned. They can be added either as siblings to, or wrapping around, their matching input.
 //
-// Markup:
-// <label class="xui-text-label xui-fieldlabel-layout" for="label-example">Name</label>
-// <input class="xui-input" id="label-example" type="text" placeholder="Zero Cool"/>
-//
-// Styleguide: Building Blocks.Forms.Labels.1
-
-// Inline labels
-//
-// When nesting an `<input>` element inside a `<label>`,
-// the layout classes should be applied to a span to add the correct spacing between the `<label>` and `<input>`.
+// Tips:
+// Do: Apply classes to the label element itself if it’s sibling of the input
+// Do: Apply classes to a nested span if the label wraps the input
 //
 // Markup:
-// <label>
-//   <span class="xui-text-label xui-fieldlabel-layout">Name</span>
-//   <input class="xui-input" type="text" placeholder="Acid Burn"/>
-// </label>
-//
-// Styleguide: Building Blocks.Forms.Labels.2
-
-// Implementation
-//
-// Labels can be added either as siblings to, or wrapping around, their matching input.
-// Apply classes to a `label` or `div` if a sibling, or on a nested `span` if wrapping.
-//
-// Markup:
-// <div class="xui-field-layout">
+// <div class="xui-row-grid">
+// <div class="xui-field-layout xui-column-6-of-12">
 //   <label>
-//     <span class="xui-text-label xui-fieldlabel-layout">Name</span>
-//     <input class="xui-input" type="text" placeholder="Acid Burn"/>
+//     <span class="xui-text-label xui-fieldlabel-layout">Wrapping label</span>
+//     <input class="xui-input" type="text" placeholder=""/>
 //   </label>
 // </div>
-// <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Name</label>
-//   <input class="xui-input" id="sibling-example" type="text" placeholder="Zero Cool"/>
+// <div class="xui-field-layout xui-column-6-of-12">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Sibling label</label>
+//   <input class="xui-input" id="sibling-example" type="text" placeholder=""/>
+// </div>
 // </div>
 //
 // Classes:
 // xui-text-label: Adds text styling only
-// xui-fieldlabel-layout: Adds correct spacing.
+// xui-fieldlabel-layout: Adds correct spacing
 //
-// Styleguide: Building Blocks.Forms.Labels.50
+// Styleguide: Building Blocks.Forms.Labels.1
+
+
+// Hiding labels
+//
+// It’s ok to hide labels visually in some circumstances.
+//
+// Tips:
+// Do: Isolated, commonly understood interactions
+// Do: Repeat-use fields which have clear context
+// Do: Include an icon and placeholder
+// Warning: Ensure accessibility is maintained with hidden or aria-labels
+//
+// Styleguide: Building Blocks.Forms.Labels.1.1
+
+
+
+
+// Label language
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Be consistent across all of Xero
+// Warning: Avoid repeating the task of the form in each label
+//
+// Get more good [tips in the Language Guide](https://github.dev.xero.com/pages/Xero/product-language-guide/components/examples/#form-labels).
+//
+// Styleguide: Building Blocks.Forms.Labels.1.2
+
+
+
+
+// Placeholders
+//
+// Tips:
+// Do: Use to provide formatting hints
+// Warning: If it feels like it’s needed for clarity, try improving the label first
+// Dont: Avoid using for the sake of it
+// Dont: Don’t repeat the label
+//
+// Markup:
+// <div class="xui-row-grid">
+// <label class="xui-column-3-of-12">
+//   <span class="xui-text-label xui-fieldlabel-layout">Time taken</span>
+//   <input class="xui-input" type="text" placeholder="2.5 or 2:30"/>
+// </label>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.Labels.2
+
+
+
+
+// Notes and errors
+//
+// Notes and [validation](./section-building-blocks-forms-validation.html) messages are added under fields in a `xui-validation-layout` wrapper.
+// This has negative margin so only affects the form layout if it breaks to multiple lines -
+// avoiding layout thrashing if messages appear when fields are focused or blurred.
+//
+// Tips:
+// Do: Show on focus - especially if there is a few in one interface
+//
+// Markup:
+// <div>
+// 	<label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
+// 	<input class="xui-input" type="text" id="field2" placeholder="" />
+// 	<div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.Labels.3

@@ -39,6 +39,10 @@
 	padding-right: 3rem;
 }
 
+.ds-example-tall {
+	min-height: 667px;
+}
+
 .ds-markup.ds-example-markuponly {
 	position: relative;
   @include xui-breakpoint-huge {

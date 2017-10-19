@@ -376,3 +376,64 @@ that began with `xui-styledradio` or `xui-styledcheckbox` now starts with `xui-s
 * `$xui-font-size-text-mobile`; use `$xui-font-size-extended-small` instead
 * `$xui-font-size-heading-small`; use `$xui-font-size-xsmall` instead
 * `$xui-font-size-regular`; use `$xui-font-size-small` instead
+
+## Dependency changes
+
+As a result of several dependency changes, it is recommended contributors do a clean install of the library by removing their `node_modules` folder and installing fresh.
+### Dependencies
+* Upgrade `prop-types` from `15.5.10` to `15.6.0`
+* Upgrade `react-day-picker` from `6.1.0` to `6.2.1`
+
+### Dev dependencies
+#### Major upgrades
+* Major upgrade `babel-eslint` from `7.2.3` to `8.0.1`
+* Major upgrade `babel-jest` from `20.0.3` to `21.2.0`
+* Major upgrade `babel-preset-jest` from `20.0.3` to `21.2.0`
+* Major upgrade `doiuse` from `3.0.0` to `4.0.0`
+* Major upgrade `enzyme` from `2.9.1` to `3.1.0` Additional details below
+* Major upgrade `eslint-plugin-jest` from `20.0.3` to `21.2.0`
+* Major upgrade `jest` from `20.0.4` to `21.2.1`
+* Major upgrade `nsp` from `2.1.0` to `3.0.0`
+* Major upgrade `postcss-easy-import` from `2.1.0` to `3.0.0`
+* Major upgrade `react-styleguidist` from `5.5.9` to `6.0.31`
+* Major upgrade `sinon` from `2.3.8` to `4.0.1`
+* Major upgrade `yargs` from `8.0.2` to `9.0.1`
+
+#### Major additions
+* Adds `enzyme-adapter-react-15@1.0.2`
+
+#### Minor upgrades
+* Minor bump `babel-cli` from `6.24.1` to `6.26.0`
+* Minor bump `browserslist` from `2.4.0` to `2.5.1`
+* Minor bump `cross-env` from `5.0.1` to `5.1.0`
+* Minor bump `eslint` from `4.3.0` to `4.9.0`
+* Minor bump `eslint-plugin-react` from `7.1.0` to `7.4.0`
+* Minor bump `grunt-postcss` from `0.8.0` to `0.9.0`
+* Minor bump `jest-teamcity-reporter` from `0.6.2` to `0.7.0`
+* Minor bump `style-loader` from `0.18.2` to `0.19.0`
+* Minor bump `stylelint` from `8.0.0` to `8.2.0`
+* Minor bump `stylelint-order` from `0.6.0` to `0.7.0`
+* Minor bump `webpack` from `3.3.0` to `3.8.1`
+
+#### Patch updates
+* Patch `autoprefixer` from `7.1.3` to `7.1.5`
+* Patch `babel-loader` from `7.1.1` to `7.1.2`
+* Patch `chai` from `4.1.0` to `4.1.2`
+* Patch `css-loader` from `0.28.4` to `0.28.7`
+* Patch `extract-text-plugin` from `3.0.0` to `3.0.1`
+* Patch `grunt-contrib-cssmin` from `2.2.0` to `2.2.1`
+* Patch `grunt-git` from `1.0.4` to `1.0.7`
+* Patch `postcss` from `6.0.10` to `6.0.13`
+* Patch `postcss-loader` from `2.0.6` to `2.0.8`
+* Patch `rimraf` from `2.6.1` to `2.6.2`
+
+### Enzyme upgrade
+
+Enzyme library has been upgraded to the latest version available of `3.1.0`.
+
+There are several deprecations, fixes and new things available that required a bit of rework of the current tests.
+
+Most notably, the removal of the `.node` property on react wrappers and the inclusion of the new React-15 version of the supplied `Adapter` module.
+
+The [changelog](http://airbnb.io/enzyme/CHANGELOG.html#310) is recommended reading if you are a current, or future contributor to the project.
+

@@ -1,9 +1,12 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import Enzyme, { mount, render } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUIToast from '../XUIToast';
 import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
 import XUIToastMessage from '../XUIToastMessage';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIToast', () => {
 
@@ -40,13 +43,13 @@ describe('XUIToast', () => {
 	it('should render without a close button if no close click function is provided', function () {
 		const wrapper = mount(<XUIToast />);
 
-		expect(wrapper.find('.xui-toast--close')).toHaveLength(0);
+		expect(wrapper.html().includes('xui-toast--close')).toBeFalsy();
 	});
 
 	it('should render with a close button if close click function is provided', function () {
 		const wrapper = mount(<XUIToast onCloseClick={function(){}} />);
 
-		expect(wrapper.find('.xui-toast--close')).toHaveLength(1);
+		expect(wrapper.html().includes('xui-toast--close')).toBeTruthy();
 	});
 
 	it('should add the appropriate `role` attribute depending on the sentiment (`alert` for positive/negative; else `status`)', function () {

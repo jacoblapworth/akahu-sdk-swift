@@ -107,6 +107,14 @@ We use the [Jest Test Runner](http://facebook.github.io/jest/) developed by Face
 
 Many unit tests for React components require checking the state and/or props of child components, simulating DOM events, and traversing the DOM to make sure DOM elements look the way they're supposed to. For this we use the [Enzyme library](http://airbnb.io/enzyme/) developed by AirBnB. It has a very clean, jQuery'esque API that makes finding and testing React components much easier.
 
+As at `XUI:12`, the Enzyme library has been upgraded to the latest version available of `3.1.0`.
+
+There are several deprecations, fixes and new things available that required a bit of rework of the current tests.
+
+Most notably, the removal of the `.node` property on react wrappers and the inclusion of the new React-15 version of the supplied `Adapter` module.
+
+The [changelog](http://airbnb.io/enzyme/CHANGELOG.html#310) is recommended reading if you are a current, or future contributor to the project.
+
 ## Development UI Test Pages (Under review)
 
 Linting and unit tests are an extremely important part of ensuring code quality for XUI, but they both have their limitations. UI test pages provide interactive pages for each component to test various configurations manually in the browser.

@@ -29,3 +29,6 @@ src/react/umd.js
 
 # Generated Colours Page
 src/sass/tmp
+
+# Code quality / coverage
+/coverage

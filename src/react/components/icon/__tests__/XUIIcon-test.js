@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import Enzyme, { mount, render } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUIIcon from '../XUIIcon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIIcon', () => {
 	it('Should render with any additional classes provided through the className prop', function () {

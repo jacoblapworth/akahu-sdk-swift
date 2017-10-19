@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUITextArea from '../XUITextArea';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 let wrapper = {};
 let changed = false;
@@ -61,8 +64,8 @@ describe('XUITextArea additional functionality:', () => {
 
 		const invalidNode = wrapper.find('.textarea-1').first();
 		const validNode = wrapper.find('.textarea-2').first();
-		expect(invalidNode.hasClass('xui-input-is-invalid')).toBeTruthy();
-		expect(validNode.hasClass('xui-input-is-invalid')).toBeFalsy();
+		expect(invalidNode.html().includes('xui-input-is-invalid')).toBeTruthy();
+		expect(validNode.html().includes('xui-input-is-invalid')).toBeFalsy();
 	});
 
 	it('should update the counter when text is entered', () => {

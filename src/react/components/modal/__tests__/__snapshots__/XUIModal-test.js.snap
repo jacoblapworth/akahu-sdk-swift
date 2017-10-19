@@ -24,6 +24,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
         isGrouped={false}
         isLink={false}
         isLoading={false}
+        key="close-button"
         onClick={[Function]}
         qaHook="xui-modal-close"
         retainLayout={true}
@@ -40,7 +41,9 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
         />
       </XUIButton>
     </XUIModalHeader>
-    <div>
+    <div
+      key=".0"
+    >
       test
     </div>
   </section>

@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUIRadio from '../XUIRadio';
 import XUIRadioGroup from '../XUIRadioGroup';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
 
@@ -17,10 +20,9 @@ describe('XUIRadioGroup', function() {
 			</XUIRadioGroup>
 		);
 
-		expect(wrapper.children()).toHaveLength(3);
-		wrapper.children().forEach(child => expect(child.hasClass('xui-styledcheckboxradio')).toBeTruthy());
+		expect(wrapper.find(XUIRadio)).toHaveLength(3);
+		expect(wrapper.find('.xui-styledcheckboxradio')).toHaveLength(3);
 	});
-
 
 	// children property non-radios
 	it('should contain children regardless of type', function () {

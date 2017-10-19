@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import Picklist from '../Picklist';
 import div from './helpers/container';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('< Picklist />', () => {
 	let wrapper;

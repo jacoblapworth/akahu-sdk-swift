@@ -1,9 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import DropDown from '../DropDown';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 let wrapper;
 let click = false;
@@ -15,7 +18,7 @@ describe('<DropDown /> API Methods', () => {
 		wrapper = mount(
 			<DropDown className="test">
 				<Picklist>
-					<Pickitem onClick={setClick} id="2">Item 1</Pickitem>
+					<Pickitem onClick={setClick} id="item1">Item 1</Pickitem>
 				</Picklist>
 			</DropDown>, {attachTo: div});
 	});
@@ -28,11 +31,11 @@ describe('<DropDown /> API Methods', () => {
 		wrapper = mount(
 			<DropDown>
 				<Picklist>
-					<Pickitem onClick={setClick} id="1">Item 1</Pickitem>
+					<Pickitem onClick={setClick} id="item1">Item 1</Pickitem>
 					{undefined}
 				</Picklist>
 				<Picklist>
-					<Pickitem onClick={setClick} id="2">Item 2</Pickitem>
+					<Pickitem onClick={setClick} id="item2">Item 2</Pickitem>
 					{null}
 				</Picklist>
 			</DropDown>, {attachTo: div});
@@ -41,7 +44,7 @@ describe('<DropDown /> API Methods', () => {
 	});
 
 	it('fires the callback when you click on a pick item', () => {
-		wrapper.find(Pickitem).first().childAt(0).simulate('click');
+		wrapper.find(Pickitem).find('button').simulate('click');
 		expect(click).toBeTruthy();
 	});
 });

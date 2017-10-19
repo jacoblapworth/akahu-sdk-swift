@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIToggle', function() {
 
@@ -23,7 +26,7 @@ describe('XUIToggle', function() {
 		const c = 'dogs-are-totes-patotes';
 		const wrapper = mount(<XUIToggle className={c} />);
 
-		expect(wrapper.find(`.${c}`)).toHaveLength(1);
+		expect(wrapper.hasClass(c)).toBeTruthy();
 	});
 
 

@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUILoader from '../XUILoader';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {

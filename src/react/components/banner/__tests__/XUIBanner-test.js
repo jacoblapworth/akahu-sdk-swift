@@ -1,10 +1,13 @@
 import React from 'react';
-import { render } from 'enzyme';
+import Enzyme, { render, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUIBanner from '../XUIBanner';
 import XUIBannerAction from '../XUIBannerAction';
 import XUIBannerActions from '../XUIBannerActions';
 import XUIBannerMessage from '../XUIBannerMessage';
 import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIBanner', () => {
 
@@ -16,17 +19,21 @@ describe('XUIBanner', () => {
 	});
 
 	it('should render with the negative sentiment modifier (and without positive modifier) when sentiment is set to negative', function () {
-		const component = render(<XUIBanner sentiment="negative" />);
-		const banner = component.find('.xui-banner');
-		expect(banner.hasClass('xui-banner-negative')).toBeTruthy();
-		expect(banner.hasClass('xui-banner-positive')).toBeFalsy();
+		const component = mount(<XUIBanner sentiment="negative" />);
+		const banner = component.find('.xui-banner-negative');
+		const notThisBanner = component.find('.xui-banner-positive');
+
+		expect(banner).toHaveLength(1);
+		expect(notThisBanner).toHaveLength(0);
 	});
 
 	it('should render with the positive sentiment modifier (and without negative modifier) when sentiment is set to positive', function () {
-		const component = render(<XUIBanner sentiment="positive" />);
-		const banner = component.find('.xui-banner');
-		expect(banner.hasClass('xui-banner-positive')).toBeTruthy();
-		expect(banner.hasClass('xui-banner-negative')).toBeFalsy();
+		const component = mount(<XUIBanner sentiment="positive" />);
+		const banner = component.find('.xui-banner-positive');
+		const notThisBanner = component.find('.xui-banner-negative');
+
+		expect(banner).toHaveLength(1);
+		expect(notThisBanner).toHaveLength(0);
 	});
 
 	it('should render all the messages in the messageDetails prop when used on XUIBannerMessageDetail', function () {

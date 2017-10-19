@@ -1,9 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import StatefulPicklist, { findNextItem, findPreviousItem } from '../StatefulPicklist';
 import Pickitem from '../Pickitem';
 import Picklist from '../Picklist';
 import div from './helpers/container';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 let wrapper;
 
@@ -29,14 +32,14 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds an item by id', () => {
-			const item3 = wrapper.node.findItemById('item3');
+			const item3 = wrapper.find(Pickitem).at(2);
 
-			expect(item3.props.id).toEqual('item3');
+			expect(item3.props().id).toEqual('item3');
 		});
 
 		it('finds the next item in the list', () => {
-			const list = wrapper.node.list;
-			const item3 = wrapper.node.findItemById('item3');
+			const list = wrapper.instance().list;
+			const item3 = wrapper.instance().findItemById('item3');
 
 			const nextItem = findNextItem(list, item3);
 
@@ -44,8 +47,8 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds the first item in the list when we are at the bottom of the list to loop', () => {
-			const list = wrapper.node.list;
-			const anotherItem4 = wrapper.node.findItemById('anotheritem4');
+			const list = wrapper.instance();
+			const anotherItem4 = wrapper.instance().findItemById('anotheritem4');
 
 			const nextItem = findNextItem(list, anotherItem4);
 
@@ -53,8 +56,8 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds the last item in the list when we are at the top of the list to loop', () => {
-			const list = wrapper.node.list;
-			const item1 = wrapper.node.findItemById('item1');
+			const list = wrapper.instance().list;
+			const item1 = wrapper.instance().findItemById('item1');
 
 			const nextItem = findPreviousItem(list, item1);
 
@@ -62,8 +65,8 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('finds the previous item in the list', () => {
-			const list = wrapper.node.list;
-			const item3 = wrapper.node.findItemById('item3');
+			const list = wrapper.instance().list;
+			const item3 = wrapper.instance().findItemById('item3');
 
 			const prevItem = findPreviousItem(list, item3);
 
@@ -71,17 +74,17 @@ describe('<StatefulPicklist /> API Methods', () => {
 		});
 
 		it('changes the state when highlighting the next item', () => {
-			const item3 = wrapper.node.findItemById('item3');
+			const item3 = wrapper.instance().findItemById('item3');
 
-			wrapper.node.highlightNext(item3);
+			wrapper.instance().highlightNext(item3);
 
 			expect(wrapper.state().highlightedElement.props.id).toEqual('item4');
 		});
 
 		it('changes the state when highlighting the previous item', () => {
-			const item3 = wrapper.node.findItemById('item3');
+			const item3 = wrapper.instance().findItemById('item3');
 
-			wrapper.node.highlightPrevious(item3);
+			wrapper.instance().highlightPrevious(item3);
 
 			expect(wrapper.state().highlightedElement.props.id).toEqual('item2');
 		});

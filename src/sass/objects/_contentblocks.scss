@@ -3,8 +3,6 @@
 
 // Content blocks
 //
-// Flag: Experimental
-//
 // Teaser: Top-level views of detailed sub pages.
 //
 // Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
@@ -12,6 +10,8 @@
 // Styleguide: Building Blocks.Content blocks
 
 // Anatomy
+//
+// Flag: Experimental
 //
 // The current approach for creating content blocks is to use standard XUI typography presets, form controls, and components in parallel with layout classes.
 // There are, however, several component specific classes to help define groups of content blocks, and provide vertical borders between them.
@@ -509,11 +509,11 @@
 //
 // Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
 //
-// Flag: Experimental
-//
 // Styleguide: Building Blocks.Tables
 
 // Anatomy
+//
+// Flag: Experimental
 //
 // To create a table, use the following content block classes and utilites.
 //

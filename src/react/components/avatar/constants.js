@@ -22,7 +22,7 @@ export const sizeClassNames = {
 export const classNames = {
 	base: avatarBaseClass,
 	counter: `${avatarBaseClass}-counter`,
-	group: `${avatarBaseClass}-avatargroup`
+	group: `${avatarBaseClass}group`
 };
 
 /**

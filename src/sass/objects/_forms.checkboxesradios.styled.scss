@@ -175,8 +175,12 @@
 	&:indeterminate:hover + .#{$ns}-icon,
 	&:indeterminate:focus + .#{$ns}-icon {
 		.#{$ns}-styledcheckboxradio--main {
-			fill: darken($xui-color-xero-blue, 7%);
-			stroke: darken($xui-color-xero-blue, 7%);
+			stroke: $xui-color-grey-alpha-3;
+
+			&[type=checkbox] {
+				fill: darken($xui-color-xero-blue, 7%);
+				stroke: darken($xui-color-xero-blue, 7%);
+			}
 		}
 	}
 

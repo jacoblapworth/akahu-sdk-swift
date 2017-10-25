@@ -31,13 +31,13 @@
 ### Migrating to XUI 11 Icons from previous versions of XUIIcon
 
 #### Before
-```js
+```js static
 import XUIIcon from 'xui-icon';
 ...
 <XUIIcon icon="accessibility" />
 ```
 #### After (v11)
-```js
+```js static
 import XUIIcon from '@xero/xui/react/icon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 ...

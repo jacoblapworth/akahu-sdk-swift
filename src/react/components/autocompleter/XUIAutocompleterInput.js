@@ -89,7 +89,16 @@ export default class XUIAutocompleterInput extends Component {
 
 		// When the placeholder text runs out of space it doesn't dictate the size of the input, causing it to be hidden.
 		// By using another element for the placeholder text we can wrap when the placeholder text runs out of space.
-		const placeholderElement = !props.iconAttributes && !state.value ? <span className="xui-autocompleter--placeholder">{props.placeholder}</span> : null;
+		const placeholderElement = !props.iconAttributes ? (
+			<span
+				className={cn(
+					"xui-autocompleter--placeholder",
+					{ "xui-autocompleter--placeholder-hidden": state.value }
+				)}
+			>
+				{props.placeholder}
+			</span>
+		) : null;
 
 		return (
 			<XUIInput

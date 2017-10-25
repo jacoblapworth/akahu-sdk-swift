@@ -179,22 +179,38 @@ describe('XUICheckbox', function() {
 		}) => {
 
 			if(variants.focus) {
+<<<<<<< HEAD
 				focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
+=======
+				focus = wrapper.find('.xui-styledcheckboxradio--focus').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 				expect(focus.getAttribute('d')).toEqual(variants.focus);
 			}
 
 			if(variants.main){
+<<<<<<< HEAD
 				main = wrapper.find('.xui-styledcheckboxradio--main').instance();
+=======
+				main = wrapper.find('.xui-styledcheckboxradio--main').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 				expect(main.getAttribute('d')).toEqual(variants.main);
 			}
 
 			if(variants.check){
+<<<<<<< HEAD
 				check = wrapper.find('.xui-styledcheckboxradio--check').instance();
+=======
+				check = wrapper.find('.xui-styledcheckboxradio--check').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 				expect(check.getAttribute('d')).toEqual(variants.check);
 			}
 
 			if(variants.indeterminate){
+<<<<<<< HEAD
 				indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').instance();
+=======
+				indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 				expect(indeterminate.getAttribute('d')).toEqual(variants.indeterminate);
 			}
 
@@ -233,8 +249,13 @@ describe('XUICheckbox', function() {
 		it('use icons - iconMainPath: icon-main, iconCheckPath: none, iconIndeterminatePath: none when iconMainPath is star', () => {
 			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} />);
 
+<<<<<<< HEAD
 			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
 			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
+=======
+			focus = wrapper.find('.xui-styledcheckboxradio--focus').node;
+			main = wrapper.find('.xui-styledcheckboxradio--main').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 
 			standardResults(wrapper, {
 				focus: star,
@@ -247,9 +268,15 @@ describe('XUICheckbox', function() {
 		it('use icons - iconMainPath: star, iconCheckPath: null, iconIndeterminatePath: contact when an Indeterminate icon path is supplied with iconMainPath', () => {
 			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminatePath={contact} />);
 
+<<<<<<< HEAD
 			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
 			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
 			indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').instance();
+=======
+			focus = wrapper.find('.xui-styledcheckboxradio--focus').node;
+			main = wrapper.find('.xui-styledcheckboxradio--main').node;
+			indeterminate = wrapper.find('.xui-styledcheckboxradio--indeterminate').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 
 			standardResults(wrapper, {
 				focus: star,
@@ -263,8 +290,13 @@ describe('XUICheckbox', function() {
 		it('use icons - iconMainPath: star, iconCheckPath: null, iconIndeterminatePath: null when null is passed to iconIndeterminatePath or iconCheck', () => {
 			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminate={null} iconCheck={null} />);
 
+<<<<<<< HEAD
 			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
 			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
+=======
+			focus = wrapper.find('.xui-styledcheckboxradio--focus').node;
+			main = wrapper.find('.xui-styledcheckboxradio--main').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 
 			standardResults(wrapper, {
 				focus: star,
@@ -276,9 +308,15 @@ describe('XUICheckbox', function() {
 		it('use icons - iconMainPath: star, iconCheckPath: contact, iconIndeterminatePath: null', () => {
 			wrapper = mount(<XUICheckbox onChange={NOOP} iconMainPath={star} iconIndeterminatePath={null} iconCheckPath={contact} />);
 
+<<<<<<< HEAD
 			focus = wrapper.find('.xui-styledcheckboxradio--focus').instance();
 			main = wrapper.find('.xui-styledcheckboxradio--main').instance();
 			check = wrapper.find('.xui-styledcheckboxradio--check').instance();
+=======
+			focus = wrapper.find('.xui-styledcheckboxradio--focus').node;
+			main = wrapper.find('.xui-styledcheckboxradio--main').node;
+			check = wrapper.find('.xui-styledcheckboxradio--check').node;
+>>>>>>> 7d282b2260ba8213d366657ca9edffe02a754ba3
 
 			standardResults(wrapper, {
 				focus: star,

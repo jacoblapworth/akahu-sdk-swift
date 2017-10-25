@@ -248,7 +248,7 @@ XUIButton.propTypes = {
 	/** Determines if the button is disabled or not. */
 	isDisabled: PropTypes.bool,
 
-	/** If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
+	/** If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. */
 	isExternalLink: PropTypes.bool,
 
 	/** If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */

@@ -192,8 +192,11 @@ class DropDownPanel extends PureComponent {
 		} = this.props;
 
 		let maxHeight = style && style.maxHeight;
+		let overflowY;
 		if (isNarrowViewport()) {
 			maxHeight = header == null ? '80vh' : '100vh';
+		} else {
+			overflowY = 'auto';
 		}
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
@@ -214,7 +217,8 @@ class DropDownPanel extends PureComponent {
 					onMouseUp={this.iOSHack}
 					className="xui-dropdown--body"
 					style={{
-						maxHeight
+						maxHeight,
+						overflowY
 					}}
 				>
 					{header}

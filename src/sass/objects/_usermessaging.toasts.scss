@@ -61,6 +61,7 @@
 	flex-flow: column nowrap;
 	left: 0;
 	position: fixed;
+	z-index: 8000;
 
 	@include xui-breakpoint-narrow {
 		width: 100%;

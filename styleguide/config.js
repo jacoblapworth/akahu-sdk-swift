@@ -3,6 +3,7 @@ const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
 const browserlist = require('@xero/browserslist-autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const serveStatic = require('serve-static');
 
 const basePath = path.resolve(__dirname, '..');
 const styleguidePath = path.resolve(basePath, 'styleguide');
@@ -13,7 +14,10 @@ const config = {
 	webpackConfig: {
 		devServer: {
 			disableHostCheck: true,
-			publicPath: 'http://localhost:6060/react/'
+			publicPath: 'http://localhost:6060/react/',
+			before(app) {
+				app.use('/', serveStatic(path.resolve('docs')))
+			}
 		},
 		module: {
 			loaders: [
@@ -85,7 +89,6 @@ const config = {
 	title: 'XUI React Docs',
 	styleguideDir: outputPath,
 	highlightTheme: 'erlang-dark',
-	assetsDir: path.resolve(__dirname, '..', 'docs'),
 	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",

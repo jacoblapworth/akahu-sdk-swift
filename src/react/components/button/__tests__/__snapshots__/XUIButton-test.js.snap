@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIButton/> adds minwidth when we need it to, for short buttons 1`] = `
+<button
+  className="xui-button xui-button-main xui-button-min-loader-width"
+  data-automationid={undefined}
+  disabled={false}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  tabIndex={0}
+  type="button"
+>
+  75px
+</button>
+`;
+
+exports[`<XUIButton/> does retain layout checks with a myriad of combinations 1`] = `
+<button
+  className="xui-button xui-button-main"
+  data-automationid={undefined}
+  disabled={false}
+  onClick={[Function]}
+  onKeyDown={undefined}
+  tabIndex={0}
+  type="button"
+>
+  Hello, I am a long bit of text
+</button>
+`;
+
+exports[`<XUIButton/> does retain layout checks with a myriad of combinations 2`] = `
+<button
+  className="xui-button xui-button-main"
+  data-automationid={undefined}
+  disabled={true}
+  onClick={[Function]}
+  onKeyDown={null}
+  tabIndex={-1}
+  type="button"
+>
+  <div
+    className="xui-u-hidden-content"
+  >
+    Hello, I am a long bit of text
+  </div>
+  <div
+    aria-label={undefined}
+    className="xui-loader xui-loader-small xui-button--loader xui-loader-retain-layout"
+    data-automationid={undefined}
+    role="progressbar"
+  >
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+  </div>
+</button>
+`;
+
+exports[`<XUIButton/> does retain layout checks with a myriad of combinations 3`] = `
+<button
+  className="xui-button xui-button-main"
+  data-automationid={undefined}
+  disabled={true}
+  onClick={[Function]}
+  onKeyDown={null}
+  tabIndex={-1}
+  type="button"
+>
+  <div
+    aria-label={undefined}
+    className="xui-loader xui-loader-small xui-button--loader"
+    data-automationid={undefined}
+    role="progressbar"
+  >
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+    <div
+      className="xui-loader--dot"
+    />
+  </div>
+</button>
+`;

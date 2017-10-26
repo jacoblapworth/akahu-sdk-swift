@@ -3,7 +3,7 @@
 exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
 <div
   aria-hidden={true}
-  className="xui-mask xui-u-hidden"
+  className="xui-mask"
   data-automationid="xui-modal-mask"
   id="test-modal"
   onClick={null}
@@ -14,28 +14,36 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
     role={null}
     tabIndex={-1}
   >
-    <XUIButton
-      className="xui-margin-small xui-button-icon"
-      isDisabled={false}
-      isExternalLink={false}
-      isGrouped={false}
-      isLink={false}
-      isLoading={false}
-      onClick={[Function]}
-      qaHook="xui-modal-close"
-      tabIndex={0}
-      title="Close"
-      type="button"
-      variant="unstyled"
+    <XUIModalHeader
+      defaultLayout={true}
     >
-      <XUIIcon
-        path="M14.6568542,13.2426407 L10.4142136,9 L9,10.4142136 L13.2426407,14.6568542 L9,18.8994949 L10.4142136,20.3137085 L14.6568542,16.0710678 L18.8994949,20.3137085 L20.3137085,18.8994949 L16.0710678,14.6568542 L20.3137085,10.4142136 L18.8994949,9 L14.6568542,13.2426407 Z"
-        role="presentation"
-        size="standard"
-        viewBox="0 0 30 30"
-      />
-    </XUIButton>
-    <div>
+      <XUIButton
+        className="xui-modal--close xui-button-icon"
+        isDisabled={false}
+        isExternalLink={false}
+        isGrouped={false}
+        isLink={false}
+        isLoading={false}
+        key="close-button"
+        onClick={[Function]}
+        qaHook="xui-modal-close"
+        retainLayout={true}
+        tabIndex={0}
+        title="Close"
+        type="button"
+        variant="unstyled"
+      >
+        <XUIIcon
+          path="M14.6568542,13.2426407 L10.4142136,9 L9,10.4142136 L13.2426407,14.6568542 L9,18.8994949 L10.4142136,20.3137085 L14.6568542,16.0710678 L18.8994949,20.3137085 L20.3137085,18.8994949 L16.0710678,14.6568542 L20.3137085,10.4142136 L18.8994949,9 L14.6568542,13.2426407 Z"
+          role="presentation"
+          size="standard"
+          viewBox="0 0 30 30"
+        />
+      </XUIButton>
+    </XUIModalHeader>
+    <div
+      key=".0"
+    >
       test
     </div>
   </section>

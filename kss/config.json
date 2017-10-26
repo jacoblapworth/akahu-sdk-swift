@@ -1,25 +1,52 @@
 {
-	"source": "../src/sass",
-	"custom": ["heading", "tokens", "colorTokens", "noExample", "classes", "markdown", "components"],
+	"source": [
+		"../src/sass",
+		"../src/docs"
+	],
+	"custom": [
+		"mixin",
+		"tokentype",
+		"tokens",
+		"noexample",
+		"classes",
+		"markdown",
+		"components",
+		"definitions",
+		"note",
+		"teaser",
+		"exampleclass",
+		"introduction",
+		"tips",
+		"flag"
+	],
 	"destination": "../docs",
 	"css": [
 		"./kss-assets/xui.css",
 		"./style.css"
 	],
 	"js": [
-		"./kss-assets/menu.js",
 		"./kss-assets/kss-script.js",
 		"./kss-assets/kss.js",
 		"./kss-assets/scrollspy.js",
 		"./kss-assets/prettify.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js",
-		"https://edge.xero.com/style/xui-icon/4.17.0/xuiIconBlobES5.js",
 		"https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js",
 		"https://cdn.polyfill.io/v2/polyfill.js?features=Promise,fetch",
+		"https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js",
+		"./kss-assets/copy-code-blocks.js",
 		"http://localhost:35729/livereload.js"
 	],
 	"title": "XUI",
 	"homepage": "../../src/docs/home.md",
 	"builder": "./builder",
-	"extend": "./builder/extend"
+	"extend": "./builder/extend",
+	"child-pages": [
+		"Getting Started",
+		"Fundamentals",
+		"Building Blocks",
+		"Building Blocks.Forms",
+		"Building Blocks.Controls",
+		"Building Blocks.Dropdowns",
+		"Patterns"
+	]
 }

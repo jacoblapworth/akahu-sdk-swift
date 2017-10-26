@@ -1,5 +1,3 @@
-### Used With Dropdown Triggers
-
 The trigger to open a [`<DropDownToggled>`](#dropdown) is often a Button. We provide a `<XUIButtonCaret />` component so you don't need to manually add a caret icon each time.
 
 Check out the [Dropdown](#dropdown) examples to see Buttons being used as triggers.

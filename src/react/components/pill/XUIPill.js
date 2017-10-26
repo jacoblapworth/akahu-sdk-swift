@@ -5,7 +5,7 @@ import crossSmall from '@xero/xui-icon/icons/cross-small';
 
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
-import InnerPill from './InnerPill';
+import XUIInnerPill from './XUIInnerPill';
 
 /**
  * @private
@@ -23,7 +23,7 @@ export default class XUIPill extends Component {
 		super(props);
 
 		this.state = {
-			isFocussed: false
+			isFocused: false
 		};
 
 		this.toggleFocus = this.toggleFocus.bind(this);
@@ -31,7 +31,7 @@ export default class XUIPill extends Component {
 
 	toggleFocus() {
 		this.setState(prevState => ({
-			isFocussed: !prevState.isFocussed
+			isFocused: !prevState.isFocused
 		}));
 	}
 
@@ -54,7 +54,7 @@ export default class XUIPill extends Component {
 			value
 		} = pill.props;
 
-		const baseClass = 'xui-newpill';
+		const baseClass = 'xui-pill';
 
 		const pillClasses = cn(
 			className,
@@ -62,9 +62,16 @@ export default class XUIPill extends Component {
 			{
 				[`${baseClass}-layout`]: hasLayout,
 				[`${baseClass}-is-invalid`] : isInvalid,
-				[`${baseClass}-is-focussed`]: pill.state.isFocussed,
+				[`${baseClass}-is-focused`]: pill.state.isFocused,
 				[`${baseClass}-is-deleteable`]: onDeleteClick
 			}
+		);
+
+		const closebuttonClasses = cn(
+			`${baseClass}--button-icon`,
+			{
+				[`xui-button-icon-inverted`]: isInvalid,
+			},
 		);
 
 		const innerPillProps = {
@@ -82,7 +89,7 @@ export default class XUIPill extends Component {
 
 		const deleteButton = onDeleteCallback && (
 			<XUIButton
-				className={`${baseClass}--button-icon`}
+				className={closebuttonClasses}
 				variant="icon"
 				onClick={onDeleteCallback}
 				title={deleteButtonLabel}
@@ -99,7 +106,7 @@ export default class XUIPill extends Component {
 				onFocus={pill.toggleFocus}
 				onBlur={pill.toggleFocus}
 				data-automationid={qaHook}>
-				<InnerPill {...innerPillProps} />
+				<XUIInnerPill {...innerPillProps} />
 				{deleteButton}
 			</div>
 		)

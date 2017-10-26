@@ -1,6 +1,8 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-	<span><a href="../section-modals.html#modals">Modals in the XUI Documentation</a></span>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-modals.html">Modals in the XUI Documentation</a>
 </div>
 
 `XUIModal` provides a container for custom content, along with a background mask. They should primarily be used for prompting user actions, such as confirming a change, providing additional information, or copying some text.
@@ -29,7 +31,7 @@ class Example extends PureComponent {
 			<div>
 				<XUIButton onClick={() => this.setState({ showModal: true })}>Read-only modal</XUIButton>
 				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader><h3>Get link</h3></XUIModalHeader>
+					<XUIModalHeader>Get link</XUIModalHeader>
 					<XUIModalBody className="xui-padding">
 						<div className="xui-padding-bottom">
 							Anyone with this link can view this invoice.
@@ -93,7 +95,7 @@ class Example extends PureComponent {
 			<div>
 				<XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
 				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader><h3>Delete John Smith</h3></XUIModalHeader>
+					<XUIModalHeader>Delete John Smith</XUIModalHeader>
 					<XUIModalBody>
 						This cannot be undone
 					</XUIModalBody>
@@ -149,7 +151,7 @@ class Example extends PureComponent {
 			<div>
 				<XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
 				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader><h3>New project</h3></XUIModalHeader>
+					<XUIModalHeader>New project</XUIModalHeader>
 					<XUIModalBody>
 						<XUIInput
 							inputAttributes={{ placeholder: 'Give it a title'}}
@@ -161,6 +163,67 @@ class Example extends PureComponent {
 							onClick={this.toggleModal}
 						>
 							Create project
+						</XUIButton>
+					</XUIModalFooter>
+				</XUIModal>
+			</div>
+		);
+	}
+}
+
+<Example />
+```
+
+### Headerless Modal
+
+Modals can also be used without a header element to head the page with other content such as splash images.
+
+```
+const  { PureComponent } = require ( 'react' );
+
+class Example extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			showModal: false
+		};
+		this.toggleModal = this.toggleModal.bind(this);
+	}
+
+	toggleModal() {
+		this.setState(prevState => ({
+			showModal: !prevState.showModal
+		}));
+	}
+
+	render() {
+		return (
+			<div>
+				<XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
+				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })} size="large">
+					<XUIModalBody>
+						<div className="xui-u-flex xui-u-flex-vertical xui-u-flex-verticallycentered">
+							<img src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png" style={{maxWidth:'100%'}}/>
+							<h2>Welcome to Projects</h2>
+							<div className="xui-padding-2xlarge">
+								<p className="xui-padding-bottom"> At the moment, only you can use Projects for this Xero organisation.</p>
+								<p>To invite others to use Projects, select them from the user list and click the Projects user check box.</p>
+							</div>
+						</div>
+					</XUIModalBody>
+					<XUIModalFooter className="xui-u-flex xui-u-flex-horizontallycentered">
+						<XUIButton
+							className="xui-margin-right"
+							variant="borderless-primary"
+						>
+							Just for me now
+						</XUIButton>
+						<XUIButton
+							variant="primary"
+							onClick={this.toggleModal}
+						>
+							Add Projects users
 						</XUIButton>
 					</XUIModalFooter>
 				</XUIModal>

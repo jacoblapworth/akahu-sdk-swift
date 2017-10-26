@@ -1,0 +1,52 @@
+// scss-lint:disable Prefix
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
+
+
+// Outdent to compensate for padding on each card
+.ds-card-wrapper {
+	margin-left: -10px;
+	margin-right: -10px;
+	@include xui-breakpoint-wide {
+		@include embiggen;
+	}
+}
+
+.ds-card {
+	background: $xui-color-white;
+	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-border-all;
+	cursor: pointer;
+	flex-direction: column;
+	flex: 1;
+	margin: $xui-s-small;
+	min-height: 8rem;
+	max-width: calc(50% - 20px);
+	min-width: calc(100% - 20px);
+	position: relative;
+	overflow: hidden;
+	width: $xui-starting-width;
+
+	&:hover {
+		background: $xui-color-grey-alpha-7;
+	}
+
+	@include xui-breakpoint-medium {
+		min-width: calc(50% - 20px);
+	}
+
+	@include xui-breakpoint-wide {
+		max-width: calc(33.33% - 20px);
+		min-width: calc(33.33% - 20px);
+	}
+	.ds-card-content {
+		margin-top: $xui-s-xsmall;
+	}
+}
+
+
+
+.ds-card-wrapper {
+	flex-flow: wrap;
+	display: flex;
+}

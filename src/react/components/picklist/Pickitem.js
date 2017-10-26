@@ -47,7 +47,6 @@ export default class Pickitem extends PureComponent {
 		});
 		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
 
-
 		const Tag = isSplit ? 'div' : 'li';
 
 		return (

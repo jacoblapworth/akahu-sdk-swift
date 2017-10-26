@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIToggle', function() {
 
@@ -23,7 +26,7 @@ describe('XUIToggle', function() {
 		const c = 'dogs-are-totes-patotes';
 		const wrapper = mount(<XUIToggle className={c} />);
 
-		expect(wrapper.find(`.${c}`)).toHaveLength(1);
+		expect(wrapper.hasClass(c)).toBeTruthy();
 	});
 
 
@@ -32,20 +35,6 @@ describe('XUIToggle', function() {
 		const qaHook = 'cheese-and-crackers';
 		const wrapper = mount(<XUIToggle qaHook={qaHook} />);
 		expect(wrapper.find(`[data-automationid="${qaHook}"]`)).toHaveLength(1);
-	});
-
-
-	// color default
-	it('should use the standard color by default', function () {
-		const wrapper = mount(<XUIToggle />);
-		expect(wrapper.find('.xui-toggle-standard')).toHaveLength(1);
-	});
-
-
-	// color standard
-	it('should use the standard color if defined', function () {
-		const wrapper = mount(<XUIToggle color="standard" />);
-		expect(wrapper.find('.xui-toggle-standard')).toHaveLength(1);
 	});
 
 
@@ -68,12 +57,4 @@ describe('XUIToggle', function() {
 		const wrapper = mount(<XUIToggle layout="fullwidth" />);
 		expect(wrapper.find('.xui-toggle-fullwidth-layout')).toHaveLength(1);
 	});
-
-
-	// layout icon
-	it('should use the icon layout if defined', function () {
-		const wrapper = mount(<XUIToggle layout="icon" />);
-		expect(wrapper.find('.xui-toggle-icon-layout')).toHaveLength(1);
-	});
-
 });

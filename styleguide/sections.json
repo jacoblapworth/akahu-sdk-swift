@@ -1,21 +1,7 @@
 [
 	{
 		"name": "Introduction",
-		"content": "../src/docs/components/introduction.md",
-		"sections": [
-			{
-				"name": "Getting Started",
-				"content": "../src/docs/components/overview.md"
-			},
-			{
-				"name": "Upgrading",
-				"content": "../src/docs/components/upgrading.md"
-			},
-			{
-				"name": "Contributing",
-				"content": "../src/docs/components/contributing.md"
-			}
-		]
+		"content": "../src/docs/react/introduction.md"
 	},
 	{
 		"name": "Components",
@@ -23,11 +9,7 @@
 			{
 				"name": "Loader",
 				"content": "../src/react/loader.md",
-				"sections": [
-					{
-						"components": "../src/react/components/loader/XUILoader.js"
-					}
-				]
+				"components": "../src/react/components/loader/XUILoader.js"
 			},
 			{
 				"name": "Avatar",
@@ -46,11 +28,7 @@
 			{
 				"name": "Icon",
 				"content": "../src/react/icon.md",
-				"sections": [
-					{
-						"components": "../src/react/components/icon/XUIIcon.js"
-					}
-				]
+				"components": "../src/react/components/icon/XUIIcon.js"
 			},
 			{
 				"name": "Button",
@@ -79,20 +57,17 @@
 			{
 				"name": "Pill",
 				"content": "../src/react/pill.md",
-				"sections": [
-					{
-						"components": "../src/react/components/pill/XUIPill.js"
-					}
-				]
+				"components": "../src/react/components/pill/XUIPill.js"
+			},
+			{
+				"name": "Tag",
+				"content": "../src/react/tag.md",
+				"components": "../src/react/components/tag/XUITag.js"
 			},
 			{
 				"name": "Datepicker",
 				"content": "../src/react/datepicker.md",
-				"sections": [
-					{
-						"components": "../src/react/components/datepicker/XUIDatePicker.js"
-					}
-				]
+				"components": "../src/react/components/datepicker/XUIDatePicker.js"
 			},
 			{
 				"name": "Modal",
@@ -214,20 +189,12 @@
 					{
 						"name": "Switch",
 						"content": "../src/react/switch.md",
-						"sections": [
-							{
-								"components": "../src/react/components/switch/XUISwitch.js"
-							}
-						]
+						"components": "../src/react/components/switch/XUISwitch.js"
 					},
 					{
 						"name": "Toggle",
 						"content": "../src/react/toggle.md",
-						"sections": [
-							{
-								"components": "../src/react/components/toggle/XUIToggle*.js"
-							}
-						]
+						"components": "../src/react/components/toggle/XUIToggle*.js"
 					}
 				]
 			},
@@ -261,12 +228,17 @@
 						"content": "../src/react/autocompleter.md",
 						"sections": [
 								{
-									"components": "../src/react/components/autocompleter/Autocompleter.js"
+									"components": "../src/react/components/autocompleter/XUIAutocompleter.js"
 								},
 								{
-									"name": "Secondary Search",
-									"components": "../src/react/components/autocompleter/SecondarySearch.js",
-									"content": "../src/react/components/autocompleter/secondarysearch.md"
+									"name": "Autocompleter Secondary Search",
+									"components": "../src/react/components/autocompleter/XUIAutocompleterSecondarySearch.js",
+									"content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
+								},
+								{
+									"name": "Autocompleter Empty State",
+									"components": "../src/react/components/autocompleter/XUIAutocompleterEmptyState.js",
+									"content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
 								}
 							]
 					},

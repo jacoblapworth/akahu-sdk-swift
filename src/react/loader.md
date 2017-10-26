@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-loaders.html#loaders">Loader in the XUI Documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+		</svg>
+	<a href="../section-building-blocks-loaders.html#loaders">Loader in the XUI Documentation</a>
 </div>
 
 ## Examples
@@ -18,7 +18,7 @@ We recommend using the `label` prop to provide information to screen readers.
 ```
 ### Disabled Layout
 
-For more flexibility in styling and using Loaders in your application, set the prop `defaultLayout` to `false}`.
+For more flexibility in styling and using Loaders in your application, set the prop `defaultLayout` to `false`.
 
 ```
 <XUILoader defaultLayout={false} />
@@ -29,7 +29,16 @@ For more flexibility in styling and using Loaders in your application, set the p
 Apart from the `standard` size, Loaders can also be `small` or `large`.
 
 ```
-<div>
 <XUILoader size="large" defaultLayout={false} />
+```
+
+### Inverted
+
+Loaders support inverted backgrounds
+
+```
+<div className="xui-background-grey-1">
+  <XUILoader isInverted={true} />
 </div>
 ```
+

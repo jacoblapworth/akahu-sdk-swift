@@ -1,0 +1,108 @@
+// Avatars
+//
+// Introduction:
+// Use avatars for businesses and people to enhance recognition and give interfaces a sense of humanity.
+// XUI avatars use images when available and acronyms if they are not.
+//
+// Components: Avatar
+//
+// <div class="xui-u-flex" style="align-items: flex-end">
+//   <abbr class="xui-avatar xui-avatar-color-7 xui-avatar-xsmall xui-avatar-business xui-margin-right" role="presentation" title="Australian Broadcasting Corporation">ABC</abbr>
+//   <img class="xui-avatar xui-avatar-small xui-margin-right" alt="" role="presentation" src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"/>
+//   <img class="xui-avatar xui-avatar xui-avatar-business xui-margin-right" alt="" role="presentation" src="./kss-assets/content/bbc-logo.png"/>
+//   <abbr class="xui-avatar xui-avatar-color-1 xui-avatar-large xui-margin-right" role="presentation">DK</abbr>
+//   <abbr class="xui-avatar xui-avatar-color-2 xui-avatar-xlarge xui-avatar-business xui-margin-right" role="presentation">CNN</abbr>
+//   <img class="xui-avatar xui-avatar-2xlarge xui-avatar-business xui-margin-right" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
+// </div>
+//
+// Styleguide: Building Blocks.Avatars
+
+// Best practice
+//
+// Tips:
+// Do: Ensure they're consistent to the user throughout Xero
+// Dont: Avoid using as the only means of identifying a business or person
+//
+// Styleguide: Building Blocks.Avatars.1
+
+// Types
+//
+// There are 2 types of avatar in XUI. This helps users identify between clients and employees and between businesses and the individuals within them.
+//
+// Definitions:
+// Contacts: `xui-avatar-business`: Square avatars with 1—3 letter acronyms. Suppliers, customers, clients... essentially any 'accounting entity.
+// Users: Default: Round avatars with 2 letter acronyms. These will be users with accounts – essentially any singular person*.
+//
+// Note: *Avoid using avatars for payroll or expense employees if they cannot be resolved to a unique user account.
+//
+// Styleguide: Building Blocks.Avatars.2
+
+// Sizes
+//
+// Definitions:
+// xSmall: 18px: <code>xui-avatar-xsmall</code>
+// Small: 24px: <code>xui-avatar-small</code>
+// Medium: 32px: default
+// Large: 48px: <code>xui-avatar-large</code>
+// xLarge: 80px: <code>xui-avatar-xlarge</code>
+// 2xLarge: 120px: <code>xui-avatar-2xlarge</code>
+//
+// Styleguide: Building Blocks.Avatars.3
+
+
+// Implementation
+//
+// Avatars exist to aid recognition so consistency is key. Only use avatars if
+// you can ensure the same entity will look the same, **in all parts of Xero,** to a single user.
+//
+// #### Images in avatars
+//
+// If a logo or profile picture is available this should always be used. These
+// should be drawn from a consistent source – the contact or user record. That
+// image should update if it is changed at the source.
+//
+// Ideally the image will be pre-processed to square and appropriately resized. If the image is not square
+// it will be displayed in it’s entirety with the experimental `object-contain` property. However support in IE/Edge is limited.
+//
+// #### Colors in avatars
+//
+// If no image exists, then it’s background color and acronym should be displayed.
+// The color is selected deterministically from one of the ten approved colors
+// based on a unique **shared** attribute of the entity (eg. GUID).
+// If two entities share the same name then the color should be different.
+//
+// The [react component](./react/#avatar) uses a hashing algorithm to deterime the correct color based on that shared value.
+//
+// Classes:
+// xui-avatar-color-: Sets the color to one of the defined options with an added modifier between 1 and 10.
+//
+// Styleguide: Building Blocks.Avatars.4
+
+// Grouping avatars
+//
+// Avatars can be displayed as an overlapping group. If more exist than it’s reasonable to display an additional counter can be added to the end.
+// The avatars can be displayed in any order considered useful eg. largest contributor or most recent addition.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup:
+// <div class="xui-avatargroup">
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-1">AA</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-2">BB</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-3">Cc</abbr>
+//   <abbr class="xui-avatar xui-avatar-large xui-avatar-color-4">Dd</abbr>
+//   <span class="xui-avatar xui-avatar-large xui-avatar-counter">+1</span>
+// </div>
+// <div class="xui-avatargroup xui-margin-top">
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-5">W</abbr>
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-6">X</abbr>
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-7">Y</abbr>
+//   <abbr class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-8">Z</abbr>
+//   <span class="xui-avatar xui-avatar-small xui-avatar-business xui-avatar-counter">+2</span>
+// </div>
+//
+// Classes:
+// xui-avatargroup: Class to be used as a wrapper div around an avatar group
+// xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
+//
+// Styleguide: Building Blocks.Avatars.5

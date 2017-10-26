@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-forms.html#forms-4">Input in the XUI Documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-forms-inputs.html">Input in the XUI Documentation</a>
 </div>
 
 `XUIInput` is an enhanced HTML `input` field. It supports icons and validation styling.
@@ -70,12 +70,13 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<p className="xui-text-label">
-					{`The input contains: ${this.state.text}`}
+					<label htmlFor="input-change-example">{`The input contains: ${this.state.text}`}</label>
 				</p>
 				<XUIInput
 					onChange={this.updateText}
 					inputAttributes={{
-						placeholder: 'Text typed here will go up there ☝️'
+						placeholder: 'Text typed here will go up there ☝️',
+						id: 'input-change-example'
 					}}
 				/>
 			</div>
@@ -88,26 +89,67 @@ class Example extends PureComponent {
 
 ### Validation
 
-Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop.
+Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop. It's best to set `isFieldLayout=true` on all inputs to ensure consistent spacing between fields.
 
 ```
-<div>
-	<XUIInput
-		onChange={this.updateText}
-		inputAttributes={{
-			defaultValue: 'A very invalid message'
-		}}
-		validationMessage="Well it's not right"
-		isInvalid={true}
-	/>
-	<XUIInput
-		onChange={this.updateText}
-		inputAttributes={{
-			defaultValue: 'Not much here'
-		}}
-		hintMessage="Just a good old hint"
-	/>
-</div>
+const  { PureComponent } = require ( 'react' );
+
+class Example extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			text: ''
+		};
+		this.onFocus = this.onFocus.bind(this);
+		this.onBlur = this.onBlur.bind(this);
+	}
+
+	onFocus() {
+		this.setState({
+			hasFocus: true
+		})
+	}
+
+	onBlur() {
+		this.setState({
+			hasFocus: false
+		})
+	}
+
+	render() {
+		return (
+			<div>
+				<XUIInput
+					inputAttributes={{
+						defaultValue: 'A very invalid message'
+					}}
+					validationMessage="Well it's not right"
+					isInvalid={true}
+					isFieldLayout
+				/>
+				<XUIInput
+					onFocus={this.onFocus}
+					onBlur={this.onBlur}
+					inputAttributes={{
+						placeholder: "I have a hint when I'm focused"
+					}}
+					hintMessage={this.state.hasFocus && 'Just a good old hint'}
+					isFieldLayout
+				/>
+				<XUIInput
+					inputAttributes={{
+						placeholder: "I always have a hint"
+					}}
+					hintMessage="Just a good old hint"
+					isFieldLayout
+				/>
+			</div>
+		);
+	}
+}
+
+<Example />
 ```
 ### Icons
 

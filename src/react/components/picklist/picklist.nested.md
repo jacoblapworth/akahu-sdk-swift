@@ -1,4 +1,4 @@
-Nested Picklists can be thought of as a collapsable menu inside of the main list. To build one you should define your `NestedPicklist`(s) inside of a `NestedPicklistContainer`. The container acts as a wrapper for the lists and should also contain the `NestedPicklistTrigger`. The container acts as a wrapper for the lists and should also contain the `NestedPicklistTrigger`, which renders as a button in either a nested or split style. Please see the basic example below of how to piece these components together.
+Nested Picklists are similar to a collapsable menu inside of the main list. To construct one, define your `NestedPicklist`(s) inside of a `NestedPicklistContainer`. The container acts as a wrapper for the lists and should also contain the `NestedPicklistTrigger`. This renders a button in either a nested or split style. Please see the basic example below of how to piece these components together.
 
 For more information about the functionality of the lists such as keyboard handling, selected and highlighted state management please see the [`StatefulPicklist` section above](#stateful-picklist).
 

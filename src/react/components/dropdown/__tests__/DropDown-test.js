@@ -1,11 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import DropDown from '../DropDown';
-
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
-
 import { maxWidthDropdownSizes, fixedWidthDropdownSizes } from '../private/constants';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<DropDown size classes />', () => {
 

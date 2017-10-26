@@ -7,17 +7,12 @@ export const styles = ({ color }) => ({
 	link: {
 		'&, &:link, &:visited': {
 			display: 'block',
-			margin: [['1.3vh', 0, '1.3vh', 0]],
+			fontSize: '15px',
 			lineHeight: 1.5,
-			fontSize: 'inherit',
 			color: color.link,
 			textDecoration: 'none'
 		},
-		'&:hover, &:active': {
-			isolate: false,
-			color: color.linkHover,
-			cursor: 'pointer',
-		},
+
 	},
 });
 

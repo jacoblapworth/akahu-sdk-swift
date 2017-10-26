@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-toggle.html#toggle">Toggle in the XUI Documentation</a></span>
-	</div>
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-toggle.html">Toggle in the XUI Documentation</a>
 </div>
 
 `XUIToggle` is a control that can behave like a radio, or like a checkbox. It supports different layout patterns for a variety of use cases.
@@ -62,16 +62,10 @@ const iconToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="icon">
-			<XUIToggleOption { ...iconToggle }><XUIIcon path={bold} /></XUIToggleOption>
+		<XUIToggle>
+			<XUIToggleOption { ...iconToggle } isChecked><XUIIcon path={bold} /></XUIToggleOption>
 			<XUIToggleOption { ...iconToggle }><XUIIcon path={italic} /></XUIToggleOption>
 			<XUIToggleOption { ...iconToggle }><XUIIcon path={underline} /></XUIToggleOption>
-		</XUIToggle>
-	</div><div>
-		<XUIToggle layout="icon">
-			<XUIToggleOption { ...iconToggle } isChecked isDisabled><XUIIcon path={bold} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle } isDisabled><XUIIcon path={italic} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle } isDisabled><XUIIcon path={underline} /></XUIToggleOption>
 		</XUIToggle>
 	</div>
 </div>
@@ -88,7 +82,7 @@ const checkboxToggle = {
 	type: 'checkbox'
 };
 
-<div className="xui-padding xui-text-inverted">
+<div className="xui-padding xui-color-white xui-background-grey-1">
 		<XUIToggle layout="fullwidth" color="inverted">
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

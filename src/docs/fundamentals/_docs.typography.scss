@@ -1,0 +1,296 @@
+// Typography
+//
+// Teaser: Heading types and when to use them. Details on text colouring, emphasis and spacing.
+//
+// Introduction: Text is 99% of our interfaces – it’s important to get it right. The levers of size, weight, space and colour are some of the best ways to bring hierarchy and clarity to an interface.
+//
+// Weight: -2
+//
+// Styleguide: Fundamentals.Typography
+
+
+
+
+
+// Type family
+//
+// XUI uses system fonts with a Helvetica/Arial font-stack.
+//
+// Definitions:
+// Font stack: "Helvetica Neue", Helvetica, Arial, sans-serif
+//
+// Styleguide: Fundamentals.Typography.10
+
+
+
+
+
+// Sizes
+//
+// XUI does not provide a CSS reset. Heading and paragraph elements will pickup user agent margins if not specified using [XUI spacing classes](./section-fundamentals-spacing.html).
+//
+// Definitions:
+// Default: 13px: Majority of any interface
+// Small: 11px: Provided in components like notes and subheads
+//
+// Styleguide: Fundamentals.Typography.20
+
+
+// Everyday headings
+//
+// Important! If you're using headings in a modal or dropdown please use one of our [presets](#fundamentals-typography-20-3) instead.
+//
+// Definitions:
+// Large: `xui-heading-large`: <h3 class="xui-heading-large xui-margin-none">Directory Listing</h3>
+// Medium: `xui-heading`: <h4 class="xui-heading xui-margin-none">Location</h4>
+// Small: `xui-heading-small`: <h5 class="xui-heading-small xui-margin-none">Street Address</h5>
+// Extra Small: `xui-heading-xsmall`: <h6 class="xui-heading-xsmall xui-margin-none">Map</h6>
+//
+// Styleguide: Fundamentals.Typography.20.1
+
+
+// Display headings
+//
+// Flag: Experimental
+//
+// Some of these sizes are set using viewport units and untested in real environments. Please experiment with these in HTML and let us know.
+//
+// Definitions:
+// XL: `xui-heading-xlarge`: <h1 class="xui-heading-xlarge xui-text-truncated xui-margin-none">Welcome aboard</h1>
+// XXL: `xui-heading-2xlarge`: <h1 class="xui-heading-2xlarge xui-text-truncated xui-margin-none">$3,724.00</h1>
+// XXL: `xui-heading-3xlarge`: <h1 class="xui-heading-3xlarge xui-text-truncated xui-margin-none">82.1%</h1>
+//
+// Styleguide: Fundamentals.Typography.20.2
+
+
+// Text presets
+//
+// Flag: Under review
+//
+// Preset combinations of size and color for specific elements enables future application-wide change with CSS only.
+//
+// Definitions:
+// Modal: `xui-heading-modal`: Standard heading for all modals
+// Separator: `xui-heading-separator`: Small subheads in dropdowns
+// Secondary: `xui-text-secondary`: Applies -muted colour, use for things like metadata
+// Minor: `xui-text-minor`: 11px and -muted, use sparingly for minor things like field notes
+//
+// Styleguide: Fundamentals.Typography.20.3
+
+
+
+
+
+
+
+//  Color
+//
+// Styleguide: Fundamentals.Typography.30
+
+
+// Common colours
+//
+// Definitions:
+// Standard: `xui-textcolor-standard`: Default primary text color in XUI.
+// Muted: `xui-textcolor-muted`: Reduced hierarchy. It can be used independently or via `.xui-text-secondary`
+// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to it’s poor accessibility.
+//
+// Styleguide: Fundamentals.Typography.30.1
+
+
+// Sentiment colours
+//
+// Definitions:
+// Positive: `xui-textcolor-positive`:	<div class="xui-container"><span class="xui-textcolor-positive">21.3% decrease</span></div>
+// Negative: `xui-textcolor-negative`:	<div class="xui-container"><span class="xui-textcolor-negative">Yes, delete this invoice</span></div>
+//
+// Styleguide: Fundamentals.Typography.30.2
+
+// Status colours
+//
+// Flag: Deprecated
+//
+// Older versions of XUI contained specific 'status' classes: `xui-text-status`, `xui-text-status-negative` and `xui-text-status-positive`.
+// Please use either tags or the sentiment colours above.
+//
+// Styleguide: Fundamentals.Typography.30.2.1
+
+
+// Text on dark backgrounds
+//
+// Text colors for use with a dark background. Inverted [buttons](./section-building-blocks-buttons.html#building-blocks-buttons-10) and [Toggles](./section-building-blocks-toggle.html#building-blocks-toggle-2-1) are handled differently.
+//
+// Definitions:
+// White: `xui-textcolor-inverted`: white color for text
+// Muted white: `xui-textcolor-inverted-muted`: white at 75%
+// Faint white: `xui-textcolor-inverted-faint`: white at 50%
+//
+// ExampleClass: ds-example-flush
+//
+// Markup:
+// <div class="xui-row xui-textcolor-inverted xui-background-grey-1 xui-padding">
+//  <div class="xui-column-4-of-12 xui-heading">
+//    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
+//  </div>
+//  <div class="xui-column-4-of-12 xui-textcolor-inverted-faint xui-text-align-center">
+//    Saving...
+//  </div>
+//  <div class="xui-column-4-of-12 xui-text-align-right xui-textcolor-inverted-muted">
+//  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
+//  Edit
+//  </div>
+// </div>
+//
+// Styleguide: Fundamentals.Typography.30.3
+
+
+
+
+
+
+// Links
+//
+// With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
+// Links in XUI should only be used for elements that have an `href` – use a [button](/section-building-blocks-buttons.html) if not.
+//
+//
+// Definitions:
+// Standard link: `xui-text-link`: Adds link hover and focus highlighting
+// Minor link: `xui-text-minorlink`: Use only for very secondary inconsequential elements to inherit parent text colour but retain standard link hover and focus highlighting.
+//
+// Markup:
+// <div class="xui-panel xui-padding" style="display:inline-block">
+// <table><tbody>
+// <tr>
+// <th class="xui-text-align-left">Account</th><th class="xui-text-align-right xui-padding-left-large">This month</th><th class="xui-text-align-right xui-padding-left-large">Year to date</th></tr>
+// <tr>
+//  <td class="xui-text-align-left"><a class="xui-text-link">Advertising (600)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink">10,453.75</a></td>
+// </tr>
+// <tr>
+//  <td class="xui-text-align-left"><a class="xui-text-link">Entertainment (620)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink">53.60</a></td>
+// </tr>
+// <tr>
+//  <td class="xui-text-align-left"><a class="xui-text-link">Inventory (140)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
+// </tr>
+// </tbody></table>
+// </div>
+//
+// Styleguide: Fundamentals.Typography.40
+
+
+
+
+// Emphasis
+//
+// Tips:
+// Do: Add bold tactically to highlight important information.
+// Dont: Avoid bolding long stretches of text or using where a standard heading makes more sense.
+//
+// Definitions:
+// Bold: `xui-text-emphasis`: To emphasise a particular piece of text when the default parent is set to normal (via a span element)
+// Normal: `xui-text-deemphasis`: To de-emphasise a particular piece of text when the default parent is set to bold (via a span element)
+//
+// Styleguide: Fundamentals.Typography.51
+
+
+// Letter Spacing
+//
+// Common components, like headings, declare their own letter spacing where required – these classes should not be used very often.
+//
+// Definitions:
+// Tight: -0.005em: `xui-text-spacing-tight` <br/>Makes display type better - already on appropriate XUI headings.
+// Loose: 0.01em: `xui-text-spacing-loose` <br/>Can improve legibility of very small text, especially uppercase.
+//
+// Styleguide: Fundamentals.Typography.52
+
+
+// Line Height
+//
+// Common components should declare their own line height and these classes
+// should not be used very often.
+//
+// Definitions:
+// Default: 1.5: &nbsp;
+// Compact: 1.3: `xui-text-compact` group UI text when it wraps
+// Tight: 1.15: `xui-text-tight` use to retain impact of large copy
+// Reset: 1: `xui-text-reset`
+//
+// Styleguide: Fundamentals.Typography.53
+
+
+// Alignment
+//
+// Classes that can be added to change the alignment of text.
+//
+// Classes:
+// xui-text-align-left: The default alignment for most other UI elements and body copy
+// xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
+// xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
+//
+// Styleguide: Fundamentals.Typography.54
+
+
+// Truncation
+//
+// Truncate a single line of text and add an ellipsis to suggest overflow. To truncate after more than one line, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping).
+//
+// Tips:
+// Dont: Avoid truncating text important to identifying an element - allow multiple lines or larger widths instead.
+//
+// Classes:
+// xui-text-truncated: Modifier for truncated text with an ellipsis
+//
+// Styleguide: Fundamentals.Typography.55
+
+
+// Word-break
+//
+// Long words without hyphens won't automatically break when they reach the edge of their container.
+// They either enlarge the container, overflow or a scrollbar is created.
+// Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
+// and losing some information.
+//
+// Classes:
+// xui-text-wordbreak: Helps long words like URLs not break out of their parent container
+//
+// Styleguide: Fundamentals.Typography.56
+
+
+// Long-form text
+//
+// XUI’s type styling is designed primarily for application interfaces and does not target HTML elements like `h1` or `p`.
+// Use the `xui-textcontent` wrapper class to enclose any long-form text which needs basic margins and typographic scale.
+//
+// Tips:
+// Warning: These styles are fairly basic, you may need to fine-tune - let us know how it goes!
+//
+// Markup:
+// <div class="xui-textcontent">
+//   <h1>Getting started with Xero Payroll</h1>
+//   <p>Here's what you'll need to sign up to Xero, how to set up your organisation, and links to pages that'll help you get started using Xero.</p>
+//   <hr>
+//   <h2>What you'll need</h2>
+//   <p>You'll need a browser and a Xero account to get started with Xero.</p>
+//   <ul>
+//     <li><a href="#system-requirements">System requirements</a></li>
+//     <li><a href="#sign-up">Sign up for a free Xero account</a></li>
+//   </ul>
+//   <h3>Converting from another system</h3>
+//   <h4>MYOB</h4>
+//   <h5>Initial steps</h5>
+//   <ul>
+//     <li><a href="#import">Import MYOB Practice chart of accounts</a></li>
+//   </ul>
+//   <h5>Final steps</h5>
+//   <ul>
+//     <li><a href="http://giphy.com/search/happy">Be happy</a></li>
+//   </ul>
+// </div>
+//
+// Styleguide: Fundamentals.Typography.80

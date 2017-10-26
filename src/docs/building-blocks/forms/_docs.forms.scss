@@ -1,0 +1,260 @@
+// Forms
+//
+// Teaser: A container for interactive controls to submit information. This section uses different layouts based on the information type and content.
+//
+// Styleguide: Building Blocks.Forms
+
+// Accessibility
+//
+// All form elements should have labels to ensure the purpose of each element is clear.
+// This can be done by using the `<label>` tag or by adding `aria-label` or `aria-labelledby` attributes to each element.
+//
+// If there are instructions or context information associated with the form element, `aria-describedby` should be used to ensure it is not missed by the assistive technology.
+//
+// Styleguide: Building Blocks.Forms.9
+
+
+
+// Stacked Forms
+//
+// Standard linear forms in XUI are `max-width: 400px` and centre within their container.
+// Add `xui-form-layout` to the `<form>` wrapping all headings and fields.
+//
+// Each label-field pair, plus notes and validation, are wrapped in `xui-field-layout` to provide consistent spacing.
+//
+// Notes and validation messages are added under fields in a `xui-validation-layout` wrapper.
+// This will only affect the form layout if it is multiple lines.
+//
+// exampleclass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-panel xui-padding">
+// <form class="xui-form-layout">
+//   <p class="xui-heading-panel">Stacked Form</p>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
+//     <input class="xui-input" type="text" id="field1" placeholder="" />
+//   </div>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
+//     <input class="xui-input" type="text" id="field2" placeholder="" />
+//     <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
+//   </div>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="field3">Bank account number</label>
+//     <input class="xui-input xui-input-is-invalid" type="text" id="field3" placeholder="" />
+//     <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
+//   </div>
+//   <input class="xui-button xui-button-main" type="submit" value="Submit" />
+// </form>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.2
+
+
+
+
+// Inline Forms
+//
+// Small interactions can be delivered with inline forms. Inline forms will stack at the smallest breakpoint with `max-width: 400px;` by default.
+//
+// Markup:
+// <!-- Inline Form -->
+// <form class="xui-form-inline">
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="inline-name">Name</label>
+//     <input class="xui-input" type="text" id="inline-name" placeholder="" />
+//   </div>
+//   <div class="xui-field-layout">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="inline-email">Email address</label>
+//     <input class="xui-input" type="email" id="inline-email" placeholder="" />
+//   </div>
+//   <div class="xui-field-layout">
+//      <input class="xui-button xui-button-main" type="submit" value="Sign up" />
+//   </div>
+// </form>
+//
+// Styleguide: Building Blocks.Forms.3
+
+
+
+
+// Grouping
+//
+// In a few situations multiple fields can be grouped under a single label.
+// These are likely to be where one field (probably a select) modifies another or
+// the combination of both is closely tied and a common convention.
+//
+// Styleguide: Building Blocks.Forms.5
+
+
+
+
+// Horizontal
+//
+// exampleClass: ds-example-narrow
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout">Total amount</label>
+//   <div class="xui-inputgroup">
+//     <div class="xui-select xui-column-4-of-12">
+//       <select class="xui-select--control" aria-label="Currency">
+//         <option>NZD</option>
+//         <option>AUD</option>
+//         <option>CAD</option>
+//         <option>USD</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//     <div class="xui-column-8-of-12 xui-inputwrapper">
+//       <input class="xui-input" id="horizontaldemofield1" />
+//     </div>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Your name</label>
+//   <div class="xui-inputgroup">
+//       <input class="xui-column-4-of-12 xui-input" id="horizontaldemofield2" placeholder="First" aria-label="First name"/>
+//       <input class="xui-column-4-of-12 xui-input xui-input-is-invalid" placeholder="Middle" aria-label="Middle name"/>
+//       <input class="xui-column-4-of-12 xui-input" placeholder="Last" aria-label="Last name"/>
+//   </div>
+//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">We need your middle name for a full identity check</div>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.5.1
+
+
+// Classes:
+// xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout">Inputs only</label>
+//   <div class="xui-inputgroup">
+//     <input id="horizontaldemofield1" class="xui-input xui-column-2-of-12" placeholder="2 columns"/>
+//     <input class="xui-input xui-column-5-of-12" placeholder="5 columns"/>
+//     <input class="xui-input xui-column-5-of-12" placeholder="5 columns"/>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Mix of select, input and button</label>
+//   <div class="xui-inputgroup">
+//     <div class="xui-select xui-column-2-of-12">
+//       <select id="horizontaldemofield2" class="xui-select--control">
+//         <option>Value 1</option>
+//         <option>Value 2</option>
+//         <option>Value 3</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-input-is-invalid xui-column-2-of-12" placeholder="Invalid input" />
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <button class="xui-button xui-button-main xui-column-2-of-12">Action</button>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Another mix of select, input and button</label>
+//   <div class="xui-inputgroup">
+//     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <input class="xui-input xui-column-2-of-12" />
+//     <input class="xui-input xui-column-2-of-12"/>
+//     <div class="xui-select xui-column-2-of-12">
+//       <select class="xui-select--control xui-input-is-invalid">
+//         <option>Invalid</option>
+//         <option>Value 2</option>
+//         <option>Value 3</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Mix with input wrappers</label>
+//   <div class="xui-inputgroup">
+//     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-column-2-of-12 xui-inputwrapper">
+//       <input class="xui-input" />
+//     </div>
+//     <div class="xui-select xui-column-2-of-12">
+//       <select class="xui-select--control xui-input-is-invalid">
+//         <option>Invalid</option>
+//         <option>Value 2</option>
+//         <option>Value 3</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//   </div>
+// </div>
+// <div class="xui-field-layout">
+//   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Inputgroup with a single child (not recommended, just for regression testing)</label>
+//   <div class="xui-inputgroup">
+//     <div class="xui-select xui-column-2-of-12">
+//       <select class="xui-select--control">
+//         <option>Invalid</option>
+//         <option>Value 2</option>
+//         <option>Value 3</option>
+//       </select>
+//       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     </div>
+//   </div>
+// </div>
+
+
+
+
+// Vertical
+//
+// exampleClass: ds-example-narrow
+//
+// Markup:
+// <div class="xui-field-layout">
+//   <label for="street-address" class="xui-text-label xui-fieldlabel-layout">Street address</label>
+//   <div class="xui-verticalinputgroup">
+//   <input id="street-address" class="xui-input" aria-label="Street Address Line 1"/>
+//   <input class="xui-input"  aria-label="Street Address Line 2"/>
+//   <input class="xui-input"  aria-label="Street Address Line 3"/>
+// </div>
+// </div>
+// <div class="xui-heading xui-margin-top-large xui-margin-bottom">Log in to continue</div>
+// <div class="xui-verticalinputgroup">
+//   <div class="xui-inputwrapper">
+//     <input class="xui-input xui-input-has-left-icon" placeholder="Email" />
+//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
+//   </div>
+//   <div class="xui-inputwrapper">
+//     <input class="xui-input xui-input-has-left-icon" placeholder="Password" />
+//     <svg focusable="false" class="xui-icon xui-input--icon-left"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.5.2
+
+
+// Class list
+//
+// Classes:
+// xui-field-layout: Recommended layout for a form field (eg label and input)
+// xui-fieldlabel-layout: Recommended layout for a form label
+// xui-form-inline: Recommended layout for an inline form
+// xui-form-layout: Recommended layout for a stacked form
+// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
+// xui-validation-layout: Recommended layout for text below inputs
+// xui-validation-is-invalid: Modifier for text below inputs that are in an error state
+// xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
+// xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
+//
+// Styleguide: Building Blocks.Forms.50

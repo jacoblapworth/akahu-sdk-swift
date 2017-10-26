@@ -250,12 +250,12 @@ export default class XUITextArea extends Component {
 		const label = children != null || counter != null ? (
 			<div className={labelClasses}>
 				{children != null && (
-					<div className="xui-u-flex-col xui-u-flex-grow">
+					<div className="xui-u-flex-horizontal xui-u-flex-grow">
 						{children}
 					</div>
 				)}
 				{counter != null && (
-					<div className="xui-u-flex-col xui-margin-auto-left xui-margin-auto-top">
+					<div className="xui-u-flex-horizontal xui-margin-left-auto xui-margin-top-auto">
 						{counter}
 					</div>
 				)}
@@ -300,9 +300,9 @@ XUITextArea.propTypes = {
 	/** Whether the text area should have isInvalid state styling. */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show */
-	validationMessage: PropTypes.string,
+	validationMessage: PropTypes.node,
 	/** Explanatory message to show */
-	hintMessage: PropTypes.string,
+	hintMessage: PropTypes.node,
 	/** Whether default field layout should be applied to the container. */
 	defaultLayout: PropTypes.bool,
 	/** Additional classes to add to the wrapping div. */

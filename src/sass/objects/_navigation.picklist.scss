@@ -3,66 +3,596 @@
 
 // Picklist
 //
-// Picklists are vertical menus. They are a list of actionable items.
-// They can have child picklists, and the parent items can optionally be made selectable.
-// Picklists can also have multiple items selected, or display icons.
+// Teaser: A list of actions, filters or tabs.
 //
-// For keyboard navigation, the component should take care of managing the tabindex values
-// of menu items (which these static demos cannot achieve). Each picklist should be a single tab stop with
-// arrows keys being used to navigate pickitems.
-//
-// ### Accessibility
-//
-// A picklist is an implementation of a [tree](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees) control.
-// The root `<ul>` or `<ol>` node should have `role="tree"` and a suitable `aria-label` or `aria-labelledby` attribute.
-// Individual list items should have `role="treeitem"` applied, and picklist items with children should have `role="group"`.
-//
-// Use `aria-hidden` and `aria-expended` as appropriate when expanding or collapsing picklist
-// items (those with `role="treeitem").
-//
-// Use `aria-selected` to indicate any selected items.
-//
-// Keyboard support should be implemented [as suggested by the W3C wiki article](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees#Keyboard_Support)
+// Introduction: Picklists are used to group a list of actions, filters or tabs.
 //
 // Components: Picklist
 //
-// Weight: 4.1
-//
-// Styleguide: Picklist
+// Styleguide: Building Blocks.Picklist
 
-// Simple
+// Anatomy
+//
+// To create a group of pickitems, apply the following `picklist` and `pickitem` classes to `<ul>` and `<li>` elements, respectively.
 //
 // Classes:
-// xui-picklist: Container for a vertical menu
-// xui-picklist-layout: Provides padding for the picklist.
-// xui-pickitem: Container for a picklist item
-// xui-pickitem-is-selected: Indicate the currently selected picklist item
-// xui-pickitem--body: Container for the picklist item's body. This wraps the submenu toggle.
-// xui-pickitem--text: Container for the picklist item's text. Provides vertical padding to ensure good multiline spacing.
+// xui-picklist: Container for a group of pickitems
+// xui-picklist-layout: Recommended layout for a group of pickitems
+// xui-pickitem: Container for an individual pickitem
+// xui-pickitem--body: A selectable pickitem
+// xui-pickitem--text: Text content within a pickitem
 //
 // Markup:
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
-//     <a href="#" class="xui-pickitem--body" tabindex="0">
-//       <span class="xui-pickitem--text">Item one - Is Selected</span>
-//     </a>
-//   </li>
-//   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="0">
-//       <span class="xui-pickitem--text xui-text-truncated">
-//         Item two - with text truncation class applied to the child element that has the xui-pickitem--text class to demonstrate truncation in effect.
-//         Widescreen monitors can be pretty wide so it may take a lot of text to make the truncation kick in. If all else fails here is an ellipsis...
-//       </span>
-//     </button>
-//   </li>
-//   <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="0">
-//       <span class="xui-pickitem--text">Item three</span>
-//     </button>
-//   </li>
-// </ul>
+// <div class='xui-panel'>
+//  <ul class="xui-picklist xui-picklist-layout" role="tree">
+//    <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//      <button type="button" class="xui-pickitem--body">
+//        <span class="xui-pickitem--text">Save</span>
+//      </button>
+//    </li>
+//    <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//      <button type="button" class="xui-pickitem--body">
+//        <span class="xui-pickitem--text">Save & add another</span>
+//      </button>
+//    </li>
+//    <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//      <button type="button" class="xui-pickitem--body">
+//        <span class="xui-pickitem--text">Discard draft</span>
+//      </button>
+//    </li>
+//  </ul>
+// </div>
 //
-// Styleguide: Picklist.1
+// Styleguide: Building Blocks.Picklist.1
+
+// Selecting
+//
+// To indicate a pickitem has been selected, apply the following modifier.
+//
+// Classes:
+// xui-pickitem-is-selected: Apply to item
+//
+// Markup:
+// <div class='xui-panel'>
+//   <ul class="xui-picklist xui-picklist-layout" role="tree">
+//     <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Status</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem xui-pickitem-is-selected" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Date</span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//       <button type="button" class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">Amount</span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.2
+
+
+// Changing direction
+//
+// To create a horizontal picklist, commonly referred to as tabs, apply the following modifier.
+// We also recommend removing `xui-picklist-layout` to allow pickitems to stretch the full height or their containing element.
+//
+// Classes:
+// xui-picklist-horizontal: Apply to picklist
+//
+// Markup:
+// <div class='xui-panel'>
+//   <div class='xui-panel--header xui-u-flex'>
+//     <ul class="xui-picklist xui-picklist-horizontal" role="tree">
+//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">All</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem xui-pickitem-is-selected" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Current</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">History</span>
+//         </button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.3
+
+// Truncating
+//
+// The default behaviour of pickitem text is to wrap. 
+// To prevent wrapping, apply the following utility class.
+//
+// Classes:
+// xui-text-truncated: Apply to pickitem text
+//
+// Styleguide: Building Blocks.Picklist.4
+
+// Common layouts
+//
+// Many different layouts are achievable by adding a few typography presets and utility classes.
+//
+// Styleguide: Building Blocks.Picklist.6
+
+// Headings
+//
+// Classes:
+// xui-text-minor: Apply to heading
+//
+// Markup:
+// <div class='xui-panel'>
+//   <ul class="xui-picklist xui-picklist-layout" role="tree" aria-labelledby="recent">
+//     <li id="recent" class="xui-margin-vertical-xsmall xui-margin-horizontal-large xui-text-minor xui-text-truncated">
+//       Recent
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <button type='button' class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           302 — Entertainment
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <button type='button' class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           440 — Overseas Travel
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <button type='button' class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           301 — Office Supplies
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout" role="tree" aria-labelledby="all">
+//     <li id="all" class="xui-margin-vertical-xsmall xui-margin-horizontal-large xui-text-minor xui-text-truncated">
+//       All
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <button type='button' class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           300 — Sales
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <button type='button' class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           400 — Expenses
+//         </span>
+//       </button>
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <button type='button' class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           500 — Fixed assets
+//         </span>
+//       </button>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.1
+
+// Icon
+//
+// Classes:
+// xui-pickitem--icon: Apply to icon
+//
+// Markup:
+// <div class='xui-panel'>
+//   <ul class="xui-picklist xui-picklist-layout" role="tree">
+//     <li class="xui-pickitem" role="treeitem">
+//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//         <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//       </svg>
+//       <span class="xui-pickitem--body">
+//         <span class="xui-pickitem--text">
+//           Create new
+//         </span>
+//       </span>
+//     </li>
+//     <li class="xui-pickitem" role="treeitem">
+//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//         <use xlink:href="#xui-icon-help" role="presentation"></use>
+//       </svg>
+//       <span class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           Help
+//         </span>
+//       </span>
+//     </li>
+//   </ul>
+//   <ul class="xui-picklist xui-picklist-layout" role="tree">
+//     <li class="xui-pickitem" role="treeitem">
+//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
+//         <use xlink:href="#xui-icon-lock" role="presentation"></use>
+//       </svg>
+//       <span class="xui-pickitem--body">
+//         <span class="xui-pickitem--text xui-text-truncated">
+//           Logout
+//         </span>
+//       </span>
+//     </li>
+//   </ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.2
+
+// Nested parent
+//
+// Classes:
+// xui-text-secondary: Apply to secondary content
+// xui-icon-color-standard: Apply to icon
+//
+// Markup:
+// <div class='xui-panel'>
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--text xui-text-truncated">
+// 					<span>Status</span>
+// 					<span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span>
+// 				</span>
+// 				<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 				</svg>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--text xui-text-truncated">
+// 					<span>Date range</span>
+// 					<span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span>
+// 				</span>
+// 				<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 				</svg>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--text xui-text-truncated">
+// 					<span>Created by</span>
+// 					<span class="xui-text-secondary xui-margin-left-small">Kirk Holloway +2 others</span>
+// 				</span>
+// 				<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 				</svg>
+// 			</button>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.3
+
+// Pinned value
+//
+// Classes:
+// xui-text-secondary: Apply to pinned value
+// xui-u-flex-inherit: Apply to pickitem text
+//
+// Markup:
+// <div class='xui-panel'>
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--text xui-u-flex-inherit">
+// 					<span class="xui-u-flex-1 xui-text-truncated">Draft</span>
+// 					<span class="xui-text-secondary xui-padding-left-small">18</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--text xui-u-flex-inherit">
+// 					<span class="xui-u-flex-1 xui-text-truncated">Sent</span>
+// 					<span class="xui-text-secondary xui-padding-left-small">3</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<span class="xui-pickitem--text xui-u-flex-inherit">
+// 					<span class="xui-u-flex-1 xui-text-truncated">Paid</span>
+// 					<span class="xui-text-secondary xui-padding-left-small">42</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.4
+
+// Checkbox
+//
+// Classes:
+// xui-pickitem--input: Apply to icon
+// xui-pickitem--multiselect-label: Apply to pickitem text
+//
+// Markup:
+// <div class='xui-panel'>
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-pickitem" role="treeitem">
+// 			<label class="xui-pickitem--body xui-styledcheckboxradio">
+// 				<input type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"/>
+// 				<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 					<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 					<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 					<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 				</svg>
+// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
+// 					Discount
+// 				</span>
+// 			</label>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem">
+// 			<label class="xui-pickitem--body xui-styledcheckboxradio">
+// 				<input type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"/>
+// 				<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 					<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 					<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 					<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 				</svg>
+// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
+// 					Reference
+// 				</span>
+// 			</label>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem">
+// 			<label class="xui-pickitem--body xui-styledcheckboxradio">
+// 				<input type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"/>
+// 				<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 					<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 					<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 					<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 				</svg>
+// 				<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
+// 					Quantity
+// 				</span>
+// 			</label>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.5
+
+// Avatar
+//
+// Classes:
+// xui-avatar-small: Apply to avatar
+//
+// Markup:
+// <div class='xui-panel'>
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-pickitem" role="treeitem">
+// 			<button type="button" class="xui-pickitem--body">
+// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right">JM</abbr>
+// 				<span class="xui-pickitem--text xui-text-truncated">James Magness</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem">
+// 			<button type="button" class="xui-pickitem--body">
+// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right">KH</abbr>
+// 				<span class="xui-pickitem--text xui-text-truncated">Kirk Holloway</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem">
+// 			<button type="button" class="xui-pickitem--body">
+// 				<abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right">FP</abbr>
+// 				<span class="xui-pickitem--text xui-text-truncated">Fay Pickering</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.6
+
+// Multine avatar
+//
+// Classes:
+// xui-text-emphasis: Apply to primary content
+// xui-text-secondary: Apply to secondary content
+//
+// Markup:
+// <div class='xui-panel'>
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<abbr class="xui-avatar xui-avatar xui-avatar-color-8 xui-margin-right-small">JM</abbr>
+// 				<span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-vertical">
+// 					<span class="xui-text-emphasis xui-text-truncated">James Magness</span>
+// 					<span class="xui-text-secondary xui-text-truncated">james.magness@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<abbr class="xui-avatar xui-avatar xui-avatar-color-5 xui-margin-right-small">KH</abbr>
+// 				<span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-vertical">
+// 					<span class="xui-text-emphasis xui-text-truncated">Kirk Holloway</span>
+// 					<span class="xui-text-secondary xui-text-truncated">kirk.holloway@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
+// 			<button type="button" class="xui-pickitem--body">
+// 				<abbr class="xui-avatar xui-avatar xui-avatar-color-2 xui-margin-right-small">FP</abbr>
+// 				<span class="xui-pickitem--text xui-u-overflow-hidden  xui-u-flex xui-u-flex-vertical">
+// 					<span class="xui-text-emphasis xui-text-truncated">Fay Pickering</span>
+// 					<span class="xui-text-secondary xui-text-truncated">fay.pickering@xero.com</span>
+// 				</span>
+// 			</button>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.6.7
+
+// Expanding lists
+//
+// To hide and show a list of sub pickitems, apply the following classes.
+//
+// Classes:
+// xui-picklist--nestedcontainer: Apply to expanding pickitem
+// xui-pickitem--submenucontrol: Apply to checkbox that opens and closes nested list
+// xui-submenu-uicontrol--label: Apply to label to extend hit-area of hidden checkbox
+// xui-submenu-uicontrol--icon: Apply to icon nested within label
+// xui-submenu: Container for a group of nested pickitems
+// xui-submenu-layout: Recommended layout modifier for a group of pickitems
+//
+// Styleguide: Building Blocks.Picklist.8
+
+// Standard
+//
+// Tips:
+// Do: If the parent pickitem does not have a destination, the whole row toggles visibility of children pickitems.
+//
+// Markup:
+// <div class="xui-panel">
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
+// 			<input id="nested-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" aria-owns="nested" value="on" tabindex="-1">
+// 			<label for="nested-checkbox" class="xui-submenu-uicontrol--label xui-pickitem--body" title="Open or close the menu" role="button" aria-label="Open or close the menu" tabindex="-1">
+// 				<span class="xui-pickitem--text">Accounts</span>
+// 				<svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
+// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 				</svg>
+// 			</label>
+// 			<ul id="nested" class="xui-submenu xui-submenu-layout" role="group">
+// 				<li class="xui-pickitem" role="option">
+// 					<button type="button" class="xui-pickitem--body" tabindex="-1">
+// 						<span class="xui-pickitem--text">Sales</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem-is-selected" role="option">
+// 					<button type="button" class="xui-pickitem--body" tabindex="-1">
+// 						<span class="xui-pickitem--text">Purchases</span>
+// 					</button>
+// 				</li>
+// 				<li class="xui-pickitem" aria-selected="false" role="option">
+// 					<button type="button" class="xui-pickitem--body" tabindex="-1">
+// 						<span class="xui-pickitem--text">Expenses</span>
+// 					</button>
+// 				</li>
+// 			</ul>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.8.1
+
+// Split
+//
+// Tips:
+// Do: If the parent pickitem can be selected separately from it's children, the row selects it, and a separate control toggles visibility of children pickitems
+// 
+// Classes:
+// xui-pickitem--split: Add to pickitem
+//
+// Markup:
+// <div class="xui-panel">
+// 	<ul class="xui-picklist xui-picklist-layout" role="tree">
+// 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
+// 			<input id="split-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" tabindex="-1"/>
+// 			<div class="xui-pickitem xui-pickitem--split">
+// 				<label for='parent' class="xui-pickitem--body xui-styledcheckboxradio" tabindex="-1">
+// 					<input id='parent' type="checkbox" class="xui-styledcheckboxradio--input checked" tabindex="-1" checked/>
+// 					<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 						<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 					</svg>
+// 					<span class=" xui-pickitem--text xui-pickitem--multiselect-label">
+// 						Staff
+// 					</span>
+// 				</label>
+// 			</div>
+// 		<label for="split-checkbox" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
+// 			<svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
+// 				<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 			</svg>
+// 		</label>
+// 		<ul id="split" class="xui-submenu xui-submenu-layout" role="group">
+// 			<li class="xui-pickitem" aria-selected="false" role="option">
+// 				<label for='aa' class="xui-pickitem--body xui-styledcheckboxradio" tabindex="-1">
+// 					<input id='aa' type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1" checked/>
+// 					<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 						<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 					</svg>
+// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
+// 						Gareth Price
+// 					</span>
+// 				</label>
+// 			</li>
+// 			<li class="xui-pickitem" aria-selected="false" role="option">
+// 				<label for='bb' class="xui-pickitem--body xui-styledcheckboxradio" tabindex="-1">
+// 					<input id='bb' type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1" checked/>
+// 					<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 						<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 					</svg>
+// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
+// 						Isaac Minogue
+// 					</span>
+// 				</label>
+// 			</li>
+// 			<li class="xui-pickitem" aria-selected="false" role="option">
+// 				<label for='cc' class="xui-pickitem--body xui-styledcheckboxradio" tabindex="-1">
+// 					<input id='cc' type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"  checked/>
+// 					<svg focusable="false" class="xui-icon xui-pickitem--input">
+// 						<use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
+// 						<use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
+// 					</svg>
+// 					<span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label">
+// 						Tim Redmond
+// 					</span>
+// 				</label>
+// 			</li>
+// 		</ul>
+// 		</li>
+// 	</ul>
+// </div>
+//
+// Styleguide: Building Blocks.Picklist.8.2
+
+// Accessibility
+//
+// These demos do not illustrate the recommended keyboard interaction, as it is not possible with static HTML.
+// If you are using React, the component handles keyboard interaction and `tabindex` values for you.
+// The resulting behaviour is that each picklist is a single tab stop with arrow keys being used to navigate to each pickitem.
+// For more information on keyboard accessibility, view the [W3 documentation](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees#Keyboard_Support).
+//
+// A picklist is an implementation of a tree control.
+// To be accessible, each picklist must have the `tree` role applied as well as an `aria-label` or `aria-labelledby` attribute directing to the desired label.
+// Individual pickitems must have the `treeitem` role applied.
+// For more information on tree controls, view the [W3 documentation](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees).
+//
+// In the case of an expanding pickitem, the parent must have the `group` role applied, and children must have the `option` role applied instead.
+// Use the `aria-hidden` and `aria-expended` attributes when expanding or collapsing a pickitem with children.
+//
+// For selected pickitems, make sure to apply the `aria-selected` attribute.
+//
+// Styleguide: Building Blocks.Picklist.10
+
 
 .#{$ns}-picklist {
 	@include xui-listreset;
@@ -79,8 +609,8 @@
 
 .#{$ns}-pickitem {
 	flex-grow: 1000000;
+	outline: none;
 	position: relative;
-
 	&:hover,
 	&:active,
 	&:focus{
@@ -96,7 +626,7 @@
 	cursor: pointer;
 	display: flex;
 	font-family: $xui-font-family;
-	font-size: $xui-font-size-text;
+	font-size: $xui-font-size-small;
 	line-height: $xui-line-height;
 	min-height: 40px;
 	outline: none;
@@ -175,51 +705,6 @@
 	}
 }
 
-// Horizontal
-//
-// A horizontal variant of the datepicker is provided through the use of a modifier class. It is recommended that you do not use `xui-pickitem--text`
-// within horizontal pickitems as their padding is already provided, or with `xui-picklist-layout` as horizontal picklists should not have vertical padding.
-//
-// Classes:
-// xui-picklist-horizontal: Modifier class to be applied to the picklist for a horizontal variant
-//
-// Markup:
-// <ul class="xui-picklist xui-picklist-horizontal" role="tree">
-//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
-//     <a href="#" class="xui-pickitem--body" tabindex="0">
-//       Selected item
-//     </a>
-//   </li>
-//   <li class="xui-pickitem xui-pickitem-is-hovered" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="0">
-//       Item two
-//     </button>
-//   </li>
-//   <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="0">
-//       Item three
-//     </button>
-//   </li>
-// </ul>
-// <ul class="xui-picklist xui-picklist-horizontal" role="tree">
-//   <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="0">
-//       <span class="xui-pickitem--text xui-text-truncated">
-//         The epic force of his boiling-up was on par with Bazza's thermo-nuclear packet of Wheetbix.
-//       </span>
-//     </button>
-//   </li>
-//   <li class="xui-pickitem" tabindex="-1" role="treeitem">
-//     <button type="button" class="xui-pickitem--body" tabindex="0">
-//       <span class="xui-pickitem--text xui-text-truncated">
-//         The first prize for munting goes to James Cook and his same same but different Bell Bird, what a egg.
-//       </span>
-//     </button>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.1.2
-
 
 .#{$ns}-picklist-horizontal {
 	display: inline-flex;
@@ -249,47 +734,6 @@
 		}
 	}
 }
-
-// Submenus
-//
-// Classes:
-// xui-submenu: Container for a vertical submenu
-// xui-pickitem--submenucontrol: Hidden input to control the open and closed state of the sub menu
-// xui-submenu-uicontrol--label: UI Control, clicking on this changes state of the control opening and closing the menu
-// xui-submenu-uicontrol--icon: Additional class for the arrow icon indicator. Provides layout and animation.
-// xui-submenu-layout: This class provides max-height rules to allow the menu to transition. The max height has been set to 100vh (100% of the viewport height) in this case and may not be suitable for all use cases.
-//
-// Markup:
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
-//     <input type="checkbox" class="xui-pickitem--submenucontrol" id="nested-checkbox" tabindex="-1" aria-owns="nested" value="on">
-//     <label for="nested-checkbox" class="xui-submenu-uicontrol xui-pickitem--body" title="Open or close submenu" role="button" aria-label="Open or close submenu">
-//       <span class="xui-pickitem--text">Nested List</span>
-//       <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-arrow" role="presentation"></use>
-//       </svg>
-//     </label>
-//     <ul class="xui-submenu xui-submenu-layout" id="nested" role="group">
-//       <li class="xui-pickitem xui-pickitem-is-selected" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 1 is selected</button>
-//       </li>
-//       <li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="b" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 2</button>
-//       </li>
-//       <li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="c" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 3</button>
-//       </li>
-//       <li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="d" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 4</button>
-//       </li>
-//     </ul>
-//     <li class="xui-pickitem" role="treeitem">
-//       <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item two</button>
-//     </li>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.2
 
 // Submenu more specificity for layout adjustments
 .#{$ns}-submenu {
@@ -376,39 +820,6 @@
 	}
 }
 
-// Split Submenus
-//
-// Classes:
-// xui-pickitem--split: Container for split components.
-//
-// Markup:
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
-//     <input type="checkbox" class="xui-pickitem--submenucontrol" id="split-checkbox" tabindex="-1" aria-owns="split" value="on">
-//     <div class="xui-pickitem xui-pickitem--split" aria-selected="false" tabindex="-1" role="option" id="splitTrigger">
-//       <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1"><!-- react-text: 31 -->Split Trigger Item<!-- /react-text --></button>
-//     </div>
-//     <label for="split-checkbox" class="xui-submenu-uicontrol" title="Open or close submenu" role="button" aria-label="Open or close submenu">
-//       <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-arrow" role="presentation">
-//         </use>
-//       </svg>
-//     </label>
-//     <ul class="xui-submenu xui-submenu-layout" id="split" role="group">
-//       <li class="xui-pickitem xui-pickitem-is-selected" aria-selected="false" tabindex="-1" role="option" id="aa" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 1 is selected</button>
-//       </li>
-//       <li class="xui-pickitem" aria-selected="false" tabindex="-1" role="option" id="bb" role="treeitem">
-//         <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Submenu item 2</button>
-//       </li>
-//     </ul>
-//     <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0" role="treeitem">
-//       <button type="button" class="xui-pickitem--body xui-pickitem--text" tabindex="-1">Item 2 is selected</button>
-//     </li>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.3
 
 .#{$ns}-pickitem--split {
 	align-items: stretch;
@@ -426,82 +837,6 @@
 	display: flex;
 	flex: 0 0 auto;
 }
-
-// Multiple choice menus
-//
-// Classes:
-// xui-pickitem--multiselect-label: Additional class to be put on the checkbox label for positioning purposes.
-// xui-pickitem--input: positions the svg vertically and pads the checkbox from the label.
-//
-// Markup:
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
-//     <input class="xui-pickitem--submenucontrol" id="submenu-check" type="checkbox" tabindex="-1" />
-//     <div class="xui-pickitem xui-pickitem--split">
-//       <label class="xui-pickitem--body xui-styledcheckbox">
-//         <input type="checkbox" tabindex="-1">
-//         <svg focusable="false" class="xui-icon xui-pickitem--input">
-//           <use role="presentation" class="xui-styledcheckbox--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//           <use role="presentation" class="xui-styledcheckbox--main" xlink:href="#xui-icon-checkbox-main"></use>
-//           <use role="presentation" class="xui-styledcheckbox--check" xlink:href="#xui-icon-checkbox-check"></use>
-//         </svg>
-//         <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
-//           This is how long text looks with split menu
-//         </span>
-//       </label>
-//     </div>
-//     <label for="submenu-check" class="xui-submenu-uicontrol" title="Close" aria-label="Close" tabindex="-1">
-//       <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//         <use role="presentation" xlink:href="#xui-icon-arrow"></use>
-//       </svg>
-//     </label>
-//     <ul class="xui-submenu xui-submenu-layout" role="group">
-//       <li class="xui-pickitem" role="treeitem">
-//         <label class="xui-pickitem--body xui-styledcheckbox">
-//           <input type="checkbox" tabindex="-1">
-//             <svg focusable="false" class="xui-icon xui-pickitem--input">
-//               <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//               <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//               <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
-//             </svg>
-//             <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
-//               This is how long text looks in a submenu
-//             </span>
-//           </label>
-//         </li>
-//         <li class="xui-pickitem" role="treeitem">
-//           <label class="xui-pickitem--body xui-styledcheckbox">
-//             <input type="checkbox" checked="checked" tabindex="-1">
-//               <svg focusable="false" class="xui-icon xui-pickitem--input">
-//                 <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//                 <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//                 <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
-//               </svg>
-//               <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
-//                 two two
-//               </span>
-//             </label>
-//           </li>
-//         </ul>
-//       </li>
-//       <li class="xui-pickitem" role="treeitem">
-//         <label class="xui-pickitem--body xui-styledcheckbox">
-//           <input type="checkbox" checked="checked" tabindex="-1" />
-//           <svg focusable="false" class="xui-icon xui-pickitem--input">
-//             <use role="presentation" class="xui-styledcheckbox--focus" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckbox--main" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckbox--check" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-checkbox-check"></use>
-//           </svg>
-//           <span class="xui-styledcheckbox--label xui-pickitem--multiselect-label xui-pickitem--text">
-//             This is how long text looks normally
-//           </span>
-//         </label>
-//       </li>
-//     </ul>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.4
 
 .#{$ns}-pickitem--uicontrol {
 	align-items: center;
@@ -533,117 +868,17 @@
 	width: 100%;
 }
 
-.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckbox--label {
+.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label {
 	padding: 6px 0 0;
 }
-
-// Icon menus
-//
-// Classes:
-// xui-pickitem--icon: positions the icon within the container and pads the content to the correct dimensions
-//
-// Markup:
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="true">
-//     <input class="xui-pickitem--submenucontrol" id="submenu-icon" type="checkbox" checked tabindex="-1" />
-//     <div class="xui-pickitem xui-pickitem--split">
-//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-attach" role="presentation"></use>
-//       </svg>
-//       <span class="xui-pickitem--body xui-pickitem--text">
-//         Attach files
-//       </span>
-//     </div>
-//     <label tabindex="0" role="button" for="submenu-icon" class="xui-submenu-uicontrol" title="Toggle submenu" aria-label="Toggle submenu">
-//       <svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-//         <use xlink:href="#xui-icon-arrow" role="presentation"></use>
-//       </svg>
-//     </label>
-//     <ul class="xui-submenu xui-submenu-layout" role="group">
-//       <li class="xui-pickitem" role="treeitem">
-//         <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-image" role="presentation"></use>
-//         </svg>
-//         <span class="xui-pickitem--body xui-pickitem--text">Image</span>
-//       </li>
-//       <li class="xui-pickitem" role="treeitem">
-//         <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-pdf" role="presentation"></use>
-//         </svg>
-//         <span class="xui-pickitem--body xui-pickitem--text">PDF</span>
-//       </li>
-//       <li class="xui-pickitem" role="treeitem">
-//         <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-document" role="presentation"></use>
-//         </svg>
-//         <span class="xui-pickitem--body xui-pickitem--text">Document</span>
-//       </li>
-//     </ul>
-//   </li>
-//   <li class="xui-pickitem" role="treeitem">
-//     <svg focusable="false" class="xui-pickitem--icon xui-icon xui-icon-color-standard">
-//       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-payment" role="presentation"></use>
-//     </svg>
-//     <span class="xui-pickitem--body xui-pickitem--text">
-//       Add payment details
-//     </span>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.5
 
 .#{$ns}-pickitem--icon {
 	display: inline;
 	margin: 0 $xui-s-standard;
 	position: absolute;
-	top: 3px;
+	top: 4px;
 
 	+ .#{$ns}-pickitem--body {
 		padding-left: $xui-s-6xlarge;
 	}
 }
-
-// Filters
-//
-// In these examples, buttons have a child wrapper node with the `xui-u-flex-inherit` utility class to
-// enable Firefox to handle `display: flex` inside `<button>` elements.
-//
-// Markup:
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-pickitem xui-pickitem-is-selected" role="treeitem">
-//     <button tabindex="0" type="button" class="xui-pickitem--body">
-//       <div class="xui-u-flex-inherit xui-pickitem--text">
-//         <span class="xui-u-flex-grow">All</span>
-//         <span class="xui-text-secondary">31</span>
-//       </div>
-//     </button>
-//   </li>
-//   <li class="xui-pickitem" role="treeitem">
-//     <button tabindex="-1" type="button" class="xui-pickitem--body">
-//       <div class="xui-u-flex-inherit xui-pickitem--text">
-//         <span class="xui-u-flex-grow">Overdue</span>
-//         <span class="xui-text-secondary">10</span>
-//       </div>
-//     </button>
-//   </li>
-// </ul>
-// <ul class="xui-picklist xui-picklist-layout" role="tree">
-//   <li class="xui-pickitem" role="treeitem">
-//     <button tabindex="-1" type="button" class="xui-pickitem--body">
-//       <div class="xui-u-flex-inherit xui-pickitem--text">
-//         <span class="xui-u-flex-grow">Activity statements</span>
-//         <span class="xui-text-secondary">3</span>
-//       </div>
-//     </button>
-//   </li>
-//   <li class="xui-pickitem" role="treeitem">
-//     <button tabindex="-1" type="button" class="xui-pickitem--body">
-//       <div class="xui-u-flex-inherit xui-pickitem--text">
-//         <span class="xui-u-flex-grow">GST</span>
-//         <span class="xui-text-secondary">18</span>
-//       </div>
-//     </button>
-//   </li>
-// </ul>
-//
-// Styleguide: Picklist.6

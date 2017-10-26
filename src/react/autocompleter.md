@@ -1,3 +1,9 @@
+<div class="xui-margin-vertical">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-building-blocks-dropdowns-autocomplete.html">Autocompleter in the XUI Documentation</a>
+</div>
 `Autocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 
 Refer to the following sections of the XUI Documentation for more information about the components that make up an `Autocompleter`.
@@ -31,10 +37,13 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
-const EmptyState = require('./components/autocompleter/EmptyState').default;
+const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
+const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
+const XUIIcon = require('./components/icon/XUIIcon').default;
+const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
@@ -108,7 +117,7 @@ class DetailedListExample extends Component {
 		} = example.state;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return <EmptyState id="no_people">No People Found</EmptyState>;
+			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
 		const items = people.map(item => (
@@ -140,13 +149,31 @@ class DetailedListExample extends Component {
 		const example = this;
 		const { value, selectedPeople } = example.state;
 
+		const footer = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								inline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Person
+							</span>
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
 		return (
-				<Autocompleter
+				<XUIAutocompleter
 					ref={ac => example.completer = ac}
 					onSearch={example.onSearchChangeHandler}
 					placeholder="Search"
 					searchValue={value}
 					dropdownFixedWidth
+					footer={footer}
 					onClose={() => this.onClose()}
 					pills={
 						selectedPeople.map(person =>
@@ -160,7 +187,7 @@ class DetailedListExample extends Component {
 					}
 				>
 					{example.getItems()}
-				</Autocompleter>
+				</XUIAutocompleter>
 		)
 	}
 }
@@ -174,10 +201,13 @@ By default the pills and search bar will wrap inside the `Autocompleter` input c
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
-const EmptyState = require('./components/autocompleter/EmptyState').default;
+const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const { Component } = require('react');
 const peopleDataSet  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
+const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
+const XUIIcon = require('./components/icon/XUIIcon').default;
+const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
@@ -190,7 +220,6 @@ const filterPeople = (data, value, peopleToExclude) => {
 	});
 };
 
-//Example to show how the children can be styled however and you also define your own search criteria.
 class DetailedListExample extends Component {
 	constructor() {
 		super();
@@ -251,7 +280,7 @@ class DetailedListExample extends Component {
 		} = example.state;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return <EmptyState id="no_people">No People Found</EmptyState>;
+			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 		}
 
 		const items = people.map(item => (
@@ -283,14 +312,32 @@ class DetailedListExample extends Component {
 		const example = this;
 		const { value, selectedPeople } = example.state;
 
+		const footer = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								inline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Person
+							</span>
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
 		return (
-				<Autocompleter
+				<XUIAutocompleter
 					ref={ac => example.completer = ac}
 					onSearch={example.onSearchChangeHandler}
 					placeholder="Search"
 					searchValue={value}
 					dropdownFixedWidth
 					disableWrapPills
+					footer={footer}
 					onClose={() => this.onClose()}
 					pills={
 						selectedPeople.map(person =>
@@ -305,7 +352,7 @@ class DetailedListExample extends Component {
 					}
 				>
 					{example.getItems()}
-				</Autocompleter>
+				</XUIAutocompleter>
 		)
 	}
 }

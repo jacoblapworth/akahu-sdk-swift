@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import debounce from 'lodash.debounce';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
-import Autocompleter from '../Autocompleter';
-import SecondarySearch from '../SecondarySearch';
-import EmptyState from '../EmptyState';
+import XUIAutocompleter from '../XUIAutocompleter';
+import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
+import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIPill from '../../pill/XUIPill';
 import XUIButton from '../../button/XUIButton';
@@ -102,7 +102,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 		render() {
 			const example = this;
 			const { data, loading, value } = example.state;
-			const noResults = <EmptyState id='no_quotes'>No Quotes Found</EmptyState>;
+			const noResults = <XUIAutocompleterEmptyState id='no_quotes'>No Quotes Found</XUIAutocompleterEmptyState>;
 			function getItems(data) {
 				if (Array.isArray(data) && data.length) {
 					return data.map(item => (
@@ -115,13 +115,13 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 			}
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Interactive Autocompleter</div>
+					<div className="xui-heading-panel xui-margin-bottom">Interactive XUIAutocompleter</div>
 					<p className='xui-text-label'>
 						Includes loading a list of data...or trump quotes.
 						Opens on focus of the Input.
 						Has a max length of 10.
 					</p>
-					<Autocompleter
+					<XUIAutocompleter
 						ref={ac => this.completer = ac}
 						loading={loading}
 						onSearch={this.onSearchChangeHandler}
@@ -134,7 +134,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						<Picklist onOptionSelect={ value => { example.setState({ value })} }>
 							{getItems(data)}
 						</Picklist>
-					</Autocompleter>
+					</XUIAutocompleter>
 				</div>
 			);
 		}
@@ -183,7 +183,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 		getItems(){
 			const example = this;
 			const { value, people } = example.state;
-			const noResults = <EmptyState id="no_people">No People Found</EmptyState>;
+			const noResults = <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
 
 			if(!Array.isArray(people) || people.length <= 0){
 				return noResults;
@@ -214,11 +214,11 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Detailed List Autocompleter</div>
+					<div className="xui-heading-panel xui-margin-bottom">Detailed List XUIAutocompleter</div>
 					<p className='xui-text-label'>
 						You can define your own children so they can be displayed in more complex ways if needed. This uses static data to search over.
 					</p>
-					<Autocompleter
+					<XUIAutocompleter
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						placeholder="Search"
@@ -227,7 +227,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						<Picklist>
 							{example.getItems()}
 						</Picklist>
-					</Autocompleter>
+					</XUIAutocompleter>
 				</div>
 			)
 		}
@@ -325,7 +325,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 		render() {
 			const example = this;
 			const { data, value, selectedItems } = example.state;
-			const noResults = <EmptyState id="no_people_multi">No People Found</EmptyState>;
+			const noResults = <XUIAutocompleterEmptyState id="no_people_multi">No People Found</XUIAutocompleterEmptyState>;
 			function getItems(data) {
 				if (Array.isArray(data) && data.length) {
 					return data.map(item => {
@@ -341,11 +341,11 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter</div>
+					<div className="xui-heading-panel xui-margin-bottom">Multiselect XUIAutocompleter</div>
 					<p className='xui-text-label'>
 						Selecting Multiple items will be rendered inside Pills.
 					</p>
-					<Autocompleter
+					<XUIAutocompleter
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						onOptionSelect={example.onOptionSelectHandler}
@@ -358,7 +358,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						<Picklist>
 							{getItems(data)}
 						</Picklist>
-					</Autocompleter>
+					</XUIAutocompleter>
 				</div>
 			);
 		}
@@ -456,7 +456,7 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 		render() {
 			const example = this;
 			const { data, value, selectedItems } = example.state;
-			const noResults = <EmptyState id="no_people_multi">No People Found</EmptyState>;
+			const noResults = <XUIAutocompleterEmptyState id="no_people_multi">No People Found</XUIAutocompleterEmptyState>;
 			function getItems(data) {
 				if (Array.isArray(data) && data.length) {
 					return data.map(item => {
@@ -472,11 +472,11 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 
 			return (
 				<div className="xui-panel xui-padding xui-margin-top">
-					<div className="xui-text-panelheading xui-margin-bottom">Multiselect Autocompleter On A Single Line</div>
+					<div className="xui-heading-panel xui-margin-bottom">Multiselect XUIAutocompleter On A Single Line</div>
 					<p className='xui-text-label'>
 						By setting the `disableWrapPill` prop, this will enable the search bar and pills to flow on a single line instead of wrap.
 					</p>
-					<Autocompleter
+					<XUIAutocompleter
 						ref={ac => example.completer = ac}
 						onSearch={example.onSearchChangeHandler}
 						onOptionSelect={example.onOptionSelectHandler}
@@ -490,13 +490,13 @@ const filterPeopleByValue = (data, value, excludedItem) => {
 						<Picklist>
 							{getItems(data)}
 						</Picklist>
-					</Autocompleter>
+					</XUIAutocompleter>
 				</div>
 			);
 		}
 	}
 
-const SecondarySearchData = [
+const XUIAutocompleterSecondarySearchData = [
 	{ props: { id: 'ss1' }, text: "Cost" },
 	{ props: { id: 'ss2' }, text: "More Costs" },
 	{ props: { id: 'ss3' }, text: "No Costs" },
@@ -521,14 +521,14 @@ function createItems(items, selectedId) {
 	}, items.text);
 }
 
-class SecondarySearchExample extends Component {
+class XUIAutocompleterSecondarySearchExample extends Component {
 	constructor() {
 		super();
 
 		const sse = this;
 
 		sse.state = {
-			data: SecondarySearchData,
+			data: XUIAutocompleterSecondarySearchData,
 			selectedItem: null,
 			value: '',
 		}
@@ -544,7 +544,7 @@ class SecondarySearchExample extends Component {
 	}
 
 	onSearch(value) {
-			const matchingData = SecondarySearchData.filter(item => item.text.toLowerCase().includes(value.toLowerCase()));
+			const matchingData = XUIAutocompleterSecondarySearchData.filter(item => item.text.toLowerCase().includes(value.toLowerCase()));
 
 			this.setState({
 				data: matchingData,
@@ -562,15 +562,15 @@ class SecondarySearchExample extends Component {
 			</XUIButton>
 		);
 
-		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<EmptyState />);
+		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<XUIAutocompleterEmptyState />);
 
 		return (
 			<div className="xui-panel xui-padding xui-margin-top">
-				<div className="xui-text-panelheading xui-margin-bottom">Search is a secondary action in the Autocompleter</div>
+				<div className="xui-heading-panel xui-margin-bottom">Search is a secondary action in the XUIAutocompleter</div>
 				<p className='xui-text-label'>
 					This autocompleter is triggered by a button.
 				</p>
-				<SecondarySearch
+				<XUIAutocompleterSecondarySearch
 					trigger={trigger}
 					onOptionSelect={sse.onOptionSelect}
 					onSearch={sse.onSearch}
@@ -581,7 +581,7 @@ class SecondarySearchExample extends Component {
 					<Picklist>
 						{items}
 					</Picklist>
-				</SecondarySearch>
+				</XUIAutocompleterSecondarySearch>
 			</div>)
 	}
 }
@@ -594,7 +594,7 @@ class SecondarySearchExample extends Component {
 			<DetailedListExample />
 			<MultiselectExample />
 			<MultiselectScrollExample />
-			<SecondarySearchExample />
+			<XUIAutocompleterSecondarySearchExample />
 		</div>, app
 	);
 })();

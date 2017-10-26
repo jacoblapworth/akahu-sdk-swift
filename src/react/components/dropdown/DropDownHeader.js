@@ -32,7 +32,7 @@ export default class DropDownHeader extends PureComponent {
 		const classes = cn('xui-dropdown--header', className);
 		const headerClasses = cn(
 			'xui-dropdown--header-container',
-			{ 'xui-u-hidden-mobile-up': onlyShowForMobile }
+			{ 'xui-u-hidden-medium xui-u-hidden-wide': onlyShowForMobile }
 		);
 
 		const backButton = onBackButtonClick ?

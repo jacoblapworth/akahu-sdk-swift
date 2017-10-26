@@ -1,3 +1,4 @@
+@import "../vars";
 /*
 	Mixins for line-heights
 
@@ -46,36 +47,6 @@
 	font-variant-numeric: tabular-nums;
 }
 
-@mixin xui-heading-large {
-	@include xui-text-line-height-compact;
-	@include xui-text-proportional-nums;
-
-	font-size: $xui-font-size-xlarge;
-	font-weight: bold;
-}
-
-@mixin xui-heading-medium {
-	@include xui-text-line-height-compact;
-
-	font-size: $xui-font-size-large;
-	font-weight: bold;
-}
-
-@mixin xui-heading-small {
-	@include xui-text-line-height-compact;
-
-	font-size: $xui-font-size-medium;
-	font-weight: bold;
-}
-
-@mixin xui-heading-xsmall {
-	@include xui-text-line-height-compact;
-
-	color: $xui-color-grey-alpha-2;
-	font-size: $xui-font-size-small;
-	font-weight: $xui-font-weight-deemphasis;
-}
-
 // Font-weight
 @mixin xui-text-emphasis {
 	font-weight: $xui-font-weight-emphasis;
@@ -113,4 +84,34 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	width: 100%;
+}
+
+@mixin xui-heading-large {
+	@include xui-text-line-height-compact;
+	@include xui-text-proportional-nums;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-xlarge;
+}
+
+@mixin xui-heading-medium {
+	@include xui-text-line-height-compact;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-large;
+}
+
+@mixin xui-heading-small {
+	@include xui-text-line-height-compact;
+	@include xui-text-emphasis;
+
+	font-size: $xui-font-size-medium;
+}
+
+@mixin xui-heading-xsmall {
+	@include xui-text-line-height-compact;
+	@include xui-text-deemphasis;
+	@include xui-text-muted;
+
+	font-size: $xui-font-size-small;
 }

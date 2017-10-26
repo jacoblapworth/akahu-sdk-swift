@@ -1,0 +1,173 @@
+/**
+ * TODO: This SCSS file is a place holder until we fully
+ * implement the new menu design. It's designed to test
+ * the new IA. Nothing more.
+ **/
+
+
+
+ nav ul {
+	margin:0;
+	padding:0;
+ }
+
+.ds-nav-link {
+	display: block;
+}
+
+.ds-nav-link--body {
+	display: inline-block;
+	padding-left: $ds-nav-gutter-mobile;
+	padding-right: $ds-nav-gutter-mobile;
+	padding-top: calc(.7em + 0.3vh);
+	padding-bottom: calc(.7em + 0.3vh);
+	width: 100%;
+	@include xui-breakpoint-wide {
+		padding-left: $ds-nav-gutter;
+		padding-right: $ds-nav-gutter;
+	}
+}
+
+// Tier 1
+
+.ds-nav-1 > .ds-nav-link .ds-nav-link--body {
+	font-size: 15px;
+	padding-top: calc(1em + 0.5vh);
+	padding-bottom: calc(1em + 0.5vh);
+	color: $xui-color-grey-2;
+}
+
+// Show the current section clearly
+.ds-is-active:before {
+    content: "";
+    background: $xui-color-grey-7;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+// Add some breathing room under open nested lists
+// and tuck them up under their parent a bit
+// Applied to li as empty uls being added
+
+.ds-is-active + ul li:first-child{
+	margin-top: -0.8em;
+	&.ds-nav-3 {
+		margin-top: -0.3em;
+	}
+}
+
+.ds-is-active + ul li:last-child {
+	margin-bottom: calc(.4em + 0.3vh);
+}
+
+.ds-nav-link svg {
+	display: none;
+}
+
+.ds-nav-li {
+	list-style-type: none;
+}
+
+.ds-nav-1,
+.ds-nav--header {
+	border-bottom: 1px solid rgba(50, 70, 90, 0.1);
+	position: relative;
+}
+
+.ds-nav--menu .ds-nav--header {
+	display: none;
+	@include xui-breakpoint-wide {
+		display: block;
+	}
+}
+
+// Header
+
+.ds-xui-logo {
+	flex: none;
+	display: block;
+	background-image: url(./kss-assets/logo.svg);
+	background-repeat: no-repeat;
+	h1 {
+		text-indent: -9999em;
+	}
+	@include xui-breakpoint-medium-and-narrow {
+		background-size: 40px;
+		transform: translateY(-5%);
+	}
+}
+
+.ds-nav--header .ds-xui-logo {
+	@include xui-breakpoint-wide {
+    width: 100%;
+    min-height: calc(24vh + 21px);
+		background-position: 50% 50%;
+	}
+}
+
+.ds-nav--responsive .ds-xui-logo {
+	background-position: 0 50%;
+	margin-left: 5vw;
+}
+
+
+.ds-nav-icon {
+	margin: -5px -8px -6px;
+	position: absolute;
+	right: $ds-nav-gutter;
+	transition: 0.1s all ease;
+}
+
+.ds-definition {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 3vh 0;
+	font-size: 15px;
+}
+
+.ds-definition--term,
+.ds-definition--description {
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+	border-bottom: 1px solid $xui-color-grey-6;
+	&:first-of-type {
+		border-top: 1px solid $xui-color-grey-6;
+	}
+}
+
+.ds-definition--term {
+	font-weight: bold;
+	color: $xui-color-grey-1;
+	flex: 1 0 20%;
+	.ds-definition-two-cols & {
+		flex-basis: 40%;
+	}
+}
+
+.ds-definition--description {
+	display: flex;
+	flex: 1 0 80%;
+	margin:0;
+	.ds-definition-two-cols & {
+		flex-basis: 60%;
+	}
+	& > * {
+		margin: 0;
+		flex: 1 0 60%;
+		&:first-child {
+			flex-basis: 40%;
+		}
+		&:only-child {
+			flex-basis: 100%;
+		}
+	}
+}
+
+.ds-note {
+	font-size: 85%;
+}

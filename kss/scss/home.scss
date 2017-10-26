@@ -1,0 +1,131 @@
+//-----------------------
+// Tiles on home page
+//-----------------------
+
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
+@import "./mixins";
+
+
+.ds-tilegroup--home {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 10vh 0;
+	@include xui-breakpoint-wide {
+		@include embiggen;
+	}
+}
+
+.ds-tile--home {
+	height: 23vw;
+	width: calc(33.33% - 2vw);
+	border-radius: 3px;
+	margin-bottom: 2vw;
+	margin-left: 2vw;
+	background-position: 50% 100%;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 0 1px $xui-color-grey-alpha-6;
+	transition-duration: 0.3s;
+	&:nth-child(3n-2) {
+		margin-left: 0;
+	}
+	@include xui-breakpoint-medium {
+		height: 52vw;
+		width: calc(50% - 2vw);
+		margin-left: 0;
+		&:nth-child(even) {
+			margin-left: 2vw;
+		}
+	}
+	@include xui-breakpoint-narrow {
+		height: 52vw;
+		width: calc(50% - 2vw);
+		margin-left: 0;
+		&:nth-child(even) {
+			margin-left: 2vw;
+		}
+	}
+}
+
+.ds-tile--home:hover {
+	transform: scale(1.03);
+	transition-timing-function: $ds-motion-curve-bouncy;
+	box-shadow: 0 0 0 1px rgba(50,70,90,0.1), 0 4px 15px rgba($xui-color-grey-1, 0.2);
+}
+
+.ds-tile--home a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: calc(0.75rem + 1vw);
+}
+
+.ds-tile--home h2,
+.ds-tile--home h3 {
+	margin-top: 0;
+	font-size: calc(1rem + 0.5vw)
+}
+
+// Specific background images
+
+.ds-tile--home-getting-started {
+	background: $xui-color-blue;
+	.xui-heading-large {
+		color: $xui-color-white;
+	}
+	background-image: url(./kss-assets/illustration/symbol.png);
+	background-size: 250%;
+	background-repeat: no-repeat;
+	background-position: 1% -200%;
+}
+
+.ds-tile--home-fundamentals {
+	background-image: url(./kss-assets/illustration/spiral.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 50% -60%;
+}
+
+.ds-tile--home-building-blocks {
+	background: $xui-color-turquoise;
+	.xui-heading-large {
+		color: $xui-color-white;
+	}
+	background-image: url(./kss-assets/illustration/block.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 10px 100px;
+}
+
+.ds-tile--home-react {
+	background-image: url(./kss-assets/illustration/code.png);
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 5% -200%;
+}
+
+.ds-tile--home-updates {
+	background: $xui-color-grey-1;
+	.xui-heading-large {
+		color: $xui-color-white;
+	}
+	background-image: url(./kss-assets/illustration/x.png);
+	background-size: 300%;
+	background-repeat: no-repeat;
+	background-position: 2% -200%;
+}
+
+.ds-tile--home-contribute {
+	background-image: url(./kss-assets/illustration/gradient.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+}

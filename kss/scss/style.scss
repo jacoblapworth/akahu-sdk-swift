@@ -1,134 +1,230 @@
 // scss-lint:disable Prefix
 @import "../../src/sass/mixins";
 @import "../../src/sass/vars";
+@import "./mixins";
 
-$ds-nav-width: 15rem;
+$ds-nav-width: 17rem;
+$ds-page-width: 80rem;
+$ds-page-header-height: 56px;
+$ds-nav-gutter: calc(0.7em + .7vw);
+$ds-nav-gutter-mobile: 5vw;
 $ds-inverted--light: rgba(0, 0, 0, 0.06);
 $ds-inverted--medium: rgba(0, 0, 0, 0.2);
+$ds-motion-curve-bouncy: cubic-bezier(0.37, 1.85, 0.43, 0.86);
+$ds-color-black: #1c242c;
+// $ds-main-side-padding provides left and right padding for the XUI Docs landing page (via the .ds-main class) when screen
+// width > 940 px. It is a temporary workaround and can be replaced by 7vmax as soon as IE/Edge support the vmax unit
+$ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
 
-.ds-main {
-	margin: auto;
-	min-height: 100%;
 
+.ds-html {
+	background: $xui-color-grey-6;
+}
+
+.ds-body {
+	background: $xui-color-white;
+	font-size: 15px;
+	min-height: 100vh;
+	position: relative;
 	@include xui-breakpoint-wide {
-		width: calc(70% - 200px);
+		padding-left: $ds-nav-width;
 	}
 }
 
-.ds-node {
-	background: $xui-color-white;
+.ds-main {
+	margin: auto;
+	padding: 3vh 5vw 3vh;
+	@include xui-breakpoint-wide {
+		padding: 12vh $ds-main-side-padding 12vh;
+		width: auto;
+	}
 }
 
-.ds-anchor {
-	margin-left: -21px;
-	visibility: hidden;
+.ds-example-wrap {
+	background: $xui-color-grey-7;
+	border: 0;
+	padding: 20px;
 }
 
-.ds-title:hover > .ds-anchor {
-	visibility: visible;
+.ds-column-wrapper {
+	column-count: 2;
+	display: block;
+	padding-top: calc(1em + 1vh);
+
+	@include xui-breakpoint-medium {
+		column-count: 3;
+	}
+
+	@include xui-breakpoint-wide {
+		column-count: 4;
+		@include embiggen;
+	}
 }
+
+.ds-column {
+	margin-bottom: calc(1.5em + 1vh);
+	break-inside: avoid;
+}
+
+.ds-column-item {
+	font-size: $xui-font-size-large;
+	font-weight: $xui-font-weight-emphasis;
+	display: block;
+	padding-right: calc(0.75em + 0.7vh);
+}
+
+.ds-column-child-wrapper {
+	padding-top: calc(0.5em + 0.5vh);
+}
+
+.ds-column-child-item {
+	font-size: $xui-font-size-small;
+	font-weight: normal;
+	padding-bottom: calc(0.5em + 0.5vh);
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+//--------------------------
+// Headings
+//--------------------------
+
+// Most vertical space should be controlled by heading elements
+// to keep parity between markdown and KSS pages
+
+$ds-section-space: calc(6rem + 2vh);
 
 .ds-title {
 	color: $xui-color-black;
 	font-family: $xui-font-family;
 	margin-left: -$xui-s-large;
 	padding-left: $xui-s-large;
+	position: relative;
+	display: flex;
+	align-items: baseline;
 }
 
 .ds-title--level-1 {
-	font-size: 32px;
+	font-size: calc(1.6em + 1.5vw);
+	letter-spacing: -0.006em;
+	line-height: 1.15;
+	// Add padding to accommodate react link
+	padding-right: 10rem;
+	@include xui-breakpoint-narrow {
+		padding-right: 3rem;
+	}
 }
 
-.ds-title--level-2 {
+.ds-title--level-2, .ds-description h2 {
+	font-size: calc(1.2em + .4vw);
+	padding-top: $ds-section-space;
+	letter-spacing: -0.006em;
+}
+
+.ds-title--level-3, .ds-description h3 {
+	padding-top: calc(4rem + 2vh);
 	margin-top: 0;
-	padding-top: 2em;
-
-	@include xui-breakpoint-wide {
-		padding-top: 3em;
-	}
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: $xui-letter-spacing-loose;
 }
 
-.ds-title--level-3 {
-	padding-top: 1em;
-
-	@include xui-breakpoint-wide {
-		padding-top: 2em;
-	}
+// use 4th level blocks as callouts
+.kss-section--depth-4 {
+	padding: 20px;
+	border: 1px solid $xui-color-grey-6;
+	border-radius: 3px;
 }
 
-.ds-nav-section {
-	background: $xui-color-white;
-	color: $xui-color-xero-blue;
-	list-style: none;
-	padding: 0;
-
-	@include xui-breakpoint-wide {
-		background: $xui-color-white;
-		margin: 3rem 0;
-		max-height: calc(100vh - 6rem);
-		max-width: 200px;
-		overflow: auto;
-		position: fixed;
-		right: 0;
-		width: 20%;
-	}
+*[class^="ds-title"] + *[class^="ds-title"] {
+	margin-top: 0;
 }
 
-.ds-nav-section::before {
-	color: $xui-color-grey-alpha-2;
-	content: "In this section";
-	padding: $xui-s-standard 0;
+*[class^="ds-title"]:first-child,
+.ds-h0:first-child {
+	margin-top: 0;
 }
 
-.ds-nav-item {
+// Page anchors
+
+.ds-anchor {
+	visibility: hidden;
 	display: inline-block;
-	font-size: 15px;
-	padding: $xui-s-small;
-
-	@include xui-breakpoint-wide {
-		font-size: $xui-font-size-text;
-		width: 100%;
-	}
+	width: 20px;
+	height: 20px;
+	text-align: left;
+	margin-left: -20px;
+	font-size: 13px;
+	transform: translateY(-20%);
 }
 
-.ds-section-wrap {
-	margin: 4em 0;
+.ds-anchor-hash {
+	vertical-align: middle;
+	margin: 0 -6px 0;
 }
 
-.ds-section-part {
-	padding: 0 $xui-s-xlarge;
+.ds-title:hover > .ds-anchor {
+	visibility: visible;
 }
 
-.ds-input-all,
-.ds-input-markup,
-.ds-input-example {
-	display: none;
+// Masssive heading
+
+.ds-h0 {
+	font-size: calc(2.4rem + 3vw);
+	letter-spacing: -0.006em;
+	line-height: 1;
+	margin-bottom: 0.4em;
 }
 
-.ds-all-label,
-.ds-markup-label,
-.ds-example-label {
+// -----------------------------------------------------------------------------
+// Descriptions & typography
+// -----------------------------------------------------------------------------
+
+
+*[class^="ds-title"] + *[class^="ds-title"] {
+	margin-top: 0;
+}
+
+*[class^="ds-title"]:first-child {
+	margin-top: 0;
+}
+
+// Page anchors
+
+.ds-anchor {
+	visibility: hidden;
 	display: inline-block;
-	margin-right: 15px;
-	padding-bottom: 10px;
+	width: 20px;
+	height: 20px;
+	text-align: left;
+	margin-left: -20px;
+	font-size: 13px;
+	transform: translateY(-20%);
 }
 
-// Labels need to be nested in another element for other styling reasons (full bleed)
-.ds-input-all:checked ~ * .ds-all-label,
-.ds-input-markup:checked ~ * .ds-markup-label,
-.ds-input-example:checked ~ * .ds-example-label {
-	border-bottom: 3px $xui-color-xero-blue solid;
-	color: $xui-color-xero-blue;
+.ds-title:hover > .ds-anchor {
+	visibility: visible;
+}
+
+code {
+	font-family: "SFMono-Regular", monospace;
+}
+
+// -----------------------------------------------------------------------------
+// Descriptions & typography
+// -----------------------------------------------------------------------------
+
+.ds-intro {
+    font-size: 19px;
+    color: $xui-color-grey-2;
 }
 
 .ds-description {
-	line-height: 1.8;
 
 	pre {
-		background: $xui-color-grey-alpha-6;
-		border: $xui-border-standard;
 		padding: 15px 25px;
 		width: 100%;
+		background: $xui-color-grey-1;
 	}
 
 	table {
@@ -145,12 +241,87 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 }
 
-.ds-markup-wrap,
-.ds-example-wrap {
-	border: $xui-border-standard;
+
+// -----------------------------------------------------------------------------
+// Tips (Do's and Don'ts)
+// -----------------------------------------------------------------------------
+
+.ds-tips {
+	display: flex;
+	align-items: flex-start;
+}
+.ds-tips--icon {
+	margin-top: -4px;
+	vertical-align: text-top;
+}
+
+.ds-tips-positive {
+	color: #57c40a;
+}
+
+.ds-tips-negative {
+	color: #f6534e;
+}
+
+.ds-tips-warning {
+	color: #f8a900;
+}
+
+.ds-tips--detail {
+	display: flex;
+	align-items: center;
+}
+
+.ds-tips:last-child {
+	margin-bottom: $xui-s-large;
+}
+
+// -----------------------------------------------------------------------------
+// KSS added structure
+// -----------------------------------------------------------------------------
+
+.ds-section-wrap {
+	@include xui-breakpoint-wide {
+		max-width: 46rem;
+	}
+}
+
+.ds-section-part-wide {
+	@include xui-breakpoint-wide {
+		width: calc(100% + 20vw);
+	}
+}
+
+section[class*="kss-section"] {
+	position: relative;
+}
+
+// -----------------------------------------------------------------------------
+// Examples
+// -----------------------------------------------------------------------------
+
+.ds-input-markup,
+.ds-input-example {
 	display: none;
-	padding-bottom: 15px;
-	padding-top: 15px;
+}
+
+.ds-markup--label{
+	font-size: $xui-font-size-small;
+	color: $xui-color-xero-blue;
+	display: inline-block;
+}
+
+// Labels need to be nested in another element for other styling reasons (full bleed)
+.ds-input-all:checked ~ * .ds-all-label,
+.ds-input-markup:checked ~ * .ds-markup-label,
+.ds-input-example:checked ~ * .ds-example-label {
+	border-bottom: 3px $xui-color-xero-blue solid;
+	color: $xui-color-xero-blue;
+}
+
+
+
+.ds-example{
 	position: relative;
 	width: 100%;
 
@@ -171,42 +342,21 @@ $ds-inverted--medium: rgba(0, 0, 0, 0.2);
 	}
 
 	.xui-mask {
-		border-radius: 3px;
 		opacity: 1;
-		padding: 20px 0;
+		padding: 60px 0;
 		position: relative;
 		width: 100%;
 		z-index: 0;
 	}
-}
-
-.ds-markup-wrap {
-	background: $xui-color-grey-alpha-6;
-}
-
-.ds-input-all:checked ~ .ds-markup-wrap,
-.ds-input-all:checked ~ .ds-example-wrap,
-.ds-input-markup:checked ~ .ds-markup-wrap,
-.ds-input-example:checked ~ .ds-example-wrap {
-	display: block;
-}
-
-.ds-input-all:checked ~ .ds-markup-wrap {
-	border-top: 0;
+	// This is handled in React, but this is here just so that the docs are more accurate
+	.xui-autocompleter--input:not(:placeholder-shown) ~ .xui-autocompleter--placeholder {
+		color: transparent;
+	}
 }
 
 // Layout.Margin and Layout.Padding
 $kss-color-margin: #fffedf;
 $kss-color-padding: #eeebff;
-
-
-.margin-example {
-	background: repeating-linear-gradient(135deg, $kss-color-margin, $kss-color-margin 6px, $xui-color-grey-5 6px, $xui-color-grey-5 7px);
-}
-
-[id*="margin-and-padding-padding"] [class*="xui-padding"] {
-	background: repeating-linear-gradient(135deg, $kss-color-padding, $kss-color-padding 6px, $xui-color-grey-5 6px, $xui-color-grey-5 7px);
-}
 
 .ds-spacing-example {
 	background: url("./kss-assets/ryanbear.gif") center center $xui-color-grey-6;
@@ -214,29 +364,73 @@ $kss-color-padding: #eeebff;
 	border: $xui-border-standard;
 }
 
-[id*="margin-and-padding"] [class*="xui-padding"],
-.margin-example {
-	border: 1px solid $xui-color-grey-5;
-	margin-bottom: 1vw;
-
-	// scss-lint:disable SelectorDepth
+.ds-space-example {
+	background: $xui-color-xero-yellow;
+	display: inline-block;
+	border: 1px solid $xui-color-xero-yellow;
 	> * {
-		background: $xui-color-white;
-		outline: 1px solid $xui-color-grey-5;
-		padding: 1vw;
+		background: $xui-color-inverted-alpha-3;
+		border: 1px solid $xui-color-xero-yellow;
+		height: $xui-s-5xlarge;
+		width: $xui-s-5xlarge;
+	}
+}
+
+.ds-column-example {
+	background: $xui-color-blue;
+	border: 1px solid $xui-color-blue;
+	padding: calc(#{$xui-s-standard} - 2px);
+	&:nth-child(n+2) {
+		margin-top: $xui-s-standard;
+	}
+	> * {
+		border: 1px solid $xui-color-blue;
+		background: $xui-color-inverted-alpha-3;
+		min-height: $xui-s-5xlarge;
+		min-width: $xui-s-5xlarge;
+	}
+	> .ds-column-example {
+		border: none;
+		padding: $xui-s-standard;
+	}
+	span {
+		color: $xui-color-white;
+		align-self: center;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+.ds-flex-example {
+	background: $xui-color-violet;
+	border: 1px solid $xui-color-violet;
+	padding: $xui-s-standard;
+
+	&.xui-u-flex-verticallycentered {
+		min-height: 200px;
+	}
+	&:nth-child(n+2) {
+		margin-top: $xui-s-standard;
+	}
+	> * {
+		background: $xui-color-inverted-alpha-3;
+		border: 1px solid $xui-color-violet;
+		height: $xui-s-5xlarge;
+		width: $xui-s-5xlarge;
 	}
 }
 
 // Dropdowns
 .xui-dropdown-layout {
-	position: relative;
-
+	&:not(.xui-dropdown--force-desktop) {
+		position: relative; // makes dropdowns visible at mobile
+		z-index: 1000; // fixes overlapping breadcrumb
+	}
 	@include xui-breakpoint-narrow {
-		margin: -15px -25px;
 		min-height: 50vh;
 		max-width: initial;
 		width: initial;
-		overflow: auto;
+		overflow: hidden;
 
 
 		.#{$ns}-select & {
@@ -245,6 +439,7 @@ $kss-color-padding: #eeebff;
 
 		.#{$ns}-dropdown--mask {
 			position: absolute;
+			width: 100%;
 		}
 
 		.#{$ns}-dropdown--body {
@@ -254,28 +449,12 @@ $kss-color-padding: #eeebff;
 	}
 }
 
-// Grid Layouts
-[id*="grid-layout"] .xui-row,
-[id*="grid-layout"] .xui-row-grid,
-[id*="grid-layout"] .xui-row-flex {
-	margin-bottom: 10px;
-
-	&:last-child {
-		margin-bottom: 0;
+.icon-main {
+	h4 {
+		margin-top: $xui-s-xlarge;
+		margin-bottom: $xui-s-large;
+		color: $xui-color-grey-1;
 	}
-}
-
-[id*="grid-layout"] [class*="column"] {
-	background: rgba($xui-color-xero-blue, 0.5);
-	border: $xui-border-standard;
-	color: inherit;
-	font-size: 11px;
-	padding: 10px;
-	text-transform: uppercase;
-}
-
-[id*="grid-layout"] .xui-grid {
-	margin: 20px 0;
 }
 
 .ds-icons {
@@ -293,6 +472,55 @@ $kss-color-padding: #eeebff;
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+
+.ds-classtable {
+	width: 100%;
+}
+
+.ds-classtable-row {
+	display: flex;
+	flex-direction: column;
+	@include xui-breakpoint-medium-and-wide {
+		display: table-row;
+	}
+	border-bottom: 1px solid $xui-color-grey-6;
+	&:first-of-type {
+		border-top: 1px solid $xui-color-grey-6;
+	}
+}
+
+.ds-classtable-classname {
+	padding: $xui-s-large 0 0 0;
+	white-space: nowrap;
+	width: 40%;
+	@include xui-breakpoint-medium-and-wide {
+		padding: $xui-s-small $xui-s-small $xui-s-small 0;
+	}
+}
+
+.ds-classtable-description {
+	padding: $xui-s-xsmall 0 $xui-s-large;
+	@include xui-breakpoint-medium-and-wide{
+		padding: $xui-s-small 0 $xui-s-small $xui-s-small;
+	}
+}
+
+.ds-parameters-table-header {
+	color: $xui-color-grey-1;
+	font-weight: bold;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.ds-parameters-table-name {
+	white-space: nowrap;
+	width: 1%;
+}
+
+.ds-parameters-table-defaultvalue {
+	white-space: nowrap;
+	width: 1%;
 }
 
 // -----------------------------------------------------------------------------
@@ -323,53 +551,8 @@ $kss-color-padding: #eeebff;
 	}
 }
 
-.ds-nav--container {
-	background: $xui-color-white;
-	margin: auto;
-
-	.xui-tabgroup-vertical:nth-child(n+2) {
-		border-top: 0;
-	}
-
-	.xui-verticaltab {
-		&:not(.xui-section-title):hover {
-			background-color: $ds-inverted--light;
-		}
-
-		&:not(.xui-verticaltab-is-selected):hover {
-			border-left-color: transparent;
-		}
-	}
-
-	.xui-verticaltab-is-selected {
-		background-color: $ds-inverted--light;
-	}
-
-	.xui-section-title:hover {
-		background-color: transparent;
-	}
-}
-
-.ds-nav--icon {
-	pointer-events: none;
-	position: absolute;
-	right: $xui-s-standard;
-	top: 25px;
-	transition: 0.1s all ease;
-}
-
-.ds-nav--submenu {
-	font-weight: normal;
-	margin: 0;
-	max-height: 0;
-	opacity: 0.8;
-	overflow: hidden;
-	padding: 0;
-	visibility: hidden;
-}
-
 .ds-nav--link {
-	color: rgba($xui-color-grey-1, 0.95);
+	color: $xui-color-grey-2;
 	display: block;
 	-webkit-font-smoothing: antialiased;
 }
@@ -380,52 +563,13 @@ $kss-color-padding: #eeebff;
 	padding-bottom: 2rem;
 
 	@include xui-breakpoint-wide {
+		border-right: 1px solid $xui-color-grey-6;
 		bottom: 0;
 		max-width: 320px;
 		width: calc(20% - 1px);
 	}
 }
 
-.ds-footer {
-	background: $xui-color-grey-6;
-
-	@include xui-breakpoint-wide {
-		float: right;
-		margin-left: calc(20% - 1px);
-		min-width: calc(100% - 320px);
-		width: calc(100% - 20% + 1px);
-	}
-}
-
-.ds-nav--title {
-	border-bottom: 1px solid $xui-color-grey-alpha-6;
-	border-left: 0;
-	font-weight: bold;
-	position: relative;
-
-	&:hover {
-		background: transparent;
-		border-left: 0;
-	}
-}
-
-.ds-nav--header {
-	&::before {
-		content: "";
-		display: inline-block;
-		height: 50px;
-		margin-right: -0.25rem;
-		vertical-align: middle;
-	}
-}
-
-.ds-nav--header-title {
-	display: inline-block;
-	font-size: $xui-font-size-heading;
-	font-weight: bold;
-	margin-left: 60px;
-	vertical-align: middle;
-}
 
 .ds-xero-icon {
 	height: 60px;
@@ -435,9 +579,10 @@ $kss-color-padding: #eeebff;
 
 .ds-nav {
 	@include xui-breakpoint-wide {
-		border-right: $xui-border-standard;
 		position: fixed;
 		top: 0;
+		left: 0;
+		width: $ds-nav-width;
 	}
 }
 
@@ -477,10 +622,108 @@ $kss-color-padding: #eeebff;
 	padding-bottom: 100%;
 }
 
+.ds-color-swatch-code {
+	background: transparent;
+	font-size: $xui-font-size-xsmall;
+	position: relative;
+	font-weight: bold;
+}
+
+.ds-color-swatch-code-light {
+	color: $xui-color-white;
+}
+
+.ds-color-swatch {
+	min-height: 60px;
+	padding: $xui-s-small;
+	align-items: flex-start;
+	display: flex;
+	flex-flow: column nowrap;
+	height: $xui-s-6xlarge;
+	justify-content: space-between;
+	width: 100%;
+	.ds-color-swatch-code:nth-child(n+2) {
+		text-transform: uppercase;
+	}
+	code {
+		font-size: 11px;
+	}
+}
+
+.ds-border-variable {
+	font-size: 13px;
+	position: relative;
+}
+
+.ds-color-swatch-container {
+	min-width: 240px;
+}
+
+.ds-background-blue {
+	background-color: $xui-color-blue;
+}
+
+.ds-color-swatch-main {
+	min-height: 150px;
+}
+
+.ds-border-swatch-top {
+	min-height: 0;
+	max-height: 60px;
+}
+
+.ds-border-swatch-bottom {
+	align-self: flex-end;
+	min-height: 0;
+	max-height: 60px;
+}
+
+.ds-border-swatch {
+	background-color: $xui-color-white;
+	height: 100%;
+	width: 100%;
+	code {
+		display: none;
+	}
+}
+
+.ds-border-swatch-container {
+	display: flex;
+	background-color: $xui-color-grey-6;
+	height: 240px;
+	padding: $xui-s-large;
+	width: 240px;
+
+}
+
+.ds-color-section {
+	align-items: flex-start;
+	display: flex;
+	flex-flow: row nowrap;
+	.ds-border-swatch-container {
+		margin-top: $xui-s-large;
+	}
+}
+
+.ds-brights-section {
+	display: flex;
+	flex-flow: row wrap;
+
+	@include xui-breakpoint-wide {
+		@include embiggen;
+	}
+}
+
+.ds-brights-group {
+	display: flex;
+	flex: 0 0 220px;
+	flex-flow: column nowrap;
+}
+
 .ds-token-text {
 	background: none;
 	color: inherit;
-	font-size: $xui-font-size-section-title;
+	font-size: $xui-font-size-medium;
 	font-weight: bold;
 	padding: 0
 }
@@ -509,36 +752,184 @@ $kss-color-padding: #eeebff;
 	padding: 2vh;
 }
 
-// ------------------------------------------------------
-// Show and style scrollbars (for our massively mac audience)
-// ------------------------------------------------------
-$ds-scrollbar-xlight: rgba(0, 0, 0, 0.05);
-$ds-scrollbar-light: rgba(0, 0, 0, 0.1);
-$ds-scrollbar-strong: rgba(0, 0, 0, 0.4);
-
-
-::-webkit-scrollbar {
-	height: 7px;
-	width: 7px;
+// Icons
+.icon-icons {
+	border: 1px solid #ebedef;
+	margin: 0 -1px -1px 0;
+	min-width: 6rem;
+	padding: 1rem 0 1.3rem;
+	width: 8.33%;
 }
 
-::-webkit-scrollbar-track {
-	background: $ds-scrollbar-light;
-	border-radius: 0;
+// -----------------------------------------------------------------------------
+// Breadcrumb
+// -----------------------------------------------------------------------------
+
+.ds-page-header {
+		margin: 0;
+		padding: 0 $ds-nav-gutter;
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: auto;
+		z-index: 8888;
+		background: #fff;
+		border-bottom: 1px solid $xui-color-grey-6;
+		height: $ds-page-header-height;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	@include xui-breakpoint-medium-and-narrow {
+		padding: 0 5vw;
+	}
+	@include xui-breakpoint-wide {
+		position: fixed;
+		left: $ds-nav-width;
+		width: calc(100vw - #{$ds-nav-width});
+	}
 }
 
-::-webkit-scrollbar-thumb {
-	background: $ds-inverted--medium;
-	border-radius: 5px;
+.ds-steps {
+	margin-left: -10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-	background: $xui-color-grey-alpha-5;
+.ds-step:nth-last-child(n+2) {
+	margin-right: 10px;
 }
 
-::-webkit-scrollbar-thumb:window-inactive {
-	background: $ds-scrollbar-xlight;
+.ds-step--icon {
+	left: -20px;
 }
 
-@import "./markdown";
-@import "./prettyprint";
+.xui-steps-interactive .xui-step-is-complete .ds-step--body {
+	padding: 5px 10px;
+	font-size: 13px;
+	color: $xui-color-grey-2;
+	&:hover {
+		color: $xui-color-grey-1;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Jump nav
+// -----------------------------------------------------------------------------
+
+
+.ds-menu-link {
+	@include xui-breakpoint-medium-and-narrow {
+		position: absolute;
+		top: 30px;
+		right: 20px;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Component link
+// -----------------------------------------------------------------------------
+
+.ds-component-link  {
+	position: absolute;
+	right: 0;
+	top: 0;
+	@include xui-breakpoint-medium-and-wide {
+		top: 0.7em; // visual correction when text bigger
+	}
+	.kss-section--depth-2 & {
+		top: $ds-section-space; // different positioning if used in a secondary section
+	}
+}
+
+a.ds-component-link:before {
+    content: "React component";
+    display: block;
+    position: absolute;
+    width: 9em;
+    background: $xui-color-grey-6;
+    right: 100%;
+    padding: 0.3em 0.3em 0.2em;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    transform: translateY(-2px);
+}
+
+a.ds-component-link:after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid $xui-color-grey-6;
+    transform: translateX(-1px) translateY(-2px);
+    z-index: 10;
+    right: calc(100% - 5px);
+}
+
+.ds-component-link:after,
+.ds-component-link:before {
+	transition-timing-function: cubic-bezier(0.565, -10, 0.605, 10);
+	transition-property: transform;
+	transition-duration: 0.25s;
+	@include xui-breakpoint-narrow {
+		display: none;
+	}
+}
+
+.ds-component-link:hover {
+	@include xui-breakpoint-medium-and-wide {
+		&:after {
+			transform: translateX(-2px) translateY(-2px);
+		}
+		&:before {
+			transform: translateX(-1px) translateY(-2px);
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Status Flags
+// -----------------------------------------------------------------------------
+
+.ds-flag {
+	background: $xui-color-grey-3;
+	display: inline-block;
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: $xui-letter-spacing-loose;
+	text-transform: uppercase;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	margin-right: 0.2em;
+	position: relative;
+	top: -0.2em;
+	&:not(:first-child) {
+		margin-left: 0.2em;
+	}
+}
+
+.ds-status--experimental {
+	background: $xui-color-xero-purple;
+}
+
+.ds-status--underreview {
+	background: $xui-color-xero-yellow;
+}
+
+.ds-status--seekingfeedback {
+	background: $xui-color-xero-green;
+}
+
+.ds-status--deprecated {
+	background: $xui-color-xero-red;
+}
+
+@import "./cards";
+@import "./markup";
+@import "./copy-code-blocks";
+@import "./home";
+@import "./redesign";
+@import "./example";

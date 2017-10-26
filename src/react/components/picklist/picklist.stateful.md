@@ -1,14 +1,13 @@
-The StatefulPicklist is a component that wraps the Picklist to keep track of which element is highlighted and APIs to manipulate highlighting behavior. These APIs are used by components like the `DropDown` to allow the user to navigate through the menu and select an item.  Detailed information on these APIs can be found in the [DropDown section](#dropdown).
+The `StatefulPicklist` wraps the `Picklist` to keep track of which element is highlighted and can take care of highlighting behaviour within itself. It also Exposes these methods to control highlighting behavior from a wrapping component. A good example is `DropDown` which manages the users navigation on the menu and selecting an item. They're also available if a custom wrapper for `StatefulPicklist` is needed. Detailed information on the API can be found in the [DropDown section](#dropdown).
 
-
-### Components Using Stateful Picklists
+### Components Using StatefulPicklist
 * [DropDown](#dropdown)
 * [SelectBox, inherited from Dropdown](#selectbox)
 * [Autocompleter](#autocompleter)
 
 
-### Using Stateful Picklists
-In most cases you would be able to use a wrapper around the StatefulPicklist, such as the ones listed above.  However, for some cases you may need to roll your own. To understand how to correctly implement the component, you should be aware of what behaviours StatefulPicklist covers:
+### Using StatefulPicklist
+In most cases you would be able to use a wrapper around the `StatefulPicklist`, such as the ones listed above.  However, for some cases you may need to roll your own. To understand how to correctly implement the component, you should be aware of what behaviours `StatefulPicklist` covers:
 
 #### It Includes
 * Manages state of highlighted items.
@@ -22,7 +21,7 @@ In most cases you would be able to use a wrapper around the StatefulPicklist, su
 * Focus of DOM elements.
 
 ### Example
-A thin wrapper around the Stateful Picklist to demonstrate the bare minimum to build a working component.
+A thin wrapper around the `StatefulPicklist` to demonstrate the bare minimum to build a working component.
 
 ```
 const Pickitem = require('../picklist/Pickitem').default;

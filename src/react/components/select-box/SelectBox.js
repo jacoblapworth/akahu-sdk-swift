@@ -53,7 +53,6 @@ export default class SelectBox extends Component {
 		});
 		const buttonClasses = cn({
 			'xui-text-truncated': props.isTextTruncated,
-			'xui-select--button-is-selected': !props.buttonVariant && selectBox.isDropDownOpen(),
 			'xui-select--button': !props.buttonVariant,
 			[props.buttonClasses]: !!props.buttonClasses
 		});

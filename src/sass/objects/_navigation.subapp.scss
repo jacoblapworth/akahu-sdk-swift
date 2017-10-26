@@ -1,101 +1,15 @@
-// Sub application Navigation
-//
-// New styles for app sub-navigation, meant to show more detail around the current page, and give optional patterns for displaying action buttons, or breadcrumbs for navigation.
-//
-// This component uses the `xui-page-width-standard` class to center align its navigation, and title sub-components to the widths of your content.
-//
-// Styleguide: Navigation.3
-
-// Standard
-//
-// Classes:
-// xui-pageheading: Container for a page heading (eg navigation)
-// xui-pageheading--breadcrumbs: Container for page heading breadcrumbs
-// xui-pageheading--content: Container for page heading content (eg headings and buttons)
-// xui-pageheading--content-layout: Recommended layout for page heading content
-// xui-pageheading--title: Style for a page heading title
-// xui-breadcrumb: Style for breadcrumb text
-// xui-breadcrumb--icon: Style for icons between breadcrumb text
-//
-// Markup:
-// <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-pageheading--title xui-page-width-standard">
-//     <h1 class="xui-pageheading--title">Sales</h1>
-//   </div>
-// </header>
-// <br />
-// <header class="xui-pageheading">
-//   <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
-//     <h1 class="xui-pageheading--title">Sales</h1>
-//     <div class="xui-actions">
-//        <button type="button" class="xui-button xui-button-standard" style="width:initial">
-//           Options
-//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//        </button>
-//        <button type="button" class="xui-button xui-button-create xui-margin-left-small" style="width:initial">
-//           New
-//           <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//        </button>
-//     </div>
-//   </div>
-// </header>
-// <br />
-// <header class="xui-pageheading">
-//   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb">
-//      <ol class="xui-pageheading--breadcrumbs">
-//         <li class="xui-breadcrumb" aria-selected="false">
-//         	<a href="#">Sales</a></li>
-//         	<svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
-//         <li class="xui-breadcrumb" aria-selected="true">
-//         	Invoices
-//         </li>
-//      </ol>
-//      <div class="xui-buttongroup">
-//         <button type="button" class="xui-button xui-button-grouped xui-button-create" style="width:initial">New Invoice</button>
-//         <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split" style="width:initial;">
-//            <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//         </button>
-//      </div>
-//   </nav>
-// </header>
-// <br />
-// <header class="xui-pageheading">
-//   <nav class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard" role="navigation" aria-label="Sales breadcrumb 2">
-//     <ol class="xui-pageheading--breadcrumbs">
-//       <li class="xui-breadcrumb" aria-selected="false">
-//       	 <a href="#">Sales</a></li>
-//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
-//       <li class="xui-breadcrumb" aria-selected="false">
-//       	 <a href="#">Invoices</a></li>
-//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-icon-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
-//       <li class="xui-breadcrumb" aria-selected="true">
-//       	 INV-001
-//       </li>
-//     </ol>
-//     <button type="button" class="xui-button xui-button-standard" style="width:initial;">
-//       Options
-//       <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//     </button>
-//   </nav>
-// </header>
-//
-// Styleguide: Navigation.4
-
-// Parent container
-// The coloured background goes full width of the page
 .#{$ns}-pageheading {
-	align-items: center;
+	align-items: stretch;
 	background-color: $xui-color-white;
-	border-bottom: $xui-border-standard;
+	box-shadow: $xui-shadow-border-bottom;
 	display: flex;
-	flex-wrap: no-wrap;
+	flex-wrap: nowrap;
 	min-height: 60px;
 	overflow: hidden;
 }
 
-// Content container
 .#{$ns}-pageheading--content {
-	align-items: center;
+	align-items: stretch;
 	display: flex;
 	justify-content: space-between;
 }
@@ -110,22 +24,35 @@
 }
 
 .#{$ns}-pageheading--content-layout {
-	@include xui-margin-vertical($xui-s-small);
 	flex-flow: row wrap;
-
+	width: 100%;
+	@include xui-margin-horizontal($xui-s-small); // so page widths are not necessary
 	&.#{$ns}-page-width-standard {
-		@media (max-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
-			@include xui-margin-horizontal($xui-s-small);
+		@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+			@include xui-margin-horizontal(auto);
 		}
 	}
-
 	&.#{$ns}-page-width-large {
-		@media (max-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
-			@include xui-margin-horizontal($xui-s-small);
+		@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+			@include xui-margin-horizontal(auto);
+		}
+	}
+	.#{$ns}-pageheading--title {
+		@include xui-padding-left($xui-s-small);
+		&.#{$ns}-page-width-standard {
+			@media (min-width:  #{$xui-page-width-small + 2 * $xui-s-small}) {
+				@include xui-padding-left(0);
+			}
+		}
+		&.#{$ns}-page-width-large {
+			@media (min-width:  #{$xui-page-width-large + 2 * $xui-s-small}) {
+				@include xui-padding-left(0);
+			}
 		}
 	}
 }
 
+// Deprecated in XUI12, remove in XUI13
 .#{$ns}-pageheading--content-layout-titleonly {
 	height: 40px;
 }
@@ -135,52 +62,50 @@
 	font-weight: bold;
 }
 
-.#{$ns}-breadcrumb--icon {
-	color: $xui-color-grey-alpha-2;
+.#{$ns}-breadcrumb--link {
+	@include xui-button-borderless($xui-color-xero-blue, $xui-color-xero-dark-blue);
+	min-height: $xui-input-height-small;
+	outline: none;
+	padding: 6px $xui-s-small;
+	.#{$ns}-breadcrumb:first-of-type & {
+		@include xui-margin-right(-$xui-s-small);
+	}
+	.#{$ns}-breadcrumb:nth-of-type(n+2) & {
+		@include xui-margin-horizontal(-$xui-s-small);
+	}
 }
 
-// With Tabs
-//
-// Markup:
-// <header class="xui-pageheading">
-//   <div class="xui-page-width-standard">
-//     <div class="xui-pageheading--content xui-pageheading--content-layout">
-//       <h1 id="page-title" class="xui-pageheading--title">Sales</h1>
-//     </div>
-//     <div class="xui-pageheading--tabs xui-padding-top-large" role="navigation" aria-labelledby="page-title">
-//       <ul class="xui-tabgroup xui-tabgroup-layout">
-//         <li class="xui-tab xui-tab-pageheading" aria-selected="false">
-//           <a class="xui-tab--body" href="#g-header">Page heading</a>
-//         </li>
-//         <li class="xui-tab xui-tab-pageheading xui-tab-pageheading-is-selected" aria-selected="true">
-//           <a class="xui-tab--body" href="#selected_pagenav">Selected heading</a>
-//         </li>
-//       </ul>
-//     </div>
-//   </div>
-// </header>
-//
-// Styleguide: Navigation.3.2
-
-// TODO: remove in XUI 12
-.#{$ns}-pageheading-has-tabs {
-	flex-direction: column;
-	justify-content: space-between;
+.#{$ns}-breadcrumb--icon {
+	color: $xui-color-grey-alpha-2;
+	margin-top: 3px;
 }
 
 .#{$ns}-pageheading--title {
+	align-items: center;
+	display: flex;
 	flex: 1 1 auto;
 	font-size: $xui-font-size-large;
 	font-weight: bold;
-	margin: 0 $xui-s-small 0 0;
+	margin: 10px 0; // Replaces margins removed from .xui-pageheading--content-layout, remove in XUI13
 }
 
-// Deprecated Sub Application Navigation
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// Classes:
-// xui-pageheading--content-layout-titleonly: Use 'xui-pageheading--title' instead.
-//
-// Styleguide: Navigation.99.1.4
+.#{$ns}-pageheading--tabs {
+	align-items: stretch;
+	display: flex;
+	.#{$ns}-picklist-horizontal {
+		margin-left: $xui-s-2xlarge;
+	}
+}
+
+.#{$ns}-pageheading--actions {
+	align-items: center; /* Required for button height not to stretch */
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+	> .#{$ns}-button {
+		margin-left: $xui-s-small;
+	}
+	> .#{$ns}-buttongroup {
+		margin-left: $xui-s-small;
+	}
+}

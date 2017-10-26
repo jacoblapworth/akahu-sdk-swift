@@ -8,15 +8,3 @@ $xui-button-variants-background-colors: (
 	create : $xui-color-xero-green,
 	negative : $xui-color-xero-red
 );
-
-// TODO: Remove this in XUI 12 as it is no longer used
-$xui-button-sizes: (
-	small : (padding: 6px $xui-s-small)
-);
-
-// TODO: Deprecated, remove in XUI 12
-$xui-button-variants-divider-colors: (
-	main : $xui-color-xero-blue-divider,
-	create : $xui-color-xero-green-divider,
-	negative : $xui-color-xero-red-divider
-);

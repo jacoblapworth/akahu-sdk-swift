@@ -223,6 +223,7 @@ class SimpleDropDownDatePicker extends React.Component {
 }
 <SimpleDropDownDatePicker />
 ```
+As mentioned, the above example is not using dropdown with its optimised use case so we need to manually handle some interactions. See the key points below for more details.
 
 #### Props required for this behaviour
 

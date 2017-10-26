@@ -2,72 +2,29 @@
 @import "../vars";
 
 // Alignment
-//
-// Classes that can be added to change the alignment of text.
-//
-// Classes:
-// xui-text-align-left: The default alignment for most other UI elements and body copy
-// xui-text-align-center: Helpful for centering headings and other short paragraphs (i.e. empty states, no results)
-// xui-text-align-right: Mostly for numeric data, to assist with scanning via the decimal place
-//
-// Markup:
-//  <p class="xui-text-align-left xui-text-emphasis">Email Address</p>
-//  <p class="xui-text-align-center xui-text-muted">No Results Found</p>
-//  <p class="xui-text-align-right xui-heading-large xui-margin-none">100.00</p>
-//  <p class="xui-text-align-right xui-heading-large xui-margin-none">10.00</p>
-//
-// Styleguide: Typography.52
 
-.#{$ns}-text-leftaligned, .#{$ns}-text-align-left {
+
+.#{$ns}-text-align-left {
 	text-align: left;
 }
 
-.#{$ns}-text-centered, .#{$ns}-text-align-center {
+.#{$ns}-text-align-center {
 	text-align: center;
 }
 
-.#{$ns}-text-number,
-.#{$ns}-text-rightaligned,
 .#{$ns}-text-align-right {
 	text-align: right;
 }
 
 // Truncation
-//
-// Forces text to truncate after a single line of text, to suggest overflow, whilst still remaining within the bounds of the parent container.
-//
-// To truncate after an arbitrary number of lines, you will need a JavaScript component such as [line-clamping](https://github.dev.xero.com/reactlabs/line-clamping)
-//
-// Classes:
-// xui-text-truncated: Modifier for truncated text with an ellipsis
-//
-// Markup:
-//  <div style="width: 250px;">
-//    <p class="xui-text-truncated">Hey Nathaniel, just wondering if it is ok for us to go ahead with the proposal from this morning?</p>
-//  </div>
-//
-// Styleguide: Typography.53
+
 
 .#{$ns}-text-truncated {
 	@include xui-text-truncated;
 }
 
 // Word-break
-//
-// Long words without hyphens won't automatically break when they reach the edge of their container.
-// They either enlarge the container, overflow or a scrollbar is created.
-// Sometimes we want these words to break mid-way and flow to the next line instead of truncating them
-// and losing some information.
-//
-// Classes:
-// xui-text-wordbreak: Helps long words like URLs not break out of their parent container
-//
-// Markup:
-//  <div style="width: 200px;">
-//    <p class="xui-text-wordbreak">https://github.dev.xero.com/pages/UXE/xui/#10.14.0/index.html</p>
-//  </div>
-//
-// Styleguide: Typography.54
+
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
@@ -91,116 +48,43 @@
 /* doiuse-enable */
 
 //  Colors
-//
-// Styleguide: Typography.58
 
-// Common colors
-//
-// `xui-text-color-standard`, `xui-text-color-black` the primary text color in XUI.
-//
-// `xui-text-color-muted`, `xui-text-muted` for text that requires reduced hierarchy. It can be used independently or via `.xui-text-secondary`
-//
-// `xui-text-color-faint` should be used very sparingly for inconsequential things due to it's poor accessibility
-//
-// Markup:
-// <p class="xui-text-color-standard">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-color-muted">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-color-faint">The quick brown fox jumps over the lazy dog</p>
-//
-// Styleguide: Typography.58.1
 
-// Text colors
-//
-// `xui-text-positive`	Positive sentiment text
-//
-// `xui-text-negative`	Negative sentiment text
-//
-// Markup:
-// <p class="xui-text-positive">The quick brown fox jumps over the lazy dog</p>
-// <p class="xui-text-negative">The quick brown fox jumps over the lazy dog</p>
-//
-// Styleguide: Typography.58.2
-
-.#{$ns}-text-color-black,
-.#{$ns}-text-color-standard {
+.#{$ns}-textcolor-standard {
 	color: $xui-color-black;
 }
 
-.#{$ns}-text-color-white {
-	color: $xui-color-white;
-}
-
-.#{$ns}-text-color-icon {
-	color: $xui-color-grey-alpha-2;
-}
-
-.#{$ns}-text-muted,
-.#{$ns}-text-color-muted {
+.#{$ns}-textcolor-muted {
 	@include xui-text-muted;
 }
 
-.#{$ns}-text-color-faint {
+.#{$ns}-textcolor-faint {
 	color: $xui-color-grey-alpha-3;
 }
 
-.#{$ns}-text-positive {
+.#{$ns}-textcolor-icon {
+	color: $xui-color-grey-alpha-2;
+}
+
+.#{$ns}-textcolor-positive {
 	@include xui-text-positive;
 }
 
-.#{$ns}-text-negative {
+.#{$ns}-textcolor-negative {
 	@include xui-text-negative;
 }
 
-// Inverted text
-//
-// Inverts the text to provide a dark background and white text. These are most
-// generic types for inverted colors. For inverted buttons please see [Icons](section-buttons.html#buttons-7) and [Toggles](section-buttons.html#buttons-10) in Buttons.
-//
-// Classes:
-// xui-text-inverted: Style for inverted text, includes background color and text color
-// xui-text-color-white: explicit color for text
-// xui-text-color-white-muted: white at 80% used for ...
-// xui-text-color-white-faint: white at 50% used for ...
-//
-// Markup:
-// <div class="xui-row xui-text-inverted xui-padding">
-//  <div class="xui-column-4-of-12 xui-heading-medium">
-//    Preview Invoice <span class="xui-text-deemphasis">INV0001</span>
-//  </div>
-//  <div class="xui-column-4-of-12 xui-text-color-white-faint xui-text-centered">
-//    Saving...
-//  </div>
-//  <div class="xui-column-4-of-12 xui-text-align-right xui-text-color-white-muted">
-//  <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-edit" role="presentation"/></svg>
-//  Edit
-//  </div>
-// </div>
-//
-// Styleguide: Typography.58.3
+// Inverted colors
 
-// Deprecated Text Alignment
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// The following alignment classes have been renamed.
-//
-// Classes:
-// xui-text-leftaligned: Use xui-text-align-left instead
-// xui-text-centered: Use xui-text-align-center instead
-// xui-text-rightaligned: Use xui-text-align-right instead
-//
-// Styleguide: Typography.103
 
-.#{$ns}-text-inverted {
-	background-color: $xui-color-grey-1;
+.#{$ns}-textcolor-inverted {
 	color: $xui-color-white;
 }
 
-.#{$ns}-text-color-white-muted {
+.#{$ns}-textcolor-inverted-muted {
 	color: $xui-color-white-muted;
 }
 
-.#{$ns}-text-color-white-faint {
+.#{$ns}-textcolor-inverted-faint {
 	color: $xui-color-white-faint;
 }

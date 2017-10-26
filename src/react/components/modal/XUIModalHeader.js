@@ -5,6 +5,7 @@ import cn from 'classnames';
 export default function XUIModalHeader({ className, children, defaultLayout }) {
 	const classNames = cn(
 		'xui-modal--header',
+		'xui-modal--heading',
 		{ 'xui-padding-left-large': defaultLayout },
 		className
 	);

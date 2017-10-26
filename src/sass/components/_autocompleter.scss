@@ -1,6 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
+
 .#{$ns}-autocompleter--input {
 	background-color: transparent;
 	height: 100%;
@@ -19,7 +20,7 @@
 	// in the input and when the custom placeholder disappears in IE11
 	&:not([value=""]) ~ .#{$ns}-autocompleter--placeholder {
 		color: transparent;
-		-webkit-text-fill-color: transparent
+		-webkit-text-fill-color: transparent;
 	}
 }
 
@@ -50,7 +51,10 @@
 	@include xui-disabled-form;
 
 	.#{$ns}-autocompleter--placeholder {
-		-webkit-text-fill-color: $xui-color-grey-3;
+		-webkit-text-fill-color: transparent;
+	}
+	input.#{$ns}-input {
+		background: transparent;
 	}
 }
 
@@ -64,7 +68,7 @@
 	flex-wrap: wrap;
 }
 
-.#{$ns}-autocompleter--input-wrapper {
+.#{$ns}-autocompleter--inputwrapper {
 	align-items: center;
 	display: inline-flex;
 	flex: 1;

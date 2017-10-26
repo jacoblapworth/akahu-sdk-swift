@@ -1,46 +1,7 @@
 @import "../mixins";
 @import "../vars";
 
-// Switch
-//
-// UI Switches
-//
-// The state of the switch reflects the checked attribute of the underlying input.
-//
-// When the input is `disabled`, you should use the global `.xui-is-disabled` class on the `.xui-switch` element.
-//
-// Components: Switch
-//
-// Classes:
-// xui-switch: Container for a switch
-// xui-switch--checkbox: Subcomponent for a switch checkbox
-// xui-switch--control: Container for switch appearance
-// xui-switch--labeltext: Container for optioinal switch label
-//
-//  Markup:
-// <label class="xui-switch">
-//   <input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox">
-//   <span class="xui-switch--control"></span>
-//   <span class="xui-switch--labeltext">Switch off</span>
-// </label>
-// <label class="xui-switch">
-//   <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
-//   <span class="xui-switch--control"></span>
-//   <span class="xui-switch--labeltext">Switch on</span>
-// </label>
-// <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" disabled checked class="xui-u-hidden-visually xui-switch--checkbox">
-//   <span class="xui-switch--control"></span>
-//   <span class="xui-switch--labeltext">Switch disabled</span>
-// </label>
-// <label class="xui-switch">
-//   <input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox">
-//   <span class="xui-switch--control"></span>
-// </label>
-//
-// Weight: 4.1
-//
-// Styleguide: Switch
+
 
 .#{$ns}-switch {
 	display: inline-block;
@@ -51,10 +12,12 @@
 		// Disabled due to iOS - no cursor, but we still want this for desktop clients
 		/* doiuse-disable */
 		cursor: not-allowed;
+		opacity: 1;
 		/* doiuse-enable */
 	}
 }
 
+// TODO: Deprecated in XUI12, remove in XUI13
 .#{$ns}-switch--labeltext {
 	display: inline-block;
 	margin-left: 5px;
@@ -73,7 +36,6 @@
 	user-select: none;
 	vertical-align: middle;
 	width: 40px;
-
 	&::before {
 		background-color: $xui-color-white;
 		border-radius: 50%;
@@ -85,17 +47,22 @@
 		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 		width: 18px;
 	}
-
+	.#{$ns}-is-disabled & {
+		background: $xui-color-grey-alpha-6;
+	}
 }
 
 .#{$ns}-switch--checkbox {
+	@include xui-utility-hidden-visually;
 	&:focus + .#{$ns}-switch--control {
 		box-shadow: $xui-shadow-focus;
 	}
 
 	&:checked + .#{$ns}-switch--control {
 		background: $xui-color-xero-blue;
-
+		.#{$ns}-is-disabled & {
+			background: $xui-color-blue-xlight;
+		}
 		&::before {
 			left: auto;
 			transform: translate(18px);

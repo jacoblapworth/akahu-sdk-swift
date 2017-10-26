@@ -322,7 +322,7 @@ describe('XUIRadio', function() {
 
 
 	// isReversed property
-	it('should use the xui-styledradio-reverse class on the root node if isReversed is true', function () {
+	it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', function () {
 		const component = TestUtils.renderIntoDocument(
 			<div>
 				<XUIRadio onChange={NOOP} isReversed={true} />
@@ -330,7 +330,7 @@ describe('XUIRadio', function() {
 		);
 
 		const node = component.firstChild;
-		assert.include(node.className, 'xui-styledradio-reverse');
+		assert.include(node.className, 'xui-styledcheckboxradio-reverse');
 	});
 
 	// name property

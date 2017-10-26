@@ -1,0 +1,115 @@
+@import "../mixins";
+@import "../vars";
+
+// Spacing
+//
+// Teaser: Declaring spacing in and around elements.
+//
+// Introduction: XUI has a set of standardised spacing values which can be applied either as margin or padding.
+//
+// Styleguide: Fundamentals.Spacing
+
+// Pre-defined spacing
+//
+// Many components in XUI already have a `.xui-*-layout` class that incorporates suggested spacing in and around that component. We recommend using this if available.
+//
+// Styleguide: Fundamentals.Spacing.1
+
+// Custom spacing
+//
+// To define your own spacing, use the `.xui-margin-*` and `.xui-padding-*` classes to offer more granular control. These are also available as variables in the `$xui-s-*` namespace.
+//
+// Styleguide: Fundamentals.Spacing.2
+
+// Size
+//
+// Definitions:
+// Extra small: 5px:      `-xsmall`
+// Small:       10px:     `-small`
+// Standard:    15px:     none
+// Large:       20px:     `-large`
+// xlarge:      25px:     `-xlarge`
+// 2xlarge:     30px:     `-2xlarge`
+// None:        0:        `-none`
+// Auto:        Flexible: `-auto` (margin only)
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="ds-space-example">
+//  <div class="xui-margin-xlarge"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-large"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-small"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-xsmall"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-none"></div>
+// </div>
+//
+// Styleguide: Fundamentals.Spacing.2.1
+
+// Position
+//
+// Definitions:
+// All:         All sides:      none
+// Vertical:    Top and bottom: `-vertical`
+// Horizontal:  Left and right: `-horizontal`
+// Top:         Top:            `-top`
+// Right:       Right:          `-right`
+// Bottom:      Bottom:         `-vertical`
+// Left:        Left:           `-left`
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="ds-space-example">
+//  <div class="xui-margin"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-vertical"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-horizontal"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-top"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-right"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-bottom"></div>
+// </div>
+// <div class="ds-space-example">
+//  <div class="xui-margin-left"></div>
+// </div>
+//
+// Styleguide: Fundamentals.Spacing.2.2
+
+// Collections of XUI layout classes in standard, small and large
+@include xui-generate-margin(auto, $xui-class-suffix-auto);
+@include xui-generate-margin(0, $xui-class-suffix-none);
+@include xui-generate-margin($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-margin($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-margin($xui-s-xsmall, $xui-class-suffix-xsmall);
+@include xui-generate-margin($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-margin($xui-s-xlarge, $xui-class-suffix-xlarge);
+@include xui-generate-margin($xui-s-2xlarge, $xui-class-suffix-2xlarge);
+
+// Collections of XUI layout classes in standard, small and large
+@include xui-generate-padding(0, $xui-class-suffix-none);
+@include xui-generate-padding($xui-s-standard, $xui-class-suffix-standard);
+@include xui-generate-padding($xui-s-small, $xui-class-suffix-small);
+@include xui-generate-padding($xui-s-xsmall, $xui-class-suffix-xsmall);
+@include xui-generate-padding($xui-s-large, $xui-class-suffix-large);
+@include xui-generate-padding($xui-s-xlarge, $xui-class-suffix-xlarge);
+@include xui-generate-padding($xui-s-2xlarge, $xui-class-suffix-2xlarge);

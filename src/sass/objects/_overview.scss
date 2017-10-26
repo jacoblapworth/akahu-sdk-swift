@@ -1,66 +1,87 @@
 @import "../vars";
 @import "../mixins";
 
-// Overview Blocks
+// Overview blocks
 //
-// A dashboard-style block designed to display summarised stats and figures
+// Teaser: A top level summary to display stats and figures.
+//
+// Introduction: A top level summary to display stats and figures.
+//
+// Styleguide: Building Blocks.Overview Blocks
+
+// Best practice
+//
+// Tips:
+// Do: Place overview blocks at the top of the page
+// Warning: Take care to only include data relevant to the current view
+// Dont: Don't include more than six sections per overview block
+//
+// Styleguide: Building Blocks.Overview Blocks.1
+
+// Anatomy
+//
+// Flag: Experimental
 //
 // Classes:
-// xui-overview: Container for an overview block
-// xui-overview--section: Container for a section of an overview block
-// xui-overview-layout: Recommended layout for an overview block
+// xui-overview: Overview block
+// xui-overview-layout: Default overview block layout
+// xui-overview--section: Overview block section
+// xui-overview--label: Section label
+// xui-overview--value: Section value
+//
+// ExampleClass: ds-example-flush ds-example-transparent
 //
 //  Markup:
 // <div class="xui-overview xui-overview-layout">
 //   <section class="xui-overview--section">
-//     <div class="xui-text-secondary">All</div>
-//     <div class="xui-heading-large xui-text-status">1.3m</div>
+//     <div class="xui-overview--label">This quarter</div>
+//     <div class="xui-overview--value">None</div>
 //   </section>
 //   <section class="xui-overview--section">
-//     <div class="xui-text-secondary">Draft</div>
-//     <div class="xui-heading-large xui-text-status">None</div>
+//     <div class="xui-overview--label">Last quarter</div>
+//     <div class="xui-overview--value">318.70</div>
 //   </section>
 //   <section class="xui-overview--section">
-//     <div class="xui-text-secondary">Paid</div>
-//     <div class="xui-heading-large xui-text-status xui-text-status-positive">14.5k</div>
-//   </section>
-// </div>
-// <div class="xui-overview xui-margin-vertical-large">
-//   <section class="xui-overview--section xui-padding-vertical-large">
-//     <div class="xui-text-secondary">All</div>
-//     <div class="xui-heading-large xui-text-status">1.3m</div>
-//   </section>
-//   <section class="xui-overview--section xui-padding-vertical-large">
-//     <div class="xui-text-secondary">Draft</div>
-//     <div class="xui-heading-large xui-text-status">None</div>
-//   </section>
-//   <section class="xui-overview--section xui-padding-vertical-large">
-//     <div class="xui-text-secondary">Paid</div>
-//     <div class="xui-heading-large xui-text-status xui-text-status-positive">14.5k</div>
-//   </section>
-//   <section class="xui-overview--section xui-padding-vertical-large">
-//     <div class="xui-text-secondary">Overdue</div>
-//     <div class="xui-heading-large xui-text-status xui-text-status-negative">350.25</div>
-//   </section>
-//   <section class="xui-overview--section xui-padding-vertical-large">
-//     <div class="xui-text-secondary">Sales</div>
-//     <div class="xui-heading-large xui-text-status">10k</div>
-//   </section>
-//   <section class="xui-overview--section xui-padding-vertical-large">
-//     <div class="xui-text-secondary">Marketing</div>
-//     <div class="xui-heading-large xui-text-status xui-text-status-negative">20k</div>
+//     <div class="xui-overview--label">This year</div>
+//     <div class="xui-overview--value">1,159.20</div>
 //   </section>
 // </div>
 //
-// Weight: 4.1
+// Styleguide: Building Blocks.Overview Blocks.2
+
+// Sentiment
 //
-// Styleguide: Overview Blocks
+// To indicate sentiment, apply one of our standard text color utilities.
+//
+// Classes:
+// xui-textcolor-positive: Positive sentiment
+// xui-textcolor-negative: Negative sentiment
+// xui-textcolor-muted: Neutral sentiment
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-overview xui-overview-layout">
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Draft</div>
+//     <div class="xui-overview--value xui-textcolor-muted">103.75</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Paid</div>
+//     <div class="xui-overview--value xui-textcolor-positive">20.00</div>
+//   </section>
+//   <section class="xui-overview--section">
+//     <div class="xui-overview--label">Unpaid</div>
+//     <div class="xui-overview--value xui-textcolor-negative">18.50</div>
+//   </section>
+// </div>
+//
+// Styleguide: Building Blocks.Overview Blocks.3
 
 .#{$ns}-overview {
-	background-color: $xui-color-white;
-	border: $xui-border-standard;
+	background-color: $xui-color-grey-alpha-7;
 	border-radius: $xui-radius;
-	box-shadow: 0 2px 0 0 $xui-color-grey-alpha-7;
+	box-shadow: $xui-shadow-border-all;
 	display: flex;
 	width: 100%;
 }
@@ -73,8 +94,17 @@
 	text-align: center;
 }
 
+.#{$ns}-overview--label {
+	color: $xui-color-grey-alpha-2;
+}
+
+.#{$ns}-overview--value {
+	font-size: $xui-font-size-xlarge;
+	font-weight: $xui-font-weight-emphasis;
+}
+
 .#{$ns}-overview--section:nth-child(n+2) {
-	border-left: $xui-border-muted;
+	box-shadow: $xui-shadow-border-left;
 }
 
 .#{$ns}-overview-layout {

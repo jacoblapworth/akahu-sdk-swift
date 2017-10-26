@@ -1,5 +1,13 @@
 {
 	"extends": [
 		"./stylelint.config.js"
-	]
+	],
+	"rules": {
+		"max-line-length": [
+			305,
+			{
+				ignore: ["comments"]
+			}
+		]
+	}
 }

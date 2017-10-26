@@ -1,0 +1,173 @@
+// Toggles
+//
+// Teaser: Horizontally arranged radio controls.
+//
+// Introduction: Toggles are styled radio controls, arranged horizontally.
+//
+// Components: Toggle
+//
+// Styleguide: Building Blocks.Toggle
+
+// Best practice
+// 
+// Tips:
+// Do: Use toggles to provide quick access to options without the need for a dropdown
+// Warning: Avoid including more than three options inside a toggle
+// Dont: Don't use toggles when content is dynamic or long, use a vertical radio group instead
+//
+// Styleguide: Building Blocks.Toggle.1
+
+// Anatomy
+//
+// To create a standard toggle, use the following classes.
+// Note that spacing must be provided by the consumer.
+//
+// Classes: 
+// xui-toggle: Toggle container
+// xui-toggle-option: Toggle option
+// xui-toggle--label: Toggle text content
+// xui-toggle--input: Apply to native input to hide it
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-toggle">
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="aa" class="xui-toggle--input" checked/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Including tax</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="aa" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Excluding tax</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="aa" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">No tax</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.2
+
+// Full width
+//
+// To fill the width of the containing element, apply the following modifier.
+// The resulting options also occupy the same amount of horizontal space, regardless of their content.
+// To enable text to wrap in IE11, make sure to also add the `xui-toggle--text` class to content.
+//
+// Classes:
+// xui-toggle-fullwidth-layout: Apply to toggle
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-toggle xui-toggle-fullwidth-layout">
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="bb" class="xui-toggle--input" checked/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">As they happen</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="bb" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Weekly summary</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="bb" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Never</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.3
+
+// Size
+//
+// To create a toggle for use in more compact spaces, apply the following modifier. 
+//
+// Classes:
+// xui-toggle-small: Apply to toggle
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-toggle xui-toggle-small">
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="dd" class="xui-toggle--input" checked/>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Fixed</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="dd" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-horizontal-small">Percentage</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.4
+
+// Disabling
+//
+// To disable a toggle option, apply the following global modifier.
+// Additionally, make sure the `disabled` attribute is added to the input as well.
+//
+// Classes:
+// xui-is-disabled: Apply to toggle option
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup:
+// <div class="xui-toggle">
+//   <label class="xui-toggle-option xui-is-disabled">
+//   <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//   </label>
+//   <label class="xui-toggle-option xui-is-disabled">
+//     <input type="radio" name="ee" class="xui-toggle--input" disabled/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.5
+
+// Inverted
+//
+// For toggles placed on darker backgrounds, an inverted modifier is also available.
+//
+// Classes:
+// xui-toggle-inverted: Apply to toggle
+//
+// ExampleClass: ds-example-dark
+//
+// Markup:
+// <div class="xui-toggle xui-toggle-inverted">
+//   <label class="xui-toggle-option">
+//   <input type="radio" name="ff" class="xui-toggle--input" checked/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//     </span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="ff" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//         <use xlink:href="#xui-icon-mobile" role="presentation"/>
+//       </svg>
+//     </span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="ff" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//         <use xlink:href="#xui-icon-print" role="presentation"/>
+//       </svg>
+//     </span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Toggle.6
+
+// Additional classes
+//
+// Flag: Deprecated
+//
+// Classes:
+// xui-toggle-form-layout: A min height is now provided by default, and use the fullwidth toggle class to grow width if desired
+//
+// Styleguide: Building Blocks.Toggle.50

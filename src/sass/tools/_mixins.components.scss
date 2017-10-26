@@ -1,21 +1,32 @@
 @import "../vars";
 
-@mixin xui-highlight-left($left-border-radius: 0, $has-border: false) {
-	@if $left-border-radius != 0 {
-		border-radius: $left-border-radius 0 0 $left-border-radius;
+/*
+Adds a before selector which is used to highlight the left side of a component with a certain colour
+
+$bg-color - The colour to use for the highlight
+$left-border-radius - Border radius to use - should match the border radius of the element using this
+$has-border - Whether the element using this has a border
+*/
+@mixin xui-highlight-left($bg-color: $xui-color-green, $left-border-radius: 0, $has-border: false) {
+	&:before {
+		@if $left-border-radius != 0 {
+			border-radius: $left-border-radius 0 0 $left-border-radius;
+		}
+		$alignment: 0;
+		@if $has-border {
+			$alignment: -1px;
+		}
+		background-color: $bg-color;
+		bottom: $alignment;
+		content: "";
+		left: $alignment;
+		position: absolute;
+		top: $alignment;
+		width: 4px;
 	}
-	$alignment: 0;
-	@if $has-border {
-		$alignment: -1px;
-	}
-	bottom: $alignment;
-	content: "";
-	left: $alignment;
-	position: absolute;
-	top: $alignment;
-	width: 4px;
 }
 
+// Provides a shadow which indicates there's overflown content that can be scrolled into view
 @mixin xui-overflow-shadow {
 	background: linear-gradient($xui-color-white, $xui-color-white) 100% 0 / 100% 3px local no-repeat,
 		linear-gradient($xui-color-white, $xui-color-white) 0 100% / 100% 3px local no-repeat,
@@ -26,6 +37,12 @@
 		$xui-color-white;
 }
 
+/*
+Flex aligns children
+
+$align - Property to use for align-items
+$justify - Property to use for justify-content
+*/
 @mixin xui-flex-children($align:center, $justify:center) {
 	align-items: $align;
 	display: flex;

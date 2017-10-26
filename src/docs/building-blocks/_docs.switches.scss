@@ -1,0 +1,69 @@
+// Switches
+//
+// Teaser: Used for binary decisions.
+//
+// Components: Switch
+//
+// Introduction: Switches are used to make significant binary decisions.
+//
+// Styleguide: Building Blocks.Switch
+
+// Best practice
+//
+// Tips: 
+// Do: Use switches to turn a single option on or off
+// Warning: Switches should have immediate effect, avoid using in combination with a submit button
+// Warning: When creating forms, we recommend using toggles or checkboxes instead
+//
+// Styleguide: Building Blocks.Switch.2
+
+// Anatomy
+//
+// To create a checkbox, use the following classes in combination with a native checkbox input. 
+// To turn the switch on, simply add the `checked` attribute to the input.
+//
+// Classes:
+// xui-switch: Apply to label containing the switch
+// xui-switch--checkbox: Apply to native input to hide it
+// xui-switch--control: Apply to span immediately after the input
+//
+// Markup:
+// <label class="xui-switch">
+//   <input type="checkbox" class="xui-switch--checkbox">
+//   <span class="xui-switch--control"></span>
+// </label>
+// <label class="xui-switch">
+//   <input type="checkbox" class="xui-switch--checkbox" checked>
+//   <span class="xui-switch--control"></span>
+// </label>
+//
+// Styleguide: Building Blocks.Switch.3
+
+// Disabling
+// 
+// To disable a switch, add the following global modifier.
+// Make sure to also add the `disabled` attribute to the input, to prevent mouse and keyboard focus.
+//
+// Classes:
+// xui-is-disabled: Apply to label when disabled
+//
+// Markup:
+// <label class="xui-switch xui-is-disabled">
+//   <input type="checkbox" class="xui-switch--checkbox" disabled>
+//   <span class="xui-switch--control"></span>
+// </label>
+// <label class="xui-switch xui-is-disabled">
+//   <input type="checkbox" class="xui-switch--checkbox" disabled checked>
+//   <span class="xui-switch--control"></span>
+// </label>
+//
+// Styleguide: Building Blocks.Switch.4
+
+// Additional classes
+//
+// Flag: Deprecated
+// 
+// Classes:
+// xui-switch--labeltext: Use typography presets and utility classes instead
+//
+// Styleguide: Building Blocks.Switch.50

@@ -1,12 +1,14 @@
 module.exports = {
-  bail: true,
+  bail: false,
   verbose: true,
   roots: ['<rootDir>/src/react/components'],
   testRegex: '-test\\.(js|jsx)$',
   testResultsProcessor: 'jest-teamcity-reporter',
-  moduleDirectories: ['node_modules'],
+	moduleDirectories: ['node_modules'],
   collectCoverageFrom: [
-		'<rootDir>/src/react/components/**/*.{js,jsx}',
+		'**/src/react/components/**/*.{js,jsx}',
+		'!**/src/react/components/**/uitest/*',
+		'!**/src/react/components/**/__tests__/*',
 		'!**/node_modules/**'
 	],
   moduleNameMapper: {

@@ -5,6 +5,28 @@ import XUILoader from '../loader/XUILoader';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
 
 /**
+ * Returns true if the button is a borderless variant
+ *
+ * @private
+ * @param {string} variant - The button variant
+ * @return {boolean} True if is a borderless button
+ */
+const isBorderlessVariant = variant => {
+	return variant.indexOf('borderless') > -1;
+}
+
+/**
+ * Returns true if the button is an icon variant
+ *
+ * @private
+ * @param {string} variant - The button variant
+ * @return {boolean} True if is an icon button
+ */
+const isIconVariant = variant => {
+	return variant.indexOf('icon') > -1;
+}
+
+/**
  * Returns a class name for the button depending on the button variant string given. Will return
  * undefined if no matching variant is given.
  *
@@ -149,16 +171,40 @@ export default class XUIButton extends React.Component {
 			target,
 			rel,
 			isLink,
+			isInverted,
+			retainLayout,
+			minLoaderWidth,
 			...spreadProps
 		} = xuiButton.props;
 		const ElementType = isLink ? 'a' : 'button';
 		const variantClass = getVariantClass(variant);
 		const buttonDisabled = isDisabled || isLoading;
-		const buttonChildren = isLoading ? <XUILoader size="small" defaultLayout={false} className="xui-button--loader" /> : children;
+		let buttonChildren = children;
+
+		const loader = (
+			<XUILoader
+				key={retainLayout && isLoading ? 'button-loader' : null}
+				retainLayout={retainLayout}
+				size="small"
+				defaultLayout={false}
+				className="xui-button--loader" />
+		);
+
+		if (retainLayout && isLoading) {
+			buttonChildren = [
+				<div className="xui-u-hidden-content" key='button-children'>{children}</div>,
+				loader
+			]
+		} else if (isLoading) {
+			buttonChildren = loader;
+		}
 
 		const buttonClassNames = cn('xui-button', className, variantClass, SizeClassNames[size], {
 			'xui-button-is-disabled': isDisabled,
-			'xui-button-grouped': isGrouped
+			'xui-button-grouped': isGrouped,
+			'xui-button-inverted': isInverted && !isBorderlessVariant(variantClass) && !isIconVariant(variantClass),
+			'xui-button-borderless-inverted': isInverted && isBorderlessVariant(variantClass) && !isIconVariant(variantClass),
+			'xui-button-min-loader-width': minLoaderWidth
 		});
 
 		const clickHandler = function() {
@@ -243,6 +289,15 @@ XUIButton.propTypes = {
 
 	/** The `title` attribute for this button */
 	title: PropTypes.string,
+
+	/** The `isInverted` attribute to style the button in an inverted way */
+	isInverted: PropTypes.bool,
+
+	/** When used with `isLoading` this allows the button to retain children width */
+	retainLayout: PropTypes.bool,
+
+	/** Use this to specify a min width on the button, when you want to swap to loading states */
+	minLoaderWidth: PropTypes.bool
 };
 
 XUIButton.defaultProps = {
@@ -253,5 +308,6 @@ XUIButton.defaultProps = {
 	isDisabled: false,
 	isExternalLink: false,
 	isGrouped: false,
-	isLoading: false
+	isLoading: false,
+	retainLayout: true
 };

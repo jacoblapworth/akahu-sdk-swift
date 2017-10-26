@@ -1,12 +1,18 @@
+const avatarBaseClass = 'xui-avatar';
+const smallVariation = 'small';
+const largeVariation = 'large';
+
 /**
  * @public
  * Map of sizes to XUI Classes properties
  */
 export const sizeClassNames = {
-	small: 'xui-avatar-small',
+	xsmall: `${avatarBaseClass}-x${smallVariation}`, // xui-avatar-xsmall
+	small: `${avatarBaseClass}-${smallVariation}`, // xui-avatar-small
 	medium: '',
-	large: 'xui-avatar-large',
-	xlarge: 'xui-avatar-xlarge'
+	large: `${avatarBaseClass}-${largeVariation}`, // xui-avatar-large
+	xlarge: `${avatarBaseClass}-x${largeVariation}`, // xui-avatar-xlarge
+	["2xlarge"]: `${avatarBaseClass}-2x${largeVariation}` // xui-avatar-2xlarge
 };
 
 /**
@@ -14,9 +20,9 @@ export const sizeClassNames = {
  * Map of core class names
  */
 export const classNames = {
-	base: 'xui-avatar',
-	counter: 'xui-avatar-counter',
-	group: 'xui-avatargroup'
+	base: avatarBaseClass,
+	counter: `${avatarBaseClass}-counter`,
+	group: `${avatarBaseClass}group`
 };
 
 /**
@@ -25,7 +31,7 @@ export const classNames = {
  */
 export const colorClassNames = [];
 for(let i = 1; i <= 10; i++) {
-	colorClassNames.push(`xui-avatar-color-${i}`);
+	colorClassNames.push(`${avatarBaseClass}-color-${i}`);
 }
 
 /**
@@ -33,5 +39,5 @@ for(let i = 1; i <= 10; i++) {
  * Map of variants to class names
  */
 export const variantClassNames = {
-	business: 'xui-avatar-business'
+	business: `${avatarBaseClass}-business`
 };

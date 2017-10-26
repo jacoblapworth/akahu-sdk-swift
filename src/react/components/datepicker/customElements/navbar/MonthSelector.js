@@ -64,7 +64,7 @@ export default function MonthSelector({
 }
 
 MonthSelector.propTypes = {
-	months: PropTypes.arrayOf(PropTypes.string),
+	months: PropTypes.arrayOf(PropTypes.node),
 	minDate: PropTypes.instanceOf(Date),
 	maxDate: PropTypes.instanceOf(Date),
 	currentMonthDate: PropTypes.instanceOf(Date).isRequired,

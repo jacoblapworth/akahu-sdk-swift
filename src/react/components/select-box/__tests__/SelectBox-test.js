@@ -2,8 +2,11 @@ import React from 'react';
 import SelectBox from '../SelectBox';
 import SelectBoxOption from '../SelectBoxOption';
 import { then } from './helpers';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import qaHooks from '../qaHooks';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('SelectBox', function () {
 	const options = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona'];

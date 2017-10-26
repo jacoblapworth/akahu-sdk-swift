@@ -1,0 +1,57 @@
+.ds-example-default {
+	background: $xui-color-grey-7;
+	padding: $xui-s-large;
+}
+
+.ds-example-dark {
+	background: $xui-color-grey-1;
+}
+
+.ds-example-verticallycentered {
+  .ds-example--inner {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.ds-example-transparent {
+	background: transparent;
+}
+
+.ds-example-header {
+  .ds-example--inner {
+    display: flex;
+  }
+}
+
+.ds-example-flush {
+  padding: 0;
+}
+
+.ds-example-narrow {
+	.ds-example--inner  {
+		width: 300px; // TBA
+	}
+}
+
+.ds-example-inline,
+.ds-example-markuponly {
+	padding-right: 3rem;
+}
+
+.ds-example-tall {
+	min-height: 667px;
+}
+
+.ds-markup.ds-example-markuponly {
+	position: relative;
+  @include xui-breakpoint-huge {
+    @include embiggen;
+  }
+}
+
+.ds-example-wide {
+  @include ds-breakpoint-massive {
+    @include embiggen;
+  }
+}

@@ -1,0 +1,149 @@
+// Page header
+//
+// Teaser: Guidance on how to use page-specific page navigation.
+//
+// Introduction: How to use page-specific navigation.
+//
+// Styleguide: Building Blocks.Page Header
+
+// Best practice
+//
+// Tips: 
+// Do: Use page headers on pages that sit beneath the global header
+// Warning: Avoid more than three tabs per page
+// Warning: Avoid nesting pages more than three levels deep
+// Warning: When content is long, provide an alternative layout for narrow viewports
+// Dont: Don't use page headers for full screen interfaces, use an isolation mode instead
+//
+// Styleguide: Building Blocks.Page Header.1
+
+// Anatomy
+//
+// At its most basic form, a page header contains a title. To create one, use the following classes.
+//
+// Classes:
+// xui-pageheading: Page heading container
+// xui-pageheading--content: Page heading content container
+// xui-pageheading--content-layout: Content modifier to set recommended horizontal spacing
+// xui-pageheading--title: Page heading title
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+//  <div class="xui-pageheading--content xui-pageheading--content-layout">
+//    <h1 class="xui-pageheading--title">Settings</h1>
+//  </div>
+// </header>
+//
+// Styleguide: Building Blocks.Page Header.2
+
+// Layout
+//
+// At times it is desired to prevent the page header from extending wider than the width of the global header, or to match content that sits below it.
+// To do this, apply the following utility classes in addition to `xui-pageheading--content-layout`.
+//
+// Classes:
+// xui-page-width-standard: Sets a max width of 940px and centers horizontally
+// xui-page-width-large: Sets a max width of 1160px and centers horizontally
+//
+// Styleguide: Building Blocks.Page Header.3
+
+// Actions
+//
+// To include page-specific actions, simply wrap them in the following class.
+//
+// Classes:
+// xui-pageheading--actions: Sets default button layout and internal spacing
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout">
+//     <h1 class="xui-pageheading--title">Employees</h1>
+//     <div class="xui-pageheading--actions">
+//      <div class="xui-buttongroup">
+//        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-small">New employee</button>
+//        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split xui-button-small">
+//          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation"/></svg>
+//        </button>
+//      </div>
+//      <button type="button" class="xui-button xui-button-icon xui-button-icon-large">
+//        <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow" role="presentation"/></svg>
+//      </button>
+//     </div>
+//   </div>
+// </header>
+//
+// Styleguide: Building Blocks.Page Header.4
+
+// Breadcrumbs
+//
+// To provide links to parent pages, use the following breadcrumb classes.
+//
+// Classes:
+// xui-pageheading--breadcrumbs: Breadcrumb container
+// xui-breadcrumb: Breadcrumb items
+// xui-breadcrumb--link: Breadcrumb links
+// xui-breadcrumb--icon: Icons between breadcrumbs
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout" role="navigation" aria-label="Title">
+//     <ol class="xui-pageheading--breadcrumbs">
+//       <li class="xui-breadcrumb" aria-selected="false">
+//         <a href="#" class="xui-breadcrumb--link">Settings</a>
+//       </li>
+//       <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//       <li class="xui-breadcrumb" aria-selected="false">
+//         <a href="#" class="xui-breadcrumb--link">Permissions</a>
+//       </li>
+//       <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//       <li class="xui-breadcrumb" aria-selected="true">
+//         Edit permissions
+//       </li>
+//     </ol>
+//   </div>
+// </header>
+//
+// Styleguide: Building Blocks.Page Header.5
+
+// Tabs
+//
+// For pages that include sub-sections, wrap the `xui-pageheading--title` alongside a horizontal [picklist](section-building-blocks-picklist.html#building-blocks-picklist-1-2) and apply the following class.
+//
+// Classes:
+// xui-pageheading--tabs: Container for title and tabs
+//
+// ExampleClass: ds-example-wide
+//
+// Markup:
+// <header class="xui-pageheading">
+//   <div class="xui-pageheading--content xui-pageheading--content-layout">
+//     <div class='xui-pageheading--tabs'>
+//       <h1 class="xui-pageheading--title">Contacts</h1>
+//       <ul class="xui-picklist xui-picklist-horizontal" role="tree">
+//        <li class="xui-pickitem xui-pickitem-is-selected" tabindex="-1" role="treeitem">
+//          <button type="button" class="xui-pickitem--body" tabindex="0">
+//            All
+//          </button>
+//        </li>
+//        <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//          <button type="button" class="xui-pickitem--body" tabindex="0">
+//            Suppliers
+//          </button>
+//        </li>
+//        <li class="xui-pickitem" tabindex="-1" role="treeitem">
+//          <button type="button" class="xui-pickitem--body" tabindex="0">
+//            Customers
+//          </button>
+//        </li>
+//       </ul>
+//     </div>
+//   </div>
+// </header>
+//
+// Styleguide: Building Blocks.Page Header.6

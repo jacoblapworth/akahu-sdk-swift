@@ -1,5 +1,11 @@
 # Styleguidist Notes
 
+## File Structure
+
+Each component entry point has an accompanying `.md` file with a short description and some examples wrapped in a three backtick block. Most of your written documentation about what use case components serve and how they fit together would go here.
+
+react-styleguidist is configured to scan all of our components and generate automatic API documentation using [react-docgen](https://www.npmjs.com/package/react-docgen). It uses static analysis of the component's propTypes object and any associated JSDoc comments to create documentation on props and any public APIs that have JSDoc comments. Therefore, **It's very important to both create and maintain these JSDoc style comments**.
+
 ## JSS and components.
 
 The presecribed method for customising the layout is copy the components and alias them in. via the webpack config

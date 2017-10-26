@@ -55,14 +55,12 @@
 @import "objects/forms";
 @import "objects/layoutstructure";
 @import "objects/loaders";
-@import "objects/marginpadding";
 @import "objects/navigation";
 @import "objects/modals";
 @import "objects/motion";
 @import "objects/panels";
 @import "objects/pills";
 @import "objects/sections";
-@import "objects/sidedrawer";
 @import "objects/steps";
 @import "objects/typography";
 @import "objects/usermessaging";
@@ -75,47 +73,5 @@
 @import "components/autocompleter";
 
 @import "trumps/utilities";
+@import "trumps/marginpadding";
 
-// Style
-//
-// Heading: true
-//
-// Weight: 2.0
-//
-// Styleguide: Style
-
-// Layout
-//
-// Heading: true
-//
-// Weight: 3.0
-//
-// Styleguide: Layout
-
-// Components
-//
-// Heading: true
-//
-// Weight: 4.0
-//
-// Styleguide: Components
-
-// Patterns
-//
-// Heading: true
-//
-// Weight: 5.0
-//
-// Styleguide: Patterns
-
-// Colors
-//
-// Standard colors to be used throughout Xero.
-//
-// Includes the various shades of grey with their typical usages and the colors used for Xero branding.
-//
-// Use the variable names shown to achieve the correct color.
-//
-// Weight: 2.1
-//
-// Styleguide: Colors

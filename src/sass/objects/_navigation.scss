@@ -1,23 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Navigation and Filters
-//
-// ### Accessibility
-// When clicking a tab results in a URL change,
-// it is recommended to apply the `role="navigation"` and aria-label attributes. When the intent is to have a panel, that exhibits behaviour similar
-// to on-page JS tabs (i.e switches to a corresponding view without changing the URL), then it is recommended to apply the `tablist` role instead of `navigation`.
-//
-// Weight: 5.1
-//
-// Styleguide: Navigation
 
-// Deprecated
-//
-// Styleguide: Navigation.99
 
-@import "navigation.sharedheader";
 @import "navigation.subapp";
-@import "navigation.filters";
-@import "navigation.tabs";
 @import "navigation.picklist";

@@ -1,10 +1,6 @@
-@import "mixins.layout.utilities";
+@import "mixins.utilities";
 @import "../vars";
 @import "functions.decimals";
-
-@mixin xui-layout-fixed {
-	@include xui-clearfix();
-}
 
 @mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
 

@@ -2,56 +2,106 @@
 
 // Popovers
 //
-// A simple popover container styled with an arrow pointing at relevant content.
+// Teaser: To highlight pertinent features or provide additional helper text.
 //
-// ### Accessibility
-// The appropriate role to use for the popover depends on its use in your application. The purpose of the popover should still be clearly stated using `aria-label` and `aria-describedby` attributes.
-// * **`role="tooltip"`** - a contextual popup that displays a description of an element and typically becomes visible in response to a mouse hover or keyboard focus after a short delay.
-//   ([W3C Documentation](https://www.w3.org/TR/wai-aria/roles#tooltip))
-// * **`role="dialog"`** - the popover could act as a 'non-modal' dialog where it is still possible to interact with the content outside of the dialog while it is being displayed.
-//   ([MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role))
+// Introduction: Popovers are used to highlight pertinent new features or provide additional helper text without affecting the underlying page layout.
+//
+// Styleguide: Building Blocks.Popovers
+
+// Best practice
+//
+// Tips:
+// Do: Use an arrow to ensure popovers are pointing to the correct element
+// Warning: Avoid relying on popovers as a crutch for a bad experience
+// Dont: Don't use popovers to provide primary functionality
+//
+// Styleguide: Building Blocks.Popovers.1
+
+// Anatomy
+//
+// ExampleClass: ds-example-narrow ds-example-flush ds-example-transparent
+//
+// To create a popover element, use the following classes.
+// Note that content and layout is dictated entirely by the consumer.
 //
 // Classes:
-// xui-popover: Container for a popover
-// xui-popover--arrow: Container for a popover arrow
-// xui-popover--arrow--border: Style for a popover arrow border
-// xui-popover--arrow-bottomcenter: Modifier for a bottom-center arrow
-// xui-popover--arrow-bottomleft: Modifier for a bottom-left arrow
-// xui-popover--arrow-bottomright: Modifier for a bottom-right arrow
-// xui-popover--arrow-leftbottom: Modifier for a left-bottom arrow
-// xui-popover--arrow-leftcenter: Modifier for a left-center arrow
-// xui-popover--arrow-lefttop: Modifier for a left-top arrow
-// xui-popover--arrow-rightbottom: Modifier for a right-bottom arrow
-// xui-popover--arrow-rightcenter: Modifier for a right-center arrow
-// xui-popover--arrow-righttop: Modifier for a right-top arrow
-// xui-popover--arrow-topcenter: Modifier for a top-center arrow
-// xui-popover--arrow-topleft: Modifier for a top-left arrow
-// xui-popover--arrow-topright: Modifier for a top-right arrow
+// xui-popover: Base popover class
+// xui-popover-arrow: Modifier to add default top left arrow
 //
 // Markup:
-// <div class="xui-popover xui-margin-top-small" role="dialog" aria-labelledby="popover-header">
-//   <div class="xui-popover--arrow xui-popover--arrow-topleft">
-//     <svg focusable="false" viewbox="0 0 100 100">
-//       <polyline points="0,50 50,0 100, 50" stroke-width="7" class="xui-popover--arrow--border"/>
-//     </svg>
-//   </div>
-//   <div class="xui-padding-small">
-//   	<p>Tue Mar 08 2016</p>
-//   	<p class="xui-text-secondary">Active between 6:02 and 6:07</p>
-//   </div>
+//	<div class="xui-popover xui-popover-arrow xui-padding-large" role="tooltip" aria-labelledby="popover-message">
+//		<div id="popover-message">Content</div>
+//	</div>
+//
+// Styleguide: Building Blocks.Popovers.2
+
+// Arrow position
+//
+// To specify a different position for the arrow element, add an additional `xui-popover-arrow*` modifier.
+//
+// Classes:
+// -topleft: Modifier for a top-left arrow
+// -topcenter: Modifier for a top-center arrow
+// -topright: Modifier for a top-right arrow
+// -righttop: Modifier for a right-top arrow
+// -rightcenter: Modifier for a right-center arrow
+// -rightbottom: Modifier for a right-bottom arrow
+// -bottomleft: Modifier for a bottom-left arrow
+// -bottomcenter: Modifier for a bottom-center arrow
+// -bottomright: Modifier for a bottom-right arrow
+// -lefttop: Modifier for a left-top arrow
+// -leftcenter: Modifier for a left-center arrow
+// -leftbottom: Modifier for a left-bottom arrow
+//
+// Styleguide: Building Blocks.Popovers.2.1
+
+// Dismissing popovers
+//
+// ExampleClass: ds-example-narrow ds-example-flush ds-example-transparent
+//
+// To dismiss a popover, make sure to either attach an event handler on its trigger, or include internal buttons that toggle visiblity.
+// We recommended using the following [utility class](section-building-blocks-utilities.html#building-blocks-utilities-2) to do this.
+//
+// Classes:
+// xui-u-hidden: Modifier to toggle popover visibility
+//
+// Markup:
+// <div class="xui-popover xui-popover-arrow xui-popover-arrow-lefttop" role="dialog" aria-labelledby="feature-header" aria-desribedby="feature-description">
+// 	<div class="xui-u-flex xui-u-spacebetween xui-u-flex-verticallycentered xui-padding-top xui-padding-right xui-padding-left-large">
+// 		<div id="feature-header" class="xui-heading-item">New view modes</div>
+// 		<button class="xui-button xui-button-icon">
+// 			<svg focusable="false" class="xui-icon">
+// 				<use xlink:href="#xui-icon-cross" role="presentation"></use>
+// 			</svg>
+// 		</button>
+// 	</div>
+// 	<div id="feature-description" class="xui-textcolor-muted xui-padding-top-xsmall xui-padding-horizontal-large">Choose how much detail you see by switching between simple or advanced view modes here.</div>
+// 	<div class='xui-u-flex xui-u-flex-verticallycentered xui-u-spacebetween xui-padding-top-small xui-padding-right xui-padding-bottom xui-padding-left-large'>
+// 		<div class='xui-text-small xui-textcolor-muted'>Step 1 of 3</div>
+// 		<button class="xui-button xui-button-small xui-button-borderless-main">Next</button>
+// 	</div>
 // </div>
 //
-// Weight: 4.1
+// Styleguide: Building Blocks.Popovers.3
+
+// Accessibility
 //
-// Styleguide: Popovers
+// At a very minimum, the purpose of a popover should be clearly stated using the `aria-labelledby` and 	`aria-describedby` attributes.
+// 
+// Additionally, an appropriate role must be defined, and differs for each use case.
+// The `tooltip` [role](https://www.w3.org/TR/wai-aria/roles#tooltip) is used for popovers that provide helper text and become visible in response to a mouse or keyboard event.
+// The `dialog` [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role) is used when it is still possible to interact with content outside of the popover while it is being displayed.
+//
+// Styleguide: Building Blocks.Popovers.4
 
 .#{$ns}-popover {
-	@include xui-box-shadow-border($xui-shadow-depth-lift);
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
+	box-shadow: $xui-shadow-depth-lift;
 	position: relative;
 }
 
+// TODO: Deprecated in XUI12, remove in XUI13
 .#{$ns}-popover--arrow {
 	display: inline-block;
 	fill: $xui-color-white;
@@ -147,51 +197,176 @@
 	}
 }
 
-// TODO: Remove all header, body, footer and link classes
-// Deprecated in favour of just using popovers as simple containers
-// Note that the date picker currently uses these classes
-
-.#{$ns}-popover--body {
-	max-height: 400px;
-	overflow: auto;
-	position: relative;
-	z-index: 0;
+.#{$ns}-popover-arrow:before {
+	border-bottom: 8px solid $xui-color-grey-alpha-5;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	content: '';
+	left: 15px;
+	position: absolute;
+	top: -9px;
 }
 
-.#{$ns}-popover--header {
-	position: relative;
-	z-index: 1;
+.#{$ns}-popover-arrow:after {
+	border-bottom: 8px solid $xui-color-white;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	content: '';
+	left: 15px;
+	position: absolute;
+	top: -7px;
 }
 
-.#{$ns}-popover--header-standard {
-	padding: 0.5rem 0.8rem;
-}
+.#{$ns}-popover-arrow {
+	&-topleft:before {
+		left: 15px;
+		top: -9px;
+	}
 
-.#{$ns}-popover--header-can-scroll-up {
-	box-shadow: 0 2px 3px $xui-color-grey-alpha-4;
-}
+	&-topcenter:before {
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
-.#{$ns}-popover--heading {
-	margin: 0;
-}
+	&-topright:before {
+		left: auto;
+		right: 15px;
+	}
 
-.#{$ns}-popover--footer {
-	border-top: $xui-border-muted;
-	position: relative;
-}
+	&-bottomleft:before {
+		bottom: -9px;
+		top: auto;
+		transform: rotate(180deg);
+	}
 
-.#{$ns}-popover--footer-standard {
-	padding: 0.5rem 0.8rem;
-}
+	&-bottomcenter:before {
+		bottom: -9px;
+		left: 50%;
+		top: auto;
+		transform: translateX(-50%) rotate(180deg);
+	}
 
-.#{$ns}-popover--footer-can-scroll-down {
-	box-shadow: 0 -2px 3px $xui-color-grey-alpha-4;
-}
+	&-bottomright:before {
+		bottom: -9px;
+		left: auto;
+		right: 15px;
+		top: auto;
+		transform: rotate(180deg);
+	}
 
-.#{$ns}-popover--link {
-	&:nth-of-type(n+2) {
-		border-left: $xui-border-standard;
-		margin-left: $xui-s-small;
-		padding: 0 0 0 $xui-s-small;
+	&-lefttop:before {
+		left: -13px;
+		top: 15px;
+		transform: rotate(270deg);
+	}
+
+	&-leftcenter:before {
+		left: -13px;
+		top: 50%;
+		transform: translateY(-50%) rotate(270deg);
+	}
+
+	&-leftbottom:before {
+		bottom: 15px;
+		left: -13px;
+		top: auto;
+		transform: rotate(270deg);
+	}
+
+	&-righttop:before {
+		left: auto;
+		right: -13px;
+		top: 15px;
+		transform: rotate(90deg);
+	}
+
+	&-rightcenter:before {
+		left: auto;
+		right: -13px;
+		top: 50%;
+		transform: translateY(-50%) rotate(90deg);
+	}
+
+	&-rightbottom:before {
+		bottom: 15px;
+		left: auto;
+		right: -13px;
+		top: auto;
+		transform: rotate(90deg);
+	}
+	&-topleft:after {
+		left: 15px;
+		top: -7px;
+	}
+	&-topcenter:after {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&-topright:after {
+		left: auto;
+		right: 15px;
+	}
+
+	&-bottomleft:after {
+		bottom: -7px;
+		top: auto;
+		transform: rotate(180deg);
+	}
+
+	&-bottomcenter:after {
+		bottom: -7px;
+		left: 50%;
+		top: auto;
+		transform: translateX(-50%) rotate(180deg);
+	}
+
+	&-bottomright:after {
+		bottom: -7px;
+		left: auto;
+		right: 15px;
+		top: auto;
+		transform: rotate(180deg);
+	}
+
+	&-lefttop:after {
+		left: -11px;
+		top: 15px;
+		transform: rotate(270deg);
+	}
+
+	&-leftcenter:after {
+		left: -11px;
+		top: 50%;
+		transform: translateY(-50%) rotate(270deg);
+	}
+
+	&-leftbottom:after {
+		bottom: 15px;
+		left: -11px;
+		top: auto;
+		transform: rotate(270deg);
+	}
+
+	&-righttop:after {
+		left: auto;
+		right: -11px;
+		top: 15px;
+		transform: rotate(90deg);
+	}
+
+	&-rightcenter:after {
+		left: auto;
+		right: -11px;
+		top: 50%;
+		transform: translateY(-50%) rotate(90deg);
+	}
+
+	&-rightbottom:after {
+		bottom: 15px;
+		left: auto;
+		right: -11px;
+		top: auto;
+		transform: rotate(90deg);
 	}
 }

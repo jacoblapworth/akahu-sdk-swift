@@ -1,4 +1,4 @@
-Checkboxes can be grouped together, which makes it easier to include them alongside inputs and other form elements.
+Checkboxes can be grouped together, making it easier to include them alongside inputs and other form elements.
 
 The touch target for Checkboxes in a group is the entire "row" of the Checkbox Group.
 

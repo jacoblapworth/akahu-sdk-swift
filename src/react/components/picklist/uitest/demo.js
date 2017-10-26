@@ -90,7 +90,7 @@ class StatefulMultiselectPicklist extends Component {
 	ReactDOM.render(
 		<div className="xui-page-width-standard">
 			<section className="xui-panel xui-margin-top xui-padding">
-				<div className="xui-text-panelheading xui-margin-bottom">Standard Picklist</div>
+				<div className="xui-heading-panel xui-margin-bottom">Standard Picklist</div>
 				<div>
 					<StatefulPicklist onSelect={() => {}}>
 						<Picklist>
@@ -111,7 +111,7 @@ class StatefulMultiselectPicklist extends Component {
 				</div>
 			</section>
 			<section className="xui-panel xui-margin-top xui-padding">
-				<div className="xui-text-panelheading xui-margin-bottom">Multiselect Stateful Picklist</div>
+				<div className="xui-heading-panel xui-margin-bottom">Multiselect Stateful Picklist</div>
 				<div>
 					<StatefulMultiselectPicklist />
 				</div>

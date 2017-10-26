@@ -3,151 +3,168 @@
 
 // Icons
 //
-// The XUI Icons repository may be found [here](https://github.dev.xero.com/UXE/xui-icon).
-// It contains [50+ commonly used icons](https://github.dev.xero.com/pages/UXE/xui-icon/) for consumption
-// through ReactJS, or via ES5 and ES6 javascript without React.
+// Introduction: An overview of all our icons and how to use them in your project.
 //
-// For usage with buttons, see the [Icon Button documentation](section-buttons.html#buttons-7).
+// Teaser: An extensive set of icons for use inside buttons and other UI elements.
 //
 // Components: Icon
 //
-// Classes:
-// xui-icon: Style for an icon
-// xui-icon-inline: Modifier for an inline icon
-// xui-icon-large: Modifier for a large icon
-// xui-icon-xlarge: Modifier for an extra-large icon
-//
-// Weight: 2.2
-//
-// Styleguide: Icons
+// Styleguide: Fundamentals.Icons
 
-// Available Icons
+// Usage
 //
-// <div id="xuiIconShowcase"  class="prettyprint"></div>
-// <script src="https://edge.xero.com/style/xui-icon/4.17.0/xuiIconsDocs.js" defer></script>
+// The classes outlined here are only responsible for styling the icons, and do not contain the SVG data themselves.
+// To include these, you will need to import the icons into your page using the following script, and then reference their name via the `xlink:href` attribute.
+// If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>XUI icon repository</a>.
 //
-// Styleguide: Icons.1
+// @xuiIconBlobURL
+//
+// Definitions:
+// Class: Apply to `<svg>` tag: `.xui-icon`
+// Name: Apply to `<use>` tag: `#xui-icon-*`
+//
+// Styleguide: Fundamentals.Icons.1
 
-// Using the icons in your project
+// Size
 //
-// The icon classes provided within XUI are only responsible for styling the icons, and do not contain the icons themselves.
+// Icons are available in a number of sizes.
+// The default size is optimised for use inside buttons and form controls.
+// The additional sizes are intended mainly for read only contexts such as empty states or success screens.
+// To define size, use the following modifiers.
 //
-// The SVGs shown on this page work by referencing the id of an icon imported elsewhere in the page via the `xlink:href` attribute. If you are using React, you do not need to worry
-// about this, and can just consume the [`XUIIcon` module](https://github.dev.xero.com/uxe/xui-icon#react-usage). Otherwise, you will need to [import the icon blob into your
-// page](https://github.dev.xero.com/uxe/xui-icon#using-the-icons-without-react). Preferably using the CDN:
-//
-// <code>&lt;script src=&quot;https://edge.xero.com/style/xui-icon/4.17.0/xuiIconBlobES5.js &quot;&gt;&lt;/script&gt;</code>
-//
-// **Plese Note:** this may not be the latest version. Please check the [XUI Icon releases page](https://github.dev.xero.com/UXE/xui-icon/releases) to see what versions are available.
-//
-// Styleguide: Icons.2
-
-// Inline placement
+// Definitions:
+// Default:  30px viewbox: none
+// Large: : 40px viewbox: `.xui-icon-large`
+// xLarge: 60px viewbox: `.xui-icon-xlarge`
 //
 // Markup:
-// <p class="xui-text-secondary">They'll inherit text colour wherever they're placed <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-text" role="presentation"/></svg></p>
-// <a class="xui-button  xui-button-main xui-margin-bottom">
-// 	Buttons! <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-view" role="presentation"/></svg>
-// </a>
-// <a>Links!<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-location" role="presentation"/></svg></a>
-// <span class="xui-text-status xui-text-status-positive">
-// 	Green<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-payment" role="presentation"/></svg>
-// </span>
-// <span class="xui-text-status xui-text-status-negative">
-// 	Red<svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-// </span>
-// <div class="xui-buttongroup">
-// 	<button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-desktop" role="presentation"/></svg></button>
-// 	<button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-mobile" role="presentation"/></svg></button>
-// 	<button type="button" class="xui-button xui-button-grouped xui-button-standard"><svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-print" role="presentation"/></svg></button>
-// </div>
+//  <svg focusable="false" class="xui-icon">
+//		<use xlink:href="#xui-icon-search" role="presentation"/>
+//	</svg>
+//  <svg focusable="false" class="xui-icon xui-icon-large">
+//		<use xlink:href="#xui-icon-search" role="presentation"/>
+//	</svg>
+//  <svg focusable="false" class="xui-icon xui-icon-xlarge">
+//		<use xlink:href="#xui-icon-search" role="presentation"/>
+//	</svg>
 //
-//
-// Styleguide: Icons.3
+// Styleguide: Fundamentals.Icons.2
 
-// Rotations
+// Placement
 //
-// The classes `xui-u-rotate-90`, `xui-u-rotate-180`, and `xui-u-rotate-270` may be used to rotate the icon to various orientations.
+// By default, icons are centered within a 30px viewbox, to enable easier tabular alignment.
+// However, if you are intending to place icons alongside text, such as in [buttons](section-buttons.html#buttons-7), use the following modifier to ensure lineheight is not affected.
+//
+// Definitions:
+// Inline: Alongside text: `.xui-icon-inline`
 //
 // Markup:
-//  <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg><svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+//  <button class='xui-button xui-button-main'>
+//  	Button
+//  	<svg focusable="false" class="xui-icon xui-icon-inline">
+//			<use xlink:href="#xui-icon-caret" role="presentation"/>
+//		</svg>
+// 	</button>
+//  <p class='xui-button xui-margin-left'>
+//  	<svg focusable="false" class="xui-icon xui-icon-inline">
+//			<use xlink:href="#xui-icon-tag" role="presentation"/>
+//		</svg>
+//  	Text
+// 	</p>
 //
-// Styleguide: Icons.4
+// Styleguide: Fundamentals.Icons.3
 
-// Colours
+// Color
 //
-// The colours may be applied to the icons with `xui-icon-color-standard`, `xui-icon-color-blue`, `xui-icon-color-red`, `xui-icon-color-green` and `xui-icon-color-white`
-// For specific file types, you can also use `xui-icon-color-file-pdf` and `xui-icon-color-file-spreadsheet`
+// By default, icons inherit the color of the parent element.
+// However, there are a number of color modifiers available to specify your own, when this is not desired.
+//
+// Definitions:
+// Inherit:  		none
+// Standard: 		`.xui-icon-color-standard`
+// Blue: 				`.xui-icon-color-blue`
+// Red: 				`.xui-icon-color-red`
+// Green: 			`.xui-icon-color-green`
+// PDF: 				`.xui-icon-color-file-pdf`
+// Spreadsheet: `.xui-icon-color-file-spreadsheet`
+// White: 			`.xui-icon-color-white`
+// White muted: `.xui-icon-color-white-muted`
+// White faint: `.xui-icon-color-white-faint`
 //
 // Markup:
-//	<svg focusable="false" class="xui-icon xui-icon-color-standard"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-blue"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-red"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-green"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white" style="background-color: grey; border-radius: 50%"> <use xlink:href="#xui-icon-print" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-pdf"> <use xlink:href="#xui-icon-file-pdf" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet"> <use xlink:href="#xui-icon-file-excel" role="presentation"/></svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet"> <use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/></svg>
+//	<svg focusable="false" class="xui-icon">
+// 		<use xlink:href="#xui-icon-filter" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-standard">
+// 		<use xlink:href="#xui-icon-contact" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-blue">
+// 		<use xlink:href="#xui-icon-xero" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-red">
+// 		<use xlink:href="#xui-icon-stop" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-green">
+// 		<use xlink:href="#xui-icon-checkbox-check" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-file-pdf">
+// 		<use xlink:href="#xui-icon-file-pdf" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet">
+// 		<use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-white xui-background-grey-1">
+// 		<use xlink:href="#xui-icon-notification" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-white-muted xui-background-grey-1">
+// 		<use xlink:href="#xui-icon-link" role="presentation"/>
+// 	</svg>
+//	<svg focusable="false" class="xui-icon xui-icon-color-white-faint xui-background-grey-1">
+// 		<use xlink:href="#xui-icon-print" role="presentation"/>
+// 	</svg>
 //
-// Styleguide: Icons.5
+// Styleguide: Fundamentals.Icons.4
 
-// Text color
+// Rotation
 //
-// XUI supports styling a character to look like an icon.
+// To rotate any icon in increments of 90 degrees, use one of the following utilities.
 //
-// Classes:
-// xui-text-color-icon: used for styling characters for use in place of icons
+// Definitions:
+// Default: 	none
+// 90deg: 		`.xui-u-rotate-90`
+// 180deg: 		`.xui-u-rotate-180`
+// 270deg: 		`.xui-u-rotate-270`
 //
 // Markup:
-// <div class="xui-input-wrapper xui-margin">
-//  <div class="xui-input--iconwrapper xui-input--iconwrapper-left xui-text-color-icon">
-//    €
-//  </div>
-//  <input class="xui-input" aria-label="Amount"/>
-//</div>
+// <svg focusable="false" class="xui-icon">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+// <svg focusable="false" class="xui-icon xui-u-rotate-90">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+// <svg focusable="false" class="xui-icon xui-u-rotate-180">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
+// <svg focusable="false" class="xui-icon xui-u-rotate-270">
+// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
+// </svg>
 //
-// Styleguide: Icons.5.1
+// Styleguide: Fundamentals.Icons.5
 
 // Accessibility
 //
-// You can easily add screen reader information to an SVG using the `<title>` and `<desc>` tags.
+// We highly encourage you to add <a href='https://www.sitepoint.com/tips-accessible-svg/'>screen reader information</a> to SVGs. This can be done by adding the `<title>` and `<desc>` tags.
 //
-// Markup:
-//	<svg focusable="false" class="xui-icon xui-icon-color-standard">
-//		<title>Print</title>
-//		<desc>Print friendly view</desc>
-//		<use xlink:href="#xui-icon-print" role="presentation"/>
-//	</svg>
-//
-// Styleguide: Icons.6
+// Styleguide: Fundamentals.Icons.6
 
-// Deprecated Icon Rotation
+// Available icons
 //
-// ![](https://img.shields.io/badge/Deprecated%20in-11.2.1-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
+// <div id="xuiIconShowcase" class="prettyprint"></div>
 //
-// Classes:
-// xui-icon-rotate-90: Use xui-u-rotate-90 instead
-// xui-icon-rotate-180: Use xui-u-rotate-180 instead
-// xui-icon-rotate-270: Use xui-u-rotate-270 instead
-//
-// Styleguide: Icons.99
+// Styleguide: Fundamentals.Icons.7
 
-// Deprecated Icon Symbol
-//
-// ![](https://img.shields.io/badge/Deprecated%20in-11.1.1-%23f6534e.svg)
-// ![](https://img.shields.io/badge/Removed%20in-12.0.0-lightgrey.svg)
-//
-// Classes:
-// xui-icon-svg: Use xui-iconsymbol instead
-//
-// Styleguide: Icons.99
-
-/* xui-icon-svg is added to the icon blob produced by the xui-icon repository */
-// TODO: remove xui-icon-svg in XUI 12 since it applies on the <symbol> element
-// and is not a modifier of child of xui-icon
-.#{$ns}-iconsymbol,
-.#{$ns}-icon-svg {
+/* xui-iconsymbol is added to the icon blob produced by the xui-icon repository */
+.#{$ns}-iconsymbol {
 	fill-rule: evenodd;
 	shape-rendering: auto;
 }
@@ -160,8 +177,6 @@
 	width: $xui-icon-standard;
 }
 
-// TODO: remove sizing assumptions in XUI 12
-// The successors to this class split the fill from the display/width/height
 .#{$ns}-icon {
 	display: inline-block;
 	fill: currentColor;
@@ -172,13 +187,6 @@
 	width: $xui-icon-standard;
 }
 
-// TODO: this becomes xui-icon in XUI 12
-.#{$ns}-newicon {
-	fill: currentColor;
-	transform: rotate(360deg); // Blurry icon fix for Firefox if icon is rendered on a subpixel
-}
-
-// TODO: remove from XUI 12
 .#{$ns}-icon-inline {
 	margin: -10px -8px -6px;
 	vertical-align: middle;
@@ -194,20 +202,6 @@
 .#{$ns}-iconwrapper-xlarge {
 	height: $xui-icon-xlarge;
 	width: $xui-icon-xlarge;
-}
-
-// TODO: consider making these more generic in XUI 12
-.#{$ns}-icon-rotate-90 {
-	transform: rotate(90deg);
-}
-
-.#{$ns}-icon-rotate-180 {
-	transform: rotate(180deg);
-}
-
-
-.#{$ns}-icon-rotate-270 {
-	transform: rotate(-90deg);
 }
 
 .#{$ns}-icon-color-standard {

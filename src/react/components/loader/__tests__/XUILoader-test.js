@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import XUILoader from '../XUILoader';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {
@@ -22,7 +25,7 @@ describe('XUILoader', function () {
 	});
 
 	it('should not add the layout class if `defaultLayout` is set to `false`', function () {
-		const wrapper = mount(<XUILoader defaultLayout={false}label="Something is loading, please wait" />);
+		const wrapper = mount(<XUILoader defaultLayout={false} label="Something is loading, please wait" />);
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeFalsy();
 	});
 
@@ -39,5 +42,24 @@ describe('XUILoader', function () {
 		expect(loaders.at(0).hasClass('xui-loader')).toBeTruthy();
 		expect(loaders.at(1).hasClass('xui-loader-small')).toBeTruthy();
 		expect(loaders.at(2).hasClass('xui-loader-large')).toBeTruthy();
+	});
+
+	it('should add the inverted class if `isInverted` is set to `true`', () => {
+		const wrapper = mount(
+			<XUILoader
+				isInverted={true}
+				label="Something is loading, please wait" />
+		);
+
+		expect(wrapper.getDOMNode().classList.contains('xui-loader-inverted')).toBeTruthy();
+	});
+
+	it('should add the retain layout class if `retainLayout` is set to `true`', function () {
+		const wrapper = mount(
+			<XUILoader
+				retainLayout={true}
+				label="Something is loading, please wait" />
+		);
+		expect(wrapper.getDOMNode().classList.contains('xui-loader-retain-layout')).toBeTruthy();
 	});
 });

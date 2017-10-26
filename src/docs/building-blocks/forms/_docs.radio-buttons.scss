@@ -1,0 +1,171 @@
+// Radio buttons
+//
+// Teaser: Choose a single item from a range of options
+//
+// Introduction:
+// XUI provides a custom radio button for consistency across platforms and visual alignment with other form elements. They can be used inline or grouped.
+//
+// Components: Radio
+//
+// Weight: -1
+//
+// Styleguide: Building Blocks.Forms.Radios
+
+
+// Inline radios buttons
+//
+// Markup:
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r0" name="rg0">
+//   <svg focusable="false" class="xui-icon">
+//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//   </svg>
+//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r1" name="rg0" checked>
+//   <svg focusable="false" class="xui-icon">
+//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//   </svg>
+//   <span class="xui-styledcheckboxradio--label">Checked</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-is-disabled">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox" disabled>
+//   <svg focusable="false" class="xui-icon">
+//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//   </svg>
+//   <span class="xui-styledcheckboxradio--label">Disabled</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-is-disabled">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox" checked disabled>
+//   <svg focusable="false" class="xui-icon">
+//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//   </svg>
+//   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
+// </label>
+//
+// Styleguide: Building Blocks.Forms.Radios.3
+
+
+
+
+
+// Grouped radio buttons
+//
+// Markup:
+// <label class="xui-text-label xui-fieldlabel-layout">Choose your favourite Star Trek character</label>
+// <div class="xui-styledcheckboxradio-group">
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" id="r2" name="rg1">
+//     <svg focusable="false" class="xui-icon">
+//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//     </svg>
+//     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" id="r3" name="rg1" checked>
+//     <svg focusable="false" class="xui-icon">
+//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//     </svg>
+//     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" id="r4" name="rg1">
+//     <svg focusable="false" class="xui-icon">
+//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//     </svg>
+//     <span class="xui-styledcheckboxradio--label">Geordi La Forge</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio xui-is-disabled">
+//     <input class="xui-styledcheckboxradio--input" type="radio" disabled>
+//     <svg focusable="false" class="xui-icon">
+//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//     </svg>
+//     <span class="xui-styledcheckboxradio--label">Wesley Crusher</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Forms.Radios.7
+
+// Order
+//
+// By default, radio buttons precede the text of the label. This can be reversed by adding `xui-styledcheckboxradio-reversed` to the wrapping element.
+//
+//
+// Markup:
+// <div class="xui-styledcheckboxradio-group">
+//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//     <input class="xui-styledcheckboxradio--input" type="radio" id="r2" name="rg1">
+//     <svg focusable="false" class="xui-icon">
+//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//     </svg>
+//     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//     <input class="xui-styledcheckboxradio--input" type="radio" id="r3" name="rg1" checked>
+//     <svg focusable="false" class="xui-icon">
+//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//     </svg>
+//     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
+//   </label>
+// </div>
+// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r0" name="rg0">
+//   <svg focusable="false" class="xui-icon">
+//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//   </svg>
+//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
+//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r1" name="rg0" checked>
+//   <svg focusable="false" class="xui-icon">
+//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
+//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
+//   </svg>
+//   <span class="xui-styledcheckboxradio--label">Checked</span>
+// </label>
+//
+// Styleguide: Building Blocks.Forms.Radios.8
+
+// Implementation
+//
+// The standard XUI radio button is composed of 3 SVGs for various states. These are styled and displayed based on state pseudo classes.
+//
+// Styleguide: Building Blocks.Forms.Radios.20
+
+// Class list
+//
+// Classes:
+// xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
+// xui-styledcheckboxradio: Container for a styled checkbox or radio
+// xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
+// xui-styledcheckboxradio--focus: Subcomponent for focus layer of a styled checkbox or radio
+// xui-styledcheckboxradio--main: Subcomponent for main layer of a styled checkbox or radio
+// xui-styledcheckboxradio--check: Subcomponent for checkmark layer of a styled checkbox or radio
+// xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of a styled checkbox (not applicable to radios)
+// xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
+//
+// Styleguide: Building Blocks.Forms.Radios.50

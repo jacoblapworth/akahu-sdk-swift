@@ -16,7 +16,7 @@ export const VariantClassNames = {
 	'standard': 'xui-button-standard',
 	'primary': 'xui-button-main',
 	'create': 'xui-button-create',
-	'link': 'xui-button-link',
+	'link': 'xui-button-borderless-main',
 	'negative': 'xui-button-negative',
 	'borderless-standard': 'xui-button-borderless-standard',
 	'borderless-primary': 'xui-button-borderless-main',

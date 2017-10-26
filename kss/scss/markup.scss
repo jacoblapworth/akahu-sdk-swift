@@ -1,0 +1,261 @@
+
+.ds-input-example:checked ~ .ds-markup:not(.ds-example-inline) {
+	display:none;
+}
+
+.ds-markup-open {
+	overflow: hidden;
+}
+
+.ds-markup {
+	background: mix(black, $xui-color-grey-1, 40%);
+	display: block;
+	padding-top: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+	width: 100%;
+}
+
+.ds-markup--actions {
+	position: absolute;
+	right: 10px;
+	z-index: 100;
+}
+
+.ds-button-closemarkup,
+.ds-markup--actions h3 {
+	display: none;
+}
+
+
+.ds-markup:not(.ds-example-inline) {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	height: 100vh;
+	overflow: auto;
+	z-index: 9999;
+	padding-top: calc(1rem + #{$ds-page-header-height});
+	@include ds-breakpoint-massive {
+		left: 80rem;
+		width: auto;
+	}
+	.ds-markup--actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row-reverse;
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		background: mix(black, $xui-color-grey-1, 40%);
+		height: $ds-page-header-height;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		border-bottom: 1px solid rgba($xui-color-white, 0.1);
+		@include ds-breakpoint-massive {
+			left: 80rem;
+		}
+	}
+	.ds-button-closemarkup,
+	.ds-markup--actions h3 {
+		display: block;
+	}
+}
+
+// scss-lint:disable Prefix
+.kss-style code {
+	font-size: 13px;
+}
+
+// the below layout class assumes all the rules, if position is subsequently
+// modified to absolute or fixed the top needs undoing.
+.ds-code-layout,
+.ds-markup-wrap code,
+.ds-description code,
+.kss-style code {
+	display: inline-block;
+	position: relative;
+	top: -1px;
+}
+
+code {
+	background: $xui-color-grey-6;
+	border-radius: $xui-radius;
+	padding: 0 4px;
+  word-break: break-word;
+}
+// ------------------------------------------------------------------------------
+//   $group prettyprint.js styling
+// ------------------------------------------------------------------------------
+
+/* Pretty printing styles. Used with prettify.js. */
+
+// scss-lint:disable SingleLinePerProperty
+// scss-lint:disable SingleLinePerSelector
+/* SPAN elements with the classes below are added by prettyprint. */
+// .pln { color: $xui-color-grey-6; }  /* plain text */
+// .str { color: $xui-color-grey-6; }  /* string content */
+// .kwd { color: $xui-color-grey-6; }  /* a keyword */
+// .com { color: $xui-color-grey-3; }  /* a comment */
+// .typ { color: $xui-color-grey-6; }  /* a type name */
+// .lit { color: $xui-color-grey-6; }  /* a literal value */
+// /* punctuation, lisp open bracket, lisp close bracket */
+// .pun, .opn, .clo { color: $xui-color-grey-5; }
+// .tag { color: $xui-color-grey-4; }  /* a markup tag name */
+// .atn { color: $xui-color-grey-4; }  /* a markup attribute name */
+// .atv { color: $xui-color-grey-6; }  /* a markup attribute value */
+// .dec, .var { color: $xui-color-grey-5; }  /* a declaration; a variable name */
+// .fun { color: $xui-color-xero-red; }  /* a function name */
+// scss-lint:enable SingleLinePerProperty
+// scss-lint:enable SingleLinePerSelector
+
+/* Use higher contrast and text-weight for printable form. */
+// @media print, projection {
+//   .str { color: #060 }
+//   .kwd { color: #006; font-weight: bold }
+//   .com { color: #600; font-style: italic }
+//   .typ { color: #404; font-weight: bold }
+//   .lit { color: #044 }
+//   .pun, .opn, .clo { color: #440 }
+//   .tag { color: #006; font-weight: bold }
+//   .atn { color: #404 }
+//   .atv { color: #060 }
+// }
+
+@media screen {
+
+  /* string content */
+
+  .str {
+    color: #99cc99;
+  }
+
+  /* keyword */
+
+  .kwd {
+    color: #cc99cc;
+  }
+
+  /* comment */
+
+  .com {
+    color: #999999;
+  }
+
+  /* type name */
+
+  .typ {
+    color: #6699cc;
+  }
+
+  /* literal value */
+
+  .lit {
+    color: #f99157;
+  }
+
+  /* punctuation */
+
+  .pun {
+    color: #cccccc;
+  }
+
+  /* lisp open bracket */
+
+  .opn {
+    color: #cccccc;
+  }
+
+  /* lisp close bracket */
+
+  .clo {
+    color: #cccccc;
+  }
+
+  /* markup tag name */
+
+  .tag {
+    color: $xui-color-white-muted;
+  }
+
+  /* markup attribute name */
+
+  .atn {
+    color: $xui-color-green;
+  }
+
+  /* markup attribute value */
+
+  .atv {
+		color: $xui-color-turquoise;
+  }
+
+	/* plain text */
+
+	.pln {
+    color: $xui-color-grey-3;
+  }
+
+  /* declaration */
+
+  .dec {
+    color: #f99157;
+  }
+
+  /* variable name */
+
+  .var {
+    color: #f2777a;
+  }
+
+  /* function name */
+
+  .fun {
+    color: #6699cc;
+  }
+}
+
+
+.prettyprinted code {
+	background: none;
+}
+
+.linenums {
+	border: 0;
+	list-style: none;
+	margin: 0;
+	white-space: pre-wrap;
+	counter-reset: step;
+	line-height: 1.7;
+	tab-size: 15px;
+
+	& li {
+		counter-increment: step 1;
+		position: relative;
+		&:before {
+			content: counter(step);
+			color: $xui-color-grey-2;
+			left: -2rem;
+			position: absolute;
+		}
+	}
+
+	code {
+		display: block;
+		padding-left: 3em;
+		text-indent: -3em;
+		&::first-line {
+			// background: red;
+		}
+	}
+
+	li:last-of-type {
+		border-bottom: 0;
+	}
+
+}

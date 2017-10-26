@@ -1,0 +1,286 @@
+// Nested
+//
+// Teaser: Separating complex options into digestible sections.
+//
+// Introduction: Nested dropdowns are used to group complex options into separate sections.
+//
+// Components: Dropdown
+//
+// Styleguide: Building Blocks.Dropdowns.Nested
+
+// Best practice
+//
+// Tips:
+// Do: Apply filters on selection
+// Do: Use nested dropdowns if there are over two filter categories, otherwise use individual dropdowns
+// Warning: Always include a header at narrow viewports to enable dismissing the dropdown
+//
+// Styleguide: Building Blocks.Dropdowns.Nested.1
+
+// Anatomy
+//
+// To create a nested dropdown, use the following classes. 
+//
+// Classes:
+// xui-dropdown--panel: Container for each section
+// xui-u-hidden: Add to toggle section visibility
+// xui-dropdown-fullheight: Apply to dropdown to enable consistent header position
+// xui-u-hidden-medium: Apply to actions to hide between 520px and 940px
+// xui-u-hidden-wide: Apply to actions to hide above 940px
+//
+// Styleguide: Building Blocks.Dropdowns.Nested.2
+
+// Parent
+//
+// Tips:
+// Do: Truncate after two items
+//
+// Markup:
+// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <div class="xui-dropdown--header-container xui-u-hidden-medium xui-u-hidden-wide">
+//       <div class="xui-dropdown--header-leftcontent">
+//         <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
+//         Filters
+//         </div>
+//       </div>
+//       <div class="xui-dropdown--header-rightcontent">
+//         <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button>
+//           <button class="xui-button xui-margin-left-small xui-button-main xui-button-small" tabindex="0" type="button">Apply</button>
+//         </div>
+//       </div>
+//     </div>
+//     <div class='xui-dropdown--scrollable-content'>
+//       <ul class="xui-picklist xui-picklist-layout" role="tree">
+//         <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text xui-text-truncated">
+//               <span>Status</span>
+//               <span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span>
+//             </span>
+//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+//               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//             </svg>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text xui-text-truncated">
+//               <span>Date range</span>
+//               <span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span>
+//             </span>
+//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+//               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//             </svg>
+//           </button>
+//         </li>
+//         <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//           <button type="button" class="xui-pickitem--body">
+//             <span class="xui-pickitem--text xui-text-truncated">
+//               <span>Created by</span>
+//               <span class="xui-text-secondary xui-margin-left-small">Kirk Holloway +2 others</span>
+//             </span>
+//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+//               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
+//             </svg>
+//           </button>
+//         </li>
+//       </ul>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Nested.2.1
+
+// Child
+//
+// Tips:
+// Do: Include a back button to apply filters across multiple categories at once
+//
+// Markup:
+// <div class='xui-dropdown-layout xui-dropdown-fixed-xlarge xui-dropdown-fullheight xui-dropdown-is-open'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <div class="xui-dropdown--header-container">
+//       <div class="xui-dropdown--header-leftcontent">
+//         <button class="xui-button xui-button-icon xui-button-icon-large xui-u-flex-none" type="button">
+//           <svg focusable="false" class="xui-icon">
+//             <use role="presentation" class="xui-icon" xlink:href="#xui-icon-back"></use>
+//           </svg>
+//         </button>
+//         <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
+//           Date range
+//         </div>
+//       </div>
+//       <div class="xui-dropdown--header-rightcontent xui-u-hidden-medium xui-u-hidden-wide">
+//         <div class="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+//           <button class="xui-button xui-button-standard xui-button-small" tabindex="0" type="button">Cancel</button><button class="xui-button xui-margin-left-small xui-button-main xui-button-small" tabindex="0" type="button">Apply</button>
+//         </div>
+//       </div>
+//     </div>
+//     <div class='xui-dropdown--scrollable-content'>
+//       <div class="xui-datepicker">
+//         <header class="xui-datepicker--header">
+//           <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
+//             <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//           </button>
+//           <form class="xui-datepicker--heading-dates">
+//             <div class="xui-datepicker--heading xui-datepicker--heading-month">
+//               <select id="month" class="xui-datepicker--heading-select xui-datepicker--monthselect-layout" name="month">
+//                 <option value="5">June</option>
+//                 <option value="6">July</option>
+//                 <option value="7">August</option>
+//               </select>
+//               <label for="month" class="xui-datepicker--heading-label">June</label>
+//             </div>
+//             <div class="xui-datepicker--heading xui-datepicker--heading-year">
+//               <select id="year" class="xui-datepicker--heading-select xui-datepicker--yearselect-layout" name="year">
+//                 <option value="2017">2017</option>
+//                 <option value="2018">2018</option>
+//                 <option value="2019">2019</option>
+//               </select>
+//               <label for="year" class="xui-datepicker--heading-label">2017</label>
+//             </div>
+//           </form>
+//           <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
+//             <svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//           </button>
+//         </header>
+//         <div class="xui-datepicker--body" role="grid" aria-label="Select a day">
+//           <div role="rowgroup">
+//             <div class="xui-datepicker--weekdays" role="row">
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Sunday">S</abbr></div>
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Monday">M</abbr></div>
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Tuesday">T</abbr></div>
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Wednesday">W</abbr></div>
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Thursday">T</abbr></div>
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Friday">F</abbr></div>
+//               <div class="xui-datepicker--weekdaywrapper" role="columnheader"><abbr class="xui-datepicker--weekday" title="Saturday">S</abbr></div>
+//             </div>
+//           </div>
+//           <div role="rowgroup">
+//             <div role="row" class="xui-datepicker--week">
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-09-27" class="xui-datepicker--day--time">27</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-09-28" class="xui-datepicker--day--time">28</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-09-29" class="xui-datepicker--day--time">29</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-09-30" class="xui-datepicker--day--time">30</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-1" class="xui-datepicker--day--time">1</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-2" class="xui-datepicker--day--time">2</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-3" class="xui-datepicker--day--time">3</time>
+//               </div>
+//             </div>
+//             <div role="row" class="xui-datepicker--week">
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-4" class="xui-datepicker--day--time">4</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-5" class="xui-datepicker--day--time">5</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-6" class="xui-datepicker--day--time">6</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-7" class="xui-datepicker--day--time">7</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-8" class="xui-datepicker--day--time">8</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-9" class="xui-datepicker--day--time">9</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-10" class="xui-datepicker--day--time">10</time>
+//               </div>
+//             </div>
+//             <div role="row" class="xui-datepicker--week">
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-11" class="xui-datepicker--day--time">11</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-12" class="xui-datepicker--day--time">12</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-13" class="xui-datepicker--day--time">13</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-14" class="xui-datepicker--day--time">14</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-15" class="xui-datepicker--day--time">15</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-16" class="xui-datepicker--day--time">16</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-17" class="xui-datepicker--day--time">17</time>
+//               </div>
+//               </div>
+//             <div role="row" class="xui-datepicker--week">
+//             <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-18" class="xui-datepicker--day--time">18</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-19" class="xui-datepicker--day--time">19</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-20" class="xui-datepicker--day--time">20</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-21" class="xui-datepicker--day--time">21</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-22" class="xui-datepicker--day--time">22</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-23" class="xui-datepicker--day--time">23</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-24" class="xui-datepicker--day--time">24</time>
+//               </div>
+//               </div>
+//             <div role="row" class="xui-datepicker--week">
+//             <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-25" class="xui-datepicker--day--time">25</time>
+//               </div>
+//               <div class="xui-datepicker--day" role="gridcell">
+//                 <time datetime="2016-10-26" class="xui-datepicker--day--time">26</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-10-27" class="xui-datepicker--day--time">27</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-10-28" class="xui-datepicker--day--time">28</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-10-29" class="xui-datepicker--day--time">29</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-10-30" class="xui-datepicker--day--time">30</time>
+//               </div>
+//               <div class="xui-datepicker--day xui-datepicker--day-is-othermonth" role="gridcell">
+//                 <time datetime="2016-10-21" class="xui-datepicker--day--time">31</time>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Nested.2.2

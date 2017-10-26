@@ -1,31 +1,18 @@
-// Other Mixin utilities
-
-@mixin xui-caret {
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 4px solid currentColor;
-	display: inline-block;
-	height: 0;
-	width: 0;
-}
-
+// Provides ideal font-smoothing properties for each browser
 @mixin xui-font-smooth {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
 
-// TODO: remove this
-@mixin xui-bold {
-	font-weight: bold;
-}
-
+// Resets standard list styling, margin, and padding
 @mixin xui-listreset {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
+// Provides coloring for disabled XUI forms
 @mixin xui-disabled-form {
 	background-color: $xui-color-grey-alpha-6;
 	border-color: $xui-color-grey-alpha-4;

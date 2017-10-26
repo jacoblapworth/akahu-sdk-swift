@@ -1,0 +1,304 @@
+// Autocompleter
+//
+// Teaser: Apply multiple options via a single text input.
+//
+// Introduction: To apply multiple options via a single text input, use an autompleter.
+//
+// Components: Autocompleter
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter
+
+// Best practice
+//
+// Tips:
+// Do: Options are refined as the user types
+// Do: Match dropdown width to the width of their associated autocompleter
+// Warning: Avoid automatically showing dropdowns on focus, unless promoting recent or suggested items
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.1
+
+// Anatomy
+//
+// To create an autocompleter, several classes are required.
+// However, if you are using React, this is all managed for you.
+// Consequently, the examples shown below are static, and don't illustrate the recommended interactive behaviour.
+// For more information, visit the [React Documentation](./react/#autocompleter).
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.2
+
+// Trigger
+//
+// To create an autocompleter, an element is required to contain the pills and trigger dropdown visibility.
+// To do this, use the following classes.
+//
+// Classes:
+// xui-input: Apply to autocompleter container to mimic input style
+// xui-autocompleter--trigger: Apply to autocompleter container for recommended layout
+// xui-autocompleter--trigger-focus: Apply to trigger programatically when child input is in focus
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.2.1
+
+// Input
+//
+// To create the focusable field inside an autocompleter, use the following classes.
+//
+// Classes:
+// xui-inputwrapper: Apply to input container for recommended style
+// xui-autocompleter--inputwrapper: Apply to input container for recommended layout
+// xui-input: Apply to actual input
+// xui-input-borderless: Apply to actual input to remove borders
+// xui-autocompleter--input: Apply to actual input for recommended layout
+// xui-autocompleter--placeholder: Apply to pseudo placeholder handled via React
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.2.2
+
+// Standard layout
+//
+// Markup:
+// <div class="xui-input xui-autocompleter--trigger">
+//   <div class="xui-inputwrapper xui-autocompleter--inputwrapper">
+//     <input class="xui-input xui-input-borderless xui-autocompleter--input" placeholder="Add recipients" type="search" value="">
+//     <span class="xui-autocompleter--placeholder">Add recipients</span>
+//   </div>
+// </div>
+// <div class='xui-dropdown-layout xui-dropdown-is-open xui-margin-top-xsmall'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <div class='xui-dropdown--scrollable-content'>
+//       <ul class="xui-picklist xui-picklist-layout" role="tree">
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar xui-avatar-color-8 xui-margin-right-small">IM</abbr>
+//            <span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-vertical">
+//              <span class="xui-text-emphasis xui-text-truncated">Isaac Minogue</span>
+//              <span class="xui-text-secondary xui-text-truncated">isaac.minogue@xero.com</span>
+//            </span>
+//          </button>
+//        </li>
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar xui-avatar-color-5 xui-margin-right-small">GP</abbr>
+//            <span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-vertical">
+//              <span class="xui-text-emphasis xui-text-truncated">Gareth Price</span>
+//              <span class="xui-text-secondary xui-text-truncated">gareth.price@xero.com</span>
+//            </span>
+//          </button>
+//        </li>
+//        <li class="xui-pickitem" role="treeitem">
+//          <button type="button" class="xui-pickitem--body">
+//            <abbr class="xui-avatar xui-avatar xui-avatar-color-2 xui-margin-right-small">IM</abbr>
+//            <span class="xui-pickitem--text xui-u-overflow-hidden xui-u-flex xui-u-flex-vertical">
+//              <span class="xui-text-emphasis xui-text-truncated">Ivan Miskovic</span>
+//              <span class="xui-text-secondary xui-text-truncated">ivan.miskovic@xero.com</span>
+//            </span>
+//          </button>
+//        </li>
+//       </ul>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.2.3
+
+// Pills
+//
+// Tips:
+// Do: Include an avatar if the selected option has an associated person or business
+//
+// To indicate an option has been added to the autocompleter, simply insert a [pill](section-building-blocks-pills.html).
+// Then, add the following modifier to provide the correct layout within the autocompleter.
+//
+// Classes:
+// xui-autocompleter--pill: An individual pill inside the autocmpleter
+//
+// Markup:
+// <div class="xui-input xui-autocompleter--trigger">
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">CS</abbr>
+//       <span class="xui-pill--text">Claire Symons</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-inputwrapper xui-autocompleter--inputwrapper">
+//     <input class="xui-input xui-input-borderless xui-autocompleter--input" placeholder="Add recipients" type="search" value="">
+//     <span class="xui-autocompleter--placeholder">Add recipients</span>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.3
+
+// Wrapping
+//
+// Tips:
+// Do: Always enable wrapping unless reducing vertical space is crucial, for example in a fixed header
+//
+// The default behaviour of the autocompleter class is to scroll pills horizontally when they exceed its width.
+// However, a class is available to enable pills to wrap instead.
+// If using React, this is enabled by default.
+//
+// Classes:
+// xui-autocompleter--trigger-pillwrap: Apply to autocompleter container to wrap pills
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.4
+
+// Enabled 
+//
+// If using React, clicking anywhere on the trigger focuses the input.
+//
+// Markup:
+// <div class="xui-input xui-autocompleter--trigger xui-autocompleter--trigger-pillwrap">
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-7" role="presentation">FC</abbr>
+//       <span class="xui-pill--text">Finn Clark</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">GC</abbr>
+//       <span class="xui-pill--text">Georgia Cottrell</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-9" role="presentation">ST</abbr>
+//       <span class="xui-pill--text">Sophie Taylor</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-10" role="presentation">SL</abbr>
+//       <span class="xui-pill--text">Sylvain Lafitte</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-1" role="presentation">RS</abbr>
+//       <span class="xui-pill--text">Robb Schiller</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-inputwrapper xui-autocompleter--inputwrapper">
+//     <input class="xui-input xui-input-borderless xui-autocompleter--input" placeholder="Add recipients" type="search" value="">
+//     <span class="xui-autocompleter--placeholder">Add recipients</span>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.4.1
+
+
+// Disabled 
+//
+// If using React, the autocompleter is automatically scrolled on change, making the placeholder always visible.
+//
+// Markup:
+// <div class="xui-input xui-autocompleter--trigger">
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-2" role="presentation">SJ</abbr>
+//       <span class="xui-pill--text">Sam Judson</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-3" role="presentation">CM</abbr>
+//       <span class="xui-pill--text">Caleb Mercer</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-4" role="presentation">JJ</abbr>
+//       <span class="xui-pill--text">Julie Jeon</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-5" role="presentation">BA</abbr>
+//       <span class="xui-pill--text">Brock Abernathy</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-autocompleter--pill xui-pill xui-pill-layout xui-pill-is-deleteable">
+//     <button class="xui-button xui-pill--content xui-pill--button" type="button">
+//       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-6" role="presentation">SB</abbr>
+//       <span class="xui-pill--text">Steph Bain</span>
+//     </button>
+//     <button class="xui-button xui-pill--button-icon xui-button-icon" title="Delete" type="button">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"></use>
+//       </svg>
+//     </button>
+//   </div>
+//   <div class="xui-inputwrapper xui-autocompleter--inputwrapper">
+//     <input class="xui-input xui-input-borderless xui-autocompleter--input" placeholder="Add recipients" type="search" value="">
+//     <span class="xui-autocompleter--placeholder">Add recipients</span>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.4.2
+
+// Disabling
+//
+// To indicate an autocompleter is disabled, add the following modifier.
+// Additionally, make sure to apply the `disabled` attribute to the input to prevent keyboard interaction.
+//
+// Classes:
+// xui-autocompleter--trigger-is-disabled: Apply to autocompleter container
+//
+// Markup:
+// <div class="xui-input xui-autocompleter--trigger xui-autocompleter--trigger-is-disabled">
+//   <div class="xui-inputwrapper xui-autocompleter--inputwrapper">
+//     <input class="xui-input xui-input-borderless xui-autocompleter--input" placeholder="Add recipients" type="search" value="" disabled>
+//     <span class="xui-autocompleter--placeholder">Add recipients</span>
+//   </div>
+// </div>
+//
+// Styleguide: Building Blocks.Dropdowns.Autocompleter.5

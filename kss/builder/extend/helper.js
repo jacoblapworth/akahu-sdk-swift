@@ -23,6 +23,7 @@ module.exports = function(handlebars) {
 			options = upperBound;
 			upperBound = lowerBound;
 		}
+
 		return (this.depth && this.depth >= lowerBound && this.depth <= upperBound) ? options.fn(this) : options.inverse(this);
 	});
 
@@ -38,6 +39,48 @@ module.exports = function(handlebars) {
 	 */
 	handlebars.registerHelper('isEqual', function(a, b, options) {
 		return a === b  ? options.fn(this) : options.inverse(this);
+	});
+
+	/**
+	 * Compares two objects to see if they're not the same. Shotcircuit for isEqual helper
+	 *
+	 * e.g.
+	 * {{#isNotEqual object1 object2}}
+	 * 		EXECUTE THIS IF NOT EQUAL
+	 * 		{{else}} [optional]
+	 * 		WILL EXECUTE THIS
+	 * {{/isNotEqual}}
+	 */
+	handlebars.registerHelper('isNotEqual', function(a, b, options) {
+		return a !== b  ? options.fn(this) : options.inverse(this);
+	});
+
+	/**
+	 * convert string to a class friendly lowercased space free output
+	 */
+
+	handlebars.registerHelper("getStatusClass", function(input) {
+		const stripped = input.toLowerCase().match(/[a-z\s]*/)[0].replace(/\s/g, "");
+		return `ds-status--${stripped}`;
+	});
+
+ /**
+	* Checks an item isn't included inside the list (array).
+	*
+	* e.g
+	* {{#isNotIn item array}}
+	*	EXECUTE IF DOESN'T APPEAR IN ARRAY
+	*	{{else}} [optional]
+	* 	EXECUTE IF IT DOES
+	* {{/ifNotIn}}
+	*
+	*/
+	handlebars.registerHelper('ifNotInMenu', function(elem, menu, options) {
+		var found = menu.find(function(menuItem){
+			return menuItem.header === elem;
+		});
+
+		return found ? options.inverse(this): options.fn(this);
 	});
 
 	/**
@@ -58,6 +101,13 @@ module.exports = function(handlebars) {
 			console.log('====================');
 		}
 		return '';
+	});
+
+	/**
+	 * Add {{debugger}} to a handlebars template or partial to enable debugging using node inspecting
+	 */
+	handlebars.registerHelper('debugger', function() {
+		debugger;
 	});
 
 	/**
@@ -96,4 +146,22 @@ module.exports = function(handlebars) {
 		}
 		return openSection + body.fn(this) + closeSection;
 	})
+
+
+	/**
+	 * Test against list of styleguides and evaluate if current matches
+	 *
+	 * e.g.
+	 * {{#ifStyleguide "Styleguide ref1" "Styleguide ref2"}}
+	 * 		WILL EXECUTE THIS
+	 * 		{{else}} [optional]
+	 * 		EXECUTE THIS IF NOT A MATCHING REFERENCE
+	 * {{/ifStyleguide}}
+	 */
+	handlebars.registerHelper('ifStyleguide', function() {
+		const styleguides = Array.from(arguments);
+		const options = styleguides.splice( -1)[0];
+		const matchesStyleguide = (styleguides.indexOf(this.reference) !== -1);
+		return (matchesStyleguide) ? options.fn(this) : options.inverse(this);
+	});
 };

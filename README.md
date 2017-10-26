@@ -4,206 +4,221 @@ XUI
 [![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master)
 ![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
 
+## Make things people know and love
+XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
+
 ### Always get the latest versions here:
 * XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
-Using in Your Project
----------------------
+### Jump to the latest docs
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/working-with-xui.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-getting-started.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/fundamentals.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-fundamentals.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/building-blocks.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-building-blocks.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/react.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/react/)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/update.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-updates.html)
+[<img src="https://github.dev.xero.com/raw/UXE/xui/breaking-changes/.github/feedback.png" alt="alt text" width="140px" height="186px"/>](https://xui.xero.com/section-feedback.html)
 
-### CSS
+## Setting up XUI for local development
 
-#### CDN (Recommended)
+### Requirements
 
-Include the following `link` in your page:
+You'll need:
 
-<!--?prettify lang=html?-->
-```html
-<link rel="stylesheet" href="https://edge.xero.com/style/xui/11.2.1/xui.min.css"/>
+ * Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
+ * [ESLint](http://eslint.org/)j plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
+ * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
+ * A command line. Bash/zsh/etc MacOs. Git Bash Windows.
+
+
+
+### Clone and install
+
+From the command line:
+
+```
+git clone git@github.dev.xero.com:UXE/xui.git xui
+cd xui
 ```
 
-#### Sherlock
+Set the correct Node.js version (may require `nvm install x.x.x`).
 
-You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to pull in the latest version of XUI for a given semver range.
-A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
-
-### Components
-
-### npm
-
-First configure artifactory by adding the following to .npmrc. More info on Confluence: [Consuming Xero NPM Modules](https://confluence.inside.xero.com/display/FED/Using+Artifactory).
-
-<!--?prettify?-->
-```js
-@xero:registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-dev
-registry=https://af.inside.xero-support.com/artifactory/api/npm/npm-upstream
+```
+# MacOS
+nvm use
 ```
 
-Then install XUI with npm
+```
+# nvm-windows requires the exact version of node to be specified
+cat .nvmrc
+nvm list [available]
+nvm use x.x.x
+```
 
-<!--?prettify?-->
+Install dependencies and start development server.
+
+```
+npm install
+npm start
+```
+
+Open http://localhost:6060 to view the docs.
+
+This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement.
+
+#### Folder structure
+
+XUI has a number of top level folders. When contributing all the interesting files are under the `src` folder.
+* `src/docs/` contain SCSS and markdown files used by the documentation system.
+* `src/react/` has entry points for all the components.
+* Each component has a sub folder inside `src/react/components/`.
+  * Only public  UI components should live in the root of the associated component folder.
+  * Tests should always live in the `__tests__` folder.
+  * Private helpers, constants, etc should live in a `private` folder.
+  * This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
+* `src/sass/` contains all the SCSS partials and is organised following ITCSS conventions.
+
+```
+src/
+├─ docs/
+│  ├─ building-blocks/
+│  ├─ fundamentals/
+│  ├─ react/
+│  └─ working-with-xui/
+├─ react/
+│  └─ components/
+│     ├─ component1/
+│     │  ├─ __tests__/
+│     │  ├─ helpers/
+│     │  ├─ private/
+│     │  └─ uitest/
+│     └─ component2/
+└─ sass/
+   ├─ components/
+   ├─ elements
+   ├─ objects/
+   ├─ settings/
+   ├─ tools/
+   └─ trumps
+```
+
+#### npm scripts
+
+XUI has a lot of npm scripts. These are under review. `npm start` should be enough for most development. If the watches or dev server give you troubles you will need to run the following commands that will have a similar result to `npm start`, the built files will live in the `docs` directory and you'll need to use [http-server]() or [serve]() as a test webserver.
+
+```
+# Build CSS docs
+npm run lint:sass && npm run build && npm run doc
+```
+
+```
+# Build Component docs
+npm run lint:js && npm run styleguide:build
+```
+
+Script              | Description
+--------------------|-------------
+`npm install`       | Installs dependencies; required for other steps
+`npm run lint`             | Lints the React components and SCSS files
+`npm run lint:js`          | Lints the React components
+`npm run lint:js:fix`      | Runs ESLint with the [autofix feature](http://eslint.org/docs/user-guide/command-line-interface#--fix) enabled
+`npm run lint:sass` | Lints the stylesheet
+`npm run build`     | Compiles the stylesheet
+`npm run dist`      | Creates a minified version of the stylesheet (assumes you have run `build` first)
+`npm run doc`       | Compiles the style guide documentation into the `docs` folder
+`npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
+`npm run test`             | Runs all the React component unit tests
+`npm run test:watch`       | Runs all the React component unit tests and watches for file changes
+`npm run test:ui`          | Compiles and sets up the uitest demo page for a given component to do visual testing during development.  See the UI Testing section for more details.
+`npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible
+`npm run build:prepublish` | Cleans and creates the root level `react` and `sass` folders that will be deployed to Artifactory.
+`npm run build:babel`      | Creates a `react` folder containing babel'd code ready to be deployed
+`npm run build:umd`        | Creates a single JS artifact that can be dropped into any browser or Codepen sample
+`npm run clean`            | Many of our build tasks create temporary files that are ignored by git and can/should be deleted before doing another build.  This task removes those temporary files and is used by other tasks as well.
+`styleguide`               | Build and start up the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components.
+`styleguide:build`         | Build a static version of the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components that is suitable for deployment.
+
+## Post-install scripts
+
+After an install, there are a couple of things we want to do in order to help ensure the quality of our applications.
+
+First, we'll want to make sure that you're using an appropriate version of node and npm, so there's a `npm run check:engines` script that runs.
+
+Second, if we're using a library with a known security vulnerability, we **DEFINITELY** want to know about and fix that. Luckily, there's a centrally [maintained list of known vulnerabilities](https://nodesecurity.io/advisories/) in node packages. It may not be exhaustive, but it's better than nothing. The `npm run check:security` script utilizes the [nsp package](https://www.npmjs.com/package/nsp) to check and see if we're exposed to one of those known vulnerabilities.
+
+## Hooks
+
+### Pre-commit
+
+Add the [pre-commit hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to lint your code and catch problems that will cause your build to fail in the CI environment. This will run automatically before a commit.
+
+Install the hook by running the following command:
+
 ```bash
-npm install --save @xero/xui
+$ ln -s ../../pre-commit.sh .git/hooks/pre-commit
 ```
 
-This will install all the XUI components into `node_modules/@xero/xui` and keep them all together.
+## Post-merge
 
-Note that only components imported into your application will be part of your final bundle.
+You can also add a post-merge hook so that your local environment is updated after a merge. This will not trigger when rebasing upstream but is still good to have active.
 
-What is XUI For?
-----------------
+Install the hook by running the following command:
 
-XUI provides CSS and React components for implementing user interfaces at Xero.
-
-Example Page Markup
--------------------
-<!--?prettify lang=html?-->
-```html
-<!DOCTYPE html>
-<html class="xui-html" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Page Title</title>
-    <link href="https://edge.xero.com/style/xui/11.2.1/xui.min.css" rel="stylesheet" />
-    <script type="application/json" id="header-data" data-render-to="#header">
-      {"app":{"name":"business","type":"business"},"page":{"title":"Page title"},"navigation":[{"name":"Home","url":"#"}]}
-    </script>
-    <link rel="stylesheet" href="https://edge.xero.com/platform/header/4.2.0/header.min.css" />
-    <script src="https://edge.xero.com/platform/header/4.2.0/header.min.js" defer></script>
-  </head>
-  <body class="xui-body">
-    <header id="header"></header>
-    <header class="xui-pageheading">
-      <div class="xui-pageheading--content xui-pageheading--content-layout xui-page-width-standard">
-        <h1 class="xui-pageheading--title">Page Title</h1>
-      </div>
-    </header>
-    <div class="xui-margin-horizontal-small">
-      <main role="main" class="xui-page-width-standard xui-padding-vertical-large">
-        <h1 class="xui-heading-display xui-margin-none">Hello World</h1>
-      </main>
-    </div>
-  </body>
-</html>
+```bash
+$ ln -s ../../post-merge.sh .git/hooks/post-merge
 ```
+## Developer Documentation
 
-Using XUI
----------
+XUI is a living design system that uses source annotations and markdown files to document itself. XUI provides two layers of documentation. XUI Guide contains the best practices and CSS examples and XUI React Docs contain component documentation and examples. Both systems provide running example code and in the React Docs this can be edited in the browser. These tools are configured separatly and we have a number of customisations that are unique to Xero.
 
- * Add the `xui-body` class to your `<body>` element and `xui-html` to your
-   `<html>` element, unless you are targeting legacy pages.
-   The `xui-body` class provides background color, baseline font
-   styling and line height.
-   The `xui-html` class sets the height of the `html` element to 100%, and
-   the body element with `xui-body` directly under it.
- * For pages with legacy CSS that are unable to use `xui-body`, wrap XUI components in a container
-   which has the `xui-container` class applied. This sets properties that XUI relies on,
-   such as `box-sizing: border-box`, its default line-height, fonts, etc.
- * Do not create any classes that use the `xui-` namespace outside this project.
-   The only exception to this rule is [detailed below](#consuming-future-breaking-changes).
- * Namespace your project's classes appropriately and separately to XUI.
- * Avoid writing your own CSS as much as possible, particularly if your CSS
-   overrides XUI's styling. The less custom CSS you have, the easier it will be
-   to upgrade to future versions of XUI.
- * In your main application, make sure XUI is loaded or imported before any of
-   your other stylesheets.
+### XUI Guide (KSS)
 
-Developing XUI Components
--------------------------
+Configured in `kss/` folder. Checkout our [kss/README.md](kss/README.md) for notes on our customisation and configuration.
 
-When developing components, import XUI as a dependency. Do not import XUI,
-or any SCSS file containing shared classes, in any code that your component
-exports. SCSS does not currently dedupe multiple imports of the same code, so
-importing XUI in separate components will at the very least result in bloated
-files. It may also cause broken styling depending on when the imports occur.
+### React Docs (react-styleguidist)
 
-Using XUI's Variables and Mixins
---------------------------------
+Configured in `styleguide/` folder. Checkout our [styleguide/README.md](styleguide/README.md) for notes on customisation and configuration.
 
-If you want access to XUI's variables and mixins, you can import XUI as a dependency, and then import these individual files
-  * For variables, `@import '@xero/xui/sass/vars';`
-  * For mixins, `@import '@xero/xui/sass/mixins';`
+[react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
-We do not recommend importing any other files as they are not considered a part of XUI's public API; they might move around between patch and minor versions, which could end up breaking your project.
+## Releasing XUI
 
-Updating
---------
+1. Draft up the Release notes in GitHub
+2. Open a PR with the version bump to package.json
 
-XUI follows [semantic versioning](http://semver.org). You should be able to update patch and minor versions without
-requiring any changes to your code.
+The release description should provide clear documentation describing what has changed since the last release.
 
-The [#platform-fed-releases](https://xero.slack.com/messages/C57H6G0RM) Slack lists updates and upgrades when they become available.
+The release notes can be organised under the following sections:
+ * New features
+ * Bug fixes
+ * Deprecations
+ * Any notable documentation updates
+ * Removals (`breaking-changes` only)
 
-Upgrading
----------
+### Alpha/beta releases
 
-Major releases with breaking changes may be made at a maximum every 90 days in accordance with our [Software Lovability Objectives](https://confluence.inside.xero.com/display/FED/The+UX+Engineering+Team+and+XUI#TheUXEngineeringTeamandXUI-SoftwareLovabilityObjectives).
+All releases from `breaking-changes` should also supply an up-to-date list of all changes since the last major release.
 
-Release notes will be provided in the [releases](https://github.dev.xero.com/UXE/xui/releases) section of the repo to enable you to upgrade as seamlessly as possible.
+### CI & CD builds
 
-Consuming Future Breaking Changes
----------------------------------
+The UXE team manage releases of XUI via TeamCity. Following are the common builds that make up the continuous integration and continuous deployment pipeline.
 
-If you find yourself needing XUI CSS before it's released, you have two options:
-* Implement the required changes to the `xui-` classes as part of your app code
- * If you do this, take care to ensure that these XUI classes are loaded first before the rest of your CSS so that it simulates what will happen when you upgrade XUI
-* Create an app-specific class for the element you're targeting which will override XUI styling
- * These app-specific classes should be treated as tech debt and should not linger in the relevant JS/HTML after upgrading.
+* [Pull request](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest) all pull requests run lint test scripts. Triggered by new or updated Pull Request.
+* [Update-gh-pages](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_UpdateGhPages) builds and releases documentation for all releases, `master` and `breaking-changes` branches. Triggered by successful merge to `master` or `breaking-changes` branches.
+* [Master](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master) and [breaking-changes](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_BreakingChanges) build XUI for deployment to edge.xero.com. Triggered on successful merge to `master` or `breaking-changes` branches.
+* [Deploy to Production](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployToProduction) deploy a release build of XUI to production. Depends on successful build of master (above). Triggered by successful build of master.
+* [Deploy to Production [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployS3BreakingChanges) deploy a pre-release build of XUI to production. Depends on successful build of breaking-changes (above). Triggered manually.
+* [Deploy Monorepo Components to Artifactory](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=XeroJS_SharedReactComponents_DeployMonorepoComponentsToArtifactory) and [Deploy Monorepo Components to Artifactory [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployBreakingChangesMonorepoComponentsToArtifactory) prepare and deploy React components to artifactory.
 
-Regardless of the approach you choose, make sure you do the following:
+## Contributing to XUI
 
-* Document! Explain the reason for the overrides and add a TODO to remove it with the expected version of XUI containing the change you want. You could also create an issue in your Github repo or a JIRA ticket.
-* When upgrading, check to see that the change you wanted is still there - it may have changed! Then remove your custom code and verify that it works with the version of XUI you are upgrading to.
-
-Contributing to XUI
--------------------
-
-XUI is "internal open source" at Xero, meaning that we welcome contributions from anyone.
+We welcome contributions from anyone.
 See [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md) for details on how to contribute.
 
-Documentation style guide
--------------------------
+## Help
 
-Our documentation writing style is based on [the Financial Times Origami documentation style guide](https://github.com/Financial-Times/ft-origami/blob/gh-pages/README.md#origami). It exists as guidance to help keep our documentation consistent.
+For general Q & A ask a question in the [#xui-development](https://xero.slack.com/messages/C565NP1A5) Slack or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
 
-1. Be conversational
-	* Use contractions: "we're" over "we are"
-	* Starting sentences with conjunctions like 'but' or 'so' is allowed
-1. Prefer "we" to "I"
-	* **good**: "we recommend you do X"
-	* **bad**: "I recommend you do X"
-1. Use the active voice. If you need help with this one, use [http://www.hemingwayapp.com/](http://www.hemingwayapp.com/)
-	* **good**: "we recommend you do X"
-	* **bad**: "it is recommended you do X"
-1. Omit fluff. Avoid qualifiers like "pretty", "mostly", "probably"
-1. Prefer short sentences to long sentences
-1. Use British English
-	* **good**: organise, favour
-	* **bad**: organize, favor
-1. Avoid metaphors or turns of phrase that non-native English speakers may not be familiar with
-	* **good**: "this site has everything you need to know"
-	* **bad**: "this site is a one stop shop for XUI"
-1. [Avoid "simply" and other words that trivialise concepts and ideas that might not be trivial](https://css-tricks.com/words-avoid-educational-writing/)
-1. When referring to XUI React components; use back-ticks, correct capitalisation, and no spaces
-	* **good**: `XUIButton`, `DropDown`
-	* **bad**: `XUI Button`, DropDown
-1. Structure documentation for skim readers
-	* Code variables go in `back-ticks`
-	* Use tables
-	* Use asides for extra tidbits
-	* Use **strong** and _emphasis_ where appropriate
-	* Use lists
-	* Break things up with informative headings
-1. Always capitalise XUI when referring to the product
-1. Never capitalise modules
-	* **good**: avatar, button
-	* **bad**: Avatar, Button
-
-Help
-----
-
-For general Q & A ask a question in the [#platform-fed-xui](https://xero.slack.com/messages/C565NP1A5) Slack or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
-
-We have [a UXE team member on interrupts each week](https://github.dev.xero.com/UXE/Home/wiki/Interrupts-Support-Schedule) who can provide a prompt response to any specific questions or issues.
+We have a UXE team member on interrupts each week who can provide a prompt response to any specific questions or issues. Check Slack for who's on duty.
 
 XUI's Roadmap and backlog live within the [UX Engineering teams's page](https://confluence.inside.xero.com/display/PLAT/UX+Engineering) on Confluence.

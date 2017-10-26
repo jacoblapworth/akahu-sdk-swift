@@ -2,6 +2,7 @@ import { assert } from 'chai';
 import React from 'react';
 import sinon from 'sinon';
 import XUIButton from '../XUIButton';
+import renderer from 'react-test-renderer';
 
 const { renderIntoDocument, Simulate } = require('react-dom/test-utils');
 const noop = () => {};
@@ -74,8 +75,8 @@ describe('<XUIButton/>', () => {
 		);
 
 		const node = button.rootNode;
-		assert.strictEqual(node.children.length, 1);
-		assert.isTrue(node.firstChild.classList.contains('xui-button--loader'));
+		assert.strictEqual(node.children.length, 2);
+		assert.isTrue(node.children[1].classList.contains('xui-button--loader'));
 	});
 
 	it('should not allow clicks if the `isLoading` prop is true', () => {
@@ -154,16 +155,102 @@ describe('<XUIButton/>', () => {
 		assert.isNull(button.rootNode.getAttribute('role'));
 	});
 
-	it('focus() should focus the DOM node', function () {
+	it('focus() should focus the DOM node', () => {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		button.focus();
 		assert.isTrue(button.rootNode === document.activeElement);
 	});
 
-	it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', function () {
+	it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', () => {
 		const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
 		assert.isFalse(button.hasFocus(), 'said has focus when it does not');
 		button.focus();
 		assert.isTrue(button.hasFocus(), 'said does not have focus when does');
+	});
+
+	it('renders inverted buttons in different variations correctly', () => {
+		const standardInvertedbutton = renderIntoDocument(<XUIButton isInverted variant="primary">test</XUIButton>);
+		assert.isTrue(
+			standardInvertedbutton.rootNode.classList.contains('xui-button-main'),
+			'Primary button has primary class'
+		);
+		assert.isTrue(
+			standardInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
+			'Primary button has inverted class'
+		);
+		assert.isFalse(
+			standardInvertedbutton.rootNode.classList.contains('xui-button-borderless-main'),
+			'Primary button does not have borderless main class'
+		);
+
+		const borderlessInvertedbutton = renderIntoDocument(<XUIButton isInverted variant="borderless-primary">test</XUIButton>);
+		assert.isTrue(
+			borderlessInvertedbutton.rootNode.classList.contains('xui-button-borderless-main'),
+			'Borderless primary button has borderless primary class'
+		);
+		assert.isTrue(
+			borderlessInvertedbutton.rootNode.classList.contains('xui-button-borderless-inverted'),
+			'Borderless primary button has borderless inverted class'
+		);
+		assert.isFalse(
+			borderlessInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
+			'Borderless primary button does not have regular inverted class'
+		);
+
+		const iconInvertedbutton = renderIntoDocument(<XUIButton variant="icon-inverted">test</XUIButton>);
+		assert.isTrue(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-icon'),
+			'Icon button has borderless primary class'
+		);
+		assert.isTrue(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-icon-inverted'),
+			'Icon button has borderless inverted class'
+		);
+		assert.isFalse(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-borderless-inverted'),
+			'Icon button does not have borderless inverted class'
+		);
+		assert.isFalse(
+			iconInvertedbutton.rootNode.classList.contains('xui-button-inverted'),
+			'Icon button does not have regular inverted class'
+		);
+	});
+
+	it('does retain layout checks with a myriad of combinations', () => {
+
+		const defaultRetainLayout = renderer.create(
+			<XUIButton variant="primary">
+				Hello, I am a long bit of text
+			</XUIButton>
+		);
+
+		expect(defaultRetainLayout).toMatchSnapshot();
+
+		const defaultRetainLayoutWhileLoading = renderer.create(
+			<XUIButton variant="primary" isLoading>
+				Hello, I am a long bit of text
+			</XUIButton>
+		);
+
+		expect(defaultRetainLayoutWhileLoading).toMatchSnapshot();
+
+		const loadingButtonNoRetain = renderer.create(
+			<XUIButton variant="primary" isLoading retainLayout={false}>
+				Hello, I am a long bit of text
+			</XUIButton>
+		);
+
+		expect(loadingButtonNoRetain).toMatchSnapshot();
+
+	});
+
+	it('adds minwidth when we need it to, for short buttons', () => {
+		const shortButton = renderer.create(
+			<XUIButton variant="primary" minLoaderWidth>
+				75px
+			</XUIButton>
+		);
+
+		expect(shortButton).toMatchSnapshot();
 	});
 });

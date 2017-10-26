@@ -1,7 +1,9 @@
 const path = require('path');
+const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
 const browserlist = require('@xero/browserslist-autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const serveStatic = require('serve-static');
 
 const basePath = path.resolve(__dirname, '..');
 const styleguidePath = path.resolve(basePath, 'styleguide');
@@ -12,6 +14,10 @@ const config = {
 	webpackConfig: {
 		devServer: {
 			disableHostCheck: true,
+			publicPath: 'http://localhost:6060/react/',
+			before(app) {
+				app.use('/', serveStatic(path.resolve('docs')))
+			}
 		},
 		module: {
 			loaders: [
@@ -68,7 +74,10 @@ const config = {
 				"rsg-components/Link": path.resolve(styleguidePath, "components/Link"),
 				"rsg-components/StyleGuide/StyleGuideRenderer": path.resolve(styleguidePath, "components/StyleGuide"),
 				"rsg-components/TableOfContents/TableOfContentsRenderer": path.resolve(styleguidePath, "components/TableOfContents"),
-				"rsg-components/Preview": path.resolve(styleguidePath, "components/Preview")
+				"rsg-components/Preview": path.resolve(styleguidePath, "components/Preview"),
+				"rsg-components/Pathline": path.resolve(styleguidePath, "components/Pathline"),
+				"rsg-components/Playground/PlaygroundRenderer": path.resolve(styleguidePath, "components/PlaygroundRenderer")
+
 			},
 			extensions: [
 				".js",
@@ -80,7 +89,6 @@ const config = {
 	title: 'XUI React Docs',
 	styleguideDir: outputPath,
 	highlightTheme: 'erlang-dark',
-	assetsDir: path.resolve(__dirname, '..', 'uitest'),
 	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",
@@ -89,6 +97,23 @@ const config = {
 		"**/__tests__/**"
 	],
 	sections: componentSections,
+	getComponentPathLine(componentPath) {
+		let name = path.basename(componentPath, '.js');
+		const dir = path.dirname(componentPath).split('/').pop();
+
+		/**
+		* General rule of thumb for import component statements, if the name of the
+		* component (minus the xui portion) matches the name of the directory it
+		* lives in it's the default export for that component. Default exports do
+		* not need the braces in their import statements so we should only add
+		* these for individual ones.
+		*/
+		if(name.toLowerCase().split('xui').pop() !== dir.toLowerCase()) {
+			name = `{ ${name} }`
+		}
+
+		return `import ${name} from '${pkg.name}/react/${dir}';`;
+  }
 };
 
 module.exports = config;

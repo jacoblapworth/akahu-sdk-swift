@@ -1,22 +1,24 @@
 @import "../vars";
 
+// Applies standard focus styling and given content on focus
 @mixin xui-state-focus {
 	&:focus {
+		@content;
 		box-shadow: $xui-shadow-focus;
 		outline: none;
 		transition: box-shadow $xui-motion-speed-fast;
 	}
 }
-
+// Applies standard focus styling on focus
 @mixin xui-state-focus-inverted {
 	&:focus {
 		box-shadow: $xui-shadow-focus-inverted;
 		outline: none;
-		transition: box-shadow $xui-transition-duration-short;
+		transition: box-shadow $xui-motion-speed-fast;
 	}
 }
 
-@mixin xui-state-focus-transparent {
+@mixin xui-states-transparent {
 	&:hover {
 		color: $xui-color-xero-dark-blue;
 	}

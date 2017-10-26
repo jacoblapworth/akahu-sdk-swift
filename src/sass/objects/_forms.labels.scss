@@ -1,26 +1,3 @@
-// Labels
-//
-// General usage for a label to accompany an input element.
-//
-// Markup:
-// <label class="xui-text-label xui-fieldlabel-layout" for="label-example">Name</label>
-// <input class="xui-input" id="label-example" type="text" placeholder="Zero Cool"/>
-//
-// Styleguide: Forms.3
-
-// Nested Input
-//
-// When nesting an `<input>` element inside a `<label>`,
-// the layout classes should be applied to a span to add the correct spacing between the `<label>` and `<input>`.
-//
-// Markup:
-// <label>
-//   <span class="xui-text-label xui-fieldlabel-layout">Name</span>
-//   <input class="xui-input" type="text" placeholder="Acid Burn"/>
-// </label>
-//
-// Styleguide: Forms.3.1
-
 .#{$ns}-fieldlabel-layout {
 	display: inline-block;
 	line-height: $xui-line-height-compact;

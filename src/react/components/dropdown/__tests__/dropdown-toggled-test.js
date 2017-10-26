@@ -1,10 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
 import DropDown from '../DropDown';
 import DropDownToggled from '../DropDownToggled';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 let openCalled = false;
 let closeCalled = false;
@@ -66,7 +69,7 @@ describe('<DropDownToggled />', () => {
 		});
 
 		it('renders the list closed', () => {
-			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
+			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
 			expect(document.body.getElementsByClassName('.xui-dropdown').length).toEqual(0);
 		});
 
@@ -99,7 +102,7 @@ describe('<DropDownToggled />', () => {
 			const trigger = wrapper.find('.xui-button');
 			trigger.simulate('keyDown', { key: 'ArrowDown', keyCode: 40, which: 40 });
 
-			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
+			expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
 		});
 	});
 
@@ -110,17 +113,17 @@ describe('<DropDownToggled />', () => {
 		});
 
 		it('closes the list when the esc key is pressed', () => {
-			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
+			expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
 			wrapper.find('.xui-button').simulate('keyDown', { keyCode: 9 });
 
-			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
+			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
 		});
 
 		it('closes the list when the tab key is pressed', () => {
-			expect(wrapper.node.isDropDownOpen()).toBeTruthy();
+			expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
 			wrapper.find('.xui-button').simulate('keyDown', { keyCode: 27 });
 
-			expect(wrapper.node.isDropDownOpen()).toBeFalsy();
+			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
 		});
 	});
 

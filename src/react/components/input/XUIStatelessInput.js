@@ -19,12 +19,15 @@ export default class XUIStatelessInput extends PureComponent {
 			hintMessage,
 			isInvalid,
 			isBorderless,
+			isFieldLayout,
 			...other
 		} = input.props;
 
 		const baseClass = 'xui-input';
+		const hasLeftIcon = `${baseClass}-has-left-icon`;
+		const hasRightIcon = `${baseClass}-has-right-icon`;
 
-		const inputClasses = cn(
+		let inputClasses = cn(
 			baseClass,
 			className,
 			{
@@ -35,7 +38,10 @@ export default class XUIStatelessInput extends PureComponent {
 
 		const inputWrapperClasses = cn(
 			`${baseClass}wrapper`,
-			containerClassName
+			containerClassName,
+			{
+				'xui-field-layout': isFieldLayout
+			}
 		);
 
 		const hasIcon = !!(iconAttributes && iconAttributes.path);
@@ -43,12 +49,24 @@ export default class XUIStatelessInput extends PureComponent {
 		let iconComponent;
 
 		if (hasIcon) {
+			if ((!iconAttributes.position || iconAttributes.position == "left") && !inputClasses.includes(hasLeftIcon)) {
+				inputClasses += ` ${hasLeftIcon}`;
+				if (button && !inputClasses.includes(hasRightIcon)) {
+					inputClasses += ` ${hasRightIcon}`
+				}
+			} else if (!inputClasses.includes(hasRightIcon)) {
+				inputClasses += ` ${hasRightIcon}`;
+			}
+
 			const iconClass = `${baseClass}--icon-${iconAttributes.position || 'left'}`;
 			const iconWrapperClass = hasIcon && `${baseClass}--iconwrapper`;
 
-			const iconWrapperClasses = cn(iconWrapperClass, `${iconWrapperClass}-${iconAttributes.position}`, {
-				[`${iconWrapperClass}-${iconAttributes.wrapperColor}`]: iconAttributes.wrapperColor != null
-			});
+			const iconWrapperClasses = cn(
+				iconWrapperClass,
+				`${iconWrapperClass}-${iconAttributes.position}`,
+				{
+					[`${iconWrapperClass}-${iconAttributes.wrapperColor}`]: iconAttributes.wrapperColor != null
+				});
 
 			iconComponent = iconWrapperClass ? (
 				<div className={iconWrapperClasses}>
@@ -63,9 +81,11 @@ export default class XUIStatelessInput extends PureComponent {
 					{...iconAttributes}
 				/>
 			)
+		} else if (button && !inputClasses.includes(hasRightIcon)) {
+			inputClasses += ` ${hasRightIcon}`;
 		}
 
-		// TODO: clean this up in XUI12. Don't use both ...other and inputAttributes
+		// TODO: clean this up. Don't use both ...other and inputAttributes
 		const inputProps = {...other, ...XUIStatelessInput.defaultProps.inputAttributes, ...inputAttributes};
 
 		// null is not a valid value
@@ -124,11 +144,13 @@ XUIStatelessInput.propTypes = {
 	/** Value of the automationId attribute */
 	qaHook: PropTypes.string,
 	/** Validation message to show */
-	validationMessage: PropTypes.string,
+	validationMessage: PropTypes.node,
 	/** Explanatory message to show */
-	hintMessage: PropTypes.string,
+	hintMessage: PropTypes.node,
 	/** Whether the input should be show as invalid */
-	isInvalid: PropTypes.bool
+	isInvalid: PropTypes.bool,
+	/** Whether to use the input field layout */
+	isFieldLayout: PropTypes.bool
 };
 
 XUIStatelessInput.defaultProps = {

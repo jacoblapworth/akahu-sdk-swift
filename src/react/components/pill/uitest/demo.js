@@ -5,8 +5,8 @@ import XUIPill from '../XUIPill';
 import cn from 'classnames';
 
 const onDelete = () => console.log('deleted pill');
-const baseClass = 'xui-newpill';
-const containerClasses = cn('xui-row-flex xui-space-around xui-margin-bottom-small');
+const baseClass = 'xui-pill';
+const containerClasses = cn('xui-row-flex xui-u-flex-space-around xui-margin-bottom-small');
 const avatarProps = {
 	value: 'SJ',
 	imageUrl: 'logo.png',
@@ -21,8 +21,8 @@ const pills = (
 			onDeleteClick = {onDelete}
 			value="Deleteable Pill"/>
 			<XUIPill
-			className={`${baseClass}-is-focussed`}
-			value="Focussed Pill"/>
+			className={`${baseClass}-is-focused`}
+			value="Focused Pill"/>
 			<XUIPill
 			className={`${baseClass}-is-invalid`}
 			value="Invalid Pill"/>

@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-export default function XUIModalBody({ className, children, defaultLayout }) {
+export default function XUIModalBody({ className, children }) {
 	const classNames = cn(
 		'xui-modal--body',
-		className,
-		{ 'xui-padding-horizontal-large': defaultLayout }
+		className
 	);
 
 	return (
@@ -19,9 +18,6 @@ export default function XUIModalBody({ className, children, defaultLayout }) {
 XUIModalBody.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
-
-	/** If the modal will use the default XUI style layout */
-	defaultLayout: PropTypes.bool
 };
 
 XUIModalBody.defaultProps = {

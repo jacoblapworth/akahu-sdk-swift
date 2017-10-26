@@ -1,44 +1,53 @@
-/**
- * This source is pre-parsed and looks similar to KSS but is not the same.
- */
-
-// Spacing constants
+// @section Spacing
+// @description Spacing units used within XUI components
+// @type spacing
 //
 $xui-s-xsmall: 5px;
 $xui-s-small: 10px;
 $xui-s-standard: 15px;
 $xui-s-large: 20px;
 $xui-s-xlarge: 25px;
-$xui-s-huge: 30px;
-$xui-s-xxlarge: $xui-s-huge;
+$xui-s-2xlarge: 30px;
 $xui-s-3xlarge: 35px;
 $xui-s-4xlarge: 40px;
 $xui-s-5xlarge: 50px;
 $xui-s-6xlarge: 60px;
 
-// Avatars
+// @section Avatar Font Sizes
+// @description The font sizes to be used within avatars
+// @type font-size
 //
 $xui-font-size-avatar-small:  0.625rem; // 10/16
 $xui-font-size-avatar:        0.6875rem; // 11/16
 $xui-font-size-avatar-large:  0.875rem; // 14/16
 $xui-font-size-avatar-xlarge: 1.3125rem; // 21/16
 
-// Icons
+// @section Icon Sizes
+// @description Sizes used for bounding boxes of XUI icons
+// @type icon
 //
 $xui-icon-standard: 30px;
 $xui-icon-large: 40px;
 $xui-icon-xlarge: 60px;
 
-// TokenParserIgnore
-$xui-s-actionlink: $xui-s-xsmall $xui-s-small;
-$xui-selected-item-border-width: 3px;
-
+// @section Grid System
+// @description Variables used for creating the grid system
+// @type table
+//
+// Horizontal padding to apply between
 $xui-grid-gutter: $xui-s-large;
 $xui-layout-columns: 12;
 $xui-layout-column-start: 1;
 
+// @section Navigation Height
+// @description Height for navigation elements such as page headings and nested dropdown headings
+// @type table
+//
 $xui-navigation-height: 60px;
 
+// @section Forms
+// @type table
+//
 $xui-form-width: 400px;
 $xui-input-height: 40px;
 $xui-input-height-small: 30px;
@@ -46,6 +55,9 @@ $xui-input-padding-horizontal: $xui-s-standard;
 $xui-input-padding-vertical: 8px;
 $xui-input-padding: $xui-input-padding-vertical $xui-input-padding-horizontal;
 
+// @section Class Suffixes
+// @type table
+//
 $xui-class-suffix-auto: "-auto";
 $xui-class-suffix-none: "-none";
 $xui-class-suffix-small: "-small";
@@ -53,12 +65,18 @@ $xui-class-suffix-xsmall: "-xsmall";
 $xui-class-suffix-standard: "";
 $xui-class-suffix-large: "-large";
 $xui-class-suffix-xlarge: "-xlarge";
-$xui-class-suffix-huge: "-huge";
+$xui-class-suffix-2xlarge: "-2xlarge";
+
+// @tokenparserstartignore
+
+$xui-s-actionlink: $xui-s-xsmall $xui-s-small;
 
 $xui-base-width: 80px;
 $xui-starting-width: 140px;
 
 // These are multiples of a certain value ($xui-starting-width + ($xui-base-width * $number))
+
 $xui-width-variants-dropdown: (0, "small"), (1, "medium"), (2, "large"), (3, "xlarge");
 $xui-width-variants-modal: (2, "small"), (4, "medium"), (6, "large"), (9, "xlarge");
-// TokenParserEndIgnore
+
+// @tokenparserendignore

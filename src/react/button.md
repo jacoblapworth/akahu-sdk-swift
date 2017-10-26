@@ -1,8 +1,8 @@
 <div class="xui-margin-vertical">
-	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-buttons.html#buttons">Button in the XUI Documentation</a></span>
-	</div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+		</svg>
+		<a href="../section-building-blocks-buttons.html#buttons">Button in the XUI Documentation</a>
 </div>
 
 ## Examples
@@ -41,7 +41,7 @@ Different styles of button are available by passing different values to the `var
 	</div>
 ```
 
-Icon buttons (for things like overflow dropdown menus, close buttons, etc.) are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
+Icon buttons are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
 
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
 As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefox compatibility.
@@ -59,6 +59,16 @@ As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefo
 			<XUIIcon path={icon} className="xui-u-flex-inherit" />
 		</XUIButton>
 
+		<div className="xui-padding-xsmall xui-background-grey-1">
+			<XUIButton variant="icon-inverted">
+				<XUIIcon path={icon} className="xui-u-flex-inherit" />
+			</XUIButton>
+
+			<XUIButton variant="icon-inverted" className="xui-button-icon-large">
+				<XUIIcon path={icon} className="xui-u-flex-inherit" />
+			</XUIButton>
+		</div>
+
 	</div>
 ```
 
@@ -70,21 +80,21 @@ The `size` prop allows you to modify the default button size. You can make butto
 <XUIButton size='small'>Smaller button</XUIButton>
 ```
 
-There are two options for "full-width" buttons. `full-width-mobile` only creates a full-width button at mobile breakpoints.
+There are two options for "full-width" buttons. `full-width-mobile` only creates a full-width button at mobile breakpoints. `full-width` will be a full-width button at any breakpoint.
 
 ```
 	<div>
 		<div className="xui-margin-bottom">
 
 			<XUIButton variant="primary" size='full-width'>
-				Big button
+				Full-width Button
 			</XUIButton>
 
 		</div>
 		<div>
 
 			<XUIButton variant="create" size='full-width-mobile'>
-				Mobile button
+				Mobile Full-width Button
 			</XUIButton>
 
 		</div>
@@ -93,7 +103,7 @@ There are two options for "full-width" buttons. `full-width-mobile` only creates
 
 ### Disabled / Loading States
 
-You can programatically disable a button (which prevents interaction, including preventing it gaining focus) by setting the `isDisabled` prop to `true`.
+You can programatically disable a button by setting the `isDisabled` prop to `true`. This will prevent interaction, including preventing it gaining focus.
 
 ```
 <div>
@@ -105,10 +115,31 @@ You can programatically disable a button (which prevents interaction, including 
 
 The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button.
 
+The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
+
+The `minLoaderWidth` prop modifies the button by applying a 75px min width on it. Useful for short content buttons.
+
 The supplied loader inherits the text color of the button component.
 
 ```
-<XUIButton variant="primary" isLoading={true}>
-	This text won't be displayed, because of the loader.
-</XUIButton>
+<div>
+	<span className="xui-margin-right">
+		<XUIButton variant="primary" isLoading>
+			This text won't be displayed, because of the loader.
+		</XUIButton>
+	</span>
+	<span className="xui-margin-right">
+		<XUIButton variant="primary" isLoading minLoaderWidth>
+			No
+		</XUIButton>
+	</span>
+	<span className="xui-margin-right">
+		<XUIButton variant="primary" minLoaderWidth>
+			No
+		</XUIButton>
+	</span>
+	<XUIButton variant="primary" isLoading retainLayout={false}>
+		This text won't be displayed, because of the loader.
+	</XUIButton>
+</div>
 ```

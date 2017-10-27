@@ -1,6 +1,24 @@
 # XUI 13
 
 ## Component changes
+* remove all default values of qaHooks.
+
+### Props Renamed
+* Icon - `inline` is now `isInline`
+* Pickitem - `multiselect` is now `isMultiselect`
+* PickitemBody - `multiselect` is now `isMultiselect`
+* NestedPicklistContainer - `open` is now `isOpen`
+* Modal - `isHidden` is now `isOpen`
+* Checkbox - `defaultChecked` is now `isDefaultChecked`
+* Radio - `defaultChecked`	is now `isDefaultChecked`
+* Switch - `checked` is now `isChecked`, `disabled` is now `isDisabled`
+* Textarea - `manualResize` is now `isResizable`
+* Positioning - `gap` is now `triggerDropdownGap`
+             - `renderHidden` is now `isVisible`
+             - `gutter` is now `viewportGutter`
+             - `matchTriggerWidth` is now `isTriggerWidthMatched`
+             - `forceDesktop` is now `isNotResponsive`
+             - `setMaxHeight` is now `shouldRestrictMaxHeight`
 
 ### New Components
 

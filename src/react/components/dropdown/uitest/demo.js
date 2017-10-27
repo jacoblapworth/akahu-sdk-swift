@@ -64,16 +64,16 @@ const toggledItems = [
 
 const statefulMultiselectItems = [
 	[
-		{ props: { id: uuidv4(), className: 'item', disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 1' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 2' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 3' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Selectable Item 4' }
+		{ props: { id: uuidv4(), className: 'item', disableSelectedStyles: true, isMultiselect: true }, text: 'Selectable Item 1' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Selectable Item 2' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Selectable Item 3' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Selectable Item 4' }
 	],
 	[
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 1' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 2' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 3' },
-		{ props: { id: uuidv4(), disableSelectedStyles: true, multiselect: true }, text: 'Another Item 4' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Another Item 1' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Another Item 2' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Another Item 3' },
+		{ props: { id: uuidv4(), disableSelectedStyles: true, isMultiselect: true }, text: 'Another Item 4' },
 	],
 ];
 

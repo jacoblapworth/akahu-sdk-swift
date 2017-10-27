@@ -62,7 +62,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					buttonContent={
 						<span>
-							<XUIIcon inline path={bank} className="xui-margin-right-none"/>
+							<XUIIcon isInline path={bank} className="xui-margin-right-none"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
 					}
@@ -200,7 +200,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					buttonContent={
 						<span>
-							<XUIIcon inline path={bank} className="xui-margin-right-none"/>
+							<XUIIcon isInline path={bank} className="xui-margin-right-none"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
 					}

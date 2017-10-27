@@ -466,10 +466,10 @@ export default class DropDownToggled extends PureComponent {
 				<Positioning
 					ref={c => this.positioning = c}
 					parentRef={ddt.wrapper}
-					renderHidden={isHidden}
-					setMaxHeight={restrictToViewPort}
-					matchTriggerWidth={ddt.props.matchTriggerWidth}
-					forceDesktop={forceDesktop}
+					isVisible={!isHidden}
+					shouldRestrictMaxHeight={restrictToViewPort}
+					isTriggerWidthMatched={ddt.props.matchTriggerWidth}
+					isNotResponsive={forceDesktop}
 					onVisible={shouldAnimate(this) ? null : this.onOpenAnimationEnd}
 				>
 						{clonedDropdown}

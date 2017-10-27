@@ -70,7 +70,6 @@ describe('<DropDownToggled />', () => {
 
 		it('renders the list closed', () => {
 			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
-			expect(document.body.getElementsByClassName('.xui-dropdown').length).toEqual(0);
 		});
 
 		it('renders the list open on click of the trigger', () => {
@@ -87,7 +86,7 @@ describe('<DropDownToggled />', () => {
 			wrapper.find('.xui-button').simulate('click');
 
 			expect(openCalled).toBeTruthy();
-			expect(document.body.getElementsByClassName('xui-dropdown-layout')).toHaveLength(1);
+			expect(wrapper.instance().isDropDownOpen()).toBeTruthy();
 		});
 
 		it('calls the onClose prop after the list is closed', () => {

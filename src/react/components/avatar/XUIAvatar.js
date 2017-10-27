@@ -37,6 +37,7 @@ export default class XUIAvatar extends PureComponent {
 }
 
 XUIAvatar.propTypes = {
+	qaHook: PropTypes.string,
 	/** Function to be used if the avatar renders an image and the image load fails  */
 	onError: PropTypes.func,
 

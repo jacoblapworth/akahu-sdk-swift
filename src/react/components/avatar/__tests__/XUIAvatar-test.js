@@ -3,6 +3,7 @@ import React from 'react';
 
 import XUIAvatar from '../XUIAvatar';
 import { classNames, sizeClassNames } from '../constants';
+import renderer from 'react-test-renderer';
 
 const TestUtils = require('react-dom/test-utils');
 
@@ -149,5 +150,13 @@ describe('XUIAvatar', function () {
 		assert.strictEqual(node3.textContent, 'H', 'Avatar whose value consists of 1 lowercase word should render the first letter uppercased');
 		assert.strictEqual(node4.textContent, 'TLC', 'Avatar containing leading spaces, words surrounded in braces of various kinds, should abbreviate to non-spaces, non-brace characters');
 	});
+
+	it('assigns an automation id when qaHook is passed', () => {
+		const automationId = renderer.create(
+			<XUIAvatar variant="business" value="Rod Drury Paddleboards Inc" qaHook="automationID" />
+		);
+
+		expect(automationId).toMatchSnapshot();
+	})
 
 });

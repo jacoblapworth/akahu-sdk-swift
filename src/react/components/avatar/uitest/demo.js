@@ -13,7 +13,7 @@ const sizes = (
 		<h3>All Sizes</h3>
 		{avatarKeys.map(size => (
 			<div key={size}>
-				<XUIAvatar key={size} size={size} value={upperCamelCase(size)} identifier={size} />
+				<XUIAvatar key={size} size={size} value={upperCamelCase(size)} identifier={size} qaHook={`${size}-avatar`}/>
 				{upperCamelCase(size)}
 			</div>
 		))}

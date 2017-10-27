@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIAvatar assigns an automation id when qaHook is passed 1`] = `
+<abbr
+  className="xui-avatar xui-avatar-business xui-avatar-color-4"
+  data-automationid="automationID"
+  role="presentation"
+>
+  RDP
+</abbr>
+`;

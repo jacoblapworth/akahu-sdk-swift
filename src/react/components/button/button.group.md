@@ -2,7 +2,7 @@ Buttons can be grouped together (e.g. if their actions are all related) by using
 To disable an entire button group, you must add the `isDisabled` prop to each button in the group, not to the `<XUIButtonGroup>` itself.
 
 ```
-	<XUIButtonGroup>
+	<XUIButtonGroup qaHook="numbered-buttongroup">
 		<XUIButton>One</XUIButton>
 		<XUIButton>Two</XUIButton>
 		<XUIButton>Three</XUIButton>

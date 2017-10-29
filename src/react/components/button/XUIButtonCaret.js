@@ -12,5 +12,6 @@ export default function XUIButtonCaret({className, ...props}) {
 }
 
 XUIButtonCaret.propTypes = {
-	className: PropTypes.string
+	className: PropTypes.string,
+	qaHook: PropTypes.string
 };

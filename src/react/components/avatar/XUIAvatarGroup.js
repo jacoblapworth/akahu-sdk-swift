@@ -22,7 +22,7 @@ export default class XUIAvatarGroup extends PureComponent {
 		const className = cn(classNames.group, props.className);
 		let children = props.children;
 
-		if(avatarSize || counter) {
+		if (avatarSize || counter) {
 			children = React.Children.map(props.children, function(child, idx) {
 				return idx < lastChildIndex ? React.cloneElement(child, {
 					key: uuidv4(),

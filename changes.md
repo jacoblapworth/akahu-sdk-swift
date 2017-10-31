@@ -3,6 +3,10 @@
 ## Component changes
 * remove all default values of qaHooks.
 
+### XUIAvatar changes
+* XUISimpleAvatar component no longer exists and has been merged with XUIAvatar
+ - All the same rules applied as they did before.
+
 ### Props Renamed
 * Icon - `inline` is now `isInline`
 * Pickitem - `multiselect` is now `isMultiselect`

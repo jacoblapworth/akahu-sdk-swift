@@ -1,11 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUIAvatar assigns an automation id when qaHook is passed 1`] = `
+exports[`XUIAvatar Generic tests should accept a custom className 1`] = `
 <abbr
-  className="xui-avatar xui-avatar-business xui-avatar-color-4"
-  data-automationid="automationID"
+  className="test-class xui-avatar xui-avatar-color-8"
+  data-automationid={undefined}
   role="presentation"
 >
-  RDP
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar Generic tests should accept a custom qaHook 1`] = `
+<abbr
+  className="xui-avatar xui-avatar-color-8"
+  data-automationid="test-hook"
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render an \`abbr\` avatar when I give it a value 1`] = `
+<abbr
+  className="xui-avatar xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render an \`abbr\` avatar when I give it an identifier and a value 1`] = `
+<abbr
+  className="xui-avatar xui-avatar-color-7"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render an \`img\` avatar when I give it an image 1`] = `
+<img
+  alt=""
+  className="xui-avatar"
+  data-automationid={undefined}
+  onError={[Function]}
+  role="presentation"
+  src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg"
+/>
+`;
+
+exports[`XUIAvatar should render in a range of sizes 1`] = `
+<abbr
+  className="xui-avatar xui-avatar-xsmall xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render in a range of sizes 2`] = `
+<abbr
+  className="xui-avatar xui-avatar-small xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render in a range of sizes 3`] = `
+<abbr
+  className="xui-avatar xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render in a range of sizes 4`] = `
+<abbr
+  className="xui-avatar xui-avatar-large xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render in a range of sizes 5`] = `
+<abbr
+  className="xui-avatar xui-avatar-xlarge xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render in a range of sizes 6`] = `
+<abbr
+  className="xui-avatar xui-avatar-2xlarge xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
+</abbr>
+`;
+
+exports[`XUIAvatar should render in a range of variants 1`] = `
+<abbr
+  className="xui-avatar xui-avatar-business xui-avatar-color-8"
+  data-automationid={undefined}
+  role="presentation"
+>
+  T
 </abbr>
 `;

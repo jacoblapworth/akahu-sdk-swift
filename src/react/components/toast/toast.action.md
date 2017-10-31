@@ -5,9 +5,9 @@ Single action toasts provide an additional call to action inside the toast.
 const onToastClose = () => {alert( 'Single action toast closed' )};
 
 <div>
-	<XUIToast>
-		<XUIToastMessage> Standard </XUIToastMessage>
-		<XUIToastAction href="#"> Action </XUIToastAction>
+	<XUIToast qaHook="toast-example">
+		<XUIToastMessage qaHook="toast-example--message"> Standard </XUIToastMessage>
+		<XUIToastAction href="#" qaHook="toast-example--action"> Action </XUIToastAction>
 	</XUIToast>
 	<XUIToast onCloseClick={onToastClose}>
 		<XUIToastMessage> Closable </XUIToastMessage>

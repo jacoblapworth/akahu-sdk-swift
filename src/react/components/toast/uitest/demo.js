@@ -14,8 +14,8 @@ const standard = (
 	<section>
 		<h3> Standard Toasts </h3>
 		<div className={rowClasses}>
-			<XUIToast>
-				<XUIToastMessage> Standard  </XUIToastMessage>
+			<XUIToast qaHook="toast-example">
+				<XUIToastMessage qaHook="toast-example--message"> Standard  </XUIToastMessage>
 			</XUIToast>
 			<XUIToast onCloseClick={noop}>
 				<XUIToastMessage> Closable </XUIToastMessage>
@@ -28,9 +28,9 @@ const action = (
 	<section>
 		<h3>Single Action Toasts </h3>
 		<div className={rowClasses}>
-			<XUIToast>
-				<XUIToastMessage> Standard  </XUIToastMessage>
-				<XUIToastAction> Action </XUIToastAction>
+			<XUIToast qaHook="toast-singleaction">
+				<XUIToastMessage qaHook="toast-singleaction--message"> Standard  </XUIToastMessage>
+				<XUIToastAction qaHook="toast-singleaction--action"> Action </XUIToastAction>
 			</XUIToast>
 			<XUIToast onCloseClick={noop}>
 				<XUIToastMessage> Closable </XUIToastMessage>
@@ -48,11 +48,11 @@ const action = (
 const actions = (
 	<section>
 		<h3>Multi Action Toasts </h3>
-		<XUIToast>
-			<XUIToastMessage> Standard  </XUIToastMessage>
-			<XUIToastActions>
-				<XUIToastAction> Action One  </XUIToastAction>
-				<XUIToastAction> Action Two  </XUIToastAction>
+		<XUIToast qaHook="toast-multiaction">
+			<XUIToastMessage qaHook="toast-multiaction--message"> Standard  </XUIToastMessage>
+			<XUIToastActions qaHook="toast-multiaction--actions">
+				<XUIToastAction qaHook="toast-multiaction-actionone"> Action One  </XUIToastAction>
+				<XUIToastAction qaHook="toast-multiaction--actiontwo"> Action Two  </XUIToastAction>
 			</XUIToastActions>
 		</XUIToast>
 		<XUIToast onCloseClick={noop}>

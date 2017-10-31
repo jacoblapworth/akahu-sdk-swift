@@ -23,7 +23,7 @@ export default function XUIToast(props) {
 	const sentimentData = sentimentMap[sentiment];
 	const sentimentClass = sentimentData && sentimentData.class;
 	const role = props.role || (sentimentData && sentimentData.role) || 'status';
-	const buttonQAHook = qaHook ? `${qaHook}-close-button` : null;
+	const buttonQAHook = qaHook && `${qaHook}-close-button`;
 
 	const classNames = cn(
 		'xui-toast',
@@ -53,6 +53,7 @@ export default function XUIToast(props) {
 			onMouseLeave={onMouseLeave}
 			role={role}
 			aria-hidden={isHidden}
+			data-automationid={qaHook}
 		>
 			{close}
 			{children}

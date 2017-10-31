@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIBannerAction /> should render a passed qaHook as an auotmation id 1`] = `
+<li
+  className="xui-banner--action"
+  data-automationId="banner-action"
+>
+  <button
+    className="xui-button xui-button-small xui-button-borderless-main"
+    data-automationid="banner-action-button"
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    type="button"
+  >
+    <button>
+      Action
+    </button>
+  </button>
+</li>
+`;

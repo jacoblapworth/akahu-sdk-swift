@@ -6,10 +6,11 @@ import cn from 'classnames';
 export default function XUIBannerAction(props) {
 	const className = cn(props.className, 'xui-button-small');
 	const isLink = !!props.href;
+	const buttonQaHook = props.qaHook && `${props.qaHook}-button`;
 
 	return (
-		<li className="xui-banner--action">
-			<XUIButton {...props} isLink={isLink} variant="link" className={className}>{props.children}</XUIButton>
+		<li className="xui-banner--action" data-automationId={props.qaHook}>
+			<XUIButton {...props} isLink={isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
 		</li>
 	);
 }
@@ -17,5 +18,6 @@ export default function XUIBannerAction(props) {
 XUIBannerAction.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
+	qaHook: PropTypes.string,
 	href: PropTypes.string
 };

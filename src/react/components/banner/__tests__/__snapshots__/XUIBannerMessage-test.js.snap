@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIBannerMessage /> should render a passed qaHook as an auotmation id 1`] = `
+<p
+  className="xui-banner--message"
+  data-automationId="banner-action"
+>
+  <span>
+    message contents
+  </span>
+</p>
+`;

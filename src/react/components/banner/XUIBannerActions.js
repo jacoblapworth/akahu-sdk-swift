@@ -6,7 +6,7 @@ export default function XUIBannerActions(props) {
 	const className = cn(props.className, 'xui-banner--actions');
 
 	return (
-		<ul className={className}>
+		<ul className={className} data-automationId={props.qaHook}>
 			{props.children}
 		</ul>
 	);
@@ -14,5 +14,6 @@ export default function XUIBannerActions(props) {
 
 XUIBannerActions.propTypes = {
 	className: PropTypes.string,
-	children: PropTypes.node
+	children: PropTypes.node,
+	qaHook: PropTypes.string
 };

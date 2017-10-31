@@ -17,11 +17,11 @@ const onClick = () => { console.log('Clicked banner action'); }; // eslint-disab
 
 ReactDOM.render(
 	<div className="xui-page-width-large xui-padding-vertical-large">
-		<XUIBanner>
-			<XUIBannerMessage>Banner with only a message</XUIBannerMessage>
-			<XUIBannerActions>
-				<XUIBannerAction onClick={onClick}>Action One</XUIBannerAction>
-				<XUIBannerAction onClick={onClick}>Action Two</XUIBannerAction>
+		<XUIBanner qaHook="banner-example">
+			<XUIBannerMessage qaHook="banner-example--message">Banner with only a message</XUIBannerMessage>
+			<XUIBannerActions qaHook="banner-example--actions">
+				<XUIBannerAction onClick={onClick} qaHook="banner-example--actionone">Action One</XUIBannerAction>
+				<XUIBannerAction onClick={onClick} qaHook="banner-example--actiontwo">Action Two</XUIBannerAction>
 			</XUIBannerActions>
 		</XUIBanner>
 		<XUIBanner>

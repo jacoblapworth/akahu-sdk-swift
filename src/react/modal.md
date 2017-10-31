@@ -31,8 +31,8 @@ class Example extends PureComponent {
 			<div>
 				<XUIButton onClick={() => this.setState({ showModal: true })}>Read-only modal</XUIButton>
 				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader>Get link</XUIModalHeader>
-					<XUIModalBody className="xui-padding">
+					<XUIModalHeader qaHook="example-modal--header">Get link</XUIModalHeader>
+					<XUIModalBody qaHook="example-modal--body" className="xui-padding">
 						<div className="xui-padding-bottom">
 							Anyone with this link can view this invoice.
 						</div>
@@ -95,11 +95,11 @@ class Example extends PureComponent {
 			<div>
 				<XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
 				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader>Delete John Smith</XUIModalHeader>
-					<XUIModalBody>
+					<XUIModalHeader qaHook="example-modal--header">Delete John Smith</XUIModalHeader>
+					<XUIModalBody qaHook="example-modal--body">
 						This cannot be undone
 					</XUIModalBody>
-					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
+					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large" qaHook="example-modal--header">
 						<XUIButton
 							variant="negative"
 							className="xui-actions--primary"

@@ -26,28 +26,28 @@ class Example extends PureComponent {
 				<p><XUIButton onClick={() => this.setState({ footer: true })}>Modal with Footer</XUIButton></p>
 				<p><XUIButton onClick={() => this.setState({ both: true })}>Modal with Both</XUIButton></p>
 				<XUIModal isHidden={!this.state.normal} onClose={() => this.setState({ normal: false })}>
-					<XUIModalBody>
+					<XUIModalBody qaHook="modal-normalexample--body">
 						Normal modal
 					</XUIModalBody>
 				</XUIModal>
 				<XUIModal isHidden={!this.state.header} onClose={() => this.setState({ header: false })}>
-					<XUIModalHeader><h3>Header</h3></XUIModalHeader>
-					<XUIModalBody>
+					<XUIModalHeader qaHook="modal-headerexample--header"><h3>Header</h3></XUIModalHeader>
+					<XUIModalBody qaHook="modal-headerexample--body">
 						Modal with Header
 					</XUIModalBody>
 				</XUIModal>
 				<XUIModal isHidden={!this.state.footer} onClose={() => this.setState({ footer: false })}>
-					<XUIModalBody>
+					<XUIModalBody qaHook="modal-ooterexample--body">
 						Normal modal
 					</XUIModalBody>
-					<XUIModalFooter>Footer</XUIModalFooter>
+					<XUIModalFooter qaHook="modal-footerexample--footer">Footer</XUIModalFooter>
 				</XUIModal>
 				<XUIModal isHidden={!this.state.both} onClose={() => this.setState({ both: false })}>
-					<XUIModalHeader><h3>Header</h3></XUIModalHeader>
-					<XUIModalBody>
+					<XUIModalHeader qaHook="modal-bothexample--header"><h3>Header</h3></XUIModalHeader>
+					<XUIModalBody qaHook="modal-bothexample--body">
 						Normal modal
 					</XUIModalBody>
-					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
+					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large" qaHook="modal-bothexample--footer">
 						<XUIButton variant="negative" onClick={() => this.setState({ both: false }) }>
 							Cancel
 						</XUIButton>

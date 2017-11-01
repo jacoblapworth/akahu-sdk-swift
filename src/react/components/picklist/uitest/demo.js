@@ -43,14 +43,14 @@ class StatefulMultiselectPicklist extends Component {
 
 		return (
 			<StatefulPicklist onSelect={this.onOptionSelect} canFocus={true}>
-				<Picklist>
-					<NestedPicklistContainer id="nested">
-						<NestedPicklistTrigger id="nestedTrigger" ref={c => smp.trigger = c}>Nested List</NestedPicklistTrigger>
-						<NestedPicklist>
-							<Pickitem id="a" isSelected={smp.state.selectedItems.a}>A</Pickitem>
-							<Pickitem id="b" isSelected={smp.state.selectedItems.b}>B</Pickitem>
-							<Pickitem id="c" isSelected={smp.state.selectedItems.c}>C</Pickitem>
-							<Pickitem id="d" isSelected={smp.state.selectedItems.d}>D</Pickitem>
+				<Picklist qaHook='picklist-example'>
+					<NestedPicklistContainer id="nested" qaHook='picklist-example--nestedcontainer'>
+						<NestedPicklistTrigger id="nestedTrigger" ref={c => smp.trigger = c} qaHook='picklist-example--nestedtrigger'>Nested List</NestedPicklistTrigger>
+						<NestedPicklist qaHook='picklist-example--nestedlist'>
+							<Pickitem id="a" isSelected={smp.state.selectedItems.a} qaHook='picklist-example--nesteditemA'>A</Pickitem>
+							<Pickitem id="b" isSelected={smp.state.selectedItems.b} qaHook='picklist-example--nesteditemB'>B</Pickitem>
+							<Pickitem id="c" isSelected={smp.state.selectedItems.c} qaHook='picklist-example--nesteditemC'>C</Pickitem>
+							<Pickitem id="d" isSelected={smp.state.selectedItems.d} qaHook='picklist-example--nesteditemD'>D</Pickitem>
 						</NestedPicklist>
 					</NestedPicklistContainer>
 					<NestedPicklistContainer id="split">

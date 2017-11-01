@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import Picklist from '../Picklist';
@@ -18,4 +19,10 @@ describe('< Picklist />', () => {
 		expect(wrapper).toBeDefined();
 		expect(wrapper.find('ul').hasClass('xui-picklist')).toBeTruthy();
 	});
+
+	it('should render a automation id when a qaHook is passed in', () => {
+		const automationId = renderer.create(<Picklist qaHook='picklist-example'><li>Yo</li></Picklist>);
+
+		expect(automationId).toMatchSnapshot();
+	})
 });

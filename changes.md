@@ -6,6 +6,28 @@
 ### XUIAvatar changes
 * XUISimpleAvatar component no longer exists and has been merged with XUIAvatar
  - All the same rules applied as they did before.
+* qaHook prop added
+
+### Banner
+* qaHook for Action, Actions and Message component added
+
+### Button
+* qaHook added to Caret and Group components
+
+### Dropdown
+* qaHook added for Toggled, Footer and Header components
+
+### Inputs
+* qaHook added to input component
+
+### Modal
+* qaHook added for Header, Body and Footer components
+
+### Picklist
+* qaHook added for Picklist component
+
+### Toast
+* qaHook added for Action, Actions and Message components
 
 ### Props Renamed
 * Icon - `inline` is now `isInline`

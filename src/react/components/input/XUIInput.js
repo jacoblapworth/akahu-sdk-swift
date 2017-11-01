@@ -60,6 +60,7 @@ export default class XUIInput extends Component {
 			inputAttributes,
 			inputRef,
 			isBorderless,
+			qaHook,
 			...other
 		} = statefulInput.props;
 
@@ -87,6 +88,7 @@ export default class XUIInput extends Component {
 				inputRef={compose(inputRef, n => statefulInput.inputNode = n)}
 				button={clearButton}
 				isBorderless={isBorderless}
+				qaHook={qaHook}
 				{...other}
 			/>
 		);
@@ -94,6 +96,7 @@ export default class XUIInput extends Component {
 }
 
 XUIInput.propTypes = {
+	qaHook: PropTypes.string,
 	/** Object containing button element related properties. */
 	clearButtonProps: PropTypes.object,
 	/** Determines if the input has a clear button or not. Should not be used if consuming application is managing input value manually */
@@ -116,5 +119,5 @@ XUIInput.propTypes = {
 	/** Whether text area has a border. */
 	isBorderless: PropTypes.bool,
 	/** Function to add a reference to the Input element */
-	inputRef: PropTypes.func
+	inputRef: PropTypes.func,
 };

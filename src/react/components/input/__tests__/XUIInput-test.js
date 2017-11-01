@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+import renderer from 'react-test-renderer';
 import XUIInput from '../XUIInput';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 
@@ -31,6 +32,11 @@ describe('<XUIInput>', () => {
 			const input = wrapper.find('input');
 			expect(wrapper.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}-container"`));
 			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
+
+			const automationId = renderer.create(
+				<XUIInput qaHook="input-test" />
+			);
+			expect(automationId).toMatchSnapshot();
 		});
 
 		it('should pass containerClassName to container element', () => {

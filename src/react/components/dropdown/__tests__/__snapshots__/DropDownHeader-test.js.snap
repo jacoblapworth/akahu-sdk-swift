@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropDownHeader /> shoudl render an auotmation id when a qaHook is passed 1`] = `
+<div
+  className="xui-dropdown--header"
+  data-automationid="dropdownheader-example"
+>
+  <div
+    className="xui-dropdown--header-container"
+  >
+    <div
+      className="xui-dropdown--header-leftcontent"
+      data-automationid="dropdownheader-example--header-left"
+    >
+      <div
+        className="xui-heading-small xui-margin-left-small xui-text-truncated"
+        data-automationid="dropdownheader-example--header-title"
+      >
+        test header
+      </div>
+    </div>
+  </div>
+  <div
+    className="xui-dropdown--header-container"
+    data-automationid="dropdownheader-example--header-container"
+  >
+    content
+  </div>
+</div>
+`;

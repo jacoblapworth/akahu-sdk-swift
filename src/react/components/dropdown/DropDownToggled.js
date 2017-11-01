@@ -429,7 +429,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -461,6 +461,7 @@ export default class DropDownToggled extends PureComponent {
 				className={cn('dropdown-toggled-wrapper', className)}
 				onKeyDown={ddt.onKeyDown}
 				data-ref='toggled-wrapper'
+				data-automationid={qaHook}
 			>
 				{clonedTrigger}
 				<Positioning
@@ -481,6 +482,7 @@ export default class DropDownToggled extends PureComponent {
 
 DropDownToggled.propTypes = {
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 
 	/** Whether the dropdown is hidden on initial render */
 	isHidden: PropTypes.bool,

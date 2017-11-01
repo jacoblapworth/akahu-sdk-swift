@@ -63,6 +63,7 @@ class ToggledDropDown extends Component {
 				onOpen={() => console.log('user wants to open the dropdown')}
 				trigger={trigger}
 				dropdown={dropdown}
+				qaHook="dropdown-example"
 			/>
 		);
 	}

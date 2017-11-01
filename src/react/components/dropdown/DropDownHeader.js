@@ -18,6 +18,7 @@ export default class DropDownHeader extends PureComponent {
 		const {
 			children,
 			className,
+			qaHook,
 			title,
 			onPrimaryButtonClick,
 			onSecondaryButtonClick,
@@ -66,9 +67,9 @@ export default class DropDownHeader extends PureComponent {
 
 		const leftHeader = (backButton || title) ?
 			(
-				<div className="xui-dropdown--header-leftcontent">
+				<div className="xui-dropdown--header-leftcontent" data-automationid={qaHook && `${qaHook}--header-left`}>
 					{backButton}
-					<div className="xui-heading-small xui-margin-left-small xui-text-truncated">
+					<div className="xui-heading-small xui-margin-left-small xui-text-truncated" data-automationid={qaHook && `${qaHook}--header-title`}>
 						{title}
 					</div>
 				</div>
@@ -76,8 +77,8 @@ export default class DropDownHeader extends PureComponent {
 
 		const rightHeader = (secondaryButton || primaryButton) ?
 			(
-				<div className="xui-dropdown--header-rightcontent">
-					<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+				<div className="xui-dropdown--header-rightcontent" data-automationid={qaHook && `${qaHook}--header-right`}>
+					<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent" data-automationid={qaHook && `${qaHook}--header-rightcontent`}>
 						{secondaryButton}
 						{primaryButton}
 					</div>
@@ -93,10 +94,10 @@ export default class DropDownHeader extends PureComponent {
 			) : null;
 
 		return (
-			<div ref={h => this.rootNode = h} className={classes}>
+			<div ref={h => this.rootNode = h} className={classes} data-automationid={qaHook}>
 				{header}
 				{Children.map(children, child => (
-					<div className="xui-dropdown--header-container">
+					<div className="xui-dropdown--header-container" data-automationid={qaHook && `${qaHook}--header-container`}>
 						{child}
 					</div>
 				))}
@@ -108,6 +109,7 @@ export default class DropDownHeader extends PureComponent {
 DropDownHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 
 	/** If present, is used in the header. If non is present no header will be returned. */
 	title: PropTypes.string.isRequired,

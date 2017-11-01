@@ -125,6 +125,7 @@ class ToggledDropDown extends Component {
 		);
 		return (
 			<DropDownToggled
+				qaHook="toggledDD-example"
 				className="exampleClass"
 				onOpen={() => console.log('dropdown is open')}
 				onClose={() => console.log('dropdown is closed')}

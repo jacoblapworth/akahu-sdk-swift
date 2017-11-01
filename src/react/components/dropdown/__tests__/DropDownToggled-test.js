@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+import renderer from 'react-test-renderer';
 import DropDown from '../DropDown';
 import DropDownToggled from '../DropDownToggled';
 import Picklist from '../../picklist/Picklist';
@@ -125,6 +126,18 @@ describe('<DropDownToggled />', () => {
 			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
 		});
 	});
+
+	it('should render a passed qaHook as an auotmation id', () => {
+        const automationId = renderer.create(
+			<DropDownToggled
+				qaHook="ddt-example"
+				trigger={getTrigger({qaHook: 'ddt-example--trigger'})}
+				dropdown={getDropDown()}
+			/>
+		);
+
+        expect(automationId).toMatchSnapshot();
+    });
 
 	// These are skipped as enzyme cannot test shit rendered in portal.
 	describe.skip('closeOnSelect', function () {

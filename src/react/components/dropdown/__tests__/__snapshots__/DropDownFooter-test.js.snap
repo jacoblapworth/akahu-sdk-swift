@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropDownFooter /> shoudl render an auotmation id when a qaHook is passed 1`] = `
+<div
+  className="xui-dropdown--footer"
+  data-automationid="dropdownfooter-example"
+>
+  content
+</div>
+`;

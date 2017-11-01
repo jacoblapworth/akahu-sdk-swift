@@ -28,6 +28,9 @@
 
 ## CSS changes
 
+* `xui-page-width-standard` and `xui-page-width-large` no longer have a clearfix applied with `::after`. This provides
+better behaviour when using `xui-u-flex-space-between` alongside `xui-page-width-*` classes.
+
 ### CSS properties changed
 
 ### Classes removed

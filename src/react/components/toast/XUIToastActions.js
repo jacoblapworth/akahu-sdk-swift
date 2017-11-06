@@ -7,7 +7,7 @@ export default function XUIToastActions({ className, children, qaHook }) {
 	const newChildren = React.Children.count(children) > 2 ? children.slice(0, 2) : children;
 
 	return (
-		<ul className={classNames} data-automationId={qaHook}>
+		<ul className={classNames} data-automationid={qaHook}>
 			{newChildren}
 		</ul>
 	);

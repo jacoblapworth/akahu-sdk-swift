@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUITextArea from '../XUITextArea';
 
@@ -115,7 +115,7 @@ describe('XUITextArea additional functionality:', () => {
 		expect(textAreaNode.getAttribute('class')).toEqual(expect.stringContaining('xui-input'));
 	});
 
-	it('shoudl render an automation id when a qaHook is passed', () => {
+	it('should render an automation id when a qaHook is passed', () => {
 		const automationid = renderer.create(<XUITextArea qaHook={'textarea-test'}/>);
 
 		expect(automationid).toMatchSnapshot();

@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleterInput from '../XUIAutocompleterInput';
 import search from '@xero/xui-icon/icons/search';
@@ -20,7 +20,7 @@ describe('<XUIAutocompleterInput />', () => {
 
         expect(classComp).toMatchSnapshot();
     });
-    
+
     it('should render extra classes on the container when passed a value in containerClassNames', () => {
         const classComp = renderer.create(<XUIAutocompleterInput containerClassNames='test-containerClass' />);
 
@@ -143,10 +143,10 @@ describe('<XUIAutocompleterInput />', () => {
         expect(styleComp).toMatchSnapshot();
     });
 
-    it('shoudl add a reference to the XUIInput when passed a refFn prop', () => {
+    it('should add a reference to the XUIInput when passed a refFn prop', () => {
         let ref = null;
         const refFn = c => ref = c;
-        
+
         mount(<XUIAutocompleterInput refFn={refFn} />);
 
         expect(ref).not.toBeNull();
@@ -171,10 +171,10 @@ describe('<XUIAutocompleterInput />', () => {
                 value: 'new value'
             }
         });
-        
+
         jest.runTimersToTime(60);
         expect(onSearch.mock.calls.length).toEqual(2);
-        
+
         expect(boundComp.props().throttleInterval).toEqual(50);
 
     });

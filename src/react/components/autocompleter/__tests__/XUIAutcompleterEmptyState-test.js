@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import filter from '@xero/xui-icon/icons/filter';
@@ -34,7 +34,7 @@ describe('<XUIAutocompleterEmptyState />', () => {
 
     it('should change the icon when the name is passed to iconPath', () => {
         const iconComp = renderer.create(<XUIAutocompleterEmptyState iconPath={filter}/>);
-        
+
         expect(iconComp).toMatchSnapshot();
     });
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUITextArea additional functionality: shoudl render an automation id when a qaHook is passed 1`] = `
+exports[`XUITextArea additional functionality: should render an automation id when a qaHook is passed 1`] = `
 <div
   className="xui-field-layout"
 >

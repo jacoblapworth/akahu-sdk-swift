@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleter from '../XUIAutocompleter';
 import Pill from '../../pill/XUIPill';
@@ -32,7 +32,7 @@ describe('XUIAutocompleter', () => {
 
 	it('inserts the searchValue inside the input', () => {
 		const inputEl = renderer.create(createComponent({searchValue: "a"}));
-		
+
 		expect(inputEl).toMatchSnapshot();
 	});
 
@@ -149,7 +149,7 @@ describe('XUIAutocompleter', () => {
 
         expect(comp.instance().ddt.state.isHidden).toBeTruthy();
     });
-	
+
 	it('should ignore keyboard events for the left arrow as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
@@ -160,7 +160,7 @@ describe('XUIAutocompleter', () => {
 
         expect(comp.instance().ddt.state.isHidden).toBeTruthy();
 	});
-	
+
 	it('should ignore keyboard events for the right arrow as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 

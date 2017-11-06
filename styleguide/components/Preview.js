@@ -79,7 +79,7 @@ export default class Preview extends Component {
 
 		const exampleComponent = this.evalInContext(compiledCode);
 		const wrappedComponent = (
-			<Wrapper>
+			<Wrapper onError={(e) => {console.error(e); }}>
 				<PreviewComponent component={exampleComponent} />
 			</Wrapper>
 		);

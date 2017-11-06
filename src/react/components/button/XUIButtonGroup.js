@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 export default function XUIButtonGroup({children, className, qaHook}) {
 	return (
-		<div className={cn(className, 'xui-buttongroup')} data-automationId={qaHook}>
+		<div className={cn(className, 'xui-buttongroup')} data-automationid={qaHook}>
 			{Children.map(children, child => cloneElement(child, { isGrouped: true }))}
 		</div>
 	);

@@ -25,24 +25,24 @@ class Example extends PureComponent {
 				<p><XUIButton onClick={() => this.setState({ header: true })}>Modal with Header</XUIButton></p>
 				<p><XUIButton onClick={() => this.setState({ footer: true })}>Modal with Footer</XUIButton></p>
 				<p><XUIButton onClick={() => this.setState({ both: true })}>Modal with Both</XUIButton></p>
-				<XUIModal isHidden={!this.state.normal} onClose={() => this.setState({ normal: false })}>
+				<XUIModal isUsingPortal={false} isOpen={this.state.normal} onClose={() => this.setState({ normal: false })}>
 					<XUIModalBody qaHook="modal-normalexample--body">
 						Normal modal
 					</XUIModalBody>
 				</XUIModal>
-				<XUIModal isHidden={!this.state.header} onClose={() => this.setState({ header: false })}>
+				<XUIModal isOpen={this.state.header} onClose={() => this.setState({ header: false })}>
 					<XUIModalHeader qaHook="modal-headerexample--header"><h3>Header</h3></XUIModalHeader>
 					<XUIModalBody qaHook="modal-headerexample--body">
 						Modal with Header
 					</XUIModalBody>
 				</XUIModal>
-				<XUIModal isHidden={!this.state.footer} onClose={() => this.setState({ footer: false })}>
+				<XUIModal isOpen={this.state.footer} onClose={() => this.setState({ footer: false })}>
 					<XUIModalBody qaHook="modal-ooterexample--body">
 						Normal modal
 					</XUIModalBody>
 					<XUIModalFooter qaHook="modal-footerexample--footer">Footer</XUIModalFooter>
 				</XUIModal>
-				<XUIModal isHidden={!this.state.both} onClose={() => this.setState({ both: false })}>
+				<XUIModal isOpen={this.state.both} onClose={() => this.setState({ both: false })}>
 					<XUIModalHeader qaHook="modal-bothexample--header"><h3>Header</h3></XUIModalHeader>
 					<XUIModalBody qaHook="modal-bothexample--body">
 						Normal modal

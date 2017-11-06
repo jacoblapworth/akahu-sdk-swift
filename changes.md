@@ -19,9 +19,11 @@
 
 ### Inputs
 * qaHook added to input component
+* container button qaHook `${props.qaHook}-container` is now `${props.qaHook}--container`
 
 ### Modal
 * qaHook added for Header, Body and Footer components
+* close button qaHook `${props.qaHook}-close` is now `${props.qaHook}--close`
 
 ### Picklist
 * qaHook added for Picklist component
@@ -62,4 +64,3 @@ better behaviour when using `xui-u-flex-space-between` alongside `xui-page-width
 ### Variables removed
 
 ## Dependency changes
-

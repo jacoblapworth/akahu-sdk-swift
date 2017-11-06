@@ -30,7 +30,7 @@ describe('<XUIInput>', () => {
 
 		it('should have a qahook on the input and wrapper', () => {
 			const input = wrapper.find('input');
-			expect(wrapper.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}-container"`));
+			expect(wrapper.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}--container"`));
 			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
 
 			const automationId = renderer.create(

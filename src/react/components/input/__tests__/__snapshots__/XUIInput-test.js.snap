@@ -3,7 +3,7 @@
 exports[`<XUIInput> General Functionality should have a qahook on the input and wrapper 1`] = `
 <div
   className="xui-inputwrapper"
-  data-automationid="input-test-container"
+  data-automationid="input-test--container"
 >
   <input
     className="xui-input"

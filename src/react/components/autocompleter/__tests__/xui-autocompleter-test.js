@@ -35,7 +35,7 @@ describe('XUIAutocompleter', () => {
 
 	it('has data-automationid set on the input, list and container', () => {
 		expect(wrapper.find({'data-automationid':'baseAC-input'})).toHaveLength(1);
-		expect(wrapper.find({'data-automationid':'baseAC-input-container'})).toHaveLength(1);
+		expect(wrapper.find({'data-automationid':'baseAC-input--container'})).toHaveLength(1);
 		expect(wrapper.instance().ddt.props.dropdown.props.qaHook).toEqual('baseAC-list');
 	});
 

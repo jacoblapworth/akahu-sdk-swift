@@ -6,7 +6,7 @@ export default function XUIBannerMessageDetail(props) {
 	const className = cn(props.className, 'xui-banner--messagedetail');
 
 	return (
-		<ul className={className}>
+		<ul className={className} data-automationid={props.qaHook}>
 			{props.messageDetails.map(listText => (<li key={listText}>{listText}</li>))}
 		</ul>
 	);
@@ -14,6 +14,7 @@ export default function XUIBannerMessageDetail(props) {
 
 XUIBannerMessageDetail.propTypes = {
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 
 	/** @property {string[]} The banner message details to be displayed as a list */
 	messageDetails: PropTypes.arrayOf(PropTypes.string).isRequired

@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIBannerMessageDetail /> should map the list of mesage details to list elements 1`] = `
+<ul
+  className="xui-banner--messagedetail"
+  data-automationid={undefined}
+>
+  <li>
+    a
+  </li>
+  <li>
+    b
+  </li>
+  <li>
+    c
+  </li>
+</ul>
+`;
+
+exports[`<XUIBannerMessageDetail /> should render a passed qaHook as an auotmation id 1`] = `
+<ul
+  className="xui-banner--messagedetail"
+  data-automationid="banner-messagedetail"
+>
+  <li>
+    a
+  </li>
+  <li>
+    b
+  </li>
+  <li>
+    c
+  </li>
+</ul>
+`;
+
+exports[`<XUIBannerMessageDetail /> should render and includes no automation id by default 1`] = `
+<ul
+  className="xui-banner--messagedetail"
+  data-automationid={undefined}
+>
+  <li>
+    a
+  </li>
+  <li>
+    b
+  </li>
+</ul>
+`;
+
+exports[`<XUIBannerMessageDetail /> should render custom classes on the root p DOM node 1`] = `
+<ul
+  className="example-class xui-banner--messagedetail"
+  data-automationid={undefined}
+>
+  <li>
+    a
+  </li>
+  <li>
+    b
+  </li>
+</ul>
+`;

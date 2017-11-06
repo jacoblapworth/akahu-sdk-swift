@@ -6,7 +6,29 @@ exports[`<XUIBannerMessage /> should render a passed qaHook as an auotmation id 
   data-automationId="banner-action"
 >
   <span>
-    message contents
+    Message Content
+  </span>
+</p>
+`;
+
+exports[`<XUIBannerMessage /> should render and includes no automation id by default 1`] = `
+<p
+  className="xui-banner--message"
+  data-automationId={undefined}
+>
+  <span>
+    Message Content
+  </span>
+</p>
+`;
+
+exports[`<XUIBannerMessage /> should render custom classes on the root p DOM node 1`] = `
+<p
+  className="example-class xui-banner--message"
+  data-automationId={undefined}
+>
+  <span>
+    Message Content
   </span>
 </p>
 `;

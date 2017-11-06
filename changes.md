@@ -3,13 +3,23 @@
 ## Component changes
 * remove all default values of qaHooks.
 
+### Autocompleter
+* input qaHook `${props.qaHook}-input` is now `${props.qaHook}--input`
+* list qaHook `${props.qaHook}-list` is now `${props.qaHook}--list`
+* conatiner qaHook `${props.qaHook}-conatiner` is now `${props.qaHook}--container`
+
 ### XUIAvatar changes
 * XUISimpleAvatar component no longer exists and has been merged with XUIAvatar
  - All the same rules applied as they did before.
 * qaHook prop added
 
 ### Banner
-* qaHook for Action, Actions and Message component added
+* qaHook for Action, Actions, Message and MessageDetail component added
+* test coverage improved
+* close button qaHook `${qaHook}-close-button` is now `${qaHook}-close--button` 
+* XUIBannerAction button qaHook `${qaHook}-button` is now `${qaHook}--button`
+* isLink added as a new prop to `XUIBannerAction`
+
 
 ### Button
 * qaHook added to Caret and Group components

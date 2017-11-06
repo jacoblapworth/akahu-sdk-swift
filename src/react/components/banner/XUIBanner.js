@@ -19,7 +19,7 @@ const sentiments = Object.keys(sentimentMap);
 
 export default function XUIBanner(props) {
 	const { className, qaHook, sentiment, onCloseClick, children, defaultLayout } = props;
-	const closeQAHook = qaHook ? `${qaHook}-close-button` : null;
+	const closeQAHook = qaHook && `${qaHook}-close--button`;
 
 	const closeButton = onCloseClick && (
 		<button data-automationid={closeQAHook} className={cn('xui-button', 'xui-button-icon', 'xui-banner--close')} title="Close" onClick={onCloseClick}>

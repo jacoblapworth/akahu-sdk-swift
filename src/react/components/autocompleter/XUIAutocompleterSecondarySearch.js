@@ -76,8 +76,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		let listQaHook = null;
 		let containerQaHook = null;
 		if (props.qaHook) {
-			listQaHook = `${props.qaHook}-list`;
-			containerQaHook = `${props.qaHook}-container`;
+			listQaHook = `${props.qaHook}--list`;
+			containerQaHook = `${props.qaHook}--container`;
 		}
 		const dropdownClasses = cn(
 			{ 'xui-u-fullwidth': !props.dropdownSize },

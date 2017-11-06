@@ -2,16 +2,14 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import renderer from 'react-test-renderer';
-import XUIBannerMessage from '../XUIBannerMessage';
+import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<XUIBannerMessage />', () => {
-    
+describe('<XUIBannerMessageDetail />', () => {
+
     it('should render and includes no automation id by default', () => {
-        const test = (<XUIBannerMessage> 
-            <span>Message Content</span>
-        </XUIBannerMessage>);
+        const test = (<XUIBannerMessageDetail messageDetails={['a', 'b']} />);
         
         const href = renderer.create(test);
         expect(href).toMatchSnapshot();
@@ -21,23 +19,32 @@ describe('<XUIBannerMessage />', () => {
     });
 
     it('should render a passed qaHook as an auotmation id', () => {
-        const automationId = renderer.create(<XUIBannerMessage qaHook="banner-action" >
-               <span>Message Content</span>
-            </XUIBannerMessage>);
+        const automationId = renderer.create(
+            <XUIBannerMessageDetail qaHook="banner-messagedetail" messageDetails={['a', 'b', 'c']} />);
 
         expect(automationId).toMatchSnapshot();
     });
 
     it('should render custom classes on the root p DOM node', () => {
         const className = "example-class";
-        const test = ( <XUIBannerMessage className={className}> 
-            <span>Message Content</span>
-        </XUIBannerMessage> );
+        const test = ( <XUIBannerMessageDetail className={className} messageDetails={['a','b']} />);
 
         const classes = renderer.create(test);
         expect(classes).toMatchSnapshot();
 
         const jestDom = shallow(test);
         expect(jestDom.props().className).toContain(className);
+    });
+
+    it('should map the list of mesage details to list elements', () => {
+        const test = ( <XUIBannerMessageDetail messageDetails={['a','b','c']} />);
+
+        const messageDeatils = renderer.create(test);
+        expect(messageDeatils).toMatchSnapshot();
+
+        const jestDom = shallow(test);
+        expect(jestDom.childAt(0).type()).toEqual('li');
+        expect(jestDom.html()).toContain('<li>b</li>');
+        expect(jestDom.children().length).toEqual(3);
     });
 });

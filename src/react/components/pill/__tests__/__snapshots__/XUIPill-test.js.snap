@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
+<div
+  className="xui-pill xui-pill-layout"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <button
+    className="xui-button xui-pill--content xui-pill--button"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title={undefined}
+    type="button"
+  >
+    <span
+      className="xui-pill--text"
+    >
+      Value Pill
+    </span>
+  </button>
+</div>
+`;
+
+exports[`<XUIPill /> should render a target when passed in 1`] = `
+<div
+  className="xui-pill xui-pill-layout"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <a
+    className="xui-button xui-pill--content"
+    data-automationid={undefined}
+    disabled={false}
+    href="http://xero.com"
+    onClick={[Function]}
+    onKeyDown={undefined}
+    onKeyPress={[Function]}
+    rel={undefined}
+    role="button"
+    tabIndex={0}
+    target="_blank"
+    title={undefined}
+  />
+</div>
+`;
+
+exports[`<XUIPill /> should render a title when passed 1`] = `
+<div
+  className="xui-pill xui-pill-layout"
+  data-automationid={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <button
+    className="xui-button xui-pill--content xui-pill--button"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="pill title"
+    type="button"
+  />
+</div>
+`;
+
+exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1`] = `
+<div
+  className="xui-pill xui-pill-layout"
+  data-automationid="pill-test"
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <button
+    className="xui-button xui-pill--content xui-pill--button"
+    data-automationid="pill-test--inner"
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title={undefined}
+    type="button"
+  />
+</div>
+`;

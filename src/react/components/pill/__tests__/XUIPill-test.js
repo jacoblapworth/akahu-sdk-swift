@@ -1,63 +1,60 @@
 import React from 'react';
-import { assert } from 'chai';
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+import renderer from 'react-test-renderer';
 import XUIPill from '../XUIPill';
 
-const TestUtils = require('react-dom/test-utils');
+Enzyme.configure({ adapter: new Adapter() });
+
+const NOOP = () => {};
 
 describe('<XUIPill />', () => {
 
 	it('renders with correct XUI classes including layout', () => {
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill />
-		);
+		const pill = shallow(<XUIPill />);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
-		assert.isTrue(node.classList.contains('xui-pill-layout'));
+		expect(pill.hasClass('xui-pill-layout')).toBeTruthy();
 	});
 
 	it('render pill text in a button by default', () => {
-		const pill = TestUtils.renderIntoDocument(
+		const pill = shallow(
 			<XUIPill />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill').firstChild;
-		assert.strictEqual(node.tagName, 'BUTTON')
+		expect(pill.hasClass('xui-pill')).toBeTruthy();
+		expect(pill.find('button')).toBeTruthy();
 	});
 
 	it('renders the pill with the specified className prop', () => {
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill className='xui-test-class' value="Classy Pill" />
+		const pill = shallow(
+			<XUIPill className='xui-test-class' />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
-		assert.isTrue(node.classList.contains('xui-test-class'));
+		expect(pill.hasClass('xui-test-class')).toBeTruthy();
 	});
 
 	it('renders the pill with the specified value prop', () => {
-		const pill = TestUtils.renderIntoDocument(
+		const pill = renderer.create(
 			<XUIPill value="Value Pill" />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content');
-		assert.strictEqual(node.textContent, 'Value Pill');
+		expect(pill).toMatchSnapshot();
 	});
 
 	it('will render the pill text in an "a" tag when a href prop is provided', () => {
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill value="Linky Pill" href="xero.com"/>
+		const pill = shallow(
+			<XUIPill href="http://xero.com"/>
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content');
-		assert.strictEqual(node.tagName, 'A');
+		expect(pill.find('a')).toBeTruthy();
 	});
 
 	it('renders the pill with the invalid class when the isInvalid prop is true', () => {
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill isInvalid={true} value="Invalid Pill" />
+		const pill = shallow(
+			<XUIPill isInvalid={true} />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
-		assert.isTrue(node.classList.contains('xui-pill-is-invalid'));
+		expect(pill.hasClass('xui-pill-is-invalid')).toBeTruthy();
 	});
 
 	it('will render avatars when passed as an avatar prop', () => {
@@ -68,63 +65,106 @@ describe('<XUIPill />', () => {
 			role: 'presentation',
 			value: 'A'
 		};
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill avatarProps={avatarProps} value="Avatar Pill" />
+		const pill = shallow(
+			<XUIPill avatarProps={avatarProps} />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-avatar');
-		assert.strictEqual(node.src, link);
+		expect(pill.find('.xui-avatar')).toBeTruthy();
 	});
 
-	it('renders the pill without the xui-pill--layout class when hasLayout prop is false', () => {
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill hasLayout={false} value="Ugly Pill" />
+	it('renders the pill without the xui-pill-layout class when hasLayout prop is false', () => {
+		const pill = shallow(
+			<XUIPill hasLayout={false} />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
-		assert.isFalse(node.classList.contains('xui-pill-layout'));
+		expect(pill.hasClass('xui-pill-layout')).toBeFalsy();
+	});
+
+	it('renders the pill without the xui-pill-layout class by default', () => {
+		const pill = shallow(
+			<XUIPill />
+		);
+
+		expect(pill.hasClass('xui-pill-layout')).toBeTruthy();
 	});
 
 	it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
-		var value = "Value";
-		const callback = (pill) => {value = pill.props.value};
-		const pill = TestUtils.renderIntoDocument(
+		const callback = jest.fn();
+		const pill = shallow(
 			<XUIPill value="Pill" onDeleteClick={callback} />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-button-icon');
-		TestUtils.Simulate.click(node);
-		assert.strictEqual(value, "Pill");
+		pill.find('.xui-pill--button-icon').simulate('click');
+		expect(callback.mock.calls.length).toEqual(1);
 	});
 
 	it('invokes the callback passed into the onClick prop', () => {
 		const callback = jest.fn();
-		const pill = TestUtils.renderIntoDocument(
-			<XUIPill onClick={callback} />
+		const pill = mount(
+			<XUIPill value="Pill" onClick={callback} />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content');
-		TestUtils.Simulate.click(node);
-		expect(callback).toHaveBeenCalled();
+		pill.find('.xui-button').simulate('click');
+		expect(callback.mock.calls.length).toEqual(1);
 	});
 
 	it('renders the text passed in the secondaryText prop', () => {
-		const pill = TestUtils.renderIntoDocument(
+		const pill = mount(
 			<XUIPill secondaryText='supplementary' />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill--content').firstChild;
-		assert.strictEqual(node.textContent, 'supplementary')
+		expect(pill.find('.xui-pill--secondary').text()).toEqual('supplementary');
 	});
 
 	it('renders itself as focused appropriately', () => {
-		const pill = TestUtils.renderIntoDocument(
+		const pill = mount(
 			<XUIPill />
 		);
 
-		const node = TestUtils.findRenderedDOMComponentWithClass(pill, 'xui-pill');
-		assert.isFalse(node.classList.contains('xui-pill-is-focused'));
-		TestUtils.Simulate.focus(node);
-		assert.isTrue(node.classList.contains('xui-pill-is-focused'));
+		pill.childAt(0).simulate('focus')
+
+		expect(pill.childAt(0).hasClass('xui-pill-is-focused')).toBeTruthy();
 	});
+
+	it('should render an automation id when a qaHook is passed in', () => {
+		const automationid = renderer.create(<XUIPill qaHook="pill-test" />);
+
+		expect(automationid).toMatchSnapshot();
+	});
+
+	it('should render a title when passed', () => {
+		const pill = renderer.create(<XUIPill title="pill title" />);
+
+		expect(pill).toMatchSnapshot();
+	});
+
+	it('should render a target when passed in', () => {
+		const pill = renderer.create(<XUIPill href="http://xero.com" target="_blank" />);
+
+		expect(pill).toMatchSnapshot();
+	});
+
+	it('should render a label for the delete button when passed in', () => {
+		const pill = shallow(<XUIPill deleteButtonLabel="alternate delete label" onDeleteClick={NOOP}/>);
+
+		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="alternate delete label"');
+	});
+
+	it('should render a delete button label of \'Delete\' by default', () => {
+		const pill = shallow(<XUIPill onDeleteClick={NOOP}/>);
+
+		expect(pill.find('.xui-pill--button-icon').html()).toContain('title="Delete"');
+	});
+
+	it('should swicth the focus state when toggleFocus is called', () => {
+		const pill = shallow(<XUIPill />);
+
+		expect(pill.state('isFocused')).toBeFalsy();
+
+		pill.instance().toggleFocus();
+
+		expect(pill.state('isFocused')).toBeTruthy();
+	});
+
+
 });

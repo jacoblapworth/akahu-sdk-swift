@@ -38,6 +38,9 @@
 ### Picklist
 * qaHook added for Picklist component
 
+### Pill
+* qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--inner`
+
 ### Toast
 * qaHook added for Action, Actions and Message components
 

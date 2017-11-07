@@ -50,7 +50,7 @@ export default class XUIRadio extends React.Component {
 
 		const svgClasses = cn('xui-icon', svgClassName);
 		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
-		const labelElement = !isLabelHidden ? <span className={labelClasses}>{children}</span> : null;
+		const labelElement = !isLabelHidden ? <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span> : null;
 		const inputProps = {
 			type: 'radio',
 			disabled: isDisabled,
@@ -58,7 +58,7 @@ export default class XUIRadio extends React.Component {
 			tabIndex,
 			name,
 			onChange,
-			value,
+			value
 		};
 
 		if (typeof isChecked !== 'boolean') {
@@ -74,8 +74,8 @@ export default class XUIRadio extends React.Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input className="xui-styledcheckboxradio--input" {...inputProps} />
-				<svg className={svgClasses}>
+				<input className="xui-styledcheckboxradio--input" {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
+				<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
 					<path className="xui-styledcheckboxradio--focus" role="presentation" d={iconMainPath || radioMain} />
 					<path className="xui-styledcheckboxradio--main" role="presentation" d={iconMainPath || radioMain} />
 					{iconMainPath && !iconCheckPath ? null : <path className="xui-styledcheckboxradio--check" role="presentation" d={iconCheckPath || radioCheck} />}

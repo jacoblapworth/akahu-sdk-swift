@@ -12,7 +12,7 @@ const normal = (
 		<div className={rowClasses}>
 			<XUIRadio>Uncontrolled</XUIRadio>
 			<XUIRadio isChecked={false}>Unchecked</XUIRadio>
-			<XUIRadio isChecked>Checked</XUIRadio>
+			<XUIRadio isChecked qaHook="checked-radio">Checked</XUIRadio>
 			<XUIRadio isRequired>Required</XUIRadio>
 			<XUIRadio isDisabled>Disabled Unchecked</XUIRadio>
 			<XUIRadio isDisabled isChecked>Disabled Checked</XUIRadio>

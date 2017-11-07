@@ -41,6 +41,9 @@
 ### Pill
 * qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--inner`
 
+### Radio
+* qaHooks added to label, icon and input elements.
+
 ### Switch
 * label now has `--label` suffix which wasn't previously present
 * input now has `--input` suffix which wasn't previously present

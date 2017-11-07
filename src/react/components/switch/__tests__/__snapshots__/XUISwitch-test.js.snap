@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUISwitch should render an automationid when a qaHook value is passed 1`] = `
+<label
+  className="xui-switch"
+  data-automationid="switch-test--label"
+>
+  <input
+    checked={undefined}
+    className="xui-u-hidden-visually xui-switch--checkbox"
+    data-automationid="switch-test--input"
+    disabled={undefined}
+    name={undefined}
+    onChange={[Function]}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-switch--control"
+    data-automationid="switch-test"
+  />
+</label>
+`;

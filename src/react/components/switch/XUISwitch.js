@@ -26,7 +26,7 @@ export default class XUISwitch extends PureComponent {
 		);
 
 		return (
-			<label data-automationid={qaHook} className={labelClasses}>
+			<label data-automationid={qaHook && `${qaHook}--label`} className={labelClasses}>
 				<input
 					type="checkbox"
 					onChange={onChange}
@@ -34,8 +34,9 @@ export default class XUISwitch extends PureComponent {
 					name={name}
 					value={value}
 					disabled={disabled}
-					className={inputClasses} />
-				<div className="xui-switch--control"></div>
+					className={inputClasses}
+					data-automationid={qaHook && `${qaHook}--input`}/>
+				<div className="xui-switch--control" data-automationid={qaHook}></div>
 			</label>
 		);
 	}

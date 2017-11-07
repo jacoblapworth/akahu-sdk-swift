@@ -16,7 +16,7 @@
 ### Banner
 * qaHook for Action, Actions, Message and MessageDetail component added
 * test coverage improved
-* close button qaHook `${qaHook}-close-button` is now `${qaHook}-close--button` 
+* close button qaHook `${qaHook}-close-button` is now `${qaHook}-close--button`
 * XUIBannerAction button qaHook `${qaHook}-button` is now `${qaHook}--button`
 * isLink added as a new prop to `XUIBannerAction`
 
@@ -40,6 +40,10 @@
 
 ### Pill
 * qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--inner`
+
+### Switch
+* label now has `--label` suffix which wasn't previously present
+* input now has `--input` suffix which wasn't previously present
 
 ### Toast
 * qaHook added for Action, Actions and Message components

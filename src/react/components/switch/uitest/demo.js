@@ -19,7 +19,7 @@ class Example extends PureComponent {
 		return (
 			<div className="xui-page-width-standard xui-margin-top">
 				<div className="xui-margin-bottom-small">
-					<XUISwitch checked={this.state.a} onChange={() => this.setState(prevState => ({ a: !prevState.a }))} />
+					<XUISwitch checked={this.state.a} onChange={() => this.setState(prevState => ({ a: !prevState.a }))} qaHook='switch-example' />
 				</div>
 				<div className="xui-margin-bottom-small">
 					<XUISwitch checked={this.state.b} onChange={() => this.setState(prevState => ({ b: !prevState.b }))} />

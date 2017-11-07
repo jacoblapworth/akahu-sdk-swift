@@ -1,66 +1,60 @@
 import React from 'react';
-import { assert } from 'chai';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+import renderer from 'react-test-renderer';
 import XUISwitch from '../XUISwitch';
-import * as TestUtils from 'react-dom/test-utils';
 
-const onChange = () => {};
+const NOOP = () => {};
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUISwitch', function () {
 
 	it('should render not checked and not disabled', function () {
-		const component = TestUtils.renderIntoDocument(
-			<XUISwitch onChange={onChange}/>
+		const component = shallow(
+			<XUISwitch onChange={NOOP}/>
 		);
 
-		const inputDOMElement = TestUtils.findRenderedDOMComponentWithTag(component, 'input');
-
-		const isChecked = inputDOMElement.checked;
-		const isNotDisabled = inputDOMElement.disabled;
-
-		assert.strictEqual(isChecked, false);
-		assert.strictEqual(isNotDisabled, false);
+		expect(component.html()).not.toContain('checked');
+		expect(component.html()).not.toContain('disabled');
 	});
 
 	it('should render checked', function () {
-		const component = TestUtils.renderIntoDocument(
-			<XUISwitch checked={true} onChange={onChange}/>
+		const component = shallow(
+			<XUISwitch checked={true} onChange={NOOP}/>
 		);
 
-		const isChecked = TestUtils.findRenderedDOMComponentWithTag(component, 'input').checked;
-
-		assert.strictEqual(isChecked, true);
+		expect(component.html()).toContain('checked');
 	});
 
 	it('should pass a value to the input', function () {
-		const component = TestUtils.renderIntoDocument(
-			<XUISwitch value="someValue" onChange={onChange}/>
+		const component = shallow(
+			<XUISwitch value="someValue" onChange={NOOP}/>
 		);
 
-		const value = TestUtils.findRenderedDOMComponentWithTag(
-			component,
-			'input').getAttribute('value');
-
-		assert.strictEqual(value, "someValue");
+		expect(component.childAt(0).props().value).toEqual('someValue');
 	});
 
 	it('should pass a name to the input', function () {
-		const component = TestUtils.renderIntoDocument(
-			<XUISwitch name="someName" onChange={onChange}/>
+		const component = shallow(
+			<XUISwitch name="someName" onChange={NOOP}/>
 		);
 
-		const value = TestUtils.findRenderedDOMComponentWithTag(component, 'input').getAttribute('name');
-
-		assert.strictEqual(value, "someName");
+		expect(component.find('input').props().name).toEqual('someName');
 	});
 
 	it('should be disabled', function () {
-		const component = TestUtils.renderIntoDocument(
-			<XUISwitch name="someName" onChange={onChange} disabled={true}/>
+		const component = shallow(
+			<XUISwitch name="someName" onChange={NOOP} disabled={true}/>
 		);
 
-		const disabledState = TestUtils.findRenderedDOMComponentWithTag(component, 'input').disabled;
+		expect(component.html()).toContain('disabled');
+	});
 
-		assert.strictEqual(disabledState, true);
+	it('should render an automationid when a qaHook value is passed', () => {
+		const automationid = renderer.create(<XUISwitch qaHook="switch-test" onChange={NOOP}/>);
+
+		expect(automationid).toMatchSnapshot();
 	});
 
 });

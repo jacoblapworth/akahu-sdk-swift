@@ -91,7 +91,7 @@ src/
 │     │  ├─ __tests__/
 │     │  ├─ helpers/
 │     │  ├─ private/
-│     │  └─ uitest/
+│     │  └─ stories/
 │     └─ component2/
 └─ sass/
    ├─ components/
@@ -129,7 +129,7 @@ Script              | Description
 `npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
 `npm run test`             | Runs all the React component unit tests
 `npm run test:watch`       | Runs all the React component unit tests and watches for file changes
-`npm run test:ui`          | Compiles and sets up the uitest demo page for a given component to do visual testing during development.  See the UI Testing section for more details.
+`npm run storybook`          | Compiles and sets up the storybook demo app for to do visual testing during development.  See the UI Testing section for more details.
 `npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible
 `npm run build:prepublish` | Cleans and creates the root level `react` and `sass` folders that will be deployed to Artifactory.
 `npm run build:babel`      | Creates a `react` folder containing babel'd code ready to be deployed

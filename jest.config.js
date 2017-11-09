@@ -7,8 +7,8 @@ module.exports = {
 	moduleDirectories: ['node_modules'],
   collectCoverageFrom: [
 		'**/src/react/components/**/*.{js,jsx}',
-		'!**/src/react/components/**/uitest/*',
 		'!**/src/react/components/**/__tests__/*',
+		'!**/src/react/components/**/stories/*',
 		'!**/node_modules/**'
 	],
   moduleNameMapper: {

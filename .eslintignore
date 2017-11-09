@@ -4,5 +4,4 @@ docs/*
 kss
 src/components/icon
 umd/assets
-uitest/assets
 coverage/*

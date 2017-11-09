@@ -1,10 +1,9 @@
-
 # Library and framework files/directories
 /bower_components
 /.bundle
 /node_modules
 /vendor/bundle/
-npm-debug.log
+npm-debug.log*
 yarn.lock
 
 # gh-pages branch stuff
@@ -17,7 +16,6 @@ yarn.lock
 /react
 /sass
 /umd/assets
-/uitest/assets
 src/react/umd.js
 
 # IDE files/directores

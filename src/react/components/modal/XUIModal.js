@@ -8,7 +8,7 @@ import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 
-const modalSizes = {
+export const modalSizes = {
 	small: 'xui-modal-width-small',
 	medium: 'xui-modal-width-medium',
 	large: 'xui-modal-width-large',

@@ -83,7 +83,9 @@ describe('<XUIInput>', () => {
 		});
 
 		it('has a qaHook', () => {
-			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
+			const automationid = renderer.create(<XUIInput qaHook={qaHook} />);
+
+			expect(automationid).toMatchSnapshot();
 		});
 
 		it('is passed className', () => {

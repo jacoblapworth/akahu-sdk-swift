@@ -20,29 +20,30 @@
 * XUIBannerAction button qaHook `${qaHook}-button` is now `${qaHook}--button`
 * isLink added as a new prop to `XUIBannerAction`
 
-
 ### Button
 * qaHook added to Caret and Group components
+
+### Checkbox
+* qaHooks added for lable, input and icon components
 
 ### Dropdown
 * qaHook added for Toggled, Footer and Header components
 
 ### Inputs
-* qaHook added to input component
+* qaHook added to input and close component
 * container button qaHook `${props.qaHook}-container` is now `${props.qaHook}--container`
 
 ### Modal
 * qaHook added for Header, Body and Footer components
 * close button qaHook `${props.qaHook}-close` is now `${props.qaHook}--close`
+* mask qaHook `${props.qaHook}-mask` is now `${props.qaHook}--mask`
 
 ### Picklist
-* qaHook added for Picklist component
+* qaHooks added for Picklist, NestedPicklistContainer and PickitemBody component
 
 ### Pill
-* qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--inner`
-
-### Radio
-* qaHooks added to label, icon and input elements.
+* qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--delete`
+* InnerPill now has qaHook `${qaHook}--inner`
 
 ### Switch
 * label now has `--label` suffix which wasn't previously present

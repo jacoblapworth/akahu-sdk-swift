@@ -221,7 +221,7 @@ export default class XUIModal extends Component {
 				className={maskClasses}
 				onClick={overlayClickHandler}
 				aria-hidden={!isOpen}
-				data-automationid={`${qaHook}-mask`}
+				data-automationid={qaHook && `${qaHook}--mask`}
 				ref={m => this._maskNode = m}
 			>
 				<MainElement
@@ -234,14 +234,14 @@ export default class XUIModal extends Component {
 					ref={m => this._modalNode = m}
 				>
 					{!containsHeader
-						? <XUIModalHeader>{closeButton}</XUIModalHeader>
+						? <XUIModalHeader qaHook={qaHook && `${qaHook}--header`}>{closeButton}</XUIModalHeader>
 						: null}
 					{finalChildren}
 				</MainElement>
 			</div>);
 
 		return (
-			isUsingPortal ? <Portal isOpened={isOpen}><div className="xui-container">{childNodes}</div></Portal> : childNodes
+			isUsingPortal ? <Portal isOpened={isOpen}><div className="xui-container" data-automationid={qaHook && `${qaHook}--container`}>{childNodes}</div></Portal> : childNodes
 		);
 	}
 }

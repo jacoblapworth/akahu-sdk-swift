@@ -2,6 +2,7 @@ import React from 'react';
 import XUITag from '../XUITag';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -38,7 +39,7 @@ describe('<XUITag/>', () => {
 	});
 
 	it('renders a qaHook when passed in', () => {
-		const wrapper = mount(<XUITag qaHook="schwifty">Testing 💩</XUITag>);
-		expect(wrapper.find('[data-automationid="schwifty"]').instance()).toBeDefined();
+		const automationid = renderer.create(<XUITag qaHook="schwifty">Testing 💩</XUITag>);
+		expect(automationid).toMatchSnapshot();
 	});
 });

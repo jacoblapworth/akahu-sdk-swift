@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+import renderer from 'react-test-renderer';
 import star from '@xero/xui-icon/icons/star';
 import contact from '@xero/xui-icon/icons/contact';
 import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
@@ -48,8 +49,12 @@ describe('XUICheckbox', function() {
 		expect(wrapper.find('label').hasClass('dogs-are-totes-patotes')).toBeTruthy();
 	});
 
-	it('should have a qaHook on the root node if provided', function () {
-		expect(wrapper.find('[data-automationid="cheese-and-crackers"]').instance()).toBeDefined();
+	it('should have a qaHook as an automation id if provided', () => {
+		const automationid = renderer.create(
+			<XUICheckbox qaHook="test-checkbox" onChange={NOOP} />
+		);
+
+		expect(automationid).toMatchSnapshot();
 	});
 
 	it('should use the xui-icon class on the SVG element', () => {

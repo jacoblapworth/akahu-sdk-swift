@@ -76,6 +76,7 @@ export default class XUIInput extends Component {
 					isDisabled={false}
 					onClick={() => { onClearInputClick(statefulInput) }}
 					variant="icon"
+					qaHook={qaHook && `${qaHook}--close`}
 					{...clearButtonProps}
 				>
 					<XUIIcon path={clear} />

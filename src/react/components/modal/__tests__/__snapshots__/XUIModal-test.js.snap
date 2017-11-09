@@ -4,7 +4,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
 <div
   aria-hidden={true}
   className="xui-mask"
-  data-automationid="xui-modal-mask"
+  data-automationid="xui-modal--mask"
   id="test-modal"
   onClick={null}
 >
@@ -18,7 +18,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
   >
     <header
       className="xui-modal--header xui-modal--heading xui-padding-left-large"
-      data-automationid={undefined}
+      data-automationid="xui-modal--header"
     >
       <button
         className="xui-button xui-modal--close xui-button-icon"
@@ -54,7 +54,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
 <div
   aria-hidden={true}
   className="xui-mask"
-  data-automationid="xui-modal-mask"
+  data-automationid="xui-modal--mask"
   id={undefined}
   onClick={null}
 >
@@ -68,7 +68,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
   >
     <header
       className="xui-modal--header xui-modal--heading xui-padding-left-large"
-      data-automationid={undefined}
+      data-automationid="xui-modal--header"
     >
       <button
         className="xui-button xui-modal--close xui-button-icon"

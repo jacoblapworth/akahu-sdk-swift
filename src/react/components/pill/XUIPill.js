@@ -94,7 +94,7 @@ export default class XUIPill extends Component {
 				onClick={onDeleteCallback}
 				title={deleteButtonLabel}
 				aria-label={deleteButtonLabel}
-				qaHook={qaHook ? `deletePillButton-${qaHook}` : null}
+				qaHook={qaHook && `${qaHook}--delete`}
 			>
 				<XUIIcon path={crossSmall} />
 			</XUIButton>

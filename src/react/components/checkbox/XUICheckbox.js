@@ -10,7 +10,9 @@ import checkboxMain from '@xero/xui-icon/icons/checkbox-main';
  * @param xuiCheckbox - The checkbox instance for which to set the indeterminate DOM property
  */
 const setIndeterminate = (xuiCheckbox) => {
-	xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
+	if(xuiCheckbox._input){
+		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
+	}
 };
 
 /**
@@ -73,7 +75,7 @@ export default class XUICheckbox extends Component {
 		});
 		const svgClasses = cn('xui-icon', svgClassName);
 		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
-		const labelElement = isLabelHidden ? null : <span className={labelClasses}>{children}</span>;
+		const labelElement = isLabelHidden ? null : <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
 			type: 'checkbox',
 			disabled: isDisabled,
@@ -101,8 +103,8 @@ export default class XUICheckbox extends Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input ref={cb => this._input = cb} {...inputProps} className={cn("xui-styledcheckboxradio--input", inputProps.className)}/>
-				<svg className={svgClasses}>
+				<input ref={cb => this._input = cb} {...inputProps} className={cn("xui-styledcheckboxradio--input", inputProps.className)} data-automationid={qaHook && `${qaHook}--input`} />
+				<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
 					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--focus" role="presentation" />
 					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--main" role="presentation" />
 					{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className="xui-styledcheckboxradio--check" role="presentation" />}

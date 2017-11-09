@@ -72,7 +72,7 @@ export default class NestedPicklistContainer extends PureComponent {
 		return (
 			<li data-automationid={qaHook} className={cn(className, 'xui-picklist--nestedcontainer')}>
 				<input
-					data-automationid={qaHook ? `${qaHook}-checkbox` : null}
+					data-automationid={qaHook && `${qaHook}--checkbox`}
 					type="checkbox"
 					checked={isExpanded}
 					className="xui-pickitem--submenucontrol"

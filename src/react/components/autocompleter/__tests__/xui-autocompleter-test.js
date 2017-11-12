@@ -15,6 +15,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('XUIAutocompleter', () => {
 	let wrapper;
 	let searched = false;
+	let backspacedPill = false;
 	beforeEach(() => {
 		wrapper = mount(
 			<XUIAutocompleter
@@ -89,6 +90,57 @@ describe('XUIAutocompleter', () => {
 		);
 
 		expect(wrapper.find(Pill)).toBeDefined();
+	});
+
+	it('fires the onBackspacePill callback when the backspace key is pressed in an empty input', () => {
+		const wrapper = mount(
+			<XUIAutocompleter
+				pills={<Pill value="ABC" />}
+				searchValue="a"
+				onBackspacePill={() => backspacedPill = true}
+			>
+				<Picklist>
+					<Pickitem id="item1">Item 1</Pickitem>
+				</Picklist>
+			</XUIAutocompleter>, {attachTo: div}
+		);
+
+		wrapper.find('input[type="search"]').simulate('keyDown', {
+			key: 'Backspace'
+		});
+		expect(backspacedPill).toBeFalsy();
+
+		wrapper.find('input[type="search"]').simulate('change', {
+			target: {
+				value: ''
+			}
+		});
+		wrapper.find('input[type="search"]').simulate('keyDown', {
+			key: 'Backspace'
+		});
+		expect(backspacedPill).toBeTruthy();
+
+		backspacedPill = false;
+	});
+
+	it('does not fire the onBackspacePill callback if there are no pills', () => {
+		const wrapper = mount(
+			<XUIAutocompleter
+			pills={[]}
+				onBackspacePill={() => backspacedPill = true}
+			>
+				<Picklist>
+					<Pickitem id="item1">Item 1</Pickitem>
+				</Picklist>
+			</XUIAutocompleter>, {attachTo: div}
+		);
+
+		expect(backspacedPill).toBeFalsy();
+
+		wrapper.find('input[type="search"]').simulate('keyDown', {
+			key: 'Backspace'
+		});
+		expect(backspacedPill).toBeFalsy();
 	});
 
 	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {

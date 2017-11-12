@@ -35,6 +35,8 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 `Autocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `Autocompleter` also provides a configurable empty state for when no search results are returned.
 
+You should add a callback to `onBackspacePill` which removes the last selected element. This will be called if the backspace key is pressed while the input is empty.
+
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
@@ -71,6 +73,7 @@ class DetailedListExample extends Component {
 
 		example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
 		example.deletePerson = example.deletePerson.bind(example);
+		example.deleteLastPerson = example.deleteLastPerson.bind(example);
 	}
 
 	onSearchChangeHandler(value) {
@@ -91,6 +94,14 @@ class DetailedListExample extends Component {
 				people: filterPeople(peopleDataSet, prevState.value, selectedPeople)
 			}
 		});
+	}
+
+	deleteLastPerson() {
+		const example = this;
+		const { selectedPeople } = example.state;
+		const lastSelectedPerson = selectedPeople[selectedPeople.length - 1];
+
+		example.deletePerson(lastSelectedPerson.id);
 	}
 
 	selectPerson(person) {
@@ -175,6 +186,7 @@ class DetailedListExample extends Component {
 					dropdownFixedWidth
 					footer={footer}
 					onClose={() => this.onClose()}
+					onBackspacePill={this.deleteLastPerson}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill
@@ -234,6 +246,7 @@ class DetailedListExample extends Component {
 
 		example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
 		example.deletePerson = example.deletePerson.bind(example);
+		example.deleteLastPerson = example.deleteLastPerson.bind(example);
 	}
 
 	onSearchChangeHandler(value) {
@@ -254,6 +267,14 @@ class DetailedListExample extends Component {
 				people: filterPeople(peopleDataSet, prevState.value, selectedPeople)
 			}
 		});
+	}
+
+	deleteLastPerson() {
+		const example = this;
+		const { selectedPeople } = example.state;
+		const lastSelectedPerson = selectedPeople[selectedPeople.length - 1];
+
+		example.deletePerson(lastSelectedPerson.id);
 	}
 
 	onClose(){
@@ -339,6 +360,7 @@ class DetailedListExample extends Component {
 					disableWrapPills
 					footer={footer}
 					onClose={() => this.onClose()}
+					onBackspacePill={this.deleteLastPerson}
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill

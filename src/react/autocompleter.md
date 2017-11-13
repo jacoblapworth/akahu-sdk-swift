@@ -10,22 +10,28 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 **Note:** Autocompleter will be renamed to `XUIAutocompleter` in XUI 12. All components provided by `Autocompleter` will be prefixed with `XUIAutocompleter` from XUI 12 (e.g. `EmptyState` will become `XUIAutocompleterEmptyState`)
 
+##### Related Components
+
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-forms.html#forms-4">Input</a></span>
+		<span><a href="#input">Input</a></span>
 	</div>
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-avatars.html#avatars-1">Avatar</a></span>
+		<span><a href="#avatar">Avatar</a></span>
 	</div>
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-dropdowns.html#dropdowns">Dropdown</a></span>
+		<span><a href="#dropdown">Dropdown</a></span>
 	</div>
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="../section-pills-and-tags.html#pills-and-tags-2">Pills and Tags</a></span>
+		<span><a href="#pill">Pill</a></span>
+	</div>
+	<div>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<span><a href="#tag">Tag</a></span>
 	</div>
 </div>
 

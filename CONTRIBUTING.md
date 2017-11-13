@@ -273,6 +273,45 @@ e.g.
 // Styleguide: Fundamentals.Typography.30.2.1
 ```
 
+Documentation style guide
+-------------------------
+
+Our documentation writing style is based on [the Financial Times Origami documentation style guide](https://github.com/Financial-Times/ft-origami/blob/gh-pages/README.md#origami). It exists as guidance to help keep our documentation consistent.
+
+1. Be conversational
+	* Use contractions: "we're" over "we are"
+	* Starting sentences with conjunctions like 'but' or 'so' is allowed
+1. Prefer "we" to "I"
+	* **good**: "we recommend you do X"
+	* **bad**: "I recommend you do X"
+1. Use the active voice. If you need help with this one, use [http://www.hemingwayapp.com/](http://www.hemingwayapp.com/)
+	* **good**: "we recommend you do X"
+	* **bad**: "it is recommended you do X"
+1. Omit fluff. Avoid qualifiers like "pretty", "mostly", "probably"
+1. Prefer short sentences to long sentences
+1. Use British English
+	* **good**: organise, favour
+	* **bad**: organize, favor
+1. Avoid metaphors or turns of phrase that non-native English speakers may not be familiar with
+	* **good**: "this site has everything you need to know"
+	* **bad**: "this site is a one stop shop for XUI"
+1. [Avoid "simply" and other words that trivialise concepts and ideas that might not be trivial](https://css-tricks.com/words-avoid-educational-writing/)
+1. When referring to XUI React components; use back-ticks, correct capitalisation, and no spaces
+	* **good**: `XUIButton`, `DropDown`
+	* **bad**: `XUI Button`, DropDown
+1. Structure documentation for skim readers
+	* Code variables go in `back-ticks`
+	* Use tables
+	* Use asides for extra tidbits
+	* Use **strong** and _emphasis_ where appropriate
+	* Use lists
+	* Break things up with informative headings
+1. Always capitalise XUI when referring to the product
+1. Never capitalise modules
+	* **good**: avatar, button
+	* **bad**: Avatar, Button
+
+
 ### Need help?
 
 Slack: [#xui-development](https://xero.slack.com/messages/C565NP1A5)

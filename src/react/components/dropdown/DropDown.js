@@ -185,6 +185,7 @@ export default class DropDown extends PureComponent {
 				onOpenAnimationEnd={onOpenAnimationEnd}
 				size={size}
 				style={style}
+				qaHook={qaHook && `${qaHook}--layout`}
 			>
 				<DropDownPanel
 					footer={footer}

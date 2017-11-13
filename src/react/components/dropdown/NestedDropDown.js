@@ -49,6 +49,7 @@ export default class NestedDropDown extends DropDown {
 		const childrenToRender =
 			React.Children.map(children, (child) => {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
+	
 				return (
 					<div className={cn({ 'xui-u-hidden': !isCurrentPanel })}>
 						{
@@ -58,6 +59,7 @@ export default class NestedDropDown extends DropDown {
 									onSelect: compose(child.props.onSelect, onSelect),
 									onHighlightChange: compose(child.props.onHighlightChange, dropdown.onHighlightChange),
 									onKeyDown: dropdown.keyDownHandler,
+									ignoreKeyboardEvents: [ ...dropdown.props.ignoreKeyboardEvents, ...child.props.ignoreKeyboardEvents ]
 								})
 								: child
 						}

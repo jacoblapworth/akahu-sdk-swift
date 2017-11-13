@@ -27,7 +27,7 @@
 * qaHooks added for lable, input and icon components
 
 ### Dropdown
-* qaHook added for Toggled, Footer and Header components
+* qaHook added for Layout, Panel Body, Toggled, Footer and Header components
 
 ### Inputs
 * qaHook added to input and close component

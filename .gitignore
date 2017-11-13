@@ -21,6 +21,7 @@ src/react/umd.js
 # IDE files/directores
 /.idea
 *.iml
+.vscode/*
 
 #OSX
 .DS_Store

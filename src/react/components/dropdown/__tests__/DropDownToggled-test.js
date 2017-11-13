@@ -132,7 +132,7 @@ describe('<DropDownToggled />', () => {
 			<DropDownToggled
 				qaHook="ddt-example"
 				trigger={getTrigger({qaHook: 'ddt-example--trigger'})}
-				dropdown={getDropDown()}
+				dropdown={getDropDown({ id: '1' })}
 			/>
 		);
 

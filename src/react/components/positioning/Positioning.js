@@ -284,7 +284,7 @@ class Positioning extends PureComponent {
 
 	render() {
 		const popup = this;
-		const { children, isVisible } = popup.props;
+		const { children, isVisible, qaHook } = popup.props;
 		const { positioned } = popup.state;
 		const positioningStyles = getPositionCalculationStyles(popup);
 		const clonedChildren = !isVisible || !positioned ? children : React.cloneElement(children, {
@@ -294,7 +294,7 @@ class Positioning extends PureComponent {
 
 		return (
 			<Portal isOpened={isVisible} onOpen={popup.positionComponent} >
-				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container">
+				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container" data-automationid={qaHook}>
 					{clonedChildren}
 				</div>
 			</Portal>
@@ -305,6 +305,7 @@ class Positioning extends PureComponent {
 Positioning.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
+	qaHook: PropTypes.string,
 	/**true when the component is rendered but not displayed */
 	isVisible: PropTypes.bool,
 	/**A DOM object of the parent node. */

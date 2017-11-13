@@ -215,6 +215,7 @@ class DropDownPanel extends PureComponent {
 			>
 				<div
 					onMouseUp={this.iOSHack}
+					data-automationid={qaHook && `${qaHook}--body`}
 					className="xui-dropdown--body"
 					style={{
 						maxHeight,
@@ -229,20 +230,23 @@ class DropDownPanel extends PureComponent {
 								onSelect={onSelect}
 								ignoreKeyboardEvents={ignoreKeyboardEvents}
 								onHighlightChange={onHighlightChange}
+								qaHook={qaHook && `${qaHook}--scrollable-container`}
 							>
 								<div
 									className="xui-dropdown--scrollable-content"
 									ref={sc => this._scrollableContent = sc}
+									data-automationid={qaHook && `${qaHook}--scrollable-content`}
 								>
 									{children}
 								</div>
 								{footer}
 							</StatefulPicklist>
 					) : (
-						<div className="xui-u-flex xui-u-flex-vertical">
+						<div className="xui-u-flex xui-u-flex-vertical" data-automationid={qaHook && `${qaHook}--scrollable-container`}>
 							<div
 								className="xui-dropdown--scrollable-content"
 								ref={sc => this._scrollableContent = sc}
+								data-automationid={qaHook && `${qaHook}--scrollable-content`}
 							>
 								{children}
 							</div>

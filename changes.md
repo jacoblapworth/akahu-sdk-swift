@@ -75,6 +75,8 @@
 
 * `xui-page-width-standard` and `xui-page-width-large` no longer have a clearfix applied with `::after`. This provides
 better behaviour when using `xui-u-flex-space-between` alongside `xui-page-width-*` classes.
+* Typography classes are included later in the CSS than before. This allows typography classes to be used more effectively
+as overrides
 
 ### CSS properties changed
 

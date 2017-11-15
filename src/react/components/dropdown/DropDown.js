@@ -166,6 +166,7 @@ export default class DropDown extends PureComponent {
 			animateOpen,
 			forceDesktop,
 			forceStatefulPicklist,
+			bodyClassName,
 		} = this.props;
 
 		const dropdownClasses = cn(className, {
@@ -199,6 +200,7 @@ export default class DropDown extends PureComponent {
 					style={{
 						maxHeight: style && style.maxHeight
 					}}
+					bodyClassName={bodyClassName}
 				>
 					{children}
 				</DropDownPanel>
@@ -267,7 +269,10 @@ DropDown.propTypes = {
 	forceDesktop: PropTypes.bool,
 
 	/** Force wrapping Panel childrens in a StatefulPicklist  */
-	forceStatefulPicklist: PropTypes.bool
+	forceStatefulPicklist: PropTypes.bool,
+
+	/** Class to apply to the body element of the dropdown */
+	bodyClassName: PropTypes.string,
 };
 
 DropDown.defaultProps = {

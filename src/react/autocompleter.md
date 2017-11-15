@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-dropdowns-autocomplete.html">Autocompleter in the XUI Documentation</a>
+	<a href="../section-building-blocks-dropdowns-autocompleter.html">Autocompleter in the XUI Documentation</a>
 </div>
 `Autocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 

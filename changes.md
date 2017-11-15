@@ -14,6 +14,7 @@
 
 ### New Components
 * `XUITag` is now added as a simple, stateless component.
+* `XUICapsule` is now added as a simple, stateless component.
 
 ## CSS changes
 

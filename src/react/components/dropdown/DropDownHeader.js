@@ -70,7 +70,7 @@ export default class DropDownHeader extends PureComponent {
 				{primaryButtonContent}
 			</XUIButton> : null;
 
-		const titleSection = titleSection ?
+		const titleSection = title ?
 			<div
 				className="xui-heading-small xui-margin-left-small xui-text-truncated"
 				data-automationid={qaHook != null ? `${qaHook}-title`: null}
@@ -83,7 +83,7 @@ export default class DropDownHeader extends PureComponent {
 				<div className="xui-dropdown--header-leftcontent">
 					{backButton}
 					{leftContent}
-					{title}
+					{titleSection}
 				</div>
 			) : null;
 

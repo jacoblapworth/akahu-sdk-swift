@@ -72,7 +72,12 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
       <div>
         left content
       </div>
-      Title
+      <div
+        className="xui-heading-small xui-margin-left-small xui-text-truncated"
+        data-automationid={null}
+      >
+        Title
+      </div>
     </div>
     <div
       className="xui-dropdown--header-rightcontent"
@@ -292,7 +297,12 @@ exports[`<DropDownHeader/> should render with a title if one is present 1`] = `
     <div
       className="xui-dropdown--header-leftcontent"
     >
-      Title
+      <div
+        className="xui-heading-small xui-margin-left-small xui-text-truncated"
+        data-automationid={null}
+      >
+        Title
+      </div>
     </div>
   </div>
 </div>

@@ -102,7 +102,9 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 
 	scrollInputIntoView() {
-		this.trigger.scrollLeft = this.trigger.scrollWidth;
+		if(this.trigger !== null){
+			this.trigger.scrollLeft = this.trigger.scrollWidth;
+		}
 	}
 
 	/**
@@ -154,10 +156,12 @@ export default class XUIAutocompleter extends PureComponent {
 		let inputQaHook = null;
 		let listQaHook = null;
 		let containerQaHook = null;
+		let dropdownQaHook = null;
 		if (props.qaHook) {
 			inputQaHook = `${props.qaHook}--input`;
 			listQaHook = `${props.qaHook}--list`;
 			containerQaHook = `${props.qaHook}--container`;
+			dropdownQaHook = `${props.qaHook}--dropdown`;
 		}
 
 		const handlers = getHandlers(completer);
@@ -202,7 +206,7 @@ export default class XUIAutocompleter extends PureComponent {
 			<DropDown
 				ref={c => completer.dropdown = c}
 				ignoreKeyboardEvents={ignoreKeyboardEvents}
-				id={props.id}
+				id={props.dropdownId}
 				onSelect={props.onOptionSelect}
 				hasKeyboardEvents={false}
 				className={props.dropdownClassName}
@@ -231,6 +235,7 @@ export default class XUIAutocompleter extends PureComponent {
 				onFocus={handlers.onFocus}
 				onBlur={handlers.onBlur}
 				data-automationid={containerQaHook}
+				id={props.id}
 			>
 				<DropDownToggled
 					ref={c => completer.ddt = c}
@@ -242,6 +247,7 @@ export default class XUIAutocompleter extends PureComponent {
 					triggerClickAction="none"
 					forceDesktop={props.forceDesktop}
 					matchTriggerWidth={props.matchTriggerWidth && !props.dropdownSize}
+					qaHook={dropdownQaHook}
 				/>
 			</div>
 		);
@@ -257,8 +263,11 @@ XUIAutocompleter.propTypes = {
 	 */
 	loading: PropTypes.bool,
 
-	/** ID to be added to the dropdown element of the completer */
+	/** ID to be added to the root node of the completer */
 	id: PropTypes.string,
+
+	/** ID to be added to the dropdown element of the completer */
+	dropdownId: PropTypes.string,
 
 	/** Value that should be inside the input. */
 	searchValue: PropTypes.string,

@@ -6,7 +6,11 @@
 ### Autocompleter
 * input qaHook `${props.qaHook}-input` is now `${props.qaHook}--input`
 * list qaHook `${props.qaHook}-list` is now `${props.qaHook}--list`
-* conatiner qaHook `${props.qaHook}-conatiner` is now `${props.qaHook}--container`
+* container qaHook `${props.qaHook}-conatiner` is now `${props.qaHook}--container`
+* dropdown now has a qaHook of `${props.qaHook}--dropdown`
+* id prop now sits on the root and `dropdownId` is a new prop added that is passed to the dropdown.
+* EmptyState now has a `className` prop
+* EmptyState `path` prop is now `iconPath`
 
 ### XUIAvatar changes
 * XUISimpleAvatar component no longer exists and has been merged with XUIAvatar

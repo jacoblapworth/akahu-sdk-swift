@@ -3,7 +3,7 @@
 exports[`XUIButtonGroup renders a passed qaHook as an automationId 1`] = `
 <div
   className="xui-buttongroup"
-  data-automationId="buttongroup"
+  data-automationid="buttongroup"
 >
   <div
     isGrouped={true}

@@ -47,7 +47,7 @@ export default class XUIAutocompleterInput extends Component {
 		bindOnChange(this, props.throttleInterval);
 	}
 
-	componentWillUpdate(nextProps) {
+	componentWillReceiveProps(nextProps) {
 		if (this.props.throttleInterval !== nextProps.throttleInterval) {
 			bindOnChange(this, nextProps.throttleInterval);
 		}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import XUIBanner from '../XUIBanner';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -24,7 +24,7 @@ describe('XUIBanner', () => {
 
 	it('should render with the positive sentiment modifier (and without negative modifier) when sentiment is set to positive', () => {
 		const banner = shallow(<XUIBanner sentiment="positive" />);
-		
+
 		expect(banner.hasClass('xui-banner-negative')).toBeFalsy();
 		expect(banner.hasClass('xui-banner-positive')).toBeTruthy();
 	});

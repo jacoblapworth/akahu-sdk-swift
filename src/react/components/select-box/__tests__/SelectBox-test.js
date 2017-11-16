@@ -3,7 +3,7 @@ import SelectBox from '../SelectBox';
 import SelectBoxOption from '../SelectBoxOption';
 import { then } from './helpers';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import qaHooks from '../qaHooks';
 
 Enzyme.configure({ adapter: new Adapter() });

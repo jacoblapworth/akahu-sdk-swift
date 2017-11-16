@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import { isVisible, intervalRunner } from '../helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -44,11 +44,11 @@ describe('autocompleter helpers', () => {
             intervalRunner(check, callback);
             // This function is marked to change to advanceTimersByTime from version 21.3.0
             jest.runTimersToTime(1000);
-            
+
             expect(check.mock.calls.length).toBeGreaterThan(5);
             expect(callback.mock.calls.length).toEqual(1);
             expect(success).toBeTruthy();
-           
+
         });
 
         it('should never call the successful callback if the check is never returned true', () => {

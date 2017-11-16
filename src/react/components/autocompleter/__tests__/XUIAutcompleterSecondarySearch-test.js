@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUILoader from '../../loader/XUILoader';
@@ -33,19 +33,19 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
 	it('should render extra classes when passed to the className prop', () => {
 		const classComp = renderer.create(createComponent({ className: 'secondary-search-class' }));
-		
+
 		expect(classComp).toMatchSnapshot();
 	});
 
 	it('should render extra classes to the input when passed to the inputclassName prop', () => {
 		const classComp = renderer.create(createComponent({ inputclassName: 'input-class' }));
-		
+
 		expect(classComp).toMatchSnapshot();
 	});
 
 	it('should render extra classes to the dropdown when passed to the dropdownClassName prop', () => {
 		const classComp = renderer.create(createComponent({ dropdownClassName: 'dropdown-class' }));
-		
+
 		expect(classComp).toMatchSnapshot();
 	});
 
@@ -55,7 +55,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 		expect(wrapper.find(XUILoader)).toBeDefined();
 		expect(wrapper.prop('loading')).toBeTruthy();
 	});
-	
+
 	it('renders with loading as false by default', () => {
 		const wrapper = mount(createComponent());
 		expect(wrapper.prop('loading')).toBeFalsy();
@@ -72,7 +72,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
 		expect(disabled).toMatchSnapshot();
 	});
-	
+
 	it('should render an id on the root node when passed in the id prop', () => {
 		const classComp = renderer.create(createComponent({ id: 'test-id' }));
 
@@ -84,7 +84,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
 		expect(inputId).toMatchSnapshot();
 	});
-	
+
 	it('renders pills as children passed in through the pills prop', () => {
 		const wrapper = mount(createComponent({ pills: <Pill value="ABC" /> }));
 
@@ -96,7 +96,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 		const wrapper = mount(createComponent({ onOpen: onOpen }));
 
 		wrapper.instance().openDropDown();
-		
+
 		expect(onOpen.mock.calls.length).toEqual(1);
 	});
 

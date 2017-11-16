@@ -8,7 +8,7 @@ export default function XUIBannerAction(props) {
 	const buttonQaHook = props.qaHook && `${props.qaHook}--button`;
 
 	return (
-		<li className="xui-banner--action" data-automationId={props.qaHook}>
+		<li className="xui-banner--action" data-automationid={props.qaHook}>
 			<XUIButton href={props.href} isLink={props.isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
 		</li>
 	);

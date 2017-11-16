@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import verge from 'verge';
-import Portal from 'react-portal';
+import {Portal} from 'react-portal';
 import debounce from 'lodash.debounce';
 import cn from 'classnames';
 import {
@@ -154,19 +154,22 @@ class Positioning extends PureComponent {
 	}
 
 	componentDidMount() {
-		if (this.props.isVisible) {
-			attachListeners(this);
+		const popup = this;
+		if (popup.props.isVisible) {
+			attachListeners(popup);
+			popup.positionComponent();
 		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		const { props, state } = this;
+		const popup = this;
+		const { props, state } = popup;
 
 		// If the popup is going from hidden to visible but hasn't been positioned yet, the render method will ensure
 		// that everything is rendered with "visibility: hidden".  Wait a bit to make sure all children also render,
 		// then measure things and position the popup correctly on the screen.
 		if (props.isVisible && !state.positioned) {
-			this._positionTimer = setTimeout(positionOnShow, 50, this);
+			this._positionTimer = setTimeout(positionOnShow, 50, popup);
 		}
 
 		if (!prevState.positioned && state.positioned && props.onVisible != null) {
@@ -178,21 +181,22 @@ class Positioning extends PureComponent {
 				// If we're hiding the popup, reset the state to defaults so that the next show event will properly
 				// reposition everything.
 				this.setState(getDefaultState());
-				detachListeners(this);
+				detachListeners(popup);
 
 				// In case these haven't fired for some reason, kill them now to prevent errors
-				clearTimeout(this._positionTimer);
-				clearTimeout(this._visibleTimer);
+				clearTimeout(popup._positionTimer);
+				clearTimeout(popup._visibleTimer);
 			} else {
-				attachListeners(this);
+				attachListeners(popup);
+				popup.positionComponent();
 			}
 		}
 
 		if (prevProps.shouldRestrictMaxHeight !== props.shouldRestrictMaxHeight) {
 			if (props.shouldRestrictMaxHeight) {
-				this.calculateMaxHeight();
+				popup.calculateMaxHeight();
 			} else {
-				this.setState({
+				popup.setState({
 					maxHeight: null,
 				});
 			}
@@ -292,13 +296,13 @@ class Positioning extends PureComponent {
 			style : popup.getStyles(),
 		});
 
-		return (
-			<Portal isOpened={isVisible} onOpen={popup.positionComponent} >
+		return isVisible ? (
+			<Portal>
 				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container" data-automationid={qaHook}>
 					{clonedChildren}
 				</div>
 			</Portal>
-		);
+		) : null;
 	}
 }
 

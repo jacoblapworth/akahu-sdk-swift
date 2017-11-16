@@ -6,7 +6,7 @@ export default function XUIBannerMessage(props) {
 	const className = cn(props.className, 'xui-banner--message');
 
 	return (
-		<p className={className} data-automationId={props.qaHook}>{props.children}</p>
+		<p className={className} data-automationid={props.qaHook}>{props.children}</p>
 	);
 }
 

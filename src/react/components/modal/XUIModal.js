@@ -1,7 +1,7 @@
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Portal from 'react-portal';
+import {Portal} from 'react-portal';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
@@ -240,9 +240,9 @@ export default class XUIModal extends Component {
 				</MainElement>
 			</div>);
 
-		return (
-			isUsingPortal ? <Portal isOpened={isOpen}><div className="xui-container" data-automationid={qaHook && `${qaHook}--container`}>{childNodes}</div></Portal> : childNodes
-		);
+		return isUsingPortal ? (
+			isOpen ? <Portal><div className="xui-container" data-automationid={qaHook && `${qaHook}--container`}>{childNodes}</div></Portal> : null
+		) : childNodes;
 	}
 }
 

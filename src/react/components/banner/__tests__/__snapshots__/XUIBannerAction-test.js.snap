@@ -3,7 +3,7 @@
 exports[`<XUIBannerAction /> should render a passed qaHook as an auotmation id 1`] = `
 <li
   className="xui-banner--action"
-  data-automationId="banner-action"
+  data-automationid="banner-action"
 >
   <button
     className="xui-button xui-button-small xui-button-borderless-main"
@@ -22,7 +22,7 @@ exports[`<XUIBannerAction /> should render a passed qaHook as an auotmation id 1
 exports[`<XUIBannerAction /> should render as a button be default and includes no automation id 1`] = `
 <li
   className="xui-banner--action"
-  data-automationId={undefined}
+  data-automationid={undefined}
 >
   <button
     className="xui-button xui-button-small xui-button-borderless-main"
@@ -33,7 +33,7 @@ exports[`<XUIBannerAction /> should render as a button be default and includes n
     tabIndex={0}
     type="button"
   >
-     Action 
+    Action
   </button>
 </li>
 `;
@@ -41,7 +41,7 @@ exports[`<XUIBannerAction /> should render as a button be default and includes n
 exports[`<XUIBannerAction /> should render as a link if an href value is passed and isLink prop is true 1`] = `
 <li
   className="xui-banner--action"
-  data-automationId={undefined}
+  data-automationid={undefined}
 >
   <a
     className="xui-button xui-button-small xui-button-borderless-main"
@@ -55,7 +55,7 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
     tabIndex={0}
     target={undefined}
   >
-     Action 
+    Action
   </a>
 </li>
 `;
@@ -63,7 +63,7 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
 exports[`<XUIBannerAction /> should render custom classes on the button DOM node 1`] = `
 <li
   className="xui-banner--action"
-  data-automationId={undefined}
+  data-automationid={undefined}
 >
   <button
     className="xui-button example-class xui-button-small xui-button-borderless-main"
@@ -74,7 +74,7 @@ exports[`<XUIBannerAction /> should render custom classes on the button DOM node
     tabIndex={0}
     type="button"
   >
-     Action 
+    Action
   </button>
 </li>
 `;

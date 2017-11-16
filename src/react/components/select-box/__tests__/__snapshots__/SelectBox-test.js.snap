@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectBox should render the appropriate automation id's when a qaHook is provided 1`] = `
+<div
+  className=""
+  data-automationid="test-selectbox"
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid="test-selectbox---label"
+    htmlFor="test"
+    onClick={[Function]}
+  >
+    test
+  </label>
+  <div
+    className="xui-select-layout"
+    data-automationid="test-selectbox---inputgroup"
+  >
+    <div
+      className="dropdown-toggled-wrapper"
+      data-automationid="test-selectbox---dropdowntoggled"
+      data-ref="toggled-wrapper"
+      onKeyDown={[Function]}
+    >
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup={true}
+        className="xui-button xui-text-truncated xui-select--button xui-button-standard"
+        data-automationid="test-selectbox---button"
+        disabled={false}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        test
+        <svg
+          className="xui-icon xui-select--caret"
+          data-automationid="test-selectbox---button-icon"
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <title>
+            Toggle List
+          </title>
+          <path
+            d="M10,13L15 18 20 13z"
+            role="presentation"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;

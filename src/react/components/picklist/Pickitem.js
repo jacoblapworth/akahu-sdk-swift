@@ -65,6 +65,7 @@ export default class Pickitem extends PureComponent {
 					href={href}
 					checkboxClassName={checkboxClassName}
 					target={target}
+					qaHook={qaHook && `${qaHook}--body`}
 					{...listeners}
 				>
 					{children}

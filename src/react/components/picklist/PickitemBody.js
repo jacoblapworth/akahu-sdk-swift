@@ -39,9 +39,9 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 
 	const text = <span className={textClassName}>{children}</span>;
 	return href ? (
-		<a href={href} target={target} data-automationid={qaHook && `${qaHook}--child`} {...childProps}>{text}</a>
+		<a href={href} target={target} data-automationid={qaHook} {...childProps}>{text}</a>
 	) : (
-		<button type="button" data-automationid={qaHook && `${qaHook}--child`} {...childProps}>{text}</button>
+		<button type="button" data-automationid={qaHook} {...childProps}>{text}</button>
 	);
 };
 

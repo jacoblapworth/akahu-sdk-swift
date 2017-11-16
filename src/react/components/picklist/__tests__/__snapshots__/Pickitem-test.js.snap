@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pickitem /> should set an automation id when a qaHook is provided 1`] = `
+<ul
+  className="xui-picklist xui-picklist-layout"
+  data-automationid={undefined}
+  id={undefined}
+  onKeyDown={undefined}
+  onMouseDown={undefined}
+  role="group"
+>
+  <li
+    aria-label={undefined}
+    aria-selected={null}
+    className="xui-pickitem"
+    data-automationid="test-pickitem"
+    id="item1"
+    role="option"
+  >
+    <button
+      className="xui-pickitem--body"
+      data-automationid="test-pickitem--body"
+      onClick={undefined}
+      onKeyDown={undefined}
+      onMouseOver={undefined}
+      rel={null}
+      tabIndex="-1"
+      type="button"
+    >
+      <span
+        className="xui-pickitem--text"
+      >
+        Item 1
+      </span>
+    </button>
+  </li>
+</ul>
+`;

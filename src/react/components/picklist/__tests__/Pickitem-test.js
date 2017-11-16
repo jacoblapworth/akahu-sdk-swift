@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import Picklist from '../Picklist';
 import Pickitem from '../Pickitem';
 import PickitemBody from '../PickitemBody';
@@ -64,6 +65,14 @@ describe('<Pickitem />', () => {
 
 	it('is not disabled by default', () => {
 		expect(wrapper.find(Picklist).first().html().includes('xui-is-disabled')).toBeFalsy();
+	});
+
+	it('should set an automation id when a qaHook is provided', () => {
+		const automationid = renderer.create(<Picklist>
+			<Pickitem qaHook="test-pickitem" id="item1">Item 1</Pickitem>
+		</Picklist>);
+
+		expect(automationid).toMatchSnapshot();
 	});
 
 	describe('One item selected', () => {

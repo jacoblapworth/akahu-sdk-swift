@@ -85,7 +85,6 @@ SelectBoxOption.defaultProps = {
 	showCheckboxes: false,
 	isDisabled: false,
 	truncatedText: false,
-	defaultLayout: true,
 	_isMenuItem: true,
 	ariaRole: 'option'
 };

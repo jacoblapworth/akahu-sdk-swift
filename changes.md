@@ -44,10 +44,16 @@
 
 ### Picklist
 * qaHooks added for Picklist, NestedPicklistContainer and PickitemBody component
+* Pickitem now has an automationid of `${qaHook}--body` applied to the body component
+* PickitemBody has the `--child` removed fomr the `a` or `button` elements as they were unecessary
 
 ### Pill
 * qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--delete`
 * InnerPill now has qaHook `${qaHook}--inner`
+
+### SelectBox
+* new prop `ariaId` so we can overrite the id used. Mainly for snapshot testing.
+* now has label, dropdownToggled, inputGroup and buttonIcon qaHook added
 
 ### Switch
 * label now has `--label` suffix which wasn't previously present

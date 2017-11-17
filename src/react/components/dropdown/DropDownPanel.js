@@ -226,7 +226,7 @@ class DropDownPanel extends PureComponent {
 					{header}
 					{shouldAddStatefulPicklist ? (
 							<StatefulPicklist
-								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
 								ref={c => this.list = c}
 								onSelect={onSelect}
 								ignoreKeyboardEvents={ignoreKeyboardEvents}
@@ -241,7 +241,7 @@ class DropDownPanel extends PureComponent {
 								{footer}
 							</StatefulPicklist>
 					) : (
-						<div className="xui-u-flex xui-u-flex-vertical">
+						<div className="xui-u-flex xui-u-flex-vertical xui-u-flex-grow">
 							<div
 								className="xui-dropdown--scrollable-content"
 								ref={sc => this._scrollableContent = sc}

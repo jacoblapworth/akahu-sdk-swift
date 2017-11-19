@@ -11,6 +11,7 @@ import {
 	scrollTopPosition,
 	isNarrowViewport,
 } from './private/helpers';
+import cn from 'classnames';
 
 /**
  * Utilize the intervalRunner to execute a callback when the list box and its children become visible to the user.
@@ -189,6 +190,7 @@ class DropDownPanel extends PureComponent {
 			panelId,
 			qaHook,
 			style,
+			bodyClassName,
 		} = this.props;
 
 		let maxHeight = style && style.maxHeight;
@@ -216,7 +218,7 @@ class DropDownPanel extends PureComponent {
 				<div
 					onMouseUp={this.iOSHack}
 					data-automationid={qaHook && `${qaHook}--body`}
-					className="xui-dropdown--body"
+					className={cn('xui-dropdown--body', bodyClassName)}
 					style={{
 						maxHeight,
 						overflowY
@@ -225,7 +227,7 @@ class DropDownPanel extends PureComponent {
 					{header}
 					{shouldAddStatefulPicklist ? (
 							<StatefulPicklist
-								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
 								ref={c => this.list = c}
 								onSelect={onSelect}
 								ignoreKeyboardEvents={ignoreKeyboardEvents}
@@ -242,7 +244,10 @@ class DropDownPanel extends PureComponent {
 								{footer}
 							</StatefulPicklist>
 					) : (
-						<div className="xui-u-flex xui-u-flex-vertical" data-automationid={qaHook && `${qaHook}--scrollable-container`}>
+						<div
+							className="xui-u-flex xui-u-flex-vertical xui-u-flex-grow"
+							data-automationid={qaHook && `${qaHook}--scrollable-container`}
+						>
 							<div
 								className="xui-dropdown--scrollable-content"
 								ref={sc => this._scrollableContent = sc}
@@ -293,7 +298,10 @@ DropDownPanel.propTypes = {
 	panelId: PropTypes.string,
 
 	/** Force wrapping Panel children in a StatefulPicklist  */
-	forceStatefulPicklist: PropTypes.bool
+	forceStatefulPicklist: PropTypes.bool,
+
+	/** Class name to apply to the body element */
+	bodyClassName: PropTypes.string
 };
 
 DropDownPanel.defaultProps = {

@@ -475,7 +475,7 @@
 
 .#{$ns}-contentblock--item {
 	border-top: $xui-border-muted;
-	list-style: none;
+	list-style: none; // TODO use xui-listreset
 	position: relative;
 
 	// TODO Deprecated in XUI12, remove in XUI13

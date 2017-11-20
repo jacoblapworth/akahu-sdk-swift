@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import XUIToggleOption from '../XUIToggleOption';
 
 Enzyme.configure({ adapter: new Adapter() });

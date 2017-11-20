@@ -28,6 +28,8 @@ export default class DropDownHeader extends PureComponent {
 			isSecondaryButtonDisabled,
 			onBackButtonClick,
 			onlyShowForMobile,
+			leftContent,
+			rightContent
 		} = this.props;
 
 		const classes = cn('xui-dropdown--header', className);
@@ -41,6 +43,7 @@ export default class DropDownHeader extends PureComponent {
 				variant="icon"
 				className="xui-button-icon-large xui-u-flex-none"
 				onClick={onBackButtonClick}
+				qaHook={qaHook != null ? `${qaHook}--button-back` : null}
 			>
 				<XUIIcon path={back} />
 			</XUIButton> : null;
@@ -50,6 +53,7 @@ export default class DropDownHeader extends PureComponent {
 				size="small"
 				onClick={onSecondaryButtonClick}
 				isDisabled={isSecondaryButtonDisabled}
+				qaHook={qaHook != null ? `${qaHook}--button-secondary` : null}
 			>
 				{secondaryButtonContent}
 			</XUIButton> : null;
@@ -61,24 +65,33 @@ export default class DropDownHeader extends PureComponent {
 				variant="primary"
 				onClick={onPrimaryButtonClick}
 				isDisabled={isPrimaryButtonDisabled}
+				qaHook={qaHook != null ? `${qaHook}--button-primary` : null}
 			>
 				{primaryButtonContent}
 			</XUIButton> : null;
 
-		const leftHeader = (backButton || title) ?
+		const titleSection = title ?
+			<div
+				className="xui-heading-small xui-margin-left-small xui-text-truncated"
+				data-automationid={qaHook && `${qaHook}--header-title`}
+			>
+				{title}
+			</div> : null;
+
+		const leftHeader = (backButton || title || leftContent) ?
 			(
 				<div className="xui-dropdown--header-leftcontent" data-automationid={qaHook && `${qaHook}--header-left`}>
 					{backButton}
-					<div className="xui-heading-small xui-margin-left-small xui-text-truncated" data-automationid={qaHook && `${qaHook}--header-title`}>
-						{title}
-					</div>
+					{leftContent}
+					{titleSection}
 				</div>
 			) : null;
 
-		const rightHeader = (secondaryButton || primaryButton) ?
+		const rightHeader = (secondaryButton || primaryButton || rightContent) ?
 			(
 				<div className="xui-dropdown--header-rightcontent" data-automationid={qaHook && `${qaHook}--header-right`}>
 					<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent" data-automationid={qaHook && `${qaHook}--header-rightcontent`}>
+						{rightContent}
 						{secondaryButton}
 						{primaryButton}
 					</div>
@@ -94,7 +107,11 @@ export default class DropDownHeader extends PureComponent {
 			) : null;
 
 		return (
-			<div ref={h => this.rootNode = h} className={classes} data-automationid={qaHook}>
+			<div
+				ref={h => this.rootNode = h}
+				className={classes}
+				data-automationid={qaHook}
+			>
 				{header}
 				{Children.map(children, child => (
 					<div className="xui-dropdown--header-container" data-automationid={qaHook && `${qaHook}--header-container`}>
@@ -107,12 +124,12 @@ export default class DropDownHeader extends PureComponent {
 }
 
 DropDownHeader.propTypes = {
+	qaHook: PropTypes.string,
 	children: PropTypes.node,
 	className: PropTypes.string,
-	qaHook: PropTypes.string,
 
-	/** If present, is used in the header. If non is present no header will be returned. */
-	title: PropTypes.string.isRequired,
+	/** If present, is used in the header */
+	title: PropTypes.string,
 
 	/** Callback for when the primary button is clicked */
 	onPrimaryButtonClick: PropTypes.func,
@@ -145,6 +162,12 @@ DropDownHeader.propTypes = {
 
 	/** Whether the header should only be shown at mobile sizes. */
 	onlyShowForMobile: PropTypes.bool,
+
+	/** Content to be added on the left side of the header, will come after the back button if one is present */
+	leftContent: PropTypes.node,
+
+	/** Content to be added on the right side of the header, will come before the primary/secondary button present */
+	rightContent: PropTypes.node
 };
 
 DropDownHeader.defaultProps = {

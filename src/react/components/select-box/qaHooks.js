@@ -1,4 +1,8 @@
 export default {
-	button: 'select-box-button',
-	dropdown: 'select-box-dropdown'
+	button: '--button',
+	dropdown: '--dropdown',
+	dropdownToggled: '--dropdowntoggled',
+	label: '--label',
+	inputGroup: '--inputgroup',
+	buttonIcon: '--button-icon'
 }

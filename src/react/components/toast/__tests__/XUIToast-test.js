@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIToast from '../XUIToast';
 import XUIToastAction from '../XUIToastAction';

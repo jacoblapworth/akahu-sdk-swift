@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
 
@@ -10,12 +10,12 @@ describe('<XUIBannerMessageDetail />', () => {
 
     it('should render and includes no automation id by default', () => {
         const test = (<XUIBannerMessageDetail messageDetails={['a', 'b']} />);
-        
+
         const href = renderer.create(test);
         expect(href).toMatchSnapshot();
 
         const jestDom = shallow(test);
-        expect(jestDom.props()["data-automationId"]).toBe(undefined);
+        expect(jestDom.props()["data-automationid"]).toBe(undefined);
     });
 
     it('should render a passed qaHook as an auotmation id', () => {

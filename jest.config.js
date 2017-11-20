@@ -4,19 +4,20 @@ module.exports = {
   roots: ['<rootDir>/src/react/components'],
   testRegex: '-test\\.(js|jsx)$',
   testResultsProcessor: 'jest-teamcity-reporter',
-	moduleDirectories: ['node_modules'],
+  moduleDirectories: ['node_modules'],
   collectCoverageFrom: [
 		'**/src/react/components/**/*.{js,jsx}',
 		'!**/src/react/components/**/__tests__/*',
 		'!**/src/react/components/**/stories/*',
-		'!**/node_modules/**'
+	'!**/node_modules/**',
+	'!**/src/react/components/autocompleter/private/people.js'
 	],
   moduleNameMapper: {
-    '\\.(scss)$': '<rootDir>/src/__mocks__/styleMock.js',
-    '\\.(png)$': '<rootDir>/src/__mocks__/fileMock.js',
+	'\\.(scss)$': '<rootDir>/src/__mocks__/styleMock.js',
+	'\\.(png)$': '<rootDir>/src/__mocks__/fileMock.js',
   },
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+	'^.+\\.jsx?$': 'babel-jest',
   },
   setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
 };

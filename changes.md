@@ -6,7 +6,11 @@
 ### Autocompleter
 * input qaHook `${props.qaHook}-input` is now `${props.qaHook}--input`
 * list qaHook `${props.qaHook}-list` is now `${props.qaHook}--list`
-* conatiner qaHook `${props.qaHook}-conatiner` is now `${props.qaHook}--container`
+* container qaHook `${props.qaHook}-conatiner` is now `${props.qaHook}--container`
+* dropdown now has a qaHook of `${props.qaHook}--dropdown`
+* id prop now sits on the root and `dropdownId` is a new prop added that is passed to the dropdown.
+* EmptyState now has a `className` prop
+* EmptyState `path` prop is now `iconPath`
 
 ### XUIAvatar changes
 * XUISimpleAvatar component no longer exists and has been merged with XUIAvatar
@@ -40,10 +44,16 @@
 
 ### Picklist
 * qaHooks added for Picklist, NestedPicklistContainer and PickitemBody component
+* Pickitem now has an automationid of `${qaHook}--body` applied to the body component
+* PickitemBody has the `--child` removed fomr the `a` or `button` elements as they were unecessary
 
 ### Pill
 * qaHook for inner pill `deletePillButton-${qaHook}` is now `${qaHook}--delete`
 * InnerPill now has qaHook `${qaHook}--inner`
+
+### SelectBox
+* new prop `ariaId` so we can overrite the id used. Mainly for snapshot testing.
+* now has label, dropdownToggled, inputGroup and buttonIcon qaHook added
 
 ### Switch
 * label now has `--label` suffix which wasn't previously present

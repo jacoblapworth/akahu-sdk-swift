@@ -47,14 +47,15 @@
     "tokens": "grunt postcss:tokens",
     "start": "npm run doc && npm-run-all -p -n watch styleguide storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./dist",
+    "storybook:pr": "build-storybook -c .storybook -o .out && cp ./dist/xui.css .out",
     "styleguide": "cross-env NODE_ENV=development styleguidist server --config=styleguide/config.js",
     "styleguide:build": "cross-env NODE_ENV=production styleguidist build --config=styleguide/config.js",
     "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache",
     "test:watch": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
     "test:ci": "cross-env TEAMCITY_VERSION=\"9.1.7\" NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
-    "backstop": "backstop test",
-    "test:visually": "npm-run-all storybook backstop"
+    "test:visual": "backstop test --config backstop.js",
+    "test:visual:approve": "backstop approve --config backstop.js"
   },
   "dependencies": {
     "@xero/xui-icon": "^5.1.4",

@@ -31,3 +31,9 @@ src/sass/tmp
 
 # Code quality / coverage
 /coverage
+
+# Visual Regression / backstop
+backstop_data/bitmaps_test/*
+backstop_data/ci_report/*
+backstop_data/engine_scripts/*
+backstop_data/html_report/*

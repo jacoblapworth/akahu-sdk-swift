@@ -38,7 +38,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -115,7 +115,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -207,7 +207,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -284,7 +284,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -376,7 +376,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -453,7 +453,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -545,7 +545,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -622,7 +622,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -714,7 +714,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -791,7 +791,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -883,7 +883,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -960,7 +960,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1052,7 +1052,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1129,7 +1129,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1221,7 +1221,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1298,7 +1298,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1390,7 +1390,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1467,7 +1467,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1559,7 +1559,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1636,7 +1636,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1728,7 +1728,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1805,7 +1805,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1897,7 +1897,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}
@@ -1974,7 +1974,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
       >
         <div
           aria-activedescendant={null}
-          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container"
+          className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           id={undefined}
           onKeyDown={[Function]}

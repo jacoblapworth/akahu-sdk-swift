@@ -42,7 +42,7 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 		? Math.max(triggerRect.left, viewportGutter)
 		: Math.min(Math.max(triggerRect.right - popupRect.width, viewportGutter), verge.viewportW() - popupRect.width - viewportGutter);
 
-	const translateX = isNarrowViewport()
+	const translateX = !popup.props.forceDesktop && isNarrowViewport()
 		? '0px'
 		: `${Math.floor(popupLeftPos + scrollLeftAmount())}px`
 	const translateY = placeBelow

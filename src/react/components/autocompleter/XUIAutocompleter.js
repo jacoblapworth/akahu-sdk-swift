@@ -39,6 +39,16 @@ function getHandlers(instance) {
 				if (instance.ddt.isDropDownOpen()) {
 					instance.dropdown.onKeyDown(event);
 				}
+
+				if (
+					event.key === 'Backspace' &&
+					instance.input.inputNode.value === "" &&
+					instance.props.onBackspacePill &&
+					instance.props.pills &&
+					(instance.props.pills.length > 0 || React.isValidElement(instance.props.pills))
+				) {
+					instance.props.onBackspacePill();
+				}
 			},
 			onInputFocus: () => {
 				if (!instance.state.focused) {
@@ -257,6 +267,9 @@ export default class XUIAutocompleter extends PureComponent {
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
+
+	/** Callback to handle when a pill has been backspaced */
+	onBackspacePill: PropTypes.func,
 
 	/** When set to true a loader will be displayed instead of the picklist items.
 	 * State for this should be managed externally and it's defaulted to false.

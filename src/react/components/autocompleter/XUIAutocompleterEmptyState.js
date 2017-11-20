@@ -6,8 +6,8 @@ import cn from 'classnames';
 
 const XUIAutocompleterEmptyState = props => (
 	<div
-		className={cn( 
-			"xui-u-flex xui-u-flex-justify-center xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-horizontallycentered xui-text-muted", 
+		className={cn(
+			"xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted",
 			props.className)
 		}
 		data-automationid={props.qaHook}

@@ -65,6 +65,11 @@
 				"components": "../src/react/components/tag/XUITag.js"
 			},
 			{
+				"name": "Capsule",
+				"content": "../src/react/capsule.md",
+				"components": "../src/react/components/capsule/XUICapsule.js"
+			},
+			{
 				"name": "Datepicker",
 				"content": "../src/react/datepicker.md",
 				"components": "../src/react/components/datepicker/XUIDatePicker.js"

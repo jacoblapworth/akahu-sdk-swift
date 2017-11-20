@@ -4,10 +4,8 @@
 		"../src/docs"
 	],
 	"custom": [
-		"mixin",
 		"tokentype",
 		"tokens",
-		"noexample",
 		"classes",
 		"markdown",
 		"components",

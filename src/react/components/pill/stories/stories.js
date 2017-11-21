@@ -12,7 +12,7 @@ import centered from '@storybook/addon-centered';
 
 import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf('Instances/XUIPill', module);
+const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (

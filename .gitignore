@@ -1,6 +1,5 @@
 
 # Library and framework files/directories
-/bower_components
 /.bundle
 /node_modules
 /vendor/bundle/

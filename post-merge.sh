@@ -6,4 +6,3 @@ check_run() {
 }
 
 check_run package.json "npm install"
-check_run bower.json "npm install"

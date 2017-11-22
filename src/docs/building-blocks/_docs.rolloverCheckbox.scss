@@ -1,0 +1,40 @@
+// Rollover Checkboxes
+//
+// Teaser: An interactive component between a checkbox and nominated inactive state.
+//
+// Introduction: An interactive component between a checkbox and nominated inactive state.
+//
+// Components: Rollovercheckbox
+//
+// Styleguide: Building Blocks.Rollover Checkbox
+
+// Best Practices
+//
+// Styleguide: Building Blocks.Rollover Checkbox.1
+
+// Anatomy
+//
+// Classes: 
+// xui-rollovercheckbox: A flexed wrapper
+// xui-rollovercheckbox-target: An abolsutely positioned hit target
+//
+// Note: For the rollover behaviour to work you need Javascript, this example is mocked with CSS.
+//
+// Markup:
+// <div class="xui-rollovercheckbox--target" onmouseover="this.children[0].children[0].style = 'display:none'; this.children[0].children[1].style = 'display: flex'" onmouseout="this.children[0].children[0].style = 'display:flex'; this.children[0].children[1].style = 'display:none'">
+//  <div class="xui-rollovercheckbox">
+//      <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation" />
+//      <label class="xui-styledcheckboxradio" style="display:none">
+//          <input class="xui-styledcheckboxradio--input" type="checkbox">
+//          <svg focusable="false" class="xui-icon">
+//              <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"/>
+//              <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"/>
+//              <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"/>
+//              <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"/>
+//          </svg>
+//      </label>
+//  </div>
+// </div>
+//
+// Styleguide: Building Blocks.Rollover Checkbox.2
+

@@ -285,6 +285,11 @@
 						]
 					}
 				]
+			},
+			{
+				"name": "Rollover Checkbox",
+				"content": "../src/react/rollovercheckbox.md",
+				"components": "../src/react/components/rolloverCheckbox/rolloverCheckbox.js"
 			}
 		]
 	}

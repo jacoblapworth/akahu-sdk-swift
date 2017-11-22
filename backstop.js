@@ -9,7 +9,7 @@ const XUIPillScenarios = XUIPillStories.map(story => {
 	return {
 		label: `XUI Pill ${story.storyTitle}`,
 		url: buildUrl(story.storyKind, story.storyTitle),
-		selectors: ['.xui-container', '.xui-pill']
+		selectors: ['.xui-container']
 	}
 });
 
@@ -17,14 +17,9 @@ module.exports = {
   id: "backstop_default",
   viewports: [
     {
-      label: "phone",
-      width: 320,
-      height: 480
-    },
-    {
-      label: "tablet",
-      width: 1024,
-      height: 768
+      label: "just desktop",
+      width: 1920,
+      height: 1080
     }
   ],
   onBeforeScript: "chromy/onBefore.js",

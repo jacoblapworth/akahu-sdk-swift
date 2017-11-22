@@ -6,12 +6,11 @@ import { sizeClassNames } from './private/constants';
 import cn from 'classnames';
 
 export default class RolloverCheckbox extends PureComponent {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			isMouseOver: false,
-			isCheckboxHidden: props.isCheckboxHidden
 		};
 
 		this.onSelect = this.onSelect.bind(this);
@@ -20,14 +19,6 @@ export default class RolloverCheckbox extends PureComponent {
 		this.triggerCheckboxClick = this.triggerCheckboxClick.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
-	}
-
-	componentWillReceiveProps(newProps) {
-		if(newProps.isCheckboxHidden !== this.props.isCheckboxHidden){
-			this.setState({
-				isCheckboxHidden: newProps.isCheckboxHidden
-			});
-		}
 	}
 	
 	/**
@@ -100,14 +91,15 @@ export default class RolloverCheckbox extends PureComponent {
 	render() {
 		const {
 			isChecked,
+			isDisabled,
 			className,
 			id,
 			rolloverComponent,
 			qaHook,
-			size
+			size,
+			isCheckboxHidden
 		} = this.props;
 		const {
-			isCheckboxHidden,
 			isMouseOver,
 			hasFocus
 		} = this.state;
@@ -118,7 +110,8 @@ export default class RolloverCheckbox extends PureComponent {
 			<div
 				id={id}
 				className={cn(
-					"xui-rollovercheckbox--target", 
+					"xui-rollovercheckbox--target",
+					{ "xui-rollovercheckbox--target-disabled": isDisabled },
 					sizeClassNames[size],
 					className)}
 				onClick={this.triggerCheckboxClick}
@@ -134,6 +127,7 @@ export default class RolloverCheckbox extends PureComponent {
 						ref={c => this._checkbox = c}
 						onChange={this.onSelect}
 						isChecked={isChecked}
+						isDisabled={isDisabled}
 						isLabelHidden={true}
 						qaHook={qaHook && `${qaHook}--checkbox`}
 						className={showRollover ? "xui-u-hidden-visually" : null}
@@ -153,6 +147,8 @@ RolloverCheckbox.propTypes = {
 	isChecked: PropTypes.bool,
 	/** Whether to show the checkbox instead of the rollover component */
 	isCheckboxHidden: PropTypes.bool,
+	/** Applies disabled styling when true */
+	isDisabled: PropTypes.bool,
 	/** Id to apply to the wrapping div */
 	id: PropTypes.string,
 	/** Component to render when isCheckboxHidden is true and mouse is not over the component */
@@ -160,3 +156,7 @@ RolloverCheckbox.propTypes = {
 	/** detremine the size of the target, accepts small, medium, large or xlarge */
 	size: PropTypes.string,
 };
+
+RolloverCheckbox.defaultProps = {
+	isDisabled: false
+}

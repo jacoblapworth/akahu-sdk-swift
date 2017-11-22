@@ -145,14 +145,22 @@ describe('RolloverCheckbox', () => {
 		expect(expected.instance()._checkbox._input.checked).toBeTruthy();
 	});
 
-	it('will update the state of isChekcboxHidden when the corresponding prop value is updated', () => {
-		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+	it('should render the disabled classes and a disabled checkbox when isDisabled prop is true', () => {
+		const { expected } = setup(renderer.create, {isCheckboxHidden: false, isDisabled: true, rolloverComponent: <div></div> });
 
-		expect(expected.state().isCheckboxHidden).toBeFalsy();
+		expect(expected).toMatchSnapshot();
+	});
 
-		expected.setProps({ isCheckboxHidden: true });
+	it('shouldn\'t render the disabled classes or a disabled checkbox when isDisabled prop is false', () => {
+		const { expected } = setup(renderer.create, {isCheckboxHidden: false, isDisabled: false, rolloverComponent: <div></div> });
 
-		expect(expected.state().isCheckboxHidden).toBeTruthy();
-	})
+		expect(expected).toMatchSnapshot();
+	});
+
+	it('shouldn\'t render the disabled classes and a disabled checkbox by default', () => {
+		const { expected } = setup(renderer.create, {isCheckboxHidden: false, rolloverComponent: <div></div> });
+
+		expect(expected).toMatchSnapshot();
+	});
 	
 });

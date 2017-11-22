@@ -12,3 +12,9 @@ const XUIAvatar = require('./components/avatar/XUIAvatar.js').default;
 ### Image
 ```
 <RolloverCheckbox isCheckboxHidden={true} size='large' rolloverComponent={<img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation"/>}/>
+```
+
+### Disabled
+```
+<RolloverCheckbox isCheckboxHidden={true} isDisabled={true} size='large' rolloverComponent={<img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation"/>}/>
+```

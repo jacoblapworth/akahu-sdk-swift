@@ -747,3 +747,189 @@ exports[`RolloverCheckbox renders unchecked when specified 1`] = `
   </div>
 </div>
 `;
+
+exports[`RolloverCheckbox should render the disabled classes and a disabled checkbox when isDisabled prop is true 1`] = `
+<div
+  className="xui-rollovercheckbox--target xui-rollovercheckbox--target-disabled"
+  data-automationid={undefined}
+  id={undefined}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="xui-rollovercheckbox"
+  >
+    <label
+      className="xui-styledcheckboxradio xui-is-disabled"
+      data-automationid={undefined}
+      onClick={[Function]}
+    >
+      <input
+        className="xui-styledcheckboxradio--input"
+        data-automationid={undefined}
+        defaultChecked={false}
+        disabled={true}
+        name={undefined}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={undefined}
+        type="checkbox"
+        value={undefined}
+      />
+      <svg
+        className="xui-icon"
+        data-automationid={undefined}
+      >
+        <path
+          className="xui-styledcheckboxradio--focus"
+          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--main"
+          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--check"
+          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--indeterminate"
+          d="M11.5 14.5h8v2h-8z"
+          role="presentation"
+        />
+      </svg>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`RolloverCheckbox shouldn't render the disabled classes and a disabled checkbox by default 1`] = `
+<div
+  className="xui-rollovercheckbox--target"
+  data-automationid={undefined}
+  id={undefined}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="xui-rollovercheckbox"
+  >
+    <label
+      className="xui-styledcheckboxradio"
+      data-automationid={undefined}
+      onClick={[Function]}
+    >
+      <input
+        className="xui-styledcheckboxradio--input"
+        data-automationid={undefined}
+        defaultChecked={false}
+        disabled={false}
+        name={undefined}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={undefined}
+        type="checkbox"
+        value={undefined}
+      />
+      <svg
+        className="xui-icon"
+        data-automationid={undefined}
+      >
+        <path
+          className="xui-styledcheckboxradio--focus"
+          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--main"
+          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--check"
+          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--indeterminate"
+          d="M11.5 14.5h8v2h-8z"
+          role="presentation"
+        />
+      </svg>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`RolloverCheckbox shouldn't render the disabled classes or a disabled checkbox when isDisabled prop is false 1`] = `
+<div
+  className="xui-rollovercheckbox--target"
+  data-automationid={undefined}
+  id={undefined}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="xui-rollovercheckbox"
+  >
+    <label
+      className="xui-styledcheckboxradio"
+      data-automationid={undefined}
+      onClick={[Function]}
+    >
+      <input
+        className="xui-styledcheckboxradio--input"
+        data-automationid={undefined}
+        defaultChecked={false}
+        disabled={false}
+        name={undefined}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={undefined}
+        type="checkbox"
+        value={undefined}
+      />
+      <svg
+        className="xui-icon"
+        data-automationid={undefined}
+      >
+        <path
+          className="xui-styledcheckboxradio--focus"
+          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--main"
+          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--check"
+          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
+          role="presentation"
+        />
+        <path
+          className="xui-styledcheckboxradio--indeterminate"
+          d="M11.5 14.5h8v2h-8z"
+          role="presentation"
+        />
+      </svg>
+    </label>
+  </div>
+</div>
+`;

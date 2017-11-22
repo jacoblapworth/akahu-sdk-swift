@@ -18,6 +18,10 @@
 	width: 50px;
 }
 
+.#{$ns}-rollovercheckbox--target-disabled {
+	cursor: not-allowed;
+}
+
 .#{$ns}-rollovercheckbox-small {
 	min-height: 40px;
 	width: 40px;

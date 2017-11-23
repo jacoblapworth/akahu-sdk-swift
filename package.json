@@ -45,7 +45,7 @@
     "bump-patch": "bumper patch \"Bump to {version}\" --tag \"{version}\"",
     "update-readme": "grunt if:readme",
     "tokens": "grunt postcss:tokens",
-    "start": "npm run doc && npm-run-all -p -n watch styleguide storybook",
+    "start": "npm-run-all -n doc dist -p watch styleguide storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./dist",
     "storybook:pr": "build-storybook -c .storybook -o .out && cp ./dist/xui.css .out",
     "styleguide": "cross-env NODE_ENV=development styleguidist server --config=styleguide/config.js",

@@ -1,12 +1,15 @@
 const { execSync } = require('child_process');
+const fs = require('fs');
 
 const XUIPillStories = require('./src/react/components/pill/stories/variations.js').variations;
 
-execSync('npm run storybook:pr', (err, stdout, stderr) => {
-	if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
-	console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
-	console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
-});
+if (!fs.existsSync('./.out')) {
+	execSync('npm run storybook:pr', (err, stdout, stderr) => {
+		if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
+		console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
+		console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
+	});
+}
 
 function buildUrl(kind, story) {
 	const testingDomain = './.out/iframe.html?';

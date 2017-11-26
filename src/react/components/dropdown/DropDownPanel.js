@@ -203,6 +203,8 @@ class DropDownPanel extends PureComponent {
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
 
+		const scrollableContainerClasses = 'xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow';
+
 		return (
 			<div
 				ref={n => this.rootNode = n}
@@ -226,7 +228,7 @@ class DropDownPanel extends PureComponent {
 					{header}
 					{shouldAddStatefulPicklist ? (
 							<StatefulPicklist
-								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
+								className={scrollableContainerClasses}
 								ref={c => this.list = c}
 								onSelect={onSelect}
 								ignoreKeyboardEvents={ignoreKeyboardEvents}
@@ -241,7 +243,7 @@ class DropDownPanel extends PureComponent {
 								{footer}
 							</StatefulPicklist>
 					) : (
-						<div className="xui-u-flex xui-u-flex-vertical xui-u-flex-grow">
+						<div className={scrollableContainerClasses}>
 							<div
 								className="xui-dropdown--scrollable-content"
 								ref={sc => this._scrollableContent = sc}

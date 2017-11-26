@@ -31,7 +31,6 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid="baseAC--input"
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -40,12 +39,8 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -84,7 +79,6 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -93,12 +87,8 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value="a"
-        />
-        <span
-          className="xui-autocompleter--placeholder xui-autocompleter--placeholder-hidden"
         />
       </div>
     </div>
@@ -137,7 +127,6 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input test-class xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -146,12 +135,8 @@ exports[`XUIAutocompleter should render a class on the input element when passed
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -190,7 +175,6 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -199,12 +183,8 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -243,7 +223,6 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -252,12 +231,8 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -296,7 +271,6 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -305,15 +279,9 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder="Search"
-          readOnly={false}
           type="search"
           value={undefined}
         />
-        <span
-          className="xui-autocompleter--placeholder"
-        >
-          Search
-        </span>
       </div>
     </div>
   </div>
@@ -351,7 +319,6 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id="test-inputId"
           maxLength={undefined}
           onChange={[Function]}
@@ -360,12 +327,8 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -404,7 +367,6 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -413,12 +375,8 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -457,7 +415,6 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={undefined}
           onChange={[Function]}
@@ -466,12 +423,8 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value={undefined}
-        />
-        <span
-          className="xui-autocompleter--placeholder"
         />
       </div>
     </div>
@@ -510,7 +463,6 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         <input
           className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
-          disabled={false}
           id={undefined}
           maxLength={5}
           onChange={[Function]}
@@ -519,12 +471,8 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
           onKeyPress={undefined}
           onKeyUp={[Function]}
           placeholder={undefined}
-          readOnly={false}
           type="search"
           value="123456"
-        />
-        <span
-          className="xui-autocompleter--placeholder xui-autocompleter--placeholder-hidden"
         />
       </div>
     </div>

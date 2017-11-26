@@ -17,7 +17,6 @@ describe('<XUIInput>', () => {
 		beforeEach(() => {
 			wrapper = mount(
 				<XUIInput
-					onChange={ () => true }
 					qaHook={qaHook}
 					className={className}
 				/>
@@ -103,10 +102,6 @@ describe('<XUIInput>', () => {
 
 		it('is passed placeholder property value', () => {
 			expect(input.prop('placeholder')).toEqual(expect.stringContaining('This is an input'));
-		});
-
-		it('should accept arbitrary props', () => {
-			expect(input.prop('aria-haspopup')).toBeTruthy();
 		});
 	});
 

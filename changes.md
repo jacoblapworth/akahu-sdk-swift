@@ -100,3 +100,11 @@ as overrides
 ### Variables removed
 
 ## Dependency changes
+
+## For contributors
+* The repo now requires GIT LFS. You will need to install GIT LFS to be able to commit to the repository.
+
+* Pre-commit changes: Now on commit (assuming you have it setup correctly and are using it) the following tasks will run. `lint`, `test:coverage` and `test:visual`
+	* You will need to have GITLFS installed and setup correctly
+	* You will need to have built the XUI repo before you can run visual tests. (requires `./dist/xui.css`) (requires storybook)
+

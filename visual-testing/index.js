@@ -4,14 +4,11 @@ const path = require('path');
 
 const storyBookLocation = path.resolve(__dirname, '..', '.out');
 
-if (!fs.existsSync(storyBookLocation)) {
-	console.log('Storybook Directory missing, creating now...');
-	execSync('npm run storybook:pr', (err, stdout, stderr) => {
-		if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
-		console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
-		console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
-	});
-}
+execSync('npm run storybook:pr', (err, stdout, stderr) => {
+	if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
+	console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
+	console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
+});
 
 function buildUrl(kind, story) {
 	const testingDomain = path.resolve(storyBookLocation, 'iframe.html?').replace(/\/.out/gi, "%SPLIT%/.out").split('%SPLIT%')[1];

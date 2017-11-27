@@ -7,26 +7,15 @@ import XUIPill from '../XUIPill';
 // Story book things
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, text, object } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-const stories = storiesOf('Instances', module);
-stories.addDecorator(centered);
-stories.addDecorator(withKnobs);
+import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
 
-// TODO, this could be exported by avatar and imported by this document
-const avatarProps = {
-	className: '',
-	qaHook: '',
-	variant: undefined, // business is the other option
-	value: 'Hello', // This has to be populated, or identifier
-	imageUrl: '',
-	size: 'small',
-	identifier: '',
-};
-
-stories.add('XUIPill', withInfo('A plain pill, in it\'s simplest configuration')(() => (
+const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addDecorator(withKnobs);
+storiesWithKnobs.add('Playground', () => (
 	<XUIPill
 		value={text('value', 'Plain pill')}
 		secondaryText={text('secondaryText', '')}
@@ -42,4 +31,17 @@ stories.add('XUIPill', withInfo('A plain pill, in it\'s simplest configuration')
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
 		/>
-)));
+));
+
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
+
+variations.forEach(variation => {
+	storiesWithVariations.add(variation.storyTitle, () => {
+		const variationMinusStoryDetails = { ...variation };
+		delete variationMinusStoryDetails.storyKind;
+		delete variationMinusStoryDetails.storyTitle;
+
+		return <XUIPill {...variationMinusStoryDetails}/>
+	});
+});

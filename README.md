@@ -28,6 +28,7 @@ You'll need:
  * Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
  * [ESLint](http://eslint.org/)j plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
  * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
+ * [Git LFS](https://github.com/git-lfs/git-lfs/wiki/Installation) Required for Visual Regression testing. Follow the installation instructions for your OS.
  * A command line. Bash/zsh/etc MacOs. Git Bash Windows.
 
 
@@ -55,7 +56,7 @@ nvm list [available]
 nvm use x.x.x
 ```
 
-Install dependencies and start development server.
+Install dependencies and start development servers.
 
 ```
 npm install
@@ -64,7 +65,9 @@ npm start
 
 Open http://localhost:6060 to view the docs.
 
-This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement.
+Open http://localhost:9001 to view the storybook.
+
+This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement. It uses storybook for component development
 
 #### Folder structure
 
@@ -74,6 +77,7 @@ XUI has a number of top level folders. When contributing all the interesting fil
 * Each component has a sub folder inside `src/react/components/`.
   * Only public  UI components should live in the root of the associated component folder.
   * Tests should always live in the `__tests__` folder.
+	* Stories should always live in the `stories` folder.
   * Private helpers, constants, etc should live in a `private` folder.
   * This convention makes it easier to target only our components, exclude unit tests, etc in our various build tasks.
 * `src/sass/` contains all the SCSS partials and is organised following ITCSS conventions.
@@ -129,14 +133,16 @@ Script              | Description
 `npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
 `npm run test`             | Runs all the React component unit tests
 `npm run test:watch`       | Runs all the React component unit tests and watches for file changes
-`npm run storybook`          | Compiles and sets up the storybook demo app for to do visual testing during development.  See the UI Testing section for more details.
+`npm run storybook`        | Compiles and sets up the storybook demo app for to do visual testing during development.  See the UI Testing section for more details.
 `npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible
 `npm run build:prepublish` | Cleans and creates the root level `react` and `sass` folders that will be deployed to Artifactory.
 `npm run build:babel`      | Creates a `react` folder containing babel'd code ready to be deployed
 `npm run build:umd`        | Creates a single JS artifact that can be dropped into any browser or Codepen sample
 `npm run clean`            | Many of our build tasks create temporary files that are ignored by git and can/should be deleted before doing another build.  This task removes those temporary files and is used by other tasks as well.
-`styleguide`               | Build and start up the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components.
-`styleguide:build`         | Build a static version of the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components that is suitable for deployment.
+`npm run styleguide`       | Build and start up the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components.
+`npm run styleguide:build` | Build a static version of the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components that is suitable for deployment.
+`npm run test:visual`      | Perform visual tests over the components (requires storybook to be running before the test)
+`npm run test:visual:approve` | Approve the visual changes so you can commit them and get them reviewed by peers
 
 ## Post-install scripts
 

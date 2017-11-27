@@ -31,3 +31,9 @@ src/sass/tmp
 
 # Code quality / coverage
 /coverage
+
+# Visual Regression / backstop
+visual-testing/tests/*
+visual-testing/ci-report/*
+visual-testing/web-report/*
+.out/*

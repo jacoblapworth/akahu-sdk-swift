@@ -16,7 +16,6 @@ import XUIButton from '../../button/XUIButton';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import withReadme from 'storybook-readme/with-readme';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 // Readme's for documentation
@@ -31,7 +30,7 @@ ${MODALBODY}
 ${HEADERFOOTER}
 `));
 
-isolatedInstance.add('XUIModal', withInfo('A plain modal, in it\'s simplest configuration')(() => {
+isolatedInstance.add('XUIModal', () => {
 
 	const headerEnabled = boolean('Show Header', true);
 	const header = headerEnabled ? (
@@ -55,7 +54,7 @@ isolatedInstance.add('XUIModal', withInfo('A plain modal, in it\'s simplest conf
 			{footer}
 		</XUIModal>
 	)
-}));
+});
 
 const stories = storiesOf('Usages of/XUIModal', module);
 stories.addDecorator(withKnobs);

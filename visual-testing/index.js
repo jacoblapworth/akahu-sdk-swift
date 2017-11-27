@@ -1,9 +1,11 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
+const path = require('path');
 
-const XUIPillStories = require('./src/react/components/pill/stories/variations.js').variations;
+const storyBookLocation = path.resolve(__dirname, '..', '.out');
 
-if (!fs.existsSync('./.out')) {
+if (!fs.existsSync(storyBookLocation)) {
+	console.log('Storybook Directory missing, creating now...');
 	execSync('npm run storybook:pr', (err, stdout, stderr) => {
 		if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
 		console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
@@ -12,10 +14,12 @@ if (!fs.existsSync('./.out')) {
 }
 
 function buildUrl(kind, story) {
-	const testingDomain = './.out/iframe.html?';
-	return `${testingDomain}selectedKind=${kind}&selectedStory=${story}`;
+	const testingDomain = path.resolve(storyBookLocation, 'iframe.html?').replace(/\/.out/gi, "%SPLIT%/.out").split('%SPLIT%')[1];
+	const urlSearch = `selectedKind=${kind}&selectedStory=${story}`;
+	return `${testingDomain}${urlSearch}`;
 }
 
+const XUIPillStories = require('../src/react/components/pill/stories/variations.js').variations;
 const XUIPillScenarios = XUIPillStories.map(story => {
 	return {
 		label: `XUI Pill ${story.storyTitle}`,
@@ -33,17 +37,14 @@ module.exports = {
 			height: 1080
 		}
 	],
-	onBeforeScript: "chromy/onBefore.js",
-	onReadyScript: "chromy/onReady.js",
 	scenarios: [
 		...XUIPillScenarios
 	],
 	paths: {
-		bitmaps_reference: "backstop_data/bitmaps_reference",
-		bitmaps_test: "backstop_data/bitmaps_test",
-		engine_scripts: "backstop_data/engine_scripts",
-		html_report: "backstop_data/html_report",
-		ci_report: "backstop_data/ci_report"
+		bitmaps_reference: "visual-testing/reference",
+		bitmaps_test: "visual-testing/tests",
+		html_report: "visual-testing/web-report",
+		ci_report: "visual-testing/ci-report"
 	},
 	report: ["browser", "CI"],
 	engine: "chrome",

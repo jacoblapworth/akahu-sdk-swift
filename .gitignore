@@ -33,7 +33,7 @@ src/sass/tmp
 /coverage
 
 # Visual Regression / backstop
-backstop_data/bitmaps_test/*
-backstop_data/ci_report/*
-backstop_data/html_report/*
+visual-testing/tests/*
+visual-testing/ci-report/*
+visual-testing/web-report/*
 .out/*

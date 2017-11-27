@@ -1,0 +1,8 @@
+const rolloverCheckboxBaseClass = 'xui-rollovercheckbox';
+
+export const sizeClassNames = {
+	small: `${rolloverCheckboxBaseClass}-small`, // xui-rollovercheckbox-small
+	medium: '',
+	large: `${rolloverCheckboxBaseClass}-large`, // xui-rollovercheckbox-large
+	xlarge: `${rolloverCheckboxBaseClass}-xlarge`, // xui-rollovercheckbox-xlarge
+};

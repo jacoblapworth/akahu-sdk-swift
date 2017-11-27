@@ -80,6 +80,9 @@
              - `setMaxHeight` is now `shouldRestrictMaxHeight`
 
 ### New Components
+#### Rollover Checkbox
+* Taken from xui-layout, it's a simple stateful component that will show a checkbox on mouse over and alternate component thats provided when mouse is not over the hit target. These alternate components will commonly be images or avatars.
+
 
 ## CSS changes
 

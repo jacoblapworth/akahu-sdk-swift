@@ -5,4 +5,4 @@ kss
 src/components/icon
 umd/assets
 coverage/*
-backstop_data/*
+visual-testing/*

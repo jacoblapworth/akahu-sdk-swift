@@ -15,7 +15,6 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 import { decorateSubStr, boldMatch } from '../helpers/highlighting';
 
 // Story book things
-// import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
@@ -265,8 +264,8 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
-		delete variationMinusStoryDetails.storyKind;
-		delete variationMinusStoryDetails.storyTitle;
+		variationMinusStoryDetails.storyKind = undefined;
+		variationMinusStoryDetails.storyTitle = undefined;
 
 		return (
 			<div style={{width: '500px'}}>

@@ -38,8 +38,8 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
-		delete variationMinusStoryDetails.storyKind;
-		delete variationMinusStoryDetails.storyTitle;
+		variationMinusStoryDetails.storyKind = undefined;
+		variationMinusStoryDetails.storyTitle = undefined;
 
 		return <XUIPill {...variationMinusStoryDetails}/>
 	});

@@ -162,8 +162,6 @@ class DetailedListExample extends Component {
 			noDrawerFooter //eslint-disable-line
 		} = example.props;
 
-		console.log('timmova', value);
-
 		const footer = (
 			<DropDownFooter>
 				<Picklist>

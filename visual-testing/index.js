@@ -25,6 +25,15 @@ const XUIPillScenarios = XUIPillStories.map(story => {
 	}
 });
 
+const XUIAutocompleterStories = require('../src/react/components/autocompleter/stories/variations.js').variations;
+const XUIAutocompleterScenarios = XUIAutocompleterStories.map(story => {
+	return {
+		label: `XUI Autocompleter ${story.storyTitle}`,
+		url: buildUrl(story.storyKind, story.storyTitle),
+		selectors: ['.xui-container']
+	}
+});
+
 module.exports = {
 	id: "backstop_default",
 	viewports: [
@@ -35,7 +44,8 @@ module.exports = {
 		}
 	],
 	scenarios: [
-		...XUIPillScenarios
+		...XUIPillScenarios,
+		...XUIAutocompleterScenarios
 	],
 	paths: {
 		bitmaps_reference: "visual-testing/reference",

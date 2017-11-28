@@ -10,11 +10,11 @@ const variations = [
 		storyTitle: 'looks like an input',
 		openDrawer: false
 	},
-	// {
-	// 	storyKind: storiesWithVariationsKindName,
-	// 	storyTitle: 'with placeholders',
-	// 	placeholder: 'I am a placeholder'
-	// }, // This test currently does not work
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with placeholders',
+		placeholder: 'I am a placeholder'
+	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'shows loading when passed loading prop and dropdown is open',

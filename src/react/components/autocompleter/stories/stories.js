@@ -17,10 +17,10 @@ import { decorateSubStr, boldMatch } from '../helpers/highlighting';
 // Story book things
 // import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, dropdownSizes } from './variations';
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
@@ -151,6 +151,29 @@ class DetailedListExample extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const {
+			openDrawer, // eslint-disable-line
+			selectedPeople // eslint-disable-line
+		} = nextProps;
+
+		if (openDrawer) {
+			this.completer.openDropDown();
+		} else {
+			this.completer.closeDropDown();
+		}
+
+		if (selectedPeople != null && typeof selectedPeople === 'number') {
+			this.setState({
+				selectedPeople: [peopleDataSet[selectedPeople]]
+			});
+		} else {
+			this.setState({
+				selectedPeople: []
+			});
+		}
+	}
+
 	render(){
 		const example = this;
 		const { value, selectedPeople } = example.state;
@@ -215,9 +238,23 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
+	const userSelectedPerson = select('Select a person', peopleDataSet.map(person => person.name), 'Frida');
+	const selectedPerson = peopleDataSet.findIndex(i => i.name === userSelectedPerson);
+
+	const fullSize = boolean('Match dropdown width', true);
+	const userSelectedSize = fullSize ? '' : select('Dropdown size', dropdownSizes, 'small');
+
+	const containerWidth = `${number('Container width', 500)}px`;
+
 	return (
-		<div style={{width: '500px'}}>
-			<DetailedListExample />
+		<div style={{width: containerWidth}}>
+			<DetailedListExample
+				openDrawer={boolean('Drawer open', false)}
+				placeholder={text('Placeholder', '')}
+				selectedPeople={selectedPerson}
+				isDisabled={boolean('Disabled', false)}
+				dropdownSize={userSelectedSize}
+				/>
 		</div>
 	);
 });

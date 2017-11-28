@@ -53,5 +53,6 @@ const variations = [
 module.exports = {
 	storiesWithVariationsKindName,
 	variations,
-	NOOP
+	NOOP,
+	dropdownSizes
 }

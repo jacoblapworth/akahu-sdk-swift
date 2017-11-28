@@ -1,5 +1,6 @@
 // Libs
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Components we need to test with
 import XUIAutocompleter from '../XUIAutocompleter';
@@ -130,8 +131,8 @@ class DetailedListExample extends Component {
 
 	componentDidMount() {
 		const {
-			openDrawer, // eslint-disable-line
-			selectedPeople // eslint-disable-line
+			openDrawer,
+			selectedPeople
 		} = this.props;
 
 		if (openDrawer) {
@@ -151,8 +152,8 @@ class DetailedListExample extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		const {
-			openDrawer, // eslint-disable-line
-			selectedPeople // eslint-disable-line
+			openDrawer,
+			selectedPeople
 		} = nextProps;
 
 		if (openDrawer) {
@@ -176,11 +177,11 @@ class DetailedListExample extends Component {
 		const example = this;
 		const { value, selectedPeople } = example.state;
 		const {
-			isLoading, //eslint-disable-line
-			placeholder, //eslint-disable-line
-			dropdownSize,  //eslint-disable-line
-			isDisabled,  //eslint-disable-line
-			noDrawerFooter //eslint-disable-line
+			isLoading,
+			placeholder,
+			dropdownSize,
+			isDisabled,
+			noDrawerFooter
 		} = example.props;
 
 		const footer = (
@@ -230,6 +231,11 @@ class DetailedListExample extends Component {
 				</XUIAutocompleter>
 		)
 	}
+}
+
+DetailedListExample.propTypes = {
+	openDrawer: PropTypes.bool,
+	selectedPeople: PropTypes.number
 }
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);

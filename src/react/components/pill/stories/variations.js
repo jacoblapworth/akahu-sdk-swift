@@ -24,6 +24,13 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with no Delete Button',
+		value: 'No Delete Button here',
+		title: 'A reasonable Pill title',
+		onClick: NOOP
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as invalid',
 		value: 'Invalid Pill',
 		title: 'A reasonable Pill title',
@@ -103,5 +110,6 @@ const variations = [
 module.exports = {
 	storiesWithVariationsKindName,
 	variations,
-	avatarProps
+	avatarProps,
+	NOOP
 }

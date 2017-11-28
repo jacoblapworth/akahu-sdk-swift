@@ -5,12 +5,11 @@ import React from 'react';
 import XUIPill from '../XUIPill';
 
 // Story book things
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, object } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
+import { variations, avatarProps, storiesWithVariationsKindName, NOOP } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -22,12 +21,12 @@ storiesWithKnobs.add('Playground', () => (
 		title={text('title', '')}
 		target={text('target', '')}
 		qaHook={text('qaHook', '')}
-		onDeleteClick={action('Clicked the delete icon')}
-		onClick={action('Clicked the pill')}
+		onDeleteClick={NOOP}
+		onClick={NOOP}
 		isInvalid={boolean('isInvalid', false)}
-		href={text('href', null)}
+		href={text('href', '')}
 		hasLayout={boolean('hasLayout', true)}
-		deleteButtonLabel={text('deleteButtonLabel', null)}
+		deleteButtonLabel={text('deleteButtonLabel', '')}
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
 		/>

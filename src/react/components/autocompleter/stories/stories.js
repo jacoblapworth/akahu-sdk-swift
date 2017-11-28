@@ -52,12 +52,11 @@ class DetailedListExample extends Component {
 
 	onSearchChangeHandler(value) {
 		const example = this;
-		const { selectedPeople } = example.state;
 		example.completer.openDropDown();
-		example.setState({
+		example.setState(prevState => ({
 			value,
-			people: filterPeople(peopleDataSet, value, selectedPeople)
-		});
+			people: filterPeople(peopleDataSet, value, prevState.selectedPeople)
+		}));
 	}
 
 	deletePerson(id) {

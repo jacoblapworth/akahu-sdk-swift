@@ -20,8 +20,9 @@ describe('<XUITag/>', () => {
 	it('renders with the correct variant classes', () => {
 		Object.keys(variants).forEach(variant => {
 			const tag = shallow(<XUITag variant={variant}>Testing 💩</XUITag>);
-			
-			expect(tag.hasClass(variants[variant])).toEqual(true);
+			if(variants[variant]){
+				expect(tag.hasClass(variants[variant])).toEqual(true);
+			}
 		});
 	});
 

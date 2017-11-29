@@ -1,6 +1,6 @@
-const storiesWithVariationsKindName = 'Instances/XUIPill';
+const NOOP = require('../../helpers/NOOP');
 
-const NOOP = () => {};
+const storiesWithVariationsKindName = 'Instances/XUIPill';
 
 const avatarProps = {
 	className: '',

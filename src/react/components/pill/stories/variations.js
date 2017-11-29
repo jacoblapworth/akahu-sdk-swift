@@ -1,4 +1,4 @@
-const NOOP = require('../../helpers/NOOP');
+const NOOP = require('../../helpers/noop');
 
 const storiesWithVariationsKindName = 'Instances/XUIPill';
 

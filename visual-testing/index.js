@@ -69,6 +69,10 @@ module.exports = {
 			height: 1080
 		}
 	],
+	scenarios: [
+		...XUIPillScenarios,
+		...XUITagScenarios
+	],
 	scenarios: buildScenarios(),
 	paths: {
 		bitmaps_reference: "visual-testing/reference",

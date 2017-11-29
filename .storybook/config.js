@@ -6,6 +6,7 @@ function loadStories() {
 	require('../src/react/components/button/stories/stories.js');
 	require('../src/react/components/modal/stories/stories.js');
 	require('../src/react/components/pill/stories/stories.js');
+	require('../src/react/components/tag/stories/stories.js');
 }
 
 configure(loadStories, module);

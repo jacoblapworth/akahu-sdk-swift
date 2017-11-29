@@ -35,4 +35,4 @@ XUITag.defaultProps = {
 	variant: 'standard'
 };
 
-export default XUITag;
+export { XUITag as default, variants };

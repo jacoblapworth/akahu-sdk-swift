@@ -2,7 +2,7 @@
  * @public
  * Map of sizes to XUI Classes properties
  */
-export const SizeClassNames = {
+const SizeClassNames = {
 	'small': 'xui-button-small',
 	'full-width': 'xui-u-fullwidth',
 	'full-width-mobile': 'xui-button-fullwidth-layout'
@@ -12,7 +12,7 @@ export const SizeClassNames = {
  * @public
  * Map of variants to class names
  */
-export const VariantClassNames = {
+const VariantClassNames = {
 	'standard': 'xui-button-standard',
 	'primary': 'xui-button-main',
 	'create': 'xui-button-create',
@@ -35,10 +35,14 @@ export const VariantClassNames = {
  * @public
  * Map of button types to class names
  */
-export const ButtonTypes = {
+const ButtonTypes = {
 	submit: 'submit',
 	button: 'button',
 	reset: 'reset'
 };
 
-
+module.exports = {
+	SizeClassNames,
+	VariantClassNames,
+	ButtonTypes
+}

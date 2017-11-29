@@ -1,6 +1,6 @@
-const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
+const NOOP = require('../../helpers/NOOP');
 
-const NOOP = () => {};
+const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
 
 const dropdownSizes = ['small', 'medium', 'large', 'xlarge'];
 
@@ -51,8 +51,8 @@ const variations = [
 ];
 
 module.exports = {
-	storiesWithVariationsKindName,
 	variations,
 	NOOP,
+	storiesWithVariationsKindName,
 	dropdownSizes
 }

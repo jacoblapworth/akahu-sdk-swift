@@ -9,16 +9,17 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName, NOOP } from './variations';
+import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<XUITag
-        children={text('value', 'Plain tag')}
         variant={select('variant', Object.keys(variants), 'standard')}
-    />
+    >
+        {text('value', 'Plain tag')}
+    </XUITag>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

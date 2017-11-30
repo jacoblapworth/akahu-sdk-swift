@@ -2,13 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-const variants = {
-	neutral: 'xui-tag-neutral',
-	positive: 'xui-tag-positive',
-	negative: 'xui-tag-negative',
-	warning: 'xui-tag-warning',
-	standard: ''
-};
+import { variants } from './private/constants';
 
 const XUITag = ({className, variant, qaHook, children}) =>
 	<span

@@ -8,8 +8,6 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Pill',
 		variationsPath: '../src/react/components/pill/stories/variations.js'
-		// variationsProp: 'myVariationsPropName', // defaults to 'variations'
-		// selectors: 'alternate > .selectors' // defaults to '.xui-container'
 	},
 	{
 		testsPrefix: 'XUI Autocompleter',
@@ -18,6 +16,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Button',
 		variationsPath: '../src/react/components/button/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Tag',
+		variationsPath: '../src/react/components/tag/stories/variations.js'
 	}
 ];
 
@@ -51,15 +53,6 @@ function buildScenarios() {
 	return scenarios;
 };
 
-const XUIAutocompleterStories = require('../src/react/components/autocompleter/stories/variations.js').variations;
-const XUIAutocompleterScenarios = XUIAutocompleterStories.map(story => {
-	return {
-		label: `XUI Autocompleter ${story.storyTitle}`,
-		url: buildUrl(story.storyKind, story.storyTitle),
-		selectors: ['.xui-container']
-	}
-});
-
 module.exports = {
 	id: "backstop_default",
 	viewports: [
@@ -68,10 +61,6 @@ module.exports = {
 			width: 1920,
 			height: 1080
 		}
-	],
-	scenarios: [
-		...XUIPillScenarios,
-		...XUITagScenarios
 	],
 	scenarios: buildScenarios(),
 	paths: {

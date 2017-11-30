@@ -1,16 +1,8 @@
+const NOOP = require('../../helpers/noop');
+const { variants } = require('../private/constants');
 const storiesWithVariationsKindName = 'Instances/XUITag';
 
-const NOOP = () => {};
-
-const tagVariants = {
-	neutral: 'xui-tag-neutral',
-	positive: 'xui-tag-positive',
-	negative: 'xui-tag-negative',
-	warning: 'xui-tag-warning',
-	standard: ''
-};
-
-const variations = Object.keys(tagVariants).map(variant => ({
+const variations = Object.keys(variants).map(variant => ({
 		storyKind: storiesWithVariationsKindName,
         storyTitle: `With a ${variant} variant`,
         variant: variant,

@@ -18,6 +18,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Button',
 		variationsPath: '../src/react/components/button/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Icon',
+		variationsPath: '../src/react/components/icon/stories/variations.js'
 	}
 ];
 

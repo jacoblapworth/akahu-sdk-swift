@@ -4,6 +4,23 @@ const path = require('path');
 
 const storyBookLocation = path.resolve(__dirname, '..', '.out');
 
+const componentsToTest = [
+	{
+		testsPrefix: 'XUI Pill',
+		variationsPath: '../src/react/components/pill/stories/variations.js'
+		// variationsProp: 'myVariationsPropName', // defaults to 'variations'
+		// selectors: 'alternate > .selectors' // defaults to '.xui-container'
+	},
+	{
+		testsPrefix: 'XUI Autocompleter',
+		variationsPath: '../src/react/components/autocompleter/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Button',
+		variationsPath: '../src/react/components/button/stories/variations.js'
+	}
+];
+
 execSync('npm run storybook:pr', (err, stdout, stderr) => {
 	if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
 	console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
@@ -16,14 +33,23 @@ function buildUrl(kind, story) {
 	return `${testingDomain}${urlSearch}`;
 }
 
-const XUIPillStories = require('../src/react/components/pill/stories/variations.js').variations;
-const XUIPillScenarios = XUIPillStories.map(story => {
-	return {
-		label: `XUI Pill ${story.storyTitle}`,
-		url: buildUrl(story.storyKind, story.storyTitle),
-		selectors: ['.xui-container']
-	}
-});
+function buildScenarios() {
+	let scenarios = [];
+	componentsToTest.forEach(component => {
+		const variationsFile = require(component.variationsPath);
+		const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
+		scenarios = scenarios.concat(
+			variations.map(story => {
+				return {
+					label: `${component.testsPrefix} ${story.storyTitle}`,
+					url: buildUrl(story.storyKind, story.storyTitle),
+					selectors: [component.selectors || '.xui-container']
+				};
+			})
+		);
+	});
+	return scenarios;
+};
 
 const XUIAutocompleterStories = require('../src/react/components/autocompleter/stories/variations.js').variations;
 const XUIAutocompleterScenarios = XUIAutocompleterStories.map(story => {
@@ -43,10 +69,7 @@ module.exports = {
 			height: 1080
 		}
 	],
-	scenarios: [
-		...XUIPillScenarios,
-		...XUIAutocompleterScenarios
-	],
+	scenarios: buildScenarios(),
 	paths: {
 		bitmaps_reference: "visual-testing/reference",
 		bitmaps_test: "visual-testing/tests",

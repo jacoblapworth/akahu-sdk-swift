@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import throttle from 'lodash.throttle';
 
 const baseClass = 'xui-stepper';
 
@@ -26,24 +27,26 @@ class XUISteps extends Component {
 
 	state = {layout: 'stacked'};
 	$stepper = null;
+	throttled = null;
 
 	componentDidUpdate = () => {
 
 		this.setCurrentLayout();
-		// Throttle in production...
-		window.addEventListener('resize', this.setCurrentLayout);
 
 	};
 
 	componentDidMount = () => {
 
 		this.setCurrentLayout();
+		this.throttled = throttle(this.setCurrentLayout, 500);
+		window.addEventListener('resize', this.throttled);
 
 	};
 
 	componentWillUnmount = () => {
 
 		window.removeEventListener('resize', this.setCurrentLayout);
+		this.throttled.cancel;
 
 	};
 
@@ -55,7 +58,7 @@ class XUISteps extends Component {
 			const isSideBar = this.testIsSideBar();
 			const layout = isInline ? 'inline' : isSideBar ? 'sidebar' : 'stacked';
 
-			// console.log({isInline, isColumn});
+			// console.log({isInline, isSideBar});
 
 			if (layout !== this.state.layout) this.setState({layout});
 

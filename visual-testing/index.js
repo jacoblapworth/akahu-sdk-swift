@@ -3,7 +3,17 @@ const fs = require('fs');
 const path = require('path');
 
 const storyBookLocation = path.resolve(__dirname, '..', '.out');
-
+/**
+ * Array of components that storybook should test.
+ * 
+ * Example of full component to test implementation:
+ * {
+ * 	testsPrefix: 'XUI Pill',
+ *	variationsPath: '../src/react/components/pill/stories/variations.js',
+ *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
+ *	selectors: 'alternate > .selectors' (defaults to '.xui-container')	
+ * }
+ */
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Pill',

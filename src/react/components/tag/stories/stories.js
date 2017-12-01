@@ -15,10 +15,8 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
-	<XUITag
-        variant={select('variant', Object.keys(variants), 'standard')}
-    >
-        {text('value', 'Plain tag')}
+	<XUITag variant={select('variant', Object.keys(variants), 'standard')}>
+		{text('value', 'Plain tag')}
     </XUITag>
 ));
 

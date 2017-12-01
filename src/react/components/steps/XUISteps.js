@@ -3,22 +3,45 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
 
-const baseClass = 'xui-stepper';
+const BASE_CLASS = 'xui-stepper';
+const STACKED = 'stacked';
+const SIDE_BAR = 'sidebar';
+const INLINE = 'inline';
+const LAYOUTS = [STACKED, SIDE_BAR, INLINE];
 
-const Tab = ({name, href, isActive, index, isFirst, isLast}) => {
+const Tab = ({name, description, href, isActive}) => {
 
-	// console.log({isFirst, isLast});
-
-	const firstClass = isFirst && `${baseClass}-tab-first`;
-	const lastClass = isLast && `${baseClass}-tab-last`;
-	const activeClass = isActive && 'Placeholder-link-active'
+	const linkClasses = cn(
+		`${BASE_CLASS}-link`,
+		`${BASE_CLASS}-link-inline`, {
+			[`${BASE_CLASS}-link-active`]: isActive
+		}
+	);
 
 	return (
-		<div className={`${baseClass}-tab ${firstClass} ${lastClass}`} style={{ order: index }}>
+		<a
+			className={linkClasses}
+			href={href}
+		>
 
-			<a className={`Placeholder-link ${activeClass}`} href={href}>{name}</a>
+			<div className={`${BASE_CLASS}-link-wrapper`}>
 
-		</div>
+				<div className={`${BASE_CLASS}-link-icon`}>
+
+					<svg className="xui-icon-svg" key="info" id="xui-icon-info" viewBox="0 0 30 30"><path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"></path></svg>
+
+				</div>
+
+				<div className={`${BASE_CLASS}-link-text`}>
+
+					<span className={`${BASE_CLASS}-link-heading xui-heading-small`}>{name}</span>
+					<span className={`${BASE_CLASS}-link-description xui-heading-xsmall`}>{description}</span>
+
+				</div>
+
+			</div>
+
+		</a>
 	);
 
 };
@@ -52,15 +75,20 @@ class XUISteps extends Component {
 
 	setCurrentLayout = () => {
 
-		if (this.$stepper) {
+		const {$stepper, props: { lock }} = this;
+		const setLayout = layout => (layout !== this.state.layout) && this.setState({layout});
+
+		if (lock && LAYOUTS.includes(lock)) {
+
+			setLayout(lock);
+
+		} else if ($stepper) {
 
 			const isInline = this.testIsInline();
 			const isSideBar = this.testIsSideBar();
 			const layout = isInline ? 'inline' : isSideBar ? 'sidebar' : 'stacked';
 
-			// console.log({isInline, isSideBar});
-
-			if (layout !== this.state.layout) this.setState({layout});
+			setLayout(layout);
 
 		}
 
@@ -68,14 +96,12 @@ class XUISteps extends Component {
 
 	testIsInline = () => {
 
-		const $testInline = this.$stepper.querySelector(`.${baseClass}-testinline`);
-		const $tabs = $testInline.querySelectorAll(`.${baseClass}-tab`);
+		const $testInline = this.$stepper.querySelector(`.${BASE_CLASS}-testinline`);
+		const $tabs = $testInline.querySelectorAll(`.${BASE_CLASS}-tab`);
 		const wrapperHeight = $testInline.clientHeight;
 		const tabHeights = [...$tabs].map(($tab) => $tab.clientHeight).sort().reverse();
 		const maxHeight = tabHeights[0] || 0;
 		const isInline = maxHeight >= wrapperHeight;
-
-		// console.log({isInline, maxHeight, wrapperHeight, $tabs});
 
 		return isInline;
 
@@ -83,85 +109,95 @@ class XUISteps extends Component {
 
 	testIsSideBar = () => {
 
-		const $testSideBar = this.$stepper.querySelector(`.${baseClass}-testsidebar`);
-		const $section = $testSideBar.querySelector(`.${baseClass}-section`);
+		const $testSideBar = this.$stepper.querySelector(`.${BASE_CLASS}-testsidebar`);
+		const $section = $testSideBar.querySelector(`.${BASE_CLASS}-section`);
 		const minWidth = 400;
 		const sectionWidth = $section.clientWidth;
 		const isSideBar = sectionWidth >= minWidth;
-
-		// console.log({isSideBar, minWidth, sectionWidth, $section});
 
 		return isSideBar;
 
 	};
 
-	createTab = ({name, href, isActive, index, total}) => (
-		<Tab
-			key={index}
-			{...{
-				name,
-				href,
-				isActive,
-				index,
-				isFirst: !index,
-				isLast: Boolean(index === total - 1)
-			}} />
-	);
+	createTab = ({name, description, href, isActive, index, total}) => {
+
+		const tabClasses = cn(
+			`${BASE_CLASS}-tab`, {
+				[`${BASE_CLASS}-tab-first`]: !index,
+				[`${BASE_CLASS}-tab-last`]: Boolean(index === total - 1)
+			});
+
+		// isDisabled
+
+		return (
+			<div
+				key={index}
+				className={tabClasses}
+				style={{ order: index }}
+			>
+				<Tab
+					{...{
+						name,
+						description,
+						href,
+						isActive,
+						index
+					}} />
+				</div>
+		);
+
+	};
 
 	render = () => {
 
 		const {layout} = this.state;
-		const {tabs} = this.props;
+		const {children, tabs} = this.props;
 		const gridTemplateRows = `${new Array(tabs.length).fill('auto').join(' ')} 1fr`;
 		const tabElements = tabs.map((tab, index) => this.createTab({...tab, index, total: tabs.length}));
 
 		return (
 			<div
-				className={baseClass}
+				className={BASE_CLASS}
 				ref={($node) => this.$stepper = $node}
 			>
 
 				<div
-					className={`${baseClass}-tests`}
+					className={`${BASE_CLASS}-tests`}
 					aria-hidden="true"
 				>
 
 					{/* Horizontal */}
-					<div className={`${baseClass}-testinline`}>
-						<div className={`${baseClass}-wrapper ${baseClass}-inline`}>
+					<div className={`${BASE_CLASS}-testinline`}>
+						<div className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-inline`}>
 							{tabElements}
 						</div>
 					</div>
 
 					{/* Side Bar */}
-					<div className={`${baseClass}-testsidebar`}>
+					<div className={`${BASE_CLASS}-testsidebar`}>
 						<div
-							className={`${baseClass}-wrapper ${baseClass}-sidebar`}
+							className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-sidebar`}
 							style={{gridTemplateRows}}
 						>
 							{tabElements}
-							<div className={`${baseClass}-section`} />
+							<div className={`${BASE_CLASS}-section`} />
 						</div>
 					</div>
 
 				</div>
 
 				{/* - - - - - - - - */}
+
 				<div
-					className={`${baseClass}-wrapper ${baseClass}-${layout}`}
+					className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-${layout}`}
 					style={{gridTemplateRows}}
 				>
 
 					{tabElements}
 
-					<div className={`${baseClass}-section`}>
+					<div className={`${BASE_CLASS}-section`}>
 
-						<h3>Link One Content:</h3>
-						<p>...</p>
-						<p>...</p>
-						<p>...</p>
-						<p>...</p>
-						<p>...</p>
+						{children}
 
 					</div>
 

@@ -3,13 +3,21 @@ const fs = require('fs');
 const path = require('path');
 
 const storyBookLocation = path.resolve(__dirname, '..', '.out');
-
+/**
+ * Array of components that storybook should test.
+ * 
+ * Example of full component to test implementation:
+ * {
+ * 	testsPrefix: 'XUI Pill',
+ *	variationsPath: '../src/react/components/pill/stories/variations.js',
+ *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
+ *	selectors: 'alternate > .selectors' (defaults to '.xui-container')	
+ * }
+ */
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Pill',
 		variationsPath: '../src/react/components/pill/stories/variations.js'
-		// variationsProp: 'myVariationsPropName', // defaults to 'variations'
-		// selectors: 'alternate > .selectors' // defaults to '.xui-container'
 	},
 	{
 		testsPrefix: 'XUI Autocompleter',
@@ -20,6 +28,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Tag',
+		variationsPath: '../src/react/components/tag/stories/variations.js'
+  },
+  {
 		testsPrefix: 'XUI Icon',
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	}
@@ -54,15 +66,6 @@ function buildScenarios() {
 	});
 	return scenarios;
 };
-
-const XUIAutocompleterStories = require('../src/react/components/autocompleter/stories/variations.js').variations;
-const XUIAutocompleterScenarios = XUIAutocompleterStories.map(story => {
-	return {
-		label: `XUI Autocompleter ${story.storyTitle}`,
-		url: buildUrl(story.storyKind, story.storyTitle),
-		selectors: ['.xui-container']
-	}
-});
 
 module.exports = {
 	id: "backstop_default",

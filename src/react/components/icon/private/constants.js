@@ -1,17 +1,17 @@
-export const sizeClasses = {
+const sizeClasses = {
 	standard: '',
 	large: 'xui-icon-large',
 	xlarge: 'xui-icon-xlarge'
 };
 
-export const rotationClasses = {
+const rotationClasses = {
 	90: 'xui-u-rotate-90',
 	180: 'xui-u-rotate-180',
 	270: 'xui-u-rotate-270'
 };
 
 /* eslint-disable camelcase */
-export const colorClasses = {
+const colorClasses = {
 	standard: 'xui-icon-color-standard',
 	white: 'xui-icon-color-white',
 	white_muted: 'xui-icon-color-white-muted',
@@ -23,3 +23,9 @@ export const colorClasses = {
 	file_pdf: 'xui-icon-color-file-pdf'
 };
 /* eslint-enabled camelcase */
+
+module.exports = {
+	sizeClasses,
+	rotationClasses,
+	colorClasses
+};

@@ -30,6 +30,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
+  },
+  {
+		testsPrefix: 'XUI Icon',
+		variationsPath: '../src/react/components/icon/stories/variations.js'
 	}
 ];
 

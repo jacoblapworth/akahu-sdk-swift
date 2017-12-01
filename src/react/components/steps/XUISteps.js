@@ -6,11 +6,11 @@ const baseClass = 'xui-stepper';
 
 const Tab = ({name, href, isActive, index, isFirst, isLast}) => {
 
-	console.log({isFirst, isLast});
+	// console.log({isFirst, isLast});
 
-	const firstClass = isFirst && `${baseClass}-tab--first`;
-	const lastClass = isLast && `${baseClass}-tab--last`;
-	const activeClass = isActive && 'Placeholder-link--active'
+	const firstClass = isFirst && `${baseClass}-tab-first`;
+	const lastClass = isLast && `${baseClass}-tab-last`;
+	const activeClass = isActive && 'Placeholder-link-active'
 
 	return (
 		<div className={`${baseClass}-tab ${firstClass} ${lastClass}`} style={{ order: index }}>
@@ -52,8 +52,8 @@ class XUISteps extends Component {
 		if (this.$stepper) {
 
 			const isInline = this.testIsInline();
-			const isColumns = this.testIsColumns();
-			const layout = isInline ? 'inline' : isColumns ? 'columns' : 'stacked';
+			const isSideBar = this.testIsSideBar();
+			const layout = isInline ? 'inline' : isSideBar ? 'sidebar' : 'stacked';
 
 			// console.log({isInline, isColumn});
 
@@ -72,72 +72,82 @@ class XUISteps extends Component {
 		const maxHeight = tabHeights[0] || 0;
 		const isInline = maxHeight >= wrapperHeight;
 
-		console.log({isInline, maxHeight, wrapperHeight, $tabs});
+		// console.log({isInline, maxHeight, wrapperHeight, $tabs});
 
 		return isInline;
 
 	};
 
-	testIsColumns = () => {
+	testIsSideBar = () => {
 
-		const $testColumns = this.$stepper.querySelector(`.${baseClass}-testcolumns`);
-		const $section = $testColumns.querySelector(`.${baseClass}-section`);
+		const $testSideBar = this.$stepper.querySelector(`.${baseClass}-testsidebar`);
+		const $section = $testSideBar.querySelector(`.${baseClass}-section`);
 		const minWidth = 400;
 		const sectionWidth = $section.clientWidth;
-		const isColumns = sectionWidth >= minWidth;
+		const isSideBar = sectionWidth >= minWidth;
 
-		console.log({isColumns, minWidth, sectionWidth, $section});
+		// console.log({isSideBar, minWidth, sectionWidth, $section});
 
-		return isColumns;
+		return isSideBar;
 
 	};
+
+	createTab = ({name, href, isActive, index, total}) => (
+		<Tab
+			key={index}
+			{...{
+				name,
+				href,
+				isActive,
+				index,
+				isFirst: !index,
+				isLast: Boolean(index === total - 1)
+			}} />
+	);
 
 	render = () => {
 
 		const {layout} = this.state;
 		const {tabs} = this.props;
 		const gridTemplateRows = `${new Array(tabs.length).fill('auto').join(' ')} 1fr`;
-		const tabElements = tabs.map(({name, href, isActive}, index) => (
-			<Tab
-				key={`${name}${href}`}
-				{...{
-					name,
-					href,
-					isActive,
-					index,
-					isFirst: !index,
-					isLast: Boolean(index === tabs.length - 1)
-				}} />
-		));
+		const tabElements = tabs.map((tab, index) => this.createTab({...tab, index, total: tabs.length}));
 
 		return (
-			<div ref={($node) => this.$stepper = $node}>
+			<div
+				className={baseClass}
+				ref={($node) => this.$stepper = $node}
+			>
 
-				<div className={`${baseClass}-tests`}>
+				<div
+					className={`${baseClass}-tests`}
+					aria-hidden="true"
+				>
 
-					<div>
-
-						{/* Horizontal */}
-						<div className={`${baseClass}-testinline`}>
-							<div className={`${baseClass} ${baseClass}--inline`}>
-								{tabElements}
-							</div>
+					{/* Horizontal */}
+					<div className={`${baseClass}-testinline`}>
+						<div className={`${baseClass}-wrapper ${baseClass}-inline`}>
+							{tabElements}
 						</div>
+					</div>
 
-						{/* Side Bar */}
-						<div className={`${baseClass}-testcolumns`}>
-							<div className={`${baseClass} ${baseClass}--columns`} style={{gridTemplateRows}}>
-								{tabElements}
-								<div className={`${baseClass}-section`}>Test</div>
-							</div>
+					{/* Side Bar */}
+					<div className={`${baseClass}-testsidebar`}>
+						<div
+							className={`${baseClass}-wrapper ${baseClass}-sidebar`}
+							style={{gridTemplateRows}}
+						>
+							{tabElements}
+							<div className={`${baseClass}-section`} />
 						</div>
-
 					</div>
 
 				</div>
 
 				{/* - - - - - - - - */}
-				<div className={`${baseClass} ${baseClass}--${layout}`} style={{gridTemplateRows}}>
+				<div
+					className={`${baseClass}-wrapper ${baseClass}-${layout}`}
+					style={{gridTemplateRows}}
+				>
 
 					{tabElements}
 
@@ -153,6 +163,7 @@ class XUISteps extends Component {
 					</div>
 
 				</div>
+
 			</div>
 		);
 

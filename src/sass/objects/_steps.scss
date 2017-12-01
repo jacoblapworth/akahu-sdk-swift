@@ -181,17 +181,18 @@
 	}
 }
 
-.#{$ns}-stepper {
 
 
-}
 
-@mixin bigScreen() {
 
-	// @media (min-width: 800px) {
-		@content;
-	// }
-}
+
+
+
+
+
+
+
+
 
 @mixin suportsGrid() {
 
@@ -207,34 +208,29 @@
 	padding: 10px 20px;
 	text-decoration: none;
 
-	&--active {
+	&-active {
 		background: red;
 		color: white;
 	}
 }
 
-.#{$ns}-stepper {
+.#{$ns}-stepper-wrapper {
 	display: flex;
 	flex-direction: column;
+}
 
-	&--inline {
+.#{$ns}-stepper-inline {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
 
-		@include bigScreen {
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: center;
-		}
-	}
+.#{$ns}-stepper-sidebar {
 
-	&--columns {
-
-		@include bigScreen {
-			@include suportsGrid {
-				display: grid;
-				grid-template-columns: auto 1fr;
-				// grid-template-rows: auto auto auto 1fr;
-			}
-		}
+	@include suportsGrid {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		// grid-template-rows: (dynamicly set via JS);
 	}
 }
 
@@ -249,51 +245,38 @@
 
 }
 
-.#{$ns}-stepper-testcolumns {
+.#{$ns}-stepper-testsidebar {
 
 }
 
-.#{$ns}-stepper {
+.#{$ns}-stepper-tab {
+	// background: gray;
+	padding: 0 30px;
+	position: relative;
 
-	&-tab {
-		// background: gray;
-		padding: 0 30px;
-		position: relative;
-
-		&:before,
-		&:after {
-			background: red;
-			content: '';
-			display: block;
-			position: absolute;
-		}
-	}
-
-	&--inline #{&}-tab {
-		@include bigScreen {
-			order: 0 !important;
-		}
-}
-
-&--columns #{&}-tab {
-	@include bigScreen {
-		@include suportsGrid {
-			order: 0 !important;
-		}
+	&:before,
+	&:after {
+		background: red;
+		content: '';
+		display: block;
+		position: absolute;
 	}
 }
 
-// &:not(#{&}--inline) #{&}-tab {
-&-tab {
+.#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
+
+	@include suportsGrid {
+		order: 0 !important;
+	}
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab {
+	order: 0 !important;
+}
+
+
+.#{$ns}-stepper-tab {
 	padding: 30px 0;
-
-	&--first {
-		padding-top: 0;
-	}
-
-	&--last {
-		padding-bottom: 0;
-	}
 
 	&:before,
 	&:after {
@@ -309,97 +292,81 @@
 	}
 }
 
-&--inline #{&}-tab {
+.#{$ns}-stepper-tab-first {
+	padding-top: 0;
+}
 
-	@include bigScreen {
-		padding: 0 30px;
+.#{$ns}-stepper-tab-last {
+	padding-bottom: 0;
+}
 
-		&--first {
-			padding-left: 0;
-		}
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab {
+	padding: 0 30px;
 
-		&--last {
-			padding-right: 0;
-		}
+	&:before,
+	&:after {
+		height: 1px;
+		left: 0;
+		top: 50%;
+		width: 30px;
+	}
 
-		&:before,
-		&:after {
-			height: 1px;
-			left: 0;
-			top: 50%;
-			width: 30px;
-		}
-
-		&:after {
-			left: inherit;
-			right: 0;
-		}
+	&:after {
+		left: inherit;
+		right: 0;
 	}
 }
 
-&-tab#{&}-tab--first:before {
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab-first {
+	padding-left: 0;
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-tab-last {
+	padding-right: 0;
+}
+
+.#{$ns}-stepper-tab-first:before,
+.#{$ns}-stepper-tab-last:after {
 	display: none;
 }
 
+.#{$ns}-stepper-section {
+	order: 0;
+	padding-left: 60px;
+	position: relative;
+	width: 100%;
 
-&-tab#{&}-tab--last:after {
-	display: none;
+	&:before {
+		background: red;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: 30px;
+		position: absolute;
+		top: 0;
+		width: 1px;
+	}
 }
-}
 
-.#{$ns}-stepper {
+.#{$ns}-stepper-sidebar .#{$ns}-stepper-section {
 
-	&-section {
-		order: 0;
-		padding-left: 60px;
-		position: relative;
-		width: 100%;
+	@include suportsGrid {
+		grid-column-start: 2;
+		grid-column-end: -1;
+		grid-row-start: 1;
+		grid-row-end: -1;
+		padding: 0 0 0 30px;
 
 		&:before {
-			background: red;
-			bottom: 0;
-			content: '';
-			display: block;
-			left: 30px;
-			position: absolute;
-			top: 0;
-			width: 1px;
+			display: none;
 		}
 	}
+}
 
-	&--columns &-section {
+.#{$ns}-stepper-inline .#{$ns}-stepper-section {
+	padding: 30px 0 0;
 
-		@include bigScreen {
-			@include suportsGrid {
-			grid-column-start: 2;
-			grid-column-end: -1;
-			grid-row-start: 1;
-			grid-row-end: -1;
-			}
-		}
-	}
-
-	&--columns &-section {
-
-		@include bigScreen {
-			@include suportsGrid {
-			padding: 0 0 0 30px;
-
-			&:before {
-				display: none;
-			}
-			}
-		}
-	}
-
-	&--inline &-section {
-
-		@include bigScreen {
-			padding: 30px 0 0;
-
-			&:before {
-				display: none;
-			}
-		}
+	&:before {
+		display: none;
 	}
 }

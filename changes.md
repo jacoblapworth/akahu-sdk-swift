@@ -108,3 +108,5 @@ as overrides
 	* You will need to have GITLFS installed and setup correctly
 	* You will need to have built the XUI repo before you can run visual tests. (requires `./dist/xui.css`) (requires storybook)
 
+### Husky
+* Added [Husky](https://www.npmjs.com/package/husky) which allows us to define Git Hooks as NPM scripts

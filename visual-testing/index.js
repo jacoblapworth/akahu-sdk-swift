@@ -5,13 +5,13 @@ const path = require('path');
 const storyBookLocation = path.resolve(__dirname, '..', '.out');
 /**
  * Array of components that storybook should test.
- * 
+ *
  * Example of full component to test implementation:
  * {
  * 	testsPrefix: 'XUI Pill',
  *	variationsPath: '../src/react/components/pill/stories/variations.js',
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
- *	selectors: 'alternate > .selectors' (defaults to '.xui-container')	
+ *	selectors: 'alternate > .selectors' (defaults to '.xui-container')
  * }
  */
 const componentsToTest = [
@@ -27,14 +27,18 @@ const componentsToTest = [
 		testsPrefix: 'XUI Button',
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},
-	{
-		testsPrefix: 'XUI Tag',
-		variationsPath: '../src/react/components/tag/stories/variations.js'
-  },
   {
 		testsPrefix: 'XUI Icon',
 		variationsPath: '../src/react/components/icon/stories/variations.js'
-	}
+	},
+	{
+		testsPrefix: 'XUI Radio',
+		variationsPath: '../src/react/components/radio/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Tag',
+		variationsPath: '../src/react/components/tag/stories/variations.js'
+  }
 ];
 
 execSync('npm run storybook:pr', (err, stdout, stderr) => {

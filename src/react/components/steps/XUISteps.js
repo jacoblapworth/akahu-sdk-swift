@@ -8,20 +8,24 @@ const STACKED = 'stacked';
 const SIDE_BAR = 'sidebar';
 const INLINE = 'inline';
 const LAYOUTS = [STACKED, SIDE_BAR, INLINE];
+const NOOP = () => 0;
 
-const Tab = ({name, description, href, isActive}) => {
+const Tab = ({name, description, handleClick, isStacked, isError, isActive, isDisabled}) => {
 
 	const linkClasses = cn(
-		`${BASE_CLASS}-link`,
-		`${BASE_CLASS}-link-inline`, {
-			[`${BASE_CLASS}-link-active`]: isActive
+		`${BASE_CLASS}-link`, {
+			[`${BASE_CLASS}-link-inline`]: !isStacked,
+			[`${BASE_CLASS}-link-active`]: isActive,
+			[`${BASE_CLASS}-link-error`]: !isActive && isError,
+			[`${BASE_CLASS}-link-disabled`]: isDisabled
 		}
 	);
+	const buttonClickHandler = isDisabled ? NOOP : handleClick;
 
 	return (
-		<a
+		<button
 			className={linkClasses}
-			href={href}
+			onClick={buttonClickHandler}
 		>
 
 			<div className={`${BASE_CLASS}-link-wrapper`}>
@@ -35,13 +39,13 @@ const Tab = ({name, description, href, isActive}) => {
 				<div className={`${BASE_CLASS}-link-text`}>
 
 					<span className={`${BASE_CLASS}-link-heading xui-heading-small`}>{name}</span>
-					<span className={`${BASE_CLASS}-link-description xui-heading-xsmall`}>{description}</span>
+					{description && <span className={`${BASE_CLASS}-link-description xui-heading-xsmall`}>{description}</span>}
 
 				</div>
 
 			</div>
 
-		</a>
+		</button>
 	);
 
 };
@@ -119,12 +123,16 @@ class XUISteps extends Component {
 
 	};
 
-	createTab = ({name, description, href, isActive, index, total}) => {
+	createTab = ({index, currentStep, totalTabs, isLinear, ...tab}) => {
 
+		const isFirst = !index;
+		const isInline = Boolean(index === totalTabs - 1);
+		const isActive = currentStep === index;
+		const isDisabled = isLinear && currentStep < index;
 		const tabClasses = cn(
 			`${BASE_CLASS}-tab`, {
-				[`${BASE_CLASS}-tab-first`]: !index,
-				[`${BASE_CLASS}-tab-last`]: Boolean(index === total - 1)
+				[`${BASE_CLASS}-tab-first`]: isFirst,
+				[`${BASE_CLASS}-tab-last`]: isInline
 			});
 
 		// isDisabled
@@ -137,11 +145,9 @@ class XUISteps extends Component {
 			>
 				<Tab
 					{...{
-						name,
-						description,
-						href,
+						...tab,
 						isActive,
-						index
+						isDisabled
 					}} />
 				</div>
 		);
@@ -151,9 +157,10 @@ class XUISteps extends Component {
 	render = () => {
 
 		const {layout} = this.state;
-		const {children, tabs} = this.props;
+		const {children, tabs, currentStep, isLinear} = this.props;
+		const totalTabs = tabs.length;
 		const gridTemplateRows = `${new Array(tabs.length).fill('auto').join(' ')} 1fr`;
-		const tabElements = tabs.map((tab, index) => this.createTab({...tab, index, total: tabs.length}));
+		const tabElements = tabs.map((tab, index) => this.createTab({...tab, index, currentStep, totalTabs, isLinear}));
 
 		return (
 			<div
@@ -162,7 +169,7 @@ class XUISteps extends Component {
 			>
 
 				<div
-					className={`${BASE_CLASS}-tests`}
+					className={`${BASE_CLASS}-tests xui-u-hidden-content`}
 					aria-hidden="true"
 				>
 
@@ -195,7 +202,9 @@ class XUISteps extends Component {
 
 					{tabElements}
 
-					<div className={`${BASE_CLASS}-section`}>
+					<div
+						className={`${BASE_CLASS}-section`}
+						style={{order: currentStep}}>
 
 						{children}
 

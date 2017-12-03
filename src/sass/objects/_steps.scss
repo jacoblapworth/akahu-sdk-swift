@@ -243,7 +243,7 @@
 
 	&:before,
 	&:after {
-		background: red;
+		background: $xui-color-grey-5;
 		content: '';
 		display: block;
 		position: absolute;
@@ -324,7 +324,7 @@
 	width: 100%;
 
 	&:before {
-		background: red;
+		background: $xui-color-grey-5;
 		bottom: 0;
 		content: '';
 		display: block;
@@ -367,13 +367,17 @@
 
 
 .#{$ns}-stepper-link {
+	@include xui-button-reset;
 	border-radius: 4px;
-	color: red;
+	color: $xui-color-grey-1;
 	display: block;
+	height: 100%;
 	padding: 0 10px 10px;
+	width: 100%;
 }
 
 .#{$ns}-stepper-link-inline {
+	align-items: center;
 	border-radius: 9999px;
 	padding: 2px 20px 2px 0;
 }
@@ -395,17 +399,21 @@
 	width: $size;
 }
 
-.#{$ns}-stepper-link-heading {
-	// display: block;
-	// font-size: 16px;
-}
-
-.#{$ns}-stepper-link-description {
-	// display: block;
-	// font-size: 12px;
+.#{$ns}-stepper-link .#{$ns}-stepper-link-heading,
+.#{$ns}-stepper-link .#{$ns}-stepper-link-description {
+	color: inherit;
+	display: block;
 }
 
 .#{$ns}-stepper-link-active {
-	background: red;
-	color: white;
+	background: $xui-color-grey-7;
+	color: $xui-color-blue;
+}
+
+.#{$ns}-stepper-link-error {
+	color: $xui-color-negative;
+}
+
+.#{$ns}-stepper-link-disabled {
+	color: $xui-color-grey-5;
 }

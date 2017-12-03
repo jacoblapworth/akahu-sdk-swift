@@ -24,6 +24,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/autocompleter/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Avatar',
+		variationsPath: '../src/react/components/avatar/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Button',
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},

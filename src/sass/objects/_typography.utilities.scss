@@ -28,22 +28,7 @@
 
 /* doiuse-disable */
 .#{$ns}-text-wordbreak {
-	// chrome doesn't support this but what can you do ¯\_(ツ)_/¯
-	hyphens: auto;
-
-	// This is technically the same as word-wrap, but use both for maximum support
-	overflow-wrap: break-word;
-
-	// auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
-	-ms-word-break: break-all;
-
-	// This is for firefox support however it breaks mid word when spaces are present in firefox
-	// so be aware of this
-	word-break: break-all;
-
-	// We want this to take precedence over word-break: break-all or words will break without
-	// moving to the next line when they're separated by spaces
-	word-wrap: break-word;
+	@include xui-text-wordbreak;
 }
 /* doiuse-enable */
 

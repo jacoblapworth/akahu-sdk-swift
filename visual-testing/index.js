@@ -36,13 +36,17 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},
 	{
-		testsPrefix: 'XUI Radio',
+    testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},
 	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
-  }
+  },
+  {
+		testsPrefix: 'XUI Toggle',
+		variationsPath: '../src/react/components/toggle/stories/variations.js'
+	}
 ];
 
 execSync('npm run storybook:pr', (err, stdout, stderr) => {

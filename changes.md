@@ -1,4 +1,4 @@
-# XUI 12.1.0
+# XUI 12.1.1
 
 ## React changes
 
@@ -23,6 +23,7 @@
 
 - Overview section styling fixed for IE11
 - XUITag now has a white background instead of transparent so they don't change colour inside a highlighted block
+- Fixed alignment of image avatars in a group
 
 ## Additions
 

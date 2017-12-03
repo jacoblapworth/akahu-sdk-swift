@@ -5,6 +5,7 @@ function loadStories() {
 	require('../src/react/components/autocompleter/stories/stories.js');
 	require('../src/react/components/avatar/stories/stories.js');
 	require('../src/react/components/button/stories/stories.js');
+	require('../src/react/components/datepicker/stories/stories.js');
 	require('../src/react/components/icon/stories/stories.js');
 	require('../src/react/components/modal/stories/stories.js');
 	require('../src/react/components/pill/stories/stories.js');

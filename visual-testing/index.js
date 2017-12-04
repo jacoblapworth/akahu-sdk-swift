@@ -32,6 +32,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Tag',
+		variationsPath: '../src/react/components/tag/stories/variations.js'
+  },
+  {
 		testsPrefix: 'XUI DatePicker',
 		variationsPath: '../src/react/components/datepicker/stories/variations.js'
 	},
@@ -40,7 +44,11 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},
 	{
-    testsPrefix: 'XUI Radio',
+		testsPrefix: 'XUI Toast',
+		variationsPath: '../src/react/components/toast/stories/variations.js'
+	},
+  {
+		testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},
 	{

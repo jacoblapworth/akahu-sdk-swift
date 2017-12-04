@@ -4,17 +4,7 @@ import cn from 'classnames';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
-
-const sentimentMap = {
-	positive: {
-		class: 'xui-toast-positive',
-		role: 'alert'
-	},
-	negative: {
-		class: 'xui-toast-negative',
-		role: 'alert'
-	}
-};
+import { sentimentMap } from './private/sentiments';
 
 const sentiments = Object.keys(sentimentMap);
 

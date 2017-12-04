@@ -29,7 +29,7 @@ storiesWithKnobs.add('Playground', () => (
 		deleteButtonLabel={text('deleteButtonLabel', '')}
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
-		/>
+	/>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

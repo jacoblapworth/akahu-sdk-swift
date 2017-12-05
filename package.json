@@ -54,7 +54,7 @@
     "test:watch": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
     "test:ci": "cross-env TEAMCITY_VERSION=\"9.1.7\" NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
-    "test:visual": "backstop test --config visual-testing/index.js",
+    "test:visual": "pkill -f '(chrome)?(--headless)' | backstop test --config visual-testing/index.js",
     "test:visual:approve": "backstop approve --config visual-testing/index.js",
     "precommit": "./pre-commit.sh",
     "postmerge": "./post-merge.sh"

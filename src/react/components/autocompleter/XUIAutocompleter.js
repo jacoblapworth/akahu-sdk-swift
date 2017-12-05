@@ -248,6 +248,7 @@ export default class XUIAutocompleter extends PureComponent {
 					dropdown={dropdown}
 					onOpen={props.onOpen}
 					onClose={props.onClose}
+					closeOnTab={props.closeOnTab}
 					closeOnSelect={props.closeOnSelect}
 					triggerClickAction="none"
 					forceDesktop={props.forceDesktop}
@@ -315,6 +316,9 @@ XUIAutocompleter.propTypes = {
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
 
+	/** Maps to the `closeOnTab` property of the DropDownToggled component. */
+	closeOnTab: PropTypes.bool,
+
 	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,
 
@@ -354,6 +358,7 @@ XUIAutocompleter.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,
+	closeOnTab: true,
 	forceDesktop: false,
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,

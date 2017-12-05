@@ -11,6 +11,7 @@ function loadStories() {
 	require('../src/react/components/modal/stories/stories.js');
 	require('../src/react/components/pill/stories/stories.js');
 	require('../src/react/components/radio/stories/stories.js');
+	require('../src/react/components/switch/stories/stories.js');
 	require('../src/react/components/tag/stories/stories.js');
 	require('../src/react/components/toast/stories/stories.js');
 	require('../src/react/components/toggle/stories/stories.js');

@@ -35,10 +35,6 @@ const componentsToTest = [
 		testsPrefix: 'XUI Button',
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},
-	{
-		testsPrefix: 'XUI Tag',
-		variationsPath: '../src/react/components/tag/stories/variations.js'
-  },
   {
 		testsPrefix: 'XUI DatePicker',
 		variationsPath: '../src/react/components/datepicker/stories/variations.js'
@@ -47,18 +43,22 @@ const componentsToTest = [
 		testsPrefix: 'XUI Icon',
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},
-	{
-		testsPrefix: 'XUI Toast',
-		variationsPath: '../src/react/components/toast/stories/variations.js'
-	},
   {
 		testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Switch',
+		variationsPath: '../src/react/components/switch/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
   },
+	{
+		testsPrefix: 'XUI Toast',
+		variationsPath: '../src/react/components/toast/stories/variations.js'
+	},
   {
 		testsPrefix: 'XUI Toggle',
 		variationsPath: '../src/react/components/toggle/stories/variations.js'
@@ -114,7 +114,7 @@ module.exports = {
 	report: ["browser", "CI"],
 	engine: "chrome",
 	engineFlags: [],
-	asyncCaptureLimit: 5,
+	asyncCaptureLimit: 2,
 	asyncCompareLimit: 50,
 	debug: false,
 	debugWindow: false

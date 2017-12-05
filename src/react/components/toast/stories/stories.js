@@ -51,10 +51,6 @@ storiesWithKnobs.add('Playground', () => (
 		defaultLayout={boolean('defaultLayout', true)}
 		className={text('className', '')}
 		messageText={text('message', 'Message text')}
-		/**
-		 * Todo upgrade to 3.2.15 of storybook knobs to prevent a console error 
-		 * "Invalid prop `knob.value` of type `array` supplied to `ObjectType`, expected `object`."
-		 */
 		actionProps={object('actions', [{
 			text: 'Action'
 		}])}

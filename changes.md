@@ -78,6 +78,7 @@
              - `matchTriggerWidth` is now `isTriggerWidthMatched`
              - `forceDesktop` is now `isNotResponsive`
              - `setMaxHeight` is now `shouldRestrictMaxHeight`
+* Pill - `hasLayout` is now `defaultLayout`
 
 ### New Components
 #### Rollover Checkbox

@@ -72,9 +72,9 @@ describe('<XUIPill />', () => {
 		expect(pill.find('.xui-avatar')).toBeTruthy();
 	});
 
-	it('renders the pill without the xui-pill-layout class when hasLayout prop is false', () => {
+	it('renders the pill without the xui-pill-layout class when defaultLayout prop is false', () => {
 		const pill = shallow(
-			<XUIPill hasLayout={false} />
+			<XUIPill defaultLayout={false} />
 		);
 
 		expect(pill.hasClass('xui-pill-layout')).toBeFalsy();

@@ -7,19 +7,16 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 import { sizeClassNames } from '../private/constants';
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName, NOOP } from './variations';
+import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<RolloverCheckbox
-        qaHook={text('qaHook', '')}
-        id={text('id', '')}
-		onSelect={NOOP}
 		isCheckboxHidden={boolean('checkbox hidden', true)}
         size={select('hit target size', sizeClassNames, 'medium')}
         isChecked={boolean('checked', false)}

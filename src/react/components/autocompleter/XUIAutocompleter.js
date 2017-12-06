@@ -184,10 +184,7 @@ export default class XUIAutocompleter extends PureComponent {
 			},
 			props.triggerClassName
 		);
-		const inputClasses = cn(
-			props.inputClassName,
-			'xui-autocompleter--input'
-		);
+
 		const trigger = (
 			<div
 				className={triggerClasses}
@@ -203,7 +200,7 @@ export default class XUIAutocompleter extends PureComponent {
 					maxLength={props.maxLength}
 					onSearch={props.onSearch}
 					onKeyDown={handlers.onInputKeyDown}
-					className={inputClasses}
+					className={props.inputClassName}
 					throttleInterval={props.searchThrottleInterval}
 					qaHook={inputQaHook}
 					onFocus={props.openOnFocus ? handlers.onInputFocus : null}

@@ -10,6 +10,7 @@ function loadStories() {
 	require('../src/react/components/datepicker/stories/stories.js');
 	require('../src/react/components/icon/stories/stories.js');
 	require('../src/react/components/modal/stories/stories.js');
+	require('../src/react/components/picklist/stories/stories.js');
 	require('../src/react/components/pill/stories/stories.js');
 	require('../src/react/components/radio/stories/stories.js');
 	require('../src/react/components/switch/stories/stories.js');

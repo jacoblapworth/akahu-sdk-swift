@@ -9,7 +9,7 @@ export default class NestedPicklistContainer extends PureComponent {
 
 		const container = this;
 		container.state = {
-			open: false
+			open: props.open
 		};
 		[
 			container.toggle,

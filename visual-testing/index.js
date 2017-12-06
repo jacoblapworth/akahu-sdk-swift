@@ -56,7 +56,11 @@ const componentsToTest = [
 		testsPrefix: 'XUI Pill',
 		variationsPath: '../src/react/components/pill/stories/variations.js'
 	},
-  {
+	{
+		testsPrefix: 'Rollover Checkbox',
+		variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},

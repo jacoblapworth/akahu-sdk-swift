@@ -18,11 +18,11 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<RolloverCheckbox
 		isCheckboxHidden={boolean('checkbox hidden', true)}
-        size={select('hit target size', sizeClassNames, 'medium')}
-        isChecked={boolean('checked', false)}
-        isDisabled={boolean('disabled', false)}
-        rolloverComponent={<XUIAvatar value="abc" />}
-    />
+		size={select('hit target size', sizeClassNames, 'medium')}
+		isChecked={boolean('checked', false)}
+		isDisabled={boolean('disabled', false)}
+		rolloverComponent={<XUIAvatar value="abc" />}
+	/>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

@@ -5,33 +5,33 @@ const storiesWithVariationsKindName = 'Instances/RolloverCheckbox';
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
-        storyTitle: 'with checkbox hidden',
-        isCheckboxHidden: true
-    },
-    {
+		storyTitle: 'with checkbox hidden',
+		isCheckboxHidden: true
+	},
+	{
 		storyKind: storiesWithVariationsKindName,
-        storyTitle: 'with checkbox visible',
-        isCheckboxHidden: false
-    },
-    {
+		storyTitle: 'with checkbox visible',
+		isCheckboxHidden: false
+	},
+	{
 		storyKind: storiesWithVariationsKindName,
-        storyTitle: 'with checkbox visible and checked',
-        isCheckboxHidden: false,
-        isChecked: true
-    },
-    {
+		storyTitle: 'with checkbox visible and checked',
+		isCheckboxHidden: false,
+		isChecked: true
+	},
+	{
 		storyKind: storiesWithVariationsKindName,
-        storyTitle: 'checkbox visible and disabled',
-        isCheckboxHidden: false,
-        isDisabled: true
-    },
-    {
+		storyTitle: 'checkbox visible and disabled',
+		isCheckboxHidden: false,
+		isDisabled: true
+	},
+	{
 		storyKind: storiesWithVariationsKindName,
-        storyTitle: 'checkbox visible, disabled and checked',
-        isCheckboxHidden: false,
-        isChecked: true,
-        isDisabled: true
-    },
+		storyTitle: 'checkbox visible, disabled and checked',
+		isCheckboxHidden: false,
+		isChecked: true,
+		isDisabled: true
+	},
 
 ];
 

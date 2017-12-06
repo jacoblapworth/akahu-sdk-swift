@@ -8,6 +8,7 @@ import XUISwitch from '../XUISwitch';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
+import NOOP from '../../helpers/noop';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
@@ -18,6 +19,7 @@ storiesWithKnobs.add('Playground', () => (
 	<XUISwitch
 		checked={boolean('checked', false)}
 		disabled={boolean('disabled', false)}
+		onChange={NOOP}
 	></XUISwitch>
 ));
 
@@ -29,6 +31,7 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
+		variationMinusStoryDetails.onChange = NOOP;
 
 		return <XUISwitch {...variationMinusStoryDetails}/>
 	});

@@ -47,11 +47,15 @@ const componentsToTest = [
 		testsPrefix: 'XUI Modal',
 		variationsPath: '../src/react/components/modal/stories/variations.js'
 	},
+  {
+		testsPrefix: 'XUI Picklist',
+		variationsPath: '../src/react/components/picklist/stories/variations.js'
+	},
 	{
 		testsPrefix: 'XUI Pill',
 		variationsPath: '../src/react/components/pill/stories/variations.js'
 	},
-	{
+  {
 		testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},
@@ -62,6 +66,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Text area',
+		variationsPath: '../src/react/components/textarea/stories/variations.js'
 	},
 	{
 		testsPrefix: 'XUI Toast',

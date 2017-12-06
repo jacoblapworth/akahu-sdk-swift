@@ -64,6 +64,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/tag/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Text area',
+		variationsPath: '../src/react/components/textarea/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Toast',
 		variationsPath: '../src/react/components/toast/stories/variations.js'
 	},

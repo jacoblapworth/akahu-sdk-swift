@@ -4,11 +4,9 @@
 	</svg>
 	<a href="../section-building-blocks-dropdowns-autocompleter.html">Autocompleter in the XUI Documentation</a>
 </div>
-`Autocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
+`XUIAutocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 
-Refer to the following sections of the XUI Documentation for more information about the components that make up an `Autocompleter`.
-
-**Note:** Autocompleter will be renamed to `XUIAutocompleter` in XUI 12. All components provided by `Autocompleter` will be prefixed with `XUIAutocompleter` from XUI 12 (e.g. `EmptyState` will become `XUIAutocompleterEmptyState`)
+Refer to the following sections of the XUI Documentation for more information about the components that make up a `XUIAutocompleter`.
 
 ##### Related Components
 
@@ -39,7 +37,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ### Standard
 
-`Autocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `Autocompleter` also provides a configurable empty state for when no search results are returned.
+`XUIAutocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `XUIAutocompleter` also provides a configurable empty state for when no search results are returned.
 
 You should add a callback to `onBackspacePill` which removes the last selected element. This will be called if the backspace key is pressed while the input is empty.
 
@@ -215,7 +213,7 @@ class DetailedListExample extends Component {
 
 ### Disable Wrapping Pills
 
-By default the pills and search bar will wrap inside the `Autocompleter` input container. To disable this, set `disableWrapPills` to true.
+By default the pills and search bar will wrap inside the `XUIAutocompleter` input container. To disable this, set `disableWrapPills` to true.
 
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');

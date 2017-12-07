@@ -17,10 +17,6 @@ const storyBookLocation = path.resolve(__dirname, '..', '.out');
  */
 const componentsToTest = [
 	{
-		testsPrefix: 'XUI Pill',
-		variationsPath: '../src/react/components/pill/stories/variations.js'
-	},
-	{
 		testsPrefix: 'XUI Autocompleter',
 		variationsPath: '../src/react/components/autocompleter/stories/variations.js'
 	},
@@ -49,8 +45,16 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Modal',
+		variationsPath: '../src/react/components/modal/stories/variations.js'
+	},
+  {
 		testsPrefix: 'XUI Picklist',
 		variationsPath: '../src/react/components/picklist/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Pill',
+		variationsPath: '../src/react/components/pill/stories/variations.js'
 	},
   {
 		testsPrefix: 'XUI Radio',
@@ -72,7 +76,7 @@ const componentsToTest = [
 		testsPrefix: 'XUI Toast',
 		variationsPath: '../src/react/components/toast/stories/variations.js'
 	},
-  {
+	{
 		testsPrefix: 'XUI Toggle',
 		variationsPath: '../src/react/components/toggle/stories/variations.js'
 	}

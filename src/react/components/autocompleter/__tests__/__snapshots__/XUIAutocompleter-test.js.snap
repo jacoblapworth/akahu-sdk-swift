@@ -29,7 +29,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         data-automationid="baseAC--input--container"
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid="baseAC--input"
           id={undefined}
           maxLength={undefined}
@@ -77,7 +77,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -125,7 +125,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input test-class xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input test-class xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -173,7 +173,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -221,7 +221,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -269,7 +269,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -317,7 +317,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id="test-inputId"
           maxLength={undefined}
@@ -365,7 +365,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -413,7 +413,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={undefined}
@@ -461,7 +461,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         data-automationid={null}
       >
         <input
-          className="xui-input xui-input-borderless xui-autocompleter--input xui-autocompleter--input xui-input-has-right-icon"
+          className="xui-input xui-input-borderless xui-autocompleter--input xui-input-has-right-icon"
           data-automationid={null}
           id={undefined}
           maxLength={5}

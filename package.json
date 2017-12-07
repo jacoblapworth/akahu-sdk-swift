@@ -52,6 +52,7 @@
     "styleguide": "cross-env NODE_ENV=development styleguidist server --config=styleguide/config.js",
     "styleguide:build": "cross-env NODE_ENV=production styleguidist build --config=styleguide/config.js",
     "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache",
+    "test:approve-snap": "npm run test -- -u",
     "test:watch": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",
     "test:ci": "cross-env TEAMCITY_VERSION=\"9.1.7\" NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache --coverage",

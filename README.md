@@ -132,6 +132,7 @@ Script              | Description
 `npm run doc`       | Compiles the style guide documentation into the `docs` folder
 `npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
 `npm run test`             | Runs all the React component unit tests
+`npm run test:approve-snap`| Runs all the React component unit tests and approves any Jest Snapshot changes
 `npm run test:watch`       | Runs all the React component unit tests and watches for file changes
 `npm run storybook`        | Compiles and sets up the storybook demo app for to do visual testing during development.  See the UI Testing section for more details.
 `npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible

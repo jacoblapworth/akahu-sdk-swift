@@ -12,6 +12,7 @@ const storyBookLocation = path.resolve(__dirname, '..', '.out');
  *	variationsPath: '../src/react/components/pill/stories/variations.js',
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
  *	selectors: 'alternate > .selectors' (defaults to '.xui-container')
+ *	misMatchThreshold: 5 (percentage variance to allow. defaults to 1)
  * }
  */
 const componentsToTest = [
@@ -99,7 +100,8 @@ function buildScenarios() {
 				return {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
-					selectors: [component.selectors || '.xui-container']
+					selectors: [component.selectors || '.xui-container'],
+					misMatchThreshold: component.misMatchThreshold || 1
 				};
 			})
 		);

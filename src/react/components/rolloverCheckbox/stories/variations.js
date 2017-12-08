@@ -1,5 +1,3 @@
-const NOOP = require('../../helpers/noop');
-
 const storiesWithVariationsKindName = 'Instances/RolloverCheckbox';
 
 const variations = [
@@ -37,6 +35,5 @@ const variations = [
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations,
-	NOOP
+	variations
 }

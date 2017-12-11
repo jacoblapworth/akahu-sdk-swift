@@ -18,6 +18,8 @@ function loadStories() {
 	require('../src/react/components/textarea/stories/stories.js');
 	require('../src/react/components/toast/stories/stories.js');
 	require('../src/react/components/toggle/stories/stories.js');
+	// Compositions
+	require('../visual-testing/composition-tests/dropdown-in-modal');
 }
 
 configure(loadStories, module);

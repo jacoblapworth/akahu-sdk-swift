@@ -8,6 +8,7 @@ function loadStories() {
 	require('../src/react/components/button/stories/stories.js');
 	require('../src/react/components/checkbox/stories/stories.js');
 	require('../src/react/components/datepicker/stories/stories.js');
+	require('../src/react/components/dropdown/stories/stories.js');
 	require('../src/react/components/icon/stories/stories.js');
 	require('../src/react/components/modal/stories/stories.js');
 	require('../src/react/components/picklist/stories/stories.js');

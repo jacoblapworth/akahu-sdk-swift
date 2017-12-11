@@ -41,6 +41,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/datepicker/stories/variations.js'
 	},
 	{
+		testsPrefix: 'DropDown',
+		variationsPath: '../src/react/components/dropdown/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Icon',
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},

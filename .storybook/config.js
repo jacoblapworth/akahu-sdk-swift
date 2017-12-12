@@ -14,6 +14,7 @@ function loadStories() {
 	require('../src/react/components/picklist/stories/stories.js');
 	require('../src/react/components/pill/stories/stories.js');
 	require('../src/react/components/radio/stories/stories.js');
+	require('../src/react/components/rolloverCheckbox/stories/stories.js');
 	require('../src/react/components/switch/stories/stories.js');
 	require('../src/react/components/tag/stories/stories.js');
 	require('../src/react/components/textarea/stories/stories.js');

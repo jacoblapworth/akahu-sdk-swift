@@ -1,7 +1,11 @@
 const baseClass = 'xui-loader';
 
-export const sizeClassNames = {
+const sizeClassNames = {
   standard: '',
   large: `${baseClass}-large`,
   small: `${baseClass}-small`
+};
+
+module.exports = {
+	sizeClassNames
 };

@@ -1,12 +1,11 @@
 // Libs
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 // Components we need to test with
-import XUIModal, { XUIModalBody } from '../../../src/react/modal';
-import DropDown, { DropDownToggled } from '../../../src/react/dropdown';
-import Picklist, { Pickitem } from '../../../src/react/picklist';
-import XUIButton, { XUIButtonCaret } from '../../../src/react/button';
+import XUIModal, { XUIModalBody } from '../../modal';
+import DropDown, { DropDownToggled } from '../../dropdown';
+import Picklist, { Pickitem } from '../../picklist';
+import XUIButton, { XUIButtonCaret } from '../../button';
 
 // Story book things
 import { storiesOf } from '@storybook/react';

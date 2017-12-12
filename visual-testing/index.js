@@ -53,10 +53,14 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Loader',
+		variationsPath: '../src/react/components/loader/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Modal',
 		variationsPath: '../src/react/components/modal/stories/variations.js'
 	},
-  {
+	{
 		testsPrefix: 'XUI Picklist',
 		variationsPath: '../src/react/components/picklist/stories/variations.js'
 	},

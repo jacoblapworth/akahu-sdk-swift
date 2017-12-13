@@ -121,7 +121,7 @@ export default class SelectBox extends Component {
 								id={selectBox.state.ariaId}
 								onClose={props.onDropdownHide}
 								closeOnSelect={props.closeAfterSelection}
-								hidden={!props.isOpen}
+								isHidden={!props.isOpen}
 								forceDesktop={props.forceDesktop}
 								matchTriggerWidth={props.matchTriggerWidth}
 								qaHook={setQaHook(props.qaHook, qaHooks.dropdownToggled)}

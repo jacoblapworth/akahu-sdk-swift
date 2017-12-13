@@ -73,6 +73,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},
 	{
+		testsPrefix: 'SelectBox',
+		variationsPath: '../src/react/components/select-box/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Switch',
 		variationsPath: '../src/react/components/switch/stories/variations.js'
 	},

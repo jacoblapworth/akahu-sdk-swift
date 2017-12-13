@@ -36,6 +36,13 @@ const variations = [
 			children: 'plaintext'
 		}
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with NestedDropDown',
+		ddSettings: {
+			children: 'nested'
+		}
+	}
 ];
 
 Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {

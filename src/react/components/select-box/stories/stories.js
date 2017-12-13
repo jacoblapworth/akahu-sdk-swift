@@ -14,22 +14,25 @@ import centered from '@storybook/addon-centered';
 
 import { VariantClassNames } from '../../button/private/constants';
 import { storiesWithVariationsKindName, variations} from './variations';
+import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
-function createItems(items) {
+function createItems(items, suffix) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i));
 	}
-	return React.createElement(SelectBoxOption, {
-		...items.props,
-		value: items.text,
-		key: items.props.id,
-		id: 'a' + items.props.id
-	}, items.text);
+	items.props.id += suffix ? suffix : '';
+	return (
+		<SelectBoxOption
+			{...items.props}
+			value={items.props.id}
+			key={items.props.id}
+		>
+			{items.text}
+		</SelectBoxOption>
+	);
 }
 
-const toggledItems = ['To Kill a Mockingbird', '1984', 'The Count of Monte Cristo', 'The Lord of the Rings (The Lord of the Rings, #1-3)', 'Twenty Thousand Leagues Under the Sea', 'Aesop\'s Fables', 'The Fall of the House of Usher and Other Tales', 'The Scarlet Pimpernel', 'The Kite Runner', 'The Call of the Wild, White Fang and Other Stories'].map( (text,id) => {
-	return { props: { id }, text };
-});
+const toggledItems = AddIdPropsToTextList(LongListLongItems);
 
 const button = <span><XUIIcon inline path={education} className="xui-margin-right-none"/>Choose a classic book</span>;
 

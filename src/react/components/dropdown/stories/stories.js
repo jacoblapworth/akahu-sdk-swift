@@ -4,6 +4,8 @@ import React from 'react';
 // Components we need to test with
 import DropDownToggled from '../DropDownToggled';
 import DropDown from '../DropDown';
+import NestedDropDown from '../NestedDropDown';
+import DropDownPanel from '../DropDownPanel';
 import DropDownHeader from '../DropDownHeader';
 import DropDownFooter from '../DropDownFooter';
 import XUIButton from '../../button/XUIButton';
@@ -18,22 +20,26 @@ import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
-import { maxWidthDropdownSizes, /* fixedWidthDropdownSizes */ } from '../private/constants';
+import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
+import { maxWidthDropdownSizes} from '../private/constants';
 
-function createItems(items) {
+function createItems(items, suffix) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i));
 	}
-	return React.createElement(Pickitem, {
-		...items.props,
-		value: items.props.id,
-		key: items.props.id,
-	}, items.text);
+	items.props.id += suffix ? suffix : '';
+	return (
+		<Pickitem
+			{...items.props}
+			value={items.props.id}
+			key={items.props.id}
+		>
+			{items.text}
+		</Pickitem>
+	);
 }
 
-const toggledItems = ['To Kill a Mockingbird', '1984', 'The Count of Monte Cristo', 'The Lord of the Rings (The Lord of the Rings, #1-3)', 'Twenty Thousand Leagues Under the Sea', 'Aesop\'s Fables', 'The Fall of the House of Usher and Other Tales', 'The Scarlet Pimpernel', 'The Kite Runner', 'The Call of the Wild, White Fang and Other Stories'].map( (text,id) => {
-	return { props: { id }, text };
-});
+const toggledItems = AddIdPropsToTextList(LongListLongItems);
 
 const trigger = (
 	<XUIButton>Open for goodies<XUIButtonCaret /></XUIButton>
@@ -55,6 +61,24 @@ const datepicker = (
 );
 const plaintext = (
 	<p>Some content that appears in a dropdown panel would go here.</p>
+);
+const nested = (
+	<NestedDropDown currentPanel="customDate" isHidden={false}>
+		<DropDownPanel panelId="samplePicklist">
+			{picklist}
+		</DropDownPanel>
+		<DropDownPanel panelId="customDate"
+					header={(
+						<DropDownHeader
+							title="Example Title"
+							onBackButtonClick={NOOP}
+							secondaryButtonContent="Cancel"
+							onSecondaryButtonClick={NOOP}
+						/>
+					)}>
+			{datepicker}
+		</DropDownPanel>
+	</NestedDropDown>
 );
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -103,6 +127,9 @@ function buildDropDown(ddSettings) {
 		children = datepicker;
 	} else if (ddSettings.children === 'plaintext') {
 		children = plaintext;
+	} else if (ddSettings.children === 'nested') {
+		// Nested DropDowns do not get wrapped in a DropDown component.
+		return nested;
 	}
 
 	if (ddSettings.headerAndFooter) {

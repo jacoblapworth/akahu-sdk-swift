@@ -1,61 +1,25 @@
 const storiesWithVariationsKindName = 'Instances/SelectBox';
+const listHelpers = require('../../helpers/list');
 
-const customItems = [
-	{
-		text: 'Kosovo',
-		props: {
-			id: 1,
-			isHighlighted: true
-		}
-	},
-	{
-		text: 'Kuwait',
-		props: {
-			id: 2,
-			isDisabled: true,
-		}
-	},
-	{
-		text: 'Kyrgyz Republic (Kyrgyzstan)',
-		props: {
-			id: 3,
-			truncatedText: true,
-			isSelected: true
-		}
-	},
-	{
-		text: 'Laos',
-		props: {
-			id: 4
-		}
-	},
-	{
-		text: 'Latvia',
-		props: {
-			id: 5,
-			isDisabled: true,
-			isSelected: true
-		}
-	},
-	{
-		text: 'Lebanon',
-		props: {
-			id: 6,
-			isSelected: true
-		}
-	}
-];
+const buildCustomItems = () => {
+	const customItems = listHelpers.AddIdPropsToTextList(listHelpers.ShortListShortItems);
 
-const buildCheckboxItems = function() {
-	let checkboxItems = [];
-	customItems.forEach(item => {
-		const newItem = {...item};
-		newItem.props = {...item.props};
-		newItem.props.showCheckboxes = true;
-		newItem.props.id = 'a' + newItem.props.id;
-		checkboxItems.push(newItem);
+	customItems[0].props.isHighlighted = true;
+	customItems[1].props.isDisabled = true;
+	customItems[2].props.isSelected = true;
+	customItems[4].props.isDisabled = true;
+	customItems[4].props.isSelected = true;
+	customItems[5].props.isSelected = true;
+
+	return customItems;
+};
+
+const buildCheckboxItems = () => {
+	const checkboxItems = buildCustomItems();
+	return checkboxItems.map(item => {
+		item.props.showCheckboxes = true;
+		return item;
 	});
-	return checkboxItems;
 };
 
 const variations = [
@@ -90,13 +54,13 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with option variations',
-		buttonContent: 'Countries',
-		items: customItems
+		buttonContent: 'Books',
+		items: buildCustomItems()
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with checkboxes and option variations',
-		buttonContent: 'Countries',
+		buttonContent: 'Books',
 		items: buildCheckboxItems()
 	}
 ];

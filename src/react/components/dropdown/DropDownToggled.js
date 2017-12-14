@@ -452,8 +452,7 @@ export default class DropDownToggled extends PureComponent {
 			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
 			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, ddt.onOpenAnimationEnd),
 			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: dropdown.props.className,
-			style: dropdown.style
+			className: dropdown.props.className
 		});
 
 		return (

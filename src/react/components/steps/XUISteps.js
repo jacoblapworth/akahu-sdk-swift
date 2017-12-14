@@ -14,7 +14,8 @@ const Tab = ({name, description, handleClick, isStacked, isError, isActive, isDi
 
 	const linkClasses = cn(
 		`${BASE_CLASS}-link`, {
-			[`${BASE_CLASS}-link-inline`]: !isStacked,
+			// [`${BASE_CLASS}-link-inline`]: !isStacked,
+			[`${BASE_CLASS}-link-stacked`]: isStacked,
 			[`${BASE_CLASS}-link-active`]: isActive,
 			[`${BASE_CLASS}-link-error`]: !isActive && isError,
 			[`${BASE_CLASS}-link-disabled`]: isDisabled

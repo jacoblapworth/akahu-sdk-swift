@@ -368,28 +368,33 @@
 
 .#{$ns}-stepper-link {
 	@include xui-button-reset;
-	border-radius: 4px;
+
 	color: $xui-color-grey-1;
 	display: block;
 	height: 100%;
-	padding: 0 10px 10px;
 	width: 100%;
-}
 
-.#{$ns}-stepper-link-inline {
 	align-items: center;
 	border-radius: 9999px;
 	padding: 2px 20px 2px 0;
 }
 
 .#{$ns}-stepper-link-wrapper {
-	text-align: center;
-}
-
-.#{$ns}-stepper-link-inline .#{$ns}-stepper-link-wrapper {
 	align-items: center;
 	display: flex;
-	text-align: left;
+}
+
+.#{$ns}-stepper-inline {
+
+	.#{$ns}-stepper-link-stacked {
+		border-radius: 4px;
+		display: block;
+		padding: 0 10px 10px;
+	}
+
+	.#{$ns}-stepper-link-stacked .#{$ns}-stepper-link-wrapper {
+		text-align: center;
+	}
 }
 
 .#{$ns}-stepper-link-icon {

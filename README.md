@@ -8,7 +8,7 @@ XUI
 XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
 
 ### Always get the latest versions here:
-* XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
+* XUI Guide: https://xui.xero.com/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
 ### Jump to the latest docs

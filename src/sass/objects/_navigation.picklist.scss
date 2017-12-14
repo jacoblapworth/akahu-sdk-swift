@@ -652,6 +652,7 @@
 }
 
 .#{$ns}-pickitem--text {
+	@include xui-text-wordbreak;
 	padding-bottom: 10px;
 	padding-right: 20px;
 	padding-top: 10px;

@@ -1,5 +1,4 @@
 # Library and framework files/directories
-/bower_components
 /.bundle
 /node_modules
 /vendor/bundle/
@@ -37,3 +36,6 @@ visual-testing/tests/*
 visual-testing/ci-report/*
 visual-testing/web-report/*
 .out/*
+
+# NPM debug logs
+npm-debug.log.*

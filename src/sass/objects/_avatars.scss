@@ -24,6 +24,11 @@
 }
 /* doiuse-enable object-fit*/
 
+// Required for alignment of img avatars in IE 11
+img.#{$ns}-avatar {
+	display: inline;
+}
+
 .#{$ns}-avatar-xsmall {
 	font-size: 8px;
 	height: 18px;

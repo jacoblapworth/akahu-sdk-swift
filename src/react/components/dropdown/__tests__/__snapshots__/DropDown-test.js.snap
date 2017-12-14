@@ -130,7 +130,7 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
       }
     >
       <div
-        className="xui-u-flex xui-u-flex-vertical xui-u-flex-grow"
+        className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
         data-automationid="dropdown-test--scrollable-container"
       >
         <div

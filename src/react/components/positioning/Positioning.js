@@ -329,6 +329,11 @@ Positioning.propTypes = {
 	onVisible: PropTypes.func,
 	/** Setting to true will for the dropdown to be as wide as the trigger. */
 	isTriggerWidthMatched: PropTypes.bool,
+	/**
+	 * Setting a number here will force the maximum height of the child to be the number provided (in pixels) if the viewport is too big.
+	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
+	 */
+	maxHeight: PropTypes.number
 };
 
 Positioning.defaultProps = {

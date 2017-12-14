@@ -89,7 +89,6 @@ storiesWithKnobs.add('Playground', () => {
 	const showHeader = boolean('show header?', false);
 	const showFooter = boolean('show footer?', false);
 
-
 	return (
 		<DropDownToggled
 			trigger={trigger}
@@ -149,7 +148,7 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
-		const ddSettings = variationMinusStoryDetails.ddSettings;
+		const { ddSettings } = variationMinusStoryDetails;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
 		delete variationMinusStoryDetails.ddSettings;

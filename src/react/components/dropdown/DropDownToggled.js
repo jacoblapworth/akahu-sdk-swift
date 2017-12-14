@@ -429,7 +429,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -452,7 +452,8 @@ export default class DropDownToggled extends PureComponent {
 			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
 			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, ddt.onOpenAnimationEnd),
 			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: dropdown.props.className
+			className: dropdown.props.className,
+			style: dropdown.style
 		});
 
 		return (
@@ -465,6 +466,7 @@ export default class DropDownToggled extends PureComponent {
 			>
 				{clonedTrigger}
 				<Positioning
+					maxHeight={maxHeight}
 					ref={c => this.positioning = c}
 					parentRef={ddt.wrapper}
 					isVisible={!isHidden}

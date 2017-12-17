@@ -2,29 +2,19 @@
 
 XUI has been built on KSS a living style guide system that works by annotating CSS or SASS and producing an interactive documentation system that makes use of it's own CSS.
 
-- [ ] Add reference info to KSS and how we are using it / have it configured eg everything is in the kss directory, kss-assets gets copied across etc.
-- [ ] Add info on KSS tooling
-- [ ] Add info on bespoke template
-- [ ] Add info on custom CSS (responsive, making certain examples work (margin, position relative overrides, etc))
+## Custom Menu (nodejs)
 
-## Custom Menu
+KSS by design has a very limited page structure. It builds a navigation based on parent and child pages and supports a "grandchild" flag for on page navigation. XUI has a much deeper requirement with at least three levels of nesting. This is done by specifying in the KSS config, pages that have children (`child-pages`). This pattern was based off this issue description: https://github.com/kss-node/kss-node/issues/175.
 
-We have added a custom Handlebars builder that creates a custom menu object that better supports nesting to support our desired menu structure. The custom menu is built by comparing the KSS weights of sections and building a nested tree. The class lives in `kss/builder/index.js`.
+The custom menu is done by overwriting the `createMenu` method in our custom `kss/builder/index.js` class. We introduce a recursive `buildMenu` function that builds a true nested menu.
 
-Example Weights:
-
-Weight: 4.0 Building, Blocks – top level, primarily for content overview pages.
-Weight: 4.3 Controls, second level, for detail content or landing pages of grouped content.
-Weight: 4.35 Toggles, third level, for detail content under landing pages.
-
-This customisation is not fool proof and if second or third level pages are added without the correct parent page they will most probably be hiding in the previous section ordered by weight.
-
-## Custom Page Creation
+## Custom Page Creation (nodejs)
 
 To determine our child pages and correctly render our sections, we've created a custom build for the pages. This class lives alongside the custom menu generation in `kss/builder/index.js`. You can find technical details in the comments of the `buildGuide` function.
 
+This method is unreasonably large and we only need to hook it around line 290 in the `sectionRoots.forEach` and there is not really a simpler way. So it is mostly copy paste. The section inside the `sectionRoots` iteration decides which roots to build as html pages and which content to include on them.
 
-## Customisations
+## Customisations (node/handlebars)
 
 KSS supports custom properties and we have a number all pre-defined in our [config.json](https://github.dev.xero.com/UXE/xui/blob/master/kss/config.json#L3) these allow us to push KSS beyond it's initial design by adding custom handlebars templates and helpers when these props are used.
 

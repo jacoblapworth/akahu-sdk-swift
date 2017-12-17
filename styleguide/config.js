@@ -38,9 +38,6 @@ const config = {
 							},
 							{
 								loader: 'sass-loader',
-								options: {
-									includePaths: [path.resolve(basePath, 'bower_components')]
-								}
 							},
 						],
 					}),

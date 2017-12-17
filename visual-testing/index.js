@@ -53,6 +53,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/icon/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Input',
+		variationsPath: '../src/react/components/input/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Loader',
 		variationsPath: '../src/react/components/loader/stories/variations.js'
 	},

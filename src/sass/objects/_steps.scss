@@ -93,13 +93,11 @@
 // Styleguide: Building Blocks.Steps.4
 
 .#{$ns}-steps {
+	@include xui-listreset;
 	color: $xui-color-grey-alpha-2;
 	cursor: default;
 	display: flex;
 	justify-content: center;
-	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 .#{$ns}-step {

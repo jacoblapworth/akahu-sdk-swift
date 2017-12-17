@@ -86,6 +86,24 @@
 	width: 100%;
 }
 
+@mixin xui-text-wordbreak {
+	// chrome doesn't support this but what can you do ¯\_(ツ)_/¯
+	hyphens: auto;
+
+	// This is technically the same as word-wrap, but use both for maximum support
+	overflow-wrap: break-word;
+
+	// auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
+	-ms-word-break: break-all;
+
+	// This is for firefox support
+	word-break: break-word;
+
+	// We want this to take precedence over word-break: break-all or words will break without
+	// moving to the next line when they're separated by spaces
+	word-wrap: break-word;
+}
+
 @mixin xui-heading-large {
 	@include xui-text-line-height-compact;
 	@include xui-text-proportional-nums;

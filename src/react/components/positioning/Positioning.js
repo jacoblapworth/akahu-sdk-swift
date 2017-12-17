@@ -245,9 +245,9 @@ class Positioning extends PureComponent {
 
 		if (verge.inViewport(triggerDOM)) {
 			if (!popup.props.isNotResponsive && isNarrowViewport()) {
-
+				const viewportH = verge.viewportH();
 				popup.setState({
-					maxHeight: verge.viewportH() < maxHeight ? verge.viewportH : maxHeight,
+					maxHeight: viewportH < maxHeight ? viewportH : maxHeight,
 				});
 			} else {
 				const triggerRect = triggerDOM.getBoundingClientRect();

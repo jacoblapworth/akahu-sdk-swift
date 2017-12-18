@@ -17,10 +17,6 @@ const storyBookLocation = path.resolve(__dirname, '..', '.out');
  */
 const componentsToTest = [
 	{
-		testsPrefix: 'Rollover Checkbox',
-			variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
-	},
-	{
 		testsPrefix: 'XUI Autocompleter',
 		variationsPath: '../src/react/components/autocompleter/stories/variations.js'
 	},
@@ -77,6 +73,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},
 	{
+		testsPrefix: 'Rollover Checkbox',
+		variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
+	},
+	{
 		testsPrefix: 'SelectBox',
 		variationsPath: '../src/react/components/select-box/stories/variations.js'
 	},
@@ -99,6 +99,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Toggle',
 		variationsPath: '../src/react/components/toggle/stories/variations.js'
+	},
+	{
+		testsPrefix: 'Compositions',
+		variationsPath: '../src/react/stories/tests.js'
 	}
 ];
 

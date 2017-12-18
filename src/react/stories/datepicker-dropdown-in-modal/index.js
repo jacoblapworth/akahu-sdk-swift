@@ -4,9 +4,10 @@ import React from 'react';
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../modal';
 import DropDown, { DropDownToggled } from '../../dropdown';
-import Picklist, { Pickitem } from '../../picklist';
+import XUIDatePicker from '../../datepicker';
 import XUIButton, { XUIButtonCaret } from '../../button';
 
+import NOOP from '../../components/helpers/noop';
 import { storyNames, compositionKind } from '../tests';
 
 // Story book things
@@ -14,68 +15,37 @@ import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 
+const displayMonth = new Date('Oct 02 2017 00:00:00 GMT+1300');
+
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
 
-const toggledItems = [
-	'Apricot',
-	'Banana',
-	'Cherry',
-	'Dragon Fruit',
-	'Eggplant',
-	'Fennel',
-	'Grapefruit',
-	'Honeydew',
-	'Iceberg Lettuce',
-	'Jackfruit',
-	'Kiwifruit',
-	'Lime',
-	'Mango',
-	'Nectarine',
-	'Orange',
-	'Pineapple',
-	'Quince',
-	'Rapberry',
-	'Starfruit',
-	'Tomato',
-	'Uglifruit',
-	'Valencia Orange',
-	'Watermelon',
-	'Xi gua',
-	'Yellow quash',
-	'Zucchini'].map((text, id) => (
-		<Pickitem
-			key={id}
-			id={text}
-			isSelected={false}>
-			{text}
-		</Pickitem>
-	)
-);
-
-test.add(storyNames.dropDownInModal, () => {
+test.add(storyNames.dateDDInModal, () => {
 
 	const trigger = (
 		<XUIButton>
-			Trigger Button
+			Datepicker Button
 			<XUIButtonCaret />
 		</XUIButton>
 	);
 	const dropdown = (
 		<DropDown>
-			<Picklist>
-				{toggledItems}
-			</Picklist>
+			<XUIDatePicker
+				onSelectDate={NOOP}
+				displayedMonth={displayMonth}
+			>
+			</XUIDatePicker>
 		</DropDown>
 	);
 
 	return (
 		<XUIModal isOpen>
 			<XUIModalBody>
-				This is some Modal content.
+				This is some Datepicker Modal content.
 				<DropDownToggled
 					trigger={trigger}
 					dropdown={dropdown}
+					isHidden={false}
 				/>
 			</XUIModalBody>
 		</XUIModal>

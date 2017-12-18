@@ -32,6 +32,7 @@
 
 ### Dropdown
 * qaHook added for Layout, Panel Body, Toggled, Footer and Header components
+* new prop `maxHeight` for `<DropDownToggled />` to let you set a max height given enough space.
 
 ### Inputs
 * qaHook added to input and close component

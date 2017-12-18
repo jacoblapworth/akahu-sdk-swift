@@ -3,7 +3,8 @@ const compositionKind = 'Compositions';
 const storyNames = {
 	dateDDInModal: 'Datepicker dropdown in a modal',
 	dropDownInModal: 'Dropdown in a modal',
-	multiDropDowns: 'Multiple dropdowns in a modal'
+	multiDropDowns: 'Multiple dropdowns in a modal',
+	formOnAPage: 'Form on a page'
 };
 
 const variations = [];

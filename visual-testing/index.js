@@ -69,6 +69,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/pill/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Progress Indicator',
+		variationsPath: '../src/react/components/progressindicator/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
 	},

@@ -429,7 +429,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -465,6 +465,7 @@ export default class DropDownToggled extends PureComponent {
 			>
 				{clonedTrigger}
 				<Positioning
+					maxHeight={maxHeight}
 					ref={c => this.positioning = c}
 					parentRef={ddt.wrapper}
 					isVisible={!isHidden}
@@ -532,6 +533,12 @@ DropDownToggled.propTypes = {
 	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
+
+	/**
+	 * Setting a number here will force the maximum height of the dropdown to be the number provided (in pixels) if the viewport is too big.
+	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
+	 */
+	maxHeight: PropTypes.number
 };
 
 DropDownToggled.defaultProps = {

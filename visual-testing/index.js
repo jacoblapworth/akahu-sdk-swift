@@ -17,10 +17,6 @@ const storyBookLocation = path.resolve(__dirname, '..', '.out');
  */
 const componentsToTest = [
 	{
-		testsPrefix: 'Rollover Checkbox',
-			variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
-	},
-	{
 		testsPrefix: 'XUI Autocompleter',
 		variationsPath: '../src/react/components/autocompleter/stories/variations.js'
 	},
@@ -50,7 +46,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Icon',
-		variationsPath: '../src/react/components/icon/stories/variations.js'
+		variationsPath: '../src/react/components/icon/stories/variations.js',
+		selectors: '.capture'
 	},
 	{
 		testsPrefix: 'XUI Input',
@@ -73,8 +70,16 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/pill/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Progress Indicator',
+		variationsPath: '../src/react/components/progressindicator/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Radio',
 		variationsPath: '../src/react/components/radio/stories/variations.js'
+	},
+	{
+		testsPrefix: 'Rollover Checkbox',
+		variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
 	},
 	{
 		testsPrefix: 'SelectBox',
@@ -99,6 +104,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Toggle',
 		variationsPath: '../src/react/components/toggle/stories/variations.js'
+	},
+	{
+		testsPrefix: 'Compositions',
+		variationsPath: '../src/react/stories/tests.js'
 	}
 ];
 
@@ -125,7 +134,8 @@ function buildScenarios() {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
 					selectors: [component.selectors || '.xui-container'],
-					misMatchThreshold: component.misMatchThreshold || .4
+					misMatchThreshold: component.misMatchThreshold || .4,
+					selectorExpansion: component.captureAllSelectors
 				};
 			})
 		);

@@ -48,7 +48,9 @@ storiesWithVariations.addDecorator(centered);
 function generateSubVariants(subVariants, variant) {
 	const examples = subVariants.map((prop, idx) => <XUIIcon key={idx} {...prop} {...variant} />)
 	return (
-		<div>{examples}</div>
+		<div className="capture">
+			{examples}
+		</div>
 	);
 }
 
@@ -66,7 +68,6 @@ variations.forEach(variation => {
 		} else {
 			example = <XUIIcon {...variationMinusStoryDetails} />
 		}
-
 
 		return example;
 	});

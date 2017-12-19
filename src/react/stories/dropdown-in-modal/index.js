@@ -7,12 +7,14 @@ import DropDown, { DropDownToggled } from '../../dropdown';
 import Picklist, { Pickitem } from '../../picklist';
 import XUIButton, { XUIButtonCaret } from '../../button';
 
+import { storyNames, compositionKind } from '../tests';
+
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 
-const test = storiesOf('Compositions', module);
+const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
 
 const toggledItems = [
@@ -51,7 +53,7 @@ const toggledItems = [
 	)
 );
 
-test.add('Dropdown in a modal', () => {
+test.add(storyNames.dropDownInModal, () => {
 
 	const trigger = (
 		<XUIButton>

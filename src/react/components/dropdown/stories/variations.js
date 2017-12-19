@@ -42,6 +42,12 @@ const variations = [
 		ddSettings: {
 			children: 'nested'
 		}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with maxHeight',
+		ddSettings: {},
+		maxHeight: 200
 	}
 ];
 

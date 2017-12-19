@@ -46,7 +46,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Icon',
-		variationsPath: '../src/react/components/icon/stories/variations.js'
+		variationsPath: '../src/react/components/icon/stories/variations.js',
+		selectors: '.capture'
 	},
 	{
 		testsPrefix: 'XUI Input',
@@ -133,7 +134,8 @@ function buildScenarios() {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
 					selectors: [component.selectors || '.xui-container'],
-					misMatchThreshold: component.misMatchThreshold || .4
+					misMatchThreshold: component.misMatchThreshold || .4,
+					selectorExpansion: component.captureAllSelectors
 				};
 			})
 		);

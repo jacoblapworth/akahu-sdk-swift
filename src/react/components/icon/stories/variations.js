@@ -10,7 +10,8 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with path',
-		path: cross
+		path: cross,
+		className: "capture"
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

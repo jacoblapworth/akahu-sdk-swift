@@ -11,14 +11,16 @@ const storyBookLocation = path.resolve(__dirname, '..', '.out');
  * 	testsPrefix: 'XUI Pill',
  *	variationsPath: '../src/react/components/pill/stories/variations.js',
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
- *	selectors: 'alternate > .selectors' (defaults to '.xui-container')
+ *	selectors: 'alternate > .selectors' (defaults to '#root > div > div')
+ *      NB: override the default for absolutely positioned components.
  *	misMatchThreshold: 5 (percentage variance to allow. defaults to .4)
  * }
  */
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Autocompleter',
-		variationsPath: '../src/react/components/autocompleter/stories/variations.js'
+		variationsPath: '../src/react/components/autocompleter/stories/variations.js',
+		selectors: '.xui-container'
 	},
 	{
 		testsPrefix: 'XUI Avatar',
@@ -42,7 +44,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'DropDown',
-		variationsPath: '../src/react/components/dropdown/stories/variations.js'
+		variationsPath: '../src/react/components/dropdown/stories/variations.js',
+		selectors: '.xui-container'
 	},
 	{
 		testsPrefix: 'XUI Icon',
@@ -59,7 +62,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Modal',
-		variationsPath: '../src/react/components/modal/stories/variations.js'
+		variationsPath: '../src/react/components/modal/stories/variations.js',
+		selectors: '.xui-container'
 	},
 	{
 		testsPrefix: 'XUI Picklist',
@@ -83,7 +87,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'SelectBox',
-		variationsPath: '../src/react/components/select-box/stories/variations.js'
+		variationsPath: '../src/react/components/select-box/stories/variations.js',
+		selectors: '.xui-container'
 	},
 	{
 		testsPrefix: 'XUI Switch',
@@ -107,7 +112,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'Compositions',
-		variationsPath: '../src/react/stories/tests.js'
+		variationsPath: '../src/react/stories/tests.js',
+		selectors: '.xui-container'
 	}
 ];
 
@@ -133,7 +139,7 @@ function buildScenarios() {
 				return {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
-					selectors: [component.selectors || '.xui-container'],
+					selectors: [component.selectors || '#root > div > div'],
 					misMatchThreshold: component.misMatchThreshold || .4,
 					selectorExpansion: component.captureAllSelectors
 				};
@@ -148,8 +154,8 @@ module.exports = {
 	viewports: [
 		{
 			label: "just desktop",
-			width: 1920,
-			height: 1080
+			width: 1024,
+			height: 768
 		}
 	],
 	scenarios: buildScenarios(),

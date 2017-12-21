@@ -115,6 +115,10 @@ Most notably, the removal of the `.node` property on react wrappers and the incl
 
 The [changelog](http://airbnb.io/enzyme/CHANGELOG.html#310) is recommended reading if you are a current, or future contributor to the project.
 
+## Coverage
+
+Test coverage reports are generated as part of the [Pull Request builds](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest). The Reports are available via Artifacts > Icov-report > index.html in Team City.
+
 ## Development UI Test Pages
 
 Linting and unit tests are an extremely important part of ensuring code quality for XUI, but they both have their limitations. UI test pages provide interactive pages for each component to test various configurations manually in the browser.

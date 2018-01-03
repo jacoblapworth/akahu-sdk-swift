@@ -51,9 +51,9 @@ XUIProgressLinear.propTypes = {
 	isSoftError: PropTypes.bool,
 
 	/** A "color" key that overrides the default "total" gray track swatch. */
-	totalColor: PropTypes.oneOf(['orange', 'yellow', 'green', 'mint', 'turquoise', 'blue', 'violet', 'grape', 'pink', 'grey']),
+	totalColor: PropTypes.oneOf(['orange', 'yellow', 'green', 'mint', 'turquoise', 'blue', 'violet', 'grape', 'pink', 'grey', 'purple', 'lightGreen']),
 
 	/** A "color" key that overrides the default "progress" blue track swatch. */
-	progressColor: PropTypes.oneOf(['orange', 'yellow', 'green', 'mint', 'turquoise', 'blue', 'violet', 'grape', 'pink', 'grey']),
+	progressColor: PropTypes.oneOf(['orange', 'yellow', 'green', 'mint', 'turquoise', 'blue', 'violet', 'grape', 'pink', 'grey', 'purple', 'lightGreen']),
 
 };

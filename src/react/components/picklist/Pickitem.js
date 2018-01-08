@@ -25,7 +25,7 @@ export default class Pickitem extends PureComponent {
 			onMouseOver,
 			ariaRole,
 			disableSelectedStyles,
-			multiselect,
+			isMultiselect,
 			href,
 			children,
 			qaHook,
@@ -41,7 +41,7 @@ export default class Pickitem extends PureComponent {
 		const classes = cn('xui-pickitem', className, {
 			'xui-pickitem-is-hovered': isHighlighted,
 			'xui-pickitem-is-selected': isSelected && !disableSelectedStyles,
-			'xui-pickitem--multiselect': multiselect,
+			'xui-pickitem--multiselect': isMultiselect,
 			'xui-pickitem--split': isSplit,
 			'xui-is-disabled': isDisabled
 		});
@@ -52,7 +52,7 @@ export default class Pickitem extends PureComponent {
 		return (
 			<Tag
 				className={classes}
-				aria-selected={multiselect ? isSelected : null}
+				aria-selected={isMultiselect ? isSelected : null}
 				role={ariaRole}
 				id={id}
 				data-automationid={qaHook}
@@ -61,7 +61,7 @@ export default class Pickitem extends PureComponent {
 				<PickitemBody
 					shouldTruncate={shouldTruncate}
 					isSelected={isSelected}
-					multiselect={multiselect}
+					isMultiselect={isMultiselect}
 					href={href}
 					checkboxClassName={checkboxClassName}
 					target={target}
@@ -102,7 +102,7 @@ Pickitem.propTypes = {
 	/** For nested children such as checkboxes, icons or groups selected styles should be disabled. */
 	disableSelectedStyles: PropTypes.bool,
 	/** When true a checkbox will be added to the layout of the child component. */
-	multiselect: PropTypes.bool,
+	isMultiselect: PropTypes.bool,
 	/** Classes can be passed toe the XUICheckbox component in PickItemBody. */
 	checkboxClassName: PropTypes.string,
 	/** The automation-id to add to the item */

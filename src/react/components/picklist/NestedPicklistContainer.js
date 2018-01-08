@@ -9,7 +9,7 @@ export default class NestedPicklistContainer extends PureComponent {
 
 		const container = this;
 		container.state = {
-			open: props.open
+			open: props.isOpen
 		};
 		[
 			container.toggle,
@@ -28,17 +28,17 @@ export default class NestedPicklistContainer extends PureComponent {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.open !== nextProps.open) {
+		if (this.props.isOpen !== nextProps.isOpen) {
 			this.setState({
-				open: nextProps.open
+				open: nextProps.isOpen
 			});
 		}
 	}
 
 	componentDidUpdate(prevProps) {
 		const { props } = this;
-		if (prevProps.open !== props.open) {
-			const callback = props.open ? props.onOpen : props.onClose;
+		if (prevProps.isOpen !== props.isOpen) {
+			const callback = props.isOpen ? props.onOpen : props.onClose;
 			if (callback) {
 				callback();
 			}
@@ -94,14 +94,14 @@ NestedPicklistContainer.propTypes = {
 	qaHook: PropTypes.string,
 	id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 	className: PropTypes.string,
-	open: PropTypes.bool,
+	isOpen: PropTypes.bool,
 	onOpen: PropTypes.func,
 	onClose: PropTypes.func,
 	secondaryProps: PropTypes.object
 };
 
 NestedPicklistContainer.defaultProps = {
-	open: false,
+	isOpen: false,
 	secondaryProps: {
 		role: 'treeitem'
 	},

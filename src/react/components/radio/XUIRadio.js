@@ -26,7 +26,7 @@ export default class XUIRadio extends React.Component {
 			qaHook,
 			iconCheckPath,
 			iconMainPath,
-			defaultChecked,
+			isDefaultChecked,
 			isChecked,
 			isDisabled,
 			isRequired,
@@ -62,7 +62,7 @@ export default class XUIRadio extends React.Component {
 		};
 
 		if (typeof isChecked !== 'boolean') {
-			inputProps.defaultChecked = !!defaultChecked;
+			inputProps.defaultChecked = !!isDefaultChecked;
 		} else {
 			inputProps.checked = isChecked;
 			// checked prop without an onChange handler means this is readonly, so set that to prevent
@@ -131,7 +131,7 @@ XUIRadio.propTypes = {
 	isLabelHidden: PropTypes.bool,
 
 	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
-	defaultChecked: PropTypes.bool,
+	isDefaultChecked: PropTypes.bool,
 };
 
 XUIRadio.defaultProps = {

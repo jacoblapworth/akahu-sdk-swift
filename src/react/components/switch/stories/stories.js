@@ -17,8 +17,8 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<XUISwitch
-		checked={boolean('checked', false)}
-		disabled={boolean('disabled', false)}
+		isChecked={boolean('isChecked', false)}
+		isDisabled={boolean('isDisabled', false)}
 		onChange={NOOP}
 	></XUISwitch>
 ));

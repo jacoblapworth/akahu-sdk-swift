@@ -130,7 +130,7 @@ class XDD extends Component {
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
-								inline
+								isInline
 								path={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>

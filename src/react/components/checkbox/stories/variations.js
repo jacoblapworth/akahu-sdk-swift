@@ -5,6 +5,11 @@ const storiesWithVariationsKindName = 'Instances/XUICheckbox';
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'Default',
+		label: 'Just a regular checkbox'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with no label',
 		label: 'No Label Example',
 		isLabelHidden: true
@@ -47,7 +52,7 @@ const variations = [
 		label: 'Reversed Example',
 		isReversed: true
 	},
-	{   
+	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with an icon',
 		label: 'Icon Example',

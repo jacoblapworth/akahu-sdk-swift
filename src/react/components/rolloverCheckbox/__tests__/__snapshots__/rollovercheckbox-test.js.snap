@@ -35,31 +35,10 @@ exports[`RolloverCheckbox allows for a user defined rollover component to be pas
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -97,31 +76,10 @@ exports[`RolloverCheckbox displays the checkbox when it's set to be shown 1`] = 
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -160,31 +118,10 @@ exports[`RolloverCheckbox doesn't display the checkbox when it's set to hidden 1
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -222,31 +159,10 @@ exports[`RolloverCheckbox include an automation-id 1`] = `
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
-        data-automationid="test-rollovercheckbox--checkbox--icon"
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        data-automationid="test-rollovercheckbox--checkbox--checkbox"
+      />
     </label>
   </div>
 </div>
@@ -284,31 +200,10 @@ exports[`RolloverCheckbox renders a variety of sizes will be a large size when p
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -346,31 +241,10 @@ exports[`RolloverCheckbox renders a variety of sizes will be a small size when p
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -408,31 +282,10 @@ exports[`RolloverCheckbox renders a variety of sizes will be a xlarge size when 
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -470,31 +323,10 @@ exports[`RolloverCheckbox renders a variety of sizes will be display the standar
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -532,31 +364,10 @@ exports[`RolloverCheckbox renders an id on teh root node when passed 1`] = `
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -594,31 +405,10 @@ exports[`RolloverCheckbox renders checked when specified 1`] = `
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -656,31 +446,10 @@ exports[`RolloverCheckbox renders correctly 1`] = `
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -718,31 +487,10 @@ exports[`RolloverCheckbox renders unchecked when specified 1`] = `
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -780,31 +528,10 @@ exports[`RolloverCheckbox should render the disabled classes and a disabled chec
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -842,31 +569,10 @@ exports[`RolloverCheckbox shouldn't render the disabled classes and a disabled c
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>
@@ -904,31 +610,10 @@ exports[`RolloverCheckbox shouldn't render the disabled classes or a disabled ch
         type="checkbox"
         value={undefined}
       />
-      <svg
-        className="xui-icon"
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid={undefined}
-      >
-        <path
-          className="xui-styledcheckboxradio--focus"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--main"
-          d="M6.5 9.5v12q0 3 3 3h12q3 0 3-3v-12q0-3-3-3h-12q-3 0-3 3z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--check"
-          d="M9.40380592 16.26776695l4.2426407 4.2426407 8.48528136-8.48528138-1.41421356-1.41421357-7.0710678 7.07106782-2.82842714-2.82842713z"
-          role="presentation"
-        />
-        <path
-          className="xui-styledcheckboxradio--indeterminate"
-          d="M11.5 14.5h8v2h-8z"
-          role="presentation"
-        />
-      </svg>
+      />
     </label>
   </div>
 </div>

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import verge from 'verge';
 import {Portal} from 'react-portal';
-import debounce from 'lodash.debounce';
 import cn from 'classnames';
 import {
 	isNarrowViewport,
@@ -150,7 +149,8 @@ class Positioning extends PureComponent {
 
 		popup.positionComponent = popup.positionComponent.bind(popup);
 		popup.calculateMaxHeight = popup.calculateMaxHeight.bind(popup);
-		popup.resizeHandler = debounce(popup.positionComponent, 75, { leading: false, trailing: true });
+		popup.resizeAndScrollHandler = popup.resizeAndScrollHandler.bind(popup);
+		popup.ticking = false;
 	}
 
 	componentDidMount() {
@@ -209,6 +209,14 @@ class Positioning extends PureComponent {
 		clearTimeout(this._visibleTimer);
 	}
 
+	resizeAndScrollHandler() {
+		const popup = this;
+		if (!popup.ticking) {
+			window.requestAnimationFrame(popup.positionComponent);
+			popup.ticking = true;
+		}
+	}
+
 	/**
 	 * Calculate positioning of the popup if the trigger is rendered.
 	 *
@@ -230,6 +238,8 @@ class Positioning extends PureComponent {
 				}
 			}
 		}
+
+		popup.ticking = false;
 	}
 
 	/**

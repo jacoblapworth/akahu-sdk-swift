@@ -73,7 +73,8 @@ export const scrollLeftAmount = () =>
  */
 export function attachListeners(popup) {
 	if (typeof window !== 'undefined') {
-		window.addEventListener('resize', popup.resizeHandler);
+		window.addEventListener('resize', popup.resizeAndScrollHandler);
+		window.addEventListener('scroll', popup.resizeAndScrollHandler);
 	}
 }
 
@@ -84,6 +85,7 @@ export function attachListeners(popup) {
  */
 export function detachListeners(popup) {
 	if (typeof window !== 'undefined') {
-		window.removeEventListener('resize', popup.resizeHandler);
+		window.removeEventListener('resize', popup.resizeAndScrollHandler);
+		window.removeEventListener('scroll', popup.resizeAndScrollHandler);
 	}
 }

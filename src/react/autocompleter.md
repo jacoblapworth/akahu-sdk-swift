@@ -41,6 +41,8 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 You should add a callback to `onBackspacePill` which removes the last selected element. This will be called if the backspace key is pressed while the input is empty.
 
+Also note that the `<XUIAutocompleterEmptyState>` component needs to be wrapped in a `<Picklist>` component if you want to be able to access a header or footer with the keyboard.
+
 ```
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
@@ -131,7 +133,13 @@ class DetailedListExample extends Component {
 		} = example.state;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
+			return (
+				<Picklist>
+					<XUIAutocompleterEmptyState id="no_people">
+						No People Found
+					</XUIAutocompleterEmptyState>
+				</Picklist>
+			);
 		}
 
 		const items = people.map(item => (
@@ -303,7 +311,13 @@ class DetailedListExample extends Component {
 		} = example.state;
 
 		if(!Array.isArray(people) || people.length <= 0){
-			return <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>;
+			return (
+				<Picklist>
+						<XUIAutocompleterEmptyState id="no_people">
+								No People Found
+						</XUIAutocompleterEmptyState>
+					</Picklist>
+			);
 		}
 
 		const items = people.map(item => (

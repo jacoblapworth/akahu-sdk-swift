@@ -57,7 +57,7 @@ const picklist = (
 	<Picklist>{createItems(toggledItems)}</Picklist>
 );
 const datepicker = (
-	<XUIDatePicker onSelectDate={NOOP} isCompact={true} />
+	<XUIDatePicker onSelectDate={NOOP} isCompact={true} displayedMonth={new Date('1 Dec 2017')} />
 );
 const plaintext = (
 	<p>Some content that appears in a dropdown panel would go here.</p>

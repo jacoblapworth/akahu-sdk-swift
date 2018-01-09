@@ -35,6 +35,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Capsule',
+		variationsPath: '../src/react/components/capsule/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Checkbox',
 		variationsPath: '../src/react/components/checkbox/stories/variations.js'
 	},

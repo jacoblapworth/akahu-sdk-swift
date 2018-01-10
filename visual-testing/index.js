@@ -42,7 +42,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Checkbox',
-		variationsPath: '../src/react/components/checkbox/stories/variations.js'
+		variationsPath: '../src/react/components/checkbox/stories/variations.js',
+		delay: 500
 	},
 	{
 		testsPrefix: 'XUI DatePicker',
@@ -86,7 +87,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Radio',
-		variationsPath: '../src/react/components/radio/stories/variations.js'
+		variationsPath: '../src/react/components/radio/stories/variations.js',
+		delay: 500
 	},
 	{
 		testsPrefix: 'Rollover Checkbox',

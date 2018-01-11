@@ -216,7 +216,9 @@ class StatefulPicklist extends Component {
 	 * @memberof StatefulPicklist
 	 */
 	highlightInitial() {
-		if (this.getHighlighted() == null) {
+		const highlightedEl = this.getHighlighted();
+		const canFindHighlightedEl = highlightedEl && this.idCache.hasOwnProperty(highlightedEl.props.id) && this.idCache[highlightedEl.props.id];
+		if (!canFindHighlightedEl) {
 			const firstItem = findInitialHighlightedItem(this.list, this.idCache);
 			if (firstItem) {
 				this.setState({

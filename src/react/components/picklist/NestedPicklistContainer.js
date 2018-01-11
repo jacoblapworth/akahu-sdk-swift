@@ -11,14 +11,10 @@ export default class NestedPicklistContainer extends PureComponent {
 		container.state = {
 			open: props.isOpen
 		};
-		[
-			container.toggle,
-			container.open,
-			container.close,
-			container.isOpen
-		].forEach(fn => {
-			container[fn.name] = fn.bind(container);
-		});
+		container.toggle = container.toggle.bind(container);
+		container.open = container.open.bind(container);
+		container.close = container.close.bind(container);
+		container.isOpen = container.isOpen.bind(container);
 	}
 
 	getChildContext() {

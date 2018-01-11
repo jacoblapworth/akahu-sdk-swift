@@ -41,9 +41,12 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 		? Math.max(triggerRect.left, viewportGutter)
 		: Math.min(Math.max(triggerRect.right - popupRect.width, viewportGutter), verge.viewportW() - popupRect.width - viewportGutter);
 
+	// Use `round` to cater for subpixel calculations
+	// Tested in FF (osx), Chrome (osx), Safari (osx)
 	const translateX = !popup.props.forceDesktop && isNarrowViewport()
 		? '0px'
-		: `${Math.floor(popupLeftPos + scrollLeftAmount())}px`
+		: `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
+
 	const translateY = placeBelow
 		? `${triggerRect.height}px`
 		: '-100%';
@@ -296,6 +299,7 @@ class Positioning extends PureComponent {
 			maxWidth,
 			bottom,
 			transform: isMobile ? '' : transform,
+			willChange: 'transform, max-height, max-width, top, bottom'
 		};
 	}
 
@@ -305,7 +309,13 @@ class Positioning extends PureComponent {
 		const { positioned } = popup.state;
 		const positioningStyles = getPositionCalculationStyles(popup);
 		const clonedChildren = !isVisible || !positioned ? children : React.cloneElement(children, {
-			className : cn( children.props.className, { 'dropdown-positionabove' : popup.state.alignTop } ),
+			className : cn(
+				children.props.className,
+				'xui-dropdown-input-layout-match',
+				{
+					'dropdown-positionabove' : popup.state.alignTop
+				}
+			),
 			style : popup.getStyles(),
 		});
 

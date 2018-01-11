@@ -18,6 +18,7 @@ const XUITextInputIcon = props => {
 		inline,
 		title,
 		desc,
+		position,
 		...other
 	} = props;
 
@@ -32,7 +33,7 @@ const XUITextInputIcon = props => {
 		<div className={alignedElementsClasses} data-automationid={qaHook} {...other}>
 			<XUIIcon
 				qaHook={`${qaHook}--input`}
-				className={cn(`${baseClass}--icon-left`, iconClassName)}
+				className={cn(`${baseClass}--icon-${position}`, iconClassName)}
 				path={path}
 				rotation={rotation}
 				size={size}
@@ -56,7 +57,8 @@ XUITextInputIcon.propTypes = {
 	color: PropTypes.string,
 	inline: PropTypes.bool,
 	title: PropTypes.string,
-	desc: PropTypes.string
+	desc: PropTypes.string,
+	position: PropTypes.string
 }
 
 export default XUITextInputIcon;

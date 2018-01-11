@@ -26,13 +26,13 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 .#{$ns}-textinput {
 	@extend %#{$ns}-commoninput;
+	align-items: center;
 	padding: 0;
 }
 
 // Icons within inputs
 
 .#{$ns}-textinputwrapper {
-	align-items: center;
 
 	.#{$ns}-textinput-has-left-icon {
 		padding-left: 0;
@@ -193,25 +193,25 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 	// Add the margin adjustment to all elements but the first
 	.#{$ns}-textinput:nth-of-type(n+2),
-	.#{$ns}-textinputwrapper:nth-of-type(n+2) > .#{$ns}-input {
+	.#{$ns}-textinputwrapper:nth-of-type(n+2) > .#{$ns}-textinput {
 		margin-top: -1px;
 	}
 
 	// On all elements except the first and last one, border radius 0 is required
 	.#{$ns}-textinput:nth-of-type(n+2):nth-last-of-type(n+2),
-	.#{$ns}-textinputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-input {
+	.#{$ns}-textinputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-textinput {
 		border-radius: 0;
 	}
 
 	// Only add bottom border radius to the last element
 	.#{$ns}-textinput:last-of-type,
-	.#{$ns}-textinputwrapper:last-of-type > .#{$ns}-input {
+	.#{$ns}-textinputwrapper:last-of-type .#{$ns}-textinput {
 		border-radius: 0 0 3px 3px;
 	}
 }
 
 
-.#{$ns}-textinputgroup > .#{$ns}-input,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper,
 .#{$ns}-textinputgroup > .#{$ns}-button,
 .#{$ns}-textinputgroup .#{$ns}-select--control {
 	border-radius: 0;
@@ -232,7 +232,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	border-left: 0;
 }
 
-.#{$ns}-textinputgroup > .#{$ns}-select:nth-child(n+2) {
+.#{$ns}-textinputgroup .#{$ns}-select:nth-child(n+2) {
 	.#{$ns}-select--control {
 		border-left: 0;
 	}

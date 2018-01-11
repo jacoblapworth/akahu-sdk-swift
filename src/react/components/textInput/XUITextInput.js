@@ -68,6 +68,7 @@ class XUITextInput extends Component {
 
 		const rootClasses = cn(
 			containerClasses,
+			`${baseClass}wrapper`,
 			{
 				'xui-field-layout': isFieldLayout
 			}
@@ -75,7 +76,7 @@ class XUITextInput extends Component {
 
 		const baseClasses = cn(
 			baseClass,
-			`${baseClass}wrapper`,
+
 			{
 				[`${baseClass}-is-invalid`] : isInvalid,
 				[`${baseClass}-borderless`] : isBorderlessTransparent || isBorderlessSolid,
@@ -90,7 +91,8 @@ class XUITextInput extends Component {
 			<div className={rootClasses} {...other}>
 				<div className={baseClasses} data-automationid={qaHook}>
 					{leftElement && leftElement({
-						className: `${baseClass}--iconwrapper ${baseClass}--iconwrapper-left`
+						className: `${baseClass}--iconwrapper ${baseClass}--iconwrapper-left`,
+						position: 'left'
 					})}
 					<input
 						type={type}
@@ -105,7 +107,8 @@ class XUITextInput extends Component {
 						{...inputProps}
 					/>
 					{rightElement && rightElement({
-						className: `${baseClass}--iconwrapper ${baseClass}--iconwrapper-right`
+						className: `${baseClass}--iconwrapper ${baseClass}--iconwrapper-right`,
+						position: 'right'
 					})}
 				</div>
 				{message}
@@ -119,6 +122,8 @@ XUITextInput.propTypes = {
 	defaultValue: PropTypes.string,
 	type: PropTypes.oneOf(["text", "number", "password", "hidden", "email", "range", "search", "time", "tel", "url", "color"]),
 	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
+	onBlur: PropTypes.func,
 	qaHook: PropTypes.string,
 	isInvalid: PropTypes.bool,
 	validationMessage: PropTypes.string,

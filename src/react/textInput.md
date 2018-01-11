@@ -86,7 +86,35 @@ const cn = require('classnames');
 </div>
 ```
 
-Borderless Variants
+#### Input Groups
+```js
+const cn = require('classnames');
+<div className="xui-fieldlayout">
+	<div className='xui-textinputgroup'>
+		<XUITextInput
+			containerClasses="xui-column-4-of-12"
+			leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>To:</span>}
+			isFieldLayout={true}
+			placeholder='placeholder'
+			isInvalid
+			validationMessage='invalid input'
+		/>
+		<XUITextInput
+			containerClasses="xui-column-4-of-12"
+			leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>From:</span>}
+			placeholder='placeholder'
+			hintMessage='hint hint hint'
+		/>
+			<XUITextInput
+			containerClasses="xui-column-4-of-12"
+			leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>Subject:</span>}
+			placeholder='placeholder'
+		/>
+	</div>
+</div>
+```
+
+#### Borderless Variants
 ```js
 const cn = require('classnames');
 
@@ -107,7 +135,7 @@ const cn = require('classnames');
 	/>
 </div>
 ```
-Inverted Borderless Variant
+#### Inverted Borderless Variant
 ```js
 const search = require ('@xero/xui-icon/icons/search').default;
 const XUITextInputIcon = require('./components/textInput/XUITextInputIcon.js').default;
@@ -133,7 +161,7 @@ const cn = require('classnames');
 	</div>
 ```
 
-Stateful Clear Button Example
+#### Stateful Clear Button
 ```js
 const { PureComponent } = require ( 'react' );
 const clear = require ('@xero/xui-icon/icons/clear').default;

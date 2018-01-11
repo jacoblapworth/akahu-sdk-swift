@@ -16,6 +16,18 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless and transparent, inverted',
+		isBorderlessTransparent: true,
+		isInverted: true
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is borderless with a solid background, inverted',
+		isBorderlessSolid: true,
+		isInverted: true
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is invalid',
 		isInvalid: true,
 		validationMessage: 'invalid content'

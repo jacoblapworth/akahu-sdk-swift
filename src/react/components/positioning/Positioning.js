@@ -43,14 +43,14 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 
 	// Use `round` to cater for subpixel calculations
 	// Tested in FF (osx), Chrome (osx), Safari (osx)
-	const translateX = !popup.props.forceDesktop && isNarrowViewport()
+	const marginLeft = !popup.props.forceDesktop && isNarrowViewport()
 		? '0px'
 		: `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
 
 	const translateY = placeBelow
 		? `${triggerRect.height}px`
 		: '-100%';
-	const translate = `translate(${translateX},${translateY})`;
+	const translate = `translate(0,${translateY})`;
 	// Initially the gap offset here was done through css calc properties in the translate function. Unfortunately
 	// this caused issues, as calc is invalid as a parameter of translate within IE11
 	const topValue = placeBelow ?
@@ -58,6 +58,7 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 		: triggerRect.top + scrollTopAmount() - triggerDropdownGap;
 
 	popup.setState({
+		marginLeft,
 		top: topValue,
 		alignTop: !placeBelow,
 		transform: translate,
@@ -117,6 +118,7 @@ function getDefaultState() {
 		alignTop: false,
 		maxHeight: verge.viewportH() * 0.99,
 		positioned: false,
+		marginLeft: 0
 	};
 }
 
@@ -282,7 +284,7 @@ class Positioning extends PureComponent {
 	 * @return {{ maxHeight: Number, left: Number, top: Number, transformY: String }}
 	 */
 	getStyles() {
-		const { maxHeight, transform, top, bottom } = this.state;
+		const { maxHeight, transform, top, bottom, marginLeft } = this.state;
 		const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 		const isMobile = isNarrowViewport() && !isNotResponsive;
 		let width = null;
@@ -299,7 +301,8 @@ class Positioning extends PureComponent {
 			maxWidth,
 			bottom,
 			transform: isMobile ? '' : transform,
-			willChange: 'transform, max-height, max-width, top, bottom'
+			willChange: 'transform, max-height, max-width, top, bottom, margin-left',
+			marginLeft
 		};
 	}
 

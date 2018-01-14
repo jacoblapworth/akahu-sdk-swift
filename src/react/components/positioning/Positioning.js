@@ -50,7 +50,7 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 	const translateY = placeBelow
 		? `${triggerRect.height}px`
 		: '-100%';
-	const translate = `translate(0,${translateY})`;
+	const translate = `translateY(${translateY})`;
 	// Initially the gap offset here was done through css calc properties in the translate function. Unfortunately
 	// this caused issues, as calc is invalid as a parameter of translate within IE11
 	const topValue = placeBelow ?

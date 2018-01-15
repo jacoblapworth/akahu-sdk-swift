@@ -15,3 +15,18 @@
 		padding: 5px;
 	}
 </style>
+<!-- This style block designed to cater for static loaders as we need for screenshot testing -->
+<style>
+	.xui-loader-static .xui-loader--dot {
+		animation: none;
+	}
+	.xui-loader-static .xui-loader--dot:nth-child(1) {
+		transform: scale(1);
+	}
+	.xui-loader-static .xui-loader--dot:nth-child(2) {
+		transform: scale(0.75);
+	}
+	.xui-loader-static .xui-loader--dot:nth-child(3) {
+		transform: scale(0.5);
+	}
+</style>

@@ -32,6 +32,7 @@ storiesWithKnobs.add('Playground', () => {
 
 	const defaultLayout = boolean('default layout', true);
 	const retainLayout = boolean('retain layout', true);
+	const isStatic = boolean('static animations', false) ? 'xui-loader-static' : null;
 
 	return (
 		<div className={getContainerClassName(isInverted)} style={getContainerStyle(!defaultLayout)}>
@@ -40,6 +41,7 @@ storiesWithKnobs.add('Playground', () => {
 				size={size}
 				isInverted={isInverted}
 				retainLayout={retainLayout}
+				className={isStatic}
 			>
 			</XUILoader>
 		</div>
@@ -66,10 +68,10 @@ variations.forEach(variation => {
 			delete variationMinusStoryDetails.sizes;
 			example = (
 				<div>
-					{sizes.map(size => <XUILoader key={size} size={size} {...variationMinusStoryDetails}></XUILoader>)}
+					{sizes.map(size => <XUILoader key={size} size={size} {...variationMinusStoryDetails} className="xui-loader-static"></XUILoader>)}
 				</div>);
 		} else {
-			example = <XUILoader  {...variationMinusStoryDetails}> </XUILoader>;
+			example = <XUILoader {...variationMinusStoryDetails} className="xui-loader-static"></XUILoader>;
 		}
 		return (
 			<div className={getContainerClassName(isInverted)} style={getContainerStyle(hasContainerStyle)}>

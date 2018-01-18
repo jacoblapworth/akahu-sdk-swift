@@ -48,7 +48,7 @@
     "tokens": "grunt postcss:tokens",
     "start": "npm-run-all -n doc dist -p watch styleguide storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./dist",
-    "storybook:pr": "build-storybook -c .storybook -o .out && cp ./dist/xui.css .out",
+    "storybook:pr": "build-storybook -c .storybook -o docs/storybook && cp ./dist/xui.css docs/storybook",
     "styleguide": "cross-env NODE_ENV=development styleguidist server --config=styleguide/config.js",
     "styleguide:build": "cross-env NODE_ENV=production styleguidist build --config=styleguide/config.js",
     "test": "cross-env NODE_ENV=test jest --config ./jest.config.js --env=jsdom --no-cache",

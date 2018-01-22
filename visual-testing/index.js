@@ -2,7 +2,9 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const storyBookLocation = path.resolve(__dirname, '..', '.out');
+const storyBookLocation = path.resolve(__dirname, '..', 'docs', 'storybook');
+const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
+
 /**
  * Array of components that storybook should test.
  *
@@ -19,7 +21,8 @@ const storyBookLocation = path.resolve(__dirname, '..', '.out');
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Autocompleter',
-		variationsPath: '../src/react/components/autocompleter/stories/variations.js',
+		variationsPath:
+			'../src/react/components/autocompleter/stories/variations.js',
 		selectors: '.xui-container'
 	},
 	{
@@ -79,7 +82,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Progress Indicator',
-		variationsPath: '../src/react/components/progressindicator/stories/variations.js'
+		variationsPath:
+			'../src/react/components/progressindicator/stories/variations.js'
 	},
 	{
 		testsPrefix: 'XUI Radio',
@@ -87,7 +91,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'Rollover Checkbox',
-		variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
+		variationsPath:
+			'../src/react/components/rolloverCheckbox/stories/variations.js'
 	},
 	{
 		testsPrefix: 'SelectBox',
@@ -122,58 +127,63 @@ const componentsToTest = [
 ];
 
 execSync('npm run storybook:pr', (err, stdout, stderr) => {
-	if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
+	if (err) {
+		console.error(`Exec error: ${err}`);
+	} //eslint-disable-line no-console
 	console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
 	console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
 });
 
 function buildUrl(kind, story) {
-	const testingDomain = path.resolve(storyBookLocation, 'iframe.html?').replace(/\/.out/gi, "%SPLIT%/.out").split('%SPLIT%')[1];
 	const urlSearch = `selectedKind=${kind}&selectedStory=${story}`;
-	return `${testingDomain}${urlSearch}`;
+	return `file://${testingDomain}${urlSearch}`;
 }
 
 function buildScenarios() {
 	let scenarios = [];
 	componentsToTest.forEach(component => {
 		const variationsFile = require(component.variationsPath);
-		const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
+		const variations =
+			variationsFile &&
+			variationsFile[component.variationsProp || 'variations'];
 		scenarios = scenarios.concat(
 			variations.map(story => {
 				return {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
 					selectors: [component.selectors || '#root > div > div'],
-					misMatchThreshold: component.misMatchThreshold || .4,
+					misMatchThreshold: component.misMatchThreshold || 0.4,
 					selectorExpansion: component.captureAllSelectors
 				};
 			})
 		);
 	});
 	return scenarios;
-};
+}
+
+const scenarios = buildScenarios();
 
 module.exports = {
-	id: "backstop_default",
+	id: 'backstop_default',
 	viewports: [
 		{
-			label: "just desktop",
+			label: 'just desktop',
 			width: 1024,
 			height: 768
 		}
 	],
-	scenarios: buildScenarios(),
+	scenarios,
 	paths: {
-		bitmaps_reference: "visual-testing/reference",
-		bitmaps_test: "visual-testing/tests",
-		html_report: "visual-testing/web-report",
-		ci_report: "visual-testing/ci-report"
+		bitmaps_reference: 'visual-testing/reference',
+		bitmaps_test: 'visual-testing/tests',
+		html_report: 'visual-testing/web-report',
+		ci_report: 'visual-testing/ci-report'
 	},
-	report: ["browser", "CI"],
-	engine: "chrome",
+	report: ['browser', 'CI'],
+	engine: 'chrome',
 	engineFlags: [],
 	asyncCaptureLimit: 2,
 	asyncCompareLimit: 50,
 	debug: false,
 	debugWindow: false
-}
+};

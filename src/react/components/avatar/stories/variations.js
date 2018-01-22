@@ -45,7 +45,58 @@ const avatarVariations = [
 		sizes,
 		variant: 'business',
 		value: 'value'
-	}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped avatars',
+		value: 'value',
+		grouped: true,
+		avatarLength: 3
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped max length',
+		value: 'value',
+		grouped: true,
+		avatarLength: 5,
+		maxAvatars: 3
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped business',
+		value: 'value',
+		grouped: true,
+		variant: 'business',
+		avatarLength: 3
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped business max length',
+		value: 'value',
+		grouped: true,
+		variant: 'business',
+		avatarLength: 5,
+		maxAvatars: 3
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped avatars many sizes',
+		value: 'value',
+		grouped: true,
+		sizes,
+		avatarLength: 5,
+		maxAvatars: 3
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'grouped avatars many sizes business',
+		value: 'value',
+		grouped: true,
+		sizes,
+		variant: 'business',
+		avatarLength: 5,
+		maxAvatars: 3
+	},
 ]
 
 module.exports = {

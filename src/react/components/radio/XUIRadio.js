@@ -36,7 +36,8 @@ export default class XUIRadio extends React.Component {
 			value,
 			svgClassName,
 			labelClassName,
-			isLabelHidden
+			isLabelHidden,
+			id
 		} = this.props;
 
 		const classes = cn(
@@ -58,7 +59,8 @@ export default class XUIRadio extends React.Component {
 			tabIndex,
 			name,
 			onChange,
-			value
+			value,
+			id
 		};
 
 		if (typeof isChecked !== 'boolean') {
@@ -132,6 +134,8 @@ XUIRadio.propTypes = {
 
 	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
+
+	id: PropTypes.string
 };
 
 XUIRadio.defaultProps = {

@@ -201,6 +201,14 @@
 	}
 }
 
+@mixin stepperLinkColor($color) {
+
+	&,
+	svg {
+		color: $color;
+	}
+}
+
 .#{$ns}-stepper-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -210,6 +218,11 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
+}
+
+
+.#{$ns}-stepper-stacked-links {
+	align-items: baseline;
 }
 
 .#{$ns}-stepper-sidebar {
@@ -238,7 +251,7 @@
 
 .#{$ns}-stepper-tab {
 	// background: gray;
-	padding: 0 30px;
+	// padding: 0; // 0 30px;
 	position: relative;
 
 	&:before,
@@ -259,15 +272,16 @@
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab {
 	order: 0 !important;
+	padding: 0 30px;
 }
 
 
 .#{$ns}-stepper-tab {
-	padding: 30px 0;
+	// padding: 30px 0;
 
 	&:before,
 	&:after {
-		height: 30px;
+		height: 10px;
 		left: 30px;
 		top: 0;
 		width: 1px;
@@ -301,6 +315,14 @@
 	&:after {
 		left: inherit;
 		right: 0;
+	}
+}
+
+.#{$ns}-stepper-stacked-links .#{$ns}-stepper-tab {
+
+	&:before,
+	&:after {
+		top: 20px;
 	}
 }
 
@@ -368,32 +390,68 @@
 
 .#{$ns}-stepper-link {
 	@include xui-button-reset;
-
-	color: $xui-color-grey-1;
+	@include stepperLinkColor($xui-color-grey-1);
+	align-items: center;
 	display: block;
 	height: 100%;
+	padding: 10px;
 	width: 100%;
 
-	align-items: center;
-	border-radius: 9999px;
-	padding: 2px 20px 2px 0;
+	
+	// &:not(.#{$ns}-stepper-link-disabled):not(.#{$ns}-stepper-link-active):hover {
+	&.#{$ns}-stepper-link-standard:hover,
+	&.#{$ns}-stepper-link-error:hover {
+		@include stepperLinkColor($xui-color-blue-xdark);
+	}
+
+	// &:not(.#{$ns}-stepper-link-disabled):focus {
+	&.#{$ns}-stepper-link-standard:focus,
+	&.#{$ns}-stepper-link-error:focus {
+		@include stepperLinkColor($xui-color-blue);
+		background: $xui-color-grey-7;
+	}
 }
+
+.#{$ns}-stepper-link svg {
+	fill: currentColor;
+}
+
+.#{$ns}-stepper-inline .#{$ns}-stepper-link {
+	border-radius: 9999px;
+	padding: 0;
+} 
 
 .#{$ns}-stepper-link-wrapper {
 	align-items: center;
 	display: flex;
+	padding: 2px 20px 2px 0;
+	text-align: left;
 }
 
-.#{$ns}-stepper-inline {
+.#{$ns}-stepper-stacked-links {
 
-	.#{$ns}-stepper-link-stacked {
-		border-radius: 4px;
-		display: block;
-		padding: 0 10px 10px;
+	.#{$ns}-stepper-link,
+	.#{$ns}-stepper-link:focus {
+		background: transparent;
 	}
 
-	.#{$ns}-stepper-link-stacked .#{$ns}-stepper-link-wrapper {
+	.#{$ns}-stepper-link:focus .#{$ns}-stepper-link-icon {
+		background: $xui-color-grey-7;
+		color: $xui-color-blue;
+	}
+
+	.#{$ns}-stepper-link-wrapper {
+		display: block;
+		padding: 0 10px;
 		text-align: center;
+	}
+
+	.#{$ns}-stepper-link-icon {
+		border-radius: 9999px;
+	}
+
+	.#{$ns}-stepper-link-active .#{$ns}-stepper-link-icon {
+		background: $xui-color-grey-6;
 	}
 }
 
@@ -411,14 +469,14 @@
 }
 
 .#{$ns}-stepper-link-active {
-	background: $xui-color-grey-7;
-	color: $xui-color-blue;
+	@include stepperLinkColor($xui-color-blue);
+	background: $xui-color-grey-6;
 }
 
 .#{$ns}-stepper-link-error {
-	color: $xui-color-negative;
+	@include stepperLinkColor($xui-color-negative);
 }
 
 .#{$ns}-stepper-link-disabled {
-	color: $xui-color-grey-5;
+	@include stepperLinkColor($xui-color-grey-5);
 }

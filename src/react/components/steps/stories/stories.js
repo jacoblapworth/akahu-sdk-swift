@@ -27,6 +27,7 @@ const tabs = [
 		// href: '#',
 		handleClick: () => console.log('clicked link 1'),
 		// isActive: true
+		isError: true
 	},
 	{
 		name: `Link 2`,
@@ -34,7 +35,8 @@ const tabs = [
 		// href: '#',
 		handleClick: () => console.log('clicked link 2'),
 		// isActive: true
-		isStacked: true
+		// isError: true
+		// isStacked: true
 	},
 	{
 		name: `Link 3`,
@@ -42,7 +44,7 @@ const tabs = [
 		// href: '#',
 		handleClick: () => console.log('clicked link 3'),
 		// isActive: true
-		isError: true
+		// isError: true
 	},
 	{
 		name: `Link 4`,
@@ -50,6 +52,7 @@ const tabs = [
 		// href: '#',
 		handleClick: () => console.log('clicked link 4'),
 		// isActive: true
+		// isError: true
 	}
 ];
 
@@ -62,7 +65,8 @@ storiesWithKnobs.add('Playground', () => (
 		<XUISteps
 			tabs={tabs}
 			currentStep={1}
-			isLinear
+			isLinear={true}
+			isStacked={false}
 		>
 			<h3>Content:</h3>
 			<p>...</p>

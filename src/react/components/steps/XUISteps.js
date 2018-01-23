@@ -10,14 +10,15 @@ const INLINE = 'inline';
 const LAYOUTS = [STACKED, SIDE_BAR, INLINE];
 const NOOP = () => 0;
 
-const Tab = ({name, description, handleClick, isStacked, isError, isActive, isDisabled}) => {
+const Tab = ({ name, description, handleClick, isStacked, isError, isActive, isDisabled }) => {
 
 	const linkClasses = cn(
 		`${BASE_CLASS}-link`, {
 			// [`${BASE_CLASS}-link-inline`]: !isStacked,
-			[`${BASE_CLASS}-link-stacked`]: isStacked,
+			// [`${BASE_CLASS}-link-stacked`]: isStacked,
+			[`${BASE_CLASS}-link-standard`]: !(isActive || isError || isDisabled),
 			[`${BASE_CLASS}-link-active`]: isActive,
-			[`${BASE_CLASS}-link-error`]: !isActive && isError,
+			[`${BASE_CLASS}-link-error`]: isError, // !isActive && isError,
 			[`${BASE_CLASS}-link-disabled`]: isDisabled
 		}
 	);
@@ -33,7 +34,11 @@ const Tab = ({name, description, handleClick, isStacked, isError, isActive, isDi
 
 				<div className={`${BASE_CLASS}-link-icon`}>
 
-					<svg className="xui-icon-svg" key="info" id="xui-icon-info" viewBox="0 0 30 30"><path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"></path></svg>
+					{/* <path d="M15.5,23 C19.6421356,23 23,19.6421356 23,15.5 C23,11.3578644 19.6421356,8 15.5,8 C11.3578644,8 8,11.3578644 8,15.5 C8,19.6421356 11.3578644,23 15.5,23 Z M15,11 L16.9980196,11 L16.9980196,12.9979757 L15,12.9979757 L15,11 Z M14,14 L17,14 L17,18 L18,18 L18,19 L14,19 L14,18 L15,18 L15,15 L14,15 L14,14 Z"></path> */}
+
+					<svg viewBox="0 0 30 30">
+						<circle cx="15" cy="15" r="8" />
+					</svg>
 
 				</div>
 
@@ -53,7 +58,7 @@ const Tab = ({name, description, handleClick, isStacked, isError, isActive, isDi
 
 class XUISteps extends Component {
 
-	state = {layout: 'stacked'};
+	state = { layout: 'stacked' };
 	$stepper = null;
 	throttled = null;
 
@@ -80,8 +85,8 @@ class XUISteps extends Component {
 
 	setCurrentLayout = () => {
 
-		const {$stepper, props: { lock }} = this;
-		const setLayout = layout => (layout !== this.state.layout) && this.setState({layout});
+		const { $stepper, props: { lock } } = this;
+		const setLayout = layout => (layout !== this.state.layout) && this.setState({ layout });
 
 		if (lock && LAYOUTS.includes(lock)) {
 
@@ -124,7 +129,7 @@ class XUISteps extends Component {
 
 	};
 
-	createTab = ({index, currentStep, totalTabs, isLinear, ...tab}) => {
+	createTab = ({ index, currentStep, totalTabs, isLinear, isStacked, ...tab }) => {
 
 		const isFirst = !index;
 		const isInline = Boolean(index === totalTabs - 1);
@@ -148,20 +153,27 @@ class XUISteps extends Component {
 					{...{
 						...tab,
 						isActive,
-						isDisabled
+						isDisabled,
+						isStacked
 					}} />
-				</div>
+			</div>
 		);
 
 	};
 
 	render = () => {
 
-		const {layout} = this.state;
-		const {children, tabs, currentStep, isLinear} = this.props;
+		const { layout } = this.state;
+		const { children, tabs, currentStep, isLinear, isStacked: isStackedProp = true } = this.props;
+		const isStacked = isStackedProp && layout === 'inline'
 		const totalTabs = tabs.length;
 		const gridTemplateRows = `${new Array(tabs.length).fill('auto').join(' ')} 1fr`;
-		const tabElements = tabs.map((tab, index) => this.createTab({...tab, index, currentStep, totalTabs, isLinear}));
+		const tabElements = tabs.map((tab, index) => this.createTab({ ...tab, index, currentStep, totalTabs, isLinear }));
+		const wrapperClasses = cn(
+			`${BASE_CLASS}-wrapper`,
+			`${BASE_CLASS}-${layout}`,
+			{ [`${BASE_CLASS}-stacked-links`]: isStacked }
+		);
 
 		return (
 			<div
@@ -176,7 +188,11 @@ class XUISteps extends Component {
 
 					{/* Horizontal */}
 					<div className={`${BASE_CLASS}-testinline`}>
-						<div className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-inline`}>
+						<div className={cn(
+							`${BASE_CLASS}-wrapper`,
+							`${BASE_CLASS}-inline`,
+							{ [`${BASE_CLASS}-stacked-links`]: isStacked }
+						)}>
 							{tabElements}
 						</div>
 					</div>
@@ -185,7 +201,7 @@ class XUISteps extends Component {
 					<div className={`${BASE_CLASS}-testsidebar`}>
 						<div
 							className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-sidebar`}
-							style={{gridTemplateRows}}
+							style={{ gridTemplateRows }}
 						>
 							{tabElements}
 							<div className={`${BASE_CLASS}-section`} />
@@ -197,15 +213,15 @@ class XUISteps extends Component {
 				{/* - - - - - - - - */}
 
 				<div
-					className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-${layout}`}
-					style={{gridTemplateRows}}
+					className={wrapperClasses}
+					style={{ gridTemplateRows }}
 				>
 
 					{tabElements}
 
 					<div
 						className={`${BASE_CLASS}-section`}
-						style={{order: currentStep}}>
+						style={{ order: currentStep }}>
 
 						{children}
 

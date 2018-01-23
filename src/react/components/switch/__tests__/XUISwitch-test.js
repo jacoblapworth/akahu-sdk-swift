@@ -21,7 +21,7 @@ describe('XUISwitch', function () {
 
 	it('should render checked', function () {
 		const component = shallow(
-			<XUISwitch checked={true} onChange={NOOP}/>
+			<XUISwitch isChecked={true} onChange={NOOP}/>
 		);
 
 		expect(component.html()).toContain('checked');
@@ -45,7 +45,7 @@ describe('XUISwitch', function () {
 
 	it('should be disabled', function () {
 		const component = shallow(
-			<XUISwitch name="someName" onChange={NOOP} disabled={true}/>
+			<XUISwitch name="someName" onChange={NOOP} isDisabled={true}/>
 		);
 
 		expect(component.html()).toContain('disabled');

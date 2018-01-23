@@ -32,6 +32,11 @@
 
 ### Dropdown
 * qaHook added for Layout, Panel Body, Toggled, Footer and Header components
+* new prop `maxHeight` for `<DropDownToggled />` to let you set a max height given enough space.
+
+### Icons
+* More colour options now available
+* `standard` colour is being deprecated in XUI 13
 
 ### Inputs
 * qaHook added to input and close component
@@ -78,6 +83,7 @@
              - `matchTriggerWidth` is now `isTriggerWidthMatched`
              - `forceDesktop` is now `isNotResponsive`
              - `setMaxHeight` is now `shouldRestrictMaxHeight`
+* Pill - `hasLayout` is now `defaultLayout`
 
 ### New Components
 #### Rollover Checkbox
@@ -90,6 +96,7 @@
 better behaviour when using `xui-u-flex-space-between` alongside `xui-page-width-*` classes.
 * Typography classes are included later in the CSS than before. This allows typography classes to be used more effectively
 as overrides
+* more colour classes and options have been added for icons.
 
 ### CSS properties changed
 
@@ -108,3 +115,5 @@ as overrides
 	* You will need to have GITLFS installed and setup correctly
 	* You will need to have built the XUI repo before you can run visual tests. (requires `./dist/xui.css`) (requires storybook)
 
+### Husky
+* Added [Husky](https://www.npmjs.com/package/husky) which allows us to define Git Hooks as NPM scripts

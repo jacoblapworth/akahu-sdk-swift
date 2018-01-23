@@ -8,7 +8,7 @@ XUI
 XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
 
 ### Always get the latest versions here:
-* XUI Guide: https://github.dev.xero.com/pages/UXE/xui/
+* XUI Guide: https://xui.xero.com/
 * XUI on GitHub: https://github.dev.xero.com/UXE/xui
 
 ### Jump to the latest docs
@@ -132,6 +132,7 @@ Script              | Description
 `npm run doc`       | Compiles the style guide documentation into the `docs` folder
 `npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
 `npm run test`             | Runs all the React component unit tests
+`npm run test:approve-snap`| Runs all the React component unit tests and approves any Jest Snapshot changes
 `npm run test:watch`       | Runs all the React component unit tests and watches for file changes
 `npm run storybook`        | Compiles and sets up the storybook demo app for to do visual testing during development.  See the UI Testing section for more details.
 `npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible
@@ -154,25 +155,16 @@ Second, if we're using a library with a known security vulnerability, we **DEFIN
 
 ## Hooks
 
-### Pre-commit
+We use [Husky](https://www.npmjs.com/package/husky) to run **Git Hooks** for the following scenarios:
 
-Add the [pre-commit hook](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to lint your code and catch problems that will cause your build to fail in the CI environment. This will run automatically before a commit.
+## Pre-commit
 
-Install the hook by running the following command:
-
-```bash
-$ ln -s ../../pre-commit.sh .git/hooks/pre-commit
-```
+Lint your code and catch problems that will cause your build to fail in the CI environment. This will run automatically before a commit.
 
 ## Post-merge
 
-You can also add a post-merge hook so that your local environment is updated after a merge. This will not trigger when rebasing upstream but is still good to have active.
+Update your local environment after a merge. This will not trigger when rebasing upstream but is still good to have active.
 
-Install the hook by running the following command:
-
-```bash
-$ ln -s ../../post-merge.sh .git/hooks/post-merge
-```
 ## Developer Documentation
 
 XUI is a living design system that uses source annotations and markdown files to document itself. XUI provides two layers of documentation. XUI Guide contains the best practices and CSS examples and XUI React Docs contain component documentation and examples. Both systems provide running example code and in the React Docs this can be edited in the browser. These tools are configured separatly and we have a number of customisations that are unique to Xero.

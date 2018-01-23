@@ -81,15 +81,26 @@
 //
 // Definitions:
 // Inherit:  		none
-// Standard: 		`.xui-icon-color-standard`
+// Standard:		`.xui-icon-color-standard` <br /><small class="small"><span class="xui-textcolor-negative">(deprecated in XUI13)</span> Black muted is equivalent</small>
+// Black: 			`.xui-icon-color-black`
+// White: 			`.xui-icon-color-white`
 // Blue: 				`.xui-icon-color-blue`
+// Dark Blue: 	`.xui-icon-color-dark-blue`
 // Red: 				`.xui-icon-color-red`
 // Green: 			`.xui-icon-color-green`
+// Orange: 			`.xui-icon-color-orange`
+// Yellow: 			`.xui-icon-color-yellow`
+// Mint: 				`.xui-icon-color-mint`
+// Turquoise: 	`.xui-icon-color-turquoise`
+// Voilet: 			`.xui-icon-color-violet`
+// Grape: 			`.xui-icon-color-grape`
+// Pink: 				`.xui-icon-color-pink`
 // PDF: 				`.xui-icon-color-file-pdf`
 // Spreadsheet: `.xui-icon-color-file-spreadsheet`
-// White: 			`.xui-icon-color-white`
 // White muted: `.xui-icon-color-white-muted`
 // White faint: `.xui-icon-color-white-faint`
+// Black muted: `.xui-icon-color-black-muted`
+// Black faint: `.xui-icon-color-black-faint`
 //
 // Markup:
 //	<svg focusable="false" class="xui-icon">
@@ -204,38 +215,32 @@
 	width: $xui-icon-xlarge;
 }
 
-.#{$ns}-icon-color-standard {
-	fill: $xui-color-grey-alpha-2;
-}
+$icon-colours:
+	(
+		standard: $xui-color-black-muted,
+		black: $xui-color-grey-1,
+		black-muted: $xui-color-black-muted,
+		black-faint: $xui-color-black-faint,
+		white: $xui-color-white,
+		white-muted: $xui-color-white-muted,
+		white-faint: $xui-color-white-faint,
+		blue: $xui-color-blue,
+		dark-blue: $xui-color-xero-dark-blue,
+		red: $xui-color-red,
+		green: $xui-color-green,
+		orange: $xui-color-orange,
+		yellow: $xui-color-yellow,
+		mint: $xui-color-mint,
+		turquoise: $xui-color-turquoise,
+		violet: $xui-color-violet,
+		grape: $xui-color-grape,
+		pink: $xui-color-pink,
+		file-spreadsheet: $xui-color-file-spreadsheet,
+		file-pdf: $xui-color-file-pdf
+	);
 
-.#{$ns}-icon-color-white {
-	fill: $xui-color-white;
-}
-
-.#{$ns}-icon-color-white-muted {
-	fill: $xui-color-white-muted;
-}
-
-.#{$ns}-icon-color-white-faint {
-	fill: $xui-color-white-faint;
-}
-
-.#{$ns}-icon-color-blue {
-	fill: $xui-color-xero-blue;
-}
-
-.#{$ns}-icon-color-green {
-	fill: $xui-color-xero-green;
-}
-
-.#{$ns}-icon-color-red {
-	fill: $xui-color-xero-red;
-}
-
-.#{$ns}-icon-color-file-spreadsheet {
-	fill: $xui-color-file-spreadsheet;
-}
-
-.#{$ns}-icon-color-file-pdf {
-	fill: $xui-color-file-pdf;
+@each $colourName, $colorHex in $icon-colours {
+	.#{$ns}-icon-color-#{$colourName} {
+		fill: $colorHex;
+	}
 }

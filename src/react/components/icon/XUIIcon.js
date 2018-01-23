@@ -13,7 +13,7 @@ export default function XUIIcon(props) {
 		role,
 		rotation,
 		color,
-		inline,
+		isInline,
 		viewBox,
 		path
 	} = props;
@@ -25,7 +25,7 @@ export default function XUIIcon(props) {
 		colorClasses[color],
 		rotationClasses[rotation],
 		{
-			'xui-icon-inline' : inline
+			'xui-icon-inline' : isInline
 		}
 	);
 
@@ -59,7 +59,7 @@ XUIIcon.propTypes = {
 	/** Adds a color modifier to the icon */
 	color: PropTypes.oneOf(Object.keys(colorClasses)),
 	/** Whether the inline class modifier should be added */
-	inline: PropTypes.bool,
+	isInline: PropTypes.bool,
 	/** */
 	viewBox: PropTypes.string
 };

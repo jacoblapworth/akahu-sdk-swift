@@ -25,11 +25,11 @@ storiesWithKnobs.add('Playground', () => (
 		onClick={NOOP}
 		isInvalid={boolean('isInvalid', false)}
 		href={text('href', '')}
-		hasLayout={boolean('hasLayout', true)}
+		defaultLayout={boolean('defaultLayout', true)}
 		deleteButtonLabel={text('deleteButtonLabel', '')}
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
-		/>
+	/>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -38,8 +38,8 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
-		variationMinusStoryDetails.storyKind = undefined;
-		variationMinusStoryDetails.storyTitle = undefined;
+		delete variationMinusStoryDetails.storyKind;
+		delete variationMinusStoryDetails.storyTitle;
 
 		return <XUIPill {...variationMinusStoryDetails}/>
 	});

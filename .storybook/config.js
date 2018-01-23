@@ -1,12 +1,14 @@
 import { configure } from '@storybook/react';
 
+function requireAll(requireContext) {
+	return requireContext.keys().map(requireContext);
+}
+
 function loadStories() {
 	require('./welcome.js');
-	require('../src/react/components/autocompleter/stories/stories.js');
-	require('../src/react/components/button/stories/stories.js');
-	require('../src/react/components/modal/stories/stories.js');
-	require('../src/react/components/pill/stories/stories.js');
-	require('../src/react/components/steps/stories/stories.js');
+	requireAll(require.context('../src/react/components', true, /stories.js$/));
+	// Compositions
+	requireAll(require.context('../src/react/stories', true, /index.js$/));
 }
 
 configure(loadStories, module);

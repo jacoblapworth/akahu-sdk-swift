@@ -12,7 +12,7 @@ const XUILoader = (props) => {
     sizeClass,
     props.className,
     {
-      [`${baseClass}-layout`] : props.defaultLayout,
+      [`${baseClass}-layout`] : !props.retainLayout && props.defaultLayout,
       [`${baseClass}-inverted`] : props.isInverted,
       [`${baseClass}-retain-layout`] : props.retainLayout
     }
@@ -46,7 +46,7 @@ XUILoader.propTypes = {
   /** Sets the loader to the inverted colour scheme */
   isInverted: PropTypes.bool,
 
-  /** Adds the retain layout class, used in combination with buttons */
+  /** Adds the retain layout class, used in combination with buttons. Applying this prop will cause `defaultLayout` prop to be ignored. */
   retainLayout: PropTypes.bool
 };
 

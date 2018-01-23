@@ -124,8 +124,8 @@ class MiniApp extends Component {
 		const MiniApp = this;
 		return (
 			<SelectBox
-				ref={c => this.multiSelect = c}
-				name="multiSelect"
+				ref={c => this.isMultiselect = c}
+				name="isMultiselect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
 				label="Select Several Boats"
 				closeAfterSelection={false}

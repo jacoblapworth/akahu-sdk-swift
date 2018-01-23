@@ -78,7 +78,7 @@ $xui-color-white-alpha-7: rgba($xui-color-white, 0.05);
 // @description Use the brights to sprinkle <strong>occasional</strong> pings of color into Xero applications – they're great for charts or to create moments of punch. If you need to indicate status try a <a href="./section-building-blocks-tags.html">standard tag</a> instead. For lighter and darker variants use the modifiers `-xlight`, `-light`, `-dark`, and `-xdark`.
 // @type brights
 //
-$xui-color-red: $xui-color-red;
+$xui-color-red: $xui-color-red; // This is needed to add the color into the docs color grid
 $xui-color-red-xlight:        mix(#FFF, $xui-color-red, 80%);
 $xui-color-red-light:         mix(#FFF, $xui-color-red, 40%);
 $xui-color-red-dark:          mix(#000, $xui-color-red, 10%);
@@ -96,7 +96,7 @@ $xui-color-yellow-light:      mix(#FFF, $xui-color-yellow, 40%);
 $xui-color-yellow-dark:       mix(#000, $xui-color-yellow, 10%);
 $xui-color-yellow-xdark:      mix(#000, $xui-color-yellow, 20%);
 
-$xui-color-green: $xui-color-green;
+$xui-color-green: $xui-color-green; // This is needed to add the color into the docs color grid
 $xui-color-green-xlight:      mix(#FFF, $xui-color-green, 80%);
 $xui-color-green-light:       mix(#FFF, $xui-color-green, 40%);
 $xui-color-green-dark:        mix(#000, $xui-color-green, 10%);
@@ -114,7 +114,7 @@ $xui-color-turquoise-light:   mix(#FFF,$xui-color-turquoise, 40%);
 $xui-color-turquoise-dark:    mix(#000, $xui-color-turquoise, 10%);
 $xui-color-turquoise-xdark:   mix(#000, $xui-color-turquoise, 20%);
 
-$xui-color-blue: $xui-color-blue;
+$xui-color-blue: $xui-color-blue; // This is needed to add the color into the docs color grid
 $xui-color-blue-xlight:       mix(#FFF, $xui-color-blue, 80%);
 $xui-color-blue-light:        mix(#FFF, $xui-color-blue, 40%);
 $xui-color-blue-dark:         mix(#000, $xui-color-blue, 10%);
@@ -171,6 +171,8 @@ $xui-shadow-focus-inverted: 0 0 0 3px $xui-color-white-alpha-6;
 
 $xui-color-white-muted: $xui-color-white-alpha-2;
 $xui-color-white-faint: $xui-color-white-alpha-3;
+$xui-color-black-muted: $xui-color-grey-alpha-2;
+$xui-color-black-faint: $xui-color-grey-alpha-3;
 $xui-color-shadow-inverted-light: $xui-color-white-alpha-7;
 $xui-color-shadow-inverted-medium: $xui-color-white-alpha-6;
 $xui-color-shadow-inverted-strong: $xui-color-white-alpha-5;

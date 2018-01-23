@@ -69,7 +69,7 @@ const variations = [
 		title: 'A reasonable Pill title',
 		onDeleteClick: NOOP,
 		onClick: NOOP,
-		hasLayout: false,
+		defaultLayout: false,
 		deleteButtonLabel: 'Delete Button Label',
 		avatarProps
 	},

@@ -3,17 +3,8 @@ import cn from 'classnames';
 import PropTypes from 'prop-types'
 import XUIIcon from '../../icon';
 import crossIcon from '@xero/xui-icon/icons/cross';
+import { sentimentMap } from './private/sentiments';
 
-const sentimentMap = {
-	positive: {
-		class: 'xui-banner-positive',
-		role: 'status'
-	},
-	negative: {
-		class: 'xui-banner-negative',
-		role: 'alert'
-	}
-};
 
 const sentiments = Object.keys(sentimentMap);
 

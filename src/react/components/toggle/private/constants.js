@@ -1,16 +1,22 @@
 /** @private colorMap - Map colors to classes */
-export const colorMap = {
+const colorMap = {
 	inverted: 'xui-toggle-inverted',
 	standard: ''
 };
 
 /** @private variantMap - Map variants to classes */
-export const variantMap = {
+const variantMap = {
 	small: 'xui-toggle-small'
 };
 
 /** @private layoutMap - Map layouts to classes */
-export const layoutMap = {
+const layoutMap = {
 	fullwidth: 'xui-toggle-fullwidth-layout',
 	form: 'xui-toggle-form-layout'
 };
+
+module.exports = {
+	colorMap,
+	variantMap,
+	layoutMap
+}

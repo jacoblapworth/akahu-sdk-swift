@@ -184,10 +184,7 @@ export default class XUIAutocompleter extends PureComponent {
 			},
 			props.triggerClassName
 		);
-		const inputClasses = cn(
-			props.inputClassName,
-			'xui-autocompleter--input'
-		);
+
 		const trigger = (
 			<div
 				className={triggerClasses}
@@ -203,7 +200,7 @@ export default class XUIAutocompleter extends PureComponent {
 					maxLength={props.maxLength}
 					onSearch={props.onSearch}
 					onKeyDown={handlers.onInputKeyDown}
-					className={inputClasses}
+					className={props.inputClassName}
 					throttleInterval={props.searchThrottleInterval}
 					qaHook={inputQaHook}
 					onFocus={props.openOnFocus ? handlers.onInputFocus : null}
@@ -253,6 +250,7 @@ export default class XUIAutocompleter extends PureComponent {
 					dropdown={dropdown}
 					onOpen={props.onOpen}
 					onClose={props.onClose}
+					closeOnTab={props.closeOnTab}
 					closeOnSelect={props.closeOnSelect}
 					triggerClickAction="none"
 					forceDesktop={props.forceDesktop}
@@ -324,6 +322,9 @@ XUIAutocompleter.propTypes = {
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
 
+	/** Maps to the `closeOnTab` property of the DropDownToggled component. */
+	closeOnTab: PropTypes.bool,
+
 	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,
 
@@ -363,6 +364,7 @@ XUIAutocompleter.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,
+	closeOnTab: true,
 	forceDesktop: false,
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,

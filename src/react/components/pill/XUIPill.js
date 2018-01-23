@@ -42,7 +42,7 @@ export default class XUIPill extends Component {
 			avatarProps,
 			className,
 			deleteButtonLabel,
-			hasLayout,
+			defaultLayout,
 			href,
 			isInvalid,
 			onClick,
@@ -60,7 +60,7 @@ export default class XUIPill extends Component {
 			className,
 			baseClass,
 			{
-				[`${baseClass}-layout`]: hasLayout,
+				[`${baseClass}-layout`]: defaultLayout,
 				[`${baseClass}-is-invalid`] : isInvalid,
 				[`${baseClass}-is-focused`]: pill.state.isFocused,
 				[`${baseClass}-is-deleteable`]: onDeleteClick
@@ -117,7 +117,7 @@ const noop = () => {};
 
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
-	hasLayout: true,
+	defaultLayout: true,
 	onClick: noop
 };
 
@@ -129,7 +129,7 @@ XUIPill.propTypes = {
 	/** Specify an alternate label attribute for the delete button, defaults to 'Delete'. */
 	deleteButtonLabel: PropTypes.string,
 	/** Remove the XUI layout class by specifiying false. */
-	hasLayout: PropTypes.bool,
+	defaultLayout: PropTypes.bool,
 	/** This will make the value an `anchor` element instead of a `span` element and adds the href as the link. */
 	href: PropTypes.string,
 	/** When invalid, displays the text in a red colour. */

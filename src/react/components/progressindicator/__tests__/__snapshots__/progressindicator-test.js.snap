@@ -1,0 +1,3513 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIProgressIndicator /> custom colors should not create a color override from a key that is not recognise 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  progressColor="banana"
+  total={5}
+  totalColor="potato"
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    progressColor="banana"
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+    totalColor="potato"
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> custom colors should override default color with an applicable color key 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  progressColor="orange"
+  total={5}
+  totalColor="turquoise"
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    progressColor="orange"
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+    totalColor="turquoise"
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      data-xui-progress-current-color="orange"
+      data-xui-progress-total-color="turquoise"
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular completion alert" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isAlertOnComplete={true}
+  progress={5}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={5}
+    classes="xui-progress xui-progress-circular xui-progress-complete"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isAlertOnComplete={true}
+    isComplete={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={5}
+    toolTipId={undefined}
+    toolTipMessage="5 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={5}
+      aria-valuetext="5 of 5"
+      className="xui-progress xui-progress-circular xui-progress-complete"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={5}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={5}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={0}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={true}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          <CompleteIcon>
+            <svg
+              className="xui-progress-icon-complete"
+              viewBox="0 0 9 7"
+            >
+              <polygon
+                points="0 4 1 3 3 5 8 0 9 1 3 7"
+              />
+            </svg>
+          </CompleteIcon>
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom (icon) hard error" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isHardError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isHardError={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular xui-progress-error-hard"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={true}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          <ErrorIcon>
+            <svg
+              className="xui-progress-icon-error"
+              viewBox="0 0 2 7"
+            >
+              <path
+                d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
+              />
+            </svg>
+          </ErrorIcon>
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom content" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isGrow={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-grow xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isGrow={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-grow xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={true}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <DynamicStroke>
+          <div>
+            <CircularTrack
+              customContent={undefined}
+              id="myCustomProgressId"
+              isSegmented={undefined}
+              progress={3}
+              qaHook={undefined}
+              strokeWidth={12}
+              total={5}
+            >
+              <IE11SvgScaleHack
+                key="canvas"
+                viewBoxHeight={100}
+                viewBoxWidth={100}
+              >
+                <canvas
+                  className="xui-progress-circular-scaler"
+                  height={100}
+                  width={100}
+                />
+              </IE11SvgScaleHack>
+              <svg
+                className="xui-progress-circular-wrapper"
+                key="svg"
+                viewBox="0 0 100 100"
+              >
+                <defs>
+                  <mask
+                    height={100}
+                    id="myCustomProgressId-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={100}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={50}
+                      cy={50}
+                      r={44}
+                      strokeDasharray="initial"
+                      strokeWidth={12}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#myCustomProgressId-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={50}
+                    cy={50}
+                    r={44}
+                    strokeWidth={12}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={50}
+                    cy={50}
+                    r={44}
+                    strokeDasharray={276.46015351590177}
+                    strokeDashoffset={110.58406140636072}
+                    strokeWidth={12}
+                  />
+                </g>
+              </svg>
+            </CircularTrack>
+          </div>
+        </DynamicStroke>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom hard error" correctly 1`] = `
+<XUIProgressCircular
+  hardErrorAlert="S"
+  id="myCustomProgressId"
+  isHardError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
+    hardErrorAlert="S"
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isHardError={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular xui-progress-error-hard"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert="S"
+        isComplete={undefined}
+        isHardError={true}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          S
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular grow layout" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isGrow={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-grow xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isGrow={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-grow xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={true}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <DynamicStroke>
+          <div>
+            <CircularTrack
+              customContent={undefined}
+              id="myCustomProgressId"
+              isSegmented={undefined}
+              progress={3}
+              qaHook={undefined}
+              strokeWidth={12}
+              total={5}
+            >
+              <IE11SvgScaleHack
+                key="canvas"
+                viewBoxHeight={100}
+                viewBoxWidth={100}
+              >
+                <canvas
+                  className="xui-progress-circular-scaler"
+                  height={100}
+                  width={100}
+                />
+              </IE11SvgScaleHack>
+              <svg
+                className="xui-progress-circular-wrapper"
+                key="svg"
+                viewBox="0 0 100 100"
+              >
+                <defs>
+                  <mask
+                    height={100}
+                    id="myCustomProgressId-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={100}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={50}
+                      cy={50}
+                      r={44}
+                      strokeDasharray="initial"
+                      strokeWidth={12}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#myCustomProgressId-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={50}
+                    cy={50}
+                    r={44}
+                    strokeWidth={12}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={50}
+                    cy={50}
+                    r={44}
+                    strokeDasharray={276.46015351590177}
+                    strokeDashoffset={110.58406140636072}
+                    strokeWidth={12}
+                  />
+                </g>
+              </svg>
+            </CircularTrack>
+          </div>
+        </DynamicStroke>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular hard error" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isHardError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isHardError={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular xui-progress-error-hard"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={true}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          <ErrorIcon>
+            <svg
+              className="xui-progress-icon-error"
+              viewBox="0 0 2 7"
+            >
+              <path
+                d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
+              />
+            </svg>
+          </ErrorIcon>
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular overflow segments" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isOverflow={true}
+  isSegmented={true}
+  progress={6}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={6}
+    classes="xui-progress xui-progress-overflow xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={true}
+    isSegmented={true}
+    isSoftError={undefined}
+    progress={5}
+    toolTipId={undefined}
+    toolTipMessage="6 of 5"
+    total={6}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={6}
+      aria-valuetext="6 of 5"
+      className="xui-progress xui-progress-overflow xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={true}
+        key="track"
+        progress={5}
+        qaHook={undefined}
+        total={6}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={true}
+            progress={5}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={6}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="27.989312151474095, 18.36170989615657"
+                    strokeDashoffset={-9.180854948078284}
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={46.35102204763066}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular overflow standard" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isOverflow={true}
+  progress={6}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={6}
+    classes="xui-progress xui-progress-overflow xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={true}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={5}
+    toolTipId={undefined}
+    toolTipMessage="6 of 5"
+    total={6}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={6}
+      aria-valuetext="6 of 5"
+      className="xui-progress xui-progress-overflow xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={5}
+        qaHook={undefined}
+        total={6}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={5}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={6}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={46.35102204763066}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular segments" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isSegmented={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={true}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={true}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={true}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="37.259516561000225, 18.36170989615657"
+                    strokeDashoffset={-9.180854948078284}
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular soft error" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isSoftError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-error-soft xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={true}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-error-soft xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular standard" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear grow layout" correctly 1`] = `
+<XUIProgressLinear
+  id="myCustomProgressId"
+  isGrow={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-grow xui-progress-linear"
+    id="myCustomProgressId"
+    isGrow={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-grow xui-progress-linear"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <LinearTrack
+        id="myCustomProgressId"
+        isSegmented={undefined}
+        progress={3}
+        total={5}
+      >
+        <div
+          className="xui-progress-linear-wrapper"
+        >
+          <div
+            className="xui-progress-linear-track"
+          >
+            <div
+              className="xui-progress-linear-current"
+              style={
+                Object {
+                  "width": "60%",
+                }
+              }
+            />
+          </div>
+        </div>
+      </LinearTrack>
+    </div>
+  </ProgressWrapper>
+</XUIProgressLinear>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear overflow segments" correctly 1`] = `
+<XUIProgressLinear
+  id="myCustomProgressId"
+  isOverflow={true}
+  isSegmented={true}
+  progress={6}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={6}
+    classes="xui-progress xui-progress-overflow xui-progress-linear"
+    id="myCustomProgressId"
+    isOverflow={true}
+    isSegmented={true}
+    isSoftError={undefined}
+    progress={5}
+    toolTipId={undefined}
+    toolTipMessage="6 of 5"
+    total={6}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={6}
+      aria-valuetext="6 of 5"
+      className="xui-progress xui-progress-overflow xui-progress-linear"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <LinearTrack
+        id="myCustomProgressId"
+        isSegmented={true}
+        progress={5}
+        total={6}
+      >
+        <div
+          className="xui-progress-linear-wrapper"
+        >
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="0"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="1"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="2"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="3"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="4"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-track"
+            key="5"
+          />
+        </div>
+      </LinearTrack>
+    </div>
+  </ProgressWrapper>
+</XUIProgressLinear>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear overflow standard" correctly 1`] = `
+<XUIProgressLinear
+  id="myCustomProgressId"
+  isOverflow={true}
+  progress={6}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={6}
+    classes="xui-progress xui-progress-overflow xui-progress-linear"
+    id="myCustomProgressId"
+    isOverflow={true}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={5}
+    toolTipId={undefined}
+    toolTipMessage="6 of 5"
+    total={6}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={6}
+      aria-valuetext="6 of 5"
+      className="xui-progress xui-progress-overflow xui-progress-linear"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <LinearTrack
+        id="myCustomProgressId"
+        isSegmented={undefined}
+        progress={5}
+        total={6}
+      >
+        <div
+          className="xui-progress-linear-wrapper"
+        >
+          <div
+            className="xui-progress-linear-track"
+          >
+            <div
+              className="xui-progress-linear-current"
+              style={
+                Object {
+                  "width": "83.33333333333334%",
+                }
+              }
+            />
+          </div>
+        </div>
+      </LinearTrack>
+    </div>
+  </ProgressWrapper>
+</XUIProgressLinear>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear segments" correctly 1`] = `
+<XUIProgressLinear
+  id="myCustomProgressId"
+  isSegmented={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-linear"
+    id="myCustomProgressId"
+    isOverflow={undefined}
+    isSegmented={true}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-linear"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <LinearTrack
+        id="myCustomProgressId"
+        isSegmented={true}
+        progress={3}
+        total={5}
+      >
+        <div
+          className="xui-progress-linear-wrapper"
+        >
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="0"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="1"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-current"
+            key="2"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-track"
+            key="3"
+          />
+          <div
+            className="xui-progress-linear-segment xui-progress-linear-track"
+            key="4"
+          />
+        </div>
+      </LinearTrack>
+    </div>
+  </ProgressWrapper>
+</XUIProgressLinear>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear soft error" correctly 1`] = `
+<XUIProgressLinear
+  id="myCustomProgressId"
+  isSoftError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-error-soft xui-progress-linear"
+    id="myCustomProgressId"
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={true}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-error-soft xui-progress-linear"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <LinearTrack
+        id="myCustomProgressId"
+        isSegmented={undefined}
+        progress={3}
+        total={5}
+      >
+        <div
+          className="xui-progress-linear-wrapper"
+        >
+          <div
+            className="xui-progress-linear-track"
+          >
+            <div
+              className="xui-progress-linear-current"
+              style={
+                Object {
+                  "width": "60%",
+                }
+              }
+            />
+          </div>
+        </div>
+      </LinearTrack>
+    </div>
+  </ProgressWrapper>
+</XUIProgressLinear>
+`;
+
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear standard" correctly 1`] = `
+<XUIProgressLinear
+  id="myCustomProgressId"
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-linear"
+    id="myCustomProgressId"
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-linear"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <LinearTrack
+        id="myCustomProgressId"
+        isSegmented={undefined}
+        progress={3}
+        total={5}
+      >
+        <div
+          className="xui-progress-linear-wrapper"
+        >
+          <div
+            className="xui-progress-linear-track"
+          >
+            <div
+              className="xui-progress-linear-current"
+              style={
+                Object {
+                  "width": "60%",
+                }
+              }
+            />
+          </div>
+        </div>
+      </LinearTrack>
+    </div>
+  </ProgressWrapper>
+</XUIProgressLinear>
+`;
+
+exports[`<XUIProgressIndicator /> render supplied content as a child of the nested progress indicator 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  qaHook="progress-indicator"
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={
+      <img
+        src="/my-image.png"
+      />
+    }
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    qaHook="progress-indicator"
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid="progress-indicator"
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={
+          <img
+            src="/my-image.png"
+          />
+        }
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook="progress-indicator"
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={
+              <img
+                src="/my-image.png"
+              />
+            }
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook="progress-indicator"
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <div
+              className="xui-progress-circular-content"
+              data-automationid="progress-indicator-custom-content"
+              key="content"
+              style={
+                Object {
+                  "bottom": "calc(11.476068685097855% - 1px)",
+                  "left": "calc(11.476068685097855% - 1px)",
+                  "right": "calc(11.476068685097855% - 1px)",
+                  "top": "calc(11.476068685097855% - 1px)",
+                }
+              }
+            >
+              <img
+                src="/my-image.png"
+              />
+            </div>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should default to a standard format when segments are calculated at less than one 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isLinear={true}
+  isSegmented={true}
+  progress={3}
+  total={0}
+>
+  <ProgressWrapper
+    ariaMax={0}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isLinear={true}
+    isOverflow={undefined}
+    isSegmented={false}
+    isSoftError={undefined}
+    progress={0}
+    toolTipId={undefined}
+    toolTipMessage="3 of 0"
+    total={0}
+  >
+    <div
+      aria-valuemax={0}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 0"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={false}
+        key="track"
+        progress={0}
+        qaHook={undefined}
+        total={0}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={false}
+            progress={0}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={0}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={0}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should override a complete alert with a soft error alert 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isAlertOnComplete={true}
+  isSoftError={true}
+  progress={5}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={5}
+    classes="xui-progress xui-progress-error-soft xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isAlertOnComplete={true}
+    isComplete={false}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={true}
+    progress={5}
+    toolTipId={undefined}
+    toolTipMessage="5 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={5}
+      aria-valuetext="5 of 5"
+      className="xui-progress xui-progress-error-soft xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={5}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={5}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={0}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={false}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should override a soft error alert with a hard error alert 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isHardError={true}
+  isSoftError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isHardError={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={false}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular xui-progress-error-hard"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={true}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          <ErrorIcon>
+            <svg
+              className="xui-progress-icon-error"
+              viewBox="0 0 2 7"
+            >
+              <path
+                d="M0,5 L1.99801961,5 L1.99801961,6.99797571 L0,6.99797571 L0,5 Z M0,0 L1.99801961,0 L1.99801961,4 L0,4 L0,0 Z"
+              />
+            </svg>
+          </ErrorIcon>
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should render hard error alert override as jsx 1`] = `
+<XUIProgressCircular
+  hardErrorAlert={
+    <img
+      alt="error alert"
+      src="http://via.placeholder.com/20x20"
+    />
+  }
+  id="myCustomProgressId"
+  isHardError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
+    hardErrorAlert={
+      <img
+        alt="error alert"
+        src="http://via.placeholder.com/20x20"
+      />
+    }
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isHardError={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular xui-progress-error-hard"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={
+          <img
+            alt="error alert"
+            src="http://via.placeholder.com/20x20"
+          />
+        }
+        isComplete={undefined}
+        isHardError={true}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          <img
+            alt="error alert"
+            src="http://via.placeholder.com/20x20"
+          />
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should render hard error alert override as text 1`] = `
+<XUIProgressCircular
+  hardErrorAlert="S"
+  id="myCustomProgressId"
+  isHardError={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
+    hardErrorAlert="S"
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isHardError={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular xui-progress-error-hard"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert="S"
+        isComplete={undefined}
+        isHardError={true}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        >
+          S
+        </div>
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={-1}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={0}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={0}
+    toolTipId={undefined}
+    toolTipMessage="0 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={0}
+      aria-valuetext="0 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={0}
+        qaHook={undefined}
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={0}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={278.106132285784}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  total={-1}
+>
+  <ProgressWrapper
+    ariaMax={0}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={0}
+    toolTipId={undefined}
+    toolTipMessage="3 of 0"
+    total={0}
+  >
+    <div
+      aria-valuemax={0}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 0"
+      className="xui-progress xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={0}
+        qaHook={undefined}
+        total={0}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={0}
+            qaHook={undefined}
+            strokeWidth={11.476068685097855}
+            total={0}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={0}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> tool tip should hide tool tip when mouse leaves the component 1`] = `
+<XUIProgressCircular
+  hasToolTip={true}
+  id="myCustomProgressId"
+  progress={3}
+  qaHook="progress-indicator"
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    hasToolTip={true}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    qaHook="progress-indicator"
+    toolTipId="myCustomProgressId-progress-tooltip"
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-describedby="myCustomProgressId-progress-tooltip"
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid="progress-indicator"
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook="progress-indicator"
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook="progress-indicator"
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+      <ProgressToolTip
+        qaHook="progress-indicator-tooltip"
+        toolTipId="myCustomProgressId-progress-tooltip"
+        toolTipMessage="3 of 5"
+      >
+        <div
+          className="xui-progress-hitbox"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseMove={[Function]}
+        />
+      </ProgressToolTip>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
+exports[`<XUIProgressIndicator /> tool tip should show tool tip when mouse moves over the component 1`] = `
+<XUIProgressCircular
+  hasToolTip={true}
+  id="myCustomProgressId"
+  progress={3}
+  qaHook="progress-indicator"
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={undefined}
+    hasToolTip={true}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    qaHook="progress-indicator"
+    toolTipId="myCustomProgressId-progress-tooltip"
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-describedby="myCustomProgressId-progress-tooltip"
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid="progress-indicator"
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook="progress-indicator"
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={undefined}
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook="progress-indicator"
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+      <ProgressToolTip
+        qaHook="progress-indicator-tooltip"
+        toolTipId="myCustomProgressId-progress-tooltip"
+        toolTipMessage="3 of 5"
+      >
+        <div
+          className="xui-progress-hitbox"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseMove={[Function]}
+        >
+          <div
+            className="xui-progress-tooltip xui-tag"
+            data-automationid="progress-indicator-tooltip"
+            id="myCustomProgressId-progress-tooltip"
+            role="tooltip"
+            style={
+              Object {
+                "transform": "translate(100px, 100px)",
+              }
+            }
+          >
+            3 of 5
+          </div>
+        </div>
+      </ProgressToolTip>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;

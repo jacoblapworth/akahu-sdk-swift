@@ -203,6 +203,8 @@ class DropDownPanel extends PureComponent {
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
 
+		const scrollableContainerClasses = 'xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow';
+
 		return (
 			<div
 				ref={n => this.rootNode = n}
@@ -226,27 +228,13 @@ class DropDownPanel extends PureComponent {
 				>
 					{header}
 					{shouldAddStatefulPicklist ? (
-							<StatefulPicklist
-								className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
-								ref={c => this.list = c}
-								onSelect={onSelect}
-								ignoreKeyboardEvents={ignoreKeyboardEvents}
-								onHighlightChange={onHighlightChange}
-								qaHook={qaHook && `${qaHook}--scrollable-container`}
-							>
-								<div
-									className="xui-dropdown--scrollable-content"
-									ref={sc => this._scrollableContent = sc}
-									data-automationid={qaHook && `${qaHook}--scrollable-content`}
-								>
-									{children}
-								</div>
-								{footer}
-							</StatefulPicklist>
-					) : (
-						<div
-							className="xui-u-flex xui-u-flex-vertical xui-u-flex-grow"
-							data-automationid={qaHook && `${qaHook}--scrollable-container`}
+						<StatefulPicklist
+							className={scrollableContainerClasses}
+							ref={c => this.list = c}
+							onSelect={onSelect}
+							ignoreKeyboardEvents={ignoreKeyboardEvents}
+							onHighlightChange={onHighlightChange}
+							qaHook={qaHook && `${qaHook}--scrollable-container`}
 						>
 							<div
 								className="xui-dropdown--scrollable-content"
@@ -256,8 +244,22 @@ class DropDownPanel extends PureComponent {
 								{children}
 							</div>
 							{footer}
-						</div>
-					)}
+						</StatefulPicklist>
+					) : (
+							<div
+								className={scrollableContainerClasses}
+								data-automationid={qaHook && `${qaHook}--scrollable-container`}
+							>
+								<div
+									className="xui-dropdown--scrollable-content"
+									ref={sc => this._scrollableContent = sc}
+									data-automationid={qaHook && `${qaHook}--scrollable-content`}
+								>
+									{children}
+								</div>
+								{footer}
+							</div>
+						)}
 				</div>
 			</div>
 		);

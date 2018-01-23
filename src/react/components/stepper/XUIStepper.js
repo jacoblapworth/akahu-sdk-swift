@@ -41,11 +41,6 @@ const testIsInline = ($stepper) => {
 
 	const $testInline = $stepper.querySelector(`.${BASE_CLASS}-testinline`);
 	const $tabs = $testInline.querySelectorAll(`.${BASE_CLASS}-tab`);
-
-	console.log('$stepper', $stepper);
-	console.log('$testInline', $testInline);
-	console.log('$tabs', $tabs);
-
 	const wrapperHeight = $testInline.clientHeight;
 	const tabHeights = [...$tabs].map(({ clientHeight }) => clientHeight).sort().reverse();
 	const maxHeight = tabHeights[0] || 0;
@@ -94,6 +89,9 @@ const testIsSideBar = ($stepper) => {
 const createGridTemplateRows = tabs => (
 	Boolean(Array().fill) && `${new Array(tabs.length).fill('auto').join(' ')} 1fr`
 );
+
+const createAriaTabId = (id, index) => `${id}-tab-${index}`;
+const createAriaPanelId = id => `${id}-panel`;
 
 const testIsLock = lock => lock && LAYOUTS.indexOf(lock) >= 0;
 
@@ -149,24 +147,29 @@ class XUIStepper extends Component {
 
 	};
 
-	createTab = ({ index, currentStep, totalTabs, isLinear, isStacked, ...tab }) => {
+	createTab = ({ id, index, ariaPanelId, currentStep, totalTabs, isLinear, isStacked, ...tab }) => {
 
 		const isFirst = !index;
-		const isInline = Boolean(index === totalTabs - 1);
+		const isLast = Boolean(index === totalTabs - 1);
 		const isActive = currentStep === index;
 		const isDisabled = isLinear && currentStep < index;
+		const ariaTabId = createAriaTabId(id, index);
 		const tabClasses = cn(
 			`${BASE_CLASS}-tab`, {
 				[`${BASE_CLASS}-tab-first`]: isFirst,
-				[`${BASE_CLASS}-tab-last`]: isInline
+				[`${BASE_CLASS}-tab-last`]: isLast
 			});
 
 		return (
 			<div
-				key={index}
+				key={ariaTabId}
+				id={ariaTabId}
 				className={tabClasses}
+				aria-controls={ariaPanelId}
+				aria-selected={isActive}
+				role="tab"
 				style={{ order: index }}>
-				<StepperTab {...{ ...tab, isActive, isDisabled, isStacked }} />
+				<StepperTab {...{ ...tab, ariaTabId, ariaPanelId, isActive, isDisabled, isStacked }} />
 			</div>
 		);
 
@@ -175,15 +178,17 @@ class XUIStepper extends Component {
 	render = () => {
 
 		const { layout } = this.state;
-		const { children, tabs, currentStep, isLinear, lock, isStacked: isStackedProp = true } = this.props;
-		const isStacked = isStackedProp && layout === INLINE;
+		const { children, id, tabs, currentStep, isLinear, lock, isStacked: isStacked } = this.props;
 		const totalTabs = tabs.length;
 		const gridTemplateRows = createGridTemplateRows(tabs);
-		const tabElements = tabs.map((tab, index) => this.createTab({ ...tab, index, currentStep, totalTabs, isLinear }));
+		const ariaTabId = createAriaTabId(id, currentStep);
+		const ariaPanelId = createAriaPanelId(id);
+		const tabStaticProps = { id, currentStep, ariaPanelId, totalTabs, isLinear };
+		const tabElements = tabs.map((tab, index) => this.createTab({ ...tab, ...tabStaticProps, index }));
 		const wrapperClasses = cn(
 			`${BASE_CLASS}-wrapper`,
 			`${BASE_CLASS}-${layout}`,
-			{ [`${BASE_CLASS}-stacked-links`]: isStacked }
+			{ [`${BASE_CLASS}-stacked-links`]: isStacked && layout === INLINE }
 		);
 
 		return (
@@ -205,20 +210,24 @@ class XUIStepper extends Component {
 
 				<div
 					className={wrapperClasses}
-					style={{ gridTemplateRows }}>
+					style={{ gridTemplateRows }}
+					role="tablist">
 
 					{tabElements}
 
 					{/*
-					+ ACCESSIBILITY!!!!!!
+					+ XXX ACCESSIBILITY!!!!!!
 					+ Error icon
 					+ Complete icon
 					+ Progress indocator integration
 					*/}
 
 					<div
+						id={ariaPanelId}
 						className={`${BASE_CLASS}-section`}
-						style={{ order: currentStep }}>
+						style={{ order: currentStep }}
+						role="tabpanel"
+						aria-labelledby={ariaTabId}>
 						{children}
 					</div>
 
@@ -237,6 +246,8 @@ XUIStepper.propTypes = {
 
 	/**`. */
 	qaHook: PropTypes.string,
+
+	id: PropTypes.string.isRequired,
 
 	/** Content to place inside the "track" circle. */
 	children: PropTypes.node,

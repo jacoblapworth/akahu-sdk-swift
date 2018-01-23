@@ -280,14 +280,6 @@
 	}
 }
 
-.#{$ns}-stepper-stacked-links .#{$ns}-stepper-tab {
-
-	&:before,
-	&:after {
-		top: 20px;
-	}
-}
-
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab {
 	order: 0 !important;
 	padding: 0 30px;
@@ -303,6 +295,14 @@
 	&:after {
 		left: inherit;
 		right: 0;
+	}
+}
+
+.#{$ns}-stepper-stacked-links .#{$ns}-stepper-tab {
+
+	&:before,
+	&:after {
+		top: 20px;
 	}
 }
 

@@ -14,13 +14,12 @@ const StepperTab = ({ name, description, handleClick, isError, isComplete, isAct
 			[`${BASE_CLASS}-link-disabled`]: isDisabled
 		}
 	);
-	const buttonClickHandler = isDisabled ? NOOP : handleClick;
+	const buttonClickHandler = (isDisabled || isActive) ? NOOP : handleClick;
 
 	return (
 		<button
 			className={linkClasses}
-			onClick={buttonClickHandler}
-		>
+			onClick={buttonClickHandler}>
 
 			<div className={`${BASE_CLASS}-link-wrapper`}>
 
@@ -52,7 +51,7 @@ export default StepperTab;
 
 StepperTab.propTypes = {
 
-	name: PropTypes.string.required,
+	name: PropTypes.string.isRequired,
 
 	description: PropTypes.string,
 

@@ -6,7 +6,7 @@ import XUIStepper from '../XUIStepper';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 const storiesWithKnobs = storiesOf('Instances/XUIStep', module);
@@ -70,6 +70,7 @@ storiesWithKnobs.add('Playground', () => (
 
 		<XUIStepper
 			tabs={tabs}
+			id={text('id', 'myStepperId')}
 			currentStep={number('currentStep', 0)}
 			isLinear={boolean('isLinear', false)}
 			isStacked={boolean('isStacked', false)}

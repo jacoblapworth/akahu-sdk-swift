@@ -6,7 +6,7 @@ import XUIStepper from '../XUIStepper';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text, object } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 const storiesWithKnobs = storiesOf('Instances/XUIStep', module);
@@ -37,6 +37,7 @@ const tabs = [
 		// isActive: true
 		// isError: true
 		// isStacked: true
+		isComplete: true
 	},
 	{
 		name: `Link 3`,
@@ -45,6 +46,11 @@ const tabs = [
 		handleClick: () => console.log('clicked link 3'),
 		// isActive: true
 		// isError: true
+		/*
+		isProgress: true
+		totalMax??
+		currentProgress
+		*/
 	},
 	{
 		name: `Link 4`,
@@ -64,9 +70,10 @@ storiesWithKnobs.add('Playground', () => (
 
 		<XUIStepper
 			tabs={tabs}
-			currentStep={1}
-			isLinear={true}
-			isStacked={false}
+			currentStep={number('currentStep', 0)}
+			isLinear={boolean('isLinear', false)}
+			isStacked={boolean('isStacked', false)}
+			lock={select('lock', ['default', 'stacked', 'sidebar', 'inline'])}
 		>
 			<h3>Content:</h3>
 			<p>...</p>

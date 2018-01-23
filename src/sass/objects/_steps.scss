@@ -93,11 +93,13 @@
 // Styleguide: Building Blocks.Steps.4
 
 .#{$ns}-steps {
-	@include xui-listreset;
 	color: $xui-color-grey-alpha-2;
 	cursor: default;
 	display: flex;
 	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .#{$ns}-step {
@@ -218,11 +220,6 @@
 	justify-content: center;
 }
 
-
-.#{$ns}-stepper-stacked-links {
-	align-items: baseline;
-}
-
 .#{$ns}-stepper-sidebar {
 
 	@include suportsGrid {
@@ -248,8 +245,6 @@
 }
 
 .#{$ns}-stepper-tab {
-	// background: gray;
-	// padding: 0; // 0 30px;
 	position: relative;
 
 	&:before,
@@ -257,30 +252,9 @@
 		background: $xui-color-grey-5;
 		content: '';
 		display: block;
-		position: absolute;
-	}
-}
-
-.#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
-
-	@include suportsGrid {
-		order: 0 !important;
-	}
-}
-
-.#{$ns}-stepper-inline .#{$ns}-stepper-tab {
-	order: 0 !important;
-	padding: 0 30px;
-}
-
-
-.#{$ns}-stepper-tab {
-	// padding: 30px 0;
-
-	&:before,
-	&:after {
 		height: 10px;
 		left: 30px;
+		position: absolute;
 		top: 0;
 		width: 1px;
 	}
@@ -299,7 +273,23 @@
 	padding-bottom: 0;
 }
 
+.#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
+
+	@include suportsGrid {
+		order: 0 !important;
+	}
+}
+
+.#{$ns}-stepper-stacked-links .#{$ns}-stepper-tab {
+
+	&:before,
+	&:after {
+		top: 20px;
+	}
+}
+
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab {
+	order: 0 !important;
 	padding: 0 30px;
 
 	&:before,
@@ -313,14 +303,6 @@
 	&:after {
 		left: inherit;
 		right: 0;
-	}
-}
-
-.#{$ns}-stepper-stacked-links .#{$ns}-stepper-tab {
-
-	&:before,
-	&:after {
-		top: 20px;
 	}
 }
 
@@ -358,10 +340,10 @@
 .#{$ns}-stepper-sidebar .#{$ns}-stepper-section {
 
 	@include suportsGrid {
-		grid-column-start: 2;
 		grid-column-end: -1;
-		grid-row-start: 1;
+		grid-column-start: 2;
 		grid-row-end: -1;
+		grid-row-start: 1;
 		padding: 0 0 0 30px;
 
 		&:before {
@@ -378,14 +360,6 @@
 	}
 }
 
-
-
-
-
-
-
-
-
 .#{$ns}-stepper-link {
 	@include xui-button-reset;
 	@include stepperLinkColor($xui-color-grey-1);
@@ -395,7 +369,6 @@
 	padding: 10px;
 	width: 100%;
 
-	
 	// &:not(.#{$ns}-stepper-link-disabled):not(.#{$ns}-stepper-link-active):hover {
 	&.#{$ns}-stepper-link-standard:hover,
 	&.#{$ns}-stepper-link-error:hover {
@@ -417,7 +390,7 @@
 .#{$ns}-stepper-inline .#{$ns}-stepper-link {
 	border-radius: 9999px;
 	padding: 0;
-} 
+}
 
 .#{$ns}-stepper-link-wrapper {
 	align-items: center;
@@ -427,6 +400,7 @@
 }
 
 .#{$ns}-stepper-stacked-links {
+	align-items: baseline;
 
 	.#{$ns}-stepper-link,
 	.#{$ns}-stepper-link:focus {

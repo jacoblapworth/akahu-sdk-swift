@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { BASE_CLASS, STACKED, SIDE_BAR, INLINE, LAYOUTS, NOOP } from '../helpers/constants';
+import { BASE_CLASS, NOOP } from '../helpers/constants';
 
-const StepperTab = ({ name, description, handleClick, isStacked, isError, isActive, isDisabled }) => {
+const StepperTab = ({ name, description, handleClick, isError, isComplete, isActive, isDisabled }) => {
 
 	const linkClasses = cn(
 		`${BASE_CLASS}-link`, {
 			[`${BASE_CLASS}-link-standard`]: !(isActive || isError || isDisabled),
 			[`${BASE_CLASS}-link-active`]: isActive,
 			[`${BASE_CLASS}-link-error`]: isError, // !isActive && isError,
+			[`${BASE_CLASS}-link-complete`]: isComplete,
 			[`${BASE_CLASS}-link-disabled`]: isDisabled
 		}
 	);
@@ -48,3 +49,21 @@ const StepperTab = ({ name, description, handleClick, isStacked, isError, isActi
 };
 
 export default StepperTab;
+
+StepperTab.propTypes = {
+
+	name: PropTypes.string.required,
+
+	description: PropTypes.string,
+
+	handleClick: PropTypes.func,
+
+	isError: PropTypes.bool,
+
+	isComplete: PropTypes.bool,
+
+	isActive: PropTypes.bool,
+
+	isDisabled: PropTypes.bool,
+
+};

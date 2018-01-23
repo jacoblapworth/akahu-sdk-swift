@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components we need to test with
-import XUISteps from '../XUISteps';
+import XUIStepper from '../XUIStepper';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -62,7 +62,7 @@ storiesWithKnobs.add('Playground', () => (
 		padding: '50px'
 	}}>
 
-		<XUISteps
+		<XUIStepper
 			tabs={tabs}
 			currentStep={1}
 			isLinear={true}
@@ -74,7 +74,7 @@ storiesWithKnobs.add('Playground', () => (
 			<p>...</p>
 			<p>...</p>
 			<p>...</p>
-		</XUISteps>
+		</XUIStepper>
 
 	</div>
 ));

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
-import { BASE_CLASS } from './helpers/constants';
+import { NAME_SPACE } from './helpers/constants';
 import StepperTab from './customElements/StepperTab';
 
 const STACKED = 'stacked';
@@ -13,13 +13,13 @@ const LAYOUTS = [STACKED, SIDE_BAR, INLINE];
 const HorizontalLayoutTest = ({ isStacked, tabElements }) => {
 
 	const wrapperClasses = cn(
-		`${BASE_CLASS}-wrapper`,
-		`${BASE_CLASS}-inline`,
-		{ [`${BASE_CLASS}-stacked-links`]: isStacked }
+		`${NAME_SPACE}-wrapper`,
+		`${NAME_SPACE}-inline`,
+		{ [`${NAME_SPACE}-stacked-links`]: isStacked }
 	);
 
 	return (
-		<div className={`${BASE_CLASS}-testinline`}>
+		<div className={`${NAME_SPACE}-testinline`}>
 			<div className={wrapperClasses}>
 				{tabElements}
 			</div>
@@ -39,8 +39,8 @@ HorizontalLayoutTest.propTypes = {
 // largest tab height and assert that it is the same size as the tabs <container />.
 const testIsInline = ($stepper) => {
 
-	const $testInline = $stepper.querySelector(`.${BASE_CLASS}-testinline`);
-	const $tabs = $testInline.querySelectorAll(`.${BASE_CLASS}-tab`);
+	const $testInline = $stepper.querySelector(`.${NAME_SPACE}-testinline`);
+	const $tabs = $testInline.querySelectorAll(`.${NAME_SPACE}-tab`);
 	const wrapperHeight = $testInline.clientHeight;
 	const tabHeights = [...$tabs].map(({ clientHeight }) => clientHeight).sort().reverse();
 	const maxHeight = tabHeights[0] || 0;
@@ -51,12 +51,12 @@ const testIsInline = ($stepper) => {
 };
 
 const SidebarLayoutTest = ({ gridTemplateRows, tabElements }) => (
-	<div className={`${BASE_CLASS}-testsidebar`}>
+	<div className={`${NAME_SPACE}-testsidebar`}>
 		<div
-			className={`${BASE_CLASS}-wrapper ${BASE_CLASS}-sidebar`}
+			className={`${NAME_SPACE}-wrapper ${NAME_SPACE}-sidebar`}
 			style={{ gridTemplateRows }}>
 			{tabElements}
-			<div className={`${BASE_CLASS}-section`} />
+			<div className={`${NAME_SPACE}-section`} />
 		</div>
 	</div>
 );
@@ -70,8 +70,8 @@ SidebarLayoutTest.propTypes = {
 // width meets a minimum requirement.
 const testIsSideBar = ($stepper) => {
 
-	const $testSideBar = $stepper.querySelector(`.${BASE_CLASS}-testsidebar`);
-	const $section = $testSideBar.querySelector(`.${BASE_CLASS}-section`);
+	const $testSideBar = $stepper.querySelector(`.${NAME_SPACE}-testsidebar`);
+	const $section = $testSideBar.querySelector(`.${NAME_SPACE}-section`);
 	const minWidth = 400;
 	const sectionWidth = $section.clientWidth;
 	const isSideBar = sectionWidth >= minWidth;
@@ -155,9 +155,9 @@ class XUIStepper extends Component {
 		const isDisabled = isLinear && currentStep < index;
 		const ariaTabId = createAriaTabId(id, index);
 		const tabClasses = cn(
-			`${BASE_CLASS}-tab`, {
-				[`${BASE_CLASS}-tab-first`]: isFirst,
-				[`${BASE_CLASS}-tab-last`]: isLast
+			`${NAME_SPACE}-tab`, {
+				[`${NAME_SPACE}-tab-first`]: isFirst,
+				[`${NAME_SPACE}-tab-last`]: isLast
 			});
 
 		return (
@@ -186,18 +186,18 @@ class XUIStepper extends Component {
 		const tabStaticProps = { id, currentStep, ariaPanelId, totalTabs, isLinear };
 		const tabElements = tabs.map((tab, index) => this.createTab({ ...tab, ...tabStaticProps, index }));
 		const wrapperClasses = cn(
-			`${BASE_CLASS}-wrapper`,
-			`${BASE_CLASS}-${layout}`,
-			{ [`${BASE_CLASS}-stacked-links`]: isStacked && layout === INLINE }
+			`${NAME_SPACE}-wrapper`,
+			`${NAME_SPACE}-${layout}`,
+			{ [`${NAME_SPACE}-stacked-links`]: isStacked && layout === INLINE }
 		);
 
 		return (
 			<div
-				className={BASE_CLASS}
+				className={NAME_SPACE}
 				ref={($node) => this.$stepper = $node}>
 
 				{!testIsLock(lock) && (<div
-					className={`${BASE_CLASS}-tests xui-u-hidden-content`}
+					className={`${NAME_SPACE}-tests xui-u-hidden-content`}
 					aria-hidden="true">
 
 					{/* Render "dummy" UI scenarios in secret to determine what layout the
@@ -224,7 +224,7 @@ class XUIStepper extends Component {
 
 					<div
 						id={ariaPanelId}
-						className={`${BASE_CLASS}-section`}
+						className={`${NAME_SPACE}-section`}
 						style={{ order: currentStep }}
 						role="tabpanel"
 						aria-labelledby={ariaTabId}>

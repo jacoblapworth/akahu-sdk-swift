@@ -1,6 +1,6 @@
-const BASE_CLASS = 'xui-stepper';
+const NAME_SPACE = 'xui-stepper';
 const NOOP = () => 0;
 
-const constants = { BASE_CLASS, NOOP };
+const constants = { NAME_SPACE, NOOP };
 
-export { constants as default, BASE_CLASS, NOOP };
+export { constants as default, NAME_SPACE, NOOP };

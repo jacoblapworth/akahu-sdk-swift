@@ -202,10 +202,10 @@
 }
 
 @mixin stepperLinkColor($color) {
+	color: $color;
 
-	&,
-	svg {
-		color: $color;
+	.#{$ns}-stepper-link-icon:before {
+		background: $color;
 	}
 }
 
@@ -383,10 +383,6 @@
 	}
 }
 
-.#{$ns}-stepper-link svg {
-	fill: currentColor;
-}
-
 .#{$ns}-stepper-inline .#{$ns}-stepper-link {
 	border-radius: 9999px;
 	padding: 0;
@@ -409,7 +405,6 @@
 
 	.#{$ns}-stepper-link:focus .#{$ns}-stepper-link-icon {
 		background: $xui-color-grey-7;
-		color: $xui-color-blue;
 	}
 
 	.#{$ns}-stepper-link-wrapper {
@@ -431,7 +426,39 @@
 	$size: 40px;
 	display: inline-block;
 	height: $size;
+	position: relative;
 	width: $size;
+
+	&:before {
+		$offset: 10px;
+		border-radius: 50%;
+		bottom: $offset;
+		content: '';
+		display: block;
+		left: $offset;
+		position: absolute;
+		right: $offset;
+		top: $offset;
+	}
+}
+
+.#{$ns}-stepper-icon-complete,
+.#{$ns}-stepper-icon-error {
+	fill: $xui-color-white;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.#{$ns}-stepper-icon-complete {
+	height: 8px;
+	width: 10px;
+}
+
+.#{$ns}-stepper-icon-error {
+	height: 7px;
+	width: 2px;
 }
 
 .#{$ns}-stepper-link .#{$ns}-stepper-link-heading,

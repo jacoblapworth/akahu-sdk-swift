@@ -186,3 +186,16 @@ You can supply the `hardErrorAlert` prop some custom content *(JSX, String, Numb
 const {XUIProgressCircular} = require('./progressindicator');
 <XUIProgressCircular id="hard-custom-circular" total={5} progress={3} isHardError hardErrorAlert=":-("/>
 ```
+
+### Central Content
+
+Supply content to reside in the center of the progress indicator circle using a traditional nested `children` format.
+
+```
+const {XUIProgressCircular} = require('./progressindicator');
+<div style={{ maxWidth: '300px', width: 'calc(50vw / 4)' }}>
+	<XUIProgressCircular id="central-content-circular" total={5} progress={3} isGrow>
+		<img style={{ width: '100%', height: 'auto' }} src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
+	</XUIProgressCircular>
+</div>
+```

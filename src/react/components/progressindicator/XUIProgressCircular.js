@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {enrichCircularProps} from './helpers/enrichprops';
+import { enrichCircularProps } from './helpers/enrichprops';
 import CircularTrack from './customElements/CircularTrack';
 import CircularIcon from './customElements/CircularIcon';
 import ProgressWrapper from './customElements/ProgressWrapper';
@@ -8,27 +8,29 @@ import ProgressWrapper from './customElements/ProgressWrapper';
 const XUIProgressCircular = (props) => {
 
 	return (
-		<ProgressWrapper {...enrichCircularProps(props)}>
+		<ProgressWrapper {...enrichCircularProps(props) }>
 			{({
 				id,
+				qaHook,
 				isSegmented,
 				total,
 				progress,
 				isGrow,
 				isComplete,
 				isHardError,
-				hardErrorAlert
+				hardErrorAlert,
+				customContent
 			}) => ([
-				<CircularTrack
-					{...{id, isSegmented, total, progress, isGrow}}
-					key="track"
-				/>,
+					<CircularTrack
+						{...{ id, qaHook, isSegmented, total, progress, isGrow, customContent }}
+						key="track"
+					/>,
 
-				<CircularIcon
-					{...{isComplete, isHardError, hardErrorAlert}}
-					key="icon"
-				/>
-			])}
+					<CircularIcon
+						{...{ isComplete, isHardError, hardErrorAlert }}
+						key="icon"
+					/>
+				])}
 		</ProgressWrapper>
 	);
 
@@ -43,6 +45,9 @@ XUIProgressCircular.propTypes = {
 
 	/**`. */
 	qaHook: PropTypes.string,
+
+	/** Content to place inside the "track" circle. */
+	children: PropTypes.node,
 
 	/** The "total" amount of "units" to represent visually on the progress scale. */
 	total: PropTypes.number,
@@ -71,11 +76,11 @@ XUIProgressCircular.propTypes = {
 	/** Show the "progress" in an error state. */
 	isSoftError: PropTypes.bool,
 
-	/** Show an error icon */
+	/** Show an error icon. */
 	isHardError: PropTypes.bool,
 
 	/** Customise the "error" content. */
-	hardErrorAlert: PropTypes.any,
+	hardErrorAlert: PropTypes.node,
 
 	/** A "color" key that overrides the default "total" gray track swatch. */
 	totalColor: PropTypes.oneOf(['orange', 'yellow', 'green', 'mint', 'turquoise', 'blue', 'violet', 'grape', 'pink', 'grey', 'purple', 'lightGreen']),

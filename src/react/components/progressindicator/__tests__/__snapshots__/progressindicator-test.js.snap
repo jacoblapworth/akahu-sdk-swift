@@ -13,6 +13,7 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -35,18 +36,22 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -140,6 +145,7 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -164,18 +170,22 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -268,6 +278,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={5}
     classes="xui-progress xui-progress-circular xui-progress-complete"
+    customContent={undefined}
     id="myCustomProgressId"
     isAlertOnComplete={true}
     isComplete={true}
@@ -289,18 +300,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={5}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={5}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -404,6 +419,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isHardError={true}
@@ -425,18 +441,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -528,6 +548,138 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom content" correctly 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  isGrow={true}
+  progress={3}
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-grow xui-progress-circular"
+    customContent={undefined}
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isGrow={true}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-grow xui-progress-circular"
+      data-automationid={undefined}
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={undefined}
+        id="myCustomProgressId"
+        isGrow={true}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook={undefined}
+        total={5}
+      >
+        <DynamicStroke>
+          <div>
+            <CircularTrack
+              customContent={undefined}
+              id="myCustomProgressId"
+              isSegmented={undefined}
+              progress={3}
+              qaHook={undefined}
+              strokeWidth={12}
+              total={5}
+            >
+              <IE11SvgScaleHack
+                key="canvas"
+                viewBoxHeight={100}
+                viewBoxWidth={100}
+              >
+                <canvas
+                  className="xui-progress-circular-scaler"
+                  height={100}
+                  width={100}
+                />
+              </IE11SvgScaleHack>
+              <svg
+                className="xui-progress-circular-wrapper"
+                key="svg"
+                viewBox="0 0 100 100"
+              >
+                <defs>
+                  <mask
+                    height={100}
+                    id="myCustomProgressId-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={100}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={50}
+                      cy={50}
+                      r={44}
+                      strokeDasharray="initial"
+                      strokeWidth={12}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#myCustomProgressId-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={50}
+                    cy={50}
+                    r={44}
+                    strokeWidth={12}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={50}
+                    cy={50}
+                    r={44}
+                    strokeDasharray={276.46015351590177}
+                    strokeDashoffset={110.58406140636072}
+                    strokeWidth={12}
+                  />
+                </g>
+              </svg>
+            </CircularTrack>
+          </div>
+        </DynamicStroke>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
 exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom hard error" correctly 1`] = `
 <XUIProgressCircular
   hardErrorAlert="S"
@@ -541,6 +693,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
     hardErrorAlert="S"
     id="myCustomProgressId"
     isComplete={undefined}
@@ -563,18 +716,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -669,6 +826,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-grow xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isGrow={true}
@@ -690,19 +848,23 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={true}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <DynamicStroke>
           <div>
             <CircularTrack
+              customContent={undefined}
               id="myCustomProgressId"
               isSegmented={undefined}
               progress={3}
+              qaHook={undefined}
               strokeWidth={12}
               total={5}
             >
@@ -796,6 +958,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isHardError={true}
@@ -817,18 +980,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -933,6 +1100,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={6}
     classes="xui-progress xui-progress-overflow xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={true}
@@ -953,18 +1121,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={true}
         key="track"
         progress={5}
+        qaHook={undefined}
         total={6}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={true}
             progress={5}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={6}
           >
@@ -1058,6 +1230,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={6}
     classes="xui-progress xui-progress-overflow xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={true}
@@ -1078,18 +1251,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={5}
+        qaHook={undefined}
         total={6}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={5}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={6}
           >
@@ -1182,6 +1359,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -1202,18 +1380,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={true}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={true}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -1307,6 +1489,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-error-soft xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -1327,18 +1510,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -1430,6 +1617,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -1450,18 +1638,22 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -1911,6 +2103,165 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
+exports[`<XUIProgressIndicator /> render supplied content as a child of the nested progress indicator 1`] = `
+<XUIProgressCircular
+  id="myCustomProgressId"
+  progress={3}
+  qaHook="progress-indicator"
+  total={5}
+>
+  <ProgressWrapper
+    ariaMax={5}
+    ariaMin={0}
+    ariaNow={3}
+    classes="xui-progress xui-progress-circular"
+    customContent={
+      <img
+        src="/my-image.png"
+      />
+    }
+    id="myCustomProgressId"
+    isComplete={undefined}
+    isOverflow={undefined}
+    isSegmented={undefined}
+    isSoftError={undefined}
+    progress={3}
+    qaHook="progress-indicator"
+    toolTipId={undefined}
+    toolTipMessage="3 of 5"
+    total={5}
+  >
+    <div
+      aria-valuemax={5}
+      aria-valuemin={0}
+      aria-valuenow={3}
+      aria-valuetext="3 of 5"
+      className="xui-progress xui-progress-circular"
+      data-automationid="progress-indicator"
+      role="progressbar"
+    >
+      <CircularStroke
+        customContent={
+          <img
+            src="/my-image.png"
+          />
+        }
+        id="myCustomProgressId"
+        isGrow={undefined}
+        isSegmented={undefined}
+        key="track"
+        progress={3}
+        qaHook="progress-indicator"
+        total={5}
+      >
+        <div>
+          <CircularTrack
+            customContent={
+              <img
+                src="/my-image.png"
+              />
+            }
+            id="myCustomProgressId"
+            isSegmented={undefined}
+            progress={3}
+            qaHook="progress-indicator"
+            strokeWidth={11.476068685097855}
+            total={5}
+          >
+            <IE11SvgScaleHack
+              key="canvas"
+              viewBoxHeight={100}
+              viewBoxWidth={100}
+            >
+              <canvas
+                className="xui-progress-circular-scaler"
+                height={100}
+                width={100}
+              />
+            </IE11SvgScaleHack>
+            <div
+              className="xui-progress-circular-content"
+              data-automationid="progress-indicator-custom-content"
+              key="content"
+              style={
+                Object {
+                  "bottom": "calc(11.476068685097855% - 1px)",
+                  "left": "calc(11.476068685097855% - 1px)",
+                  "right": "calc(11.476068685097855% - 1px)",
+                  "top": "calc(11.476068685097855% - 1px)",
+                }
+              }
+            >
+              <img
+                src="/my-image.png"
+              />
+            </div>
+            <svg
+              className="xui-progress-circular-wrapper"
+              key="svg"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <mask
+                  height={100}
+                  id="myCustomProgressId-progress-mask"
+                  maskUnits="userSpaceOnUse"
+                  width={100}
+                  x="0"
+                  y="0"
+                >
+                  <circle
+                    className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                    cx={50}
+                    cy={50}
+                    r={44.26196565745107}
+                    strokeDasharray="initial"
+                    strokeWidth={11.476068685097855}
+                  />
+                </mask>
+              </defs>
+              <g
+                mask="url(#myCustomProgressId-progress-mask)"
+              >
+                <circle
+                  className="xui-progress-circular-track"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeWidth={11.476068685097855}
+                />
+                <circle
+                  className="xui-progress-circular-current xui-progress-roundcap"
+                  cx={50}
+                  cy={50}
+                  r={44.26196565745107}
+                  strokeDasharray={278.106132285784}
+                  strokeDashoffset={111.2424529143136}
+                  strokeWidth={11.476068685097855}
+                />
+              </g>
+            </svg>
+          </CircularTrack>
+        </div>
+      </CircularStroke>
+      <CircularIcon
+        hardErrorAlert={undefined}
+        isComplete={undefined}
+        isHardError={undefined}
+        key="icon"
+      >
+        <div
+          className="xui-progress-icon"
+        />
+      </CircularIcon>
+    </div>
+  </ProgressWrapper>
+</XUIProgressCircular>
+`;
+
 exports[`<XUIProgressIndicator /> should default to a standard format when segments are calculated at less than one 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
@@ -1924,6 +2275,7 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isLinear={true}
@@ -1945,18 +2297,22 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={false}
         key="track"
         progress={0}
+        qaHook={undefined}
         total={0}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={false}
             progress={0}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={0}
           >
@@ -2050,6 +2406,7 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
     ariaMin={0}
     ariaNow={5}
     classes="xui-progress xui-progress-error-soft xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isAlertOnComplete={true}
     isComplete={false}
@@ -2071,18 +2428,22 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={5}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={5}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -2176,6 +2537,7 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isHardError={true}
@@ -2197,18 +2559,22 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -2318,6 +2684,7 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
     hardErrorAlert={
       <img
         alt="error alert"
@@ -2345,18 +2712,22 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -2460,6 +2831,7 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular xui-progress-error-hard"
+    customContent={undefined}
     hardErrorAlert="S"
     id="myCustomProgressId"
     isComplete={undefined}
@@ -2482,18 +2854,22 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -2587,6 +2963,7 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
     ariaMin={0}
     ariaNow={0}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -2607,18 +2984,22 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={0}
+        qaHook={undefined}
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={0}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -2710,6 +3091,7 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     id="myCustomProgressId"
     isComplete={undefined}
     isOverflow={undefined}
@@ -2730,18 +3112,22 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={0}
+        qaHook={undefined}
         total={0}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={0}
+            qaHook={undefined}
             strokeWidth={11.476068685097855}
             total={0}
           >
@@ -2835,6 +3221,7 @@ exports[`<XUIProgressIndicator /> tool tip should hide tool tip when mouse leave
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     hasToolTip={true}
     id="myCustomProgressId"
     isComplete={undefined}
@@ -2858,18 +3245,22 @@ exports[`<XUIProgressIndicator /> tool tip should hide tool tip when mouse leave
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook="progress-indicator"
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook="progress-indicator"
             strokeWidth={11.476068685097855}
             total={5}
           >
@@ -2975,6 +3366,7 @@ exports[`<XUIProgressIndicator /> tool tip should show tool tip when mouse moves
     ariaMin={0}
     ariaNow={3}
     classes="xui-progress xui-progress-circular"
+    customContent={undefined}
     hasToolTip={true}
     id="myCustomProgressId"
     isComplete={undefined}
@@ -2998,18 +3390,22 @@ exports[`<XUIProgressIndicator /> tool tip should show tool tip when mouse moves
       role="progressbar"
     >
       <CircularStroke
+        customContent={undefined}
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
         key="track"
         progress={3}
+        qaHook="progress-indicator"
         total={5}
       >
         <div>
           <CircularTrack
+            customContent={undefined}
             id="myCustomProgressId"
             isSegmented={undefined}
             progress={3}
+            qaHook="progress-indicator"
             strokeWidth={11.476068685097855}
             total={5}
           >

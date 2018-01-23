@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import {NAME_SPACE} from './constants';
+import { NAME_SPACE } from './constants';
 
 const enrichBaseProps = (props) => {
 
@@ -64,14 +64,14 @@ const enrichLinearProps = (props) => {
 	const isSoftError = base.isSoftError && !base.isOverflow;
 	const classes = cn(base.classes, `${NAME_SPACE}-linear`);
 
-	return {...base, isSoftError, classes};
+	return { ...base, isSoftError, classes };
 
 };
 
 const enrichCircularProps = (props) => {
 
 	const base = enrichBaseProps(props);
-	const {isHardError, isOverflow, isAlertOnComplete, total, progress} = base;
+	const { isHardError, isOverflow, isAlertOnComplete, total, progress, children } = base;
 
 	// A "soft" error will not be visible if the UI is currently in a "hard" error
 	// or "overflow" scenario.
@@ -80,6 +80,8 @@ const enrichCircularProps = (props) => {
 	// The "complete" alert is "circular" specific an will only show up when not in
 	// an error scenario and the "total" and "progress" are equal.
 	const isComplete = isAlertOnComplete && !(isSoftError || isHardError) && total === progress;
+
+	const customContent = children;
 
 	const classes = cn(
 		base.classes,
@@ -90,10 +92,10 @@ const enrichCircularProps = (props) => {
 		}
 	);
 
-	return {...base, isSoftError, isComplete, classes};
+	return { ...base, isSoftError, isComplete, customContent, classes };
 
 };
 
-const enrichProps = {enrichLinearProps, enrichCircularProps};
+const enrichProps = { enrichLinearProps, enrichCircularProps };
 
-export {enrichProps as default, enrichLinearProps, enrichCircularProps};
+export { enrichProps as default, enrichLinearProps, enrichCircularProps };

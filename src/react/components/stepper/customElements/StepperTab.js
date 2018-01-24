@@ -12,14 +12,13 @@ const enrichProps = (props) => {
 
 	const isActive = props.isActive && !props.isDisabled;
 
-	const isComplete = (
-		props.isComplete // && !(props.isError || props.isDisabled)
-		|| currentProgress === props.totalProgress
-	);
+	const isComplete = props.isComplete || currentProgress === props.totalProgress;
 
 	const isStandard = !(props.isError || isActive || props.isDisabled);
 
 	const handleClick = props.isDisabled || isActive ? NOOP : props.handleClick;
+
+	const tabIndex = props.isDisabled ? -1 : 0;
 
 	return {
 		...props,
@@ -28,6 +27,7 @@ const enrichProps = (props) => {
 		isComplete,
 		isStandard,
 		handleClick,
+		tabIndex,
 	};
 
 };
@@ -47,6 +47,7 @@ const StepperTab = (props) => {
 		isProgress,
 		totalProgress,
 		currentProgress,
+		tabIndex,
 	} = enrichProps(props);
 
 	const linkClasses = cn(
@@ -61,7 +62,8 @@ const StepperTab = (props) => {
 	return (
 		<button
 			className={linkClasses}
-			onClick={handleClick}>
+			onClick={handleClick}
+			tabIndex={tabIndex}>
 
 			<div className={`${NAME_SPACE}-link-wrapper`}>
 

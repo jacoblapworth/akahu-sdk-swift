@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {Portal} from 'react-portal';
+import portalContainer from '../helpers/portalContainer';
 
 export default class XUIToastWrapper extends React.PureComponent {
 	render() {
@@ -10,7 +11,7 @@ export default class XUIToastWrapper extends React.PureComponent {
 		const isOpened = React.Children.count(children) > 0;
 
 		return isOpened ? (
-			<Portal>
+			<Portal node={portalContainer()}>
 				<div data-automationid={qaHook} className={cn(classNames, 'xui-container')}>
 					{children}
 				</div>

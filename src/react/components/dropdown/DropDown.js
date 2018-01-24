@@ -63,7 +63,7 @@ export default class DropDown extends PureComponent {
 	 * Keydown handler for the DropDown.  If `hasKeyboardEvents` is true, then this component will
 	 * automatically handle list navigation keyboard events because the root node will have
 	 * focus.  However, if you want to keep the focus on the trigger by setting `hasKeyboardEvents`
-	 * to false, you need to manually call this method if you want arrow key handlers to actuall
+	 * to false, you need to manually call this method if you want arrow key handlers to actually
 	 * navigate the list for users.  A heuristic is applied, so the only time you shouldn't call this
 	 * on trigger keydown is when you know for a fact that you don't want a default action to happen
 	 * (ex: Down arrow should not open the list).  It doesn't hurt to call this for keyboard events

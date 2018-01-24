@@ -15,6 +15,7 @@ import {
 	attachListeners,
 	detachListeners,
 } from './private/dom-helpers';
+import portalContainer from '../helpers/portalContainer';
 
 /**
  * @private
@@ -323,7 +324,7 @@ class Positioning extends PureComponent {
 		});
 
 		return isVisible ? (
-			<Portal>
+			<Portal node={portalContainer()}>
 				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container" data-automationid={qaHook}>
 					{clonedChildren}
 				</div>

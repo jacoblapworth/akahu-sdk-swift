@@ -6,6 +6,7 @@ import XUIModal, { XUIModalBody } from '../../modal';
 import DropDown, { DropDownToggled } from '../../dropdown';
 import Picklist, { Pickitem } from '../../picklist';
 import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIInput from '../../input';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -30,10 +31,10 @@ const buildDropdownPicklist = (items) => {
 	);
 	return (
 		<DropDown>
-		<Picklist>
-			{pickItems}
-		</Picklist>
-	</DropDown>
+			<Picklist>
+				{pickItems}
+			</Picklist>
+		</DropDown>
 	);
 };
 
@@ -49,20 +50,27 @@ const buildTrigger = (text) => {
 test.add(storyNames.multiDropDowns, () => {
 
 	return (
-		<XUIModal isOpen>
-			<XUIModalBody>
-				This is some Modal content.
-				<DropDownToggled
-					trigger={buildTrigger('Short Trigger')}
-					dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
-					isHidden={false}
-				/>
-				This is some Modal content.
-				<DropDownToggled
-					trigger={buildTrigger('Medium Dropdown Trigger')}
-					dropdown={buildDropdownPicklist(lists.MedListMedItems)}
-				/>
-			</XUIModalBody>
-		</XUIModal>
+		<div>
+			<XUIInput className='xui-margin-bottom'/>
+			<XUIModal isOpen>
+				<XUIModalBody>
+					This is some Modal content.
+				<XUIInput />
+					<DropDownToggled
+						trigger={buildTrigger('Short Trigger')}
+						dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
+						isHidden={false}
+					/>
+					This is some Modal content.
+					<XUIInput />
+					<DropDownToggled
+						trigger={buildTrigger('Medium Dropdown Trigger')}
+						dropdown={buildDropdownPicklist(lists.MedListMedItems)}
+					/>
+					<XUIInput />
+				</XUIModalBody>
+			</XUIModal>
+			<XUIInput />
+		</div>
 	);
 });

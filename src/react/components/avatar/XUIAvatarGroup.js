@@ -18,12 +18,13 @@ export default class XUIAvatarGroup extends PureComponent {
 		const extraChildCount = (maxAvatars && childCount > maxAvatars) ? childCount - maxAvatars + 1 : 0;
 		const lastChildIndex = extraChildCount ? maxAvatars - 1 : childCount;
 
-		const counter = extraChildCount ? <XUIAvatarCounter count={extraChildCount} size={avatarSize} /> : null;
 		const className = cn(classNames.group, props.className);
 		let children = props.children;
+		let variant = 'standard';
 
-		if(avatarSize || counter) {
+		if(avatarSize || extraChildCount) {
 			children = React.Children.map(props.children, function(child, idx) {
+				variant = child.props.variant;
 				return idx < lastChildIndex ? React.cloneElement(child, {
 					key: uuidv4(),
 					...child.props,
@@ -31,6 +32,8 @@ export default class XUIAvatarGroup extends PureComponent {
 				}) : null;
 			});
 		}
+
+		const counter = extraChildCount ? <XUIAvatarCounter variant={variant} count={extraChildCount} size={avatarSize} /> : null;
 
 		return (
 			<div data-automationid={props.qaHook} className={className}>

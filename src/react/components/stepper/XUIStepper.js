@@ -10,7 +10,7 @@ const SIDE_BAR = 'sidebar';
 const INLINE = 'inline';
 const LAYOUTS = [STACKED, SIDE_BAR, INLINE];
 
-const HorizontalLayoutTest = ({ isStacked, tabElements }) => {
+const HorizontalLayoutTest = ({ isStacked, tabs }) => {
 
 	const wrapperClasses = cn(
 		`${NAME_SPACE}-wrapper`,
@@ -21,7 +21,7 @@ const HorizontalLayoutTest = ({ isStacked, tabElements }) => {
 	return (
 		<div className={`${NAME_SPACE}-testinline`}>
 			<div className={wrapperClasses}>
-				{tabElements}
+				{tabs}
 			</div>
 			{/* Rendering the content area is irrelevant as we only care about the tab alignment. */}
 		</div>
@@ -31,7 +31,7 @@ const HorizontalLayoutTest = ({ isStacked, tabElements }) => {
 
 HorizontalLayoutTest.propTypes = {
 	isStacked: PropTypes.bool,
-	tabElements: PropTypes.node,
+	tabs: PropTypes.node,
 };
 
 // To test the validity of the "inline" layout we make sure that the horizontally
@@ -50,12 +50,12 @@ const testIsInline = ($stepper) => {
 
 };
 
-const SidebarLayoutTest = ({ gridTemplateRows, tabElements }) => (
+const SidebarLayoutTest = ({ gridTemplateRows, tabs }) => (
 	<div className={`${NAME_SPACE}-testsidebar`}>
 		<div
 			className={`${NAME_SPACE}-wrapper ${NAME_SPACE}-sidebar`}
 			style={{ gridTemplateRows }}>
-			{tabElements}
+			{tabs}
 			<div className={`${NAME_SPACE}-section`} />
 		</div>
 	</div>
@@ -63,7 +63,7 @@ const SidebarLayoutTest = ({ gridTemplateRows, tabElements }) => (
 
 SidebarLayoutTest.propTypes = {
 	gridTemplateRows: PropTypes.string,
-	tabElements: PropTypes.node,
+	tabs: PropTypes.node,
 };
 
 // To test the validity of the "side bar" layout we make assert that the content
@@ -94,6 +94,38 @@ const createAriaTabId = (id, index) => `${id}-tab-${index}`;
 const createAriaPanelId = id => `${id}-panel`;
 
 const testIsLock = lock => lock && LAYOUTS.indexOf(lock) >= 0;
+
+const createTabs = ({ tabs, id, ariaPanelId, currentStep }, overrides) => (
+
+	tabs.map((tabProps, index) => {
+
+		const isFirst = !index;
+		const isLast = Boolean(index === tabs.length - 1);
+		const isActive = currentStep === index;
+		const ariaTabId = createAriaTabId(id, index);
+		const enrichedProps = { ...tabProps, ...overrides, id: ariaTabId, isActive };
+		const tabClasses = cn(
+			`${NAME_SPACE}-tab`, {
+				[`${NAME_SPACE}-tab-first`]: isFirst,
+				[`${NAME_SPACE}-tab-last`]: isLast
+			});
+
+		return (
+			<div
+				key={ariaTabId}
+				id={ariaTabId}
+				className={tabClasses}
+				aria-controls={ariaPanelId}
+				aria-selected={isActive}
+				role="tab"
+				style={{ order: index }}>
+				<StepperTab {...enrichedProps} />
+			</div>
+		);
+
+	})
+
+);
 
 class XUIStepper extends Component {
 
@@ -147,44 +179,18 @@ class XUIStepper extends Component {
 
 	};
 
-	createTab = ({ id, index, ariaPanelId, currentStep, totalTabs, isLinear, isStacked, ...tab }) => {
-
-		const isFirst = !index;
-		const isLast = Boolean(index === totalTabs - 1);
-		const isActive = currentStep === index;
-		const isDisabled = isLinear && currentStep < index;
-		const ariaTabId = createAriaTabId(id, index);
-		const tabClasses = cn(
-			`${NAME_SPACE}-tab`, {
-				[`${NAME_SPACE}-tab-first`]: isFirst,
-				[`${NAME_SPACE}-tab-last`]: isLast
-			});
-
-		return (
-			<div
-				key={ariaTabId}
-				id={ariaTabId}
-				className={tabClasses}
-				aria-controls={ariaPanelId}
-				aria-selected={isActive}
-				role="tab"
-				style={{ order: index }}>
-				<StepperTab {...{ ...tab, ariaTabId, ariaPanelId, isActive, isDisabled, isStacked }} />
-			</div>
-		);
-
-	};
-
 	render = () => {
 
 		const { layout } = this.state;
 		const { children, id, tabs, currentStep, isLinear, lock, isStacked: isStacked } = this.props;
-		const totalTabs = tabs.length;
+		// const totalTabs = tabs.length;
 		const gridTemplateRows = createGridTemplateRows(tabs);
 		const ariaTabId = createAriaTabId(id, currentStep);
 		const ariaPanelId = createAriaPanelId(id);
-		const tabStaticProps = { id, currentStep, ariaPanelId, totalTabs, isLinear };
-		const tabElements = tabs.map((tab, index) => this.createTab({ ...tab, ...tabStaticProps, index }));
+		const tabProps = { tabs, id, ariaPanelId, currentStep, isLinear };
+		const visibleTabs = createTabs(tabProps);
+		const hiddenTabs = createTabs(tabProps, { isProgress: false });
+		// const hiddenTabs = createTabs(tabs, { ...tabBaseProps, isProgress: false });
 		const wrapperClasses = cn(
 			`${NAME_SPACE}-wrapper`,
 			`${NAME_SPACE}-${layout}`,
@@ -203,8 +209,8 @@ class XUIStepper extends Component {
 					{/* Render "dummy" UI scenarios in secret to determine what layout the
 					component best conforms to the <XUIStepper /> width if no pre-defined
 					layout has been supplied. */}
-					<HorizontalLayoutTest {...{ isStacked, tabElements }} />
-					<SidebarLayoutTest {...{ gridTemplateRows, tabElements }} />
+					<HorizontalLayoutTest {...{ isStacked, tabs: hiddenTabs }} />
+					<SidebarLayoutTest {...{ gridTemplateRows, tabs: hiddenTabs }} />
 
 				</div>)}
 
@@ -213,13 +219,21 @@ class XUIStepper extends Component {
 					style={{ gridTemplateRows }}
 					role="tablist">
 
-					{tabElements}
+					{visibleTabs}
 
 					{/*
-					+ XXX ACCESSIBILITY!!!!!!
-					+ Error icon
-					+ Complete icon
+					+ (Done) ACCESSIBILITY!!!!!!
+					+ (Done) Error icon
+					+ (Done) Complete icon
 					+ Progress indocator integration
+					+ Throttler
+					+ Color transitions
+					+ Target for progress and standard:
+					  + "complete"
+					  + "error"
+					  + "disabled"
+					  + "active"
+					  + "focused"
 					*/}
 
 					<div
@@ -257,7 +271,8 @@ XUIStepper.propTypes = {
 			name: PropTypes.string,
 			description: PropTypes.string,
 			handleClick: PropTypes.func,
-			isError: PropTypes.bool
+			isError: PropTypes.bool,
+			isProgress: PropTypes.bool
 		})
 	),
 

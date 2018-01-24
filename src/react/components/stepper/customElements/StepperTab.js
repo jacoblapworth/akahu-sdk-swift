@@ -1,29 +1,88 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE, NOOP } from '../helpers/constants';
 import StepperIcon from './StepperIcon';
 
-const StepperTab = ({ name, description, handleClick, isError, isComplete, isActive, isDisabled }) => {
+const enrichProps = (props) => {
+
+	console.log({props});
+
+	const currentProgress = props.currentProgress < 0
+		? 0 : Math.min(props.currentProgress, props.totalProgress);
+
+	const isActive = props.isActive && !props.isDisabled;
+
+	const isError = props.isError; // && !(props.isActive || props.isDisabled);
+
+	const isComplete = (
+		props.isComplete && !(isError || props.isDisabled)
+		|| currentProgress === props.totalProgress
+	);
+
+	console.log(
+		{isComplete},
+		`${props.isComplete} && !(${props.isError} || ${props.isDisabled}) = ${props.isComplete && !(props.isError || props.isDisabled)}`,
+		`${currentProgress} === ${props.totalProgress} = ${currentProgress === props.totalProgress}`
+	);
+
+	const isStandard = !(isError || isActive || props.isDisabled);
+
+	const handleClick = props.isDisabled || isActive ? NOOP : props.handleClick;
+
+	return {
+		...props,
+		currentProgress,
+		isActive,
+		isError,
+		isComplete,
+		isStandard,
+		handleClick,
+	};
+
+};
+
+const StepperTab = (props) => {
+
+	const {
+		id,
+		name,
+		description,
+		handleClick,
+		isError,
+		isComplete,
+		isActive,
+		isDisabled,
+		isStandard,
+		isProgress,
+		totalProgress,
+		currentProgress,
+	} = enrichProps(props);
 
 	const linkClasses = cn(
 		`${NAME_SPACE}-link`, {
-			[`${NAME_SPACE}-link-standard`]: !(isActive || isError || isDisabled),
+			[`${NAME_SPACE}-link-standard`]: isStandard,
 			[`${NAME_SPACE}-link-active`]: isActive,
 			[`${NAME_SPACE}-link-error`]: isError,
 			[`${NAME_SPACE}-link-disabled`]: isDisabled
 		}
 	);
-	const buttonClickHandler = (isDisabled || isActive) ? NOOP : handleClick;
 
 	return (
 		<button
 			className={linkClasses}
-			onClick={buttonClickHandler}>
+			onClick={handleClick}>
 
 			<div className={`${NAME_SPACE}-link-wrapper`}>
 
-				<StepperIcon {...{ isComplete, isError }} />
+				{isProgress && !isComplete
+
+					? <div className={`${NAME_SPACE}-link-progress`}>
+						<XUIProgressCircular id={id} total={totalProgress} progress={currentProgress} />
+					</div>
+
+					: <StepperIcon {...{ isComplete, isError }} />}
 
 				<div className={`${NAME_SPACE}-link-text`}>
 
@@ -43,6 +102,8 @@ export default StepperTab;
 
 StepperTab.propTypes = {
 
+	id: PropTypes.string.isRequired,
+
 	name: PropTypes.string.isRequired,
 
 	description: PropTypes.string,
@@ -56,5 +117,11 @@ StepperTab.propTypes = {
 	isActive: PropTypes.bool,
 
 	isDisabled: PropTypes.bool,
+
+	isProgress: PropTypes.bool,
+
+	totalProgress: PropTypes.number,
+
+	currentProgress: PropTypes.number,
 
 };

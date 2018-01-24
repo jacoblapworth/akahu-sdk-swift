@@ -21,45 +21,65 @@ storiesWithKnobs.addDecorator(withKnobs);
 // }));
 
 const tabs = [
+
+	// With Progress Indicator:
+
 	{
 		name: `Link 1`,
-		// description: `Description 1`,
-		// href: '#',
+		description: `Progress Error`,
 		handleClick: () => console.log('clicked link 1'),
-		// isActive: true
-		isError: true
+		isError: true,
+		isProgress: true,
+		totalProgress: 5,
+		currentProgress: 3,
 	},
 	{
 		name: `Link 2`,
-		// description: `Description 2`,
-		// href: '#',
+		description: `Progress Complete`,
 		handleClick: () => console.log('clicked link 2'),
-		// isActive: true
-		// isError: true
-		// isStacked: true
-		isComplete: true
+		isComplete: true,
+		isProgress: true,
+		totalProgress: 5,
+		currentProgress: 3,
 	},
 	{
 		name: `Link 3`,
-		description: `Description 3`,
-		// href: '#',
+		description: `Progress Complete (automaticly)`,
 		handleClick: () => console.log('clicked link 3'),
-		// isActive: true
-		// isError: true
-		/*
-		isProgress: true
-		totalMax??
-		currentProgress
-		*/
+		isProgress: true,
+		totalProgress: 5,
+		currentProgress: 5,
 	},
 	{
 		name: `Link 4`,
-		// description: `Description 4`,
-		// href: '#',
+		description: `Progress Disabled`,
 		handleClick: () => console.log('clicked link 4'),
-		// isActive: true
-		// isError: true
-	}
+		isDisabled: true,
+		isProgress: true,
+		totalProgress: 5,
+		currentProgress: 3,
+	},
+
+	// Without Progress Indicator:
+
+	{
+		name: `Link 5`,
+		description: `Standard Error`,
+		handleClick: () => console.log('clicked link 5'),
+		isError: true,
+	},
+	{
+		name: `Link 6`,
+		description: `Standard Complete`,
+		handleClick: () => console.log('clicked link 6'),
+		isComplete: true,
+	},
+	{
+		name: `Link 8`,
+		description: `Standard Disabled`,
+		handleClick: () => console.log('clicked link 8'),
+		isDisabled: true,
+	},
 ];
 
 storiesWithKnobs.add('Playground', () => (
@@ -72,10 +92,10 @@ storiesWithKnobs.add('Playground', () => (
 			tabs={tabs}
 			id={text('id', 'myStepperId')}
 			currentStep={number('currentStep', 0)}
-			isLinear={boolean('isLinear', false)}
 			isStacked={boolean('isStacked', false)}
 			lock={select('lock', ['default', 'stacked', 'sidebar', 'inline'])}
 		>
+			{/* isLinear={boolean('isLinear', false)} */}
 			<h3>Content:</h3>
 			<p>...</p>
 			<p>...</p>

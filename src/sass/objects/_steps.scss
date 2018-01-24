@@ -207,6 +207,10 @@
 	.#{$ns}-stepper-link-icon:before {
 		background: $color;
 	}
+
+	.#{$ns}-stepper-link-progress .#{$ns}-progress-circular-current {
+		stroke: $color;
+	}
 }
 
 .#{$ns}-stepper-wrapper {
@@ -369,13 +373,11 @@
 	padding: 10px;
 	width: 100%;
 
-	// &:not(.#{$ns}-stepper-link-disabled):not(.#{$ns}-stepper-link-active):hover {
 	&.#{$ns}-stepper-link-standard:hover,
 	&.#{$ns}-stepper-link-error:hover {
 		@include stepperLinkColor($xui-color-blue-xdark);
 	}
 
-	// &:not(.#{$ns}-stepper-link-disabled):focus {
 	&.#{$ns}-stepper-link-standard:focus,
 	&.#{$ns}-stepper-link-error:focus {
 		@include stepperLinkColor($xui-color-blue);
@@ -403,8 +405,12 @@
 		background: transparent;
 	}
 
-	.#{$ns}-stepper-link:focus .#{$ns}-stepper-link-icon {
-		background: $xui-color-grey-7;
+	.#{$ns}-stepper-link:focus {
+
+		.#{$ns}-stepper-link-icon,
+		.#{$ns}-stepper-link-progress {
+			background: $xui-color-grey-7;
+		}
 	}
 
 	.#{$ns}-stepper-link-wrapper {
@@ -413,16 +419,22 @@
 		text-align: center;
 	}
 
-	.#{$ns}-stepper-link-icon {
-		border-radius: 9999px;
+	.#{$ns}-stepper-link-icon,
+	.#{$ns}-stepper-link-progress {
+		border-radius: 50%;
 	}
 
-	.#{$ns}-stepper-link-active .#{$ns}-stepper-link-icon {
-		background: $xui-color-grey-6;
+	.#{$ns}-stepper-link-active {
+
+		.#{$ns}-stepper-link-icon,
+		.#{$ns}-stepper-link-progress {
+			background: $xui-color-grey-6;
+		}
 	}
 }
 
-.#{$ns}-stepper-link-icon {
+.#{$ns}-stepper-link-icon,
+.#{$ns}-stepper-link-progress {
 	$size: 40px;
 	display: inline-block;
 	height: $size;
@@ -461,19 +473,23 @@
 	width: 2px;
 }
 
+.#{$ns}-stepper-link-progress {
+	padding: 10px;
+}
+
 .#{$ns}-stepper-link .#{$ns}-stepper-link-heading,
 .#{$ns}-stepper-link .#{$ns}-stepper-link-description {
 	color: inherit;
 	display: block;
 }
 
+.#{$ns}-stepper-link-error {
+	@include stepperLinkColor($xui-color-negative);
+}
+
 .#{$ns}-stepper-link-active {
 	@include stepperLinkColor($xui-color-blue);
 	background: $xui-color-grey-6;
-}
-
-.#{$ns}-stepper-link-error {
-	@include stepperLinkColor($xui-color-negative);
 }
 
 .#{$ns}-stepper-link-disabled {

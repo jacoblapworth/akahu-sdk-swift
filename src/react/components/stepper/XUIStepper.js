@@ -83,7 +83,7 @@ const testIsSideBar = (rootNode) => {
 const createAriaTabId = (id, index) => `${id}-tab-${index}`;
 const createAriaPanelId = id => `${id}-panel`;
 
-const createTabs = ({ tabs, id, ariaPanelId, currentStep }, overrides) => (
+const createTabs = ({ qaHook, tabs, id, ariaPanelId, currentStep }, overrides) => (
 
 	tabs.map((tabProps, index) => {
 
@@ -106,7 +106,8 @@ const createTabs = ({ tabs, id, ariaPanelId, currentStep }, overrides) => (
 				aria-controls={ariaPanelId}
 				aria-selected={isActive}
 				role="tab"
-				style={{ order: index }}>
+				style={{ order: index }}
+				data-automationid={qaHook && `${qaHook}-tab-${index}`}>
 				<StepperTab {...enrichedProps} />
 			</div>
 		);
@@ -117,7 +118,7 @@ const createTabs = ({ tabs, id, ariaPanelId, currentStep }, overrides) => (
 
 const enrichProps = (props, { layout }) => {
 
-	const { id, tabs } = props;
+	const { qaHook, id, tabs, } = props;
 
 	const currentStep = props.currentStep < 0
 		? 0 : Math.min(props.currentStep, tabs.length - 1);
@@ -136,7 +137,7 @@ const enrichProps = (props, { layout }) => {
 
 	const ariaActiveTabId = createAriaTabId(id, currentStep);
 	const ariaPanelId = createAriaPanelId(id);
-	const tabProps = { tabs, id, ariaPanelId, currentStep };
+	const tabProps = { qaHook, tabs, id, ariaPanelId, currentStep };
 	const visibleTabs = createTabs(tabProps);
 
 	// We use the override parameter here to ensure that the dummy UI's do not
@@ -220,6 +221,7 @@ class XUIStepper extends Component {
 		const { props, state } = this;
 		const {
 			children,
+			qaHook,
 			currentStep,
 			lockLayout,
 			isStacked,
@@ -234,7 +236,8 @@ class XUIStepper extends Component {
 		return (
 			<div
 				className={NAME_SPACE}
-				ref={($node) => this.rootNode = $node}>
+				ref={($node) => this.rootNode = $node}
+				data-automationid={qaHook}>
 
 				{!lockLayout && (<div
 					className={`${NAME_SPACE}-tests xui-u-hidden-content`}
@@ -270,13 +273,18 @@ class XUIStepper extends Component {
 						+ "focused"
 					+ (Done) Augment stepper prop
 					+ If disabled do not show content
-					+ qaHook
-					+ remove isLinear
+					+ (Done) qaHook
+					+ (Done) remove isLinear
 					+ Proptype documentation
 					+ Storybook knobs
 					+ Storybook variations
 					+ React documentation
 					+ Browser testing
+
+					Questions:
+					+ Linear system?
+						+ How do we move backwards and keep previous tabs disabled?
+					+ Show content area when a disabled button is set to active?
 					*/}
 
 					<div
@@ -284,7 +292,8 @@ class XUIStepper extends Component {
 						className={`${NAME_SPACE}-section`}
 						style={{ order: currentStep }}
 						role="tabpanel"
-						aria-labelledby={ariaActiveTabId}>
+						aria-labelledby={ariaActiveTabId}
+						data-automationid={qaHook && `${qaHook}-content`}>
 						{children}
 					</div>
 
@@ -320,8 +329,6 @@ XUIStepper.propTypes = {
 	),
 
 	currentStep: PropTypes.number,
-
-	isLinear: PropTypes.bool,
 
 	isStacked: PropTypes.bool,
 

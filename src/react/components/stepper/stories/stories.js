@@ -119,23 +119,21 @@ const tabs = [
 storiesWithKnobs.add('Playground', () => (
 	<div style={{
 		background: 'white',
-		padding: '50px'
+		padding: '50px',
 	}}>
 
 		<XUIStepper
 			tabs={tabs}
 			id={text('id', 'myStepperId')}
+			qaHook={text('qaHook', 'myStepperQaHook')}
 			currentStep={number('currentStep', 0)}
 			isStacked={boolean('isStacked', false)}
 			lockLayout={select('lockLayout', ['default', 'stacked', 'sidebar', 'inline'])}
 		>
-			{/* isLinear={boolean('isLinear', false)} */}
-			<h3>Content:</h3>
-			<p>...</p>
-			<p>...</p>
-			<p>...</p>
-			<p>...</p>
-			<p>...</p>
+			<h3 style={{
+				padding: '100px 20px',
+				width: '100%',
+			}}>Content Area</h3>
 		</XUIStepper>
 
 	</div>

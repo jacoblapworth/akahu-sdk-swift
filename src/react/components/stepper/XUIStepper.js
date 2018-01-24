@@ -10,12 +10,12 @@ const SIDE_BAR = 'sidebar';
 const INLINE = 'inline';
 const LAYOUTS = [STACKED, SIDE_BAR, INLINE];
 
-const HorizontalLayoutTest = ({ isStacked, tabs }) => {
+const HorizontalLayoutTest = ({ hasStackedButtons, tabs }) => {
 
 	const wrapperClasses = cn(
 		`${NAME_SPACE}-wrapper`,
 		`${NAME_SPACE}-inline`,
-		{ [`${NAME_SPACE}-stacked-links`]: isStacked }
+		{ [`${NAME_SPACE}-stacked-links`]: hasStackedButtons }
 	);
 
 	return (
@@ -30,7 +30,7 @@ const HorizontalLayoutTest = ({ isStacked, tabs }) => {
 };
 
 HorizontalLayoutTest.propTypes = {
-	isStacked: PropTypes.bool,
+	hasStackedButtons: PropTypes.bool,
 	tabs: PropTypes.node,
 };
 
@@ -125,7 +125,7 @@ const enrichProps = (props, { layout }) => {
 
 	const lockLayout = LAYOUTS.indexOf(props.lockLayout) >= 0 && props.lockLayout;
 
-	const isStacked = props.isStacked && layout === INLINE;
+	const hasStackedButtons = props.hasStackedButtons && layout === INLINE;
 
 	// The "side bar" layout uses CSS Grid. The layout is a two column format with
 	// all of the tabs in the left and the content in the right hand column. Because
@@ -150,14 +150,14 @@ const enrichProps = (props, { layout }) => {
 	const wrapperClasses = cn(
 		`${NAME_SPACE}-wrapper`,
 		`${NAME_SPACE}-${layout}`,
-		{ [`${NAME_SPACE}-stacked-links`]: isStacked }
+		{ [`${NAME_SPACE}-stacked-links`]: hasStackedButtons }
 	);
 
 	return {
 		...props,
 		currentStep,
 		lockLayout,
-		isStacked,
+		hasStackedButtons,
 		gridTemplateRows,
 		ariaActiveTabId,
 		ariaPanelId,
@@ -224,7 +224,7 @@ class XUIStepper extends Component {
 			qaHook,
 			currentStep,
 			lockLayout,
-			isStacked,
+			hasStackedButtons,
 			gridTemplateRows,
 			ariaActiveTabId,
 			ariaPanelId,
@@ -246,7 +246,7 @@ class XUIStepper extends Component {
 					{/* Render "dummy" UI scenarios in secret to determine what layout the
 					component best conforms to the <XUIStepper /> width if no pre-defined
 					layout has been supplied. */}
-					<HorizontalLayoutTest {...{ isStacked, tabs: hiddenTabs }} />
+					<HorizontalLayoutTest {...{ hasStackedButtons, tabs: hiddenTabs }} />
 					<SidebarLayoutTest {...{ gridTemplateRows, tabs: hiddenTabs }} />
 
 				</div>)}
@@ -275,15 +275,42 @@ class XUIStepper extends Component {
 					+ If disabled do not show content
 					+ (Done) qaHook
 					+ (Done) remove isLinear
+					+ Change isStacked to hasStackedButtons
 					+ Proptype documentation
 					+ Storybook knobs
-					+ Storybook variations
+					+ (Done) Storybook variations
+						+ Inline
+							+ Stacked buttons
+							+ Standard buttons
+						+ Sidebar
+						+ Stacked
+
+						+ standard all combinations
+							+ standard
+							+ standard multi line
+							+ complete
+							+ complete + error
+							+ complete + disabled
+							+ error
+							+ error + disabled
+						+ progress all combinations
+							+ standard
+							+ standard multi line
+							+ complete (forced)
+							+ complete (automatic)
+							+ complete + error
+							+ complete + disabled
+							+ error
+							+ error + disabled
+
 					+ React documentation
 					+ Browser testing
 
 					Questions:
+
 					+ Linear system?
 						+ How do we move backwards and keep previous tabs disabled?
+
 					+ Show content area when a disabled button is set to active?
 					*/}
 
@@ -320,17 +347,17 @@ XUIStepper.propTypes = {
 
 	tabs: PropTypes.arrayOf(
 		PropTypes.shape({
-			name: PropTypes.string,
+			name: PropTypes.string.isRequired,
 			description: PropTypes.string,
-			handleClick: PropTypes.func,
+			handleClick: PropTypes.func.isRequired,
 			isError: PropTypes.bool,
 			isProgress: PropTypes.bool
 		})
 	),
 
-	currentStep: PropTypes.number,
+	currentStep: PropTypes.number.isRequired,
 
-	isStacked: PropTypes.bool,
+	hasStackedButtons: PropTypes.bool,
 
 	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline']),
 

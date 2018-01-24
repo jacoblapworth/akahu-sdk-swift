@@ -302,14 +302,6 @@
 	}
 }
 
-.#{$ns}-stepper-stacked-links .#{$ns}-stepper-tab {
-
-	&:before,
-	&:after {
-		top: 20px;
-	}
-}
-
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab-first {
 	padding-left: 0;
 }
@@ -374,14 +366,23 @@
 	width: 100%;
 
 	&.#{$ns}-stepper-link-standard:hover,
-	&.#{$ns}-stepper-link-error:not(.#{$ns}-stepper-link-disabled):hover {
+	&.#{$ns}-stepper-link-error:hover {
 		@include stepperLinkColor($xui-color-blue-xdark);
 	}
 
+	&.#{$ns}-stepper-link-disabled:hover {
+		@include stepperLinkColor($xui-color-grey-5);
+	}
+
 	&.#{$ns}-stepper-link-standard:focus,
-	&.#{$ns}-stepper-link-error:not(.#{$ns}-stepper-link-disabled):focus {
+	&.#{$ns}-stepper-link-error:focus {
 		@include stepperLinkColor($xui-color-blue);
 		background: $xui-color-grey-7;
+	}
+
+	&.#{$ns}-stepper-link-disabled:focus {
+		@include stepperLinkColor($xui-color-grey-5);
+		background: transparent;
 	}
 }
 
@@ -407,6 +408,17 @@
 .#{$ns}-stepper-stacked-links {
 	align-items: baseline;
 
+	.#{$ns}-stepper-tab:before,
+	.#{$ns}-stepper-tab:after {
+		top: 20px;
+		width: calc(50% - 20px);
+	}
+
+	.#{$ns}-stepper-tab-first:after,
+	.#{$ns}-stepper-tab-last:before {
+		width: calc(50% - 5px);
+	}
+
 	.#{$ns}-stepper-link,
 	.#{$ns}-stepper-link:focus {
 		background: transparent;
@@ -417,6 +429,14 @@
 		.#{$ns}-stepper-link-icon,
 		.#{$ns}-stepper-link-progress {
 			background: $xui-color-grey-7;
+		}
+	}
+
+	.#{$ns}-stepper-link-disabled:focus {
+
+		.#{$ns}-stepper-link-icon,
+		.#{$ns}-stepper-link-progress {
+			background: transparent;
 		}
 	}
 

@@ -9,16 +9,21 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-const storiesWithKnobs = storiesOf('Instances/XUIStep', module);
+import { variations, storiesWithVariationsKindName } from './variations';
+
+const wrapperStyles = {
+	background: 'white',
+	padding: '50px',
+};
+
+const contentStyles = {
+	padding: '20px 20px 200px',
+	width: '100%',
+};
+
+const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-
-// const tabs = new Array(6).fill(0).map((_, i) => ({
-// 	name: `Link ${i + 1}`,
-// 	description: `Description ${i + 1}`,
-// 	href: '#',
-// 	isActive: !i
-// }));
 
 const tabs = [
 
@@ -117,24 +122,33 @@ const tabs = [
 ];
 
 storiesWithKnobs.add('Playground', () => (
-	<div style={{
-		background: 'white',
-		padding: '50px',
-	}}>
-
+	<div style={ wrapperStyles }>
 		<XUIStepper
 			tabs={tabs}
 			id={text('id', 'myStepperId')}
 			qaHook={text('qaHook', 'myStepperQaHook')}
 			currentStep={number('currentStep', 0)}
-			isStacked={boolean('isStacked', false)}
-			lockLayout={select('lockLayout', ['default', 'stacked', 'sidebar', 'inline'])}
-		>
-			<h3 style={{
-				padding: '100px 20px',
-				width: '100%',
-			}}>Content Area</h3>
+			hasStackedButtons={boolean('hasStackedButtons', false)}
+			lockLayout={select('lockLayout', ['default', 'stacked', 'sidebar', 'inline'])}>
+			<h3 style={ contentStyles }>Content Area</h3>
 		</XUIStepper>
-
 	</div>
 ));
+
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
+
+variations.forEach(variation => {
+
+	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
+	const Comparison = (
+		<div style={ wrapperStyles }>
+			<XUIStepper {...props}>
+				<h3 style={ contentStyles }>Content Area</h3>
+			</XUIStepper>
+		</div>
+	);
+
+	storiesWithVariations.add(storyTitle, () => Comparison);
+
+});

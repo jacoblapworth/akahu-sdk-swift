@@ -59,17 +59,37 @@ const tabs = [
 		totalProgress: 5,
 		currentProgress: 3,
 	},
+	{
+		name: `Link 5`,
+		description: `Progress Disabled (Error)`,
+		handleClick: () => console.log('clicked link 4'),
+		isDisabled: true,
+		isError: true,
+		isProgress: true,
+		totalProgress: 5,
+		currentProgress: 3,
+	},
+	{
+		name: `Link 5`,
+		description: `Progress Disabled (Complete)`,
+		handleClick: () => console.log('clicked link 4'),
+		isDisabled: true,
+		isComplete: true,
+		isProgress: true,
+		totalProgress: 5,
+		currentProgress: 3,
+	},
 
 	// Without Progress Indicator:
 
 	{
-		name: `Link 5`,
+		name: `Link 6`,
 		description: `Standard Error`,
 		handleClick: () => console.log('clicked link 5'),
 		isError: true,
 	},
 	{
-		name: `Link 6`,
+		name: `Link 7`,
 		description: `Standard Complete`,
 		handleClick: () => console.log('clicked link 6'),
 		isComplete: true,
@@ -79,6 +99,20 @@ const tabs = [
 		description: `Standard Disabled`,
 		handleClick: () => console.log('clicked link 8'),
 		isDisabled: true,
+	},
+	{
+		name: `Link 9`,
+		description: `Standard Disabled (Error)`,
+		handleClick: () => console.log('clicked link 8'),
+		isDisabled: true,
+		isError: true,
+	},
+	{
+		name: `Link 9`,
+		description: `Standard Disabled (Complete)`,
+		handleClick: () => console.log('clicked link 8'),
+		isDisabled: true,
+		isComplete: true,
 	},
 ];
 

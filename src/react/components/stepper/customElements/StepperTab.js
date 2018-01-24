@@ -7,27 +7,17 @@ import StepperIcon from './StepperIcon';
 
 const enrichProps = (props) => {
 
-	console.log({props});
-
 	const currentProgress = props.currentProgress < 0
 		? 0 : Math.min(props.currentProgress, props.totalProgress);
 
 	const isActive = props.isActive && !props.isDisabled;
 
-	const isError = props.isError; // && !(props.isActive || props.isDisabled);
-
 	const isComplete = (
-		props.isComplete && !(isError || props.isDisabled)
+		props.isComplete // && !(props.isError || props.isDisabled)
 		|| currentProgress === props.totalProgress
 	);
 
-	console.log(
-		{isComplete},
-		`${props.isComplete} && !(${props.isError} || ${props.isDisabled}) = ${props.isComplete && !(props.isError || props.isDisabled)}`,
-		`${currentProgress} === ${props.totalProgress} = ${currentProgress === props.totalProgress}`
-	);
-
-	const isStandard = !(isError || isActive || props.isDisabled);
+	const isStandard = !(props.isError || isActive || props.isDisabled);
 
 	const handleClick = props.isDisabled || isActive ? NOOP : props.handleClick;
 
@@ -35,7 +25,6 @@ const enrichProps = (props) => {
 		...props,
 		currentProgress,
 		isActive,
-		isError,
 		isComplete,
 		isStandard,
 		handleClick,

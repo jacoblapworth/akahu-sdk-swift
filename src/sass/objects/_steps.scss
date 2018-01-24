@@ -374,15 +374,22 @@
 	width: 100%;
 
 	&.#{$ns}-stepper-link-standard:hover,
-	&.#{$ns}-stepper-link-error:hover {
+	&.#{$ns}-stepper-link-error:not(.#{$ns}-stepper-link-disabled):hover {
 		@include stepperLinkColor($xui-color-blue-xdark);
 	}
 
 	&.#{$ns}-stepper-link-standard:focus,
-	&.#{$ns}-stepper-link-error:focus {
+	&.#{$ns}-stepper-link-error:not(.#{$ns}-stepper-link-disabled):focus {
 		@include stepperLinkColor($xui-color-blue);
 		background: $xui-color-grey-7;
 	}
+}
+
+.#{$ns}-stepper-link,
+.#{$ns}-stepper-link-icon,
+.#{$ns}-stepper-link-icon:before,
+.#{$ns}-stepper-link-progress {
+	transition: $xui-motion-speed-medium;
 }
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-link {

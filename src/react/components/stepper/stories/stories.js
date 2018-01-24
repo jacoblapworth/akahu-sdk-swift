@@ -127,7 +127,7 @@ storiesWithKnobs.add('Playground', () => (
 			id={text('id', 'myStepperId')}
 			currentStep={number('currentStep', 0)}
 			isStacked={boolean('isStacked', false)}
-			lock={select('lock', ['default', 'stacked', 'sidebar', 'inline'])}
+			lockLayout={select('lockLayout', ['default', 'stacked', 'sidebar', 'inline'])}
 		>
 			{/* isLinear={boolean('isLinear', false)} */}
 			<h3>Content:</h3>

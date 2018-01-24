@@ -7,27 +7,38 @@ import StepperIcon from './StepperIcon';
 
 const enrichProps = (props) => {
 
+	const { isDisabled, isError, totalProgress } = props;
+
 	const currentProgress = props.currentProgress < 0
-		? 0 : Math.min(props.currentProgress, props.totalProgress);
+		? 0 : Math.min(props.currentProgress, totalProgress);
 
-	const isActive = props.isActive && !props.isDisabled;
+	const isActive = props.isActive && !isDisabled;
 
-	const isComplete = props.isComplete || currentProgress === props.totalProgress;
+	const isComplete = props.isComplete || currentProgress === totalProgress;
 
-	const isStandard = !(props.isError || isActive || props.isDisabled);
+	const isStandard = !(isError || isActive || isDisabled);
 
-	const handleClick = props.isDisabled || isActive ? NOOP : props.handleClick;
+	const handleClick = isDisabled || isActive ? NOOP : props.handleClick;
 
-	const tabIndex = props.isDisabled ? -1 : 0;
+	const tabIndex = isDisabled ? -1 : 0;
+
+	const linkClasses = cn(
+		`${NAME_SPACE}-link`, {
+			[`${NAME_SPACE}-link-standard`]: isStandard,
+			[`${NAME_SPACE}-link-active`]: isActive,
+			[`${NAME_SPACE}-link-error`]: isError,
+			[`${NAME_SPACE}-link-disabled`]: isDisabled
+		}
+	);
 
 	return {
 		...props,
 		currentProgress,
-		isActive,
 		isComplete,
 		isStandard,
 		handleClick,
 		tabIndex,
+		linkClasses,
 	};
 
 };
@@ -41,23 +52,12 @@ const StepperTab = (props) => {
 		handleClick,
 		isError,
 		isComplete,
-		isActive,
-		isDisabled,
-		isStandard,
 		isProgress,
 		totalProgress,
 		currentProgress,
 		tabIndex,
+		linkClasses,
 	} = enrichProps(props);
-
-	const linkClasses = cn(
-		`${NAME_SPACE}-link`, {
-			[`${NAME_SPACE}-link-standard`]: isStandard,
-			[`${NAME_SPACE}-link-active`]: isActive,
-			[`${NAME_SPACE}-link-error`]: isError,
-			[`${NAME_SPACE}-link-disabled`]: isDisabled
-		}
-	);
 
 	return (
 		<button
@@ -67,13 +67,13 @@ const StepperTab = (props) => {
 
 			<div className={`${NAME_SPACE}-link-wrapper`}>
 
-				{isProgress && !isComplete
+				{ isProgress && !isComplete
 
 					? <div className={`${NAME_SPACE}-link-progress`}>
-						<XUIProgressCircular id={id} total={totalProgress} progress={currentProgress} />
-					</div>
+							<XUIProgressCircular id={id} total={totalProgress} progress={currentProgress} />
+						</div>
 
-					: <StepperIcon {...{ isComplete, isError }} />}
+					: <StepperIcon {...{ isComplete, isError }} /> }
 
 				<div className={`${NAME_SPACE}-link-text`}>
 

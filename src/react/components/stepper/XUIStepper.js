@@ -275,10 +275,10 @@ class XUIStepper extends Component {
 					+ If disabled do not show content
 					+ (Done) qaHook
 					+ (Done) remove isLinear
-					+ Change isStacked to hasStackedButtons
-					+ Proptype documentation
-					+ Storybook knobs
-					+ (Done) Storybook variations
+					+ (Done) Change isStacked to hasStackedButtons
+					+ (Done) Proptype documentation
+					+ (Done) Storybook knobs
+					+ (Done) xStorybook variations
 						+ Inline
 							+ Stacked buttons
 							+ Standard buttons
@@ -303,7 +303,7 @@ class XUIStepper extends Component {
 							+ error
 							+ error + disabled
 
-					+ React documentation
+					+ (Done) React documentation
 					+ Browser testing
 
 					Questions:
@@ -340,25 +340,53 @@ XUIStepper.propTypes = {
 	/**`. */
 	qaHook: PropTypes.string,
 
+	/** A unique ID that is used to generate Aria references. */
 	id: PropTypes.string.isRequired,
 
-	/** The content associated with the active tab. */
+	/** The content associated with the current tab. */
 	children: PropTypes.node,
 
+	/** The group of Stepper tabs */
 	tabs: PropTypes.arrayOf(
 		PropTypes.shape({
-			name: PropTypes.string.isRequired,
-			description: PropTypes.string,
-			handleClick: PropTypes.func.isRequired,
-			isError: PropTypes.bool,
-			isProgress: PropTypes.bool
-		})
-	),
 
+			/** Main display text. */
+			name: PropTypes.string.isRequired,
+
+			/** Secondary display text. */
+			description: PropTypes.string,
+
+			/**`. */
+			handleClick: PropTypes.func.isRequired,
+
+			/**`. */
+			isError: PropTypes.bool,
+
+			/**`. */
+			isComplete: PropTypes.bool,
+
+			/**`. */
+			isDisabled: PropTypes.bool,
+
+			/** Render a Progress Indicator. */
+			isProgress: PropTypes.bool,
+
+			/** Set the maximum Progress Indicator value. */
+			totalProgress: PropTypes.number,
+
+			/** Set the current Progress Indicator value. */
+			currentProgress: PropTypes.number,
+
+		})
+	).isRequired,
+
+	/** Target a tab by its index in the "tabs" array and set it to its "active" state (index is zero based). */
 	currentStep: PropTypes.number.isRequired,
 
+	/** Set the tab buttons to have a "stacked" layout (only applicable in the "inline" layout) */
 	hasStackedButtons: PropTypes.bool,
 
+	/** Lock the Stepper to only use a single layout style (the Stepper will augment its layout automatically by default). */
 	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline']),
 
 };

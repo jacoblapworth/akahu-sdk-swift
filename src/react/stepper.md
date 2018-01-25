@@ -47,8 +47,9 @@ The `inline` layout also has the ability to stack its button content using the p
 		{ name: 'Tab 1' },
 		{ name: 'Tab 2' },
 		{ name: 'Tab 3' }
-	]}
-/>
+	]}>
+	<h3>Custom Content for Tab 1</h3>
+</XUIStepper>
 ```
 
 #### Side Bar

@@ -92,27 +92,15 @@ const StepperTab = (props) => {
 export default StepperTab;
 
 StepperTab.propTypes = {
-
 	id: PropTypes.string.isRequired,
-
 	name: PropTypes.string.isRequired,
-
 	description: PropTypes.string,
-
 	handleClick: PropTypes.func,
-
 	isError: PropTypes.bool,
-
 	isComplete: PropTypes.bool,
-
 	isActive: PropTypes.bool,
-
 	isDisabled: PropTypes.bool,
-
 	isProgress: PropTypes.bool,
-
 	totalProgress: PropTypes.number,
-
 	currentProgress: PropTypes.number,
-
 };

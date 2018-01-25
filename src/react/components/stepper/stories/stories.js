@@ -28,12 +28,12 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<div style={ wrapperStyles }>
 		<XUIStepper
-			id={text('id', 'myStepperId')}
-			qaHook={text('qaHook', 'myStepperQaHook')}
-			currentStep={number('currentStep', 0)}
-			hasStackedButtons={boolean('hasStackedButtons', false)}
-			lockLayout={select('lockLayout', ['default', 'stacked', 'sidebar', 'inline'])}
-			tabs={object('tabs', baseProps.tabs)}>
+			id={ text('id', 'myStepperId') }
+			qaHook={ text('qaHook', 'myStepperQaHook') }
+			currentStep={ number('currentStep', 0) }
+			hasStackedButtons={ boolean('hasStackedButtons', false) }
+			lockLayout={ select('lockLayout', ['default', 'stacked', 'sidebar', 'inline']) }
+			tabs={ object('tabs', baseProps.tabs) }>
 			<h3 style={ contentStyles }>Content Area</h3>
 		</XUIStepper>
 	</div>

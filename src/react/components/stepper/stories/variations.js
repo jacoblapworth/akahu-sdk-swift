@@ -1,26 +1,21 @@
-const { NOOP } = require('../helpers/constants');
 const storyKind = 'Instances/XUIStepper';
 
 const defaultTabs = [
 	{
 		name: 'Standard',
-		handleClick: NOOP,
 	},
 	{
 		name: 'Error',
 		description: 'Invalid Email',
-		handleClick: NOOP,
 		isError: true,
 	},
 	{
 		name: 'Disabled',
-		handleClick: NOOP,
 		isDisabled: true,
 	},
 	{
 		name: 'Complete',
 		description: 'All done =)',
-		handleClick: NOOP,
 		isComplete: true,
 	}
 ];
@@ -34,43 +29,36 @@ const baseProps = {
 const standardTabs = [
 	{
 		name: 'Standard',
-		handleClick: NOOP,
 	},
 	{
 		name: 'Standard',
 		description: 'Multiline',
-		handleClick: NOOP,
 	},
 	{
 		name: 'Error',
 		isError: true,
-		handleClick: NOOP,
 	},
 	{
 		name: 'Error',
 		description: 'With "isDisabled" prop',
 		isError: true,
 		isDisabled: true,
-		handleClick: NOOP,
 	},
 	{
 		name: 'Complete',
 		isComplete: true,
-		handleClick: NOOP,
 	},
 	{
 		name: 'Complete',
 		description: 'With "isError" prop',
 		isComplete: true,
 		isError: true,
-		handleClick: NOOP,
 	},
 	{
 		name: 'Complete',
 		description: 'With "isDisabled" prop',
 		isComplete: true,
 		isDisabled: true,
-		handleClick: NOOP,
 	},
 
 ];
@@ -88,7 +76,6 @@ const progressTabs = [
 		isProgress: true,
 		totalProgress: 5,
 		currentProgress: 5,
-		handleClick: NOOP,
 	},
 ];
 

@@ -20,6 +20,11 @@
 				]
 			},
 			{
+				"name": "Stepper",
+				"content": "../src/react/stepper.md",
+				"components": "../src/react/components/stepper/XUIStepper.js"
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [

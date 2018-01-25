@@ -18,7 +18,7 @@ const enrichProps = (props) => {
 
 	const isStandard = !(isError || isActive || isDisabled);
 
-	const handleClick = isDisabled || isActive ? NOOP : props.handleClick;
+	const handleClick = !props.handleClick || isDisabled || isActive ? NOOP : props.handleClick;
 
 	const tabIndex = isDisabled ? -1 : 0;
 

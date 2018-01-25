@@ -406,7 +406,7 @@
 }
 
 .#{$ns}-stepper-stacked-links {
-	align-items: baseline;
+	align-items: start;
 
 	.#{$ns}-stepper-tab:before,
 	.#{$ns}-stepper-tab:after {
@@ -419,16 +419,17 @@
 		width: calc(50% - 5px);
 	}
 
-	.#{$ns}-stepper-link,
-	.#{$ns}-stepper-link:focus {
+	.#{$ns}-stepper-link {
 		background: transparent;
-	}
+		border-radius: 0;
 
-	.#{$ns}-stepper-link:focus {
+		&:focus {
+			background: transparent;
 
-		.#{$ns}-stepper-link-icon,
-		.#{$ns}-stepper-link-progress {
-			background: $xui-color-grey-7;
+			.#{$ns}-stepper-link-icon,
+			.#{$ns}-stepper-link-progress {
+				background: $xui-color-grey-7;
+			}
 		}
 	}
 

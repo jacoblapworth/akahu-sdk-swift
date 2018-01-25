@@ -304,7 +304,15 @@ class XUIStepper extends Component {
 							+ error + disabled
 
 					+ (Done) React documentation
+
 					+ Browser testing
+						+ Firefox stacked buttons
+						+ Safari pill overflow on stacked tabs
+
+					+ Create visual regression images
+
+					+ Jest unit testing
+					  + Snapshot Storybook variations
 
 					Questions:
 
@@ -312,6 +320,7 @@ class XUIStepper extends Component {
 						+ How do we move backwards and keep previous tabs disabled?
 
 					+ Show content area when a disabled button is set to active?
+
 					*/}
 
 					<div
@@ -357,7 +366,7 @@ XUIStepper.propTypes = {
 			description: PropTypes.string,
 
 			/**`. */
-			handleClick: PropTypes.func.isRequired,
+			handleClick: PropTypes.func,
 
 			/**`. */
 			isError: PropTypes.bool,

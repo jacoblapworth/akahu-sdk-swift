@@ -100,8 +100,11 @@ The simplest tab layout can be achieved by supplying just a `name` prop.
 <XUIStepper
 	id="stepper-tab-standard"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1' }
+		{ name: 'Tab 1' },
+		{ name: 'Tab 2' },
+		{ name: 'Tab 3', isDisabled: true }
 	]}
 />
 ```
@@ -114,8 +117,11 @@ Add a *description* via the `description` prop.
 <XUIStepper
 	id="stepper-tab-description"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', description: 'Description 1' }
+		{ name: 'Tab 1', description: 'Description 1' },
+		{ name: 'Tab 2', description: 'Description 2' },
+		{ name: 'Tab 3', description: 'Description 3', isDisabled: true }
 	]}
 />
 ```
@@ -128,8 +134,11 @@ Change a tab to an *error* state via the 'isError' prop.
 <XUIStepper
 	id="stepper-tab-error"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', isError: true }
+		{ name: 'Tab 1', isError: true },
+		{ name: 'Tab 2', isError: true },
+		{ name: 'Tab 3', isError: true, isDisabled: true }
 	]}
 />
 ```
@@ -142,22 +151,11 @@ Change a tab to a *complete* state via the 'isComplete' prop.
 <XUIStepper
 	id="stepper-tab-complete"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', isComplete: true }
-	]}
-/>
-```
-
-#### Disabled
-
-Change a tab to a *disabled* state via the 'isDisabled' prop.
-
-```
-<XUIStepper
-	id="stepper-tab-disabled"
-	lockLayout="inline"
-	tabs={[
-		{ name: 'Tab 1', isDisabled: true }
+		{ name: 'Tab 1', isComplete: true },
+		{ name: 'Tab 2', isComplete: true },
+		{ name: 'Tab 3', isComplete: true, isDisabled: true }
 	]}
 />
 ```
@@ -174,8 +172,11 @@ Visualise *progress* by supplying a `totalProgress` and `currentProgress` prop.
 <XUIStepper
 	id="stepper-progress-standard"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', isProgress: true, totalProgress: 5, currentProgress: 3 }
+		{ name: 'Tab 1', isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Tab 2', isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Tab 3', isProgress: true, totalProgress: 5, currentProgress: 3, isDisabled: true }
 	]}
 />
 ```
@@ -188,8 +189,11 @@ Change a tab to an *error* state via the 'isError' prop.
 <XUIStepper
 	id="stepper-progress-error"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 }
+		{ name: 'Tab 1', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Tab 2', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Tab 3', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3, isDisabled: true }
 	]}
 />
 ```
@@ -202,32 +206,11 @@ You can either lock a tab to the *complete* state with the `isComplete` prop or 
 <XUIStepper
 	id="stepper-progress-complete"
 	lockLayout="inline"
+	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 3 }
-	]}
-/>
-```
-
-```
-<XUIStepper
-	id="stepper-progress-complete"
-	lockLayout="inline"
-	tabs={[
-		{ name: 'Tab 1', isProgress: true, totalProgress: 5, currentProgress: 5 }
-	]}
-/>
-```
-
-#### Disabled
-
-Change a tab to a *disabled* state via the 'isDisabled' prop.
-
-```
-<XUIStepper
-	id="stepper-progress-disabled"
-	lockLayout="inline"
-	tabs={[
-		{ name: 'Tab 1', isDisabled: true, isProgress: true, totalProgress: 5, currentProgress: 3 }
+		{ name: 'Tab 1', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 0 },
+		{ name: 'Tab 2', isProgress: true, totalProgress: 5, currentProgress: 5 },
+		{ name: 'Tab 3', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 3, isDisabled: true }
 	]}
 />
 ```
@@ -240,12 +223,12 @@ When setting the *current* tab using the `currentStep` prop you can also display
 <XUIStepper
 	id="stepper-progress-disabled"
 	lockLayout="inline"
-	currentStep={0}
+	currentStep={2}
 	tabs={[
 		{ name: 'Tab 1' },
 		{ name: 'Tab 2' },
 		{ name: 'Tab 3' }
 	]}>
-	<h3>Custom Content for Tab 1</h3>
+	<h3>Custom Content for the last Tab</h3>
 </XUIStepper>
 ```

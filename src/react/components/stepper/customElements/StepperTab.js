@@ -61,24 +61,26 @@ const StepperTab = (props) => {
 
 	return (
 		<button
-			className={linkClasses}
-			onClick={handleClick}
-			tabIndex={tabIndex}>
+			className={ linkClasses }
+			onClick={ handleClick }
+			tabIndex={ tabIndex }>
 
-			<div className={`${NAME_SPACE}-link-wrapper`}>
+			<div className={ `${NAME_SPACE}-link-wrapper` }>
 
 				{ isProgress && !isComplete
 
-					? <div className={`${NAME_SPACE}-link-progress`}>
-							<XUIProgressCircular id={id} total={totalProgress} progress={currentProgress} />
+					? <div className={ `${NAME_SPACE}-link-progress` }>
+							<XUIProgressCircular id={ id } total={ totalProgress } progress={ currentProgress } />
 						</div>
 
 					: <StepperIcon {...{ isComplete, isError }} /> }
 
-				<div className={`${NAME_SPACE}-link-text`}>
+				<div className={ `${NAME_SPACE}-link-text` }>
 
-					<span className={`${NAME_SPACE}-link-heading xui-heading-small`}>{name}</span>
-					{description && <span className={`${NAME_SPACE}-link-description xui-heading-xsmall`}>{description}</span>}
+					<span className={ `${NAME_SPACE}-link-heading xui-heading-small` }>{ name }</span>
+					{ description && (
+						<span className={ `${NAME_SPACE}-link-description xui-heading-xsmall` }>{ description }</span>
+					)}
 
 				</div>
 

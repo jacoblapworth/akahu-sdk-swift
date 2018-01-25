@@ -19,9 +19,9 @@ const HorizontalLayoutTest = ({ hasStackedButtons, tabs }) => {
 	);
 
 	return (
-		<div className={`${NAME_SPACE}-testinline`}>
-			<div className={wrapperClasses}>
-				{tabs}
+		<div className={ `${NAME_SPACE}-testinline` }>
+			<div className={ wrapperClasses }>
+				{ tabs }
 			</div>
 			{/* Rendering the content area is irrelevant as we only care about the tab alignment. */}
 		</div>
@@ -51,12 +51,12 @@ const testIsInline = (rootNode) => {
 };
 
 const SidebarLayoutTest = ({ gridTemplateRows, tabs }) => (
-	<div className={`${NAME_SPACE}-testsidebar`}>
+	<div className={ `${NAME_SPACE}-testsidebar` }>
 		<div
-			className={`${NAME_SPACE}-wrapper ${NAME_SPACE}-sidebar`}
+			className={ `${NAME_SPACE}-wrapper ${NAME_SPACE}-sidebar` }
 			style={{ gridTemplateRows }}>
-			{tabs}
-			<div className={`${NAME_SPACE}-section`} />
+			{ tabs }
+			<div className={ `${NAME_SPACE}-section` } />
 		</div>
 	</div>
 );
@@ -100,14 +100,14 @@ const createTabs = ({ qaHook, tabs, id, ariaPanelId, currentStep }, overrides) =
 
 		return (
 			<div
-				key={ariaTabId}
-				id={ariaTabId}
-				className={tabClasses}
-				aria-controls={ariaPanelId}
-				aria-selected={isActive}
+				key={ ariaTabId }
+				id={ ariaTabId }
+				className={ tabClasses }
+				aria-controls={ ariaPanelId }
+				aria-selected={ isActive }
 				role="tab"
 				style={{ order: index }}
-				data-automationid={qaHook && `${qaHook}-tab-${index}`}>
+				data-automationid={ qaHook && `${qaHook}-tab-${index}` }>
 				<StepperTab {...enrichedProps} />
 			</div>
 		);
@@ -235,12 +235,12 @@ class XUIStepper extends Component {
 
 		return (
 			<div
-				className={NAME_SPACE}
-				ref={($node) => this.rootNode = $node}
-				data-automationid={qaHook}>
+				className={ NAME_SPACE }
+				ref={ ($node) => this.rootNode = $node }
+				data-automationid={ qaHook }>
 
 				{!lockLayout && (<div
-					className={`${NAME_SPACE}-tests xui-u-hidden-content`}
+					className={ `${NAME_SPACE}-tests xui-u-hidden-content` }
 					aria-hidden="true">
 
 					{/* Render "dummy" UI scenarios in secret to determine what layout the
@@ -252,85 +252,20 @@ class XUIStepper extends Component {
 				</div>)}
 
 				<div
-					className={wrapperClasses}
+					className={ wrapperClasses }
 					style={{ gridTemplateRows }}
 					role="tablist">
 
-					{visibleTabs}
-
-					{/*
-					+ (Done) ACCESSIBILITY!!!!!!
-					+ (Done) Error icon
-					+ (Done) Complete icon
-					+ (Done) Progress indocator integration
-					+ (Done) Throttler
-					+ (Done) Color transitions
-					+ (Done) Target for progress and standard:
-					  + "complete"
-					  + "error"
-					  + "disabled"
-					  + "active"
-						+ "focused"
-					+ (Done) Augment stepper prop
-					+ If disabled do not show content
-					+ (Done) qaHook
-					+ (Done) remove isLinear
-					+ (Done) Change isStacked to hasStackedButtons
-					+ (Done) Proptype documentation
-					+ (Done) Storybook knobs
-					+ (Done) xStorybook variations
-						+ Inline
-							+ Stacked buttons
-							+ Standard buttons
-						+ Sidebar
-						+ Stacked
-
-						+ standard all combinations
-							+ standard
-							+ standard multi line
-							+ complete
-							+ complete + error
-							+ complete + disabled
-							+ error
-							+ error + disabled
-						+ progress all combinations
-							+ standard
-							+ standard multi line
-							+ complete (forced)
-							+ complete (automatic)
-							+ complete + error
-							+ complete + disabled
-							+ error
-							+ error + disabled
-
-					+ (Done) React documentation
-
-					+ Browser testing
-						+ Firefox stacked buttons
-						+ Safari pill overflow on stacked tabs
-
-					+ Create visual regression images
-
-					+ Jest unit testing
-					  + Snapshot Storybook variations
-
-					Questions:
-
-					+ Linear system?
-						+ How do we move backwards and keep previous tabs disabled?
-
-					+ Show content area when a disabled button is set to active?
-
-					*/}
+					{ visibleTabs }
 
 					<div
-						id={ariaPanelId}
-						className={`${NAME_SPACE}-section`}
+						id={ ariaPanelId }
+						className={ `${NAME_SPACE}-section` }
 						style={{ order: currentStep }}
 						role="tabpanel"
-						aria-labelledby={ariaActiveTabId}
-						data-automationid={qaHook && `${qaHook}-content`}>
-						{children}
+						aria-labelledby={ ariaActiveTabId }
+						data-automationid={ qaHook && `${qaHook}-content` }>
+						{ children }
 					</div>
 
 				</div>

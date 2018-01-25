@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {NAME_SPACE, COLORS} from '../helpers/constants';
 import ProgressToolTip from './ProgressToolTip';
 
-const createColorOverride = (color, type) => (COLORS.includes(color) && {[`data-${NAME_SPACE}-${type}-color`]: color});
+const createColorOverride = (color, type) => (COLORS.indexOf(color) >= 0 && {[`data-${NAME_SPACE}-${type}-color`]: color});
 
 const ProgressWrapper = (props) => {
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {NAME_SPACE} from '../helpers/constants';
+import {createArray} from '../helpers/utilities';
 
 const dashProps = {
 	total: PropTypes.number.isRequired,
@@ -10,7 +11,7 @@ const dashProps = {
 
 const createLinearSegmentDashes = ({total, progress}) => {
 
-	return new Array(total).fill(0).map((_, index) => {
+	return createArray(total).map((_, index) => {
 
 		const isProgress = index < progress;
 		const dashClasses = cn(

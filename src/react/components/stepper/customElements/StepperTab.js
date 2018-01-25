@@ -49,6 +49,7 @@ const StepperTab = (props) => {
 		id,
 		name,
 		description,
+		step,
 		handleClick,
 		isError,
 		isComplete,
@@ -73,7 +74,11 @@ const StepperTab = (props) => {
 							<XUIProgressCircular id={ id } total={ totalProgress } progress={ currentProgress } />
 						</div>
 
-					: <StepperIcon {...{ isComplete, isError }} /> }
+					: <StepperIcon {...{ isComplete, isError, step }}>
+							<span className={ `${NAME_SPACE}-link-step` }>{ step }</span>
+						</StepperIcon>
+
+				}
 
 				<div className={ `${NAME_SPACE}-link-text` }>
 
@@ -97,6 +102,7 @@ StepperTab.propTypes = {
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string,
+	step: PropTypes.number,
 	handleClick: PropTypes.func,
 	isError: PropTypes.bool,
 	isComplete: PropTypes.bool,

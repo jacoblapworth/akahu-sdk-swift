@@ -18,15 +18,16 @@ const ErrorIcon = () => (
 	</svg>
 );
 
-const StepperIcon = ({ isComplete, isError }) => (
+const StepperIcon = ({ isComplete, isError, children }) => (
 	<div className={ `${NAME_SPACE}-link-icon` }>
 
-		{ isError ? <ErrorIcon /> : isComplete ? <CompleteIcon /> : null }
+		{ isError ? <ErrorIcon /> : isComplete ? <CompleteIcon /> : children }
 
 	</div>
 );
 
 StepperIcon.propTypes = {
+	children: PropTypes.node,
 	isComplete: PropTypes.bool,
 	isError: PropTypes.bool,
 };

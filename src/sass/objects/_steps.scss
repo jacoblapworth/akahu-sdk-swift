@@ -226,15 +226,6 @@
 	height: 0;
 	overflow: hidden;
 	visibility: hidden;
-
-}
-
-.#{$ns}-stepper-testinline {
-
-}
-
-.#{$ns}-stepper-testsidebar {
-
 }
 
 .#{$ns}-stepper-tab {
@@ -472,12 +463,26 @@
 }
 
 .#{$ns}-stepper-icon-complete,
-.#{$ns}-stepper-icon-error {
-	fill: $xui-color-white;
+.#{$ns}-stepper-icon-error,
+.#{$ns}-stepper-link-step {
 	left: 50%;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.#{$ns}-stepper-link-step {
+	color: $xui-color-white;
+	font: {
+		size: $xui-font-size-xsmall;
+		weight: $xui-font-weight-emphasis;
+	}
+	margin-top: -1px;
+}
+
+.#{$ns}-stepper-icon-complete,
+.#{$ns}-stepper-icon-error {
+	fill: $xui-color-white;
 }
 
 .#{$ns}-stepper-icon-complete {

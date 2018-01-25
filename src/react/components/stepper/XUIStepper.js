@@ -91,7 +91,13 @@ const createTabs = ({ qaHook, tabs, id, ariaPanelId, currentStep }, overrides) =
 		const isLast = Boolean(index === tabs.length - 1);
 		const isActive = currentStep === index;
 		const ariaTabId = createAriaTabId(id, index);
-		const enrichedProps = { ...tabProps, ...overrides, id: ariaTabId, isActive };
+		const enrichedProps = {
+			...tabProps,
+			...overrides,
+			isActive,
+			id: ariaTabId,
+			step: index + 1,
+		};
 		const tabClasses = cn(
 			`${NAME_SPACE}-tab`, {
 				[`${NAME_SPACE}-tab-first`]: isFirst,

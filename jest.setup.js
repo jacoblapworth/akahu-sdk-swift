@@ -17,13 +17,13 @@ function logToError(...rest) {
 }
 
 jasmine.getEnv().beforeEach(() => {
-  // make calls to console.warn and console.error throw an error
-  console.warn = logToError;
-  console.error = logToError;
+	// make calls to console.warn and console.error throw an error
+	console.warn = logToError;
+	console.error = logToError;
 });
 
 jasmine.getEnv().afterEach(() => {
-  // return console.warn and console.error to default behaviour
-  console.warn = consoleWarn;
-  console.error = consoleError;
+	// return console.warn and console.error to default behaviour
+	console.warn = consoleWarn;
+	console.error = consoleError;
 });

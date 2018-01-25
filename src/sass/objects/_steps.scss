@@ -402,6 +402,7 @@
 	.#{$ns}-stepper-link {
 		background: transparent;
 		border-radius: 0;
+		margin-top: -3px;
 
 		&:focus {
 			background: transparent;

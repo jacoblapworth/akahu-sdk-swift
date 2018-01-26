@@ -503,10 +503,14 @@
 	padding: 10px;
 }
 
-.#{$ns}-stepper-link .#{$ns}-stepper-link-heading,
-.#{$ns}-stepper-link .#{$ns}-stepper-link-description {
+.#{$ns}-stepper-link-heading,
+.#{$ns}-stepper-link-description {
 	color: inherit;
 	display: block;
+}
+
+.#{$ns}-stepper-link-description {
+	font-size: $xui-font-size-xsmall;
 }
 
 .#{$ns}-stepper-link-error {

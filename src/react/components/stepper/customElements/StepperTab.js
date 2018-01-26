@@ -53,7 +53,7 @@ const StepperTab = (props) => {
 					</span>
 
 					{ description && (
-						<span className={ `${NAME_SPACE}-link-description xui-heading-xsmall` }>
+						<span className={ `${NAME_SPACE}-link-description` }>
 							{ description }
 						</span>
 					)}

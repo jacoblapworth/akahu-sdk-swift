@@ -357,7 +357,7 @@
 	&.#{$ns}-stepper-link-standard:focus,
 	&.#{$ns}-stepper-link-error:focus {
 		@include stepperLinkColor($xui-color-blue);
-		background: $xui-color-grey-7;
+		background: $xui-color-grey-alpha-7;
 	}
 
 	&.#{$ns}-stepper-link-disabled:focus {
@@ -409,7 +409,7 @@
 
 			.#{$ns}-stepper-link-icon,
 			.#{$ns}-stepper-link-progress {
-				background: $xui-color-grey-7;
+				background: $xui-color-grey-alpha-7;
 			}
 		}
 	}
@@ -437,7 +437,7 @@
 
 		.#{$ns}-stepper-link-icon,
 		.#{$ns}-stepper-link-progress {
-			background: $xui-color-grey-6;
+			background: $xui-color-grey-alpha-6;
 		}
 	}
 }
@@ -515,7 +515,7 @@
 
 .#{$ns}-stepper-link-active {
 	@include stepperLinkColor($xui-color-blue);
-	background: $xui-color-grey-6;
+	background: $xui-color-grey-alpha-6;
 }
 
 .#{$ns}-stepper-link-disabled {

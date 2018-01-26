@@ -92,125 +92,50 @@ Lock by supplying the string `stacked` to the prop `lockLayout`.
 
 You as a developer control the tab configuration via the `tabs` prop. This gives granularity to customise the component visually but to also control the usability e.g. force the user to proceed through the *steps* linearly or arbitrarily.
 
-#### Standard
+#### Generic
 
-The simplest tab layout can be achieved by supplying just a `name` prop.
++ The simplest tab layout can be achieved by supplying just a `name` prop.
++ Add a *description* via the `description` prop.
++ Change a tab to an *error* state via the `isError` prop.
++ Change a tab to a *complete* state via the `isComplete` prop.
 
 ```
 <XUIStepper
-	id="stepper-tab-standard"
-	lockLayout="inline"
+	id="stepper-tab-generic"
+	lockLayout="stacked"
 	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1' },
-		{ name: 'Tab 2' },
-		{ name: 'Tab 3', isDisabled: true }
+		{ name: 'Active' },
+		{ name: 'Standard' },
+		{ name: 'Description', description: 'description prop' },
+		{ name: 'Complete', description: 'isComplete prop', isComplete: true },
+		{ name: 'Error', description: 'isError prop', isError: true },
+		{ name: 'Disabled', description: 'isDisabled prop', isDisabled: true },
 	]}
 />
 ```
 
-#### Description
-
-Add a *description* via the `description` prop.
-
-```
-<XUIStepper
-	id="stepper-tab-description"
-	lockLayout="inline"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1', description: 'Description 1' },
-		{ name: 'Tab 2', description: 'Description 2' },
-		{ name: 'Tab 3', description: 'Description 3', isDisabled: true }
-	]}
-/>
-```
-
-#### Error
-
-Change a tab to an *error* state via the 'isError' prop.
-
-```
-<XUIStepper
-	id="stepper-tab-error"
-	lockLayout="inline"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1', isError: true },
-		{ name: 'Tab 2', isError: true },
-		{ name: 'Tab 3', isError: true, isDisabled: true }
-	]}
-/>
-```
-
-#### Complete
-
-Change a tab to a *complete* state via the 'isComplete' prop.
-
-```
-<XUIStepper
-	id="stepper-tab-complete"
-	lockLayout="inline"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1', isComplete: true },
-		{ name: 'Tab 2', isComplete: true },
-		{ name: 'Tab 3', isComplete: true, isDisabled: true }
-	]}
-/>
-```
-
-### Progress Indicator
+#### Progress Indicator
 
 In addition to the generic tab format a **Progress Indicator** can be included with the `isProgress` prop.
 
-#### Standard
-
-Visualise *progress* by supplying a `totalProgress` and `currentProgress` prop.
-
-```
-<XUIStepper
-	id="stepper-progress-standard"
-	lockLayout="inline"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1', isProgress: true, totalProgress: 5, currentProgress: 3 },
-		{ name: 'Tab 2', isProgress: true, totalProgress: 5, currentProgress: 3 },
-		{ name: 'Tab 3', isProgress: true, totalProgress: 5, currentProgress: 3, isDisabled: true }
-	]}
-/>
-```
-
-#### Error
-
-Change a tab to an *error* state via the 'isError' prop.
++ Visualise *progress* by supplying a `totalProgress` and `currentProgress` prop.
++ You can either lock a tab to the *complete* state with the `isComplete` prop or if the `totalProgress` and `currentProgress` values are equal the *complete* state
+will be applied automatically.
 
 ```
 <XUIStepper
-	id="stepper-progress-error"
-	lockLayout="inline"
+	id="stepper-tab-progress"
+	lockLayout="stacked"
 	currentStep={0}
 	tabs={[
-		{ name: 'Tab 1', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
-		{ name: 'Tab 2', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
-		{ name: 'Tab 3', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3, isDisabled: true }
-	]}
-/>
-```
-
-#### Complete
-
-You can either lock a tab to the *complete* state with the `isComplete` prop or if the `totalProgress` and `currentProgress` values are equal the *complete* state will be applied automatically.
-
-```
-<XUIStepper
-	id="stepper-progress-complete"
-	lockLayout="inline"
-	currentStep={0}
-	tabs={[
-		{ name: 'Tab 1', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 0 },
-		{ name: 'Tab 2', isProgress: true, totalProgress: 5, currentProgress: 5 },
-		{ name: 'Tab 3', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 3, isDisabled: true }
+		{ name: 'Active', isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Standard', isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Description', description: 'description prop', isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Complete', description: 'isComplete prop', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 0 },
+		{ name: 'Complete (automatic)', description: 'isComplete prop', isComplete: true, isProgress: true, totalProgress: 5, currentProgress: 5 },
+		{ name: 'Error', description: 'isError prop', isError: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
+		{ name: 'Disabled', description: 'isDisabled prop', isDisabled: true, isProgress: true, totalProgress: 5, currentProgress: 3 },
 	]}
 />
 ```
@@ -225,10 +150,10 @@ When setting the *current* tab using the `currentStep` prop you can also display
 	lockLayout="inline"
 	currentStep={2}
 	tabs={[
-		{ name: 'Tab 1' },
-		{ name: 'Tab 2' },
-		{ name: 'Tab 3' }
+		{ name: 'First Tab' },
+		{ name: 'Middle Tab' },
+		{ name: 'Last Tab' }
 	]}>
-	<h3>Custom Content for the last Tab</h3>
+	<h3>Custom Content for the last tab</h3>
 </XUIStepper>
 ```

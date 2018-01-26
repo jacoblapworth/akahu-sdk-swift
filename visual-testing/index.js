@@ -104,6 +104,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/switch/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Stepper',
+		variationsPath: '../src/react/components/stepper/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
 	},

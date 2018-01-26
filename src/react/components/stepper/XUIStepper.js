@@ -39,10 +39,10 @@ HorizontalLayoutTest.propTypes = {
 // largest tab height and assert that it is the same size as the tabs <container />.
 const testIsInline = (rootNode) => {
 
-	const $testInline = rootNode.querySelector(`.${NAME_SPACE}-testinline`);
-	const $tabs = $testInline.querySelectorAll(`.${NAME_SPACE}-tab`);
-	const wrapperHeight = $testInline.clientHeight;
-	const tabHeights = [...$tabs].map(({ clientHeight }) => clientHeight).sort().reverse();
+	const testInlineNode = rootNode.querySelector(`.${NAME_SPACE}-testinline`);
+	const tabsNode = testInlineNode.querySelectorAll(`.${NAME_SPACE}-tab`);
+	const wrapperHeight = testInlineNode.clientHeight;
+	const tabHeights = [...tabsNode].map(({ clientHeight }) => clientHeight).sort().reverse();
 	const maxHeight = tabHeights[0] || 0;
 	const isInline = maxHeight >= wrapperHeight;
 
@@ -70,10 +70,10 @@ SidebarLayoutTest.propTypes = {
 // width meets a minimum requirement.
 const testIsSideBar = (rootNode) => {
 
-	const $testSideBar = rootNode.querySelector(`.${NAME_SPACE}-testsidebar`);
-	const $section = $testSideBar.querySelector(`.${NAME_SPACE}-section`);
+	const testSideBarNode = rootNode.querySelector(`.${NAME_SPACE}-testsidebar`);
+	const sectionNode = testSideBarNode.querySelector(`.${NAME_SPACE}-section`);
 	const minWidth = 400;
-	const sectionWidth = $section.clientWidth;
+	const sectionWidth = sectionNode.clientWidth;
 	const isSideBar = sectionWidth >= minWidth;
 
 	return isSideBar;
@@ -242,7 +242,7 @@ class XUIStepper extends Component {
 		return (
 			<div
 				className={ NAME_SPACE }
-				ref={ ($node) => this.rootNode = $node }
+				ref={ (node) => this.rootNode = node }
 				data-automationid={ qaHook }>
 
 				{!lockLayout && (<div

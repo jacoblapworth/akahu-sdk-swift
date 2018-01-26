@@ -464,7 +464,6 @@
 }
 
 .#{$ns}-stepper-icon-complete,
-.#{$ns}-stepper-icon-error,
 .#{$ns}-stepper-link-step {
 	left: 50%;
 	position: absolute;
@@ -493,6 +492,10 @@
 
 .#{$ns}-stepper-icon-error {
 	height: 7px;
+	left: calc(50% - 1px);
+	position: absolute;
+	top: calc(50% - 3px);
+	transform: initial;
 	width: 2px;
 }
 

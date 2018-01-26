@@ -1,25 +1,8 @@
-// IE11 does not have official support for ".fill()". In the interest of retaining
-// as much functional programming / immutability as possible I am conditionally
-// falling back to a "for loop" mutation.
-const createArray = (total) => {
-
-	const hasFill = Boolean(Array().fill);
-
-	switch (false) {
-
-		case hasFill: {
-
-			const shell = [];
-			for (let i = 0; i < total; i += 1) { shell.push(0); }
-			return shell
-
-		}
-
-		default:
-			return new Array(total).fill(0);
-	}
-
-};
+// IE11 does not have official support for ".fill()" so we fallback to an alternative
+// solution when applicable.
+const createArray = (total) => Array().fill
+	? new Array(total).fill(0)
+	: Array.apply(null, Array(total)).map(Number.prototype.valueOf, 0);
 
 const utilities = { createArray };
 

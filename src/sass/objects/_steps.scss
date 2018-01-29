@@ -183,13 +183,6 @@
 // <XUIStepper /> //
 // -------------- //
 
-@mixin suportsGrid() {
-
-	@supports (display: grid) {
-		@content;
-	}
-}
-
 @mixin stepperLinkColor($color) {
 	color: $color;
 

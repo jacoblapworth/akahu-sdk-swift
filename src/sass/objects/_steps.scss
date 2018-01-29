@@ -260,11 +260,14 @@
 .#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
 
 	@include suportsGrid {
+		// Reset any "Stacked" layout flex ordering set via JS (only if Grid is supported,
+		// otherwise we keep the order as the "Stacked" layout will be used as a fallback).
 		order: 0 !important;
 	}
 }
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab {
+	// Reset any "Stacked" layout flex ordering set via JS when using an "Inline" layout.
 	order: 0 !important;
 	padding: 0 30px;
 

@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { NAME_SPACE } from '../helpers/constants';
 
-const SideBarDummyLayout = ({ gridTemplateRows, tabs }) => (
-	<div className={ `${NAME_SPACE}-testsidebar` }>
-		<div
-			className={ `${NAME_SPACE}-wrapper ${NAME_SPACE}-sidebar` }
-			style={{ gridTemplateRows }}>
-			{ tabs }
-			<div className={ `${NAME_SPACE}-section` } />
-		</div>
-	</div>
-);
+class SideBarDummyLayout extends PureComponent {
+
+	render = () => {
+
+		const { gridTemplateRows, tabs } = this.props;
+
+		return (
+			<div className={ `${NAME_SPACE}-testsidebar` }>
+				<div
+					className={ `${NAME_SPACE}-wrapper ${NAME_SPACE}-sidebar` }
+					style={{ gridTemplateRows }}>
+					{ tabs }
+					<div className={ `${NAME_SPACE}-section` } />
+				</div>
+			</div>
+		);
+
+	}
+
+}
 
 SideBarDummyLayout.propTypes = {
 	gridTemplateRows: PropTypes.string,

@@ -1,71 +1,75 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE } from '../helpers/constants';
 import { enrichTabProps } from '../helpers/enrichprops';
 import StepperIcon from './StepperIcon';
 
-const StepperTab = (props) => {
+class StepperTab extends PureComponent {
 
-	const {
-		id,
-		name,
-		description,
-		step,
-		handleClick,
-		isError,
-		isComplete,
-		isProgress,
-		totalProgress,
-		currentProgress,
-		tabIndex,
-		linkClasses,
-	} = enrichTabProps(props);
+	render = () => {
 
-	return (
-		<button
-			className={ linkClasses }
-			onClick={ handleClick }
-			tabIndex={ tabIndex }>
+		const {
+			id,
+			name,
+			description,
+			step,
+			handleClick,
+			isError,
+			isComplete,
+			isProgress,
+			totalProgress,
+			currentProgress,
+			tabIndex,
+			linkClasses,
+		} = enrichTabProps(this.props);
 
-			<div className={ `${NAME_SPACE}-link-wrapper` }>
+		return (
+			<button
+				className={ linkClasses }
+				onClick={ handleClick }
+				tabIndex={ tabIndex }>
 
-				{ isProgress && !isComplete
+				<div className={ `${NAME_SPACE}-link-wrapper` }>
 
-					? <div className={ `${NAME_SPACE}-link-progress` }>
-							<XUIProgressCircular
-								id={ id }
-								total={ totalProgress }
-								progress={ currentProgress }
-							/>
-						</div>
+					{ isProgress && !isComplete
 
-					: <StepperIcon {...{ isComplete, isError, step }}>
-							<span className={ `${NAME_SPACE}-link-step` }>{ step }</span>
-						</StepperIcon>
+						? <div className={ `${NAME_SPACE}-link-progress` }>
+								<XUIProgressCircular
+									id={ id }
+									total={ totalProgress }
+									progress={ currentProgress }
+								/>
+							</div>
 
-				}
+						: <StepperIcon {...{ isComplete, isError, step }}>
+								<span className={ `${NAME_SPACE}-link-step` }>{ step }</span>
+							</StepperIcon>
 
-				<div className={ `${NAME_SPACE}-link-text` }>
+					}
 
-					<span className={ `${NAME_SPACE}-link-heading xui-heading-small` }>
-						{ name }
-					</span>
+					<div className={ `${NAME_SPACE}-link-text` }>
 
-					{ description && (
-						<span className={ `${NAME_SPACE}-link-description` }>
-							{ description }
+						<span className={ `${NAME_SPACE}-link-heading xui-heading-small` }>
+							{ name }
 						</span>
-					)}
+
+						{ description && (
+							<span className={ `${NAME_SPACE}-link-description` }>
+								{ description }
+							</span>
+						)}
+
+					</div>
 
 				</div>
 
-			</div>
+			</button>
+		);
 
-		</button>
-	);
+	};
 
-};
+}
 
 export default StepperTab;
 

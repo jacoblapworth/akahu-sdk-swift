@@ -1,26 +1,31 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { NAME_SPACE } from '../helpers/constants';
 
-const InlineDummyLayout = ({ hasStackedButtons, tabs }) => {
+class InlineDummyLayout extends PureComponent {
 
-	const wrapperClasses = cn(
-		`${NAME_SPACE}-wrapper`,
-		`${NAME_SPACE}-inline`,
-		{ [`${NAME_SPACE}-stacked-links`]: hasStackedButtons }
-	);
+	render = () => {
 
-	return (
-		<div className={ `${NAME_SPACE}-testinline` }>
-			<div className={ wrapperClasses }>
-				{ tabs }
+		const { hasStackedButtons, tabs } = this.props;
+		const wrapperClasses = cn(
+			`${NAME_SPACE}-wrapper`,
+			`${NAME_SPACE}-inline`,
+			{ [`${NAME_SPACE}-stacked-links`]: hasStackedButtons }
+		);
+
+		return (
+			<div className={ `${NAME_SPACE}-testinline` }>
+				<div className={ wrapperClasses }>
+					{ tabs }
+				</div>
+				{/* Rendering the content area is irrelevant as we only care about the tab alignment. */}
 			</div>
-			{/* Rendering the content area is irrelevant as we only care about the tab alignment. */}
-		</div>
-	);
+		);
 
-};
+	};
+
+}
 
 InlineDummyLayout.propTypes = {
 	hasStackedButtons: PropTypes.bool,

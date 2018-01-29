@@ -88,7 +88,9 @@ class XUIStepper extends Component {
 
 			const isInline = testIsInlineRelevant(rootNode);
 			const isSideBar = testIsSideBarRelevant(rootNode);
-			const layout = isInline ? INLINE : isSideBar ? SIDE_BAR : STACKED;
+			const layout = isInline
+				? INLINE
+				: (isSideBar ? SIDE_BAR : STACKED);
 
 			setLayout(layout);
 

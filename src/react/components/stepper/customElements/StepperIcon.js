@@ -21,7 +21,9 @@ const ErrorIcon = () => (
 const StepperIcon = ({ isComplete, isError, children }) => (
 	<div className={ `${NAME_SPACE}-link-icon` }>
 
-		{ isError ? <ErrorIcon /> : isComplete ? <CompleteIcon /> : children }
+		{ isError
+				? <ErrorIcon />
+				: (isComplete ? <CompleteIcon /> : children) }
 
 	</div>
 );

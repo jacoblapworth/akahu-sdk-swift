@@ -158,7 +158,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
     onMouseOver={undefined}
   >
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
     >
@@ -176,7 +176,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         value={undefined}
       />
       <svg
-        className="xui-icon xui-pickitem--input"
+        className="xui-icon xui-pickitem--icon"
         data-automationid={undefined}
       >
         <path
@@ -201,12 +201,12 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         />
       </svg>
       <span
-        className="xui-styledcheckboxradio--label"
+        className="xui-styledcheckboxradio--label xui-pickitem--multiselect-label"
         data-automationid={undefined}
       >
         <span
-          className="xui-pickitem--multiselect-label"
-          data-automationid="undefined--label"
+          className={null}
+          data-automationid={undefined}
         >
           .
         </span>
@@ -349,7 +349,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
     onMouseOver={undefined}
   >
     <label
-      className="xui-styledcheckboxradio"
+      className="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
     >
@@ -367,7 +367,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
         value={undefined}
       />
       <svg
-        className="xui-icon xui-pickitem--input"
+        className="xui-icon xui-pickitem--icon"
         data-automationid={undefined}
       >
         <path
@@ -392,12 +392,12 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
         />
       </svg>
       <span
-        className="xui-styledcheckboxradio--label"
+        className="xui-styledcheckboxradio--label xui-pickitem--multiselect-label"
         data-automationid={undefined}
       >
         <span
-          className="xui-pickitem--multiselect-label"
-          data-automationid="undefined--label"
+          className={null}
+          data-automationid={undefined}
         >
           .
         </span>

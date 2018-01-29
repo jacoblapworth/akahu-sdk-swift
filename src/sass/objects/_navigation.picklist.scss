@@ -865,21 +865,27 @@
 }
 
 .#{$ns}-pickitem--multiselect-label {
-	padding: 0 $xui-s-large 0 $xui-s-4xlarge;
+	flex: 1 1 auto;
+	width: 100%;
+}
+
+.#{$ns}-pickitem--multiselect-checkbox {
 	width: 100%;
 }
 
 .#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label {
-	padding: 6px 0 0;
+	min-width: 0;
+	padding-bottom: $xui-s-small;
+	padding-left: 0;
+	padding-top: $xui-s-small;
+	width: 100%;
+}
+
+.#{$ns}-pickitem--multiselect .#{$ns}-pickitem--body {
+	padding-left: $xui-s-standard;
 }
 
 .#{$ns}-pickitem--icon {
-	display: inline;
-	margin: 0 $xui-s-standard;
-	position: absolute;
-	top: 4px;
-
-	+ .#{$ns}-pickitem--body {
-		padding-left: $xui-s-6xlarge;
-	}
+	margin-right: 15px;
+	margin-top: 4px;
 }

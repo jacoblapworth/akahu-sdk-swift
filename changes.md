@@ -23,6 +23,7 @@
 * close button qaHook `${qaHook}-close-button` is now `${qaHook}-close--button`
 * XUIBannerAction button qaHook `${qaHook}-button` is now `${qaHook}--button`
 * isLink added as a new prop to `XUIBannerAction`
+* onClick added as a new prop to `XUIBannerAction`
 
 ### Button
 * qaHook added to Caret and Group components

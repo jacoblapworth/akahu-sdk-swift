@@ -208,7 +208,7 @@
 
 .#{$ns}-stepper-sidebar {
 
-	@include suportsGrid {
+	@include xui-suports-css-grid {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		// grid-template-rows: (dynamicly set via JS);
@@ -252,7 +252,7 @@
 
 .#{$ns}-stepper-sidebar .#{$ns}-stepper-tab {
 
-	@include suportsGrid {
+	@include xui-suports-css-grid {
 		// Reset any "Stacked" layout flex ordering set via JS (only if Grid is supported,
 		// otherwise we keep the order as the "Stacked" layout will be used as a fallback).
 		order: 0 !important;
@@ -311,7 +311,7 @@
 
 .#{$ns}-stepper-sidebar .#{$ns}-stepper-section {
 
-	@include suportsGrid {
+	@include xui-suports-css-grid {
 		grid-column-end: -1;
 		grid-column-start: 2;
 		grid-row-end: -1;

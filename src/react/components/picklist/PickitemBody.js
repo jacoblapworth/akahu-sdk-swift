@@ -17,7 +17,7 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 	if (isMultiselect) {
 		return (
 			<div className="xui-pickitem--body" onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver} data-automationid={qaHook}>
-				<XUICheckbox onChange={NOOP} isChecked={isSelected} svgClassName="xui-pickitem--input" className={checkboxClassName} tabIndex={-1} qaHook={qaHook && `${qaHook}--checkbox`}>
+				<XUICheckbox onChange={NOOP} isChecked={isSelected} htmlClassName="xui-pickitem--input" className={checkboxClassName} tabIndex={-1} qaHook={qaHook && `${qaHook}--checkbox`}>
 					<span className="xui-pickitem--multiselect-label" data-automationid={`${qaHook}--label`}>{children}</span>
 				</XUICheckbox>
 			</div>

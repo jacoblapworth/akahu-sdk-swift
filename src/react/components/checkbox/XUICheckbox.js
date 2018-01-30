@@ -29,6 +29,51 @@ const onLabelClick = e => {
 };
 
 /**
+ * @function buildSvgCheckbox - If triggered with a custom icon path, build svg checkbox
+ * @param qaHook - Optional hook label
+ * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ *
+ */
+const buildSvgCheckbox = (qaHook, {svgClassName, iconMainPath, iconCheckPath, iconIndeterminatePath}) => {
+	const svgClasses = cn('xui-icon', svgClassName);
+	return (
+		<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
+			<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--focus" role="presentation" />
+			<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--main" role="presentation" />
+			{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className="xui-styledcheckboxradio--check" role="presentation" />}
+			{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className="xui-styledcheckboxradio--indeterminate" role="presentation" />}
+		</svg>
+	);
+};
+
+/**
+ * @function buildHtmlCheckbox - given the checkbox props supplied, select which checkbox builder to trigger
+ * @param qaHook - Optional hook label
+ * @param htmlClassName - Optional classname to add to html version of checkbox
+ *
+ */
+const buildHtmlCheckbox = (qaHook, htmlClassName) => {
+	const htmlClasses = cn('xui-styledcheckboxradio--checkbox', htmlClassName);
+	return (
+		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`}/>
+	);
+};
+
+/**
+ * @function buildCheckbox - given the checkbox props supplied, select which checkbox builder to trigger
+ * @param qaHook - Optional hook label
+ * @param htmlClassName - Optional classname to add to html version of checkbox
+ * @param svgSettings - Object containing optional svg properties (classname, icon paths)
+ *
+ */
+const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
+	if (svgSettings.iconMainPath || svgSettings.iconCheckPath || svgSettings.iconIndeterminatePath) {
+		return buildSvgCheckbox(qaHook, svgSettings);
+	}
+	return buildHtmlCheckbox(qaHook, htmlClassName);
+};
+
+/**
  * Outputs a checkbox with custom XUI styling.
  *
  * @export
@@ -68,12 +113,13 @@ export default class XUICheckbox extends Component {
 			value,
 			svgClassName,
 			labelClassName,
+			htmlClassName
 		} = this.props;
 		const classes = cn(className, 'xui-styledcheckboxradio', {
 			'xui-styledcheckboxradio-reversed': isReversed,
 			'xui-is-disabled': isDisabled
 		});
-		const svgClasses = cn('xui-icon', svgClassName);
+
 		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
 		const labelElement = isLabelHidden ? null : <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
@@ -85,6 +131,12 @@ export default class XUICheckbox extends Component {
 			name,
 			onChange,
 			value,
+		};
+		const svgSettings = {
+			svgClassName,
+			iconMainPath,
+			iconCheckPath,
+			iconIndeterminatePath
 		};
 
 		// If the user has not passed in anything for the isChecked prop, we need to set the
@@ -104,12 +156,7 @@ export default class XUICheckbox extends Component {
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
 				<input ref={cb => this._input = cb} {...inputProps} className={cn("xui-styledcheckboxradio--input", inputProps.className)} data-automationid={qaHook && `${qaHook}--input`} />
-				<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
-					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--focus" role="presentation" />
-					<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--main" role="presentation" />
-					{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className="xui-styledcheckboxradio--check" role="presentation" />}
-					{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className="xui-styledcheckboxradio--indeterminate" role="presentation" />}
-				</svg>
+				{buildCheckbox(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
 			</label>
 		);
@@ -166,6 +213,9 @@ XUICheckbox.propTypes = {
 
 	/** Additional class names on the svg element  */
 	svgClassName: PropTypes.string,
+
+	/** Additional class names for the html input */
+	htmlClassName: PropTypes.string,
 
 	/** The tab-index property to place on the checkbox */
 	tabIndex: PropTypes.number,

@@ -56,8 +56,10 @@ const footer = (
 const picklist = (
 	<Picklist>{createItems(toggledItems)}</Picklist>
 );
+
+const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 const datepicker = (
-	<XUIDatePicker onSelectDate={NOOP} isCompact={true} displayedMonth={new Date('1 Dec 2017')} />
+	<XUIDatePicker onSelectDate={NOOP} isCompact={true} displayedMonth={datePickerDate}/>
 );
 const plaintext = (
 	<p>Some content that appears in a dropdown panel would go here.</p>

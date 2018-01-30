@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUITextInput> General Functionality should have a qahook on the input and wrapper 1`] = `
+<div
+  className="xui-textinputwrapper"
+>
+  <div
+    className="xui-textinput"
+    data-automationid="input-test"
+  >
+    <input
+      className="xui-textinput--input xui-textinput-borderless"
+      data-automationid="input-test--input"
+      defaultValue={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
+<div
+  className="xui-textinputwrapper"
+>
+  <div
+    className="xui-textinput"
+    data-automationid="givenQAHook"
+  >
+    <input
+      className="xui-textinput--input xui-textinput-borderless"
+      data-automationid="givenQAHook--input"
+      defaultValue={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+</div>
+`;

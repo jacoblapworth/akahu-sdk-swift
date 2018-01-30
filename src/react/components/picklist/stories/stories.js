@@ -93,8 +93,8 @@ variations.forEach(variation => {
 							<NestedPicklistTrigger id="nestedTrigger">Nested list</NestedPicklistTrigger>
 							{listComponents[0]}
 						</NestedPicklistContainer>
-						<NestedPicklistContainer id="split" isOpen={isOpen}>
-						<XUIPickitem id="splitTrigger" isSplit={true}>Split nested list</XUIPickitem>
+						<NestedPicklistContainer id="split" open={isOpen}>
+							<XUIPickitem id="splitTrigger" isSplit={true} multiselect={true}>Split nested list</XUIPickitem>
 							<NestedPicklistTrigger id="nestedSplit" />
 							{listComponents[1]}
 						</NestedPicklistContainer>

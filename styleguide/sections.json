@@ -285,6 +285,11 @@
 						"sections": [
 							{
 								"components": "../src/react/components/input/XUIInput.js"
+							},
+							{
+								"name": "Text Input",
+								"content": "../src/react/textInput.md",
+								"components": "../src/react/components/textInput/XUITextInput.js"
 							}
 						]
 					},

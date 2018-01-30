@@ -22,7 +22,7 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 					isChecked={isSelected}
 					tabIndex={-1}
 					qaHook={qaHook && `${qaHook}--checkbox`}
-					svgClassName="xui-pickitem--icon"
+					htmlClassName="xui-pickitem--input"
 					className={cn(checkboxClassName, 'xui-pickitem--multiselect-checkbox')}
 					labelClassName="xui-pickitem--multiselect-label"
 				>

@@ -20,10 +20,10 @@ export default class RolloverCheckbox extends PureComponent {
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 	}
-	
+
 	/**
 	 * @public
-	 * 
+	 *
 	 * Handler attached to the target element for setting mouse over state to true.
 	 */
 	onMouseEnter() {
@@ -36,7 +36,7 @@ export default class RolloverCheckbox extends PureComponent {
 
 	/**
 	 * @public
-	 * 
+	 *
 	 * Handler attached to the target element for setting mouse over state to false.
 	 */
 	onMouseLeave() {
@@ -47,7 +47,7 @@ export default class RolloverCheckbox extends PureComponent {
 
 	/**
 	 * @public
-	 * 
+	 *
 	 * Handler attached to the target element for setting focus state.
 	 */
 	onFocus() {
@@ -58,7 +58,7 @@ export default class RolloverCheckbox extends PureComponent {
 
 	/**
 	 * @public
-	 * 
+	 *
 	 * Handler attached to the target element for setting focus state to false.
 	 */
 	onBlur() {
@@ -69,7 +69,7 @@ export default class RolloverCheckbox extends PureComponent {
 
 	/**
 	 * @public
-	 * 
+	 *
 	 * Handler attached to the target element for triggering the click event on the checkbox when the target element is clicked.
 	 */
 	triggerCheckboxClick() {
@@ -131,6 +131,7 @@ export default class RolloverCheckbox extends PureComponent {
 						isChecked={isChecked}
 						isDisabled={isDisabled}
 						isLabelHidden={true}
+						htmlClassName='xui-rollovercheckbox--checkbox'
 						qaHook={qaHook && `${qaHook}--checkbox`}
 						className={showRollover ? "xui-u-hidden-visually" : null}
 					/>

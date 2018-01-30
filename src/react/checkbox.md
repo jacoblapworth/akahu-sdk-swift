@@ -5,7 +5,7 @@
 	<a href="../section-building-blocks-forms-checkboxes.html">Checkbox in the XUI Documentation</a>
 </div>
 
-Enhanced version of HTML checkbox using SVGs. Use in place of `<input type="checkbox" />`.
+Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 
 `XUICheckbox` supports properties for use with forms like the HTML checkbox input, including `isRequired`, `name`, and `value`.
 
@@ -48,7 +48,7 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 
 ### Custom Icons
 
-Because `XUICheckbox` uses [`XUIIcon`](#icon) to style the presentation of the element, you can overwrite the paths that the checkbox uses.
+`XUICheckbox` supports the use of a custom [`XUIIcon`](#icon) to style the presentation of the element.
 
  `iconMainPath` is the path for the checkbox outline; `iconCheckPath` is the checkmark itself, and `iconIndeterminatePath` is the indeterminate state.
 

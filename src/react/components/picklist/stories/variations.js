@@ -46,6 +46,23 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with Multiselect',
+		lists: [{
+			items: [
+				{
+					isSelected: true,
+					isMultiselect: true
+				},
+				{ isMultiselect: true },
+				{
+					isDisabled: true,
+					isMultiselect: true
+				}
+			]
+		}]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as Stateful Picklist',
 		lists: [{
 			items: [
@@ -68,9 +85,15 @@ const variations = [
 		},
 		{
 			items: [
-				{ isSelected: true },
-				{},
-				{ isDisabled: true },
+				{
+					isSelected: true,
+					isMultiselect: true
+				},
+				{ isMultiselect: true },
+				{
+					isDisabled: true,
+					isMultiselect: true
+				}
 			]
 		}],
 		componentType: 'NestedPicklist'
@@ -87,10 +110,15 @@ const variations = [
 		},
 		{
 			items: [
-				{ isSelected: true
+				{
+					isSelected: true,
+					isMultiselect: true
 				},
-				{},
-				{ isDisabled: true },
+				{ isMultiselect: true },
+				{
+					isDisabled: true,
+					isMultiselect: true
+				}
 			]
 		}],
 		componentType: 'NestedPicklist'

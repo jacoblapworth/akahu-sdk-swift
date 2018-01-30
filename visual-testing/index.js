@@ -5,6 +5,12 @@ const path = require('path');
 const storyBookLocation = path.resolve(__dirname, '..', 'docs', 'storybook');
 const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
 
+// For components or compositions with absolutely-positioned elements, use fullPageSettings.
+const fullPageSettings = {
+	selectors: '.xui-container',
+	misMatchThreshold: .4
+};
+
 /**
  * Array of components that storybook should test.
  *
@@ -14,8 +20,8 @@ const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
  *	variationsPath: '../src/react/components/pill/stories/variations.js',
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
  *	selectors: 'alternate > .selectors' (defaults to '#root > div > div')
- *      NB: override the default for absolutely positioned components.
- *	misMatchThreshold: 5 (percentage variance to allow. defaults to .4)
+ *	misMatchThreshold: 5 (percentage variance to allow. defaults to .6 or .4 for full-page capture)
+ *	delay: adds a delay between onReady and capture
  * }
  */
 const componentsToTest = [
@@ -23,7 +29,7 @@ const componentsToTest = [
 		testsPrefix: 'XUI Autocompleter',
 		variationsPath:
 			'../src/react/components/autocompleter/stories/variations.js',
-		selectors: '.xui-container'
+		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Avatar',
@@ -43,7 +49,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Checkbox',
-		variationsPath: '../src/react/components/checkbox/stories/variations.js'
+		variationsPath: '../src/react/components/checkbox/stories/variations.js',
+		delay: 500
 	},
 	{
 		testsPrefix: 'XUI DatePicker',
@@ -52,7 +59,7 @@ const componentsToTest = [
 	{
 		testsPrefix: 'DropDown',
 		variationsPath: '../src/react/components/dropdown/stories/variations.js',
-		selectors: '.xui-container'
+		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Icon',
@@ -65,12 +72,13 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Loader',
-		variationsPath: '../src/react/components/loader/stories/variations.js'
+		variationsPath: '../src/react/components/loader/stories/variations.js',
+		misMatchThreshold: 5
 	},
 	{
 		testsPrefix: 'XUI Modal',
 		variationsPath: '../src/react/components/modal/stories/variations.js',
-		selectors: '.xui-container'
+		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Picklist',
@@ -83,11 +91,13 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Progress Indicator',
 		variationsPath:
-			'../src/react/components/progressindicator/stories/variations.js'
+			'../src/react/components/progressindicator/stories/variations.js',
+			delay: 500
 	},
 	{
 		testsPrefix: 'XUI Radio',
-		variationsPath: '../src/react/components/radio/stories/variations.js'
+		variationsPath: '../src/react/components/radio/stories/variations.js',
+		delay: 500
 	},
 	{
 		testsPrefix: 'Rollover Checkbox',
@@ -97,7 +107,7 @@ const componentsToTest = [
 	{
 		testsPrefix: 'SelectBox',
 		variationsPath: '../src/react/components/select-box/stories/variations.js',
-		selectors: '.xui-container'
+		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Switch',
@@ -109,7 +119,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Textarea',
-		variationsPath: '../src/react/components/textarea/stories/variations.js'
+		variationsPath: '../src/react/components/textarea/stories/variations.js',
+		delay: 1500
 	},
 	{
 		testsPrefix: 'XUI Toast',
@@ -122,7 +133,8 @@ const componentsToTest = [
 	{
 		testsPrefix: 'Compositions',
 		variationsPath: '../src/react/stories/tests.js',
-		selectors: '.xui-container'
+		delay: 1500,
+		...fullPageSettings
 	}
 ];
 
@@ -152,7 +164,7 @@ function buildScenarios() {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
 					selectors: [component.selectors || '#root > div > div'],
-					misMatchThreshold: component.misMatchThreshold || 0.4,
+					misMatchThreshold: component.misMatchThreshold || 0.6,
 					selectorExpansion: component.captureAllSelectors
 				};
 			})

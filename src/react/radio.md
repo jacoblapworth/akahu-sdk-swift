@@ -39,7 +39,7 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 
 ### Custom Icons
 
-Because `XUIRadio` uses [`XUIIcon`](#icon) to style the presentation of the element, you can overwrite the paths that the radio uses.
+`XUIRadio` supports the use of a custom [`XUIIcon`](#icon) to style the presentation of the element.
 
 `iconMainPath` is the path for the Radio outline; `iconCheckPath` is the indicator that the radio is selected.
 

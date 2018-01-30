@@ -61,6 +61,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with checkboxes and option variations',
 		buttonContent: 'Books',
+		closeAfterSelection: false,
 		items: buildCheckboxItems()
 	}
 ];

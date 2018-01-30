@@ -60,6 +60,7 @@
     "test:visual-only": "backstop test --config visual-testing/index.js",
     "test:visual:approve": "backstop approve --config visual-testing/approve-only.js",
     "precommit": "./pre-commit.sh",
+    "prepush": "./pre-push.sh",
     "postmerge": "./post-merge.sh"
   },
   "dependencies": {

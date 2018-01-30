@@ -4,26 +4,26 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Default',
-		checked: false,
-		disabled: false
+		isChecked: false,
+		isDisabled: false
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked',
-		checked: true,
-		disabled: false
+		isChecked: true,
+		isDisabled: false
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Disabled',
-		checked: false,
-		disabled: true
+		isChecked: false,
+		isDisabled: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked and Disabled',
-		checked: true,
-		disabled: true
+		isChecked: true,
+		isDisabled: true
 	}
 ];
 

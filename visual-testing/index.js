@@ -41,6 +41,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/button/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Capsule',
+		variationsPath: '../src/react/components/capsule/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Checkbox',
 		variationsPath: '../src/react/components/checkbox/stories/variations.js',
 		delay: 500
@@ -83,7 +87,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Progress Indicator',
-		variationsPath: '../src/react/components/progressindicator/stories/variations.js'
+		variationsPath:
+			'../src/react/components/progressindicator/stories/variations.js'
 	},
 	{
 		testsPrefix: 'XUI Radio',
@@ -92,7 +97,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'Rollover Checkbox',
-		variationsPath: '../src/react/components/rolloverCheckbox/stories/variations.js'
+		variationsPath:
+			'../src/react/components/rolloverCheckbox/stories/variations.js'
 	},
 	{
 		testsPrefix: 'SelectBox',
@@ -102,6 +108,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Switch',
 		variationsPath: '../src/react/components/switch/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Stepper',
+		variationsPath: '../src/react/components/stepper/stories/variations.js'
 	},
 	{
 		testsPrefix: 'XUI Tag',
@@ -129,22 +139,25 @@ const componentsToTest = [
 ];
 
 execSync('npm run storybook:pr', (err, stdout, stderr) => {
-	if (err) { console.error(`Exec error: ${err}`); } //eslint-disable-line no-console
+	if (err) {
+		console.error(`Exec error: ${err}`);
+	} //eslint-disable-line no-console
 	console.log(`stdout: ${stdout}`); //eslint-disable-line no-console
 	console.log(`stderr: ${stderr}`); //eslint-disable-line no-console
 });
 
 function buildUrl(kind, story) {
-	const testingDomain = path.resolve(storyBookLocation, 'iframe.html?').replace(/\/.out/gi, "%SPLIT%/.out").split('%SPLIT%')[1];
 	const urlSearch = `selectedKind=${kind}&selectedStory=${story}`;
-	return `${testingDomain}${urlSearch}`;
+	return `file://${testingDomain}${urlSearch}`;
 }
 
 function buildScenarios() {
 	let scenarios = [];
 	componentsToTest.forEach(component => {
 		const variationsFile = require(component.variationsPath);
-		const variations = variationsFile && variationsFile[component.variationsProp || 'variations'];
+		const variations =
+			variationsFile &&
+			variationsFile[component.variationsProp || 'variations'];
 		scenarios = scenarios.concat(
 			variations.map(story => {
 				return {
@@ -158,29 +171,31 @@ function buildScenarios() {
 		);
 	});
 	return scenarios;
-};
+}
+
+const scenarios = buildScenarios();
 
 module.exports = {
-	id: "backstop_default",
+	id: 'backstop_default',
 	viewports: [
 		{
-			label: "just desktop",
+			label: 'just desktop',
 			width: 1024,
 			height: 768
 		}
 	],
-	scenarios: buildScenarios(),
+	scenarios,
 	paths: {
-		bitmaps_reference: "visual-testing/reference",
-		bitmaps_test: "visual-testing/tests",
-		html_report: "visual-testing/web-report",
-		ci_report: "visual-testing/ci-report"
+		bitmaps_reference: 'visual-testing/reference',
+		bitmaps_test: 'visual-testing/tests',
+		html_report: 'visual-testing/web-report',
+		ci_report: 'visual-testing/ci-report'
 	},
-	report: ["browser", "CI"],
-	engine: "chrome",
+	report: ['browser', 'CI'],
+	engine: 'chrome',
 	engineFlags: [],
 	asyncCaptureLimit: 2,
 	asyncCompareLimit: 50,
 	debug: false,
 	debugWindow: false
-}
+};

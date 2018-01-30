@@ -112,6 +112,12 @@ const variations = [
 		storyTitle: 'circular grow layout',
 		isGrow: true,
 	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'circular custom content',
+		isGrow: true,
+	},
 
 	// Color:
 

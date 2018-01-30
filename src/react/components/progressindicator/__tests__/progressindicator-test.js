@@ -93,6 +93,23 @@ describe('<XUIProgressIndicator />', () => {
 
 	});
 
+	it('render supplied content as a child of the nested progress indicator', () => {
+
+		const qaHook = 'progress-indicator';
+		const component = mount(
+			<XUIProgressCircular
+				{...baseProps}
+				qaHook={qaHook}>
+				<img src="/my-image.png" />
+			</XUIProgressCircular>
+		);
+		const customContent = component.find({ 'data-automationid': `${qaHook}-custom-content` }).find('img');
+
+		expect(customContent).toHaveLength(1);
+		expect(toJson(component)).toMatchSnapshot();
+
+	});
+
 	describe('tool tip', () => {
 
 		const qaHook = 'progress-indicator';
@@ -103,7 +120,7 @@ describe('<XUIProgressIndicator />', () => {
 				hasToolTip
 			/>
 		);
-		const findToolTipElement = () => component.find({'data-automationid': `${qaHook}-tooltip`});
+		const findToolTipElement = () => component.find({ 'data-automationid': `${qaHook}-tooltip` });
 		const findToolTipComponent = () => component.find('ProgressToolTip');
 
 		it('should show tool tip when mouse moves over the component', () => {
@@ -194,8 +211,8 @@ describe('<XUIProgressIndicator />', () => {
 					progressColor={progressColor}
 				/>
 			);
-			const totalColorClass = component.find({'data-xui-progress-total-color': totalColor});
-			const progressColorClass = component.find({'data-xui-progress-current-color': progressColor});
+			const totalColorClass = component.find({ 'data-xui-progress-total-color': totalColor });
+			const progressColorClass = component.find({ 'data-xui-progress-current-color': progressColor });
 
 			expect(totalColorClass).toHaveLength(1);
 			expect(progressColorClass).toHaveLength(1);
@@ -216,8 +233,8 @@ describe('<XUIProgressIndicator />', () => {
 					progressColor={progressColor}
 				/>
 			);
-			const totalColorClass = component.find({'data-xui-progress-total-color': totalColor});
-			const progressColorClass = component.find({'data-xui-progress-current-color': progressColor});
+			const totalColorClass = component.find({ 'data-xui-progress-total-color': totalColor });
+			const progressColorClass = component.find({ 'data-xui-progress-current-color': progressColor });
 
 			expect(totalColorClass).toHaveLength(0);
 			expect(progressColorClass).toHaveLength(0);
@@ -230,7 +247,7 @@ describe('<XUIProgressIndicator />', () => {
 
 	describe('emulate stories', () => {
 
-		variations.forEach(({storyKind, storyTitle, ...props}) => {
+		variations.forEach(({ storyKind, storyTitle, ...props }) => {
 
 			// NOTE: the "color" variation will be omitted from this generic testing
 			// format as it is addressed above with more detailed assertions.

@@ -13,10 +13,10 @@ import XUITextArea from '../../textarea';
 import SelectBox, { SelectBoxOption } from '../../select-box';
 
 // Private modules
-import Grid from './grid';
-import Column from './column';
-import Form from './form';
-import InputLabel from './inputlabel';
+import Grid from '../helpers/grid';
+import Column from '../helpers/column';
+import Form from '../helpers/form';
+import InputLabel from '../helpers/inputlabel';
 
 const NOOP = () => {};
 

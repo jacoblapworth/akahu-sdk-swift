@@ -1,16 +1,17 @@
 import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
-import { sizeClassNames, classNames } from './constants';
+import { sizeClassNames, classNames, variantClassNames } from './constants';
 
 export default class XUIAvatarCounter extends PureComponent {
 	render() {
-		const { count, size, qaHook, className } = this.props;
+		const { count, size, variant, qaHook, className } = this.props;
 
 		const counterClassNames = cn(
 			classNames.base,
 			classNames.counter,
 			sizeClassNames[size],
+			variantClassNames[variant],
 			className
 		);
 
@@ -36,9 +37,13 @@ XUIAvatarCounter.propTypes = {
 	count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 
 	/** The size of the counter. Can be small, medium, large or xlarge */
-	size: PropTypes.oneOf(Object.keys(sizeClassNames)).isRequired
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)).isRequired,
+
+	/** The type counter to display. Can be standard or business */
+	variant: PropTypes.oneOf(['standard', 'business'])
 };
 
 XUIAvatarCounter.defaultProps = {
-	size: 'medium'
+	size: 'medium',
+	variant: 'standard'
 };

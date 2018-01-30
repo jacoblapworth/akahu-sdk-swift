@@ -7,7 +7,7 @@ import { NAME_SPACE } from '../helpers/constants';
 // HACK: The addition of this <canvas /> is to address an IE11 bug where <svg />
 // options are not scaling accurately.
 // NOTE: http://nicolasgallagher.com/canvas-fix-svg-scaling-in-internet-explorer/
-const IE11SvgScaleHack = ({viewBoxHeight, viewBoxWidth}) => {
+const IE11SvgScaleHack = ({ viewBoxHeight, viewBoxWidth }) => {
 
 	return (
 		<canvas
@@ -24,9 +24,28 @@ IE11SvgScaleHack.propTypes = {
 	viewBoxWidth: PropTypes.number.isRequired,
 };
 
-const createCircularStandardDashes = () => ({strokeDasharray: 'initial'});
+const createContentStyles = (strokeWidth, viewBoxWidth) => {
 
-const createCircularSegmentDashes = ({total, strokeWidth, circumference}) => {
+	// Content is placed inside the circle taking into account the thickness of the
+	// track. We need to offset the <div /> container based on the <svg /> "viewbox"
+	// width and the track stroke. This generates us a percentage offset which can
+	// create a sub pixel rendering issue where the track and the content do not fix
+	// completely snugly together - to combat this we pull back the content by a
+	// pixel to create a slight overlap.
+	const offset = `calc(${strokeWidth / viewBoxWidth * 100}% - 1px)`;
+
+	return {
+		bottom: offset,
+		left: offset,
+		right: offset,
+		top: offset,
+	};
+
+};
+
+const createCircularStandardDashes = () => ({ strokeDasharray: 'initial' });
+
+const createCircularSegmentDashes = ({ total, strokeWidth, circumference }) => {
 
 	// A 10px stroke width pairs with a 16px segment gap.
 	const ratio = 16 / 10;
@@ -40,7 +59,7 @@ const createCircularSegmentDashes = ({total, strokeWidth, circumference}) => {
 
 };
 
-const createCircularOffset = ({circumference, progress, total}) => {
+const createCircularOffset = ({ circumference, progress, total }) => {
 
 	const offset = circumference * (1 - (progress / total));
 
@@ -48,21 +67,33 @@ const createCircularOffset = ({circumference, progress, total}) => {
 
 };
 
-const CircularTrack = ({id, total, progress, isSegmented, strokeWidth}) => {
+const CircularTrack = ({
+	id,
+	qaHook,
+	total,
+	progress,
+	isSegmented,
+	customContent,
+	strokeWidth,
+}) => {
 
 	const viewBoxWidth = 100;
-	const viewBoxHeight = 100;
+	const viewBoxHeight = viewBoxWidth;
 	const center = viewBoxWidth / 2;
 	const radius = center - (strokeWidth / 2);
 	const circumference = 2 * Math.PI * radius;
-	const offset = createCircularOffset({circumference, progress, total});
+	const offset = createCircularOffset({
+		circumference,
+		progress, total
+	});
 	const dashes = isSegmented
-		? createCircularSegmentDashes({total, strokeWidth, circumference})
-		: createCircularStandardDashes({offset, circumference});
+		? createCircularSegmentDashes({ total, strokeWidth, circumference })
+		: createCircularStandardDashes({ offset, circumference });
 	const progressClasses = cn(
 		`${NAME_SPACE}-circular-current`,
-		{[`${NAME_SPACE}-roundcap`]: !isSegmented}
+		{ [`${NAME_SPACE}-roundcap`]: !isSegmented }
 	);
+	const contentStyles = createContentStyles(strokeWidth, viewBoxWidth);
 
 	return ([
 		<IE11SvgScaleHack
@@ -70,6 +101,14 @@ const CircularTrack = ({id, total, progress, isSegmented, strokeWidth}) => {
 			viewBoxHeight={viewBoxHeight}
 			viewBoxWidth={viewBoxWidth}
 		/>,
+
+		customContent ? <div
+			key="content"
+			data-automationid={qaHook && `${qaHook}-custom-content`}
+			className={`${NAME_SPACE}-circular-content`}
+			style={contentStyles}>
+			{customContent}
+		</div> : null,
 
 		<svg
 			key="svg"
@@ -131,9 +170,11 @@ const CircularTrack = ({id, total, progress, isSegmented, strokeWidth}) => {
 
 CircularTrack.propTypes = {
 	id: PropTypes.string.isRequired,
+	qaHook: PropTypes.string,
 	total: PropTypes.number.isRequired,
 	progress: PropTypes.number.isRequired,
 	isSegmented: PropTypes.bool,
+	customContent: PropTypes.node,
 
 	/** The SVG stroke width generated via the the "WithCircularStroke" HOC. */
 	strokeWidth: PropTypes.number,

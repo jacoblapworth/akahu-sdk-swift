@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import verge from 'verge';
 import {Portal} from 'react-portal';
-import debounce from 'lodash.debounce';
 import cn from 'classnames';
 import {
 	isNarrowViewport,
@@ -16,6 +15,7 @@ import {
 	attachListeners,
 	detachListeners,
 } from './private/dom-helpers';
+import portalContainer from '../helpers/portalContainer';
 
 /**
  * @private
@@ -42,13 +42,16 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 		? Math.max(triggerRect.left, viewportGutter)
 		: Math.min(Math.max(triggerRect.right - popupRect.width, viewportGutter), verge.viewportW() - popupRect.width - viewportGutter);
 
-	const translateX = !popup.props.forceDesktop && isNarrowViewport()
+	// Use `round` to cater for subpixel calculations
+	// Tested in FF (osx), Chrome (osx), Safari (osx)
+	const marginLeft = !popup.props.forceDesktop && isNarrowViewport()
 		? '0px'
-		: `${Math.floor(popupLeftPos + scrollLeftAmount())}px`
+		: `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
+
 	const translateY = placeBelow
 		? `${triggerRect.height}px`
 		: '-100%';
-	const translate = `translate(${translateX},${translateY})`;
+	const translate = `translateY(${translateY})`;
 	// Initially the gap offset here was done through css calc properties in the translate function. Unfortunately
 	// this caused issues, as calc is invalid as a parameter of translate within IE11
 	const topValue = placeBelow ?
@@ -56,6 +59,7 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 		: triggerRect.top + scrollTopAmount() - triggerDropdownGap;
 
 	popup.setState({
+		marginLeft,
 		top: topValue,
 		alignTop: !placeBelow,
 		transform: translate,
@@ -115,6 +119,7 @@ function getDefaultState() {
 		alignTop: false,
 		maxHeight: verge.viewportH() * 0.99,
 		positioned: false,
+		marginLeft: 0
 	};
 }
 
@@ -150,7 +155,8 @@ class Positioning extends PureComponent {
 
 		popup.positionComponent = popup.positionComponent.bind(popup);
 		popup.calculateMaxHeight = popup.calculateMaxHeight.bind(popup);
-		popup.resizeHandler = debounce(popup.positionComponent, 75, { leading: false, trailing: true });
+		popup.resizeAndScrollHandler = popup.resizeAndScrollHandler.bind(popup);
+		popup.ticking = false;
 	}
 
 	componentDidMount() {
@@ -209,6 +215,14 @@ class Positioning extends PureComponent {
 		clearTimeout(this._visibleTimer);
 	}
 
+	resizeAndScrollHandler() {
+		const popup = this;
+		if (!popup.ticking) {
+			window.requestAnimationFrame(popup.positionComponent);
+			popup.ticking = true;
+		}
+	}
+
 	/**
 	 * Calculate positioning of the popup if the trigger is rendered.
 	 *
@@ -230,6 +244,8 @@ class Positioning extends PureComponent {
 				}
 			}
 		}
+
+		popup.ticking = false;
 	}
 
 	/**
@@ -269,7 +285,7 @@ class Positioning extends PureComponent {
 	 * @return {{ maxHeight: Number, left: Number, top: Number, transformY: String }}
 	 */
 	getStyles() {
-		const { maxHeight, transform, top, bottom } = this.state;
+		const { maxHeight, transform, top, bottom, marginLeft } = this.state;
 		const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 		const isMobile = isNarrowViewport() && !isNotResponsive;
 		let width = null;
@@ -286,6 +302,8 @@ class Positioning extends PureComponent {
 			maxWidth,
 			bottom,
 			transform: isMobile ? '' : transform,
+			willChange: 'transform, max-height, max-width, top, bottom, margin-left',
+			marginLeft
 		};
 	}
 
@@ -295,12 +313,18 @@ class Positioning extends PureComponent {
 		const { positioned } = popup.state;
 		const positioningStyles = getPositionCalculationStyles(popup);
 		const clonedChildren = !isVisible || !positioned ? children : React.cloneElement(children, {
-			className : cn( children.props.className, { 'dropdown-positionabove' : popup.state.alignTop } ),
+			className : cn(
+				children.props.className,
+				'xui-dropdown-input-layout-match',
+				{
+					'dropdown-positionabove' : popup.state.alignTop
+				}
+			),
 			style : popup.getStyles(),
 		});
 
 		return isVisible ? (
-			<Portal>
+			<Portal node={portalContainer()}>
 				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container" data-automationid={qaHook}>
 					{clonedChildren}
 				</div>

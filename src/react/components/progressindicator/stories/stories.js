@@ -10,8 +10,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import {COLORS} from '../helpers/constants';
-import {variations, storiesWithVariationsKindName} from './variations';
+import { COLORS } from '../helpers/constants';
+import { variations, storiesWithVariationsKindName } from './variations';
 import iconPath from '@xero/xui-icon/icons/suggestion';
 import XUIIcon from '../../icon/XUIIcon';
 
@@ -119,23 +119,26 @@ const createColorComparison = (props) => {
 
 	// Create a "circular" and "linear" component for each color combination.
 	return [
-		enrichedProps.map((props, index) => <div key={`circular-${index}`} style={colorStyle} ><XUIProgressCircular {...props}/></div>),
-		enrichedProps.map((props, index) => <div key={`linear-${index}`} style={colorStyle} ><XUIProgressLinear {...props}/></div>)
+		enrichedProps.map((props, index) => <div key={`circular-${index}`} style={colorStyle} ><XUIProgressCircular {...props} /></div>),
+		enrichedProps.map((props, index) => <div key={`linear-${index}`} style={colorStyle} ><XUIProgressLinear {...props} /></div>)
 	];
 
 };
 
-const createStandardComparison = (styles, Component, props) => (
+const createStandardComparison = (styles, Component, props, children) => (
 	<div style={styles}>
-		<Component {...props}/>
+		<Component {...props}>
+			{children}
+		</Component>
 	</div>
 );
 
 variations.forEach(variation => {
 
-	const {storyTitle, storyKind, ...props} = variation; // eslint-disable-line no-unused-vars
+	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
 	const isLinear = storyTitle.startsWith('linear');
 	const isColor = storyTitle.startsWith('color');
+	const isCustomContent = storyTitle.startsWith('circular custom content');
 	const isErrorWithIcon = storyTitle.startsWith('circular custom (icon) hard error');
 	let Comparison;
 
@@ -147,10 +150,16 @@ variations.forEach(variation => {
 
 		Comparison = createStandardComparison(linearStyles, XUIProgressLinear, props);
 
+	} else if (isCustomContent) {
+
+		const children = <img style={{ width: '100%', height: 'auto' }} src="http://via.placeholder.com/350x350" />;
+
+		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, props, children);
+
 	} else if (isErrorWithIcon) {
 		const starIcon = <XUIIcon path={iconPath} />;
 
-		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, {hardErrorAlert: starIcon, ...props});
+		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, { hardErrorAlert: starIcon, ...props });
 
 	} else {
 

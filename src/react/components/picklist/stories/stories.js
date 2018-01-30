@@ -71,9 +71,8 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
 		const variationMinusStoryDetails = { ...variation };
-		const componentType = variationMinusStoryDetails.componentType;
+		const { componentType, isOpen } = variationMinusStoryDetails;
 		const listComponents = buildLists(variationMinusStoryDetails.lists, componentType);
-		const isOpen = variationMinusStoryDetails.isOpen;
 
 		delete variationMinusStoryDetails.componentType;
 		delete variationMinusStoryDetails.storyKind;
@@ -90,7 +89,7 @@ variations.forEach(variation => {
 		} else if (componentType === 'NestedPicklist') {
 			return (
 				<XUIPicklist {...variationMinusStoryDetails}>
-						<NestedPicklistContainer id="nested" open={isOpen}>
+						<NestedPicklistContainer id="nested" isOpen={isOpen}>
 							<NestedPicklistTrigger id="nestedTrigger">Nested list</NestedPicklistTrigger>
 							{listComponents[0]}
 						</NestedPicklistContainer>

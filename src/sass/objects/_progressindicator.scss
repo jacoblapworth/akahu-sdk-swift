@@ -21,6 +21,8 @@
 
 // Anatomy
 //
+// Flag: Experimental
+//
 // There are two progress indicator layouts for displaying a progress indicator, depending on context.
 // Each contains a track and a current value.
 //
@@ -534,6 +536,16 @@ $xui-progress-colors: (
 .#{$ns}-progress-circular-mask {
 	fill: black;
 	stroke: white;
+}
+
+.#{$ns}-progress-circular-content {
+	border-radius: 50%;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 .#{$ns}-progress-linear {

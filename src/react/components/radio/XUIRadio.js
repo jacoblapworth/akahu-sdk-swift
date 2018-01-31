@@ -17,6 +17,30 @@ const onLabelClick = e => {
 	}
 };
 
+const buildRadio = (qaHook, htmlClassName, svgSettings) => {
+	if (svgSettings.iconMainPath || svgSettings.iconCheckPath) {
+		return buildSvgRadio(qaHook, svgSettings);
+	} else {
+		return buildHtmlRadio(qaHook, htmlClassName);
+	}
+};
+
+const buildSvgRadio = (qaHook, {svgClassName, iconMainPath, iconCheckPath}) => {
+	const svgClasses = cn('xui-icon', svgClassName);
+	return (<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
+					<path className="xui-styledcheckboxradio--focus" role="presentation" d={iconMainPath || radioMain} />
+					<path className="xui-styledcheckboxradio--main" role="presentation" d={iconMainPath || radioMain} />
+					{iconMainPath && !iconCheckPath ? null : <path className="xui-styledcheckboxradio--check" role="presentation" d={iconCheckPath || radioCheck} />}
+				</svg>);
+};
+
+const buildHtmlRadio = (qaHook, htmlClassName) => {
+	const htmlClasses = cn('xui-styledcheckboxradio--radio', htmlClassName);
+	return (
+		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`}/>
+	);
+};
+
 export default class XUIRadio extends React.Component {
 	render() {
 		const {
@@ -26,7 +50,7 @@ export default class XUIRadio extends React.Component {
 			qaHook,
 			iconCheckPath,
 			iconMainPath,
-			defaultChecked,
+			isDefaultChecked,
 			isChecked,
 			isDisabled,
 			isRequired,
@@ -35,8 +59,10 @@ export default class XUIRadio extends React.Component {
 			onChange,
 			value,
 			svgClassName,
+			htmlClassName,
 			labelClassName,
-			isLabelHidden
+			isLabelHidden,
+			id
 		} = this.props;
 
 		const classes = cn(
@@ -48,9 +74,8 @@ export default class XUIRadio extends React.Component {
 			}
 		);
 
-		const svgClasses = cn('xui-icon', svgClassName);
 		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
-		const labelElement = !isLabelHidden ? <span className={labelClasses}>{children}</span> : null;
+		const labelElement = !isLabelHidden ? <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span> : null;
 		const inputProps = {
 			type: 'radio',
 			disabled: isDisabled,
@@ -59,10 +84,16 @@ export default class XUIRadio extends React.Component {
 			name,
 			onChange,
 			value,
+			id
+		};
+		const svgSettings = {
+			svgClassName,
+			iconCheckPath,
+			iconMainPath
 		};
 
 		if (typeof isChecked !== 'boolean') {
-			inputProps.defaultChecked = !!defaultChecked;
+			inputProps.defaultChecked = !!isDefaultChecked;
 		} else {
 			inputProps.checked = isChecked;
 			// checked prop without an onChange handler means this is readonly, so set that to prevent
@@ -74,12 +105,8 @@ export default class XUIRadio extends React.Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input className="xui-styledcheckboxradio--input" {...inputProps} />
-				<svg className={svgClasses}>
-					<path className="xui-styledcheckboxradio--focus" role="presentation" d={iconMainPath || radioMain} />
-					<path className="xui-styledcheckboxradio--main" role="presentation" d={iconMainPath || radioMain} />
-					{iconMainPath && !iconCheckPath ? null : <path className="xui-styledcheckboxradio--check" role="presentation" d={iconCheckPath || radioCheck} />}
-				</svg>
+				<input className="xui-styledcheckboxradio--input" {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
+				{buildRadio(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
 			</label>
 		);
@@ -124,6 +151,9 @@ XUIRadio.propTypes = {
 	/** Additional class names on the svg element  */
 	svgClassName: PropTypes.string,
 
+	/** Additional class names for the html input */
+	htmlClassName: PropTypes.string,
+
 	/** The tabindex property to place on the radio input */
 	tabIndex: PropTypes.number,
 
@@ -131,7 +161,9 @@ XUIRadio.propTypes = {
 	isLabelHidden: PropTypes.bool,
 
 	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
-	defaultChecked: PropTypes.bool,
+	isDefaultChecked: PropTypes.bool,
+
+	id: PropTypes.string
 };
 
 XUIRadio.defaultProps = {

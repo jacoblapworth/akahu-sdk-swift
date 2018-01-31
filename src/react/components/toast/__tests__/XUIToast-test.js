@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import XUIToast from '../XUIToast';
 import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
@@ -94,4 +95,12 @@ describe('XUIToast', () => {
 		expect(wrapper.find('a')).toHaveLength(1);
 		expect(wrapper.find('button')).toHaveLength(1);
 	});
+
+	it('should render a passed qaHook as an auotmation id', () => {
+        const automationId = renderer.create(<XUIToast qaHook="toast-example">
+                <span>Content</span>
+            </XUIToast>);
+
+        expect(automationId).toMatchSnapshot();
+    });
 });

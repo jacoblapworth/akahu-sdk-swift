@@ -429,7 +429,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -438,7 +438,7 @@ export default class DropDownToggled extends PureComponent {
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': true,
-			'aria-controls': dropdown.dropdownId,
+			'aria-controls': dropdown.dropdownId
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
@@ -452,7 +452,7 @@ export default class DropDownToggled extends PureComponent {
 			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
 			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, ddt.onOpenAnimationEnd),
 			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: dropdown.props.className,
+			className: dropdown.props.className
 		});
 
 		return (
@@ -461,16 +461,19 @@ export default class DropDownToggled extends PureComponent {
 				className={cn('dropdown-toggled-wrapper', className)}
 				onKeyDown={ddt.onKeyDown}
 				data-ref='toggled-wrapper'
+				data-automationid={qaHook}
 			>
 				{clonedTrigger}
 				<Positioning
+					maxHeight={maxHeight}
 					ref={c => this.positioning = c}
 					parentRef={ddt.wrapper}
-					renderHidden={isHidden}
-					setMaxHeight={restrictToViewPort}
-					matchTriggerWidth={ddt.props.matchTriggerWidth}
-					forceDesktop={forceDesktop}
+					isVisible={!isHidden}
+					shouldRestrictMaxHeight={restrictToViewPort}
+					isTriggerWidthMatched={ddt.props.matchTriggerWidth}
+					isNotResponsive={forceDesktop}
 					onVisible={shouldAnimate(this) ? null : this.onOpenAnimationEnd}
+					qaHook={qaHook && `${qaHook}--positioning`}
 				>
 						{clonedDropdown}
 				</Positioning>
@@ -481,6 +484,7 @@ export default class DropDownToggled extends PureComponent {
 
 DropDownToggled.propTypes = {
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 
 	/** Whether the dropdown is hidden on initial render */
 	isHidden: PropTypes.bool,
@@ -529,6 +533,12 @@ DropDownToggled.propTypes = {
 	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
+
+	/**
+	 * Setting a number here will force the maximum height of the dropdown to be the number provided (in pixels) if the viewport is too big.
+	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
+	 */
+	maxHeight: PropTypes.number
 };
 
 DropDownToggled.defaultProps = {

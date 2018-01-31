@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
 
@@ -32,9 +33,8 @@ describe('XUIToggle', function() {
 
 	// qaHook property
 	it('should have a qaHook if provided', function () {
-		const qaHook = 'cheese-and-crackers';
-		const wrapper = mount(<XUIToggle qaHook={qaHook} />);
-		expect(wrapper.find(`[data-automationid="${qaHook}"]`)).toHaveLength(1);
+		const automationid = renderer.create(<XUIToggle qaHook='cheese-and-crackers' />);
+		expect(automationid).toMatchSnapshot();
 	});
 
 

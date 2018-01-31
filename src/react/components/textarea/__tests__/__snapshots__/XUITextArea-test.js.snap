@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUITextArea additional functionality: should render an automation id when a qaHook is passed 1`] = `
+<div
+  className="xui-field-layout"
+>
+  <textarea
+    className="xui-input xui-u-resize-none"
+    data-automationid="textarea-test-textarea"
+    disabled={undefined}
+    id={undefined}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    rows={3}
+  />
+</div>
+`;

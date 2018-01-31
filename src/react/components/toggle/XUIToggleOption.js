@@ -9,12 +9,34 @@ const typeMap = {
 };
 
 export default function XUIToggleOption(props) {
-	const {children, className, qaHook, isChecked, isDisabled, isRequired, name, onChange, type, value} = props;
+	const {
+		children,
+		className,
+		qaHook,
+		isChecked,
+		isDisabled,
+		isRequired,
+		name,
+		onChange,
+		type,
+		value,
+		id
+	} = props;
 	const classes = cn(className, 'xui-toggle-option', { 'xui-is-disabled': isDisabled });
 
 	return (
 		<label className={classes} data-automationid={qaHook}>
-			<input className="xui-toggle--input" checked={isChecked} disabled={isDisabled} required={isRequired} name={name} onChange={onChange} type={typeMap[type]} value={value} />
+			<input
+				className="xui-toggle--input"
+				checked={isChecked}
+				disabled={isDisabled}
+				required={isRequired}
+				name={name}
+				onChange={onChange}
+				type={typeMap[type]}
+				value={value}
+				id={id}
+			/>
 			<span className="xui-toggle--label">{children}</span>
 		</label>
 	);
@@ -38,7 +60,8 @@ XUIToggleOption.propTypes = {
 	/** The type of the input */
 	type: PropTypes.oneOf(Object.keys(typeMap)),
 	/** The value to return on form submission */
-	value: PropTypes.string
+	value: PropTypes.string,
+	id: PropTypes.string
 };
 XUIToggleOption.defaultProps = {
 	type: 'radio'

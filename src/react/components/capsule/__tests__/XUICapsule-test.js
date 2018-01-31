@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount, render, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import XUICapsule from '../XUICapsule';
 
 Enzyme.configure({ adapter: new Adapter() });

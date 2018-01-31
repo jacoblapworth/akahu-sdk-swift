@@ -17,12 +17,11 @@ export default class XUIAvatarGroup extends PureComponent {
 		const childCount = React.Children.count(props.children);
 		const extraChildCount = (maxAvatars && childCount > maxAvatars) ? childCount - maxAvatars + 1 : 0;
 		const lastChildIndex = extraChildCount ? maxAvatars - 1 : childCount;
-
 		const className = cn(classNames.group, props.className);
 		let children = props.children;
 		let variant = 'standard';
 
-		if(avatarSize || extraChildCount) {
+		if (avatarSize || extraChildCount) {
 			children = React.Children.map(props.children, function(child, idx) {
 				variant = child.props.variant;
 				return idx < lastChildIndex ? React.cloneElement(child, {

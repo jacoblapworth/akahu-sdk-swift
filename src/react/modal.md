@@ -30,9 +30,9 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUIButton onClick={() => this.setState({ showModal: true })}>Read-only modal</XUIButton>
-				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader>Get link</XUIModalHeader>
-					<XUIModalBody className="xui-padding">
+				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+					<XUIModalHeader qaHook="example-modal--header">Get link</XUIModalHeader>
+					<XUIModalBody qaHook="example-modal--body" className="xui-padding">
 						<div className="xui-padding-bottom">
 							Anyone with this link can view this invoice.
 						</div>
@@ -94,12 +94,12 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUIButton onClick={this.toggleModal}>Confirmation modal</XUIButton>
-				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
-					<XUIModalHeader>Delete John Smith</XUIModalHeader>
-					<XUIModalBody>
+				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+					<XUIModalHeader qaHook="example-modal--header">Delete John Smith</XUIModalHeader>
+					<XUIModalBody qaHook="example-modal--body">
 						This cannot be undone
 					</XUIModalBody>
-					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
+					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large" qaHook="example-modal--header">
 						<XUIButton
 							variant="negative"
 							className="xui-actions--primary"
@@ -150,7 +150,7 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUIButton onClick={this.toggleModal}>Modal with a form</XUIButton>
-				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })}>
+				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
 					<XUIModalHeader>New project</XUIModalHeader>
 					<XUIModalBody>
 						<XUIInput
@@ -201,7 +201,7 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
-				<XUIModal isHidden={!this.state.showModal} onClose={() => this.setState({ showModal: false })} size="large">
+				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })} size="large">
 					<XUIModalBody>
 						<div className="xui-u-flex xui-u-flex-vertical xui-u-flex-verticallycentered">
 							<img src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png" style={{maxWidth:'100%'}}/>

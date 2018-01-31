@@ -18,7 +18,7 @@ XUI provides ten approved colours for Avatars. `XUIAvatar` handles selecting a c
 Circular avatars are used to represent people. This is the default avatar variant.
 
 ```
-<XUIAvatar value="Xero" />
+<XUIAvatar value="Xero" qaHook="xero-avatar"/>
 ```
 
 Rectangular avatars are used to represent businesses (a company, a practice, etc). Use the `variant` "business" to get a rectangular avatar. Rectangular avatars display up to three letters.
@@ -96,5 +96,5 @@ The `size` prop is an enum. The default value is `"medium"`.
 
 ```
 // Try changing 'size' in this example to 'large' or 'small'.
-<XUIAvatar value="xero" size="xlarge" />
+<XUIAvatar value="xero" size="xlarge" qaHook="xlarge-xero"/>
 ```

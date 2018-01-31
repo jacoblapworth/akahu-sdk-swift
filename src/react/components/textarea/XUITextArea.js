@@ -183,7 +183,7 @@ export default class XUITextArea extends Component {
 			isInvalid,
 			validationMessage,
 			hintMessage,
-			manualResize,
+			isResizable,
 			isDisabled,
 			isBorderless,
 			textareaId,
@@ -201,7 +201,7 @@ export default class XUITextArea extends Component {
 					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid,
 					[`${inputClass}-borderless`] : isBorderless
 				},
-				manualResize ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
+				isResizable ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
 			);
 
 		const fieldClass = 'xui-field';
@@ -288,7 +288,7 @@ XUITextArea.propTypes = {
 	/** The maximum number of rows for the text area to expand to. */
 	maxRows: PropTypes.number,
 	/** Whether or not the user should be able to manually resize the field. */
-	manualResize: PropTypes.bool,
+	isResizable: PropTypes.bool,
 	/** Function to execute when the input's value has been changed. */
 	onChange: PropTypes.func,
 	/** Whether the text input should be read-only. */

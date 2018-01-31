@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`forceStatefulPicklist prop renders a automation id when a qaHook is passed 1`] = `
+<div
+  className="xui-dropdown-layout xui-dropdown-is-open"
+  data-automationid="dropdown-test--layout"
+  id="1"
+  onAnimationEnd={[Function]}
+  style={undefined}
+>
+  <div
+    className="xui-dropdown--mask"
+    data-automationid="dropdown-test--layout--mask"
+  />
+  <div
+    aria-hidden={false}
+    className="xui-dropdown--panel"
+    data-automationid="dropdown-test"
+    id={undefined}
+    onKeyDown={[Function]}
+    role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
+    tabIndex={0}
+  >
+    <div
+      className="xui-dropdown--body"
+      data-automationid="dropdown-test--body"
+      onMouseUp={[Function]}
+      style={
+        Object {
+          "maxHeight": "80vh",
+          "overflowY": undefined,
+        }
+      }
+    >
+      <div
+        aria-activedescendant={null}
+        className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
+        data-automationid="dropdown-test--scrollable-container"
+        id={undefined}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="tree"
+        tabIndex={null}
+      >
+        <div
+          className="xui-dropdown--scrollable-content"
+          data-automationid="dropdown-test--scrollable-content"
+        >
+          <ul
+            className="xui-picklist xui-picklist-layout"
+            data-automationid={undefined}
+            id={undefined}
+            onKeyDown={undefined}
+            onMouseDown={undefined}
+            role="group"
+          >
+            <li
+              aria-label={undefined}
+              aria-selected={null}
+              className="xui-pickitem"
+              data-automationid={undefined}
+              id="required-id"
+              role="option"
+            >
+              <button
+                className="xui-pickitem--body"
+                data-automationid={undefined}
+                onClick={[Function]}
+                onKeyDown={undefined}
+                onMouseOver={[Function]}
+                rel={null}
+                tabIndex="-1"
+                type="button"
+              >
+                <span
+                  className="xui-pickitem--text"
+                >
+                  List Item
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`forceStatefulPicklist prop renders qaHooks on inner components when stateful picklist is not being used 1`] = `
+<div
+  className="xui-dropdown-layout xui-dropdown-is-open"
+  data-automationid="dropdown-test--layout"
+  id="1"
+  onAnimationEnd={[Function]}
+  style={undefined}
+>
+  <div
+    className="xui-dropdown--mask"
+    data-automationid="dropdown-test--layout--mask"
+  />
+  <div
+    aria-hidden={false}
+    className="xui-dropdown--panel"
+    data-automationid="dropdown-test"
+    id={undefined}
+    onKeyDown={[Function]}
+    role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
+    tabIndex={0}
+  >
+    <div
+      className="xui-dropdown--body"
+      data-automationid="dropdown-test--body"
+      onMouseUp={[Function]}
+      style={
+        Object {
+          "maxHeight": "80vh",
+          "overflowY": undefined,
+        }
+      }
+    >
+      <div
+        className="xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow"
+        data-automationid="dropdown-test--scrollable-container"
+      >
+        <div
+          className="xui-dropdown--scrollable-content"
+          data-automationid="dropdown-test--scrollable-content"
+        >
+          <ul>
+            <li
+              id="required-id"
+            >
+              List Item
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

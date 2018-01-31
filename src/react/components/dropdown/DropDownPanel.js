@@ -219,6 +219,7 @@ class DropDownPanel extends PureComponent {
 			>
 				<div
 					onMouseUp={this.iOSHack}
+					data-automationid={qaHook && `${qaHook}--body`}
 					className={cn('xui-dropdown--body', bodyClassName)}
 					style={{
 						maxHeight,
@@ -227,32 +228,38 @@ class DropDownPanel extends PureComponent {
 				>
 					{header}
 					{shouldAddStatefulPicklist ? (
-							<StatefulPicklist
-								className={scrollableContainerClasses}
-								ref={c => this.list = c}
-								onSelect={onSelect}
-								ignoreKeyboardEvents={ignoreKeyboardEvents}
-								onHighlightChange={onHighlightChange}
-							>
-								<div
-									className="xui-dropdown--scrollable-content"
-									ref={sc => this._scrollableContent = sc}
-								>
-									{children}
-								</div>
-								{footer}
-							</StatefulPicklist>
-					) : (
-						<div className={scrollableContainerClasses}>
+						<StatefulPicklist
+							className={scrollableContainerClasses}
+							ref={c => this.list = c}
+							onSelect={onSelect}
+							ignoreKeyboardEvents={ignoreKeyboardEvents}
+							onHighlightChange={onHighlightChange}
+							qaHook={qaHook && `${qaHook}--scrollable-container`}
+						>
 							<div
 								className="xui-dropdown--scrollable-content"
 								ref={sc => this._scrollableContent = sc}
+								data-automationid={qaHook && `${qaHook}--scrollable-content`}
 							>
 								{children}
 							</div>
 							{footer}
-						</div>
-					)}
+						</StatefulPicklist>
+					) : (
+							<div
+								className={scrollableContainerClasses}
+								data-automationid={qaHook && `${qaHook}--scrollable-container`}
+							>
+								<div
+									className="xui-dropdown--scrollable-content"
+									ref={sc => this._scrollableContent = sc}
+									data-automationid={qaHook && `${qaHook}--scrollable-content`}
+								>
+									{children}
+								</div>
+								{footer}
+							</div>
+						)}
 				</div>
 			</div>
 		);

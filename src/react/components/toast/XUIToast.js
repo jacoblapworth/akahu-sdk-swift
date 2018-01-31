@@ -4,17 +4,7 @@ import cn from 'classnames';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
-
-const sentimentMap = {
-	positive: {
-		class: 'xui-toast-positive',
-		role: 'alert'
-	},
-	negative: {
-		class: 'xui-toast-negative',
-		role: 'alert'
-	}
-};
+import { sentimentMap } from './private/sentiments';
 
 const sentiments = Object.keys(sentimentMap);
 
@@ -23,7 +13,7 @@ export default function XUIToast(props) {
 	const sentimentData = sentimentMap[sentiment];
 	const sentimentClass = sentimentData && sentimentData.class;
 	const role = props.role || (sentimentData && sentimentData.role) || 'status';
-	const buttonQAHook = qaHook ? `${qaHook}-close-button` : null;
+	const buttonQAHook = qaHook && `${qaHook}-close-button`;
 
 	const classNames = cn(
 		'xui-toast',
@@ -53,6 +43,7 @@ export default function XUIToast(props) {
 			onMouseLeave={onMouseLeave}
 			role={role}
 			aria-hidden={isHidden}
+			data-automationid={qaHook}
 		>
 			{close}
 			{children}

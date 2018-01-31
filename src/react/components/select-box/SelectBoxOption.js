@@ -14,7 +14,7 @@ export default class SelectBoxOption extends PureComponent {
 				onClick={props.onClick}
 				onSelect={props.onSelect}
 				id={props.id}
-				multiselect={props.showCheckboxes}
+				isMultiselect={props.showCheckboxes}
 				value={props.value}
 				className={props.optionClasses}
 				disabled={props.isDisabled}
@@ -85,7 +85,6 @@ SelectBoxOption.defaultProps = {
 	showCheckboxes: false,
 	isDisabled: false,
 	truncatedText: false,
-	defaultLayout: true,
 	_isMenuItem: true,
 	ariaRole: 'option'
 };

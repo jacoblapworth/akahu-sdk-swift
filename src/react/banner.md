@@ -16,7 +16,7 @@ const onBannerClose = () => {alert( 'Standard banner closed' )};
 
 <div>
 	<XUIBanner>
-		<XUIBannerMessage>System Message</XUIBannerMessage>
+		<XUIBannerMessage qaHook="banner-example--message">System Message</XUIBannerMessage>
 	</XUIBanner>
 	<XUIBanner sentiment="negative" onCloseClick={onBannerClose}>
 		<XUIBannerMessage>Negative sentiment with close button</XUIBannerMessage>

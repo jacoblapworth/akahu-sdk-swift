@@ -30,7 +30,7 @@ export default class SelectBox extends Component {
 		const selectBox = this;
 
 		selectBox.state = {
-			ariaId: uuidv4()
+			ariaId: props.ariaId || uuidv4()
 		};
 
 		selectBox.isDropDownOpen = selectBox.isDropDownOpen.bind(selectBox);
@@ -81,6 +81,7 @@ export default class SelectBox extends Component {
 					className={caretClasses}
 					path={caret}
 					title="Toggle List"
+					qaHook={setQaHook(props.qaHook, qaHooks.buttonIcon)}
 				/>
 			</XUIButton>
 		);
@@ -103,10 +104,11 @@ export default class SelectBox extends Component {
 				<label className={labelClasses}
 					htmlFor={selectBox.state.ariaId}
 					onClick={selectBox.onLabelClick}
+					data-automationid={setQaHook(props.qaHook, qaHooks.label)}
 				>
 					{props.label}
 				</label>
-				<div className={inputGroupClasses}>
+				<div className={inputGroupClasses} data-automationid={setQaHook(props.qaHook, qaHooks.inputGroup)}>
 					{
 						!props.children || (Array.isArray(props.children) && !props.children.length)
 							?
@@ -119,9 +121,10 @@ export default class SelectBox extends Component {
 								id={selectBox.state.ariaId}
 								onClose={props.onDropdownHide}
 								closeOnSelect={props.closeAfterSelection}
-								hidden={!props.isOpen}
+								isHidden={!props.isOpen}
 								forceDesktop={props.forceDesktop}
 								matchTriggerWidth={props.matchTriggerWidth}
+								qaHook={setQaHook(props.qaHook, qaHooks.dropdownToggled)}
 							/>
 					}
 				</div>
@@ -190,6 +193,9 @@ SelectBox.propTypes = {
 
 	/** Whether focus should be restricted to the dropdown while it's open. */
 	restrictFocus: PropTypes.bool,
+
+	/** Used primarily to associate a label with it's matched content. If none is provide it's automatically generated. */
+	ariaId: PropTypes.string
 };
 
 SelectBox.defaultProps = {

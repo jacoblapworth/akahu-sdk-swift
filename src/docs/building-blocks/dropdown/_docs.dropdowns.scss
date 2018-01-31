@@ -148,7 +148,7 @@
 
 // Height
 //
-// By default, dropdown height matches that of its content. 
+// By default, dropdown height matches that of its content.
 // However, at narrow vieports, a max-height is applied so that a section of the mask is always visible.
 // Content scrolls internally if it exceeds this height.
 //
@@ -211,45 +211,45 @@
 //     </div>
 //     <div class='xui-dropdown--scrollable-content'>
 //       <ul class="xui-picklist xui-picklist-layout" role="tree">
-//         <li class="xui-pickitem" role="treeitem">
-//          <label class="xui-pickitem--body xui-styledcheckboxradio">
-//            <input type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"/>
-//            <svg focusable="false" class="xui-icon xui-pickitem--input">
-//              <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//              <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//              <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//            </svg>
-//            <span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
-//              Customers
-//            </span>
-//          </label>
-//        </li>
-//        <li class="xui-pickitem" role="treeitem">
-//          <label class="xui-pickitem--body xui-styledcheckboxradio">
-//            <input type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"/>
-//            <svg focusable="false" class="xui-icon xui-pickitem--input">
-//              <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//              <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//              <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//            </svg>
-//            <span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
-//              Suppliers
-//            </span>
-//          </label>
-//        </li>
-//        <li class="xui-pickitem" role="treeitem">
-//          <label class="xui-pickitem--body xui-styledcheckboxradio">
-//            <input type="checkbox" class="xui-styledcheckboxradio--input" tabindex="-1"/>
-//            <svg focusable="false" class="xui-icon xui-pickitem--input">
-//              <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//              <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//              <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//            </svg>
-//            <span class="xui-pickitem--text xui-text-truncated xui-pickitem--multiselect-label xui-styledcheckboxradio--label">
-//              Overseas clients
-//            </span>
-//          </label>
-//        </li>
+//         <li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-styledcheckboxradio" for="customers">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="customers">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label">
+// 								<span class="xui-pickitem--multiselect-label">
+// 									Customers
+// 								</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-styledcheckboxradio" for="suppliers">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="suppliers">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label">
+// 								<span class="xui-pickitem--multiselect-label">
+// 									Suppliers
+// 								</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
+// 				<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 					<div class="xui-pickitem--body">
+// 						<label class="xui-styledcheckboxradio" for="overseas">
+// 							<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="overseas">
+// 							<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
+// 							<span class="xui-styledcheckboxradio--label">
+// 								<span class="xui-pickitem--multiselect-label">
+// 									Overseas clients
+// 								</span>
+// 							</span>
+// 						</label>
+// 					</div>
+// 				</li>
 //       </ul>
 //     </div>
 //     <div class="xui-dropdown--footer">

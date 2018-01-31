@@ -443,7 +443,7 @@
 $xui-datepicker-day-size: 40px;
 $xui-datepicker-day-size-compact: 30px;
 
-@mixin xui-datepicker-hightlight-size-left() {
+@mixin xui-datepicker-highlight-size-left() {
 	border-radius: $xui-datepicker-day-size / 2 0 0 $xui-datepicker-day-size / 2;
 	width: $xui-datepicker-day-size / 2;
 	.#{$ns}-datepicker-compact & {
@@ -750,7 +750,7 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--day-is-hovered-start {
 	&::before {
 		background: $xui-color-grey-alpha-6;
-		@include xui-datepicker-hightlight-size-left();
+		@include xui-datepicker-highlight-size-left();
 	}
 	&::after {
 		background: $xui-color-grey-alpha-6;
@@ -779,7 +779,7 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--day-is-selected-start {
 	&::before {
 		background: $xui-color-xero-blue;
-		@include xui-datepicker-hightlight-size-left();
+		@include xui-datepicker-highlight-size-left();
 	}
 	&::after {
 		background: $xui-color-xero-blue;
@@ -818,7 +818,7 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--day-is-selected-hovered-start {
 	&::before {
 		background: $xui-color-grey-alpha-6;
-		@include xui-datepicker-hightlight-size-left();
+		@include xui-datepicker-highlight-size-left();
 	}
 	&::after {
 		background: $xui-color-grey-alpha-6;

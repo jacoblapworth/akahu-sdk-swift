@@ -130,7 +130,7 @@ class XDD extends Component {
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
-								inline
+								isInline
 								path={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>
@@ -164,7 +164,7 @@ class XDD extends Component {
 							id={item.id}
 							value={item.id}
 							isSelected={this.state.selected[item.id]}
-							multiselect
+							isMultiselect
 						>
 							{item.text}
 						</Pickitem>

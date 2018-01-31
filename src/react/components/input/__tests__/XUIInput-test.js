@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import XUIInput from '../XUIInput';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 
@@ -16,7 +17,6 @@ describe('<XUIInput>', () => {
 		beforeEach(() => {
 			wrapper = mount(
 				<XUIInput
-					onChange={ () => true }
 					qaHook={qaHook}
 					className={className}
 				/>
@@ -29,8 +29,13 @@ describe('<XUIInput>', () => {
 
 		it('should have a qahook on the input and wrapper', () => {
 			const input = wrapper.find('input');
-			expect(wrapper.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}-container"`));
+			expect(wrapper.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}--container"`));
 			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
+
+			const automationId = renderer.create(
+				<XUIInput qaHook="input-test" />
+			);
+			expect(automationId).toMatchSnapshot();
 		});
 
 		it('should pass containerClassName to container element', () => {
@@ -77,7 +82,9 @@ describe('<XUIInput>', () => {
 		});
 
 		it('has a qaHook', () => {
-			expect(input.html()).toEqual(expect.stringContaining(`data-automationid="${qaHook}"`));
+			const automationid = renderer.create(<XUIInput qaHook={qaHook} />);
+
+			expect(automationid).toMatchSnapshot();
 		});
 
 		it('is passed className', () => {
@@ -95,10 +102,6 @@ describe('<XUIInput>', () => {
 
 		it('is passed placeholder property value', () => {
 			expect(input.prop('placeholder')).toEqual(expect.stringContaining('This is an input'));
-		});
-
-		it('should accept arbitrary props', () => {
-			expect(input.prop('aria-haspopup')).toBeTruthy();
 		});
 	});
 

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIToastMessage /> should render a passed qaHook as an auotmation id 1`] = `
+<p
+  className="xui-toast--message"
+  data-automationid="toast-actions"
+>
+  <span>
+    Message Content
+  </span>
+</p>
+`;

@@ -107,7 +107,7 @@ export default class XUIStatelessInput extends PureComponent {
 
 		return (
 			<div
-				data-automationid={qaHook ? `${qaHook}-container` : null}
+				data-automationid={qaHook && `${qaHook}--container`}
 				className={inputWrapperClasses}>
 				{iconComponent}
 				<input

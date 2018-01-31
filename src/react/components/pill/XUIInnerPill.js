@@ -42,7 +42,7 @@ class XUIInnerPill extends PureComponent {
 				title={title}
 				variant="unstyled"
 				onClick={onClick}
-				qaHook={qaHook ? `pillButton-${qaHook}` : null}
+				qaHook={qaHook && `${qaHook}--inner`}
 			>
 				{avatarEl}
 				{secondaryTextEl}

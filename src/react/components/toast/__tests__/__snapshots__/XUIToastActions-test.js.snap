@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIToastActions /> should render a passed qaHook as an auotmation id 1`] = `
+<ul
+  className="xui-toast--actions"
+  data-automationid="toast-actions"
+>
+  <button>
+    Action 1
+  </button>
+  <button>
+    Action 2
+  </button>
+</ul>
+`;

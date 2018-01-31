@@ -1,6 +1,7 @@
 @import "../mixins";
 @import "../vars";
 
+
 // Alignment
 
 
@@ -32,8 +33,53 @@
 }
 /* doiuse-enable */
 
-//  Colors
 
+// Emphasis
+
+.#{$ns}-text-emphasis {
+	font-weight: $xui-font-weight-emphasis;
+}
+
+.#{$ns}-text-deemphasis {
+	font-weight: $xui-font-weight-deemphasis;
+}
+
+// Letter Spacing
+
+.#{$ns}-text-spacing-tight {
+	@include xui-text-spacing-tight;
+}
+
+.#{$ns}-text-spacing-loose {
+	@include xui-text-spacing-loose;
+}
+
+// Line Height
+.#{$ns}-text-reset {
+	@include xui-text-line-height-reset;
+}
+
+.#{$ns}-text-tight {
+	@include xui-text-line-height-tight;
+}
+
+.#{$ns}-text-compact {
+	@include xui-text-line-height-compact;
+}
+
+// Color
+
+.#{$ns}-text-status {
+	color: $xui-color-grey-alpha-2;
+}
+
+.#{$ns}-text-status-positive {
+	color: $xui-color-xero-green;
+}
+
+.#{$ns}-text-status-negative {
+	color: $xui-color-xero-red;
+}
 
 .#{$ns}-textcolor-standard {
 	color: $xui-color-black;
@@ -43,6 +89,7 @@
 	@include xui-text-muted;
 }
 
+.#{$ns}-text-placeholder,
 .#{$ns}-textcolor-faint {
 	color: $xui-color-grey-alpha-3;
 }

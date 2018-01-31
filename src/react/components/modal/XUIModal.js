@@ -1,14 +1,15 @@
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Portal from 'react-portal';
+import { Portal } from 'react-portal';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
+import portalContainer, { portalClass } from '../helpers/portalContainer';
 
-const modalSizes = {
+export const modalSizes = {
 	small: 'xui-modal-width-small',
 	medium: 'xui-modal-width-medium',
 	large: 'xui-modal-width-large',
@@ -26,10 +27,12 @@ const modalSizes = {
  * @returns {Boolean}
  */
 function shouldUpdateListeners(props, otherProps) {
-	return (!!props.onClose !== !!otherProps.onClose)
-		|| props.hideOnEsc !== otherProps.hideOnEsc
-		|| props.restrictFocus !== otherProps.restrictFocus
-		|| props.keyListenerTarget !== otherProps.keyListenerTarget;
+	return (
+		!!props.onClose !== !!otherProps.onClose ||
+		props.hideOnEsc !== otherProps.hideOnEsc ||
+		props.restrictFocus !== otherProps.restrictFocus ||
+		props.keyListenerTarget !== otherProps.keyListenerTarget
+	);
 }
 
 /**
@@ -76,7 +79,7 @@ function removeListeners(modal) {
 export default class XUIModal extends Component {
 	componentDidMount() {
 		addListeners(this);
-		if (!this.props.isHidden) {
+		if (this.props.isOpen) {
 			lockScroll();
 			this._isScrollLocked = true;
 		}
@@ -97,24 +100,28 @@ export default class XUIModal extends Component {
 
 	componentDidUpdate(prevProps) {
 		const modal = this;
-		const { isHidden, restrictFocus } = modal.props;
+		const { isOpen, restrictFocus } = modal.props;
 
 		if (shouldUpdateListeners(this.props, prevProps)) {
 			addListeners(this);
 		}
 
-		if (!isHidden && !modal._isScrollLocked) {
+		if (isOpen && !modal._isScrollLocked) {
 			lockScroll();
 			modal._isScrollLocked = true;
 		}
 
-		if (isHidden && modal._isScrollLocked) {
+		if (!isOpen && modal._isScrollLocked) {
 			unlockScroll();
 			modal._isScrollLocked = false;
 		}
 
-		if (!isHidden && restrictFocus && (prevProps.isHidden || !prevProps.restrictFocus)) {
-			if (!modal._maskNode.contains(document.activeElement)){
+		if (
+			isOpen &&
+			restrictFocus &&
+			(prevProps.isOpen || !prevProps.restrictFocus)
+		) {
+			if (!modal._maskNode.contains(document.activeElement)) {
 				modal._modalNode.focus();
 			}
 		}
@@ -127,9 +134,9 @@ export default class XUIModal extends Component {
 	 * listener to a parent (`window` by default) to catch this key press
 	 */
 	_keyUpHandler(event) {
-		const { isHidden, onClose } = this.props;
+		const { isOpen, onClose } = this.props;
 		const escapeKeyCode = 27;
-		if (event.keyCode === escapeKeyCode && !isHidden && onClose) {
+		if (event.keyCode === escapeKeyCode && isOpen && onClose) {
 			onClose();
 		}
 	}
@@ -141,11 +148,11 @@ export default class XUIModal extends Component {
 	 **/
 	_restrictFocus(event) {
 		const modal = this;
-		const { isHidden, restrictFocus } = modal.props;
-		if (!isHidden && restrictFocus) {
-			const maskNode = modal._maskNode;
+		const { isOpen, restrictFocus } = modal.props;
+		if (isOpen && restrictFocus) {
+			const maskNode = document.querySelector(`.${portalClass}`);
 			const targetIsWindow = event.target === window;
-			if (targetIsWindow || !maskNode.contains( event.target )) {
+			if (targetIsWindow || !maskNode.contains(event.target)) {
 				event.stopPropagation();
 				modal._modalNode.focus();
 			}
@@ -157,7 +164,7 @@ export default class XUIModal extends Component {
 			hideOnOverlayClick,
 			onClose,
 			size,
-			isHidden,
+			isOpen,
 			className,
 			maskClassName,
 			closeClassName,
@@ -171,45 +178,45 @@ export default class XUIModal extends Component {
 			isUsingPortal
 		} = this.props;
 
-		const maskClasses = cn(
-			'xui-mask',
-			maskClassName,
-			{ ['xui-mask-is-active'] : !isHidden }
-		);
+		const maskClasses = cn('xui-mask', maskClassName, {
+			['xui-mask-is-active']: isOpen
+		});
 		const modalClasses = cn(
 			'xui-modal',
 			modalSizes[size],
-			{ ['xui-modal-layout'] : defaultLayout },
+			{ ['xui-modal-layout']: defaultLayout },
 			className
 		);
-		const overlayClickHandler = hideOnOverlayClick && onClose ?
-			function(event){
-				if (event.target.classList.contains('xui-mask') && !isHidden) {
-					onClose();
-				}
-			} : null;
+		const overlayClickHandler =
+			hideOnOverlayClick && onClose
+				? function(event) {
+						if (event.target.classList.contains('xui-mask') && isOpen) {
+							onClose();
+						}
+					}
+				: null;
 
-		const closeButton = onClose ?
+		const closeButton = onClose ? (
 			<XUIButton
-				qaHook={`${qaHook}-close`}
+				qaHook={qaHook && `${qaHook}--close`}
 				onClick={onClose}
 				title="Close"
-				className={cn(
-					'xui-modal--close',
-					'xui-button-icon',
-					closeClassName
-				)}
+				className={cn('xui-modal--close', 'xui-button-icon', closeClassName)}
 				key="close-button"
 				type="button"
 				variant="unstyled"
 			>
-				<XUIIcon path={cross}/>
-			</XUIButton> : null;
+				<XUIIcon path={cross} />
+			</XUIButton>
+		) : null;
 		let containsHeader = false;
 		const finalChildren = Children.map(children, child => {
 			if (child && child.type === XUIModalHeader) {
 				containsHeader = true;
-				return cloneElement(child, {...child.props}, [child.props.children,closeButton]);
+				return cloneElement(child, { ...child.props }, [
+					child.props.children,
+					closeButton
+				]);
 			} else {
 				return child;
 			}
@@ -220,33 +227,45 @@ export default class XUIModal extends Component {
 				id={id}
 				className={maskClasses}
 				onClick={overlayClickHandler}
-				aria-hidden={isHidden}
-				data-automationid={`${qaHook}-mask`}
-				ref={m => this._maskNode = m}
+				aria-hidden={!isOpen}
+				data-automationid={qaHook && `${qaHook}--mask`}
+				ref={m => (this._maskNode = m)}
 			>
 				<MainElement
 					className={modalClasses}
-					tabIndex={ !isHidden ? 0 : -1 }
-					role={ !isHidden ? 'dialog' : null }
+					tabIndex={isOpen ? 0 : -1}
+					role={isOpen ? 'dialog' : null}
 					aria-labelledby={ariaLabelledBy}
 					aria-describedby={ariaDescribedBy}
 					data-automationid={qaHook}
-					ref={m => this._modalNode = m}
+					ref={m => (this._modalNode = m)}
 				>
-					{!containsHeader
-						? <XUIModalHeader>{closeButton}</XUIModalHeader>
-						: null}
+					{!containsHeader ? (
+						<XUIModalHeader qaHook={qaHook && `${qaHook}--header`}>
+							{closeButton}
+						</XUIModalHeader>
+					) : null}
 					{finalChildren}
 				</MainElement>
-			</div>);
+			</div>
+		);
 
-		return (
-			isUsingPortal ? <Portal isOpened={!isHidden}><div className="xui-container">{childNodes}</div></Portal> : childNodes
+		return isUsingPortal ? (
+			isOpen ? (
+				<Portal node={portalContainer()}>
+					<div
+						className="xui-container"
+						data-automationid={qaHook && `${qaHook}--container`}
+					>
+						{childNodes}
+					</div>
+				</Portal>
+			) : null
+		) : (
+			childNodes
 		);
 	}
 }
-
-
 
 XUIModal.propTypes = {
 	/** If the modal will be hidden when the user presses the Esc key */
@@ -261,8 +280,8 @@ XUIModal.propTypes = {
 	/** The size (aka width) of this modal */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
 
-	/** Whether the modal is hidden */
-	isHidden: PropTypes.bool,
+	/** Whether the modal is visible */
+	isOpen: PropTypes.bool,
 
 	/** Whether the modal wrapping element should be a `<form>` rather than a `<section>`. Allows the enter key to activate the submit button inside native form controls. */
 	isForm: PropTypes.bool,
@@ -300,11 +319,10 @@ XUIModal.propTypes = {
 XUIModal.defaultProps = {
 	hideOnEsc: true,
 	hideOnOverlayClick: false,
-	isHidden: true,
+	isOpen: false,
 	size: 'medium',
 	defaultLayout: true,
 	restrictFocus: true,
-	qaHook: 'xui-modal',
 	isUsingPortal: true,
 	isForm: false
 };

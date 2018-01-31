@@ -17,38 +17,22 @@
 // Markup:
 // <label class="xui-styledcheckboxradio">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r0" name="rg0">
-//   <svg focusable="false" class="xui-icon">
-//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//   </svg>
+//   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Unchecked</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r1" name="rg0" checked>
-//   <svg focusable="false" class="xui-icon">
-//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//   </svg>
+//   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-is-disabled">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" disabled>
-//   <svg focusable="false" class="xui-icon">
-//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//   </svg>
+//   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Disabled</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-is-disabled">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" checked disabled>
-//   <svg focusable="false" class="xui-icon">
-//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//   </svg>
+//   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
@@ -65,38 +49,22 @@
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="radio" id="r2" name="rg1">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//     </svg>
+//     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="radio" id="r3" name="rg1" checked>
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//     </svg>
+//     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="radio" id="r4" name="rg1">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//     </svg>
+//     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Geordi La Forge</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-is-disabled">
 //     <input class="xui-styledcheckboxradio--input" type="radio" disabled>
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//     </svg>
+//     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Wesley Crusher</span>
 //   </label>
 // </div>
@@ -112,39 +80,23 @@
 // <div class="xui-styledcheckboxradio-group">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
 //     <input class="xui-styledcheckboxradio--input" type="radio" id="r2" name="rg1">
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//     </svg>
+//     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
 //     <input class="xui-styledcheckboxradio--input" type="radio" id="r3" name="rg1" checked>
-//     <svg focusable="false" class="xui-icon">
-//       <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//       <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//     </svg>
+//     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
 //   </label>
 // </div>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r0" name="rg0">
-//   <svg focusable="false" class="xui-icon">
-//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//   </svg>
+//   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Unchecked</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
 //   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r1" name="rg0" checked>
-//   <svg focusable="false" class="xui-icon">
-//     <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-radio-main"/>
-//     <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-radio-check"/>
-//   </svg>
+//   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
 //
@@ -162,6 +114,7 @@
 // xui-styledcheckboxradio-group: Container for a group of styled checkboxes or radio
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
+// xui-styledcheckboxradio--radio: The html element that displays the radio button, if not a custom icon.
 // xui-styledcheckboxradio--focus: Subcomponent for focus layer of a styled checkbox or radio
 // xui-styledcheckboxradio--main: Subcomponent for main layer of a styled checkbox or radio
 // xui-styledcheckboxradio--check: Subcomponent for checkmark layer of a styled checkbox or radio

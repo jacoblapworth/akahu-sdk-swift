@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid="test-checkbox"
+  onClick={[Function]}
+>
+  <input
+    className="xui-styledcheckboxradio--input"
+    data-automationid="test-checkbox--input"
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--checkbox"
+    data-automationid="test-checkbox--checkbox"
+  />
+  <span
+    className="xui-styledcheckboxradio--label"
+    data-automationid="test-checkbox--label"
+  />
+</label>
+`;

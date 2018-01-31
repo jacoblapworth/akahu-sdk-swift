@@ -6,7 +6,6 @@ import { sizeClassNames, classNames, variantClassNames } from './constants';
 export default class XUIAvatarCounter extends PureComponent {
 	render() {
 		const { count, size, variant, qaHook, className } = this.props;
-
 		const counterClassNames = cn(
 			classNames.base,
 			classNames.counter,

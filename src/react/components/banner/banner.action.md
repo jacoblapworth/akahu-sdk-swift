@@ -5,9 +5,9 @@ Single action banners provide an additional call to action inside the banner.
 const onBannerClose = () => {alert( 'Single action banner closed' )};
 
 <div>
-	<XUIBanner>
-		<XUIBannerMessage> Standard </XUIBannerMessage>
-		<XUIBannerAction href="#"> Action </XUIBannerAction>
+	<XUIBanner qaHook="banner-example">
+		<XUIBannerMessage qaHook="banner-example--message"> Standard </XUIBannerMessage>
+		<XUIBannerAction href="#" qaHook="banner-example--action"> Action </XUIBannerAction>
 	</XUIBanner>
 	<XUIBanner onCloseClick={onBannerClose}>
 		<XUIBannerMessage> Closable </XUIBannerMessage>

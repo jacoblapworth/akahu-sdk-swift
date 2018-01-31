@@ -19,7 +19,8 @@ export default class Picklist extends Component {
 			onMouseDown,
 			secondaryProps,
 			defaultLayout,
-			isHorizontal
+			isHorizontal,
+			qaHook
 		} = this.props;
 
 		const classes = cn('xui-picklist', className, {
@@ -33,6 +34,7 @@ export default class Picklist extends Component {
 				id={id}
 				onKeyDown={onKeyDown}
 				onMouseDown={onMouseDown}
+				data-automationid={qaHook}
 				{...secondaryProps}
 			>
 				{children}
@@ -44,6 +46,7 @@ export default class Picklist extends Component {
 Picklist.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	qaHook: PropTypes.string,
 	/* Id to be applied to the root HTML element */
 	id: PropTypes.string,
 	/* Keydown handler function added to the root HTML element */

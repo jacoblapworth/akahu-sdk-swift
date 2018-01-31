@@ -5,11 +5,11 @@ import cn from 'classnames';
 
 export default function XUIBannerAction(props) {
 	const className = cn(props.className, 'xui-button-small');
-	const isLink = !!props.href;
+	const buttonQaHook = props.qaHook && `${props.qaHook}--button`;
 
 	return (
-		<li className="xui-banner--action">
-			<XUIButton {...props} isLink={isLink} variant="link" className={className}>{props.children}</XUIButton>
+		<li className="xui-banner--action" data-automationid={props.qaHook}>
+			<XUIButton onClick={props.onClick} href={props.href} isLink={props.isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
 		</li>
 	);
 }
@@ -17,5 +17,15 @@ export default function XUIBannerAction(props) {
 XUIBannerAction.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
-	href: PropTypes.string
+	qaHook: PropTypes.string,
+	/** Click event handler for the banner action */
+	onClick: PropTypes.func,
+	/** URL of the link */
+	href: PropTypes.string,
+	/** Whether or not to render this button using an anchor element */
+	isLink: PropTypes.bool
+};
+
+XUIBannerAction.defaultProps = {
+	isLink: false
 };

@@ -215,8 +215,8 @@ code {
 // -----------------------------------------------------------------------------
 
 .ds-intro {
-    font-size: 19px;
-    color: $xui-color-grey-2;
+		font-size: 19px;
+		color: $xui-color-grey-2;
 }
 
 .ds-description {
@@ -731,7 +731,7 @@ $kss-color-padding: #eeebff;
 .ds-token-text--floating {
 	color: $xui-color-black;
 	background: rgba($xui-color-white,0.5);
-  display: inline-block;
+	display: inline-block;
 	margin-top: 5px;
 	max-width: 100%;
 	overflow-x: auto;
@@ -841,31 +841,33 @@ $kss-color-padding: #eeebff;
 }
 
 a.ds-component-link:before {
-    content: "React component";
-    display: block;
-    position: absolute;
-    width: 9em;
-    background: $xui-color-grey-6;
-    right: 100%;
-    padding: 0.3em 0.3em 0.2em;
-    border-radius: 3px;
-    font-size: 12px;
-    text-align: center;
-    transform: translateY(-2px);
+		content: "React component";
+		display: block;
+		position: absolute;
+		width: 9em;
+		background: $xui-color-grey-6;
+		right: 100%;
+		padding: 0.3em 0.3em 0.2em;
+		border-radius: 3px;
+		font-size: 12px;
+		text-align: center;
+		transform: translateY(-2px);
+		top: 20%;
 }
 
 a.ds-component-link:after {
-    display: block;
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid $xui-color-grey-6;
-    transform: translateX(-1px) translateY(-2px);
-    z-index: 10;
-    right: calc(100% - 5px);
+		display: block;
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-left: 5px solid $xui-color-grey-6;
+		transform: translateX(-1px) translateY(-2px);
+		z-index: 10;
+		right: calc(100% - 5px);
+		top: 39%;
 }
 
 .ds-component-link:after,

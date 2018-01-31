@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIModalBody renders a passed qaHook as an automationId 1`] = `
+<div
+  className="xui-modal--body"
+  data-automationid="test-modal--body"
+>
+  <div />
+</div>
+`;

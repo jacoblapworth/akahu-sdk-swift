@@ -47,6 +47,7 @@ export default class DropDownLayout extends PureComponent {
 			size,
 			qaHook,
 		} = this.props;
+		
 		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
 		const sizeClass = size ? dropdownSizes[size] : null;
 		const classNames = cn('xui-dropdown-layout', sizeClass, className, {
@@ -64,7 +65,7 @@ export default class DropDownLayout extends PureComponent {
 				onAnimationEnd={this.onAnimationEnd}
 				style={style}
 			>
-				<div className="xui-dropdown--mask"></div>
+				<div className="xui-dropdown--mask" data-automationid={qaHook && `${qaHook}--mask`}></div>
 				{children}
 			</div>
 		);

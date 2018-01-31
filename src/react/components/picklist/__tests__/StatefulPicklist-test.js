@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import StatefulPicklist, { findNextItem, findPreviousItem } from '../StatefulPicklist';
 import Pickitem from '../Pickitem';
 import Picklist from '../Picklist';

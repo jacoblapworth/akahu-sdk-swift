@@ -1,4 +1,6 @@
 #!/bin/sh
+echo "running post-merge hook"
+
 changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
 
 check_run() {

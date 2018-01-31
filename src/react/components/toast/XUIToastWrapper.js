@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Portal from 'react-portal';
+import {Portal} from 'react-portal';
+import portalContainer from '../helpers/portalContainer';
 
-export default function XUIToastWrapper({ className, qaHook, children }) {
-	const classNames = cn(className, 'xui-toastwrapper');
+export default class XUIToastWrapper extends React.PureComponent {
+	render() {
+		const {className, qaHook, children} = this.props;
+		const classNames = cn(className, 'xui-toastwrapper');
+		const isOpened = React.Children.count(children) > 0;
 
-	return (
-		<Portal isOpened={React.Children.count(children) > 0}>
-			<div data-automationid={qaHook} className={cn(classNames, 'xui-container')}>
-				{children}
-			</div>
-		</Portal>
-	);
+		return isOpened ? (
+			<Portal node={portalContainer()}>
+				<div data-automationid={qaHook} className={cn(classNames, 'xui-container')}>
+					{children}
+				</div>
+			</Portal>
+		) : null;
+	}
 }
 
 XUIToastWrapper.propTypes = {

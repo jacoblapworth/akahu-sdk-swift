@@ -387,7 +387,6 @@
 .#{$ns}-loader-retain-layout {
 	height: 100%;
 	left: 0;
-	padding: $xui-s-large;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -414,6 +413,9 @@
 	animation-fill-mode: both;
 	background-color: currentColor;
 	border-radius: 50%;
+	// Gives a fake AA effect to the dot during animation
+	// Needed to help fix rendering on Firefox
+	box-shadow: 0 0 1px currentColor;
 	display: inline-block;
 	height: $dot-size;
 	transform-style: preserve-3d; // Firefox jank fix
@@ -448,14 +450,17 @@
 	}
 }
 
+// You wouldn't normally add rotation to something that just scales up and down.
+// However in this case, Firefox has trouble rendering circles properly during
+// scale animation. This helps smooth the curves.
 @keyframes #{$ns}-loader-animation {
 	0%,
 	80%,
 	100% {
-		transform: scale(0.5);
+		transform: scale(0.5) rotate(0deg);
 	}
 
 	40% {
-		transform: scale(1);
+		transform: scale(1) rotate(0.02deg);
 	}
 }

@@ -60,18 +60,19 @@
 @import "objects/motion";
 @import "objects/panels";
 @import "objects/pills";
+@import "objects/progressindicator";
 @import "objects/sections";
 @import "objects/steps";
-@import "objects/typography";
 @import "objects/usermessaging";
 @import "objects/overview";
 @import "objects/dropdowns";
 @import "objects/colors";
 
+@import "objects/typography";
 @import "objects/globalstates";
 
 @import "components/autocompleter";
+@import "components/rolloverCheckbox";
 
 @import "trumps/utilities";
 @import "trumps/marginpadding";
-

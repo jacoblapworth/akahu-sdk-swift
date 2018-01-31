@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIButtonGroup renders a passed qaHook as an automationId 1`] = `
+<div
+  className="xui-buttongroup"
+  data-automationid="buttongroup"
+>
+  <div
+    isGrouped={true}
+  />
+  <div
+    isGrouped={true}
+  />
+</div>
+`;

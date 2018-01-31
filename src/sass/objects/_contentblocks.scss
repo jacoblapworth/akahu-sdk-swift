@@ -122,12 +122,7 @@
 // <div class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
 // 	<label class="xui-styledcheckboxradio">
 //  	 <input class="xui-styledcheckboxradio--input" type="checkbox">
-//  	 <svg focusable="false" class="xui-icon">
-//  	   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//  	   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//  	   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//  	   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
-//  	 </svg>
+//  	 <div class="xui-styledcheckboxradio--checkbox"></div>
 // 	</label>
 // </div>
 // <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
@@ -403,12 +398,7 @@
 // <div class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
 // 	<label class="xui-styledcheckboxradio">
 //  	 <input class="xui-styledcheckboxradio--input" type="checkbox">
-//  	 <svg focusable="false" class="xui-icon">
-//  	   <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//  	   <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//  	   <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//  	   <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
-//  	 </svg>
+//  	 <div class="xui-styledcheckboxradio--checkbox"></div>
 // 	</label>
 // </div>
 // <div class="xui-u-flex-1 xui-padding-vertical">
@@ -478,7 +468,7 @@
 	list-style: none; // TODO use xui-listreset
 	position: relative;
 
-	// TODO Deprecated in XUI12, remove in XUI13
+	// TODO Deprecated in XUI12, remove in XUI14
 	&.#{$ns}-contentblock--item-selected {
 		background-color: fade-out($xui-color-xero-blue, 0.9);
 	}
@@ -486,13 +476,13 @@
 	&:first-of-type {
 		border-top: 0;
 	}
-	// TODO Deprecated in XUI12, remove in XUI13
+	// TODO Deprecated in XUI12, remove in XUI14
 	&-layout {
 		@include xui-text-line-height; // 1.5
 	}
 }
 
-// TODO Deprecated in XUI12, remove in XUI13
+// TODO Deprecated in XUI12, remove in XUI14
 .#{$ns}-contentblock--item-negative {
 	@include xui-highlight-left($xui-color-xero-red);
 }
@@ -679,12 +669,7 @@
 //      <td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
 //        <label class="xui-styledcheckboxradio">
 //           <input class="xui-styledcheckboxradio--input" type="checkbox">
-//           <svg focusable="false" class="xui-icon">
-//             <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//             <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
-//           </svg>
+//           <div class="xui-styledcheckboxradio--checkbox"></div>
 //        </label>
 //      </td>
 //      <td colspan="6" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">
@@ -719,12 +704,7 @@
 //    <td class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
 //        <label class="xui-styledcheckboxradio">
 //           <input class="xui-styledcheckboxradio--input" type="checkbox">
-//           <svg focusable="false" class="xui-icon">
-//             <use role="presentation" class="xui-styledcheckboxradio--focus" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckboxradio--main" xlink:href="#xui-icon-checkbox-main"></use>
-//             <use role="presentation" class="xui-styledcheckboxradio--check" xlink:href="#xui-icon-checkbox-check"></use>
-//             <use role="presentation" class="xui-styledcheckboxradio--indeterminate" xlink:href="#xui-icon-checkbox-indeterminate"></use>
-//           </svg>
+//           <div class="xui-styledcheckboxradio--checkbox"></div>
 //        </label>
 //      </td>
 //      <td colspan="7" class="xui-button xui-u-flex xui-u-flex-1" tabindex="0" role="link" data-href="#">

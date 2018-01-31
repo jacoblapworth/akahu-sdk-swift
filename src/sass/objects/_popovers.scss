@@ -87,7 +87,7 @@
 // Accessibility
 //
 // At a very minimum, the purpose of a popover should be clearly stated using the `aria-labelledby` and 	`aria-describedby` attributes.
-// 
+//
 // Additionally, an appropriate role must be defined, and differs for each use case.
 // The `tooltip` [role](https://www.w3.org/TR/wai-aria/roles#tooltip) is used for popovers that provide helper text and become visible in response to a mouse or keyboard event.
 // The `dialog` [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role) is used when it is still possible to interact with content outside of the popover while it is being displayed.
@@ -101,7 +101,7 @@
 	position: relative;
 }
 
-// TODO: Deprecated in XUI12, remove in XUI13
+// TODO: Deprecated in XUI12, remove in XUI14
 .#{$ns}-popover--arrow {
 	display: inline-block;
 	fill: $xui-color-white;

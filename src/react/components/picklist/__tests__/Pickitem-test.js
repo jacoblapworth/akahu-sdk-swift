@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import Picklist from '../Picklist';
 import Pickitem from '../Pickitem';
 import PickitemBody from '../PickitemBody';
@@ -66,13 +67,21 @@ describe('<Pickitem />', () => {
 		expect(wrapper.find(Picklist).first().html().includes('xui-is-disabled')).toBeFalsy();
 	});
 
+	it('should set an automation id when a qaHook is provided', () => {
+		const automationid = renderer.create(<Picklist>
+			<Pickitem qaHook="test-pickitem" id="item1">Item 1</Pickitem>
+		</Picklist>);
+
+		expect(automationid).toMatchSnapshot();
+	});
+
 	describe('One item selected', () => {
 		let selectedItem;
 		let nonSelectedItem;
 		beforeEach(() => {
 			wrapper = mount(
 				<Picklist>
-					<Pickitem isSelected={true} id="item1" multiselect={true}>Selected Item</Pickitem>
+					<Pickitem isSelected={true} id="item1" isMultiselect={true}>Selected Item</Pickitem>
 					<Pickitem id="item2">Non-selected Item</Pickitem>
 				</Picklist>,
 				{attachTo: div}
@@ -95,10 +104,10 @@ describe('<Pickitem />', () => {
 		beforeEach(() => {
 			wrapper = mount(
 				<Picklist>
-					<Pickitem id='multiselectItem1' className="item" disableSelectedStyles={true} multiselect={true}>
+					<Pickitem id='multiselectItem1' className="item" disableSelectedStyles={true} isMultiselect={true}>
 						Selectable Item 1
 					</Pickitem>
-					<Pickitem isSelected={true} id='multiselectItem2' disableSelectedStyles={true} multiselect={true}>
+					<Pickitem isSelected={true} id='multiselectItem2' disableSelectedStyles={true} isMultiselect={true}>
 						Selectable Item 2
 					</Pickitem>
 				</Picklist>,
@@ -113,7 +122,7 @@ describe('<Pickitem />', () => {
 			expect(wrapper.find(Pickitem).at(1).html().includes('aria-selected="true"')).toBeTruthy();
 		});
 
-		it('inserts a checkbox as a child of the Pickitem when multiselect is true', () => {
+		it('inserts a checkbox as a child of the Pickitem when isMultiselect is true', () => {
 			const checkbox = wrapper.find('input[type="checkbox"]');
 
 			expect(checkbox).toBeDefined();

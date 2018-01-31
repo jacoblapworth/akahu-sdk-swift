@@ -12,6 +12,14 @@
 				"components": "../src/react/components/loader/XUILoader.js"
 			},
 			{
+				"name": "Progress Indicator",
+				"content": "../src/react/progressindicator.md",
+				"sections": [
+					{ "components": "../src/react/components/progressindicator/XUIProgressCircular.js" },
+					{ "components": "../src/react/components/progressindicator/XUIProgressLinear.js" }
+				]
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [
@@ -285,6 +293,11 @@
 						]
 					}
 				]
+			},
+			{
+				"name": "Rollover Checkbox",
+				"content": "../src/react/rollovercheckbox.md",
+				"components": "../src/react/components/rolloverCheckbox/rolloverCheckbox.js"
 			}
 		]
 	}

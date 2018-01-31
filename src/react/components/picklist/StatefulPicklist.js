@@ -259,6 +259,7 @@ class StatefulPicklist extends Component {
 	onKeyDown(event) {
 		const spl = this;
 		const { ignoreKeyboardEvents } = spl.props;
+		
 		if (ignoreKeyboardEvents.indexOf(event.keyCode) === -1) {
 			switch (event.keyCode) {
 				// 'space' and 'enter' keys
@@ -319,6 +320,7 @@ class StatefulPicklist extends Component {
 	render() {
 		const spl = this;
 		const { children, qaHook, className, canFocus, id, secondaryProps } = spl.props;
+		
 		return (
 			<StatefulPicklistWrapper
 				data-automationid={qaHook}

@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside the input when passed in 1`] = `
+<div
+  className={undefined}
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when a qahook is passed 1`] = `
+<div
+  className={undefined}
+  data-automationid="secondary-search--container"
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input when a value is passed to the inputId prop 1`] = `
+<div
+  className={undefined}
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the root node when passed in the id prop 1`] = `
+<div
+  className={undefined}
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDisabled prop is true 1`] = `
+<div
+  className={undefined}
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the dropdown when passed to the dropdownClassName prop 1`] = `
+<div
+  className={undefined}
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the input when passed to the inputclassName prop 1`] = `
+<div
+  className={undefined}
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when passed to the className prop 1`] = `
+<div
+  className="secondary-search-class"
+  data-automationid={null}
+>
+  <div
+    className="dropdown-toggled-wrapper xui-u-fullwidth"
+    data-automationid={undefined}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      trigger
+    </button>
+  </div>
+</div>
+`;

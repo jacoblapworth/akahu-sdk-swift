@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIButtonCaret renders a passed qaHook as an automationId 1`] = `
+<svg
+  className="xui-icon xui-button--caret"
+  data-automationid="button-caret"
+  focusable="false"
+  viewBox="0 0 30 30"
+>
+  <path
+    d="M10,13L15 18 20 13z"
+    role="presentation"
+  />
+</svg>
+`;

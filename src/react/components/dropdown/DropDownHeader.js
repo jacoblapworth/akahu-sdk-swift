@@ -73,14 +73,14 @@ export default class DropDownHeader extends PureComponent {
 		const titleSection = title ?
 			<div
 				className="xui-heading-small xui-margin-left-small xui-text-truncated"
-				data-automationid={qaHook != null ? `${qaHook}-title`: null}
+				data-automationid={qaHook && `${qaHook}--header-title`}
 			>
 				{title}
 			</div> : null;
 
 		const leftHeader = (backButton || title || leftContent) ?
 			(
-				<div className="xui-dropdown--header-leftcontent">
+				<div className="xui-dropdown--header-leftcontent" data-automationid={qaHook && `${qaHook}--header-left`}>
 					{backButton}
 					{leftContent}
 					{titleSection}
@@ -89,8 +89,8 @@ export default class DropDownHeader extends PureComponent {
 
 		const rightHeader = (secondaryButton || primaryButton || rightContent) ?
 			(
-				<div className="xui-dropdown--header-rightcontent">
-					<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent">
+				<div className="xui-dropdown--header-rightcontent" data-automationid={qaHook && `${qaHook}--header-right`}>
+					<div className="xui-margin-right-xsmall xui-dropdown--header-rightcontent" data-automationid={qaHook && `${qaHook}--header-rightcontent`}>
 						{rightContent}
 						{secondaryButton}
 						{primaryButton}
@@ -114,7 +114,7 @@ export default class DropDownHeader extends PureComponent {
 			>
 				{header}
 				{Children.map(children, child => (
-					<div className="xui-dropdown--header-container">
+					<div className="xui-dropdown--header-container" data-automationid={qaHook && `${qaHook}--header-container`}>
 						{child}
 					</div>
 				))}

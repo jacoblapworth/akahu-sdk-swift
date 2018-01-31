@@ -3,8 +3,8 @@ import SelectBox from '../SelectBox';
 import SelectBoxOption from '../SelectBoxOption';
 import { then } from './helpers';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-import qaHooks from '../qaHooks';
+import renderer from 'react-test-renderer';
+import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -89,30 +89,19 @@ describe('SelectBox', function () {
 		expect(select.instance().isDropDownOpen()).toBeTruthy();
 	});
 
-	describe('qaHook/Automation IDs are added correctly', () => {
-		const qaHook = 'testQaHook';
-		const noop = () => {};
-		const select = mount(
+	it('should render the appropriate automation id\'s when a qaHook is provided', () => {
+		const select = renderer.create(
 			<SelectBox
-				label='QA Hook test'
-				qaHook={qaHook}
-				name="Test"
-				type="search"
-				onInputChange={noop}
-				onInputBlur={noop}
+				qaHook='test-selectbox'
+				label='test'
 				buttonContent="test"
-				buttonClasses="blah"
+				ariaId='test'
 				forceDesktop
 			>
-				<SelectBoxOption id="sample" key="sample" onSelect={noop} value="Sample value">A sample option</SelectBoxOption>
+				<SelectBoxOption id='1' value='A sample option' label='test' qaHook='test-selectboxoption'>A sample option</SelectBoxOption>
 			</SelectBox>
 		);
 
-
-		const nodeAutoId = select.getDOMNode().getAttribute('data-automationid');
-		const buttonAutoId = select.find('button.blah').first().prop('data-automationid');
-
-		expect(nodeAutoId).toEqual(qaHook);
-		expect(buttonAutoId).toEqual(`${qaHook}-${qaHooks.button}`);
+		expect(select).toMatchSnapshot();
 	});
 });

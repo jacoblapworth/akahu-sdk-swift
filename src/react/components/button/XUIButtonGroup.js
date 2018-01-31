@@ -2,9 +2,9 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
 
-export default function XUIButtonGroup({children, className}) {
+export default function XUIButtonGroup({children, className, qaHook}) {
 	return (
-		<div className={cn(className, 'xui-buttongroup')}>
+		<div className={cn(className, 'xui-buttongroup')} data-automationid={qaHook}>
 			{Children.map(children, child => cloneElement(child, { isGrouped: true }))}
 		</div>
 	);
@@ -12,5 +12,6 @@ export default function XUIButtonGroup({children, className}) {
 
 XUIButtonGroup.propTypes = {
 	children: PropTypes.node,
-	className: PropTypes.string
+	className: PropTypes.string,
+	qaHook: PropTypes.string
 };

@@ -115,25 +115,21 @@ Most notably, the removal of the `.node` property on react wrappers and the incl
 
 The [changelog](http://airbnb.io/enzyme/CHANGELOG.html#310) is recommended reading if you are a current, or future contributor to the project.
 
-## Development UI Test Pages (Under review)
+## Coverage
+
+Test coverage reports are generated as part of the [Pull Request builds](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_PullRequest). The Reports are available via Artifacts > Icov-report > index.html in Team City.
+
+## Development UI Test Pages
 
 Linting and unit tests are an extremely important part of ensuring code quality for XUI, but they both have their limitations. UI test pages provide interactive pages for each component to test various configurations manually in the browser.
 
 ### npm Script
 
-`npm run test:ui -- --env.c=[component name]` uses [webpack](https://webpack.js.org/) to build and bundle the `demo.js` file for the given component name and output the result on the page located at `uitest/index.html`.
-
-The first `--` passes arguments to an npm script. The `--env.c` argument tells webpack which component's test page you want to look at.
-
-### demo.js
-
-Code for the UI test pages live in `demo.js` inside of the component's `uitest` folder.  This is where you can create however many test cases you need. If you need some extra CSS to set things up, just create a `.scss` file in the `uitest` folder and import it at the top of `demo.js`.
-
-All UI test pages also include the contents of `src/sass` on the page. This ensures that when you're testing, you're testing against the latest XUI CSS.
+`npm run storybook` creates a full working application which serves up the demo's for each component and compositions.
 
 ### Viewing test pages
 
-All `demo.js` pages require the same HTML scaffolding, `uitest/index.html`. After each build, you can just open up this file in your browser using the `file://` protocol or your favourite localhost webserver.
+To view the test pages, your CLI will tell you the URL but it's http://localhost:9001 by default.
 
 # Build targets
 

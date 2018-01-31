@@ -13,12 +13,20 @@ const NOOP = () => {};
  *
  * @param {Object} props
  */
-const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, multiselect, children, checkboxClassName, target }) => {
-	if (multiselect) {
+const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, isMultiselect, children, checkboxClassName, target, qaHook }) => {
+	if (isMultiselect) {
 		return (
-			<div className="xui-pickitem--body" onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver}>
-				<XUICheckbox onChange={NOOP} isChecked={isSelected} svgClassName="xui-pickitem--input" className={checkboxClassName} tabIndex={-1}>
-					<span className="xui-pickitem--multiselect-label">{children}</span>
+			<div className="xui-pickitem--body" onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver} data-automationid={qaHook}>
+				<XUICheckbox
+					onChange={NOOP}
+					isChecked={isSelected}
+					tabIndex={-1}
+					qaHook={qaHook && `${qaHook}--checkbox`}
+					htmlClassName="xui-pickitem--input"
+					className={cn(checkboxClassName, 'xui-pickitem--multiselect-checkbox')}
+					labelClassName="xui-pickitem--multiselect-label"
+				>
+					<span className={shouldTruncate ? 'xui-text-truncated' : null} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>
 				</XUICheckbox>
 			</div>
 		);
@@ -30,7 +38,7 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 		onClick,
 		onKeyDown,
 		onMouseOver,
-		rel
+		rel,
 	};
 
 	const textClassName = cn('xui-pickitem--text', {
@@ -39,23 +47,24 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 
 	const text = <span className={textClassName}>{children}</span>;
 	return href ? (
-		<a {...childProps} href={href} target={target}>{text}</a>
+		<a href={href} target={target} data-automationid={qaHook} {...childProps}>{text}</a>
 	) : (
-		<button type="button" {...childProps}>{text}</button>
+		<button type="button" data-automationid={qaHook} {...childProps}>{text}</button>
 	);
 };
 
 PickitemBody.propTypes = {
 	children: PropTypes.node,
 	isSelected: PropTypes.bool,
-	multiselect: PropTypes.bool,
+	isMultiselect: PropTypes.bool,
 	href: PropTypes.string,
 	checkboxClassName: PropTypes.string,
 	onClick: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	onMouseOver: PropTypes.func,
 	target: PropTypes.string,
-	shouldTruncate: PropTypes.bool
+	shouldTruncate: PropTypes.bool,
+	qaHook: PropTypes.string
 };
 
 export default PickitemBody;

@@ -1,9 +1,8 @@
-
 # Library and framework files/directories
 /.bundle
 /node_modules
 /vendor/bundle/
-npm-debug.log
+npm-debug.log*
 yarn.lock
 
 # gh-pages branch stuff
@@ -16,12 +15,12 @@ yarn.lock
 /react
 /sass
 /umd/assets
-/uitest/assets
 src/react/umd.js
 
 # IDE files/directores
 /.idea
 *.iml
+.vscode/*
 
 #OSX
 .DS_Store
@@ -31,6 +30,12 @@ src/sass/tmp
 
 # Code quality / coverage
 /coverage
+
+# Visual Regression / backstop
+visual-testing/tests/*
+visual-testing/ci-report/*
+visual-testing/web-report/*
+.out/*
 
 # NPM debug logs
 npm-debug.log.*

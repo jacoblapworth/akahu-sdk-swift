@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUITag/> renders a qaHook when passed in 1`] = `
+<span
+  className="xui-tag"
+  data-automationid="schwifty"
+  role="status"
+>
+  Testing 💩
+</span>
+`;

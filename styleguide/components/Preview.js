@@ -35,6 +35,8 @@ class PreviewComponent extends Component {
 	}
 }
 
+const error = console.error; // eslint-disable-line no-console
+
 export default class Preview extends Component {
 	static propTypes = {
 		code: PropTypes.string.isRequired,
@@ -79,7 +81,7 @@ export default class Preview extends Component {
 
 		const exampleComponent = this.evalInContext(compiledCode);
 		const wrappedComponent = (
-			<Wrapper>
+			<Wrapper onError={(e) => {error(e)}}>
 				<PreviewComponent component={exampleComponent} />
 			</Wrapper>
 		);
@@ -128,7 +130,7 @@ export default class Preview extends Component {
 			error: err.toString(),
 		});
 
-		console.error(err); // eslint-disable-line no-console
+		error(err);
 	}
 
 	render() {

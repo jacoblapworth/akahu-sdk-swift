@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIBannerMessage /> should render a passed qaHook as an auotmation id 1`] = `
+<p
+  className="xui-banner--message"
+  data-automationid="banner-action"
+>
+  <span>
+    Message Content
+  </span>
+</p>
+`;
+
+exports[`<XUIBannerMessage /> should render and includes no automation id by default 1`] = `
+<p
+  className="xui-banner--message"
+  data-automationid={undefined}
+>
+  <span>
+    Message Content
+  </span>
+</p>
+`;
+
+exports[`<XUIBannerMessage /> should render custom classes on the root p DOM node 1`] = `
+<p
+  className="example-class xui-banner--message"
+  data-automationid={undefined}
+>
+  <span>
+    Message Content
+  </span>
+</p>
+`;

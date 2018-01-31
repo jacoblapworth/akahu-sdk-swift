@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import DropDown from '../DropDown';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
@@ -64,5 +65,25 @@ describe('forceStatefulPicklist prop', () => {
 			</DropDown>
 		);
 		expect(wrapper.find('StatefulPicklist').length).toBe(1);
+	});
+
+	it('renders a automation id when a qaHook is passed', () => {
+		const automationid = renderer.create(<DropDown qaHook='dropdown-test' id="1">
+			<Picklist>
+				<Pickitem id="required-id">List Item</Pickitem>
+			</Picklist>
+		</DropDown>);
+
+		expect(automationid).toMatchSnapshot();
+	});
+
+	it('renders qaHooks on inner components when stateful picklist is not being used', () => {
+		const automationid = renderer.create(<DropDown qaHook='dropdown-test' id="1">
+			<ul>
+				<li id="required-id">List Item</li>
+			</ul>
+		</DropDown>);
+
+		expect(automationid).toMatchSnapshot();
 	});
 });

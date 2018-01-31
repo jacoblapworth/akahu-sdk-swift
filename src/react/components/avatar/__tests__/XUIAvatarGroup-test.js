@@ -3,9 +3,9 @@ import React from 'react';
 
 import XUIAvatar from '../XUIAvatar';
 import XUIAvatarGroup from '../XUIAvatarGroup';
-import XUISimpleAvatar from '../XUISimpleAvatar';
 import XUIAvatarCounter from '../XUIAvatarCounter';
 import {classNames, sizeClassNames} from '../constants';
+import renderer from 'react-test-renderer';
 
 const TestUtils = require('react-dom/test-utils');
 
@@ -44,7 +44,6 @@ describe('XUIAvatarGroup', function () {
 			<div>
 				<XUIAvatarGroup avatarSize="small">
 					<XUIAvatar value="HAI" />
-					<XUISimpleAvatar value="HAI" />
 					<XUIAvatarCounter count={3} />
 				</XUIAvatarGroup>
 			</div>
@@ -53,10 +52,8 @@ describe('XUIAvatarGroup', function () {
 		const compNode = dom.firstElementChild;
 		const node1 = compNode.children[0];
 		const node2 = compNode.children[1];
-		const node3 = compNode.children[2];
 		assert.isTrue(node1.classList.contains(sizeClassNames.small), "Child avatar component has the correct class name");
-		assert.isTrue(node2.classList.contains(sizeClassNames.small), "Child simple avatar component has the correct class name");
-		assert.isTrue(node3.classList.contains(sizeClassNames.small), "Child avatar counter component has the correct class name");
+		assert.isTrue(node2.classList.contains(sizeClassNames.small), "Child avatar counter component has the correct class name");
 	});
 
 	it('should render all child avatar components with the same size if the avatarSize prop is provided on the group component, regardless if the child components have set their own size', function () {
@@ -64,7 +61,6 @@ describe('XUIAvatarGroup', function () {
 			<div>
 				<XUIAvatarGroup avatarSize="small">
 					<XUIAvatar size="large" value="HAI" />
-					<XUISimpleAvatar size="large" value="HAI" />
 					<XUIAvatarCounter size="large" count={2} />
 				</XUIAvatarGroup>
 			</div>
@@ -73,10 +69,8 @@ describe('XUIAvatarGroup', function () {
 		const parent = dom.firstElementChild;
 		const node1 = parent.children[0];
 		const node2 = parent.children[1];
-		const node3 = parent.children[2];
 		assert.isTrue(node1.classList.contains(sizeClassNames.small), "Child avatar component has the correct class name");
-		assert.isTrue(node2.classList.contains(sizeClassNames.small), "Child simple avatar component has the correct class name");
-		assert.isTrue(node3.classList.contains(sizeClassNames.small), "Child avatar counter component has the correct class name");
+		assert.isTrue(node2.classList.contains(sizeClassNames.small), "Child avatar counter component has the correct class name");
 	});
 
 	it('should render a counter if the maxAvatars property is provided', function () {
@@ -114,5 +108,31 @@ describe('XUIAvatarGroup', function () {
 
 		assert.strictEqual(comp3Node.children.length, 3, 'When maxAvatars = 3 and there are 3 avatars, there should be three rendered children');
 		assert.isFalse(comp3Node.children[2].classList.contains(classNames.counter), 'When maxAvatars = 3 and there are 3 children, the last child should not be a counter');
+	});
+
+	it('should not render any avatars when maxAvatars=0', () => {
+		const dom = TestUtils.renderIntoDocument(
+			<div>
+				<XUIAvatarGroup maxAvatars={0}>
+					<XUIAvatar value="HAI" />
+					<XUIAvatar value="HAI" />
+					<XUIAvatar value="HAI" />
+				</XUIAvatarGroup>
+			</div>
+		);
+
+		expect(dom.children.length).toBe(0);
+	});
+
+	it('should throw when maxAvatars attribute supplied, but not a number', () => {
+		expect(() => renderer.create(
+			<XUIAvatarGroup maxAvatars={[]}/>
+		)).toThrow();
+	});
+
+	it('should throw when maxAvatars attribute supplied, but is a number below 0', () => {
+		expect(() => renderer.create(
+			<XUIAvatarGroup maxAvatars={-1}/>
+		)).toThrow();
 	});
 });

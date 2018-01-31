@@ -63,6 +63,7 @@ class ToggledDropDown extends Component {
 				onOpen={() => console.log('user wants to open the dropdown')}
 				trigger={trigger}
 				dropdown={dropdown}
+				qaHook="dropdown-example"
 			/>
 		);
 	}
@@ -126,7 +127,7 @@ class MultiselectExample extends Component {
 							id={item.id}
 							value={item.id}
 							isSelected={selected[item.id]}
-							multiselect
+							isMultiselect
 						>
 							{item.text} Option
 						</Pickitem>
@@ -149,7 +150,7 @@ class MultiselectExample extends Component {
 #### Props required for this behaviour
 
 * `closeOnSelect=false` -> `DropDownToggled`: Allows user to select multiple items without the dropdown closing
-* `multiselect=true` -> `Pickitem`: Renders the `Pickitem` as a checkbox
+* `isMultiselect=true` -> `Pickitem`: Renders the `Pickitem` as a checkbox
 
 ## Complex examples
 

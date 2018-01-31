@@ -468,7 +468,7 @@
 	list-style: none; // TODO use xui-listreset
 	position: relative;
 
-	// TODO Deprecated in XUI12, remove in XUI13
+	// TODO Deprecated in XUI12, remove in XUI14
 	&.#{$ns}-contentblock--item-selected {
 		background-color: fade-out($xui-color-xero-blue, 0.9);
 	}
@@ -476,13 +476,13 @@
 	&:first-of-type {
 		border-top: 0;
 	}
-	// TODO Deprecated in XUI12, remove in XUI13
+	// TODO Deprecated in XUI12, remove in XUI14
 	&-layout {
 		@include xui-text-line-height; // 1.5
 	}
 }
 
-// TODO Deprecated in XUI12, remove in XUI13
+// TODO Deprecated in XUI12, remove in XUI14
 .#{$ns}-contentblock--item-negative {
 	@include xui-highlight-left($xui-color-xero-red);
 }

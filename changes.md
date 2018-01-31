@@ -37,7 +37,7 @@
 
 ### Icons
 * More colour options now available
-* `standard` colour is being deprecated in XUI 13
+* `standard` colour is now deprecated and will be removed in XUI 14
 
 ### Inputs
 * qaHook added to input and close component

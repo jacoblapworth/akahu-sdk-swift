@@ -168,7 +168,7 @@
 		margin: 0;
 	}
 
-	// TODO: Deprecated in XUI12; remove in XUI13
+	// TODO: Deprecated in XUI12; remove in XUI14
 	.#{$ns}-banner--link {
 		@include xui-states-transparent;
 		display: inline-block;
@@ -190,7 +190,7 @@
 	display: inline-block;
 }
 
-// TODO: Deprecated in XUI12; remove in XUI13
+// TODO: Deprecated in XUI12; remove in XUI14
 .#{$ns}-banner-animated {
 	animation: #{$ns}-banner-animation $xui-motion-speed-fast;
 }

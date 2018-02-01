@@ -23,6 +23,5 @@ module.exports = {
 	transform: {
 		'^.+\\.jsx?$': 'babel-jest'
 	},
-	setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js',
-	setupFiles: ['<rootDir>/src/__mocks__/MutationObserver.js']
+	setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
 };

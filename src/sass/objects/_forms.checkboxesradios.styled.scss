@@ -286,6 +286,7 @@
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	cursor: pointer;
+	flex: none;
 	height: 19px;
 	margin: 6px 5px 4px 6px;
 	position: relative;
@@ -352,6 +353,7 @@
 	border-radius: 50%;
 	cursor: pointer;
 	display: flex;
+	flex: none;
 	height: 19px;
 	justify-content: center;
 	margin: 6px 5px 4px 6px;

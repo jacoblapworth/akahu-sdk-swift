@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import RolloverCheckbox from '../rolloverCheckbox';
+import XUIRolloverCheckbox from '../rolloverCheckbox';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -10,16 +10,16 @@ const setup = (fn = renderer.create, props = {}) => {
 	const onSelectSpy = jest.fn();
 
 	const expected = fn(
-		<RolloverCheckbox onSelect={onSelectSpy} {...props} />
+		<XUIRolloverCheckbox onSelect={onSelectSpy} {...props} />
 	);
-	
+
 	return {
 		expected,
 		onSelectSpy
 	};
 };
 
-describe('RolloverCheckbox', () => {
+describe('XUIRolloverCheckbox', () => {
 	it('renders correctly', () => {
 		const { expected } = setup();
 
@@ -64,32 +64,32 @@ describe('RolloverCheckbox', () => {
 
 	it('renders an id on teh root node when passed', () => {
 		const { expected } = setup(renderer.create, { id: 'test-id' , rolloverComponent: <div></div> });
-		
+
 		expect(expected).toMatchSnapshot();
 	});
 
 	describe('renders a variety of sizes', () => {
 		it('will be a small size when passed in the size prop', () => {
 			const { expected } = setup(renderer.create, { size: 'small' , rolloverComponent: <div></div> });
-			
+
 			expect(expected).toMatchSnapshot();
 		});
 
 		it('will be display the standard size when medium is set on the size prop.', () => {
 			const { expected } = setup(renderer.create, { size: 'medium' , rolloverComponent: <div></div> });
-			
+
 			expect(expected).toMatchSnapshot();
 		});
 
 		it('will be a large size when passed in the size prop', () => {
 			const { expected } = setup(renderer.create, { size: 'large' , rolloverComponent: <div></div> });
-			
+
 			expect(expected).toMatchSnapshot();
 		});
 
 		it('will be a xlarge size when passed in the size prop', () => {
 			const { expected } = setup(renderer.create, { size: 'xlarge' , rolloverComponent: <div></div> });
-			
+
 			expect(expected).toMatchSnapshot();
 		});
 	})
@@ -109,7 +109,7 @@ describe('RolloverCheckbox', () => {
 
 		expect(expected.state().hasFocus).toBeTruthy();
 	});
-	
+
 	it('should save the focus state when the target element is blurred', () => {
 		const { expected } = setup(mount, {isCheckboxHidden: false, rolloverComponent: <div></div> });
 
@@ -162,5 +162,5 @@ describe('RolloverCheckbox', () => {
 
 		expect(expected).toMatchSnapshot();
 	});
-	
+
 });

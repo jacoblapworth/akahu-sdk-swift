@@ -5,7 +5,7 @@ import XUICheckbox from '../checkbox/XUICheckbox';
 import { sizeClassNames } from './private/constants';
 import cn from 'classnames';
 
-export default class RolloverCheckbox extends PureComponent {
+export default class XUIRolloverCheckbox extends PureComponent {
 	constructor() {
 		super();
 
@@ -141,7 +141,7 @@ export default class RolloverCheckbox extends PureComponent {
 	}
 }
 
-RolloverCheckbox.propTypes = {
+XUIRolloverCheckbox.propTypes = {
 	qaHook: PropTypes.string,
 	className: PropTypes.string,
 	/** Callback for when checkbox is selected */
@@ -160,6 +160,6 @@ RolloverCheckbox.propTypes = {
 	size: PropTypes.string,
 };
 
-RolloverCheckbox.defaultProps = {
+XUIRolloverCheckbox.defaultProps = {
 	isDisabled: false
 }

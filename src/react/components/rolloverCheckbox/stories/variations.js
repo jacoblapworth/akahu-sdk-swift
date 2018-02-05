@@ -1,4 +1,4 @@
-const storiesWithVariationsKindName = 'Instances/RolloverCheckbox';
+const storiesWithVariationsKindName = 'Instances/XUIRolloverCheckbox';
 
 const variations = [
 	{

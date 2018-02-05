@@ -6,67 +6,72 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'Default',
-		label: 'Just a regular checkbox'
+		labelText: 'Just a regular checkbox'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with no label',
-		label: 'No Label Example',
+		labelText: 'No Label Example',
 		isLabelHidden: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'checked',
-		label: 'Checked Example',
+		labelText: 'Checked Example',
 		isChecked: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'disabled',
-		label: 'Disabled Example',
+		labelText: 'Disabled Example',
 		isDisabled: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'checked and disabled',
-		label: 'Checked and Disabled Example',
+		labelText: 'Checked and Disabled Example',
 		isChecked: true,
 		isDisabled: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'indeterminate',
-		label: 'Indeterminate Example',
+		labelText: 'Indeterminate Example',
 		isIndeterminate: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'indeterminate and disabled',
-		label: 'Indeterminate and Disabled Example',
+		labelText: 'Indeterminate and Disabled Example',
 		isIndeterminate: true,
 		isDisabled: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'reversed label',
-		label: 'Reversed Example',
+		labelText: 'Reversed Example',
 		isReversed: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with an icon',
-		label: 'Icon Example',
+		labelText: 'Icon Example',
 		iconMainPath: starIcon
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'grouped',
-		label: 'Grouped Example',
+		labelText: 'Grouped Example',
 		isGroup: true
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'has a long label',
+		labelText: 'You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man\'s beards it\'s like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise, to find the true meaning of life, one must start munting with the Edmonds Cook Book, mate.'
 	}
 ];
 
 module.exports = {
 	storiesWithVariationsKindName,
 	variations
-}
+};

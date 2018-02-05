@@ -741,7 +741,7 @@
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 
 	.#{$ns}-pickitem--body {
-		padding-left: $xui-s-3xlarge;
+		padding-left: $xui-s-4xlarge;
 	}
 
 	.#{$ns}-pickitem--icon + .#{$ns}-pickitem--body {
@@ -749,7 +749,7 @@
 	}
 
 	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-checkbox {
-		padding-left: $xui-s-4xlarge;
+		padding-left: $xui-s-large;
 	}
 
 	.#{$ns}-pickitem--icon {
@@ -853,7 +853,8 @@
 .#{$ns}-pickitem--input {
 	align-self: flex-start;
 	flex-shrink: 0;
-	margin-right: 15px;
+	margin-left: 0;
+	margin-right: $xui-s-large;
 	margin-top: $xui-s-small;
 }
 
@@ -866,21 +867,7 @@
 	min-width: 0;
 	padding-bottom: $xui-s-small;
 	padding-left: 0;
+	padding-right: $xui-s-large;
 	padding-top: $xui-s-small;
 	width: 100%;
-}
-
-.#{$ns}-pickitem--multiselect .#{$ns}-pickitem--body {
-	padding-left: $xui-s-standard;
-}
-
-.#{$ns}-pickitem--icon {
-	display: inline;
-	margin: 0 $xui-s-standard;
-	position: absolute;
-	top: 4px;
-}
-
-.#{$ns}-pickitem--icon ~ .#{$ns}-pickitem--body {
-	padding-left: 60px;
 }

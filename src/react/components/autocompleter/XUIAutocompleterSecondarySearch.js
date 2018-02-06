@@ -116,6 +116,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				size={props.dropdownSize}
 				fixedWidth={props.dropdownFixedWidth}
 				footer={props.footer}
+				restrictFocus={props.restrictFocus}
 			>
 			{searchItem}
 			{props.children}
@@ -206,6 +207,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
+	/** Whether focus should be restricted to the dropdown while it's open. */
+	restrictFocus: PropTypes.bool,
+
 	/**
 	 * Setting to true will allow the dropdown's width to be set dependent of the trigger width.
 	 * Note: Setting this to true will override any size prop on DropDown. XUI design has also decided
@@ -224,5 +228,6 @@ XUIAutocompleterSecondarySearch.defaultProps = {
 	loading: false,
 	searchThrottleInterval: 0,
 	openOnFocus: false,
-	inputId: 'secondary_search_input'
+	inputId: 'secondary_search_input',
+	restrictFocus: true,
 };

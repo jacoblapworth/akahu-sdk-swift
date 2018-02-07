@@ -261,7 +261,7 @@ describe('XUIModal', () => {
 	});
 
 	it('should lock the scroll of a window when mounted and unlocked when unmounted', () => {
-		const modalMounted = shallow(
+		const modalMounted = mount(
 			<XUIModal isUsingPortal={false} onClose={NOOP} isOpen={true}>
 				<div>test</div>
 			</XUIModal>
@@ -285,12 +285,12 @@ describe('XUIModal', () => {
 	});
 
 	it('should render open when isOpen is set to true', () => {
-		const modalMounted = shallow(
+		const modalMounted = mount(
 			<XUIModal isUsingPortal={false} onClose={NOOP} isOpen={true}>
 				<div>test</div>
 			</XUIModal>
 		);
 
-		expect(modalMounted.hasClass('xui-mask-is-active')).toBeTruthy();
+		expect(modalMounted.find('.xui-mask').hasClass('xui-mask-is-active')).toBeTruthy();
 	});
 });

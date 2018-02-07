@@ -78,10 +78,15 @@ function removeListeners(modal) {
 
 export default class XUIModal extends Component {
 	componentDidMount() {
+		const modal = this;
 		addListeners(this);
-		if (this.props.isOpen) {
+		if (modal.props.isOpen) {
 			lockScroll();
-			this._isScrollLocked = true;
+			modal._isScrollLocked = true;
+
+			if (!modal._maskNode.contains(document.activeElement)) {
+				modal._modalNode.focus();
+			}
 		}
 	}
 

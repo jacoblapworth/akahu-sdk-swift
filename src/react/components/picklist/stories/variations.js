@@ -51,12 +51,12 @@ const variations = [
 			items: [
 				{
 					isSelected: true,
-					multiselect: true
+					isMultiselect: true
 				},
-				{ multiselect: true },
+				{ isMultiselect: true },
 				{
 					isDisabled: true,
-					multiselect: true
+					isMultiselect: true
 				}
 			]
 		}]
@@ -87,12 +87,12 @@ const variations = [
 			items: [
 				{
 					isSelected: true,
-					multiselect: true
+					isMultiselect: true
 				},
-				{ multiselect: true },
+				{ isMultiselect: true },
 				{
 					isDisabled: true,
-					multiselect: true
+					isMultiselect: true
 				}
 			]
 		}],
@@ -112,16 +112,46 @@ const variations = [
 			items: [
 				{
 					isSelected: true,
-					multiselect: true
+					isMultiselect: true
 				},
-				{ multiselect: true },
+				{ isMultiselect: true },
 				{
 					isDisabled: true,
-					multiselect: true
+					isMultiselect: true
 				}
 			]
 		}],
 		componentType: 'NestedPicklist'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with wrapping in narrow list',
+		isOpen: true,
+		componentType: 'StatefulPicklist',
+		className: 'xui-dropdown-medium',
+		lists: [{
+			items: [
+				{ isMultiselect: true },
+				{ isMultiselect: true },
+				{ isMultiselect: true },
+				{ isMultiselect: true },
+			]
+		}],
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with truncation in narrow list',
+		isOpen: true,
+		componentType: 'StatefulPicklist',
+		className: 'xui-dropdown-medium',
+		lists: [{
+			items: [
+				{ shouldTruncate: true, isMultiselect: true },
+				{ shouldTruncate: true, isMultiselect: true },
+				{ shouldTruncate: true, isMultiselect: true },
+				{ shouldTruncate: true, isMultiselect: true },
+			]
+		}],
 	}
 ];
 

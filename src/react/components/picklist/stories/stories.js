@@ -69,16 +69,16 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
-	storiesWithVariations.add(variation.storyTitle, () => {
-		const variationMinusStoryDetails = { ...variation };
-		const { componentType, isOpen } = variationMinusStoryDetails;
-		const listComponents = buildLists(variationMinusStoryDetails.lists, componentType);
+	const {
+		storyTitle,
+		lists,
+		componentType,
+		isOpen,
+		...variationMinusStoryDetails
+	} = variation;
 
-		delete variationMinusStoryDetails.componentType;
-		delete variationMinusStoryDetails.storyKind;
-		delete variationMinusStoryDetails.storyTitle;
-		delete variationMinusStoryDetails.lists;
-		delete variationMinusStoryDetails.isOpen;
+	storiesWithVariations.add(storyTitle, () => {
+		const listComponents = buildLists(lists, componentType);
 
 		if (componentType === 'StatefulPicklist') {
 			return (
@@ -93,8 +93,8 @@ variations.forEach(variation => {
 							<NestedPicklistTrigger id="nestedTrigger">Nested list</NestedPicklistTrigger>
 							{listComponents[0]}
 						</NestedPicklistContainer>
-						<NestedPicklistContainer id="split" open={isOpen}>
-							<XUIPickitem id="splitTrigger" isSplit={true} multiselect={true}>Split nested list</XUIPickitem>
+						<NestedPicklistContainer id="split" isOpen={isOpen}>
+							<XUIPickitem id="splitTrigger" isSplit={true} isMultiselect={true}>Split nested list</XUIPickitem>
 							<NestedPicklistTrigger id="nestedSplit" />
 							{listComponents[1]}
 						</NestedPicklistContainer>

@@ -15,8 +15,12 @@ exports[`RolloverCheckbox allows for a user defined rollover component to be pas
     className="xui-rollovercheckbox"
   >
     <div
-      id="rolloverComponent"
-    />
+      className={null}
+    >
+      <div
+        id="rolloverComponent"
+      />
+    </div>
     <label
       className="xui-u-hidden-visually xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -58,6 +62,11 @@ exports[`RolloverCheckbox displays the checkbox when it's set to be shown 1`] = 
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -99,7 +108,11 @@ exports[`RolloverCheckbox doesn't display the checkbox when it's set to hidden 1
   <div
     className="xui-rollovercheckbox"
   >
-    <div />
+    <div
+      className={null}
+    >
+      <div />
+    </div>
     <label
       className="xui-u-hidden-visually xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -141,6 +154,9 @@ exports[`RolloverCheckbox include an automation-id 1`] = `
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    />
     <label
       className="xui-styledcheckboxradio"
       data-automationid="test-rollovercheckbox--checkbox"
@@ -182,6 +198,11 @@ exports[`RolloverCheckbox renders a variety of sizes will be a large size when p
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -223,6 +244,11 @@ exports[`RolloverCheckbox renders a variety of sizes will be a small size when p
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -264,6 +290,11 @@ exports[`RolloverCheckbox renders a variety of sizes will be a xlarge size when 
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -305,6 +336,11 @@ exports[`RolloverCheckbox renders a variety of sizes will be display the standar
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -346,6 +382,11 @@ exports[`RolloverCheckbox renders an id on teh root node when passed 1`] = `
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -387,6 +428,11 @@ exports[`RolloverCheckbox renders checked when specified 1`] = `
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -428,6 +474,9 @@ exports[`RolloverCheckbox renders correctly 1`] = `
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    />
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -469,6 +518,11 @@ exports[`RolloverCheckbox renders unchecked when specified 1`] = `
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -510,6 +564,11 @@ exports[`RolloverCheckbox should render the disabled classes and a disabled chec
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio xui-is-disabled"
       data-automationid={undefined}
@@ -551,6 +610,11 @@ exports[`RolloverCheckbox shouldn't render the disabled classes and a disabled c
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}
@@ -592,6 +656,11 @@ exports[`RolloverCheckbox shouldn't render the disabled classes or a disabled ch
   <div
     className="xui-rollovercheckbox"
   >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
     <label
       className="xui-styledcheckboxradio"
       data-automationid={undefined}

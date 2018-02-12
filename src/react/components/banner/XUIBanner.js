@@ -44,16 +44,16 @@ XUIBanner.propTypes = {
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
 
-	/** @property {String} [sentiment] Alters the banner to show positive or negative sentiment */
+	/** Alters the banner to show positive or negative sentiment */
 	sentiment: PropTypes.oneOf(sentiments),
 
-	/** @property {function} [onCloseClick] Handles the click event for the action */
+	/** Handles the click event for the action */
 	onCloseClick: PropTypes.func,
 
-	/** @property {boolean} [defaultLayout=true] Defines whether the default layout class should be supplied */
+	/** Defines whether the default layout class should be supplied */
 	defaultLayout: PropTypes.bool,
 
-	/** @property {string} [role] Applies a role attribute to the toast element. This will override any component-determined value. */
+	/** Applies a role attribute to the toast element. This will override any component-determined value. */
 	role: PropTypes.string
 };
 

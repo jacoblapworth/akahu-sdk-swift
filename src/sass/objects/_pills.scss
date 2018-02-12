@@ -42,7 +42,7 @@
 
 // Click-able pills
 //
-// In some cases, clicking a pill triggers an action, such as opening a list of filters to that particular choice. 
+// In some cases, clicking a pill triggers an action, such as opening a list of filters to that particular choice.
 // To indicate that a pill is click-able, make sure to wrap the content in an [unstyled button](section-building-blocks-buttons.html#building-blocks-buttons-2) and apply the following class.
 //
 // Classes:
@@ -182,7 +182,7 @@
 // Single select pills
 //
 // Often, only a single selection is allowed within an input.
-// This allows additional actions such as surfacing contact details to be provided. 
+// This allows additional actions such as surfacing contact details to be provided.
 // To do this, replace the entire input with a pseudo `xui-input` and apply the following class to the pill.
 // All other classes will update accordingly.
 //
@@ -290,7 +290,7 @@
 		background-color: $xui-color-red-dark;
 	}
 
-	// TODO: Deprecated, remove in XUI13 as we now use inverted buttons for this
+	// TODO: Deprecated, remove in XUI14 as we now use inverted buttons for this
 	.#{$ns}-pill--button-icon,
 	.#{$ns}-pill--content {
 		color: $xui-color-white;
@@ -336,7 +336,7 @@
 	}
 }
 
-// TODO: Deprecated, remove in XUI13 as now we use the standard invalid class
+// TODO: Deprecated, remove in XUI14 as now we use the standard invalid class
 .#{$ns}-pill-single-is-invalid {
 	color: $xui-color-red;
 }

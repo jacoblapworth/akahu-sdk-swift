@@ -2,13 +2,15 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
+const storyBookLocation = path.resolve(__dirname, '..', 'docs', 'storybook');
+const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
+
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
 	selectors: '.xui-container',
 	misMatchThreshold: .4
 };
 
-const storyBookLocation = path.resolve(__dirname, '..', '.out');
 /**
  * Array of components that storybook should test.
  *
@@ -88,7 +90,8 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Progress Indicator',
 		variationsPath:
-			'../src/react/components/progressindicator/stories/variations.js'
+			'../src/react/components/progressindicator/stories/variations.js',
+			delay: 500
 	},
 	{
 		testsPrefix: 'XUI Radio',
@@ -164,7 +167,7 @@ function buildScenarios() {
 					label: `${component.testsPrefix} ${story.storyTitle}`,
 					url: buildUrl(story.storyKind, story.storyTitle),
 					selectors: [component.selectors || '#root > div > div'],
-					misMatchThreshold: component.misMatchThreshold || .6,
+					misMatchThreshold: component.misMatchThreshold || 0.6,
 					selectorExpansion: component.captureAllSelectors
 				};
 			})

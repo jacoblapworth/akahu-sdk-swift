@@ -16,6 +16,6 @@ XUIBannerMessageDetail.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** @property {string[]} The banner message details to be displayed as a list */
+	/** The banner message details to be displayed as a list */
 	messageDetails: PropTypes.arrayOf(PropTypes.string).isRequired
 };

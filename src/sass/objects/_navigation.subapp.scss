@@ -52,7 +52,7 @@
 	}
 }
 
-// Deprecated in XUI12, remove in XUI13
+// Deprecated in XUI12, remove in XUI14
 .#{$ns}-pageheading--content-layout-titleonly {
 	height: 40px;
 }
@@ -86,7 +86,7 @@
 	flex: 1 1 auto;
 	font-size: $xui-font-size-large;
 	font-weight: bold;
-	margin: 10px 0; // Replaces margins removed from .xui-pageheading--content-layout, remove in XUI13
+	margin: 10px 0; // Replaces margins removed from .xui-pageheading--content-layout, remove in XUI14
 }
 
 .#{$ns}-pageheading--tabs {

@@ -23,6 +23,7 @@
 * close button qaHook `${qaHook}-close-button` is now `${qaHook}-close--button`
 * XUIBannerAction button qaHook `${qaHook}-button` is now `${qaHook}--button`
 * isLink added as a new prop to `XUIBannerAction`
+* onClick added as a new prop to `XUIBannerAction`
 
 ### Button
 * qaHook added to Caret and Group components
@@ -36,7 +37,7 @@
 
 ### Icons
 * More colour options now available
-* `standard` colour is being deprecated in XUI 13
+* `standard` colour is now deprecated and will be removed in XUI 14
 
 ### Inputs
 * qaHook added to input and close component

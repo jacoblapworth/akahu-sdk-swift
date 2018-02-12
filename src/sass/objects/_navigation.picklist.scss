@@ -329,7 +329,7 @@
 // 	<ul class="xui-picklist xui-picklist-layout" role="group">
 // 		<li class="xui-pickitem xui-pickitem--multiselect" role="option">
 // 			<div class="xui-pickitem--body">
-// 				<label class="xui-styledcheckboxradio" for="discount">
+// 				<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="discount">
 // 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="discount">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 					<span class="xui-styledcheckboxradio--label">
@@ -342,7 +342,7 @@
 // 		</li>
 // 		<li class="xui-pickitem xui-pickitem--multiselect" role="option">
 // 			<div class="xui-pickitem--body">
-// 				<label class="xui-styledcheckboxradio" for="reference">
+// 				<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="reference">
 // 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="reference">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 					<span class="xui-styledcheckboxradio--label">
@@ -355,7 +355,7 @@
 // 		</li>
 // 		<li class="xui-pickitem xui-pickitem--multiselect" role="option">
 // 			<div class="xui-pickitem--body">
-// 				<label class="xui-styledcheckboxradio" for="quantity">
+// 				<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="quantity">
 // 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="quantity">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 					<span class="xui-styledcheckboxradio--label">
@@ -528,7 +528,7 @@
 // 		<ul id="split" class="xui-submenu xui-submenu-layout" role="group">
 // 			<li class="xui-pickitem xui-pickitem--multiselect" role="option">
 // 				<div class="xui-pickitem--body">
-// 					<label class="xui-styledcheckboxradio" for="kirk">
+// 					<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="kirk">
 // 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="kirk">
 // 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 						<span class="xui-styledcheckboxradio--label">
@@ -541,7 +541,7 @@
 // 			</li>
 // 			<li class="xui-pickitem xui-pickitem--multiselect" role="option">
 // 				<div class="xui-pickitem--body">
-// 					<label class="xui-styledcheckboxradio" for="isaac">
+// 					<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="isaac">
 // 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="isaac">
 // 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 						<span class="xui-styledcheckboxradio--label">
@@ -554,7 +554,7 @@
 // 			</li>
 // 			<li class="xui-pickitem xui-pickitem--multiselect" role="option">
 // 				<div class="xui-pickitem--body">
-// 					<label class="xui-styledcheckboxradio" for="tim">
+// 					<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="tim">
 // 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="tim">
 // 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 						<span class="xui-styledcheckboxradio--label">
@@ -748,8 +748,8 @@
 		padding-left: $xui-s-5xlarge + $xui-s-5xlarge + $xui-s-xsmall;
 	}
 
-	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-label {
-		padding-left: $xui-s-6xlarge + $xui-s-small;
+	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-checkbox {
+		padding-left: $xui-s-4xlarge;
 	}
 
 	.#{$ns}-pickitem--icon {
@@ -855,8 +855,10 @@
 }
 
 .#{$ns}-pickitem--input {
-	margin: 0;
-	position: absolute;
+	align-self: flex-start;
+	flex-shrink: 0;
+	margin-right: 15px;
+	margin-top: $xui-s-small;
 }
 
 .#{$ns}-pickitem--multiselect-label {
@@ -865,7 +867,15 @@
 }
 
 .#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label {
-	padding: 6px 0 0;
+	min-width: 0;
+	padding-bottom: $xui-s-small;
+	padding-left: 0;
+	padding-top: $xui-s-small;
+	width: 100%;
+}
+
+.#{$ns}-pickitem--multiselect .#{$ns}-pickitem--body {
+	padding-left: $xui-s-standard;
 }
 
 .#{$ns}-pickitem--icon {
@@ -873,8 +883,8 @@
 	margin: 0 $xui-s-standard;
 	position: absolute;
 	top: 4px;
+}
 
-	+ .#{$ns}-pickitem--body {
-		padding-left: $xui-s-6xlarge;
-	}
+.#{$ns}-pickitem--icon ~ .#{$ns}-pickitem--body {
+	padding-left: 60px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {NAME_SPACE} from '../helpers/constants';
-import { createArray } from '../helpers/utilities';
+import {createArray} from '../helpers/utilities';
 
 const dashProps = {
 	total: PropTypes.number.isRequired,

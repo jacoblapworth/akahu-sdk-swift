@@ -9,7 +9,7 @@ export default function XUIBannerAction(props) {
 
 	return (
 		<li className="xui-banner--action" data-automationid={props.qaHook}>
-			<XUIButton href={props.href} isLink={props.isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
+			<XUIButton onClick={props.onClick} href={props.href} isLink={props.isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
 		</li>
 	);
 }
@@ -18,12 +18,14 @@ XUIBannerAction.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
 	qaHook: PropTypes.string,
-	/** Target URl of action, will also trun the button into a link, <a /> tag. */
+	/** Click event handler for the banner action */
+	onClick: PropTypes.func,
+	/** URL of the link */
 	href: PropTypes.string,
-	/** Whether or not to render this button using an tag. */
+	/** Whether or not to render this button using an anchor element */
 	isLink: PropTypes.bool
 };
 
 XUIBannerAction.defaultProps = {
 	isLink: false
-}
+};

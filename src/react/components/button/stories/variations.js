@@ -34,18 +34,30 @@ const variations = [
 buttonVariants.forEach((buttonVariant, index) => {
 	const isIcon = buttonVariant.match(/^icon/) && buttonVariant.match(/^icon/)[0];
 	const size = isIcon ? 'full-width' : sizes[index % sizes.length];
-	const storyVariation = {
+	variations.push({
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `as ${isIcon ? '' : size} ${buttonVariant}`,
 		size: size,
 		value: isIcon ? undefined : `${buttonVariant}`,
 		contentsKey: isIcon ? 'icon' : undefined,
 		variant: buttonVariant
-	};
-	variations.push(storyVariation);
+	});
+});
+
+sizes.forEach((sizeVariant) => {
+	variations.push(
+		{
+			storyKind: storiesWithVariationsKindName,
+			storyTitle: `${sizeVariant} with a Loader`,
+			size: sizeVariant,
+			isLoading: true,
+			className: 'xui-loader-static', // Prevent dots from animating and causing diffs due to timing issues
+			value: 'This is a button'
+		}
+	);
 });
 
 module.exports = {
 	storiesWithVariationsKindName,
 	variations
-}
+};

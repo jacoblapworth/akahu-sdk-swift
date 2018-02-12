@@ -122,7 +122,9 @@ export default class RolloverCheckbox extends PureComponent {
 				data-automationid={qaHook}
 			>
 				<div className="xui-rollovercheckbox">
-					{ showRollover ? rolloverComponent : null}
+					<div className={!showRollover ? 'xui-u-hidden-visually' : null}>
+						{rolloverComponent}
+					</div>
 					<XUICheckbox
 						ref={c => this._checkbox = c}
 						onChange={this.onSelect}

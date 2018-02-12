@@ -17,6 +17,7 @@
 	border-radius: $xui-radius;
 	box-shadow: none;
 	color: inherit;
+	display: flex;
 	font-family: inherit;
 	font-size: inherit;
 	margin: 0; // Safari's default UA styles set 2px vertical padding
@@ -47,10 +48,21 @@
 	}
 }
 
+@mixin xui-input-base {
+	background-color: transparent;
+	border-radius: 3px;
+	color: inherit;
+	flex: 1;
+	font: inherit;
+	outline: none;
+	padding: 8px 15px;
+}
+
 @import "forms.layout";
 @import "forms.labels";
 @import "forms.inputs";
 @import "forms.checkboxesradios.styled";
 @import "forms.switch";
 @import "forms.selects";
+@import "forms.textinputs";
 @import "forms.validationmessages";

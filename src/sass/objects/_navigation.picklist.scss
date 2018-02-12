@@ -755,6 +755,10 @@
 	.#{$ns}-pickitem--icon {
 		left: $xui-s-4xlarge + $xui-s-xsmall;
 	}
+	.#{$ns}-pickitem--input {
+		left: $xui-s-4xlarge + $xui-s-xlarge;
+	}
+
 }
 
 .#{$ns}-submenu-layout {

@@ -1,0 +1,266 @@
+/**
+ * Styles for form text inputs.
+ */
+
+@import "../vars";
+@import "../mixins";
+
+$xui-radius-iconwrapper: 3px;
+$xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
+$xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
+$xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
+$xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to have a bigger z-index
+
+
+.#{$ns}-textinput--input {
+	@include xui-input-base;
+}
+
+.#{$ns}-textinput-focus {
+	box-shadow: 0 0 0 3px rgba(50, 70, 90, 0.1);
+	outline: none;
+	transition: box-shadow 0.1s;
+	z-index: 2;
+}
+
+
+.#{$ns}-textinput {
+	@extend %#{$ns}-commoninput;
+	align-items: center;
+	padding: 0;
+}
+
+// Icons within inputs
+
+.#{$ns}-textinputwrapper {
+
+	.#{$ns}-textinput-has-left-icon {
+		padding-left: 0;
+	}
+
+	.#{$ns}-textinput-has-right-icon {
+		padding-right: 0;
+	}
+
+	.#{$ns}-icon {
+		z-index: $xui-input-icon-zindex;
+	}
+
+	.#{$ns}-textinput--icon-left,
+	.#{$ns}-textinput--icon-right {
+		color: $xui-color-grey-3;
+		height: $xui-input-icon-height; // Do not supply width so that the icon does not scale (achieves vertical centering)
+		position: absolute;
+		z-index: $xui-input-icon-zindex;
+	}
+
+	.#{$ns}-textinput--icon-left {
+		pointer-events: none; // allows "click-through" to focus the underlying field
+	}
+
+}
+
+.#{$ns}-textinput--iconwrapper {
+	align-items: center;
+	display: inline-flex;
+	height: $xui-input-height;
+	justify-content: center;
+	line-height: inherit;
+	margin: -1px;
+	min-width: $xui-input-height;
+	position: relative;
+	text-align: center; // If text is used instead of an icon, center it
+	z-index: $xui-input-icon-zindex;
+}
+
+.#{$ns}-textinput--iconwrapper-left {
+	border-radius: $xui-radius-iconwrapper 0 0 $xui-radius-iconwrapper;
+	pointer-events: none; // allows "click-through" to focus the underlying field
+}
+
+.#{$ns}-textinput--iconwrapper-right {
+	border-radius: 0 $xui-radius-iconwrapper $xui-radius-iconwrapper 0;
+}
+
+.#{$ns}-textinput--iconwrapper-twitter {
+	background-color: $xui-color-twitter;
+
+	& + .#{$ns}-textinput-has-left-icon {
+		padding-left: 15px;
+	}
+
+	.#{$ns}-textinput-has-right-icon + & {
+		margin-left: 15px;
+	}
+}
+
+.#{$ns}-textinput--iconwrapper-facebook {
+	background-color: $xui-color-facebook;
+
+	& + .#{$ns}-textinput-has-left-icon {
+		padding-left: 15px;
+	}
+
+	.#{$ns}-textinput-has-right-icon + & {
+		margin-left: 15px;
+	}
+}
+
+.#{$ns}-textinput--iconwrapper-linkedin {
+	background-color: $xui-color-linkedin;
+
+	& + .#{$ns}-textinput-has-left-icon {
+		padding-left: 15px;
+	}
+
+	.#{$ns}-textinput-has-right-icon + & {
+		margin-left: 15px;
+	}
+}
+
+// Borderless inputs
+
+.#{$ns}-textinput-borderless {
+	border: 0;
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.#{$ns}-textinput-borderless-transparent {
+	background-color: transparent;
+
+	&.#{$ns}-textinput-focus {
+		background-color: rgba($xui-color-black, 0.05);
+		box-shadow: none;
+	}
+
+	&.#{$ns}-textinput-borderless-inverted.#{$ns}-textinput-focus {
+		background-color: rgba($xui-color-white, 0.1);
+	}
+}
+
+.#{$ns}-textinput-borderless-solid {
+	background-color: rgba($xui-color-black, 0.05);
+
+	&.#{$ns}-textinput-focus {
+		background-color: rgba($xui-color-black, 0.1);
+		box-shadow: none;
+	}
+
+	&.#{$ns}-textinput-borderless-inverted {
+		background-color: rgba($xui-color-white, 0.1);
+
+		&.#{$ns}-textinput-focus {
+			background-color: rgba($xui-color-white, 0.2);
+		}
+	}
+}
+
+.#{$ns}-textinput-borderless-inverted {
+	color: $xui-color-white;
+
+	.#{$ns}-textinput--input {
+		color: $xui-color-white;
+
+		&::placeholder {
+			color: $xui-color-white;
+			opacity: 0.5;
+		}
+	}
+}
+
+.#{$ns}-textinputwrapper-borderless {
+
+	.#{$ns}-textinput--icon-left {
+		left: $xui-s-xsmall + $xui-input-icon-offset;
+	}
+
+	.#{$ns}-textinput--icon-right {
+		right: $xui-s-xsmall + $xui-input-icon-offset;
+	}
+}
+
+
+
+.#{$ns}-verticaltextinputgroup {
+	// Only add top border radius to the first element
+	.#{$ns}-textinput:first-of-type,
+	.#{$ns}-textinputwrapper:first-of-type > .#{$ns}-input {
+		border-radius: 3px 3px 0 0;
+	}
+
+	// Add the margin adjustment to all elements but the first
+	.#{$ns}-textinput:nth-of-type(n+2),
+	.#{$ns}-textinputwrapper:nth-of-type(n+2) > .#{$ns}-textinput {
+		margin-top: -1px;
+	}
+
+	// On all elements except the first and last one, border radius 0 is required
+	.#{$ns}-textinput:nth-of-type(n+2):nth-last-of-type(n+2),
+	.#{$ns}-textinputwrapper:nth-of-type(n+2):nth-last-of-type(n+2) > .#{$ns}-textinput {
+		border-radius: 0;
+	}
+
+	// Only add bottom border radius to the last element
+	.#{$ns}-textinput:last-of-type,
+	.#{$ns}-textinputwrapper:last-of-type .#{$ns}-textinput {
+		border-radius: 0 0 3px 3px;
+	}
+}
+
+
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper,
+.#{$ns}-textinputgroup > .#{$ns}-button,
+.#{$ns}-textinputgroup .#{$ns}-select--control {
+	border-radius: 0;
+
+	// All but the first child have a left border
+	// There is an exception for invalid styling further down
+	&:nth-child(n+2) {
+		border-left: 0;
+	}
+}
+
+// This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-textinput {
+	border-radius: 0;
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:nth-child(n+2) > .#{$ns}-textinput {
+	border-left: 0;
+}
+
+.#{$ns}-textinputgroup .#{$ns}-select:nth-child(n+2) {
+	.#{$ns}-select--control {
+		border-left: 0;
+	}
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinput:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
+.#{$ns}-textinputgroup > .#{$ns}-button:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
+	border-bottom-left-radius: $xui-radius;
+	border-top-left-radius: $xui-radius;
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinput:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
+.#{$ns}-textinputgroup > .#{$ns}-button:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
+	border-bottom-right-radius: $xui-radius;
+	border-top-right-radius: $xui-radius;
+}
+
+.#{$ns}-textinputgroup {
+	@include xui-clearfix;
+
+	.#{$ns}-textinput-is-invalid:nth-child(n+2),
+	.#{$ns}-textinputwrapper:nth-child(n+2) .#{$ns}-textinput-is-invalid,
+	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
+		border-left: 1px solid $xui-color-xero-red;
+		margin-left: -1px;
+	}
+}

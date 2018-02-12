@@ -27,8 +27,7 @@ const fullPageSettings = {
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Autocompleter',
-		variationsPath:
-			'../src/react/components/autocompleter/stories/variations.js',
+		variationsPath: '../src/react/components/autocompleter/stories/variations.js',
 		...fullPageSettings
 	},
 	{
@@ -112,6 +111,10 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Switch',
 		variationsPath: '../src/react/components/switch/stories/variations.js'
+	},
+	{
+		testsPrefix: 'XUI Stepper',
+		variationsPath: '../src/react/components/stepper/stories/variations.js'
 	},
 	{
 		testsPrefix: 'XUI Tag',

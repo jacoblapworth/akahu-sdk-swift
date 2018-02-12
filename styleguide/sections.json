@@ -20,6 +20,11 @@
 				]
 			},
 			{
+				"name": "Stepper",
+				"content": "../src/react/stepper.md",
+				"components": "../src/react/components/stepper/XUIStepper.js"
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [
@@ -280,6 +285,11 @@
 						"sections": [
 							{
 								"components": "../src/react/components/input/XUIInput.js"
+							},
+							{
+								"name": "Text Input",
+								"content": "../src/react/textInput.md",
+								"components": "../src/react/components/textInput/XUITextInput.js"
 							}
 						]
 					},

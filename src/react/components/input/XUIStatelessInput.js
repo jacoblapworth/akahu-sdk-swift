@@ -49,12 +49,12 @@ export default class XUIStatelessInput extends PureComponent {
 		let iconComponent;
 
 		if (hasIcon) {
-			if ((!iconAttributes.position || iconAttributes.position == "left") && !inputClasses.includes(hasLeftIcon)) {
+			if ((!iconAttributes.position || iconAttributes.position == "left") && inputClasses.indexOf(hasLeftIcon) === -1) {
 				inputClasses += ` ${hasLeftIcon}`;
-				if (button && !inputClasses.includes(hasRightIcon)) {
+				if (button && inputClasses.indexOf(hasRightIcon) === -1) {
 					inputClasses += ` ${hasRightIcon}`
 				}
-			} else if (!inputClasses.includes(hasRightIcon)) {
+			} else if (inputClasses.indexOf(hasRightIcon) === -1) {
 				inputClasses += ` ${hasRightIcon}`;
 			}
 
@@ -81,7 +81,7 @@ export default class XUIStatelessInput extends PureComponent {
 					{...iconAttributes}
 				/>
 			)
-		} else if (button && !inputClasses.includes(hasRightIcon)) {
+		} else if (button && inputClasses.indexOf(hasRightIcon) === -1) {
 			inputClasses += ` ${hasRightIcon}`;
 		}
 

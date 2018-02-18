@@ -77,12 +77,12 @@ const {XUIProgressLinear} = require('./progressindicator');
 
 ### Tool Tip
 
-Create a Tool Tip that is visible when a mouse cursor enters the component with the `isToolTip` prop.
+Create a Tool Tip that is visible when a mouse cursor enters the component with the `hasToolTip` prop.
 
 #### Circular
 ```
 const {XUIProgressCircular} = require('./progressindicator');
-<XUIProgressCircular id="tooltip-circular" total={5} progress={3} isToolTip />
+<XUIProgressCircular id="tooltip-circular" total={5} progress={3} hasToolTip />
 ```
 
 You can supply the `toolTipMessage` prop a customised message to replace the default Tool Tip text.
@@ -92,7 +92,7 @@ You can supply the `toolTipMessage` prop a customised message to replace the def
 #### Linear
 ```
 const {XUIProgressLinear} = require('./progressindicator');
-<XUIProgressLinear id="tooltip-linear" total={5} progress={3} isToolTip toolTipMessage="Answered 3 of 5 questions" />
+<XUIProgressLinear id="tooltip-linear" total={5} progress={3} hasToolTip toolTipMessage="Answered 3 of 5 questions" />
 ```
 
 ## Overflow
@@ -151,13 +151,13 @@ Change the color of the `total` and `progress` track by supplying the `totalColo
 #### Circular
 ```
 const {XUIProgressCircular} = require('./progressindicator');
-<XUIProgressCircular id="color-circular" total={5} progress={3} totalColor="purple" progressColor="lightGreen" />
+<XUIProgressCircular id="color-circular" total={5} progress={3} totalColor="grape" progressColor="mint" />
 ```
 
 #### Linear
 ```
 const {XUIProgressLinear} = require('./progressindicator');
-<XUIProgressLinear id="color-linear" total={5} progress={3} totalColor="purple" progressColor="lightGreen" />
+<XUIProgressLinear id="color-linear" total={5} progress={3} totalColor="yellow" progressColor="violet" />
 ```
 
 ## Circular Only Examples
@@ -193,7 +193,7 @@ Supply content to reside in the center of the progress indicator circle using a 
 
 ```
 const {XUIProgressCircular} = require('./progressindicator');
-<div style={{ maxWidth: '300px', width: 'calc(50vw / 4)' }}>
+<div style={{ width: '100px' }}>
 	<XUIProgressCircular id="central-content-circular" total={5} progress={3} isGrow>
 		<img style={{ width: '100%', height: 'auto' }} src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
 	</XUIProgressCircular>

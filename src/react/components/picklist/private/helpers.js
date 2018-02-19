@@ -228,9 +228,10 @@ export function findPreviousItem(node, el, idCache) {
  *
  * @public
  * @param {React.element} node
- * @return {React.element} First item in the dropdown.
+ * @param {Object} idCache
+ * @return {React.element|null} First item in the dropdown.
  */
-function findFirstMenuItem(node) {
+function findFirstMenuItem(node, idCache) {
 	let item = null;
 	const findFirst = node => {
 		if (isEnabledMenuItem(node)) {
@@ -239,7 +240,8 @@ function findFirstMenuItem(node) {
 		}
 	};
 	walk(node, findFirst);
-	return item;
+
+	return item != null && idCache && idCache[item.props.id] == null ? null : item;
 }
 
 /**
@@ -300,7 +302,7 @@ export function findInitialHighlightedItem(node, idCache) {
 	};
 	walk(node, findSelected, {idCache});
 
-	return item == null ? findFirstMenuItem(node) : item;
+	return item == null ? findFirstMenuItem(node, idCache) : item;
 }
 
 /**

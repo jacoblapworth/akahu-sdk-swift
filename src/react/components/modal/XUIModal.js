@@ -124,11 +124,10 @@ export default class XUIModal extends Component {
 		if (
 			isOpen &&
 			restrictFocus &&
-			(prevProps.isOpen || !prevProps.restrictFocus)
+			(!prevProps.isOpen || !prevProps.restrictFocus) &&
+			!modal._maskNode.contains(document.activeElement)
 		) {
-			if (!modal._maskNode.contains(document.activeElement)) {
-				modal._modalNode.focus();
-			}
+			modal._modalNode.focus();
 		}
 	}
 

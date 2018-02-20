@@ -8,6 +8,8 @@ import StatefulPicklist from '../StatefulPicklist';
 import NestedPicklistContainer from '../NestedPicklistContainer';
 import NestedPicklistTrigger from '../NestedPicklistTrigger';
 import NestedPicklist from '../NestedPicklist';
+import XUIIcon from '../../icon/XUIIcon';
+import view from '@xero/xui-icon/icons/view';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -74,10 +76,27 @@ variations.forEach(variation => {
 		lists,
 		componentType,
 		isOpen,
+		markup,
 		...variationMinusStoryDetails
 	} = variation;
 
 	storiesWithVariations.add(storyTitle, () => {
+		if (componentType === 'markupOnly') {
+			return <div className="xui-panel" style={{width: "500px"}} dangerouslySetInnerHTML={{__html: markup}}></div>;
+		} else if (componentType === 'XUIIcon') {
+			return (
+				<div className="xui-panel" style={{width: "500px"}}>
+					<ul className="xui-picklist xui-picklist-layout" role="tree">
+						<li className="xui-pickitem" role="treeitem">
+							<XUIIcon path={view} className="xui-pickitem--icon" />
+							<span className="xui-pickitem--body">
+								<span className="xui-pickitem--text">Create new</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+			);
+		}
 		const listComponents = buildLists(lists, componentType);
 
 		if (componentType === 'StatefulPicklist') {

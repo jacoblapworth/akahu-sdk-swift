@@ -18,8 +18,20 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'small with Caret',
+		contentsKey: 'withCaret',
+		size: 'small'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a Group',
 		contentsKey: 'asGroup',
+		componentType: 'XUIButtonGroup'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as a small Group',
+		contentsKey: 'asGroupSm',
 		componentType: 'XUIButtonGroup'
 	},
 	{
@@ -28,6 +40,13 @@ const variations = [
 		contentsKey: 'asSplitGroup',
 		componentType: 'XUISplitButtonGroup',
 		variant: 'primary'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as a small Split Button Group',
+		contentsKey: 'asSplitGroupSm',
+		componentType: 'XUISplitButtonGroup',
+		variant: 'negative'
 	}
 ];
 

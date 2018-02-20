@@ -145,7 +145,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
 <li
   aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem--multiselect"
+  className="xui-pickitem xui-pickitem-multiselect"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -158,7 +158,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
     onMouseOver={undefined}
   >
     <label
-      className="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
     >
@@ -180,7 +180,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         data-automationid={undefined}
       />
       <span
-        className="xui-styledcheckboxradio--label xui-pickitem--multiselect-label"
+        className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
         data-automationid={undefined}
       >
         <span
@@ -315,7 +315,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
 <li
   aria-label={undefined}
   aria-selected={false}
-  className="xui-pickitem xui-pickitem--multiselect xui-is-disabled"
+  className="xui-pickitem xui-pickitem-multiselect xui-is-disabled"
   data-automationid={undefined}
   id="1"
   role="option"
@@ -328,7 +328,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
     onMouseOver={undefined}
   >
     <label
-      className="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio"
+      className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
     >
@@ -350,7 +350,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
         data-automationid={undefined}
       />
       <span
-        className="xui-styledcheckboxradio--label xui-pickitem--multiselect-label"
+        className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
         data-automationid={undefined}
       >
         <span

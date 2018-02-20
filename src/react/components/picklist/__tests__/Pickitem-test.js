@@ -129,10 +129,10 @@ describe('<Pickitem />', () => {
 			expect(checkbox.length).toEqual(2);
 		});
 
-		it('includes the class "xui-pickitem--multiselect-label" around the picklist content', () => {
+		it('includes the class "xui-pickitem-multiselect--label" around the picklist content', () => {
 			const pickitem = wrapper.find('#multiselectItem2');
 
-			expect(pickitem.find('xui-pickitem--multiselect-label')).toBeDefined();
+			expect(pickitem.find('xui-pickitem-multiselect--label')).toBeDefined();
 		})
 	})
 })

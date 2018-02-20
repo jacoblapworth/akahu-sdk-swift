@@ -152,6 +152,35 @@ const variations = [
 				{ shouldTruncate: true, isMultiselect: true },
 			]
 		}],
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with headings',
+		componentType: 'markupOnly',
+		markup: '<ul class="xui-picklist xui-picklist-layout" role="tree" aria-labelledby="recent"><li id="recent" class="xui-margin-vertical-xsmall xui-padding-horizontal-large xui-text-minor xui-text-truncated">Recent</li><li class="xui-pickitem" role="treeitem"><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-text-truncated">302 — Entertainment</span></button></li><li class="xui-pickitem" role="treeitem"><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-text-truncated">440 — Overseas Travel</span></button></li><li class="xui-pickitem" role="treeitem"><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-text-truncated">301 — Office Supplies</span></button></li></ul'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with secondary copy',
+		componentType: 'markupOnly',
+		markup: '<ul class="xui-picklist xui-picklist-layout" role="tree"><li class="xui-pickitem" role="treeitem" tabindex="-1" ><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-text-truncated"><span>Status</span><span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span></span></button></li><li class="xui-pickitem" role="treeitem" tabindex="-1" ><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-text-truncated"><span>Date range</span><span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span></span></button></li><li class="xui-pickitem" role="treeitem" tabindex="-1" ><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-text-truncated"><span>Created by</span><span class="xui-text-secondary xui-margin-left-small">Kirk Holloway +2 others</span></span></button></li></ul>'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with pinned values',
+		componentType: 'markupOnly',
+		markup: '<ul class="xui-picklist xui-picklist-layout" role="tree"><li class="xui-pickitem" role="treeitem" tabindex="-1" ><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-u-flex-inherit"><span class="xui-u-flex-1 xui-text-truncated">Draft</span><span class="xui-text-secondary xui-padding-left-small">18</span></span></button></li><li class="xui-pickitem" role="treeitem" tabindex="-1" ><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-u-flex-inherit"><span class="xui-u-flex-1 xui-text-truncated">Sent</span><span class="xui-text-secondary xui-padding-left-small">3</span></span></button></li><li class="xui-pickitem" role="treeitem" tabindex="-1" ><button type="button" class="xui-pickitem--body"><span class="xui-pickitem--text xui-u-flex-inherit"><span class="xui-u-flex-1 xui-text-truncated">Paid</span><span class="xui-text-secondary xui-padding-left-small">42</span></span></button></li></ul>'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with avatars',
+		componentType: 'markupOnly',
+		markup: '<ul class="xui-picklist xui-picklist-layout" role="tree"><li class="xui-pickitem" role="treeitem"><button type="button" class="xui-pickitem--body"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-8 xui-margin-right">JM</abbr><span class="xui-pickitem--text xui-text-truncated">James Magness</span></button></li><li class="xui-pickitem" role="treeitem"><button type="button" class="xui-pickitem--body"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-5 xui-margin-right">KH</abbr><span class="xui-pickitem--text xui-text-truncated">Kirk Holloway</span></button></li><li class="xui-pickitem" role="treeitem"><button type="button" class="xui-pickitem--body"><abbr class="xui-avatar xui-avatar-small xui-avatar-color-2 xui-margin-right">FP</abbr><span class="xui-pickitem--text xui-text-truncated">Fay Pickering</span></button></li></ul'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with an icon',
+		componentType: 'XUIIcon'
 	}
 ];
 

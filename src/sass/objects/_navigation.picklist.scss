@@ -133,7 +133,7 @@
 // Markup:
 // <div class='xui-panel'>
 //   <ul class="xui-picklist xui-picklist-layout" role="tree" aria-labelledby="recent">
-//     <li id="recent" class="xui-margin-vertical-xsmall xui-margin-horizontal-large xui-text-minor xui-text-truncated">
+//     <li id="recent" class="xui-margin-vertical-xsmall xui-padding-horizontal-large xui-text-minor xui-text-truncated">
 //       Recent
 //     </li>
 //     <li class="xui-pickitem" role="treeitem">
@@ -159,7 +159,7 @@
 //     </li>
 //   </ul>
 //   <ul class="xui-picklist xui-picklist-layout" role="tree" aria-labelledby="all">
-//     <li id="all" class="xui-margin-vertical-xsmall xui-margin-horizontal-large xui-text-minor xui-text-truncated">
+//     <li id="all" class="xui-margin-vertical-xsmall xui-padding-horizontal-large xui-text-minor xui-text-truncated">
 //       All
 //     </li>
 //     <li class="xui-pickitem" role="treeitem">
@@ -322,46 +322,40 @@
 //
 // Classes:
 // xui-pickitem--input: Apply to the checkbox
-// xui-pickitem--multiselect-label: Apply to pickitem text
+// xui-pickitem-multiselect--label: Apply to pickitem text
 //
 // Markup:
 // <div class='xui-panel'>
 // 	<ul class="xui-picklist xui-picklist-layout" role="group">
-// 		<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 		<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 			<div class="xui-pickitem--body">
-// 				<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="discount">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="discount">
 // 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="discount">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label">
-// 						<span class="xui-pickitem--multiselect-label">
-// 							Discount
-// 						</span>
+// 					<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+//						<span>Discount</span>
 // 					</span>
 // 				</label>
 // 			</div>
 // 		</li>
-// 		<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 		<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 			<div class="xui-pickitem--body">
-// 				<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="reference">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="reference">
 // 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="reference">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label">
-// 						<span class="xui-pickitem--multiselect-label">
-// 							Reference
-// 						</span>
+// 					<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+//						<span>Reference</span>
 // 					</span>
 // 				</label>
 // 			</div>
 // 		</li>
-// 		<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 		<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 			<div class="xui-pickitem--body">
-// 				<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="quantity">
+// 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="quantity">
 // 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="quantity">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label">
-// 						<span class="xui-pickitem--multiselect-label">
-// 							Quantity
-// 						</span>
+// 					<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+//						<span>Quantity</span>
 // 					</span>
 // 				</label>
 // 			</div>
@@ -502,23 +496,23 @@
 // Do: If the parent pickitem can be selected separately from it's children, the row selects it, and a separate control toggles visibility of children pickitems
 //
 // Classes:
-// xui-pickitem--split: Add to pickitem
+// xui-pickitem-split: Add to pickitem
 //
 // Markup:
 // <div class="xui-panel">
 // 	<ul class="xui-picklist xui-picklist-layout" role="tree">
 // 		<li class="xui-picklist--nestedcontainer" role="treeitem" aria-expanded="false">
 // 			<input id="split-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" tabindex="-1"/>
-// 			<div class="xui-pickitem xui-pickitem--split">
-// 				<label for='parent' class="xui-pickitem--body xui-styledcheckboxradio" tabindex="-1">
-// 					<input id='parent' type="checkbox" class="xui-styledcheckboxradio--input checked" tabindex="-1" checked/>
-// 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 					<span class="xui-styledcheckboxradio--label">
-// 						<span class="xui-pickitem--multiselect-label">
-// 							Staff
+// 			<div class="xui-pickitem xui-pickitem-multiselect xui-pickitem-split" id="splitTrigger">
+// 				<div class="xui-pickitem--body">
+// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio">
+// 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input checked" tabindex="-1" checked>
+// 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
+// 						<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+// 							<span>Staff</span>
 // 						</span>
-// 					</span>
-// 				</label>
+// 					</label>
+// 				</div>
 // 			</div>
 // 		<label for="split-checkbox" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
 // 			<svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
@@ -526,41 +520,35 @@
 // 			</svg>
 // 		</label>
 // 		<ul id="split" class="xui-submenu xui-submenu-layout" role="group">
-// 			<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 			<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 				<div class="xui-pickitem--body">
-// 					<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="kirk">
+// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="kirk">
 // 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="kirk">
 // 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 						<span class="xui-styledcheckboxradio--label">
-// 							<span class="xui-pickitem--multiselect-label">
-// 								Kirk Holloway
-// 							</span>
+// 						<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+// 							<span>Kirk Holloway</span>
 // 						</span>
 // 					</label>
 // 				</div>
 // 			</li>
-// 			<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 			<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 				<div class="xui-pickitem--body">
-// 					<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="isaac">
+// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="isaac">
 // 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="isaac">
 // 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 						<span class="xui-styledcheckboxradio--label">
-// 							<span class="xui-pickitem--multiselect-label">
-// 								Isaac Minogue
-// 							</span>
+// 						<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+// 							<span>Isaac Minogue</span>
 // 						</span>
 // 					</label>
 // 				</div>
 // 			</li>
-// 			<li class="xui-pickitem xui-pickitem--multiselect" role="option">
+// 			<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 				<div class="xui-pickitem--body">
-// 					<label class="xui-pickitem--multiselect-checkbox xui-styledcheckboxradio" for="tim">
+// 					<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="tim">
 // 						<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="tim">
 // 						<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
-// 						<span class="xui-styledcheckboxradio--label">
-// 							<span class="xui-pickitem--multiselect-label">
-// 								Tim Redmond
-// 							</span>
+// 						<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
+// 							<span>Tim Redmond</span>
 // 						</span>
 // 					</label>
 // 				</div>
@@ -654,6 +642,7 @@
 	padding-bottom: 10px;
 	padding-right: 20px;
 	padding-top: 10px;
+	width: 100%;
 }
 
 .#{$ns}-pickitem-is-hovered {
@@ -679,7 +668,8 @@
 	}
 }
 
-.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect) > .#{$ns}-pickitem--body {
+.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect):not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body {
+	// TODO: remove the old portion of this selector
 	color: $xui-color-xero-blue;
 
 	&::before {
@@ -699,7 +689,8 @@
 	display: flex;
 	flex-wrap: wrap;
 
-	> .#{$ns}-pickitem--split {
+	> .#{$ns}-pickitem--split, // TODO: remove this old selector
+	> .#{$ns}-pickitem-split {
 		border-right: 1px solid rgba(50, 70, 90, 0.1);
 	}
 }
@@ -724,7 +715,9 @@
 		padding: $xui-s-small $xui-s-standard;
 		text-align: center;
 	}
-	.#{$ns}-pickitem-is-selected {
+	.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect):not(.#{$ns}-pickitem-multiselect) {
+		// TODO: remove the :not portion of this selector, once the other select state selector is updated.
+		// This selector shouldn't need to be so strong.
 		.#{$ns}-pickitem--body:before {
 			border-bottom: 3px solid currentColor;
 			/* Remove default left border */
@@ -748,7 +741,8 @@
 		padding-left: $xui-s-5xlarge + $xui-s-5xlarge + $xui-s-xsmall;
 	}
 
-	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-checkbox {
+	.#{$ns}-pickitem--body .#{$ns}-pickitem--multiselect-checkbox, // TODO: remove this old selector
+	.#{$ns}-pickitem--body .#{$ns}-pickitem-multiselect--checkbox {
 		padding-left: $xui-s-large;
 	}
 
@@ -796,7 +790,8 @@
 
 	&:checked {
 
-		& + .#{$ns}-pickitem--split .#{$ns}-submenu-uicontrol--icon {
+		& + .#{$ns}-pickitem--split .#{$ns}-submenu-uicontrol--icon, // TODO: remove this old selector
+		& + .#{$ns}-pickitem-split .#{$ns}-submenu-uicontrol--icon {
 			transform: rotate(180deg);
 		}
 
@@ -818,7 +813,8 @@
 }
 
 
-.#{$ns}-pickitem--split {
+.#{$ns}-pickitem--split, // TODO: remove this old selector
+.#{$ns}-pickitem-split {
 	align-items: stretch;
 	display: flex;
 	flex-flow: row nowrap;
@@ -858,16 +854,32 @@
 	margin-top: $xui-s-small;
 }
 
-.#{$ns}-pickitem--multiselect-label {
-	padding: 0 $xui-s-large 0 ($xui-s-3xlarge + 2);
+.#{$ns}-pickitem--multiselect-label, // TODO: remove this old selector
+.#{$ns}-pickitem-multiselect--label {
 	width: 100%;
 }
+.#{$ns}-pickitem--multiselect-checkbox, // TODO: remove this old selector
+.#{$ns}-pickitem-multiselect--checkbox {
+	min-width: 0;
+}
 
-.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label {
+.#{$ns}-pickitem--multiselect .#{$ns}-styledcheckboxradio--label, // TODO: remove this old selector
+.#{$ns}-pickitem-multiselect .#{$ns}-styledcheckboxradio--label {
 	min-width: 0;
 	padding-bottom: $xui-s-small;
 	padding-left: 0;
 	padding-right: $xui-s-large;
 	padding-top: $xui-s-small;
 	width: 100%;
+}
+
+.#{$ns}-pickitem--icon {
+	display: inline;
+	margin: 0 15px;
+	position: absolute;
+	top: 4px;
+}
+
+.#{$ns}-pickitem--icon ~ .#{$ns}-pickitem--body {
+	padding-left: $xui-s-6xlarge;
 }

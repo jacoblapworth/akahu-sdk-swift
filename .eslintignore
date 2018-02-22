@@ -2,6 +2,7 @@ node_modules
 react/*
 docs/*
 kss
+src/sass
 src/components/icon
 umd/assets
 coverage/*

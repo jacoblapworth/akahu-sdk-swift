@@ -32,7 +32,8 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'XUI Avatar',
-		variationsPath: '../src/react/components/avatar/stories/variations.js'
+		variationsPath: '../src/react/components/avatar/stories/variations.js',
+		delay: 500
 	},
 	{
 		testsPrefix: 'XUI Banner',

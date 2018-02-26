@@ -48,7 +48,7 @@ exports[`<XUIAutocompleterInput /> should include the default layout classes by 
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -75,7 +75,7 @@ exports[`<XUIAutocompleterInput /> should include the default layout classes whe
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -102,7 +102,7 @@ exports[`<XUIAutocompleterInput /> should render an automationid when passed a q
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -129,7 +129,7 @@ exports[`<XUIAutocompleterInput /> should render an id on the root node when pas
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -156,7 +156,7 @@ exports[`<XUIAutocompleterInput /> should render extra classes on the container 
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -183,7 +183,7 @@ exports[`<XUIAutocompleterInput /> should render extra classes when passed a val
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -210,7 +210,7 @@ exports[`<XUIAutocompleterInput /> should render the placeholder inside a custom
     placeholder="test-placeholder"
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -240,7 +240,7 @@ exports[`<XUIAutocompleterInput /> should spread ariaAttributes on the input ele
     readOnly={false}
     role="searchbox"
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"
@@ -282,7 +282,7 @@ exports[`<XUIAutocompleterInput /> should spread iconAttributes on the icon elem
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
 </div>
 `;
@@ -306,7 +306,7 @@ exports[`<XUIAutocompleterInput /> shouldn't include the default layout classes 
     placeholder={undefined}
     readOnly={false}
     type="search"
-    value={undefined}
+    value=""
   />
   <span
     className="xui-autocompleter--placeholder"

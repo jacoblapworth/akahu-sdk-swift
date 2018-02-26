@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RolloverCheckbox allows for a user defined rollover component to be passed 1`] = `
+exports[`XUIRolloverCheckbox allows for a user defined rollover component to be passed 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -48,7 +48,7 @@ exports[`RolloverCheckbox allows for a user defined rollover component to be pas
 </div>
 `;
 
-exports[`RolloverCheckbox displays the checkbox when it's set to be shown 1`] = `
+exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -94,7 +94,7 @@ exports[`RolloverCheckbox displays the checkbox when it's set to be shown 1`] = 
 </div>
 `;
 
-exports[`RolloverCheckbox doesn't display the checkbox when it's set to hidden 1`] = `
+exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidden 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -140,7 +140,7 @@ exports[`RolloverCheckbox doesn't display the checkbox when it's set to hidden 1
 </div>
 `;
 
-exports[`RolloverCheckbox include an automation-id 1`] = `
+exports[`XUIRolloverCheckbox include an automation-id 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid="test-rollovercheckbox"
@@ -184,7 +184,7 @@ exports[`RolloverCheckbox include an automation-id 1`] = `
 </div>
 `;
 
-exports[`RolloverCheckbox renders a variety of sizes will be a large size when passed in the size prop 1`] = `
+exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size when passed in the size prop 1`] = `
 <div
   className="xui-rollovercheckbox--target xui-rollovercheckbox-large"
   data-automationid={undefined}
@@ -230,7 +230,7 @@ exports[`RolloverCheckbox renders a variety of sizes will be a large size when p
 </div>
 `;
 
-exports[`RolloverCheckbox renders a variety of sizes will be a small size when passed in the size prop 1`] = `
+exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size when passed in the size prop 1`] = `
 <div
   className="xui-rollovercheckbox--target xui-rollovercheckbox-small"
   data-automationid={undefined}
@@ -276,7 +276,7 @@ exports[`RolloverCheckbox renders a variety of sizes will be a small size when p
 </div>
 `;
 
-exports[`RolloverCheckbox renders a variety of sizes will be a xlarge size when passed in the size prop 1`] = `
+exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size when passed in the size prop 1`] = `
 <div
   className="xui-rollovercheckbox--target xui-rollovercheckbox-xlarge"
   data-automationid={undefined}
@@ -322,7 +322,7 @@ exports[`RolloverCheckbox renders a variety of sizes will be a xlarge size when 
 </div>
 `;
 
-exports[`RolloverCheckbox renders a variety of sizes will be display the standard size when medium is set on the size prop. 1`] = `
+exports[`XUIRolloverCheckbox renders a variety of sizes will be display the standard size when medium is set on the size prop. 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -368,7 +368,7 @@ exports[`RolloverCheckbox renders a variety of sizes will be display the standar
 </div>
 `;
 
-exports[`RolloverCheckbox renders an id on teh root node when passed 1`] = `
+exports[`XUIRolloverCheckbox renders an id on teh root node when passed 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -414,7 +414,7 @@ exports[`RolloverCheckbox renders an id on teh root node when passed 1`] = `
 </div>
 `;
 
-exports[`RolloverCheckbox renders checked when specified 1`] = `
+exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -460,7 +460,7 @@ exports[`RolloverCheckbox renders checked when specified 1`] = `
 </div>
 `;
 
-exports[`RolloverCheckbox renders correctly 1`] = `
+exports[`XUIRolloverCheckbox renders correctly 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -504,7 +504,7 @@ exports[`RolloverCheckbox renders correctly 1`] = `
 </div>
 `;
 
-exports[`RolloverCheckbox renders unchecked when specified 1`] = `
+exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -550,7 +550,7 @@ exports[`RolloverCheckbox renders unchecked when specified 1`] = `
 </div>
 `;
 
-exports[`RolloverCheckbox should render the disabled classes and a disabled checkbox when isDisabled prop is true 1`] = `
+exports[`XUIRolloverCheckbox should render the disabled classes and a disabled checkbox when isDisabled prop is true 1`] = `
 <div
   className="xui-rollovercheckbox--target xui-rollovercheckbox--target-disabled"
   data-automationid={undefined}
@@ -596,7 +596,7 @@ exports[`RolloverCheckbox should render the disabled classes and a disabled chec
 </div>
 `;
 
-exports[`RolloverCheckbox shouldn't render the disabled classes and a disabled checkbox by default 1`] = `
+exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disabled checkbox by default 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -642,7 +642,7 @@ exports[`RolloverCheckbox shouldn't render the disabled classes and a disabled c
 </div>
 `;
 
-exports[`RolloverCheckbox shouldn't render the disabled classes or a disabled checkbox when isDisabled prop is false 1`] = `
+exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled checkbox when isDisabled prop is false 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}

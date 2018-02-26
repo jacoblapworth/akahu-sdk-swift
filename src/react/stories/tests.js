@@ -5,7 +5,8 @@ const storyNames = {
 	dropDownInModal: 'Dropdown in a modal',
 	multiDropDowns: 'Multiple dropdowns in a modal',
 	formOnAPage: 'Form on a page',
-	formLayout: 'Form layout'
+	formLayout: 'Form layout',
+	inifiniteStatefulPicklist: 'Infinite JS errors in StatefulPicklist render'
 };
 
 const variations = [];
@@ -18,7 +19,6 @@ Object.keys(storyNames).forEach(name => {
 		}
 	);
 });
-
 
 module.exports = {
 	variations,

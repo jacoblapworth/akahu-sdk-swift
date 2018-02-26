@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "13.0.0",
+  "version": "13.0.2",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -127,6 +127,7 @@
     "jest": "21.2.1",
     "jest-teamcity-reporter": "0.7.0",
     "kss": "3.0.0-beta.18",
+    "lint-staged": "6.1.1",
     "load-grunt-config": "0.19.2",
     "load-grunt-tasks": "3.5.2",
     "marked": "0.3.6",

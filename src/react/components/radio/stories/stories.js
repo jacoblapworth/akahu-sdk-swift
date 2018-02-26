@@ -29,12 +29,13 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
-		const variationMinusStoryDetails = { ...variation };
-		const isGroup = variationMinusStoryDetails.isGroup;
-		const isSeries = variationMinusStoryDetails.isSeries;
-		variationMinusStoryDetails.storyKind = undefined;
-		variationMinusStoryDetails.storyTitle = undefined;
-		variationMinusStoryDetails.isGroup = undefined;
+
+		const {isGroup, isSeries} = variation;
+		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
+
+		// Remove story-specific properties
+		const radioProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
+
 		if (isGroup) {
 			return <XUIRadioGroup>
 				<XUIRadio key="r0-1" isChecked={true} name="rg0">Medium radio label goes here</XUIRadio>
@@ -48,7 +49,7 @@ variations.forEach(variation => {
 				<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
 			</div>
 		} else {
-			return <XUIRadio {...variationMinusStoryDetails}>Test radio</XUIRadio>;
+			return <XUIRadio {...radioProps}>{labelText}</XUIRadio>;
 		}
 	});
 });

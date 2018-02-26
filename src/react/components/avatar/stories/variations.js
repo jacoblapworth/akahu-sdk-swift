@@ -29,6 +29,11 @@ const avatarVariations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with broken image, no value or id',
+		imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/kerihenaresnnnn/24.jpg'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'variant business',
 		value: 'business',
 		variant: 'business'

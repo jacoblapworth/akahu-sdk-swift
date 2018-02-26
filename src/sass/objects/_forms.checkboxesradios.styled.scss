@@ -281,11 +281,12 @@
 }
 
 .#{$ns}-styledcheckboxradio--checkbox {
-	align-self: center;
+	align-self: flex-start;
 	background-color: $xui-color-white;
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	cursor: pointer;
+	flex-shrink: 0;
 	height: 19px;
 	margin: 6px 5px 4px 6px;
 	position: relative;
@@ -346,12 +347,13 @@
 }
 
 .#{$ns}-styledcheckboxradio--radio {
-	align-self: center;
+	align-self: flex-start;
 	background-color: $xui-color-white;
 	border: $xui-border-standard;
 	border-radius: 50%;
 	cursor: pointer;
 	display: flex;
+	flex-shrink: 0;
 	height: 19px;
 	justify-content: center;
 	margin: 6px 5px 4px 6px;

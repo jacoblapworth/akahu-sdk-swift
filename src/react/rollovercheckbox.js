@@ -1,3 +1,3 @@
-import RolloverCheckbox from './components/rolloverCheckbox/rolloverCheckbox';
+import XUIRolloverCheckbox from './components/rolloverCheckbox/rolloverCheckbox';
 
-export { RolloverCheckbox as default };
+export { XUIRolloverCheckbox as default };

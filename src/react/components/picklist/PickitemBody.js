@@ -23,8 +23,8 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 					tabIndex={-1}
 					qaHook={qaHook && `${qaHook}--checkbox`}
 					htmlClassName="xui-pickitem--input"
-					className={cn(checkboxClassName, 'xui-pickitem--multiselect-checkbox')}
-					labelClassName="xui-pickitem--multiselect-label"
+					className={cn(checkboxClassName, 'xui-pickitem-multiselect--checkbox')}
+					labelClassName="xui-pickitem-multiselect--label"
 				>
 					<span className={shouldTruncate ? 'xui-text-truncated' : null} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>
 				</XUICheckbox>

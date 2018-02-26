@@ -91,13 +91,10 @@ export default class XUIAutocompleter extends PureComponent {
 		window.removeEventListener('resize', this.scrollInputIntoView);
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		if (this.props.disableWrapPills) {
 			window.addEventListener('resize', this.scrollInputIntoView);
 		}
-	}
-
-	componentDidMount() {
 		this.scrollInputIntoView();
 	}
 

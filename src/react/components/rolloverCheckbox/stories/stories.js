@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components we need to test with
-import RolloverCheckbox from '../rolloverCheckbox';
+import XUIRolloverCheckbox from '../rolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { sizeClassNames } from '../private/constants';
 // Story book things
@@ -16,7 +16,7 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
-	<RolloverCheckbox
+	<XUIRolloverCheckbox
 		isCheckboxHidden={boolean('checkbox hidden', true)}
 		size={select('hit target size', sizeClassNames, 'medium')}
 		isChecked={boolean('checked', false)}
@@ -34,6 +34,6 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 
-		return <RolloverCheckbox rolloverComponent={<XUIAvatar value="abc" />} {...variationMinusStoryDetails}/>
+		return <XUIRolloverCheckbox rolloverComponent={<XUIAvatar value="abc" />} {...variationMinusStoryDetails}/>
 	});
 });

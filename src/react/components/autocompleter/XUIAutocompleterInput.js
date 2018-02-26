@@ -69,7 +69,7 @@ export default class XUIAutocompleterInput extends Component {
 			type: 'search',
 			placeholder: props.placeholder,
 			maxLength: props.maxLength,
-			value: this.state.value,
+			value: this.state.value || "", // Default to an empty string so the 'value' attr renders, displaying placeholder.
 			onKeyPress: props.onKeyPress,
 			onKeyDown: props.onKeyDown,
 			onFocus: props.onFocus,

@@ -42,16 +42,17 @@ export default class XUIAvatar extends PureComponent {
 			className,
 			classNames.base,
 			sizeClassNames[size],
-			variantClassNames[variant],
-			imageUrl ? null : getAvatarColorClass(identifier || value)
+			variantClassNames[variant]
 		);
-
-		const displayValue = abbreviateAvatar(value, variant === 'business' ? 3 : 2);
-
-		return !imageError && imageUrl ? (
+		return imageUrl && !imageError ? (
 			<img onError={this.onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>
 		) : (
-			<abbr data-automationid={qaHook} className={avatarClassNames} role="presentation">{displayValue}</abbr>
+			<abbr
+				data-automationid={qaHook}
+				className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl))} role="presentation"
+			>
+				{abbreviateAvatar(value, variant === 'business' ? 3 : 2)}
+			</abbr>
 		);
 
 	}

@@ -1,6 +1,5 @@
 // Libs
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 // Components we need to test with
 import XUICheckbox from '../XUICheckbox';
@@ -17,22 +16,8 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 
-class DetailedCheckbox extends Component {
-	render() {
-		return (
-			<XUICheckbox {...this.props}>
-				{this.props.label}
-			</XUICheckbox>
-		)
-	}
-}
-
-DetailedCheckbox.propTypes = {
-	label: PropTypes.string
-}
-
 storiesWithKnobs.add('Playground', () => (
-	<DetailedCheckbox
+	<XUICheckbox
 		className={text('className', '')}
 		labelClassName={text('className', '')}
 		isLabelHidden={boolean('label hidden', false)}
@@ -42,7 +27,7 @@ storiesWithKnobs.add('Playground', () => (
 		isReversed={boolean('reversed', false)}
 		value={text('value', '')}
 		label={text('label', 'A Useful Label')}
-	/>
+	>{text('label text', 'Test checkbox')}</XUICheckbox>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -50,33 +35,33 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {
-		const variationMinusStoryDetails = { ...variation };
-		const { isGroup } = variationMinusStoryDetails;
-		variationMinusStoryDetails.storyKind = undefined;
-		variationMinusStoryDetails.storyTitle = undefined;
-		
+		const { isGroup } = variation;
+		const labelText = typeof variation.labelText === 'string' ? variation.labelText : "Test radio";
+
+		// Remove story-specific properties
+		const checkboxProps = { ...variation, storyKind: undefined, storyTitle: undefined, isGroup: undefined, labelText: undefined };
+
 		if(isGroup){
 			return (
 				<XUICheckboxGroup>
-					<DetailedCheckbox 
-						isChecked={true}
-						label="Kakapo"
-					/>
-					<DetailedCheckbox 
-						label="Weka"
-					/>
-					<DetailedCheckbox 
-						isDisabled={true}
-						label="Kea"
-					/>
-					<DetailedCheckbox 
-						label="Kiwi"
-					/>
-
+					<XUICheckbox isChecked={true}>
+						Kakapo
+					</XUICheckbox>
+					<XUICheckbox>
+						Weka
+					</XUICheckbox>
+					<XUICheckbox isDisabled={true}>
+						Kea
+					</XUICheckbox>
+					<XUICheckbox>
+						Kiwi
+					</XUICheckbox>
 				</XUICheckboxGroup>
 			);
 		}
 
-		return <DetailedCheckbox {...variationMinusStoryDetails} />
+		return (
+			<XUICheckbox	{...checkboxProps}>{labelText}</XUICheckbox>
+		)
 	});
 });

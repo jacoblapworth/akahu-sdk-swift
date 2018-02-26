@@ -42,7 +42,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -148,7 +148,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -201,7 +201,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -254,7 +254,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -307,7 +307,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
           placeholder="Search"
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -362,7 +362,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -415,7 +415,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"
@@ -468,7 +468,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
           placeholder={undefined}
           readOnly={false}
           type="search"
-          value={undefined}
+          value=""
         />
         <span
           className="xui-autocompleter--placeholder"

@@ -19,17 +19,11 @@ import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 export default class DropDown extends PureComponent {
 	constructor(props) {
 		super(props);
-
-		const { isHidden, restrictFocus } = this.props
-
 		this.dropdownId = props.id || uuidv4();
-		this.onKeyDown = this.onKeyDown.bind(this);
-		this.onHighlightChange = this.onHighlightChange.bind(this);
-		this.highlightItem = this.highlightItem.bind(this);
-		this.lockScroll = this.lockScroll.bind(this);
-		this.unlockScroll = this.unlockScroll.bind(this);
-		this._restrictFocus = this._restrictFocus.bind(this);
+	}
 
+	componentDidMount() {
+		const { isHidden, restrictFocus } = this.props;
 		if (!isHidden && restrictFocus) {
 			window.addEventListener('focus', this._restrictFocus, true);
 		}
@@ -73,17 +67,17 @@ export default class DropDown extends PureComponent {
 	 * @param {KeyboardEvent} event
 	 * @memberof DropDown
 	 */
-	onKeyDown(event) {
+	onKeyDown = event => {
 		if (this.panel != null) {
 			this.panel.onKeyDown(event);
 		}
-	}
+	};
 
 	keyDownHandler = event => {
 		if (typeof this.props.onKeyDown === 'function') {
 			this.props.onKeyDown(event);
 		}
-	}
+	};
 
 	// TODO: This should be extracted into a separate consumable when we figure out how to do tab key management
 	/**
@@ -91,7 +85,7 @@ export default class DropDown extends PureComponent {
 	 * @param {Object} event - A focus change event which is set to be listened to by the window
 	 * Limits the focusable elements to those within the dropdown
 	 **/
-	_restrictFocus(event) {
+	_restrictFocus = event => {
 		const dropdown = this;
 		if (dropdown.panel != null && dropdown.panel.rootNode != null) {
 			const rootNode = dropdown.panel.rootNode;
@@ -101,15 +95,15 @@ export default class DropDown extends PureComponent {
 				rootNode.focus();
 			}
 		}
-	}
+	};
 
-	onHighlightChange(item) {
+	onHighlightChange = item => {
 		const dropdown = this;
 		if (item != null) {
 			dropdown.panel.scrollIdIntoView(item.props.id);
 			dropdown.props.onHighlightChange && dropdown.props.onHighlightChange(item);
 		}
-	}
+	};
 
 	/**
 	 * Highlight a specific React element in the DropDown list.
@@ -119,9 +113,9 @@ export default class DropDown extends PureComponent {
 	 * @param {UIEvent} event
 	 * @memberof DropDown
 	 */
-	highlightItem(item, event) {
+	highlightItem = (item, event) => {
 		this.panel.highlightItem(item, event);
-	}
+	};
 
 	/**
 	 * Used to highlight an item immediately after a dropdown opens.
@@ -129,7 +123,7 @@ export default class DropDown extends PureComponent {
 	 * @public
 	 * @memberof DropDownPanel
 	 */
-	highlightInitial() {
+	highlightInitial = () => {
 		if (this.panel != null) {
 			this.panel.highlightInitial();
 			const highlightedId = this.panel.getHighlightedId();
@@ -137,15 +131,15 @@ export default class DropDown extends PureComponent {
 				this.panel.scrollIdIntoView(highlightedId);
 			}
 		}
-	}
+	};
 
-	unlockScroll() {
+	unlockScroll = () => {
 		unlockScroll();
-	}
+	};
 
-	lockScroll() {
+	lockScroll = () => {
 		lockScroll()
-	}
+	};
 
 	render() {
 		const {

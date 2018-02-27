@@ -89,15 +89,6 @@ export default class DropDownToggled extends PureComponent {
 			isOpening: false,
 			isClosing: false,
 		};
-
-		this.repositionDropDown = this.repositionDropDown.bind(this);
-		this.closeDropDown = this.closeDropDown.bind(this);
-		this.openDropDown = this.openDropDown.bind(this);
-		this.toggle = this.toggle.bind(this);
-		this.isDropDownOpen = this.isDropDownOpen.bind(this);
-
-		this.onResize = debounce(this.onResize, 250);
-		this.onScroll = throttleToFrame(this.repositionDropDown);
 	}
 
 	/**
@@ -109,6 +100,9 @@ export default class DropDownToggled extends PureComponent {
 			addEventListeners(this);
 			this.forceUpdate();
 		}
+
+		this.onResize = debounce(this.onResize, 250);
+		this.onScroll = throttleToFrame(this.repositionDropDown);
 	}
 
 	/**
@@ -209,27 +203,27 @@ export default class DropDownToggled extends PureComponent {
 	 *
 	 * @public
 	 */
-	openDropDown() {
+	openDropDown = () => {
 		this.setState(() => ({
 			isHidden: false,
 			isOpening: false,
 			isNarrowViewport: isNarrowViewport(),
 		}));
-	}
+	};
 
 	/**
 	 * Hide the dropdown
 	 *
 	 * @public
 	 */
-	closeDropDown() {
+	closeDropDown = () => {
 		this.setState(() => {
 			return {
 				isHidden: !shouldAnimate(this),
 				isClosing: shouldAnimate(this),
 			};
 		});
-	}
+	};
 
 	/**
 	 * Determine if the dropdown is currently open.
@@ -237,18 +231,18 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 * @returns {Boolean}
 	 */
-	isDropDownOpen(){
+	isDropDownOpen = () => {
 		return !this.state.isHidden;
-	}
+	};
 
 	/**
 	 * A convenience method to toggle the visibility of the dropdown.
 	 *
 	 * @public
 	 */
-	toggle() {
+	toggle = () => {
 		this.state.isHidden ? this.openDropDown() : this.closeDropDown();
-	}
+	};
 
 	/**
 	 * If user clicks on the trigger, we may want to open and/or toggle the dropdown.
@@ -265,7 +259,7 @@ export default class DropDownToggled extends PureComponent {
 				this.openDropDown();
 				break;
 		}
-	}
+	};
 
 	/**
 	 * Will close the list if either esc or tab keys are pressed on keydown.
@@ -280,7 +274,7 @@ export default class DropDownToggled extends PureComponent {
 				this.closeDropDown();
 			}
 		}
-	}
+	};
 
 	/**
 	 * Will close the dropdown if the esc key is pressed within the dropdown.
@@ -293,7 +287,7 @@ export default class DropDownToggled extends PureComponent {
 				this.closeDropDown();
 			}
 		}
-	}
+	};
 
 	/**
 	 * Will open the list if the down arrow is pressed on keydown.
@@ -305,7 +299,7 @@ export default class DropDownToggled extends PureComponent {
 			event.preventDefault();
 			this.openDropDown();
 		}
-	}
+	};
 
 	/**
 	 * Fires when the window triggers a mouse down event
@@ -333,7 +327,7 @@ export default class DropDownToggled extends PureComponent {
 			ddt.closeDropDown();
 		}
 
-	}
+	};
 
 	/**
 	 * Sets the activeDescendant state to be the id of the item selected so this can be set in
@@ -350,7 +344,7 @@ export default class DropDownToggled extends PureComponent {
 		if (this.props.closeOnSelect) {
 			this.closeDropDown();
 		}
-	}
+	};
 
 	/**
 	 * Ensures that the activeDescendant aria attribute changes on the trigger when the highlighted element changes.
@@ -361,7 +355,7 @@ export default class DropDownToggled extends PureComponent {
 		this.setState({
 			activeDescendant: item.props.id
 		});
-	}
+	};
 
 	/**
 	 * Will fire when the animation is complete on the dropdown so we can tell the portal
@@ -372,7 +366,7 @@ export default class DropDownToggled extends PureComponent {
 			isClosing: false,
 			isHidden: true,
 		}));
-	}
+	};
 
 	/**
 	 * When the opening animation finishes, we need to remove the class that causes it
@@ -390,7 +384,7 @@ export default class DropDownToggled extends PureComponent {
 		if (this.props.onOpenAnimationEnd != null) {
 			this.props.onOpenAnimationEnd();
 		}
-	}
+	};
 
 	/**
 	 * When the browser resizes in desktop mode, we need to do a couple of things to
@@ -410,7 +404,7 @@ export default class DropDownToggled extends PureComponent {
 			}
 			return { isNarrowViewport: isNarrow };
 		});
-	}
+	};
 
 	/**
 	 * Force the dropdown to reposition itself relative to the current position of the trigger.
@@ -418,14 +412,14 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 * @memberof DropDownToggled
 	 */
-	repositionDropDown() {
+	repositionDropDown = () => {
 		if (this.positioning != null) {
 			if (this.props.restrictToViewPort) {
 				this.positioning.calculateMaxHeight();
 			}
 			this.positioning.positionComponent();
 		}
-	}
+	};
 
 	render() {
 		const ddt = this;

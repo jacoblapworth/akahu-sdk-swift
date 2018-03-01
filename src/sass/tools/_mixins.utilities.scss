@@ -35,3 +35,12 @@
 	white-space: nowrap !important; // See https://css-tricks.com/beware-smushed-off-screen-accessible-text/
 	width: 1px !important;
 }
+
+// Conditionally expose styles when CSS Grid is supported. Great for creating
+// legacy browser fallbacks.
+@mixin xui-suports-css-grid() {
+
+	@supports (display: grid) {
+		@content;
+	}
+}

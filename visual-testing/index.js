@@ -27,8 +27,7 @@ const fullPageSettings = {
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Autocompleter',
-		variationsPath:
-			'../src/react/components/autocompleter/stories/variations.js',
+		variationsPath: '../src/react/components/autocompleter/stories/variations.js',
 		...fullPageSettings
 	},
 	{
@@ -115,6 +114,11 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/switch/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Stepper',
+		variationsPath: '../src/react/components/stepper/stories/variations.js',
+		delay: 500
+	},
+	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
 	},
@@ -132,9 +136,20 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/toggle/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Tooltip',
+		variationsPath: '../src/react/components/tooltip/stories/variations.js',
+		selectors: '#root > div > div > div',
+		delay: 1000
+	},
+	{
 		testsPrefix: 'Compositions',
 		variationsPath: '../src/react/stories/tests.js',
 		delay: 1500,
+		...fullPageSettings
+	},
+	{
+		testsPrefix: 'Page Layouts',
+		variationsPath: '../src/react/page-layouts/tests.js',
 		...fullPageSettings
 	}
 ];
@@ -155,6 +170,7 @@ function buildUrl(kind, story) {
 function buildScenarios() {
 	let scenarios = [];
 	componentsToTest.forEach(component => {
+		const {delay, hoverSelector, postInteractionWait} = component;
 		const variationsFile = require(component.variationsPath);
 		const variations =
 			variationsFile &&
@@ -166,7 +182,8 @@ function buildScenarios() {
 					url: buildUrl(story.storyKind, story.storyTitle),
 					selectors: [component.selectors || '#root > div > div'],
 					misMatchThreshold: component.misMatchThreshold || 0.6,
-					selectorExpansion: component.captureAllSelectors
+					selectorExpansion: component.captureAllSelectors,
+					delay
 				};
 			})
 		);

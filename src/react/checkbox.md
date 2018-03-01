@@ -20,7 +20,7 @@ It can be used as an uncontrolled component by omitting `isChecked` and (optiona
 	<div>
 		<XUICheckbox isChecked={false}>Unchecked</XUICheckbox>
 		<XUICheckbox isChecked>Checked</XUICheckbox>
-		<XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
+		<XUICheckbox isChecked={false} isIndeterminate>Indeterminate</XUICheckbox>
 	</div>
 ```
 
@@ -30,7 +30,7 @@ It can be used as an uncontrolled component by omitting `isChecked` and (optiona
 <div>
 	<XUICheckbox isDisabled>Unchecked</XUICheckbox>
 	<XUICheckbox isDisabled isChecked>Checked</XUICheckbox>
-	<XUICheckbox isDisabled isIndeterminate>Indeterminate</XUICheckbox>
+	<XUICheckbox isDisabled isChecked={false} isIndeterminate>Indeterminate</XUICheckbox>
 </div>
 ```
 
@@ -42,7 +42,7 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 <div>
 	<XUICheckbox isReversed isChecked={false}>Unchecked</XUICheckbox>
 	<XUICheckbox isReversed isChecked>Checked</XUICheckbox>
-	<XUICheckbox isReversed isIndeterminate>Indeterminate</XUICheckbox>
+	<XUICheckbox isReversed isChecked={false} isIndeterminate>Indeterminate</XUICheckbox>
 </div>
 ```
 

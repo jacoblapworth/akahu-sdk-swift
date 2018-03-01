@@ -406,8 +406,8 @@ $kss-color-padding: #eeebff;
 	border: 1px solid $xui-color-violet;
 	padding: $xui-s-standard;
 
-	&.xui-u-flex-verticallycentered {
-		min-height: 200px;
+	&[class*='xui-u-flex-align'] {
+		height: 200px;
 	}
 	&:nth-child(n+2) {
 		margin-top: $xui-s-standard;
@@ -415,7 +415,7 @@ $kss-color-padding: #eeebff;
 	> * {
 		background: $xui-color-inverted-alpha-3;
 		border: 1px solid $xui-color-violet;
-		height: $xui-s-5xlarge;
+		min-height: $xui-s-5xlarge;
 		width: $xui-s-5xlarge;
 	}
 }

@@ -7,7 +7,7 @@
 
 // Utilities
 //
-// Introduction: Commonly used CSS properties available as classes.
+// Introduction: Commonly used CSS properties available as classes. All utility classes have the `-u-` prefix.
 //
 // Teaser: Helpers for layout, visibility and more.
 //
@@ -32,21 +32,21 @@
 
 // Direction
 //
-// Apply to flex parent.
+// Apply to flex parent. These classes also have a `-narrow`, `-medium` and `-wide` variant.
 //
 // Classes:
-// xui-u-flex-horizontal: Align children horizontally
-// xui-u-flex-vertical: Align children vertically
+// xui-u-flex-row: Align children horizontally
+// xui-u-flex-column: Align children vertically
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-horizontal ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-row ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
 // </div>
-// <div class="xui-u-flex xui-u-flex-vertical ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-column ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
@@ -54,21 +54,21 @@
 //
 // Styleguide: Building Blocks.Utilities.1.2
 
-// Alignment
+// Justifying
 //
-// Apply to flex parent. These are also available as responsive modifiers by appending `-medium` (940px—1160px) or `-wide` (1160px—∞).
+// Apply to flex parent. Each of these classes also has a `-narrow`, `-medium` and `-wide` variant.
 //
 // Classes:
-// xui-u-flex-justify-left: Align children to the start
-// xui-u-flex-justify-center: Align children to the center
-// xui-u-flex-justify-right: Align children to the end
-// xui-u-flex-space-between: Equal space between children
-// xui-u-flex-space-around: Equal space around children
+// xui-u-flex-justify-start: Align children to the start of the primary axis
+// xui-u-flex-justify-center: Align children to the center of the primary axis
+// xui-u-flex-justify-end: Align children to the end of the primary axis
+// xui-u-flex-justify-space-between: Equal space between children
+// xui-u-flex-justify-space-around: Equal space around children
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-justify-left ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-justify-start ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
@@ -78,17 +78,17 @@
 // 	<div></div>
 // 	<div></div>
 // </div>
-// <div class="xui-u-flex xui-u-flex-justify-right ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-justify-end ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
 // </div>
-// <div class="xui-u-flex xui-u-flex-space-between ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-justify-space-between ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
 // </div>
-// <div class="xui-u-flex xui-u-flex-space-around ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-justify-space-around ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
@@ -96,23 +96,35 @@
 //
 // Styleguide: Building Blocks.Utilities.1.3
 
-// Centering
+// Aligning
 //
-// Apply to flex parent.
+// Apply to flex parent. Each of these classes also has a `-narrow`, `-medium` and `-wide` variant.
 //
 // Classes:
-// xui-u-flex-horizontallycentered: Center children on the primary axis
-// xui-u-flex-verticallycentered: Center children on the secondary axis
+// xui-u-flex-align-center: Center children on the secondary axis
+// xui-u-flex-align-start: Align children to the start of the secondary axis
+// xui-u-flex-align-end: Align children to the end of the secondary axis
+// xui-u-flex-align-stretch: Stretch children to fill the space available on the secondary axis
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-horizontallycentered ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-align-center ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
 // </div>
-// <div class="xui-u-flex xui-u-flex-verticallycentered ds-flex-example">
+// <div class="xui-u-flex xui-u-flex-align-start ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-align-end ds-flex-example">
+//  <div></div>
+// 	<div></div>
+// 	<div></div>
+// </div>
+// <div class="xui-u-flex xui-u-flex-align-stretch ds-flex-example">
 //  <div></div>
 // 	<div></div>
 // 	<div></div>
@@ -144,6 +156,17 @@
 //
 // Styleguide: Building Blocks.Utilities.1.5
 
+// Display
+//
+// Set display property of an element
+//
+// Classes:
+// xui-u-display-block: Set display to block
+// xui-u-display-inline-block: Set display to inline-block
+// xui-u-display-inline: Set display to inline
+//
+// Styleguide: Building Blocks.Utilities.2
+
 // Hiding content
 //
 // These classes are based on the method outlined by the [A11Y project](http://a11yproject.com/posts/how-to-hide-content/).
@@ -156,28 +179,28 @@
 // xui-u-hidden-medium: Set display to none between 520px and 940px
 // xui-u-hidden-wide: Set display to none above 940px
 //
-// Styleguide: Building Blocks.Utilities.2
+// Styleguide: Building Blocks.Utilities.3
 
 // Hiding overflow
 //
 // Classes:
 // xui-u-overflow-hidden: To hide overflow and disable scrolling
 //
-// Styleguide: Building Blocks.Utilities.3
+// Styleguide: Building Blocks.Utilities.4
 
 // Full width
 //
 // Classes:
 // xui-u-fullwidth: Set the width of an element to 100% of its parent
 //
-// Styleguide: Building Blocks.Utilities.4
+// Styleguide: Building Blocks.Utilities.5
 
 // Preventing selection
 //
 // Classes:
 // xui-u-noselect: Prevents the browser form highlighting text when dragging or double clicking
 //
-// Styleguide: Building Blocks.Utilities.5
+// Styleguide: Building Blocks.Utilities.6
 
 // Preventing textarea resize
 //
@@ -185,7 +208,7 @@
 // xui-u-resize-vertical: Restrict resizing to vertical direction only
 // xui-u-resize-none: Disable resizing completely
 //
-// Styleguide: Building Blocks.Utilities.6
+// Styleguide: Building Blocks.Utilities.7
 
 // Rotating elements
 //
@@ -194,7 +217,7 @@
 // xui-u-rotate-180: Rotate 180 degrees
 // xui-u-rotate-270: Rotate 270 degrees
 //
-// Styleguide: Building Blocks.Utilities.7
+// Styleguide: Building Blocks.Utilities.8
 
 .#{$ns}-u-flex {
 	display: flex;
@@ -208,23 +231,23 @@
 	flex: none;
 }
 
-.#{$ns}-u-flex-verticallycentered {
+.#{$ns}-u-flex-verticallycentered { // TODO: Remove in XUI 14
 	align-items: center;
 }
 
-.#{$ns}-u-flex-horizontallycentered {
+.#{$ns}-u-flex-horizontallycentered { // TODO: Remove in XUI 14
 	justify-content: center;
 }
 
-.#{$ns}-u-flex-horizontal {
+.#{$ns}-u-flex-horizontal { // TODO: Remove in XUI 14
 	flex-direction: row;
 }
 
-.#{$ns}-u-flex-vertical {
+.#{$ns}-u-flex-vertical { // TODO: Remove in XUI 14
 	flex-direction: column;
 }
 
-.#{$ns}-u-spacebetween { // TODO: Deprecate and remove this class
+.#{$ns}-u-spacebetween { // TODO: Remove in XUI 14
 	justify-content: space-between;
 }
 
@@ -245,70 +268,77 @@
 	width: inherit; // For IE11 and Chrome
 }
 
-// Flex row utilities
-.#{$ns}-u-flex-space-between {
-	justify-content: space-between;
+@mixin make-flex-classes($suffix) {
+	.#{$ns}-u-flex-align-start#{$suffix} {
+		align-items: flex-start;
+	}
+
+	.#{$ns}-u-flex-align-end#{$suffix} {
+		align-items: flex-end;
+	}
+
+	.#{$ns}-u-flex-align-stretch#{$suffix} {
+		align-items: stretch;
+	}
+
+	.#{$ns}-u-flex-align-center#{$suffix} {
+		align-items: center;
+	}
+
+	.#{$ns}-u-flex-row#{$suffix} {
+		flex-direction: row;
+	}
+
+	.#{$ns}-u-flex-column#{$suffix} {
+		flex-direction: column;
+	}
+
+	.#{$ns}-u-flex-space-between#{$suffix},//TODO: Remove in XUI 14
+	.#{$ns}-u-flex-justify-space-between#{$suffix} {
+		justify-content: space-between;
+	}
+
+	.#{$ns}-u-flex-space-around#{$suffix},//TODO: Remove in XUI 14
+	.#{$ns}-u-flex-justify-space-around#{$suffix}{
+		justify-content: space-around;
+	}
+
+	.#{$ns}-u-flex-justify-left#{$suffix},//TODO: Remove in XUI 14
+	.#{$ns}-u-flex-justify-start#{$suffix} {
+		justify-content: flex-start;
+	}
+
+	.#{$ns}-u-flex-justify-right#{$suffix},//TODO: Remove in XUI 14
+	.#{$ns}-u-flex-justify-end#{$suffix} {
+		justify-content: flex-end;
+	}
+
+	.#{$ns}-u-flex-justify-center#{$suffix} {
+		justify-content: center;
+	}
 }
 
-.#{$ns}-u-flex-space-around {
-	justify-content: space-around;
+@include make-flex-classes('');
+@include xui-breakpoint-narrow {
+	@include make-flex-classes('-narrow');
 }
-
-.#{$ns}-u-flex-justify-left {
-	justify-content: flex-start;
-}
-
-.#{$ns}-u-flex-justify-right {
-	justify-content: flex-end;
-}
-
-.#{$ns}-u-flex-justify-center {
-	justify-content: center;
-}
-
-// Flex row responsive utilities
 @include xui-breakpoint-medium {
-	.#{$ns}-u-flex-space-between-medium {
-		justify-content: space-between;
-	}
-
-	.#{$ns}-u-flex-space-around-medium {
-		justify-content: space-around;
-	}
-
-	.#{$ns}-u-flex-justify-left-medium {
-		justify-content: flex-start;
-	}
-
-	.#{$ns}-u-flex-justify-right-medium {
-		justify-content: flex-end;
-	}
-
-	.#{$ns}-u-flex-justify-center-medium {
-		justify-content: center;
-	}
+	@include make-flex-classes('-medium');
+}
+@include xui-breakpoint-wide {
+	@include make-flex-classes('-wide');
 }
 
-@include xui-breakpoint-wide {
-	.#{$ns}-u-flex-space-between-wide {
-		justify-content: space-between;
-	}
+.#{$ns}-u-display-block {
+	display: block;
+}
 
-	.#{$ns}-u-flex-space-around-wide {
-		justify-content: space-around;
-	}
+.#{$ns}-u-display-inline-block {
+	display: inline-block;
+}
 
-	.#{$ns}-u-flex-justify-left-wide {
-		justify-content: flex-start;
-	}
-
-	.#{$ns}-u-flex-justify-right-wide {
-		justify-content: flex-end;
-	}
-
-	.#{$ns}-u-flex-justify-center-wide {
-		justify-content: center;
-	}
+.#{$ns}-u-display-inline {
+	display: inline;
 }
 
 // scss-lint:disable ImportantRule

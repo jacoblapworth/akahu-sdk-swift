@@ -158,7 +158,7 @@ export default class XUIModal extends Component {
 			const targetIsWindow = event.target === window;
 			if (targetIsWindow || !maskNode.contains(event.target)) {
 				event.stopPropagation();
-				modal._modalNode.focus();
+				modal._modalNode && modal._modalNode.focus();
 			}
 		}
 	}

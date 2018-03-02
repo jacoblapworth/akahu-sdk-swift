@@ -27,7 +27,9 @@ const variations = [
 		storyTitle: 'with a DatePicker',
 		ddSettings: {
 			children: 'datepicker'
-		}
+		},
+		restrictToViewPort: false,
+		closeOnTab: false
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

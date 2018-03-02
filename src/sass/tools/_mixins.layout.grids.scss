@@ -3,15 +3,30 @@
 @import "functions.decimals";
 
 @mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter : 0) {
-
-	@if $columnpercentage >= $numberofcolumns {
-		width: 100%;
-	} @else if(type-of($gutter) == number and $gutter > 0) {
-		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage} - #{$gutter});
+	$calculated-width: 100;
+	$single-column-width: 100 / $numberofcolumns;
+	@if($columnpercentage < $numberofcolumns) {
+		$calculated-width: $single-column-width * $columnpercentage;
+		$truncated-width: xui-truncate-number($calculated-width);
+		@if(type-of($gutter) == number and $gutter > 0) {
+			width: calc(#{xui-convert-to-percentage($truncated-width)} - #{$gutter});
+		} @else {
+			width: xui-convert-to-percentage($truncated-width);
+		}
 	} @else {
-		width: calc((100% / #{$numberofcolumns}) * #{$columnpercentage});
+		width: xui-convert-to-percentage($calculated-width);
 	}
+}
 
+// Only works on pure numbers, not percentages or pixels. Perform any math first.
+@function xui-truncate-number($numbertotruncate, $truncateto : .01) {
+	$truncation-amount: $numbertotruncate % $truncateto;
+	@return $numbertotruncate - $truncation-amount;
+}
+
+// Convert a pure number into a percentage to use for styling.
+@function xui-convert-to-percentage($numbertoconvert) {
+	@return $numbertoconvert * 1%;
 }
 
 @mixin xui-column-responsive-generator($padded: false) {

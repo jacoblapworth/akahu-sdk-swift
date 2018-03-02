@@ -1,0 +1,410 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUITooltip allows for different trigger components to be passed 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <span
+    aria-controls="test"
+    aria-haspopup={true}
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+    style={
+      Object {
+        "textDecoration": "underline",
+      }
+    }
+  >
+    look at what we have
+  </span>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip include an automation-id 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid="test-tooltip"
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid="test-tooltip--tooltip"
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip include an id, if provided 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test-tooltip-id"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip include provided classNames 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline test-tooltip-class"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="test-tooltip-class xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip include provided wrapperClassNames 1`] = `
+<span
+  className="test-tooltip-wrapperClass xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip renders correctly 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip sets maxHeight 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip sets maxWidth 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;
+
+exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
+<span
+  className="xui-tooltip"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <a
+    aria-controls="test"
+    aria-haspopup={true}
+    href="javascript:void(0);"
+    onBlur={[Function]}
+    onClick={undefined}
+    onFocus={[Function]}
+    onKeyDown={undefined}
+  >
+    A link
+  </a>
+  <span
+    className="xui-positioningInline"
+    data-automationid={undefined}
+    style={
+      Object {
+        "flexDirection": "column",
+        "top": undefined,
+      }
+    }
+  >
+    <span
+      className="xui-tooltip--tip xui-tooltip--tip-open"
+      data-automationid={undefined}
+      style={
+        Object {
+          "maxHeight": null,
+          "maxWidth": null,
+          "minWidth": null,
+          "width": null,
+        }
+      }
+    >
+      Tip goes here
+    </span>
+  </span>
+</span>
+`;

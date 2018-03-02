@@ -2,6 +2,8 @@
 @import "../mixins";
 
 .#{$ns}-avatargroup {
+	display: flex;
+
 	.#{$ns}-avatar {
 		@include xui-all-but-first {
 			box-shadow: -2px 0 0 0 $xui-color-grey-alpha-6;

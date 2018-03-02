@@ -1,3 +1,4 @@
+import '../helpers/xuiGlobalChecks';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -13,8 +14,8 @@ const createTabs = ({ qaHook, tabs, id, ariaPanelId, currentStep }, overrides) =
 
 	tabs.map((tabProps, index) => {
 
-		const isFirst = !index;
-		const isLast = Boolean(index === tabs.length - 1);
+		const isFirst = index === 0;
+		const isLast = index === tabs.length - 1;
 		const isActive = currentStep === index;
 		const ariaTabId = createAriaTabId(id, index);
 		const enrichedProps = {
@@ -138,8 +139,8 @@ class XUIStepper extends Component {
 					{/* Render "dummy" UI scenarios in secret to determine what layout the
 					component best conforms to the <XUIStepper /> width if no pre-defined
 					layout has been supplied. */}
-					<InlineDummyLayout {...{ hasStackedButtons, tabs: hiddenTabs }} />
-					<SideBarDummyLayout {...{ gridTemplateRows, tabs: hiddenTabs }} />
+					<InlineDummyLayout hasStackedButtons={hasStackedButtons} tabs={hiddenTabs} />
+					<SideBarDummyLayout gridTemplateRows={gridTemplateRows} tabs={hiddenTabs} />
 
 				</div>)}
 
@@ -173,13 +174,11 @@ export default XUIStepper;
 
 XUIStepper.propTypes = {
 
-	/**`. */
 	qaHook: PropTypes.string,
 
 	/** A unique ID that is used to generate Aria references. */
 	id: PropTypes.string.isRequired,
 
-	/** The content associated with the current tab. */
 	children: PropTypes.node,
 
 	/** The group of Stepper tabs */

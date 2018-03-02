@@ -51,6 +51,38 @@ export const calcSpaceRight = triggerRect => Math.max(verge.viewportW() - trigge
 export const calcSpaceLeft = triggerRect => Math.max(triggerRect.left, 0);
 
 /**
+ * Given a trigger DOM element, return the surrounding spaces.
+ *
+ * @private
+ * @param {DOMRect} triggerRect
+ * @returns {{above: number, below: number, left: number, right: number}}
+ */
+export const getSpacesAroundTrigger = triggerRect => {
+	return {
+		above: calcSpaceAbove(triggerRect),
+		below: calcSpaceBelow(triggerRect),
+		left: calcSpaceLeft(triggerRect),
+		right: calcSpaceRight(triggerRect)
+	};
+};
+
+/**
+ * Given a positionSetting property, split into side and alignment positioning values.
+ *
+ * @private
+ * @param {object} spaces
+ * @returns {{top: number, bottom: number, left: number, right: number}}
+ */
+export const mapOppositeSpaces = spaces => {
+	return {
+		top: spaces.below,
+		bottom: spaces.above,
+		left: spaces.right,
+		right: spaces.left
+	};
+};
+
+/**
 * Returns the top scroll amount, supported across mutliple browsers
 *
 * @return {Number}

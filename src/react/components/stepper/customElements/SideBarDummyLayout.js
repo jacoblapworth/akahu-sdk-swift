@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { NAME_SPACE } from '../helpers/constants';
 
-class SideBarDummyLayout extends PureComponent {
+export default class SideBarDummyLayout extends PureComponent {
 
 	render = () => {
 
@@ -30,16 +30,13 @@ SideBarDummyLayout.propTypes = {
 
 // To test the validity of the "side bar" layout we make assert that the content
 // width meets a minimum requirement.
-const testIsSideBarRelevant = (rootNode) => {
+export const testIsSideBarRelevant = (rootNode) => {
 
 	const testSideBarNode = rootNode.querySelector(`.${NAME_SPACE}-testsidebar`);
 	const sectionNode = testSideBarNode.querySelector(`.${NAME_SPACE}-section`);
 	const minWidth = 400;
 	const sectionWidth = sectionNode.clientWidth;
-	const isSideBar = sectionWidth >= minWidth;
 
-	return isSideBar;
+	return sectionWidth >= minWidth;
 
 };
-
-export { SideBarDummyLayout as default, testIsSideBarRelevant };

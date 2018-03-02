@@ -5,7 +5,7 @@ import { NAME_SPACE } from '../helpers/constants';
 import { enrichTabProps } from '../helpers/enrichprops';
 import StepperIcon from './StepperIcon';
 
-class StepperTab extends PureComponent {
+export default class StepperTab extends PureComponent {
 
 	render = () => {
 
@@ -26,37 +26,38 @@ class StepperTab extends PureComponent {
 
 		return (
 			<button
-				className={ linkClasses }
-				onClick={ handleClick }
-				tabIndex={ tabIndex }>
+				type="button"
+				className={linkClasses}
+				onClick={handleClick}
+				tabIndex={tabIndex}>
 
-				<div className={ `${NAME_SPACE}-link-wrapper` }>
+				<div className={`${NAME_SPACE}-link-wrapper`}>
 
-					{ isProgress && !isComplete
+					{isProgress && !isComplete
 
-						? <div className={ `${NAME_SPACE}-link-progress` }>
-								<XUIProgressCircular
-									id={ id }
-									total={ totalProgress }
-									progress={ currentProgress }
-								/>
-							</div>
+						? <div className={`${NAME_SPACE}-link-progress`}>
+							<XUIProgressCircular
+								id={id}
+								total={totalProgress}
+								progress={currentProgress}
+							/>
+						</div>
 
-						: <StepperIcon {...{ isComplete, isError, step }}>
-								<span className={ `${NAME_SPACE}-link-step` }>{ step }</span>
-							</StepperIcon>
+						: <StepperIcon {...{isComplete, isError, step}}>
+							<span className={`${NAME_SPACE}-link-step`}>{step}</span>
+						</StepperIcon>
 
 					}
 
-					<div className={ `${NAME_SPACE}-link-text` }>
+					<div className={`${NAME_SPACE}-link-text`}>
 
-						<span className={ `${NAME_SPACE}-link-heading xui-heading-small` }>
-							{ name }
+						<span className={`${NAME_SPACE}-link-heading xui-heading-small`}>
+							{name}
 						</span>
 
-						{ description && (
-							<span className={ `${NAME_SPACE}-link-description` }>
-								{ description }
+						{description && (
+							<span className={`${NAME_SPACE}-link-description`}>
+								{description}
 							</span>
 						)}
 
@@ -70,8 +71,6 @@ class StepperTab extends PureComponent {
 	};
 
 }
-
-export default StepperTab;
 
 StepperTab.propTypes = {
 	id: PropTypes.string.isRequired,

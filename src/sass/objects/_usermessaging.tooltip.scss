@@ -1,0 +1,250 @@
+@import "../vars";
+@import "../mixins";
+
+// Tooltips
+//
+// Teaser: To provide clarification for ambiguous actions or non-interactive elements.
+//
+// Introduction: Tooltips provide additional information in-line with page elements.
+//
+// Components: Tooltip
+//
+// Styleguide: Building Blocks.Tooltip
+
+// Best practice
+//
+// Tips:
+// Do: Use tooltips to provide clarification for ambiguous actions like icon only buttons
+// Do: Use tooltips to provide supporting information for non-interactive elements that contain unavoidable jargon
+// Dont: Don't use tooltips for validation and error messaging
+// Warning: Optimized for text-only content
+// Warning: Styles directly affecting the trigger or its classes may need to be duplicated on the wrapping `.xui-tooltip` DOM element. For example, fixed/absolute positioning or some flexbox styling.
+//
+// Styleguide: Building Blocks.Tooltip.1
+
+// Anatomy
+//
+// To create a tooltip, use the following classes.
+// Note that the trigger and tip need to be wrapped together for positioning purposes.
+//
+// Classes:
+// xui-tooltip: Container class for both tooltip and trigger
+// xui-positioningInline: Wrapper for the purpose of positioning the tooltip
+// xui-tooltip--tip: The class for the tip itself
+// xui-tooltip--tip-open: Sets the tooltip to be visible.
+//
+// Markup:
+// <span class="xui-tooltip">
+// 	<button aria-haspopup="true" class="xui-button xui-button-icon" tabindex="0" type="button">
+// 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+// 	</button>
+// 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--right-top">
+// 			Tooltip content goes here
+// 		</span>
+// 	</span>
+// </span>
+//
+// Styleguide: Building Blocks.Tooltip.2
+
+// Positioning
+//
+// Then, add an additional `xui-positioningInline-*` modifier to specify the preferred position of the tooltip, relative to the trigger. Format is `side-alignment` for example, `top-right` would attempt to place the tooltip above the trigger and aligned to the right edge of the trigger. Side options are `top`, `bottom`, `left`, and `right`, and alignment options are `left`, `right`, `top`, `bottom`, and `center`, as appropriate.
+//
+// Tips:
+// Warning: If done with React, the tooltip will automatically reposition when there is not sufficient space for the tip to appear in the preferred location.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// -top-left: Above the trigger, aligned to the left edge
+// -right-center: To the right of the trigger, vertically centered
+// -left-bottom: To the left of the trigger, aligned to the bottom edge
+// -bottom-center: Below the trigger, centered horizontally
+//
+// Markup:
+// <span class="xui-tooltip">
+// 	<button aria-haspopup="true" class="xui-button xui-button-icon" tabindex="0" type="button">
+// 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+// 	</button>
+// 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--top-left">
+// 			top-left
+// 		</span>
+// 	</span>
+// </span>
+// <span class="xui-tooltip">
+// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-u-fullwidth" tabindex="0" type="button">
+// 		This is a trigger button
+// 	</button>
+// 	<span class="xui-positioningInline" style="flex-direction: column; top: -20px;">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--right-center">
+// 			right-center
+// 		</span>
+// 	</span>
+// </span>
+// <br />
+// <span class="xui-tooltip">
+// 	<button aria-haspopup="true" class="xui-button xui-button-standard xui-u-fullwidth" tabindex="0" type="button">
+// 		This is a trigger button
+// 	</button>
+// 	<span class="xui-positioningInline" style="flex-direction: column; top: auto;">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--left-bottom">
+// 			left-bottom
+// 		</span>
+// 	</span>
+// </span>
+// <span class="xui-tooltip">
+// 	<button aria-haspopup="true" class="xui-button xui-button-icon" tabindex="0" type="button">
+// 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
+// 	</button>
+// 	<span class="xui-positioningInline" style="flex-direction: row; top: auto;">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--bottom-center">
+// 			bottom-center
+// 		</span>
+// 	</span>
+// </span>
+//
+// Styleguide: Building Blocks.Tooltip.3
+
+
+
+.#{$ns}-tooltip {
+	cursor: pointer;
+	display: inline-block;
+	line-height: .75; // Inline blocks include extra space at the bottom to allow for character descenders.
+	// We need to account for (remove) this extra height for the purpose of vertical alignment.
+}
+
+.#{$ns}-positioningInline {
+	align-content: center;
+	display: flex;
+	height: 0;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+}
+
+.#{$ns}-tooltip--tip {
+	background-color: $xui-color-grey-1;
+	border-radius: $xui-radius;
+	bottom: 0;
+	box-shadow: 0 3px 6px 0 $xui-color-grey-alpha-5;
+	color: $xui-color-white;
+	cursor: auto;
+	display: block;
+	line-height: $xui-line-height;
+	opacity: 0;
+	overflow-wrap: break-word;
+	padding: $xui-s-xsmall $xui-s-small;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	transition: opacity $xui-motion-speed-fast linear;
+	width: max-content;
+	z-index: 3;
+	> * {
+		box-sizing: border-box;
+	}
+
+	&.#{$ns}-tooltip--tip-open {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	&.#{$ns}-tooltip--tip-animating {
+		pointer-events: auto;
+	}
+
+	&:after {
+		background: $xui-color-grey-1;
+		content: '';
+		height: 10px;
+		position: absolute;
+		transform: translateX(-50%) translateY(-50%) rotate(45deg);
+		transform-origin: center;
+		width: 10px;
+		z-index: -1;
+	}
+	// Vertically placed tooltips
+	&.#{$ns}-positioningInline--top-left,
+	&.#{$ns}-positioningInline--top-center,
+	&.#{$ns}-positioningInline--top-right {
+		bottom: calc(100% + 10px);
+		&:after {
+			bottom: -10px;
+		}
+	}
+	&.#{$ns}-positioningInline--bottom-left,
+	&.#{$ns}-positioningInline--bottom-center,
+	&.#{$ns}-positioningInline--bottom-right {
+		bottom: auto;
+		top: calc(100% + 10px);
+		&:after {
+			top: 0px;
+		}
+	}
+	&.#{$ns}-positioningInline--top-left,
+	&.#{$ns}-positioningInline--bottom-left {
+		left: 0;
+		right: auto;
+		&:after {
+			left: 15px;
+		}
+	}
+	&.#{$ns}-positioningInline--top-center,
+	&.#{$ns}-positioningInline--bottom-center {
+		right: auto;
+		&:after {
+			left: 50%;
+		}
+	}
+	&.#{$ns}-positioningInline--top-right,
+	&.#{$ns}-positioningInline--bottom-right {
+		right: 0px;
+		&:after {
+			right: 5px;
+		}
+	}
+
+	// Horizontally placed tooltips
+	&.#{$ns}-positioningInline--right-top,
+	&.#{$ns}-positioningInline--right-center,
+	&.#{$ns}-positioningInline--right-bottom {
+		left: calc(100% + 10px);
+		right: auto;
+		&:after {
+			left: 0px;
+		}
+	}
+	&.#{$ns}-positioningInline--left-top,
+	&.#{$ns}-positioningInline--left-center,
+	&.#{$ns}-positioningInline--left-bottom {
+		right: calc(100% + 10px);
+		&:after {
+			right: -10px;
+		}
+	}
+	&.#{$ns}-positioningInline--right-top,
+	&.#{$ns}-positioningInline--left-top {
+		bottom: auto;
+		top: 0;
+		&:after {
+			top: 15px;
+		}
+	}
+	&.#{$ns}-positioningInline--right-center,
+	&.#{$ns}-positioningInline--left-center {
+		bottom: auto;
+		&:after {
+			top: 50%;
+		}
+	}
+	&.#{$ns}-positioningInline--right-bottom,
+	&.#{$ns}-positioningInline--left-bottom {
+		bottom: -100%;
+		&:after {
+			bottom: 5px;
+		}
+	}
+}

@@ -1,8 +1,9 @@
 import cn from 'classnames';
-import { NAME_SPACE, NOOP, INLINE, LAYOUTS } from '../helpers/constants';
+import NOOP from '../../helpers/noop';
+import { NAME_SPACE, INLINE, LAYOUTS } from '../helpers/constants';
 import { createAriaTabId, createAriaPanelId } from '../helpers/utilities';
 
-const enrichTabProps = (props) => {
+export const enrichTabProps = (props) => {
 
 	const { isDisabled, isError, totalProgress } = props;
 
@@ -41,7 +42,7 @@ const enrichTabProps = (props) => {
 
 };
 
-const enrichStepperProps = (props, { layout }) => {
+export const enrichStepperProps = (props, { layout }) => {
 
 	const { id, tabs, } = props;
 
@@ -82,7 +83,3 @@ const enrichStepperProps = (props, { layout }) => {
 	};
 
 };
-
-const enrichProps = { enrichTabProps, enrichStepperProps };
-
-export { enrichProps as default, enrichTabProps, enrichStepperProps };

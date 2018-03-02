@@ -150,6 +150,11 @@
 				]
 			},
 			{
+				"name": "Tooltip",
+				"content": "../src/react/tooltip.md",
+				"components": "../src/react/components/tooltip/XUITooltip.js"
+			},
+			{
 				"name": "Picklist",
 				"content": "../src/react/picklist.md",
 				"sections": [

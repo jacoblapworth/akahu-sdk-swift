@@ -156,6 +156,10 @@ const componentsToTest = [
 		delay: 1000
 	},
 	{
+		testsPrefix: 'Structural',
+		variationsPath: '../src/react/components/structural/stories/variations.js'
+	},
+	{
 		testsPrefix: 'Compositions',
 		variationsPath: '../src/react/stories/tests.js',
 		delay: 1500,

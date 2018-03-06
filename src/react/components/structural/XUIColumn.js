@@ -33,17 +33,26 @@ XUIColumn.propTypes = {
 	/**
 	 * Column width. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	columnWidth: PropTypes.string,
+	columnWidth: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
 	/**
 	 * Column width at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	columnWidthMedium: PropTypes.string,
+	columnWidthMedium: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number
+		]),
 	/**
 	 * Column width at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	columnWidthWide: PropTypes.string
+	columnWidthWide: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
 };
 
 XUIColumn.defaultProps = {
-	columnWidth: "12"
+	columnWidth: 12
 };

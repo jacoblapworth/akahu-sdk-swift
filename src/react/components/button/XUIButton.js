@@ -281,16 +281,16 @@ XUIButton.propTypes = {
 	/** The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	rel: PropTypes.string,
 
-	/** The HTML tabIndex property to put on the component */
+	/** The HTML tabIndex attribute value */
 	tabIndex: PropTypes.number,
 
 	/** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	target: PropTypes.string,
 
-	/** The `title` attribute for this button */
+	/** The `title` attribute */
 	title: PropTypes.string,
 
-	/** The `isInverted` attribute to style the button in an inverted way */
+	/** Applies inverted styling */
 	isInverted: PropTypes.bool,
 
 	/** When used with `isLoading` this allows the button to retain children width */

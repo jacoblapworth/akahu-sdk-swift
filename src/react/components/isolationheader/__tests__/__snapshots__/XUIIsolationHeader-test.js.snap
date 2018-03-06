@@ -2,11 +2,11 @@
 
 exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaHook is passed in 1`] = `
 <div
-  className="xui-isolationheader xui-isolationheader-inverted"
+  className="xui-isolationheader"
   data-automationid="qahook"
 >
   <div
-    className="xui-isolationheader--nav"
+    className="xui-isolationheader--navigation"
     data-automationid={undefined}
   >
     <h2
@@ -15,12 +15,12 @@ exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaH
     >
       My title
     </h2>
-    <h3
-      className="xui-heading-medium xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
       data-automationid={undefined}
     >
       My secondary title
-    </h3>
+    </h2>
   </div>
   <div
     className="xui-isolationheader--actions"
@@ -33,11 +33,11 @@ exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaH
 
 exports[`<XUIIsolationHeader> Inverted should render with the given className if provided 1`] = `
 <div
-  className="klass xui-isolationheader xui-isolationheader-inverted"
+  className="klass xui-isolationheader"
   data-automationid={undefined}
 >
   <div
-    className="xui-isolationheader--nav"
+    className="xui-isolationheader--navigation"
     data-automationid={undefined}
   >
     <h2
@@ -46,12 +46,12 @@ exports[`<XUIIsolationHeader> Inverted should render with the given className if
     >
       My title
     </h2>
-    <h3
-      className="xui-heading-medium xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
       data-automationid={undefined}
     >
       My secondary title
-    </h3>
+    </h2>
   </div>
   <div
     className="xui-isolationheader--actions"
@@ -64,11 +64,11 @@ exports[`<XUIIsolationHeader> Inverted should render with the given className if
 
 exports[`<XUIIsolationHeader> Standard should render an automation id when a qaHook is passed in 1`] = `
 <div
-  className="xui-isolationheader xui-isolationheader-inverted"
+  className="xui-isolationheader"
   data-automationid="qahook"
 >
   <div
-    className="xui-isolationheader--nav"
+    className="xui-isolationheader--navigation"
     data-automationid={undefined}
   >
     <h2
@@ -77,12 +77,12 @@ exports[`<XUIIsolationHeader> Standard should render an automation id when a qaH
     >
       My title
     </h2>
-    <h3
-      className="xui-heading-medium xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
       data-automationid={undefined}
     >
       My secondary title
-    </h3>
+    </h2>
   </div>
   <div
     className="xui-isolationheader--actions"
@@ -95,11 +95,11 @@ exports[`<XUIIsolationHeader> Standard should render an automation id when a qaH
 
 exports[`<XUIIsolationHeader> Standard should render with the given className if provided 1`] = `
 <div
-  className="klass xui-isolationheader xui-isolationheader-inverted"
+  className="klass xui-isolationheader"
   data-automationid={undefined}
 >
   <div
-    className="xui-isolationheader--nav"
+    className="xui-isolationheader--navigation"
     data-automationid={undefined}
   >
     <h2
@@ -108,12 +108,12 @@ exports[`<XUIIsolationHeader> Standard should render with the given className if
     >
       My title
     </h2>
-    <h3
-      className="xui-heading-medium xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
       data-automationid={undefined}
     >
       My secondary title
-    </h3>
+    </h2>
   </div>
   <div
     className="xui-isolationheader--actions"

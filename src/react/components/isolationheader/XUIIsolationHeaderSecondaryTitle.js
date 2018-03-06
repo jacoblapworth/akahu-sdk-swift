@@ -7,16 +7,16 @@ export default class XUIIsolationHeaderSecondaryTitle extends PureComponent {
 		const {children, className, qaHook} = this.props;
 		const classNames = cn(
 			className,
-			'xui-heading-medium',
+			'xui-heading',
 			'xui-text-deemphasis',
 			'xui-margin-vertical-none',
 			'xui-padding-right-small',
 			'xui-text-truncated'
 		);
 		return (
-			<h3 className={classNames} data-automationid={qaHook}>
+			<h2 className={classNames} data-automationid={qaHook}>
 				{children}
-			</h3>
+			</h2>
 		);
 	}
 }

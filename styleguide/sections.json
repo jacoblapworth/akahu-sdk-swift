@@ -155,6 +155,11 @@
 				"components": "../src/react/components/tooltip/XUITooltip.js"
 			},
 			{
+				"name": "Isolation Header",
+				"content": "../src/react/isolationheader.md",
+				"components": "../src/react/components/isolationheader/XUIIsolationHeader.js"
+			},
+			{
 				"name": "Picklist",
 				"content": "../src/react/picklist.md",
 				"sections": [

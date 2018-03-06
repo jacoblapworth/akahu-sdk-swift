@@ -8,14 +8,16 @@ export default class XUIIsolationHeader extends PureComponent {
 		const {
 			qaHook,
 			className,
-			isInverted,
+			isPositionFixed,
 			children
 		} = header.props;
 
 		const classNames = cn(
 			className,
 			'xui-isolationheader',
-			isInverted ? 'xui-isolationheader-inverted' : 'xui-isolationheader-standard'
+			{
+				'xui-u-position-fixed': isPositionFixed
+			}
 		);
 
 		return (
@@ -29,5 +31,7 @@ export default class XUIIsolationHeader extends PureComponent {
 XUIIsolationHeader.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
-	isInverted: PropTypes.bool
+
+	/** Applies fixed positioning so the isolation mode header scrolls with the page */
+	isPositionFixed: PropTypes.bool
 };

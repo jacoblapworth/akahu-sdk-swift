@@ -6,7 +6,7 @@ export default class XUIIsolationHeaderNavigation extends PureComponent {
 	render() {
 		const {className, qaHook, children} = this.props;
 		return (
-			<div className={cn('xui-isolationheader--nav', className)} data-automationid={qaHook}>{children}</div>
+			<div className={cn('xui-isolationheader--navigation', className)} data-automationid={qaHook}>{children}</div>
 		);
 	}
 }

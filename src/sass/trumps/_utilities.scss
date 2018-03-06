@@ -219,6 +219,14 @@
 //
 // Styleguide: Building Blocks.Utilities.8
 
+// Positioning
+//
+// Classes:
+// xui-u-position-fixed: Sets position: fixed so the element scrolls with the page
+// xui-u-position-relative: Sets position: relative on the element
+//
+// Styleguide: Building Blocks.Utilities.8
+
 .#{$ns}-u-flex {
 	display: flex;
 }
@@ -408,4 +416,12 @@
 
 .#{$ns}-u-rotate-270 {
 	transform: rotate(-90deg);
+}
+
+.#{$ns}-u-position-fixed {
+	position: fixed;
+}
+
+.#{$ns}-u-position-relative {
+	position: relative;
 }

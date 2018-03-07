@@ -2,6 +2,7 @@ import calcScrollbarWidth from 'scrollbar-width';
 import getComputedStyle from './getComputedStyle';
 
 let scrollState = null;
+let scrollLockCount = 0;
 
 /**
  * Test to see if the body scroll is currently locked
@@ -18,6 +19,7 @@ export const isScrollLocked = () => document.documentElement.classList.contains(
  * @export
  */
 export const lockScroll = () => {
+	scrollLockCount++;
 	if (!isScrollLocked()) {
 		const body = document.body;
 		const html = document.documentElement;
@@ -45,7 +47,7 @@ export const lockScroll = () => {
  * @export
  */
 export const unlockScroll = () => {
-	if (isScrollLocked()) {
+	if (scrollLockCount <= 1 && isScrollLocked()) {
 		const { body, documentElement: html } = document;
 
 		body.style.paddingRight = '';
@@ -58,5 +60,8 @@ export const unlockScroll = () => {
 		@author dev-johnsanders
 		*/
 		window.scrollTo(scrollState.left, scrollState.top);
+	}
+	if (scrollLockCount) {
+		scrollLockCount--;
 	}
 };

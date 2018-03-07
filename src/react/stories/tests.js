@@ -6,7 +6,11 @@ const storyNames = {
 	multiDropDowns: 'Multiple dropdowns in a modal',
 	formOnAPage: 'Form on a page',
 	formLayout: 'Form layout',
-	inifiniteStatefulPicklist: 'Infinite JS errors in StatefulPicklist render'
+};
+
+const nonBackstopStoryNames = {
+	inifiniteStatefulPicklist: 'Infinite JS errors in StatefulPicklist render',
+	modalInModal: 'Modal in a modal with dropdown'
 };
 
 const variations = [];
@@ -23,5 +27,6 @@ Object.keys(storyNames).forEach(name => {
 module.exports = {
 	variations,
 	storyNames,
-	compositionKind
+	compositionKind,
+	nonBackstopStoryNames
 };

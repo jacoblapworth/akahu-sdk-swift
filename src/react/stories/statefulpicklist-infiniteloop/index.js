@@ -6,7 +6,7 @@ import Picklist, { Pickitem } from '../../picklist';
 import { DropDownFooter } from '../../dropdown';
 import XUIAutoCompleter from '../../autocompleter';
 
-import { storyNames, compositionKind } from '../tests';
+import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -16,7 +16,7 @@ import readme from './README.md';
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
 
-test.add(storyNames.inifiniteStatefulPicklist, () => {
+test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 	const ConditionalRender = ({ shouldRender, render, children }) => {
 		if (render) {
 			return shouldRender ? render : null;

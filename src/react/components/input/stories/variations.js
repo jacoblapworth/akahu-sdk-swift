@@ -53,5 +53,5 @@ const variations = [
 
 module.exports = {
 	storiesWithVariationsKindName,
-		variations
-}
+	variations
+};

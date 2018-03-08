@@ -89,6 +89,10 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/pill/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI Isolation Header',
+		variationsPath: '../src/react/components/isolationheader/stories/variations.js'
+	},
+	{
 		testsPrefix: 'XUI Progress Indicator',
 		variationsPath:
 			'../src/react/components/progressindicator/stories/variations.js',

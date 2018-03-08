@@ -19,6 +19,8 @@
 // Do: Use the `destinationUrl` query parameter in your app to redirect the user upon completion of the task
 // Do: Use the `isolationMode` query parameter to signal that the global header should not render itself
 // Do: Place actions that would normally be in the page heading in the actions area of the isolation header
+// Do: Use xui-margin-right-small for spacing items in navigation, and xui-margin-left-small for spacing items in actions
+// Do: For buttons with icons, use the xui-button-icon-large modifier class, and for text based buttons use the xui-button-small modifier class
 // Dont: Hide the global header yourself on page load
 // Dont: Include the global header if it will never be shown
 // Dont: Render the page header below the isolation header
@@ -78,6 +80,7 @@
 	align-items: center;
 	align-self: stretch;
 	display: flex;
+	overflow: hidden;
 	white-space: nowrap;
 }
 
@@ -86,5 +89,6 @@
 }
 
 .#{$ns}-isolationheader--actions {
+	flex-shrink: 0; // The navigation can shrink because it should be mostly text; the actions should be buttons
 	margin-left: auto;
 }

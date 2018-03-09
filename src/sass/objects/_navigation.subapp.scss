@@ -12,6 +12,7 @@
 	align-items: stretch;
 	display: flex;
 	justify-content: space-between;
+	min-height: inherit;  // IE11 bug fix
 }
 
 .#{$ns}-pageheading--breadcrumbs {

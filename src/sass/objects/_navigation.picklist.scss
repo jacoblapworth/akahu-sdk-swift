@@ -700,6 +700,7 @@
 	display: inline-flex;
 	flex-direction: row; // TODO: this is redundant; remove in a future version
 	max-width: 100%;
+	min-height: inherit; // IE11 bug fix
 	.#{$ns}-pickitem {
 		// Fix for text truncation - see https://scottwhittaker.net/flexbox/2017/02/05/flexbox-and-text-truncation.html
 		min-width: 0;

@@ -18,10 +18,10 @@ describe('<XUIIsolationHeader>', () => {
 			const wrapper = renderer.create(
 				<XUIIsolationHeader isInverted qaHook={qaHook}>
 					<XUIIsolationHeaderNavigation>
-						<XUIIsolationHeaderTitle>
+						<XUIIsolationHeaderTitle title="Tooltip">
 							My title
 						</XUIIsolationHeaderTitle>
-						<XUIIsolationHeaderSecondaryTitle>
+						<XUIIsolationHeaderSecondaryTitle title="Tooltip">
 							My secondary title
 						</XUIIsolationHeaderSecondaryTitle>
 					</XUIIsolationHeaderNavigation>

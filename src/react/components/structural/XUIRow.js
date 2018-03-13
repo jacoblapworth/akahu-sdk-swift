@@ -1,27 +1,21 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { rowVariants } from './private/constants';
 
-export default class XUIRow extends PureComponent {
-	render() {
-		const {
-			children,
-			className,
-			variant,
-			...otherProps
-		} = this.props;
-		const rowClass = "xui-row" + (rowVariants[variant] ? `-${rowVariants[variant]}` : '');
-		const classes = cn(className, rowClass);
+const getClasses = (className, variant) => {
+	const rowClass = "xui-row" + (rowVariants[variant] ? `-${rowVariants[variant]}` : '');
+	return cn(className, rowClass);
+};
 
-		return (
-			<div className={classes} {...otherProps}>
-				{children}
-			</div>
-		)
-	}
-}
+const XUIRow = ({children, className, variant, ...otherProps}) =>
+	<div
+		className={getClasses(className, variant)}
+		{...otherProps}
+	>
+		{children}
+	</div>;
 
 XUIRow.propTypes = {
 	children: PropTypes.node,
@@ -33,3 +27,5 @@ XUIRow.propTypes = {
 XUIRow.defaultProps = {
 	variant: 'standard'
 };
+
+export { XUIRow as default };

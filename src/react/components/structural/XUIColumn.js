@@ -1,31 +1,32 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { columnShortNames } from './private/constants';
 
-export default class XUIColumn extends PureComponent {
-	render() {
-		const {
-			columnWidth,
-			columnWidthMedium,
-			columnWidthWide,
-			className,
-			children,
-			...otherProps
-		} = this.props;
-		const columnClass = `xui-column-${columnShortNames[columnWidth] || columnWidth}-of-12`;
-		const columnClassMed = columnWidthMedium ? `xui-column-${columnShortNames[columnWidthMedium] || columnWidthMedium}-of-12-medium` : '';
-		const columnClassWide = columnWidthWide ? `xui-column-${columnShortNames[columnWidthWide] || columnWidthWide}-of-12-wide` : '';
-		const classes = cn(className, columnClass, columnClassMed, columnClassWide);
-
-		return (
-			<div className={classes} {...otherProps}>
-				{children}
-			</div>
-		)
+const getClass = (width, suffix) => {
+	let colClass = "";
+	if (width) {
+		colClass = `xui-column-${columnShortNames[width] || width}-of-12${suffix || ""}`;
 	}
-}
+	return colClass;
+};
+
+const getAllClasses = ({className, columnWidth, columnWidthMedium, columnWidthWide}) => {
+	return cn(
+		className,
+		getClass(columnWidth),
+		getClass(columnWidthMedium, "-medium"),
+		getClass(columnWidthWide, "-wide"));
+};
+
+const XUIColumn = ({children, className, columnWidth, columnWidthMedium, columnWidthWide, ...otherProps}) =>
+	<div
+		className={getAllClasses({className, columnWidth, columnWidthMedium, columnWidthWide})}
+		{...otherProps}
+	>
+		{children}
+	</div>;
 
 XUIColumn.propTypes = {
 	children: PropTypes.node,
@@ -56,3 +57,5 @@ XUIColumn.propTypes = {
 XUIColumn.defaultProps = {
 	columnWidth: 12
 };
+
+export { XUIColumn as default };

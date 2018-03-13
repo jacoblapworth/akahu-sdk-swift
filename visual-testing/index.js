@@ -123,6 +123,11 @@ const componentsToTest = [
 		delay: 500
 	},
 	{
+		testsPrefix: 'XUI Table',
+		variationsPath: '../src/react/components/table/stories/variations.js',
+		delay: 500
+	},
+	{
 		testsPrefix: 'XUI Tag',
 		variationsPath: '../src/react/components/tag/stories/variations.js'
 	},

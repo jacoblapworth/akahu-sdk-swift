@@ -25,6 +25,15 @@
 				"components": "../src/react/components/stepper/XUIStepper.js"
 			},
 			{
+				"name": "Tables",
+				"content": "../src/react/table.md",
+				"sections": [
+					{ "components": "../src/react/components/table/XUITable.js" },
+					{ "components": "../src/react/components/table/XUITableColumn.js" },
+					{ "components": "../src/react/components/table/XUITableCell.js" }
+				]
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [

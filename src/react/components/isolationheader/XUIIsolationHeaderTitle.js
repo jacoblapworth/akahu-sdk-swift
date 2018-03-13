@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 export default class XUIIsolationHeaderTitle extends PureComponent {
 	render() {
-		const {children, className, qaHook} = this.props;
+		const {children, className, qaHook, title} = this.props;
 		const classNames = cn(
 			className,
 			'xui-heading',
@@ -13,7 +13,7 @@ export default class XUIIsolationHeaderTitle extends PureComponent {
 			'xui-text-truncated'
 		);
 		return (
-			<h2 className={classNames} data-automationid={qaHook}>
+			<h2 title={title} className={classNames} data-automationid={qaHook}>
 				{children}
 			</h2>
 		);
@@ -23,5 +23,8 @@ export default class XUIIsolationHeaderTitle extends PureComponent {
 XUIIsolationHeaderTitle.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
-	children: PropTypes.node
+	children: PropTypes.node,
+
+	/** The value of the title attribute */
+	title: PropTypes.string
 };

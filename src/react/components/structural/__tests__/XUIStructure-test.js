@@ -28,12 +28,12 @@ describe('<XUI Structure/>', () => {
 	});
 	it('renders with the correct column width classes, from shorthand', () => {
 		Object.keys(columnShortNames).forEach(shorthand => {
-			const tag = shallow(<XUIColumn columnWidth={shorthand}>Testing 💩</XUIColumn>);
+			const tag = shallow(<XUIColumn gridColumns={shorthand}>Testing 💩</XUIColumn>);
 			expect(tag.hasClass(`xui-column-${columnShortNames[shorthand]}-of-12`)).toEqual(true);
 		});
 	});
 	it('renders the column with wide and medium column widths, if provided', () => {
-		const testCol = renderer.create(<XUIColumn columnWidthMedium="3" columnWidthWide="6">Testing 💩</XUIColumn>);
+		const testCol = renderer.create(<XUIColumn gridColumnsMedium="3" gridColumnsWide="6">Testing 💩</XUIColumn>);
 		expect(testCol).toMatchSnapshot();
 	});
 

@@ -9,105 +9,342 @@
 
 ### Text Input
 
+Most input use cases can be solved using `XUITextInput`'s base props. Additional attributes that aren't available as base props can be passed down to the `input` via `inputProps`.
+
 ```js
-const linkedin = require ('@xero/xui-icon/icons/social-linkedin').default;
-const facebook = require ('@xero/xui-icon/icons/social-facebook').default;
-const search = require ('@xero/xui-icon/icons/search').default;
-const XUIIcon = require ( './icon.js' ).default;
-const XUIButton = require ( './button.js' ).default;
-const XUITextInputIcon = require('./components/textInput/XUITextInputIcon.js').default;
 const cn = require('classnames');
 
 <div>
 	<XUITextInput
-		qaHook="test-ui"
-		defaultValue= 'This one has a default value'
-		isFieldLayout={true}
+		fieldClassName="xui-margin-bottom"
+		placeholder="A standard text input"
 	/>
 	<XUITextInput
+		fieldClassName="xui-margin-bottom"
 		qaHook="test-ui"
-		type='number'
-		placeholder='Number'
-		isFieldLayout={true}
+		defaultValue="This one has a default value"
+	/>
+	<XUITextInput
+		fieldClassName="xui-margin-bottom"
+		qaHook="test-ui"
+		type="number"
+		placeholder="A number input"
 	/>
 	<XUITextInput
 		qaHook="test-ui"
 		inputProps={{ readOnly: true }}
-		defaultValue= 'A read only value'
-		isFieldLayout={true}
+		defaultValue= "A read only value"
+	/>
+</div>
+```
+
+
+### Validation
+
+Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop. It's best to set `isFieldLayout=true` on all inputs to ensure consistent spacing between fields.
+
+```jsx
+const  { PureComponent } = require ( 'react' );
+
+class Example extends PureComponent {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			text: ''
+		};
+		this.onFocus = this.onFocus.bind(this);
+		this.onBlur = this.onBlur.bind(this);
+	}
+
+	onFocus() {
+		this.setState({
+			hasFocus: true
+		})
+	}
+
+	onBlur() {
+		this.setState({
+			hasFocus: false
+		})
+	}
+
+	render() {
+		return (
+			<div>
+				<XUITextInput
+					value
+					validationMessage="Well it's not right"
+					isInvalid={true}
+					isFieldLayout
+				/>
+				<XUITextInput
+					placeholder="I always have a hint"
+					hintMessage="Just a good old hint"
+					isFieldLayout
+				/>
+				<XUITextInput
+					onFocus={this.onFocus}
+					onBlur={this.onBlur}
+					placeholder="I have a hint when I'm focused"
+					hintMessage={this.state.hasFocus && 'Just a good old hint'}
+					isFieldLayout
+				/>
+			</div>
+		);
+	}
+}
+
+<Example />
+```
+
+#### Multiline Input
+
+`XUITextInput` can be made into a multiline textarea by setting `isMultiline` to `true`. Additionally, `minRows`, `maxRows`, and `rows` may be set to set the vertical height of the input.
+
+```jsx
+<div>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="This input will automatically grow up to 5 rows high"
+		minRows={2}
+		maxRows={5}
 	/>
 	<XUITextInput
-		leftElement={props => <XUITextInputIcon {...props} path={facebook} color='white' wrapperColor='facebook' />}
-		isFieldLayout={true}
-		placeholder='Facebook'
+		isFieldLayout
+		isMultiline
+		placeholder="This input will automatically grow without limit"
+		minRows={3}
 	/>
 	<XUITextInput
-		leftElement={props => <XUITextInputIcon {...props} path={linkedin} color='white' wrapperColor='linkedin' />}
-		isFieldLayout={true}
-		placeholder='Linkedin left'
+		isFieldLayout
+		isMultiline
+		placeholder="This input has a set number of rows"
+		rows={3}
+	/>
+</div>
+```
+
+#### Side Elements
+
+Content can be added to the side of a `XUITextInput` using the `leftElement` and `rightElement` props. It's recommended that you use the `XUITextInputSideElement` component to ensure the correct styling is applied.
+
+```jsx
+const linkedinPath = require ('@xero/xui-icon/icons/social-linkedin').default;
+const facebookPath = require ('@xero/xui-icon/icons/social-facebook').default;
+const searchPath = require ('@xero/xui-icon/icons/search').default;
+const attachPath = require ('@xero/xui-icon/icons/attach').default;
+const XUIIcon = require ( './icon.js' ).default;
+const XUIButton = require ( './button.js' ).default;
+<div>
+	<XUITextInput
+		isFieldLayout
+		placeholder="Search"
+		leftElement={
+			<XUITextInputSideElement type="icon">
+				<XUIIcon path={searchPath} />
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		rightElement={props => <XUITextInputIcon {...props} path={linkedin} color='white' wrapperColor='linkedin' />}
-		isFieldLayout={true}
-		placeholder='Linkedin right'
+		isFieldLayout
+		placeholder="Linkedin"
+		leftElement={
+			<XUITextInputSideElement type="icon" backgroundColor="linkedin">
+				<XUIIcon path={linkedinPath} />
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		hintMessage='heres a hint'
-		leftElement={props => <XUITextInputIcon {...props} path={search} />}
-		isFieldLayout={true}
-		placeholder='This is a search box'
+		isFieldLayout
+		placeholder="Facebook"
+		leftElement={
+			<XUITextInputSideElement type="icon" backgroundColor="facebook">
+				<XUIIcon path={facebookPath} />
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		isInvalid={true}
-		validationMessage='not valid'
-		isFieldLayout={true}
-		placeholder='This is an invalid search box'
+		isFieldLayout
+		placeholder="Facebook Right"
+		rightElement={
+			<XUITextInputSideElement type="icon" backgroundColor="facebook">
+				<XUIIcon path={facebookPath} />
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>To:</span>}
-		isFieldLayout={true}
+		isFieldLayout
+		placeholder="Placeholder text"
+		leftElement={
+			<XUITextInputSideElement type="text">
+				Text here:
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		rightElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>: A less practicle label but demonstrates length, on the right</span>}
-		isFieldLayout={true}
-		placeholder='placeholder'
+		isFieldLayout
+		placeholder="Placeholder text"
+		leftElement={
+			<XUITextInputSideElement type="button">
+				<XUIButton variant="primary" size="small">
+					Left Button
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		isFieldLayout={true}
-		placeholder='placeholder'
-		type="image"
+		isFieldLayout
+		placeholder="Placeholder text"
+		rightElement={
+			<XUITextInputSideElement type="button">
+				<XUIButton variant="primary" size="small">
+					Submit
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
 	/>
 	<XUITextInput
-		rightElement={props => <span>
-			<XUIButton {...props} size='small' variant='primary' className='xui-margin-left xui-margin-right-xsmall' >I just look 👍 </XUIButton>
-			</span>}
-		placeholder='placeholder'
+		isFieldLayout
+		isMultiline
+		placeholder="Top aligned right content"
+		rightElement={
+			<XUITextInputSideElement type="button" alignment="top">
+				<XUIButton variant="primary" size="small">
+					Submit
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="Center aligned right content"
+		rightElement={
+			<XUITextInputSideElement type="button" alignment="center">
+				<XUIButton variant="primary" size="small">
+					Submit
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="Bottom aligned right content"
+		rightElement={
+			<XUITextInputSideElement type="button" alignment="bottom">
+				<XUIButton variant="primary" size="small">
+					Submit
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="Top aligned right content"
+		rightElement={
+			<XUITextInputSideElement type="icon" alignment="top">
+				<XUIButton variant="icon">
+					<XUIIcon path={attachPath} />
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="Center aligned right content"
+		rightElement={
+			<XUITextInputSideElement type="button" alignment="center">
+				<XUIButton variant="icon">
+					<XUIIcon path={attachPath} />
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
+	/>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="Bottom aligned right content"
+		rightElement={
+			<XUITextInputSideElement type="button" alignment="bottom">
+				<XUIButton variant="icon">
+					<XUIIcon path={attachPath} />
+				</XUIButton>
+			</XUITextInputSideElement>
+		}
 	/>
 </div>
 ```
 
 #### Input Groups
 ```js
+const facebook = require ('@xero/xui-icon/icons/social-facebook').default;
 const cn = require('classnames');
-<div className="xui-fieldlayout">
-	<div className='xui-textinputgroup'>
+<div>
+	<div className="xui-fieldlayout">
+		<div className='xui-textinputgroup'>
+			<XUITextInput
+				fieldClassName="xui-column-4-of-12"
+				leftElement={
+					<XUITextInputSideElement type="text">
+						To:
+					</XUITextInputSideElement>
+				}
+				isFieldLayout={true}
+				placeholder='placeholder'
+				isInvalid
+				validationMessage='invalid input'
+			/>
+			<XUITextInput
+				fieldClassName="xui-column-4-of-12"
+				leftElement={
+					<XUITextInputSideElement type="text">
+						From:
+					</XUITextInputSideElement>
+				}
+				placeholder='placeholder'
+				hintMessage='hint hint hint'
+			/>
+			<XUITextInput
+				fieldClassName="xui-column-4-of-12"
+				leftElement={
+					<XUITextInputSideElement type="icon" backgroundColor="facebook">
+						<XUIIcon path={facebook} />
+					</XUITextInputSideElement>
+				}
+				placeholder='placeholder'
+			/>
+		</div>
+	</div>
+
+	<div className="xui-verticaltextinputgroup">
 		<XUITextInput
-			containerClasses="xui-column-4-of-12"
-			leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>To:</span>}
-			isFieldLayout={true}
+			leftElement={
+				<XUITextInputSideElement type="text">
+					To:
+				</XUITextInputSideElement>
+			}
 			placeholder='placeholder'
 			isInvalid
-			validationMessage='invalid input'
 		/>
 		<XUITextInput
-			containerClasses="xui-column-4-of-12"
-			leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>From:</span>}
+			leftElement={
+				<XUITextInputSideElement type="text">
+					From:
+				</XUITextInputSideElement>
+			}
 			placeholder='placeholder'
-			hintMessage='hint hint hint'
 		/>
-			<XUITextInput
-			containerClasses="xui-column-4-of-12"
-			leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>Subject:</span>}
+		<XUITextInput
+			leftElement={
+				<XUITextInputSideElement type="icon" backgroundColor="facebook">
+					<XUIIcon path={facebook} />
+				</XUITextInputSideElement>
+			}
 			placeholder='placeholder'
 		/>
 	</div>
@@ -123,13 +360,21 @@ const cn = require('classnames');
 		backgroundColor: '#f5f6f7'
 	}}>
 	<XUITextInput
-		leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>Transparent Borderless:</span>}
+		leftElement={
+			<XUITextInputSideElement type="text">
+				Transparent Borderless:
+			</XUITextInputSideElement>
+		}
 		isFieldLayout={true}
 		isBorderlessTransparent={true}
 		placeholder='placeholder'
 	/>
 	<XUITextInput
-		leftElement={props => <span {...props} className={cn("xui-textcolor-muted xui-padding-horizontal", props.className)}>Solid Borderless:</span>}
+		leftElement={
+			<XUITextInputSideElement type="text">
+				Solid Borderless:
+			</XUITextInputSideElement>
+		}
 		isBorderlessSolid={true}
 		placeholder='placeholder'
 	/>
@@ -138,7 +383,6 @@ const cn = require('classnames');
 #### Inverted Borderless Variant
 ```js
 const search = require ('@xero/xui-icon/icons/search').default;
-const XUITextInputIcon = require('./components/textInput/XUITextInputIcon.js').default;
 const cn = require('classnames');
 
 	<div style={{
@@ -146,14 +390,22 @@ const cn = require('classnames');
 		padding: '10px',
 	}}>
 		<XUITextInput
-			leftElement={props => <span {...props} className={cn("xui-padding-horizontal", props.className)}>Inverted Borderless Solid:</span>}
+			leftElement={
+				<XUITextInputSideElement type="text">
+					Inverted Borderless Solid:
+				</XUITextInputSideElement>
+			}
 			isFieldLayout={true}
 			isBorderlessSolid={true}
 			isInverted={true}
 			placeholder='placeholder'
 		/>
 		<XUITextInput
-			leftElement={props => <XUITextInputIcon {...props} path={search} />}
+			leftElement={
+				<XUITextInputSideElement type="icon">
+					<XUIIcon path={search} />
+				</XUITextInputSideElement>
+			}
 			isBorderlessTransparent={true}
 			isInverted={true}
 			placeholder='inverted borderless transparent'
@@ -167,7 +419,6 @@ const { PureComponent } = require ( 'react' );
 const clear = require ('@xero/xui-icon/icons/clear').default;
 const search = require ('@xero/xui-icon/icons/search').default;
 const XUIButton = require ( './button.js' ).default;
-const XUITextInputIcon = require('./components/textInput/XUITextInputIcon.js').default;
 const NOOP = () => {};
 
 class Example extends PureComponent {
@@ -197,17 +448,21 @@ class Example extends PureComponent {
 	render(){
 		const { value } = this.state;
 
-		const button = props => value ? <XUIButton
-						onClick={this.onClearButtonClick}
-						variant="icon"
-						{...props}
-					>
-					<XUIIcon path={clear} />
-				</XUIButton> : null
+		const button = (
+			<XUIButton
+				onClick={this.onClearButtonClick}
+				variant="icon"
+			>
+				<XUIIcon path={clear} />
+			</XUIButton>
+		);
 
 		return(
 			<XUITextInput
-				leftElement={props => <XUITextInputIcon {...props} path={search} />}
+				leftElement={
+					<XUITextInputSideElement type="icon">
+						<XUIIcon path={search} />
+					</XUITextInputSideElement>}
 				rightElement={button}
 				onChange={this.onChange}
 				placeholder='This is a search box'

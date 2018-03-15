@@ -1,177 +1,81 @@
 import '../helpers/xuiGlobalChecks';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
+import autosize from 'autosize';
+
 import { compose } from '../helpers/compose';
+import { calculateAstralLength, calculateMaxHeight } from './helpers';
 
-/**
- * @private
- * Calculates the min and max heights for the textarea based off `minRows` and `maxRows`. Will default to the CSS value if neither these or `rows` is provided
- * @returns {Object} Object contianing minHeight, maxHeight and verticalBorderWidth properties
- */
-const calculateMinMaxHeights = (textComponent) => {
-	const textArea = textComponent.textArea;
-
-	const {
-		minRows,
-		maxRows
-	} = textComponent.props;
-
-	const textAreaStyle = window.getComputedStyle(textArea);
-	const verticalPadding = parseFloat(textAreaStyle.getPropertyValue('padding-bottom')) + parseFloat(textAreaStyle.getPropertyValue('padding-top'));
-	const verticalBorderWidth = parseFloat(textAreaStyle.getPropertyValue('border-bottom-width')) + parseFloat(textAreaStyle.getPropertyValue('border-top-width'));
-	const cssMinHeight = parseFloat(textAreaStyle.getPropertyValue('min-height'));
-	const cssMaxHeight = parseFloat(textAreaStyle.getPropertyValue('max-height'));
-
-	// Temporarily empty the textarea value in order to measure the lineheight of a single line
-	const value = textArea.value;
-	textArea.value = '';
-	textArea.style.height = 'auto';
-	textArea.style.minHeight = 0;
-	const singleLineHeight = textArea.scrollHeight - verticalPadding;
-	textArea.value = value;
-
-	let minHeight = minRows? minRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMinHeight;
-	let maxHeight = maxRows? maxRows * singleLineHeight + verticalPadding + verticalBorderWidth : cssMaxHeight;
-
-	// Ensure min and max height are not negative, if, for example, the textarea is hidden
-	minHeight = Math.max(0, minHeight);
-	maxHeight = Math.max(0, maxHeight);
-
-	textComponent.setState({
-		sizeData: {
-			minHeight,
-			maxHeight,
-			verticalBorderWidth
-		}
-	});
-
-	textArea.style.minHeight = minHeight + 'px';
-	textArea.style.maxHeight = maxHeight + 'px';
-
-	return {
-		minHeight,
-		maxHeight,
-		verticalBorderWidth
-	};
-};
-
-
-const resize = (textComponent, sizeData) => {
-	const textArea = textComponent.textArea;
-
-	textArea.style.height = 'auto';
-	let height = textArea.scrollHeight + sizeData.verticalBorderWidth;
-	height = sizeData.minHeight? Math.max(height, sizeData.minHeight) : height;
-	height = sizeData.maxHeight? Math.min(height, sizeData.maxHeight) : height;
-	textArea.style.height = height + 'px';
-
-	textComponent.setState({height: height}, function() {
-		textArea.scrollTop = textArea.scrollHeight;
-	});
-};
-
-
-const changeHandler = function() {
-	const textComponent = this;
-
-	const {
-		onChange,
-		minRows,
-		maxRows,
-		maxCharacters
-	} = textComponent.props;
-
-	if (onChange) {
-		onChange.apply(textComponent, arguments);
-	}
-
-	if ((minRows || maxRows) && !textComponent.state.manuallyResized) {
-		resize(textComponent, textComponent.state.sizeData);
-	}
-
-	if (maxCharacters) {
-		updateCounter(textComponent);
-	}
-};
-
-
-const detectResize = function() {
-	const textComponent = this;
-	const textArea = textComponent.textArea;
-
-	if (!textComponent.state.manuallyResized && textArea.style.height !== textComponent.state.height + 'px') {
-		textComponent.setState({
-			manuallyResized: true
-		});
-	}
-};
-
-
-const updateCounter = (textComponent) => {
-	const charactersLeft = textComponent.props.maxCharacters - calculateAstralLength(textComponent.textArea.value);
-
-	textComponent.setState({
-		charactersLeft: charactersLeft,
-		characterCountError: charactersLeft < 0
-	});
-};
-
-
-/**
- * @private
- * Calculates length of a string in a way that accounts for 'astral' characters (characters outside of regular character set, namely emojis)
- * @returns {Number} a more accurate string length than String.prototype.length offers
- */
-const calculateAstralLength = (string) => {
-	return [...string].length;
-};
-
-export default class XUITextArea extends Component {
-
+export default class XUITextArea extends PureComponent {
 	constructor(props) {
 		super(props);
-		const textComponent = this;
-
-		textComponent.state = {
-			characterCountError: false,
+		this.state = {
 			height: 0,
-			manuallyResized: false
+			manuallyResized: false,
+			charactersLeft: props.maxCharacters,
 		};
-
-		textComponent._changeHandler = changeHandler.bind(textComponent);
-		textComponent._detectResize = detectResize.bind(textComponent);
 	}
 
 	componentDidMount() {
-		const textComponent = this;
-
 		const {
 			minRows,
 			maxRows,
 			maxCharacters
-		} = textComponent.props;
+		} = this.props;
 
 		if (minRows || maxRows) {
-			resize(textComponent, calculateMinMaxHeights(textComponent));
+			this.setState({
+				maxHeight: calculateMaxHeight({
+					textArea: this.textArea,
+					maxRows,
+				})
+			});
+			autosize(this.textArea);
 		}
 
-		if (maxCharacters) {
-			updateCounter(textComponent);
+		if (maxCharacters != null) {
+			this.updateCounter();
+		}
+	}
+
+	componentDidUpdate() {
+		if (!this.state.manuallyResized) {
+			var evt = document.createEvent('Event');
+			evt.initEvent('autosize:update', true, false);
+			this.textArea.dispatchEvent(evt);
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const textComponent = this;
-
-		if (textComponent.props.minRows !== nextProps.minRows || textComponent.props.maxRows !== nextProps.maxRows) {
-			resize(textComponent, calculateMinMaxHeights(textComponent));
-		}
+	componentWillUnmount() {
+		autosize.destroy(this.textArea);
 	}
+
+	updateCounter = () => {
+		this.setState(() => {
+			const currentValue = this.textArea != null ? this.textArea.value : '';
+			const charactersLeft = this.props.maxCharacters - calculateAstralLength(currentValue);
+			return {
+				charactersLeft,
+			};
+		});
+	};
+
+	detectResize = () => {
+		const textArea = this.textArea;
+		const {
+			manuallyResized,
+			height,
+		} = this.state;
+
+		if (!manuallyResized && textArea.style.height !== `${height}px`) {
+			this.setState({
+				manuallyResized: true
+			});
+		}
+	};
 
 	render() {
-		const textComponent = this;
-
 		const {
 			className,
 			fieldClassName,
@@ -179,7 +83,6 @@ export default class XUITextArea extends Component {
 			minRows,
 			children,
 			maxCharacters,
-			maxRows,
 			defaultLayout,
 			isInvalid,
 			validationMessage,
@@ -190,44 +93,65 @@ export default class XUITextArea extends Component {
 			textareaId,
 			qaHook,
 			textareaRef,
+			leftElement,
+			rightElement,
+			onChange,
+			style,
+			// This prevents maxRows from ending up in `other`
+			maxRows, // eslint-disable-line
 			...other
-		} = textComponent.props;
+		} = this.props;
+		const {
+			charactersLeft,
+			maxHeight,
+		} = this.state;
 
-		const inputClass = 'xui-input';
+		const inputClass = 'xui-textinput';
+
+		const baseClasses = cn(
+			inputClass,
+			{
+				[`${inputClass}-is-invalid`] : charactersLeft < 0 || isInvalid,
+				[`${inputClass}-borderless`] : isBorderless,
+				[`${inputClass}-is-disabled`]: isDisabled,
+			}
+		);
 
 		const textareaClasses = cn(
-				inputClass,
+				`${inputClass}--input`,
 				className,
 				{
-					[`${inputClass}-is-invalid`] : textComponent.state.characterCountError || isInvalid,
-					[`${inputClass}-borderless`] : isBorderless
+					[`${inputClass}-has-left-element`] : !!leftElement,
+					[`${inputClass}-has-right-element`] : !!rightElement,
 				},
 				isResizable ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
 			);
 
-		const fieldClass = 'xui-field';
-
 		const fieldClasses = cn(
 				fieldClassName,
-				{ [`${fieldClass}-layout`] : defaultLayout }
+				{ [`xui-field-layout`] : defaultLayout }
 			);
 
 		const labelClasses = cn(
 				'xui-u-flex',
-				{ [`${fieldClass}label-layout`] : defaultLayout }
+				{ [`xui-fieldlabel-layout`] : defaultLayout }
 			);
 
 		const textArea = (
 			<textarea
 				{...other}
-				ref={ compose(textareaRef, c => textComponent.textArea = c) }
-				rows={minRows || maxRows? 1 : rows}
+				ref={ compose(textareaRef, c => this.textArea = c) }
+				rows={minRows || rows}
 				className={textareaClasses}
-				onChange={textComponent._changeHandler}
-				onMouseUp={textComponent._detectResize}
+				onChange={maxCharacters != null ? compose(this.updateCounter, onChange) : onChange}
+				onMouseUp={this.detectResize}
 				disabled={isDisabled}
 				id={textareaId}
 				data-automationid={`${qaHook}-textarea`}
+				style={{
+					...style,
+					maxHeight,
+				}}
 			/>
 		);
 
@@ -236,15 +160,19 @@ export default class XUITextArea extends Component {
 				'xui-validation',
 				'xui-validation-layout',
 				{ 'xui-validation-is-invalid': isInvalid && validationMessage }
-			)}>{(isInvalid && validationMessage) ? validationMessage : hintMessage}</div>
+			)}>
+				{(isInvalid && validationMessage) ? validationMessage : hintMessage}
+			</div>
 		);
 
-		const counter = maxCharacters ? (
+		const counter = typeof maxCharacters === 'number' ? (
 			<span
-				ref={c => textComponent._counter = c}
-				className="xui-text-secondary"
-				data-automationid={`${qaHook}-counter`}>
-				{textComponent.state.charactersLeft}
+				ref={c => this._counter = c}
+				className={cn('xui-text-secondary',
+					{ 'xui-textcolor-negative': charactersLeft < 0 }
+				)}
+				data-automationid={qaHook && `${qaHook}-counter`}>
+				{charactersLeft}
 			</span>
 		) : null;
 
@@ -266,7 +194,11 @@ export default class XUITextArea extends Component {
 		return (
 			<div className={fieldClasses}>
 				{label}
-				{textArea}
+				<div className={baseClasses}>
+					{leftElement}
+					{textArea}
+					{rightElement}
+				</div>
 				{message}
 			</div>
 		);
@@ -276,7 +208,8 @@ export default class XUITextArea extends Component {
 XUITextArea.defaultProps = {
 	qaHook: 'xui-textarea',
 	rows: 3,
-	defaultLayout: true
+	defaultLayout: true,
+	style: {},
 };
 
 XUITextArea.propTypes = {
@@ -319,5 +252,11 @@ XUITextArea.propTypes = {
 	/** QaHook for testing. */
 	qaHook: PropTypes.string,
 	/** Optional children to be rendered within the component (i.e. a label). */
-	children: PropTypes.node
+	children: PropTypes.node,
+	/** Element to be rendered to the left of the textarea */
+	leftElement: PropTypes.node,
+	/** Element to be rendered to the right of the textarea */
+	rightElement: PropTypes.node,
+	/** Style object to apply to the textarea. The maxHeight value will be overridden if `maxRows` is provided */
+	style: PropTypes.object,
 };

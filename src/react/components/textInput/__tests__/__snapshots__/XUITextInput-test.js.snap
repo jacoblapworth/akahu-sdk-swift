@@ -4,21 +4,178 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
 <div
   className="xui-textinputwrapper"
 >
-  <div
+  <label
     className="xui-textinput"
     data-automationid="input-test"
   >
     <input
-      className="xui-textinput--input xui-textinput-borderless"
+      className="xui-textinput--input"
       data-automationid="input-test--input"
       defaultValue={undefined}
+      disabled={undefined}
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
       placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
       type={undefined}
       value={undefined}
     />
+  </label>
+</div>
+`;
+
+exports[`<XUITextInput> Side elements should render side elements correctly 1`] = `
+<div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput"
+      data-automationid={undefined}
+    >
+      <div
+        className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+        data-automationid={undefined}
+      >
+        <svg
+          className="xui-icon"
+          data-automationid={undefined}
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <path
+            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <input
+        className="xui-textinput--input xui-textinput-has-left-element"
+        data-automationid={undefined}
+        defaultValue={undefined}
+        disabled={undefined}
+        onBlurCapture={[Function]}
+        onChange={undefined}
+        onFocusCapture={[Function]}
+        placeholder={undefined}
+        rows={undefined}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+        type={undefined}
+        value={undefined}
+      />
+    </label>
+  </div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput"
+      data-automationid={undefined}
+    >
+      <input
+        className="xui-textinput--input xui-textinput-has-right-element"
+        data-automationid={undefined}
+        defaultValue={undefined}
+        disabled={undefined}
+        onBlurCapture={[Function]}
+        onChange={undefined}
+        onFocusCapture={[Function]}
+        placeholder={undefined}
+        rows={undefined}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+        type={undefined}
+        value={undefined}
+      />
+      <div
+        className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+        data-automationid={undefined}
+      >
+        <svg
+          className="xui-icon"
+          data-automationid={undefined}
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <path
+            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+    </label>
+  </div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput"
+      data-automationid={undefined}
+    >
+      <div
+        className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+        data-automationid={undefined}
+      >
+        <svg
+          className="xui-icon"
+          data-automationid={undefined}
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <path
+            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+      <input
+        className="xui-textinput--input xui-textinput-has-left-element xui-textinput-has-right-element"
+        data-automationid={undefined}
+        defaultValue={undefined}
+        disabled={undefined}
+        onBlurCapture={[Function]}
+        onChange={undefined}
+        onFocusCapture={[Function]}
+        placeholder={undefined}
+        rows={undefined}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+        type={undefined}
+        value={undefined}
+      />
+      <div
+        className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+        data-automationid={undefined}
+      >
+        <svg
+          className="xui-icon"
+          data-automationid={undefined}
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <path
+            d="M15,10 C16.105,10 17,9.105 17,8 C17,6.895 16.105,6 15,6 C13.895,6 13,6.895 13,8 C13,9.105 13.895,10 15,10 Z M8,12 C8,11.4477153 8.44994876,11 9.00684547,11 L20.9931545,11 C21.5492199,11 22,11.4438648 22,12 C22,12.5522847 21.5566468,13 20.9906311,13 L18,13 L18,22.0046024 C18,22.5543453 17.5561352,23 17,23 C16.4477153,23 16,22.5562834 16,22.0001925 L16,18 L14,18 L14,22.0001925 C14,22.5523709 13.5561352,23 13,23 C12.4477153,23 12,22.5443356 12,22.0046024 L12,13 L9.0093689,13 C8.45190985,13 8,12.5561352 8,12 Z"
+            role="presentation"
+          />
+        </svg>
+      </div>
+    </label>
   </div>
 </div>
 `;
@@ -27,21 +184,88 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 <div
   className="xui-textinputwrapper"
 >
-  <div
+  <label
     className="xui-textinput"
     data-automationid="givenQAHook"
   >
     <input
-      className="xui-textinput--input xui-textinput-borderless"
+      className="xui-textinput--input"
       data-automationid="givenQAHook--input"
       defaultValue={undefined}
+      disabled={undefined}
       onBlurCapture={[Function]}
       onChange={undefined}
       onFocusCapture={[Function]}
       placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
       type={undefined}
       value={undefined}
     />
-  </div>
+  </label>
+</div>
+`;
+
+exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
+<div
+  className="xui-textinputwrapper"
+>
+  <label
+    className="xui-textinput xui-textinput-is-disabled"
+    data-automationid={undefined}
+  >
+    <input
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={true}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </label>
+</div>
+`;
+
+exports[`<XUITextInput> Text-only input includes custom classes on the correct nodes 1`] = `
+<div
+  className="custom-field-class xui-textinputwrapper"
+>
+  <label
+    className="custom-container-class xui-textinput"
+    data-automationid={undefined}
+  >
+    <input
+      className="custom-input-class xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </label>
 </div>
 `;

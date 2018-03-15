@@ -5,7 +5,6 @@
 @import "../vars";
 @import "../mixins";
 
-$xui-radius-iconwrapper: 3px;
 $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom borders
 $xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
 $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
@@ -14,6 +13,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 .#{$ns}-textinput--input {
 	@include xui-input-base;
+	border: none;
 }
 
 .#{$ns}-textinput-focus {
@@ -30,92 +30,68 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	padding: 0;
 }
 
-// Icons within inputs
-
-.#{$ns}-textinputwrapper {
-
-	.#{$ns}-textinput-has-left-icon {
-		padding-left: 0;
-	}
-
-	.#{$ns}-textinput-has-right-icon {
-		padding-right: 0;
-	}
-
-	.#{$ns}-icon {
-		z-index: $xui-input-icon-zindex;
-	}
-
-	.#{$ns}-textinput--icon-left,
-	.#{$ns}-textinput--icon-right {
-		color: $xui-color-grey-3;
-		height: $xui-input-icon-height; // Do not supply width so that the icon does not scale (achieves vertical centering)
-		position: absolute;
-		z-index: $xui-input-icon-zindex;
-	}
-
-	.#{$ns}-textinput--icon-left {
-		pointer-events: none; // allows "click-through" to focus the underlying field
-	}
-
+.#{$ns}-textinput-is-disabled {
+	@include xui-disabled-form;
 }
 
-.#{$ns}-textinput--iconwrapper {
-	align-items: center;
-	display: inline-flex;
-	height: $xui-input-height;
-	justify-content: center;
-	line-height: inherit;
+// Side elements within inputs
+.#{$ns}-textinput-has-left-element {
+	padding-left: 0;
+}
+
+.#{$ns}-textinput-has-right-element {
+	padding-right: 0;
+}
+
+.#{$ns}-textinput--side-element {
+	align-self: stretch;
+	cursor: text;
+	display: flex;
+}
+
+.#{$ns}-textinput--side-element-icon {
 	margin: -1px;
-	min-width: $xui-input-height;
-	position: relative;
-	text-align: center; // If text is used instead of an icon, center it
-	z-index: $xui-input-icon-zindex;
+	padding: $xui-s-xsmall;
 }
 
-.#{$ns}-textinput--iconwrapper-left {
-	border-radius: $xui-radius-iconwrapper 0 0 $xui-radius-iconwrapper;
-	pointer-events: none; // allows "click-through" to focus the underlying field
+.#{$ns}-textinput--side-element-text {
+	padding: $xui-s-small $xui-s-standard;
+	pointer-events: none;
 }
 
-.#{$ns}-textinput--iconwrapper-right {
-	border-radius: 0 $xui-radius-iconwrapper $xui-radius-iconwrapper 0;
+.#{$ns}-textinput--side-element-button:last-child {
+	padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall $xui-s-standard;
 }
 
-.#{$ns}-textinput--iconwrapper-twitter {
+.#{$ns}-textinput--side-element-button:first-child {
+	padding: $xui-s-xsmall $xui-s-standard $xui-s-xsmall $xui-s-xsmall;
+}
+
+.#{$ns}-textinput--side-element-has-background {
+	&:first-child {
+		border-radius: $xui-radius 0 0 $xui-radius;
+		margin-right: $xui-s-standard;
+	}
+
+	&:last-child {
+		border-radius: 0 $xui-radius $xui-radius 0;
+		margin-left: $xui-s-standard;
+	}
+}
+
+.#{$ns}-textinput--side-element-twitter {
 	background-color: $xui-color-twitter;
-
-	& + .#{$ns}-textinput-has-left-icon {
-		padding-left: 15px;
-	}
-
-	.#{$ns}-textinput-has-right-icon + & {
-		margin-left: 15px;
-	}
+	color: $xui-color-white;
 }
 
-.#{$ns}-textinput--iconwrapper-facebook {
+.#{$ns}-textinput--side-element-facebook {
 	background-color: $xui-color-facebook;
-
-	& + .#{$ns}-textinput-has-left-icon {
-		padding-left: 15px;
-	}
-
-	.#{$ns}-textinput-has-right-icon + & {
-		margin-left: 15px;
-	}
+	color: $xui-color-white;
 }
 
-.#{$ns}-textinput--iconwrapper-linkedin {
+.#{$ns}-textinput--side-element-linkedin {
 	background-color: $xui-color-linkedin;
-
-	& + .#{$ns}-textinput-has-left-icon {
-		padding-left: 15px;
-	}
-
-	.#{$ns}-textinput-has-right-icon + & {
-		margin-left: 15px;
-	}
+	color: $xui-color-white;
 }
 
 // Borderless inputs
@@ -171,24 +147,19 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 }
 
-.#{$ns}-textinputwrapper-borderless {
-
-	.#{$ns}-textinput--icon-left {
-		left: $xui-s-xsmall + $xui-input-icon-offset;
-	}
-
-	.#{$ns}-textinput--icon-right {
-		right: $xui-s-xsmall + $xui-input-icon-offset;
-	}
-}
-
-
-
 .#{$ns}-verticaltextinputgroup {
 	// Only add top border radius to the first element
-	.#{$ns}-textinput:first-of-type,
-	.#{$ns}-textinputwrapper:first-of-type > .#{$ns}-input {
-		border-radius: 3px 3px 0 0;
+	> .#{$ns}-textinput:first-of-type,
+	.#{$ns}-textinputwrapper:first-of-type > .#{$ns}-textinput {
+		border-radius: $xui-radius $xui-radius 0 0;
+
+		> .#{$ns}-textinput--side-element:first-child {
+			border-radius: $xui-radius 0 0 0;
+		}
+
+		> .#{$ns}-textinput--side-element:last-child {
+			border-radius: 0 $xui-radius 0 0;
+		}
 	}
 
 	// Add the margin adjustment to all elements but the first
@@ -204,9 +175,17 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	}
 
 	// Only add bottom border radius to the last element
-	.#{$ns}-textinput:last-of-type,
+	> .#{$ns}-textinput:last-of-type,
 	.#{$ns}-textinputwrapper:last-of-type .#{$ns}-textinput {
-		border-radius: 0 0 3px 3px;
+		border-radius: 0 0 $xui-radius $xui-radius;
+
+		> .#{$ns}-textinput--side-element:first-child {
+			border-radius: 0 0 0 $xui-radius;
+		}
+
+		> .#{$ns}-textinput--side-element:last-child {
+			border-radius: 0 0 $xui-radius 0;
+		}
 	}
 }
 
@@ -226,6 +205,10 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 // This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-textinput {
 	border-radius: 0;
+
+	.#{$ns}-textinput--side-element {
+		border-radius: 0;
+	}
 }
 
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:nth-child(n+2) > .#{$ns}-textinput {
@@ -239,7 +222,9 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 .#{$ns}-textinputgroup > .#{$ns}-textinput:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinput:first-child > .#{$ns}-textinput--side-element:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child .#{$ns}-textinput--side-element:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-button:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
 	border-bottom-left-radius: $xui-radius;
@@ -247,7 +232,9 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 .#{$ns}-textinputgroup > .#{$ns}-textinput:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinput:last-child > .#{$ns}-textinput--side-element:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput--side-element:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-button:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
 	border-bottom-right-radius: $xui-radius;

@@ -4,20 +4,20 @@ import PropTypes from 'prop-types';
 
 // Components we need to test with
 import XUITextInput from '../XUITextInput';
-import XUITextInputIcon from '../XUITextInputIcon';
-
+import XUITextInputSideElement from '../XUITextInputSideElement';
+import XUIIcon from '../../icon/XUIIcon';
+import XUIButton from '../../button/XUIButton';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, object, text, select, number } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations } from './variations';
-import clear from '@xero/xui-icon/icons/clear';
-import facebook from '@xero/xui-icon/icons/social-facebook';
+import clearPath from '@xero/xui-icon/icons/clear';
+import facebookPath from '@xero/xui-icon/icons/social-facebook';
 
 const inputProps = {};
-const NOOP = () => {};
 
 const TextInputWrapper = props => {
 	const {
@@ -27,29 +27,75 @@ const TextInputWrapper = props => {
 		isInvalid,
 		validationMessage,
 		hintMessage,
-		showLeftElement,
-		showRightElement,
-		showWrapperColor,
-		placeholder
+		leftElementType,
+		rightElementType,
+		leftElementAlignment,
+		rightElementAlignment,
+		placeholder,
+		isDisabled,
+		value,
+		isMultiline,
+		minRows,
+		maxRows,
+		rows,
 	} = props;
 
-	/* eslint-disable react/display-name */
-	const rightElement =  showRightElement ? props => <XUITextInputIcon {...props} variant='icon' path={clear} onClick={NOOP}/> : null
-	const leftElement = showLeftElement ? props => <XUITextInputIcon {...props} path={facebook} color={showWrapperColor && 'white'} wrapperColor={showWrapperColor && 'facebook'}/> : null
-	/* eslint-enable react/display-name */
+	const makeSideElement = (sideElementType, sideElementAlignment) => {
+		switch(sideElementType) {
+			case 'icon':
+				return (
+					<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
+						<XUIIcon path={clearPath} />
+					</XUITextInputSideElement>
+				);
+			case 'iconWithBackground':
+				return (
+					<XUITextInputSideElement
+						type="icon"
+						backgroundColor={'facebook'}
+						alignment={sideElementAlignment}
+					>
+						<XUIIcon path={facebookPath} />
+					</XUITextInputSideElement>
+				);
+			case 'text':
+				return (
+					<XUITextInputSideElement type="text" alignment={sideElementAlignment}>
+						Test
+					</XUITextInputSideElement>
+				)
+			case 'button':
+				return (
+					<XUITextInputSideElement type="button" alignment={sideElementAlignment}>
+						<XUIButton variant="primary" size="small">
+							Test
+						</XUIButton>
+					</XUITextInputSideElement>
+				);
+			default:
+				return null
+		}
+	}
 
 	return(
 		<XUITextInput
 			inputProps={inputProps}
-			leftElement= {leftElement}
+			leftElement={makeSideElement(leftElementType, leftElementAlignment)}
+			rightElement={makeSideElement(rightElementType, rightElementAlignment)}
 			isBorderlessTransparent={isBorderlessTransparent}
 			isBorderlessSolid={isBorderlessSolid}
 			isInvalid={isInvalid}
 			validationMessage={validationMessage}
 			hintMessage={hintMessage}
-			rightElement={rightElement}
+			type="text"
 			defaultValue='default Value'
 			placeholder={placeholder}
+			isDisabled={isDisabled}
+			value={value}
+			isMultiline={isMultiline}
+			minRows={minRows}
+			maxRows={maxRows}
+			rows={rows}
 		/>
 	)
 }
@@ -61,27 +107,45 @@ TextInputWrapper.propTypes = {
 	isInvalid: PropTypes.bool,
 	validationMessage: PropTypes.string,
 	hintMessage: PropTypes.string,
-	showLeftElement: PropTypes.bool,
-	showRightElement: PropTypes.bool,
-	showWrapperColor: PropTypes.bool,
-	placeholder: PropTypes.string
+	leftElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text']),
+	rightElementType: PropTypes.oneOf(['icon', 'iconWithBackground', 'button', 'text']),
+	leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
+	rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
+	placeholder: PropTypes.string,
+	isDisabled: PropTypes.bool,
+	value: PropTypes.string,
+	isMultiline: PropTypes.bool,
+	minRows: PropTypes.number,
+	maxRows: PropTypes.number,
+	rows: PropTypes.number,
 }
+
+const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'];
+
+const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<TextInputWrapper
-		inputAttributes={object('input props', inputProps)}
-		showLeftElement= {boolean('show left element (icon)', false)}
-		showWrapperColor={boolean('show left element wrapper color', false)}
+		placeholder={text('placeholder', 'placeholder text')}
+		value={text('value')}
+		isMultiline={boolean('is multiline', false)}
+		minRows={number('min height of multiline input in rows')}
+		maxRows={number('max height of multiline input in rows')}
+		rows={number('set height of multiline input in rows')}
+		leftElementType={select('left side element type', elementTypeOptions)}
+		leftElementAlignment={select('left side element vertical alignment', elementAlignmentOptions, 'top')}
+		rightElementType={select('right side element type', elementTypeOptions)}
+		rightElementAlignment={select('right side element vertical alignment', elementAlignmentOptions, 'top')}
 		isBorderlessTransparent={boolean('is borderless transparent', false)}
 		isBorderlessSolid={boolean('is borderless solid', false)}
 		isInvalid={boolean('is invalid', false)}
 		validationMessage={text('validation message', '')}
 		hintMessage={text('hint message', '')}
-		showRightElement={boolean('show right element (clear button)', false)}
-		placeholder={text('placeholder', 'placeholder text')}
+		isDisabled={boolean('is disabled', false)}
+		inputAttributes={object('input props', inputProps)}
 	/>
 ));
 

@@ -306,6 +306,9 @@
 								"components": "../src/react/components/input/XUIInput.js"
 							},
 							{
+								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
+							},
+							{
 								"name": "Text Input",
 								"content": "../src/react/textInput.md",
 								"components": "../src/react/components/textInput/XUITextInput.js"
@@ -316,6 +319,9 @@
 						"name": "TextArea",
 						"content": "../src/react/textarea.md",
 						"sections": [
+							{
+								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
+							},
 							{
 								"components": "../src/react/components/textarea/XUITextArea.js"
 							}

@@ -132,6 +132,11 @@ const componentsToTest = [
 		variationsPath: '../src/react/components/tag/stories/variations.js'
 	},
 	{
+		testsPrefix: 'XUI TextInput',
+		variationsPath: '../src/react/components/textinput/stories/variations.js',
+		delay: 1500
+	},
+	{
 		testsPrefix: 'XUI Textarea',
 		variationsPath: '../src/react/components/textarea/stories/variations.js',
 		delay: 1500

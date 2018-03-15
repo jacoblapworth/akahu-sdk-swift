@@ -613,12 +613,11 @@ $xui-progress-colors: (
 	width: 100%;
 }
 
-.#{$ns}-progress-tooltip {
-	bottom: calc(100% + 5px);
+.#{$ns}-progress .#{$ns}-progress-tooltip {
 	display: block;
-	position: absolute;
-	right: calc(100% + 5px);
-	white-space: nowrap;
+	height: 100%;
+	line-height: 1;
+	width: 100%;
 }
 
 .#{$ns}-progress-complete .#{$ns}-progress-icon,

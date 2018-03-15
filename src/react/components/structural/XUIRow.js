@@ -5,7 +5,8 @@ import cn from 'classnames';
 import { rowVariants } from './private/constants';
 
 const getClasses = (className, variant) => {
-	const rowClass = "xui-row" + (rowVariants[variant] ? `-${rowVariants[variant]}` : '');
+	const suffix = rowVariants[variant] ? `-${rowVariants[variant]}` : '';
+	const rowClass = `xui-row${suffix}`;
 	return cn(className, rowClass);
 };
 

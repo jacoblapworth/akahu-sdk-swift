@@ -12,17 +12,17 @@ const getClass = (width, suffix) => {
 	return colClass;
 };
 
-const getAllClasses = ({className, columnWidth, columnWidthMedium, columnWidthWide}) => {
+const getAllClasses = ({className, gridColumns, gridColumnsMedium, gridColumnsWide}) => {
 	return cn(
 		className,
-		getClass(columnWidth),
-		getClass(columnWidthMedium, "-medium"),
-		getClass(columnWidthWide, "-wide"));
+		getClass(gridColumns),
+		getClass(gridColumnsMedium, "-medium"),
+		getClass(gridColumnsWide, "-wide"));
 };
 
-const XUIColumn = ({children, className, columnWidth, columnWidthMedium, columnWidthWide, ...otherProps}) =>
+const XUIColumn = ({children, className, gridColumns, gridColumnsMedium, gridColumnsWide, ...otherProps}) =>
 	<div
-		className={getAllClasses({className, columnWidth, columnWidthMedium, columnWidthWide})}
+		className={getAllClasses({className, gridColumns, gridColumnsMedium, gridColumnsWide})}
 		{...otherProps}
 	>
 		{children}
@@ -32,30 +32,30 @@ XUIColumn.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	/**
-	 * Column width. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns for the column to inhabit. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	columnWidth: PropTypes.oneOfType([
+	gridColumns: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number
 	]),
 	/**
-	 * Column width at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	columnWidthMedium: PropTypes.oneOfType([
+	gridColumnsMedium: PropTypes.oneOfType([
 			PropTypes.string,
 			PropTypes.number
 		]),
 	/**
-	 * Column width at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
+	 * Grid columns at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
-	columnWidthWide: PropTypes.oneOfType([
+	gridColumnsWide: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number
 	]),
 };
 
 XUIColumn.defaultProps = {
-	columnWidth: 12
+	gridColumns: 12
 };
 
 export { XUIColumn as default };

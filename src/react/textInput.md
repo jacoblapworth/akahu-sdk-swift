@@ -73,7 +73,6 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUITextInput
-					value
 					validationMessage="Well it's not right"
 					isInvalid={true}
 					isFieldLayout
@@ -258,7 +257,7 @@ const XUIButton = require ( './button.js' ).default;
 		isMultiline
 		placeholder="Center aligned right content"
 		rightElement={
-			<XUITextInputSideElement type="button" alignment="center">
+			<XUITextInputSideElement type="icon" alignment="center">
 				<XUIButton variant="icon">
 					<XUIIcon path={attachPath} />
 				</XUIButton>
@@ -270,13 +269,24 @@ const XUIButton = require ( './button.js' ).default;
 		isMultiline
 		placeholder="Bottom aligned right content"
 		rightElement={
-			<XUITextInputSideElement type="button" alignment="bottom">
+			<XUITextInputSideElement type="icon" alignment="bottom">
 				<XUIButton variant="icon">
 					<XUIIcon path={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
 	/>
+	<XUITextInput
+		isFieldLayout
+		isMultiline
+		placeholder="Bottom aligned top-aligned content with background"
+		leftElement={
+			<XUITextInputSideElement type="icon" alignment="top" backgroundColor="facebook">
+				<XUIIcon path={facebookPath} />
+			</XUITextInputSideElement>
+		}
+	/>
+
 </div>
 ```
 

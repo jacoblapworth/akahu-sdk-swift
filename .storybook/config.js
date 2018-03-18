@@ -1,4 +1,5 @@
-import { configure } from '@storybook/react';
+import { configure, addDecorator, setAddon } from '@storybook/react';
+import { checkA11y } from '@storybook/addon-a11y';
 
 function requireAll(requireContext) {
 	return requireContext.keys().map(requireContext);
@@ -13,4 +14,6 @@ function loadStories() {
 	requireAll(require.context('../src/react/page-layouts', true, /index.js$/));
 }
 
+addDecorator(checkA11y);
 configure(loadStories, module);
+

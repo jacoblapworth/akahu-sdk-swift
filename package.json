@@ -96,7 +96,7 @@
     "babel-jest": "21.2.0",
     "babel-loader": "7.1.2",
     "babel-preset-jest": "21.2.0",
-    "backstopjs": "3.0.38",
+    "backstopjs": "3.1.17",
     "browserslist": "2.5.1",
     "chai": "4.1.2",
     "check-engines": "1.5.0",

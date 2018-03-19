@@ -1,4 +1,6 @@
-const avatarBaseClass = 'xui-avatar';
+import {ns} from '../helpers/xuiClassNamespace';
+
+const avatarBaseClass = `${ns}-avatar`;
 const smallVariation = 'small';
 const largeVariation = 'large';
 
@@ -6,7 +8,7 @@ const largeVariation = 'large';
  * @public
  * Map of sizes to XUI Classes properties
  */
-const sizeClassNames = {
+export const sizeClassNames = {
 	xsmall: `${avatarBaseClass}-x${smallVariation}`, // xui-avatar-xsmall
 	small: `${avatarBaseClass}-${smallVariation}`, // xui-avatar-small
 	medium: '',
@@ -19,7 +21,7 @@ const sizeClassNames = {
  * @public
  * Map of core class names
  */
-const classNames = {
+export const classNames = {
 	base: avatarBaseClass,
 	counter: `${avatarBaseClass}-counter`,
 	group: `${avatarBaseClass}group`
@@ -29,7 +31,7 @@ const classNames = {
  * @public
  * Map of color classes
  */
-const colorClassNames = [];
+export const colorClassNames = [];
 for(let i = 1; i <= 10; i++) {
 	colorClassNames.push(`${avatarBaseClass}-color-${i}`);
 }
@@ -38,13 +40,6 @@ for(let i = 1; i <= 10; i++) {
  * @public
  * Map of variants to class names
  */
-const variantClassNames = {
+export const variantClassNames = {
 	business: `${avatarBaseClass}-business`
 };
-
-module.exports = {
-	variantClassNames,
-	colorClassNames,
-	classNames,
-	sizeClassNames
-}

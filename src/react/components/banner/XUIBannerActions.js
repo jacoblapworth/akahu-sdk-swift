@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerActions(props) {
-	const className = cn(props.className, 'xui-banner--actions');
+	const className = cn(props.className, `${ns}-banner--actions`);
 
 	return (
 		<ul className={className} data-automationid={props.qaHook}>

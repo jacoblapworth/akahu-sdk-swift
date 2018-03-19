@@ -366,7 +366,10 @@
 .#{$ns}-stepper-link-icon,
 .#{$ns}-stepper-link-icon:before,
 .#{$ns}-stepper-link-progress {
-	transition: $xui-motion-speed-medium;
+	transition: {
+		duration: $xui-motion-speed-medium;
+		property: background, color;
+	}
 }
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-link {

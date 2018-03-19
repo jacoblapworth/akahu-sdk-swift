@@ -1,5 +1,15 @@
 @import "../vars";
 
+@mixin xui-input-base {
+	background-color: transparent;
+	border-radius: 3px;
+	color: inherit;
+	flex: 1;
+	font: inherit;
+	outline: none;
+	padding: 8px 15px;
+}
+
 /*
 Adds a before selector which is used to highlight the left side of a component with a certain colour
 

@@ -9,7 +9,7 @@ const enrichBaseProps = (props) => {
 	const ariaNow = Math.max(props.progress, ariaMin);
 
 	// The ID that ARIA uses as a hook
-	const toolTipId = props.hasToolTip && `${props.id}-progress-tooltip`;
+	const toolTipId = props.hasToolTip && `${props.id}-progress--tooltip`;
 	const toolTipMessage = props.toolTipMessage || `${ariaNow} of ${ariaMax}`;
 
 	// Even if "isOverflow" is supplied we need to check if the current "ariaNow" and

@@ -506,6 +506,7 @@ $xui-progress-colors: (
 	width: 100%;
 }
 
+// TODO go through this file and rename classes to match our conventions (-- rather than - for subcomponents)
 .#{$ns}-progress-circular-wrapper {
 	display: block;
 	height: 100%;
@@ -613,7 +614,17 @@ $xui-progress-colors: (
 	width: 100%;
 }
 
-.#{$ns}-progress .#{$ns}-progress-tooltip {
+// TODO: remove this in XUI 14. This class was added in 13.1.0, but replaced in 13.2.0
+.#{$ns}-progress-tooltip {
+	bottom: calc(100% + 5px);
+	display: block;
+	position: absolute;
+	right: calc(100% + 5px);
+	white-space: nowrap;
+}
+
+// Specificity exists here to match that of the tooltip classes
+.#{$ns}-progress .#{$ns}-progress--tooltip {
 	display: block;
 	height: 100%;
 	line-height: 1;

@@ -83,7 +83,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: auto;
+	width: 100%;
 }
 
 @mixin xui-text-wordbreak {

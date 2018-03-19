@@ -166,6 +166,7 @@
 		width: 10px;
 		z-index: -1;
 	}
+	// TODO: Rename positioningInline to match our naming convention
 	// Vertically placed tooltips
 	&.#{$ns}-positioningInline--top-left,
 	&.#{$ns}-positioningInline--top-center,
@@ -181,7 +182,7 @@
 		bottom: auto;
 		top: calc(100% + 10px);
 		&:after {
-			top: 0px;
+			top: 0;
 		}
 	}
 	&.#{$ns}-positioningInline--top-left,
@@ -201,7 +202,7 @@
 	}
 	&.#{$ns}-positioningInline--top-right,
 	&.#{$ns}-positioningInline--bottom-right {
-		right: 0px;
+		right: 0;
 		&:after {
 			right: 5px;
 		}

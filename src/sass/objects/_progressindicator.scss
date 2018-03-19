@@ -530,7 +530,7 @@ $xui-progress-colors: (
 .#{$ns}-progress-circular-current {
 	transition: {
 		duration: $xui-motion-speed-medium;
-		property: background stroke-dashoffset;
+		property: background, stroke-dashoffset;
 	}
 }
 
@@ -582,7 +582,7 @@ $xui-progress-colors: (
 	will-change: width;
 	transition: {
 		duration: $xui-motion-speed-medium;
-		property: background width;
+		property: background, width;
 	}
 }
 
@@ -655,7 +655,7 @@ $xui-progress-colors: (
 	transform: scale(0.5);
 	transition: {
 		duration: $xui-motion-speed-medium;
-		property: opacity transform;
+		property: opacity, transform;
 	};
 	width: 100%;
 }

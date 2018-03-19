@@ -2,11 +2,11 @@
 
 @mixin xui-input-base {
 	background-color: transparent;
-	border-radius: 3px;
+	border-radius: $xui-radius;
 	color: inherit;
 	font: inherit;
 	outline: none;
-	padding: 8px 15px;
+	padding: 8px $xui-s-standard;
 }
 
 /*

@@ -14,6 +14,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 .#{$ns}-textinput--input {
 	@include xui-input-base;
 	border: none;
+	flex: 1;
 }
 
 .#{$ns}-textinput-focus {

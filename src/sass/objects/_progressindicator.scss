@@ -459,6 +459,7 @@ $xui-progress-colors: (
 	(grey,  $xui-color-grey-1),
 );
 
+// TODO: rename this to be XUI prefixed and kebab-cased
 @mixin addTotalTrackColor($color: $xui-progress-total-color) {
 
 	&:not(.#{$ns}-progress-overflow) .#{$ns}-progress-linear-track {
@@ -470,6 +471,7 @@ $xui-progress-colors: (
 	}
 }
 
+// TODO: rename this to be XUI prefixed and kebab-cased
 @mixin addCurrentTrackColor($color: $xui-progress-current-color) {
 
 	&.#{$ns}-progress-complete .#{$ns}-progress-icon,

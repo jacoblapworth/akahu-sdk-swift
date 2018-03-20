@@ -31,13 +31,19 @@
 </head>
 
 <body id="kss-node" class="ds-body xui-container{{#if homepage}} ds-home{{/if}}">
-
-<header class="ds-nav--responsive ds-nav--header">
+<header class="ds-header">
 	<div class="xui-u-flex xui-u-flex-verticallycentered">
-		<a class="ds-xui-logo xui-u-flex-grow" href="./index.html"><h1>Xero User Interface</h1></a>
-		<a class='ds-menu-link' href="#navigation-primary">Menu</a>
+		<a tabindex="-1" class="ds-xui-logo xui-u-flex-grow" href="./index.html"><h1>Xero User Interface</h1></a>
+		<a class='ds-header--link' href="#ds-input-{{@root.menu.0.referenceURI}}" >
+			<span class="ds-header--link-menu">Menu</span>
+			<span class="ds-header--link-accessible">
+				<svg focusable="false" class="xui-icon">
+					<use xlink:href="#xui-icon-accessibility" role="presentation"/>
+				</svg>
+				Jump to Navigation
+			</span>
+		</a>
 	</div>
-	<span class="ds-nav--header-title xui-padding-small">{{options.title}}</span>
 </header>
 {{#unless homepage}}
 <div class="ds-page-header">
@@ -254,8 +260,12 @@
 </article>
 
 <nav>
-	<ul id="navigation-primary" class="ds-nav ds-nav--menu">
-		<li class="ds-nav--header"><a class="ds-xui-logo ds-nav-li xui-color-grey-standard" href="./index.html"><h1 class="xui-padding-left-large">Xero User Interface</h1></a></li>
+	<ul class="ds-nav--menu">
+		<li class="ds-nav--header">
+			<a class="ds-xui-logo ds-nav-li xui-color-grey-standard" href="./index.html">
+				<h1 class="xui-padding-left-large">Xero User Interface</h1>
+			</a>
+		</li>
 		{{> menu }}
 	</ul>
 </nav>

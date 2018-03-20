@@ -10,3 +10,15 @@ $ds-breakpoint-massive: 120rem;
 		@content;
 	}
 }
+
+@mixin ds-selected {
+	background: $xui-color-blue;
+	content: '';
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	transition: all 0.3s ease;
+	width: 3px;
+	z-index: 0;
+}

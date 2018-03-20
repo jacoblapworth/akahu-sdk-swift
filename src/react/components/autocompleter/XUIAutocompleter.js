@@ -7,6 +7,7 @@ import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
+import {ns} from '../helpers/xuiClassNamespace';
 
 /**
  * Autocompleter instance => event handlers/callbacks map
@@ -173,12 +174,10 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const handlers = getHandlers(completer);
 		const triggerClasses = cn(
-			'xui-input',
-			'xui-autocompleter--trigger',
-			{
-				'xui-autocompleter--trigger-is-disabled': props.isDisabled,
-				'xui-autocompleter--trigger-pillwrap': !props.disableWrapPills
-			},
+			`${ns}-input`,
+			`${ns}-autocompleter--trigger`,
+			props.isDisabled ? `${ns}-autocompleter--trigger-is-disabled` : '',
+			props.disableWrapPills ? '' : `${ns}-autocompleter--trigger-pillwrap`,
 			props.triggerClassName
 		);
 
@@ -228,7 +227,7 @@ export default class XUIAutocompleter extends PureComponent {
 		const classNames = cn(
 			props.className,
 			{
-				'xui-autocompleter--trigger-focus': state.focused
+				[`${ns}-autocompleter--trigger-focus`]: state.focused
 			}
 		);
 

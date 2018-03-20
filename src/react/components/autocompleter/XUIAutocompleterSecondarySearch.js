@@ -5,6 +5,7 @@ import XUIAutocompleterInput from './XUIAutocompleterInput';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import search from '@xero/xui-icon/icons/search'
+import {ns} from "../helpers/xuiClassNamespace";
 
 import { intervalRunner, isVisible } from './private/helpers';
 
@@ -79,7 +80,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			containerQaHook = `${props.qaHook}--container`;
 		}
 		const dropdownClasses = cn(
-			{ 'xui-u-fullwidth': !props.dropdownSize },
+			props.dropdownSize ? '' : `${ns}-u-fullwidth`,
 			props.dropdownClassName,
 		);
 		const searchItem = (
@@ -100,7 +101,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					/>
 			</div>
 		);
-		const dropdownToggledClasses = cn({ 'xui-u-fullwidth': !props.dropdownSize });
+		const dropdownToggledClasses = props.dropdownSize ? '' : `${ns}-u-fullwidth`;
 		const dropdown = (
 			<DropDown
 				ref={d => completer.dropdown = d}

@@ -6,18 +6,15 @@ import {sizeClassNames, classNames, variantClassNames} from './constants';
 import {getAvatarColorClass, abbreviateAvatar} from './utils';
 
 export default class XUIAvatar extends PureComponent {
-	constructor(props) {
-		super(props);
-		this.state = {
-			imageError: false
-		};
-		this.onError = this.onError.bind(this);
-	}
+	state = {
+		imageError: false
+	};
+
 	/**
 	 * onError handler for the image element
 	 * @param {Error} e Error object
 	 */
-	onError(e) {
+	onError = (e) => {
 		const { props } = this;
 
 		this.setState({
@@ -25,7 +22,7 @@ export default class XUIAvatar extends PureComponent {
 		});
 
 		props.onError && props.onError(e);
-	}
+	};
 
 	render() {
 		const { imageError } = this.state;
@@ -45,6 +42,7 @@ export default class XUIAvatar extends PureComponent {
 			sizeClassNames[size],
 			variantClassNames[variant]
 		);
+
 		return imageUrl && !imageError ? (
 			<img onError={this.onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>
 		) : (

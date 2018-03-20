@@ -18,7 +18,7 @@ class Welcome extends Component {
 		this.setState(prevState => ({
 			modalIsHidden: !prevState.modalIsHidden
 		}));
-	}
+	};
 
 	render() {
 		const {

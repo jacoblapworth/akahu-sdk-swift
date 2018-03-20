@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import XUIInput from '../input/XUIInput';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * This will act as the onChange handler for the input.  Since it needs to be throttled and bound, I kept is as a
@@ -69,21 +70,18 @@ export default class XUIAutocompleterInput extends Component {
 			type: 'search',
 			placeholder: props.placeholder,
 			maxLength: props.maxLength,
-			value: this.state.value || "", // Default to an empty string so the 'value' attr renders, displaying placeholder.
+			value: this.state.value || '', // Default to an empty string so the 'value' attr renders, displaying placeholder.
 			onKeyPress: props.onKeyPress,
 			onKeyDown: props.onKeyDown,
 			onFocus: props.onFocus,
 			id: props.id
 		};
 		const classNames = cn(
-			{
-				'xui-input-borderless': props.defaultStyling,
-				'xui-autocompleter--input': props.defaultStyling
-			},
+			props.defaultStyling ? `${ns}-input-borderless ${ns}-autocompleter--input` : '',
 			props.className
 		);
 		const containerClassNames = cn(
-			{'xui-autocompleter--inputwrapper': props.defaultStyling},
+			props.defaultStyling ? `${ns}-autocompleter--inputwrapper` : '',
 			props.containerClassNames
 		);
 
@@ -92,8 +90,8 @@ export default class XUIAutocompleterInput extends Component {
 		const placeholderElement = !props.iconAttributes ? (
 			<span
 				className={cn(
-					"xui-autocompleter--placeholder",
-					{ "xui-autocompleter--placeholder-hidden": state.value }
+					`${ns}-autocompleter--placeholder`,
+					state.value ? `${ns}-autocompleter--placeholder-hidden` : ''
 				)}
 			>
 				{props.placeholder}

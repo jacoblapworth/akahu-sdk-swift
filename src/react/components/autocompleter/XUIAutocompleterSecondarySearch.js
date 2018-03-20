@@ -12,20 +12,12 @@ import {ns} from "../helpers/xuiClassNamespace";
 import { intervalRunner, isVisible } from './private/helpers';
 
 export default class XUIAutocompleterSecondarySearch extends PureComponent {
-	constructor(props) {
-		super(props);
-		this.openDropDown = this.openDropDown.bind(this);
-		this.closeDropDown = this.closeDropDown.bind(this);
-		this.onOpen = this.onOpen.bind(this);
-		this.highlightItem = this.highlightItem.bind(this);
-	}
-
 	/**
 	 * Set the state as not hidden in order to toggle the list open.
 	 *
 	 * @public
 	 */
-	openDropDown() {
+	openDropDown = () => {
 		this.ddt.openDropDown();
 	}
 
@@ -34,7 +26,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	closeDropDown() {
+	closeDropDown = () => {
 		this.ddt.closeDropDown();
 	}
 
@@ -43,7 +35,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	highlightItem(item) {
+	highlightItem = item => {
 		this.dropdown.highlightItem(item);
 	}
 
@@ -52,7 +44,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	onOpen() {
+	onOpen = () => {
 		this.focusInput();
 		this.props.onOpen && this.props.onOpen();
 	}
@@ -62,7 +54,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	focusInput() {
+	focusInput = () => {
 		const inputDOM = this.input;
 		const isInputRendered = () => isVisible(inputDOM);
 		const setter = () => {

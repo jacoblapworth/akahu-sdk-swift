@@ -34,6 +34,22 @@
 				]
 			},
 			{
+				"name": "Structural",
+				"content": "../src/react/structural.md",
+				"sections": [
+					{
+						"name": "Rows",
+						"components": "../src/react/components/structural/XUIRow.js",
+						"content": "../src/react/components/structural/structural.row.md"
+					},
+					{
+						"name": "Columns",
+						"components": "../src/react/components/structural/XUIColumn.js",
+						"content": "../src/react/components/structural/structural.column.md"
+					}
+				]
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [

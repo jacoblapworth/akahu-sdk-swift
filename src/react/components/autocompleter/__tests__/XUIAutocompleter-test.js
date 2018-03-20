@@ -13,16 +13,18 @@ import DropDownLayout from '../../dropdown/DropDownLayout';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIAutocompleter', () => {
-	const createComponent = (props) => (<XUIAutocompleter
-		dropdownSize="medium"
-		forceDesktop
-		{...props}
-	>
-		<Picklist>
-			<Pickitem id="item1">Item 1</Pickitem>
-			<Pickitem id="item2">Item 2</Pickitem>
-		</Picklist>
-	</XUIAutocompleter>)
+	const createComponent = (props) => (
+		<XUIAutocompleter
+			dropdownSize="medium"
+			forceDesktop
+			{...props}
+		>
+			<Picklist>
+				<Pickitem id="item1">Item 1</Pickitem>
+				<Pickitem id="item2">Item 2</Pickitem>
+			</Picklist>
+		</XUIAutocompleter>
+	);
 
 	it('has data-automationid set on the input, list, dropdown and container', () => {
 		const automationid = renderer.create(createComponent({ qaHook: "baseAC" }));
@@ -139,37 +141,37 @@ describe('XUIAutocompleter', () => {
 		expect(disabled).toMatchSnapshot();
 	});
 
-    it('should ignore keyboard events for space as it\'s reserved for input interactions', () => {
+	it('should ignore keyboard events for space as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
-        comp.find('input').simulate('keyDown', {
-            keyCode: 32,
-            which: 32
-        });
+		comp.find('input').simulate('keyDown', {
+			keyCode: 32,
+			which: 32
+		});
 
-        expect(comp.instance().ddt.state.isHidden).toBeTruthy();
-    });
+		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+	});
 
 	it('should ignore keyboard events for the left arrow as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
-        comp.find('input').simulate('keyDown', {
-            keyCode: 37,
-            which: 37
-        });
+		comp.find('input').simulate('keyDown', {
+			keyCode: 37,
+			which: 37
+		});
 
-        expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
 	});
 
 	it('should ignore keyboard events for the right arrow as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
-        comp.find('input').simulate('keyDown', {
-            keyCode: 39,
-            which: 39
-        });
+		comp.find('input').simulate('keyDown', {
+			keyCode: 39,
+			which: 39
+		});
 
-        expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
 	});
 
 	describe.skip('Dropdown + Portal skipped tests', () => {

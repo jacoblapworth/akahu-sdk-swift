@@ -49,10 +49,10 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 	align-self: stretch;
 	cursor: text;
 	display: flex;
+	margin: -1px;
 }
 
 .#{$ns}-textinput--side-element-icon {
-	margin: -1px;
 	padding: $xui-s-xsmall;
 }
 

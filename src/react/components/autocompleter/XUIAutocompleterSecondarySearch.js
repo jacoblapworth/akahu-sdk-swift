@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIAutocompleterInput from './XUIAutocompleterInput';
+import XUIAutocompleterTextInput from './XUIAutocompleterTextInput';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
-import search from '@xero/xui-icon/icons/search'
+import searchPath from '@xero/xui-icon/icons/search'
+import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
+import XUIIcon from '../icon/XUIIcon';
 import {ns} from "../helpers/xuiClassNamespace";
 
 import { intervalRunner, isVisible } from './private/helpers';
@@ -61,7 +63,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	focusInput() {
-		const inputDOM = this.input.inputNode;
+		const inputDOM = this.input;
 		const isInputRendered = () => isVisible(inputDOM);
 		const setter = () => {
 			inputDOM.focus();
@@ -84,20 +86,24 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			props.dropdownClassName,
 		);
 		const searchItem = (
-			<div className="xui-dropdown--header-container">
-					<XUIAutocompleterInput
-						defaultStyling={false}
-						className="xui-input xui-input-borderless xui-input-borderless-solid"
-						id={props.inputId}
+			<div className={`${ns}-dropdown--header-container`}>
+					<XUIAutocompleterTextInput
 						value={props.searchValue}
-						iconAttributes={{
-							path: search,
-							position: 'left'
-						}}
+						leftElement={
+							<XUITextInputSideElement>
+								<XUIIcon path={searchPath} />
+							</XUITextInputSideElement>
+						}
 						placeholder={props.placeholder}
-						searchThrottleInterval={props.searchThrottleInterval}
-						onSearch={props.onSearch}
-						refFn={c => completer.input = c}
+						throttleInterval={props.searchThrottleInterval}
+						onChange={props.onSearch}
+						inputRef={c => completer.input = c}
+						textInputComponentProps={{
+							isBorderlessSolid: true
+						}}
+						inputProps={{
+							id: props.inputId
+						}}
 					/>
 			</div>
 		);

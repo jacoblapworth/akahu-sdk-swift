@@ -14,15 +14,6 @@
 	justify-content: space-between;
 }
 
-.#{$ns}-pageheading--breadcrumbs {
-	align-items: center;
-	display: flex;
-	flex: 1 1 auto;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
 .#{$ns}-pageheading--content-layout {
 	flex-flow: row wrap;
 	width: 100%;
@@ -57,6 +48,16 @@
 	height: 40px;
 }
 
+.#{$ns}-pageheading--breadcrumbs, // TODO: deprecate in a later version
+.#{$ns}-breadcrumbs {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
 .#{$ns}-breadcrumb {
 	font-size: $xui-font-size-large;
 	font-weight: bold;
@@ -77,7 +78,7 @@
 
 .#{$ns}-breadcrumb--icon {
 	color: $xui-color-grey-alpha-2;
-	margin-top: 3px;
+	margin-top: 10px;
 }
 
 .#{$ns}-pageheading--title {

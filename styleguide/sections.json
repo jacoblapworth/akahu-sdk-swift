@@ -46,6 +46,21 @@
 						"name": "Columns",
 						"components": "../src/react/components/structural/XUIColumn.js",
 						"content": "../src/react/components/structural/structural.column.md"
+					},
+					{
+						"name": "Pageheader",
+						"components": "../src/react/components/structural/XUIPageheader.js",
+						"content": "../src/react/components/structural/structural.pageheader.md"
+					},
+					{
+						"name": "Breadcrumb",
+						"components": "../src/react/components/structural/XUIBreadcrumb.js",
+						"content": "../src/react/components/structural/structural.breadcrumb.md"
+					},
+					{
+						"name": "Actions",
+						"components": "../src/react/components/structural/XUIActions.js",
+						"content": "../src/react/components/structural/structural.actions.md"
 					}
 				]
 			},

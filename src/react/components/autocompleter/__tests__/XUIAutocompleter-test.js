@@ -42,7 +42,7 @@ describe('XUIAutocompleter', () => {
 		const onSearch = jest.fn();
 		const searchComp = mount(createComponent({onSearch: onSearch, searchValue: 'z' }))
 
-		searchComp.find('input[type="search"]').simulate('change', {
+		searchComp.find('input').simulate('change', {
 			target: {
 				value: 'a'
 			}
@@ -85,12 +85,12 @@ describe('XUIAutocompleter', () => {
 		expect(wrapper.find(DropDownToggled).props().matchTriggerWidth).toBeTruthy();
 	});
 
-	it('when disableWrapPill prop is applied adds a pillwrap class, but not by default', () => {
+	it('when disableWrapPills prop is applied disable pillwrap class is applied', () => {
 		const wrapper = mount(createComponent());
-		expect(wrapper.find('.xui-autocompleter--trigger-pillwrap')).toBeDefined();
+		expect(wrapper.find('.xui-autocompleter--trigger-nopillwrap')).toBeDefined();
 
 		const disableWrapPills = mount(createComponent({ disableWrapPills: true }));
-		expect(disableWrapPills.find('.xui-autocompleter--trigger').hasClass('xui-autocompleter--trigger-pillwrap')).toBeFalsy();
+		expect(disableWrapPills.find('xui-autocompleter--trigger-nopillwrap').length).toEqual(0);
 	});
 
 	it('should render a class on the root node when passed in the className prop', () => {

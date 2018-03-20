@@ -149,7 +149,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const leftElement = props.disableWrapPills ? (
 			<div
-				className={`${ns}-autocompleter--trigger-pillnowrap`}
+				className={`${ns}-autocompleter--trigger-nopillwrap`}
 				ref={nwpc => this.noWrapPillContainer = nwpc}
 			>
 				{props.pills}

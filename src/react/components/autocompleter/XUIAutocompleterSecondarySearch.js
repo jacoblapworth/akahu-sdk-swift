@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIAutocompleterInput from './XUIAutocompleterInput';
-import Picklist from '../picklist/Picklist';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import search from '@xero/xui-icon/icons/search'
@@ -84,8 +83,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			props.dropdownClassName,
 		);
 		const searchItem = (
-			<Picklist className="xui-padding-none">
-				<li className="xui-margin-horizontal xui-margin-vertical-small" >
+			<div className="xui-dropdown--header-container">
 					<XUIAutocompleterInput
 						defaultStyling={false}
 						className="xui-input xui-input-borderless xui-input-borderless-solid"
@@ -100,8 +98,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 						onSearch={props.onSearch}
 						refFn={c => completer.input = c}
 					/>
-				</li>
-			</Picklist>
+			</div>
 		);
 		const dropdownToggledClasses = cn({ 'xui-u-fullwidth': !props.dropdownSize });
 		const dropdown = (
@@ -115,10 +112,10 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				qaHook={listQaHook}
 				size={props.dropdownSize}
 				fixedWidth={props.dropdownFixedWidth}
+				header={searchItem}
 				footer={props.footer}
 				restrictFocus={props.restrictFocus}
 			>
-			{searchItem}
 			{props.children}
 		</DropDown>);
 

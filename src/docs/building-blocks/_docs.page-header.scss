@@ -87,6 +87,7 @@
 // Classes:
 // xui-pageheading--breadcrumbs: Breadcrumb container
 // xui-breadcrumb: Breadcrumb items
+// xui-breadcrumb-arrow: Breadcrumb items that contain only an arrow icon
 // xui-breadcrumb--link: Breadcrumb links
 // xui-breadcrumb--icon: Icons between breadcrumbs
 //
@@ -99,13 +100,13 @@
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Settings</a>
 //       </li>
-//       <li class="xui-breadcrumb">
+//       <li class="xui-breadcrumb-arrow">
 //         <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
 //       </li>
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Permissions</a>
 //       </li>
-//       <li class="xui-breadcrumb">
+//       <li class="xui-breadcrumb-arrow">
 //       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
 //       </li>
 //       <li class="xui-breadcrumb">

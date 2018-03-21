@@ -1,6 +1,4 @@
 
-Actions are used to wrap a selection of buttons (often two) and provide formatting. They can be embedded in a XUIModal, in a XUIPageheader, in the footer of a XUIPanel, and other places. These are more generic than Banner Actions or Toast Actions.
-
 <div class="xui-margin-vertical">
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
@@ -8,7 +6,9 @@ Actions are used to wrap a selection of buttons (often two) and provide formatti
 	<a href="../section-building-blocks-buttons.html#building-blocks-buttons-12">Actions in the XUI Documentation</a>
 </div>
 
-### Default action
+Actions are used to wrap a selection of buttons (often two) and provide formatting. They can be embedded in a XUIModal, in a XUIPageheader, in the footer of a XUIPanel, and other places. These are more generic than Banner Actions or Toast Actions.
+
+#### Default action
 
 A default action aligns a primary and secondary button to the right, with the primary as the rightmost.
 
@@ -22,7 +22,7 @@ const XUIButton = require('../button/XUIButton').default;
 />
 ```
 
-### Linear action
+#### Linear action
 
 The linear variant aligns the primary button to the right and the secondary button to the left.
 

@@ -21,10 +21,10 @@ const getAllClasses = ({className, gridColumns, gridColumnsMedium, gridColumnsWi
 		getClass(gridColumnsWide, "-wide"));
 };
 
-const XUIColumn = ({children, className, gridColumns, gridColumnsMedium, gridColumnsWide, ...otherProps}) =>
+const XUIColumn = ({children, className, gridColumns, gridColumnsMedium, gridColumnsWide, ...spreadProps}) =>
 	<div
 		className={getAllClasses({className, gridColumns, gridColumnsMedium, gridColumnsWide})}
-		{...otherProps}
+		{...spreadProps}
 	>
 		{children}
 	</div>;

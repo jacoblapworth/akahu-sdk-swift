@@ -301,6 +301,7 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 }
 
+//TODO: Rename `pills` to `leftElement` for XUI 14.
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
@@ -346,8 +347,11 @@ XUIAutocompleter.propTypes = {
 	/** Max length of the input */
 	maxLength: PropTypes.number,
 
-	/** A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
+	/** A set of pills to show next to input. Useful for showing what was selected in a multi-select. Can also be used similarly to `XUITextInput`'s `leftElement`. */
 	pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+
+	/** Right element to render within the `XUITextInput` component */
+	rightElement: PropTypes.node,
 
 	/** Callback for when the list opens */
 	onOpen: PropTypes.func,

@@ -18,6 +18,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -84,6 +85,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -150,6 +152,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -216,6 +219,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -282,6 +286,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className="test-class"
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -295,7 +300,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         onKeyDown={[Function]}
       >
         <label
-          className="test-class xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
           data-automationid={null}
         >
           <div
@@ -348,6 +353,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -416,6 +422,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -482,6 +489,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -548,6 +556,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}
@@ -614,6 +623,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
       aria-activedescendant={null}
       aria-controls={undefined}
       aria-haspopup={true}
+      className={undefined}
       onClick={[Function]}
       onFocus={null}
       onKeyDown={[Function]}

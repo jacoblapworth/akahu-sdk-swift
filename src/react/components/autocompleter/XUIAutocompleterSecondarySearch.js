@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIAutocompleterTextInput from './XUIAutocompleterTextInput';
+import throttle from 'lodash.throttle';
+
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import searchPath from '@xero/xui-icon/icons/search'
+import XUITextInput from '../textInput/XUITextInput';
 import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
 import XUIIcon from '../icon/XUIIcon';
 import {ns} from "../helpers/xuiClassNamespace";
@@ -12,6 +14,50 @@ import {ns} from "../helpers/xuiClassNamespace";
 import { intervalRunner, isVisible } from './private/helpers';
 
 export default class XUIAutocompleterSecondarySearch extends PureComponent {
+	constructor(props) {
+		super(props);
+		this.bindOnChange(props.searchThrottleInterval);
+	}
+
+	componentDidUpdate(prevProps) {
+		const {
+			searchThrottleInterval,
+			searchValue,
+		} = this.props;
+		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
+			this.bindOnChange(searchThrottleInterval);
+		}
+		if (prevProps.value !== searchValue) {
+			this.setState({
+				value: searchValue
+			});
+		}
+	}
+
+	/**
+	 * Bind an optionally throttled onSearch handler to the component instance.
+	 *
+	 * @private
+	 * @param {number} interval
+	 */
+	bindOnChange = interval => {
+		const { onSearch } = this.props;
+		if (onSearch) {
+			const throttled = interval
+				? throttle(onSearch, interval, { trailing: true })
+				: onSearch;
+			this.throttledOnChange = event => {
+				event.persist();
+				this.setState({
+					value: event.target.value
+				});
+				throttled(event.target.value);
+			};
+		} else {
+			this.throttledOnChange = undefined;
+		}
+	}
+
 	/**
 	 * Set the state as not hidden in order to toggle the list open.
 	 *
@@ -78,8 +124,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			props.dropdownClassName,
 		);
 		const searchItem = (
-			<div className={`${ns}-dropdown--header-container`}>
-					<XUIAutocompleterTextInput
+				<div className={`${ns}-dropdown--header-container`}>
+					<XUITextInput
 						value={props.searchValue}
 						leftElement={
 							<XUITextInputSideElement>
@@ -87,12 +133,9 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 							</XUITextInputSideElement>
 						}
 						placeholder={props.placeholder}
-						throttleInterval={props.searchThrottleInterval}
-						onChange={props.onSearch}
+						onChange={this.throttledOnChange}
 						inputRef={c => completer.input = c}
-						textInputComponentProps={{
-							isBorderlessSolid: true
-						}}
+						isBorderlessSolid
 						inputProps={{
 							id: props.inputId
 						}}

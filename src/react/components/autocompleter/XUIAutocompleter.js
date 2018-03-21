@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIAutocompleterTextInput from './XUIAutocompleterTextInput';
+import throttle from 'lodash.throttle';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
+import XUITextInput from '../textInput/XUITextInput';
 import {ns} from '../helpers/xuiClassNamespace';
 
 /*
@@ -21,16 +22,70 @@ export default class XUIAutocompleter extends PureComponent {
 		this.state = {
 			focused: false
 		};
+		this.bindOnChange(props.searchThrottleInterval);
+	}
+
+	componentDidMount() {
+		this.calculatePlaceholderWidth();
 	}
 
 	componentDidUpdate(prevProps) {
 		const {
 			pills,
 			disableWrapPills,
+			searchThrottleInterval,
+			searchValue,
+			placeholder,
 		} = this.props;
+		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
+			this.bindOnChange(searchThrottleInterval);
+		}
+		if (prevProps.value !== searchValue) {
+			this.setState({
+				value: searchValue
+			});
+		}
+		if (prevProps.placeholder !== placeholder) {
+			this.calculatePlaceholderWidth();
+		}
 		const morePillsExist = React.Children.count(pills) > React.Children.count(prevProps.pills);
 		if (morePillsExist && disableWrapPills) {
 			this.noWrapPillContainer.scrollLeft = this.noWrapPillContainer.scrollWidth;
+		}
+	}
+
+	/**
+	 * Bind an optionally throttled onSearch handler to the component instance.
+	 *
+	 * @private
+	 * @param {number} interval
+	 */
+	bindOnChange = interval => {
+		const { onSearch } = this.props;
+		if (onSearch) {
+			const throttled = interval
+				? throttle(onSearch, interval, { trailing: true })
+				: onSearch;
+			this.throttledOnChange = event => {
+				event.persist();
+				this.setState({
+					value: event.target.value
+				});
+				throttled(event.target.value);
+			};
+		} else {
+			this.throttledOnChange = undefined;
+		}
+	}
+
+	calculatePlaceholderWidth = () => {
+		if (this.placeholder != null) {
+			const placeholderWidth = getComputedStyle(this.placeholder).width;
+			if (this.state.placeholderWidth !== placeholderWidth) {
+				this.setState({
+					placeholderWidth
+				});
+			}
 		}
 	}
 
@@ -161,7 +216,14 @@ export default class XUIAutocompleter extends PureComponent {
 				ref={tg => this.trigger = tg}
 				onFocus={props.openOnFocus ? this.onInputFocus : null}
 			>
-				<XUIAutocompleterTextInput
+				<div
+					ref={p => this.placeholder = p}
+					className="xui-autocompleter-textinput--placeholder"
+					aria-hidden
+				>
+					{props.placeholder}
+				</div>
+				<XUITextInput
 					leftElement={leftElement}
 					rightElement={props.rightElement}
 					containerClassName={containerClassNames}
@@ -169,14 +231,16 @@ export default class XUIAutocompleter extends PureComponent {
 					inputRef={i => this.inputNode = i}
 					placeholder={props.placeholder}
 					value={props.searchValue}
-					onChange={props.onSearch}
-					throttleInterval={props.searchThrottleInterval}
+					onChange={this.throttledOnChange}
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
 					isDisabled={props.isDisabled}
 					inputProps={{
 						maxLength: props.maxLength,
 						id: props.inputId,
+						style: {
+							minWidth: state.placeholderWidth
+						}
 					}}
 				/>
 			</div>

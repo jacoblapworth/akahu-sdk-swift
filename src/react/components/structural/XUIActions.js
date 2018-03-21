@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
-const baseClass = "xui-actions";
+const baseClass = `${ns}-actions`;
 
 export default class XUIActions extends PureComponent {
 	render() {
@@ -15,11 +16,11 @@ export default class XUIActions extends PureComponent {
 			secondaryAction,
 			...otherProps
 		} = this.props;
-		const classes = cn(baseClass, className,
-			{
-				"xui-actions-layout": hasLayout,
-				"xui-actions-linear": isLinear
-			}
+		const classes = cn(
+			baseClass,
+			className,
+			hasLayout && `${baseClass}-layout`,
+			isLinear && `${baseClass}-linear`
 		);
 
 		const clonedPrimary = primaryAction && React.cloneElement(primaryAction, {

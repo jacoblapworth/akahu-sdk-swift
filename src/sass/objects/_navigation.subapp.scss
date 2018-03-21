@@ -63,6 +63,11 @@
 	font-weight: bold;
 }
 
+.#{$ns}-breadcrumb-arrow {
+	align-items: flex-end;
+	display: flex;
+}
+
 .#{$ns}-breadcrumb--link {
 	@include xui-button-borderless($xui-color-xero-blue, $xui-color-xero-dark-blue);
 	min-height: $xui-input-height-small;
@@ -78,7 +83,7 @@
 
 .#{$ns}-breadcrumb--icon {
 	color: $xui-color-grey-alpha-2;
-	margin-top: 10px;
+	margin-top: 3px;
 }
 
 .#{$ns}-pageheading--title {

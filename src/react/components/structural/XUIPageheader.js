@@ -1,32 +1,30 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
-const baseClass = "xui-pageheading";
+const baseClass = `${ns}-pageheading`;
+
+const buildTitleAndTabs = (title, tabs) => {
+	const builtTitle = title && <h1 className={`${baseClass}--title`}>{title}</h1>;
+	if (builtTitle && !tabs) {
+		return (builtTitle);
+	} else if (tabs) {
+		// Allows for title + tabs or tabs only
+		const clonedTabs = React.cloneElement(tabs, {
+			// Make sure this is horizontal in the pagehead
+			isHorizontal : true
+		});
+		return (
+			<div className={`${baseClass}--tabs`}>
+				{builtTitle}
+				{clonedTabs}
+			</div>
+		)
+	}
+};
 
 export default class XUIPageheader extends PureComponent {
-	/**
-	 * Returns the title alone or if tabs are provided, wraps in another div.
-	 */
-	buildTitleAndTabs = (title, tabs) => {
-		const builtTitle = title && <h1 className={`${baseClass}--title`}>{title}</h1>;
-		if (builtTitle && !tabs) {
-			return (builtTitle);
-		} else if (tabs) {
-			// Allows for title + tabs or tabs only
-			const clonedTabs = React.cloneElement(tabs, {
-				// Make sure this is horizontal in the pagehead
-				isHorizontal : true
-			});
-			return (
-				<div className={`${baseClass}--tabs`}>
-					{builtTitle}
-					{clonedTabs}
-				</div>
-			)
-		}
-	};
-
 	render() {
 		const {
 			title,
@@ -46,7 +44,7 @@ export default class XUIPageheader extends PureComponent {
 				`${baseClass}--breadcrumbs`
 			)
 		});
-		const builtTitleAndTabs = this.buildTitleAndTabs(title, tabs);
+		const builtTitleAndTabs = buildTitleAndTabs(title, tabs);
 		const builtActions = actions && <div className={`${baseClass}--actions`}>{actions}</div>;
 		const layoutClass = hasLayout ? `${baseClass}--content-layout` : '';
 		const divClasses = cn(`${baseClass}--content`, layoutClass);

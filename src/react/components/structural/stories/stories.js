@@ -28,10 +28,10 @@ const buildColumns = (widths) => {
 };
 
 const exampleTabs = (
-	<XUIPicklist isHorizontal={true}>
-		<XUIPickitem key="1" id="1">Tab 1</XUIPickitem>
-		<XUIPickitem key="2" id="2" isSelected={true}>Tab 2</XUIPickitem>
-		<XUIPickitem key="3" id="3">This is tab 3</XUIPickitem>
+	<XUIPicklist>
+		<XUIPickitem id="1">Tab 1</XUIPickitem>
+		<XUIPickitem id="2" isSelected={true}>Tab 2</XUIPickitem>
+		<XUIPickitem id="3">This is tab 3</XUIPickitem>
 	</XUIPicklist>
 );
 const exampleActions = (
@@ -41,9 +41,9 @@ const exampleActions = (
 	/>
 );
 const sampleBreadcrumb = [
-	{key: "a", label: "hello", href: "#1"},
-	{key: "b", label: "hiya", href: "#2"},
-	{key: "c", label: "yo"}];
+	{label: "hello", href: "#1"},
+	{label: "hiya", href: "#2"},
+	{label: "yo"}];
 const exampleBreadcrumb = (
 	<XUIBreadcrumb breadcrumbs={sampleBreadcrumb}></XUIBreadcrumb>
 )

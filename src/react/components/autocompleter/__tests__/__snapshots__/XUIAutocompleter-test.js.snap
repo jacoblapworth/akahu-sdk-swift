@@ -22,46 +22,44 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid="baseAC--input"
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid="baseAC--input"
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid="baseAC--input--input"
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid="baseAC--input--input"
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -90,46 +88,44 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value="a"
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value="a"
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -158,46 +154,44 @@ exports[`XUIAutocompleter should render a class on the input element when passed
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="test-class xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="test-class xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -226,46 +220,44 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -294,46 +286,44 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="test-class xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="test-class xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -362,48 +352,46 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      >
+        Search
+      </div>
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          Search
-        </div>
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
-        >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder="Search"
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder="Search"
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -432,46 +420,44 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id="test-inputId"
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id="test-inputId"
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -500,46 +486,44 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -568,46 +552,44 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput xui-textinput-is-disabled"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput xui-textinput-is-disabled"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={true}
-                id={undefined}
-                maxLength={undefined}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={true}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value={undefined}
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value={undefined}
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>
@@ -636,46 +618,44 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
       onFocus={null}
       onKeyDown={[Function]}
     >
-      <div>
-        <div
-          aria-hidden={true}
-          className="xui-autocompleter-textinput--placeholder"
-        />
-        <div
-          className="xui-textinputwrapper"
-          onKeyDown={[Function]}
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter-textinput--placeholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          data-automationid={null}
         >
-          <label
-            className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
-            data-automationid={null}
+          <div
+            className="xui-u-flex xui-u-flex-grow"
           >
-            <div
-              className="xui-u-flex xui-u-flex-grow"
-            >
-              <input
-                className="xui-padding-left-small xui-textinput--input"
-                data-automationid={null}
-                defaultValue={undefined}
-                disabled={undefined}
-                id={undefined}
-                maxLength={5}
-                onBlurCapture={[Function]}
-                onChange={[Function]}
-                onFocusCapture={[Function]}
-                placeholder={undefined}
-                rows={undefined}
-                style={
-                  Object {
-                    "maxHeight": undefined,
-                    "minWidth": undefined,
-                  }
+            <input
+              className="xui-padding-left-small xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={5}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
                 }
-                type={undefined}
-                value="123456"
-              />
-            </div>
-          </label>
-        </div>
+              }
+              type={undefined}
+              value="123456"
+            />
+          </div>
+        </label>
       </div>
     </div>
   </div>

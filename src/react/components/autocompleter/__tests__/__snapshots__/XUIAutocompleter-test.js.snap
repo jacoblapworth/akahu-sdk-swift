@@ -24,7 +24,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -90,7 +90,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -156,7 +156,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -222,7 +222,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -288,7 +288,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -354,7 +354,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       >
         Search
       </div>
@@ -422,7 +422,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -488,7 +488,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -554,7 +554,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"
@@ -620,7 +620,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
     >
       <div
         aria-hidden={true}
-        className="xui-autocompleter-textinput--placeholder"
+        className="xui-autocompleter--textinputplaceholder"
       />
       <div
         className="xui-textinputwrapper"

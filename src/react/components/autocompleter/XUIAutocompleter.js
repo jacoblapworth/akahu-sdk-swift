@@ -190,7 +190,7 @@ export default class XUIAutocompleter extends PureComponent {
 		}
 
 		const containerClassNames = cn(
-			props.triggerClassName,
+			props.inputContainerClassName,
 			`${ns}-padding-left-xsmall`,
 			`${ns}-u-flex`,
 			{
@@ -215,10 +215,11 @@ export default class XUIAutocompleter extends PureComponent {
 			<div
 				ref={tg => this.trigger = tg}
 				onFocus={props.openOnFocus ? this.onInputFocus : null}
+				className={props.triggerClassName}
 			>
 				<div
 					ref={p => this.placeholder = p}
-					className="xui-autocompleter-textinput--placeholder"
+					className="xui-autocompleter--textinputplaceholder"
 					aria-hidden
 				>
 					{props.placeholder}
@@ -236,6 +237,7 @@ export default class XUIAutocompleter extends PureComponent {
 					qaHook={inputQaHook}
 					isDisabled={props.isDisabled}
 					inputProps={{
+						...props.inputProps,
 						maxLength: props.maxLength,
 						id: props.inputId,
 						style: {
@@ -328,6 +330,12 @@ XUIAutocompleter.propTypes = {
 
 	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
+
+	/** CSS class(es) to go on the input container component */
+	inputContainerClassName: PropTypes.string,
+
+	/** Attributes to set on the native input element */
+	inputProps: PropTypes.object,
 
 	/** CSS class(es) to go on the trigger element which contains the input and pills */
 	triggerClassName: PropTypes.string,

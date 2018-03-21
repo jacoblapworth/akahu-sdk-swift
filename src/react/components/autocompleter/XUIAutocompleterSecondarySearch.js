@@ -126,6 +126,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		const searchItem = (
 				<div className={`${ns}-dropdown--header-container`}>
 					<XUITextInput
+						className={props.inputClassName}
+						containerClassName={props.inputContainerClassName}
 						value={props.searchValue}
 						leftElement={
 							<XUITextInputSideElement>
@@ -137,6 +139,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 						inputRef={c => completer.input = c}
 						isBorderlessSolid
 						inputProps={{
+							...props.inputProps,
 							id: props.inputId
 						}}
 					/>
@@ -206,6 +209,12 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
 	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
+
+	/** CSS class(es) to go on the input container */
+	inputContainerClassName: PropTypes.string,
+
+	/** Attributes to set on the native input element */
+	inputProps: PropTypes.object,
 
 	/** Placeholder for the input */
 	placeholder: PropTypes.string,

@@ -4,6 +4,12 @@ import React from 'react';
 // Components we need to test with
 import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
+import XUIPageheader from '../XUIPageheader';
+import XUIBreadcrumb from '../XUIBreadcrumb';
+import XUIPicklist from '../../picklist/Picklist';
+import XUIPickitem from '../../picklist/Pickitem';
+import XUIButton from '../../button/XUIButton';
+import XUIActions from '../XUIActions';
 import { rowVariants } from '../private/constants';
 
 // Story book things
@@ -20,6 +26,27 @@ const buildColumns = (widths) => {
 	});
 	return children;
 };
+
+const exampleTabs = (
+	<XUIPicklist>
+		<XUIPickitem id="1">Tab 1</XUIPickitem>
+		<XUIPickitem id="2" isSelected={true}>Tab 2</XUIPickitem>
+		<XUIPickitem id="3">This is tab 3</XUIPickitem>
+	</XUIPicklist>
+);
+const exampleActions = (
+	<XUIActions
+		primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>}
+		secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}
+	/>
+);
+const sampleBreadcrumb = [
+	{label: "hello", href: "#1"},
+	{label: "hiya", href: "#2"},
+	{label: "yo"}];
+const exampleBreadcrumb = (
+	<XUIBreadcrumb breadcrumbs={sampleBreadcrumb}></XUIBreadcrumb>
+)
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -54,13 +81,30 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
-	const { storyTitle, columnWidths, ...variationMinusStoryDetails } = variation;
+	const { storyTitle, columnWidths, type, ...variationMinusStoryDetails } = variation;
 	delete variationMinusStoryDetails.storyKind;
 	storiesWithVariations.add(storyTitle, () => {
-		return (
-			<XUIRow {...variationMinusStoryDetails} style={{backgroundColor: "#028DDE"}} className="xui-padding-small">
-				{buildColumns(columnWidths)}
-			</XUIRow>
-		);
+		if (type === "row") {
+			return (
+				<XUIRow {...variationMinusStoryDetails} style={{backgroundColor: "#028DDE"}} className="xui-padding-small">
+					{buildColumns(columnWidths)}
+				</XUIRow>
+			);
+		} else if (type === "pageheader") {
+			if (variationMinusStoryDetails.tabs) {
+				variationMinusStoryDetails.tabs = exampleTabs;
+			}
+			if (variationMinusStoryDetails.actions) {
+				variationMinusStoryDetails.actions = exampleActions;
+			}
+			if (variationMinusStoryDetails.breadcrumb) {
+				variationMinusStoryDetails.breadcrumb = exampleBreadcrumb;
+			}
+			return (
+				<div style={{minWidth: '700px'}}>
+					<XUIPageheader {...variationMinusStoryDetails}></XUIPageheader>
+				</div>
+			);
+		}
 	});
 });

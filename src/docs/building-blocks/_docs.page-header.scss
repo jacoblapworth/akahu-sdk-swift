@@ -4,11 +4,13 @@
 //
 // Introduction: How to use page-specific navigation.
 //
+// Components: Pageheader
+//
 // Styleguide: Building Blocks.Page Header
 
 // Best practice
 //
-// Tips: 
+// Tips:
 // Do: Use page headers on pages that sit beneath the global header
 // Warning: Avoid more than three tabs per page
 // Warning: Avoid nesting pages more than three levels deep
@@ -94,15 +96,19 @@
 // <header class="xui-pageheading">
 //   <div class="xui-pageheading--content xui-pageheading--content-layout" role="navigation" aria-label="Title">
 //     <ol class="xui-pageheading--breadcrumbs">
-//       <li class="xui-breadcrumb" aria-selected="false">
+//       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Settings</a>
 //       </li>
-//       <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-//       <li class="xui-breadcrumb" aria-selected="false">
+//       <li class="xui-breadcrumb">
+//         <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//       </li>
+//       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Permissions</a>
 //       </li>
-//       <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
-//       <li class="xui-breadcrumb" aria-selected="true">
+//       <li class="xui-breadcrumb">
+//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//       </li>
+//       <li class="xui-breadcrumb">
 //         Edit permissions
 //       </li>
 //     </ol>

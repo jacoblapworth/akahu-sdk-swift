@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
 import { rowVariants } from './private/constants';
 
 const getClasses = (className, variant) => {
 	const suffix = rowVariants[variant] ? `-${rowVariants[variant]}` : '';
-	const rowClass = `xui-row${suffix}`;
+	const rowClass = `${ns}-row${suffix}`;
 	return cn(className, rowClass);
 };
 

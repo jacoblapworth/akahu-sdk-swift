@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
 import { columnShortNames } from './private/constants';
 
 const getClass = (width, suffix) => {
 	let colClass = "";
 	if (width) {
-		colClass = `xui-column-${columnShortNames[width] || width}-of-12${suffix || ""}`;
+		colClass = `${ns}-column-${columnShortNames[width] || width}-of-12${suffix || ""}`;
 	}
 	return colClass;
 };
@@ -42,9 +43,9 @@ XUIColumn.propTypes = {
 	 * Grid columns at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
 	gridColumnsMedium: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number
-		]),
+		PropTypes.string,
+		PropTypes.number
+	]),
 	/**
 	 * Grid columns at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
@@ -58,4 +59,7 @@ XUIColumn.defaultProps = {
 	gridColumns: 12
 };
 
-export { XUIColumn as default };
+export {
+	XUIColumn as default,
+	getAllClasses
+};

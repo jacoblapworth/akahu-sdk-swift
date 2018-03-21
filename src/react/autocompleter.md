@@ -254,7 +254,7 @@ const filterPeople = (data, value, peopleToExclude) => {
 };
 
 //Example to show how the children can be styled however and you also define your own search criteria.
-class WrapPillsExample extends Component {
+class DisableWrapPillsExample extends Component {
 	constructor() {
 		super();
 
@@ -409,5 +409,5 @@ class WrapPillsExample extends Component {
 	}
 }
 
-<WrapPillsExample />
+<DisableWrapPillsExample />
 ```

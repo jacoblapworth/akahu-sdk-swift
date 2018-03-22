@@ -114,7 +114,7 @@ as overrides
 
 * Pre-commit changes: Now on commit (assuming you have it setup correctly and are using it) the following tasks will run. `lint`, `test:coverage` and `test:visual`
 	* You will need to have GITLFS installed and setup correctly
-	* You will need to have built the XUI repo before you can run visual tests. (requires `./dist/xui.css`) (requires storybook)
+	* You will need to have built the XUI repo before you can run visual tests. (requires `./dist/css/xui.css`) (requires storybook)
 
 ### Husky
 * Added [Husky](https://www.npmjs.com/package/husky) which allows us to define Git Hooks as NPM scripts

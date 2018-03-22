@@ -1,8 +1,5 @@
 node_modules
-react/*
-docs/*
-kss
+dist/*
 src/components/icon
-umd/assets
 coverage/*
-visual-testing/*
+.visual-testing/*

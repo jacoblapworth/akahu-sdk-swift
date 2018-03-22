@@ -7,7 +7,7 @@ module.exports = {
 	entry: path.join(__dirname, 'src', 'react', 'umd.js'),
 	target: 'web',
 	output: {
-		path: path.join(__dirname, 'umd', 'assets'),
+		path: path.join(__dirname, 'dist', 'umd', 'assets'),
 		filename: `xui.umd.${version}.js`,
 		library: 'XUI',
 		libraryTarget: 'umd'

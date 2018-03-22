@@ -28,10 +28,7 @@ You'll need:
  * Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
  * [ESLint](http://eslint.org/)j plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
  * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
- * [Git LFS](https://github.com/git-lfs/git-lfs/wiki/Installation) Required for Visual Regression testing. Follow the installation instructions for your OS.
  * A command line. Bash/zsh/etc MacOs. Git Bash Windows.
-
-
 
 ### Clone and install
 

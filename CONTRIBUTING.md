@@ -6,7 +6,7 @@ XUI is built using [Node.js](https://nodejs.org/). Checkout [README.md](README.m
 
 We use an "up-for-grabs" label to indicate issues that are suitable for first timers and new contributers these shoud be relatively straight forward. You can [filter issues to show just up-for-grabs](https://github.dev.xero.com/UXE/xui/issues?q=is%3Aopen+is%3Aissue+label%3Aup-for-grabs) and look out for ones you might like to try.
 
-We always want help improving documentation, examples and test coverage. Even if we don't have specific issues for these if you see something you want to improve, [raise and issue](https://github.dev.xero.com/UXE/xui/issues/new), assign yourself and give it a go.
+We always want help improving documentation, examples and test coverage. Even if we don't have specific issues for these if you see something you want to improve, [raise an issue](https://github.dev.xero.com/UXE/xui/issues/new), assign yourself and give it a go.
 
 **Some useful info**
 
@@ -15,8 +15,8 @@ We always want help improving documentation, examples and test coverage. Even if
 * Include relevant documentation updates and tests in along with any code changes.
 * Write meaningful commit and PR messages ([Anatomy Of a Good Commit Message](https://adamcod.es/2012/07/03/anatomy-of-a-good-commit-message.html) has some good info).
 * Always add a "rel|ref|fixes:" issue reference and always ensure an issue exists before opening a PR.
-* cc @UXE/uxe-team or @UXE/developers for code reviews.
-* Ask questions on issues, PRs or in Slack.
+* cc @UXE/uxe-team or @UXE/developers or use the Reviewers github functionality for code reviews.
+* Ask questions on issues, PRs or in [Slack](https://xero.slack.com/messages/C565NP1A5).
 
 ## Bugs
 

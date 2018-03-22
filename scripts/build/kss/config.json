@@ -45,6 +45,8 @@
 		"Building Blocks.Forms",
 		"Building Blocks.Controls",
 		"Building Blocks.Dropdowns",
+		"Compounds",
+		"Compounds.Navigation",
 		"Patterns"
 	]
 }

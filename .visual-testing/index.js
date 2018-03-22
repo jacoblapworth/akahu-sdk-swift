@@ -9,7 +9,7 @@ const storyBookLocation = path.resolve(
 	'storybook'
 );
 const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
-const variationsPath = '../dist/react-dev/components';
+const variationsPath = '../.tmp/react-dev/components';
 
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
@@ -165,13 +165,13 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'Compositions',
-		variationsPath: '../dist/react-dev/stories/tests.js',
+		variationsPath: '../.tmp/react-dev/stories/tests.js',
 		delay: 1500,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'Page Layouts',
-		variationsPath: '../dist/react-dev/page-layouts/tests.js',
+		variationsPath: '../.tmp/react-dev/page-layouts/tests.js',
 		...fullPageSettings
 	}
 ];

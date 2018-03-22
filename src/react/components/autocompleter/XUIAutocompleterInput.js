@@ -1,3 +1,4 @@
+//TODO: Remove this component in XUI 14. Hopefully no one's using it, but it should remain until the next major
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';

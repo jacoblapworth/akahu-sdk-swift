@@ -13,16 +13,18 @@ import DropDownLayout from '../../dropdown/DropDownLayout';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIAutocompleter', () => {
-	const createComponent = (props) => (<XUIAutocompleter
-		dropdownSize="medium"
-		forceDesktop
-		{...props}
-	>
-		<Picklist>
-			<Pickitem id="item1">Item 1</Pickitem>
-			<Pickitem id="item2">Item 2</Pickitem>
-		</Picklist>
-	</XUIAutocompleter>)
+	const createComponent = (props) => (
+		<XUIAutocompleter
+			dropdownSize="medium"
+			forceDesktop
+			{...props}
+		>
+			<Picklist>
+				<Pickitem id="item1">Item 1</Pickitem>
+				<Pickitem id="item2">Item 2</Pickitem>
+			</Picklist>
+		</XUIAutocompleter>
+	);
 
 	it('has data-automationid set on the input, list, dropdown and container', () => {
 		const automationid = renderer.create(createComponent({ qaHook: "baseAC" }));
@@ -40,7 +42,7 @@ describe('XUIAutocompleter', () => {
 		const onSearch = jest.fn();
 		const searchComp = mount(createComponent({onSearch: onSearch, searchValue: 'z' }))
 
-		searchComp.find('input[type="search"]').simulate('change', {
+		searchComp.find('input').simulate('change', {
 			target: {
 				value: 'a'
 			}
@@ -83,12 +85,12 @@ describe('XUIAutocompleter', () => {
 		expect(wrapper.find(DropDownToggled).props().matchTriggerWidth).toBeTruthy();
 	});
 
-	it('when disableWrapPill prop is applied adds a pillwrap class, but not by default', () => {
+	it('when disableWrapPills prop is applied disable pillwrap class is applied', () => {
 		const wrapper = mount(createComponent());
-		expect(wrapper.find('.xui-autocompleter--trigger-pillwrap')).toBeDefined();
+		expect(wrapper.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(0);
 
 		const disableWrapPills = mount(createComponent({ disableWrapPills: true }));
-		expect(disableWrapPills.find('.xui-autocompleter--trigger').hasClass('xui-autocompleter--trigger-pillwrap')).toBeFalsy();
+		expect(disableWrapPills.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(1);
 	});
 
 	it('should render a class on the root node when passed in the className prop', () => {
@@ -139,37 +141,37 @@ describe('XUIAutocompleter', () => {
 		expect(disabled).toMatchSnapshot();
 	});
 
-    it('should ignore keyboard events for space as it\'s reserved for input interactions', () => {
+	it('should ignore keyboard events for space as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
-        comp.find('input').simulate('keyDown', {
-            keyCode: 32,
-            which: 32
-        });
+		comp.find('input').simulate('keyDown', {
+			keyCode: 32,
+			which: 32
+		});
 
-        expect(comp.instance().ddt.state.isHidden).toBeTruthy();
-    });
+		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+	});
 
 	it('should ignore keyboard events for the left arrow as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
-        comp.find('input').simulate('keyDown', {
-            keyCode: 37,
-            which: 37
-        });
+		comp.find('input').simulate('keyDown', {
+			keyCode: 37,
+			which: 37
+		});
 
-        expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
 	});
 
 	it('should ignore keyboard events for the right arrow as it\'s reserved for input interactions', () => {
 		const comp = mount(createComponent());
 
-        comp.find('input').simulate('keyDown', {
-            keyCode: 39,
-            which: 39
-        });
+		comp.find('input').simulate('keyDown', {
+			keyCode: 39,
+			which: 39
+		});
 
-        expect(comp.instance().ddt.state.isHidden).toBeTruthy();
+		expect(comp.instance().ddt.state.isHidden).toBeTruthy();
 	});
 
 	describe.skip('Dropdown + Portal skipped tests', () => {

@@ -6,6 +6,7 @@ import crossSmall from '@xero/xui-icon/icons/cross-small';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIInnerPill from './XUIInnerPill';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * @private
@@ -54,24 +55,20 @@ export default class XUIPill extends Component {
 			value
 		} = pill.props;
 
-		const baseClass = 'xui-pill';
+		const baseClass = `${ns}-pill`;
 
 		const pillClasses = cn(
 			className,
 			baseClass,
-			{
-				[`${baseClass}-layout`]: defaultLayout,
-				[`${baseClass}-is-invalid`] : isInvalid,
-				[`${baseClass}-is-focused`]: pill.state.isFocused,
-				[`${baseClass}-is-deleteable`]: onDeleteClick
-			}
+			defaultLayout && `${baseClass}-layout`,
+			isInvalid && `${baseClass}-is-invalid`,
+			pill.state.isFocused && `${baseClass}-is-focused`,
+			onDeleteClick && `${baseClass}-is-deleteable`
 		);
 
-		const closebuttonClasses = cn(
+		const closeButtonClasses = cn(
 			`${baseClass}--button-icon`,
-			{
-				[`xui-button-icon-inverted`]: isInvalid,
-			},
+			isInvalid && `${ns}-button-icon-inverted`
 		);
 
 		const innerPillProps = {
@@ -89,7 +86,7 @@ export default class XUIPill extends Component {
 
 		const deleteButton = onDeleteCallback && (
 			<XUIButton
-				className={closebuttonClasses}
+				className={closeButtonClasses}
 				variant="icon"
 				onClick={onDeleteCallback}
 				title={deleteButtonLabel}

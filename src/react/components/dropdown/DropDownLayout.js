@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import {
+	baseClass,
 	maxWidthDropdownSizes,
 	fixedWidthDropdownSizes,
 } from './private/constants';
@@ -20,14 +21,14 @@ export default class DropDownLayout extends PureComponent {
 		if (
 			this.props.animateOpen &&
 			this.props.onOpenAnimationEnd != null &&
-			event.animationName === 'xui-dropdown-mobile-show'
+			event.animationName === `${baseClass}-mobile-show`
 		) {
 			this.props.onOpenAnimationEnd(event);
 		}
 		if (
 			this.props.animateClosed &&
 			this.props.onCloseAnimationEnd != null &&
-			event.animationName === 'xui-dropdown-mobile-hide'
+			event.animationName === `${baseClass}-mobile-hide`
 		) {
 			this.props.onCloseAnimationEnd(event);
 		}
@@ -47,15 +48,18 @@ export default class DropDownLayout extends PureComponent {
 			size,
 			qaHook,
 		} = this.props;
-		
+
 		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
 		const sizeClass = size ? dropdownSizes[size] : null;
-		const classNames = cn('xui-dropdown-layout', sizeClass, className, {
-			'xui-dropdown-is-open': !isHidden,
-			'xui-dropdown-is-closing': animateClosed,
-			'xui-dropdown-is-opening': animateOpen,
-			'xui-dropdown--force-desktop': forceDesktop,
-		});
+		const classNames = cn(
+			`${baseClass}-layout`,
+			sizeClass,
+			className,
+			!isHidden && `${baseClass}-is-open`,
+			animateClosed && `${baseClass}-is-closing`,
+			animateOpen && `${baseClass}-is-opening`,
+			forceDesktop && `${baseClass}--force-desktop`
+		);
 
 		return (
 			<div
@@ -65,7 +69,7 @@ export default class DropDownLayout extends PureComponent {
 				onAnimationEnd={this.onAnimationEnd}
 				style={style}
 			>
-				<div className="xui-dropdown--mask" data-automationid={qaHook && `${qaHook}--mask`}></div>
+				<div className={`${baseClass}--mask`} data-automationid={qaHook && `${qaHook}--mask`}></div>
 				{children}
 			</div>
 		);

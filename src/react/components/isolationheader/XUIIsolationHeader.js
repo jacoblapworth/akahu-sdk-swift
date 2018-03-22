@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, {PureComponent} from 'react';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class XUIIsolationHeader extends PureComponent {
 	render() {
@@ -14,10 +15,8 @@ export default class XUIIsolationHeader extends PureComponent {
 
 		const classNames = cn(
 			className,
-			'xui-isolationheader',
-			{
-				'xui-u-position-fixed': isPositionFixed
-			}
+			`${ns}-isolationheader`,
+			isPositionFixed && `${ns}-u-position-fixed`
 		);
 
 		return (

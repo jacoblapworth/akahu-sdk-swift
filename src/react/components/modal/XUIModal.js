@@ -8,13 +8,15 @@ import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
+import {baseClass} from './constants';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export const modalSizes = {
-	small: 'xui-modal-width-small',
-	medium: 'xui-modal-width-medium',
-	large: 'xui-modal-width-large',
-	xlarge: 'xui-modal-width-xlarge',
-	fullscreen: 'xui-modal-fullscreen'
+	small: `${baseClass}-width-small`,
+	medium: `${baseClass}-width-medium`,
+	large: `${baseClass}-width-large`,
+	xlarge: `${baseClass}-width-xlarge`,
+	fullscreen: `${baseClass}-fullscreen`
 };
 
 /**
@@ -184,19 +186,21 @@ export default class XUIModal extends Component {
 			isUsingPortal
 		} = this.props;
 
-		const maskClasses = cn('xui-mask', maskClassName, {
-			['xui-mask-is-active']: isOpen
-		});
+		const maskClasses = cn(
+			`${ns}-mask`,
+			maskClassName,
+			isOpen && `${ns}-mask-is-active`
+		);
 		const modalClasses = cn(
-			'xui-modal',
+			baseClass,
 			modalSizes[size],
-			{ ['xui-modal-layout']: defaultLayout },
+			defaultLayout && `${baseClass}-layout`,
 			className
 		);
 		const overlayClickHandler =
 			hideOnOverlayClick && onClose
 				? function(event) {
-						if (event.target.classList.contains('xui-mask') && isOpen) {
+						if (event.target.classList.contains(`${ns}-mask`) && isOpen) {
 							onClose();
 						}
 					}
@@ -207,10 +211,10 @@ export default class XUIModal extends Component {
 				qaHook={qaHook && `${qaHook}--close`}
 				onClick={onClose}
 				title="Close"
-				className={cn('xui-modal--close', 'xui-button-icon', closeClassName)}
+				className={cn(`${baseClass}--close`, closeClassName)}
 				key="close-button"
 				type="button"
-				variant="unstyled"
+				variant="icon"
 			>
 				<XUIIcon path={cross} />
 			</XUIButton>
@@ -260,7 +264,7 @@ export default class XUIModal extends Component {
 			isOpen ? (
 				<Portal node={portalContainer()}>
 					<div
-						className="xui-container"
+						className={`${ns}-container`}
 						data-automationid={qaHook && `${qaHook}--container`}
 					>
 						{childNodes}

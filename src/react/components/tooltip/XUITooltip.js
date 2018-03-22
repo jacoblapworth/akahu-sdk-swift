@@ -5,6 +5,9 @@ import PositioningInline from '../positioning/PositioningInline';
 import { positionOptions } from '../positioning/private/constants';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
+import {ns} from "../helpers/xuiClassNamespace";
+
+const baseClass = `${ns}-tooltip`;
 
 export default class XUITooltip extends PureComponent {
 	state = {
@@ -114,16 +117,15 @@ export default class XUITooltip extends PureComponent {
 
 		const wrapperClasses = cn(
 			wrapperClassName,
-			'xui-tooltip',
-			{"is-disabled": isDisabled}
+			baseClass,
+			isDisabled && `${ns}-is-disabled`
 		);
+
 		const tipClasses = cn(
 			className,
-			'xui-tooltip--tip',
-			{
-				'xui-tooltip--tip-open': !isHidden,
-				"xui-tooltip--tip-animating": isAnimating
-			}
+			`${baseClass}--tip`,
+			!isHidden && `${baseClass}--tip-open`,
+			isAnimating && `${baseClass}--tip-animating`
 		);
 
 		const clonedTrigger = React.cloneElement(trigger, {

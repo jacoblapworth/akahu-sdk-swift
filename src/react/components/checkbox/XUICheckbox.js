@@ -5,13 +5,15 @@ import cn from 'classnames';
 import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
 import checkboxIndeterminate from '@xero/xui-icon/icons/checkbox-indeterminate';
 import checkboxMain from '@xero/xui-icon/icons/checkbox-main';
+import {baseClass} from './constants';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * @function setIndeterminate - Set the indeterminate DOM property of the given checkbox instance
  * @param xuiCheckbox - The checkbox instance for which to set the indeterminate DOM property
  */
 const setIndeterminate = (xuiCheckbox) => {
-	if(xuiCheckbox._input){
+	if(xuiCheckbox._input) {
 		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
 	}
 };
@@ -36,13 +38,13 @@ const onLabelClick = e => {
  *
  */
 const buildSvgCheckbox = (qaHook, {svgClassName, iconMainPath, iconCheckPath, iconIndeterminatePath}) => {
-	const svgClasses = cn('xui-icon', svgClassName);
+	const svgClasses = cn(`${ns}-icon`, svgClassName);
 	return (
 		<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
-			<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--focus" role="presentation" />
-			<path d={iconMainPath || checkboxMain} className="xui-styledcheckboxradio--main" role="presentation" />
-			{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className="xui-styledcheckboxradio--check" role="presentation" />}
-			{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className="xui-styledcheckboxradio--indeterminate" role="presentation" />}
+			<path d={iconMainPath || checkboxMain} className={`${baseClass}--focus`} role="presentation" />
+			<path d={iconMainPath || checkboxMain} className={`${baseClass}--main`} role="presentation" />
+			{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className={`${baseClass}--check`} role="presentation" />}
+			{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className={`${baseClass}--indeterminate`} role="presentation" />}
 		</svg>
 	);
 };
@@ -54,7 +56,7 @@ const buildSvgCheckbox = (qaHook, {svgClassName, iconMainPath, iconCheckPath, ic
  *
  */
 const buildHtmlCheckbox = (qaHook, htmlClassName) => {
-	const htmlClasses = cn('xui-styledcheckboxradio--checkbox', htmlClassName);
+	const htmlClasses = cn(`${baseClass}--checkbox`, htmlClassName);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`}/>
 	);
@@ -92,7 +94,7 @@ export default class XUICheckbox extends Component {
 
 	onClick = () => {
 		setIndeterminate(this);
-	}
+	};
 
 	render() {
 		const {
@@ -116,12 +118,17 @@ export default class XUICheckbox extends Component {
 			labelClassName,
 			htmlClassName
 		} = this.props;
-		const classes = cn(className, 'xui-styledcheckboxradio', {
-			'xui-styledcheckboxradio-reversed': isReversed,
-			'xui-is-disabled': isDisabled
-		});
+		const classes = cn(
+			className,
+			baseClass,
+			isReversed && `${baseClass}-reversed`,
+			isDisabled && `${ns}-is-disabled`
+		);
 
-		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
+		const labelClasses = cn(
+			`${baseClass}--label`,
+			labelClassName
+		);
 		const labelElement = isLabelHidden ? null : <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
 			type: 'checkbox',
@@ -156,7 +163,12 @@ export default class XUICheckbox extends Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input ref={cb => this._input = cb} {...inputProps} className={cn("xui-styledcheckboxradio--input", inputProps.className)} data-automationid={qaHook && `${qaHook}--input`} />
+				<input
+					ref={cb => this._input = cb}
+					{...inputProps}
+					className={cn(`${baseClass}--input`, inputProps.className)}
+					data-automationid={qaHook && `${qaHook}--input`}
+				/>
 				{buildCheckbox(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
 			</label>

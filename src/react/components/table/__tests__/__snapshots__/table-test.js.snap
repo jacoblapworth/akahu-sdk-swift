@@ -5685,15 +5685,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                 <div
                   className="xui-loader--dot"
-                  key="1"
                 />
                 <div
                   className="xui-loader--dot"
-                  key="2"
                 />
                 <div
                   className="xui-loader--dot"
-                  key="3"
                 />
               </div>
             </XUILoader>
@@ -5927,15 +5924,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                 <div
                   className="xui-loader--dot"
-                  key="1"
                 />
                 <div
                   className="xui-loader--dot"
-                  key="2"
                 />
                 <div
                   className="xui-loader--dot"
-                  key="3"
                 />
               </div>
             </XUILoader>
@@ -6373,15 +6367,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                 <div
                   className="xui-loader--dot"
-                  key="1"
                 />
                 <div
                   className="xui-loader--dot"
-                  key="2"
                 />
                 <div
                   className="xui-loader--dot"
-                  key="3"
                 />
               </div>
             </XUILoader>

@@ -27,7 +27,7 @@ function createItems(items, suffix) {
 	if (Array.isArray(items)) {
 		return items.map(i => createItems(i));
 	}
-	items.props.id += suffix ? suffix : '';
+	items.props.id += (suffix || '');
 	return (
 		<Pickitem
 			{...items.props}

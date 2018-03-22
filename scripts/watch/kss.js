@@ -2,7 +2,14 @@ const gaze = require('gaze');
 const buildKss = require('../build/kss');
 const { logTaskTitle } = require('../helpers');
 
-gaze('kss/**/*', (err, watcher) => {
+const watchPaths = [
+	'src/sass/**/*',
+	'src/docs/**/*',
+	'.kss/**/*',
+	'scripts/build/kss/config.json'
+];
+
+gaze(watchPaths, (err, watcher) => {
 	logTaskTitle(__filename);
 
 	// On changed/added/deleted

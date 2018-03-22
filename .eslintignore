@@ -3,7 +3,7 @@ react/*
 docs/*
 kss
 src/sass
-src/components/icon
-umd/assets
+=======
+dist/*
 coverage/*
-visual-testing/*
+.visual-testing/*

@@ -1,21 +1,13 @@
-/* global Map */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIAutocompleterInput from './XUIAutocompleterInput';
+import throttle from 'lodash.throttle';
 import Picklist from '../picklist/Picklist';
 import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
+import XUITextInput from '../textInput/XUITextInput';
 import {ns} from '../helpers/xuiClassNamespace';
-
-/**
- * Autocompleter instance => event handlers/callbacks map
- *
- * @private
- * @type {Map.<Autocompleter, Object>}
- */
-const HandlersMap = new Map();
 
 /*
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input
@@ -24,94 +16,76 @@ const HandlersMap = new Map();
  */
 const ignoreKeyboardEvents = [32,37,39];
 
-/**
- * Create private event handlers and callbacks for the associated instance, then cache them.  Retrieve from cache on
- * subsequent calls.
- *
- * @private
- * @param {Autocompleter} instance
- * @returns {Object}
- */
-function getHandlers(instance) {
-	let handlers = HandlersMap.get(instance);
-	if (!handlers) {
-		handlers = {
-			onInputKeyDown: event => {
-				if (instance.ddt.isDropDownOpen()) {
-					instance.dropdown.onKeyDown(event);
-				}
-
-				if (
-					event.key === 'Backspace' &&
-					instance.input.inputNode.value === "" &&
-					instance.props.onBackspacePill &&
-					instance.props.pills &&
-					(instance.props.pills.length > 0 || React.isValidElement(instance.props.pills))
-				) {
-					instance.props.onBackspacePill();
-				}
-			},
-			onInputFocus: () => {
-				if (!instance.state.focused) {
-					instance.openDropDown();
-				}
-			},
-			onFocus: () => {
-				instance.setState({
-					focused: true
-				});
-			},
-			onBlur: () => {
-				setTimeout(() => {
-					if (instance.rootNode && !instance.rootNode.contains(document.activeElement)) {
-						instance.setState({
-							focused: false
-						});
-					}
-				}, 333);
-			}
-		};
-		HandlersMap.set(instance, handlers);
-	}
-	return handlers;
-}
-
 export default class XUIAutocompleter extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
 			focused: false
 		};
-		this.focusInput = this.focusInput.bind(this);
-		this.scrollInputIntoView = this.scrollInputIntoView.bind(this);
-		this.onHighlightChange = this.onHighlightChange.bind(this);
-	}
-
-	componentWillUnmount() {
-		HandlersMap.delete(this);
-		window.removeEventListener('resize', this.scrollInputIntoView);
+		this.bindOnChange(props.searchThrottleInterval);
 	}
 
 	componentDidMount() {
-		if (this.props.disableWrapPills) {
-			window.addEventListener('resize', this.scrollInputIntoView);
-		}
-		this.scrollInputIntoView();
+		this.calculatePlaceholderWidth();
 	}
 
 	componentDidUpdate(prevProps) {
-		const completer = this;
-		if (completer.props.pills > prevProps.pills) {
-			completer.scrollInputIntoView();
+		const {
+			pills,
+			disableWrapPills,
+			searchThrottleInterval,
+			searchValue,
+			placeholder,
+		} = this.props;
+		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
+			this.bindOnChange(searchThrottleInterval);
 		}
-		if (!completer.props.disableWrapPills && prevProps.disableWrapPills) {
-			window.addEventListener('resize', this.scrollInputIntoView);
+		if (prevProps.value !== searchValue) {
+			this.setState({
+				value: searchValue
+			});
+		}
+		if (prevProps.placeholder !== placeholder) {
+			this.calculatePlaceholderWidth();
+		}
+		const morePillsExist = React.Children.count(pills) > React.Children.count(prevProps.pills);
+		if (morePillsExist && disableWrapPills) {
+			this.noWrapPillContainer.scrollLeft = this.noWrapPillContainer.scrollWidth;
 		}
 	}
 
-	scrollInputIntoView() {
-		if(this.trigger !== null){
-			this.trigger.scrollLeft = this.trigger.scrollWidth;
+	/**
+	 * Bind an optionally throttled onSearch handler to the component instance.
+	 *
+	 * @private
+	 * @param {number} interval
+	 */
+	bindOnChange = interval => {
+		const { onSearch } = this.props;
+		if (onSearch) {
+			const throttled = interval
+				? throttle(onSearch, interval, { trailing: true })
+				: onSearch;
+			this.throttledOnChange = event => {
+				event.persist();
+				this.setState({
+					value: event.target.value
+				});
+				throttled(event.target.value);
+			};
+		} else {
+			this.throttledOnChange = undefined;
+		}
+	}
+
+	calculatePlaceholderWidth = () => {
+		if (this.placeholder != null) {
+			const placeholderWidth = getComputedStyle(this.placeholder).width;
+			if (this.state.placeholderWidth !== placeholderWidth) {
+				this.setState({
+					placeholderWidth
+				});
+			}
 		}
 	}
 
@@ -119,7 +93,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * @public
 	 * Set the state as not hidden in order to toggle the list open.
 	 */
-	openDropDown() {
+	openDropDown = () => {
 		this.ddt.openDropDown();
 	}
 
@@ -127,7 +101,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * @public
 	 * Set the state as hidden in order to toggle the list closed.
 	 */
-	closeDropDown() {
+	closeDropDown = () => {
 		this.ddt.closeDropDown();
 	}
 
@@ -135,7 +109,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 * @public
 	 * Manually highlight an item in the list for selection.
 	 */
-	highlightItem(item) {
+	highlightItem = item => {
 		this.dropdown.highlightItem(item);
 	}
 
@@ -143,8 +117,8 @@ export default class XUIAutocompleter extends PureComponent {
 	 * @public
 	 * Focuses the text input
 	 */
-	focusInput() {
-		this.input.inputNode.focus();
+	focusInput = () => {
+		this.inputNode.focus();
 	}
 
 	/**
@@ -153,8 +127,51 @@ export default class XUIAutocompleter extends PureComponent {
 	*
 	* @param {item} Object
 	*/
-	onHighlightChange(item) {
+	onHighlightChange = item => {
 		this.props.onHighlightChange && this.props.onHighlightChange(item);
+	}
+
+	onInputKeyDown = event => {
+		const {
+			onBackspacePill,
+			pills,
+		} = this.props;
+		if (this.ddt.isDropDownOpen()) {
+			this.dropdown.onKeyDown(event);
+		}
+
+		if (
+			event.key === 'Backspace' &&
+			this.inputNode.value === "" &&
+			onBackspacePill &&
+			pills &&
+			(pills.length > 0 || React.isValidElement(pills))
+		) {
+			onBackspacePill();
+		}
+	}
+
+	onInputFocus = () => {
+		if (!this.state.focused) {
+			this.openDropDown();
+		}
+	}
+
+	onFocus = () => {
+		this.focusInput();
+		this.setState({
+			focused: true
+		});
+	}
+
+	onBlur = () => {
+		setTimeout(() => {
+			if (this.rootNode && !this.rootNode.contains(document.activeElement)) {
+				this.setState({
+					focused: false
+				});
+			}
+		}, 333);
 	}
 
 	render() {
@@ -172,35 +189,61 @@ export default class XUIAutocompleter extends PureComponent {
 			dropdownQaHook = `${props.qaHook}--dropdown`;
 		}
 
-		const handlers = getHandlers(completer);
-		const triggerClasses = cn(
-			`${ns}-input`,
-			`${ns}-autocompleter--trigger`,
-			props.isDisabled ? `${ns}-autocompleter--trigger-is-disabled` : '',
-			props.disableWrapPills ? '' : `${ns}-autocompleter--trigger-pillwrap`,
-			props.triggerClassName
+		const containerClassNames = cn(
+			props.inputContainerClassName,
+			`${ns}-padding-left-xsmall`,
+			`${ns}-u-flex`,
+			{
+				[`${ns}-row-flex`]: !props.disableWrapPills,
+			});
+
+		const inputClassNames = cn(
+			props.inputClassName,
+			`${ns}-padding-left-small`
 		);
+
+		const leftElement = props.disableWrapPills ? (
+			<div
+				className={`${ns}-autocompleter--trigger-nopillwrap`}
+				ref={nwpc => this.noWrapPillContainer = nwpc}
+			>
+				{props.pills}
+			</div>
+		) : props.pills;
 
 		const trigger = (
 			<div
-				className={triggerClasses}
-				id="trigger"
-				ref={tg => this.trigger=tg}
-				onFocus={this.focusInput}
+				ref={tg => this.trigger = tg}
+				onFocus={props.openOnFocus ? this.onInputFocus : null}
+				className={props.triggerClassName}
 			>
-				{props.pills}
-				<XUIAutocompleterInput
-					refFn={c => completer.input = c}
-					value={props.searchValue}
+				<div
+					ref={p => this.placeholder = p}
+					className="xui-autocompleter--textinputplaceholder"
+					aria-hidden
+				>
+					{props.placeholder}
+				</div>
+				<XUITextInput
+					leftElement={leftElement}
+					rightElement={props.rightElement}
+					containerClassName={containerClassNames}
+					inputClassName={inputClassNames}
+					inputRef={i => this.inputNode = i}
 					placeholder={props.placeholder}
-					maxLength={props.maxLength}
-					onSearch={props.onSearch}
-					onKeyDown={handlers.onInputKeyDown}
-					className={props.inputClassName}
-					throttleInterval={props.searchThrottleInterval}
+					value={props.searchValue}
+					onChange={this.throttledOnChange}
+					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
-					onFocus={props.openOnFocus ? handlers.onInputFocus : null}
-					id={props.inputId}
+					isDisabled={props.isDisabled}
+					inputProps={{
+						...props.inputProps,
+						maxLength: props.maxLength,
+						id: props.inputId,
+						style: {
+							minWidth: state.placeholderWidth
+						}
+					}}
 				/>
 			</div>
 		);
@@ -235,8 +278,8 @@ export default class XUIAutocompleter extends PureComponent {
 			<div
 				ref={c => completer.rootNode = c}
 				className={classNames}
-				onFocus={handlers.onFocus}
-				onBlur={handlers.onBlur}
+				onFocus={this.onFocus}
+				onBlur={this.onBlur}
 				data-automationid={containerQaHook}
 				id={props.id}
 			>
@@ -258,6 +301,7 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 }
 
+//TODO: Rename `pills` to `leftElement` for XUI 14.
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
@@ -288,6 +332,12 @@ XUIAutocompleter.propTypes = {
 	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
 
+	/** CSS class(es) to go on the input container component */
+	inputContainerClassName: PropTypes.string,
+
+	/** Attributes to set on the native input element */
+	inputProps: PropTypes.object,
+
 	/** CSS class(es) to go on the trigger element which contains the input and pills */
 	triggerClassName: PropTypes.string,
 
@@ -297,8 +347,11 @@ XUIAutocompleter.propTypes = {
 	/** Max length of the input */
 	maxLength: PropTypes.number,
 
-	/** A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
+	/** A set of pills to show next to input. Useful for showing what was selected in a multi-select. Can also be used similarly to `XUITextInput`'s `leftElement`. */
 	pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+
+	/** Right element to render within the `XUITextInput` component */
+	rightElement: PropTypes.node,
 
 	/** Callback for when the list opens */
 	onOpen: PropTypes.func,

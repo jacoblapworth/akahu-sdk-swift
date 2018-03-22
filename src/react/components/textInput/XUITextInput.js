@@ -68,6 +68,7 @@ class XUITextInput extends PureComponent {
 			validationMessage,
 			hintMessage,
 			onChange,
+			onKeyDown,
 			leftElement,
 			rightElement,
 			qaHook,
@@ -141,25 +142,27 @@ class XUITextInput extends PureComponent {
 		};
 
 		return(
-			<div className={rootClasses}>
+			<div className={rootClasses} onKeyDown={onKeyDown}>
 				<label className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
-					<InputEl
-						type={type}
-						value={value}
-						defaultValue={defaultValue}
-						data-automationid={qaHook && `${qaHook}--input`}
-						className={classes}
-						onFocusCapture={input.onFocus}
-						onBlurCapture={input.onBlur}
-						onChange={onChange}
-						placeholder={placeholder}
-						disabled={isDisabled}
-						ref={compose(inputRef, i => this.input = i)}
-						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-						{...inputProps}
-					/>
-					{rightElement}
+					<div className="xui-u-flex xui-u-flex-grow">
+						<InputEl
+							type={type}
+							value={value}
+							defaultValue={defaultValue}
+							data-automationid={qaHook && `${qaHook}--input`}
+							className={classes}
+							onFocusCapture={input.onFocus}
+							onBlurCapture={input.onBlur}
+							onChange={onChange}
+							placeholder={placeholder}
+							disabled={isDisabled}
+							ref={compose(inputRef, i => this.input = i)}
+							rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+							{...inputProps}
+						/>
+						{rightElement}
+					</div>
 				</label>
 				{message}
 			</div>
@@ -181,6 +184,8 @@ XUITextInput.propTypes = {
 	onFocus: PropTypes.func,
 	/** Function to call when focus leaves the input */
 	onBlur: PropTypes.func,
+	/** Function to call on keydown inside the textinput */
+	onKeyDown: PropTypes.func,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */

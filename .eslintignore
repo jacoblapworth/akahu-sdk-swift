@@ -6,3 +6,4 @@ src/sass
 dist/*
 coverage/*
 .visual-testing/*
+.tmp/*

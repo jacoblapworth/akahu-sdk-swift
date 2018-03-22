@@ -1,5 +1,4 @@
 const { execSync } = require('child_process');
-const fs = require('fs');
 const path = require('path');
 
 const storyBookLocation = path.resolve(
@@ -10,6 +9,7 @@ const storyBookLocation = path.resolve(
 	'storybook'
 );
 const testingDomain = path.resolve(storyBookLocation, 'iframe.html?');
+const variationsPath = '../.tmp/react-dev/components';
 
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
@@ -23,7 +23,7 @@ const fullPageSettings = {
  * Example of full component to test implementation:
  * {
  * 	testsPrefix: 'XUI Pill',
- *	variationsPath: '../src/react/components/pill/stories/variations.js',
+ *	variationsPath: `${variationsPath}/pill/stories/variations.js`,
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
  *	selectors: 'alternate > .selectors' (defaults to '#root > div > div')
  *	misMatchThreshold: 5 (percentage variance to allow. defaults to .6 or .4 for full-page capture)
@@ -33,147 +33,145 @@ const fullPageSettings = {
 const componentsToTest = [
 	{
 		testsPrefix: 'XUI Autocompleter',
-		variationsPath: '../src/react/components/autocompleter/stories/variations.js',
+		variationsPath: `${variationsPath}/autocompleter/stories/variations.js`,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Avatar',
-		variationsPath: '../src/react/components/avatar/stories/variations.js',
+		variationsPath: `${variationsPath}/avatar/stories/variations.js`,
 		delay: 500
 	},
 	{
 		testsPrefix: 'XUI Banner',
-		variationsPath: '../src/react/components/banner/stories/variations.js'
+		variationsPath: `${variationsPath}/banner/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Button',
-		variationsPath: '../src/react/components/button/stories/variations.js'
+		variationsPath: `${variationsPath}/button/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Capsule',
-		variationsPath: '../src/react/components/capsule/stories/variations.js'
+		variationsPath: `${variationsPath}/capsule/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Checkbox',
-		variationsPath: '../src/react/components/checkbox/stories/variations.js',
+		variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
 		delay: 500
 	},
 	{
 		testsPrefix: 'XUI DatePicker',
-		variationsPath: '../src/react/components/datepicker/stories/variations.js'
+		variationsPath: `${variationsPath}/datepicker/stories/variations.js`
 	},
 	{
 		testsPrefix: 'DropDown',
-		variationsPath: '../src/react/components/dropdown/stories/variations.js',
+		variationsPath: `${variationsPath}/dropdown/stories/variations.js`,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Icon',
-		variationsPath: '../src/react/components/icon/stories/variations.js',
+		variationsPath: `${variationsPath}/icon/stories/variations.js`,
 		selectors: '.capture'
 	},
 	{
 		testsPrefix: 'XUI Input',
-		variationsPath: '../src/react/components/input/stories/variations.js'
+		variationsPath: `${variationsPath}/input/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Loader',
-		variationsPath: '../src/react/components/loader/stories/variations.js',
+		variationsPath: `${variationsPath}/loader/stories/variations.js`,
 		misMatchThreshold: 5
 	},
 	{
 		testsPrefix: 'XUI Modal',
-		variationsPath: '../src/react/components/modal/stories/variations.js',
+		variationsPath: `${variationsPath}/modal/stories/variations.js`,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Picklist',
-		variationsPath: '../src/react/components/picklist/stories/variations.js'
+		variationsPath: `${variationsPath}/picklist/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Pill',
-		variationsPath: '../src/react/components/pill/stories/variations.js'
+		variationsPath: `${variationsPath}/pill/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Isolation Header',
-		variationsPath: '../src/react/components/isolationheader/stories/variations.js'
+		variationsPath: `${variationsPath}/isolationheader/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Progress Indicator',
-		variationsPath:
-			'../src/react/components/progressindicator/stories/variations.js',
+		variationsPath: `${variationsPath}/progressindicator/stories/variations.js`,
 		delay: 500
 	},
 	{
 		testsPrefix: 'XUI Radio',
-		variationsPath: '../src/react/components/radio/stories/variations.js',
+		variationsPath: `${variationsPath}/radio/stories/variations.js`,
 		delay: 500
 	},
 	{
 		testsPrefix: 'Rollover Checkbox',
-		variationsPath:
-			'../src/react/components/rolloverCheckbox/stories/variations.js'
+		variationsPath: `${variationsPath}/rolloverCheckbox/stories/variations.js`
 	},
 	{
 		testsPrefix: 'SelectBox',
-		variationsPath: '../src/react/components/select-box/stories/variations.js',
+		variationsPath: `${variationsPath}/select-box/stories/variations.js`,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'XUI Switch',
-		variationsPath: '../src/react/components/switch/stories/variations.js'
+		variationsPath: `${variationsPath}/switch/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Stepper',
-		variationsPath: '../src/react/components/stepper/stories/variations.js',
+		variationsPath: `${variationsPath}/stepper/stories/variations.js`,
 		delay: 500
 	},
 	{
 		testsPrefix: 'XUI Table',
-		variationsPath: '../src/react/components/table/stories/variations.js',
+		variationsPath: `${variationsPath}/table/stories/variations.js`,
 		delay: 500
 	},
 	{
 		testsPrefix: 'XUI Tag',
-		variationsPath: '../src/react/components/tag/stories/variations.js'
+		variationsPath: `${variationsPath}/tag/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI TextInput',
-		variationsPath: '../src/react/components/textinput/stories/variations.js',
+		variationsPath: `${variationsPath}/textinput/stories/variations.js`,
 		delay: 1500
 	},
 	{
 		testsPrefix: 'XUI Textarea',
-		variationsPath: '../src/react/components/textarea/stories/variations.js',
+		variationsPath: `${variationsPath}/textarea/stories/variations.js`,
 		delay: 1500
 	},
 	{
 		testsPrefix: 'XUI Toast',
-		variationsPath: '../src/react/components/toast/stories/variations.js'
+		variationsPath: `${variationsPath}/toast/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Toggle',
-		variationsPath: '../src/react/components/toggle/stories/variations.js'
+		variationsPath: `${variationsPath}/toggle/stories/variations.js`
 	},
 	{
 		testsPrefix: 'XUI Tooltip',
-		variationsPath: '../src/react/components/tooltip/stories/variations.js',
+		variationsPath: `${variationsPath}/tooltip/stories/variations.js`,
 		selectors: '#root > div > div > div',
 		delay: 1000
 	},
 	{
 		testsPrefix: 'Structural',
-		variationsPath: '../src/react/components/structural/stories/variations.js'
+		variationsPath: `${variationsPath}/structural/stories/variations.js`
 	},
 	{
 		testsPrefix: 'Compositions',
-		variationsPath: '../src/react/stories/tests.js',
+		variationsPath: '../.tmp/react-dev/stories/tests.js',
 		delay: 1500,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'Page Layouts',
-		variationsPath: '../src/react/page-layouts/tests.js',
+		variationsPath: '../.tmp/react-dev/page-layouts/tests.js',
 		...fullPageSettings
 	}
 ];

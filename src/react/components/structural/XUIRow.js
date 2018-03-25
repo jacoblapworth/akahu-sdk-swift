@@ -11,10 +11,10 @@ const getClasses = (className, variant) => {
 	return cn(className, rowClass);
 };
 
-const XUIRow = ({children, className, variant, ...otherProps}) =>
+const XUIRow = ({children, className, variant, ...spreadProps}) =>
 	<div
 		className={getClasses(className, variant)}
-		{...otherProps}
+		{...spreadProps}
 	>
 		{children}
 	</div>;

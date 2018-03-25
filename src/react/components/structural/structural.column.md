@@ -1,4 +1,11 @@
 
+<div class="xui-margin-vertical">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
+	</svg>
+	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-2">Columns in the XUI Documentation</a>
+</div>
+
 `XUIColumn` components are placed inside rows and accept props to determine their width within a 12-column grid.
 The `gridColumns` prop may be a number 1 through 12 or `full`, `half`, `third`, or `quarter` as shorthand. By default, columns will be the full width of the row.
 

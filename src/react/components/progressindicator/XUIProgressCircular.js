@@ -25,12 +25,10 @@ const XUIProgressCircular = (props) => {
 				<Fragment>
 					<CircularTrack
 						{...{ id, qaHook, isSegmented, total, progress, isGrow, customContent }}
-						key="track"
 					/>
 
 					<CircularIcon
 						{...{ isComplete, isHardError, hardErrorAlert }}
-						key="icon"
 					/>
 				</Fragment>
 			)}

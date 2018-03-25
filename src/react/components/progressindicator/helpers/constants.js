@@ -1,4 +1,6 @@
-const NAME_SPACE = 'xui-progress';
+import {ns} from "../../helpers/xuiClassNamespace";
+
+const NAME_SPACE = `${ns}-progress`;
 const COLORS = [
 	'orange',
 	'yellow',

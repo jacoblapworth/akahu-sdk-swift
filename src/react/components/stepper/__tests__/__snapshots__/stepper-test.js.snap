@@ -767,7 +767,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         id="myCustomStepperId-tab-0"
                         isGrow={undefined}
                         isSegmented={undefined}
-                        key="track"
                         progress={3}
                         qaHook={undefined}
                         total={5}
@@ -848,7 +847,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         hardErrorAlert={undefined}
                         isComplete={undefined}
                         isHardError={undefined}
-                        key="icon"
                       >
                         <div
                           className="xui-progress-icon"
@@ -942,7 +940,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         id="myCustomStepperId-tab-1"
                         isGrow={undefined}
                         isSegmented={undefined}
-                        key="track"
                         progress={3}
                         qaHook={undefined}
                         total={5}
@@ -1023,7 +1020,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         hardErrorAlert={undefined}
                         isComplete={undefined}
                         isHardError={undefined}
-                        key="icon"
                       >
                         <div
                           className="xui-progress-icon"
@@ -1122,7 +1118,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         id="myCustomStepperId-tab-2"
                         isGrow={undefined}
                         isSegmented={undefined}
-                        key="track"
                         progress={3}
                         qaHook={undefined}
                         total={5}
@@ -1203,7 +1198,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         hardErrorAlert={undefined}
                         isComplete={undefined}
                         isHardError={undefined}
-                        key="icon"
                       >
                         <div
                           className="xui-progress-icon"
@@ -1299,7 +1293,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         id="myCustomStepperId-tab-3"
                         isGrow={undefined}
                         isSegmented={undefined}
-                        key="track"
                         progress={3}
                         qaHook={undefined}
                         total={5}
@@ -1380,7 +1373,6 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                         hardErrorAlert={undefined}
                         isComplete={undefined}
                         isHardError={undefined}
-                        key="icon"
                       >
                         <div
                           className="xui-progress-icon"

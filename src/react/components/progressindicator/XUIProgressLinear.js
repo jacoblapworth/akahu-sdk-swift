@@ -1,5 +1,5 @@
 import '../helpers/xuiGlobalChecks';
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {enrichLinearProps} from './helpers/enrichprops';
 import LinearTrack from './customElements/LinearTrack';
@@ -10,9 +10,7 @@ const XUIProgressLinear = (props) => {
 	return (
 		<ProgressWrapper {...enrichLinearProps(props)}>
 			{({id, isSegmented, total, progress}) => (
-				<Fragment>
-					<LinearTrack {...{id, isSegmented, total, progress}} />
-				</Fragment>
+				<LinearTrack {...{id, isSegmented, total, progress}} />
 			)}
 		</ProgressWrapper>
 	);

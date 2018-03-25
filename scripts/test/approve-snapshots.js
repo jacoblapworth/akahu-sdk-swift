@@ -13,7 +13,7 @@ function testApprove() {
 	logTaskTitle(__filename);
 	perf.start();
 
-	test(true);
+	test({ u: true });
 
 	perf.stop();
 	logScriptRunOutput(twoDecimals(perf.delta), result => {

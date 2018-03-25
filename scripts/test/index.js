@@ -8,7 +8,8 @@ const tests = {
 	visual: () => visual(),
 	coverage: () => jest({ coverage: true, noCache: true }),
 	ci: () => jest({ coverage: true, noCache: true, ci: true }),
-	jest: () => jest()
+	jest: () => jest(),
+	updateSnaps: () => jest({ u: true })
 };
 
 const isRunningFromNPM = process.env.npm_config_argv != null;
@@ -53,6 +54,10 @@ function testTask(...args) {
 							{
 								name: 'Jest for CI',
 								value: 'ci'
+							},
+							{
+								name: 'Update snapshots',
+								value: 'updateSnaps'
 							}
 						]
 					}

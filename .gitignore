@@ -7,6 +7,7 @@ yarn.lock
 # Build/Output files/directories
 /dist
 src/react/umd.js
+.tmp
 
 # IDE files/directores
 /.idea

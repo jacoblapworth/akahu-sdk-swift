@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from './private/constants';
+import {ns} from '../helpers/xuiClassNamespace';
 
 /** @private typeMap - Map types to attributes */
 const typeMap = {
@@ -22,12 +24,16 @@ export default function XUIToggleOption(props) {
 		value,
 		id
 	} = props;
-	const classes = cn(className, 'xui-toggle-option', { 'xui-is-disabled': isDisabled });
+	const classes = cn(
+		className,
+		`${baseClass}-option`,
+		isDisabled && `${ns}-is-disabled`
+	);
 
 	return (
 		<label className={classes} data-automationid={qaHook}>
 			<input
-				className="xui-toggle--input"
+				className={`${baseClass}--input`}
 				checked={isChecked}
 				disabled={isDisabled}
 				required={isRequired}
@@ -37,7 +43,7 @@ export default function XUIToggleOption(props) {
 				value={value}
 				id={id}
 			/>
-			<span className="xui-toggle--label">{children}</span>
+			<span className={`${baseClass}--label`}>{children}</span>
 		</label>
 	);
 }
@@ -63,6 +69,7 @@ XUIToggleOption.propTypes = {
 	value: PropTypes.string,
 	id: PropTypes.string
 };
+
 XUIToggleOption.defaultProps = {
-	type: 'radio'
+	type: typeMap.radio
 };

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
-import { sentimentMap } from './private/sentiments';
+import { sentimentMap, baseClass } from './private/constants';
 
 const sentiments = Object.keys(sentimentMap);
 
@@ -16,18 +16,16 @@ export default function XUIToast(props) {
 	const buttonQAHook = qaHook && `${qaHook}-close-button`;
 
 	const classNames = cn(
-		'xui-toast',
-		{
-			'xui-toast-is-hidden' : isHidden,
-			'xui-toast-layout': defaultLayout
-		},
+		baseClass,
+		isHidden && `${baseClass}-is-hidden`,
+		defaultLayout && `${baseClass}-layout`,
 		sentimentClass
 	);
 
 	const close = onCloseClick ?
 		<XUIButton
 			qaHook={buttonQAHook}
-			className="xui-toast--close"
+			className={`${baseClass}--close`}
 			variant="icon"
 			title="Close"
 			onClick={onCloseClick}

@@ -6,7 +6,7 @@ import autosize from 'autosize';
 import { compose } from '../helpers/compose';
 import { baseClass } from './private/constants';
 import { calculateMaxHeight } from '../textarea/helpers';
-import {ns} from "../helpers/xuiClassNamespace";
+import {ns} from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({isMultiline, rows}) =>

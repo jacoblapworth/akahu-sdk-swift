@@ -6,7 +6,7 @@ import XUIToast from '../XUIToast';
 import XUIToastMessage from '../XUIToastMessage';
 import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
-import { sentimentMap } from './../private/sentiments';
+import { sentimentMap } from '../private/constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -18,7 +18,7 @@ import { variations, storiesWithVariationsKindName, NOOP } from './variations';
 class DetailedToast extends Component {
 	render(){
 		const { props } = this;
-		const actions = props.actionProps && props.actionProps.map((action, i) => 
+		const actions = props.actionProps && props.actionProps.map((action, i) =>
 			<XUIToastAction key={i} href='#'>
 				{action.text}
 			</XUIToastAction>

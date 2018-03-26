@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
-import {baseClass} from "./private/constants";
+import {ns} from '../helpers/xuiClassNamespace';
+import {baseClass} from './private/constants';
 
 const alignmentClasses = {
 	top: `${ns}-u-flex-align-start`,

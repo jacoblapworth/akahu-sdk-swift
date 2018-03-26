@@ -42,7 +42,7 @@ ESLint helps us catch common errors that cause bugs in many programs. XUI extend
 
 ## SCSS
 
-All classes must be prefixed with `xui-`.
+All classes must be prefixed with the namespace variable (which resolves to `xui` by default), e.g. `.#{$ns}-component`
 
 Classes should follow the format:
 
@@ -90,6 +90,18 @@ See: [How nth-child works](https://css-tricks.com/how-nth-child-works/) and
 If you used `:first-child` to target the first item and a more general class selector for all
 other items, it is likely you would need to undo some styles for the `:first-child`, which would
 violate our conventions.
+
+## React Components
+
+When developing components that use XUI CSS classes, use the namespace variable instead of hard-coding `xui`:
+
+```
+import {ns} from 'src/react/components/helpers/xuiClassNamespace'
+
+export default function MyComponent({children}) {
+	return <div className={`${ns}-container`}>{children}</div>
+}
+```
 
 ## Unit Tests
 

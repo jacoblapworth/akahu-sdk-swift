@@ -31,7 +31,7 @@ export default class XUITooltip extends PureComponent {
 		// No delay for click open/close or if it's already animating.
 		const delay = (isClick === true || this.state.isAnimating) ? 0 : openDelay;
 		this.handleOpenClose(delay, true, onOpen);
-	}
+	};
 
 	/**
 	 * Hide the tooltip
@@ -44,7 +44,7 @@ export default class XUITooltip extends PureComponent {
 		// No delay for click open/close or if it's already animating.
 		const delay = (isClick === true || this.state.isAnimating) ? 0 : closeDelay;
 		this.handleOpenClose(delay, false, onClose);
-	}
+	};
 
 	/**
 	 * Hide the tooltip
@@ -69,7 +69,7 @@ export default class XUITooltip extends PureComponent {
 				});
 			}, 100); // 100ms is the current animation time.
 		}, delay);
-	}
+	};
 
 	/**
 	 * A convenience method to toggle the visibility of the tooltip.
@@ -78,7 +78,7 @@ export default class XUITooltip extends PureComponent {
 	 */
 	toggle = () => {
 		this.state.isHidden ? this.openTooltip(true) : this.closeTooltip(true);
-	}
+	};
 
 	/**
 	 * If user hits enter on the trigger, we may want to open and/or toggle the tooltip.
@@ -90,7 +90,7 @@ export default class XUITooltip extends PureComponent {
 		if(event.key === "Enter" || event.keyCode === 13 || event.which === 13) {
 				this.toggle();
 		}
-	}
+	};
 
 	render() {
 		const {

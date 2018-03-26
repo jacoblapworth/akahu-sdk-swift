@@ -28,7 +28,7 @@ function testTask(...args) {
 	if (args.length < 1) {
 		jest();
 	} else {
-		const { i } = args[0];
+		const { i, u } = args[0];
 		if (i) {
 			console.log(`\n\n${chalk.bold('Interactive mode enabled')}\n\n`);
 
@@ -65,6 +65,10 @@ function testTask(...args) {
 				.then(answers => {
 					tests[answers['which-test']] && tests[answers['which-test']]();
 				});
+		}
+
+		if (u) {
+			tests.updateSnaps();
 		}
 	}
 }

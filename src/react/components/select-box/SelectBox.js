@@ -9,6 +9,7 @@ import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
@@ -48,25 +49,24 @@ export default class SelectBox extends Component {
 	render() {
 		const selectBox = this;
 		const { props } = selectBox;
-		const containerClasses = cn({
-			[props.containerClasses]: !!props.containerClasses
-		});
-		const buttonClasses = cn({
-			'xui-text-truncated': props.isTextTruncated,
-			'xui-select--button': !props.buttonVariant,
-			[props.buttonClasses]: !!props.buttonClasses
-		});
-		const inputGroupClasses = cn({
-			'xui-select-layout': !!props.defaultLayout,
-			[props.inputGroupClasses]: !!props.inputGroupClasses
-		});
-		const labelClasses = cn('xui-text-label', {
-			'xui-fieldlabel-layout': !!props.defaultLayout,
-			'xui-u-hidden-visually': props.labelHidden,
-			[props.labelClasses]: !!props.labelClasses
-		});
+		const containerClasses = props.containerClasses || '';
+		const buttonClasses = cn(
+			props.isTextTruncated && `${ns}-text-truncated`,
+			!props.buttonVariant && `${ns}-select--button`,
+			props.buttonClasses
+		);
+		const inputGroupClasses = cn(
+			props.defaultLayout && `${ns}-select-layout`,
+			props.inputGroupClasses
+		);
+		const labelClasses = cn(
+			`${ns}-text-label`,
+			props.labelClasses,
+			props.defaultLayout && `${ns}-fieldlabel-layout`,
+			props.labelHidden && `${ns}-u-hidden-visually`
+		);
 		const dropDownClasses = props.dropDownClasses;
-		const caretClasses = props.buttonVariant ? 'xui-button--caret' : 'xui-select--caret';
+		const caretClasses = props.buttonVariant ? `${ns}-button--caret` : `${ns}-select--caret`;
 
 		const trigger = (
 			<XUIButton

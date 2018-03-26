@@ -10,8 +10,9 @@ import {
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 import OverflowMenu from './OverflowMenu';
 import TableData from './TableData';
+import {ns} from "../../helpers/xuiClassNamespace";
 
-const BODY_CELL_CLASSES = `${NAME_SPACE}--cell xui-padding-small`;
+const BODY_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-padding-small`;
 
 class TableBody extends PureComponent {
 	createCheckBoxCell = ({

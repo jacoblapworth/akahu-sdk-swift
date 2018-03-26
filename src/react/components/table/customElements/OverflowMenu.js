@@ -7,15 +7,16 @@ import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
 import { NAME_SPACE } from '../helpers/constants';
+import {ns} from "../../helpers/xuiClassNamespace";
 
 class OverflowMenu extends PureComponent {
 	createTrigger = () => (
 		<XUIButton
 			variant="icon"
-			className="xui-button-icon-large">
+			className={`${ns}-button-icon-large`}>
 			<XUIIcon
 				path={overflowPathData}
-				className="xui-u-flex-inherit"
+				className={`${ns}-u-flex-inherit`}
 			/>
 		</XUIButton>
 	);

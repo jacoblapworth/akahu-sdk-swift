@@ -12985,14 +12985,16 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                           Header 
                           1
                           <XUIIcon
-                            className="xui-icon-inline xui-table--sortbutton-icon"
+                            className="xui-table--sortbutton-icon"
+                            isInline={true}
                             path="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z"
                             role="presentation"
+                            rotation={null}
                             size="standard"
                             viewBox="0 0 30 30"
                           >
                             <svg
-                              className="xui-icon xui-icon-inline xui-table--sortbutton-icon"
+                              className="xui-icon xui-table--sortbutton-icon xui-icon-inline"
                               data-automationid={undefined}
                               focusable="false"
                               viewBox="0 0 30 30"
@@ -13402,14 +13404,16 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                           Header 
                           1
                           <XUIIcon
-                            className="xui-icon-inline xui-table--sortbutton-icon xui-u-rotate-180"
+                            className="xui-table--sortbutton-icon"
+                            isInline={true}
                             path="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z"
                             role="presentation"
+                            rotation={180}
                             size="standard"
                             viewBox="0 0 30 30"
                           >
                             <svg
-                              className="xui-icon xui-icon-inline xui-table--sortbutton-icon xui-u-rotate-180"
+                              className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
                               data-automationid={undefined}
                               focusable="false"
                               viewBox="0 0 30 30"
@@ -13838,14 +13842,16 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                           Header 
                           1
                           <XUIIcon
-                            className="xui-icon-inline xui-table--sortbutton-icon xui-u-rotate-180"
+                            className="xui-table--sortbutton-icon"
+                            isInline={true}
                             path="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z"
                             role="presentation"
+                            rotation={180}
                             size="standard"
                             viewBox="0 0 30 30"
                           >
                             <svg
-                              className="xui-icon xui-icon-inline xui-table--sortbutton-icon xui-u-rotate-180"
+                              className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
                               data-automationid={undefined}
                               focusable="false"
                               viewBox="0 0 30 30"

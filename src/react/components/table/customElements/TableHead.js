@@ -10,8 +10,9 @@ import {
 } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 import TableData from './TableData';
+import {ns} from "../../helpers/xuiClassNamespace";
 
-const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell xui-heading-separator`;
+const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-heading-separator`;
 
 class TableHead extends PureComponent {
 	createCheckBoxCell = (
@@ -70,13 +71,7 @@ class TableHead extends PureComponent {
 	}) => {
 		const buttonClassName = cn(
 			`${NAME_SPACE}--sortbutton`,
-			{ [`${NAME_SPACE}--sortbutton-active`]: isSortActive }
-		);
-
-		const iconClassName = cn(
-			'xui-icon-inline',
-			`${NAME_SPACE}--sortbutton-icon`,
-			{ 'xui-u-rotate-180': !isSortAsc }
+			isSortActive && `${NAME_SPACE}--sortbutton-active`
 		);
 
 		return (
@@ -89,7 +84,9 @@ class TableHead extends PureComponent {
 
 				<XUIIcon
 					path={sortPathData}
-					className={iconClassName}
+					className={`${NAME_SPACE}--sortbutton-icon`}
+					rotation={isSortAsc ? null : 180}
+					isInline
 				/>
 
 			</button>
@@ -146,7 +143,7 @@ class TableHead extends PureComponent {
 
 		return (
 			<thead className={`${NAME_SPACE}--head`}>
-				<tr className={`${NAME_SPACE}--row xui-text-align-left`}>
+				<tr className={`${NAME_SPACE}--row ${ns}-text-align-left`}>
 
 					{hasCheckbox && this.createCheckBoxCell(data, checkedIds, onCheckAllToggle)}
 

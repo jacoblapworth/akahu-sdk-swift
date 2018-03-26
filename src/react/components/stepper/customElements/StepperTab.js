@@ -4,6 +4,7 @@ import XUIProgressCircular from '../../progressindicator/XUIProgressCircular';
 import { NAME_SPACE } from '../helpers/constants';
 import { enrichTabProps } from '../helpers/enrichprops';
 import StepperIcon from './StepperIcon';
+import {ns} from "../../helpers/xuiClassNamespace";
 
 export default class StepperTab extends PureComponent {
 
@@ -51,7 +52,7 @@ export default class StepperTab extends PureComponent {
 
 					<div className={`${NAME_SPACE}-link-text`}>
 
-						<span className={`${NAME_SPACE}-link-heading xui-heading-small`}>
+						<span className={`${NAME_SPACE}-link-heading ${ns}-heading-small`}>
 							{name}
 						</span>
 

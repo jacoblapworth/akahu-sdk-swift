@@ -1,22 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames'
 import { NAME_SPACE } from '../helpers/constants';
+import {ns} from "../../helpers/xuiClassNamespace";
 
 export default class TableAlert extends PureComponent {
 	render = () => {
 
 		const { children, qaHook } = this.props;
-		const className = cn(
-			'xui-u-flex',
-			'xui-u-flex-verticallycentered',
-			'xui-u-flex-horizontallycentered',
-			`${NAME_SPACE}--alert`,
-		)
-
 		return (
 			<div
-				className={className}
+				className={`${ns}-u-flex ${ns}-u-flex-verticallycentered ${ns}-u-flex-horizontallycentered ${NAME_SPACE}--alert`}
 				data-automationid={qaHook}>
 				{children}
 			</div>

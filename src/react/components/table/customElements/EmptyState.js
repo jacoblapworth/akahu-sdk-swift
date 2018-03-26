@@ -1,22 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames'
 import XUIIcon from '../../icon/XUIIcon';
 import tablePathData from '@xero/xui-icon/icons/table';
+import {ns} from "../../helpers/xuiClassNamespace";
 
 export default class EmptyState extends PureComponent {
 	render = () => {
 
-		const className = cn(
-			'xui-u-flex',
-			'xui-u-flex-horizontallycentered',
-			'xui-u-flex-verticallycentered',
-			'xui-u-flex-vertical',
-			'xui-textcolor-muted',
-		);
-
 		return (
-			<div className={className}>
+			<div className={`${ns}-u-flex ${ns}-u-flex-horizontallycentered ${ns}-u-flex-verticallycentered ${ns}-u-flex-vertical ${ns}-textcolor-muted`}>
 				<XUIIcon
 					path={tablePathData}
 					size="large"

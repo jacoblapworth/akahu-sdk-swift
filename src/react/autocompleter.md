@@ -35,7 +35,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 ## Examples
 
-### Standard
+### Multi-select
 
 `XUIAutocompleter` can be passed an array of pills to display to the left of the input. Each pill should have the `xui-autocompleter--pill` class applied to receive the correct padding. `XUIAutocompleter` also provides a configurable empty state for when no search results are returned.
 
@@ -51,6 +51,18 @@ const people  = require('./components/autocompleter/private/indexedPeople').defa
 const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
+
+const filterPersonIds = (data, value, idsToExclude) => {
+	const val = value.toLowerCase();
+	return Object.keys(data).filter(id => {
+		const node = data[id];
+		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
+		return idsToExclude.indexOf(id) === -1 &&
+			(node.name.toLowerCase().indexOf(val) > -1
+			|| node.email.toLowerCase().indexOf(val) > -1
+			|| node.subtext.toLowerCase().indexOf(val) > -1);
+	});
+};
 
 //Example to show how the children can be styled however and you also define your own search criteria.
 class WrapPillsExample extends Component {
@@ -94,7 +106,7 @@ class WrapPillsExample extends Component {
 
 	render(){
 		const { value, selectedPeopleIds } = this.state;
-		const unselectedPeopleIds = Object.keys(people).filter(id => !selectedPeopleIds.includes(id));
+		const unselectedPeopleIds = filterPersonIds(people, value, selectedPeopleIds);
 
 		const dropdownContents = unselectedPeopleIds.length === 0 ?
 			(
@@ -150,7 +162,7 @@ class WrapPillsExample extends Component {
 <WrapPillsExample />
 ```
 
-### Disable Wrapping Pills
+### Multi-select without wrapping pills
 
 By default the pills and search bar will wrap inside the `XUIAutocompleter` input container. To disable this, set `disableWrapPills` to true.
 
@@ -162,6 +174,18 @@ const people  = require('./components/autocompleter/private/indexedPeople').defa
 const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
+
+const filterPersonIds = (data, value, idsToExclude) => {
+	const val = value.toLowerCase();
+	return Object.keys(data).filter(id => {
+		const node = data[id];
+		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
+		return idsToExclude.indexOf(id) === -1 &&
+			(node.name.toLowerCase().indexOf(val) > -1
+			|| node.email.toLowerCase().indexOf(val) > -1
+			|| node.subtext.toLowerCase().indexOf(val) > -1);
+	});
+};
 
 //Example to show how the children can be styled however and you also define your own search criteria.
 class WrapPillsExample extends Component {
@@ -205,7 +229,7 @@ class WrapPillsExample extends Component {
 
 	render(){
 		const { value, selectedPeopleIds } = this.state;
-		const unselectedPeopleIds = Object.keys(people).filter(id => !selectedPeopleIds.includes(id));
+		const unselectedPeopleIds = filterPersonIds(people, value, selectedPeopleIds);
 
 		const dropdownContents = unselectedPeopleIds.length === 0 ?
 			(
@@ -260,4 +284,125 @@ class WrapPillsExample extends Component {
 }
 
 <WrapPillsExample />
+```
+
+### Single-select
+
+When using `XUIAutocompleter` for selecting a single option, use the `leftElement` and `rightElement` props for adding information and options about the selected item and leave the `pills` prop empty.
+
+```jsx
+const { boldMatch, decorateSubStr } = require('./autocompleter');
+const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
+const XUITextInputSideElement = require('./components/textInput/XUITextInputSideElement').default;
+const { Component } = require('react');
+const people  = require('./components/autocompleter/private/indexedPeople').default;
+const Pickitem = require('./components/picklist/Pickitem').default;
+const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
+const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
+const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
+
+const filterPersonIds = (data, value) => {
+	const val = value.toLowerCase();
+	return Object.keys(data).filter(id => {
+		const node = data[id];
+		return node.name.toLowerCase().indexOf(val) > -1
+			|| node.email.toLowerCase().indexOf(val) > -1
+			|| node.subtext.toLowerCase().indexOf(val) > -1;
+	});
+};
+
+//Example to show how the children can be styled however and you also define your own search criteria.
+class SingleSelectExample extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			value: people[Object.keys(people)[0]].name,
+			selectedPersonId: Object.keys(people)[0]
+		};
+
+		this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
+		this.selectPerson = this.selectPerson.bind(this);
+	}
+
+	onSearchChangeHandler(value) {
+		this.completer.openDropDown();
+		this.setState(prevState => {
+			const { selectedPersonId } = prevState;
+			const textIsCurrentName = selectedPersonId != null && value === people[selectedPersonId].name;
+			return {
+				value,
+				selectedPersonId: textIsCurrentName ? selectedPersonId : null,
+			};
+		});
+	}
+
+	selectPerson(selectedPersonId) {
+		this.setState(prevState => ({
+			selectedPersonId,
+			value: selectedPersonId != null ? people[selectedPersonId].name : '',
+		}));
+	}
+
+	render(){
+		const { value, selectedPersonId } = this.state;
+		const searchResults = filterPersonIds(people, value);
+
+		const dropdownContents = (
+			<Picklist>
+				{searchResults.map(id => {
+					const person = people[id];
+					console.log(person);
+					return (
+						<Pickitem key={id} id={id} value={id} onSelect={this.selectPerson}>
+							<div className="xui-u-flex">
+								<XUIAvatar value={person.name} imageUrl={person.avatar} />
+								<div className="xui-u-grow xui-padding-left">
+									<div className="xui-heading-item xui-text-truncated">
+										{decorateSubStr(person.name, value || '', boldMatch)}
+									</div>
+									<div className="xui-text-secondary xui-text-truncated">
+										{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
+									</div>
+								</div>
+							</div>
+						</Pickitem>
+					);
+				})}
+			</Picklist>
+		);
+		const leftElement = selectedPersonId != null && (
+			<XUITextInputSideElement type="avatar" >
+				<XUIAvatar
+					value={people[selectedPersonId].name}
+					imageUrl={people[selectedPersonId].avatar}
+					size="small"
+				/>
+			</XUITextInputSideElement>
+		);
+		const rightElement = selectedPersonId != null && (
+			<XUITextInputSideElement type="icon">
+				<XUIButton variant="icon" onClick={() => this.selectPerson(null)}>
+					<XUIIcon path={crossIcon} />
+				</XUIButton>
+			</XUITextInputSideElement>
+		);
+
+		return (
+			<XUIAutocompleter
+				ref={ac => this.completer = ac}
+				onSearch={this.onSearchChangeHandler}
+				placeholder="Select a person"
+				searchValue={value}
+				onBackspacePill={this.deleteLastPerson}
+				leftElement={leftElement}
+				rightElement={rightElement}
+			>
+				{dropdownContents}
+			</XUIAutocompleter>
+		)
+	}
+}
+
+<SingleSelectExample />
 ```

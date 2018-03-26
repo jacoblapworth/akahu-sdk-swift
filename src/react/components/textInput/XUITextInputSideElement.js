@@ -12,6 +12,7 @@ const typeClasses = {
 	text: 'xui-textinput--side-element-text',
 	icon: 'xui-textinput--side-element-icon',
 	button: 'xui-textinput--side-element-button',
+	avatar: 'xui-textinput--side-element-avatar',
 };
 
 export default class XUITextInputSideElement extends PureComponent {
@@ -56,7 +57,7 @@ XUITextInputSideElement.propTypes = {
 	/** Vertical alignment of the content */
 	alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	/** Type of the contents being used */
-	type: PropTypes.oneOf(['text', 'icon', 'button']),
+	type: PropTypes.oneOf(['text', 'icon', 'button', 'avatar']),
 };
 
 XUITextInputSideElement.defaultProps = {

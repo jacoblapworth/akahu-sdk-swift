@@ -9,6 +9,7 @@ $xui-input-icon-height: $xui-input-height - 2px; // height minus top and bottom 
 $xui-input-icon-width: $xui-input-height - 4px; // need to ensure enough spacing between icon wrapper and placeholder
 $xui-input-icon-offset: ($xui-input-icon-width - $xui-icon-standard) / 2;
 $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to have a bigger z-index
+$xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 
 
 .#{$ns}-textinput--input {
@@ -58,6 +59,11 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 .#{$ns}-textinput--side-element-text {
 	padding: $xui-s-small $xui-s-standard;
+	pointer-events: none;
+}
+
+.#{$ns}-textinput--side-element-avatar {
+	padding: $xui-input-avatar-padding-size;
 	pointer-events: none;
 }
 

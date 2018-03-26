@@ -1,5 +1,6 @@
 const path = require('path');
 const minify = require('./private/minify');
+const postcssXui = require('../postcss/xui');
 const {
 	taskRunner,
 	rootDirectory,
@@ -19,7 +20,8 @@ const options = {
 function cssmin() {
 	return taskRunner(
 		taskSpinner =>
-			minify(options, taskSpinner)
+			postcssXui()
+				.then(() => minify(options, taskSpinner))
 				.then(succeed)
 				.catch(fail),
 		__filename

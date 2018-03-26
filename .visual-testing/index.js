@@ -219,7 +219,7 @@ module.exports = {
 	report: ['browser', 'CI'],
 	engine: 'chrome',
 	engineFlags: [],
-	asyncCaptureLimit: 2,
+	asyncCaptureLimit: 4,
 	asyncCompareLimit: 50,
 	debug: false,
 	debugWindow: false

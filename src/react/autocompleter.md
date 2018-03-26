@@ -47,7 +47,7 @@ Also note that the `<XUIAutocompleterEmptyState>` component needs to be wrapped 
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const { Component } = require('react');
-const people  = require('./components/autocompleter/private/indexedPeople').default;
+const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
@@ -71,7 +71,7 @@ class WrapPillsExample extends Component {
 
 		this.state = {
 			value: '',
-			selectedPeopleIds: [Object.keys(people)[0]]
+			selectedPeopleIds: 0
 		};
 
 		this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -170,14 +170,14 @@ By default the pills and search bar will wrap inside the `XUIAutocompleter` inpu
 const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const { Component } = require('react');
-const people  = require('./components/autocompleter/private/indexedPeople').default;
+const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
 const filterPersonIds = (data, value, idsToExclude) => {
 	const val = value.toLowerCase();
-	return Object.keys(data).filter(id => {
+	return data.filter(id => {
 		const node = data[id];
 		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
 		return idsToExclude.indexOf(id) === -1 &&
@@ -295,7 +295,7 @@ const { boldMatch, decorateSubStr } = require('./autocompleter');
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const XUITextInputSideElement = require('./components/textInput/XUITextInputSideElement').default;
 const { Component } = require('react');
-const people  = require('./components/autocompleter/private/indexedPeople').default;
+const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
@@ -303,7 +303,7 @@ const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
 
 const filterPersonIds = (data, value) => {
 	const val = value.toLowerCase();
-	return Object.keys(data).filter(id => {
+	return data.filter(id => {
 		const node = data[id];
 		return node.name.toLowerCase().indexOf(val) > -1
 			|| node.email.toLowerCase().indexOf(val) > -1

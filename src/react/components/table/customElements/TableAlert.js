@@ -21,8 +21,3 @@ TableAlert.propTypes = {
 	children: PropTypes.node,
 	qaHook: PropTypes.string,
 };
-
-
-
-
-

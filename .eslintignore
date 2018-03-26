@@ -1,9 +1,7 @@
 node_modules
-react/*
-docs/*
-kss
 src/sass
 dist/*
 coverage/*
 .visual-testing/*
 .tmp/*
+.kss/*

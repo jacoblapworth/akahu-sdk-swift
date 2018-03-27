@@ -8,11 +8,11 @@ const {
 	isWindowsPlatform,
 	convertExecTaskToWindows
 } = require('../helpers');
-const sassXui = require(path.resolve(
+const postcssXui = require(path.resolve(
 	rootDirectory,
 	'scripts',
 	'build',
-	'sass',
+	'postcss',
 	'xui.js'
 ));
 const asyncExec = promisify(exec);
@@ -29,7 +29,10 @@ function build() {
 		taskSpinner.warn(
 			'This build has been known to take a while so sit back and relax'
 		);
-		return Promise.all([asyncExec(execTask, { stdio: [0, 1, 2] }), sassXui()])
+		return Promise.all([
+			asyncExec(execTask, { stdio: [0, 1, 2] }),
+			postcssXui()
+		])
 			.then(succeed)
 			.catch(fail);
 	}, __filename);

@@ -8,7 +8,8 @@ const tests = {
 	visual: () => visual(),
 	coverage: () => jest({ coverage: true, noCache: true }),
 	ci: () => jest({ coverage: true, noCache: true, ci: true }),
-	jest: () => jest()
+	jest: () => jest(),
+	updateSnaps: () => jest({ u: true })
 };
 
 const isRunningFromNPM = process.env.npm_config_argv != null;
@@ -27,7 +28,7 @@ function testTask(...args) {
 	if (args.length < 1) {
 		jest();
 	} else {
-		const { i } = args[0];
+		const { i, u } = args[0];
 		if (i) {
 			console.log(`\n\n${chalk.bold('Interactive mode enabled')}\n\n`);
 
@@ -53,6 +54,10 @@ function testTask(...args) {
 							{
 								name: 'Jest for CI',
 								value: 'ci'
+							},
+							{
+								name: 'Update snapshots',
+								value: 'updateSnaps'
 							}
 						]
 					}
@@ -60,6 +65,10 @@ function testTask(...args) {
 				.then(answers => {
 					tests[answers['which-test']] && tests[answers['which-test']]();
 				});
+		}
+
+		if (u) {
+			tests.updateSnaps();
 		}
 	}
 }

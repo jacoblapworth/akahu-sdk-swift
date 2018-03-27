@@ -1,5 +1,4 @@
 const gaze = require('gaze');
-const sassXui = require('../build/sass/xui');
 const postcssXui = require('../build/postcss/xui');
 const { logTaskTitle } = require('../helpers');
 
@@ -13,7 +12,6 @@ gaze('src/sass/*', (err, watcher) => {
 		}
 
 		if (/.\.scss$/.test(filepath)) {
-			sassXui();
 			postcssXui();
 		}
 	});

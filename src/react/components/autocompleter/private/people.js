@@ -1,93 +1,93 @@
 export default [
 	{
 		name: "Frida",
-		id: "1",
+		id: 0,
 		email: "Frida@gmail.com",
 		subtext: "Frida likes cheese"
 	},
 	{
 		name: "Fred",
-		id: "2",
+		id: 1,
 		email: "Fredgreenisthebest@gmail.com",
 		subtext: "green is good"
 	},
 	{
 		name: "Person",
-		id: "3",
+		id: 2,
 		email: "Person@gmail.com",
 		subtext: "noname"
 	},
 	{
 		name: "Mario",
-		id: "4",
+		id: 3,
 		email: "Mario@thekartbiz.com",
 		subtext: "misses Luigi",
 		avatar: "https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png"
 	},
 	{
 		name: "Batman",
-		id: "5",
+		id: 4,
 		email: "Batman@thecave.com",
 		subtext: "Has a nice car",
 		avatar: "https://s3-ap-southeast-2.amazonaws.com/uxe-internal/batman.gif"
 	},
 	{
 		name: "Anonymous",
-		id: "6",
+		id: 5,
 		email: "Anon@ymous.com",
 		subtext: "ran out of names"
 	},
 	{
 		name: "Jimmy",
-		id: "7",
+		id: 6,
 		email: "jimmy@xero.com",
 		subtext: "The captain"
 	},
 	{
 		name: "Morty",
-		id: "8",
+		id: 7,
 		email: "morty.smith@gooblecrank.com",
 		subtext: "It's a Morty"
 	},
 	{
 		name: "Rick",
-		id: "9",
+		id: 8,
 		email: "rick.sanchez@c137.com",
 		subtext: "Wubba lubba dub dub"
 	},
 	{
 		name: "Beth",
-		id: "10",
+		id: 9,
 		email: "Beth.smith@c137.com",
 		subtext: "It's beth"
 	},
 	{
 		name: "Jerry",
-		id: "11",
+		id: 10,
 		email: "Jerry.smith@c137.com",
 		subtext: "Hungry for apples"
 	},
 	{
 		name: "Squanchy",
-		id: "12",
+		id: 11,
 		email: "squanchy@squanchy.com",
 		subtext: "Squanch"
 	},
 	{
 		name: "Birdperson",
-		id: "13",
+		id: 12,
 		email: "birdperson@squanchy.com",
 		subtext: "I'm phoenix person now"
 	},
 	{
 		name: "Spider-Man",
-		id: "14",
+		id: 13,
 		email: "peterparker@yahoo.com",
 		subtext: "totally not peter parker"
 	},
 	{
 		name: "Iron Man",
-		id: "15",
+		id: 14,
 		email: "tonystark@stark.com",
 		subtext: "I am Iron Man"
 	}

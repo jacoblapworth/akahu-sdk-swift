@@ -52,16 +52,15 @@ const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
-const filterPersonIds = (data, value, idsToExclude) => {
+const filterPeople = (peopleToSearch, value, idsToExclude) => {
+	console.log(idsToExclude);
 	const val = value.toLowerCase();
-	return Object.keys(data).filter(id => {
-		const node = data[id];
-		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
-		return idsToExclude.indexOf(id) === -1 &&
-			(node.name.toLowerCase().indexOf(val) > -1
-			|| node.email.toLowerCase().indexOf(val) > -1
-			|| node.subtext.toLowerCase().indexOf(val) > -1);
-	});
+	return peopleToSearch.filter((person, index) =>
+		idsToExclude.indexOf(index) === -1 &&
+		(person.name.toLowerCase().indexOf(val) > -1
+		|| person.email.toLowerCase().indexOf(val) > -1
+		|| person.subtext.toLowerCase().indexOf(val) > -1)
+	);
 };
 
 //Example to show how the children can be styled however and you also define your own search criteria.
@@ -71,7 +70,7 @@ class WrapPillsExample extends Component {
 
 		this.state = {
 			value: '',
-			selectedPeopleIds: 0
+			selectedPeopleIds: [0]
 		};
 
 		this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -106,7 +105,7 @@ class WrapPillsExample extends Component {
 
 	render(){
 		const { value, selectedPeopleIds } = this.state;
-		const unselectedPeopleIds = filterPersonIds(people, value, selectedPeopleIds);
+		const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
 
 		const dropdownContents = unselectedPeopleIds.length === 0 ?
 			(
@@ -117,16 +116,16 @@ class WrapPillsExample extends Component {
 				</Picklist>
 			) : (
 				<Picklist>
-					{unselectedPeopleIds.map(id => (
-						<Pickitem key={id} id={id} value={id} onSelect={this.selectPerson}>
+					{unselectedPeopleIds.map(person => (
+						<Pickitem key={person.id} id={person.id} value={person.id} onSelect={this.selectPerson}>
 							<div className="xui-u-flex">
-								<XUIAvatar value={people[id].name} imageUrl={people[id].avatar} />
+								<XUIAvatar value={person.name} imageUrl={person.avatar} />
 								<div className="xui-u-grow xui-padding-left">
 									<div className="xui-heading-item xui-text-truncated">
-										{decorateSubStr(people[id].name, value || '', boldMatch)}
+										{decorateSubStr(person.name, value || '', boldMatch)}
 									</div>
 									<div className="xui-text-secondary xui-text-truncated">
-										{decorateSubStr(people[id].email, value || '', boldMatch)}, {decorateSubStr(people[id].subtext, value || '', boldMatch)}
+										{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
 									</div>
 								</div>
 							</div>
@@ -175,26 +174,24 @@ const Pickitem = require('./components/picklist/Pickitem').default;
 const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
-const filterPersonIds = (data, value, idsToExclude) => {
+const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	const val = value.toLowerCase();
-	return data.filter(id => {
-		const node = data[id];
-		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
-		return idsToExclude.indexOf(id) === -1 &&
-			(node.name.toLowerCase().indexOf(val) > -1
-			|| node.email.toLowerCase().indexOf(val) > -1
-			|| node.subtext.toLowerCase().indexOf(val) > -1);
-	});
+	return peopleToSearch.filter((person, index) =>
+		idsToExclude.indexOf(index) === -1 &&
+		(person.name.toLowerCase().indexOf(val) > -1
+		|| person.email.toLowerCase().indexOf(val) > -1
+		|| person.subtext.toLowerCase().indexOf(val) > -1)
+	);
 };
 
 //Example to show how the children can be styled however and you also define your own search criteria.
-class WrapPillsExample extends Component {
+class DisableWrapPills extends Component {
 	constructor() {
 		super();
 
 		this.state = {
 			value: '',
-			selectedPeopleIds: [Object.keys(people)[0]]
+			selectedPeopleIds: [0]
 		};
 
 		this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -229,7 +226,7 @@ class WrapPillsExample extends Component {
 
 	render(){
 		const { value, selectedPeopleIds } = this.state;
-		const unselectedPeopleIds = filterPersonIds(people, value, selectedPeopleIds);
+		const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
 
 		const dropdownContents = unselectedPeopleIds.length === 0 ?
 			(
@@ -240,16 +237,16 @@ class WrapPillsExample extends Component {
 				</Picklist>
 			) : (
 				<Picklist>
-					{unselectedPeopleIds.map(id => (
-						<Pickitem key={id} id={id} value={id} onSelect={this.selectPerson}>
+					{unselectedPeopleIds.map(person => (
+						<Pickitem key={person.id} id={person.id} value={person.id} onSelect={this.selectPerson}>
 							<div className="xui-u-flex">
-								<XUIAvatar value={people[id].name} imageUrl={people[id].avatar} />
+								<XUIAvatar value={person.name} imageUrl={person.avatar} />
 								<div className="xui-u-grow xui-padding-left">
 									<div className="xui-heading-item xui-text-truncated">
-										{decorateSubStr(people[id].name, value || '', boldMatch)}
+										{decorateSubStr(person.name, value || '', boldMatch)}
 									</div>
 									<div className="xui-text-secondary xui-text-truncated">
-										{decorateSubStr(people[id].email, value || '', boldMatch)}, {decorateSubStr(people[id].subtext, value || '', boldMatch)}
+										{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
 									</div>
 								</div>
 							</div>
@@ -283,7 +280,7 @@ class WrapPillsExample extends Component {
 	}
 }
 
-<WrapPillsExample />
+<DisableWrapPills />
 ```
 
 ### Single-select
@@ -301,14 +298,13 @@ const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
 const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
 
-const filterPersonIds = (data, value) => {
+const filterPeople = (peopleToSearch, value) => {
 	const val = value.toLowerCase();
-	return data.filter(id => {
-		const node = data[id];
-		return node.name.toLowerCase().indexOf(val) > -1
-			|| node.email.toLowerCase().indexOf(val) > -1
-			|| node.subtext.toLowerCase().indexOf(val) > -1;
-	});
+	return peopleToSearch.filter(person =>
+		person.name.toLowerCase().indexOf(val) > -1
+		|| person.email.toLowerCase().indexOf(val) > -1
+		|| person.subtext.toLowerCase().indexOf(val) > -1
+	);
 };
 
 //Example to show how the children can be styled however and you also define your own search criteria.
@@ -317,8 +313,8 @@ class SingleSelectExample extends Component {
 		super();
 
 		this.state = {
-			value: people[Object.keys(people)[0]].name,
-			selectedPersonId: Object.keys(people)[0]
+			value: people[0].name,
+			selectedPersonId: 0
 		};
 
 		this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
@@ -346,29 +342,25 @@ class SingleSelectExample extends Component {
 
 	render(){
 		const { value, selectedPersonId } = this.state;
-		const searchResults = filterPersonIds(people, value);
+		const searchResults = filterPeople(people, value);
 
 		const dropdownContents = (
 			<Picklist>
-				{searchResults.map(id => {
-					const person = people[id];
-					console.log(person);
-					return (
-						<Pickitem key={id} id={id} value={id} onSelect={this.selectPerson}>
-							<div className="xui-u-flex">
-								<XUIAvatar value={person.name} imageUrl={person.avatar} />
-								<div className="xui-u-grow xui-padding-left">
-									<div className="xui-heading-item xui-text-truncated">
-										{decorateSubStr(person.name, value || '', boldMatch)}
-									</div>
-									<div className="xui-text-secondary xui-text-truncated">
-										{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
-									</div>
+				{searchResults.map(person => (
+					<Pickitem key={person.id} id={person.id} value={person.id} onSelect={this.selectPerson}>
+						<div className="xui-u-flex">
+							<XUIAvatar value={person.name} imageUrl={person.avatar} />
+							<div className="xui-u-grow xui-padding-left">
+								<div className="xui-heading-item xui-text-truncated">
+									{decorateSubStr(person.name, value || '', boldMatch)}
+								</div>
+								<div className="xui-text-secondary xui-text-truncated">
+									{decorateSubStr(person.email, value || '', boldMatch)}, {decorateSubStr(person.subtext, value || '', boldMatch)}
 								</div>
 							</div>
-						</Pickitem>
-					);
-				})}
+						</div>
+					</Pickitem>
+				))}
 			</Picklist>
 		);
 		const leftElement = selectedPersonId != null && (

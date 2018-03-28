@@ -80,7 +80,7 @@ describe('<DropDownToggled />', () => {
 		});
 
 		it('accepts classNames for the wrapping div', () => {
-			expect(wrapper.find('.dropdown-toggled-wrapper').hasClass('testClass')).toBeTruthy();
+			expect(wrapper.find('testClass')).toBeTruthy();
 		});
 
 		it('calls the onOpen prop after the list is open', () => {

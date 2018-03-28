@@ -6783,7 +6783,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -6846,7 +6846,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -7022,7 +7022,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -7085,7 +7085,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -7261,7 +7261,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -7324,7 +7324,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -9329,7 +9329,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -9392,7 +9392,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -9666,7 +9666,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -9729,7 +9729,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -10003,7 +10003,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -10066,7 +10066,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -10996,7 +10996,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -11059,7 +11059,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -11384,7 +11384,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -11447,7 +11447,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -11772,7 +11772,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -11835,7 +11835,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -15248,7 +15248,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -15311,7 +15311,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -15538,7 +15538,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -15601,7 +15601,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -15828,7 +15828,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -15891,7 +15891,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -20397,7 +20397,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -20460,7 +20460,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -20785,7 +20785,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -20848,7 +20848,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button
@@ -21173,7 +21173,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                             triggerClickAction="toggle"
                           >
                             <div
-                              className="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                              className="xui-table--overflowmenu-body"
                               data-automationid={undefined}
                               data-ref="toggled-wrapper"
                               onKeyDown={[Function]}
@@ -21236,7 +21236,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                                 onVisible={null}
                                 parentRef={
                                   <div
-                                    class="dropdown-toggled-wrapper xui-table--overflowmenu-body"
+                                    class="xui-table--overflowmenu-body"
                                     data-ref="toggled-wrapper"
                                   >
                                     <button

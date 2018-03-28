@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
 import Positioning from '../positioning/Positioning';
@@ -452,7 +451,7 @@ export default class DropDownToggled extends PureComponent {
 		return (
 			<div
 				ref={c => ddt.wrapper = c}
-				className={cn('dropdown-toggled-wrapper', className)}
+				className={className}
 				onKeyDown={ddt.onKeyDown}
 				data-ref='toggled-wrapper'
 				data-automationid={qaHook}

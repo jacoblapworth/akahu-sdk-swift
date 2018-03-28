@@ -18,7 +18,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
     data-automationid="test-selectbox---inputgroup"
   >
     <div
-      className="dropdown-toggled-wrapper"
+      className={undefined}
       data-automationid="test-selectbox---dropdowntoggled"
       data-ref="toggled-wrapper"
       onKeyDown={[Function]}

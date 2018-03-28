@@ -5,23 +5,70 @@
 	<a href="../section-building-blocks-forms-radios.html">Radio in the XUI Documentation</a>
 </div>
 
-Enhanced version of HTML radio using SVGs. Use in place of `<input type="radio" />`.
+Enhanced version of the native radio element. Use in place of `<input type="radio" />`.
 
 The `XUIRadio` supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
 
-`XUIRadio` can be used as a controlled component by providing the `isChecked` property. Alternatively, it can be used as an uncontrolled component by omitting `isChecked` and (optionally) providing a `defaultValue` property.
-
 ## Examples
 
-You can hook into the `onChange` event to update them when the user interacts with the radio.
+
+### Uncontrolled
+
+You can use as an uncontrolled component by not setting `isChecked` on any of the radio buttons, and optionally providing an `isDefaultChecked` property on one.
 
 ```
-	<div>
-		<XUIRadio isChecked={false}>Unchecked</XUIRadio>
-		<XUIRadio isChecked>Checked</XUIRadio>
-		<XUIRadio isDisabled isChecked={false}>Unchecked</XUIRadio>
-		<XUIRadio isDisabled isChecked>Checked</XUIRadio>
-	</div>
+<div>
+		<XUIRadio name="test" isDefaultChecked>Default option</XUIRadio>
+		<XUIRadio name="test">Another option</XUIRadio>
+		<XUIRadio name="test">And another</XUIRadio>
+		<XUIRadio name="test" isDisabled>Disabled option</XUIRadio>
+</div>
+```
+
+### Controlled
+
+You can create controlled inputs by setting `isChecked` on radio items and using `onChange` to update the selected item.
+
+```jsx
+const { PureComponent } = require('react');
+const options = ['Cat', 'Dog', 'Bird', 'Fish'];
+
+class Example extends PureComponent {
+	constructor() {
+		this.state = {
+			selectedItem: null,
+		};
+
+		this.onChange = this.onChange.bind(this);
+	}
+
+	onChange(e) {
+		this.setState({
+			selectedItem: e.target.value,
+		});
+	}
+
+	render() {
+		const { selectedItem } = this.state;
+		return (
+			<div>
+				{selectedItem == null
+					? 'What\'s your favourite pet?'
+					: `Your favourite: ${selectedItem}`
+				}
+				<div>
+					{options.map(option => (
+						<XUIRadio key={option} value={option} isChecked={selectedItem === option} onChange={this.onChange}>
+							{option}
+						</XUIRadio>
+					))}
+				</div>
+			</div>
+		)
+	}
+}
+
+<Example/>
 ```
 
 ### Reversed labels
@@ -30,10 +77,10 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 
 ```
 <div>
-		<XUIRadio isReversed isChecked={false}>Unchecked</XUIRadio>
-		<XUIRadio isReversed isChecked>Checked</XUIRadio>
-		<XUIRadio isReversed isDisabled isChecked={false}>Unchecked</XUIRadio>
-		<XUIRadio isReversed isDisabled isChecked>Checked</XUIRadio>
+		<XUIRadio isReversed name="reversedRadios">An option</XUIRadio>
+		<XUIRadio isReversed name="reversedRadios">Another option</XUIRadio>
+		<XUIRadio isReversed name="reversedRadios" isDisabled>Disabled option</XUIRadio>
+		<XUIRadio isReversed name="reversedRadios" isDisabled isDefaultChecked>Default and disabled</XUIRadio>
 	</div>
 ```
 

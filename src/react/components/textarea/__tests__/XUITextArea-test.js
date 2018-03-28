@@ -29,7 +29,7 @@ describe('XUITextArea basic functionality:', () => {
 	});
 
 	it('should call onChange when the value of the input changes', () => {
-		const inputNode = wrapper.find('.xui-input').first();
+		const inputNode = wrapper.find('textarea');
 		inputNode.simulate('change');
 		expect(changed).toBeTruthy();
 	});
@@ -37,36 +37,24 @@ describe('XUITextArea basic functionality:', () => {
 	it('should apply className and fieldClassName props to the textarea and containing div', () => {
 		const fieldNode = wrapper.find('.xui-field-layout').first();
 		expect(fieldNode.hasClass('fieldClassyMcClassFace')).toBeTruthy();
-		const inputNode = wrapper.find('.xui-input').first();
+		const inputNode = wrapper.find('textarea');
 		expect(inputNode.hasClass('classyMcClassFace')).toBeTruthy();
+	});
+
+
+
+	it('should apply disabled styling when isDisabled=true', () => {
+		const disabled = renderer.create(<XUITextArea isDisabled />);
+
+		expect(disabled).toMatchSnapshot();
 	});
 });
 
 describe('XUITextArea additional functionality:', () => {
-
 	it('should apply error styling if maxCharacters is exceeded', () => {
+		const invalid = renderer.create(<XUITextArea maxCharacters={9} defaultValue="0123456789"/>);
 
-		wrapper = mount(
-			<div>
-				<XUITextArea
-					className="textarea-1"
-					qaHook="xui-input"
-					maxCharacters={10}
-					defaultValue="12345678910"
-					/>
-				<XUITextArea
-					className="textarea-2"
-					qaHook="xui-input"
-					maxCharacters={10}
-					defaultValue="123456789"
-					/>
-			</div>
-		);
-
-		const invalidNode = wrapper.find('.textarea-1').first();
-		const validNode = wrapper.find('.textarea-2').first();
-		expect(invalidNode.html().includes('xui-input-is-invalid')).toBeTruthy();
-		expect(validNode.html().includes('xui-input-is-invalid')).toBeFalsy();
+		expect(invalid).toMatchSnapshot();
 	});
 
 	it('should update the counter when text is entered', () => {
@@ -112,12 +100,12 @@ describe('XUITextArea additional functionality:', () => {
 			/>
 		);
 
-		expect(textAreaNode.getAttribute('class')).toEqual(expect.stringContaining('xui-input'));
+		expect(textAreaNode).toBeTruthy();
 	});
 
 	it('should render an automation id when a qaHook is passed', () => {
 		const automationid = renderer.create(<XUITextArea qaHook={'textarea-test'}/>);
 
 		expect(automationid).toMatchSnapshot();
-	})
+	});
 });

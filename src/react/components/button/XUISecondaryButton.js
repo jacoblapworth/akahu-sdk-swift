@@ -4,13 +4,14 @@ import XUIButton from './XUIButton';
 import XUIButtonCaret from './XUIButtonCaret';
 import cn from 'classnames';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class XUISplitButton extends PureComponent {
 	render() {
 		const { className, ...spreadProps } = this.props;
 		spreadProps.children = null;
 		return (
-			<XUIButton {...spreadProps} className={cn('xui-button-split', className)} isGrouped={true}>
+			<XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped={true}>
 				<XUIButtonCaret />
 			</XUIButton>
 		);

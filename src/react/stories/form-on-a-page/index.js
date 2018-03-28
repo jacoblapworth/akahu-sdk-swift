@@ -11,10 +11,9 @@ import XUIRadio, { XUIRadioGroup } from '../../radio';
 import XUISwitch from '../../switch';
 import XUITextArea from '../../textarea';
 import SelectBox, { SelectBoxOption } from '../../select-box';
+import { XUIRow, XUIColumn } from '../../structural';
 
 // Private modules
-import Grid from '../helpers/grid';
-import Column from '../helpers/column';
 import Form from '../helpers/form';
 import InputLabel from '../helpers/inputlabel';
 
@@ -86,37 +85,37 @@ test.add(storyNames.formOnAPage, () => {
 		<div className="xui-panel xui-page-width-standard xui-margin-vertical-xlarge xui-padding-horizontal">
 			<Form stacked className="xui-padding-vertical">
 
-				<Grid>
+				<XUIRow variant="grid">
 
 					{/* Major section */}
-					<Column half>
+					<XUIColumn gridColumns="half">
 						<InputLabel>An input</InputLabel>
 						<XUIInput />
-					</Column>
-					<Column half>
+					</XUIColumn>
+					<XUIColumn gridColumns="half">
 						<InputLabel>Another input</InputLabel>
 						<XUIInput
 							isFieldLayout
 							hintMessage="I'm second"/>
-					</Column>
+					</XUIColumn>
 
 					{/* Major section */}
-					<Column half>
+					<XUIColumn gridColumns="half">
 						<InputLabel>A set of checkboxes</InputLabel>
 						<XUICheckbox isChecked={false}>Unchecked</XUICheckbox>
 						<XUICheckbox isChecked>Checked</XUICheckbox>
 						<XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
-					</Column>
-					<Column half>
+					</XUIColumn>
+					<XUIColumn gridColumns="half">
 						<InputLabel>A set of radios</InputLabel>
 						<XUIRadio isChecked={false}>Unchecked</XUIRadio>
 						<XUIRadio isChecked>Checked</XUIRadio>
 						<XUIRadio isDisabled isChecked={false}>Unchecked</XUIRadio>
 						<XUIRadio isDisabled isChecked>Checked</XUIRadio>
-					</Column>
+					</XUIColumn>
 
 					{/* Major section */}
-					<Column half>
+					<XUIColumn gridColumns="half">
 
 						<InputLabel>Grouped checkboxes</InputLabel>
 						<XUICheckboxGroup>
@@ -126,8 +125,8 @@ test.add(storyNames.formOnAPage, () => {
 							<XUICheckbox isDisabled>Moa</XUICheckbox>
 						</XUICheckboxGroup>
 
-					</Column>
-					<Column half>
+					</XUIColumn>
+					<XUIColumn gridColumns="half">
 
 						<InputLabel>Grouped radios</InputLabel>
 						<XUIRadioGroup>
@@ -137,16 +136,16 @@ test.add(storyNames.formOnAPage, () => {
 							<XUIRadio name="radioGroup" isDisabled >Carthage</XUIRadio>
 						</XUIRadioGroup>
 
-					</Column>
+					</XUIColumn>
 
 					{/* Major section */}
-					<Column full className="xui-padding-vertical">
+					<XUIColumn gridColumns="full" className="xui-padding-vertical">
 						<InputLabel>A switch</InputLabel>
 						<XUISwitch onChange={NOOP} />
-					</Column>
+					</XUIColumn>
 
 					{/* Major section */}
-					<Column full>
+					<XUIColumn gridColumns="full">
 						<InputLabel>A textarea</InputLabel>
 						<XUITextArea
 							minRows={2}
@@ -154,18 +153,18 @@ test.add(storyNames.formOnAPage, () => {
 							defaultLayout={false}
 							textareaId="textarea-auto-resize">
 						</XUITextArea>
-					</Column>
+					</XUIColumn>
 
 					{/* Major section */}
-					<Column full className="xui-padding-vertical">
-						<Column half>
+					<XUIColumn gridColumns="full" className="xui-padding-vertical">
+						<XUIColumn gridColumns="half">
 							<InputLabel>A dropdown button</InputLabel>
 							<DropDownToggled
 								trigger={trigger}
 								dropdown={dropdown}
 							/>
-						</Column>
-						<Column half>
+						</XUIColumn>
+						<XUIColumn gridColumns="half">
 							<InputLabel>A simple select box</InputLabel>
 							<SelectBox
 								name="selectOne"
@@ -185,10 +184,10 @@ test.add(storyNames.formOnAPage, () => {
 									Today Yo!
 								</SelectBoxOption>
 							</SelectBox>
-						</Column>
-					</Column>
+						</XUIColumn>
+					</XUIColumn>
 
-				</Grid>
+				</XUIRow>
 			</Form>
 		</div>
 	);

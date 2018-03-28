@@ -8,6 +8,8 @@
 coverage/*
 node_modules/*
 src/*
+dist/*
+.tmp/*
 .eslintrc.js
 jest.config.js
 jest.setup.js

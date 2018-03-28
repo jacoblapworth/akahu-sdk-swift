@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIIcon from '../icon/XUIIcon';
 import { compose } from '../helpers/compose';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class XUIStatelessInput extends PureComponent {
 	render() {
@@ -23,25 +24,21 @@ export default class XUIStatelessInput extends PureComponent {
 			...other
 		} = input.props;
 
-		const baseClass = 'xui-input';
+		const baseClass = `${ns}-input`;
 		const hasLeftIcon = `${baseClass}-has-left-icon`;
 		const hasRightIcon = `${baseClass}-has-right-icon`;
 
 		let inputClasses = cn(
 			baseClass,
 			className,
-			{
-				[`${baseClass}-is-invalid`] : isInvalid,
-				[`${baseClass}-borderless`] : isBorderless
-			}
+			isInvalid && `${baseClass}-is-invalid`,
+			isBorderless && `${baseClass}-borderless`
 		);
 
 		const inputWrapperClasses = cn(
 			`${baseClass}wrapper`,
 			containerClassName,
-			{
-				'xui-field-layout': isFieldLayout
-			}
+			isFieldLayout && `${ns}-field-layout`
 		);
 
 		const hasIcon = !!(iconAttributes && iconAttributes.path);
@@ -99,9 +96,9 @@ export default class XUIStatelessInput extends PureComponent {
 
 		const message = (validationMessage || hintMessage) && (
 			<div className={cn(
-				'xui-validation',
-				'xui-validation-layout',
-				{ 'xui-validation-is-invalid': isInvalid && validationMessage }
+				`${ns}-validation`,
+				`${ns}-validation-layout`,
+				(isInvalid && validationMessage) && `${ns}-validation-is-invalid`
 			)}>{(isInvalid && validationMessage) ? validationMessage : hintMessage}</div>
 		);
 

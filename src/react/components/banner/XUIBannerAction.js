@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import XUIButton from '../../button';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerAction(props) {
-	const className = cn(props.className, 'xui-button-small');
+	const className = cn(props.className, `${ns}-button-small`);
 	const buttonQaHook = props.qaHook && `${props.qaHook}--button`;
 
 	return (
-		<li className="xui-banner--action" data-automationid={props.qaHook}>
+		<li className={`${ns}-banner--action`} data-automationid={props.qaHook}>
 			<XUIButton onClick={props.onClick} href={props.href} isLink={props.isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
 		</li>
 	);

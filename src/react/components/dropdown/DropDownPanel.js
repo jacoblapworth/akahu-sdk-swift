@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
 import {
+	baseClass,
 	maxWidthDropdownSizes,
 } from './private/constants';
 import {
@@ -12,6 +13,7 @@ import {
 	isNarrowViewport,
 } from './private/helpers';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * Utilize the intervalRunner to execute a callback when the list box and its children become visible to the user.
@@ -61,7 +63,7 @@ class DropDownPanel extends PureComponent {
 				content.style.webkitOverflowScrolling = '';
 			}, 600);
 		}
-	}
+	};
 
 	/**
 	 * Attempts to focus this element.  If the element either doesn't exist yet or is set to "visibility: isHidden", the
@@ -95,7 +97,7 @@ class DropDownPanel extends PureComponent {
 
 	keyDownHandler = event => {
 		if (this.list != null) {
-			const header = this.rootNode.querySelector('.xui-dropdown--header');
+			const header = this.rootNode.querySelector(`.${ns}-dropdown--header`);
 			if (header == null || !header.contains(document.activeElement)) {
 				this.list.onKeyDown(event);
 			}
@@ -203,12 +205,12 @@ class DropDownPanel extends PureComponent {
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
 
-		const scrollableContainerClasses = 'xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow';
+		const scrollableContainerClasses = `${ns}-u-flex ${ns}-u-flex-vertical ${baseClass}--scrollable-container ${ns}-u-flex-grow`;
 
 		return (
 			<div
 				ref={n => this.rootNode = n}
-				className="xui-dropdown--panel"
+				className={`${baseClass}--panel`}
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
 				id={panelId}
@@ -220,7 +222,7 @@ class DropDownPanel extends PureComponent {
 				<div
 					onMouseUp={this.iOSHack}
 					data-automationid={qaHook && `${qaHook}--body`}
-					className={cn('xui-dropdown--body', bodyClassName)}
+					className={cn(`${baseClass}--body`, bodyClassName)}
 					style={{
 						maxHeight,
 						overflowY
@@ -237,7 +239,7 @@ class DropDownPanel extends PureComponent {
 							qaHook={qaHook && `${qaHook}--scrollable-container`}
 						>
 							<div
-								className="xui-dropdown--scrollable-content"
+								className={`${baseClass}--scrollable-content`}
 								ref={sc => this._scrollableContent = sc}
 								data-automationid={qaHook && `${qaHook}--scrollable-content`}
 							>
@@ -251,7 +253,7 @@ class DropDownPanel extends PureComponent {
 								data-automationid={qaHook && `${qaHook}--scrollable-container`}
 							>
 								<div
-									className="xui-dropdown--scrollable-content"
+									className={`${baseClass}--scrollable-content`}
 									ref={sc => this._scrollableContent = sc}
 									data-automationid={qaHook && `${qaHook}--scrollable-content`}
 								>

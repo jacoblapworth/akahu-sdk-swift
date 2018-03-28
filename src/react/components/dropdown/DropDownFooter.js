@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from './private/constants';
 
 /**
  * Wrapper component for contents of a dropdown footer.  DropDown does expect this to be the
@@ -15,11 +16,13 @@ export default class DropDownFooter extends PureComponent {
     const footer = this;
     const { children, className, qaHook } = footer.props;
 
-    const classes = cn('xui-dropdown--footer', className);
+    const classes = cn(`${baseClass}--footer`, className);
 
     return (
-      <div className={classes} ref={f => footer.rootNode = f} data-automationid={qaHook}>{children}</div>
-    )
+      <div className={classes} ref={f => footer.rootNode = f} data-automationid={qaHook}>
+				{children}
+			</div>
+    );
   }
 }
 

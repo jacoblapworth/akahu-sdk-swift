@@ -1,33 +1,35 @@
+import {ns} from "../../helpers/xuiClassNamespace";
+
 /**
  * @public
  * Map of sizes to XUI Classes properties
  */
-const SizeClassNames = {
-	'small': 'xui-button-small',
-	'full-width': 'xui-u-fullwidth',
-	'full-width-mobile': 'xui-button-fullwidth-layout'
+export const SizeClassNames = {
+	'small': `${ns}-button-small`,
+	'full-width': `${ns}-u-fullwidth`,
+	'full-width-mobile': `${ns}-button-fullwidth-layout`
 };
 
 /**
  * @public
  * Map of variants to class names
  */
-const VariantClassNames = {
-	'standard': 'xui-button-standard',
-	'primary': 'xui-button-main',
-	'create': 'xui-button-create',
-	'link': 'xui-button-borderless-main',
-	'negative': 'xui-button-negative',
-	'borderless-standard': 'xui-button-borderless-standard',
-	'borderless-primary': 'xui-button-borderless-main',
-	'borderless-create': 'xui-button-borderless-create',
-	'borderless-negative': 'xui-button-borderless-negative',
-	'borderless-inverted': 'xui-button-borderless-inverted',
-	'borderless-muted': 'xui-button-borderless-muted',
-	'icon': 'xui-button-icon',
-	'icon-large': 'xui-button-icon xui-button-icon-large',
-	'icon-inverted': 'xui-button-icon xui-button-icon-inverted',
-	'icon-inverted-large': 'xui-button-icon xui-button-icon-inverted xui-button-icon-large',
+export const VariantClassNames = {
+	'standard': `${ns}-button-standard`,
+	'primary': `${ns}-button-main`,
+	'create': `${ns}-button-create`,
+	'link': `${ns}-button-borderless-main`,
+	'negative': `${ns}-button-negative`,
+	'borderless-standard': `${ns}-button-borderless-standard`,
+	'borderless-primary': `${ns}-button-borderless-main`,
+	'borderless-create': `${ns}-button-borderless-create`,
+	'borderless-negative': `${ns}-button-borderless-negative`,
+	'borderless-inverted': `${ns}-button-borderless-inverted`,
+	'borderless-muted': `${ns}-button-borderless-muted`,
+	'icon': `${ns}-button-icon`,
+	'icon-large': `${ns}-button-icon xui-button-icon-large`,
+	'icon-inverted': `${ns}-button-icon xui-button-icon-inverted`,
+	'icon-inverted-large': `${ns}-button-icon xui-button-icon-inverted xui-button-icon-large`,
 	'unstyled': ''
 };
 
@@ -35,14 +37,8 @@ const VariantClassNames = {
  * @public
  * Map of button types to class names
  */
-const ButtonTypes = {
+export const ButtonTypes = {
 	submit: 'submit',
 	button: 'button',
 	reset: 'reset'
 };
-
-module.exports = {
-	SizeClassNames,
-	VariantClassNames,
-	ButtonTypes
-}

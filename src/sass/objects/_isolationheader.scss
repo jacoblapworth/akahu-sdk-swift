@@ -1,0 +1,94 @@
+@import '../vars';
+@import '../mixins';
+
+// Isolation header
+//
+// Introduction: Show in place of the global header when you want to encourage focus and have more control of the workflow
+//
+// Teaser: Show in place of the global header when you want to encourage focus and have more control of the workflow
+//
+// Descriptive text goes here
+//
+// Styleguide: Compounds.Navigation.Isolation header
+
+
+// Best practice
+//
+// Tips:
+// Do: Use the cross icon to take the user back to where they came from (this should be the value provided by the `sourceUrl` query parameter)
+// Do: Use the `destinationUrl` query parameter in your app to redirect the user upon completion of the task
+// Do: Use the `isolationMode` query parameter to signal that the global header should not render itself
+// Do: Place actions that would normally be in the page heading in the actions area of the isolation header
+// Do: Use xui-margin-right-small for spacing items in navigation, and xui-margin-left-small for spacing items in actions
+// Do: For buttons with icons, use the xui-button-icon-large modifier class, and for text based buttons use the xui-button-small modifier class
+// Dont: Hide the global header yourself on page load
+// Dont: Include the global header if it will never be shown
+// Dont: Render the page header below the isolation header
+//
+// Components: Isolation header
+//
+// Styleguide: Compounds.Navigation.Isolation header.1
+
+// Anatomy
+//
+// Classes:
+// xui-isolationheader: Base class
+// xui-isolationheader--navigation: Container for left-aligned navigation elements inside the header
+// xui-isolationheader--actions: Container for right-aligned action elements inside the header
+//
+// Markup:
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
+//       Isolated task
+//     </h1>
+//     <h2 class="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated">
+//       Extra context
+//     </h2>
+//   </div>
+//   <div class="xui-isolationheader--actions">
+//     <button class="xui-button xui-button-icon xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Overflow menu" aria-label="Overflow menu"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
+//     </button>
+//   </div>
+// </header>
+//
+// Styleguide: Compounds.Navigation.Isolation header.2
+
+.#{$ns}-isolationheader {
+	align-items: center;
+	background-color: $xui-color-white;
+	box-shadow: $xui-shadow-depth-overlap-top;
+	color: $xui-color-black;
+	display: flex;
+	height: $xui-navigation-height;
+	overflow: hidden;
+	padding: 0 $xui-s-small;
+	white-space: nowrap;
+}
+
+.#{$ns}-isolationheader-inverted {
+	background: $xui-color-grey-2;
+	color: $xui-color-white;
+}
+
+.#{$ns}-isolationheader--navigation,
+.#{$ns}-isolationheader--actions {
+	align-items: center;
+	align-self: stretch;
+	display: flex;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.#{$ns}-isolationheader--navigation {
+	padding-right: $xui-s-small;
+}
+
+.#{$ns}-isolationheader--actions {
+	flex-shrink: 0; // The navigation can shrink because it should be mostly text; the actions should be buttons
+	margin-left: auto;
+}

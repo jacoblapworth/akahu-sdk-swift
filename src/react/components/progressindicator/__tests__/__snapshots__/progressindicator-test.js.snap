@@ -40,7 +40,6 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -121,7 +120,6 @@ exports[`<XUIProgressIndicator /> custom colors should not create a color overri
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -174,7 +172,6 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -255,7 +252,6 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -304,7 +300,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={5}
         qaHook={undefined}
         total={5}
@@ -385,7 +380,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={true}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -445,7 +439,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -526,7 +519,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={true}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -586,7 +578,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={true}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -669,7 +660,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -720,7 +710,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -801,7 +790,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert="S"
         isComplete={undefined}
         isHardError={true}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -852,7 +840,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={true}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -935,7 +922,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -984,7 +970,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -1065,7 +1050,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={true}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -1125,7 +1109,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={true}
-        key="track"
         progress={5}
         qaHook={undefined}
         total={6}
@@ -1207,7 +1190,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -1255,7 +1237,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={5}
         qaHook={undefined}
         total={6}
@@ -1336,7 +1317,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -1384,7 +1364,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={true}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -1466,7 +1445,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -1514,7 +1492,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -1595,7 +1572,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -1642,7 +1618,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -1723,7 +1698,6 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2149,7 +2123,6 @@ exports[`<XUIProgressIndicator /> render supplied content as a child of the nest
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook="progress-indicator"
         total={5}
@@ -2251,7 +2224,6 @@ exports[`<XUIProgressIndicator /> render supplied content as a child of the nest
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2301,7 +2273,6 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={false}
-        key="track"
         progress={0}
         qaHook={undefined}
         total={0}
@@ -2382,7 +2353,6 @@ exports[`<XUIProgressIndicator /> should default to a standard format when segme
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2432,7 +2402,6 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={5}
         qaHook={undefined}
         total={5}
@@ -2513,7 +2482,6 @@ exports[`<XUIProgressIndicator /> should override a complete alert with a soft e
         hardErrorAlert={undefined}
         isComplete={false}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2563,7 +2531,6 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -2644,7 +2611,6 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={true}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2716,7 +2682,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -2802,7 +2767,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as jsx
         }
         isComplete={undefined}
         isHardError={true}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2858,7 +2822,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={3}
         qaHook={undefined}
         total={5}
@@ -2939,7 +2902,6 @@ exports[`<XUIProgressIndicator /> should render hard error alert override as tex
         hardErrorAlert="S"
         isComplete={undefined}
         isHardError={true}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -2988,7 +2950,6 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={0}
         qaHook={undefined}
         total={5}
@@ -3069,7 +3030,6 @@ exports[`<XUIProgressIndicator /> should set a negative progress value to 0 1`] 
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
@@ -3116,7 +3076,6 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
         id="myCustomProgressId"
         isGrow={undefined}
         isSegmented={undefined}
-        key="track"
         progress={0}
         qaHook={undefined}
         total={0}
@@ -3197,316 +3156,11 @@ exports[`<XUIProgressIndicator /> should set a negative total value to 0 1`] = `
         hardErrorAlert={undefined}
         isComplete={undefined}
         isHardError={undefined}
-        key="icon"
       >
         <div
           className="xui-progress-icon"
         />
       </CircularIcon>
-    </div>
-  </ProgressWrapper>
-</XUIProgressCircular>
-`;
-
-exports[`<XUIProgressIndicator /> tool tip should hide tool tip when mouse leaves the component 1`] = `
-<XUIProgressCircular
-  hasToolTip={true}
-  id="myCustomProgressId"
-  progress={3}
-  qaHook="progress-indicator"
-  total={5}
->
-  <ProgressWrapper
-    ariaMax={5}
-    ariaMin={0}
-    ariaNow={3}
-    classes="xui-progress xui-progress-circular"
-    customContent={undefined}
-    hasToolTip={true}
-    id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
-    progress={3}
-    qaHook="progress-indicator"
-    toolTipId="myCustomProgressId-progress-tooltip"
-    toolTipMessage="3 of 5"
-    total={5}
-  >
-    <div
-      aria-describedby="myCustomProgressId-progress-tooltip"
-      aria-valuemax={5}
-      aria-valuemin={0}
-      aria-valuenow={3}
-      aria-valuetext="3 of 5"
-      className="xui-progress xui-progress-circular"
-      data-automationid="progress-indicator"
-      role="progressbar"
-    >
-      <CircularStroke
-        customContent={undefined}
-        id="myCustomProgressId"
-        isGrow={undefined}
-        isSegmented={undefined}
-        key="track"
-        progress={3}
-        qaHook="progress-indicator"
-        total={5}
-      >
-        <div>
-          <CircularTrack
-            customContent={undefined}
-            id="myCustomProgressId"
-            isSegmented={undefined}
-            progress={3}
-            qaHook="progress-indicator"
-            strokeWidth={11.476068685097855}
-            total={5}
-          >
-            <IE11SvgScaleHack
-              key="canvas"
-              viewBoxHeight={100}
-              viewBoxWidth={100}
-            >
-              <canvas
-                className="xui-progress-circular-scaler"
-                height={100}
-                width={100}
-              />
-            </IE11SvgScaleHack>
-            <svg
-              className="xui-progress-circular-wrapper"
-              key="svg"
-              viewBox="0 0 100 100"
-            >
-              <defs>
-                <mask
-                  height={100}
-                  id="myCustomProgressId-progress-mask"
-                  maskUnits="userSpaceOnUse"
-                  width={100}
-                  x="0"
-                  y="0"
-                >
-                  <circle
-                    className="
-							xui-progress-circular-mask
-							xui-progress-roundcap
-						"
-                    cx={50}
-                    cy={50}
-                    r={44.26196565745107}
-                    strokeDasharray="initial"
-                    strokeWidth={11.476068685097855}
-                  />
-                </mask>
-              </defs>
-              <g
-                mask="url(#myCustomProgressId-progress-mask)"
-              >
-                <circle
-                  className="xui-progress-circular-track"
-                  cx={50}
-                  cy={50}
-                  r={44.26196565745107}
-                  strokeWidth={11.476068685097855}
-                />
-                <circle
-                  className="xui-progress-circular-current xui-progress-roundcap"
-                  cx={50}
-                  cy={50}
-                  r={44.26196565745107}
-                  strokeDasharray={278.106132285784}
-                  strokeDashoffset={111.2424529143136}
-                  strokeWidth={11.476068685097855}
-                />
-              </g>
-            </svg>
-          </CircularTrack>
-        </div>
-      </CircularStroke>
-      <CircularIcon
-        hardErrorAlert={undefined}
-        isComplete={undefined}
-        isHardError={undefined}
-        key="icon"
-      >
-        <div
-          className="xui-progress-icon"
-        />
-      </CircularIcon>
-      <ProgressToolTip
-        qaHook="progress-indicator-tooltip"
-        toolTipId="myCustomProgressId-progress-tooltip"
-        toolTipMessage="3 of 5"
-      >
-        <div
-          className="xui-progress-hitbox"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseMove={[Function]}
-        />
-      </ProgressToolTip>
-    </div>
-  </ProgressWrapper>
-</XUIProgressCircular>
-`;
-
-exports[`<XUIProgressIndicator /> tool tip should show tool tip when mouse moves over the component 1`] = `
-<XUIProgressCircular
-  hasToolTip={true}
-  id="myCustomProgressId"
-  progress={3}
-  qaHook="progress-indicator"
-  total={5}
->
-  <ProgressWrapper
-    ariaMax={5}
-    ariaMin={0}
-    ariaNow={3}
-    classes="xui-progress xui-progress-circular"
-    customContent={undefined}
-    hasToolTip={true}
-    id="myCustomProgressId"
-    isComplete={undefined}
-    isOverflow={undefined}
-    isSegmented={undefined}
-    isSoftError={undefined}
-    progress={3}
-    qaHook="progress-indicator"
-    toolTipId="myCustomProgressId-progress-tooltip"
-    toolTipMessage="3 of 5"
-    total={5}
-  >
-    <div
-      aria-describedby="myCustomProgressId-progress-tooltip"
-      aria-valuemax={5}
-      aria-valuemin={0}
-      aria-valuenow={3}
-      aria-valuetext="3 of 5"
-      className="xui-progress xui-progress-circular"
-      data-automationid="progress-indicator"
-      role="progressbar"
-    >
-      <CircularStroke
-        customContent={undefined}
-        id="myCustomProgressId"
-        isGrow={undefined}
-        isSegmented={undefined}
-        key="track"
-        progress={3}
-        qaHook="progress-indicator"
-        total={5}
-      >
-        <div>
-          <CircularTrack
-            customContent={undefined}
-            id="myCustomProgressId"
-            isSegmented={undefined}
-            progress={3}
-            qaHook="progress-indicator"
-            strokeWidth={11.476068685097855}
-            total={5}
-          >
-            <IE11SvgScaleHack
-              key="canvas"
-              viewBoxHeight={100}
-              viewBoxWidth={100}
-            >
-              <canvas
-                className="xui-progress-circular-scaler"
-                height={100}
-                width={100}
-              />
-            </IE11SvgScaleHack>
-            <svg
-              className="xui-progress-circular-wrapper"
-              key="svg"
-              viewBox="0 0 100 100"
-            >
-              <defs>
-                <mask
-                  height={100}
-                  id="myCustomProgressId-progress-mask"
-                  maskUnits="userSpaceOnUse"
-                  width={100}
-                  x="0"
-                  y="0"
-                >
-                  <circle
-                    className="
-							xui-progress-circular-mask
-							xui-progress-roundcap
-						"
-                    cx={50}
-                    cy={50}
-                    r={44.26196565745107}
-                    strokeDasharray="initial"
-                    strokeWidth={11.476068685097855}
-                  />
-                </mask>
-              </defs>
-              <g
-                mask="url(#myCustomProgressId-progress-mask)"
-              >
-                <circle
-                  className="xui-progress-circular-track"
-                  cx={50}
-                  cy={50}
-                  r={44.26196565745107}
-                  strokeWidth={11.476068685097855}
-                />
-                <circle
-                  className="xui-progress-circular-current xui-progress-roundcap"
-                  cx={50}
-                  cy={50}
-                  r={44.26196565745107}
-                  strokeDasharray={278.106132285784}
-                  strokeDashoffset={111.2424529143136}
-                  strokeWidth={11.476068685097855}
-                />
-              </g>
-            </svg>
-          </CircularTrack>
-        </div>
-      </CircularStroke>
-      <CircularIcon
-        hardErrorAlert={undefined}
-        isComplete={undefined}
-        isHardError={undefined}
-        key="icon"
-      >
-        <div
-          className="xui-progress-icon"
-        />
-      </CircularIcon>
-      <ProgressToolTip
-        qaHook="progress-indicator-tooltip"
-        toolTipId="myCustomProgressId-progress-tooltip"
-        toolTipMessage="3 of 5"
-      >
-        <div
-          className="xui-progress-hitbox"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseMove={[Function]}
-        >
-          <div
-            className="xui-progress-tooltip xui-tag"
-            data-automationid="progress-indicator-tooltip"
-            id="myCustomProgressId-progress-tooltip"
-            role="tooltip"
-            style={
-              Object {
-                "transform": "translate(100px, 100px)",
-              }
-            }
-          >
-            3 of 5
-          </div>
-        </div>
-      </ProgressToolTip>
     </div>
   </ProgressWrapper>
 </XUIProgressCircular>

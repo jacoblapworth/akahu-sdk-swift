@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import XUITooltip from '../../tooltip/XUITooltip';
 import {NAME_SPACE, COLORS} from '../helpers/constants';
-import ProgressToolTip from './ProgressToolTip';
 
 const createColorOverride = (color, type) => (COLORS.indexOf(color) >= 0 && {[`data-${NAME_SPACE}-${type}-color`]: color});
 
@@ -31,16 +31,19 @@ const ProgressWrapper = (props) => {
 			aria-valuetext={toolTipMessage}
 			data-automationid={qaHook}
 			{...createColorOverride(totalColor, 'total')}
-			{...createColorOverride(progressColor, 'current')}
-			{...toolTipId && {'aria-describedby': toolTipId}}>
+			{...createColorOverride(progressColor, 'current')}>
 
-			{children && children(props)}
-			{hasToolTip && (
-				<ProgressToolTip
-					{...{toolTipId, toolTipMessage}}
-					qaHook={qaHook && `${qaHook}-tooltip`}
-				/>
-			)}
+			{hasToolTip
+
+				? (<XUITooltip
+						id={toolTipId}
+						qaHook={qaHook && `${qaHook}-tooltip`}
+						wrapperClassName={`${NAME_SPACE}-tooltip`}
+						trigger={children(props)}>
+						{toolTipMessage}
+					</XUITooltip>)
+
+				: (children(props))}
 
 		</div>
 	);

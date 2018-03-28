@@ -3,7 +3,7 @@
 
 
 
-.#{$ns}-input-is-invalid {
+.#{$ns}-input-is-invalid, .#{$ns}-textinput-is-invalid {
 	border-color: $xui-color-xero-red;
 	z-index: 1;
 

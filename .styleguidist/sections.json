@@ -25,6 +25,46 @@
 				"components": "../src/react/components/stepper/XUIStepper.js"
 			},
 			{
+				"name": "Tables",
+				"content": "../src/react/table.md",
+				"sections": [
+					{ "components": "../src/react/components/table/XUITable.js" },
+					{ "components": "../src/react/components/table/XUITableColumn.js" },
+					{ "components": "../src/react/components/table/XUITableCell.js" }
+				]
+			},
+			{
+				"name": "Structural",
+				"content": "../src/react/structural.md",
+				"sections": [
+					{
+						"name": "Rows",
+						"components": "../src/react/components/structural/XUIRow.js",
+						"content": "../src/react/components/structural/structural.row.md"
+					},
+					{
+						"name": "Columns",
+						"components": "../src/react/components/structural/XUIColumn.js",
+						"content": "../src/react/components/structural/structural.column.md"
+					},
+					{
+						"name": "Pageheader",
+						"components": "../src/react/components/structural/XUIPageheader.js",
+						"content": "../src/react/components/structural/structural.pageheader.md"
+					},
+					{
+						"name": "Breadcrumb",
+						"components": "../src/react/components/structural/XUIBreadcrumb.js",
+						"content": "../src/react/components/structural/structural.breadcrumb.md"
+					},
+					{
+						"name": "Actions",
+						"components": "../src/react/components/structural/XUIActions.js",
+						"content": "../src/react/components/structural/structural.actions.md"
+					}
+				]
+			},
+			{
 				"name": "Avatar",
 				"content": "../src/react/avatar.md",
 				"sections": [
@@ -153,6 +193,11 @@
 				"name": "Tooltip",
 				"content": "../src/react/tooltip.md",
 				"components": "../src/react/components/tooltip/XUITooltip.js"
+			},
+			{
+				"name": "Isolation Header",
+				"content": "../src/react/isolationheader.md",
+				"components": "../src/react/components/isolationheader/XUIIsolationHeader.js"
 			},
 			{
 				"name": "Picklist",
@@ -290,6 +335,14 @@
 						"sections": [
 							{
 								"components": "../src/react/components/input/XUIInput.js"
+							},
+							{
+								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
+							},
+							{
+								"name": "Text Input",
+								"content": "../src/react/textInput.md",
+								"components": "../src/react/components/textInput/XUITextInput.js"
 							}
 						]
 					},
@@ -297,6 +350,9 @@
 						"name": "TextArea",
 						"content": "../src/react/textarea.md",
 						"sections": [
+							{
+								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
+							},
 							{
 								"components": "../src/react/components/textarea/XUITextArea.js"
 							}

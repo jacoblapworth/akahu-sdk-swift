@@ -61,8 +61,13 @@ module.exports = function (handlebars) {
 		{{#ifStyleguide "Building Blocks"}}
 			{{> columns }}
 		{{else}}
-			{{> card }}
+			{{#ifStyleguide "Compounds"}}
+				{{> columns }}
+			{{else}}
+				{{> card }}
+			{{/ifStyleguide}}
 		{{/ifStyleguide}}
+
 		`
 	handlebars.registerPartial('landingpage', landingpagePartial);
 }

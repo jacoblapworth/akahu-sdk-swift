@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUICheckbox from '../checkbox/XUICheckbox';
+import {ns} from "../helpers/xuiClassNamespace";
 
 const NOOP = () => {};
 
@@ -16,24 +17,24 @@ const NOOP = () => {};
 const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, isMultiselect, children, checkboxClassName, target, qaHook }) => {
 	if (isMultiselect) {
 		return (
-			<div className="xui-pickitem--body" onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver} data-automationid={qaHook}>
+			<div className={`${ns}-pickitem--body`} onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver} data-automationid={qaHook}>
 				<XUICheckbox
 					onChange={NOOP}
 					isChecked={isSelected}
 					tabIndex={-1}
 					qaHook={qaHook && `${qaHook}--checkbox`}
-					htmlClassName="xui-pickitem--input"
-					className={cn(checkboxClassName, 'xui-pickitem-multiselect--checkbox')}
-					labelClassName="xui-pickitem-multiselect--label"
+					htmlClassName={`${ns}-pickitem--input`}
+					className={cn(checkboxClassName, `${ns}-pickitem-multiselect--checkbox`)}
+					labelClassName={`${ns}-pickitem-multiselect--label`}
 				>
-					<span className={shouldTruncate ? 'xui-text-truncated' : null} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>
+					<span className={shouldTruncate ? `${ns}-text-truncated` : ''} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>
 				</XUICheckbox>
 			</div>
 		);
 	}
 	const rel = target ? "noopener noreferrer" : null;
 	const childProps = {
-		className: 'xui-pickitem--body',
+		className: `${ns}-pickitem--body`,
 		tabIndex: '-1',
 		onClick,
 		onKeyDown,
@@ -41,9 +42,10 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 		rel,
 	};
 
-	const textClassName = cn('xui-pickitem--text', {
-		'xui-text-truncated': shouldTruncate
-	});
+	const textClassName = cn(
+		`${ns}-pickitem--text`,
+		shouldTruncate && `${ns}-text-truncated`
+	);
 
 	const text = <span className={textClassName}>{children}</span>;
 	return href ? (

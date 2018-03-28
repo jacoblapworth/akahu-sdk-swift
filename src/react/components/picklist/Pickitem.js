@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import PickitemBody from './PickitemBody';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * Presentational (aka dumb) component used to display a selectable item in a
@@ -38,13 +39,15 @@ export default class Pickitem extends PureComponent {
 			shouldTruncate
 		} = pickItem.props;
 
-		const classes = cn('xui-pickitem', className, {
-			'xui-pickitem-is-hovered': isHighlighted,
-			'xui-pickitem-is-selected': isSelected && !disableSelectedStyles,
-			'xui-pickitem-multiselect': isMultiselect,
-			'xui-pickitem-split': isSplit,
-			'xui-is-disabled': isDisabled
-		});
+		const classes = cn(
+			`${ns}-pickitem`,
+			className,
+			isHighlighted && `${ns}-pickitem-is-hovered`,
+			(isSelected && !disableSelectedStyles) && `${ns}-pickitem-is-selected`,
+			isMultiselect && `${ns}-pickitem-multiselect`,
+			isSplit && `${ns}-pickitem-split`,
+			isDisabled && `${ns}-is-disabled`
+		);
 		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
 
 		const Tag = isSplit ? 'div' : 'li';

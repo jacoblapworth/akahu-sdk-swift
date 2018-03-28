@@ -28,6 +28,7 @@ src/sass/tmp
 .visual-testing/ci-report/*
 .visual-testing/web-report/*
 .out/*
+.tmp
 
 # NPM debug logs
 npm-debug.log.*

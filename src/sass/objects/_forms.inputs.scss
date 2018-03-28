@@ -1,6 +1,6 @@
 /**
- * Styles for form inputs.
- */
+* Styles for form inputs.
+*/
 
 @import "../vars";
 @import "../mixins";
@@ -14,7 +14,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 
 .#{$ns}-input {
-	@extend %#{$ns}-commoninput;
+	@include xui-commoninput;
 }
 
 // Icons within inputs
@@ -192,7 +192,9 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 }
 
 // This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
-.#{$ns}-inputgroup > .#{$ns}-inputwrapper > .#{$ns}-input {
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper > .#{$ns}-input,
+// TODO: Rename ".dropdown-toggled-wrapper" to ".xui-dropdowntoggledwrapper"
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper.dropdown-toggled-wrapper .#{$ns}-button {
 	border-radius: 0;
 }
 
@@ -208,6 +210,8 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 .#{$ns}-inputgroup > .#{$ns}-input:first-child,
 .#{$ns}-inputgroup > .#{$ns}-inputwrapper:first-child > .#{$ns}-input,
+// TODO: Rename ".dropdown-toggled-wrapper" to ".xui-dropdowntoggledwrapper"
+.#{$ns}-inputgroup > .#{$ns}-inputwrapper:first-child.dropdown-toggled-wrapper .#{$ns}-button,
 .#{$ns}-inputgroup > .#{$ns}-button:first-child,
 .#{$ns}-inputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
 	border-bottom-left-radius: $xui-radius;

@@ -14,10 +14,14 @@ $xui-shadow-depth-pop: 0 0 0 1px $xui-color-grey-alpha-5, 0 8px 16px 0 $xui-colo
 // @description To indicate that an element does not scroll within its parent, but sits above the content on a separate plane, use one of the following box-shadow variables.
 // @type shadow
 //
-// Top: For toolbars adn other navigational elements fixed to the top, with content that scrolls beneath: $xui-shadow-depth-overlap-top
+// Top: For toolbars and other navigational elements fixed to the top, with content that scrolls beneath: $xui-shadow-depth-overlap-top
 $xui-shadow-depth-overlap-top: 0 1px 0 0 $xui-color-grey-alpha-5, 0 3px 0 0 $xui-color-grey-alpha-7;
 // Bottom: For toolbars and other navigational elements fixed to the bottom, with content that scrolls beneath: $xui-shadow-depth-overlap-bottom
 $xui-shadow-depth-overlap-bottom: 0 -1px 0 0 $xui-color-grey-alpha-5, 0 -3px 0 0 $xui-color-grey-alpha-7;
+// Left: For toolbars and other navigational elements fixed to the left, with content that scrolls beneath: $xui-shadow-depth-overlap-left
+$xui-shadow-depth-overlap-left: 1px 0 0 0 $xui-color-grey-alpha-5, 3px 0 0 0 $xui-color-grey-alpha-7;
+// Right: For toolbars and other navigational elements fixed to the right, with content that scrolls beneath: $xui-shadow-depth-overlap-right
+$xui-shadow-depth-overlap-right: -1px 0 0 0 $xui-color-grey-alpha-5, -3px 0 0 0 $xui-color-grey-alpha-7;
 
 // @section Shadow borders
 // @description To create the appearance of a border, but position it outside the element in order to multiply with the background layer, use one of the following box-shadow variables.

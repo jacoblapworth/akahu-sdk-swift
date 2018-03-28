@@ -278,6 +278,7 @@
 	background-color: rgba($xui-color-black, 0.15);
 }
 
+// TODO: typo fix: rename to pill-is-deletable (no second e in deletable)
 .#{$ns}-pill-is-deleteable {
 	padding-right: $xui-icon-standard;
 }

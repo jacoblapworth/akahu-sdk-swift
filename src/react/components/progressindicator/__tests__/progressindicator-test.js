@@ -110,45 +110,6 @@ describe('<XUIProgressIndicator />', () => {
 
 	});
 
-	describe('tool tip', () => {
-
-		const qaHook = 'progress-indicator';
-		const component = mount(
-			<XUIProgressCircular
-				{...baseProps}
-				qaHook={qaHook}
-				hasToolTip
-			/>
-		);
-		const findToolTipElement = () => component.find({ 'data-automationid': `${qaHook}-tooltip` });
-		const findToolTipComponent = () => component.find('ProgressToolTip');
-
-		it('should show tool tip when mouse moves over the component', () => {
-
-			findToolTipComponent().simulate('mouseenter', {
-				currentTarget: { getBoundingClientRect: () => ({ left: 10, top: 10 }) },
-			});
-
-			findToolTipComponent().simulate('mousemove', {
-				clientX: 100, clientY: 100,
-			});
-
-			expect(findToolTipElement()).toHaveLength(1);
-			expect(toJson(component)).toMatchSnapshot();
-
-		});
-
-		it('should hide tool tip when mouse leaves the component', () => {
-
-			findToolTipComponent().simulate('mouseleave');
-
-			expect(findToolTipElement()).toHaveLength(0);
-			expect(toJson(component)).toMatchSnapshot();
-
-		});
-
-	});
-
 	describe('circular growth', () => {
 
 		const component = mount(<XUIProgressCircular {...baseProps} isGrow />);

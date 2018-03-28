@@ -1,5 +1,7 @@
 node_modules
+src/sass
 dist/*
-src/components/icon
 coverage/*
 .visual-testing/*
+.tmp/*
+.kss/*

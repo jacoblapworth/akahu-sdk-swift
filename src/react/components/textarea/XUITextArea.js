@@ -119,8 +119,8 @@ export default class XUITextArea extends PureComponent {
 		const textareaClasses = cn(
 			`${baseClass}--input`,
 			className,
-			leftElement && `${baseClass}-has-left-element`,
-			rightElement && `${baseClass}-has-right-element`,
+			leftElement && `${baseClass}-has-leftelement`,
+			rightElement && `${baseClass}-has-rightelement`,
 			isResizable ? `${ns}-u-resize-vertical` : `${ns}-u-resize-none`
 		);
 

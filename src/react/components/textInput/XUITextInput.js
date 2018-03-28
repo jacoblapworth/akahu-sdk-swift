@@ -4,7 +4,7 @@ import cn from 'classnames';
 import autosize from 'autosize';
 
 import { compose } from '../helpers/compose';
-import { baseClass } from './private/constants';
+import { inputBaseClass } from './private/constants';
 import { calculateMaxHeight } from '../textarea/helpers';
 import {ns} from '../helpers/xuiClassNamespace';
 
@@ -104,29 +104,29 @@ class XUITextInput extends PureComponent {
 
 		const classes = cn (
 			inputClassName,
-			`${baseClass}--input`,
-			leftElement && `${baseClass}-has-left-element`,
-			rightElement && `${baseClass}-has-right-element`,
+			`${inputBaseClass}--input`,
+			leftElement && `${ns}-padding-left-none`,
+			rightElement && `${ns}-padding-right-none`,
 			(isMultiline && !isManuallyResizable) && `${ns}-u-resize-none`,
 			(isMultiline && isManuallyResizable) && `${ns}-u-resize-vertical`
 		);
 
 		const rootClasses = cn(
 			fieldClassName,
-			`${baseClass}wrapper`,
+			`${inputBaseClass}wrapper`,
 			isFieldLayout && `${ns}-field-layout`
 		);
 
 		const baseClasses = cn(
 			containerClassName,
-			baseClass,
-			isInvalid && `${baseClass}-is-invalid`,
-			(isBorderlessTransparent || isBorderlessSolid) && `${baseClass}-borderless`,
-			isBorderlessTransparent && `${baseClass}-borderless-transparent`,
-			isBorderlessSolid && `${baseClass}-borderless-solid`,
-			isInverted && `${baseClass}-borderless-inverted`,
-			hasFocus && `${baseClass}-focus`,
-			isDisabled && `${baseClass}-is-disabled`
+			inputBaseClass,
+			isInvalid && `${inputBaseClass}-is-invalid`,
+			(isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
+			isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
+			isBorderlessSolid && `${inputBaseClass}-borderless-solid`,
+			isInverted && `${inputBaseClass}-borderless-inverted`,
+			hasFocus && `${inputBaseClass}-focus`,
+			isDisabled && `${inputBaseClass}-is-disabled`
 		);
 
 		const InputEl = isMultiline ? 'textarea' : 'input';

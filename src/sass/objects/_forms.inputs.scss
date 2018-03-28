@@ -14,7 +14,7 @@ $xui-input-icon-zindex: 3; // focused inputs have zindex: 2, so icons need to ha
 
 
 .#{$ns}-input {
-	@extend %#{$ns}-commoninput;
+	@include xui-commoninput;
 }
 
 // Icons within inputs

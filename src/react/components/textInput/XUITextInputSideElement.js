@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {ns} from '../helpers/xuiClassNamespace';
-import {baseClass} from './private/constants';
+import { sideElementBaseClass } from './private/constants';
 
 const alignmentClasses = {
 	top: `${ns}-u-flex-align-start`,
@@ -11,10 +11,10 @@ const alignmentClasses = {
 };
 
 const typeClasses = {
-	text: `${baseClass}--side-element-text`,
-	icon: `${baseClass}--side-element-icon`,
-	button: `${baseClass}--side-element-button`,
-	avatar: `${baseClass}--side-element-avatar`,
+	text: `${sideElementBaseClass}-text`,
+	icon: `${sideElementBaseClass}-icon`,
+	button: `${sideElementBaseClass}-button`,
+	avatar: `${sideElementBaseClass}-avatar`,
 };
 
 export default class XUITextInputSideElement extends PureComponent {
@@ -28,15 +28,13 @@ export default class XUITextInputSideElement extends PureComponent {
 			type,
 		} = this.props;
 
-		const sideElementClassName = `${baseClass}--side-element`;
-
 		const classes = cn(
-			sideElementClassName,
+			sideElementBaseClass,
 			className,
 			alignmentClasses[alignment],
 			typeClasses[type],
-			backgroundColor && `${sideElementClassName}-${backgroundColor}`,
-			backgroundColor && `${sideElementClassName}-has-background`
+			backgroundColor && `${sideElementBaseClass}-${backgroundColor}`,
+			backgroundColor && `${sideElementBaseClass}-has-background`
 		);
 
 		return (

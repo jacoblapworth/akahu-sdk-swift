@@ -1,3 +1,4 @@
 import {ns} from '../../helpers/xuiClassNamespace';
 
-export const baseClass = `${ns}-textinput`;
+export const inputBaseClass = `${ns}-textinput`;
+export const sideElementBaseClass = `${inputBaseClass}--sideelement`;

@@ -6,7 +6,7 @@
 //
 // Components: Autocompleter
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter
+// Styleguide: Compounds.CollectingInput.Autocompleter
 
 // Best practice
 //
@@ -15,7 +15,7 @@
 // Do: Match dropdown width to the width of their associated autocompleter
 // Warning: Avoid automatically showing dropdowns on focus, unless promoting recent or suggested items
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.1
+// Styleguide: Compounds.CollectingInput.Autocompleter.1
 
 // Anatomy
 //
@@ -24,7 +24,7 @@
 // Consequently, the examples shown below are static, and don't illustrate the recommended interactive behaviour.
 // For more information, visit the [React Documentation](./react/#autocompleter).
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.2
+// Styleguide: Compounds.CollectingInput.Autocompleter.2
 
 // Trigger
 //
@@ -36,7 +36,7 @@
 // xui-autocompleter--trigger: Apply to autocompleter container for recommended layout
 // xui-autocompleter--trigger-focus: Apply to trigger programatically when child input is in focus
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.2.1
+// Styleguide: Compounds.CollectingInput.Autocompleter.2.1
 
 // Input
 //
@@ -50,7 +50,7 @@
 // xui-autocompleter--input: Apply to actual input for recommended layout
 // xui-autocompleter--placeholder: Apply to pseudo placeholder handled via React
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.2.2
+// Styleguide: Compounds.CollectingInput.Autocompleter.2.2
 
 // Standard layout
 //
@@ -98,7 +98,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.2.3
+// Styleguide: Compounds.CollectingInput.Autocompleter.2.3
 
 // Pills
 //
@@ -130,7 +130,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.3
+// Styleguide: Compounds.CollectingInput.Autocompleter.3
 
 // Wrapping
 //
@@ -144,9 +144,9 @@
 // Classes:
 // xui-autocompleter--trigger-pillwrap: Apply to autocompleter container to wrap pills
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.4
+// Styleguide: Compounds.CollectingInput.Autocompleter.4
 
-// Enabled 
+// Enabled
 //
 // If using React, clicking anywhere on the trigger focuses the input.
 //
@@ -213,10 +213,10 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.4.1
+// Styleguide: Compounds.CollectingInput.Autocompleter.4.1
 
 
-// Disabled 
+// Disabled
 //
 // If using React, the autocompleter is automatically scrolled on change, making the placeholder always visible.
 //
@@ -283,7 +283,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.4.2
+// Styleguide: Compounds.CollectingInput.Autocompleter.4.2
 
 // Disabling
 //
@@ -301,4 +301,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.Autocompleter.5
+// Styleguide: Compounds.CollectingInput.Autocompleter.5

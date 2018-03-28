@@ -1,7 +1,7 @@
 @import '../vars';
 @import '../mixins';
 
-// Isolation Header
+// Isolation header
 //
 // Introduction: Show in place of the global header when you want to encourage focus and have more control of the workflow
 //
@@ -9,7 +9,7 @@
 //
 // Descriptive text goes here
 //
-// Styleguide: Building Blocks.Isolation header
+// Styleguide: Compounds.Navigation.Isolation header
 
 
 // Best practice
@@ -27,7 +27,7 @@
 //
 // Components: Isolation header
 //
-// Styleguide: Building Blocks.Isolation header.1
+// Styleguide: Compounds.Navigation.Isolation header.1
 
 // Anatomy
 //
@@ -56,7 +56,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Building Blocks.Isolation header.2
+// Styleguide: Compounds.Navigation.Isolation header.2
 
 .#{$ns}-isolationheader {
 	align-items: center;

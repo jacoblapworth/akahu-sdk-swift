@@ -47,6 +47,9 @@
 		"Building Blocks.Dropdowns",
 		"Compounds",
 		"Compounds.Navigation",
+		"Compounds.CollectingInput",
+		"Compounds.DisplayingData",
+		"Compounds.RefiningData",
 		"Patterns"
 	]
 }

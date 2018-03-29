@@ -19,6 +19,7 @@
   "scripts": {
     "build": "node scripts/build",
     "lint": "node scripts/lint/js && node scripts/lint/sass",
+    "prepublish": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
     "postinstall": "node scripts/postinstall",
     "postmerge": "./post-merge.sh",
     "precommit": "./pre-commit.sh",

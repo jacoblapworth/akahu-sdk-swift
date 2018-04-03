@@ -294,6 +294,13 @@
 	white-space: nowrap;
 }
 
+.#{$ns}-isolationheader-fixed {
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
 .#{$ns}-isolationheader-inverted {
 	background: $xui-color-grey-2;
 	color: $xui-color-white;

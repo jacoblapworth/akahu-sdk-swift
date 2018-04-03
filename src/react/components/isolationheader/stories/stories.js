@@ -32,10 +32,10 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 
 /* eslint-disable react/prop-types */
-function getComponent({isFixed, title, secondaryTitle, navigationIconPath, actionIconPath, hasTag, hasAvatar, hasActionsPrimaryButton, hasActionsSecondaryButton}) {
+function getComponent({isPositionFixed, title, secondaryTitle, navigationIconPath, actionIconPath, hasTag, hasAvatar, hasActionsPrimaryButton, hasActionsSecondaryButton}) {
 	return (
 		<div style={{width: '600px'}}>
-			<XUIIsolationHeader isFixed={isFixed}>
+			<XUIIsolationHeader isPositionFixed={isPositionFixed}>
 				<XUIIsolationHeaderNavigation>
 					{navigationIconPath && <XUIButton variant="icon-large"><XUIIcon path={navigationIconPath} /></XUIButton>}
 					{hasAvatar && <XUIAvatar className="xui-margin-right-small" value="ABC" />}
@@ -58,7 +58,7 @@ storiesWithKnobs.add('Playground', () => {
 	return getComponent({
 		title: text('Title', ''),
 		secondaryTitle: text('Secondary title', ''),
-		isFixed: boolean('Is fixed', false),
+		isPositionFixed: boolean('Is position fixed', false),
 		navigationIconPath: select('Navigation icon', swappedIconData, iconData.navigation.cross),
 		actionIconPath: select('Action icon', swappedIconData, iconData.navigation.overflow),
 		hasActionsPrimaryButton: boolean('Has primary action button', false),

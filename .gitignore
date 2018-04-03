@@ -6,6 +6,8 @@ yarn.lock
 
 # Build/Output files/directories
 /dist
+/react
+/sass
 src/react/umd.js
 .tmp
 

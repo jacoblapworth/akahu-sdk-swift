@@ -14,8 +14,7 @@
   },
   "files": [
     "react",
-    "sass",
-    "scripts"
+    "sass"
   ],
   "scripts": {
     "build": "node scripts/build",

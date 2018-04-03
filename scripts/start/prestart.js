@@ -61,7 +61,7 @@ const buildUmd = require(path.resolve(
 	'umd_webpack'
 ));
 
-function postInstall() {
+function preStart() {
 	return taskRunner(() => {
 		return Promise.all([
 			cssMinXui(),
@@ -79,7 +79,7 @@ function postInstall() {
 	}, __filename);
 }
 
-module.exports = postInstall;
+module.exports = preStart;
 require('make-runnable/custom')({
 	printOutputFrame: false
 });

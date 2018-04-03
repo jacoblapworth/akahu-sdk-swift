@@ -181,19 +181,11 @@ For the UMD build we want to bundle everything up and attach it to the `window` 
 
 ### npm scripts
 
-`npm run build:umd` will create a new UMD build of all the React components at `umd/assets/xui.umd.js`. It uses several other tasks to accomplish individual parts of this goal.
-
-`npm run clean:umd` removes any artifacts created by a previous UMD build.
-
-`npm run build:umd:entry` executes the aforementioned `umd/createEntryPoint.js` script to create the UMD entry point for the library.
-
-`npm run build:umd:webpack` then uses webpack to build `src/react/umd.js` as a web library called XUI.
-
-`npm run clean:umd:post-build` is the last script to run and gets rid of the now unnecessary `src/react/umd.js` to make sure that other npm scripts don't accidentally pick it up as a valid component.
+`npm run build` will create a new UMD build of all the React components at `dist/umd/assets/xui.umd.js`.
 
 ### Testing a UMD build
 
-A simple test page exists at `umd/index.html` which will load up the build UMD file attempt to use the global library at `window.XUI` to show a button on the page. If you want to go a bit further on that test, feel free (the JavaScript is inline on the page).
+A simple test page exists at `dist/umd/index.html` which will load up the build UMD file attempt to use the global library at `window.XUI` to show a button on the page. If you want to go a bit further on that test, feel free (the JavaScript is inline on the page).
 
 # Making contributions and releases
 

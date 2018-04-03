@@ -19,11 +19,12 @@
   "scripts": {
     "build": "node scripts/build",
     "lint": "node scripts/lint/js && node scripts/lint/sass",
-    "prepublish": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
+    "prepack": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
+    "prepare": "check-engines && nsp check",
     "postmerge": "./post-merge.sh",
     "precommit": "./pre-commit.sh",
     "prepush": "./pre-push.sh",
-    "start": "node scripts/start/prestart && node scripts/start",
+    "start": "node scripts/start",
     "test": "node scripts/test"
   },
   "dependencies": {

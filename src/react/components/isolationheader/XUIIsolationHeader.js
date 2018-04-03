@@ -16,7 +16,7 @@ export default class XUIIsolationHeader extends PureComponent {
 		const classNames = cn(
 			className,
 			`${ns}-isolationheader`,
-			isPositionFixed && `${ns}-u-position-fixed`
+			isPositionFixed && `${ns}-isolationheader-fixed`
 		);
 
 		return (

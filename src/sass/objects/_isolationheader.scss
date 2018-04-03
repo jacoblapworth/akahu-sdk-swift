@@ -3,11 +3,9 @@
 
 // Isolation header
 //
-// Introduction: Show in place of the global header when you want to encourage focus and have more control of the workflow
+// Introduction: An isolation header serves as an alternate header for a page or series of sub-pages that exclude the global navigation in order to create a more focused experience.
 //
 // Teaser: Show in place of the global header when you want to encourage focus and have more control of the workflow
-//
-// Descriptive text goes here
 //
 // Styleguide: Compounds.Navigation.Isolation header
 
@@ -15,15 +13,14 @@
 // Best practice
 //
 // Tips:
-// Do: Use the cross icon to take the user back to where they came from (this should be the value provided by the `sourceUrl` query parameter)
-// Do: Use the `destinationUrl` query parameter in your app to redirect the user upon completion of the task
-// Do: Use the `isolationMode` query parameter to signal that the global header should not render itself
-// Do: Place actions that would normally be in the page heading in the actions area of the isolation header
-// Do: Use xui-margin-right-small for spacing items in navigation, and xui-margin-left-small for spacing items in actions
-// Do: For buttons with icons, use the xui-button-icon-large modifier class, and for text based buttons use the xui-button-small modifier class
-// Dont: Hide the global header yourself on page load
-// Dont: Include the global header if it will never be shown
-// Dont: Render the page header below the isolation header
+// Do: Use for setup flows
+// Do: Use in combination with stepper for flows that are only ever completed once
+// Do: Use for pages the information architecture doesn’t support
+// Do: Use instead of a modal when content is complex or multi-stepped
+// Warning: Avoid using when features from other areas of Xero are also required
+// Warning: Avoid using the back arrow icon to close an isolation mode
+// Dont: Don’t use isolation headers in combination with the global navigation
+// Dont: Don’t nest pages within isolation modes
 //
 // Components: Isolation header
 //
@@ -31,32 +28,259 @@
 
 // Anatomy
 //
+// To create an isolation header, use the following classes
+//
 // Classes:
 // xui-isolationheader: Base class
-// xui-isolationheader--navigation: Container for left-aligned navigation elements inside the header
-// xui-isolationheader--actions: Container for right-aligned action elements inside the header
+// xui-isolationheader--navigation: Container for left-aligned elements
+// xui-isolationheader--actions: Container for right-aligned actions
 //
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-margin-right-small">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//   </div>
+// </header>
+//
+// Styleguide: Compounds.Navigation.Isolation header.2
+
+// Layout
+//
+// Styleguide: Compounds.Navigation.Isolation header.3
+
+// Title content
+//
+// Tips:
+// Do: Always include a title
+// Do: Use additional left aligned content to describe or label your page content
+// Warning: Avoid using a back icon as an idicator to close isolation mode
+//
+// Classes:
+// xui-isolationheader--navigation: Container for left-aligned elements
+//
+// Markup:
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
 //       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
 //     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
-//       Isolated task
+//       Title
 //     </h1>
-//     <h2 class="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated">
-//       Extra context
+//     <h2 class="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-text-truncated">
+//       Subtitle
 //     </h2>
 //   </div>
+// </header>
+// <br>
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business xui-margin-right" role="presentation">XUI</abbr>
+//     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//     <h2 class="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-text-truncated">
+//       Subtitle
+//     </h2>
+//   </div>
+// </header>
+// <br>
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//     <h2 class="xui-heading xui-margin-right-small xui-text-deemphasis xui-margin-vertical-none xui-text-truncated">
+//       Subtitle
+//     </h2>
+//     <span class="xui-tag">
+//       Tag
+//     </span>
+//   </div>
+// </header>
+//
+// Styleguide: Compounds.Navigation.Isolation header.3.1
+
+// Actions
+//
+// Tips:
+// Do: Functions connected to the primary flow of the page should be displayed in the isolation header
+// Warning: Avoid using an overflow menu without a pimary action surfaced
+//
+// Classes:
+// xui-isolationheader--actions: Container for right-aligned actions
+//
+// Markup:
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//   </div>
 //   <div class="xui-isolationheader--actions">
-//     <button class="xui-button xui-button-icon xui-margin-right-small">
+//     <button class="xui-button xui-button-create xui-button-small xui-margin-right-xsmall">Primary</button>
+//   </div>
+// </header>
+// <br>
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//   </div>
+//   <div class="xui-isolationheader--actions">
+//     <button class="xui-button xui-button-standard xui-button-small xui-margin-right-small">Secondary</button>
+//     <button class="xui-button xui-button-main xui-button-small xui-margin-right-xsmall">Primary</button>
+//   </div>
+// </header>
+// <br>
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//   </div>
+//   <div class="xui-isolationheader--actions">
+//     <button class="xui-button xui-button-standard xui-button-small xui-margin-right-small">Secondary</button>
+//     <button class="xui-button xui-button-main xui-button-small xui-margin-right-xsmall">Primary</button>
+//     <button class="xui-button xui-button-icon xui-button-icon-large">
 //       <svg focusable="false" class="xui-icon" title="Overflow menu" aria-label="Overflow menu"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
 //     </button>
 //   </div>
 // </header>
 //
-// Styleguide: Compounds.Navigation.Isolation header.2
+// Styleguide: Compounds.Navigation.Isolation header.3.2
+
+// Fixing position
+//
+// Tips:
+// Do: Use when page content extends past the viewport height
+// Do: Responsively apply on smaller screen sizes to guarantee primary actions are always visible
+//
+// Classes:
+// xui-u-position-fixed: Fixes position of the isolation header to the top of the page
+//
+// Styleguide: Compounds.Navigation.Isolation header.3.3
+
+// Navigation
+//
+// Styleguide: Compounds.Navigation.Isolation header.4
+
+// Opening & closing
+//
+// Tips:
+// Do: Use the `isolationMode` query parameter to signal that the global header should not be rendered
+// Do: Selecting the cross icon takes users back to where they originally opened the isolation flow. This is achieved by utilising the `sourceURL` query parameter
+// Do: Upon completion of the flow, the primary action should close the isolation page and take the user to a page defined by the `destinationURL` query parameter
+//
+// Styleguide: Compounds.Navigation.Isolation header.4.1
+
+// Tooltip
+//
+// The `xui-tooltip` can be utilised to give clarity and context of the isolation source. This is especially useful when users navigate to a page in isolation from a direct URL link.
+//
+// Markup:
+// <header class="xui-isolationheader" style="overflow: visible;">
+//   <div class="xui-isolationheader--navigation" style="overflow: visible;">
+//     <span class="xui-tooltip">
+//       <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//         <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//       </button>
+//       <span class="xui-positioningInline" style="flex-direction: row; top: -3px; left: 5px;">
+//         <span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--bottom-left">Back to Xero</span>
+//       </span>
+//     </span>
+//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//   </div>
+//   <div class="xui-isolationheader--actions">
+//     <button class="xui-button xui-button-create xui-button-small xui-margin-right-xsmall">Create</button>
+//   </div>
+// </header>
+//
+// Styleguide: Compounds.Navigation.Isolation header.4.2
+
+// Stepper
+//
+// Isolation mode can be used in conjunction with the stepper component to create an experience that includes internal navigation. This is ideal for stepped flows that happen once.
+//
+// Markup:
+// <header class="xui-isolationheader">
+//   <div class="xui-isolationheader--navigation">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
+//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     </button>
+//     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
+//       Title
+//     </h1>
+//   </div>
+//   <div class="xui-isolationheader--actions">
+//     <button class="xui-button xui-button-create xui-button-is-disabled xui-button-small xui-margin-right-xsmall">Primary</button>
+//   </div>
+// </header>
+// <div class="xui-stepper xui-padding-vertical-2xlarge">
+//   <div class="xui-stepper-wrapper xui-stepper-inline" role="tablist" style="grid-template-rows: auto auto auto 1fr;">
+//     <div class="xui-stepper-tab xui-stepper-tab-first" aria-controls="stepper-inline-standard-panel" aria-selected="true" role="tab" style="order: 0;">
+//       <button class="xui-stepper-link xui-stepper-link-active" tabindex="0">
+//         <div class="xui-stepper-link-wrapper">
+//           <div class="xui-stepper-link-icon">
+//             <span class="xui-stepper-link-step">1</span>
+//           </div>
+//           <div class="xui-stepper-link-text">
+//             <span class="xui-stepper-link-heading xui-heading-small">Step 1</span>
+//           </div>
+//         </div>
+//       </button>
+//     </div>
+//     <div class="xui-stepper-tab" aria-controls="stepper-inline-standard-panel" aria-selected="false" role="tab" style="order: 1;">
+//       <button class="xui-stepper-link xui-stepper-link-standard" tabindex="0">
+//         <div class="xui-stepper-link-wrapper">
+//           <div class="xui-stepper-link-icon">
+//             <span class="xui-stepper-link-step">2</span>
+//           </div>
+//           <div class="xui-stepper-link-text">
+//             <span class="xui-stepper-link-heading xui-heading-small">Step 2</span>
+//           </div>
+//         </div>
+//       </button>
+//     </div>
+//     <div class="xui-stepper-tab xui-stepper-tab-last" aria-controls="stepper-inline-standard-panel" aria-selected="false" role="tab" style="order: 2;">
+//       <button class="xui-stepper-link xui-stepper-link-standard" tabindex="0">
+//         <div class="xui-stepper-link-wrapper">
+//           <div class="xui-stepper-link-icon">
+//             <span class="xui-stepper-link-step">3</span>
+//           </div>
+//           <div class="xui-stepper-link-text">
+//             <span class="xui-stepper-link-heading xui-heading-small">Step 3</span>
+//           </div>
+//         </div>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Compounds.Navigation.Isolation header.4.3
 
 .#{$ns}-isolationheader {
 	align-items: center;

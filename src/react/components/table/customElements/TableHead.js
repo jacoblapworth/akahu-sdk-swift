@@ -80,7 +80,7 @@ class TableHead extends PureComponent {
 				onClick={() => onSortChange(sortKey)}
 				type="button">
 
-				{children}
+				<span>{children}</span>
 
 				<XUIIcon
 					path={sortPathData}
@@ -111,7 +111,6 @@ class TableHead extends PureComponent {
 		const isHead = true;
 		const className = cn(
 			HEAD_CELL_CLASSES,
-			`${NAME_SPACE}--cell-generic`,
 			cellLocationClasses,
 			suppliedClasses,
 		);

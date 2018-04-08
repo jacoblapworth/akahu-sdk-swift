@@ -20,7 +20,8 @@ export default class XUIAutocompleter extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			focused: false
+			focused: false,
+			value: props.searchValue
 		};
 		this.bindOnChange(props.searchThrottleInterval);
 	}
@@ -40,7 +41,7 @@ export default class XUIAutocompleter extends PureComponent {
 		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
 			this.bindOnChange(searchThrottleInterval);
 		}
-		if (prevProps.value !== searchValue) {
+		if (prevProps.searchValue !== searchValue) {
 			this.setState({
 				value: searchValue
 			});
@@ -76,18 +77,24 @@ export default class XUIAutocompleter extends PureComponent {
 		} else {
 			this.throttledOnChange = undefined;
 		}
-	}
+	};
 
 	calculatePlaceholderWidth = () => {
 		if (this.placeholder != null) {
 			const placeholderWidth = getComputedStyle(this.placeholder).width;
-			if (this.state.placeholderWidth !== placeholderWidth) {
+			const inputStyle = getComputedStyle(this.inputNode);
+			const inputWidth = `${
+				parseFloat(inputStyle.paddingLeft)
+				+ parseFloat(inputStyle.paddingRight)
+				+ parseFloat(placeholderWidth)
+			}px`;
+			if (this.state.inputWidth !== inputWidth) {
 				this.setState({
-					placeholderWidth
+					inputWidth
 				});
 			}
 		}
-	}
+	};
 
 	/**
 	 * @public
@@ -95,7 +102,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 */
 	openDropDown = () => {
 		this.ddt.openDropDown();
-	}
+	};
 
 	/**
 	 * @public
@@ -103,7 +110,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 */
 	closeDropDown = () => {
 		this.ddt.closeDropDown();
-	}
+	};
 
 	/**
 	 * @public
@@ -111,7 +118,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 */
 	highlightItem = item => {
 		this.dropdown.highlightItem(item);
-	}
+	};
 
 	/**
 	 * @public
@@ -119,7 +126,7 @@ export default class XUIAutocompleter extends PureComponent {
 	 */
 	focusInput = () => {
 		this.inputNode.focus();
-	}
+	};
 
 	/**
 	* @public
@@ -129,7 +136,7 @@ export default class XUIAutocompleter extends PureComponent {
 	*/
 	onHighlightChange = item => {
 		this.props.onHighlightChange && this.props.onHighlightChange(item);
-	}
+	};
 
 	onInputKeyDown = event => {
 		const {
@@ -149,20 +156,20 @@ export default class XUIAutocompleter extends PureComponent {
 		) {
 			onBackspacePill();
 		}
-	}
+	};
 
 	onInputFocus = () => {
 		if (!this.state.focused) {
 			this.openDropDown();
 		}
-	}
+	};
 
 	onFocus = () => {
 		this.focusInput();
 		this.setState({
 			focused: true
 		});
-	}
+	};
 
 	onBlur = () => {
 		setTimeout(() => {
@@ -172,6 +179,21 @@ export default class XUIAutocompleter extends PureComponent {
 				});
 			}
 		}, 333);
+	};
+
+	renderPills = () => {
+		const {
+			disableWrapPills,
+			pills
+		} = this.props;
+		return disableWrapPills ? (
+			<div
+				className={`${ns}-autocompleter--trigger-nopillwrap`}
+				ref={nwpc => this.noWrapPillContainer = nwpc}
+			>
+				{pills}
+			</div>
+		) : pills;
 	}
 
 	render() {
@@ -188,28 +210,21 @@ export default class XUIAutocompleter extends PureComponent {
 			containerQaHook = `${props.qaHook}--container`;
 			dropdownQaHook = `${props.qaHook}--dropdown`;
 		}
+		const hasPills = props.pills != null && (props.pills.length > 0 || React.isValidElement(props.pills));
+		const textInputLeftElement = hasPills ? this.renderPills() : props.leftElement;
 
 		const containerClassNames = cn(
 			props.inputContainerClassName,
-			`${ns}-padding-left-xsmall`,
 			`${ns}-u-flex`,
 			{
-				[`${ns}-row-flex`]: !props.disableWrapPills,
+				[`${ns}-row-flex`]: hasPills && !props.disableWrapPills,
+				[`${ns}-padding-left-xsmall`]: hasPills
 			});
 
 		const inputClassNames = cn(
 			props.inputClassName,
-			`${ns}-padding-left-small`
+			{[`${ns}-padding-left-small`]: hasPills}
 		);
-
-		const leftElement = props.disableWrapPills ? (
-			<div
-				className={`${ns}-autocompleter--trigger-nopillwrap`}
-				ref={nwpc => this.noWrapPillContainer = nwpc}
-			>
-				{props.pills}
-			</div>
-		) : props.pills;
 
 		const trigger = (
 			<div
@@ -219,13 +234,13 @@ export default class XUIAutocompleter extends PureComponent {
 			>
 				<div
 					ref={p => this.placeholder = p}
-					className="xui-autocompleter--textinputplaceholder"
+					className={`${ns}-autocompleter--textinputplaceholder`}
 					aria-hidden
 				>
 					{props.placeholder}
 				</div>
 				<XUITextInput
-					leftElement={leftElement}
+					leftElement={textInputLeftElement}
 					rightElement={props.rightElement}
 					containerClassName={containerClassNames}
 					inputClassName={inputClassNames}
@@ -241,7 +256,7 @@ export default class XUIAutocompleter extends PureComponent {
 						maxLength: props.maxLength,
 						id: props.inputId,
 						style: {
-							minWidth: state.placeholderWidth
+							minWidth: state.inputWidth
 						}
 					}}
 				/>
@@ -269,9 +284,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const classNames = cn(
 			props.className,
-			{
-				[`${ns}-autocompleter--trigger-focus`]: state.focused
-			}
+			state.focused && `${ns}-autocompleter--trigger-focus`
 		);
 
 		return (
@@ -352,6 +365,9 @@ XUIAutocompleter.propTypes = {
 
 	/** Right element to render within the `XUITextInput` component */
 	rightElement: PropTypes.node,
+
+	/** Left element to render within the `XUITextInput` component. Should not be used together with the `pills` prop */
+	leftElement: PropTypes.node,
 
 	/** Callback for when the list opens */
 	onOpen: PropTypes.func,

@@ -14,13 +14,14 @@
 //
 // <!--?prettify lang=html?-->
 // ```html
-// <link rel="stylesheet" href="https://edge.xero.com/style/xui/13.1.0/xui.min.css"/>
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/13.2.0-beta.1/xui.min.css"/>
 // ```
 //
 // #### Sherlock
 //
 // You can use [Sherlock](https://github.dev.xero.com/Xero/Sherlock) to resolve the latest version of XUI for a given semver range.
 // A Sherlock manifest is available at `https://edge.xero.com/style/xui/sherlock.json`.
+// If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
 //
 // #### Add base classes to HTML template
 //
@@ -124,3 +125,50 @@
 // We encourage you to join the discussions on issues and pull requests. As the core of XUI evolves we are putting in support structures to make it easier to contribute. [CONTRIBUTING.md](#) will always contain the detailed information around the process to contribute to the project.
 //
 // Styleguide: Getting Started.Developing with XUI.4
+
+// Advanced usage
+//
+// XUI's CSS classes are namespaced with a `xui-` prefix. This can be a problem if you are building an application that needs to run on pages that may already contain some version of XUI.
+// Examples include the new header, the lifelong learning platform, and any addon that wants to use XUI without resorting to iframes.
+// To support these use-cases, XUI's CSS namespace is implemented as a variable (`$ns`) that can be changed if you bundle XUI yourself rather than using the main XUI CDN file.
+//
+// In your main SCSS file, set the `$ns` variable *before* you import XUI. And import XUI before you write any custom CSS.
+//
+// <!--?prettify lang=scss?-->
+// ```scss
+// $ns: "zooey"; // Replace zooey with your custom namespace
+// @import "@xero/xui/sass/xui"
+// // your custom CSS goes here
+// ```
+//
+// That takes care of the SCSS. If you use XUI's React components, you will also need to configure the new namespace in your JS.
+//
+// Create a new file in your project with the following code:
+//
+// <!--?prettify lang=js?-->
+// ```js
+// import {setXUIClassNamespace} from "@xero/xui/react/components/helpers/xuiClassNamespace";
+// setXUIClassNamespace('zooey'); // Replace zooey with your custom namespace
+// ```
+//
+// Then, import the file you created *before* you import any XUI file, or any custom component that imports XUI.
+// Your entry point file would be a great place for this.
+//
+// This is important because many of XUI's components cache class names, and those class names are determined when the
+// component is first imported. So if you call `setXUIClassNamespace` after XUI's components have been imported, then
+// only a few components will reflect the new namespace and you'll see unsupported and undefined behaviour.
+//
+// <!--?prettify lang=js?-->
+// ```js
+// import './setupXUIClassNamespace'; // Replace this with the name of the file you created
+// import MyComponent from './MyComponent';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+//
+// const appEl = document.getElementById('app');
+// ReactDOM.render(<MyComponent />, appEl);
+// ```
+//
+// Now, instead of `xui-button`, you'll have `zooey-button`, and that same class name will be used by the `<XUIButton />` component.
+//
+// Styleguide: Getting Started.Developing with XUI.5

@@ -36,7 +36,7 @@ storiesWithKnobs.add('Playground', () => {
 			viewBox={text('View Box', '0 0 30 30')}
 			title={text('Title', '')}
 			desc={text('Desc', '')}
-			role={text('Role', '')}
+			role={text('Role', undefined)}
 		/>
 	)
 }

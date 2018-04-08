@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from "./private/constants";
 
 export default function XUIToastActions({ className, children, qaHook }) {
-	const classNames = cn(className, 'xui-toast--actions');
+	const classNames = cn(className, `${baseClass}--actions`);
 	const newChildren = React.Children.count(children) > 2 ? children.slice(0, 2) : children;
 
 	return (

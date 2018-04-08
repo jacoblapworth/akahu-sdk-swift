@@ -1,12 +1,9 @@
-const rolloverCheckboxBaseClass = 'xui-rollovercheckbox';
+import {ns} from "../../helpers/xuiClassNamespace";
 
-const sizeClassNames = {
-	small: `${rolloverCheckboxBaseClass}-small`, // xui-rollovercheckbox-small
+export const baseClass = `${ns}-rollovercheckbox`;
+export const sizeClassNames = {
+	small: `${baseClass}-small`,
 	medium: '',
-	large: `${rolloverCheckboxBaseClass}-large`, // xui-rollovercheckbox-large
-	xlarge: `${rolloverCheckboxBaseClass}-xlarge`, // xui-rollovercheckbox-xlarge
+	large: `${baseClass}-large`,
+	xlarge: `${baseClass}-xlarge`,
 };
-
-module.exports = {
-	sizeClassNames
-}

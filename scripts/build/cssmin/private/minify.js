@@ -3,7 +3,7 @@ const { promisify } = require('util');
 const fs = require('fs');
 const chalk = require('chalk');
 const CleanCSS = require('clean-css');
-const compileXui = require('../../sass/xui');
+const compileXui = require('../../postcss/xui');
 const writeFileAsync = promisify(fs.writeFile);
 const readFileAsync = promisify(fs.readFile);
 

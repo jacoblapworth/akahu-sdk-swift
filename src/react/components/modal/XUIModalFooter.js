@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from './constants'
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default function XUIModalFooter({ className, children, defaultLayout, qaHook }) {
 	const classNames = cn(
-		'xui-modal--footer',
+		`${baseClass}--footer`,
 		className,
-		{ ['xui-padding-large'] : defaultLayout }
+		defaultLayout && `${ns}-padding-large`
 	);
 
 	return (

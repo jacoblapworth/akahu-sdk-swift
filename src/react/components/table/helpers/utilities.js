@@ -15,15 +15,15 @@ export const createCellLocationClasses = ({ columns, index, hasCheckbox, hasOver
 	const location = hasCheckbox ? index + 1 : index;
 	const isFirst = location === 0;
 	const isSecond = location === 1;
-	const issecondtolast = location === total - 1;
+	const isSecondToLast = location === total - 1;
 	const isLast = location === total;
 
 	switch (true) {
 		case isFirst: return cellPosition.first;
 		case isLast: return cellPosition.last;
-		case isSecond && issecondtolast: return `${cellPosition.second} ${cellPosition.secondtolast}`;
+		case isSecond && isSecondToLast: return `${cellPosition.second} ${cellPosition.secondtolast}`;
 		case isSecond: return cellPosition.second;
-		case issecondtolast: return cellPosition.secondtolast;
+		case isSecondToLast: return cellPosition.secondtolast;
 		default: return '';
 	}
 };

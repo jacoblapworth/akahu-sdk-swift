@@ -205,11 +205,11 @@ export default class XUIButton extends React.Component {
 			className,
 			variantClass,
 			SizeClassNames[size],
-			isDisabled ? `${ns}-button-is-disabled` : '',
-			isGrouped ? `${ns}-button-grouped`: '',
-			(isInverted && !isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) ? `${ns}-button-inverted` : '',
-			(isInverted && isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) ? `${ns}-button-borderless-inverted` : '',
-			minLoaderWidth ? `${ns}-button-min-loader-width` : ''
+			isDisabled && `${ns}-button-is-disabled`,
+			isGrouped && `${ns}-button-grouped`,
+			(isInverted && !isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) && `${ns}-button-inverted`,
+			(isInverted && isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) && `${ns}-button-borderless-inverted`,
+			minLoaderWidth && `${ns}-button-min-loader-width`
 		);
 
 		const clickHandler = function() {

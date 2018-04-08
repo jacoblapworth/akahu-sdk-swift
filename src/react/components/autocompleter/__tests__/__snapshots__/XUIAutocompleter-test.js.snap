@@ -32,14 +32,14 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid="baseAC--input"
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid="baseAC--input--input"
               defaultValue={undefined}
               disabled={undefined}
@@ -99,14 +99,14 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -125,6 +125,73 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
               }
               type={undefined}
               value="a"
+            />
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIAutocompleter should not add padding classes to the input when pills prop is an empty array 1`] = `
+<div
+  className=""
+  data-automationid={null}
+  id={undefined}
+  onBlur={[Function]}
+  onFocus={[Function]}
+>
+  <div
+    className="dropdown-toggled-wrapper"
+    data-automationid={null}
+    data-ref="toggled-wrapper"
+    onKeyDown={[Function]}
+  >
+    <div
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup={true}
+      className={undefined}
+      onClick={[Function]}
+      onFocus={null}
+      onKeyDown={[Function]}
+    >
+      <div
+        aria-hidden={true}
+        className="xui-autocompleter--textinputplaceholder"
+      />
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+      >
+        <label
+          className="xui-u-flex xui-textinput"
+          data-automationid={null}
+        >
+          <div
+            className="xui-u-flex xui-u-flex-grow"
+          >
+            <input
+              className="xui-textinput--input"
+              data-automationid={null}
+              defaultValue={undefined}
+              disabled={undefined}
+              id={undefined}
+              maxLength={undefined}
+              onBlurCapture={[Function]}
+              onChange={undefined}
+              onFocusCapture={[Function]}
+              placeholder={undefined}
+              rows={undefined}
+              style={
+                Object {
+                  "maxHeight": undefined,
+                  "minWidth": undefined,
+                }
+              }
+              type={undefined}
+              value={undefined}
             />
           </div>
         </label>
@@ -166,14 +233,14 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="test-class xui-padding-left-small xui-textinput--input"
+              className="test-class xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -233,14 +300,14 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -300,14 +367,14 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -369,14 +436,14 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -436,14 +503,14 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -503,14 +570,14 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}
@@ -570,14 +637,14 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput xui-textinput-is-disabled"
+          className="xui-u-flex xui-textinput xui-textinput-is-disabled"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={true}
@@ -637,14 +704,14 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         onKeyDown={[Function]}
       >
         <label
-          className="xui-padding-left-xsmall xui-u-flex xui-row-flex xui-textinput"
+          className="xui-u-flex xui-textinput"
           data-automationid={null}
         >
           <div
             className="xui-u-flex xui-u-flex-grow"
           >
             <input
-              className="xui-padding-left-small xui-textinput--input"
+              className="xui-textinput--input"
               data-automationid={null}
               defaultValue={undefined}
               disabled={undefined}

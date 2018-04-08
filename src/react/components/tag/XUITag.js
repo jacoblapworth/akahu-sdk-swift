@@ -3,12 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { variants } from './private/constants';
+import { baseClass, variants } from './private/constants';
 
 const XUITag = ({className, variant, qaHook, children}) =>
 	<span
 		className={cn(
-			'xui-tag',
+			baseClass,
 			className,
 			variants[variant]
 		)}

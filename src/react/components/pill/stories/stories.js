@@ -26,7 +26,7 @@ storiesWithKnobs.add('Playground', () => (
 		isInvalid={boolean('isInvalid', false)}
 		href={text('href', '')}
 		defaultLayout={boolean('defaultLayout', true)}
-		deleteButtonLabel={text('deleteButtonLabel', '')}
+		deleteButtonLabel={text('deleteButtonLabel', undefined)}
 		className={text('className', '')}
 		avatarProps={object('avatarProps', avatarProps)}
 	/>

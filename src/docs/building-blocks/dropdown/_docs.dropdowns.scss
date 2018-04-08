@@ -2,7 +2,7 @@
 // Dropdowns landing page
 //------------------------------------------------------------------------------
 
-// Dropdowns
+// Dropdown
 //
 // Teaser:
 // Used to reveal additional actions not present on the parent page.
@@ -11,7 +11,7 @@
 // Dropdowns are used to reveal additional actions not present on the parent page.
 // XUI provides the CSS as well as several React components for implementing each dropdown variant.
 //
-// Styleguide: Building Blocks.Dropdowns
+// Styleguide: Compounds.CollectingInput.Dropdowns
 
 // Anatomy
 //
@@ -49,7 +49,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.10
+// Styleguide: Compounds.CollectingInput.Dropdowns.10
 
 // Showing and hiding
 //
@@ -61,7 +61,7 @@
 // xui-dropdown-is-opening: Animates dropdown into view at narrow viewports
 // xui-dropdown-is-closing: Animates dropdown out of view at narrow viewports
 //
-// Styleguide: Building Blocks.Dropdowns.11
+// Styleguide: Compounds.CollectingInput.Dropdowns.11
 
 // Width
 //
@@ -71,7 +71,7 @@
 // Definitions:
 // Default: 140px min-width: No class needed
 //
-// Styleguide: Building Blocks.Dropdowns.12
+// Styleguide: Compounds.CollectingInput.Dropdowns.12
 
 // Max width
 //
@@ -87,7 +87,7 @@
 // Large: 300px max-width: `xui-dropdown-large`
 // xlarge: 380px max-width: `xui-dropdown-xlarge`
 //
-// Styleguide: Building Blocks.Dropdowns.12.1
+// Styleguide: Compounds.CollectingInput.Dropdowns.12.1
 
 // Fixed width
 //
@@ -102,7 +102,7 @@
 // Fixed Large: 300px width: `xui-dropdown-fixed-large`
 // Fixed xLarge: 380px width: `xui-dropdown-fixed-xlarge`
 //
-// Styleguide: Building Blocks.Dropdowns.12.2
+// Styleguide: Compounds.CollectingInput.Dropdowns.12.2
 
 // Auto width
 //
@@ -113,13 +113,13 @@
 //
 // If using React, an additional property is available that detects the width of the trigger and applies this to the dropdown programatically.
 //
-// Styleguide: Building Blocks.Dropdowns.12.3
+// Styleguide: Compounds.CollectingInput.Dropdowns.12.3
 
 // Positioning
 //
 // By default, dropdowns are positioned to the left and just below their trigger.
 //
-// Styleguide: Building Blocks.Dropdowns.14
+// Styleguide: Compounds.CollectingInput.Dropdowns.14
 
 // Custom positioning
 //
@@ -135,7 +135,7 @@
 // xui-dropdown-positionabove: Force up
 // xui-dropdown-positionunder: Force below
 //
-// Styleguide: Building Blocks.Dropdowns.14.1
+// Styleguide: Compounds.CollectingInput.Dropdowns.14.1
 
 // Auto positioning
 //
@@ -144,7 +144,7 @@
 //
 // If using React, positioning is handled automatically, and dropdowns are placed depending on where the most space is available when triggered.
 //
-// Styleguide: Building Blocks.Dropdowns.14.2
+// Styleguide: Compounds.CollectingInput.Dropdowns.14.2
 
 // Height
 //
@@ -155,7 +155,7 @@
 // Definitions:
 // Default: 80vh max-height: No class needed
 //
-// Styleguide: Building Blocks.Dropdowns.15
+// Styleguide: Compounds.CollectingInput.Dropdowns.15
 
 // Full height
 //
@@ -168,7 +168,7 @@
 // Classes:
 // xui-dropdown-fullheight: Apply to dropdown
 //
-// Styleguide: Building Blocks.Dropdowns.15.1
+// Styleguide: Compounds.CollectingInput.Dropdowns.15.1
 
 // Auto height
 //
@@ -178,7 +178,7 @@
 // If using React, dropdown height is calculated automatically based on the remaining space above or below the trigger.
 // Content scrolls internally if it exceeds this height.
 //
-// Styleguide: Building Blocks.Dropdowns.15.2
+// Styleguide: Compounds.CollectingInput.Dropdowns.15.2
 
 // Headers and footers
 //
@@ -269,7 +269,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Dropdowns.16
+// Styleguide: Compounds.CollectingInput.Dropdowns.16
 
 // Accessibility
 //
@@ -280,4 +280,4 @@
 // Depending on the type of dropdown, selecting an item may or may not dismiss it, as in some cases multiple options may be selected.
 // Refer to the [React implementation](https://github.dev.xero.com/pages/UXE/xui/docs/11.0.3/react/#dropdowns) when in doubt.
 //
-// Styleguide: Building Blocks.Dropdowns.30
+// Styleguide: Compounds.CollectingInput.Dropdowns.30

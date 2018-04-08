@@ -20,11 +20,18 @@ import centered from '@storybook/addon-centered';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const buildColumns = (widths) => {
-	const children = [];
-	widths.forEach((width, index) => {
-		children.push(<XUIColumn key={index} gridColumns={width} className="xui-padding-small" style={{backgroundColor: "RGBA(255,255,255,0.5)"}}>Content of a column with width {width}, here.</XUIColumn>)
+	return widths.map((width, index) => {
+		return (
+			<XUIColumn
+				key={index}
+				gridColumns={width}
+				className="xui-padding-small"
+				style={{backgroundColor: "RGBA(255,255,255,0.5)"}}
+			>
+				Content of a column with width {width}, here.
+			</XUIColumn>
+		);
 	});
-	return children;
 };
 
 const exampleTabs = (

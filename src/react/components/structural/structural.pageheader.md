@@ -7,7 +7,7 @@
 
 The `XUIPageheader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumb`](#xuibreadcrumb), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
 
-### Examples
+#### Examples
 ```
 const XUIPageheader = require('../structural/XUIPageheader').default;
 

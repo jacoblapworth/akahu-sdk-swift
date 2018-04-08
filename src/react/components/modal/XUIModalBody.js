@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from './constants';
 
 export default function XUIModalBody({ className, children, qaHook }) {
 	const classNames = cn(
-		'xui-modal--body',
+		`${baseClass}--body`,
 		className
 	);
 

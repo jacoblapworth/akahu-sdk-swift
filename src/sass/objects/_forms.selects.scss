@@ -1,14 +1,12 @@
 @import "../vars";
 @import "../mixins";
 
-
-
 .#{$ns}-select {
 	position: relative;
 }
 
 .#{$ns}-select--control {
-	@extend %#{$ns}-commoninput;
+	@include xui-commoninput;
 
 	cursor: pointer;
 	padding-right: $xui-s-2xlarge;
@@ -36,6 +34,7 @@
 }
 
 .#{$ns}-select--button {
+	@include xui-commoninput;
 	background-color: transparent;
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
@@ -48,7 +47,6 @@
 	text-align: left;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	@extend %#{$ns}-commoninput;
 }
 
 .#{$ns}-dropdownmenu-select {

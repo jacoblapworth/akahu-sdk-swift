@@ -2,26 +2,12 @@
 const path = require('path');
 const { taskRunner, rootDirectory, taskRunnerReturns } = require('../helpers');
 const { succeed, fail } = taskRunnerReturns;
-const sassXui = require(path.resolve(
-	rootDirectory,
-	'scripts',
-	'build',
-	'sass',
-	'xui.js'
-));
 const sassKss = require(path.resolve(
 	rootDirectory,
 	'scripts',
 	'build',
 	'sass',
 	'kss.js'
-));
-const postcssXui = require(path.resolve(
-	rootDirectory,
-	'scripts',
-	'build',
-	'postcss',
-	'xui.js'
 ));
 const cssminXui = require(path.resolve(
 	rootDirectory,
@@ -64,7 +50,7 @@ const buildUmd = require(path.resolve(
 
 function build() {
 	return taskRunner(taskSpinner => {
-		return Promise.all([sassXui(), sassKss(), cssminXui(), postcssXui()])
+		return Promise.all([sassKss(), cssminXui()])
 			.then(() => {
 				taskSpinner.info('Done with basic build promises');
 				return Promise.all([

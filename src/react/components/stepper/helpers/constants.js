@@ -1,4 +1,6 @@
-const NAME_SPACE = 'xui-stepper';
+import {ns} from "../../helpers/xuiClassNamespace";
+
+const NAME_SPACE = `${ns}-stepper`;
 const STACKED = 'stacked';
 const SIDE_BAR = 'sidebar';
 const INLINE = 'inline';

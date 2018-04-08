@@ -10,6 +10,7 @@ import {
 	throttleToFrame,
 } from './private/helpers';
 import { compose } from '../helpers/compose';
+import {baseClass} from "./private/constants";
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -321,7 +322,7 @@ export default class DropDownToggled extends PureComponent {
 			!ddt.state.isHidden
 			&& ((dropdown == null || !dropdown.contains(event.target))
 			&& (trigger == null || !trigger.contains(event.target))
-			|| event.target.classList.contains('xui-dropdown--mask'))
+			|| event.target.classList.contains(`${baseClass}--mask`))
 		) {
 			ddt.closeDropDown();
 		}

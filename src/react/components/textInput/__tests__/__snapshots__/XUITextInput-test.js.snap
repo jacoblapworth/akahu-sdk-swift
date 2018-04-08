@@ -46,7 +46,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       data-automationid={undefined}
     >
       <div
-        className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
         <svg
@@ -65,7 +65,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-u-flex xui-u-flex-grow"
       >
         <input
-          className="xui-textinput--input xui-textinput-has-left-element"
+          className="xui-textinput--input xui-padding-left-none"
           data-automationid={undefined}
           defaultValue={undefined}
           disabled={undefined}
@@ -97,7 +97,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-u-flex xui-u-flex-grow"
       >
         <input
-          className="xui-textinput--input xui-textinput-has-right-element"
+          className="xui-textinput--input xui-padding-right-none"
           data-automationid={undefined}
           defaultValue={undefined}
           disabled={undefined}
@@ -115,7 +115,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           value={undefined}
         />
         <div
-          className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+          className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
           data-automationid={undefined}
         >
           <svg
@@ -142,7 +142,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       data-automationid={undefined}
     >
       <div
-        className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
         data-automationid={undefined}
       >
         <svg
@@ -161,7 +161,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         className="xui-u-flex xui-u-flex-grow"
       >
         <input
-          className="xui-textinput--input xui-textinput-has-left-element xui-textinput-has-right-element"
+          className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
           data-automationid={undefined}
           defaultValue={undefined}
           disabled={undefined}
@@ -179,7 +179,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           value={undefined}
         />
         <div
-          className="xui-textinput--side-element xui-u-flex-align-start xui-textinput--side-element-icon"
+          className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
           data-automationid={undefined}
         >
           <svg

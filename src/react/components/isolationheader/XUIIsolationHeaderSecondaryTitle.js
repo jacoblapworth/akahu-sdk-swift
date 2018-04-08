@@ -1,17 +1,18 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class XUIIsolationHeaderSecondaryTitle extends PureComponent {
 	render() {
 		const {children, className, qaHook, title} = this.props;
 		const classNames = cn(
 			className,
-			'xui-heading',
-			'xui-text-deemphasis',
-			'xui-margin-vertical-none',
-			'xui-padding-right-small',
-			'xui-text-truncated'
+			`${ns}-heading`,
+			`${ns}-text-deemphasis`,
+			`${ns}-margin-vertical-none`,
+			`${ns}-padding-right-small`,
+			`${ns}-text-truncated`
 		);
 		return (
 			<h2 title={title} className={classNames} data-automationid={qaHook}>

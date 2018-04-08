@@ -4,9 +4,7 @@
 //
 // Introduction: How to use page-specific navigation.
 //
-// Components: Pageheader
-//
-// Styleguide: Building Blocks.Page Header
+// Styleguide: Compounds.Navigation.Page header
 
 // Best practice
 //
@@ -17,7 +15,7 @@
 // Warning: When content is long, provide an alternative layout for narrow viewports
 // Dont: Don't use page headers for full screen interfaces, use an isolation mode instead
 //
-// Styleguide: Building Blocks.Page Header.1
+// Styleguide: Compounds.Navigation.Page header.1
 
 // Anatomy
 //
@@ -38,7 +36,7 @@
 //  </div>
 // </header>
 //
-// Styleguide: Building Blocks.Page Header.2
+// Styleguide: Compounds.Navigation.Page header.2
 
 // Layout
 //
@@ -49,7 +47,7 @@
 // xui-page-width-standard: Sets a max width of 940px and centers horizontally
 // xui-page-width-large: Sets a max width of 1160px and centers horizontally
 //
-// Styleguide: Building Blocks.Page Header.3
+// Styleguide: Compounds.Navigation.Page header.3
 
 // Actions
 //
@@ -78,7 +76,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Building Blocks.Page Header.4
+// Styleguide: Compounds.Navigation.Page header.4
 
 // Breadcrumbs
 //
@@ -87,6 +85,7 @@
 // Classes:
 // xui-pageheading--breadcrumbs: Breadcrumb container
 // xui-breadcrumb: Breadcrumb items
+// xui-breadcrumb-arrow: Breadcrumb items that contain only an arrow icon
 // xui-breadcrumb--link: Breadcrumb links
 // xui-breadcrumb--icon: Icons between breadcrumbs
 //
@@ -99,13 +98,13 @@
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Settings</a>
 //       </li>
-//       <li class="xui-breadcrumb">
+//       <li class="xui-breadcrumb-arrow">
 //         <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
 //       </li>
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Permissions</a>
 //       </li>
-//       <li class="xui-breadcrumb">
+//       <li class="xui-breadcrumb-arrow">
 //       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
 //       </li>
 //       <li class="xui-breadcrumb">
@@ -115,7 +114,7 @@
 //   </div>
 // </header>
 //
-// Styleguide: Building Blocks.Page Header.5
+// Styleguide: Compounds.Navigation.Breadcrumbs
 
 // Tabs
 //
@@ -152,4 +151,4 @@
 //   </div>
 // </header>
 //
-// Styleguide: Building Blocks.Page Header.6
+// Styleguide: Compounds.Navigation.Tabs

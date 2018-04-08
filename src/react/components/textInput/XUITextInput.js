@@ -4,8 +4,9 @@ import cn from 'classnames';
 import autosize from 'autosize';
 
 import { compose } from '../helpers/compose';
-import { baseClass } from './private/constants';
+import { inputBaseClass } from './private/constants';
 import { calculateMaxHeight } from '../textarea/helpers';
+import {ns} from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({isMultiline, rows}) =>
@@ -14,7 +15,7 @@ const shouldAutomaticallyResize = ({isMultiline, rows}) =>
 class XUITextInput extends PureComponent {
 	state = {
 		hasFocus: false
-	}
+	};
 
 	componentDidMount() {
 		const { maxRows } = this.props;
@@ -39,7 +40,7 @@ class XUITextInput extends PureComponent {
 
 	componentDidUpdate() {
 		if (shouldAutomaticallyResize(this.props)) {
-			var evt = document.createEvent('Event');
+			const evt = document.createEvent('Event');
 			evt.initEvent('autosize:update', true, false);
 			this.input.dispatchEvent(evt);
 		}
@@ -49,13 +50,13 @@ class XUITextInput extends PureComponent {
 		this.setState({
 			hasFocus: true
 		}, () => this.props.onFocus && this.props.onFocus(e))
-	}
+	};
 
 	onBlur = e => {
 		this.setState({
 			hasFocus: false
 		}, () => this.props.onBlur && this.props.onBlur(e))
-	}
+	};
 
 	render(){
 		const input = this;
@@ -94,44 +95,38 @@ class XUITextInput extends PureComponent {
 
 		const message = (validationMessage || hintMessage) && (
 			<div className={cn(
-				'xui-validation',
-				'xui-validation-layout',
-				{ 'xui-validation-is-invalid': isInvalid && validationMessage }
+				`${ns}-validation`,
+				`${ns}-validation-layout`,
+				(isInvalid && validationMessage) && `${ns}-validation-is-invalid`
 			)}
 			data-automationid={`${qaHook}--message`}>{(isInvalid && validationMessage) ? validationMessage : hintMessage}</div>
 		);
 
 		const classes = cn (
 			inputClassName,
-			`${baseClass}--input`,
-			{
-				[`${baseClass}-has-left-element`] : !!leftElement,
-				[`${baseClass}-has-right-element`] : !!rightElement,
-				'xui-u-resize-none': isMultiline && !isManuallyResizable,
-				'xui-u-resize-vertical': isMultiline && isManuallyResizable
-			}
+			`${inputBaseClass}--input`,
+			leftElement && `${ns}-padding-left-none`,
+			rightElement && `${ns}-padding-right-none`,
+			(isMultiline && !isManuallyResizable) && `${ns}-u-resize-none`,
+			(isMultiline && isManuallyResizable) && `${ns}-u-resize-vertical`
 		);
 
 		const rootClasses = cn(
 			fieldClassName,
-			`${baseClass}wrapper`,
-			{
-				'xui-field-layout': isFieldLayout
-			}
+			`${inputBaseClass}wrapper`,
+			isFieldLayout && `${ns}-field-layout`
 		);
 
 		const baseClasses = cn(
 			containerClassName,
-			baseClass,
-			{
-				[`${baseClass}-is-invalid`] : isInvalid,
-				[`${baseClass}-borderless`] : isBorderlessTransparent || isBorderlessSolid,
-				[`${baseClass}-borderless-inverted`] : isInverted,
-				[`${baseClass}-borderless-transparent`] : isBorderlessTransparent,
-				[`${baseClass}-borderless-solid`] : isBorderlessSolid,
-				[`${baseClass}-focus`]: hasFocus,
-				[`${baseClass}-is-disabled`]: isDisabled,
-			}
+			inputBaseClass,
+			isInvalid && `${inputBaseClass}-is-invalid`,
+			(isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
+			isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
+			isBorderlessSolid && `${inputBaseClass}-borderless-solid`,
+			isInverted && `${inputBaseClass}-borderless-inverted`,
+			hasFocus && `${inputBaseClass}-focus`,
+			isDisabled && `${inputBaseClass}-is-disabled`
 		);
 
 		const InputEl = isMultiline ? 'textarea' : 'input';
@@ -145,7 +140,7 @@ class XUITextInput extends PureComponent {
 			<div className={rootClasses} onKeyDown={onKeyDown}>
 				<label className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
-					<div className="xui-u-flex xui-u-flex-grow">
+					<div className={`${ns}-u-flex ${ns}-u-flex-grow`}>
 						<InputEl
 							type={type}
 							value={value}

@@ -42,7 +42,7 @@ ESLint helps us catch common errors that cause bugs in many programs. XUI extend
 
 ## SCSS
 
-All classes must be prefixed with `xui-`.
+All classes must be prefixed with the namespace variable (which resolves to `xui` by default), e.g. `.#{$ns}-component`
 
 Classes should follow the format:
 
@@ -90,6 +90,18 @@ See: [How nth-child works](https://css-tricks.com/how-nth-child-works/) and
 If you used `:first-child` to target the first item and a more general class selector for all
 other items, it is likely you would need to undo some styles for the `:first-child`, which would
 violate our conventions.
+
+## React Components
+
+When developing components that use XUI CSS classes, use the namespace variable instead of hard-coding `xui`:
+
+```
+import {ns} from 'src/react/components/helpers/xuiClassNamespace'
+
+export default function MyComponent({children}) {
+	return <div className={`${ns}-container`}>{children}</div>
+}
+```
 
 ## Unit Tests
 
@@ -169,19 +181,11 @@ For the UMD build we want to bundle everything up and attach it to the `window` 
 
 ### npm scripts
 
-`npm run build:umd` will create a new UMD build of all the React components at `umd/assets/xui.umd.js`. It uses several other tasks to accomplish individual parts of this goal.
-
-`npm run clean:umd` removes any artifacts created by a previous UMD build.
-
-`npm run build:umd:entry` executes the aforementioned `umd/createEntryPoint.js` script to create the UMD entry point for the library.
-
-`npm run build:umd:webpack` then uses webpack to build `src/react/umd.js` as a web library called XUI.
-
-`npm run clean:umd:post-build` is the last script to run and gets rid of the now unnecessary `src/react/umd.js` to make sure that other npm scripts don't accidentally pick it up as a valid component.
+`npm run build` will create a new UMD build of all the React components at `dist/umd/assets/xui.umd.js`.
 
 ### Testing a UMD build
 
-A simple test page exists at `umd/index.html` which will load up the build UMD file attempt to use the global library at `window.XUI` to show a button on the page. If you want to go a bit further on that test, feel free (the JavaScript is inline on the page).
+A simple test page exists at `dist/umd/index.html` which will load up the build UMD file attempt to use the global library at `window.XUI` to show a button on the page. If you want to go a bit further on that test, feel free (the JavaScript is inline on the page).
 
 # Making contributions and releases
 

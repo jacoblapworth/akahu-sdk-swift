@@ -1,11 +1,11 @@
-const modalSizes = {
-	small: 'xui-modal-width-small',
-	medium: 'xui-modal-width-medium',
-	large: 'xui-modal-width-large',
-	xlarge: 'xui-modal-width-xlarge',
-	fullscreen: 'xui-modal-fullscreen'
-};
+import {ns} from "../helpers/xuiClassNamespace";
 
-module.exports = {
-	modalSizes
-}
+export const baseClass = `${ns}-modal`;
+
+export const modalSizes = {
+	small: `${baseClass}-width-small`,
+	medium: `${baseClass}-width-medium`,
+	large: `${baseClass}-width-large`,
+	xlarge: `${baseClass}-width-xlarge`,
+	fullscreen: `${baseClass}-fullscreen`
+};

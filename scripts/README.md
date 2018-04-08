@@ -2,7 +2,7 @@
 
 The purpose of this directory is to house a set of useful, simple, node utilities that allow us to easily automate some of the more common build and operational tasks we often need to do with our code-base.
 
-Each script should be reasonably self explanatory in the task they perform by looking at the code, some more complex tasks may include an associated README.md file to help explain the reasoning behind them.
+You'll find a description of each task at the bottom of this document.
 
 ## How do you use these scripts?
 
@@ -28,10 +28,10 @@ If you find yourself in need of automating a task in the code-base, you may add 
 
 This was created originally to replace an older, aging Grunt pipeline. Grunt was seeing less maintenance (not necessarily a bad thing) over time and the extra reliance of having a task runner, when we could quite easily achieve the same / similar by replicating and replacing with node scripts was something the team decided to do. So we embarked on this project in Feb 2018 to switch away from Grunt completely.
 
-## Script checklist (async conversion)
+## Script checklist
 
 #### backstop
-- [x] approve.js
+- approve.js : Approves screenshot comparison changes, in relation to visual regression testing. You would typically run this script manually.
 
 #### build
 - [x] babel.js
@@ -41,11 +41,10 @@ This was created originally to replace an older, aging Grunt pipeline. Grunt was
 - [x] styleguidist.js
 - [x] umd_webpack.js
 ##### cssmin
-- [x] index.js
-- [x] private/minify.js
+- index.js : Builds the XUI css files, then minifies the core distributable
 ##### kss
-- [x] index.js
-- [x] tmp.js
+- index.js : Creates the KSS site, and outputs it to the `dist/docs` directory
+- tmp.js : Outputs some documentation around tokens, into the `src/sass/tmp` directory
 ##### postcss
 - [x] doPostCss.js
 - [x] kss.js

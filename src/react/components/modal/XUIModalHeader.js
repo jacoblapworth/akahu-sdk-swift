@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from './constants';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default function XUIModalHeader({ className, children, defaultLayout, qaHook }) {
 	const classNames = cn(
-		'xui-modal--header',
-		'xui-modal--heading',
-		{ 'xui-padding-left-large': defaultLayout },
+		`${baseClass}--header`,
+		`${baseClass}--heading`,
+		defaultLayout && `${ns}-padding-left-large`,
 		className
 	);
 	return (

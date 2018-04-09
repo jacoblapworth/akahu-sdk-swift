@@ -1,4 +1,4 @@
-// Text Inputs
+// Text Input
 //
 //
 // Teaser: Standard and special purpose inputs for text and search
@@ -9,7 +9,7 @@
 //
 // Weight: -10
 //
-// Styleguide: Building Blocks.Forms.Inputs
+// Styleguide: Building Blocks.Controls.TextInput
 
 // Standard inputs
 //
@@ -34,7 +34,7 @@
 // Markup:
 // <input class="xui-input" type="text" placeholder="Standard Input" aria-label="Standard input"/>
 //
-// Styleguide: Building Blocks.Forms.Inputs.1
+// Styleguide: Building Blocks.Controls.TextInput.1
 
 
 
@@ -52,7 +52,7 @@
 // Markup:
 // <textarea class="xui-input xui-u-resize-none" aria-label="Large text area input" placeholder="Standard textarea"></textarea>
 //
-// Styleguide: Building Blocks.Forms.Inputs.2
+// Styleguide: Building Blocks.Controls.TextInput.2
 
 
 
@@ -84,7 +84,7 @@
 //     </div>
 //   </div>
 //
-// Styleguide: Building Blocks.Forms.Inputs.4
+// Styleguide: Building Blocks.Controls.TextInput.4
 
 
 
@@ -117,7 +117,7 @@
 //  <div class="xui-panel" style="height: 5rem; margin: 1px -20px -20px 1px"></div>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Inputs.5
+// Styleguide: Building Blocks.Controls.TextInput.5
 
 
 // Inverted inputs
@@ -149,13 +149,13 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Inputs.6
+// Styleguide: Building Blocks.Controls.TextInput.6
 
 
 // Adding icons
 //
 //
-// Styleguide: Building Blocks.Forms.Inputs.7
+// Styleguide: Building Blocks.Controls.TextInput.7
 
 // Content prompts
 //
@@ -212,7 +212,7 @@
 //     aria-label="Twitter username"/>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Inputs.7.1
+// Styleguide: Building Blocks.Controls.TextInput.7.1
 
 // Indicating actions
 //
@@ -257,7 +257,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Inputs.7.2
+// Styleguide: Building Blocks.Controls.TextInput.7.2
 
 
 // Implementation
@@ -277,4 +277,4 @@
 // xui-input--iconwrapper-twitter: Twitter background color for icon wrapper
 // xui-input--iconwrapper-linkedin: LinkedIn background color for icon wrapper
 //
-// Styleguide: Building Blocks.Forms.Inputs.7.9
+// Styleguide: Building Blocks.Controls.TextInput.7.9

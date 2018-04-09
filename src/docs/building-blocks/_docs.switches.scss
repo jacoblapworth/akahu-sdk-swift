@@ -1,4 +1,4 @@
-// Switches
+// Switch
 //
 // Teaser: Used for binary decisions.
 //
@@ -6,20 +6,20 @@
 //
 // Introduction: Switches are used to make significant binary decisions.
 //
-// Styleguide: Building Blocks.Switch
+// Styleguide: Building Blocks.Controls.Switch
 
 // Best practice
 //
-// Tips: 
+// Tips:
 // Do: Use switches to turn a single option on or off
 // Warning: Switches should have immediate effect, avoid using in combination with a submit button
 // Warning: When creating forms, we recommend using toggles or checkboxes instead
 //
-// Styleguide: Building Blocks.Switch.2
+// Styleguide: Building Blocks.Controls.Switch.2
 
 // Anatomy
 //
-// To create a checkbox, use the following classes in combination with a native checkbox input. 
+// To create a checkbox, use the following classes in combination with a native checkbox input.
 // To turn the switch on, simply add the `checked` attribute to the input.
 //
 // Classes:
@@ -37,10 +37,10 @@
 //   <span class="xui-switch--control"></span>
 // </label>
 //
-// Styleguide: Building Blocks.Switch.3
+// Styleguide: Building Blocks.Controls.Switch.3
 
 // Disabling
-// 
+//
 // To disable a switch, add the following global modifier.
 // Make sure to also add the `disabled` attribute to the input, to prevent mouse and keyboard focus.
 //
@@ -57,13 +57,13 @@
 //   <span class="xui-switch--control"></span>
 // </label>
 //
-// Styleguide: Building Blocks.Switch.4
+// Styleguide: Building Blocks.Controls.Switch.4
 
 // Additional classes
 //
 // Flag: Deprecated
-// 
+//
 // Classes:
 // xui-switch--labeltext: Use typography presets and utility classes instead
 //
-// Styleguide: Building Blocks.Switch.50
+// Styleguide: Building Blocks.Controls.Switch.50

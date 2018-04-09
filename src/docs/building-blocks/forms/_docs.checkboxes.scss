@@ -1,4 +1,4 @@
-// Checkboxes
+// Checkbox
 //
 // Teaser: Select multiple items from a range of options
 //
@@ -9,7 +9,7 @@
 //
 // Components: Checkbox
 //
-// Styleguide: Building Blocks.Forms.Checkboxes
+// Styleguide: Building Blocks.Controls.Checkbox
 
 // Inline Checkboxes
 //
@@ -35,7 +35,7 @@
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.1
+// Styleguide: Building Blocks.Controls.Checkbox.1
 
 
 
@@ -64,7 +64,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.2
+// Styleguide: Building Blocks.Controls.Checkbox.2
 
 
 
@@ -81,7 +81,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.2.2
+// Styleguide: Building Blocks.Controls.Checkbox.2.2
 
 // Single item
 //
@@ -95,7 +95,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.2.3
+// Styleguide: Building Blocks.Controls.Checkbox.2.3
 
 // Order
 //
@@ -115,7 +115,7 @@
 //   <span class="xui-styledcheckboxradio--label">Milk</span>
 // </label>
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.3
+// Styleguide: Building Blocks.Controls.Checkbox.3
 
 
 // Custom icons
@@ -159,7 +159,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.4
+// Styleguide: Building Blocks.Controls.Checkbox.4
 
 
 // Implementation
@@ -168,7 +168,7 @@
 //
 // The indeterminate state, for showing only a subset of items are selected, is not exposed in HTML so needs to be [set with JavaScript](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate).
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.10
+// Styleguide: Building Blocks.Controls.Checkbox.10
 
 // Adding custom icons as checkbox states
 //
@@ -185,7 +185,7 @@
 //
 // Make sure to use `role="presentation"` on each `<use>` element for greater accessibility.
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.10.1
+// Styleguide: Building Blocks.Controls.Checkbox.10.1
 
 // Class list
 //
@@ -200,4 +200,4 @@
 // xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of an icon checkbox (not applicable to radios)
 // xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
 //
-// Styleguide: Building Blocks.Forms.Checkboxes.50
+// Styleguide: Building Blocks.Controls.Checkbox.50

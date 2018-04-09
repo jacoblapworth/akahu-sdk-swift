@@ -2,13 +2,13 @@
 
 // Steps
 //
-// Flag: Under review
+// Flag: Deprecated
 //
 // Teaser: Creating a step by step process
 //
-// Introduction: Steps are used to break up linear flows into more manageable sections.
+// Introduction: Please use the stepper Componentes and classes
 //
-// Styleguide: Building Blocks.Steps
+// Styleguide: Compounds.Navigation.Stepper.4
 
 // Best practice
 //
@@ -18,7 +18,7 @@
 // Warning: Avoid validating across multiple steps, isolate to each step instead
 // Warning: Avoid steps for non-linear flows, use a sidebar instead
 //
-// Styleguide: Building Blocks.Steps.1
+// Styleguide: Compounds.Navigation.Stepper.4.1
 
 // Anatomy
 //
@@ -29,7 +29,7 @@
 // xui-steps: Container for a group of steps
 // xui-steps-interactive: Modifier to provide interactive styling
 //
-// Styleguide: Building Blocks.Steps.2
+// Styleguide: Compounds.Navigation.Stepper.4.2
 
 // Steps
 //
@@ -59,7 +59,7 @@
 //    </ol>
 // </nav>
 //
-// Styleguide: Building Blocks.Steps.3
+// Styleguide: Compounds.Navigation.Stepper.4.3
 
 // xui-step-is-complete: Modifier for a completed step
 // xui-step-is-selected: Modifier for the current step
@@ -90,7 +90,7 @@
 //    </ol>
 // </nav>
 //
-// Styleguide: Building Blocks.Steps.4
+// Styleguide: Compounds.Navigation.Stepper.4.4
 
 .#{$ns}-steps {
 	@include xui-listreset;

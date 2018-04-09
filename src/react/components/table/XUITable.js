@@ -280,7 +280,7 @@ XUITable.propTypes = {
 	// Interaction.  //
 	// - - - - - - - //
 
-	/** A function that conditionally adds a callback for rows that need an interaction. */
+	/** A function that conditionally returns a click handler for rows that need an interaction or a falsey value for rows that do not. Check the React docs under Tables > Interactions for an example. */
 	onRowClick: PropTypes.func,
 
 	// - - - - - - //

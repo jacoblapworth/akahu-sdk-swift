@@ -6,6 +6,8 @@
 </div>
 
 `XUIIsolationHeader` replaces the standard global header for tasks that are part of a focused workflow.
+See the [implementation details section in the XUI docs](../section-building-blocks-isolation-header.html#compounds-navigation-isolation-header-4-1)
+for behavioural aspects.
 
 ## Examples
 

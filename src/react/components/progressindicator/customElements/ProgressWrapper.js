@@ -38,7 +38,7 @@ const ProgressWrapper = (props) => {
 				? (<XUITooltip
 						id={toolTipId}
 						qaHook={qaHook && `${qaHook}-tooltip`}
-						wrapperClassName={`${NAME_SPACE}-tooltip`}
+						wrapperClassName={`${NAME_SPACE}--tooltip`}
 						trigger={children(props)}>
 						{toolTipMessage}
 					</XUITooltip>)

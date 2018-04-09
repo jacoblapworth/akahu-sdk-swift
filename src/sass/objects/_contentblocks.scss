@@ -1,13 +1,13 @@
 @import "../vars";
 @import "../mixins";
 
-// Content blocks
+// Content block
 //
 // Teaser: Top-level views of detailed sub pages.
 //
 // Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
 //
-// Styleguide: Compounds.DisplayingData.Content blocks
+// Styleguide: Compounds.DisplayingData.ContentBlock
 
 // Anatomy
 //
@@ -23,7 +23,7 @@
 // xui-padding-: Utilities to set the desired spacing
 // xui-u-flex-: Utilities to set the desired layout
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.1
+// Styleguide: Compounds.DisplayingData.ContentBlock.1
 
 // Rows
 //
@@ -35,7 +35,7 @@
 // xui-text-align-right: Apply to pinned values
 // xui-textcolor-muted: Apply to secondary information
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2
+// Styleguide: Compounds.DisplayingData.ContentBlock.2
 
 // Standard
 //
@@ -69,7 +69,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.1
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.1
 
 // With secondary info
 //
@@ -106,7 +106,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.2
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.2
 
 // With bulk select
 //
@@ -147,7 +147,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.3
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.3
 
 // With avatar
 //
@@ -185,7 +185,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.4
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.4
 
 // With pinned value
 //
@@ -222,7 +222,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.5
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.5
 
 // With action
 //
@@ -259,7 +259,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.6
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.6
 
 // With sentiment
 //
@@ -297,7 +297,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.7
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.7
 
 
 // Headers
@@ -310,7 +310,7 @@
 // xui-text-deemphasis: Apply to numerical values
 // xui-text-align-right: Apply to pinned values
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3
+// Styleguide: Compounds.DisplayingData.ContentBlock.3
 
 // Standard
 //
@@ -333,7 +333,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.1
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.1
 
 // With numerical value
 //
@@ -357,7 +357,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.2
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.2
 
 // With pinned value
 //
@@ -382,7 +382,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.3
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.3
 
 
 // With bulk select
@@ -415,7 +415,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.4
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.4
 
 // With avatar
 //
@@ -443,7 +443,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.5
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.5
 
 // Additional classes
 //
@@ -454,7 +454,7 @@
 // xui-contentblock--item-negative: This style is no longer supported
 // xui-contentblock--item-selected: This style is no longer supported
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.4
+// Styleguide: Compounds.DisplayingData.ContentBlock.4
 
 .#{$ns}-contentblock {
 	border-collapse: collapse;
@@ -494,7 +494,7 @@
 }
 
 
-// Tables
+// Table
 //
 // Teaser: Used to compare, contrast and sort large amounts of data.
 //

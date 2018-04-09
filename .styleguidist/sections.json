@@ -61,6 +61,11 @@
 						"name": "Actions",
 						"components": "../src/react/components/structural/XUIActions.js",
 						"content": "../src/react/components/structural/structural.actions.md"
+					},
+					{
+						"name": "Overview Block",
+						"components": "../src/react/components/structural/XUIOverviewBlock.js",
+						"content": "../src/react/components/structural/structural.overviewblock.md"
 					}
 				]
 			},

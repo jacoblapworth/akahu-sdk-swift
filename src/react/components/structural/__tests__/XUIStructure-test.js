@@ -7,7 +7,9 @@ import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
 import XUIActions from '../XUIActions';
-import { rowVariants, columnShortNames } from '../private/constants';
+import XUIOverviewBlock from '../XUIOverviewBlock';
+import XUIOverviewSection from '../XUIOverviewSection';
+import { rowVariants, columnShortNames, overviewSentiments } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
@@ -154,6 +156,44 @@ describe('<XUI Structure/>', () => {
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
+		});
+	});
+	describe('Overview block and section:', () => {
+		it('renders the base overview block with no extra settings passed', () => {
+			const testRow = renderer.create(<XUIOverviewBlock />);
+			expect(testRow).toMatchSnapshot();
+		});
+		it('renders extra overview block classes that are passed in', () => {
+			const wrapper = mount(<XUIOverviewBlock className="testClass" />);
+			const tag = wrapper.find(XUIOverviewBlock);
+			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders overview block without default layout', () => {
+			const wrapper = mount(<XUIOverviewBlock hasLayout={false} />);
+			expect(wrapper.find(".xui-overview-layout").length).toBe(0);
+		});
+		it('renders the base overview block with sections and sentiments', () => {
+			const testBlock = renderer.create(
+				<XUIOverviewBlock>
+					{Object.keys(overviewSentiments).map((sentiment, index) => {
+						return <XUIOverviewSection key={index} sentiment={sentiment} label={sentiment} value="100.23" />;
+					})}
+				</XUIOverviewBlock>
+			);
+			expect(testBlock).toMatchSnapshot();
+		});
+		it('renders the overview sections with proper sentiments', () => {
+			Object.keys(overviewSentiments).forEach((sentiment) => {
+			const section = mount(<XUIOverviewSection sentiment={sentiment} label={sentiment} value="100.23" />);
+				if (overviewSentiments.sentiment) {
+					expect(section.find(`.xui-textcolor-${sentiment}`).length).toBe(1);
+				}
+			});
+		});
+		it('renders extra overview section classes that are passed in', () => {
+			const wrapper = mount(<XUIOverviewBlock><XUIOverviewSection label="labelText" value="65.43" className="testClass" /></XUIOverviewBlock>);
+			const tag = wrapper.find(XUIOverviewSection);
+			expect(tag.hasClass("testClass")).toEqual(true);
 		});
 	});
 });

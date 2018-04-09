@@ -1,13 +1,13 @@
 @import "../vars";
 @import "../mixins";
 
-// Overview blocks
+// Overview block
 //
 // Teaser: A top level summary to display stats and figures.
 //
 // Introduction: A top level summary to display stats and figures.
 //
-// Styleguide: Compounds.DisplayingData.Overview Blocks
+// Styleguide: Compounds.DisplayingData.OverviewBlock
 
 // Best practice
 //
@@ -16,7 +16,7 @@
 // Warning: Take care to only include data relevant to the current view
 // Dont: Don't include more than six sections per overview block
 //
-// Styleguide: Compounds.DisplayingData.Overview Blocks.1
+// Styleguide: Compounds.DisplayingData.OverviewBlock.1
 
 // Anatomy
 //
@@ -47,7 +47,7 @@
 //   </section>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Overview Blocks.2
+// Styleguide: Compounds.DisplayingData.OverviewBlock.2
 
 // Sentiment
 //
@@ -76,7 +76,7 @@
 //   </section>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Overview Blocks.3
+// Styleguide: Compounds.DisplayingData.OverviewBlock.3
 
 .#{$ns}-overview {
 	background-color: $xui-color-grey-alpha-7;

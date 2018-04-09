@@ -15,13 +15,7 @@ const cssMinXui = require(path.resolve(
 	'cssmin'
 ));
 
-const watch = path.resolve(rootDirectory, 'scripts', 'watch', 'both');
-const styleguide = path.resolve(
-	rootDirectory,
-	'scripts',
-	'styleguide',
-	'index.js'
-);
+const watch = path.resolve(rootDirectory, 'scripts', 'watch', 'all');
 const storybook = path.resolve(
 	rootDirectory,
 	'scripts',
@@ -33,7 +27,7 @@ function watchBoth() {
 	logTaskTitle(__filename);
 
 	Promise.all([[buildKss(), cssMinXui()]]).then(() => {
-		[watch, styleguide, storybook].forEach(watcher => {
+		[watch, storybook].forEach(watcher => {
 			const childProcess = spawn('node', [watcher], { stdio: 'inherit' });
 			childProcess.on('data', data => {
 				console.log(data); //eslint-disable-line no-console

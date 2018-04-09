@@ -13,8 +13,8 @@ const getClasses = (className, variant) => {
 
 const XUIRow = ({children, className, variant, ...spreadProps}) =>
 	<div
-		className={getClasses(className, variant)}
 		{...spreadProps}
+		className={getClasses(className, variant)}
 	>
 		{children}
 	</div>;

@@ -1,6 +1,8 @@
 const spawn = require('cross-spawn');
 const path = require('path');
+const { promisify } = require('util');
 const { rootDirectory, logTaskTitle } = require('../helpers');
+const rimrafAsync = promisify(require('rimraf'));
 
 const buildKss = require(path.resolve(
 	rootDirectory,
@@ -29,10 +31,16 @@ const styleguideServer = path.resolve(
 	'index.js'
 );
 
+// Styleguidist doesn't like "built files" as well as "dev server files"
+// This change is required to keep developing nicely.
+function removeDistDocsReact() {
+	return rimrafAsync(path.resolve(rootDirectory, 'dist', 'docs', 'react'));
+}
+
 function watchBoth() {
 	logTaskTitle(__filename);
 
-	Promise.all([[buildKss(), cssMinXui()]]).then(() => {
+	Promise.all([[buildKss(), cssMinXui(), removeDistDocsReact()]]).then(() => {
 		[watch, storybook, styleguideServer].forEach(watcher => {
 			const childProcess = spawn('node', [watcher], { stdio: 'inherit' });
 			childProcess.on('data', data => {

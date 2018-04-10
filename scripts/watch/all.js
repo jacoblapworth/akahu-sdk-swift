@@ -4,17 +4,11 @@ const { rootDirectory, logTaskTitle } = require('../helpers');
 
 const kss = path.resolve(rootDirectory, 'scripts', 'watch', 'kss');
 const xui = path.resolve(rootDirectory, 'scripts', 'watch', 'xui');
-const styleguide = path.resolve(
-	rootDirectory,
-	'scripts',
-	'watch',
-	'styleguide'
-);
 
 function watchBoth() {
 	logTaskTitle(__filename);
 
-	[kss, xui, styleguide].forEach(watcher => {
+	[kss, xui].forEach(watcher => {
 		const childProcess = spawn('node', [watcher], { stdio: 'inherit' });
 		childProcess.on('data', data => {
 			console.log(data); //eslint-disable-line no-console

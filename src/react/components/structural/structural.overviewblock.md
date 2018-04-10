@@ -3,7 +3,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-overview-blocks.html">Overview blocks in the XUI Documentation</a>
+	<a href="../section-compounds-displayingdata-overviewblock.html">Overview blocks in the XUI Documentation</a>
 </div>
 
 `XUIOverviewBlock` components are used to show a top-level summary of stats and figures. They should contain at least one and no more than six `XUIOverviewSection` components.

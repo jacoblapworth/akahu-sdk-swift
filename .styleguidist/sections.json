@@ -15,8 +15,12 @@
 				"name": "Progress Indicator",
 				"content": "../src/react/progressindicator.md",
 				"sections": [
-					{ "components": "../src/react/components/progressindicator/XUIProgressCircular.js" },
-					{ "components": "../src/react/components/progressindicator/XUIProgressLinear.js" }
+					{
+						"components": "../src/react/components/progressindicator/XUIProgressCircular.js"
+					},
+					{
+						"components": "../src/react/components/progressindicator/XUIProgressLinear.js"
+					}
 				]
 			},
 			{
@@ -28,9 +32,15 @@
 				"name": "Tables",
 				"content": "../src/react/table.md",
 				"sections": [
-					{ "components": "../src/react/components/table/XUITable.js" },
-					{ "components": "../src/react/components/table/XUITableColumn.js" },
-					{ "components": "../src/react/components/table/XUITableCell.js" }
+					{
+						"components": "../src/react/components/table/XUITable.js"
+					},
+					{
+						"components": "../src/react/components/table/XUITableColumn.js"
+					},
+					{
+						"components": "../src/react/components/table/XUITableCell.js"
+					}
 				]
 			},
 			{
@@ -300,20 +310,20 @@
 						"name": "Autocompleter",
 						"content": "../src/react/autocompleter.md",
 						"sections": [
-								{
-									"components": "../src/react/components/autocompleter/XUIAutocompleter.js"
-								},
-								{
-									"name": "Autocompleter Secondary Search",
-									"components": "../src/react/components/autocompleter/XUIAutocompleterSecondarySearch.js",
-									"content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
-								},
-								{
-									"name": "Autocompleter Empty State",
-									"components": "../src/react/components/autocompleter/XUIAutocompleterEmptyState.js",
-									"content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
-								}
-							]
+							{
+								"components": "../src/react/components/autocompleter/XUIAutocompleter.js"
+							},
+							{
+								"name": "Autocompleter Secondary Search",
+								"components": "../src/react/components/autocompleter/XUIAutocompleterSecondarySearch.js",
+								"content": "../src/react/components/autocompleter/autocompleter.secondarysearch.md"
+							},
+							{
+								"name": "Autocompleter Empty State",
+								"components": "../src/react/components/autocompleter/XUIAutocompleterEmptyState.js",
+								"content": "../src/react/components/autocompleter/autocompleter.emptystate.md"
+							}
+						]
 					},
 					{
 						"name": "Select-box",
@@ -335,24 +345,20 @@
 				"name": "Inputs",
 				"sections": [
 					{
-						"name": "Input",
-						"content": "../src/react/input.md",
-						"sections": [
-							{
-								"components": "../src/react/components/input/XUIInput.js"
-							},
-							{
-								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
-							},
-							{
-								"name": "Text Input",
-								"content": "../src/react/textInput.md",
-								"components": "../src/react/components/textInput/XUITextInput.js"
-							}
-						]
+						"name": "Text Input",
+						"content": "../src/react/textInput.md",
+						"components": "../src/react/components/textInput/XUITextInput.js"
 					},
 					{
-						"name": "TextArea",
+						"components": "../src/react/components/textInput/XUITextInputSideElement.js"
+					},
+					{
+						"name": "Input [Deprecated]",
+						"content": "../src/react/input.md",
+						"components": "../src/react/components/input/XUIInput.js"
+					},
+					{
+						"name": "TextArea [Deprecated]",
 						"content": "../src/react/textarea.md",
 						"sections": [
 							{

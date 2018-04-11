@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUIButton from '../button/XUIButton';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default function XUICapsule({
 	className,
@@ -21,11 +22,9 @@ export default function XUICapsule({
 	return (
 		<XUIButton
 			className={cn(className,
-				`xui-capsule`,
-				{
-					'xui-capsule-interactive' : isInteractive,
-					'xui-capsule-invalid' : !isValid,
-				}
+				`${ns}-capsule`,
+				isInteractive && `${ns}-capsule-interactive`,
+				!isValid && `${ns}-capsule-invalid`
 			)}
 			href={href}
 			isLink={isLink}
@@ -57,7 +56,7 @@ XUICapsule.propTypes = {
 	onFocus: PropTypes.func,
 	/** Bind a function to fire when the focus moves onto the element */
 	onBlur: PropTypes.func,
-}
+};
 
 XUICapsule.defaultProps = {
 	isValid: true,

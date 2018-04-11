@@ -11,8 +11,9 @@ import {
 } from './private/dom-helpers';
 import { positionOptions } from './private/constants';
 import { alignBaseWithTrigger, getPreferredPosition } from './private/utils';
+import {ns} from "../helpers/xuiClassNamespace";
 
-const baseClass = "xui-positioningInline";
+const baseClass = `${ns}-positioningInline`;
 
 class PositioningInline extends Positioning {
 	componentDidMount() {
@@ -103,14 +104,14 @@ class PositioningInline extends Positioning {
 				this.setState(maxDimensions);
 			}
 		}
-	}
+	};
 
 	/**
 	 * Uses internal state to work out inline styles and returns them.
 	 *
 	 * @return {{ maxHeight: Number, maxWidth: Number, width: Number, minWidth: Number }}
 	 */
-	getStyles() {
+	getStyles = () => {
 		const { maxHeight, maxWidth, minWidth } = this.state;
 		const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 		const isMobile = isNarrowViewport() && !isNotResponsive;
@@ -130,7 +131,7 @@ class PositioningInline extends Positioning {
 			maxWidth: newMaxWidth,
 			minWidth: newMinWidth
 		};
-	}
+	};
 
 	render() {
 		const { children, qaHook, className } = this.props;

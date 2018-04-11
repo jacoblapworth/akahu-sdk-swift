@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import search from '@xero/xui-icon/icons/search';
 import XUIIcon from '../icon/XUIIcon';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 const XUIAutocompleterEmptyState = props => (
 	<div
 		className={cn(
-			"xui-u-flex xui-padding-vertical-large xui-u-flex-vertical xui-u-flex-verticallycentered xui-textcolor-muted",
-			props.className)
-		}
+			`${ns}-u-flex ${ns}-padding-vertical-large ${ns}-u-flex-vertical ${ns}-u-flex-verticallycentered ${ns}-textcolor-muted`,
+			props.className
+		)}
 		data-automationid={props.qaHook}
 		id={props.id}
 	>

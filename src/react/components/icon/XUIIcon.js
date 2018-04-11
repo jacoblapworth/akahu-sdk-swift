@@ -2,7 +2,7 @@ import '../helpers/xuiGlobalChecks';
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import { sizeClasses, rotationClasses, colorClasses } from './private/constants';
+import { baseClass, sizeClasses, rotationClasses, colorClasses } from './private/constants';
 
 export default function XUIIcon(props) {
 	const {
@@ -20,14 +20,12 @@ export default function XUIIcon(props) {
 	} = props;
 
 	const classes = cn(
-		'xui-icon',
+		baseClass,
 		className,
 		sizeClasses[size],
 		colorClasses[color],
 		rotationClasses[rotation],
-		{
-			'xui-icon-inline' : isInline
-		}
+		isInline && `${baseClass}-inline`
 	);
 
 	const optionalTitle = title? <title>{ title }</title> : null;
@@ -64,6 +62,7 @@ XUIIcon.propTypes = {
 	/** */
 	viewBox: PropTypes.string
 };
+
 XUIIcon.defaultProps = {
 	size: 'standard',
 	role: 'presentation',

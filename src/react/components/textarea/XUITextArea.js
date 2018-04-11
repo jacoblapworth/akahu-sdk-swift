@@ -3,6 +3,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
 import autosize from 'autosize';
+import {ns} from "../helpers/xuiClassNamespace";
+
+const baseClass = `${ns}-textinput`;
 
 import { compose } from '../helpers/compose';
 import { calculateAstralLength, calculateMaxHeight } from './helpers';
@@ -41,7 +44,7 @@ export default class XUITextArea extends PureComponent {
 
 	componentDidUpdate() {
 		if (!this.state.manuallyResized) {
-			var evt = document.createEvent('Event');
+			const evt = document.createEvent('Event');
 			evt.initEvent('autosize:update', true, false);
 			this.textArea.dispatchEvent(evt);
 		}
@@ -106,36 +109,30 @@ export default class XUITextArea extends PureComponent {
 			maxHeight,
 		} = this.state;
 
-		const inputClass = 'xui-textinput';
-
 		const baseClasses = cn(
-			inputClass,
-			{
-				[`${inputClass}-is-invalid`] : charactersLeft < 0 || isInvalid,
-				[`${inputClass}-borderless`] : isBorderless,
-				[`${inputClass}-is-disabled`]: isDisabled,
-			}
+			baseClass,
+			(charactersLeft < 0 || isInvalid) && `${baseClass}-is-invalid`,
+			isBorderless && `${baseClass}-borderless`,
+			isDisabled && `${baseClass}-is-disabled`
 		);
 
 		const textareaClasses = cn(
-				`${inputClass}--input`,
-				className,
-				{
-					[`${inputClass}-has-left-element`] : !!leftElement,
-					[`${inputClass}-has-right-element`] : !!rightElement,
-				},
-				isResizable ? 'xui-u-resize-vertical' : 'xui-u-resize-none'
-			);
+			`${baseClass}--input`,
+			className,
+			leftElement && `${baseClass}-has-leftelement`,
+			rightElement && `${baseClass}-has-rightelement`,
+			isResizable ? `${ns}-u-resize-vertical` : `${ns}-u-resize-none`
+		);
 
 		const fieldClasses = cn(
-				fieldClassName,
-				{ [`xui-field-layout`] : defaultLayout }
-			);
+			fieldClassName,
+			defaultLayout && `${ns}-field-layout`
+		);
 
 		const labelClasses = cn(
-				'xui-u-flex',
-				{ [`xui-fieldlabel-layout`] : defaultLayout }
-			);
+			`${ns}-u-flex`,
+			defaultLayout && `${ns}-fieldlabel-layout`
+		);
 
 		const textArea = (
 			<textarea
@@ -157,9 +154,9 @@ export default class XUITextArea extends PureComponent {
 
 		const message = (validationMessage || hintMessage) && (
 			<div className={cn(
-				'xui-validation',
-				'xui-validation-layout',
-				{ 'xui-validation-is-invalid': isInvalid && validationMessage }
+				`${ns}-validation`,
+				`${ns}-validation-layout`,
+				(isInvalid && validationMessage) && `${ns}-validation-is-invalid`
 			)}>
 				{(isInvalid && validationMessage) ? validationMessage : hintMessage}
 			</div>
@@ -168,8 +165,9 @@ export default class XUITextArea extends PureComponent {
 		const counter = typeof maxCharacters === 'number' ? (
 			<span
 				ref={c => this._counter = c}
-				className={cn('xui-text-secondary',
-					{ 'xui-textcolor-negative': charactersLeft < 0 }
+				className={cn(
+					`${ns}-text-secondary`,
+					(charactersLeft < 0) && `${ns}-textcolor-negative`
 				)}
 				data-automationid={qaHook && `${qaHook}-counter`}>
 				{charactersLeft}
@@ -179,12 +177,12 @@ export default class XUITextArea extends PureComponent {
 		const label = children != null || counter != null ? (
 			<div className={labelClasses}>
 				{children != null && (
-					<div className="xui-u-flex-horizontal xui-u-flex-grow">
+					<div className={`${ns}-u-flex-horizontal ${ns}-u-flex-grow`}>
 						{children}
 					</div>
 				)}
 				{counter != null && (
-					<div className="xui-u-flex-horizontal xui-margin-left-auto xui-margin-top-auto">
+					<div className={`${ns}-u-flex-horizontal ${ns}-margin-left-auto ${ns}-margin-top-auto`}>
 						{counter}
 					</div>
 				)}
@@ -206,7 +204,7 @@ export default class XUITextArea extends PureComponent {
 }
 
 XUITextArea.defaultProps = {
-	qaHook: 'xui-textarea',
+	qaHook: 'xui-textarea', // TODO remove in XUI 14
 	rows: 3,
 	defaultLayout: true,
 	style: {},

@@ -2,79 +2,69 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import XUICheckbox from '../checkbox/XUICheckbox';
-import { sizeClassNames } from './private/constants';
+import { sizeClassNames, baseClass } from './private/constants';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class XUIRolloverCheckbox extends PureComponent {
-	constructor() {
-		super();
-
-		this.state = {
-			isMouseOver: false,
-		};
-
-		this.onSelect = this.onSelect.bind(this);
-		this.onMouseEnter = this.onMouseEnter.bind(this);
-		this.onMouseLeave = this.onMouseLeave.bind(this);
-		this.triggerCheckboxClick = this.triggerCheckboxClick.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onBlur = this.onBlur.bind(this);
-	}
+	state = {
+		isMouseOver: false
+	};
 
 	/**
 	 * @public
 	 *
 	 * Handler attached to the target element for setting mouse over state to true.
 	 */
-	onMouseEnter() {
+	onMouseEnter = () => {
 		if(this.props.isCheckboxHidden){
 			this.setState({
 				isMouseOver: true
 			});
 		}
-	}
+	};
 
 	/**
 	 * @public
 	 *
 	 * Handler attached to the target element for setting mouse over state to false.
 	 */
-	onMouseLeave() {
+	onMouseLeave = () => {
 		this.setState({
 			isMouseOver: false
 		});
-	}
+	};
 
 	/**
 	 * @public
 	 *
 	 * Handler attached to the target element for setting focus state.
 	 */
-	onFocus() {
+	onFocus = () => {
 		this.setState({
 			hasFocus: true
 		});
-	}
+	};
 
 	/**
 	 * @public
 	 *
 	 * Handler attached to the target element for setting focus state to false.
 	 */
-	onBlur() {
+	onBlur = () => {
 		this.setState({
 			hasFocus: false
 		});
-	}
+	};
 
 	/**
 	 * @public
 	 *
 	 * Handler attached to the target element for triggering the click event on the checkbox when the target element is clicked.
 	 */
-	triggerCheckboxClick() {
+	triggerCheckboxClick = () => {
 		this._checkbox._input.click();
-	}
+	};
 
 	/**
 	* @public
@@ -83,10 +73,10 @@ export default class XUIRolloverCheckbox extends PureComponent {
 	* Also retians the checked state of the list item.
 	* @param {Event} e
 	*/
-	onSelect(e) {
+	onSelect = (e) => {
 		const { onSelect } = this.props;
 		onSelect && onSelect(e, this);
-	}
+	};
 
 	render() {
 		const {
@@ -110,8 +100,8 @@ export default class XUIRolloverCheckbox extends PureComponent {
 			<div
 				id={id}
 				className={cn(
-					"xui-rollovercheckbox--target",
-					{ "xui-rollovercheckbox--target-disabled": isDisabled },
+					`${baseClass}--target`,
+					isDisabled && `${baseClass}--target-disabled`,
 					sizeClassNames[size],
 					className)}
 				onClick={this.triggerCheckboxClick}
@@ -121,8 +111,8 @@ export default class XUIRolloverCheckbox extends PureComponent {
 				onBlur={this.onBlur}
 				data-automationid={qaHook}
 			>
-				<div className="xui-rollovercheckbox">
-					<div className={!showRollover ? 'xui-u-hidden-visually' : null}>
+				<div className={baseClass}>
+					<div className={!showRollover ? `${ns}-u-hidden-visually` : null}>
 						{rolloverComponent}
 					</div>
 					<XUICheckbox
@@ -131,9 +121,9 @@ export default class XUIRolloverCheckbox extends PureComponent {
 						isChecked={isChecked}
 						isDisabled={isDisabled}
 						isLabelHidden={true}
-						htmlClassName='xui-rollovercheckbox--checkbox'
+						htmlClassName={`${baseClass}--checkbox`}
 						qaHook={qaHook && `${qaHook}--checkbox`}
-						className={showRollover ? "xui-u-hidden-visually" : null}
+						className={showRollover ? `${ns}-u-hidden-visually` : null}
 					/>
 				</div>
 			</div>
@@ -162,4 +152,4 @@ XUIRolloverCheckbox.propTypes = {
 
 XUIRolloverCheckbox.defaultProps = {
 	isDisabled: false
-}
+};

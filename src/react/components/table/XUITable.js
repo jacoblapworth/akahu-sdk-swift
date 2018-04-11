@@ -102,7 +102,6 @@ class XUITable extends Component {
 		const className = cn(
 			NAME_SPACE,
 			'xui-panel',
-			'xui-contentblock',
 			suppliedClasses,
 			{
 				[`${NAME_SPACE}-responsive`]: isResponsive,

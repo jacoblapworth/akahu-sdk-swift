@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import radioMain from '@xero/xui-icon/icons/radio-main';
 import radioCheck from '@xero/xui-icon/icons/radio-check';
+import {baseClass} from "./constants";
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is wrapped inside a label,
@@ -27,16 +29,16 @@ const buildRadio = (qaHook, htmlClassName, svgSettings) => {
 };
 
 const buildSvgRadio = (qaHook, {svgClassName, iconMainPath, iconCheckPath}) => {
-	const svgClasses = cn('xui-icon', svgClassName);
+	const svgClasses = cn(`${ns}-icon`, svgClassName);
 	return (<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
-					<path className="xui-styledcheckboxradio--focus" role="presentation" d={iconMainPath || radioMain} />
-					<path className="xui-styledcheckboxradio--main" role="presentation" d={iconMainPath || radioMain} />
-					{iconMainPath && !iconCheckPath ? null : <path className="xui-styledcheckboxradio--check" role="presentation" d={iconCheckPath || radioCheck} />}
+					<path className={`${baseClass}--focus`} role="presentation" d={iconMainPath || radioMain} />
+					<path className={`${baseClass}--main`} role="presentation" d={iconMainPath || radioMain} />
+					{iconMainPath && !iconCheckPath ? null : <path className={`${baseClass}--check`} role="presentation" d={iconCheckPath || radioCheck} />}
 				</svg>);
 };
 
 const buildHtmlRadio = (qaHook, htmlClassName) => {
-	const htmlClasses = cn('xui-styledcheckboxradio--radio', htmlClassName);
+	const htmlClasses = cn(`${baseClass}--radio`, htmlClassName);
 	return (
 		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`}/>
 	);
@@ -68,14 +70,12 @@ export default class XUIRadio extends React.Component {
 
 		const classes = cn(
 			className,
-			'xui-styledcheckboxradio',
-			{
-				'xui-styledcheckboxradio-reversed': isReversed,
-				'xui-is-disabled': isDisabled
-			}
+			`${baseClass}`,
+			isReversed && `${baseClass}-reversed`,
+			isDisabled && `${ns}-is-disabled`
 		);
 
-		const labelClasses = cn('xui-styledcheckboxradio--label', labelClassName);
+		const labelClasses = cn(`${baseClass}--label`, labelClassName);
 		const labelElement = !isLabelHidden ? <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span> : null;
 		const inputProps = {
 			type: 'radio',
@@ -106,7 +106,7 @@ export default class XUIRadio extends React.Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input className="xui-styledcheckboxradio--input" {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
+				<input className={`${baseClass}--input`} {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
 				{buildRadio(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
 			</label>

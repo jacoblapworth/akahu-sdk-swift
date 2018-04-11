@@ -36,6 +36,7 @@
 		}
 	}
 
+	// TODO: rename this to xui-dropdown-force-desktop (modifier, not subcomponent)
 	&.#{$ns}-dropdown--force-desktop {
 		z-index: 1000;
 

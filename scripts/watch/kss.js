@@ -1,8 +1,19 @@
+/* eslint-disable no-console */
 const gaze = require('gaze');
-const buildKss = require('../build/kss');
+const buildKss = require('../build/kss.js');
 const { logTaskTitle } = require('../helpers');
+const lrserver = require('tiny-lr')();
 
-gaze('kss/**/*', (err, watcher) => {
+const watchPaths = [
+	'src/sass/**/*',
+	'src/docs/**/*',
+	'.kss/**/*',
+	'scripts/build/kss/config.json'
+];
+
+lrserver.listen(35729, err => console.log('LR Server Started', err ? err : ''));
+
+gaze(watchPaths, (err, watcher) => {
 	logTaskTitle(__filename);
 
 	// On changed/added/deleted
@@ -11,6 +22,6 @@ gaze('kss/**/*', (err, watcher) => {
 			return;
 		}
 
-		buildKss();
+		buildKss().then(() => lrserver.changed({ body: { files: [filepath] } }));
 	});
 });

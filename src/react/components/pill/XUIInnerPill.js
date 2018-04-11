@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import XUIAvatar from '../avatar/XUIAvatar';
+import {ns} from "../helpers/xuiClassNamespace";
 
 class XUIInnerPill extends PureComponent {
 	render() {
@@ -19,18 +20,16 @@ class XUIInnerPill extends PureComponent {
 
 		const avatarClasses = avatarProps && cn(
 			avatarProps.className,
-			'xui-pill--avatar'
+			`${ns}-pill--avatar`
 		);
 
 		const avatarEl = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
-		const secondaryTextEl = secondaryText && <span className="xui-color-grey-muted xui-pill--secondary">{secondaryText}</span>;
-		const valueEl = value && <span className="xui-pill--text">{value}</span>;
+		const secondaryTextEl = secondaryText && <span className={`${ns}-color-grey-muted ${ns}-pill--secondary`}>{secondaryText}</span>;
+		const valueEl = value && <span className={`${ns}-pill--text`}>{value}</span>;
 
 		const className = cn(
-			'xui-pill--content',
-			{
-				'xui-pill--button': !href
-			}
+			`${ns}-pill--content`,
+			!href && `${ns}-pill--button`
 		);
 
 		return (

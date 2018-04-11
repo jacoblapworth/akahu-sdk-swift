@@ -5,6 +5,7 @@ import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
@@ -163,9 +164,10 @@ export default class DropDown extends PureComponent {
 			bodyClassName,
 		} = this.props;
 
-		const dropdownClasses = cn(className, {
-			'xui-dropdown-fullheight': header
-		});
+		const dropdownClasses = cn(
+			className,
+			header && `${ns}-dropdown-fullheight`
+		);
 
 		return (
 			<DropDownLayout

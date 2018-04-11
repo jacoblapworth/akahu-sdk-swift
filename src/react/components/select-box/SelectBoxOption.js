@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Pickitem from '../picklist/Pickitem';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class SelectBoxOption extends PureComponent {
 	render() {
@@ -8,7 +9,7 @@ export default class SelectBoxOption extends PureComponent {
 		const isText = typeof props.children[0] === 'string';
 		const shouldTruncateChildren = isText && props.truncatedText;
 		const children = props.children;
-		const contents = shouldTruncateChildren ? <span className="xui-text-truncated">{children}</span> : children;
+		const contents = shouldTruncateChildren ? <span className={`${ns}-text-truncated`}>{children}</span> : children;
 		return (
 			<Pickitem
 				onClick={props.onClick}

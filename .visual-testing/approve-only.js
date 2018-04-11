@@ -4,4 +4,4 @@ module.exports = {
 		bitmaps_reference: ".visual-testing/reference",
 		bitmaps_test: ".visual-testing/tests"
 	}
-}
+};

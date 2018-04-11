@@ -2,6 +2,7 @@ import '../helpers/xuiGlobalChecks';
 import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class XUISwitch extends PureComponent {
 	render() {
@@ -17,14 +18,11 @@ export default class XUISwitch extends PureComponent {
 
 		const labelClasses = cn(
 			className,
-			'xui-switch',
-			{'xui-is-disabled': isDisabled}
+			`${ns}-switch`,
+			isDisabled && `${ns}-is-disabled`
 		);
 
-		const inputClasses = cn(
-			'xui-u-hidden-visually',
-			'xui-switch--checkbox'
-		);
+		const inputClasses =`${ns}-u-hidden-visually ${ns}-switch--checkbox`;
 
 		return (
 			<label data-automationid={qaHook && `${qaHook}--label`} className={labelClasses}>
@@ -37,7 +35,7 @@ export default class XUISwitch extends PureComponent {
 					disabled={isDisabled}
 					className={inputClasses}
 					data-automationid={qaHook && `${qaHook}--input`}/>
-				<div className="xui-switch--control" data-automationid={qaHook}></div>
+				<div className={`${ns}-switch--control`} data-automationid={qaHook}></div>
 			</label>
 		);
 	}

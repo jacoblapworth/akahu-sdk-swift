@@ -5,8 +5,10 @@
  */
 
 
-
-%#{$ns}-commoninput {
+/*
+Applies hover button styling and given contents on hover.
+*/
+@mixin xui-commoninput {
 	@include xui-state-focus {
 		z-index: 2;
 	}

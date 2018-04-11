@@ -3,7 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAutocompleter from '../XUIAutocompleter';
-import Pill from '../../pill/XUIPill';
+import XUIPill from '../../pill/XUIPill';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
@@ -64,9 +64,9 @@ describe('XUIAutocompleter', () => {
 	});
 
 	it('renders pills as children passed in through the pills prop', () => {
-		const wrapper = mount(createComponent({ pills: <Pill value="ABC" /> }));
+		const wrapper = mount(createComponent({ pills: <XUIPill value="ABC" /> }));
 
-		expect(wrapper.find(Pill)).toBeDefined();
+		expect(wrapper.find(XUIPill)).toBeDefined();
 	});
 
 	it('opens the dropdown when we trigger `openDropDown` and closes the dropdown when we trigger `closeDropDown`', () => {
@@ -89,9 +89,15 @@ describe('XUIAutocompleter', () => {
 		const wrapper = mount(createComponent());
 		expect(wrapper.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(0);
 
-		const disableWrapPills = mount(createComponent({ disableWrapPills: true }));
+		const disableWrapPills = mount(createComponent({ disableWrapPills: true, pills: [<XUIPill value="test" key="1" />] }));
 		expect(disableWrapPills.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(1);
 	});
+
+	it('should not add padding classes to the input when pills prop is an empty array', () => {
+		const classComp = renderer.create(createComponent({ pills: [] }));
+
+		expect(classComp).toMatchSnapshot();
+	})
 
 	it('should render a class on the root node when passed in the className prop', () => {
 		const classComp = renderer.create(createComponent({ className: 'test-class' }));

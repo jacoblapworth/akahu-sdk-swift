@@ -1,18 +1,16 @@
-const maxWidthDropdownSizes = {
-	small: 'xui-dropdown-small',
-	medium: 'xui-dropdown-medium',
-	large: 'xui-dropdown-large',
-	xlarge: 'xui-dropdown-xlarge'
+import {ns} from "../../helpers/xuiClassNamespace";
+
+export const baseClass = `${ns}-dropdown`;
+export const maxWidthDropdownSizes = {
+	small: `${baseClass}-small`,
+	medium: `${baseClass}-medium`,
+	large: `${baseClass}-large`,
+	xlarge: `${baseClass}-xlarge`
 };
 
-const fixedWidthDropdownSizes = {
-	small: 'xui-dropdown-fixed-small',
-	medium: 'xui-dropdown-fixed-medium',
-	large: 'xui-dropdown-fixed-large',
-	xlarge: 'xui-dropdown-fixed-xlarge'
+export const fixedWidthDropdownSizes = {
+	small: `${baseClass}-fixed-small`,
+	medium: `${baseClass}-fixed-medium`,
+	large: `${baseClass}-fixed-large`,
+	xlarge: `${baseClass}-fixed-xlarge`
 };
-
-module.exports = {
-	maxWidthDropdownSizes,
-	fixedWidthDropdownSizes
-}

@@ -1,11 +1,10 @@
-const variants = {
-	neutral: 'xui-tag-neutral',
-	positive: 'xui-tag-positive',
-	negative: 'xui-tag-negative',
-	warning: 'xui-tag-warning',
+import {ns} from "../../helpers/xuiClassNamespace";
+
+export const baseClass = `${ns}-tag`;
+export const variants = {
+	neutral: `${baseClass}-neutral`,
+	positive: `${baseClass}-positive`,
+	negative: `${baseClass}-negative`,
+	warning: `${baseClass}-warning`,
 	standard: ''
 };
-
-module.exports = {
-    variants
-}

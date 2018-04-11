@@ -120,7 +120,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			containerQaHook = `${props.qaHook}--container`;
 		}
 		const dropdownClasses = cn(
-			props.dropdownSize ? '' : `${ns}-u-fullwidth`,
+			!props.dropdownSize && `${ns}-u-fullwidth`,
 			props.dropdownClassName,
 		);
 		const searchItem = (
@@ -145,7 +145,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					/>
 			</div>
 		);
-		const dropdownToggledClasses = props.dropdownSize ? '' : `${ns}-u-fullwidth`;
+		const dropdownToggledClasses = !props.dropdownSize ? `${ns}-u-fullwidth` : null;
 		const dropdown = (
 			<DropDown
 				ref={d => completer.dropdown = d}

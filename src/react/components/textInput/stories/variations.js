@@ -92,6 +92,12 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'has both side elements',
+		leftElementType: 'button',
+		rightElementType: 'iconWithBackground',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a multiline input',
 		isMultiline: true,
 	},

@@ -6,7 +6,10 @@ yarn.lock
 
 # Build/Output files/directories
 /dist
+/react
+/sass
 src/react/umd.js
+.tmp
 
 # IDE files/directores
 /.idea
@@ -27,6 +30,7 @@ src/sass/tmp
 .visual-testing/ci-report/*
 .visual-testing/web-report/*
 .out/*
+.tmp
 
 # NPM debug logs
 npm-debug.log.*

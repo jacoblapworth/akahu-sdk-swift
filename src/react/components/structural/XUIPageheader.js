@@ -34,7 +34,7 @@ export default class XUIPageheader extends PureComponent {
 			children,
 			actions,
 			hasLayout,
-			...otherProps
+			...spreadProps
 		} = this.props;
 		const classes = cn(className, baseClass);
 		const clonedBreadcrumb = breadcrumb && React.cloneElement(breadcrumb, {
@@ -50,7 +50,7 @@ export default class XUIPageheader extends PureComponent {
 		const divClasses = cn(`${baseClass}--content`, layoutClass);
 
 		return (
-			<header {...otherProps} className={classes}>
+			<header {...spreadProps} className={classes}>
 				<div className={divClasses}>
 					{!builtTitleAndTabs && clonedBreadcrumb}
 					{builtTitleAndTabs}

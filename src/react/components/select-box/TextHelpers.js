@@ -51,6 +51,7 @@ function createMultipleSelectionText(values) {
  *
  * @public
  * @param  {String | Array} value to display or array of values
+ * @param {String} placeholder
  * @return {String}
  */
 function getText(value, placeholder) {

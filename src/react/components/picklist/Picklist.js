@@ -2,6 +2,7 @@ import '../helpers/xuiGlobalChecks';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * Presentational (aka dumb) component used to display a selectable list of Pickitems.
@@ -24,10 +25,12 @@ export default class Picklist extends Component {
 			qaHook
 		} = this.props;
 
-		const classes = cn('xui-picklist', className, {
-			'xui-picklist-layout': defaultLayout && !isHorizontal,
-			'xui-picklist-horizontal': isHorizontal
-		});
+		const classes = cn(
+			`${ns}-picklist`,
+			className,
+			(defaultLayout && !isHorizontal) && `${ns}-picklist-layout`,
+			isHorizontal && `${ns}-picklist-horizontal`
+		);
 
 		return (
 			<ul

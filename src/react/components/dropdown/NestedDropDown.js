@@ -4,6 +4,8 @@ import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDown from './DropDown';
 import { compose } from '../helpers/compose';
+import {baseClass} from "./private/constants";
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * <strong>BETA</strong> This component is still under active development and it's API may change.
@@ -44,14 +46,14 @@ export default class NestedDropDown extends DropDown {
 			forceDesktop,
 		} = dropdown.props;
 
-		const dropdownClasses = cn('xui-dropdown-fullheight', className);
+		const dropdownClasses = cn(`${baseClass}-fullheight`, className);
 
 		const childrenToRender =
 			React.Children.map(children, (child) => {
 				const isCurrentPanel = (child.props && child.props.panelId === currentPanel);
-	
+
 				return (
-					<div className={cn({ 'xui-u-hidden': !isCurrentPanel })}>
+					<div className={isCurrentPanel ? '' : `${ns}-u-hidden`}>
 						{
 							isCurrentPanel ?
 								React.cloneElement(child, {

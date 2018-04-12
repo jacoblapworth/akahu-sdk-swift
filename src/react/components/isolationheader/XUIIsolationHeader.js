@@ -10,6 +10,8 @@ export default class XUIIsolationHeader extends PureComponent {
 			qaHook,
 			className,
 			isPositionFixed,
+			role,
+			tagName,
 			children
 		} = header.props;
 
@@ -19,10 +21,12 @@ export default class XUIIsolationHeader extends PureComponent {
 			isPositionFixed && `${ns}-isolationheader-fixed`
 		);
 
+		const Tag = tagName;
+
 		return (
-			<div className={classNames} data-automationid={qaHook}>
+			<Tag className={classNames} data-automationid={qaHook} role={role}>
 				{children}
-			</div>
+			</Tag>
 		);
 	}
 }
@@ -31,6 +35,17 @@ XUIIsolationHeader.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
+	/** The role attribute that should be applied. Defaults to 'banner' **/
+	role: PropTypes.string,
+
+	/** The element tag to use. Defaults to 'header' **/
+	tagName: PropTypes.string,
+
 	/** Applies fixed positioning so the isolation mode header scrolls with the page */
 	isPositionFixed: PropTypes.bool
+};
+
+XUIIsolationHeader.defaultProps = {
+	role: 'banner',
+	tagName: 'header'
 };

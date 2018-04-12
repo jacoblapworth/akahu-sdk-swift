@@ -274,6 +274,7 @@
 	right: 0;
 }
 
+// TODO: rename to xui-pill-focus given xui-styledcheckboxradio-focus and xui-textinput-focus
 &.#{$ns}-pill-is-focused {
 	background-color: rgba($xui-color-black, 0.15);
 }

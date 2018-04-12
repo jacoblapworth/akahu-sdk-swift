@@ -37,7 +37,7 @@
 // xui-isolationheader--actions: Container for right-aligned actions
 //
 // Markup:
-// <header class="xui-isolationheader">
+// <header class="xui-isolationheader" role="banner">
 //   <div class="xui-isolationheader--navigation">
 //     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
 //       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
@@ -319,6 +319,13 @@
 // </div>
 //
 // Styleguide: Compounds.Navigation.Isolation header.4.3
+
+// Accessibility
+//
+// The isolation header should use a `<header>` element with `role="banner"` applied.
+// See [ARIA guidelines for the banner role](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/banner.html)
+//
+// Styleguide: Compounds.Navigation.Isolation header.5
 
 .#{$ns}-isolationheader {
 	align-items: center;

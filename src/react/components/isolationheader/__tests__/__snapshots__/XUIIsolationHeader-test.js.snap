@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaHook is passed in 1`] = `
-<div
+<header
   className="xui-isolationheader"
   data-automationid="qahook"
+  role="banner"
 >
   <div
     className="xui-isolationheader--navigation"
@@ -30,13 +31,14 @@ exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaH
   >
     Tools
   </div>
-</div>
+</header>
 `;
 
 exports[`<XUIIsolationHeader> Inverted should render with the given className if provided 1`] = `
-<div
+<header
   className="klass xui-isolationheader"
   data-automationid={undefined}
+  role="banner"
 >
   <div
     className="xui-isolationheader--navigation"
@@ -63,13 +65,14 @@ exports[`<XUIIsolationHeader> Inverted should render with the given className if
   >
     Tools
   </div>
-</div>
+</header>
 `;
 
 exports[`<XUIIsolationHeader> Standard should render an automation id when a qaHook is passed in 1`] = `
-<div
+<header
   className="xui-isolationheader"
   data-automationid="qahook"
+  role="banner"
 >
   <div
     className="xui-isolationheader--navigation"
@@ -96,13 +99,14 @@ exports[`<XUIIsolationHeader> Standard should render an automation id when a qaH
   >
     Tools
   </div>
-</div>
+</header>
 `;
 
 exports[`<XUIIsolationHeader> Standard should render with the given className if provided 1`] = `
-<div
+<header
   className="klass xui-isolationheader"
   data-automationid={undefined}
+  role="banner"
 >
   <div
     className="xui-isolationheader--navigation"
@@ -129,5 +133,5 @@ exports[`<XUIIsolationHeader> Standard should render with the given className if
   >
     Tools
   </div>
-</div>
+</header>
 `;

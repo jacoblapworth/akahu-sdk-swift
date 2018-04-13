@@ -232,7 +232,7 @@ code {
 		width: 100%;
 	}
 
-	td {
+	td:not(.xui-table--cell) {
 		border: $xui-border-standard;
 		padding: $xui-s-xsmall $xui-s-small;
 	}

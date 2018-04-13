@@ -117,7 +117,7 @@
     "postcss-loader": "2.0.8",
     "postcss-scss": "1.0.2",
     "raw-loader": "0.5.1",
-    "react-styleguidist": "6.5.3",
+    "react-styleguidist": "6.0.33",
     "react-test-renderer": "16.0.0",
     "rimraf": "2.6.2",
     "sass-loader": "6.0.6",

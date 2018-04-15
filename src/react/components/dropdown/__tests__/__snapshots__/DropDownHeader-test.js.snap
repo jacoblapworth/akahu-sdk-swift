@@ -25,6 +25,7 @@ exports[`<DropDownHeader/> should render a back button if back button click hand
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path
@@ -63,6 +64,7 @@ exports[`<DropDownHeader/> should render all header contents in the correct orde
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path

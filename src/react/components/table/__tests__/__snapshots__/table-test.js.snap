@@ -1320,6 +1320,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -1406,6 +1407,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -2301,6 +2303,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -2480,6 +2483,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -2535,6 +2539,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -2590,6 +2595,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -3220,6 +3226,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -3310,6 +3317,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -3400,6 +3408,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -3679,6 +3688,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -3801,6 +3811,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -3923,6 +3934,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -4277,6 +4289,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
+                    style={null}
                     viewBox="0 0 30 30"
                   >
                     <path
@@ -4415,6 +4428,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
+                    style={null}
                     viewBox="0 0 30 30"
                   >
                     <path
@@ -4553,6 +4567,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
+                    style={null}
                     viewBox="0 0 30 30"
                   >
                     <path
@@ -5060,6 +5075,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -5147,6 +5163,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -5234,6 +5251,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -6594,6 +6612,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -6716,6 +6735,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path
@@ -6838,6 +6858,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
                       focusable="false"
+                      style={null}
                       viewBox="0 0 30 30"
                     >
                       <path

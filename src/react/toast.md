@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-toast.html">Toasts in the XUI Documentation</a>
+	<a href="../section-building-blocks-alerts-toast.html">Toasts in the XUI Documentation</a>
 </div>
 
 ## Examples

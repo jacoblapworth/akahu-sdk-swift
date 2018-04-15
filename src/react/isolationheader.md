@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-isolation-header.html">Isolation Header in the XUI Documentation</a>
+	<a href="../section-compounds-navigation-isolation-header.html">Isolation Header in the XUI Documentation</a>
 </div>
 
 `XUIIsolationHeader` replaces the standard global header for tasks that are part of a focused workflow.

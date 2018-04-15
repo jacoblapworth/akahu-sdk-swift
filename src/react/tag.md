@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-tags.html">Tags in the XUI documentation</a>
+	<a href="../section-building-blocks-identifiers-tag.html">Tags in the XUI documentation</a>
 </div>
 
 Tags are used to categorise content or indicate sentiment.

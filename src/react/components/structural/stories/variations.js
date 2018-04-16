@@ -36,6 +36,38 @@ variations = [...variations,
 		breadcrumb: true,
 		actions: true
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `overview block`,
+		type: 'overview',
+		sections: [
+			{label: 'hello', value: 'there'},
+			{label: 'good', value: 'morning'},
+			{label: 'good', value: 'bye'}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `overview block with more sections and colors`,
+		type: 'overview',
+		sections: [
+			{label: 'hello', value: 'there'},
+			{label: 'paid', value: '1,582.99', sentiment: 'positive'},
+			{label: 'unpaid', value: '0.68', sentiment: 'negative'},
+			{label: 'draft', value: '103.75', sentiment: 'muted'},
+			{label: 'there', value: 'you go'}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `overview block without layout`,
+		type: 'overview',
+		hasLayout: false,
+		sections: [
+			{label: 'hello', value: 'there'},
+			{label: 'there', value: 'you go'}
+		]
+	}
 ];
 
 module.exports = {

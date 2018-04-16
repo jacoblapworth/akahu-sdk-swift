@@ -10,6 +10,8 @@ import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
 import XUIActions from '../XUIActions';
+import XUIOverviewBlock from '../XUIOverviewBlock';
+import XUIOverviewSection from '../XUIOverviewSection';
 import { rowVariants } from '../private/constants';
 
 // Story book things
@@ -53,7 +55,12 @@ const sampleBreadcrumb = [
 	{label: "yo"}];
 const exampleBreadcrumb = (
 	<XUIBreadcrumb breadcrumbs={sampleBreadcrumb}></XUIBreadcrumb>
-)
+);
+const buildExampleSections = (children) => {
+	return children.map((child, index) => {
+		return <XUIOverviewSection key={index} {...child} />
+	});
+};
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -112,6 +119,15 @@ variations.forEach(variation => {
 					<XUIPageheader {...variationMinusStoryDetails}></XUIPageheader>
 				</div>
 			);
+		} else if (type === "overview") {
+			const { sections } = variationMinusStoryDetails;
+			return (
+				<div style={{minWidth: "500px"}}>
+					<XUIOverviewBlock {...variationMinusStoryDetails}>
+						{buildExampleSections(sections)}
+					</XUIOverviewBlock>
+				</div>
+			)
 		}
 	});
 });

@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "13.2.0-beta.1",
+  "version": "13.2.0-beta.2",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -19,10 +19,10 @@
   "scripts": {
     "build": "node scripts/build",
     "lint": "node scripts/lint/js && node scripts/lint/sass",
-    "postinstall": "node scripts/postinstall",
+    "prepack": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
+    "prepare": "check-engines && nsp check",
     "postmerge": "./post-merge.sh",
     "precommit": "./pre-commit.sh",
-    "prepare": "node scripts/security/ && node scripts/update-versions",
     "prepush": "./pre-push.sh",
     "start": "node scripts/start",
     "test": "node scripts/test"

@@ -9,7 +9,15 @@ import {ns} from '../helpers/xuiClassNamespace';
 const sentiments = Object.keys(sentimentMap);
 
 export default function XUIBanner(props) {
-	const { className, qaHook, sentiment, onCloseClick, children, defaultLayout } = props;
+	const {
+		className,
+		qaHook,
+		sentiment,
+		onCloseClick,
+		children,
+		defaultLayout,
+		shouldAnimate,
+	} = props;
 	const closeQAHook = qaHook && `${qaHook}-close--button`;
 
 	const closeButton = onCloseClick && (
@@ -26,8 +34,10 @@ export default function XUIBanner(props) {
 	const classes = cn(
 		className,
 		`${ns}-banner`,
-		{[`${ns}-banner-layout`]: defaultLayout},
-		`${ns}-banner-animated`,
+		{
+			[`${ns}-banner-layout`]: defaultLayout,
+			[`${ns}-banner-animated`]: shouldAnimate,
+		},
 		sentimentClass
 	);
 
@@ -54,9 +64,13 @@ XUIBanner.propTypes = {
 	defaultLayout: PropTypes.bool,
 
 	/** Applies a role attribute to the toast element. This will override any component-determined value. */
-	role: PropTypes.string
+	role: PropTypes.string,
+
+	/** Whether or not the banner should animate into the page. Defaults to true */
+	shouldAnimate: PropTypes.bool,
 };
 
 XUIBanner.defaultProps = {
-	defaultLayout: true
+	defaultLayout: true,
+	shouldAnimate: true,
 };

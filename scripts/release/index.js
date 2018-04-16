@@ -4,6 +4,11 @@ const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs');
 const { rootDirectory } = require('../helpers');
+const checkSecurity = require(path.resolve(
+	rootDirectory,
+	'scripts',
+	'security'
+));
 const updateVersion = require(path.resolve(
 	rootDirectory,
 	'scripts',
@@ -246,13 +251,15 @@ inquirer.prompt([initialQuestion]).then(answers => {
 			`Starting Release for Version ${newPackageJson.version}`
 		)
 	);
-	writePackageJson(() =>
-		console.log(
-			chalk.green.bold(
-				`Release for version ${
-					newPackageJson.version
-				} finished. Have a nice day!`
+	writePackageJson(() => {
+		checkSecurity().then(() =>
+			console.log(
+				chalk.green.bold(
+					`Release for version ${
+						newPackageJson.version
+					} finished. Have a nice day!`
+				)
 			)
-		)
-	);
+		);
+	});
 });

@@ -45,8 +45,9 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
 
 	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
+	const width = props.lockLayout === 'stacked' ? '400px' : 'auto';
 	const Comparison = (
-		<div style={ wrapperStyles }>
+		<div style={{ ...wrapperStyles, width }}>
 			<XUIStepper {...props}>
 				<h3 style={ contentStyles }>Content Area</h3>
 			</XUIStepper>

@@ -1,4 +1,4 @@
-// Radio buttons
+// Radio
 //
 // Teaser: Choose a single item from a range of options
 //
@@ -7,9 +7,7 @@
 //
 // Components: Radio
 //
-// Weight: -1
-//
-// Styleguide: Building Blocks.Forms.Radios
+// Styleguide: Building Blocks.Controls.Radio
 
 
 // Inline radios buttons
@@ -36,7 +34,7 @@
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
-// Styleguide: Building Blocks.Forms.Radios.3
+// Styleguide: Building Blocks.Controls.Radio.3
 
 
 
@@ -69,7 +67,7 @@
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.Radios.7
+// Styleguide: Building Blocks.Controls.Radio.7
 
 // Order
 //
@@ -100,13 +98,13 @@
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
 //
-// Styleguide: Building Blocks.Forms.Radios.8
+// Styleguide: Building Blocks.Controls.Radio.8
 
 // Implementation
 //
 // The standard XUI radio button is composed of 3 SVGs for various states. These are styled and displayed based on state pseudo classes.
 //
-// Styleguide: Building Blocks.Forms.Radios.20
+// Styleguide: Building Blocks.Controls.Radio.20
 
 // Class list
 //
@@ -121,4 +119,4 @@
 // xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of a styled checkbox (not applicable to radios)
 // xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
 //
-// Styleguide: Building Blocks.Forms.Radios.50
+// Styleguide: Building Blocks.Controls.Radio.50

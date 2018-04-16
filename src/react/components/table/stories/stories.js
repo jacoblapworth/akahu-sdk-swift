@@ -127,7 +127,7 @@ storiesWithKnobs.add('Playground', () => {
 	const onCellClick = boolean('onCellClick', false);
 	const hasWrapping = boolean('hasWrapping', false);
 	const cellProps = {
-		onCellClick: onCellClick && (({ _id }) => () => alert(`Click cell in row ${_id}`)),
+		...onCellClick && { onCellClick: (({ _id }) => () => alert(`Click cell in row ${_id}`)) },
 		hasWrapping,
 	};
 
@@ -152,27 +152,27 @@ storiesWithKnobs.add('Playground', () => {
 				footer={appendFooter && <Appendage>Footer</Appendage>}>
 
 				<Column
-					head={<Cell sortKey={activeSortKey && 'header-1'}>Header 1</Cell>}
+					head={<Cell sortKey="header-1">Header 1</Cell>}
 					body={data => <Cell {...cellProps} >Body Cell Data {data._id}</Cell>}
 				/>
 
 				<Column
-					head={<Cell sortKey={activeSortKey && 'header-2'}>Header 2</Cell>}
+					head={<Cell sortKey="header-2">Header 2</Cell>}
 					body={data => <Cell {...cellProps} >Body Cell Data {data._id}</Cell>}
 				/>
 
 				<Column
-					head={<Cell sortKey={activeSortKey && 'header-3'}>Header 3</Cell>}
+					head={<Cell sortKey="header-3">Header 3</Cell>}
 					body={data => <Cell {...cellProps} >Super looooooooonooooooooooog text {data._id}</Cell>}
 				/>
 
 				<Column
-					head={<Cell sortKey={activeSortKey && 'header-4'}>Header 4</Cell>}
+					head={<Cell sortKey="header-4">Header 4</Cell>}
 					body={data => <Cell {...cellProps} >Body Cell Data {data._id}</Cell>}
 				/>
 
 				<Column
-					head={<Cell sortKey={activeSortKey && 'header-5'}>Header 5</Cell>}
+					head={<Cell sortKey="header-5">Header 5</Cell>}
 					body={data => <Cell {...cellProps} >Body Cell Data {data._id}</Cell>}
 				/>
 
@@ -208,8 +208,8 @@ const TestScaffold = ({
 						key={columnIndex}
 						head={!removeHeader && (
 							<Cell
-								className={hasHeaderClassName && 'xui-table-visualTesting-cell'}
-								sortKey={tableProps.activeSortKey && !columnIndex && 'content'}>
+								{...tableProps.activeSortKey && !columnIndex && { sortKey: 'content' }}
+								className={hasHeaderClassName && 'xui-table-visualTesting-cell'}>
 								Header {columnIndex + 1}
 							</Cell>
 						)}

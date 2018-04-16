@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-switch.html">Switch in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-switch.html">Switch in the XUI Documentation</a>
 </div>
 
 `XUISwitch` uses an HTML checkbox under the hood and can be styled just as other control components.

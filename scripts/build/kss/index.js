@@ -1,13 +1,14 @@
 const kss = require('kss');
 const { taskRunner, taskRunnerReturns } = require('../../helpers');
 const kssSass = require('../sass/kss');
+const kssTmp = require('./tmp');
 const postcssXui = require('../postcss/xui');
 const kssConfig = require('./config.json');
 const { succeed, fail } = taskRunnerReturns;
 
 module.exports = () => {
 	return taskRunner(taskSpinner => {
-		return Promise.all([kssSass, postcssXui]).then(() => {
+		return Promise.all([kssTmp, kssSass, postcssXui]).then(() => {
 			taskSpinner.info('Built pre-requisites');
 			return kss(kssConfig)
 				.then(succeed)

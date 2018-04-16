@@ -38,7 +38,7 @@ const styles = ({ color, fontFamily, fontSize, space }) => ({
 			lineHeight: 1.5,
 			paddingTop: 'calc(0.75em + 0.5vh)',
 			paddingBottom: 'calc(0.75em + 0.5vh)',
-			paddingLeft: 'calc(0.7em + .7vw)',
+			paddingLeft: 'calc(0.7rem + .7vw)',
 			color: color.link,
 			textDecoration: 'none'
 		},

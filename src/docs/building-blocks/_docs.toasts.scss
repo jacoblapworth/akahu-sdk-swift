@@ -1,5 +1,5 @@
 
-// Toasts
+// Toast
 //
 // Components: Toast
 //
@@ -7,7 +7,7 @@
 //
 // Introduction: Toasts are used for visual confirmation of user actions or system events.
 //
-// Styleguide: Building Blocks.Toast
+// Styleguide: Building Blocks.Alerts.Toast
 
 
 // Best Practice
@@ -17,7 +17,7 @@
 // Do: Use a toast to surface timely actions related to the current context
 // Dont: Don't use toasts for highlighting form errors, use inline validation instead
 //
-// Styleguide: Building Blocks.Toast.1
+// Styleguide: Building Blocks.Alerts.Toast.1
 
 // Anatomy
 //
@@ -43,7 +43,7 @@
 //   <div class="xui-toast--message">Bill created</div>
 // </div>
 //
-// Styleguide: Building Blocks.Toast.2
+// Styleguide: Building Blocks.Alerts.Toast.2
 
 // Layout
 //
@@ -53,7 +53,7 @@
 // Classes: 
 // xui-toast-wrapper: Apply to toast parent
 //
-// Styleguide: Building Blocks.Toast.3
+// Styleguide: Building Blocks.Alerts.Toast.3
 
 // Actions
 //
@@ -78,7 +78,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Toast.4
+// Styleguide: Building Blocks.Alerts.Toast.4
 
 // Wrapping
 //
@@ -102,7 +102,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Toast.5
+// Styleguide: Building Blocks.Alerts.Toast.5
 
 // Sentiment
 //
@@ -127,7 +127,7 @@
 //   <div class="xui-toast--message">Connected</div>
 // </div>
 //
-// Styleguide: Building Blocks.Toast.6
+// Styleguide: Building Blocks.Alerts.Toast.6
 
 // Hiding and showing
 //
@@ -148,7 +148,7 @@
 // 
 // For more guidance on how to use toasts, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
-// Styleguide: Building Blocks.Toast.7
+// Styleguide: Building Blocks.Alerts.Toast.7
 
 // Accessibility
 //
@@ -157,4 +157,4 @@
 // In all other contexts use the `status` role.
 // For further information on roles, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
-// Styleguide: Building Blocks.Toast.9
+// Styleguide: Building Blocks.Alerts.Toast.9

@@ -39,5 +39,5 @@
 <h2 class="xui-heading-large">Not the guide you were looking for?</h2>
 <p>Read all about [language in Xero](https://github.dev.xero.com/pages/Xero/product-language-guide/). Really, do.</p>
 <p>We have a [Product Research Library](https://research.xero.com/).</p>
-<p>You might be looking for our [Storybook](storybook) component and visual regression system.
+<p>You might be looking for our [Storybook](storybook/) component and visual regression system.
 <p>Need more general front-end information? Try the [Confluence space](https://confluence.inside.xero.com/display/FED/FED+Home).

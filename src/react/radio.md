@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-forms-radios.html">Radio in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-radio.html">Radio in the XUI Documentation</a>
 </div>
 
 Enhanced version of the native radio element. Use in place of `<input type="radio" />`.

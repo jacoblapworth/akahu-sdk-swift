@@ -19,7 +19,7 @@
 	display: block;
 	@include xui-breakpoint-wide {
 		width: 100%;
-		min-height: calc(24vh + 21px);
+		min-height: calc(20vh);
 		background-position: 50% 50%;
 	}
 }

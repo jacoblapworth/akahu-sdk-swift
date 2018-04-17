@@ -228,7 +228,7 @@ describe('<XUI Structure/>', () => {
 		});
 		it('renders panel with a default-style header and no sidebar', () => {
 			const wrapper = mount(
-				<XUIPanel header={panelHeader}>
+				<XUIPanel heading={panelHeader}>
 					Content here
 				</XUIPanel>
 			);
@@ -277,7 +277,7 @@ describe('<XUI Structure/>', () => {
 		it('renders a panel with all the bells and whistles', () => {
 			const testPanel = renderer.create(
 				<XUIPanel
-					header={panelHeader}
+					heading={panelHeader}
 					footer={panelFooter}
 					sidebar={tabs}
 				>

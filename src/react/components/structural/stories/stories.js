@@ -43,10 +43,10 @@ const buildColumns = (widths) => {
 };
 
 const exampleTabs = (
-	<XUIPicklist>
-		<XUIPickitem id="1">Tab 1</XUIPickitem>
-		<XUIPickitem id="2" isSelected={true}>Tab 2</XUIPickitem>
-		<XUIPickitem id="3">This is tab 3</XUIPickitem>
+	<XUIPicklist secondaryProps={{role: "menu"}}>
+		<XUIPickitem id="1" ariaRole="menuitem">Tab 1</XUIPickitem>
+		<XUIPickitem id="2" ariaRole="menuitem" isSelected={true}>Tab 2</XUIPickitem>
+		<XUIPickitem id="3" ariaRole="menuitem">This is tab 3</XUIPickitem>
 	</XUIPicklist>
 );
 const buildActions = (props) => {
@@ -138,10 +138,10 @@ variations.forEach(variation => {
 				</div>
 			)
 		} else if (type === "panel") {
-			const header = <XUIPanelHeading>Hello there <XUIIcon isInline={true} path={overflow} /></XUIPanelHeading>;
+			const heading = <XUIPanelHeading>Hello there <XUIIcon isInline={true} path={overflow} /></XUIPanelHeading>;
 			return (
 				<XUIPanel
-				header={header}
+				heading={heading}
 				>
 						<XUIPanelSection
 							headerText="I'm a section header"
@@ -152,12 +152,12 @@ variations.forEach(variation => {
 				</XUIPanel>
 			)
 		} else if (type === "panel-sidebar") {
-			const header = <XUIPanelHeading>Hello there</XUIPanelHeading>;
+			const heading = <XUIPanelHeading>Hello there</XUIPanelHeading>;
 			const footer = <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>;
 			return (
 				<div style={{minWidth: '700px'}}>
 					<XUIPanel
-						header={header}
+						heading={heading}
 						footer={footer}
 						sidebar={exampleTabs}
 					>

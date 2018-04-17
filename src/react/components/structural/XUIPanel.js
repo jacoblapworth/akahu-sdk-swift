@@ -10,7 +10,7 @@ export default class XUIPanel extends PureComponent {
 		const {
 			className,
 			children,
-			header,
+			heading,
 			footer,
 			sidebar,
 			tagName,
@@ -21,7 +21,7 @@ export default class XUIPanel extends PureComponent {
 		if (!sidebar) {
 			return (
 				<Tag {...spreadProps} className={classes}>
-					{header}
+					{heading}
 					{children}
 					{footer}
 				</Tag>
@@ -33,7 +33,7 @@ export default class XUIPanel extends PureComponent {
 						{sidebar}
 					</div>
 					<div className={`${ns}-u-flex-1`}>
-						{header}
+						{heading}
 						{children}
 						{footer}
 					</div>
@@ -49,7 +49,7 @@ XUIPanel.propTypes = {
 	/**
 	 * The header for a panel. We recommend XUIPanelHeading.
 	 */
-	header: PropTypes.node,
+	heading: PropTypes.node,
 	/**
 	 * The footer for a panel. We recommend XUIPanelFooter.
 	 */

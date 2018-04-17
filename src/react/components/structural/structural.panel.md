@@ -6,7 +6,7 @@
 	<a href="../section-compounds-displayingdata-panel.html">Panels in the XUI Documentation</a>
 </div>
 
-Panels are top-level containers for grouping page content. XUIPanel can optionally contain XUIHeading, XUIFooter, and/or XUISection (which can have its own header). XUIPanel will also accept content designated as a sidebar.
+Panels are top-level containers for grouping page content. XUIPanel can optionally contain XUIPanelHeading, XUIPanelFooter, and/or XUIPanelSection (which can have its own header). XUIPanel will also accept content designated as a sidebar.
 
 #### Default Panel
 
@@ -36,7 +36,7 @@ const XUIPanelSection = require('../structural/XUIPanelSection').default;
 </XUIPanel>
 ```
 
-#### Panel with Sidebar, Header, and Footer
+#### Panel with Sidebar, Heading, and Footer
 ```
 const XUIPanel = require('../structural/XUIPanel').default;
 const XUIPanelSection = require('../structural/XUIPanelSection').default;
@@ -47,7 +47,7 @@ const XUIPickitem = require('../picklist/Pickitem').default;
 const XUIActions = require('../structural/XUIActions').default;
 const XUIButton = require('../button/XUIButton').default;
 
-const header = <XUIPanelHeading>Invoices</XUIPanelHeading>;
+const heading = <XUIPanelHeading>Invoices</XUIPanelHeading>;
 const footerActions = (
 	<XUIActions
 		isLinear
@@ -59,15 +59,15 @@ const footer = (
 	<XUIPanelFooter className="xui-padding-small">{footerActions}</XUIPanelFooter>
 );
 const exampleNav = (
-	<XUIPicklist>
-		<XUIPickitem key="1" id="1">Bills</XUIPickitem>
-		<XUIPickitem key="2" id="2" isSelected={true}>Invoices</XUIPickitem>
-		<XUIPickitem key="3" id="3">Contacts</XUIPickitem>
+	<XUIPicklist secondaryProps={{role: "menu"}}>
+		<XUIPickitem key="1" id="1" ariaRole="menuitem">Bills</XUIPickitem>
+		<XUIPickitem key="2" id="2" ariaRole="menuitem" isSelected={true}>Invoices</XUIPickitem>
+		<XUIPickitem key="3" id="3" ariaRole="menuitem">Contacts</XUIPickitem>
 	</XUIPicklist>
 );
 
 <XUIPanel
-	header={header}
+	heading={heading}
 	footer={footer}
 	sidebar={exampleNav}
 >

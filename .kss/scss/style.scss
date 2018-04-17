@@ -131,6 +131,10 @@ $ds-section-space: calc(6rem + 2vh);
 	letter-spacing: $xui-letter-spacing-loose;
 }
 
+[id*=fundamentals-variables-mixins] .ds-title--level-3 {
+	text-transform: none;
+}
+
 // use 4th level blocks as callouts
 .kss-section--depth-4 {
 	padding: 20px;

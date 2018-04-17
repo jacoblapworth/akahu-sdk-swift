@@ -9,6 +9,10 @@ import XUIButton from '../../button/XUIButton';
 import XUIActions from '../XUIActions';
 import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
+import XUIPanel from '../XUIPanel';
+import XUIPanelSection from '../XUIPanelSection';
+import XUIPanelHeading from '../XUIPanelHeading';
+import XUIPanelFooter from '../XUIPanelFooter';
 import { rowVariants, columnShortNames, overviewSentiments } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -85,6 +89,11 @@ describe('<XUI Structure/>', () => {
 		it('renders actions without default layout', () => {
 			const wrapper = mount(<XUIActions primary={primary} hasLayout={false} />);
 			expect(wrapper.find(".xui-actions-layout").length).toBe(0);
+		});
+		it('renders actions in a different tag, if supplied', () => {
+			const wrapper = mount(<XUIActions primary={primary} tagName="header" />);
+			const tag = wrapper.find(XUIActions);
+			expect(tag.childAt(0).type()).toEqual("header");
 		});
 	});
 	describe('Pageheader and Breadcrumb:', () => {
@@ -194,6 +203,97 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIOverviewBlock><XUIOverviewSection label="labelText" value="65.43" className="testClass" /></XUIOverviewBlock>);
 			const tag = wrapper.find(XUIOverviewSection);
 			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+	});
+	describe('Panel and panel section:', () => {
+		const actions = <XUIActions primary={primary} secondary={secondary} />;
+		const panelHeader = <XUIPanelHeading>Hello there</XUIPanelHeading>;
+		const panelFooter = <XUIPanelFooter className="xui-padding-small">{actions}</XUIPanelFooter>;
+		it('renders the base panel with no extra settings passed', () => {
+			const testPanel = renderer.create(<XUIPanel>Content here</XUIPanel>);
+			expect(testPanel).toMatchSnapshot();
+		});
+		it('renders extra panel classes that are passed in', () => {
+			const wrapper = mount(<XUIPanel className="testClass">Content here</XUIPanel>);
+			const tag = wrapper.find(XUIPanel);
+			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders panel in a different tag, if supplied', () => {
+			const testCustomTag = renderer.create(<XUIPanel tagName="caption">Content here</XUIPanel>);
+			expect(testCustomTag).toMatchSnapshot();
+		});
+		it('renders panel with a sidebar', () => {
+			const wrapper = mount(<XUIPanel sidebar={tabs}>Content here</XUIPanel>);
+			expect(wrapper.find(".xui-panel--sidebar").length).toBe(1);
+		});
+		it('renders panel with a default-style header and no sidebar', () => {
+			const wrapper = mount(
+				<XUIPanel header={panelHeader}>
+					Content here
+				</XUIPanel>
+			);
+			expect(wrapper.find(".xui-panel--header").length).toBe(1);
+			expect(wrapper.find(".xui-panel--sidebar").length).toBe(0);
+		});
+		it('renders panel with a default-style footer and no sidebar', () => {
+			const wrapper = mount(
+				<XUIPanel footer={panelFooter}>
+					Content here
+				</XUIPanel>
+			);
+			expect(wrapper.find(".xui-panel--footer").length).toBe(1);
+			expect(wrapper.find(".xui-panel--sidebar").length).toBe(0);
+		});
+		it('renders the panel section with no extra settings passed', () => {
+			const testPanelSection = renderer.create(
+				<XUIPanelSection>Content here</XUIPanelSection>
+			);
+			expect(testPanelSection).toMatchSnapshot();
+		});
+		it('renders extra panel section classes that are passed in', () => {
+			const wrapper = mount(
+				<XUIPanelSection className="testClass">Content here</XUIPanelSection>
+			);
+			const tag = wrapper.find(XUIPanelSection);
+			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders the panel section with a header', () => {
+			const wrapper = mount(
+				<XUIPanelSection headerText="I am a header">Content here</XUIPanelSection>
+			);
+			expect(wrapper.find(".xui-panel--section--header").length).toBe(1);
+		});
+		it('renders the panel section with a header and special class', () => {
+			const wrapper = mount(
+				<XUIPanelSection
+					headerText="I am a header"
+					headerClassName="testClass"
+				>
+					Content here
+				</XUIPanelSection>
+			);
+			expect(wrapper.find(".xui-panel--section--header").hasClass("testClass")).toEqual(true);
+		});
+		it('renders a panel with all the bells and whistles', () => {
+			const testPanel = renderer.create(
+				<XUIPanel
+					header={panelHeader}
+					footer={panelFooter}
+					sidebar={tabs}
+				>
+					<XUIPanelSection
+						headerText="I'm a section header"
+						headerClassName="test-header-class"
+						className="xui-padding-large"
+					>
+						<p>Some important text might go here.</p>
+					</XUIPanelSection>
+					<XUIPanelSection className="xui-padding-large">
+						<p>Other critical info would go here.</p>
+					</XUIPanelSection>
+				</XUIPanel>
+			);
+			expect(testPanel).toMatchSnapshot();
 		});
 	});
 });

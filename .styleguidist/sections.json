@@ -16,12 +16,12 @@
 				"content": "../src/react/structural.md",
 				"sections": [
 					{
-						"name": "Rows",
+						"name": "Row",
 						"components": "../src/react/components/structural/XUIRow.js",
 						"content": "../src/react/components/structural/structural.row.md"
 					},
 					{
-						"name": "Columns",
+						"name": "Column",
 						"components": "../src/react/components/structural/XUIColumn.js",
 						"content": "../src/react/components/structural/structural.column.md"
 					}
@@ -349,8 +349,13 @@
 				"sections": [
 					{
 						"name": "Overview Block",
-						"components": "../src/react/components/structural/XUIOverviewBlock.js",
-						"content": "../src/react/components/structural/structural.overviewblock.md"
+						"content": "../src/react/components/structural/structural.overviewblock.md",
+						"components": "../src/react/components/structural/XUIOverview*.js"
+					},
+					{
+						"name": "Panel",
+						"content": "../src/react/components/structural/structural.panel.md",
+						"components": "../src/react/components/structural/XUIPanel*.js"
 					},
 					{
 						"name": "Picklist",

@@ -9,9 +9,15 @@ import XUIBreadcrumb from '../XUIBreadcrumb';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
+import XUIIcon from '../../icon/XUIIcon';
+import overflow from '@xero/xui-icon/icons/overflow';
 import XUIActions from '../XUIActions';
 import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
+import XUIPanel from '../XUIPanel';
+import XUIPanelSection from '../XUIPanelSection';
+import XUIPanelHeading from '../XUIPanelHeading';
+import XUIPanelFooter from '../XUIPanelFooter';
 import { rowVariants } from '../private/constants';
 
 // Story book things
@@ -43,12 +49,15 @@ const exampleTabs = (
 		<XUIPickitem id="3">This is tab 3</XUIPickitem>
 	</XUIPicklist>
 );
-const exampleActions = (
-	<XUIActions
-		primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>}
-		secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}
-	/>
+const buildActions = (props) => {
+	return (
+		<XUIActions
+			primaryAction={<XUIButton variant="primary" size="small">One</XUIButton>}
+			secondaryAction={<XUIButton size="small">Two</XUIButton>}
+			{...props}
+		/>
 );
+};
 const sampleBreadcrumb = [
 	{label: "hello", href: "#1"},
 	{label: "hiya", href: "#2"},
@@ -109,7 +118,7 @@ variations.forEach(variation => {
 				variationMinusStoryDetails.tabs = exampleTabs;
 			}
 			if (variationMinusStoryDetails.actions) {
-				variationMinusStoryDetails.actions = exampleActions;
+				variationMinusStoryDetails.actions = buildActions();
 			}
 			if (variationMinusStoryDetails.breadcrumb) {
 				variationMinusStoryDetails.breadcrumb = exampleBreadcrumb;
@@ -126,6 +135,42 @@ variations.forEach(variation => {
 					<XUIOverviewBlock {...variationMinusStoryDetails}>
 						{buildExampleSections(sections)}
 					</XUIOverviewBlock>
+				</div>
+			)
+		} else if (type === "panel") {
+			const header = <XUIPanelHeading>Hello there <XUIIcon isInline={true} path={overflow} /></XUIPanelHeading>;
+			return (
+				<XUIPanel
+				header={header}
+				>
+						<XUIPanelSection
+							headerText="I'm a section header"
+							className="xui-padding-large"
+						>
+							<p>Some important text might go here.</p>
+						</XUIPanelSection>
+				</XUIPanel>
+			)
+		} else if (type === "panel-sidebar") {
+			const header = <XUIPanelHeading>Hello there</XUIPanelHeading>;
+			const footer = <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>;
+			return (
+				<div style={{minWidth: '700px'}}>
+					<XUIPanel
+						header={header}
+						footer={footer}
+						sidebar={exampleTabs}
+					>
+							<XUIPanelSection
+								headerText="I'm a section header"
+								className="xui-padding-large"
+							>
+								<p>Some important text might go here.</p>
+							</XUIPanelSection>
+							<XUIPanelSection className="xui-padding-large">
+								<p>Other critical info would go here.</p>
+							</XUIPanelSection>
+					</XUIPanel>
 				</div>
 			)
 		}

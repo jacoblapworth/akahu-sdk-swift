@@ -6,6 +6,7 @@ const lrserver = require('tiny-lr')();
 
 const watchPaths = [
 	'src/sass/**/*',
+	'!src/sass/tmp/*',
 	'src/docs/**/*',
 	'.kss/**/*',
 	'scripts/build/kss/config.json'

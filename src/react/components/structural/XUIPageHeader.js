@@ -24,7 +24,7 @@ const buildTitleAndTabs = (title, tabs) => {
 	}
 };
 
-export default class XUIPageheader extends PureComponent {
+export default class XUIPageHeader extends PureComponent {
 	render() {
 		const {
 			title,
@@ -62,7 +62,7 @@ export default class XUIPageheader extends PureComponent {
 	}
 }
 
-XUIPageheader.propTypes = {
+XUIPageHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	/**
@@ -87,6 +87,6 @@ XUIPageheader.propTypes = {
 	actions: PropTypes.node
 };
 
-XUIPageheader.defaultProps = {
+XUIPageHeader.defaultProps = {
 	hasLayout: true
 };

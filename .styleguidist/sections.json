@@ -263,8 +263,8 @@
 						"components": "../src/react/components/isolationheader/XUIIsolationHeader.js"
 					},
 					{
-						"name": "Pageheader",
-						"components": "../src/react/components/structural/XUIPageheader.js",
+						"name": "Page Header",
+						"components": "../src/react/components/structural/XUIPageHeader.js",
 						"content": "../src/react/components/structural/structural.pageheader.md"
 					},
 					{

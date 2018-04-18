@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
-import XUIPageheader from '../XUIPageheader';
+import XUIPageHeader from '../XUIPageHeader';
 import XUIBreadcrumb from '../XUIBreadcrumb';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
@@ -125,7 +125,7 @@ variations.forEach(variation => {
 			}
 			return (
 				<div style={{minWidth: '700px'}}>
-					<XUIPageheader {...variationMinusStoryDetails}></XUIPageheader>
+					<XUIPageHeader {...variationMinusStoryDetails}></XUIPageHeader>
 				</div>
 			);
 		} else if (type === "overview") {

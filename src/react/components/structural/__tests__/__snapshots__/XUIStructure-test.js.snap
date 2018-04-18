@@ -107,7 +107,7 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
 </div>
 `;
 
-exports[`<XUI Structure/> Pageheader and Breadcrumb: renders the simplest pageheader with no extra settings passed 1`] = `
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHeader with no extra settings passed 1`] = `
 <header
   className="xui-pageheading"
 >

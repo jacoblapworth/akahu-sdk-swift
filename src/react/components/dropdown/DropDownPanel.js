@@ -59,7 +59,7 @@ class DropDownPanel extends PureComponent {
 			navigator.userAgent.indexOf('Edge/') === -1
 		) {
 			content.style.webkitOverflowScrolling = 'auto';
-			this._scrollStyleTimer = setTimeout(() => {
+			setTimeout(() => {
 				content.style.webkitOverflowScrolling = '';
 			}, 600);
 		}
@@ -157,7 +157,11 @@ class DropDownPanel extends PureComponent {
 				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
 				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
 				// yet...
-				setTimeout(() => this._scrollableContent.scrollTop = newScrollTop, 0);
+				setTimeout(() => {
+					if(this._scrollableContent) {
+						this._scrollableContent.scrollTop = newScrollTop
+					}
+				}, 0);
 			}
 		});
 	}

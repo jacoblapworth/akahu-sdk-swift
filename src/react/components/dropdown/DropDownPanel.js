@@ -59,7 +59,8 @@ class DropDownPanel extends PureComponent {
 			navigator.userAgent.indexOf('Edge/') === -1
 		) {
 			content.style.webkitOverflowScrolling = 'auto';
-			setTimeout(() => {
+			// This timeout is cleared in componentWillUnmount to prevent errors.
+			this._iosHackTimeout = setTimeout(() => {
 				content.style.webkitOverflowScrolling = '';
 			}, 600);
 		}
@@ -81,6 +82,14 @@ class DropDownPanel extends PureComponent {
 		whenVisible(this, () => this.rootNode.focus());
 	}
 
+	/**
+	 * Removes the iOS hack timeout to prevent errors
+	 */
+	componentWillUnmount() {
+		if(this._iosHackTimeout) {
+			clearTimeout(this._iosHackTimeout);
+		}
+	}
 	/**
 	 * Public API that can be used to simulate a keydown event on the panel.  Useful if you want to allow
 	 * keyboard navigation of a child picklist while keeping the focus elsewhere in the DOM.
@@ -105,7 +114,7 @@ class DropDownPanel extends PureComponent {
 		if (typeof this.props.onKeyDown === 'function') {
 			this.props.onKeyDown(event);
 		}
-	}
+	};
 
 	/**
 	 * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).

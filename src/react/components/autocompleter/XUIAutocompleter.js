@@ -430,7 +430,7 @@ XUIAutocompleter.defaultProps = {
 	searchThrottleInterval: 0,
 	openOnFocus: false,
 	closeOnTab: true,
-	forceDesktop: false,
+	forceDesktop: true,
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,
 	disableWrapPills: false

@@ -229,7 +229,7 @@
 		background: $xui-color-grey-5;
 		content: '';
 		display: block;
-		height: 10px;
+		height: calc(50% - #{$xui-s-large});
 		left: 30px;
 		position: absolute;
 		top: 0;
@@ -445,6 +445,7 @@
 .#{$ns}-stepper-link-progress {
 	$size: 40px;
 	display: inline-block;
+	flex-shrink: 0;
 	height: $size;
 	position: relative;
 	width: $size;

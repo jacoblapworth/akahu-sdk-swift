@@ -63,6 +63,20 @@ const standardTabs = [
 
 ];
 
+const longTabs = [
+	{
+		name: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+	},
+	{
+		name: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+		description: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+	},
+	{
+		name: 'Standard',
+		description: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+	},
+];
+
 const progressTabs = [
 	...standardTabs.map(tab => ({
 		...tab,
@@ -124,6 +138,14 @@ const variations = [
 		storyTitle: 'progress button combinations',
 		lockLayout: 'stacked',
 		tabs: progressTabs
+	},
+
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'extra long content',
+		lockLayout: 'stacked',
+		tabs: longTabs
 	},
 
 ];

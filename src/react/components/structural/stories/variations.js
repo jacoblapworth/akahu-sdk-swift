@@ -67,6 +67,16 @@ variations = [...variations,
 			{label: 'hello', value: 'there'},
 			{label: 'there', value: 'you go'}
 		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `panel - simple`,
+		type: 'panel'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `panel with all options`,
+		type: 'panel-sidebar'
 	}
 ];
 

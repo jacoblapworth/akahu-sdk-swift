@@ -16,6 +16,7 @@ $ds-color-black: #1c242c;
 // width > 940 px. It is a temporary workaround and can be replaced by 7vmax as soon as IE/Edge support the vmax unit
 $ds-main-side-padding: calc(7 * (1vw + 1vh - 1vmin));
 $ds-shadow-border-top: 0 -1px 0 0 $xui-color-grey-alpha-6;
+$ds-shadow-border-bottom: 0 1px 0 0 $xui-color-grey-alpha-6;
 $ds-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-6;
 
 .ds-html {
@@ -128,6 +129,10 @@ $ds-section-space: calc(6rem + 2vh);
 	font-size: 13px;
 	text-transform: uppercase;
 	letter-spacing: $xui-letter-spacing-loose;
+}
+
+[id*=fundamentals-variables-mixins] .ds-title--level-3 {
+	text-transform: none;
 }
 
 // use 4th level blocks as callouts
@@ -560,7 +565,8 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--header {
-	margin: 1rem 0;
+	margin: 0;
+	padding: .5rem 0;
 	@include xui-breakpoint-medium-and-narrow {
 		padding: 0 $xui-s-large;
 	}
@@ -575,7 +581,8 @@ $kss-color-padding: #eeebff;
 
 	// style siblings based on input checked state
 	&:checked ~ .ds-nav--item {
-		background: $xui-color-grey-7;
+		background: $xui-color-grey-alpha-7;
+		box-shadow: 0 -1px 0 0 $xui-color-grey-6;
 	}
 	&:checked ~ .ds-nav--item .ds-nav--item--icon svg {
 		transform: rotate(180deg);
@@ -586,22 +593,24 @@ $kss-color-padding: #eeebff;
 		background: $xui-color-grey-alpha-7;
 	}
 	&:checked ~ .ds-nav--nested {
-		transition: .5s ease-in-out;
+		transition: .3s ease-in-out;
 		pointer-events: initial ;
 		display: block;
 		height: auto ;
 		opacity: 1 ;
-		padding-bottom: 10px;
+		border-bottom: 1px solid $xui-color-grey-alpha-6;
 		& .ds-nav--child {
 			visibility: visible;
+		}
+		ul {
+			padding-bottom: 10px;
 		}
 	}
 }
 
 .ds-nav--item {
 	align-items: stretch;
-	box-shadow: $ds-shadow-border-top;
-	border-bottom: 1px solid rgba(50, 70, 90, 0.1);
+	border-bottom: 1px solid $xui-color-grey-alpha-6;
 	display: flex;
 	font-size: 13px; // RESETTING DOCS 15px so line height for spacing works.
 	position: relative;
@@ -613,10 +622,10 @@ $kss-color-padding: #eeebff;
 
 .ds-nav--item--index {
 	align-items: center;
-	color: $xui-color-grey-1;
+	color: $xui-color-grey-alpha-2;
 	display: flex;
 	font-size: $xui-font-size-medium;
-	height: 60px;
+	height: 52px;
 	padding: 0 $xui-s-large;
 	transition: all .15s ease-in-out;
 	width: 100%;
@@ -631,7 +640,7 @@ $kss-color-padding: #eeebff;
 		background: $xui-color-grey-6;
 	}
 	&:before {
-		height: 60px;
+		height: 52px;
 		@include ds-selected;
 	}
 }
@@ -642,7 +651,7 @@ $kss-color-padding: #eeebff;
 	flex-shrink: 0;
 	justify-content: center;
 	transition: all .15s ease-in-out;
-	width: 60px;
+	width: 52px;
 	&:hover:not(:focus) {
 		background: $xui-color-grey-7;
 	}
@@ -657,11 +666,11 @@ $kss-color-padding: #eeebff;
 	&:after {
 		background: transparent;
 		content: '';
-		height: 60px;
+		height: 52px;
 		position: absolute;
 		right: 0;
 		top: 0;
-		width: 60px;
+		width: 52px;
 	}
 }
 
@@ -697,7 +706,7 @@ $kss-color-padding: #eeebff;
 	display: inline-block;
 	font-size: $xui-font-size-medium;
 	height: auto;
-	padding: $xui-s-small $xui-s-large;
+	padding: 6px $xui-s-large;
 	position: relative;
 	transition: all .15s ease-in-out;
 	width: 100%;
@@ -712,7 +721,7 @@ $kss-color-padding: #eeebff;
 		background: $xui-color-grey-alpha-6;
 	}
 	&:before {
-		height: 40px;
+		height: 100%;
 		@include ds-selected;
 	}
 }

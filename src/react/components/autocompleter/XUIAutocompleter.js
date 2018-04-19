@@ -215,7 +215,6 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const containerClassNames = cn(
 			props.inputContainerClassName,
-			`${ns}-u-flex`,
 			{
 				[`${ns}-row-flex`]: hasPills && !props.disableWrapPills,
 				[`${ns}-padding-left-xsmall`]: hasPills
@@ -223,6 +222,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const inputClassNames = cn(
 			props.inputClassName,
+			`${ns}-autocompleter--textinput`,
 			{[`${ns}-padding-left-small`]: hasPills}
 		);
 
@@ -256,7 +256,7 @@ export default class XUIAutocompleter extends PureComponent {
 						maxLength: props.maxLength,
 						id: props.inputId,
 						style: {
-							minWidth: state.inputWidth
+							flexBasis: state.inputWidth
 						}
 					}}
 				/>

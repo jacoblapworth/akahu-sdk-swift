@@ -14,7 +14,9 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 .#{$ns}-textinput--input {
 	@include xui-input-base;
 	border: none;
-	flex: 1;
+	flex: 1 1 auto;
+	min-width: 0; // Required for inputs to be able to shrink in IE 11
+	overflow: hidden;
 }
 
 .#{$ns}-textinput {
@@ -47,6 +49,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 	align-self: stretch;
 	cursor: text;
 	display: flex;
+	flex-shrink: 0;
 	margin: -1px;
 }
 

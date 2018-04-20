@@ -50,7 +50,7 @@ const buildUmd = require(path.resolve(
 
 function build() {
 	return taskRunner(taskSpinner => {
-		return Promise.all([sassKss(), cssminXui()])
+		return sassKss()
 			.then(() => {
 				taskSpinner.info('Done with basic build promises');
 				return Promise.all([
@@ -58,7 +58,8 @@ function build() {
 					buildStorybook(),
 					buildKss(),
 					buildTokens(),
-					buildUmd()
+					buildUmd(),
+					cssminXui()
 				]).then(({ stdout }) => console.log(stdout));
 			})
 			.then(succeed)

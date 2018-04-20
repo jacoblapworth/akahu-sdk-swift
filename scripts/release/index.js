@@ -78,7 +78,7 @@ if (!currentVersion.beta && args.includes('beta')) {
 function writePackageJson(cb) {
 	return fs.writeFile(
 		packageJsonLocation,
-		JSON.stringify(newPackageJson, null, 2),
+		`${JSON.stringify(newPackageJson, null, 2)}\n`,
 		'utf8',
 		err => {
 			if (err) {

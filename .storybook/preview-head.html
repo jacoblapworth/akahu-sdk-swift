@@ -1,13 +1,21 @@
 <link rel="stylesheet" href="xui.css">
 <script>
-		setTimeout(() => {
-				document.body.classList.add('xui-container');
-				document.body.style.height = '100%';
-				document.body.style.height = '100%';
-				document.body.style.backgroundColor = '#EBEDEF';
-				document.documentElement.style.height = '100%';
-				document.documentElement.style.width = '100%';
-		}, 0);
+		function ready(fn) {
+			if (document.readyState === 'complete') {
+				fn();
+			} else {
+				document.addEventListener('DOMContentLoaded', fn);
+			}
+		}
+
+		ready(function () {
+			document.body.classList.add('xui-container');
+			document.body.style.height = '100%';
+			document.body.style.width = '100%';
+			document.body.style.backgroundColor = '#EBEDEF';
+			document.documentElement.style.height = '100%';
+			document.documentElement.style.width = '100%';
+		});
 </script>
 <style>
 	#root > div > div {
@@ -28,5 +36,11 @@
 	}
 	.xui-loader-static .xui-loader--dot:nth-child(3) {
 		transform: scale(0.5);
+	}
+	/* IE 11 Hack */
+	@media all and (-ms-high-contrast:none) {
+		*::-ms-backdrop, #root > div > div {
+			margin: 0 !important; /* Fix for IE11 centering conflict with flexbox */
+		}
 	}
 </style>

@@ -2,7 +2,9 @@ const gaze = require('gaze');
 const postcssXui = require('../build/postcss/xui');
 const { logTaskTitle } = require('../helpers');
 
-gaze('src/sass/*', (err, watcher) => {
+const watchPaths = ['src/sass/*', '!src/sass/tmp/*'];
+
+gaze(watchPaths, (err, watcher) => {
 	logTaskTitle(__filename);
 
 	// On changed/added/deleted

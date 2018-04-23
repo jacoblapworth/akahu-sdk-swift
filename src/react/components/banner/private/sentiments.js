@@ -1,14 +1,12 @@
-const sentimentMap = {
+import {ns} from '../../helpers/xuiClassNamespace';
+
+export const sentimentMap = {
 	positive: {
-		class: 'xui-banner-positive',
+		class: `${ns}-banner-positive`,
 		role: 'status'
 	},
 	negative: {
-		class: 'xui-banner-negative',
+		class: `${ns}-banner-negative`,
 		role: 'alert'
 	}
 };
-
-module.exports = {
-    sentimentMap
-}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
 import {
+	baseClass,
 	maxWidthDropdownSizes,
 } from './private/constants';
 import {
@@ -12,6 +13,7 @@ import {
 	isNarrowViewport,
 } from './private/helpers';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * Utilize the intervalRunner to execute a callback when the list box and its children become visible to the user.
@@ -57,11 +59,12 @@ class DropDownPanel extends PureComponent {
 			navigator.userAgent.indexOf('Edge/') === -1
 		) {
 			content.style.webkitOverflowScrolling = 'auto';
-			this._scrollStyleTimer = setTimeout(() => {
+			// This timeout is cleared in componentWillUnmount to prevent errors.
+			this._iosHackTimeout = setTimeout(() => {
 				content.style.webkitOverflowScrolling = '';
 			}, 600);
 		}
-	}
+	};
 
 	/**
 	 * Attempts to focus this element.  If the element either doesn't exist yet or is set to "visibility: isHidden", the
@@ -80,6 +83,14 @@ class DropDownPanel extends PureComponent {
 	}
 
 	/**
+	 * Removes the iOS hack timeout to prevent errors
+	 */
+	componentWillUnmount() {
+		if(this._iosHackTimeout) {
+			clearTimeout(this._iosHackTimeout);
+		}
+	}
+	/**
 	 * Public API that can be used to simulate a keydown event on the panel.  Useful if you want to allow
 	 * keyboard navigation of a child picklist while keeping the focus elsewhere in the DOM.
 	 *
@@ -95,7 +106,7 @@ class DropDownPanel extends PureComponent {
 
 	keyDownHandler = event => {
 		if (this.list != null) {
-			const header = this.rootNode.querySelector('.xui-dropdown--header');
+			const header = this.rootNode.querySelector(`.${ns}-dropdown--header`);
 			if (header == null || !header.contains(document.activeElement)) {
 				this.list.onKeyDown(event);
 			}
@@ -103,7 +114,7 @@ class DropDownPanel extends PureComponent {
 		if (typeof this.props.onKeyDown === 'function') {
 			this.props.onKeyDown(event);
 		}
-	}
+	};
 
 	/**
 	 * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
@@ -155,7 +166,11 @@ class DropDownPanel extends PureComponent {
 				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
 				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
 				// yet...
-				setTimeout(() => this._scrollableContent.scrollTop = newScrollTop, 0);
+				setTimeout(() => {
+					if(this._scrollableContent) {
+						this._scrollableContent.scrollTop = newScrollTop
+					}
+				}, 0);
 			}
 		});
 	}
@@ -203,12 +218,12 @@ class DropDownPanel extends PureComponent {
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
 
-		const scrollableContainerClasses = 'xui-u-flex xui-u-flex-vertical xui-dropdown--scrollable-container xui-u-flex-grow';
+		const scrollableContainerClasses = `${ns}-u-flex ${ns}-u-flex-vertical ${baseClass}--scrollable-container ${ns}-u-flex-grow`;
 
 		return (
 			<div
 				ref={n => this.rootNode = n}
-				className="xui-dropdown--panel"
+				className={`${baseClass}--panel`}
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
 				id={panelId}
@@ -220,7 +235,7 @@ class DropDownPanel extends PureComponent {
 				<div
 					onMouseUp={this.iOSHack}
 					data-automationid={qaHook && `${qaHook}--body`}
-					className={cn('xui-dropdown--body', bodyClassName)}
+					className={cn(`${baseClass}--body`, bodyClassName)}
 					style={{
 						maxHeight,
 						overflowY
@@ -237,7 +252,7 @@ class DropDownPanel extends PureComponent {
 							qaHook={qaHook && `${qaHook}--scrollable-container`}
 						>
 							<div
-								className="xui-dropdown--scrollable-content"
+								className={`${baseClass}--scrollable-content`}
 								ref={sc => this._scrollableContent = sc}
 								data-automationid={qaHook && `${qaHook}--scrollable-content`}
 							>
@@ -251,7 +266,7 @@ class DropDownPanel extends PureComponent {
 								data-automationid={qaHook && `${qaHook}--scrollable-container`}
 							>
 								<div
-									className="xui-dropdown--scrollable-content"
+									className={`${baseClass}--scrollable-content`}
 									ref={sc => this._scrollableContent = sc}
 									data-automationid={qaHook && `${qaHook}--scrollable-content`}
 								>

@@ -6,6 +6,7 @@ import XUIIcon from '../icon/XUIIcon';
 import XUIStatelessInput from './XUIStatelessInput';
 import XUIButton from '../button/XUIButton';
 import { compose } from '../helpers/compose';
+import {ns} from "../helpers/xuiClassNamespace";
 
 const onInputChange = (statefulInput) => {
 	if (statefulInput.inputNode.value === '' && statefulInput.state.showClearButton) {
@@ -65,9 +66,9 @@ export default class XUIInput extends Component {
 		} = statefulInput.props;
 
 		const clearButtonIconWrapperClassName = hasClearButton && cn(
-			'xui-input--iconwrapper',
-			'xui-input--iconwrapper-right',
-			{'xui-u-hidden': !statefulInput.state.showClearButton}
+			`${ns}-input--iconwrapper`,
+			`${ns}-input--iconwrapper-right`,
+			!statefulInput.state.showClearButton && `${ns}-u-hidden`
 		);
 
 		const clearButton = (hasClearButton) ?

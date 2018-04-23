@@ -1,8 +1,8 @@
-// Forms
+// Form
 //
 // Teaser: A container for interactive controls to submit information. This section uses different layouts based on the information type and content.
 //
-// Styleguide: Building Blocks.Forms
+// Styleguide: Compounds.CollectingInput.Forms
 
 // Accessibility
 //
@@ -11,7 +11,7 @@
 //
 // If there are instructions or context information associated with the form element, `aria-describedby` should be used to ensure it is not missed by the assistive technology.
 //
-// Styleguide: Building Blocks.Forms.9
+// Styleguide: Compounds.CollectingInput.Forms.20
 
 
 
@@ -49,7 +49,7 @@
 // </form>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.2
+// Styleguide: Compounds.CollectingInput.Forms.2
 
 
 
@@ -74,7 +74,7 @@
 //   </div>
 // </form>
 //
-// Styleguide: Building Blocks.Forms.3
+// Styleguide: Compounds.CollectingInput.Forms.3
 
 
 
@@ -85,7 +85,7 @@
 // These are likely to be where one field (probably a select) modifies another or
 // the combination of both is closely tied and a common convention.
 //
-// Styleguide: Building Blocks.Forms.5
+// Styleguide: Compounds.CollectingInput.Forms.5
 
 
 
@@ -122,7 +122,7 @@
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">We need your middle name for a full identity check</div>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.5.1
+// Styleguide: Compounds.CollectingInput.Forms.5.1
 
 
 // Classes:
@@ -241,7 +241,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Forms.5.2
+// Styleguide: Compounds.CollectingInput.Forms.5.2
 
 
 // Class list
@@ -257,4 +257,4 @@
 // xui-inputgroup: Container for the inputs you wish to join. It is recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
 // xui-verticalinputgroup: Wrapper class to go around a set of vertically grouped inputs
 //
-// Styleguide: Building Blocks.Forms.50
+// Styleguide: Compounds.CollectingInput.Forms.50

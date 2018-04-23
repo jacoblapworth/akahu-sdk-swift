@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {baseClass} from "./constants";
 
 /**
  * Presentational (aka dumb) component that outputs the container necessary to implement
@@ -11,7 +12,7 @@ import cn from 'classnames';
  * @returns
  */
 export default function XUICheckboxGroup({ children, className, qaHook }) {
-	const classes = cn(className, 'xui-styledcheckboxradio-group');
+	const classes = cn(className, `${baseClass}-group`);
 
 	return (
 		<div className={classes} data-automationid={qaHook}>

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getId } from './private/helpers';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class NestedPicklistContainer extends PureComponent {
 	constructor(props) {
@@ -66,12 +67,12 @@ export default class NestedPicklistContainer extends PureComponent {
 		const isExpanded = container.state.open;
 		const { className, children, qaHook, id, secondaryProps } = container.props;
 		return (
-			<li data-automationid={qaHook} className={cn(className, 'xui-picklist--nestedcontainer')}>
+			<li data-automationid={qaHook} className={cn(className, `${ns}-picklist--nestedcontainer`)}>
 				<input
 					data-automationid={qaHook && `${qaHook}--checkbox`}
 					type="checkbox"
 					checked={isExpanded}
-					className="xui-pickitem--submenucontrol"
+					className={`${ns}-pickitem--submenucontrol`}
 					id={`${id}-checkbox`}
 					tabIndex="-1"
 					onChange={container.toggle}

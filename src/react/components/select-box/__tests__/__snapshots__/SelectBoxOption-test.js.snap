@@ -184,7 +184,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
         data-automationid={undefined}
       >
         <span
-          className={null}
+          className=""
           data-automationid={undefined}
         >
           .
@@ -354,7 +354,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
         data-automationid={undefined}
       >
         <span
-          className={null}
+          className=""
           data-automationid={undefined}
         >
           .

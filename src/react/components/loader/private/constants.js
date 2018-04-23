@@ -1,11 +1,9 @@
-const baseClass = 'xui-loader';
+import {ns} from "../../helpers/xuiClassNamespace";
 
-const sizeClassNames = {
+export const baseClass = `${ns}-loader`;
+
+export const sizeClassNames = {
   standard: '',
   large: `${baseClass}-large`,
   small: `${baseClass}-small`
-};
-
-module.exports = {
-	sizeClassNames
 };

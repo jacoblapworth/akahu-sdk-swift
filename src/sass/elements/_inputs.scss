@@ -1,5 +1,9 @@
 @import "../vars";
 
+// TAKE EXTRA CARE WHEN CHANGING ELEMENT SELECTOR PROPERTIES
+// While XUI is namespaced, element selectors aren't!
+// Consider what may happen if there is more than one version of XUI's element selectors on the page
+
 /**
  * Most input stylings can be found in objects/_forms.inputs.*.scss files.  This
  * file contains just a few element selectors that we either haven't yet decided

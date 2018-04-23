@@ -3,17 +3,21 @@ import PropTypes from 'prop-types';
 import arrow from '@xero/xui-icon/icons/arrow';
 import cn from 'classnames';
 import XUIIcon from '../icon/XUIIcon';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class NestedPicklistTrigger extends PureComponent {
 	render() {
 		const { className, qaHook, isHighlighted, onClick, onMouseOver, children, isSelected, secondaryProps } = this.props;
 		const { id } = this.context;
 		const hasChildren = children && (typeof children !== 'string' || children.trim().length > 0);
-		const classNames = cn(className, 'xui-submenu-uicontrol', {
-			'xui-pickitem--body': hasChildren,
-			'xui-pickitem-is-hovered': isHighlighted,
-			'xui-pickitem-is-selected': isSelected
-		});
+		const classNames = cn(
+			className,
+			`${ns}-submenu-uicontrol`,
+			hasChildren && `${ns}-pickitem--body`,
+			isHighlighted && `${ns}-pickitem-is-hovered`,
+			isSelected && `${ns}-pickitem-is-selected`
+		);
+
 		return (
 			<label
 				ref={n => this.rootNode = n}
@@ -24,8 +28,8 @@ export default class NestedPicklistTrigger extends PureComponent {
 				onMouseOver={onMouseOver}
 				{...secondaryProps}
 			>
-				{hasChildren ? <span className="xui-pickitem--text">{children}</span> : null}
-				<XUIIcon className="xui-submenu-uicontrol--icon" path={arrow} />
+				{hasChildren ? <span className={`${ns}-pickitem--text`}>{children}</span> : null}
+				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} path={arrow} />
 			</label>
 		);
 	}

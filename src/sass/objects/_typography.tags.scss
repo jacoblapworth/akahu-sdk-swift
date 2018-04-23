@@ -1,5 +1,5 @@
 
-// Tags
+// Tag
 //
 // Teaser: Used to categorise content and indicate sentiment.
 //
@@ -7,7 +7,7 @@
 //
 // Components: Tag
 //
-// Styleguide: Building Blocks.Tags
+// Styleguide: Building Blocks.Identifiers.Tag
 
 // Color
 //
@@ -25,7 +25,7 @@
 // Warning: <span class="xui-tag xui-tag-warning">Warning</span>: `-warning`
 // Negative: <span class="xui-tag xui-tag-negative">Negative</span>: `-negative`
 //
-// Styleguide: Building Blocks.Tags.1
+// Styleguide: Building Blocks.Identifiers.Tag.1
 
 // Implementation
 //
@@ -86,7 +86,7 @@
 // 	</div>
 // </div>
 //
-// Styleguide: Building Blocks.Tags.2
+// Styleguide: Building Blocks.Identifiers.Tag.2
 
 .#{$ns}-tag {
 	background-color: $xui-color-white;

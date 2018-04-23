@@ -1,8 +1,7 @@
 node_modules
-react/*
-docs/*
-kss
-src/components/icon
-umd/assets
+src/sass
+dist/*
 coverage/*
-visual-testing/*
+.visual-testing/*
+.tmp/*
+.kss/*

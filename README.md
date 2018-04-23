@@ -26,12 +26,9 @@ XUI is a design system for Xero web applications. It includes standard approache
 You'll need:
 
  * Node.js [nvm](https://github.com/creationix/nvm) (MacOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) is recommended. If you don't use `nvm`, check the `.nvmrc` file to see which version of node to use.
- * [ESLint](http://eslint.org/)j plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
+ * [ESLint](http://eslint.org/) plugin installed and configured [for your code editor or IDE](http://eslint.org/docs/user-guide/integrations). If possible, you should configure it to run `--fix` every time you save.  It'll make your life easier.
  * [Editorconfig](http://editorconfig.org/) plugin installed and configured for you code editor or IDE
- * [Git LFS](https://github.com/git-lfs/git-lfs/wiki/Installation) Required for Visual Regression testing. Follow the installation instructions for your OS.
  * A command line. Bash/zsh/etc MacOs. Git Bash Windows.
-
-
 
 ### Clone and install
 
@@ -108,54 +105,28 @@ src/
 
 #### npm scripts
 
-XUI has a lot of npm scripts. These are under review. `npm start` should be enough for most development. If the watches or dev server give you troubles you will need to run the following commands that will have a similar result to `npm start`, the built files will live in the `docs` directory and you'll need to use [http-server]() or [serve]() as a test webserver.
+XUI has a few npm scripts. `npm start` should be enough for all development tasks.
 
-```
-# Build CSS docs
-npm run lint:sass && npm run build && npm run doc
-```
-
-```
-# Build Component docs
-npm run lint:js && npm run styleguide:build
-```
 
 Script              | Description
 --------------------|-------------
-`npm install`       | Installs dependencies; required for other steps
-`npm run lint`             | Lints the React components and SCSS files
-`npm run lint:js`          | Lints the React components
-`npm run lint:js:fix`      | Runs ESLint with the [autofix feature](http://eslint.org/docs/user-guide/command-line-interface#--fix) enabled
-`npm run lint:sass` | Lints the stylesheet
-`npm run build`     | Compiles the stylesheet
-`npm run dist`      | Creates a minified version of the stylesheet (assumes you have run `build` first)
-`npm run doc`       | Compiles the style guide documentation into the `docs` folder
-`npm run watch`     | Watches for changes in SCSS files and live reloads them if you have the docs open.
-`npm run test`             | Runs all the React component unit tests
-`npm run test:approve-snap`| Runs all the React component unit tests and approves any Jest Snapshot changes
-`npm run test:watch`       | Runs all the React component unit tests and watches for file changes
-`npm run storybook`        | Compiles and sets up the storybook demo app for to do visual testing during development.  See the UI Testing section for more details.
-`npm run lint:js:fix`      | Lints the React components and automatically fixes as many issues as possible
-`npm run build:prepublish` | Cleans and creates the root level `react` and `sass` folders that will be deployed to Artifactory.
-`npm run build:babel`      | Creates a `react` folder containing babel'd code ready to be deployed
-`npm run build:umd`        | Creates a single JS artifact that can be dropped into any browser or Codepen sample
-`npm run clean`            | Many of our build tasks create temporary files that are ignored by git and can/should be deleted before doing another build.  This task removes those temporary files and is used by other tasks as well.
-`npm run styleguide`       | Build and start up the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components.
-`npm run styleguide:build` | Build a static version of the [styleguidist](https://react-styleguidist.js.org/) documentation for all React components that is suitable for deployment.
-`npm run test:visual`      | Perform visual tests over the components (requires storybook to be running before the test)
-`npm run test:visual:approve` | Approve the visual changes so you can commit them and get them reviewed by peers
-
-## Post-install scripts
-
-After an install, there are a couple of things we want to do in order to help ensure the quality of our applications.
-
-First, we'll want to make sure that you're using an appropriate version of node and npm, so there's a `npm run check:engines` script that runs.
-
-Second, if we're using a library with a known security vulnerability, we **DEFINITELY** want to know about and fix that. Luckily, there's a centrally [maintained list of known vulnerabilities](https://nodesecurity.io/advisories/) in node packages. It may not be exhaustive, but it's better than nothing. The `npm run check:security` script utilizes the [nsp package](https://www.npmjs.com/package/nsp) to check and see if we're exposed to one of those known vulnerabilities.
+`npm install`       | Installs dependencies; Typically only needed to run after you clone the repo for the first time or change any dependencies.
+`npm start`         | Builds all the sites, and outputs such as the XUI css files, and starts up servers for each site for you to start developing on.
+`npm run lint`      | Lints the React components to ensure code quality.
+`npm run test`      | Runs all the React component unit tests to ensure components meet their prescribed definitions.
+`npm run build`     | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.
 
 ## Hooks
 
 We use [Husky](https://www.npmjs.com/package/husky) to run **Git Hooks** for the following scenarios:
+
+**Note:** If you are using a clone of the XUI repo from < 2018 then you may need to remove our legacy Git hooks for Husky to work *(Husky will **not** overwrite existing Git hooks)*. Please run the snippet below or reach out on our [Slack channel](https://xero.slack.com/messages/C565NP1A5) for assistance.
+
+```
+rm .git/hooks/pre-commit .git/hooks/post-merge\
+&& npm install husky
+
+```
 
 ## Pre-commit
 
@@ -164,6 +135,28 @@ Lint your code and catch problems that will cause your build to fail in the CI e
 ## Post-merge
 
 Update your local environment after a merge. This will not trigger when rebasing upstream but is still good to have active.
+
+## Pre-push
+
+Runs `npm run test` before pushing the code up to code repository.
+
+## Prepare
+
+After an install, there are a couple of things we want to do in order to help ensure the quality of our applications.
+
+First, we'll want to make sure that you're using an appropriate version of node and npm, so there's a `check-engines` script that runs.
+
+Second, if we're using a library with a known security vulnerability, we **DEFINITELY** want to know about and fix that. Luckily, there's a centrally [maintained list of known vulnerabilities](https://nodesecurity.io/advisories/) in node packages. It may not be exhaustive, but it's better than nothing. The `nsp` script utilizes the [nsp package](https://www.npmjs.com/package/nsp) to check and see if we're exposed to one of those known vulnerabilities.
+
+## Prepack
+
+This task prepares the `react` and `sass` files for distribution via Artifactory. Used only on CI currently and run as part of the `npm pack` lifecycle.
+
+## Node scripts
+
+XUI uses custom node scripts for automating tasks within the repository. The tasks live in the `scripts` root folder. Each task can be run by calling `node scripts/<folder>/<task>`
+
+Many of these are "part of the build chain". Many are small independent scripts that perform one task. Further documentation on these can be found at `scripts/README.md`
 
 ## Developer Documentation
 
@@ -182,7 +175,7 @@ Configured in `styleguide/` folder. Checkout our [styleguide/README.md](stylegui
 ## Releasing XUI
 
 1. Draft up the Release notes in GitHub
-2. Open a PR with the version bump to package.json
+2. Open a PR with the version bump to package.json (optionally use the `node scripts/release` task to help automate this as there are some files outside package json that need to be version bumped also).
 
 The release description should provide clear documentation describing what has changed since the last release.
 

@@ -9,7 +9,7 @@
 //
 // Components: Datepicker
 //
-// Styleguide: Building Blocks.Datepicker
+// Styleguide: Compounds.CollectingInput.Datepicker
 
 // Anatomy
 //
@@ -191,7 +191,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Building Blocks.Datepicker.1
+// Styleguide: Compounds.CollectingInput.Datepicker.1
 
 // Months and years
 //
@@ -210,7 +210,7 @@
 // Year select modifier: `xui-datepicker--yearselect-layout`
 // Labels: `xui-datepicker--heading-label`
 //
-// Styleguide: Building Blocks.Datepicker.2
+// Styleguide: Compounds.CollectingInput.Datepicker.2
 
 
 
@@ -224,7 +224,7 @@
 // Next: `xui-datepicker--nextbutton`
 // Disabled: `xui-datepicker--button-is-disabled`
 //
-// Styleguide: Building Blocks.Datepicker.3
+// Styleguide: Compounds.CollectingInput.Datepicker.3
 
 // Sizes
 //
@@ -402,7 +402,7 @@
 // </div>
 // </div>
 //
-// Styleguide: Building Blocks.Datepicker.4
+// Styleguide: Compounds.CollectingInput.Datepicker.4
 
 // Single dates
 //
@@ -414,7 +414,7 @@
 // -is-today: Indicator for the current day
 // -is-othermonth: A date outside the visible month
 //
-// Styleguide: Building Blocks.Datepicker.5
+// Styleguide: Compounds.CollectingInput.Datepicker.5
 
 // Date ranges
 //
@@ -430,7 +430,7 @@
 // -is-selected-hovered-start: Selected and hovered date at the start of a range during selection
 // -is-selected-hovered-end: Selected and hovered date at the end of a range during selection
 //
-// Styleguide: Building Blocks.Datepicker.6
+// Styleguide: Compounds.CollectingInput.Datepicker.6
 
 // Accessibility
 //
@@ -438,7 +438,7 @@
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
 // An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
-// Styleguide: Building Blocks.Datepicker.7
+// Styleguide: Compounds.CollectingInput.Datepicker.7
 
 $xui-datepicker-day-size: 40px;
 $xui-datepicker-day-size-compact: 30px;

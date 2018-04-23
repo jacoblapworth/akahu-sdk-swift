@@ -9,7 +9,7 @@
 //
 // Components: Picklist
 //
-// Styleguide: Building Blocks.Picklist
+// Styleguide: Compounds.DisplayingData.Picklist
 
 // Anatomy
 //
@@ -43,7 +43,7 @@
 //  </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.1
+// Styleguide: Compounds.DisplayingData.Picklist.1
 
 // Selecting
 //
@@ -73,7 +73,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.2
+// Styleguide: Compounds.DisplayingData.Picklist.2
 
 
 // Changing direction
@@ -107,7 +107,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.3
+// Styleguide: Compounds.DisplayingData.Picklist.3
 
 // Truncating
 //
@@ -117,13 +117,13 @@
 // Classes:
 // xui-text-truncated: Apply to pickitem text
 //
-// Styleguide: Building Blocks.Picklist.4
+// Styleguide: Compounds.DisplayingData.Picklist.4
 
 // Common layouts
 //
 // Many different layouts are achievable by adding a few typography presets and utility classes.
 //
-// Styleguide: Building Blocks.Picklist.6
+// Styleguide: Compounds.DisplayingData.Picklist.6
 
 // Headings
 //
@@ -186,7 +186,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.1
+// Styleguide: Compounds.DisplayingData.Picklist.6.1
 
 // Icon
 //
@@ -231,7 +231,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.2
+// Styleguide: Compounds.DisplayingData.Picklist.6.2
 
 // Nested parent
 //
@@ -278,7 +278,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.3
+// Styleguide: Compounds.DisplayingData.Picklist.6.3
 
 // Pinned value
 //
@@ -316,7 +316,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.4
+// Styleguide: Compounds.DisplayingData.Picklist.6.4
 
 // Checkbox
 //
@@ -363,7 +363,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.5
+// Styleguide: Compounds.DisplayingData.Picklist.6.5
 
 // Avatar
 //
@@ -394,7 +394,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.6
+// Styleguide: Compounds.DisplayingData.Picklist.6.6
 
 // Multine avatar
 //
@@ -435,7 +435,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.6.7
+// Styleguide: Compounds.DisplayingData.Picklist.6.7
 
 // Expanding lists
 //
@@ -449,7 +449,7 @@
 // xui-submenu: Container for a group of nested pickitems
 // xui-submenu-layout: Recommended layout modifier for a group of pickitems
 //
-// Styleguide: Building Blocks.Picklist.8
+// Styleguide: Compounds.DisplayingData.Picklist.8
 
 // Standard
 //
@@ -488,7 +488,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.8.1
+// Styleguide: Compounds.DisplayingData.Picklist.8.1
 
 // Split
 //
@@ -558,7 +558,7 @@
 // 	</ul>
 // </div>
 //
-// Styleguide: Building Blocks.Picklist.8.2
+// Styleguide: Compounds.DisplayingData.Picklist.8.2
 
 // Accessibility
 //
@@ -577,7 +577,7 @@
 //
 // For selected pickitems, make sure to apply the `aria-selected` attribute.
 //
-// Styleguide: Building Blocks.Picklist.10
+// Styleguide: Compounds.DisplayingData.Picklist.10
 
 
 .#{$ns}-picklist {
@@ -694,7 +694,6 @@
 		border-right: 1px solid rgba(50, 70, 90, 0.1);
 	}
 }
-
 
 .#{$ns}-picklist-horizontal {
 	display: inline-flex;

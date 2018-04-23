@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIIsolationHeader> Inverted should render an automation id when a qaHook is passed in 1`] = `
+<header
+  className="xui-isolationheader"
+  data-automationid="qahook"
+  role="banner"
+>
+  <div
+    className="xui-isolationheader--navigation"
+    data-automationid={undefined}
+  >
+    <h2
+      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      data-automationid={undefined}
+      title={undefined}
+    >
+      My title
+    </h2>
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      data-automationid={undefined}
+      title={undefined}
+    >
+      My secondary title
+    </h2>
+  </div>
+  <div
+    className="xui-isolationheader--actions"
+    data-automationid={undefined}
+  >
+    Tools
+  </div>
+</header>
+`;
+
+exports[`<XUIIsolationHeader> Inverted should render with the given className if provided 1`] = `
+<header
+  className="klass xui-isolationheader"
+  data-automationid={undefined}
+  role="banner"
+>
+  <div
+    className="xui-isolationheader--navigation"
+    data-automationid={undefined}
+  >
+    <h2
+      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      data-automationid={undefined}
+      title={undefined}
+    >
+      My title
+    </h2>
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      data-automationid={undefined}
+      title={undefined}
+    >
+      My secondary title
+    </h2>
+  </div>
+  <div
+    className="xui-isolationheader--actions"
+    data-automationid={undefined}
+  >
+    Tools
+  </div>
+</header>
+`;
+
+exports[`<XUIIsolationHeader> Standard should render an automation id when a qaHook is passed in 1`] = `
+<header
+  className="xui-isolationheader"
+  data-automationid="qahook"
+  role="banner"
+>
+  <div
+    className="xui-isolationheader--navigation"
+    data-automationid={undefined}
+  >
+    <h2
+      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      data-automationid={undefined}
+      title="Tooltip"
+    >
+      My title
+    </h2>
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      data-automationid={undefined}
+      title="Tooltip"
+    >
+      My secondary title
+    </h2>
+  </div>
+  <div
+    className="xui-isolationheader--actions"
+    data-automationid={undefined}
+  >
+    Tools
+  </div>
+</header>
+`;
+
+exports[`<XUIIsolationHeader> Standard should render with the given className if provided 1`] = `
+<header
+  className="klass xui-isolationheader"
+  data-automationid={undefined}
+  role="banner"
+>
+  <div
+    className="xui-isolationheader--navigation"
+    data-automationid={undefined}
+  >
+    <h2
+      className="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated"
+      data-automationid={undefined}
+      title={undefined}
+    >
+      My title
+    </h2>
+    <h2
+      className="xui-heading xui-text-deemphasis xui-margin-vertical-none xui-padding-right-small xui-text-truncated"
+      data-automationid={undefined}
+      title={undefined}
+    >
+      My secondary title
+    </h2>
+  </div>
+  <div
+    className="xui-isolationheader--actions"
+    data-automationid={undefined}
+  >
+    Tools
+  </div>
+</header>
+`;

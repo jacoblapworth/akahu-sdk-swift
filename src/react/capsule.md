@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-capsules.html">Capsule in the XUI documentation</a>
+	<a href="../section-building-blocks-identifiers-capsule.html">Capsule in the XUI documentation</a>
 </div>
 
 Capsules are used to draw attention to placeholders that will be replaced with data.

@@ -1,21 +1,15 @@
 # Library and framework files/directories
 /.bundle
 /node_modules
-/vendor/bundle/
 npm-debug.log*
 yarn.lock
 
-# gh-pages branch stuff
-/docs
-/origin
-
 # Build/Output files/directories
 /dist
-/kss/styleguide/styleguide.md
 /react
 /sass
-/umd/assets
 src/react/umd.js
+.tmp
 
 # IDE files/directores
 /.idea
@@ -32,10 +26,11 @@ src/sass/tmp
 /coverage
 
 # Visual Regression / backstop
-visual-testing/tests/*
-visual-testing/ci-report/*
-visual-testing/web-report/*
+.visual-testing/tests/*
+.visual-testing/ci-report/*
+.visual-testing/web-report/*
 .out/*
+.tmp
 
 # NPM debug logs
 npm-debug.log.*

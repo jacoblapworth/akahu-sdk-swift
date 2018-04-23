@@ -4,16 +4,24 @@ import PropTypes from 'prop-types'
 import XUIIcon from '../../icon';
 import crossIcon from '@xero/xui-icon/icons/cross';
 import { sentimentMap } from './private/sentiments';
-
+import {ns} from '../helpers/xuiClassNamespace';
 
 const sentiments = Object.keys(sentimentMap);
 
 export default function XUIBanner(props) {
-	const { className, qaHook, sentiment, onCloseClick, children, defaultLayout } = props;
+	const {
+		className,
+		qaHook,
+		sentiment,
+		onCloseClick,
+		children,
+		defaultLayout,
+		shouldAnimate,
+	} = props;
 	const closeQAHook = qaHook && `${qaHook}-close--button`;
 
 	const closeButton = onCloseClick && (
-		<button data-automationid={closeQAHook} className={cn('xui-button', 'xui-button-icon', 'xui-banner--close')} title="Close" onClick={onCloseClick}>
+		<button data-automationid={closeQAHook} className={cn(`${ns}-button`, `${ns}-button-icon`, `${ns}-banner--close`)} title="Close" onClick={onCloseClick}>
 			<XUIIcon path={crossIcon} />
 		</button>
 	);
@@ -25,9 +33,11 @@ export default function XUIBanner(props) {
 
 	const classes = cn(
 		className,
-		'xui-banner',
-		{'xui-banner-layout': defaultLayout},
-		'xui-banner-animated',
+		`${ns}-banner`,
+		{
+			[`${ns}-banner-layout`]: defaultLayout,
+			[`${ns}-banner-animated`]: shouldAnimate,
+		},
 		sentimentClass
 	);
 
@@ -54,9 +64,13 @@ XUIBanner.propTypes = {
 	defaultLayout: PropTypes.bool,
 
 	/** Applies a role attribute to the toast element. This will override any component-determined value. */
-	role: PropTypes.string
+	role: PropTypes.string,
+
+	/** Whether or not the banner should animate into the page. Defaults to true */
+	shouldAnimate: PropTypes.bool,
 };
 
 XUIBanner.defaultProps = {
-	defaultLayout: true
+	defaultLayout: true,
+	shouldAnimate: true,
 };

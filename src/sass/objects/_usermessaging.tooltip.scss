@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Tooltips
+// Tooltip
 //
 // Teaser: To provide clarification for ambiguous actions or non-interactive elements.
 //
@@ -9,7 +9,7 @@
 //
 // Components: Tooltip
 //
-// Styleguide: Building Blocks.Tooltip
+// Styleguide: Building Blocks.Alerts.Tooltip
 
 // Best practice
 //
@@ -20,7 +20,7 @@
 // Warning: Optimized for text-only content
 // Warning: Styles directly affecting the trigger or its classes may need to be duplicated on the wrapping `.xui-tooltip` DOM element. For example, fixed/absolute positioning or some flexbox styling.
 //
-// Styleguide: Building Blocks.Tooltip.1
+// Styleguide: Building Blocks.Alerts.Tooltip.1
 
 // Anatomy
 //
@@ -45,7 +45,7 @@
 // 	</span>
 // </span>
 //
-// Styleguide: Building Blocks.Tooltip.2
+// Styleguide: Building Blocks.Alerts.Tooltip.2
 
 // Positioning
 //
@@ -105,7 +105,7 @@
 // 	</span>
 // </span>
 //
-// Styleguide: Building Blocks.Tooltip.3
+// Styleguide: Building Blocks.Alerts.Tooltip.3
 
 
 
@@ -166,6 +166,7 @@
 		width: 10px;
 		z-index: -1;
 	}
+	// TODO: Rename positioningInline to match our naming convention
 	// Vertically placed tooltips
 	&.#{$ns}-positioningInline--top-left,
 	&.#{$ns}-positioningInline--top-center,
@@ -181,7 +182,7 @@
 		bottom: auto;
 		top: calc(100% + 10px);
 		&:after {
-			top: 0px;
+			top: 0;
 		}
 	}
 	&.#{$ns}-positioningInline--top-left,
@@ -201,7 +202,7 @@
 	}
 	&.#{$ns}-positioningInline--top-right,
 	&.#{$ns}-positioningInline--bottom-right {
-		right: 0px;
+		right: 0;
 		&:after {
 			right: 5px;
 		}

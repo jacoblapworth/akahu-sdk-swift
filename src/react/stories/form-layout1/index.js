@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
-// import DropDown, { DropDownToggled } from '../../dropdown';
+import DropDown, { DropDownToggled } from '../../dropdown';
 import Picklist, { Pickitem } from '../../picklist';
-import XUIButton from '../../button';
+import XUIButton, { XUIButtonCaret } from '../../button';
 import XUIInput from '../../input';
 import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../radio';
@@ -48,6 +48,8 @@ const inputMap = {
 	nameFirst: 'name-first',
 	nameMiddle: 'name-middle',
 	nameLast: 'name-last',
+	foodType: 'food-type',
+	foodName: 'food-name',
 	autoResize: 'auto-resize',
 	whatCity: 'what-city',
 	whatColour: 'what-colour',
@@ -78,7 +80,8 @@ test.add(storyNames.formLayout, () => {
 			this.state = {
 				selectedPeople: [],
 				value: '',
-				people: []
+				people: [],
+				foodType: '',
 			};
 
 			this.logForm = this.logForm.bind(this);
@@ -92,7 +95,8 @@ test.add(storyNames.formLayout, () => {
 		}
 
 		logForm() {
-			const data = Object.assign({}, this._form.getInputs(), {people: this.state.selectedPeople});
+			const {selectedPeople: people, foodType} = this.state
+			const data = Object.assign({}, this._form.getInputs(), {people, foodType});
 			console.log(data); // eslint-disable-line
 		}
 
@@ -168,7 +172,8 @@ test.add(storyNames.formLayout, () => {
 
 			const {
 				value,
-				selectedPeople
+				selectedPeople,
+				foodType,
 			} = this.state;
 
 			const {
@@ -225,6 +230,42 @@ test.add(storyNames.formLayout, () => {
 								<XUIInput name={inputMap.nameMiddle} id={inputMap.nameMiddle} />
 								<XUIInput name={inputMap.nameLast} id={inputMap.nameLast} />
 							</InputGroup>
+
+							<InputLabel htmlFor={inputMap.nameFirst}>
+								Choose a Food
+							</InputLabel>
+							<div className="xui-inputgroup xui-field-layout xui-u-flex">
+								<DropDownToggled
+									className="xui-inputwrapper"
+									onOpen={() => {}}
+									trigger={(
+										<XUIButton>
+											{foodType || 'Food Type'}
+											<XUIButtonCaret />
+										</XUIButton>
+									)}
+									dropdown={(
+										<DropDown onSelect={value => this.setState({...this.state, foodType: value})}>
+											<Picklist>
+												{['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
+													<Pickitem
+														key={key}
+														id={`${inputMap.foodType}-${title}`}
+														value={title}
+														isSelected={title === foodType}>
+														{title}
+													</Pickitem>
+												))}
+											</Picklist>
+										</DropDown>
+									)}
+								/>
+								<XUIInput
+									containerClassName="xui-u-flex-1"
+									name={inputMap.foodName}
+									id={inputMap.foodName}
+								/>
+							</div>
 
 							<XUITextArea
 								minRows={2}

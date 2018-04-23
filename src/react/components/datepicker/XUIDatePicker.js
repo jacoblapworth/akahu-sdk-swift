@@ -14,6 +14,7 @@ import {
 	isStartOfPartialRange,
 	normalizeDisplayedMonth,
 } from './helpers/utils';
+import {ns} from "../helpers/xuiClassNamespace";
 
 const customCaptionElement = <CustomCaption />;
 const customWeekdayElement = <CustomWeekday />;
@@ -34,31 +35,31 @@ const customWeekdayElement = <CustomWeekday />;
  */
 function getRangeModifiers(range, hoverDate, isDayDisabled) {
 	return {
-		'xui-datepicker--day-is-selected-middle xui-datepicker--day-is-in-range xui-datepicker--day-is-in-selected-range': day =>
+		[`${ns}-datepicker--day-is-selected-middle ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
 			!isDayDisabled(day) && isRangeComplete(range) && DateUtils.isDayBetween(day, range.from, range.to),
 
-		'xui-datepicker--day-is-selected-start xui-datepicker--day-is-in-range xui-datepicker--day-is-in-selected-range': day =>
+		[`${ns}-datepicker--day-is-selected-start ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
 			!isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.from),
 
-		'xui-datepicker--day-is-selected-end xui-datepicker--day-is-in-range xui-datepicker--day-is-in-selected-range': day =>
+		[`${ns}-datepicker--day-is-selected-end ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
 			!isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.to),
 
-		'xui-datepicker--day-is-hovered-middle xui-datepicker--day-is-in-range': day =>
+		[`${ns}-datepicker--day-is-hovered-middle ${ns}-datepicker--day-is-in-range`]: day =>
 			!isDayDisabled(day) && isPartialRange(range) && hoverDate != null && DateUtils.isDayBetween(day, range.from, hoverDate),
 
-		'xui-datepicker--day-is-hovered-start xui-datepicker--day-is-in-range': day =>
+		[`${ns}-datepicker--day-is-hovered-start ${ns}-datepicker--day-is-in-range`]: day =>
 			!isDayDisabled(day) && isPartialRange(range) && hoverDate != null && DateUtils.isSameDay(day, hoverDate) && DateUtils.isDayBefore(hoverDate, range.from),
 
-		'xui-datepicker--day-is-hovered-end xui-datepicker--day-is-in-range': day =>
+		[`${ns}-datepicker--day-is-hovered-end ${ns}-datepicker--day-is-in-range`]: day =>
 			!isDayDisabled(day) && isPartialRange(range) && hoverDate != null && DateUtils.isSameDay(day, hoverDate) && DateUtils.isDayAfter(hoverDate, range.from),
 
-		'xui-datepicker--day-is-selected-hovered-end xui-datepicker--day-is-in-range': day =>
+		[`${ns}-datepicker--day-is-selected-hovered-end ${ns}-datepicker--day-is-in-range`]: day =>
 			!isDayDisabled(day) && isStartOfPartialRange(day, range) && hoverDate != null && DateUtils.isDayBefore(hoverDate, day),
 
-		'xui-datepicker--day-is-selected-hovered-start xui-datepicker--day-is-in-range': day =>
+		[`${ns}-datepicker--day-is-selected-hovered-start ${ns}-datepicker--day-is-in-range`]: day =>
 			!isDayDisabled(day) && isStartOfPartialRange(day, range) && hoverDate != null && DateUtils.isDayAfter(hoverDate, day),
 
-		'xui-datepicker--day-selectable': day =>
+		[`${ns}-datepicker--day-selectable`]: day =>
 			!isDayDisabled(day) && !isStartOfPartialRange(day, range),
 	};
 }
@@ -79,7 +80,7 @@ function getRangeModifiers(range, hoverDate, isDayDisabled) {
  */
 function getSingleDayModifiers(selectedDate, hoverDate, isDayDisabled) {
 	return {
-		'xui-datepicker--day-selectable': day =>
+		[`${ns}-datepicker--day-selectable`]: day =>
 			!(DateUtils.isSameDay(day, selectedDate) || isDayDisabled(day)),
 	};
 }
@@ -213,7 +214,7 @@ export default class XUIDatePicker extends PureComponent {
 	renderDay = day => {
 		const dateTime = formatDateISO(day);
 		return (
-			<time ref={n => this.dateRefs[dateTime] = n} dateTime={dateTime} className="xui-datepicker--day--time">
+			<time ref={n => this.dateRefs[dateTime] = n} dateTime={dateTime} className={`${ns}-datepicker--day--time`}>
 				{day.getDate()}
 			</time>
 		);
@@ -268,7 +269,7 @@ export default class XUIDatePicker extends PureComponent {
 		if (isCompact) {
 			classes = {
 				...customClassNames,
-				container: customClassNames.container + ' xui-datepicker-compact',
+				container: customClassNames.container + ` ${ns}-datepicker-compact`,
 			};
 		}
 

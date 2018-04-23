@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Buttons
+// Button
 //
 // Components: Button
 //
@@ -9,7 +9,7 @@
 //
 // Introduction: How to use the different variations of buttons and links within XUI.
 //
-// Styleguide: Building Blocks.Buttons
+// Styleguide: Building Blocks.Controls.Button
 
 // Best practice
 //
@@ -24,7 +24,7 @@
 // Dont: Never rely on the unstyled button class in isolation
 //
 //
-// Styleguide: Building Blocks.Buttons.1
+// Styleguide: Building Blocks.Controls.Button.1
 
 // User agent reset
 //
@@ -38,7 +38,7 @@
 // Markup:
 // <button class='xui-button'>Unstyled button</button>
 //
-// Styleguide: Building Blocks.Buttons.2
+// Styleguide: Building Blocks.Controls.Button.2
 
 // Variants
 //
@@ -58,7 +58,7 @@
 // <button class='xui-button xui-button-create'>Create</button>
 // <button class='xui-button xui-button-negative'>Negative</button>
 //
-// Styleguide: Building Blocks.Buttons.3
+// Styleguide: Building Blocks.Controls.Button.3
 
 // Borderless
 //
@@ -80,7 +80,7 @@
 // <button class='xui-button xui-button-borderless-create'>Create</button>
 // <button class='xui-button xui-button-borderless-negative'>Negative</button>
 //
-// Styleguide: Building Blocks.Buttons.3.1
+// Styleguide: Building Blocks.Controls.Button.3.1
 
 // Size
 //
@@ -94,7 +94,7 @@
 // Markup:
 // <button class='xui-button xui-button-standard xui-button-small'>Small</button>
 //
-// Styleguide: Building Blocks.Buttons.4
+// Styleguide: Building Blocks.Controls.Button.4
 
 // Full width
 //
@@ -108,7 +108,7 @@
 // Markup:
 // <button class='xui-button xui-button-main xui-u-fullwidth'>Full width</button>
 //
-// Styleguide: Building Blocks.Buttons.4.1
+// Styleguide: Building Blocks.Controls.Button.4.1
 
 // Full width at mobile
 //
@@ -122,7 +122,7 @@
 // Markup:
 // <button class='xui-button xui-button-main xui-button-fullwidth-layout'>Full width at mobile</button>
 //
-// Styleguide: Building Blocks.Buttons.4.2
+// Styleguide: Building Blocks.Controls.Button.4.2
 
 // Icon-only
 //
@@ -140,7 +140,7 @@
 //  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 // </button>
 //
-// Styleguide: Building Blocks.Buttons.5
+// Styleguide: Building Blocks.Controls.Button.5
 
 // Size
 //
@@ -157,7 +157,7 @@
 //   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
 // </button>
 //
-// Styleguide: Building Blocks.Buttons.5.1
+// Styleguide: Building Blocks.Controls.Button.5.1
 
 // Accessibility
 //
@@ -166,7 +166,7 @@
 // However, you must also apply an `aria-label` attribute that matches this value, in order for screen readers to access the information as well.
 // For more information, read this [Silktide article](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/).
 //
-// Styleguide: Building Blocks.Buttons.5.2
+// Styleguide: Building Blocks.Controls.Button.5.2
 
 // Dropdowns
 //
@@ -184,7 +184,7 @@
 //   <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 //
-// Styleguide: Building Blocks.Buttons.6
+// Styleguide: Building Blocks.Controls.Button.6
 
 // Inline icons
 //
@@ -202,7 +202,7 @@
 //   Create invoice
 // </button>
 //
-// Styleguide: Building Blocks.Buttons.7
+// Styleguide: Building Blocks.Controls.Button.7
 
 // Grouped
 //
@@ -221,7 +221,7 @@
 //   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Edit</button>
 // </div>
 //
-// Styleguide: Building Blocks.Buttons.8
+// Styleguide: Building Blocks.Controls.Button.8
 
 // Split
 //
@@ -243,7 +243,7 @@
 //  </button>
 // </div>
 //
-// Styleguide: Building Blocks.Buttons.9
+// Styleguide: Building Blocks.Controls.Button.9
 
 // Inverted
 //
@@ -264,7 +264,7 @@
 //  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
 // </button>
 //
-// Styleguide: Building Blocks.Buttons.10
+// Styleguide: Building Blocks.Controls.Button.10
 
 // Disabled
 //
@@ -284,7 +284,7 @@
 //  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
 // </button>
 //
-// Styleguide: Building Blocks.Buttons.11
+// Styleguide: Building Blocks.Controls.Button.11
 
 // Layout
 //
@@ -304,7 +304,7 @@
 //  </div>
 // </div>
 //
-// Styleguide: Building Blocks.Buttons.12
+// Styleguide: Building Blocks.Controls.Button.12
 
 // Linear flow
 //
@@ -321,7 +321,7 @@
 //  </div>
 // </div>
 //
-// Styleguide: Building Blocks.Buttons.12.1
+// Styleguide: Building Blocks.Controls.Button.12.1
 
 // Accessibility
 //
@@ -333,7 +333,7 @@
 // For example, buttons can be activated by either the spacebar or the enter key.
 // In the case of the `<a>` tag, the spacebar does not activate the link and you must implement this behaviour yourself.
 //
-// Styleguide: Building Blocks.Buttons.13
+// Styleguide: Building Blocks.Controls.Button.13
 
 // Class list
 //
@@ -368,7 +368,7 @@
 // xui-button-inverted: Modifier for button focus styling against dark backgrounds
 // xui-button-loaderminwidth: Modifier to add a button specific min-width of 75px. Useful for small buttons that you expect to be loaders as well
 //
-// Styleguide: Building Blocks.Buttons.50
+// Styleguide: Building Blocks.Controls.Button.50
 
 .#{$ns}-button {
 	@include xui-button-reset;

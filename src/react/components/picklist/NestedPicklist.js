@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 
 export default class NestedPicklist extends PureComponent {
 	render() {
 		const { children, className, qaHook, secondaryProps } = this.props;
 		return (
 			<ul
-				className={cn(className, 'xui-submenu xui-submenu-layout')}
+				className={cn(className, `${ns}-submenu ${ns}-submenu-layout`)}
 				id={this.context.id}
 				data-automationid={qaHook}
 				{...secondaryProps}

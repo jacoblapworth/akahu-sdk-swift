@@ -1,9 +1,10 @@
 import React  from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerMessageDetail(props) {
-	const className = cn(props.className, 'xui-banner--messagedetail');
+	const className = cn(props.className, `${ns}-banner--messagedetail`);
 
 	return (
 		<ul className={className} data-automationid={props.qaHook}>

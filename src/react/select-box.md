@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-forms-select.html">Select Box in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-select.html">Select Box in the XUI Documentation</a>
 </div>
 
 `SelectBox` is an opinionated component which wraps [`DropDown`](#dropdown) and [`DropDownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [`DropDown`](#dropdown) components directly.
@@ -19,7 +19,7 @@
 In the following example, the `buttonContent` of `SelectBox` is being set to value of the selected item in the example's state.
 
 ```
-const { Component }= require('react');
+const { Component } = require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
 const bank = require('@xero/xui-icon/icons/bank').default;
 
@@ -96,7 +96,7 @@ class MiniApp extends Component {
 You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
 
 ```
-const { Component }= require('react');
+const { Component } = require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
 
 const boats = ['Waka', 'Pontoon', 'Sailboat', 'Schooner', 'Dingy'];
@@ -157,7 +157,7 @@ class MiniApp extends Component {
 The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop.
 
 ```
-const { Component }= require('react');
+const { Component } = require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
 const bank = require('@xero/xui-icon/icons/bank').default;
 

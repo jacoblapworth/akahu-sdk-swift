@@ -1,21 +1,61 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIAutocompleterInput from './XUIAutocompleterInput';
-import Picklist from '../picklist/Picklist';
+import throttle from 'lodash.throttle';
+
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
-import search from '@xero/xui-icon/icons/search'
+import searchPath from '@xero/xui-icon/icons/search'
+import XUITextInput from '../textInput/XUITextInput';
+import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
+import XUIIcon from '../icon/XUIIcon';
+import {ns} from "../helpers/xuiClassNamespace";
 
 import { intervalRunner, isVisible } from './private/helpers';
 
 export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	constructor(props) {
 		super(props);
-		this.openDropDown = this.openDropDown.bind(this);
-		this.closeDropDown = this.closeDropDown.bind(this);
-		this.onOpen = this.onOpen.bind(this);
-		this.highlightItem = this.highlightItem.bind(this);
+		this.bindOnChange(props.searchThrottleInterval);
+	}
+
+	componentDidUpdate(prevProps) {
+		const {
+			searchThrottleInterval,
+			searchValue,
+		} = this.props;
+		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
+			this.bindOnChange(searchThrottleInterval);
+		}
+		if (prevProps.value !== searchValue) {
+			this.setState({
+				value: searchValue
+			});
+		}
+	}
+
+	/**
+	 * Bind an optionally throttled onSearch handler to the component instance.
+	 *
+	 * @private
+	 * @param {number} interval
+	 */
+	bindOnChange = interval => {
+		const { onSearch } = this.props;
+		if (onSearch) {
+			const throttled = interval
+				? throttle(onSearch, interval, { trailing: true })
+				: onSearch;
+			this.throttledOnChange = event => {
+				event.persist();
+				this.setState({
+					value: event.target.value
+				});
+				throttled(event.target.value);
+			};
+		} else {
+			this.throttledOnChange = undefined;
+		}
 	}
 
 	/**
@@ -23,7 +63,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	openDropDown() {
+	openDropDown = () => {
 		this.ddt.openDropDown();
 	}
 
@@ -32,7 +72,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	closeDropDown() {
+	closeDropDown = () => {
 		this.ddt.closeDropDown();
 	}
 
@@ -41,7 +81,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	highlightItem(item) {
+	highlightItem = item => {
 		this.dropdown.highlightItem(item);
 	}
 
@@ -50,7 +90,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	onOpen() {
+	onOpen = () => {
 		this.focusInput();
 		this.props.onOpen && this.props.onOpen();
 	}
@@ -60,8 +100,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 *
 	 * @public
 	 */
-	focusInput() {
-		const inputDOM = this.input.inputNode;
+	focusInput = () => {
+		const inputDOM = this.input;
 		const isInputRendered = () => isVisible(inputDOM);
 		const setter = () => {
 			inputDOM.focus();
@@ -80,30 +120,32 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			containerQaHook = `${props.qaHook}--container`;
 		}
 		const dropdownClasses = cn(
-			{ 'xui-u-fullwidth': !props.dropdownSize },
+			!props.dropdownSize && `${ns}-u-fullwidth`,
 			props.dropdownClassName,
 		);
 		const searchItem = (
-			<Picklist className="xui-padding-none">
-				<li className="xui-margin-horizontal xui-margin-vertical-small" >
-					<XUIAutocompleterInput
-						defaultStyling={false}
-						className="xui-input xui-input-borderless xui-input-borderless-solid"
-						id={props.inputId}
+				<div className={`${ns}-dropdown--header-container`}>
+					<XUITextInput
+						className={props.inputClassName}
+						containerClassName={props.inputContainerClassName}
 						value={props.searchValue}
-						iconAttributes={{
-							path: search,
-							position: 'left'
-						}}
+						leftElement={
+							<XUITextInputSideElement>
+								<XUIIcon path={searchPath} />
+							</XUITextInputSideElement>
+						}
 						placeholder={props.placeholder}
-						searchThrottleInterval={props.searchThrottleInterval}
-						onSearch={props.onSearch}
-						refFn={c => completer.input = c}
+						onChange={this.throttledOnChange}
+						inputRef={c => completer.input = c}
+						isBorderlessSolid
+						inputProps={{
+							...props.inputProps,
+							id: props.inputId
+						}}
 					/>
-				</li>
-			</Picklist>
+			</div>
 		);
-		const dropdownToggledClasses = cn({ 'xui-u-fullwidth': !props.dropdownSize });
+		const dropdownToggledClasses = !props.dropdownSize ? `${ns}-u-fullwidth` : null;
 		const dropdown = (
 			<DropDown
 				ref={d => completer.dropdown = d}
@@ -115,10 +157,10 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				qaHook={listQaHook}
 				size={props.dropdownSize}
 				fixedWidth={props.dropdownFixedWidth}
+				header={searchItem}
 				footer={props.footer}
 				restrictFocus={props.restrictFocus}
 			>
-			{searchItem}
 			{props.children}
 		</DropDown>);
 
@@ -167,6 +209,12 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
 	/** CSS class(es) to go on the input */
 	inputClassName: PropTypes.string,
+
+	/** CSS class(es) to go on the input container */
+	inputContainerClassName: PropTypes.string,
+
+	/** Attributes to set on the native input element */
+	inputProps: PropTypes.object,
 
 	/** Placeholder for the input */
 	placeholder: PropTypes.string,

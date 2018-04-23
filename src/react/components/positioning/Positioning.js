@@ -17,6 +17,7 @@ import {
 	detachListeners,
 } from './private/dom-helpers';
 import portalContainer from '../helpers/portalContainer';
+import {ns} from "../helpers/xuiClassNamespace";
 
 /**
  * @private
@@ -45,7 +46,7 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 
 	// Use `round` to cater for subpixel calculations
 	// Tested in FF (osx), Chrome (osx), Safari (osx)
-	const marginLeft = !popup.props.forceDesktop && isNarrowViewport()
+	const marginLeft = !popup.props.isNotResponsive && isNarrowViewport()
 		? '0px'
 		: `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
 
@@ -111,7 +112,7 @@ function positionOnShow(popup) {
  * state when hiding the component.
  *
  * @private
- * @returns {{alignRight: boolean, alignTop: boolean, maxHeight: string, positioned: boolean}}
+ * @returns {Object}
  */
 function getDefaultState() {
 	return {
@@ -153,10 +154,6 @@ class Positioning extends PureComponent {
 		const popup = this;
 
 		popup.state = getDefaultState();
-
-		popup.positionComponent = popup.positionComponent.bind(popup);
-		popup.calculateMaxHeight = popup.calculateMaxHeight.bind(popup);
-		popup.resizeAndScrollHandler = popup.resizeAndScrollHandler.bind(popup);
 		popup.ticking = false;
 	}
 
@@ -216,20 +213,20 @@ class Positioning extends PureComponent {
 		clearTimeout(this._visibleTimer);
 	}
 
-	resizeAndScrollHandler() {
+	resizeAndScrollHandler = () => {
 		const popup = this;
 		if (!popup.ticking) {
 			window.requestAnimationFrame(popup.positionComponent);
 			popup.ticking = true;
 		}
-	}
+	};
 
 	/**
 	 * Calculate positioning of the popup if the trigger is rendered.
 	 *
 	 * @public
 	 */
-	positionComponent() {
+	positionComponent = () => {
 		const popup = this;
 		const { parentRef } = popup.props;
 
@@ -247,7 +244,7 @@ class Positioning extends PureComponent {
 		}
 
 		popup.ticking = false;
-	}
+	};
 
 	/**
 	 * Given we're rendering in the greatest whitespace, we need to work out if a maxHeight should
@@ -255,7 +252,7 @@ class Positioning extends PureComponent {
 	 *
 	 * @public
 	 */
-	calculateMaxHeight() {
+	calculateMaxHeight = () => {
 		const popup = this;
 		const { viewportGutter, parentRef, triggerDropdownGap, maxHeight } = popup.props;
 		const triggerDOM = parentRef.firstChild;
@@ -278,14 +275,14 @@ class Positioning extends PureComponent {
 				});
 			}
 		}
-	}
+	};
 
 	/**
 	 * Uses internal state to work out inline styles and returns them.
 	 *
 	 * @return {{ maxHeight: Number, left: Number, top: Number, transformY: String }}
 	 */
-	getStyles() {
+	getStyles = () => {
 		const { maxHeight, transform, top, bottom, marginLeft } = this.state;
 		const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 		const isMobile = isNarrowViewport() && !isNotResponsive;
@@ -306,7 +303,7 @@ class Positioning extends PureComponent {
 			willChange: 'transform, max-height, max-width, top, bottom, margin-left',
 			marginLeft
 		};
-	}
+	};
 
 	render() {
 		const popup = this;
@@ -316,17 +313,14 @@ class Positioning extends PureComponent {
 		const clonedChildren = !isVisible || !positioned ? children : React.cloneElement(children, {
 			className : cn(
 				children.props.className,
-				'xui-dropdown-input-layout-match',
-				{
-					'dropdown-positionabove' : popup.state.alignTop
-				}
+				`${ns}-dropdown-input-layout-match`
 			),
-			style : popup.getStyles(),
+			style : popup.getStyles()
 		});
 
 		return isVisible ? (
 			<Portal node={portalContainer()}>
-				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className="xui-container" data-automationid={qaHook}>
+				<div style={positioningStyles} ref={portal => popup.positionEl = portal} className={`${ns}-container`} data-automationid={qaHook}>
 					{clonedChildren}
 				</div>
 			</Portal>

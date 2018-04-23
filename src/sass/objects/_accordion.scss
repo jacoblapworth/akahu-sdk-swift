@@ -7,7 +7,7 @@
 //
 // Introduction: Accordions are used to display a vertically expandable list that hides and reveals additional content.
 //
-// Styleguide: Building Blocks.Accordion
+// Styleguide: Compounds.DisplayingData.Accordion
 
 // Anatomy
 //
@@ -68,7 +68,7 @@
 //   </li>
 // </ul>
 //
-// Styleguide: Building Blocks.Accordion.2
+// Styleguide: Compounds.DisplayingData.Accordion.2
 
 // Opening and closing
 //
@@ -77,7 +77,7 @@
 // Classes:
 // xui-accordionitem-is-open: Expand accordion item
 //
-// Styleguide: Building Blocks.Accordion.3
+// Styleguide: Compounds.DisplayingData.Accordion.3
 
 // Content visibility
 //
@@ -88,7 +88,7 @@
 // xui-accordionitem--collpased: Children visible only during closed state
 // xui-accordionitem--expanded: Children visible only during open state
 //
-// Styleguide: Building Blocks.Accordion.4
+// Styleguide: Compounds.DisplayingData.Accordion.4
 
 
 .#{$ns}-accordion {

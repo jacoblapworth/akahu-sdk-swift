@@ -1,0 +1,332 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI Structure/> Actions: renders the simplest actions with no extra settings passed 1`] = `
+<div
+  className="xui-actions xui-actions-layout"
+  primary={
+    <XUIButton
+      isDisabled={false}
+      isExternalLink={false}
+      isGrouped={false}
+      isLink={false}
+      isLoading={false}
+      retainLayout={true}
+      tabIndex={0}
+      type="button"
+      variant="standard"
+    >
+      Primary
+    </XUIButton>
+  }
+  secondary={
+    <XUIButton
+      isDisabled={false}
+      isExternalLink={false}
+      isGrouped={false}
+      isLink={false}
+      isLoading={false}
+      retainLayout={true}
+      tabIndex={0}
+      type="button"
+      variant="standard"
+    >
+      Secondary
+    </XUIButton>
+  }
+>
+  Testing 💩
+</div>
+`;
+
+exports[`<XUI Structure/> Overview block and section: renders the base overview block with no extra settings passed 1`] = `
+<div
+  className="xui-overview xui-overview-layout"
+/>
+`;
+
+exports[`<XUI Structure/> Overview block and section: renders the base overview block with sections and sentiments 1`] = `
+<div
+  className="xui-overview xui-overview-layout"
+>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      standard
+    </div>
+    <div
+      className="xui-overview--value"
+    >
+      100.23
+    </div>
+  </section>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      positive
+    </div>
+    <div
+      className="xui-overview--value xui-textcolor-positive"
+    >
+      100.23
+    </div>
+  </section>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      negative
+    </div>
+    <div
+      className="xui-overview--value xui-textcolor-negative"
+    >
+      100.23
+    </div>
+  </section>
+  <section
+    className="xui-overview--section"
+  >
+    <div
+      className="xui-overview--label"
+    >
+      muted
+    </div>
+    <div
+      className="xui-overview--value xui-textcolor-muted"
+    >
+      100.23
+    </div>
+  </section>
+</div>
+`;
+
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHeader with no extra settings passed 1`] = `
+<header
+  className="xui-pageheading"
+>
+  <div
+    className="xui-pageheading--content xui-pageheading--content-layout"
+  >
+    <h1
+      className="xui-pageheading--title"
+    >
+      Testing 💩
+    </h1>
+  </div>
+</header>
+`;
+
+exports[`<XUI Structure/> Panel and panel section: renders a panel with all the bells and whistles 1`] = `
+<div
+  className="xui-panel xui-u-flex"
+>
+  <div
+    className="xui-panel--sidebar"
+  >
+    <ul
+      className="xui-picklist xui-picklist-layout"
+      data-automationid={undefined}
+      id={undefined}
+      onKeyDown={undefined}
+      onMouseDown={undefined}
+      role="group"
+    >
+      <li
+        aria-label={undefined}
+        aria-selected={null}
+        className="xui-pickitem"
+        data-automationid={undefined}
+        id="1"
+        role="option"
+      >
+        <button
+          className="xui-pickitem--body"
+          data-automationid={undefined}
+          onClick={undefined}
+          onKeyDown={undefined}
+          onMouseOver={undefined}
+          rel={null}
+          tabIndex="-1"
+          type="button"
+        >
+          <span
+            className="xui-pickitem--text"
+          >
+            Tab 1
+          </span>
+        </button>
+      </li>
+      <li
+        aria-label={undefined}
+        aria-selected={null}
+        className="xui-pickitem xui-pickitem-is-selected"
+        data-automationid={undefined}
+        id="2"
+        role="option"
+      >
+        <button
+          className="xui-pickitem--body"
+          data-automationid={undefined}
+          onClick={undefined}
+          onKeyDown={undefined}
+          onMouseOver={undefined}
+          rel={null}
+          tabIndex="-1"
+          type="button"
+        >
+          <span
+            className="xui-pickitem--text"
+          >
+            Tab 2
+          </span>
+        </button>
+      </li>
+      <li
+        aria-label={undefined}
+        aria-selected={null}
+        className="xui-pickitem"
+        data-automationid={undefined}
+        id="3"
+        role="option"
+      >
+        <button
+          className="xui-pickitem--body"
+          data-automationid={undefined}
+          onClick={undefined}
+          onKeyDown={undefined}
+          onMouseOver={undefined}
+          rel={null}
+          tabIndex="-1"
+          type="button"
+        >
+          <span
+            className="xui-pickitem--text"
+          >
+            This is tab 3
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="xui-u-flex-1"
+  >
+    <header
+      className="xui-panel--heading xui-panel--header xui-panel--heading-layout"
+    >
+      Hello there
+    </header>
+    <div
+      className="xui-panel--section xui-padding-large"
+    >
+      <div
+        className="xui-panel--section--header test-header-class"
+      >
+        I'm a section header
+      </div>
+      <p>
+        Some important text might go here.
+      </p>
+    </div>
+    <div
+      className="xui-panel--section xui-padding-large"
+    >
+      <p>
+        Other critical info would go here.
+      </p>
+    </div>
+    <footer
+      className="xui-padding-small xui-panel--footer"
+    >
+      <div
+        className="xui-actions xui-actions-layout"
+        primary={
+          <XUIButton
+            isDisabled={false}
+            isExternalLink={false}
+            isGrouped={false}
+            isLink={false}
+            isLoading={false}
+            retainLayout={true}
+            tabIndex={0}
+            type="button"
+            variant="standard"
+          >
+            Primary
+          </XUIButton>
+        }
+        secondary={
+          <XUIButton
+            isDisabled={false}
+            isExternalLink={false}
+            isGrouped={false}
+            isLink={false}
+            isLoading={false}
+            retainLayout={true}
+            tabIndex={0}
+            type="button"
+            variant="standard"
+          >
+            Secondary
+          </XUIButton>
+        }
+      />
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`<XUI Structure/> Panel and panel section: renders panel in a different tag, if supplied 1`] = `
+<caption
+  className="xui-panel"
+>
+  Content here
+</caption>
+`;
+
+exports[`<XUI Structure/> Panel and panel section: renders the base panel with no extra settings passed 1`] = `
+<div
+  className="xui-panel"
+>
+  Content here
+</div>
+`;
+
+exports[`<XUI Structure/> Panel and panel section: renders the panel section with no extra settings passed 1`] = `
+<div
+  className="xui-panel--section"
+>
+  Content here
+</div>
+`;
+
+exports[`<XUI Structure/> Rows and columns: renders the base column with no extra settings passed 1`] = `
+<div
+  className="xui-column-12-of-12"
+>
+  Testing 💩
+</div>
+`;
+
+exports[`<XUI Structure/> Rows and columns: renders the base row with no extra settings passed 1`] = `
+<div
+  className="xui-row"
+>
+  Testing 💩
+</div>
+`;
+
+exports[`<XUI Structure/> Rows and columns: renders the column with wide and medium column widths, if provided 1`] = `
+<div
+  className="xui-column-12-of-12 xui-column-3-of-12-medium xui-column-6-of-12-wide"
+>
+  Testing 💩
+</div>
+`;

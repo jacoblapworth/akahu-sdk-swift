@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Banners
+// Banner
 //
 // Teaser: To provide in-page feedback or introduce additional actions.
 //
@@ -11,7 +11,7 @@
 //
 // Flag: Under review
 //
-// Styleguide: Building Blocks.Banner
+// Styleguide: Building Blocks.Alerts.Banner
 
 // Best practice
 //
@@ -24,7 +24,7 @@
 // Warning: Avoid hiding banners automatically – use a toast instead
 // Warning: Avoid more than two actions, excluding the close button
 //
-// Styleguide: Building Blocks.Banner.1
+// Styleguide: Building Blocks.Alerts.Banner.1
 
 // Anatomy
 //
@@ -69,7 +69,7 @@
 //   </ul>
 // </div>
 //
-// Styleguide: Building Blocks.Banner.2
+// Styleguide: Building Blocks.Alerts.Banner.2
 
 // Sentiment
 //
@@ -93,7 +93,7 @@
 //   <p class="xui-banner--message">Banner message</p>
 // </div>
 //
-// Styleguide: Building Blocks.Banner.3
+// Styleguide: Building Blocks.Alerts.Banner.3
 
 // Animation
 //
@@ -103,7 +103,7 @@
 // Classes:
 // -animated: Animates vertical position
 //
-// Styleguide: Building Blocks.Banner.3
+// Styleguide: Building Blocks.Alerts.Banner.3
 
 // Accessibility
 //
@@ -114,7 +114,7 @@
 // Use the `status` role when presenting any other information that doesn't justify using the alert role.
 // For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
 //
-// Styleguide: Building Blocks.Banner.4
+// Styleguide: Building Blocks.Alerts.Banner.4
 
 .#{$ns}-banner {
 	background-color: $xui-color-white;

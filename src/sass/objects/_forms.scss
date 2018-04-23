@@ -5,8 +5,10 @@
  */
 
 
-
-%#{$ns}-commoninput {
+/*
+Applies hover button styling and given contents on hover.
+*/
+@mixin xui-commoninput {
 	@include xui-state-focus {
 		z-index: 2;
 	}
@@ -53,4 +55,5 @@
 @import "forms.checkboxesradios.styled";
 @import "forms.switch";
 @import "forms.selects";
+@import "forms.textinputs";
 @import "forms.validationmessages";

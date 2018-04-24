@@ -129,7 +129,7 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Table',
 		variationsPath: `${variationsPath}/table/stories/variations.js`,
-		delay: 500
+		readyEvent: 'xui-table-ready-event',
 	},
 	{
 		testsPrefix: 'XUI Tag',
@@ -193,7 +193,7 @@ function buildUrl(kind, story) {
 function buildScenarios() {
 	let scenarios = [];
 	componentsToTest.forEach(component => {
-		const {delay, hoverSelector, postInteractionWait} = component;
+		const {delay, hoverSelector, postInteractionWait, readyEvent} = component;
 		const variationsFile = require(component.variationsPath);
 		const variations =
 			variationsFile &&
@@ -206,7 +206,8 @@ function buildScenarios() {
 					selectors: [component.selectors || '#root > div > div'],
 					misMatchThreshold: component.misMatchThreshold || 0.6,
 					selectorExpansion: component.captureAllSelectors,
-					delay
+					delay,
+					readyEvent
 				};
 			})
 		);

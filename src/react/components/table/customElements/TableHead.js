@@ -26,7 +26,9 @@ class TableHead extends PureComponent {
 			cellPosition.first
 		);
 		const totalCheckIds = checkedIds.length;
-		const isChecked = totalCheckIds === data.length;
+		const totalData = data.length;
+		const isDisabled = !totalData;
+		const isChecked = Boolean(totalData && totalCheckIds === totalData);
 		const isIndeterminate = Boolean(totalCheckIds && !isChecked);
 
 		return (
@@ -36,6 +38,7 @@ class TableHead extends PureComponent {
 				{NBSP}
 				{onCheckAllToggle && (
 					<XUICheckbox
+						isDisabled={isDisabled}
 						isChecked={isChecked}
 						isIndeterminate={isIndeterminate}
 						className={`${NAME_SPACE}--checkbox-head`}

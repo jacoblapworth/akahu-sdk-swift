@@ -14,22 +14,22 @@
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r0" name="rg0">
+//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r0" name="rg0">
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Unchecked</span>
 // </label>
 // <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r1" name="rg0" checked>
+//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r1" name="rg0" checked>
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-is-disabled">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" disabled>
+//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" disabled>
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Disabled</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-is-disabled">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" checked disabled>
+//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" checked disabled>
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
@@ -44,24 +44,24 @@
 //
 // Markup:
 // <label class="xui-text-label xui-fieldlabel-layout">Choose your favourite Star Trek character</label>
-// <div class="xui-styledcheckboxradio-group">
+// <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" id="r2" name="rg1">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r2" name="rg1">
 //     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" id="r3" name="rg1" checked>
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r3" name="rg1" checked>
 //     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" id="r4" name="rg1">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r4" name="rg1">
 //     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Geordi La Forge</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-is-disabled">
-//     <input class="xui-styledcheckboxradio--input" type="radio" disabled>
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" disabled>
 //     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Wesley Crusher</span>
 //   </label>
@@ -75,25 +75,25 @@
 //
 //
 // Markup:
-// <div class="xui-styledcheckboxradio-group">
+// <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="radio" id="r2" name="rg1">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r2" name="rg1">
 //     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="radio" id="r3" name="rg1" checked>
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r3" name="rg1" checked>
 //     <div class="xui-styledcheckboxradio--radio"></div>
 //     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
 //   </label>
 // </div>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r0" name="rg0">
+//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r0" name="rg0">
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Unchecked</span>
 // </label>
 // <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//   <input class="xui-styledcheckboxradio--input" type="checkbox" id="r1" name="rg0" checked>
+//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r1" name="rg0" checked>
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
@@ -113,10 +113,10 @@
 // xui-styledcheckboxradio: Container for a styled checkbox or radio
 // xui-styledcheckboxradio-reversed: Modifier for a right-aligned styled checkbox or radio
 // xui-styledcheckboxradio--radio: The html element that displays the radio button, if not a custom icon.
-// xui-styledcheckboxradio--focus: Subcomponent for focus layer of a styled checkbox or radio
-// xui-styledcheckboxradio--main: Subcomponent for main layer of a styled checkbox or radio
-// xui-styledcheckboxradio--check: Subcomponent for checkmark layer of a styled checkbox or radio
-// xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of a styled checkbox (not applicable to radios)
+// xui-styledcheckboxradio--focus: Subcomponent for focus layer of an svg checkbox or radio
+// xui-styledcheckboxradio--main: Subcomponent for main layer of an svg checkbox or radio
+// xui-styledcheckboxradio--check: Subcomponent for checkmark layer of an svg checkbox or radio
+// xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of an svg checkbox (not applicable to radios)
 // xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
 //
 // Styleguide: Building Blocks.Controls.Radio.50

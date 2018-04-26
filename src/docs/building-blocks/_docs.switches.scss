@@ -29,11 +29,11 @@
 //
 // Markup:
 // <label class="xui-switch">
-//   <input type="checkbox" class="xui-switch--checkbox">
+//   <input type="checkbox" class="xui-switch--checkbox" role="switch">
 //   <span class="xui-switch--control"></span>
 // </label>
 // <label class="xui-switch">
-//   <input type="checkbox" class="xui-switch--checkbox" checked>
+//   <input type="checkbox" class="xui-switch--checkbox" checked role="switch">
 //   <span class="xui-switch--control"></span>
 // </label>
 //
@@ -49,11 +49,11 @@
 //
 // Markup:
 // <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" class="xui-switch--checkbox" disabled>
+//   <input type="checkbox" class="xui-switch--checkbox" disabled role="switch">
 //   <span class="xui-switch--control"></span>
 // </label>
 // <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" class="xui-switch--checkbox" disabled checked>
+//   <input type="checkbox" class="xui-switch--checkbox" disabled checked role="switch">
 //   <span class="xui-switch--control"></span>
 // </label>
 //

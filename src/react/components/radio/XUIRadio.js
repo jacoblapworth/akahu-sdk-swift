@@ -65,6 +65,7 @@ export default class XUIRadio extends React.Component {
 			htmlClassName,
 			labelClassName,
 			isLabelHidden,
+			role,
 			id
 		} = this.props;
 
@@ -106,7 +107,7 @@ export default class XUIRadio extends React.Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
-				<input className={`${baseClass}--input`} {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
+				<input role={role} className={`${baseClass}--input`} {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
 				{buildRadio(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
 			</label>
@@ -164,6 +165,9 @@ XUIRadio.propTypes = {
 	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
 
+	/** Role to be applied for screen readers */
+	role: PropTypes.string,
+
 	id: PropTypes.string
 };
 
@@ -172,5 +176,6 @@ XUIRadio.defaultProps = {
 	isDisabled: false,
 	isIndeterminate: false,
 	isRequired: false,
-	isReversed: false
+	isReversed: false,
+	role: "radio"
 };

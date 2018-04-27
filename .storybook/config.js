@@ -1,6 +1,5 @@
 import { configure, addDecorator, setAddon } from '@storybook/react';
 import { checkA11y } from '@storybook/addon-a11y';
-import "babel-polyfill";
 
 function requireAll(requireContext) {
 	return requireContext.keys().map(requireContext);

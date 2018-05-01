@@ -3,13 +3,14 @@ const path = require('path');
 const { version: cacheId } = require('../../package.json');
 const { generateSW } = require('workbox-build');
 const { rootDirectory, taskRunner } = require('../helpers');
+const { SERVICE_WORKER = 'false' } = process.env;
+const isServiceWorker = SERVICE_WORKER === 'true';
 const globDirectory = path.resolve(rootDirectory, 'dist', 'docs');
 const swDest = path.resolve(rootDirectory, 'dist', 'docs', 'sw.js');
 
-module.exports = () => taskRunner(taskSpinner => {
+const createBuildStep = () => taskRunner(taskSpinner => {
 
 	taskSpinner.info(`Generating service worker against ID ${cacheId}`);
-
 	return generateSW({
 		cacheId,
 		swDest,
@@ -29,6 +30,15 @@ module.exports = () => taskRunner(taskSpinner => {
 	});
 
 }, __filename);
+
+const skipBuildStep = () => taskRunner(taskSpinner => {
+
+	taskSpinner.info(`Skipping service worker creation (SERVICE_WORKER !== 'true')`);
+	return Promise.resolve();
+
+}, __filename);
+
+module.exports = isServiceWorker ? createBuildStep : skipBuildStep;
 require('make-runnable/custom')({
 	printOutputFrame: false
 });

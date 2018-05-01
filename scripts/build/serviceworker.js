@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const path = require('path');
+const { version: cacheId } = require('../../package.json');
 const { generateSW } = require('workbox-build');
 const { rootDirectory, taskRunner } = require('../helpers');
 const globDirectory = path.resolve(rootDirectory, 'dist', 'docs');
@@ -7,12 +8,13 @@ const swDest = path.resolve(rootDirectory, 'dist', 'docs', 'sw.js');
 
 module.exports = () => taskRunner(taskSpinner => {
 
-	taskSpinner.info('Generating service worker');
+	taskSpinner.info(`Generating service worker against ID ${cacheId}`);
 
 	return generateSW({
+		cacheId,
+		swDest,
 		globDirectory,
 		globPatterns: ['**/*.{html,json,js,css}'],
-		swDest,
 		runtimeCaching: [
 			{
 				urlPattern: new RegExp('.(png|jpg|jpeg|svg)$'),

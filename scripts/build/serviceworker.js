@@ -15,6 +15,7 @@ module.exports = () => taskRunner(taskSpinner => {
 		swDest,
 		globDirectory,
 		globPatterns: ['**/*.{html,json,js,css}'],
+		globIgnores: ['versionSelector?(.*).js'],
 		runtimeCaching: [
 			{
 				urlPattern: new RegExp('.(png|jpg|jpeg|svg)$'),

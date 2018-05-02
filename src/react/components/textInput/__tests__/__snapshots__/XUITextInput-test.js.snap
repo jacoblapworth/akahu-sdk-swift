@@ -49,6 +49,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path
@@ -111,6 +112,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path
@@ -137,6 +139,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path
@@ -171,6 +174,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path

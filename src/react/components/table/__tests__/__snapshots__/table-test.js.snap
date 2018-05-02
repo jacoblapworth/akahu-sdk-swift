@@ -1628,6 +1628,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path

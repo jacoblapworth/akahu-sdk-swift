@@ -140,24 +140,22 @@ class XUITextInput extends PureComponent {
 			<div className={rootClasses} onKeyDown={onKeyDown}>
 				<label className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
-					<div className={`${ns}-u-flex ${ns}-u-flex-grow`}>
-						<InputEl
-							type={type}
-							value={value}
-							defaultValue={defaultValue}
-							data-automationid={qaHook && `${qaHook}--input`}
-							className={classes}
-							onFocusCapture={input.onFocus}
-							onBlurCapture={input.onBlur}
-							onChange={onChange}
-							placeholder={placeholder}
-							disabled={isDisabled}
-							ref={compose(inputRef, i => this.input = i)}
-							rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-							{...inputProps}
-						/>
-						{rightElement}
-					</div>
+					<InputEl
+						type={type}
+						value={value}
+						defaultValue={defaultValue}
+						data-automationid={qaHook && `${qaHook}--input`}
+						className={classes}
+						onFocusCapture={input.onFocus}
+						onBlurCapture={input.onBlur}
+						onChange={onChange}
+						placeholder={placeholder}
+						disabled={isDisabled}
+						ref={compose(inputRef, i => this.input = i)}
+						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+						{...inputProps}
+					/>
+					{rightElement}
 				</label>
 				{message}
 			</div>

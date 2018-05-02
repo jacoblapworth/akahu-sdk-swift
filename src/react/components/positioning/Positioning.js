@@ -46,7 +46,7 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 
 	// Use `round` to cater for subpixel calculations
 	// Tested in FF (osx), Chrome (osx), Safari (osx)
-	const marginLeft = !popup.props.forceDesktop && isNarrowViewport()
+	const marginLeft = !popup.props.isNotResponsive && isNarrowViewport()
 		? '0px'
 		: `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
 

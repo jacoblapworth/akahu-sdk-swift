@@ -426,7 +426,7 @@ createOverflowMenu={ ({ fruit, paid }) => !paid && ([
 	<Pickitem
 		key="0"
 		id="0"
-		onClick={ () => alert(`Pay for ${fruit}'s`) }>
+		onClick={ () => alert(`Pay for ${fruit}s`) }>
 		Pay for {fruit}'s
 	</Pickitem>
 ]) }>

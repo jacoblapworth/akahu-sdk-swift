@@ -9,28 +9,24 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
     className="xui-textinput"
     data-automationid="input-test"
   >
-    <div
-      className="xui-u-flex xui-u-flex-grow"
-    >
-      <input
-        className="xui-textinput--input"
-        data-automationid="input-test--input"
-        defaultValue={undefined}
-        disabled={undefined}
-        onBlurCapture={[Function]}
-        onChange={undefined}
-        onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
-        style={
-          Object {
-            "maxHeight": undefined,
-          }
+    <input
+      className="xui-textinput--input"
+      data-automationid="input-test--input"
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
         }
-        type={undefined}
-        value={undefined}
-      />
-    </div>
+      }
+      type={undefined}
+      value={undefined}
+    />
   </label>
 </div>
 `;
@@ -62,28 +58,24 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           />
         </svg>
       </div>
-      <div
-        className="xui-u-flex xui-u-flex-grow"
-      >
-        <input
-          className="xui-textinput--input xui-padding-left-none"
-          data-automationid={undefined}
-          defaultValue={undefined}
-          disabled={undefined}
-          onBlurCapture={[Function]}
-          onChange={undefined}
-          onFocusCapture={[Function]}
-          placeholder={undefined}
-          rows={undefined}
-          style={
-            Object {
-              "maxHeight": undefined,
-            }
+      <input
+        className="xui-textinput--input xui-padding-left-none"
+        data-automationid={undefined}
+        defaultValue={undefined}
+        disabled={undefined}
+        onBlurCapture={[Function]}
+        onChange={undefined}
+        onFocusCapture={[Function]}
+        placeholder={undefined}
+        rows={undefined}
+        style={
+          Object {
+            "maxHeight": undefined,
           }
-          type={undefined}
-          value={undefined}
-        />
-      </div>
+        }
+        type={undefined}
+        value={undefined}
+      />
     </label>
   </div>
   <div
@@ -94,31 +86,28 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       className="xui-textinput"
       data-automationid={undefined}
     >
-      <div
-        className="xui-u-flex xui-u-flex-grow"
-      >
-        <input
-          className="xui-textinput--input xui-padding-right-none"
-          data-automationid={undefined}
-          defaultValue={undefined}
-          disabled={undefined}
-          onBlurCapture={[Function]}
-          onChange={undefined}
-          onFocusCapture={[Function]}
-          placeholder={undefined}
-          rows={undefined}
-          style={
-            Object {
-              "maxHeight": undefined,
-            }
+      <input
+        className="xui-textinput--input xui-padding-right-none"
+        data-automationid={undefined}
+        defaultValue={undefined}
+        disabled={undefined}
+        onBlurCapture={[Function]}
+        onChange={undefined}
+        onFocusCapture={[Function]}
+        placeholder={undefined}
+        rows={undefined}
+        style={
+          Object {
+            "maxHeight": undefined,
           }
-          type={undefined}
-          value={undefined}
-        />
-        <div
-          className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
-          data-automationid={undefined}
-        >
+        }
+        type={undefined}
+        value={undefined}
+      />
+      <div
+        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
+        data-automationid={undefined}
+      >
           <svg
             className="xui-icon"
             data-automationid={undefined}
@@ -160,31 +149,28 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           />
         </svg>
       </div>
-      <div
-        className="xui-u-flex xui-u-flex-grow"
-      >
-        <input
-          className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
-          data-automationid={undefined}
-          defaultValue={undefined}
-          disabled={undefined}
-          onBlurCapture={[Function]}
-          onChange={undefined}
-          onFocusCapture={[Function]}
-          placeholder={undefined}
-          rows={undefined}
-          style={
-            Object {
-              "maxHeight": undefined,
-            }
+      <input
+        className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
+        data-automationid={undefined}
+        defaultValue={undefined}
+        disabled={undefined}
+        onBlurCapture={[Function]}
+        onChange={undefined}
+        onFocusCapture={[Function]}
+        placeholder={undefined}
+        rows={undefined}
+        style={
+          Object {
+            "maxHeight": undefined,
           }
-          type={undefined}
-          value={undefined}
-        />
-        <div
-          className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
-          data-automationid={undefined}
-        >
+        }
+        type={undefined}
+        value={undefined}
+      />
+      <div
+        className="xui-textinput--sideelement xui-u-flex-align-start xui-textinput--sideelement-icon"
+        data-automationid={undefined}
+      >
           <svg
             className="xui-icon"
             data-automationid={undefined}
@@ -213,28 +199,24 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
     className="xui-textinput"
     data-automationid="givenQAHook"
   >
-    <div
-      className="xui-u-flex xui-u-flex-grow"
-    >
-      <input
-        className="xui-textinput--input"
-        data-automationid="givenQAHook--input"
-        defaultValue={undefined}
-        disabled={undefined}
-        onBlurCapture={[Function]}
-        onChange={undefined}
-        onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
-        style={
-          Object {
-            "maxHeight": undefined,
-          }
+    <input
+      className="xui-textinput--input"
+      data-automationid="givenQAHook--input"
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
         }
-        type={undefined}
-        value={undefined}
-      />
-    </div>
+      }
+      type={undefined}
+      value={undefined}
+    />
   </label>
 </div>
 `;
@@ -248,28 +230,24 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
     className="xui-textinput xui-textinput-is-disabled"
     data-automationid={undefined}
   >
-    <div
-      className="xui-u-flex xui-u-flex-grow"
-    >
-      <input
-        className="xui-textinput--input"
-        data-automationid={undefined}
-        defaultValue={undefined}
-        disabled={true}
-        onBlurCapture={[Function]}
-        onChange={undefined}
-        onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
-        style={
-          Object {
-            "maxHeight": undefined,
-          }
+    <input
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={true}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
         }
-        type={undefined}
-        value={undefined}
-      />
-    </div>
+      }
+      type={undefined}
+      value={undefined}
+    />
   </label>
 </div>
 `;
@@ -283,28 +261,24 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
     className="custom-container-class xui-textinput"
     data-automationid={undefined}
   >
-    <div
-      className="xui-u-flex xui-u-flex-grow"
-    >
-      <input
-        className="custom-input-class xui-textinput--input"
-        data-automationid={undefined}
-        defaultValue={undefined}
-        disabled={undefined}
-        onBlurCapture={[Function]}
-        onChange={undefined}
-        onFocusCapture={[Function]}
-        placeholder={undefined}
-        rows={undefined}
-        style={
-          Object {
-            "maxHeight": undefined,
-          }
+    <input
+      className="custom-input-class xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
         }
-        type={undefined}
-        value={undefined}
-      />
-    </div>
+      }
+      type={undefined}
+      value={undefined}
+    />
   </label>
 </div>
 `;

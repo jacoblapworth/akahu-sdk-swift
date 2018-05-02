@@ -24,7 +24,7 @@ const buildTitleAndTabs = (title, tabs) => {
 	}
 };
 
-export default class XUIPageheader extends PureComponent {
+export default class XUIPageHeader extends PureComponent {
 	render() {
 		const {
 			title,
@@ -34,6 +34,7 @@ export default class XUIPageheader extends PureComponent {
 			children,
 			actions,
 			hasLayout,
+			contentClassName,
 			...spreadProps
 		} = this.props;
 		const classes = cn(className, baseClass);
@@ -47,7 +48,7 @@ export default class XUIPageheader extends PureComponent {
 		const builtTitleAndTabs = buildTitleAndTabs(title, tabs);
 		const builtActions = actions && <div className={`${baseClass}--actions`}>{actions}</div>;
 		const layoutClass = hasLayout ? `${baseClass}--content-layout` : '';
-		const divClasses = cn(`${baseClass}--content`, layoutClass);
+		const divClasses = cn(`${baseClass}--content`, layoutClass, contentClassName);
 
 		return (
 			<header {...spreadProps} className={classes}>
@@ -62,9 +63,13 @@ export default class XUIPageheader extends PureComponent {
 	}
 }
 
-XUIPageheader.propTypes = {
+XUIPageHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	/**
+	 * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard would go here
+	 */
+	contentClassName: PropTypes.string,
 	/**
 	 * Applies default layout styling.
 	 */
@@ -87,6 +92,6 @@ XUIPageheader.propTypes = {
 	actions: PropTypes.node
 };
 
-XUIPageheader.defaultProps = {
+XUIPageHeader.defaultProps = {
 	hasLayout: true
 };

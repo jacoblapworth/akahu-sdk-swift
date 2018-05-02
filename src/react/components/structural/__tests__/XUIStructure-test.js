@@ -1,7 +1,7 @@
 import React from 'react';
 import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
-import XUIPageheader from '../XUIPageheader';
+import XUIPageHeader from '../XUIPageHeader';
 import XUIBreadcrumb from '../XUIBreadcrumb';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
@@ -9,6 +9,10 @@ import XUIButton from '../../button/XUIButton';
 import XUIActions from '../XUIActions';
 import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
+import XUIPanel from '../XUIPanel';
+import XUIPanelSection from '../XUIPanelSection';
+import XUIPanelHeading from '../XUIPanelHeading';
+import XUIPanelFooter from '../XUIPanelFooter';
 import { rowVariants, columnShortNames, overviewSentiments } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -86,73 +90,77 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIActions primary={primary} hasLayout={false} />);
 			expect(wrapper.find(".xui-actions-layout").length).toBe(0);
 		});
+		it('renders actions in a different tag, if supplied', () => {
+			const wrapper = mount(<XUIActions primary={primary} tagName="header" />);
+			const tag = wrapper.find(XUIActions);
+			expect(tag.childAt(0).type()).toEqual("header");
+		});
 	});
-	describe('Pageheader and Breadcrumb:', () => {
+	describe('PageHeader and Breadcrumb:', () => {
 		const actions = <XUIActions primary={primary} secondary={secondary} />;
 		const bcObj = [
 			{label: "hello", href: "#1"},
 			{label: "hiya", href: "#2"},
 			{label: "yo"}];
 		const exampleBreadcrumb = <XUIBreadcrumb breadcrumbs={bcObj} />;
-		it('renders the simplest pageheader with no extra settings passed', () => {
-			const testPageheader = renderer.create(
-				<XUIPageheader title="Testing 💩" />
+		it('renders the simplest pageHeader with no extra settings passed', () => {
+			const testPageHeader = renderer.create(
+				<XUIPageHeader title="Testing 💩" />
 			);
-			expect(testPageheader).toMatchSnapshot();
+			expect(testPageHeader).toMatchSnapshot();
 		});
-		it('renders pageheader without default layout', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" hasLayout={false} />);
+		it('renders pageHeader without default layout', () => {
+			const wrapper = mount(<XUIPageHeader title="Testing 💩" hasLayout={false} />);
 			expect(wrapper.find(".xui-pageheading--content-layout").length).toBe(0);
 		});
-		it('renders extra pageheader classes that are passed in', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" className="testClass" />);
-			const tag = wrapper.find(XUIPageheader);
-			expect(tag.hasClass("testClass")).toEqual(true);
+		it('renders extra pageHeader classes that are passed in', () => {
+			const testPageHeader = renderer.create(<XUIPageHeader title="Testing 💩" className="testClass" contentClassName="testClassTwo" />);
+			expect(testPageHeader).toMatchSnapshot();
 		});
-		it('renders pageheader containing Actions', () => {
-			const wrapper = mount(<XUIPageheader actions={actions} />);
+		it('renders pageHeader containing Actions', () => {
+			const wrapper = mount(<XUIPageHeader actions={actions} />);
 			expect(wrapper.find(".xui-pageheading--actions").length).toBe(1);
 		});
-		it('renders pageheader with title and Actions', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" actions={actions} />);
+		it('renders pageHeader with title and Actions', () => {
+			const wrapper = mount(<XUIPageHeader title="Testing 💩" actions={actions} />);
 			expect(wrapper.find(".xui-pageheading--actions").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
 		});
-		it('renders pageheader with title and tabs and Actions', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" tabs={tabs} actions={actions} />);
+		it('renders pageHeader with title and tabs and Actions', () => {
+			const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} actions={actions} />);
 			expect(wrapper.find(".xui-pageheading--actions").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 		});
-		it('renders pageheader with Breadcrumb and Actions', () => {
-			const wrapper = mount(<XUIPageheader breadcrumb={exampleBreadcrumb} actions={actions} />);
+		it('renders pageHeader with Breadcrumb and Actions', () => {
+			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} actions={actions} />);
 			expect(wrapper.find(".xui-pageheading--actions").length).toBe(1);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
 		});
-		it('renders pageheader containing Breadcrumb', () => {
-			const wrapper = mount(<XUIPageheader breadcrumb={exampleBreadcrumb} />);
+		it('renders pageHeader containing Breadcrumb', () => {
+			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
 		});
-		it('renders pageheader with title ONLY, if both Breadcrumb and title are passed', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" breadcrumb={exampleBreadcrumb} />);
+		it('renders pageHeader with title ONLY, if both Breadcrumb and title are passed', () => {
+			const wrapper = mount(<XUIPageHeader title="Testing 💩" breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
 		});
-		it('renders pageheader containing tabs', () => {
-			const wrapper = mount(<XUIPageheader tabs={tabs} />);
+		it('renders pageHeader containing tabs', () => {
+			const wrapper = mount(<XUIPageHeader tabs={tabs} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(0);
 		});
-		it('renders pageheader containing title and tabs', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" tabs={tabs} />);
+		it('renders pageHeader containing title and tabs', () => {
+			const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 		});
-		it('renders pageheader with tabs ONLY, if both Breadcrumb and tabs are passed', () => {
-			const wrapper = mount(<XUIPageheader breadcrumb={exampleBreadcrumb} tabs={tabs} />);
+		it('renders pageHeader with tabs ONLY, if both Breadcrumb and tabs are passed', () => {
+			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} tabs={tabs} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
 		});
-		it('renders pageheader with tabs and title but not Breadcrumb, though Breadcrumb is passed', () => {
-			const wrapper = mount(<XUIPageheader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />);
+		it('renders pageHeader with tabs and title but not Breadcrumb, though Breadcrumb is passed', () => {
+			const wrapper = mount(<XUIPageHeader title="Testing 💩" tabs={tabs} breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find(".xui-pageheading--tabs").length).toBe(1);
 			expect(wrapper.find(".xui-pageheading--title").length).toBe(1);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);
@@ -194,6 +202,97 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIOverviewBlock><XUIOverviewSection label="labelText" value="65.43" className="testClass" /></XUIOverviewBlock>);
 			const tag = wrapper.find(XUIOverviewSection);
 			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+	});
+	describe('Panel and panel section:', () => {
+		const actions = <XUIActions primary={primary} secondary={secondary} />;
+		const panelHeader = <XUIPanelHeading>Hello there</XUIPanelHeading>;
+		const panelFooter = <XUIPanelFooter className="xui-padding-small">{actions}</XUIPanelFooter>;
+		it('renders the base panel with no extra settings passed', () => {
+			const testPanel = renderer.create(<XUIPanel>Content here</XUIPanel>);
+			expect(testPanel).toMatchSnapshot();
+		});
+		it('renders extra panel classes that are passed in', () => {
+			const wrapper = mount(<XUIPanel className="testClass">Content here</XUIPanel>);
+			const tag = wrapper.find(XUIPanel);
+			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders panel in a different tag, if supplied', () => {
+			const testCustomTag = renderer.create(<XUIPanel tagName="caption">Content here</XUIPanel>);
+			expect(testCustomTag).toMatchSnapshot();
+		});
+		it('renders panel with a sidebar', () => {
+			const wrapper = mount(<XUIPanel sidebar={tabs}>Content here</XUIPanel>);
+			expect(wrapper.find(".xui-panel--sidebar").length).toBe(1);
+		});
+		it('renders panel with a default-style header and no sidebar', () => {
+			const wrapper = mount(
+				<XUIPanel heading={panelHeader}>
+					Content here
+				</XUIPanel>
+			);
+			expect(wrapper.find(".xui-panel--header").length).toBe(1);
+			expect(wrapper.find(".xui-panel--sidebar").length).toBe(0);
+		});
+		it('renders panel with a default-style footer and no sidebar', () => {
+			const wrapper = mount(
+				<XUIPanel footer={panelFooter}>
+					Content here
+				</XUIPanel>
+			);
+			expect(wrapper.find(".xui-panel--footer").length).toBe(1);
+			expect(wrapper.find(".xui-panel--sidebar").length).toBe(0);
+		});
+		it('renders the panel section with no extra settings passed', () => {
+			const testPanelSection = renderer.create(
+				<XUIPanelSection>Content here</XUIPanelSection>
+			);
+			expect(testPanelSection).toMatchSnapshot();
+		});
+		it('renders extra panel section classes that are passed in', () => {
+			const wrapper = mount(
+				<XUIPanelSection className="testClass">Content here</XUIPanelSection>
+			);
+			const tag = wrapper.find(XUIPanelSection);
+			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders the panel section with a header', () => {
+			const wrapper = mount(
+				<XUIPanelSection headerText="I am a header">Content here</XUIPanelSection>
+			);
+			expect(wrapper.find(".xui-panel--section--header").length).toBe(1);
+		});
+		it('renders the panel section with a header and special class', () => {
+			const wrapper = mount(
+				<XUIPanelSection
+					headerText="I am a header"
+					headerClassName="testClass"
+				>
+					Content here
+				</XUIPanelSection>
+			);
+			expect(wrapper.find(".xui-panel--section--header").hasClass("testClass")).toEqual(true);
+		});
+		it('renders a panel with all the bells and whistles', () => {
+			const testPanel = renderer.create(
+				<XUIPanel
+					heading={panelHeader}
+					footer={panelFooter}
+					sidebar={tabs}
+				>
+					<XUIPanelSection
+						headerText="I'm a section header"
+						headerClassName="test-header-class"
+						className="xui-padding-large"
+					>
+						<p>Some important text might go here.</p>
+					</XUIPanelSection>
+					<XUIPanelSection className="xui-padding-large">
+						<p>Other critical info would go here.</p>
+					</XUIPanelSection>
+				</XUIPanel>
+			);
+			expect(testPanel).toMatchSnapshot();
 		});
 	});
 });

@@ -3,7 +3,7 @@
 
 // Isolation header
 //
-// Components: Isolation header
+// Components: Isolation-header
 //
 // Introduction: An isolation header serves as an alternate header for a page or series of sub-pages that exclude
 // the global navigation in order to create a more focused experience.
@@ -219,6 +219,10 @@
 // * Hiding the global header if it is present on the page. Use the `isolationMode` query parameter to specify this
 //   intent.
 //   If you are using Header ^4.6.0, it will automatically not render itself if this query parameter is present.
+//
+// *If you use query parameters, be security conscious*. When parsing query parameters, use `decodeURIComponent`.
+// Consider what would happen if a malicious user sent out a link with the sourceUrl and destinationUrl set to a
+// lookalike / phishing website.
 //
 // These query parameters will allow a page to link to another page in isolation mode and specify the intended behaviour.
 // However, it is up to the page using isolation mode to read these query parameters and implement the behaviours.

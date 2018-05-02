@@ -14,7 +14,8 @@ export default class XUIActions extends PureComponent {
 			isLinear,
 			primaryAction,
 			secondaryAction,
-			...otherProps
+			tagName,
+			...spreadProps
 		} = this.props;
 		const classes = cn(
 			baseClass,
@@ -22,6 +23,7 @@ export default class XUIActions extends PureComponent {
 			hasLayout && `${baseClass}-layout`,
 			isLinear && `${baseClass}-linear`
 		);
+		const Tag = tagName;
 
 		const clonedPrimary = primaryAction && React.cloneElement(primaryAction, {
 			className: `${baseClass}--primary`
@@ -32,11 +34,11 @@ export default class XUIActions extends PureComponent {
 		});
 
 		return (
-			<div className={classes} {...otherProps}>
+			<Tag {...spreadProps} className={classes}>
 				{children}
 				{clonedPrimary}
 				{clonedSecondary}
-			</div>
+			</Tag>
 		)
 	}
 }
@@ -59,9 +61,14 @@ XUIActions.propTypes = {
 	/**
 	 * XUIButton to style as secondary
 	 */
-	secondaryAction: PropTypes.element
+	secondaryAction: PropTypes.element,
+	/**
+	 * Wrapper element tag type, for semantic purposes (eg. panel footers). Defaults to "div"
+	 */
+	tagName: PropTypes.string
 };
 
 XUIActions.defaultProps = {
-	hasLayout: true
+	hasLayout: true,
+	tagName: "div"
 };

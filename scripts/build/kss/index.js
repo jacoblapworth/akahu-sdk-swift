@@ -8,11 +8,13 @@ const { succeed, fail } = taskRunnerReturns;
 
 module.exports = () => {
 	return taskRunner(taskSpinner => {
-		return Promise.all([kssTmp, kssSass, postcssXui]).then(() => {
-			taskSpinner.info('Built pre-requisites');
-			return kss(kssConfig)
-				.then(succeed)
-				.catch(fail);
+		return kssTmp().then(() => {
+			return Promise.all([kssSass, postcssXui]).then(() => {
+				taskSpinner.info('Built pre-requisites');
+				return kss(kssConfig)
+					.then(succeed)
+					.catch(fail);
+			});
 		});
 	}, __filename);
 };

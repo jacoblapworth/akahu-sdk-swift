@@ -14,15 +14,14 @@ export default function XUIIcon(props) {
 		role,
 		rotation,
 		color,
+		icon,
 		isInline,
-		viewBox,
-		path
 	} = props;
 
 	const classes = cn(
 		baseClass,
 		className,
-		sizeClasses[size],
+		!icon && sizeClasses[size], // TODO: apply multiplier to width and height instead?
 		colorClasses[color],
 		rotationClasses[rotation],
 		isInline && `${baseClass}-inline`
@@ -30,9 +29,12 @@ export default function XUIIcon(props) {
 
 	const optionalTitle = title? <title>{ title }</title> : null;
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
+	const viewBox = icon ? `0 0 ${icon.width} ${icon.height}` : props.viewBox;
+	const path = icon ? icon.path : props.path;
+	const style = icon ? { width: `${icon.width}px`, height: `${icon.height}px`} : null;
 
 	return(
-		<svg data-automationid={qaHook} focusable="false" className={ classes } viewBox={ viewBox }>
+		<svg data-automationid={qaHook} focusable="false" style={style} className={ classes } viewBox={ viewBox }>
 			{ optionalTitle }
 			{ optionalDescription }
 			<path d={ path } role={ role } />
@@ -41,8 +43,18 @@ export default function XUIIcon(props) {
 }
 
 XUIIcon.propTypes = {
-	/**path The path to use in the SVG */
-	path: PropTypes.string.isRequired,
+	/** The path to use in the SVG. This will render the icon in a standardised, fixed-size viewbox */
+	path: function(props, propName) {
+		if (!props[propName] && !props.icon) {
+			return new Error('Icon component requires either a non-empty `path` or `icon` property');
+		}
+	},
+	/** An object describing the path, width and height. This will render a SVG only as big as the icon itself */
+	icon: PropTypes.shape({
+		path: PropTypes.string.isRequired,
+		width: PropTypes.number.isRequired,
+		height: PropTypes.number.isRequired
+	}),
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/** Adds a size modifier to the icon */

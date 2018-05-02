@@ -260,6 +260,7 @@ exports[`<XUIAutocompleterInput /> should spread iconAttributes on the icon elem
       className="xui-icon xui-input--icon-left"
       data-automationid={undefined}
       focusable="false"
+      style={null}
       viewBox="0 0 30 30"
     >
       <path

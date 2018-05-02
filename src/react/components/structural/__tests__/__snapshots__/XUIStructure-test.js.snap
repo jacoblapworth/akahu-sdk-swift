@@ -107,6 +107,22 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
 </div>
 `;
 
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders extra pageHeader classes that are passed in 1`] = `
+<header
+  className="testClass xui-pageheading"
+>
+  <div
+    className="xui-pageheading--content xui-pageheading--content-layout testClassTwo"
+  >
+    <h1
+      className="xui-pageheading--title"
+    >
+      Testing 💩
+    </h1>
+  </div>
+</header>
+`;
+
 exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHeader with no extra settings passed 1`] = `
 <header
   className="xui-pageheading"

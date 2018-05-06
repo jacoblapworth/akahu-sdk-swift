@@ -30,6 +30,12 @@ const styleguideServer = path.resolve(
 	'styleguide',
 	'index.js'
 );
+const buildServiceWorker = require(path.resolve(
+	rootDirectory,
+	'scripts',
+	'build',
+	'serviceworker.js'
+));
 
 // Styleguidist doesn't like "built files" as well as "dev server files"
 // This change is required to keep developing nicely.
@@ -47,7 +53,8 @@ function watchBoth() {
 				console.log(data); //eslint-disable-line no-console
 			});
 		});
-	});
+	})
+	.then(buildServiceWorker());
 
 	return '';
 }

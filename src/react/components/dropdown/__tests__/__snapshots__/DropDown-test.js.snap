@@ -18,7 +18,6 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     data-automationid="dropdown-test"
     id={undefined}
     onKeyDown={[Function]}
-    role="listbox"
     style={
       Object {
         "maxHeight": undefined,
@@ -44,7 +43,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
         id={undefined}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
-        role="tree"
+        role="listbox"
         tabIndex={null}
       >
         <div
@@ -110,7 +109,6 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
     data-automationid="dropdown-test"
     id={undefined}
     onKeyDown={[Function]}
-    role="listbox"
     style={
       Object {
         "maxHeight": undefined,

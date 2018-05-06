@@ -34,6 +34,7 @@ export default class XUIPageHeader extends PureComponent {
 			children,
 			actions,
 			hasLayout,
+			contentClassName,
 			...spreadProps
 		} = this.props;
 		const classes = cn(className, baseClass);
@@ -47,7 +48,7 @@ export default class XUIPageHeader extends PureComponent {
 		const builtTitleAndTabs = buildTitleAndTabs(title, tabs);
 		const builtActions = actions && <div className={`${baseClass}--actions`}>{actions}</div>;
 		const layoutClass = hasLayout ? `${baseClass}--content-layout` : '';
-		const divClasses = cn(`${baseClass}--content`, layoutClass);
+		const divClasses = cn(`${baseClass}--content`, layoutClass, contentClassName);
 
 		return (
 			<header {...spreadProps} className={classes}>
@@ -65,6 +66,10 @@ export default class XUIPageHeader extends PureComponent {
 XUIPageHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+	/**
+	 * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard would go here
+	 */
+	contentClassName: PropTypes.string,
 	/**
 	 * Applies default layout styling.
 	 */

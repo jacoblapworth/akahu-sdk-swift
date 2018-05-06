@@ -1,5 +1,5 @@
 // Libs
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
@@ -19,10 +19,12 @@ import noop from '../../helpers/noop';
 
 const tableStyles = {
 	background: 'white',
+	display: 'inline-block',
 	marginBottom: '20px',
 	maxWidth: '500px',
+	minWidth: '300px',
 	padding: '20px',
-	width: '100%',
+	width: '50%',
 };
 
 const appendageStyles = {
@@ -182,6 +184,38 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 /* eslint-disable react/prop-types */
+class ScrollResetWrapper extends PureComponent {
+
+	constructor() {
+		super();
+		this.node = null;
+	}
+
+	componentDidMount() {
+		setTimeout(() => {
+			const { node } = this;
+			const wrapper = node && node.querySelector('.xui-table-wrapper');
+			if (wrapper) {
+				wrapper.scrollLeft = 0;
+				// eslint-disable-next-line no-console
+				setTimeout(() => (console.log('xui-table-ready-event')), 100);
+			}
+		}, 100);
+	}
+
+	render() {
+		const { props: { style, children } } = this;
+		return (
+			<div
+				className="xui-loader-static"
+				ref={ node => this.node = node }
+				style={ style }>
+				{ children }
+			</div>
+		);
+	}
+}
+
 const TestScaffold = ({
 	columns,
 	removeHeader,
@@ -190,9 +224,8 @@ const TestScaffold = ({
 	tableProps
 }, tableIndex) => (
 
-		<div
+		<ScrollResetWrapper
 			key={tableIndex}
-			className="xui-loader-static"
 			style={{ ...tableStyles, ...styleOverrides }}>
 
 			<Table
@@ -225,7 +258,7 @@ const TestScaffold = ({
 				))}
 
 			</Table>
-		</div>
+		</ScrollResetWrapper>
 
 	);
 /* eslint-enable react/prop-types */

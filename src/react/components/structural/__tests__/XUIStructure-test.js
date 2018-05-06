@@ -114,9 +114,8 @@ describe('<XUI Structure/>', () => {
 			expect(wrapper.find(".xui-pageheading--content-layout").length).toBe(0);
 		});
 		it('renders extra pageHeader classes that are passed in', () => {
-			const wrapper = mount(<XUIPageHeader title="Testing 💩" className="testClass" />);
-			const tag = wrapper.find(XUIPageHeader);
-			expect(tag.hasClass("testClass")).toEqual(true);
+			const testPageHeader = renderer.create(<XUIPageHeader title="Testing 💩" className="testClass" contentClassName="testClassTwo" />);
+			expect(testPageHeader).toMatchSnapshot();
 		});
 		it('renders pageHeader containing Actions', () => {
 			const wrapper = mount(<XUIPageHeader actions={actions} />);

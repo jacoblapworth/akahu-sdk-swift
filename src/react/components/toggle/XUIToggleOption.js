@@ -34,6 +34,7 @@ export default function XUIToggleOption(props) {
 		<label className={classes} data-automationid={qaHook}>
 			<input
 				className={`${baseClass}--input`}
+				data-automationid={qaHook && `${qaHook}--input`}
 				checked={isChecked}
 				disabled={isDisabled}
 				required={isRequired}

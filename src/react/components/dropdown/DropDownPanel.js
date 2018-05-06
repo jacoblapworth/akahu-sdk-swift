@@ -227,7 +227,6 @@ class DropDownPanel extends PureComponent {
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
 				id={panelId}
-				role="listbox"
 				tabIndex={0}
 				onKeyDown={this.keyDownHandler}
 				style={style}
@@ -250,6 +249,8 @@ class DropDownPanel extends PureComponent {
 							ignoreKeyboardEvents={ignoreKeyboardEvents}
 							onHighlightChange={onHighlightChange}
 							qaHook={qaHook && `${qaHook}--scrollable-container`}
+							// Need the role here, because ARIA state needs to be managed at the same level.
+							secondaryProps={{role: "listbox"}}
 						>
 							<div
 								className={`${baseClass}--scrollable-content`}

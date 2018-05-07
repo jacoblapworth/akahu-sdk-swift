@@ -13,6 +13,10 @@ import XUIPanel from '../XUIPanel';
 import XUIPanelSection from '../XUIPanelSection';
 import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
+import XUIContentBlock from '../XUIContentBlock';
+import XUIContentBlockItem from '../XUIContentBlockItem';
+import XUIIcon from '../../icon/XUIIcon';
+import overflow from '@xero/xui-icon/icons/overflow';
 import { rowVariants, columnShortNames, overviewSentiments } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -284,7 +288,7 @@ describe('<XUI Structure/>', () => {
 						headerText="I'm a section header"
 						headerClassName="test-header-class"
 						className="xui-padding-large"
-					>
+						>
 						<p>Some important text might go here.</p>
 					</XUIPanelSection>
 					<XUIPanelSection className="xui-padding-large">
@@ -293,6 +297,54 @@ describe('<XUI Structure/>', () => {
 				</XUIPanel>
 			);
 			expect(testPanel).toMatchSnapshot();
+		});
+	});
+
+	describe('Content block and content block item', () => {
+		const testPrimaryHeading = "test primary heading";
+
+		it('renders the base content block with no children', () => {
+			const testContentblock = renderer.create(<XUIContentBlock />);
+			expect(testContentblock).toMatchSnapshot();
+		});
+		it('renders content block with content block item child and headings', () => {
+			const testContentblockWithChild = renderer.create(
+				<XUIContentBlock>
+					<XUIContentBlockItem primaryHeading={testPrimaryHeading}></XUIContentBlockItem>
+				</XUIContentBlock>
+			);
+			expect(testContentblockWithChild).toMatchSnapshot();
+		});
+		it('renders extra content block item classes that are passed in', () => {
+			const tag = shallow(
+				<XUIContentBlockItem className="testClass"></XUIContentBlockItem>
+			);
+			expect(tag.hasClass("testClass")).toEqual(true);
+		});
+		it('renders content block item without default layout', () => {
+			const wrapper = shallow(<XUIContentBlockItem hasLayout={false} />);
+			expect(wrapper.hasClass("xui-contentblockitem-layout")).toEqual(false);
+		});
+		it('renders content block item with everything', () => {
+			const testOverflow = <XUIButton variant="icon"><XUIIcon path={overflow}/></XUIButton>;
+			const testLeftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
+			const testActions = <XUIActions primaryAction={<XUIButton key='one' variant="primary" size="small">One</XUIButton>} secondaryAction={<XUIButton key='two' size="small">Two</XUIButton>}/>;
+			const testTag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
+	
+			const testContentblockWithEverything = renderer.create(
+				<XUIContentBlock>
+					<XUIContentBlockItem 
+						primaryHeading={testPrimaryHeading} 
+						secondaryHeading="test secondary heading"
+						overflow={testOverflow} 
+						leftContent={testLeftContent} 
+						actions={testActions}
+						pinnedValue="0.00"
+						tag={testTag} 
+					/>
+				</XUIContentBlock>
+			);
+			expect(testContentblockWithEverything).toMatchSnapshot();
 		});
 	});
 });

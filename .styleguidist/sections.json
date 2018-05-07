@@ -348,6 +348,11 @@
 				"name": "Displaying data",
 				"sections": [
 					{
+						"name": "Content Block",
+						"content": "../src/react/components/structural/structural.contentblock.md",
+						"components": "../src/react/components/structural/XUIContentBlock*.js"
+					},
+					{
 						"name": "Overview Block",
 						"content": "../src/react/components/structural/structural.overviewblock.md",
 						"components": "../src/react/components/structural/XUIOverview*.js"

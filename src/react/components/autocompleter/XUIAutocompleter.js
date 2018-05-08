@@ -205,7 +205,7 @@ export default class XUIAutocompleter extends PureComponent {
 		let containerQaHook = null;
 		let dropdownQaHook = null;
 		if (props.qaHook) {
-			inputQaHook = `${props.qaHook}--input`;
+			inputQaHook = `${props.qaHook}`; //TODO: Investigate whether we should add --input here in 14
 			listQaHook = `${props.qaHook}--list`;
 			containerQaHook = `${props.qaHook}--container`;
 			dropdownQaHook = `${props.qaHook}--dropdown`;

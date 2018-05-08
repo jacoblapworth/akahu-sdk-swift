@@ -62,6 +62,7 @@ ProgressWrapper.propTypes = {
 	hasToolTip: PropTypes.bool,
 	toolTipId: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 	toolTipMessage: PropTypes.string.isRequired,
+	thickness: PropTypes.number,
 };
 
 export default ProgressWrapper;

@@ -17,15 +17,23 @@ const XUIProgressCircular = (props) => {
 				total,
 				progress,
 				isGrow,
+				thickness,
 				isComplete,
 				isHardError,
 				hardErrorAlert,
 				customContent
 			}) => (
 				<Fragment>
-					<CircularTrack
-						{...{ id, qaHook, isSegmented, total, progress, isGrow, customContent }}
-					/>
+					<CircularTrack {...{
+						id,
+						qaHook,
+						isSegmented,
+						total,
+						progress,
+						isGrow,
+						thickness,
+						customContent,
+					}} />
 
 					<CircularIcon
 						{...{ isComplete, isHardError, hardErrorAlert }}
@@ -61,6 +69,9 @@ XUIProgressCircular.propTypes = {
 
 	/** Set the component to "grow" horizontally (with the height maintaining the proportions of the circle) into its parent container and fill the space. */
 	isGrow: PropTypes.bool,
+
+	/** The "thickness" of the progress track in "px". */
+	thickness: PropTypes.number,
 
 	/** Show a "tool tip" when the mouse "enters" the UI. */
 	hasToolTip: PropTypes.bool,

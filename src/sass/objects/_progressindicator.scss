@@ -552,26 +552,34 @@ $xui-progress-colors: (
 }
 
 .#{$ns}-progress-linear {
-	height: $xui-progress-linear-min-height;
 	width: 100%;
-}
-
-.#{$ns}-progress-linear.#{$ns}-progress-grow {
-	height: 100%;
-	min-height: $xui-progress-linear-min-height;
 }
 
 .#{$ns}-progress-linear-wrapper,
 .#{$ns}-progress-linear-track,
 .#{$ns}-progress-linear-current {
 	border-radius: 9999px;
-	height: 100%;
 	width: 100%;
 }
 
 .#{$ns}-progress-linear-wrapper {
+	align-items: center;
 	display: flex;
+	justify-content: space-between;
 	overflow: hidden;
+}
+
+.#{$ns}-progress-linear-track,
+.#{$ns}-progress-linear-current {
+	height: $xui-progress-linear-min-height;
+}
+
+.#{$ns}-progress-linear.#{$ns}-progress-grow {
+
+	&,
+	& [class*="progress"] {
+		height: 100%;
+	}
 }
 
 .#{$ns}-progress-overflow .#{$ns}-progress-linear-track,
@@ -589,7 +597,7 @@ $xui-progress-colors: (
 }
 
 .#{$ns}-progress-linear-segment {
-	margin: 0 4px;
+	margin: 0 $xui-progress-linear-min-height;
 
 	&:first-child {
 		margin-left: 0;
@@ -598,6 +606,18 @@ $xui-progress-colors: (
 	&:last-child {
 		margin-right: 0;
 	}
+}
+
+.#{$ns}-progress-linear-dot {
+	position: relative;
+	width: 0;
+}
+
+.#{$ns}-progress-linear-dot .#{$ns}-progress-linear-current,
+.#{$ns}-progress-linear-dot .#{$ns}-progress-linear-track {
+	height: 100%;
+	position: absolute;
+	top: 0;
 }
 
 .#{$ns}-progress-linear .#{$ns}-progress-icon {

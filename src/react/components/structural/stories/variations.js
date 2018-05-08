@@ -77,6 +77,97 @@ variations = [...variations,
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `panel with all options`,
 		type: 'panel-sidebar'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with standard and secondary heading`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				overflow: true
+			},
+			{
+				primaryHeading: 'Item 2 Primary', 
+				secondaryHeading: 'Item 2 Secondary', 
+				overflow: true
+			}			
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with avatar, checkbox and tag`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary', 
+				secondaryHeading: 'Item 1 Secondary', 
+				leftContent: "avatar",
+				overflow: true
+			},
+			{
+				primaryHeading: 'Item 2 Primary', 
+				secondaryHeading: 'Item 2 Secondary', 
+				leftContent: "checkbox",
+				overflow: true
+			},
+			{
+				primaryHeading: 'Item 3 Primary', 
+				secondaryHeading: 'Item 3 Secondary', 
+				tag: true,
+				overflow: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with pinned value and action`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary', 
+				secondaryHeading: 'Item 1 Secondary', 
+				pinnedValue: true,
+				overflow: true
+			},
+			{
+				primaryHeading: 'Item 2 Primary', 
+				secondaryHeading: 'Item 2 Secondary', 
+				action: true,
+				overflow: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block with everything`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
+				overflow: true,
+				leftContent: "avatar",
+				pinnedValue: true,
+				action: true, 
+				tag: true
+			}
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `content block without layout`,
+		type: `content block`,
+		items: [
+			{
+				primaryHeading: 'Item 2 Primary', 
+				secondaryHeading: 'Item 2 Secondary', 
+				hasLayout: false,
+				overflow: true,
+				pinnedValue: true,
+				action: true
+			}
+		]
 	}
 ];
 

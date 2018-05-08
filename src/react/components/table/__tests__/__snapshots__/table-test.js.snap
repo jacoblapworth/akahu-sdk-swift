@@ -7,10 +7,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -133,15 +135,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -382,15 +386,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -631,15 +637,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -885,15 +893,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-visualTesting-tableWrapper xui-table-hasheader"
+      className="xui-table xui-panel xui-table-visualTesting-tableWrapper xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1006,15 +1016,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1127,15 +1139,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1253,15 +1267,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1339,15 +1355,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1425,15 +1443,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1500,6 +1520,126 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
       </div>
     </div>
   </div>
+  <div
+    className="xui-loader-static"
+    style={
+      Object {
+        "background": "white",
+        "display": "inline-block",
+        "marginBottom": "20px",
+        "maxWidth": "500px",
+        "minWidth": "300px",
+        "padding": "20px",
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
+      data-automationid={undefined}
+    >
+      <div
+        className="xui-table-wrapper"
+        onScroll={[Function]}
+      >
+        <table
+          className="xui-table-element"
+          data-automationid={undefined}
+        >
+          <thead
+            className="xui-table--head"
+          >
+            <tr
+              className="xui-table--row xui-text-align-left"
+            >
+              <th
+                className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
+              >
+                 
+                <label
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-is-disabled"
+                  data-automationid={undefined}
+                  onClick={[Function]}
+                >
+                  <input
+                    checked={false}
+                    className="xui-styledcheckboxradio--input"
+                    data-automationid={undefined}
+                    disabled={true}
+                    name={undefined}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    required={false}
+                    tabIndex={undefined}
+                    type="checkbox"
+                    value={undefined}
+                  />
+                  <div
+                    className="xui-styledcheckboxradio--checkbox"
+                    data-automationid={undefined}
+                  />
+                  <span
+                    className="xui-styledcheckboxradio--label"
+                    data-automationid={undefined}
+                  />
+                </label>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-second"
+              >
+                <span>
+                  Header 
+                  1
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-secondtolast"
+              >
+                <span>
+                  Header 
+                  2
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-last"
+              >
+                <span>
+                  Header 
+                  3
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="xui-table--body"
+          />
+        </table>
+      </div>
+      <div
+        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        data-automationid={undefined}
+      >
+        <div
+          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
+        >
+          <svg
+            className="xui-icon xui-icon-large"
+            data-automationid={undefined}
+            focusable="false"
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M8.92857143,8 C8.46428571,7.99999999 8,8.5064935 8.00928571,9.01298701 L8,19.987013 C8,20.4935065 8.46428571,21 8.92857143,21 L20.0714286,21 C20.5357143,21 21,20.4935065 21,19.987013 L21,9.01298704 C21,8.46428571 20.5357143,8 20.0714286,8 L8.92857143,8 Z M9,13 L12,13 L12,16 L9,16 L9,13 Z M9,17 L12,17 L12,20 L9,20 L9,17 Z M13,17 L16,17 L16,20 L13,20 L13,17 Z M13,13 L16,13 L16,16 L13,16 L13,13 Z M17,13 L20,13 L20,16 L17,16 L17,13 Z M17,17 L20,17 L20,20 L17,20 L17,17 Z"
+              role="presentation"
+            />
+          </svg>
+          <div>
+            Nothing to show here
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -1510,15 +1650,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1648,15 +1790,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1786,15 +1930,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -1946,15 +2092,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -2088,15 +2236,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -2177,15 +2327,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel"
+      className="xui-table xui-panel xui-table-responsive"
       data-automationid={undefined}
     >
       <div
@@ -2266,15 +2418,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel"
+      className="xui-table xui-panel xui-table-responsive"
       data-automationid={undefined}
     >
       <div
@@ -2320,15 +2474,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel"
+      className="xui-table xui-panel xui-table-responsive"
       data-automationid={undefined}
     >
       <div
@@ -2377,15 +2533,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -2616,10 +2774,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -3026,10 +3186,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -3421,10 +3583,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -3949,10 +4113,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -4236,15 +4402,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -4374,15 +4542,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -4512,15 +4682,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -4772,10 +4944,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -4893,10 +5067,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -5260,15 +5436,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "750px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -5542,15 +5720,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "500px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -5778,15 +5958,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
         "maxWidth": "250px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div
@@ -5973,131 +6155,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
-        "maxWidth": "500px",
+        "maxWidth": "330px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="xui-table xui-panel xui-table-hasheader"
-      data-automationid={undefined}
-    >
-      <div
-        className="xui-table-wrapper"
-        onScroll={[Function]}
-      >
-        <table
-          className="xui-table-element"
-          data-automationid={undefined}
-        >
-          <thead
-            className="xui-table--head"
-          >
-            <tr
-              className="xui-table--row xui-text-align-left"
-            >
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-first"
-              >
-                <span>
-                  Header 
-                  1
-                </span>
-              </th>
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
-              >
-                <span>
-                  Header 
-                  2
-                </span>
-              </th>
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-last"
-              >
-                <span>
-                  Header 
-                  3
-                </span>
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            className="xui-table--body"
-          >
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-              >
-                Cell 1
-              </td>
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-              >
-                Cell 2
-              </td>
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-              >
-                Cell 3
-              </td>
-            </tr>
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first"
-              >
-                The quick brown fox jumps over the lazy dog
-              </td>
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast"
-              >
-                The quick brown fox jumps over the lazy dog
-              </td>
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last"
-              >
-                The quick brown fox jumps over the lazy dog
-              </td>
-            </tr>
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-              >
-                Cell 1
-              </td>
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-              >
-                Cell 2
-              </td>
-              <td
-                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-              >
-                Cell 3
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div
-    className="xui-loader-static"
-    style={
-      Object {
-        "background": "white",
-        "marginBottom": "20px",
-        "maxWidth": "500px",
-        "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -6215,10 +6278,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
-        "maxWidth": "500px",
+        "maxWidth": "330px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
@@ -6336,10 +6401,135 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
-        "maxWidth": "500px",
+        "maxWidth": "330px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
+      data-automationid={undefined}
+    >
+      <div
+        className="xui-table-wrapper"
+        onScroll={[Function]}
+      >
+        <table
+          className="xui-table-element"
+          data-automationid={undefined}
+        >
+          <thead
+            className="xui-table--head"
+          >
+            <tr
+              className="xui-table--row xui-text-align-left"
+            >
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-first"
+              >
+                <span>
+                  Header 
+                  1
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
+              >
+                <span>
+                  Header 
+                  2
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-last"
+              >
+                <span>
+                  Header 
+                  3
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="xui-table--body"
+          >
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+              >
+                Cell 1
+              </td>
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+              >
+                Cell 2
+              </td>
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+              >
+                Cell 3
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first"
+              >
+                The quick brown fox jumps over the lazy dog
+              </td>
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast"
+              >
+                The quick brown fox jumps over the lazy dog
+              </td>
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last"
+              >
+                The quick brown fox jumps over the lazy dog
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+              >
+                Cell 1
+              </td>
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+              >
+                Cell 2
+              </td>
+              <td
+                className="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+              >
+                Cell 3
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    className="xui-loader-static"
+    style={
+      Object {
+        "background": "white",
+        "display": "inline-block",
+        "marginBottom": "20px",
+        "maxWidth": "330px",
+        "minWidth": "300px",
+        "padding": "20px",
+        "width": "50%",
       }
     }
   >
@@ -6859,15 +7049,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
     style={
       Object {
         "background": "white",
+        "display": "inline-block",
         "marginBottom": "20px",
-        "maxWidth": "500px",
+        "maxWidth": "330px",
+        "minWidth": "300px",
         "padding": "20px",
-        "width": "100%",
+        "width": "50%",
       }
     }
   >
     <div
-      className="xui-table xui-panel xui-table-hasheader"
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader"
       data-automationid={undefined}
     >
       <div

@@ -123,8 +123,8 @@ We use [Husky](https://www.npmjs.com/package/husky) to run **Git Hooks** for the
 **Note:** If you are using a clone of the XUI repo from < 2018 then you may need to remove our legacy Git hooks for Husky to work *(Husky will **not** overwrite existing Git hooks)*. Please run the snippet below or reach out on our [Slack channel](https://xero.slack.com/messages/C565NP1A5) for assistance.
 
 ```
-rm .git/hooks/pre-commit .git/hooks/post-merge\
-&& npm install husky
+rm .git/hooks/pre-commit .git/hooks/post-commit .git/hookds/pre-push .git/hooks/post-checkout .git/hooks/post-merge\
+&& npm install husky --save-dev
 
 ```
 

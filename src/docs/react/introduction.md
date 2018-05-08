@@ -6,7 +6,7 @@ These docs act as a kitchen sink of our components and are focused on the techni
 
 ### Installing
 
-Checkout [Developing with XUI](https://github.dev.xero.com/pages/UXE/xui/#breaking-changes/section-getting-started-developing-with-xui.html) in the XUI Guide for all the information on getting XUI setup in your project.
+Checkout [Developing with XUI](../section-getting-started-developing-with-xui.html) in the XUI Guide for all the information on getting XUI setup in your project.
 
 ### Upgrading
 

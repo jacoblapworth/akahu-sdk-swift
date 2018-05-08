@@ -21,7 +21,6 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -43,7 +42,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -98,7 +97,6 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -120,7 +118,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -190,7 +188,6 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -212,7 +209,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -267,7 +264,6 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -289,7 +285,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -359,7 +355,6 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -381,7 +376,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -436,7 +431,6 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -458,7 +452,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -528,7 +522,6 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -550,7 +543,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -605,7 +598,6 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -627,7 +619,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -697,7 +689,6 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -719,7 +710,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -774,7 +765,6 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -796,7 +786,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -866,7 +856,6 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -888,7 +877,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -943,7 +932,6 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -965,7 +953,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1035,7 +1023,6 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1057,7 +1044,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1112,7 +1099,6 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1134,7 +1120,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1204,7 +1190,6 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1226,7 +1211,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1281,7 +1266,6 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1303,7 +1287,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1373,7 +1357,6 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1395,7 +1378,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1450,7 +1433,6 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1472,7 +1454,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1542,7 +1524,6 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1564,7 +1545,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1619,7 +1600,6 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1641,7 +1621,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1711,7 +1691,6 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1733,7 +1712,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1788,7 +1767,6 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1810,7 +1788,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1880,7 +1858,6 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
       data-automationid="nestedDropdown-panelone"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1902,7 +1879,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1957,7 +1934,6 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
       data-automationid="nestedDropdown-paneltwo"
       id={undefined}
       onKeyDown={[Function]}
-      role="listbox"
       style={undefined}
       tabIndex={0}
     >
@@ -1979,7 +1955,7 @@ exports[`<NestedDropdown /> shouldn't add the animation open class when animateO
           id={undefined}
           onKeyDown={[Function]}
           onMouseDown={[Function]}
-          role="tree"
+          role="listbox"
           tabIndex={null}
         >
           <div

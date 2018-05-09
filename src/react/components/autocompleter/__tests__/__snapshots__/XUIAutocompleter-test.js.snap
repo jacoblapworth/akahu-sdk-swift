@@ -33,11 +33,11 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       >
         <label
           className="xui-textinput"
-          data-automationid="baseAC--input"
+          data-automationid="baseAC"
         >
           <input
             className="xui-autocompleter--textinput xui-textinput--input"
-            data-automationid="baseAC--input--input"
+            data-automationid="baseAC--input"
             defaultValue={undefined}
             disabled={undefined}
             id={undefined}

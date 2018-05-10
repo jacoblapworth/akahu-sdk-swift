@@ -31,14 +31,12 @@ const createBuildStep = () => taskRunner(taskSpinner => {
 
 }, __filename);
 
-const skipBuildStep = () => taskRunner(taskSpinner => {
-
-	taskSpinner.info(`Skipping service worker creation (SERVICE_WORKER !== 'true')`);
-	return Promise.resolve();
-
-}, __filename);
+const skipBuildStep = () => taskRunner(() => (
+	Promise.resolve({ stdout: `Skipping service worker creation (SERVICE_WORKER !== 'true')` })
+), __filename);
 
 module.exports = isServiceWorker ? createBuildStep : skipBuildStep;
+
 require('make-runnable/custom')({
 	printOutputFrame: false
 });

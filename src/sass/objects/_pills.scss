@@ -43,7 +43,7 @@
 // Click-able pills
 //
 // In some cases, clicking a pill triggers an action, such as opening a list of filters to that particular choice.
-// To indicate that a pill is click-able, make sure to wrap the content in an [unstyled button](section-building-blocks-buttons.html#building-blocks-buttons-2) and apply the following class.
+// To indicate that a pill is click-able, make sure to wrap the content in an [unstyled button](section-building-blocks-controls-button.html#building-blocks-controls-button-2) and apply the following class.
 //
 // Classes:
 // xui-button: Resets user agent styles
@@ -61,7 +61,7 @@
 // Clearing selection
 //
 // To offer quick access to clearing individual pills, include a clear button.
-// To add one, insert a standard [icon button](section-building-blocks-buttons.html#building-blocks-buttons-5), and apply the following classes.
+// To add one, insert a standard [icon button](section-building-blocks-controls-button.html#building-blocks-controls-button-5), and apply the following classes.
 //
 // Classes:
 // xui-pill-is-deleteable: Apply to pill
@@ -103,7 +103,7 @@
 // Including an avatar
 //
 // If a selection is associated with a person or business, make sure to include an avatar.
-// To do this, insert a small [avatar](section-building-blocks-avatars.html) and apply the following class.
+// To do this, insert a small [avatar](section-building-blocks-identifiers-avatar.html) and apply the following class.
 //
 // Classes:
 // xui-pill--avatar: Apply to avatar

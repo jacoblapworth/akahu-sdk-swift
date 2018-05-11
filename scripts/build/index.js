@@ -47,10 +47,18 @@ const buildUmd = require(path.resolve(
 	'build',
 	'umd_webpack.js'
 ));
+const buildServiceWorker = require(path.resolve(
+	rootDirectory,
+	'scripts',
+	'build',
+	'serviceworker.js'
+));
+
+console.log('buildServiceWorker', buildServiceWorker);
 
 function build() {
 	return taskRunner(taskSpinner => {
-		return Promise.all([sassKss(), cssminXui()])
+		return sassKss()
 			.then(() => {
 				taskSpinner.info('Done with basic build promises');
 				return Promise.all([
@@ -58,9 +66,11 @@ function build() {
 					buildStorybook(),
 					buildKss(),
 					buildTokens(),
-					buildUmd()
+					buildUmd(),
+					cssminXui()
 				]).then(({ stdout }) => console.log(stdout));
 			})
+			.then(buildServiceWorker())
 			.then(succeed)
 			.catch(fail);
 	}, __filename);

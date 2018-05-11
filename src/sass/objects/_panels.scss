@@ -21,6 +21,13 @@
 	margin: 0;
 }
 
+.#{$ns}-panel--heading-layout {
+	@include xui-padding($xui-s-large);
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
 // PANEL SECTIONS/BODY
 // -----------------------------------------------------------------------------
 
@@ -48,9 +55,13 @@
 
 .#{$ns}-panel--footer {
 	border-top: $xui-border-muted;
+	display: flex;
 	min-height: 60px;
 	&:first-child {
 		border-top: 0;
+	}
+	.#{$ns}-actions {
+		width: 100%;
 	}
 }
 

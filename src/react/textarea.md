@@ -2,7 +2,7 @@
 	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
-	<a href="../section-building-blocks-forms-inputs.html#building-blocks-forms-inputs-7">Textarea in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-textinput.html#building-blocks-controls-textinput-2">TextArea in the XUI Documentation</a>
 </div>
 
 `XUITextArea` is an enhanced version of the HTML `<textarea />` element. It supports auto grow, fixed row height and validation styling.

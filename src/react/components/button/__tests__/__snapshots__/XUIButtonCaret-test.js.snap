@@ -5,6 +5,7 @@ exports[`XUIButtonCaret renders a passed qaHook as an automationId 1`] = `
   className="xui-icon xui-button--caret"
   data-automationid="button-caret"
   focusable="false"
+  style={null}
   viewBox="0 0 30 30"
 >
   <path

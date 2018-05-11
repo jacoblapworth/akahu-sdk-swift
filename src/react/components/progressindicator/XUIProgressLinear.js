@@ -1,5 +1,5 @@
 import '../helpers/xuiGlobalChecks';
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {enrichLinearProps} from './helpers/enrichprops';
 import LinearTrack from './customElements/LinearTrack';
@@ -9,8 +9,17 @@ const XUIProgressLinear = (props) => {
 
 	return (
 		<ProgressWrapper {...enrichLinearProps(props)}>
-			{({id, isSegmented, total, progress}) => (
-				<LinearTrack {...{id, isSegmented, total, progress}} />
+			{({isSegmented, total, progress, isGrow, thickness, hasSegmentDots}) => (
+				<Fragment>
+					<LinearTrack {...{
+						isSegmented,
+						total,
+						progress,
+						isGrow,
+						thickness,
+						hasSegmentDots,
+					}} />
+				</Fragment>
 			)}
 		</ProgressWrapper>
 	);
@@ -36,8 +45,14 @@ XUIProgressLinear.propTypes = {
 	/** Change the "track" from solid to a set of evenly spaced "segments" (one for each "total" unit). */
 	isSegmented: PropTypes.bool,
 
+	/** Turns segment "dashes" into circulate "dots". */
+	hasSegmentDots: PropTypes.bool,
+
 	/** Set the component to "grow" both horizontally and vertically (not respecting the standard UI proportions) into its parent container and fill the space. */
 	isGrow: PropTypes.bool,
+
+	/** The "thickness" of the progress track in "px". */
+	thickness: PropTypes.number,
 
 	/** Show a "tool tip" when the mouse "enters" the UI. */
 	hasToolTip: PropTypes.bool,

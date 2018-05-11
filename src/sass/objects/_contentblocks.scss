@@ -1,29 +1,28 @@
 @import "../vars";
 @import "../mixins";
 
-// Content blocks
+// Content block
 //
 // Teaser: Top-level views of detailed sub pages.
 //
 // Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
 //
-// Styleguide: Compounds.DisplayingData.Content blocks
+// Styleguide: Compounds.DisplayingData.ContentBlock
 
 // Anatomy
 //
-// Flag: Experimental
-//
-// The current approach for creating content blocks is to use standard XUI typography presets, form controls, and components in parallel with layout classes.
-// There are, however, several component specific classes to help define groups of content blocks, and provide vertical borders between them.
+// There are several component specific classes to build content blocks. These help define groups of content blocks and provide a default layout to content block items,
+// as well as add further styling to individual content block items.
 //
 // Classes:
 // xui-contentblock: A group of content blocks
-// xui-contentblock--item: An individual content block
-// xui-rowlink: Modifier to reset type styles for content block links
-// xui-padding-: Utilities to set the desired spacing
-// xui-u-flex-: Utilities to set the desired layout
+// xui-contentblockitem: An individual content block
+// xui-contentblockitem-layout: Utilities to set the desired layout
+// xui-contentblockitem--links: Wrapper to set type styles for content block links
+// xui-contentblockitem--leftcontent: Wrapper to set the desired layout on left aligned items such as avatar, checkbox or rollover checkbox
+// xui-contentblockitem--rightcontent: Wrapper to set the desired layout on right aligned items
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.1
+// Styleguide: Compounds.DisplayingData.ContentBlock.1
 
 // Rows
 //
@@ -35,7 +34,7 @@
 // xui-text-align-right: Apply to pinned values
 // xui-textcolor-muted: Apply to secondary information
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2
+// Styleguide: Compounds.DisplayingData.ContentBlock.2
 
 // Standard
 //
@@ -50,26 +49,38 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-padding-left-large xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//   </span>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
-//     </div>
-//   </div>
-// </div>
+// <div class="xui-contentblock xui-panel">
+// 	<div class="xui-contentblockitem xui-contentblockitem-layout">
+// 		<a class="xui-contentblockitem--links">
+// 			<span class="xui-contentblockitem--toplinks">
+// 				<span class="xui-heading-small">Item 1 Primary</span>
+// 			</span>
+// 		</a>
+// 		<div class="xui-contentblockitem--rightcontent">
+// 			<button class="xui-button xui-button-icon" tabindex="0" type="button">
+// 				<svg focusable="false" class="xui-icon">
+// 					<use xlink:href="#xui-icon-overflow"></use>
+// 				</svg>
+// 			</button>
+// 		</div>
+// 	</div>
+// 	<div class="xui-contentblockitem xui-contentblockitem-layout">
+// 		<a class="xui-contentblockitem--links">
+// 			<span class="xui-contentblockitem--toplinks">
+// 				<span class="xui-heading-small">Item 2 Primary</span>
+// 			</span>
+// 		</a>
+// 		<div class="xui-contentblockitem--rightcontent">
+// 			<button class="xui-button xui-button-icon" tabindex="0" type="button">
+// 				<svg focusable="false" class="xui-icon">
+// 					<use xlink:href="#xui-icon-overflow"></use>
+// 				</svg>
+// 			</button>
+// 		</div>
+// 	</div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.1
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.1
 
 // With secondary info
 //
@@ -82,31 +93,40 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-padding-left-large xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//   	<span>Secondary</span>
-//   	<span class="xui-margin-horizontal-xsmall">•</span>
-//   	<span>Secondary</span>
-// 	 </div>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Item 1 Primary</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Item 2 Secondary<span class="xui-margin-horizontal-xsmall">•</span>Item 2 Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
 //     </div>
-//   </div>
-// </div>
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Item 2 Primary</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Item 2 Secondary<span class="xui-margin-horizontal-xsmall">•</span>Item 2 Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
+//     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.2
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.2
 
 // With bulk select
 //
@@ -117,37 +137,32 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
-// 	<label class="xui-styledcheckboxradio">
-//  	 <input class="xui-styledcheckboxradio--input" type="checkbox">
-//  	 <div class="xui-styledcheckboxradio--checkbox"></div>
-// 	</label>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//   	<span>Secondary</span>
-//   	<span class="xui-margin-horizontal-xsmall">•</span>
-//   	<span>Secondary</span>
-// 	 </div>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <label class="xui-styledcheckboxradio">
+//                 <input type="checkbox" readonly="" class="xui-styledcheckboxradio--input" value="">
+//                 <div class="xui-styledcheckboxradio--checkbox"></div>
+//                 <span class="xui-styledcheckboxradio--label"></span>
+//             </label>
+//         </div>
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Primary</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
 //     </div>
-//   </div>
-// </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.3
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.3
 
 // With avatar
 //
@@ -158,34 +173,28 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//   	<span>Secondary</span>
-//   	<span class="xui-margin-horizontal-xsmall">•</span>
-//   	<span>Secondary</span>
-// 	 </div>
-// </a>
-// <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Primary</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
 //     </div>
-//   </div>
-// </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.4
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.4
 
 // With pinned value
 //
@@ -196,33 +205,29 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//   	<span>Secondary</span>
-//   	<span class="xui-margin-horizontal-xsmall">•</span>
-//   	<span>Secondary</span>
-// 	 </div>
-// </a>
-//   <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
-//     <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
-//     <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//       <svg focusable="false" class="xui-icon">
-//         <use xlink:href="#xui-icon-overflow"></use>
-//       </svg>
-//     </button>
-//   </div>
-// </div>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Primary</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
+//     </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.5
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.5
 
 // With action
 //
@@ -232,34 +237,32 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//   	<span>Secondary</span>
-//   	<span class="xui-margin-horizontal-xsmall">•</span>
-//   	<span>Secondary</span>
-// 	 </div>
-// </a>
-//   <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
-//       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-large">0.00</div>
-//			 <button class="xui-button xui-button-small xui-button-standard xui-margin-right-small">Action</button>
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Primary</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Action</button>
+//             </div>
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
 //     </div>
 // </div>
-// </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.6
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.6
 
 // With sentiment
 //
@@ -269,35 +272,33 @@
 // ExampleClass: ds-example-wide
 //
 // Markup:
-// <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblock--item xui-u-flex xui-u-flex-verticallycentered">
-// <div class="xui-margin-horizontal">
-//   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
-// </div>
-// <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
-//     <span class="xui-heading-small">Primary</span>
-//     <span class="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>
-//   </span>
-//   <div class="xui-textcolor-muted xui-text-truncated">
-//   	<span>Secondary</span>
-//   	<span class="xui-margin-horizontal-xsmall">•</span>
-//   	<span>Secondary</span>
-// 	 </div>
-// </a>
-//   <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
-//     <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-large">0.00</div>
-//			 <button class="xui-button xui-button-small xui-button-standard xui-margin-right-small">Action</button>
-//       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//         <svg focusable="false" class="xui-icon">
-//           <use xlink:href="#xui-icon-overflow"></use>
-//         </svg>
-//       </button>
+// <div class="xui-contentblock xui-panel">
+//     <div class="xui-contentblockitem xui-contentblockitem-layout">
+//         <div class="xui-contentblockitem--leftcontent">
+//             <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+//         </div>
+//         <a class="xui-contentblockitem--links">
+//             <span class="xui-contentblockitem--toplinks">
+//                 <span class="xui-heading-small">Primary</span>
+//                 <span class="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>
+//             </span>
+//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//         </a>
+//         <div class="xui-contentblockitem--rightcontent">
+//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//                 <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Action</button>
+//             </div>
+//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//                 <svg focusable="false" class="xui-icon">
+//                     <use xlink:href="#xui-icon-overflow"></use>
+//                 </svg>
+//             </button>
+//         </div>
 //     </div>
 // </div>
-// </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.2.7
+// Styleguide: Compounds.DisplayingData.ContentBlock.2.7
 
 
 // Headers
@@ -310,7 +311,7 @@
 // xui-text-deemphasis: Apply to numerical values
 // xui-text-align-right: Apply to pinned values
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3
+// Styleguide: Compounds.DisplayingData.ContentBlock.3
 
 // Standard
 //
@@ -333,7 +334,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.1
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.1
 
 // With numerical value
 //
@@ -357,7 +358,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.2
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.2
 
 // With pinned value
 //
@@ -382,7 +383,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.3
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.3
 
 
 // With bulk select
@@ -415,7 +416,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.4
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.4
 
 // With avatar
 //
@@ -443,7 +444,7 @@
 //    </div>
 // </div>
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.3.5
+// Styleguide: Compounds.DisplayingData.ContentBlock.3.5
 
 // Additional classes
 //
@@ -454,7 +455,7 @@
 // xui-contentblock--item-negative: This style is no longer supported
 // xui-contentblock--item-selected: This style is no longer supported
 //
-// Styleguide: Compounds.DisplayingData.Content blocks.4
+// Styleguide: Compounds.DisplayingData.ContentBlock.4
 
 .#{$ns}-contentblock {
 	border-collapse: collapse;
@@ -463,7 +464,8 @@
 	width: 100%;
 }
 
-.#{$ns}-contentblock--item {
+.#{$ns}-contentblock--item, //TODO: Remove in XUI14
+.#{$ns}-contentblockitem {
 	border-top: $xui-border-muted;
 	list-style: none; // TODO use xui-listreset
 	min-height: inherit; // IE11 bug fix
@@ -477,10 +479,85 @@
 	&:first-of-type {
 		border-top: 0;
 	}
+}
+
+.#{$ns}-contentblockitem-layout {
+	align-items: center;
+	display: flex;
 	// TODO Deprecated in XUI12, remove in XUI14
-	&-layout {
-		@include xui-text-line-height; // 1.5
+	@include xui-text-line-height; // 1.5
+
+	.#{$ns}-contentblockitem--actions {
+		margin-right: $xui-s-small;
 	}
+
+	.#{$ns}-contentblockitem--rightcontent {
+		align-items: center;
+		display: flex;
+		margin-left: $xui-s-small;
+		margin-right: $xui-s-small;
+	}
+
+	.#{$ns}-contentblockitem--leftcontent {
+		margin-left: $xui-s-standard;
+		margin-right: $xui-s-standard;
+	}
+
+	.#{$ns}-contentblockitem--links {
+		flex: 1;
+		padding-bottom: $xui-s-standard;
+		padding-top: $xui-s-standard;
+	}
+
+	.#{$ns}-contentblockitem--links:first-child {
+		padding-left: $xui-s-large;
+	}
+
+	.#{$ns}-contentblockitem--links:last-child {
+		padding-right: $xui-s-large;
+	}
+
+	.#{$ns}-contentblockitem--toplinks {
+		align-items: center;
+	}
+
+	.#{$ns}-contentblockitem--pinnedvalue {
+		margin-right: $xui-s-small;
+		text-align: right;
+	}
+
+	.#{$ns}-contentblockitem--pinnedvalue:nth-last-child(odd){
+		margin-right: $xui-s-large;
+	}
+}
+
+.#{$ns}-contentblockitem--links {
+	color: inherit;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+}
+
+.#{$ns}-contentblockitem--toplinks {
+	@include xui-text-truncated;
+}
+
+.#{$ns}-contentblockitem--primaryheading {
+	font-size: $xui-font-size-medium;
+	font-weight: $xui-font-weight-emphasis;
+	line-height: $xui-line-height-compact;
+}
+
+.#{$ns}-contentblockitem--secondaryheading {
+	@include xui-text-truncated;
+	@include xui-text-muted;
+}
+
+
+.#{$ns}-contentblockitem--pinnedvalue {
+	font-size: $xui-font-size-medium;
+	font-weight: $xui-font-weight-deemphasis;
+	line-height: $xui-line-height-compact;
 }
 
 // TODO Deprecated in XUI12, remove in XUI14
@@ -494,13 +571,13 @@
 }
 
 
-// Tables
+// Table
 //
 // Teaser: Used to compare, contrast and sort large amounts of data.
 //
 // Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
 //
-// Styleguide: Building Blocks.Tables
+// Styleguide: Compounds.DisplayingData.Table
 
 // Anatomy
 //
@@ -512,7 +589,7 @@
 // xui-table--row: Apply to each row, including headers
 // xui-table--cell: Apply to each individual cell, including headers
 //
-// Styleguide: Building Blocks.Tables.1
+// Styleguide: Compounds.DisplayingData.Table.1
 
 // Headers
 //
@@ -523,7 +600,7 @@
 // xui-table--head: Apply to the table head section
 // xui-heading-separator: Sets correct text style for table headers
 //
-// Styleguide: Building Blocks.Tables.2
+// Styleguide: Compounds.DisplayingData.Table.2
 
 // Standard
 //
@@ -547,7 +624,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.2.1
+// Styleguide: Compounds.DisplayingData.Table.2.1
 
 // Sortable ascending
 //
@@ -611,7 +688,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.2.2
+// Styleguide: Compounds.DisplayingData.Table.2.2
 
 // Body
 //
@@ -622,7 +699,7 @@
 // xui-table--cell-divider: Apply a horizontal divider to seperate content from the cell above
 // xui-padding-small: Apply the recommended cell padding
 //
-// Styleguide: Building Blocks.Tables.3
+// Styleguide: Compounds.DisplayingData.Table.3
 
 // Standard
 //
@@ -665,7 +742,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.3.1
+// Styleguide: Compounds.DisplayingData.Table.3.1
 
 // With actions
 //
@@ -760,7 +837,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.3.2
+// Styleguide: Compounds.DisplayingData.Table.3.2
 
 // With avatar
 //
@@ -870,7 +947,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.3.4
+// Styleguide: Compounds.DisplayingData.Table.3.4
 
 // Links
 //
@@ -879,7 +956,7 @@
 // Classes:
 // xui-table--row-link: Applies visual feedback on row interaction
 //
-// Styleguide: Building Blocks.Tables.4
+// Styleguide: Compounds.DisplayingData.Table.4
 
 // Single destination
 //
@@ -902,7 +979,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.4.1
+// Styleguide: Compounds.DisplayingData.Table.4.1
 
 // Multiple destinations
 //
@@ -929,7 +1006,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Building Blocks.Tables.4.2
+// Styleguide: Compounds.DisplayingData.Table.4.2
 
 // Additional classes
 //
@@ -939,7 +1016,7 @@
 // xui-sectionheading: Use content block styles instead
 // xui-sectionheading-layout: Use utility classes instead
 //
-// Styleguide: Building Blocks.Tables.5
+// Styleguide: Compounds.DisplayingData.Table.5
 
 $xui-table-action-offset: $xui-s-5xlarge;
 $xui-table-z-pinned-shadow: 1;
@@ -1022,6 +1099,7 @@ $xui-table-z-alert: 4;
 	display: block;
 	height: $xui-s-4xlarge;
 	outline: 0;
+	overflow: hidden;
 	text-align: left;
 	transition: $xui-motion-speed-fast;
 	width: 100%;
@@ -1160,6 +1238,7 @@ $xui-table-z-alert: 4;
 .#{$ns}-table--head .#{$ns}-table--cell {
 	height: $xui-s-4xlarge;
 	min-height: $xui-s-4xlarge;
+	padding: 0;
 }
 
 .#{$ns}-table--head .#{$ns}-table--cell > * {

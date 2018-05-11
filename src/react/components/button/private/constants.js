@@ -27,9 +27,9 @@ export const VariantClassNames = {
 	'borderless-inverted': `${ns}-button-borderless-inverted`,
 	'borderless-muted': `${ns}-button-borderless-muted`,
 	'icon': `${ns}-button-icon`,
-	'icon-large': `${ns}-button-icon xui-button-icon-large`,
-	'icon-inverted': `${ns}-button-icon xui-button-icon-inverted`,
-	'icon-inverted-large': `${ns}-button-icon xui-button-icon-inverted xui-button-icon-large`,
+	'icon-large': `${ns}-button-icon ${ns}-button-icon-large`,
+	'icon-inverted': `${ns}-button-icon ${ns}-button-icon-inverted`,
+	'icon-inverted-large': `${ns}-button-icon ${ns}-button-icon-inverted ${ns}-button-icon-large`,
 	'unstyled': ''
 };
 

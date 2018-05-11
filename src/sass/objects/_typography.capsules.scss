@@ -1,7 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
-// Capsules
+// Capsule
 //
 // Teaser: Used to highlight placeholders that will be replaced with data.
 //
@@ -9,14 +9,14 @@
 //
 // Components: Capsule
 //
-// Styleguide: Building Blocks.Capsules
+// Styleguide: Building Blocks.Identifiers.Capsule
 
 // Best practice
 //
 // Tips:
 // Do: Use capsules to indicate that an element will be replaced with data.
 //
-// Styleguide: Building Blocks.Capsules.1
+// Styleguide: Building Blocks.Identifiers.Capsule.1
 
 // Anatomy
 //
@@ -29,7 +29,7 @@
 // Markup:
 // A standard <a class="xui-button xui-capsule">capsule</a>
 //
-// Styleguide: Building Blocks.Capsules.2
+// Styleguide: Building Blocks.Identifiers.Capsule.2
 
 // Interactive capsules
 //
@@ -42,7 +42,7 @@
 // Markup:
 // An interactive <a class="xui-button xui-capsule xui-capsule-interactive">capsule</a>
 //
-// Styleguide: Building Blocks.Capsules.3
+// Styleguide: Building Blocks.Identifiers.Capsule.3
 
 // Invalid capsules
 //
@@ -55,7 +55,7 @@
 // Markup:
 // An invalid <a class="xui-button xui-capsule xui-capsule-invalid">capsule</a>
 //
-// Styleguide: Building Blocks.Capsules.4
+// Styleguide: Building Blocks.Identifiers.Capsule.4
 
 .#{$ns}-capsule {
 	border-radius: $xui-radius;

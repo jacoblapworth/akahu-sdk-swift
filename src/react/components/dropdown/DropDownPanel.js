@@ -59,7 +59,8 @@ class DropDownPanel extends PureComponent {
 			navigator.userAgent.indexOf('Edge/') === -1
 		) {
 			content.style.webkitOverflowScrolling = 'auto';
-			this._scrollStyleTimer = setTimeout(() => {
+			// This timeout is cleared in componentWillUnmount to prevent errors.
+			this._iosHackTimeout = setTimeout(() => {
 				content.style.webkitOverflowScrolling = '';
 			}, 600);
 		}
@@ -81,6 +82,14 @@ class DropDownPanel extends PureComponent {
 		whenVisible(this, () => this.rootNode.focus());
 	}
 
+	/**
+	 * Removes the iOS hack timeout to prevent errors
+	 */
+	componentWillUnmount() {
+		if(this._iosHackTimeout) {
+			clearTimeout(this._iosHackTimeout);
+		}
+	}
 	/**
 	 * Public API that can be used to simulate a keydown event on the panel.  Useful if you want to allow
 	 * keyboard navigation of a child picklist while keeping the focus elsewhere in the DOM.
@@ -105,7 +114,7 @@ class DropDownPanel extends PureComponent {
 		if (typeof this.props.onKeyDown === 'function') {
 			this.props.onKeyDown(event);
 		}
-	}
+	};
 
 	/**
 	 * Get the ID of the currently highlighted item in the child StatefulPicklist (if applicable).
@@ -157,7 +166,11 @@ class DropDownPanel extends PureComponent {
 				const newScrollTop = scrollTopPosition(element, this._scrollableContent);
 				// If you don't do this inside a setTimeout 0, it won't happen.  Not sure why
 				// yet...
-				setTimeout(() => this._scrollableContent.scrollTop = newScrollTop, 0);
+				setTimeout(() => {
+					if(this._scrollableContent) {
+						this._scrollableContent.scrollTop = newScrollTop
+					}
+				}, 0);
 			}
 		});
 	}
@@ -214,7 +227,6 @@ class DropDownPanel extends PureComponent {
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
 				id={panelId}
-				role="listbox"
 				tabIndex={0}
 				onKeyDown={this.keyDownHandler}
 				style={style}
@@ -237,6 +249,8 @@ class DropDownPanel extends PureComponent {
 							ignoreKeyboardEvents={ignoreKeyboardEvents}
 							onHighlightChange={onHighlightChange}
 							qaHook={qaHook && `${qaHook}--scrollable-container`}
+							// Need the role here, because ARIA state needs to be managed at the same level.
+							secondaryProps={{role: "listbox"}}
 						>
 							<div
 								className={`${baseClass}--scrollable-content`}

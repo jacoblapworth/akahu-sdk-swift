@@ -60,7 +60,7 @@ XUIAvatarGroup.propTypes = {
 			return new Error('maxAvatars prop must be a number if specified');
 		}
 
-		if(typeof maxAvatars === 'number' && (!Number.isFinite(maxAvatars) || maxAvatars < 0)) {
+		if(typeof maxAvatars === 'number' && (!isFinite(maxAvatars) || maxAvatars < 0)) {
 			return new Error('maxAvatars prop must be a positive integer');
 		}
 	}

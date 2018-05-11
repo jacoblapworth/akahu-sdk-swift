@@ -22,6 +22,33 @@ const variations = [
 	{
 		...baseProps,
 		storyKind,
+		storyTitle: 'linear standard thickness',
+		thickness: 30,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'linear segments thickness',
+		isSegmented: true,
+		thickness: 30,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'linear standard thickness (zero)',
+		thickness: 0,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'linear segment dots',
+		isSegmented: true,
+		hasSegmentDots: true,
+		thickness: 30,
+	},
+	{
+		...baseProps,
+		storyKind,
 		storyTitle: 'linear overflow standard',
 		progress: 6,
 		isOverflow: true,
@@ -46,6 +73,20 @@ const variations = [
 		storyTitle: 'linear grow layout',
 		isGrow: true,
 	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'linear grow (minimal thickness)',
+		isGrow: true,
+		thickness: 10,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'linear grow (exaggerated thickness)',
+		isGrow: true,
+		thickness: 99999,
+	},
 
 	// Circular:
 
@@ -59,6 +100,31 @@ const variations = [
 		storyKind,
 		storyTitle: 'circular segments',
 		isSegmented: true,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'circular standard thickness',
+		thickness: 8,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'circular segments thickness',
+		isSegmented: true,
+		thickness: 5,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'circular standard (zero thickness)',
+		thickness: 0,
+	},
+	{
+		...baseProps,
+		storyKind,
+		storyTitle: 'circular standard (exaggerated thickness)',
+		thickness: 99999,
 	},
 	{
 		...baseProps,
@@ -93,7 +159,8 @@ const variations = [
 		storyTitle: 'circular custom hard error',
 		isHardError: true,
 		hardErrorAlert: 'S',
-	}, {
+	},
+	{
 		...baseProps,
 		storyKind,
 		storyTitle: 'circular custom (icon) hard error',

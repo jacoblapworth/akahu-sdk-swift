@@ -1,6 +1,8 @@
 @import "../vars";
 @import "../mixins";
 
+$toast-max-width: 400px;
+
 .#{$ns}-toast {
 	@include xui-clearfix;
 	background: transparentize($xui-color-white, 0.1);
@@ -8,13 +10,23 @@
 	box-shadow: $xui-shadow-depth-lift;
 	color: $xui-color-grey-1;
 	display: inline-block;
-	max-width: 400px;
+	max-width: $toast-max-width;
 	opacity: 1;
 	position: relative;
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 	z-index: 10;
 	@include xui-breakpoint-narrow {
 		border-radius: 0;
+	}
+}
+
+// Fix for problem with IE11 not understanding that containers don't need a set width
+// To be able to correctly calculate the following (calc(100% - 45px));
+// This sets the width to be a hard width and the calculations all work again
+// With the side-effect of forcing the toasts to all be 400px in size.
+@media all and (-ms-high-contrast:none) {
+	*::-ms-backdrop, .#{$ns}-toast {
+		width: $toast-max-width;
 	}
 }
 

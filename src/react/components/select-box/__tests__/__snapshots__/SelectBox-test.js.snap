@@ -40,6 +40,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
           className="xui-icon xui-select--caret"
           data-automationid="test-selectbox---button-icon"
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <title>

@@ -7,6 +7,7 @@ const data = {
 };
 const tableProps = {
 	data,
+	isResponsive: true,
 }
 const variations = [
 
@@ -15,7 +16,10 @@ const variations = [
 		storyTitle: 'basic',
 		examples: [{
 			columns: 3,
-			tableProps,
+			tableProps: {
+				...tableProps,
+				isResponsive: false,
+			},
 		}]
 	},
 
@@ -55,7 +59,6 @@ const variations = [
 			columns: 10,
 			tableProps: {
 				...tableProps,
-				isResponsive: true
 			}
 		}]
 	},
@@ -118,7 +121,6 @@ const variations = [
 			columns: 10,
 			tableProps: {
 				...tableProps,
-				isResponsive: true,
 				hasPinnedFirstColumn: true,
 				hasCheckbox: true,
 				onCheckAllToggle: noop,
@@ -129,7 +131,6 @@ const variations = [
 			columns: 10,
 			tableProps: {
 				...tableProps,
-				isResponsive: true,
 				hasPinnedLastColumn: true,
 				hasOverflowMenu: true,
 				createOverflowMenu: noop
@@ -139,7 +140,6 @@ const variations = [
 			columns: 10,
 			tableProps: {
 				...tableProps,
-				isResponsive: true,
 				hasPinnedFirstColumn: true,
 				hasPinnedLastColumn: true,
 				hasCheckbox: true,
@@ -162,7 +162,6 @@ const variations = [
 					...data,
 					1: { content: 'The quick brown fox jumps over the lazy dog' },
 				},
-				isResponsive: true,
 				isTruncated: true,
 			}
 		},
@@ -174,7 +173,6 @@ const variations = [
 					...data,
 					1: { content: 'The quick brown fox jumps over the lazy dog' },
 				},
-				isResponsive: true,
 				isTruncated: true,
 				hasCheckbox: true,
 				onCheckAllToggle: noop,
@@ -217,6 +215,7 @@ const variations = [
 		storyTitle: 'wrapping',
 		examples: [{
 			columns: 3,
+			styleOverrides: { maxWidth: '330px' },
 			tableProps: {
 				...tableProps,
 				data: {
@@ -230,6 +229,7 @@ const variations = [
 		},
 		{
 			columns: 3,
+			styleOverrides: { maxWidth: '330px' },
 			tableProps: {
 				...tableProps,
 				data: {
@@ -239,12 +239,12 @@ const variations = [
 						content: 'The quick brown fox jumps over the lazy dog'
 					},
 				},
-				isResponsive: true,
 				isTruncated: true,
 			}
 		},
 		{
 			columns: 3,
+			styleOverrides: { maxWidth: '330px' },
 			tableProps: {
 				...tableProps,
 				data: {
@@ -254,12 +254,12 @@ const variations = [
 						content: 'The quick brown fox jumps over the lazy dog'
 					},
 				},
-				isResponsive: true,
 				isTruncated: true,
 			}
 		},
 		{
 			columns: 10,
+			styleOverrides: { maxWidth: '330px' },
 			tableProps: {
 				...tableProps,
 				data: {
@@ -269,7 +269,6 @@ const variations = [
 						content: 'The quick brown fox jumps over the lazy dog'
 					},
 				},
-				isResponsive: true,
 				hasPinnedFirstColumn: true,
 				hasPinnedLastColumn: true,
 				hasCheckbox: true,
@@ -281,6 +280,7 @@ const variations = [
 		},
 		{
 			columns: 3,
+			styleOverrides: { maxWidth: '330px' },
 			tableProps: {
 				...tableProps,
 				data: {
@@ -440,6 +440,17 @@ const variations = [
 				...tableProps,
 				data: {},
 				emptyStateComponent: true,
+			},
+		},
+		{
+			columns: 3,
+			tableProps: {
+				...tableProps,
+				data: {},
+				hasPinnedFirstColumn: true,
+				hasCheckbox: true,
+				onCheckAllToggle: noop,
+				onCheckOneToggle: noop,
 			},
 		}]
 	},

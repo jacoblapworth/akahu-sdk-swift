@@ -10,6 +10,7 @@ exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is 
     className="xui-icon xui-icon-large"
     data-automationid={undefined}
     focusable="false"
+    style={null}
     viewBox="0 0 30 30"
   >
     <path
@@ -31,6 +32,7 @@ exports[`<XUIAutocompleterEmptyState /> should include an icon that defaults to 
     className="xui-icon xui-icon-large"
     data-automationid={undefined}
     focusable="false"
+    style={null}
     viewBox="0 0 30 30"
   >
     <path
@@ -52,6 +54,7 @@ exports[`<XUIAutocompleterEmptyState /> should render an automation id when pass
     className="xui-icon xui-icon-large"
     data-automationid={undefined}
     focusable="false"
+    style={null}
     viewBox="0 0 30 30"
   >
     <path
@@ -73,6 +76,7 @@ exports[`<XUIAutocompleterEmptyState /> should render an id when passed in the i
     className="xui-icon xui-icon-large"
     data-automationid={undefined}
     focusable="false"
+    style={null}
     viewBox="0 0 30 30"
   >
     <path
@@ -94,6 +98,7 @@ exports[`<XUIAutocompleterEmptyState /> should render any children after the ico
     className="xui-icon xui-icon-large"
     data-automationid={undefined}
     focusable="false"
+    style={null}
     viewBox="0 0 30 30"
   >
     <path
@@ -115,6 +120,7 @@ exports[`<XUIAutocompleterEmptyState /> should render extra classes on the root 
     className="xui-icon xui-icon-large"
     data-automationid={undefined}
     focusable="false"
+    style={null}
     viewBox="0 0 30 30"
   >
     <path

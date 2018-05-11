@@ -1,4 +1,4 @@
-// Avatars
+// Avatar
 //
 // Introduction:
 // Use avatars for businesses and people to enhance recognition and give interfaces a sense of humanity.
@@ -15,7 +15,7 @@
 //   <img class="xui-avatar xui-avatar-2xlarge xui-avatar-business xui-margin-right" alt="" role="presentation" src="https://pbs.twimg.com/profile_images/616839800914456577/L0VC-6Qh.jpg"/>
 // </div>
 //
-// Styleguide: Building Blocks.Avatars
+// Styleguide: Building Blocks.Identifiers.Avatar
 
 // Best practice
 //
@@ -23,7 +23,7 @@
 // Do: Ensure they're consistent to the user throughout Xero
 // Dont: Avoid using as the only means of identifying a business or person
 //
-// Styleguide: Building Blocks.Avatars.1
+// Styleguide: Building Blocks.Identifiers.Avatar.1
 
 // Types
 //
@@ -35,7 +35,7 @@
 //
 // Note: *Avoid using avatars for payroll or expense employees if they cannot be resolved to a unique user account.
 //
-// Styleguide: Building Blocks.Avatars.2
+// Styleguide: Building Blocks.Identifiers.Avatar.2
 
 // Sizes
 //
@@ -47,7 +47,7 @@
 // xLarge: 80px: <code>xui-avatar-xlarge</code>
 // 2xLarge: 120px: <code>xui-avatar-2xlarge</code>
 //
-// Styleguide: Building Blocks.Avatars.3
+// Styleguide: Building Blocks.Identifiers.Avatar.3
 
 
 // Implementation
@@ -76,7 +76,7 @@
 // Classes:
 // xui-avatar-color-: Sets the color to one of the defined options with an added modifier between 1 and 10.
 //
-// Styleguide: Building Blocks.Avatars.4
+// Styleguide: Building Blocks.Identifiers.Avatar.4
 
 // Grouping avatars
 //
@@ -105,4 +105,4 @@
 // xui-avatargroup: Class to be used as a wrapper div around an avatar group
 // xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
 //
-// Styleguide: Building Blocks.Avatars.5
+// Styleguide: Building Blocks.Identifiers.Avatar.5

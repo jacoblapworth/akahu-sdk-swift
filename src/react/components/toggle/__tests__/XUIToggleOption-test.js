@@ -1,5 +1,6 @@
 import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import XUIToggleOption from '../XUIToggleOption';
 
@@ -25,8 +26,8 @@ describe('XUIToggleOption', function() {
 	// qaHook property
 	it('should have a qaHook on the root node if provided', function () {
 		const qaHook = 'cheese-and-crackers'
-		const wrapper = mount(<XUIToggleOption onChange={() => {}} qaHook={qaHook} />);
-		expect(wrapper.find(`[data-automationid="${qaHook}"]`)).toHaveLength(1);
+		const wrapper = renderer.create(<XUIToggleOption onChange={() => {}} qaHook={qaHook} />);
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	// Unchecked

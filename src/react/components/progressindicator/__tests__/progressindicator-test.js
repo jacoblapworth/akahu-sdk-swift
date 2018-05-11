@@ -113,19 +113,19 @@ describe('<XUIProgressIndicator />', () => {
 	describe('circular growth', () => {
 
 		const component = mount(<XUIProgressCircular {...baseProps} isGrow />);
-		const findDynamicStroke = () => component.find('DynamicStroke');
+		const findElementSize = () => component.find('ElementSize');
 
-		it('should mount <DynamicStroke /> only when receiving the isGrow prop', () => {
+		it('should mount <ElementSize /> only when receiving the isGrow prop', () => {
 
-			expect(findDynamicStroke()).toHaveLength(1);
+			expect(findElementSize()).toHaveLength(1);
 
 		});
 
-		it('should unmount <DynamicStroke /> when the isGrow prop is not present', () => {
+		it('should unmount <ElementSize /> when the isGrow prop is not present', () => {
 
 			component.setProps({ isGrow: false });
 
-			expect(findDynamicStroke()).toHaveLength(0);
+			expect(findElementSize()).toHaveLength(0);
 
 		});
 

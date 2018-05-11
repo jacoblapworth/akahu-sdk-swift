@@ -205,7 +205,7 @@ export default class XUIAutocompleter extends PureComponent {
 		let containerQaHook = null;
 		let dropdownQaHook = null;
 		if (props.qaHook) {
-			inputQaHook = `${props.qaHook}--input`;
+			inputQaHook = `${props.qaHook}`; //TODO: Investigate whether we should add --input here in 14
 			listQaHook = `${props.qaHook}--list`;
 			containerQaHook = `${props.qaHook}--container`;
 			dropdownQaHook = `${props.qaHook}--dropdown`;
@@ -215,7 +215,6 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const containerClassNames = cn(
 			props.inputContainerClassName,
-			`${ns}-u-flex`,
 			{
 				[`${ns}-row-flex`]: hasPills && !props.disableWrapPills,
 				[`${ns}-padding-left-xsmall`]: hasPills
@@ -223,6 +222,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		const inputClassNames = cn(
 			props.inputClassName,
+			`${ns}-autocompleter--textinput`,
 			{[`${ns}-padding-left-small`]: hasPills}
 		);
 
@@ -256,7 +256,7 @@ export default class XUIAutocompleter extends PureComponent {
 						maxLength: props.maxLength,
 						id: props.inputId,
 						style: {
-							minWidth: state.inputWidth
+							flexBasis: state.inputWidth
 						}
 					}}
 				/>
@@ -430,7 +430,7 @@ XUIAutocompleter.defaultProps = {
 	searchThrottleInterval: 0,
 	openOnFocus: false,
 	closeOnTab: true,
-	forceDesktop: false,
+	forceDesktop: true,
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,
 	disableWrapPills: false

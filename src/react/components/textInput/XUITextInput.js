@@ -147,30 +147,30 @@ class XUITextInput extends PureComponent {
 
 		return(
 			<label className={rootClasses} onKeyDown={onKeyDown}>
-					{labelText != null && (
-						<span className={labelClasses}>
-							{labelText}
-						</span>
-					)}
-					<div className={baseClasses} data-automationid={qaHook}>
-						{leftElement}
-						<InputEl
-							type={type}
-							value={value}
-							defaultValue={defaultValue}
-							data-automationid={qaHook && `${qaHook}--input`}
-							className={classes}
-							onFocusCapture={input.onFocus}
-							onBlurCapture={input.onBlur}
-							onChange={onChange}
-							placeholder={placeholder}
-							disabled={isDisabled}
-							ref={compose(inputRef, i => this.input = i)}
-							rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-							{...inputProps}
-						/>
-						{rightElement}
-					</div>
+				{labelText != null && (
+					<span className={labelClasses}>
+						{labelText}
+					</span>
+				)}
+				<div className={baseClasses} data-automationid={qaHook}>
+					{leftElement}
+					<InputEl
+						type={type}
+						value={value}
+						defaultValue={defaultValue}
+						data-automationid={qaHook && `${qaHook}--input`}
+						className={classes}
+						onFocusCapture={input.onFocus}
+						onBlurCapture={input.onBlur}
+						onChange={onChange}
+						placeholder={placeholder}
+						disabled={isDisabled}
+						ref={compose(inputRef, i => this.input = i)}
+						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
+						{...inputProps}
+					/>
+					{rightElement}
+				</div>
 				{message}
 			</label>
 		)

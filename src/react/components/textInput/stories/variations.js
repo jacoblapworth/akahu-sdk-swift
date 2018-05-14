@@ -28,6 +28,11 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'has a label',
+		labelText: 'Label text'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is invalid',
 		isInvalid: true,
 		validationMessage: 'invalid content'

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUITextInput> General Functionality should have a qahook on the input and wrapper 1`] = `
-<div
-  className="xui-textinputwrapper"
+<label
+  className="xui-textinputwrapper xui-u-display-block"
   onKeyDown={undefined}
 >
-  <label
+  <div
     className="xui-textinput"
     data-automationid="input-test"
   >
@@ -27,17 +27,17 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
       type={undefined}
       value={undefined}
     />
-  </label>
-</div>
+  </div>
+</label>
 `;
 
 exports[`<XUITextInput> Side elements should render side elements correctly 1`] = `
 <div>
-  <div
-    className="xui-textinputwrapper"
+  <label
+    className="xui-textinputwrapper xui-u-display-block"
     onKeyDown={undefined}
   >
-    <label
+    <div
       className="xui-textinput"
       data-automationid={undefined}
     >
@@ -76,13 +76,13 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         type={undefined}
         value={undefined}
       />
-    </label>
-  </div>
-  <div
-    className="xui-textinputwrapper"
+    </div>
+  </label>
+  <label
+    className="xui-textinputwrapper xui-u-display-block"
     onKeyDown={undefined}
   >
-    <label
+    <div
       className="xui-textinput"
       data-automationid={undefined}
     >
@@ -121,13 +121,13 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           />
         </svg>
       </div>
-    </label>
-  </div>
-  <div
-    className="xui-textinputwrapper"
+    </div>
+  </label>
+  <label
+    className="xui-textinputwrapper xui-u-display-block"
     onKeyDown={undefined}
   >
-    <label
+    <div
       className="xui-textinput"
       data-automationid={undefined}
     >
@@ -183,17 +183,17 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
           />
         </svg>
       </div>
-    </label>
-  </div>
+    </div>
+  </label>
 </div>
 `;
 
 exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
-<div
-  className="xui-textinputwrapper"
+<label
+  className="xui-textinputwrapper xui-u-display-block"
   onKeyDown={undefined}
 >
-  <label
+  <div
     className="xui-textinput"
     data-automationid="givenQAHook"
   >
@@ -215,16 +215,16 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
       type={undefined}
       value={undefined}
     />
-  </label>
-</div>
+  </div>
+</label>
 `;
 
 exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
-<div
-  className="xui-textinputwrapper"
+<label
+  className="xui-textinputwrapper xui-u-display-block"
   onKeyDown={undefined}
 >
-  <label
+  <div
     className="xui-textinput xui-textinput-is-disabled"
     data-automationid={undefined}
   >
@@ -246,16 +246,21 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
       type={undefined}
       value={undefined}
     />
-  </label>
-</div>
+  </div>
+</label>
 `;
 
 exports[`<XUITextInput> Text-only input includes custom classes on the correct nodes 1`] = `
-<div
-  className="custom-field-class xui-textinputwrapper"
+<label
+  className="custom-field-class xui-textinputwrapper xui-u-display-block"
   onKeyDown={undefined}
 >
-  <label
+  <span
+    className="custom-label-class xui-text-label xui-fieldlabel-layout"
+  >
+    test
+  </span>
+  <div
     className="custom-container-class xui-textinput"
     data-automationid={undefined}
   >
@@ -277,6 +282,42 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
       type={undefined}
       value={undefined}
     />
-  </label>
-</div>
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Text-only input renders with a label when one is provided 1`] = `
+<label
+  className="xui-textinputwrapper xui-u-display-block"
+  onKeyDown={undefined}
+>
+  <span
+    className="xui-text-label xui-fieldlabel-layout"
+  >
+    test
+  </span>
+  <div
+    className="xui-textinput"
+    data-automationid={undefined}
+  >
+    <input
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+</label>
 `;

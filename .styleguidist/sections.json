@@ -385,6 +385,16 @@
 						]
 					}
 				]
+			},
+			{
+				"name": "Chart",
+				"content": "../src/react/barchart.md",
+				"sections": [
+					{
+						"name": "Bar Chart",
+						"components": "../src/react/components/chart/XUIBarChart.js"
+					}
+				]
 			}
 		]
 	}

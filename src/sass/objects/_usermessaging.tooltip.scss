@@ -135,7 +135,7 @@
 	background-color: $xui-color-grey-1;
 	border-radius: $xui-radius;
 	bottom: 0;
-	box-shadow: 0 3px 6px 0 $xui-color-grey-alpha-5;
+	box-shadow: 0 0 0 1px $xui-color-white-alpha-4, 0 3px 6px 0 $xui-color-grey-alpha-5;
 	color: $xui-color-white;
 	cursor: auto;
 	display: block;
@@ -165,6 +165,7 @@
 
 	&:after {
 		background: $xui-color-grey-1;
+		box-shadow: 1px 1px 0 0 $xui-color-white-alpha-4;
 		content: '';
 		height: 10px;
 		position: absolute;
@@ -190,6 +191,7 @@
 	bottom: auto;
 	top: 100%;
 	&:after {
+		box-shadow: -1px -1px 0 0 $xui-color-white-alpha-4;
 		top: 0px;
 	}
 }
@@ -225,6 +227,7 @@
 	left: calc(100% + 10px);
 	right: auto;
 	&:after {
+		box-shadow: -1px 1px 0 0 $xui-color-white-alpha-4;
 		left: 0px;
 	}
 }
@@ -233,6 +236,7 @@
 .#{$ns}-positioningInline--content-leftbottom {
 	right: calc(100% + 10px);
 	&:after {
+		box-shadow: 1px -1px 0 0 $xui-color-white-alpha-4;
 		right: -10px;
 	}
 }

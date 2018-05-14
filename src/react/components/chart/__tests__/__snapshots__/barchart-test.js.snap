@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button when the current panel is at its "maximum" value 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-chart--pagination"
+  data-automationid="myChart--pagination"
+  role="navigation"
+>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Previous"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-90 xui-icon-inline"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 11 7"
+      width={11}
+    >
+      <path
+        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+    data-automationid={undefined}
+    disabled={true}
+    onClick={[Function]}
+    onKeyDown={null}
+    tabIndex={-1}
+    title="Next"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-270 xui-icon-inline"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 11 7"
+      width={11}
+    >
+      <path
+        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</nav>
+`;
+
+exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" button when the current panel is at its "minimum" value 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-chart--pagination"
+  data-automationid="myChart--pagination"
+  role="navigation"
+>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+    data-automationid={undefined}
+    disabled={true}
+    onClick={[Function]}
+    onKeyDown={null}
+    tabIndex={-1}
+    title="Previous"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-90 xui-icon-inline"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 11 7"
+      width={11}
+    >
+      <path
+        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Next"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-270 xui-icon-inline"
+      data-automationid={undefined}
+      focusable="false"
+      height={7}
+      viewBox="0 0 11 7"
+      width={11}
+    >
+      <path
+        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</nav>
+`;

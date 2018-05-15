@@ -33,6 +33,19 @@ exports[`XUIToast should render a passed qaHook as an automation id 1`] = `
 </div>
 `;
 
+exports[`XUIToast should render hidden 1`] = `
+<div
+  aria-hidden={true}
+  className="xui-toast xui-toast-is-hidden xui-toast-layout"
+  data-automationid={undefined}
+  onMouseLeave={undefined}
+  onMouseOver={undefined}
+  role="status"
+>
+  Toast Content
+</div>
+`;
+
 exports[`XUIToast should render one message as a prop, one action as a prop 1`] = `
 <div
   aria-hidden={false}

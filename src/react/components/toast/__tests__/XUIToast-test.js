@@ -106,6 +106,16 @@ describe('XUIToast', () => {
 		expect(automationId).toMatchSnapshot();
 	});
 
+	it('should render hidden', () => {
+		const automationId = renderer.create(
+			<XUIToast isHidden>
+				Toast Content
+			</XUIToast>
+		);
+
+		expect(automationId).toMatchSnapshot();
+	});
+
 	it('should render a message when messages are passed as props', () => {
 		const messageToast = renderer.create(
 			<XUIToast message="Content" />

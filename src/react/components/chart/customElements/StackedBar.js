@@ -96,6 +96,7 @@ class StackedBar extends Component {
     // console.log("mask height", maxHeight + radius);
     // console.log('xxxx', stack * ratio)
     // console.log("stack width", barWidth);
+    // console.log("bar", updateToolTip);
 
     return (
       <g>

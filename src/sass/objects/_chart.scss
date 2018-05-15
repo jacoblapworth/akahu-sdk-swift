@@ -1,0 +1,9 @@
+.xui-chart {
+
+}
+
+// .xui-chart .xui-tooltip {
+.xui-chart .xui-tooltip--tip {
+	cursor: initial;
+	pointer-events: none;
+}

@@ -12,6 +12,7 @@ import {
 import StackedBar from './customElements/StackedBar';
 import StackedLabel from './customElements/StackedLabel';
 import GroupWrapper from './customElements/GroupWrapper';
+import GraphTooltip from './customElements/GraphTooltip';
 import getGroupPosition, { ap, testIsCloseEnough } from './helpers';
 
 class XUIBarChart extends Component {
@@ -105,7 +106,7 @@ class XUIBarChart extends Component {
 			isStacked,
 			barColors,
 			activeColor,
-			toolTipComponent
+			createToolTipContent
 		} = this.props;
 		const {
 			chartWidth,
@@ -116,7 +117,7 @@ class XUIBarChart extends Component {
 		} = this.state;
 		const chartHeight = 300;
 		const [toolTipX, toolTipY] = toolTipPosition;
-		const hasToolTip = Boolean(toolTipComponent && toolTipX && toolTipY);
+		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
 		const padding = {
 			top: ap(30),
 			bottom: ap(xAxisHeight + 20),
@@ -131,7 +132,7 @@ class XUIBarChart extends Component {
 			.reverse()[0];
 
 		return (
-			<div>
+			<div className="xui-chart">
         {title && <h2>{title}</h2>}
         {title && description && <p>{description}</p>}
         <div
@@ -187,7 +188,7 @@ class XUIBarChart extends Component {
                   barWidth={ap(barWidth)}
                   activeColor={activeColor}
                   xOffset={padding.left}
-                  updateToolTip={toolTipComponent && this.updateToolTip}
+                  updateToolTip={createToolTipContent && this.updateToolTip}
                 />
               }
               // Control the x-axis order.
@@ -277,17 +278,11 @@ class XUIBarChart extends Component {
           </VictoryChart>
         </div>
         {hasToolTip && (
-          <div
-            style={{
-              top: `${toolTipY + 10}px`,
-              left: `${toolTipX + 10}px`,
-              height: 0,
-              width: 0,
-              position: "absolute"
-            }}
-          >
-            {toolTipComponent(toolTipData)}
-          </div>
+					<GraphTooltip
+						toolTipContent={createToolTipContent(toolTipData)}
+						toolTipY={toolTipY}
+						toolTipX={toolTipX}
+					/>
         )}
       </div>
 		);
@@ -302,15 +297,15 @@ XUIBarChart.propTypes = {};
 
 /*
 
-. - - - - - - - - - - - - - - - - - - .
-|     |                               |
-|  y  |                               |
-|  .  |                               |
-|  a  |            b a r s            |
-|  x  |                               |
-|  i  |                               |
-|  s  | - - - - - - - - - - - - - - - |
-|     |          x . a x i s          |
- - - - - - - - - - - - - - - - - - - -
+.- - -.- - - - - - - - - - - - - - - -.
+¦  y  ¦                               ¦
+¦  .  ¦                               ¦
+¦  a  ¦            b a r s            ¦
+¦  x  ¦                               ¦
+¦  i  ¦                               ¦
+¦  s  ¦                               ¦
+¦ - - ¦ - - - - - - - - - - - - - - - ¦
+¦ /// ¦          x . a x i s          ¦
+°- - -°- - - - - - - - - - - - - - - -°
 
- */
+*/

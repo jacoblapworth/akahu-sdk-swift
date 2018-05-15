@@ -101,8 +101,9 @@ export default class XUITooltip extends PureComponent {
 			wrapperClassName,
 			isDisabled,
 			triggerOnFocus,
+			triggerOnBlur,
 			triggerOnClick,
-			triggerOnHover
+			triggerOnHover,
 		} = this.props;
 		const { isHidden, isAnimating, isFocused } = this.state;
 		const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -140,7 +141,7 @@ export default class XUITooltip extends PureComponent {
 				trigger.props.onKeyDown :
 				(triggerOnClick && this.onTriggerKeyDown) || undefined,
 			'onFocus': compose(trigger.props.onFocus, () => {this.setState({isFocused: true})}),
-			'onBlur': compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}),
+			'onBlur': triggerOnBlur ? compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}) : undefined,
 			'aria-describedby': this.tooltipId
 		});
 
@@ -207,6 +208,9 @@ XUITooltip.propTypes = {
 	/** Whether giving focus to the trigger should toggle the tooltip open/closed. Defaults to false. */
 	triggerOnFocus: PropTypes.bool,
 
+	/** Whether focusing off the trigger should change the tooltip to closed. Defaults to true. */
+	triggerOnBlur: PropTypes.bool,
+
 	/** Whether hovering over the trigger should toggle the tooltip open/closed. Defaults to true. */
 	triggerOnHover: PropTypes.bool,
 
@@ -229,6 +233,7 @@ XUITooltip.defaultProps = {
 	isDisabled: false,
 	triggerOnClick: false,
 	triggerOnFocus: false,
+	triggerOnBlur: true,
 	triggerOnHover: true,
 	maxWidth: 220,
 	openDelay: 500,

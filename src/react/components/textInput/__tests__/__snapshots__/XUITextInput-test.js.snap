@@ -2,7 +2,7 @@
 
 exports[`<XUITextInput> General Functionality should have a qahook on the input and wrapper 1`] = `
 <label
-  className="xui-textinputwrapper xui-u-display-block"
+  className="xui-textinputwrapper"
   onKeyDown={undefined}
 >
   <div
@@ -34,7 +34,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
 exports[`<XUITextInput> Side elements should render side elements correctly 1`] = `
 <div>
   <label
-    className="xui-textinputwrapper xui-u-display-block"
+    className="xui-textinputwrapper"
     onKeyDown={undefined}
   >
     <div
@@ -79,7 +79,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     </div>
   </label>
   <label
-    className="xui-textinputwrapper xui-u-display-block"
+    className="xui-textinputwrapper"
     onKeyDown={undefined}
   >
     <div
@@ -124,7 +124,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     </div>
   </label>
   <label
-    className="xui-textinputwrapper xui-u-display-block"
+    className="xui-textinputwrapper"
     onKeyDown={undefined}
   >
     <div
@@ -190,7 +190,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
 
 exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 <label
-  className="xui-textinputwrapper xui-u-display-block"
+  className="xui-textinputwrapper"
   onKeyDown={undefined}
 >
   <div
@@ -221,7 +221,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 
 exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 <label
-  className="xui-textinputwrapper xui-u-display-block"
+  className="xui-textinputwrapper"
   onKeyDown={undefined}
 >
   <div
@@ -252,7 +252,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 
 exports[`<XUITextInput> Text-only input includes custom classes on the correct nodes 1`] = `
 <label
-  className="custom-field-class xui-textinputwrapper xui-u-display-block"
+  className="custom-field-class xui-textinputwrapper"
   onKeyDown={undefined}
 >
   <span
@@ -288,7 +288,7 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
 
 exports[`<XUITextInput> Text-only input renders with a label when one is provided 1`] = `
 <label
-  className="xui-textinputwrapper xui-u-display-block"
+  className="xui-textinputwrapper"
   onKeyDown={undefined}
 >
   <span

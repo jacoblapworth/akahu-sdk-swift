@@ -11,6 +11,7 @@ import {
 } from "victory";
 import StackedBar from './customElements/StackedBar';
 import StackedLabel from './customElements/StackedLabel';
+import GroupWrapper from './customElements/GroupWrapper';
 import getGroupPosition, { ap, testIsCloseEnough } from './helpers';
 
 class XUIBarChart extends Component {
@@ -166,7 +167,9 @@ class XUIBarChart extends Component {
             // Theme.
             // http://formidable.com/open-source/victory/guides/themes/
             // theme={VictoryTheme.material} // Default = VictoryTheme.grayscale
-            // theme={theme}
+						// theme={theme}
+
+						// standalone={false}
 
             containerComponent={
               <VictoryContainer
@@ -185,8 +188,6 @@ class XUIBarChart extends Component {
                   activeColor={activeColor}
                   xOffset={padding.left}
                   updateToolTip={toolTipComponent && this.updateToolTip}
-                  // onMouseMove={() => console.log('OVER')}
-                  // onMouseLeave={() => console.log('LEAVE')}
                 />
               }
               // Control the x-axis order.
@@ -224,17 +225,21 @@ class XUIBarChart extends Component {
               // Y-axis offset.
               // y0={0}
 
-              groupComponent={<g className="xui-bars" />}
+              groupComponent={<GroupWrapper className="xui-bars" />}
+              // containerComponent={<GroupWrapper className="xui-bars" />}
             />
 
-            <g>
+						{/* <g> */}
+						{/* <GroupWrapper> */}
               <VictoryAxis
                 dependentAxis={true}
                 orientation="left"
                 // offsetX={30}
                 // offsetY={30}
                 scale={{ y: "linear" }}
-                padding={padding}
+								padding={padding}
+
+								// xAxisHeight={xAxisHeight}
                 // y={1000}
                 // domainPadding={{ x: [0, 0], y: [0, 0] }}
                 // domainPadding={{ x: [30, 30], y: [30, 30] }}
@@ -242,27 +247,33 @@ class XUIBarChart extends Component {
                 // height={chartHeight}
                 // tickCount={5}
                 // tickValues={[2.11, 3.9, 6.1, 8.05]}
-                containerComponent={<g className="xui-y-axis" />}
+                groupComponent={<GroupWrapper className="xui-y-axis" />}
+                // containerComponent={<GroupWrapper className="xui-y-axis" />}
               />
-            </g>
+						{/* </GroupWrapper> */}
+            {/* </g> */}
 
-            <g>
+						{/* <g> */}
+							{/* {console.log('domainPadding', barWidth, barWidth * 0.5)} */}
               <VictoryAxis
                 dependentAxis={false}
                 orientation="bottom"
                 scale={{ x: "linear" }}
                 padding={padding}
-                domainPadding={{ x: barWidth * 0.5 }}
+								// domainPadding={{ x: barWidth * 0.5 }}
+								// yAxisWidth={yAxisWidth}
                 // y={1000}
                 // domain={[0, maxY]}
                 // domain={"x"}
                 // tickCount={5}
-                width={chartWidth}
+								width={chartWidth}
+                // width={barWidth * bars.length}
                 tickValues={bars.map(({ x }) => x)}
-                containerComponent={<g className="xui-x-axis" />}
-                tickLabelComponent={<StackedLabel />}
+                groupComponent={<GroupWrapper className="xui-x-axis" />}
+                // containerComponent={<GroupWrapper className="xui-x-axis" />}
+                tickLabelComponent={<StackedLabel {...{barWidth, yAxisWidth}}/>}
               />
-            </g>
+            {/* </g> */}
           </VictoryChart>
         </div>
         {hasToolTip && (
@@ -286,3 +297,20 @@ class XUIBarChart extends Component {
 export default XUIBarChart;
 
 XUIBarChart.propTypes = {};
+
+
+
+/*
+
+. - - - - - - - - - - - - - - - - - - .
+|     |                               |
+|  y  |                               |
+|  .  |                               |
+|  a  |            b a r s            |
+|  x  |                               |
+|  i  |                               |
+|  s  | - - - - - - - - - - - - - - - |
+|     |          x . a x i s          |
+ - - - - - - - - - - - - - - - - - - -
+
+ */

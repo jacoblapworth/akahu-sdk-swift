@@ -5,9 +5,11 @@ import { ap } from '../helpers';
 class StackedLabel extends Component {
   render() {
     const {
+			barWidth,
+			yAxisWidth,
       angle,
       datum,
-      index,
+      index: barIndex,
       polar,
       scale,
       style,
@@ -17,9 +19,10 @@ class StackedLabel extends Component {
       x,
       y
     } = this.props;
-    const spacerSize = 0;
+		const spacerYoffset = 0;
+		const spacerXOffset = ap((barWidth * barIndex) + (barWidth * 0.5) + yAxisWidth);
     const circleRadius = 14;
-    const circleYOffset = y + spacerSize + circleRadius;
+    const circleYOffset = y + spacerYoffset + circleRadius;
     const textYOffset = circleYOffset + circleRadius * 2 + 5;
     const codeText = mainText.slice(0, 1).toUpperCase();
     const codeYOffset = circleYOffset + 5;
@@ -29,8 +32,8 @@ class StackedLabel extends Component {
         {/*
         <rect
           className="xui-measure"
-          height={ap(spacerSize)}
-          width={ap(spacerSize)}
+          height={ap(spacerYoffset)}
+          width={ap(spacerYoffset)}
           x={ap(x)}
           y={ap(y)}
           fill="transparent"
@@ -38,14 +41,14 @@ class StackedLabel extends Component {
         */}
         <circle
           className="xui-measure"
-          cx={ap(x)}
+          cx={spacerXOffset}
           cy={ap(circleYOffset)}
           r={ap(circleRadius)}
           fill={"lightgray"}
         />
         <text
           className="xui-measure"
-          x={ap(x)}
+          x={spacerXOffset}
           y={ap(textYOffset)}
           textAnchor={textAnchor}
         >
@@ -54,7 +57,7 @@ class StackedLabel extends Component {
           */}
           {mainText}
         </text>
-        <text x={ap(x)} y={ap(codeYOffset)} textAnchor={textAnchor}>
+        <text x={spacerXOffset} y={ap(codeYOffset)} textAnchor={textAnchor}>
           <tspan>{codeText}</tspan>
         </text>
       </g>

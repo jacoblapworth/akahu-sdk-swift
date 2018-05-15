@@ -1,44 +1,74 @@
-### Single Action
+### Toast Action
 
-Single action toasts provide an additional call to action inside the toast.
+Actions are used in place of regular buttons
+
+Option 1 : Wrapper is applied automatically
 ```
+const XUIToastAction = require('./XUIToastAction').default;
 const onToastClose = () => {alert( 'Single action toast closed' )};
 
 <div>
-	<XUIToast qaHook="toast-example">
-		<XUIToastMessage qaHook="toast-example--message"> Standard </XUIToastMessage>
+	<XUIToast
+		message="Option 1"
+		qaHook="toast-example"
+		onCloseClick={onToastClose}
+		primaryAction={
+			<XUIToastAction href="#" qaHook="toast-example--action">
+				Action 1
+			</XUIToastAction>
+		}
+		secondaryAction={
+			<XUIToastAction href="#" qaHook="toast-example--action-2">
+				Action 2
+			</XUIToastAction>
+		} />
+</div>
+```
+
+Option 2 : (Deprecated) Use it manually
+```
+const XUIToastAction = require('./XUIToastAction').default;
+const onToastClose = () => {alert( 'Single action toast closed' )};
+
+<div>
+	<XUIToast qaHook="toast-example" onCloseClick={onToastClose}>
+		<XUIToastMessage>Message</XUIToastMessage>
 		<XUIToastActions>
-			<XUIToastAction href="#" qaHook="toast-example--action"> Action </XUIToastAction>
-		</XUIToastActions>
-	</XUIToast>
-	<XUIToast onCloseClick={onToastClose}>
-		<XUIToastMessage> Closable </XUIToastMessage>
-		<XUIToastActions>
-			<XUIToastAction href="#"> Action </XUIToastAction>
+			<XUIToastAction href="#" qaHook="toast-example--action">
+				Action 1
+			</XUIToastAction>
+			<XUIToastAction href="#" qaHook="toast-example--action- 2">
+				Action 2
+			</XUIToastAction>
 		</XUIToastActions>
 	</XUIToast>
 </div>
 ```
-### Multi Action
 
-Multi action toasts can be wrapped in a `XUIToastActions` component to provide more than one call to action. The message inside the `Toast` can also wrap larger descriptions, however this should be avoided if possible.
+Option 3 : Applied automatically when using actions prop
 ```
-const onToastClose = () => {alert( 'Multi action toast closed' )};;
+const XUIToastAction = require('./XUIToastAction').default;
+const onToastClose = () => {alert( 'Single action toast closed' )};
 
 <div>
-	<XUIToast>
-		<XUIToastMessage> Standard </XUIToastMessage>
-		<XUIToastActions>
-			<XUIToastAction href="#"> Action One </XUIToastAction>
-			<XUIToastAction href="#"> Action Two </XUIToastAction>
-		</XUIToastActions>
-	</XUIToast>
-	<XUIToast onCloseClick={onToastClose}>
-		<XUIToastMessage> Avoid long descriptions. However, it's helpful to know that text does wrap by default. </XUIToastMessage>
-		<XUIToastActions>
-			<XUIToastAction href="#"> Action One </XUIToastAction>
-			<XUIToastAction href="#"> Action Two </XUIToastAction>
-		</XUIToastActions>
+	<XUIToast
+		qaHook="toast-example"
+		onCloseClick={onToastClose}
+		actions={[
+			<XUIToastAction
+				href="#"
+				qaHook="toast-example--action"
+				key="action-1">
+				Action 1
+			</XUIToastAction>,
+			<XUIToastAction
+				href="#"
+				qaHook="toast-example--action-2"
+				key="action-2">
+				Action 2
+			</XUIToastAction>
+		]}>
+		<XUIToastMessage>Message</XUIToastMessage>
 	</XUIToast>
 </div>
 ```

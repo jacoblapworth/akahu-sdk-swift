@@ -45,6 +45,50 @@ const variations = [
 		onCloseClick: NOOP,
 		onMouseOver: NOOP,
 		onMouseLeave: NOOP
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		message: 'Toast with two actions',
+		storyTitle: 'message as prop and two actions',
+		actionProps: [{
+			text: 'Action One'
+		},
+		{
+			text: 'Action Two'
+		}],
+		onCloseClick: NOOP,
+		onMouseOver: NOOP,
+		onMouseLeave: NOOP
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		message: 'Toast with two actions',
+		storyTitle: 'message as prop and two actions as props',
+		actionProps: [{
+			text: 'Action ONE'
+		},
+		{
+			text: 'Action TWO'
+		}],
+		onCloseClick: NOOP,
+		onMouseOver: NOOP,
+		onMouseLeave: NOOP,
+		actionsAsProps: true
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		message: 'Toast using XUIActions under the hood',
+		storyTitle: 'using XUIActions',
+		actionProps: [{
+			text: 'Action ONE'
+		},
+		{
+			text: 'Action TWO'
+		}],
+		onCloseClick: NOOP,
+		onMouseOver: NOOP,
+		onMouseLeave: NOOP,
+		usingXUIActions: true
 	}
 ];
 

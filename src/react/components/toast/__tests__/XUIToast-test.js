@@ -96,11 +96,112 @@ describe('XUIToast', () => {
 		expect(wrapper.find('button')).toHaveLength(1);
 	});
 
-	it('should render a passed qaHook as an auotmation id', () => {
-        const automationId = renderer.create(<XUIToast qaHook="toast-example">
-                <span>Content</span>
-            </XUIToast>);
+	it('should render a passed qaHook as an automation id', () => {
+		const automationId = renderer.create(
+			<XUIToast qaHook="toast-example">
+				<span>Content</span>
+			</XUIToast>
+		);
 
-        expect(automationId).toMatchSnapshot();
-    });
+		expect(automationId).toMatchSnapshot();
+	});
+
+	it('should render a message when messages are passed as props', () => {
+		const messageToast = renderer.create(
+			<XUIToast message="Content" />
+		);
+
+		expect(messageToast).toMatchSnapshot();
+	});
+
+	it('should render one message as a prop, one action as a prop', () => {
+		const messageToast = renderer.create(
+			<XUIToast
+				message="Content"
+				actions={[
+					<XUIToastAction href="#" key="action-1">
+						Action ONE
+					</XUIToastAction>
+				]}/>
+		);
+
+		expect(messageToast).toMatchSnapshot();
+	});
+
+	it('should render two actions as a prop, but not more than two', () => {
+		// TODO: Work out how to actually test rendering more than two
+		// Currently Jest fails with "error boundary failures"
+		const messageToast = renderer.create(
+			<XUIToast
+				message="Content"
+				actions={[
+					<XUIToastAction href="#" key="action-1">
+						Action ONE
+					</XUIToastAction>,
+					<XUIToastAction href="#" key="action-2">
+						Action TWO
+					</XUIToastAction>
+				]}/>
+		);
+
+		expect(messageToast).toMatchSnapshot();
+	});
+
+	it('should still be able to render messages as children, along with action props', () => {
+		const messageToast = renderer.create(
+			<XUIToast
+				actions={[
+					<XUIToastAction href="#" key="action-1">
+						Action ONE
+					</XUIToastAction>,
+					<XUIToastAction href="#" key="action-2">
+						Action TWO
+					</XUIToastAction>
+				]}>
+					<XUIToastMessage>
+						Message as child, actions as props
+					</XUIToastMessage>
+			</XUIToast>
+		);
+
+		expect(messageToast).toMatchSnapshot();
+	});
+
+	it('should still be able to render actions as children, along with message props', () => {
+		const messageToast = renderer.create(
+			<XUIToast
+				message="Message as props, actions as children">
+					<XUIToastActions>
+						<XUIToastAction href="#" key="action-1">
+							Action ONE
+						</XUIToastAction>
+						<XUIToastAction href="#" key="action-2">
+							Action TWO
+						</XUIToastAction>
+					</XUIToastActions>
+			</XUIToast>
+		);
+
+		expect(messageToast).toMatchSnapshot();
+	});
+
+	it('should render using the XUIActions component under the hood when using the top level primaryActions and secondaryActions API', () => {
+		const messageToast = renderer.create(
+			<XUIToast
+				message="Message as props, actions as individual props"
+				primaryAction={
+					<XUIToastAction href="#">
+						Action ONE
+					</XUIToastAction>
+				}
+				secondaryAction={
+					<XUIToastAction href="#">
+						Action TWO
+					</XUIToastAction>
+				}>
+			</XUIToast>
+		);
+
+		expect(messageToast).toMatchSnapshot();
+	});
 });

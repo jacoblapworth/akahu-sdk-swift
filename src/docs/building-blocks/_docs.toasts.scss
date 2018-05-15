@@ -50,7 +50,7 @@
 // To display toasts in the bottom left corner of the viewport, wrap them in the following class.
 // Using this class will ensure consistent positioning if this changes in the future.
 //
-// Classes: 
+// Classes:
 // xui-toast-wrapper: Apply to toast parent
 //
 // Styleguide: Building Blocks.Alerts.Toast.3
@@ -62,8 +62,7 @@
 // Warning: Avoid more than two actions, excluding the close button
 //
 // Classes:
-// xui-toast--actions: Container for actions
-// xui-toast--action: An individual action
+// xui-toast--actions: Layout container for actions
 //
 // Markup:
 // <div class="xui-toast xui-toast-layout" role="status">
@@ -71,11 +70,9 @@
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <div class="xui-toast--message">Invoice deleted</div>
-//   <ul class="xui-toast--actions">
-//     <li class="xui-toast--action">
-//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Undo</button>
-//     </li>
-//   </ul>
+//   <div class="xui-actions xui-toast--actions">
+//     <button type="button" class="xui-button xui-actions--primary xui-button-borderless-main xui-button-small">Undo</button>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.4
@@ -92,14 +89,10 @@
 //     <svg focusable="false" class="xui-icon" title="Close" aria-label="Close"> <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //   </button>
 //   <div class="xui-toast--message">Smart invoicing has been set as your default view. Update this anytime by visiting invoice settings.</div>
-//   <ul class="xui-toast--actions">
-//     <li class="xui-toast--action">
-//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Got it</button>
-//     </li>
-//     <li class="xui-toast--action">
-//       <button type="button" class="xui-button xui-button-borderless-main xui-button-small">Visit settings</button>
-//     </li>
-//   </ul>
+//   <div class="xui-toast--actions">
+//     <button type="button" class="xui-button xui-actions--primary xui-button-borderless-main xui-button-small">Got it</button>
+//     <button type="button" class="xui-button xui-actions--secondary xui-button-borderless-main xui-button-small">Visit settings</button>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Alerts.Toast.5
@@ -143,9 +136,9 @@
 // However, if the user’s mouse is positioned above the element or it has gained DOM focus, pause the timeout.
 // Alternatively, toasts should be hidden immediately after a separate action has been taken by the user.
 // This could be clicking a separate button, or navigating to a separate part of the app.
-// 
+//
 // If another toast is required, hide the current one from view, before showing the new one.
-// 
+//
 // For more guidance on how to use toasts, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
 // Styleguide: Building Blocks.Alerts.Toast.7

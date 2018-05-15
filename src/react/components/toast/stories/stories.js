@@ -15,6 +15,8 @@ import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName, NOOP } from './variations';
 
+const ucFirst = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
 class DetailedToast extends Component {
 	render(){
 		const { props } = this;
@@ -69,7 +71,7 @@ storiesWithKnobs.add('Playground', () => {
 	};
 
 	Object.keys(sentimentMap).forEach(key => {
-		sentiments[key] = key;
+		sentiments[key] = ucFirst(key);
 	});
 
 	const sentiment = select('sentiment', sentiments);

@@ -106,13 +106,15 @@ XUIToast.propTypes = {
 	onMouseLeave : PropTypes.func,
 	/** Applies default layout class to the component */
 	defaultLayout : PropTypes.bool,
-	/** Applies a role attribute to the toast element. This will override any component-determined value. */
+	/** Applies a role attribute to the toast element.
+	 * This will override any component-determined value. */
 	role: PropTypes.string,
 	/** Custom Actions */
 	actions: PropTypes.arrayOf(PropTypes.node),
 	/** Custom toast message */
 	message: PropTypes.string,
-	/** First and primary action. Always use this one first before using `secondaryAction` */
+	/** First and primary action. Always use this one first before using
+	 * `secondaryAction` */
 	primaryAction: PropTypes.node,
 	/** Secondary action */
 	secondaryAction: PropTypes.node

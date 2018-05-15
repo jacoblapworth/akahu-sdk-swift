@@ -110,6 +110,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'multiline input grown to fit contents',
 		isMultiline: true,
+		maxRows: 5,
 		value: 'test\ntest\ntest\ntest\ntest',
 	},
 	{

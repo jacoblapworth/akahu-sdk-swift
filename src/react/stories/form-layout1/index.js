@@ -273,7 +273,7 @@ test.add(storyNames.formLayout, () => {
 								defaultLayout={false}
 								name={inputMap.autoResize}
 								textareaId={inputMap.autoResize}
-								className="xui-field-layout" // this is inconsistent with other form elements
+								fieldClassName="xui-field-layout" // this is inconsistent with other form elements
 							>
 								<InputLabel htmlFor={inputMap.autoResize}>
 									This textarea auto-resizes

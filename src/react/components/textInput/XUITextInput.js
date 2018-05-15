@@ -116,7 +116,6 @@ class XUITextInput extends PureComponent {
 		const rootClasses = cn(
 			fieldClassName,
 			`${inputBaseClass}wrapper`,
-			`${ns}-u-display-block`,
 			isFieldLayout && `${ns}-field-layout`
 		);
 

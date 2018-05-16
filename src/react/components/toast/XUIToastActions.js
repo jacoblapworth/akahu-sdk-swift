@@ -44,7 +44,7 @@ XUIToastActions.propTypes = {
 	primaryAction: PropTypes.node,
 	/** Pass in a secondary action. Accepts: XUIToastAction */
 	secondaryAction: PropTypes.node,
-	/** Old API. Accepts anything but typically only XUIToastActions are used. */
+	/** Old API. Accepts anything but typically only XUIToastAction components are used. Cannot accept more than two components */
 	children: (props, propName) => {
 		if (React.Children.count(props.children) > 2) {
 			return new Error(`${propName} needs to be a maximum length of two actions`);

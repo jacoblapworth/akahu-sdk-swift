@@ -71,14 +71,18 @@ describe('XUIToast', () => {
 	it('should allow a custom `role` to be set', function () {
 		const wrapper = render(
 			<div>
-				<XUIToast role="alert" />
-				<XUIToast role="status" sentiment="negative" />
+				<XUIToast />
+				<XUIToast sentiment="negative" />
+				<XUIToast role="custom-alert-role" sentiment="negative" />
+				<XUIToast role="forced" />
 			</div>
 		);
 
 		const toasts = wrapper.find('.xui-toast');
-		expect(toasts[0].attribs.role).toEqual('alert');
-		expect(toasts[1].attribs.role).toEqual('status');
+		expect(toasts[0].attribs.role).toEqual('status');
+		expect(toasts[1].attribs.role).toEqual('alert');
+		expect(toasts[2].attribs.role).toEqual('custom-alert-role');
+		expect(toasts[3].attribs.role).toEqual('forced');
 	});
 
 	it('should render toast actions as buttons and/or links with the appropriate classes', function () {

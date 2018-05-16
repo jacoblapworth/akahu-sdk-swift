@@ -107,7 +107,9 @@ XUIToast.propTypes = {
 	/** Applies default layout class to the component */
 	defaultLayout : PropTypes.bool,
 	/** Applies a role attribute to the toast element.
-	 * This will override any component-determined value. */
+	 * This will override any component-determined value.
+	 * Set to `status` by default
+	 * When given a sentiment, will automatically apply an appropriate role */
 	role: PropTypes.string,
 	/** Custom Actions */
 	actions: PropTypes.arrayOf(PropTypes.node),

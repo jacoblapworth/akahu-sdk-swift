@@ -1,68 +1,43 @@
-const getGroupPosition = (nodes = []) => {
-  // console.log("- - - get position - - -");
-  // console.log("nodes", nodes);
+import { alwaysPositive } from './index';
+
+const getGroupPosition = (groupNode) => {
+
+	const nodes = groupNode
+		? Array.from(groupNode.querySelectorAll(".xui-measure"))
+		: [];
 
   if (!nodes.length) return { width: 0, height: 0 };
 
-  const position = (() => {
-    const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
-    // const { width = 0, height = 0, x: minLeft = 0, y: minTop = 0 } = rootNode
-    //   ? rootNode.getBoundingClientRect(rootNode)
-    //   : {};
+  let position = (() => {
+		const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
+		const makeNegative = value => value * -1;
 
-    return {
-      maxLeft: windowHeight * -1, // 0,
-      maxTop: windowHeight * -1, // 0,
+		return {
+      maxLeft: makeNegative(windowHeight),
+      maxTop: makeNegative(windowHeight),
       minTop: windowHeight,
-      // right: windowWidth * -1,
-      // bottom: windowHeight * -1,
       minLeft: windowWidth
     };
-  })();
 
-  // let minTop = 0;
-  // let right = 0;
-  // let bottom = 0;
-  // let minLeft = 0;
-
-  // const nodes = groupNode.querySelectorAll("circle");
-  // const nodes = groupNode.querySelectorAll(".xui-measure");
+	})();
 
   nodes.forEach(node => {
-    const {
-      width = 0,
-      height = 0,
-      x: minLeft = 0,
-      y: minTop = 0
-    } = node.getBBox(); // getBBox(); // getBoundingClientRect
-    // console.log(node, box);
-    // const right = minLeft + width;
-    // const bottom = minTop + height;
+    const { width = 0, height = 0, x = 0, y = 0 } = node.getBBox();
+		const { maxLeft, maxTop, minTop, minLeft } = position;
 
-    position.maxLeft = Math.max(width + minLeft, position.maxLeft);
-    position.maxTop = Math.max(height + minTop, position.maxTop);
-    position.minTop = Math.min(minTop, position.minTop);
-    // position.right = Math.max(right, position.right);
-    // position.bottom = Math.max(bottom, position.bottom);
-    position.minLeft = Math.min(minLeft, position.minLeft);
+		position = {
+			maxLeft: Math.max(width + x, maxLeft),
+			maxTop: Math.max(height + y, maxTop),
+			minTop: Math.min(y, minTop),
+			minLeft: Math.min(x, minLeft),
+		};
 
-    // console.log("\n\n");
-    // console.log(
-    //   `width = "${width}", height = "${height}", minTop = "${minTop}", minLeft = "${minLeft}"`
-    // );
-    // console.log("\n\n");
   });
 
-  // console.log("***", position);
-
-	const { maxLeft, maxTop, minTop, minLeft } = position;
-
-	return {
-		width: maxLeft - minLeft,
-		height: maxTop - minTop
+  return {
+		width: alwaysPositive(position.maxLeft - position.minLeft),
+		height: alwaysPositive(position.maxTop - position.minTop)
 	};
-
-  // console.log("- - - done - - -");
 };
 
 export default getGroupPosition;

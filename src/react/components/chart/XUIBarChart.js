@@ -7,7 +7,8 @@ import {
   VictoryAxis,
   VictoryStack,
   VictoryContainer,
-  VictoryTheme
+	VictoryTheme,
+	VictoryLabel
 } from "victory";
 import StackedBar from './customElements/StackedBar';
 import StackedLabel from './customElements/StackedLabel';
@@ -71,8 +72,7 @@ class XUIBarChart extends Component {
 	updateXAxisHeight = () => {
 		const { rootNode, state } = this;
 		const xAxisNode = rootNode && rootNode.querySelector(".xui-x-axis");
-		const nodes = xAxisNode ? Array.from(xAxisNode.querySelectorAll(".xui-measure")) : [];
-		const xAxisHeight = nodes.length ? alwaysPositive(getGroupPosition(nodes).height) : 0;
+		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : 0;
 		const isCloseEnough = testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
 		if (!isCloseEnough) {
@@ -86,8 +86,7 @@ class XUIBarChart extends Component {
 	updateYAxisWidth = () => {
 		const { rootNode, state } = this;
 		const yAxisNode = rootNode && rootNode.querySelector(".xui-y-axis");
-		const nodes = yAxisNode ? Array.from(yAxisNode.querySelectorAll("text")) : [];
-		const yAxisWidth = nodes.length ? alwaysPositive(getGroupPosition(nodes).width) : 0;
+		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : 0;
 		const isCloseEnough = testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
 		if (!isCloseEnough) {
@@ -135,10 +134,7 @@ class XUIBarChart extends Component {
 		const barsWidth = chartWidth - padding.left - padding.right;
 		const barWidth = barsWidth / bars.length;
 		const addUpStacks = ({ y }) => y.reduce((acc, i) => acc + i, 0);
-		const maxY = bars
-			.map(addUpStacks)
-			.sort()
-			.reverse()[0];
+		const maxY = bars.map(addUpStacks).sort().reverse()[0];
 
 		return (
 			<div className="xui-chart">
@@ -147,7 +143,6 @@ class XUIBarChart extends Component {
         <div
           ref={node => (this.rootNode = node)}
           style={{
-            // background: "gold",
             // These two styles are required for IE 11 where the SVG will not fill its
             // parent container correctly unless the height is explicitly stipulated. This
             // breaks that width:height ratio so an overflow:hidden is needed to tame the
@@ -258,7 +253,10 @@ class XUIBarChart extends Component {
                 // tickCount={5}
                 // tickValues={[2.11, 3.9, 6.1, 8.05]}
                 groupComponent={<GroupWrapper className="xui-y-axis" />}
-                // containerComponent={<GroupWrapper className="xui-y-axis" />}
+								// containerComponent={<GroupWrapper className="xui-y-axis" />}
+								// className="myLabel"
+								// axisLabelComponent={<VictoryLabel className="xXxXxXxXx"/>}
+								tickLabelComponent={<VictoryLabel className="xui-measure"/>}
               />
 						{/* </GroupWrapper> */}
             {/* </g> */}

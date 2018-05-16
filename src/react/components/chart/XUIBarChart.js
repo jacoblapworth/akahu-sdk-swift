@@ -143,6 +143,7 @@ class XUIBarChart extends Component {
         <div
           ref={node => (this.rootNode = node)}
           style={{
+						background: 'gold',
             // These two styles are required for IE 11 where the SVG will not fill its
             // parent container correctly unless the height is explicitly stipulated. This
             // breaks that width:height ratio so an overflow:hidden is needed to tame the
@@ -279,7 +280,12 @@ class XUIBarChart extends Component {
                 tickValues={bars.map(({ x }) => x)}
                 groupComponent={<GroupWrapper className="xui-x-axis" />}
                 // containerComponent={<GroupWrapper className="xui-x-axis" />}
-                tickLabelComponent={<StackedLabel {...{barWidth, yAxisWidth}}/>}
+                tickLabelComponent={(
+									<StackedLabel
+										barWidth={barWidth}
+										leftOffset={padding.left}
+									/>
+								)}
               />
             {/* </g> */}
           </VictoryChart>

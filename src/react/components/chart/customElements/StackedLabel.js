@@ -6,7 +6,7 @@ class StackedLabel extends Component {
   render() {
     const {
 			barWidth,
-			yAxisWidth,
+			leftOffset,
       angle,
       datum,
       index: barIndex,
@@ -20,13 +20,13 @@ class StackedLabel extends Component {
       y
     } = this.props;
 		const spacerYoffset = 0;
-		const spacerXOffset = (barWidth * barIndex) + (barWidth * 0.5) + yAxisWidth;
+		const spacerXOffset = (barWidth * barIndex) + (barWidth * 0.5) + leftOffset;
     const circleRadius = 14;
     const circleYOffset = y + spacerYoffset + circleRadius;
     const textYOffset = circleYOffset + circleRadius * 2 + 5;
     const codeText = mainText.slice(0, 1).toUpperCase();
     const codeYOffset = circleYOffset + 5;
-    // console.log(this.props);
+    console.log(this.props);
     return (
       <g>
         {/*

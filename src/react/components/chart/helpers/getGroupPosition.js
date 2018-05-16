@@ -6,23 +6,23 @@ const getGroupPosition = (groupNode) => {
 		? Array.from(groupNode.querySelectorAll(".xui-measure"))
 		: [];
 
-  if (!nodes.length) return { width: 0, height: 0 };
+	if (!nodes.length) return { width: 0, height: 0 };
 
-  let position = (() => {
+	let position = (() => {
 		const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
 		const makeNegative = value => value * -1;
 
 		return {
-      maxLeft: makeNegative(windowHeight),
-      maxTop: makeNegative(windowHeight),
-      minTop: windowHeight,
-      minLeft: windowWidth
-    };
+			maxLeft: makeNegative(windowHeight),
+			maxTop: makeNegative(windowHeight),
+			minTop: windowHeight,
+			minLeft: windowWidth
+		};
 
 	})();
 
-  nodes.forEach(node => {
-    const { width = 0, height = 0, x = 0, y = 0 } = node.getBBox();
+	nodes.forEach(node => {
+		const { width = 0, height = 0, x = 0, y = 0 } = node.getBBox();
 		const { maxLeft, maxTop, minTop, minLeft } = position;
 
 		position = {
@@ -32,9 +32,9 @@ const getGroupPosition = (groupNode) => {
 			minLeft: Math.min(x, minLeft),
 		};
 
-  });
+	});
 
-  return {
+	return {
 		width: alwaysPositive(position.maxLeft - position.minLeft),
 		height: alwaysPositive(position.maxTop - position.minTop)
 	};

@@ -10,12 +10,6 @@ class GroupWrapper extends PureComponent {
 		const { className, children } = this.props;
 		return <g key={key += 1} className={className}>{children}</g>;
 	}
-	// render = () => (
-	// 	<VictoryContainer
-	// 		className={this.props.className}
-	// 		standalone={false}
-	// 	/>
-	// )
 
 }
 

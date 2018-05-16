@@ -1,8 +1,7 @@
 import getGroupPosition from './getGroupPosition';
 
+const threshold = 2;
 const alwaysPositive = value => Math.max(0, value);
-const testIsCloseEnough = (next, previous) =>
-  // console.log(`next "${next}" vs previous "${previous}"`) ||
-	next > previous - 5 && next < previous + 5;
+const testIsCloseEnough = (next, previous) => next > previous - threshold && next < previous + threshold;
 
 export { getGroupPosition as default, alwaysPositive, testIsCloseEnough };

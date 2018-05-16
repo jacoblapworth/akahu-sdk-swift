@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import { ap } from '../helpers';
+import { alwaysPositive } from '../helpers';
 
 class StackedBar extends Component {
   // constructor() {
@@ -10,8 +10,6 @@ class StackedBar extends Component {
   // }
 
   handleToolTipShow = ({ event, bar, barIndex, stackIndex = null }) => {
-    // console.log("MOVE", event.target, event.pageX);
-    // updateToolTip([100, 100], bar),
     const { updateToolTip } = this.props;
     const { pageX, pageY } = event;
 
@@ -44,7 +42,10 @@ class StackedBar extends Component {
       x0
     } = this.props;
 
-    // console.log(this.props);
+		// console.log(this.props);
+
+		const yTop = alwaysPositive(y);
+		const yBottom = alwaysPositive(y0);
 
     const {
       y: stacks,
@@ -54,19 +55,14 @@ class StackedBar extends Component {
       activeStacks = []
     } = bar;
     const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
-    const maxHeight = y0 - y;
+    const maxHeight = yBottom - yTop;
     const ratio = maxHeight / maxStack;
     const maskId = `bar-${barIndex}`;
     const radius = 5;
     const divider = 10;
     const xLocation = xOffset + barWidth * barIndex;
-    const yLocation = stackIndex =>
-      y +
-      stacks
-        .slice(stackIndex + 1)
-        .reduce((acc, stack) => acc + stack * ratio, 0);
-    const isActive = stackIndex =>
-      isBarActive || activeStacks.indexOf(stackIndex) >= 0;
+    const yLocation = stackIndex => yTop + stacks.slice(stackIndex + 1).reduce((acc, stack) => acc + stack * ratio, 0);
+    const isActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
 
     // The bar is setup into to main parts.
     //
@@ -103,12 +99,12 @@ class StackedBar extends Component {
         <defs>
           <mask id={maskId} maskUnits="userSpaceOnUse">
             <rect
-              x={ap(xLocation + divider)}
-              y={ap(y)}
-              width={ap(barWidth - divider * 2)}
-              height={ap(maxHeight + radius)}
-              rx={ap(radius)}
-              ry={ap(radius)}
+              x={xLocation + divider}
+              y={yTop}
+              width={barWidth - divider * 2}
+              height={maxHeight + radius}
+              rx={radius}
+              ry={radius}
               fill={"white"}
             />
           </mask>
@@ -125,40 +121,29 @@ class StackedBar extends Component {
               style: { cursor: "pointer" }
             })
           }}
-          mask={`url(#${maskId})`}
-          // onMouseMove={() => console.log("MOVE")}
-          // onMouseLeave={onMouseLeave}
-        >
-          {stacks.map((stack, stackIndex) => (
-            <rect
+          mask={`url(#${maskId})`}>
+          { stacks.map((stack, stackIndex) => (
+						<rect
               {...{
-                ...(!onBarClick &&
-                  onStackClick && {
-                    onClick: () => onStackClick(bar, stackIndex),
-                    style: { cursor: "pointer" }
-                  }),
+                ...(!onBarClick && onStackClick && {
+									onClick: () => onStackClick(bar, stackIndex),
+									style: { cursor: "pointer" }
+								}),
                 ...(updateToolTip && {
-                  onMouseMove: event =>
-                    this.handleToolTipShow({
-                      event,
-                      bar,
-                      barIndex,
-                      stackIndex
-                    }),
+                  onMouseMove: event => this.handleToolTipShow({ event, bar, barIndex, stackIndex }),
                   onMouseLeave: this.handleToolTipHide
                 })
               }}
               key={stackIndex}
-              height={ap(stack * ratio)}
-              width={ap(barWidth)}
-              x={ap(xLocation)}
-              y={ap(yLocation(stackIndex))}
-              fill={isActive(stackIndex) ? activeColor : barColors[stackIndex]}
-            />
-          ))}
-        </g>
-      </g>
-    );
+              height={stack * ratio}
+              width={barWidth}
+              x={xLocation}
+							y={yLocation(stackIndex)}
+							fill={isActive(stackIndex) ? activeColor : barColors[stackIndex]}
+						/>
+					)) }
+				</g>
+      </g> );
   };
 }
 

@@ -13,7 +13,7 @@ import StackedBar from './customElements/StackedBar';
 import StackedLabel from './customElements/StackedLabel';
 import GroupWrapper from './customElements/GroupWrapper';
 import GraphTooltip from './customElements/GraphTooltip';
-import getGroupPosition, { ap, testIsCloseEnough } from './helpers';
+import getGroupPosition, { alwaysPositive, testIsCloseEnough } from './helpers';
 
 class XUIBarChart extends Component {
 
@@ -72,7 +72,7 @@ class XUIBarChart extends Component {
 		const { rootNode, state } = this;
 		const xAxisNode = rootNode && rootNode.querySelector(".xui-x-axis");
 		const nodes = xAxisNode ? Array.from(xAxisNode.querySelectorAll(".xui-measure")) : [];
-		const xAxisHeight = nodes.length ? getGroupPosition(nodes).height : 0;
+		const xAxisHeight = nodes.length ? alwaysPositive(getGroupPosition(nodes).height) : 0;
 		const isCloseEnough = testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
 		if (!isCloseEnough) {
@@ -87,7 +87,7 @@ class XUIBarChart extends Component {
 		const { rootNode, state } = this;
 		const yAxisNode = rootNode && rootNode.querySelector(".xui-y-axis");
 		const nodes = yAxisNode ? Array.from(yAxisNode.querySelectorAll("text")) : [];
-		const yAxisWidth = nodes.length ? getGroupPosition(nodes).width : 0;
+		const yAxisWidth = nodes.length ? alwaysPositive(getGroupPosition(nodes).width) : 0;
 		const isCloseEnough = testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
 		if (!isCloseEnough) {
@@ -115,16 +115,25 @@ class XUIBarChart extends Component {
 			toolTipPosition,
 			toolTipData
 		} = this.state;
+
+		// Ensure things stay positive =)
+		// const chartWidth = this.props.xxxxxx
+
+		// const xAxisHeight = this.state.xxxxxx
+		// const yAxisWidth = this.state.xxxxxx
+
+
 		const chartHeight = 300;
 		const [toolTipX, toolTipY] = toolTipPosition;
 		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
 		const padding = {
-			top: ap(30),
-			bottom: ap(xAxisHeight + 20),
-			left: ap(yAxisWidth + 20),
-			right: ap(0)
+			top: 30,
+			bottom: xAxisHeight + 20,
+			left: yAxisWidth + 20,
+			right: 0
 		};
-		const barWidth = (chartWidth - padding.left - padding.right) / bars.length;
+		const barsWidth = chartWidth - padding.left - padding.right;
+		const barWidth = barsWidth / bars.length;
 		const addUpStacks = ({ y }) => y.reduce((acc, i) => acc + i, 0);
 		const maxY = bars
 			.map(addUpStacks)
@@ -144,7 +153,7 @@ class XUIBarChart extends Component {
             // breaks that width:height ratio so an overflow:hidden is needed to tame the
             // beast.
             // NOTE: The overflow could cause problems with the tooltip down the line.
-            height: `${ap(chartHeight)}px`,
+            height: `${chartHeight}px`,
             overflow: "hidden"
           }}
         >
@@ -157,8 +166,8 @@ class XUIBarChart extends Component {
             // domainPadding={{ x: 133 / 3 }}
             // domainPadding={{ x: [30, 30] }}
             // Height of the graph (px).
-            height={ap(chartHeight)} // Default = 300
-            width={ap(chartWidth)}
+            height={chartHeight} // Default = 300
+            width={chartWidth}
             // The space around the "bar" area and the rest of the graph.
             // padding={{ top: 0, bottom: 0, left: 0, right: 0 }}
             padding={padding}
@@ -185,7 +194,7 @@ class XUIBarChart extends Component {
               dataComponent={
                 <StackedBar
                   barColors={barColors}
-                  barWidth={ap(barWidth)}
+                  barWidth={barWidth}
                   activeColor={activeColor}
                   xOffset={padding.left}
                   updateToolTip={createToolTipContent && this.updateToolTip}

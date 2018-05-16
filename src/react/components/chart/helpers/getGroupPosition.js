@@ -55,14 +55,12 @@ const getGroupPosition = (nodes = []) => {
 
   // console.log("***", position);
 
-  return (() => {
-    const { maxLeft, maxTop, minTop, minLeft } = position;
+	const { maxLeft, maxTop, minTop, minLeft } = position;
 
-    return {
-      width: maxLeft - minLeft,
-      height: maxTop - minTop
-    };
-  })();
+	return {
+		width: maxLeft - minLeft,
+		height: maxTop - minTop
+	};
 
   // console.log("- - - done - - -");
 };

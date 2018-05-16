@@ -6,9 +6,9 @@ import XUIToastWrapper from '../XUIToastWrapper';
 describe('<XUIToastWrapper />', () => {
 
 	beforeAll(() => {
-    ReactDOM.createPortal = jest.fn((element, node) => {
-      return element
-    })
+		ReactDOM.createPortal = jest.fn((element, node) => {
+			return element;
+		});
 	});
 
 	afterEach(() => {

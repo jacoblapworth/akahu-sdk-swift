@@ -44,7 +44,7 @@ export default function XUIToast(
 	const actionsNewAPI = primaryAction != null ? (
 		<XUIToastActions
 			primaryAction={primaryAction}
-			secondaryAction={secondaryAction != null && secondaryAction}>
+			secondaryAction={secondaryAction}>
 			{actions}
 		</XUIToastActions>
 	) : null;

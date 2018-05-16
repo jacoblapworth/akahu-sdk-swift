@@ -8,13 +8,22 @@ import {
 	VictoryStack,
 	VictoryContainer,
 	VictoryTheme,
-	VictoryLabel
-} from "victory";
+	VictoryLabel,
+	Line
+} from 'victory';
 import StackedBar from './customElements/StackedBar';
 import StackedLabel from './customElements/StackedLabel';
 import GroupWrapper from './customElements/GroupWrapper';
 import GraphTooltip from './customElements/GraphTooltip';
-import getGroupPosition, { alwaysPositive, testIsCloseEnough } from './helpers';
+import getGroupPosition, { testIsCloseEnough } from './helpers';
+import baseChartTheme, { barChartTheme } from './helpers/theme';
+
+console.log({
+	material: VictoryTheme.material,
+	grayscale: VictoryTheme.grayscale,
+	baseChartTheme,
+	barChartTheme
+});
 
 class XUIBarChart extends Component {
 
@@ -25,6 +34,7 @@ class XUIBarChart extends Component {
 	}
 
 	rootNode = null;
+
 	state = {
 		chartWidth: 100,
 		yAxisWidth: 0,
@@ -35,7 +45,7 @@ class XUIBarChart extends Component {
 
 	componentDidMount = () => {
 		const throttledAction = throttle(this.updateChartWidth, 1000);
-		window.addEventListener("resize", throttledAction);
+		window.addEventListener('resize', throttledAction);
 		this.updateChartWidth();
 		this.updateYAxisWidth();
 		this.updateXAxisHeight();
@@ -71,7 +81,7 @@ class XUIBarChart extends Component {
 
 	updateXAxisHeight = () => {
 		const { rootNode, state } = this;
-		const xAxisNode = rootNode && rootNode.querySelector(".xui-x-axis");
+		const xAxisNode = rootNode && rootNode.querySelector('.xui-x-axis');
 		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : 0;
 		const isCloseEnough = testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
@@ -85,7 +95,7 @@ class XUIBarChart extends Component {
 
 	updateYAxisWidth = () => {
 		const { rootNode, state } = this;
-		const yAxisNode = rootNode && rootNode.querySelector(".xui-y-axis");
+		const yAxisNode = rootNode && rootNode.querySelector('.xui-y-axis');
 		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : 0;
 		const isCloseEnough = testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
@@ -143,14 +153,14 @@ class XUIBarChart extends Component {
 				<div
 					ref={node => (this.rootNode = node)}
 					style={{
-						background: 'gold',
+						// background: 'pink',
 						// These two styles are required for IE 11 where the SVG will not fill its
 						// parent container correctly unless the height is explicitly stipulated. This
 						// breaks that width:height ratio so an overflow:hidden is needed to tame the
 						// beast.
 						// NOTE: The overflow could cause problems with the tooltip down the line.
 						height: `${chartHeight}px`,
-						overflow: "hidden"
+						overflow: 'hidden'
 					}}
 				>
 					<VictoryChart
@@ -173,7 +183,9 @@ class XUIBarChart extends Component {
 						// Theme.
 						// http://formidable.com/open-source/victory/guides/themes/
 						// theme={VictoryTheme.material} // Default = VictoryTheme.grayscale
+						// theme={VictoryTheme.theme} // Default = VictoryTheme.grayscale
 						// theme={theme}
+						theme={barChartTheme}
 
 						// standalone={false}
 
@@ -185,6 +197,75 @@ class XUIBarChart extends Component {
 							/>
 						)}
 					>
+
+						<VictoryAxis
+							dependentAxis={true}
+							orientation="left"
+							// offsetX={30}
+							// offsetY={30}
+							scale={{ y: 'linear' }}
+							padding={padding}
+
+							// xAxisHeight={xAxisHeight}
+							// y={1000}
+							// domainPadding={{ x: [0, 0], y: [0, 0] }}
+							// domainPadding={{ x: [30, 30], y: [30, 30] }}
+							domain={[0, maxY]}
+							// height={chartHeight}
+							// tickCount={5}
+							// tickValues={[2.11, 3.9, 6.1, 8.05]}
+							groupComponent={<GroupWrapper className="xui-y-axis" />}
+							// containerComponent={<GroupWrapper className="xui-y-axis" />}
+							// className="myLabel"
+							// axisLabelComponent={<VictoryLabel className="xXxXxXxXx"/>}
+							axisComponent={(
+								<Line
+									type="axis"
+									style={{
+										stroke: 'transparent',
+										strokeWidth: 0
+									}}
+								/>
+							)}
+
+							tickLabelComponent={<VictoryLabel className="xui-measure"/>}
+						/>
+
+						<VictoryAxis
+							dependentAxis={false}
+							orientation="bottom"
+							scale={{ x: 'linear' }}
+							padding={padding}
+							// domainPadding={{ x: barWidth * 0.5 }}
+							// yAxisWidth={yAxisWidth}
+							// y={1000}
+							// domain={[0, maxY]}
+							// domain={"x"}
+							// tickCount={5}
+							width={chartWidth}
+							// width={barWidth * bars.length}
+							tickValues={bars.map(({ x }) => x)}
+							groupComponent={<GroupWrapper className="xui-x-axis" />}
+							// containerComponent={<GroupWrapper className="xui-x-axis" />}
+
+							gridComponent={(
+								<Line
+									type={"grid"}
+									style={{
+										stroke: 'transparent',
+										strokeWidth: 0
+									}}
+								/>
+							)}
+
+							tickLabelComponent={(
+								<StackedLabel
+									barWidth={barWidth}
+									leftOffset={padding.left}
+								/>
+							)}
+						/>
+
 						<VictoryBar
 							data={bars}
 							dataComponent={(
@@ -233,53 +314,6 @@ class XUIBarChart extends Component {
 
 							groupComponent={<GroupWrapper className="xui-bars" />}
 							// containerComponent={<GroupWrapper className="xui-bars" />}
-						/>
-
-						<VictoryAxis
-							dependentAxis={true}
-							orientation="left"
-							// offsetX={30}
-							// offsetY={30}
-							scale={{ y: "linear" }}
-							padding={padding}
-
-							// xAxisHeight={xAxisHeight}
-							// y={1000}
-							// domainPadding={{ x: [0, 0], y: [0, 0] }}
-							// domainPadding={{ x: [30, 30], y: [30, 30] }}
-							domain={[0, maxY]}
-							// height={chartHeight}
-							// tickCount={5}
-							// tickValues={[2.11, 3.9, 6.1, 8.05]}
-							groupComponent={<GroupWrapper className="xui-y-axis" />}
-							// containerComponent={<GroupWrapper className="xui-y-axis" />}
-							// className="myLabel"
-							// axisLabelComponent={<VictoryLabel className="xXxXxXxXx"/>}
-							tickLabelComponent={<VictoryLabel className="xui-measure"/>}
-						/>
-
-						<VictoryAxis
-							dependentAxis={false}
-							orientation="bottom"
-							scale={{ x: "linear" }}
-							padding={padding}
-							// domainPadding={{ x: barWidth * 0.5 }}
-							// yAxisWidth={yAxisWidth}
-							// y={1000}
-							// domain={[0, maxY]}
-							// domain={"x"}
-							// tickCount={5}
-							width={chartWidth}
-							// width={barWidth * bars.length}
-							tickValues={bars.map(({ x }) => x)}
-							groupComponent={<GroupWrapper className="xui-x-axis" />}
-							// containerComponent={<GroupWrapper className="xui-x-axis" />}
-							tickLabelComponent={(
-								<StackedLabel
-									barWidth={barWidth}
-									leftOffset={padding.left}
-								/>
-							)}
 						/>
 
 					</VictoryChart>

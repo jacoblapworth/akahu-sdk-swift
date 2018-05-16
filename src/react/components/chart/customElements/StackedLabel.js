@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 // import { alwaysPositive } from '../helpers';
+import { baseFontTheme } from '../helpers/theme';
 
 class StackedLabel extends Component {
 	render() {
@@ -34,20 +35,20 @@ class StackedLabel extends Component {
 					cx={spacerXOffset}
 					cy={circleYOffset}
 					r={circleRadius}
-					fill={"lightgray"}
+					fill="lightgray"
 				/>
+				<text
+					x={spacerXOffset}
+					y={codeYOffset}
+					textAnchor={textAnchor}>
+					<tspan style={baseFontTheme}>{codeText}</tspan>
+				</text>
 				<text
 					className="xui-measure"
 					x={spacerXOffset}
 					y={textYOffset}
 					textAnchor={textAnchor}>
-					<tspan>{mainText}</tspan>
-				</text>
-				<text
-					x={spacerXOffset}
-					y={codeYOffset}
-					textAnchor={textAnchor}>
-					<tspan>{codeText}</tspan>
+					<tspan style={baseFontTheme}>{mainText}</tspan>
 				</text>
 			</g>
 		);

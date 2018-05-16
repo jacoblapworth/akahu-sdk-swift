@@ -92,7 +92,9 @@ class StackedBar extends Component {
 		return (
 			<g>
 				<defs>
-					<mask id={maskId} maskUnits="userSpaceOnUse">
+					<mask
+						id={maskId}
+						maskUnits="userSpaceOnUse">
 						<rect
 							x={xLocation + divider}
 							y={yTop}
@@ -100,7 +102,7 @@ class StackedBar extends Component {
 							height={maxHeight + radius}
 							rx={radius}
 							ry={radius}
-							fill={"white"}
+							fill="white"
 						/>
 					</mask>
 				</defs>
@@ -113,7 +115,7 @@ class StackedBar extends Component {
 						// }),
 						...(onBarClick && {
 							onClick: () => onBarClick(bar),
-							style: { cursor: "pointer" }
+							style: { cursor: 'pointer' }
 						})
 					}}
 					mask={`url(#${maskId})`}>
@@ -122,7 +124,7 @@ class StackedBar extends Component {
 							{...{
 								...(!onBarClick && onStackClick && {
 									onClick: () => onStackClick(bar, stackIndex),
-									style: { cursor: "pointer" }
+									style: { cursor: 'pointer' }
 								}),
 								...(updateToolTip && {
 									onMouseMove: event => this.handleToolTipShow({ event, bar, barIndex, stackIndex }),

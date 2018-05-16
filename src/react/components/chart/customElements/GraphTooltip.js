@@ -14,7 +14,7 @@ class GraphTooltip extends PureComponent {
 					height: 10,
 					width: 10,
 					background: 'red',
-					position: "absolute"
+					position: 'absolute'
 				}}
 			>
 				<XUITooltip

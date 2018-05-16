@@ -104,6 +104,12 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 
-		return <DetailedToast {...variationMinusStoryDetails}/>
+		return (
+			<DetailedToast
+				onCloseClick={NOOP}
+				onMouseOver={NOOP}
+				onMouseLeave={NOOP}
+				{...variationMinusStoryDetails}/>
+		)
 	});
 });

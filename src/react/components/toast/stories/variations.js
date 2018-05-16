@@ -1,5 +1,3 @@
-const NOOP = require('../../helpers/noop');
-
 const storiesWithVariationsKindName = 'Instances/XUIToast';
 
 const variations = [
@@ -7,19 +5,13 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a positive sentiment',
 		sentiment: 'positive',
-		messageText: 'Positive Message',
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP
+		messageText: 'Positive Message'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with a negative sentiment',
 		sentiment: 'negative',
-		messageText: 'Negative Message',
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP
+		messageText: 'Negative Message'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -27,10 +19,7 @@ const variations = [
 		storyTitle: 'with an action',
 		actionProps: [{
 			text: 'Actions'
-		}],
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP
+		}]
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -41,10 +30,7 @@ const variations = [
 		},
 		{
 			text: 'Action Two'
-		}],
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP
+		}]
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -55,10 +41,7 @@ const variations = [
 		},
 		{
 			text: 'Action Two'
-		}],
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP
+		}]
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -70,9 +53,6 @@ const variations = [
 		{
 			text: 'Action TWO'
 		}],
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP,
 		actionsAsProps: true
 	},
 	{
@@ -85,9 +65,6 @@ const variations = [
 		{
 			text: 'Action TWO'
 		}],
-		onCloseClick: NOOP,
-		onMouseOver: NOOP,
-		onMouseLeave: NOOP,
 		usingXUIActions: true
 	}
 ];

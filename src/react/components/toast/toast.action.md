@@ -1,3 +1,8 @@
+### Toast Actions
+
+A wrapper to provide the default layout of toast actions. Managed internally by default in the newer api using `primaryAction` and `secondaryAction` on the `<XUIToast />` component.
+
+
 ### Toast Action
 
 Actions are used in place of regular buttons

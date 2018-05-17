@@ -42,11 +42,15 @@ export default function XUIToastAction({
 		</XUIButton>
 	);
 
-	return usesActions ? customToastButton : (
-		<ContainerElement qaHook={qaHook} {...props}>
-			{customToastButton}
-		</ContainerElement>
-	);
+	if (usesActions) {
+		return customToastButton;
+	} else {
+		return (
+			<ContainerElement qaHook={qaHook} {...props}>
+				{customToastButton}
+			</ContainerElement>
+		)
+	}
 
 }
 

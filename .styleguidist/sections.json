@@ -226,8 +226,8 @@
 								"components": "../src/react/components/toast/XUIToast.js"
 							},
 							{
-								"name": "Toast Action",
-								"components": "../src/react/components/toast/XUIToastAction.js",
+								"name": "Toast Actions",
+								"components": "../src/react/components/toast/XUIToastAction*(s).js",
 								"content": "../src/react/components/toast/toast.action.md"
 							},
 							{
@@ -239,11 +239,6 @@
 								"name": "Toast Wrapper",
 								"components": "../src/react/components/toast/XUIToastWrapper.js",
 								"content": "../src/react/components/toast/toast.wrapper.md"
-							},
-							{
-								"name": "Toast Actions",
-								"components": "../src/react/components/toast/XUIToastActions.js",
-								"content": "../src/react/components/toast/toast.actions.md"
 							}
 						]
 					},

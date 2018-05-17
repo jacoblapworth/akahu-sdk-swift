@@ -42,7 +42,10 @@ class Demo extends React.Component {
 				createToolTipContent={bar => (
 					<div style={{ whiteSpace: "nowrap" }}>
 						<div><strong>{bar.x}</strong></div>
-						<div><strong>{bar.stackIndex + 1 && `Stack #${bar.stackIndex + 1}`}</strong></div>
+						<div>Super long text that is to test wrapping</div>
+						<div>
+							<strong>{bar.stackIndex + 1 && `Stack #${bar.stackIndex + 1}`}</strong>
+						</div>
 					</div>
 				)}
 			/>

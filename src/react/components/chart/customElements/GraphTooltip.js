@@ -9,11 +9,12 @@ class GraphTooltip extends PureComponent {
 		return (
 			<div
 				style={{
-					top: `${toolTipY - 15}px`,
-					left: `${toolTipX}px`,
-					height: 10,
-					width: 10,
-					background: 'red',
+					left: 0,
+					top: 0,
+					transform: `translate(${toolTipX}px, ${toolTipY - 15}px)`,
+					height: 0,
+					width: 0,
+					background: 'transparent',
 					position: 'absolute'
 				}}
 			>

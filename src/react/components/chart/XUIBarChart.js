@@ -18,13 +18,6 @@ import GraphTooltip from './customElements/GraphTooltip';
 import getGroupPosition, { testIsCloseEnough } from './helpers';
 import baseChartTheme, { barChartTheme } from './helpers/theme';
 
-console.log({
-	material: VictoryTheme.material,
-	grayscale: VictoryTheme.grayscale,
-	baseChartTheme,
-	barChartTheme
-});
-
 class XUIBarChart extends Component {
 
 	constructor() {

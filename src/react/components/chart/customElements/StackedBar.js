@@ -15,7 +15,9 @@ class StackedBar extends Component {
 
 	render = () => {
 		const {
+			id,
 			barColors,
+			onBarClick,
 			barWidth,
 			activeColor,
 			updateToolTip,
@@ -37,22 +39,17 @@ class StackedBar extends Component {
 			x0
 		} = this.props;
 
-		// console.log(this.props);
-
-		const yTop = alwaysPositive(y);
-		const yBottom = alwaysPositive(y0);
-
 		const {
 			y: stacks,
-			onBarClick,
-			onStackClick,
 			isBarActive,
 			activeStacks = []
 		} = bar;
+		const yTop = alwaysPositive(y);
+		const yBottom = alwaysPositive(y0);
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
 		const maxHeight = yBottom - yTop;
 		const ratio = maxHeight / maxStack;
-		const maskId = `bar-${barIndex}`;
+		const maskId = `${id}-bar-${barIndex}`;
 		const radius = 5;
 		const divider = 10;
 		const xLocation = xOffset + barWidth * barIndex;
@@ -83,12 +80,6 @@ class StackedBar extends Component {
 		// NOTE: The mask extends slightly below the bottom of the bar so that their are
 		// only rounded corners at the top.
 
-		// console.log("maxk width", barWidth - divider * 2);
-		// console.log("mask height", maxHeight + radius);
-		// console.log('xxxx', stack * ratio)
-		// console.log("stack width", barWidth);
-		// console.log("bar", updateToolTip);
-
 		return (
 			<g>
 				<defs>
@@ -107,23 +98,12 @@ class StackedBar extends Component {
 					</mask>
 				</defs>
 
-				<g
-					{...{
-						// ...(updateToolTip && {
-						//   onMouseMove: this.handleToolTipShow,
-						//   onMouseLeave: this.handleToolTipHide
-						// }),
-						...(onBarClick && {
-							onClick: () => onBarClick(bar),
-							style: { cursor: 'pointer' }
-						})
-					}}
-					mask={`url(#${maskId})`}>
+				<g mask={`url(#${maskId})`}>
 					{ stacks.map((stack, stackIndex) => (
 						<rect
 							{...{
-								...(!onBarClick && onStackClick && {
-									onClick: () => onStackClick(bar, stackIndex),
+								...(onBarClick && {
+									onClick: event => onBarClick(event, { ...bar, barIndex, stackIndex }),
 									style: { cursor: 'pointer' }
 								}),
 								...(updateToolTip && {

@@ -51,7 +51,13 @@ class XUIBarChart extends Component {
 		this.updateXAxisHeight();
 	};
 
+	componentWillUnmount = () => {
+		window.removeEventListener('resize', this.throttledAction);
+		this.throttledAction.cancel();
+	};
+
 	componentDidUpdate = () => {
+		console.log('componentDidUpdate');
 		this.updateChartWidth();
 		this.updateYAxisWidth();
 		this.updateXAxisHeight();
@@ -109,11 +115,13 @@ class XUIBarChart extends Component {
 
 	render = () => {
 		const {
+			id,
 			title,
 			description,
 			bars,
 			isStacked,
 			barColors,
+			onBarClick,
 			activeColor,
 			createToolTipContent
 		} = this.props;
@@ -124,13 +132,6 @@ class XUIBarChart extends Component {
 			toolTipPosition,
 			toolTipData
 		} = this.state;
-
-		// Ensure things stay positive =)
-		// const chartWidth = this.props.xxxxxx
-
-		// const xAxisHeight = this.state.xxxxxx
-		// const yAxisWidth = this.state.xxxxxx
-
 
 		const chartHeight = 300;
 		const [toolTipX, toolTipY] = toolTipPosition;
@@ -168,27 +169,18 @@ class XUIBarChart extends Component {
 						// domain={{ x: [0, 5], y: [0, 5] }}
 
 						// Push bars "middle" alignment back into the graph "bar" area.
+						// We are controlling this via bespoke components and therefore reset
+						// everything back to zero.
 						domainPadding={{ x: 0 }}
-						// domainPadding={{ x: 133 / 3 }}
-						// domainPadding={{ x: [30, 30] }}
-						// Height of the graph (px).
+
+						// Height of the "svg" graph (px).
 						height={chartHeight} // Default = 300
 						width={chartWidth}
+
 						// The space around the "bar" area and the rest of the graph.
-						// padding={{ top: 0, bottom: 0, left: 0, right: 0 }}
 						padding={padding}
-						// Axis scale types e.g "linear", "time", "log", "sqrt".
-						// scale={{ x: "linear", y: "linear" }} // Default = "linear"
 
-						// Theme.
-						// http://formidable.com/open-source/victory/guides/themes/
-						// theme={VictoryTheme.material} // Default = VictoryTheme.grayscale
-						// theme={VictoryTheme.theme} // Default = VictoryTheme.grayscale
-						// theme={theme}
 						theme={barChartTheme}
-
-						// standalone={false}
-
 						containerComponent={(
 							<VictoryContainer
 								responsive={true}
@@ -208,16 +200,17 @@ class XUIBarChart extends Component {
 
 							// xAxisHeight={xAxisHeight}
 							// y={1000}
+
+							// Add the zero at the start of the axis (is hidden by default).
+							crossAxis={false}
+
 							// domainPadding={{ x: [0, 0], y: [0, 0] }}
 							// domainPadding={{ x: [30, 30], y: [30, 30] }}
 							domain={[0, maxY]}
-							// height={chartHeight}
-							// tickCount={5}
-							// tickValues={[2.11, 3.9, 6.1, 8.05]}
+							tickCount={3}
+							// tickValues={[0, 2.11, 3.9, 6.1, 8.05]}
 							groupComponent={<GroupWrapper className="xui-y-axis" />}
-							// containerComponent={<GroupWrapper className="xui-y-axis" />}
-							// className="myLabel"
-							// axisLabelComponent={<VictoryLabel className="xXxXxXxXx"/>}
+
 							axisComponent={(
 								<Line
 									type="axis"
@@ -270,7 +263,9 @@ class XUIBarChart extends Component {
 							data={bars}
 							dataComponent={(
 								<StackedBar
+									id={id}
 									barColors={barColors}
+									onBarClick={onBarClick}
 									barWidth={barWidth}
 									activeColor={activeColor}
 									xOffset={padding.left}

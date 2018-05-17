@@ -110,12 +110,19 @@ describe('<XUITextInput>', () => {
 			expect(wrapper.find('.xui-field-layout')).toHaveLength(1);
 		});
 
+		it('renders with a label when one is provided', () => {
+			const wrapper = renderer.create(<XUITextInput labelText="test" />);
+			expect(wrapper).toMatchSnapshot();
+		})
+
 		it('includes custom classes on the correct nodes', () => {
 			const wrapper = renderer.create(
 				<XUITextInput
 					fieldClassName="custom-field-class"
 					containerClassName="custom-container-class"
 					inputClassName="custom-input-class"
+					labelClassName="custom-label-class"
+					labelText="test"
 				/>);
 
 			expect(wrapper).toMatchSnapshot();

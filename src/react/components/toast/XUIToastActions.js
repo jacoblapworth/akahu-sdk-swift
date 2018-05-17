@@ -40,9 +40,9 @@ XUIToastActions.propTypes = {
 	qaHook: PropTypes.string,
 	/** Facility to pass in custom children */
 	children: PropTypes.node,
-	/** Pass in a primary action. Accepts: XUIToastAction  */
+	/** Pass in a XUIToastAction as a primary action  */
 	primaryAction: PropTypes.node,
-	/** Pass in a secondary action. Accepts: XUIToastAction */
+	/** Pass in a XUIToastAction as a secondary action */
 	secondaryAction: PropTypes.node,
 	/** Old API. Accepts anything but typically only XUIToastAction components are used. Cannot accept more than two components */
 	children: (props, propName) => {

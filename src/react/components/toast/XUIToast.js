@@ -119,7 +119,11 @@ XUIToast.propTypes = {
 	 * `secondaryAction` */
 	primaryAction: PropTypes.node,
 	/** Secondary action */
-	secondaryAction: PropTypes.node
+	secondaryAction: (props, propName) => {
+		if (!props.primaryAction && props[propName] != null) {
+			return new Error(`${propName} only gets rendered when you supply a primaryAction`);
+		}
+	}
 };
 
 XUIToast.defaultProps = {

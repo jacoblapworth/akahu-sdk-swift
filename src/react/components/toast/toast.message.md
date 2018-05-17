@@ -1,1 +1,1 @@
-A wrapper to provide the default layout of a toast message inside a `<p>` element.
+A wrapper to provide the default layout of a toast message inside a `<p>` element. Managed internally by default in the newer api using `primaryAction` and `secondaryAction` on the `<XUIToast />` component.

@@ -108,7 +108,7 @@ class StackedBar extends Component {
 								}),
 								...(updateToolTip && {
 									onMouseMove: event => this.handleToolTipShow({ event, bar, barIndex, stackIndex }),
-									// onMouseLeave: this.handleToolTipHide
+									onMouseLeave: this.handleToolTipHide
 								})
 							}}
 							key={stackIndex}

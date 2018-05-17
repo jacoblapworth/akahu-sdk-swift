@@ -50,7 +50,6 @@ class XUIBarChart extends Component {
 	};
 
 	componentDidUpdate = () => {
-		console.log('componentDidUpdate');
 		this.updateChartWidth();
 		this.updateYAxisWidth();
 		this.updateXAxisHeight();

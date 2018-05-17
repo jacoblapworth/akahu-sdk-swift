@@ -104,7 +104,7 @@ class Demo extends React.Component {
 	handleBarSubtract() {
 		const { bars } = this.state;
 		const { length }  = bars;
-		if (length) {
+		if (length > 1) {
 			this.setState({ bars: bars.slice(0, length - 1) });
 		}
 	}

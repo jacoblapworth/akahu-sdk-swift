@@ -13,7 +13,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, object } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName, NOOP } from './variations';
+import { variations, storiesWithVariationsKindName } from './variations';
+
+const NOOP = () => {};
 
 const ucFirst = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 

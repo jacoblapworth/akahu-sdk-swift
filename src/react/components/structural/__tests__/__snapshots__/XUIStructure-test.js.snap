@@ -107,6 +107,82 @@ exports[`<XUI Structure/> Overview block and section: renders the base overview 
 </div>
 `;
 
+exports[`<XUI Structure/> PageHeader and Breadcrumb: renders pageHeader containing Breadcrumb from nodes 1`] = `
+<header
+  className="xui-pageheading"
+>
+  <div
+    className="xui-pageheading--content xui-pageheading--content-layout"
+  >
+    <ol
+      className="xui-pageheading--breadcrumbs xui-breadcrumbs"
+    >
+      <li
+        className="xui-breadcrumb"
+      >
+        <span
+          className="xui-breadcrumb--link"
+          onClick={[Function]}
+          role="link"
+        >
+          hello
+        </span>
+      </li>
+      <li
+        className="xui-breadcrumb-arrow"
+      >
+        <svg
+          className="xui-icon xui-breadcrumb--icon xui-u-rotate-270"
+          data-automationid={undefined}
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <path
+            d="M15.3535534,17.0606602L18.7071068 13.7071068 18 13 15.3535534 15.6435534 12.7071068 13 12 13.7071068 Z"
+            role="presentation"
+          />
+        </svg>
+      </li>
+      <li
+        className="xui-breadcrumb"
+      >
+        <span
+          className="xui-breadcrumb--link"
+          onClick={[Function]}
+          role="link"
+        >
+          hello
+        </span>
+      </li>
+      <li
+        className="xui-breadcrumb-arrow"
+      >
+        <svg
+          className="xui-icon xui-breadcrumb--icon xui-u-rotate-270"
+          data-automationid={undefined}
+          focusable="false"
+          viewBox="0 0 30 30"
+        >
+          <path
+            d="M15.3535534,17.0606602L18.7071068 13.7071068 18 13 15.3535534 15.6435534 12.7071068 13 12 13.7071068 Z"
+            role="presentation"
+          />
+        </svg>
+      </li>
+      <li
+        className="xui-breadcrumb"
+      >
+        <span
+          className="xui-breadcrumb--link"
+        >
+          yo
+        </span>
+      </li>
+    </ol>
+  </div>
+</header>
+`;
+
 exports[`<XUI Structure/> PageHeader and Breadcrumb: renders the simplest pageHeader with no extra settings passed 1`] = `
 <header
   className="xui-pageheading"

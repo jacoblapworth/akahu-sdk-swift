@@ -142,6 +142,15 @@ describe('<XUI Structure/>', () => {
 			const wrapper = mount(<XUIPageHeader breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(1);
 		});
+		it('renders pageHeader containing Breadcrumb from nodes', () => {
+			const bcNodeObj = [
+				<span role="link" onClick={() => alert('hello')} key="1">hello</span>,
+				<span role="link" onClick={() => alert('hiya')} key="2">hello</span>,
+				<span key="3">yo</span>];
+			const exampleNodeBreadcrumb = <XUIBreadcrumb breadcrumbs={bcNodeObj} />;
+			const testPageHeader = renderer.create(<XUIPageHeader breadcrumb={exampleNodeBreadcrumb} />);
+			expect(testPageHeader).toMatchSnapshot();
+		});
 		it('renders pageHeader with title ONLY, if both Breadcrumb and title are passed', () => {
 			const wrapper = mount(<XUIPageHeader title="Testing 💩" breadcrumb={exampleBreadcrumb} />);
 			expect(wrapper.find("ol.xui-pageheading--breadcrumbs.xui-breadcrumbs").length).toBe(0);

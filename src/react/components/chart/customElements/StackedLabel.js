@@ -7,7 +7,6 @@ class StackedLabel extends Component {
 	render() {
 		const {
 			barWidth,
-			leftOffset,
 			angle,
 			datum,
 			index: barIndex,
@@ -21,7 +20,7 @@ class StackedLabel extends Component {
 			y
 		} = this.props;
 		const spacerYoffset = 0;
-		const spacerXOffset = (barWidth * barIndex) + (barWidth * 0.5) + leftOffset;
+		const spacerXOffset = (barWidth * barIndex) + (barWidth * 0.5);
 		const circleRadius = 14;
 		const circleYOffset = y + spacerYoffset + circleRadius;
 		const textYOffset = circleYOffset + (circleRadius * 2) + 5;
@@ -31,7 +30,7 @@ class StackedLabel extends Component {
 		return (
 			<g>
 				<circle
-					className="xui-measure"
+					className="xui-chart--measure"
 					cx={spacerXOffset}
 					cy={circleYOffset}
 					r={circleRadius}
@@ -44,7 +43,7 @@ class StackedLabel extends Component {
 					<tspan style={baseFontTheme}>{codeText}</tspan>
 				</text>
 				<text
-					className="xui-measure"
+					className="xui-chart--measure"
 					x={spacerXOffset}
 					y={textYOffset}
 					textAnchor={textAnchor}>

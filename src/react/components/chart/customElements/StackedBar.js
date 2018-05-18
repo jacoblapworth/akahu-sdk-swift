@@ -21,7 +21,6 @@ class StackedBar extends Component {
 			barWidth,
 			activeColor,
 			updateToolTip,
-			xOffset,
 			data,
 			datum: bar,
 			horizontal,
@@ -49,10 +48,10 @@ class StackedBar extends Component {
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
 		const maxHeight = yBottom - yTop;
 		const ratio = maxHeight / maxStack;
-		const maskId = `${id}-bar-${barIndex}`;
+		const maskId = `xui-chart--${id}--bar${barIndex}`;
 		const radius = 5;
 		const divider = 10;
-		const xLocation = xOffset + barWidth * barIndex;
+		const xLocation = barWidth * barIndex;
 		const yLocation = stackIndex => yTop + stacks.slice(stackIndex + 1).reduce((acc, stack) => acc + stack * ratio, 0);
 		const isActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
 

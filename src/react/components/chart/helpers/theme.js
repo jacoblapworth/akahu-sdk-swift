@@ -8,6 +8,12 @@ const baseFontTheme = {
 
 const axisLineTheme = {
 	fill: 'transparent',
+	stroke: 'transparent',
+	strokeWidth: 0
+};
+
+const gridTheme = {
+	fill: 'transparent',
 	stroke: 'gray',
 	strokeWidth: 1
 };
@@ -26,7 +32,7 @@ baseChartTheme.axis.style.axisLabels = {
 
 baseChartTheme.axis.style.grid = {
 	...baseChartTheme.axis.style.grid,
-	...axisLineTheme
+	...gridTheme
 };
 
 baseChartTheme.axis.style.tickLabels = {

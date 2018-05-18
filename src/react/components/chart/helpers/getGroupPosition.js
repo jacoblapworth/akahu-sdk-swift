@@ -3,7 +3,7 @@ import { alwaysPositive } from './index';
 const getGroupPosition = (groupNode) => {
 
 	const nodes = groupNode
-		? [...groupNode.querySelectorAll('.xui-measure')]
+		? [...groupNode.querySelectorAll('.xui-chart--measure')]
 		: [];
 
 	if (!nodes.length) return { width: 0, height: 0 };

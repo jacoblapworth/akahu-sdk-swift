@@ -2,6 +2,27 @@
 
 }
 
+.xui-chart--base {
+	position: relative;
+}
+
+.xui-chart--content {
+	// background: rgba(orange, 0.2);
+	height: 100%;
+	left: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.xui-chart--scroll {
+	// background: rgba(blue, 0.2);
+	height: 100%;
+	position: relative;
+}
+
 // .xui-chart .xui-tooltip {
 .xui-chart .xui-tooltip--tip {
 	cursor: initial;

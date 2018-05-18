@@ -39,13 +39,63 @@ class Demo extends React.Component {
 				onBarClick={this.handleBarClick}
 				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
 				activeColor={"hotpink"}
+				createToolTipContent={bar => <strong>{bar.x}</strong>}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+const {XUIBarChart} = require('./barchart');
+
+class Demo extends React.Component {
+
+	constructor() {
+		super();
+		this.handleBarClick = this.handleBarClick.bind(this);
+		this.state = { bars: [
+			{ x: "Apple", y: [1, 1, 2, 1] },
+			{ x: "Potato", y: [2, 1] },
+			{ x: "Carrot", y: [1, 3] },
+		] };
+	}
+
+	handleBarClick(event, bar) {
+		const { barIndex, stackIndex } = bar;
+		const { bars } = this.state
+		const currentBar = bars[barIndex];
+		const { activeStacks = [] } = currentBar;
+		const activeIndex = activeStacks.indexOf(stackIndex);
+		const isActive = activeIndex >= 0;
+
+		this.setState({ bars: [
+			...bars.slice(0, barIndex),
+			{ ...currentBar, activeStacks: isActive
+				? [...activeStacks.slice(0, activeIndex), ...activeStacks.slice(activeIndex + 1)]
+				: [...activeStacks, stackIndex]
+			},
+			...bars.slice(barIndex + 1),
+		] });
+	}
+
+	render() {
+		return (
+			<XUIBarChart
+				id="barClick"
+				title="Clickable Stacks"
+				description="Click a stack to toggle the active state"
+				isStacked
+				bars={this.state.bars}
+				onBarClick={this.handleBarClick}
+				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
+				activeColor={"hotpink"}
 				createToolTipContent={bar => (
-					<div style={{ whiteSpace: "nowrap" }}>
+					<div>
 						<div><strong>{bar.x}</strong></div>
-						<div>Super long text that is to test wrapping</div>
-						<div>
-							<strong>{bar.stackIndex + 1 && `Stack #${bar.stackIndex + 1}`}</strong>
-						</div>
+						<div><strong>{bar.stackIndex + 1 && `Stack #${bar.stackIndex + 1}`}</strong></div>
 					</div>
 				)}
 			/>
@@ -54,7 +104,6 @@ class Demo extends React.Component {
 }
 
 <Demo />
-
 ```
 
 
@@ -133,12 +182,6 @@ class Demo extends React.Component {
 					onBarClick={this.handleBarClick}
 					barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
 					activeColor={"hotpink"}
-					createToolTipContent={bar => (
-						<div style={{ whiteSpace: "nowrap" }}>
-							<div><strong>{bar.x}</strong></div>
-							<div><strong>{bar.stackIndex + 1 && `Stack #${bar.stackIndex + 1}`}</strong></div>
-						</div>
-					)}
 				/>
 			</div>
 		);
@@ -146,5 +189,4 @@ class Demo extends React.Component {
 }
 
 <Demo />
-
 ```

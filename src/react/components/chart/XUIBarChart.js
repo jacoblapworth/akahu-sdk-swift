@@ -144,9 +144,13 @@ class XUIBarChart extends Component {
 			right: 2
 		};
 		const contentWidth = chartWidth - padding.left - padding.right;
-		const barWidth = 300; // Some dynamic stuff based on min / max..... barsWidth / bars.length;
-		const barsWidth = barWidth * bars.length;
-		const addUpStacks = ({ y }) => y.reduce((acc, i) => acc + i, 0);
+		const barsTotal = bars.length;
+		const rawWidth = contentWidth / barsTotal;
+		const minWidth = 34;
+		const maxWidth = 200;
+		const barWidth = rawWidth < minWidth ? minWidth : Math.min(rawWidth, maxWidth);
+		const barsWidth = barWidth * barsTotal;
+		const addUpStacks = ({ y }) => y.reduce((acc, index) => acc + index, 0);
 		const maxY = bars.map(addUpStacks).sort().reverse()[0];
 
 		return (
@@ -159,12 +163,12 @@ class XUIBarChart extends Component {
 					className="xui-chart--base"
 					ref={node => (this.rootNode = node)}
 					style={{
-						// background: 'pink',
-						// These two styles are required for IE 11 where the SVG will not fill its
-						// parent container correctly unless the height is explicitly stipulated. This
-						// breaks that width:height ratio so an overflow:hidden is needed to tame the
-						// beast.
-						// NOTE: The overflow could cause problems with the tooltip down the line.
+						// These two styles are required for IE 11 where the SVG will not fill
+						// its parent container correctly unless the height is explicitly
+						// stipulated. This breaks that width:height ratio so an overflow:hidden
+						// is needed to tame the beast.
+						// NOTE: The overflow could cause problems with the tooltip down the
+						// line.
 						height: `${chartHeight}px`,
 						overflow: 'hidden'
 					}}>
@@ -212,18 +216,18 @@ class XUIBarChart extends Component {
 					//           .                               .
 					//           .           Graph 2:            .
 					//           .           --------            .
-					//           .- - - - - - - - - - - - - - - -.- - - - - - - - - -.
-					//           ¦                               ¦ ///////////////// ¦
-					//           ¦                               ¦ ///////////////// ¦
-					//           ¦                               ¦ ///////////////// ¦
-					//           ¦            b a r s            ¦ / h i d d e n  // ¦
-					//           ¦                               ¦ / c o n t e n t / ¦
-					//           ¦                               ¦ ///////////////// ¦
-					//           ¦ - - - - - - - - - - - - - - - ¦ ///////////////// ¦
-					//           ¦          x . a x i s          ¦ ///////////////// ¦
-					//           °- - - - - - - - - - - - - - - -°- - - - - - - - - -°
+					//           .- - - - - - - - - - - - - - - -.- - - - - - - - - - - -.
+					//           ¦                               ¦ ///////////////////// ¦
+					//           ¦                               ¦ ///////////////////// ¦
+					//           ¦                               ¦ ///////////////////// ¦
+					//           ¦            b a r s            ¦ //  h i d d e n  //// ¦
+					//           ¦                               ¦ //  c o n t e n t  // ¦
+					//           ¦                               ¦ ///////////////////// ¦
+					//           ¦ - - - - - - - - - - - - - - - ¦ ///////////////////// ¦
+					//           ¦          x . a x i s          ¦ ///////////////////// ¦
+					//           °- - - - - - - - - - - - - - - -°- - - - - - - - - - - -°
 					//
-					//           ----------->  s c r o l l  t o  v i e w  ----------->
+					//           ------------->  s c r o l l  t o  v i e w  ------------->
 					}
 
 					<VictoryChart

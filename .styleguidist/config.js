@@ -105,7 +105,7 @@ const config = {
 		* not need the braces in their import statements so we should only add
 		* these for individual ones.
 		*/
-		if(name.toLowerCase().split('xui').pop() !== dir.toLowerCase()) {
+		if(name.toLowerCase().split('xui').pop() !== dir.toLowerCase().replace('-','')) { // TODO: Remove hyphen removal and rename select-box/ -> selectBox/
 			name = `{ ${name} }`
 		}
 

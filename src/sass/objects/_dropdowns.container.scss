@@ -20,11 +20,15 @@
 }
 
 .#{$ns}-dropdown-layout {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 0px 1px;
 	display: none;
 	flex-direction: column;
 	min-width: $xui-starting-width;
 	outline: none;
 	position: absolute;
+	width: max-content;
 
 	@include xui-breakpoint-medium-and-wide {
 		z-index: 1000;

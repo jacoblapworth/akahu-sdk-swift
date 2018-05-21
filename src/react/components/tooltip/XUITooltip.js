@@ -134,8 +134,8 @@ export default class XUITooltip extends PureComponent {
 			'onKeyDown': triggerOnClick ? this.onTriggerKeyDown : undefined,
 			'onFocus': () => {this.setState({isFocused: true})},
 			'onBlur': () => {this.setState({isFocused: false})},
-			'aria-haspopup': true,
-			'aria-controls': this.tooltipId
+			'aria-controls': this.tooltipId,
+			'aria-describedby': this.tooltipId
 		});
 
 		return (
@@ -146,10 +146,10 @@ export default class XUITooltip extends PureComponent {
 				{clonedTrigger}
 				<PositioningInline
 					parentRef={this.state.wrapper}
-					isVisible={!this.state.isHidden}
+					isVisible={!this.state.isHidden || isAnimating}
 					{...this.props}
 				>
-					<span className={tipClasses} data-automationid={qaHook && `${qaHook}--tooltip`}>
+					<span className={tipClasses} role="tooltip" id={this.tooltipId} data-automationid={qaHook && `${qaHook}--tooltip`}>
 						{children}
 					</span>
 				</PositioningInline>

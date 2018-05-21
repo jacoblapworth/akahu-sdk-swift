@@ -13,25 +13,51 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text, select, object } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
-import { variations, storiesWithVariationsKindName, NOOP } from './variations';
+import { variations, storiesWithVariationsKindName } from './variations';
+
+const NOOP = () => {};
+
+const ucFirst = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 class DetailedToast extends Component {
 	render(){
 		const { props } = this;
-		const actions = props.actionProps && props.actionProps.map((action, i) =>
+
+		const allActions = props.actionProps && props.actionProps.map((action, i) =>
 			<XUIToastAction key={i} href='#'>
 				{action.text}
 			</XUIToastAction>
-			);
+		);
+
+		const childMessage = props.messageText ? (
+			<XUIToastMessage>
+				{props.messageText}
+			</XUIToastMessage>
+		): null;
+
+		let childActions = !props.actionsAsProps ? (
+			<XUIToastActions>
+				{allActions}
+			</XUIToastActions>
+		) : null;
+
+		const clonedProps = {...props};
+		if (props.actionsAsProps) {
+			clonedProps.actions = allActions;
+		}
+
+		if (props.usingXUIActions) {
+			clonedProps.primaryAction = allActions[0];
+			clonedProps.secondaryAction = allActions[0];
+			clonedProps.message = props.message;
+			childActions = null;
+			delete clonedProps.actions;
+		}
 
 		return (
-			<XUIToast {...props}>
-				<XUIToastMessage>
-					{props.messageText}
-				</XUIToastMessage>
-				<XUIToastActions>
-					{actions}
-				</XUIToastActions>
+			<XUIToast {...clonedProps}>
+				{childMessage}
+				{childActions}
 			</XUIToast>
 		)
 	}
@@ -40,22 +66,36 @@ class DetailedToast extends Component {
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => (
-	<DetailedToast
-		role={text('role', 'status')}
-		sentiment={select('sentiment', Object.keys(sentimentMap))}
-		qaHook={text('qaHook', '')}
-		onCloseClick={NOOP}
-		onMouseOver={NOOP}
-		onMouseLeave={NOOP}
-		defaultLayout={boolean('defaultLayout', true)}
-		className={text('className', '')}
-		messageText={text('message', 'Message text')}
-		actionProps={object('actions', [{
-			text: 'Action'
-		}])}
-	/>
-));
+storiesWithKnobs.add('Playground', () => {
+
+	const sentiments = {
+		'': 'No Sentiment'
+	};
+
+	Object.keys(sentimentMap).forEach(key => {
+		sentiments[key] = ucFirst(key);
+	});
+
+	const sentiment = select('sentiment', sentiments);
+	const selectedSentiment =  sentiment !== '' ? sentiment : undefined;
+
+	return (
+		<DetailedToast
+			role={text('role', 'status')}
+			sentiment={selectedSentiment}
+			qaHook={text('qaHook', '')}
+			onCloseClick={NOOP}
+			onMouseOver={NOOP}
+			onMouseLeave={NOOP}
+			defaultLayout={boolean('defaultLayout', true)}
+			className={text('className', '')}
+			messageText={text('message', 'Message text')}
+			actionProps={object('actions', [{
+				text: 'Action'
+			}])}
+		/>
+	)
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
@@ -66,6 +106,12 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 
-		return <DetailedToast {...variationMinusStoryDetails}/>
+		return (
+			<DetailedToast
+				onCloseClick={NOOP}
+				onMouseOver={NOOP}
+				onMouseLeave={NOOP}
+				{...variationMinusStoryDetails}/>
+		)
 	});
 });

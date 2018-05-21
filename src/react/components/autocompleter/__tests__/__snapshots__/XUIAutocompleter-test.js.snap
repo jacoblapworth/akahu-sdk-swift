@@ -27,11 +27,11 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid="baseAC"
         >
@@ -56,8 +56,8 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -90,11 +90,11 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -119,8 +119,8 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             type={undefined}
             value="a"
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -153,11 +153,11 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -182,8 +182,8 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -216,11 +216,11 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -245,8 +245,8 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -279,11 +279,11 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -308,8 +308,8 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -342,11 +342,11 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -371,8 +371,8 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -407,11 +407,11 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       >
         Search
       </div>
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -436,8 +436,8 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -470,11 +470,11 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -499,8 +499,8 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -533,11 +533,11 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -562,8 +562,8 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -596,11 +596,11 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput xui-textinput-is-disabled"
           data-automationid={null}
         >
@@ -625,8 +625,8 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             type={undefined}
             value={undefined}
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>
@@ -659,11 +659,11 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         aria-hidden={true}
         className="xui-autocompleter--textinputplaceholder"
       />
-      <div
+      <label
         className="xui-textinputwrapper"
         onKeyDown={[Function]}
       >
-        <label
+        <div
           className="xui-textinput"
           data-automationid={null}
         >
@@ -688,8 +688,8 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             type={undefined}
             value="123456"
           />
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
   </div>
 </div>

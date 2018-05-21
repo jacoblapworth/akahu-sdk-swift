@@ -3,13 +3,15 @@ const chalk = require('chalk');
 const inquirer = require('inquirer');
 const jest = require('./jest');
 const visual = require('./visual');
+const visualApprove = require('../backstop/approve');
 
 const tests = {
 	visual: () => visual(),
 	coverage: () => jest({ coverage: true, noCache: true }),
 	ci: () => jest({ coverage: true, noCache: true, ci: true }),
 	jest: () => jest(),
-	updateSnaps: () => jest({ u: true })
+	updateSnaps: () => jest({ u: true }),
+	visualApprove: () => visualApprove()
 };
 
 const isRunningFromNPM = process.env.npm_config_argv != null;
@@ -58,7 +60,11 @@ function testTask(...args) {
 							{
 								name: 'Update snapshots',
 								value: 'updateSnaps'
-							}
+							},
+							{
+								name: 'Approve Visual Changes',
+								value: 'visualApprove'
+							},
 						]
 					}
 				])

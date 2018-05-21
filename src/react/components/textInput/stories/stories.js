@@ -21,6 +21,7 @@ const inputProps = {};
 
 const TextInputWrapper = props => {
 	const {
+		labelText,
 		inputProps,
 		isBorderlessTransparent,
 		isBorderlessSolid,
@@ -79,6 +80,7 @@ const TextInputWrapper = props => {
 
 	return(
 		<XUITextInput
+			labelText={labelText}
 			inputProps={inputProps}
 			leftElement={makeSideElement(leftElementType, leftElementAlignment)}
 			rightElement={makeSideElement(rightElementType, rightElementAlignment)}
@@ -101,6 +103,7 @@ const TextInputWrapper = props => {
 }
 
 TextInputWrapper.propTypes = {
+	labelText: PropTypes.labelText,
 	inputProps: PropTypes.object,
 	isBorderlessTransparent: PropTypes.bool,
 	isBorderlessSolid: PropTypes.bool,
@@ -129,6 +132,7 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<TextInputWrapper
+		labelText={('label text', '')}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
 		isMultiline={boolean('is multiline', false)}

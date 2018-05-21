@@ -38,6 +38,16 @@ const cn = require('classnames');
 </div>
 ```
 
+### Labels
+
+Labels can be set on `XUITextInput` by passing a value to the `labelText` prop.
+
+```jsx
+<XUITextInput
+	labelText="Label"
+/>
+```
+
 
 ### Validation
 
@@ -73,16 +83,19 @@ class Example extends PureComponent {
 		return (
 			<div>
 				<XUITextInput
+					labelText="An invalid input"
 					validationMessage="Well it's not right"
 					isInvalid={true}
 					isFieldLayout
 				/>
 				<XUITextInput
+					labelText="Input with a hint"
 					placeholder="I always have a hint"
 					hintMessage="Just a good old hint"
 					isFieldLayout
 				/>
 				<XUITextInput
+					labelText="Input that may have a hint"
 					onFocus={this.onFocus}
 					onBlur={this.onBlur}
 					placeholder="I have a hint when I'm focused"

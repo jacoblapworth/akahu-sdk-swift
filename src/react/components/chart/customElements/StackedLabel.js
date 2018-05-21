@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
+import cn from 'classnames';
+import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
 // import { alwaysPositive } from '../helpers';
 import { baseFontTheme } from '../helpers/theme';
 
 const createStackedAvatar = ({ barWidth, barIndex, rawText, rawYOffset }) => {
 
-	const avatarCircleRadius = 14;
+	const avatarCircleRadius = 12;
 	const avatarCircleDiameter = avatarCircleRadius * 2;
 	const avatarCircleXOffset = (barWidth * barIndex) + (barWidth * 0.5);
 	const avatarCircleYOffset = rawYOffset + avatarCircleRadius;
 	const avatarTextXOffset = avatarCircleXOffset;
-	const avatarTextYOffset = avatarCircleYOffset + 5;
-	const avatarText = rawText.slice(0, 1).toUpperCase();
+	const avatarTextYOffset = avatarCircleYOffset + 4;
+	const avatarText = abbreviateAvatar(rawText, 2); // rawText.slice(0, 1).toUpperCase();
+	const avatarColor = getAvatarColorClass(rawText);
+
+	// console.log({
+	// 	rawText,
+	// 	avatarText,
+	// 	avatarClassName,
+	// });
 
 	return {
 		avatarCircleRadius,
@@ -21,6 +30,7 @@ const createStackedAvatar = ({ barWidth, barIndex, rawText, rawYOffset }) => {
 		avatarTextXOffset,
 		avatarTextYOffset,
 		avatarText,
+		avatarColor,
 	};
 
 };
@@ -64,11 +74,6 @@ const responsiveOptions = {
 
 		const avatar = createStackedAvatar(params);
 		const label = createStackedLabel(params, avatar);
-		// const { rawText } = params;
-		// // const { avatarCircleXOffset, avatarCircleYOffset, avatarCircleRadius } = avatar;
-		// // const labelXOffset = avatarCircleXOffset;
-		// // const labelYOffset = avatarCircleYOffset + (avatarCircleRadius * 2) + 5;
-		// // const labelText = rawText;
 
 		return {
 			...avatar,
@@ -101,14 +106,6 @@ const responsiveOptions = {
 		// .- - - - - - - - -.
 		// |  () Label Text  | <-- Inline / Large font
 		// °- - - - - - - - -°
-
-		// const avatarCircleRadius = 14;
-		// const avatarCircleDiameter = avatarCircleRadius * 2;
-		// const avatarCircleXOffset = (barWidth * barIndex) + avatarCircleDiameter;
-		// const avatarCircleYOffset = rawYOffset + avatarCircleRadius;
-		// const avatarTextXOffset = avatarCircleXOffset;
-		// const avatarTextYOffset = avatarCircleYOffset + 5;
-		// const avatarText = rawText.slice(0, 1).toUpperCase();
 
 		const { barWidth, barIndex } = params;
 		const avatar = createStackedAvatar(params);
@@ -169,29 +166,29 @@ class StackedLabel extends Component {
 			avatarTextXOffset,
 			avatarTextYOffset,
 			avatarText,
+			avatarColor,
 			labelXOffset,
 			labelYOffset,
 			labelText,
 			labelStyle, // = baseFontTheme,
 			labelAnchor, // = textAnchor
 		} = responsiveOption(responsiveParams);
-
-		// console.log({ responsiveKeys, responsiveOption });
+		const avatarClassName = cn('xui-chart--measure', avatarColor);
+		const avatarStyle = { ...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold' };
 
 		return (
 			<g>
 				<circle
-					className="xui-chart--measure"
+					className={avatarClassName}
 					cx={avatarCircleXOffset}
 					cy={avatarCircleYOffset}
 					r={avatarCircleRadius}
-					fill="lightgray"
 				/>
 				<text
 					x={avatarTextXOffset}
 					y={avatarTextYOffset}
 					textAnchor={textAnchor}>
-					<tspan style={baseFontTheme}>{avatarText}</tspan>
+					<tspan style={avatarStyle}>{avatarText}</tspan>
 				</text>
 
 				{ labelText && (

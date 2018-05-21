@@ -22,7 +22,7 @@ class ContentPagination extends Component {
 						className={`xui-u-flex-inherit`}
 					/>
 				</XUIButton>
-				Hello {currentPage}
+				Page {currentPage}
 				<XUIButton
 					variant="icon"
 					className={`xui-button-icon-large`}

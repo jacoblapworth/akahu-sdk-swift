@@ -242,7 +242,7 @@ class Demo extends React.Component {
 			<XUIBarChart
 				id="barPagination"
 				title="Pagination scroll"
-				description="Xxxxx Xxxxx Xxxxx"
+				description={`Click the pagination buttons to reveal "next" and "previous" panels`}
 				isStacked
 				hasPagination
 				bars={data}

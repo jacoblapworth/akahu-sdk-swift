@@ -49,7 +49,7 @@ class StackedBar extends Component {
 		const maxHeight = yBottom - yTop;
 		const ratio = maxHeight / maxStack;
 		const maskId = `xui-chart--${id}--bar${barIndex}`;
-		const radius = 5;
+		const radius = 3;
 		const divider = 10;
 		const xLocation = barWidth * barIndex;
 		const yLocation = stackIndex => yTop + stacks.slice(stackIndex + 1).reduce((acc, stack) => acc + stack * ratio, 0);

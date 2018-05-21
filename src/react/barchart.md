@@ -182,8 +182,73 @@ class Demo extends React.Component {
 					onBarClick={this.handleBarClick}
 					barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
 					activeColor={"hotpink"}
+					maxVisibleItems={0}
 				/>
 			</div>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+const {XUIBarChart} = require('./barchart');
+
+const data = [
+		{ x: "Apple", y: [1, 1, 2, 1] },
+		{ x: "Potato", y: [2, 1] },
+		{ x: "Carrot", y: [1, 3] },
+		{ x: "Banana", y: [4] },
+		{ x: "Berry", y: [2, 2] },
+		{ x: "Orange", y: [3, 1] },
+		{ x: "Beetroot", y: [2, 3] },
+		{ x: "Pumpkin", y: [2, 1, 1, 1] },
+		{ x: "Lettuce", y: [1, 4] },
+		{ x: "Apple (1)", y: [1, 1, 2, 1] },
+		{ x: "Potato (1)", y: [2, 1] },
+		{ x: "Carrot (1)", y: [1, 3] },
+		{ x: "Banana (1)", y: [4] },
+		{ x: "Berry (1)", y: [2, 2] },
+		{ x: "Orange (1)", y: [3, 1] },
+		{ x: "Beetroot (1)", y: [2, 3] },
+		{ x: "Pumpkin (1)", y: [2, 1, 1, 1] },
+		{ x: "Lettuce (1)", y: [1, 4] },
+		{ x: "Apple (2)", y: [1, 1, 2, 1] },
+		{ x: "Potato (2)", y: [2, 1] },
+		{ x: "Carrot (2)", y: [1, 3] },
+		{ x: "Banana (2)", y: [4] },
+		{ x: "Berry (2)", y: [2, 2] },
+		{ x: "Orange (2)", y: [3, 1] },
+		{ x: "Beetroot (2)", y: [2, 3] },
+		{ x: "Pumpkin (2)", y: [2, 1, 1, 1] },
+		{ x: "Lettuce (2)", y: [1, 4] },
+		{ x: "Apple (3)", y: [1, 1, 2, 1] },
+		{ x: "Potato (3)", y: [2, 1] },
+		{ x: "Carrot (3)", y: [1, 3] },
+		{ x: "Banana (3)", y: [4] },
+		{ x: "Berry (3)", y: [2, 2] },
+		{ x: "Orange (3)", y: [3, 1] },
+		{ x: "Beetroot (3)", y: [2, 3] },
+		{ x: "Pumpkin (3)", y: [2, 1, 1, 1] },
+		{ x: "Lettuce (3)", y: [1, 4] },
+	];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="barPagination"
+				title="Pagination scroll"
+				description="Xxxxx Xxxxx Xxxxx"
+				isStacked
+				hasPagination
+				bars={data}
+				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
+				activeColor={"hotpink"}
+			/>
 		);
 	}
 }

@@ -17,10 +17,18 @@
 	top: 0;
 }
 
+.xui-chart-has-pagination .xui-chart--content {
+	overflow-x: hidden;
+}
+
 .xui-chart--scroll {
 	// background: rgba(blue, 0.2);
 	height: 100%;
 	position: relative;
+}
+
+.xui-chart-has-pagination .xui-chart--scroll {
+	transition: $xui-motion-speed-medium;
 }
 
 // .xui-chart .xui-tooltip {

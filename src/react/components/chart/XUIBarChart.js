@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
+import cn from 'classnames';
 import {
 	VictoryBar,
 	VictoryChart,
@@ -15,6 +16,7 @@ import StackedBar from './customElements/StackedBar';
 import StackedLabel from './customElements/StackedLabel';
 import GroupWrapper from './customElements/GroupWrapper';
 import GraphTooltip from './customElements/GraphTooltip';
+import ContentPagination from './customElements/ContentPagination';
 import getGroupPosition, { testIsCloseEnough } from './helpers';
 import { barChartTheme } from './helpers/theme';
 
@@ -24,6 +26,7 @@ class XUIBarChart extends Component {
 		super();
 		this.updateChartWidth = this.updateChartWidth.bind(this);
 		this.updateToolTip = this.updateToolTip.bind(this);
+		this.updatePage = this.updatePage.bind(this);
 	}
 
 	rootNode = null;
@@ -33,7 +36,8 @@ class XUIBarChart extends Component {
 		yAxisWidth: 0,
 		xAxisHeight: 0,
 		toolTipPosition: [0, 0],
-		toolTipData: { /* bar: {}, stack: {} */ }
+		toolTipData: { /* bar: {}, stack: {} */ },
+		currentPage: 1,
 	};
 
 	componentDidMount = () => {
@@ -46,7 +50,9 @@ class XUIBarChart extends Component {
 
 	componentWillUnmount = () => {
 		window.removeEventListener('resize', this.throttledAction);
-		this.throttledAction.cancel();
+		if (this.throttledAction) {
+			this.throttledAction.cancel();
+		}
 	};
 
 	componentDidUpdate = () => {
@@ -58,9 +64,9 @@ class XUIBarChart extends Component {
 	updateToolTip = (nextPosition = [], toolTipData = {}) => {
 		const [nextX = 0, nextY = 0] = nextPosition;
 		const [prevX, prevY] = this.state.toolTipPosition;
-		const isNewPosition = nextX !== prevX && nextY !== prevY;
+		const shouldUpdate = nextX !== prevX && nextY !== prevY;
 
-		if (isNewPosition) {
+		if (shouldUpdate) {
 			this.setState({
 				...this.state,
 				toolTipPosition: [nextX, nextY],
@@ -72,9 +78,9 @@ class XUIBarChart extends Component {
 	updateChartWidth = () => {
 		const { rootNode, state } = this;
 		const chartWidth = (rootNode && rootNode.offsetWidth) || 100;
-		const isCloseEnough = testIsCloseEnough(chartWidth, state.chartWidth);
+		const shouldUpdate = !testIsCloseEnough(chartWidth, state.chartWidth);
 
-		if (!isCloseEnough) {
+		if (shouldUpdate) {
 			this.setState({
 				...state,
 				chartWidth
@@ -86,9 +92,9 @@ class XUIBarChart extends Component {
 		const { rootNode, state } = this;
 		const xAxisNode = rootNode && rootNode.querySelector('.xui-chart--xaxis');
 		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : 0;
-		const isCloseEnough = testIsCloseEnough(xAxisHeight, state.xAxisHeight);
+		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
-		if (!isCloseEnough) {
+		if (shouldUpdate) {
 			this.setState({
 				...state,
 				xAxisHeight
@@ -100,12 +106,26 @@ class XUIBarChart extends Component {
 		const { rootNode, state } = this;
 		const yAxisNode = rootNode && rootNode.querySelector('.xui-chart--yaxis');
 		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : 0;
-		const isCloseEnough = testIsCloseEnough(yAxisWidth, state.yAxisWidth);
+		const shouldUpdate = !testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
-		if (!isCloseEnough) {
+		if (shouldUpdate) {
 			this.setState({
 				...state,
 				yAxisWidth
+			});
+		}
+	};
+
+	updatePage = currentPage => {
+		const minPage = 1;
+		const { state, props } = this;
+		const maxPage = props.bars.length;
+		const sanitisedPage = currentPage < minPage ? minPage : Math.min(currentPage, maxPage);
+		const shouldUpdate = sanitisedPage !== state.currentPage;
+		if (shouldUpdate) {
+			this.setState({
+				...state,
+				currentPage: sanitisedPage
 			});
 		}
 	};
@@ -117,17 +137,20 @@ class XUIBarChart extends Component {
 			description,
 			bars,
 			isStacked,
+			hasPagination,
 			barColors,
 			onBarClick,
 			activeColor,
-			createToolTipContent
+			createToolTipContent,
+			maxVisibleItems
 		} = this.props;
 		const {
 			chartWidth,
 			yAxisWidth,
 			xAxisHeight,
 			toolTipPosition,
-			toolTipData
+			toolTipData,
+			currentPage
 		} = this.state;
 
 		const chartHeight = 300;
@@ -144,20 +167,73 @@ class XUIBarChart extends Component {
 			right: 2
 		};
 		const contentWidth = chartWidth - padding.left - padding.right;
-		const barsTotal = bars.length;
-		const rawWidth = contentWidth / barsTotal;
-		const minWidth = 34;
-		const maxWidth = 200;
-		const barWidth = rawWidth < minWidth ? minWidth : Math.min(rawWidth, maxWidth);
-		const barsWidth = barWidth * barsTotal;
+		const { barsWidth, barWidth } = (() => {
+
+			const barsTotal = bars.length;
+
+			// Simple division
+			// const rawWidth = contentWidth / barsTotal;
+			const minWidth = 34;
+			const maxWidth = 200;
+			const limitWidthWithThreshold = baseWidth => baseWidth < minWidth ? minWidth : Math.min(baseWidth, maxWidth)
+
+			// Thresholds
+			// const aproxWidth = limitWidthWithThreshold(contentWidth / barsTotal);
+
+			// take into cosideration the "max bars" per panel!!!
+			const isConstrainedWidth = maxVisibleItems && barsTotal > maxVisibleItems;
+			const constrainedWidth = isConstrainedWidth
+				? limitWidthWithThreshold(contentWidth / maxVisibleItems)
+				: limitWidthWithThreshold(contentWidth / barsTotal)
+
+			// Fit to content
+			//    . - - - - - - .
+			//    |    _     ///|
+			//    |  _|o|  _ ///| <--- Wasted space that needs to be
+			//    | |+|o|_|o|///|      divided among visible bars.
+			//    | |+|o|+|o|///|
+			//    ° - - - - - - °
+			const barsPerPanel = Math.floor(contentWidth / constrainedWidth);
+			const extraContentSpace = contentWidth - (barsPerPanel * constrainedWidth);
+			const extraBarSpace = extraContentSpace / barsPerPanel
+			const stretchedWidth = constrainedWidth + extraBarSpace;
+			const barWidth = stretchedWidth > maxWidth ? maxWidth : stretchedWidth;
+			// const barWidth = barsTotal > barsPerPanel ? stretchedWidth : maxWidth;
+			const barsWidth = barWidth * barsTotal;
+
+			// console.log({
+			// 	contentWidth,
+			// 	barsTotal,
+			// 	isConstrainedWidth,
+			// 	constrainedWidth,
+			// 	barsPerPanel,
+			// 	extraContentSpace,
+			// 	extraBarSpace,
+			// 	barWidth,
+			// 	barsWidth,
+			// });
+
+			return { barsWidth, barWidth };
+
+		})();
 		const addUpStacks = ({ y }) => y.reduce((acc, index) => acc + index, 0);
 		const maxY = bars.map(addUpStacks).sort().reverse()[0];
+		const chartClassName = cn('xui-chart', {
+			[`xui-chart-has-pagination`]: hasPagination
+		});
 
 		return (
-			<div className="xui-chart">
+			<div className={chartClassName}>
 
 				{title && <h2>{title}</h2>}
 				{title && description && <p>{description}</p>}
+
+				{ hasPagination && (
+					<ContentPagination
+						currentPage={currentPage}
+						updatePage={this.updatePage}
+					/>
+				) }
 
 				<div
 					className="xui-chart--base"
@@ -172,7 +248,6 @@ class XUIBarChart extends Component {
 						height: `${chartHeight}px`,
 						overflow: 'hidden'
 					}}>
-
 					{
 					// We have a situation where we need to create a "responsive" scrolling
 					// content area in a static SVG environment that does not allow for such
@@ -229,7 +304,6 @@ class XUIBarChart extends Component {
 					//
 					//           ------------->  s c r o l l  t o  v i e w  ------------->
 					}
-
 					<VictoryChart
 						// Y-axis can restrict maximim axis value like Sam wanted.
 						// domain={{ x: [0, 5], y: [0, 5] }}
@@ -287,7 +361,13 @@ class XUIBarChart extends Component {
 							width: `${contentWidth}px`
 						}}>
 
-						<div className="xui-chart--scroll">
+						<div
+							className="xui-chart--scroll"
+							style={{
+								...hasPagination && {
+									transform: `translateX(-${(currentPage - 1) * 100}%)`
+								}
+							}}>
 
 							<VictoryChart
 								// Y-axis can restrict maximim axis value like Sam wanted.

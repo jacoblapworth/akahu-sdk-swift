@@ -12,6 +12,7 @@ import {baseClass} from './constants';
 import {ns} from "../helpers/xuiClassNamespace";
 
 export const modalSizes = {
+	default: `${baseClass}-width-default`,
 	small: `${baseClass}-width-small`,
 	medium: `${baseClass}-width-medium`,
 	large: `${baseClass}-width-large`,
@@ -288,7 +289,7 @@ XUIModal.propTypes = {
 	onClose: PropTypes.func,
 
 	/** The size (aka width) of this modal */
-	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
+	size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'xlarge', 'fullscreen']),
 
 	/** Whether the modal is visible */
 	isOpen: PropTypes.bool,

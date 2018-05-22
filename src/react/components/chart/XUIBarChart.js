@@ -181,7 +181,7 @@ class XUIBarChart extends Component {
 			// const aproxWidth = limitWidthWithThreshold(contentWidth / barsTotal);
 
 			// take into cosideration the "max bars" per panel!!!
-			const isConstrainedWidth = maxVisibleItems && barsTotal > maxVisibleItems;
+			const isConstrainedWidth = maxVisibleItems; // maxVisibleItems && barsTotal > maxVisibleItems;
 			const constrainedWidth = isConstrainedWidth
 				? limitWidthWithThreshold(contentWidth / maxVisibleItems)
 				: limitWidthWithThreshold(contentWidth / barsTotal)
@@ -193,13 +193,74 @@ class XUIBarChart extends Component {
 			//    | |+|o|_|o|///|      divided among visible bars.
 			//    | |+|o|+|o|///|
 			//    ° - - - - - - °
-			const barsPerPanel = Math.floor(contentWidth / constrainedWidth);
-			const extraContentSpace = contentWidth - (barsPerPanel * constrainedWidth);
-			const extraBarSpace = extraContentSpace / barsPerPanel
-			const stretchedWidth = constrainedWidth + extraBarSpace;
-			const barWidth = stretchedWidth > maxWidth ? maxWidth : stretchedWidth;
-			// const barWidth = barsTotal > barsPerPanel ? stretchedWidth : maxWidth;
+			// const barsPerPanel = Math.floor(contentWidth / constrainedWidth);
+
+			const wholeBars = Math.floor(contentWidth / constrainedWidth);
+			const hasMultiplePanels = barsTotal > wholeBars; // (wholeBars * constrainedWidth) > contentWidth;
+			const barsPerPanel = hasPagination || !hasMultiplePanels
+				? wholeBars
+				: wholeBars + 0.5;
+
+			// const barsPerPanel = (() => {
+
+			// 	const wholeBars = Math.floor(contentWidth / constrainedWidth);
+			// 	const noScroll = wholeBars >= barsTotal;
+			// 	return hasPagination || noScroll
+			// 		? wholeBars
+			// 		: wholeBars + 0.5;
+
+			// })();
+
+			// isConstrainedWidth eg has max bars per panel?
+
+			// has TOO LITTLE content to fill the panel width AND is NOT "isConstrainedWidth"
+
+			// has TOO MUCH content and needs to be stretched
+
+			const barWidth = (() => {
+
+				// Xxxxx Xxxxx
+
+				// const isOverflow =
+
+				switch (true) {
+
+					// case isConstrainedWidth: {
+
+					// 	return 100;
+
+					// }
+
+					case hasMultiplePanels: {
+
+						return contentWidth / barsPerPanel;
+
+					}
+
+					default: {
+
+						return constrainedWidth; // / barsPerPanel;
+
+					}
+
+				}
+
+			})();
+
+			// const extraContentSpace = contentWidth - (barsPerPanel * constrainedWidth);
+			// const extraBarSpace = extraContentSpace / barsPerPanel
+			// const stretchedWidth = constrainedWidth + extraBarSpace;
+
+
+
+			// const barWidth = stretchedWidth;
+			// // const barWidth = stretchedWidth > maxWidth ? maxWidth : stretchedWidth;
+			// // const barWidth = barsTotal > barsPerPanel ? stretchedWidth : maxWidth;
+			// // const barsWidth = barWidth * barsTotal;
+			// const barsWidth = stretchedWidth * barsTotal;
 			const barsWidth = barWidth * barsTotal;
+
+
 
 			// console.log({
 			// 	contentWidth,
@@ -212,6 +273,22 @@ class XUIBarChart extends Component {
 			// 	barWidth,
 			// 	barsWidth,
 			// });
+
+			console.log({
+				wholeBars,
+				hasMultiplePanels,
+				isConstrainedWidth,
+				maxVisibleItems,
+				constrainedWidth,
+				contentWidth,
+				barsTotal,
+				barsPerPanel,
+				// extraContentSpace,
+				// extraBarSpace,
+				// stretchedWidth,
+				barWidth,
+				barsWidth,
+			});
 
 			return { barsWidth, barWidth };
 

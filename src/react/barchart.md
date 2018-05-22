@@ -173,6 +173,7 @@ class Demo extends React.Component {
 						<XUIIcon path={addIcon} />
 					</XUIButton>
 				</XUIButtonGroup>
+				<div>{this.state.bars.length}</div>
 				<XUIBarChart
 					id="barAdd"
 					title="Change Bar Quantity"

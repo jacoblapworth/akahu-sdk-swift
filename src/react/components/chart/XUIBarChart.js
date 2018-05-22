@@ -167,7 +167,7 @@ class XUIBarChart extends Component {
 			right: 2
 		};
 		const contentWidth = chartWidth - padding.left - padding.right;
-		const { barsWidth, barWidth } = (() => {
+		const { barsWidth, barWidth, panelsTotal } = (() => {
 
 			const barsTotal = bars.length;
 
@@ -181,9 +181,9 @@ class XUIBarChart extends Component {
 			// const aproxWidth = limitWidthWithThreshold(contentWidth / barsTotal);
 
 			// take into cosideration the "max bars" per panel!!!
-			const isConstrainedWidth = maxVisibleItems; // maxVisibleItems && barsTotal > maxVisibleItems;
+			const isConstrainedWidth = Boolean(maxVisibleItems); // maxVisibleItems && barsTotal > maxVisibleItems;
 			const constrainedWidth = isConstrainedWidth
-				? limitWidthWithThreshold(contentWidth / maxVisibleItems)
+				? contentWidth / maxVisibleItems // limitWidthWithThreshold(contentWidth / maxVisibleItems)
 				: limitWidthWithThreshold(contentWidth / barsTotal)
 
 			// Fit to content
@@ -198,8 +198,9 @@ class XUIBarChart extends Component {
 			const wholeBars = Math.floor(contentWidth / constrainedWidth);
 			const hasMultiplePanels = barsTotal > wholeBars; // (wholeBars * constrainedWidth) > contentWidth;
 			const barsPerPanel = hasPagination || !hasMultiplePanels
-				? wholeBars
+				? Math.min(wholeBars, barsTotal)
 				: wholeBars + 0.5;
+			const panelsTotal = Math.ceil(barsTotal / barsPerPanel);
 
 			// const barsPerPanel = (() => {
 
@@ -225,20 +226,20 @@ class XUIBarChart extends Component {
 
 				switch (true) {
 
-					// case isConstrainedWidth: {
-
-					// 	return 100;
-
-					// }
-
 					case hasMultiplePanels: {
-
+						console.log('bar width = hasMultiplePanels');
 						return contentWidth / barsPerPanel;
 
 					}
 
-					default: {
+					case isConstrainedWidth: {
+						console.log('bar width = isConstrainedWidth');
+						return Math.max(contentWidth / barsPerPanel, minWidth);
 
+					}
+
+					default: {
+						console.log('bar width = default');
 						return constrainedWidth; // / barsPerPanel;
 
 					}
@@ -290,7 +291,7 @@ class XUIBarChart extends Component {
 				barsWidth,
 			});
 
-			return { barsWidth, barWidth };
+			return { barsWidth, barWidth, panelsTotal };
 
 		})();
 		const addUpStacks = ({ y }) => y.reduce((acc, index) => acc + index, 0);
@@ -305,7 +306,7 @@ class XUIBarChart extends Component {
 				{title && <h2>{title}</h2>}
 				{title && description && <p>{description}</p>}
 
-				{ hasPagination && (
+				{ hasPagination && panelsTotal > 1 && (
 					<ContentPagination
 						currentPage={currentPage}
 						updatePage={this.updatePage}

@@ -17,6 +17,9 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.bindOnChange(props.searchThrottleInterval);
+		this.state = {
+			value: props.searchValue,
+		};
 	}
 
 	componentDidUpdate(prevProps) {
@@ -112,6 +115,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	render() {
 		const completer = this;
 		const props = completer.props;
+		const {value} = completer.state;
 
 		let listQaHook = null;
 		let containerQaHook = null;
@@ -128,7 +132,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					<XUITextInput
 						className={props.inputClassName}
 						containerClassName={props.inputContainerClassName}
-						value={props.searchValue}
+						value={value}
 						leftElement={
 							<XUITextInputSideElement>
 								<XUIIcon path={searchPath} />

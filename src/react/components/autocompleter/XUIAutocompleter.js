@@ -246,7 +246,7 @@ export default class XUIAutocompleter extends PureComponent {
 					inputClassName={inputClassNames}
 					inputRef={i => this.inputNode = i}
 					placeholder={props.placeholder}
-					value={props.searchValue}
+					value={state.value}
 					onChange={this.throttledOnChange}
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}

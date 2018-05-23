@@ -77,14 +77,11 @@ class XUIBarChart extends Component {
 
 	updateChartWidth = () => {
 		const { rootNode, state } = this;
-		const chartWidth = (rootNode && rootNode.offsetWidth) || 100;
+		const chartWidth = rootNode ? rootNode.offsetWidth : 100;
 		const shouldUpdate = !testIsCloseEnough(chartWidth, state.chartWidth);
 
 		if (shouldUpdate) {
-			this.setState({
-				...state,
-				chartWidth
-			});
+			this.setState({ ...state, chartWidth });
 		}
 	};
 
@@ -95,10 +92,7 @@ class XUIBarChart extends Component {
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
 		if (shouldUpdate) {
-			this.setState({
-				...state,
-				xAxisHeight
-			});
+			this.setState({ ...state, xAxisHeight });
 		}
 	};
 
@@ -109,10 +103,7 @@ class XUIBarChart extends Component {
 		const shouldUpdate = !testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
 		if (shouldUpdate) {
-			this.setState({
-				...state,
-				yAxisWidth
-			});
+			this.setState({ ...state, yAxisWidth });
 		}
 	};
 

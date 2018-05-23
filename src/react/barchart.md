@@ -2,6 +2,7 @@
 
 #### Example
 ```
+require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 
 class Demo extends React.Component {
@@ -49,6 +50,7 @@ class Demo extends React.Component {
 ```
 
 ```
+require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 
 class Demo extends React.Component {
@@ -108,6 +110,7 @@ class Demo extends React.Component {
 
 
 ```
+require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const XUIButton = require('./components/button/XUIButton').default;
 const XUIButtonGroup = require('./components/button/XUIButtonGroup').default;
@@ -195,6 +198,7 @@ class Demo extends React.Component {
 
 
 ```
+require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 
 const data = [

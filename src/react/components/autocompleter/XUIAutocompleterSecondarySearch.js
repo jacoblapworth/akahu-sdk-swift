@@ -32,6 +32,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				value: searchValue
 			});
 		}
+		this.highlightFirstItem();
 	}
 
 	/**
@@ -82,7 +83,20 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	highlightItem = item => {
-		this.dropdown.highlightItem(item);
+		if(this.dropdown) {
+			this.dropdown.highlightItem(item);
+		}
+	}
+
+	/**
+	 * Manually highlights the first item in the list for selection.
+	 *
+	 * @public
+	 */
+	highlightFirstItem = () => {
+		if(this.dropdown) {
+			this.dropdown.highlightFirstItem();
+		}
 	}
 
 	/**
@@ -160,6 +174,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				header={searchItem}
 				footer={props.footer}
 				restrictFocus={props.restrictFocus}
+				shouldManageInitialHighlight={false}
+				forceStatefulPicklist={true}
 			>
 			{props.children}
 		</DropDown>);

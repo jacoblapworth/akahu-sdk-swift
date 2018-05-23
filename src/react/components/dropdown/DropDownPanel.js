@@ -151,6 +151,12 @@ class DropDownPanel extends PureComponent {
 		}
 	}
 
+	highlightFirstItem = () => {
+		if (this.list != null) {
+			this.list.highlightFirst();
+		}
+	}
+
 	/**
 	 * Find the child DOM node with given ID and adjust the list box's scroll position to
 	 * ensure that it's in view.
@@ -206,6 +212,7 @@ class DropDownPanel extends PureComponent {
 			qaHook,
 			style,
 			bodyClassName,
+			shouldManageInitialHighlight
 		} = this.props;
 
 		let maxHeight = style && style.maxHeight;
@@ -217,7 +224,6 @@ class DropDownPanel extends PureComponent {
 		}
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
-
 		const scrollableContainerClasses = `${ns}-u-flex ${ns}-u-flex-vertical ${baseClass}--scrollable-container ${ns}-u-flex-grow`;
 
 		return (
@@ -251,6 +257,7 @@ class DropDownPanel extends PureComponent {
 							qaHook={qaHook && `${qaHook}--scrollable-container`}
 							// Need the role here, because ARIA state needs to be managed at the same level.
 							secondaryProps={{role: "listbox"}}
+							shouldManageInitialHighlight={shouldManageInitialHighlight}
 						>
 							<div
 								className={`${baseClass}--scrollable-content`}
@@ -319,13 +326,17 @@ DropDownPanel.propTypes = {
 	forceStatefulPicklist: PropTypes.bool,
 
 	/** Class name to apply to the body element */
-	bodyClassName: PropTypes.string
+	bodyClassName: PropTypes.string,
+
+	/** Whether the StatefulPicklist manages highlighting of list elements */
+	shouldManageInitialHighlight: PropTypes.bool
 };
 
 DropDownPanel.defaultProps = {
 	forceStatefulPicklist: false,
 	ignoreKeyboardEvents: [],
 	isHidden: false,
+	shouldManageInitialHighlight: true
 };
 
 export { DropDownPanel as default, maxWidthDropdownSizes as dropdownSizes };

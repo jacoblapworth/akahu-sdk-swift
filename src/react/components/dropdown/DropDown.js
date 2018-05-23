@@ -134,6 +134,12 @@ export default class DropDown extends PureComponent {
 		}
 	};
 
+	highlightFirstItem = () => {
+		if (this.panel != null) {
+			this.panel.highlightFirstItem();
+		}
+	}
+
 	unlockScroll = () => {
 		unlockScroll();
 	};
@@ -162,6 +168,7 @@ export default class DropDown extends PureComponent {
 			forceDesktop,
 			forceStatefulPicklist,
 			bodyClassName,
+			shouldManageInitialHighlight
 		} = this.props;
 
 		const dropdownClasses = cn(
@@ -194,6 +201,7 @@ export default class DropDown extends PureComponent {
 					onSelect={onSelect}
 					qaHook={qaHook}
 					ref={c => this.panel = c}
+					shouldManageInitialHighlight={shouldManageInitialHighlight}
 					style={{
 						maxHeight: style && style.maxHeight
 					}}
@@ -270,6 +278,9 @@ DropDown.propTypes = {
 
 	/** Class to apply to the body element of the dropdown */
 	bodyClassName: PropTypes.string,
+
+	/** Whether the StatefulPicklist manages highlighting of list elements */
+	shouldManageInitialHighlight: PropTypes.bool
 };
 
 DropDown.defaultProps = {
@@ -280,4 +291,5 @@ DropDown.defaultProps = {
 	ignoreKeyboardEvents: [],
 	isHidden: false,
 	restrictFocus: true,
+	shouldManageInitialHighlight: true,
 };

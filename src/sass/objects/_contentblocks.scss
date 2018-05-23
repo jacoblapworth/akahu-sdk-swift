@@ -499,8 +499,8 @@
 	}
 
 	.#{$ns}-contentblockitem--leftcontent {
-		margin-left: $xui-s-standard;
-		margin-right: $xui-s-standard;
+		min-width: 69px; // Height of a contentBlockItem with secondary. TODO: Update with flexi-controls.
+		@include xui-flex-children;
 	}
 
 	.#{$ns}-contentblockitem--links {

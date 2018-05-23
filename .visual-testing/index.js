@@ -73,10 +73,6 @@ const componentsToTest = [
 		selectors: '.capture'
 	},
 	{
-		testsPrefix: 'XUI Input',
-		variationsPath: `${variationsPath}/input/stories/variations.js`
-	},
-	{
 		testsPrefix: 'XUI Loader',
 		variationsPath: `${variationsPath}/loader/stories/variations.js`,
 		misMatchThreshold: 5
@@ -138,11 +134,6 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI TextInput',
 		variationsPath: `${variationsPath}/textinput/stories/variations.js`,
-		delay: 1500
-	},
-	{
-		testsPrefix: 'XUI Textarea',
-		variationsPath: `${variationsPath}/textarea/stories/variations.js`,
 		delay: 1500
 	},
 	{

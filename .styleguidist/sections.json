@@ -118,23 +118,6 @@
 						"sections": [
 							{
 								"components": "../src/react/components/textInput/XUITextInputSideElement.js"
-							},
-							{
-								"name": "Input [Deprecated]",
-								"content": "../src/react/input.md",
-								"components": "../src/react/components/input/XUIInput.js"
-							},
-							{
-								"name": "TextArea [Deprecated]",
-								"content": "../src/react/textarea.md",
-								"sections": [
-									{
-										"components": "../src/react/components/textInput/XUITextInputSideElement.js"
-									},
-									{
-										"components": "../src/react/components/textarea/XUITextArea.js"
-									}
-								]
 							}
 						]
 					},

@@ -6,7 +6,7 @@ import XUIModal, { XUIModalBody } from '../../modal';
 import DropDown, { DropDownToggled } from '../../dropdown';
 import Picklist, { Pickitem } from '../../picklist';
 import XUIButton, { XUIButtonCaret } from '../../button';
-import XUIInput from '../../input';
+import XUITextInput from '../../textinput';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -50,27 +50,27 @@ const buildTrigger = (text) => {
 test.add(storyNames.multiDropDowns, () => {
 
 	return (
-		<div>
-			<XUIInput className='xui-margin-bottom'/>
+		<div className="xui-u-flex">
+			<XUITextInput fieldClassName="xui-margin-small"/>
 			<XUIModal isOpen>
 				<XUIModalBody>
 					This is some Modal content.
-				<XUIInput />
+					<XUITextInput />
 					<DropDownToggled
 						trigger={buildTrigger('Short Trigger')}
 						dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
 						isHidden={false}
 					/>
 					This is some Modal content.
-					<XUIInput />
+					<XUITextInput />
 					<DropDownToggled
 						trigger={buildTrigger('Medium Dropdown Trigger')}
 						dropdown={buildDropdownPicklist(lists.MedListMedItems)}
 					/>
-					<XUIInput />
+					<XUITextInput />
 				</XUIModalBody>
 			</XUIModal>
-			<XUIInput />
+			<XUITextInput fieldClassName="xui-margin-vertical-small"/>
 		</div>
 	);
 });

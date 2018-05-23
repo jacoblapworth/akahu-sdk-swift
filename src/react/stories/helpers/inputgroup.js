@@ -17,14 +17,14 @@ const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 	return (
 		<div
 			{...other}
-			className={cn(className, 'xui-inputgroup', {
+			className={cn(className, 'xui-textinputgroup', {
 				'xui-field-layout': isFieldLayout
 			})}
 		>
 			{children.map((child, idx) => {
 				const newChild = React.cloneElement(child, {
 					key: idx,
-					className: getAllClasses({
+					fieldClassName: getAllClasses({
 						className: child.props.className,
 						gridColumns: columnChosen
 					})

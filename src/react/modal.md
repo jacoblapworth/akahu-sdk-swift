@@ -13,7 +13,7 @@
 
 `XUIModal` should contain a `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key and by the close button which will be rendered on the right side of the header.
 
-```
+```jsx
 const  { PureComponent } = require ( 'react' );
 const exampleURL = 'https://go.xero.com/blahblahblahexamplelinkhere';
 
@@ -36,25 +36,27 @@ class Example extends PureComponent {
 						<div className="xui-padding-bottom">
 							Anyone with this link can view this invoice.
 						</div>
-						<XUIInput
-							containerClassName="xui-padding-bottom xui-inputgroup xui-u-flex"
-							className="xui-u-flex-grow"
-							inputAttributes={{
-								value: exampleURL,
+						<XUITextInput
+							fieldClassName="xui-padding-bottom"
+							value={exampleURL}
+							inputProps={{
 								readOnly: true,
 								id: "copyUrlExampleInput"
 							}}
 							inputRef={i => this.input = i}
-							button={
-								<XUIButton
-									onClick={() => {
-										this.input.select();
-										document.execCommand('copy')
-									}}
-									variant="primary"
-								>
-									Copy
-								</XUIButton>
+							rightElement={
+								<XUITextInputSideElement type="button">
+									<XUIButton
+										onClick={() => {
+											this.input.select();
+											document.execCommand('copy')
+										}}
+										variant="primary"
+										size="small"
+									>
+										Copy
+									</XUIButton>
+								</XUITextInputSideElement>
 							}
 						/>
 					</XUIModalBody>
@@ -127,7 +129,7 @@ class Example extends PureComponent {
 
 Modals can be used as a step for users to fill in required fields before opening a new page.
 
-```
+```jsx
 const  { PureComponent } = require ( 'react' );
 
 class Example extends PureComponent {
@@ -153,8 +155,8 @@ class Example extends PureComponent {
 				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })}>
 					<XUIModalHeader>New project</XUIModalHeader>
 					<XUIModalBody>
-						<XUIInput
-							inputAttributes={{ placeholder: 'Give it a title'}}
+						<XUITextInput
+							placeholder="Give it a title"
 						/>
 					</XUIModalBody>
 					<XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">

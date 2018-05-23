@@ -210,6 +210,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 
 
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-button,
 .#{$ns}-textinputgroup > .#{$ns}-button,
 .#{$ns}-textinputgroup .#{$ns}-select--control {
 	border-radius: 0;
@@ -244,6 +245,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 .#{$ns}-textinputgroup > .#{$ns}-textinput:first-child > .#{$ns}-textinput--sideelement:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child .#{$ns}-textinput--sideelement:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-button,
 .#{$ns}-textinputgroup > .#{$ns}-button:first-child,
 .#{$ns}-textinputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
 	border-bottom-left-radius: $xui-radius;
@@ -254,6 +256,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 .#{$ns}-textinputgroup > .#{$ns}-textinput:last-child > .#{$ns}-textinput--sideelement:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput--sideelement:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-button,
 .#{$ns}-textinputgroup > .#{$ns}-button:last-child,
 .#{$ns}-textinputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
 	border-bottom-right-radius: $xui-radius;

@@ -96,7 +96,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	}
 
 	/**
-	 * Focus the XUIAutocompleterInput input element, if visible.
+	 * Focus the input element, if visible.
 	 *
 	 * @public
 	 */
@@ -246,7 +246,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Will be passed directly down to the DropDownToggled component as the main trigger. */
 	trigger: PropTypes.element.isRequired,
 
-	/** ID to be applied to the XUIAutocompleterInput component. */
+	/** ID to be applied to the input element. */
 	inputId: PropTypes.string,
 
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */

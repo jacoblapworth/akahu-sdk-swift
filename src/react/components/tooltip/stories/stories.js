@@ -4,7 +4,7 @@ import React from "react";
 // Components we need to test with
 import XUIIcon from "../../icon/XUIIcon";
 import XUITooltip from "../XUITooltip";
-import XUIInput from "../../input/XUIInput";
+import XUITextInput from "../../textInput/XUITextInput";
 import XUIButton from "../../button/XUIButton";
 import XUIButtonCaret from "../../button/XUIButtonCaret";
 import info from "@xero/xui-icon/icons/info";
@@ -18,15 +18,15 @@ import { variations, storiesWithVariationsKindName } from "./variations";
 import { positionOptions } from "../../positioning/private/constants";
 
 const createTriggerInput = (props) => {
-	return <XUIInput placeholder="Placeholder text" {...props}></XUIInput>;
+	return <XUITextInput placeholder="Placeholder text" {...props}></XUITextInput>;
 };
 const createTipInput = () => {
 	return (
-		<XUIInput
+		<XUITextInput
 			placeholder="Placeholder text"
 			className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
 		>
-		</XUIInput>
+		</XUITextInput>
 	);
 };
 

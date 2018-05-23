@@ -125,7 +125,7 @@ When using `XUIToggle` with text content, it's recommended to use the `form` lay
 
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
-```
+```jsx
 const checkboxToggle = {
 	name: 'toggle-checkbox',
 	onChange: () => {},
@@ -135,7 +135,7 @@ const checkboxToggle = {
 <form className="xui-form-layout">
 	<div className="xui-field-layout">
 		<label className="xui-text-label xui-fieldlabel-layout">Input</label>
-		<XUIInput inputAttributes={{ type: 'url', placeholder: 'http://www.xero.com' }} />
+		<XUITextInput type="url" placeholer="http://www.xero.com" />
 	</div>
 	<div className="xui-field-layout">
 		<label className="xui-text-label xui-fieldlabel-layout">Toggle</label>

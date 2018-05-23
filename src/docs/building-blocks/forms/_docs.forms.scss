@@ -33,11 +33,11 @@
 //   <p class="xui-heading-panel">Stacked Form</p>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field1">Account holder</label>
-//     <input class="xui-input" type="text" id="field1" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="text" id="field1" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
-//     <input class="xui-input" type="text" id="field2" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="text" id="field2" placeholder="" />
 //     <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
 //   </div>
 //   <div class="xui-field-layout">
@@ -63,11 +63,11 @@
 // <form class="xui-form-inline">
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="inline-name">Name</label>
-//     <input class="xui-input" type="text" id="inline-name" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="text" id="inline-name" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
 //     <label class="xui-text-label xui-fieldlabel-layout" for="inline-email">Email address</label>
-//     <input class="xui-input" type="email" id="inline-email" placeholder="" />
+//     <input class="xui-textinput xui-textinput--input" type="email" id="inline-email" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
 //      <input class="xui-button xui-button-main" type="submit" value="Sign up" />
@@ -108,7 +108,7 @@
 //       <svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 //     </div>
 //     <div class="xui-column-8-of-12 xui-inputwrapper">
-//       <input class="xui-input" id="horizontaldemofield1" />
+//       <input class="xui-textinput xui-textinput--input" id="horizontaldemofield1" />
 //     </div>
 //   </div>
 // </div>
@@ -178,16 +178,16 @@
 //   <div class="xui-inputgroup">
 //     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
 //     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
 //     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
 //     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
 //     <div class="xui-column-2-of-12 xui-inputwrapper">
-//       <input class="xui-input" />
+//       <input class="xui-textinput xui-textinput--input" />
 //     </div>
 //     <div class="xui-select xui-column-2-of-12">
 //       <select class="xui-select--control xui-input-is-invalid">
@@ -224,9 +224,9 @@
 // <div class="xui-field-layout">
 //   <label for="street-address" class="xui-text-label xui-fieldlabel-layout">Street address</label>
 //   <div class="xui-verticalinputgroup">
-//   <input id="street-address" class="xui-input" aria-label="Street Address Line 1"/>
-//   <input class="xui-input"  aria-label="Street Address Line 2"/>
-//   <input class="xui-input"  aria-label="Street Address Line 3"/>
+//   <input id="street-address" class="xui-textinput xui-textinput--input" aria-label="Street Address Line 1"/>
+//   <input class="xui-textinput xui-textinput--input"  aria-label="Street Address Line 2"/>
+//   <input class="xui-textinput xui-textinput--input"  aria-label="Street Address Line 3"/>
 // </div>
 // </div>
 // <div class="xui-heading xui-margin-top-large xui-margin-bottom">Log in to continue</div>

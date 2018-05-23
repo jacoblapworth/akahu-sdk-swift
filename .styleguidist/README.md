@@ -14,7 +14,7 @@ The CSS is done using JSS which is preparing a JS object and then using a hoc to
 This uses an issolate mode to prevent styles leaking into component examples, but it also means all components have
 this massive list of explixcitly inherited and set styles. Its quite yuk.
 
-Imports in MD examples need to be done using require (cjs) and often the default attribute needs surfacing see input.md for an example
+Imports in MD examples need to be done using require (cjs) and often the default attribute needs surfacing see textInput.md for an example
 
 Styleguidist will add the JSDoc comments of any component APIs that you explicitly mark as `@public` to the docs page.  However, there are some caveats:
 

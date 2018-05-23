@@ -6,11 +6,10 @@ import PropTypes from 'prop-types';
 import DropDown, { DropDownToggled } from '../../dropdown';
 import Picklist, { Pickitem } from '../../picklist';
 import XUIButton, { XUIButtonCaret } from '../../button';
-import XUIInput from '../../input';
+import XUITextInput from '../../textinput';
 import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../radio';
 import XUISwitch from '../../switch';
-import XUITextArea from '../../textarea';
 import XUIToggle, { XUIToggleOption } from '../../toggle';
 import XUIAutocompleter, { XUIAutocompleterEmptyState } from '../../autocompleter';
 import people from '../../components/autocompleter/private/people';
@@ -189,54 +188,50 @@ test.add(storyNames.formLayout, () => {
 						</header>
 
 						<PanelSection formLayout headerContent="Inputs" className="xui-padding-vertical">
-
-							<InputLabel htmlFor={inputMap.ah}>
-								Account Holder
-							</InputLabel>
-							<XUIInput
+							<XUITextInput
+								labelText="Account Holder"
 								isFieldLayout
 								name={inputMap.ah}
-								id={inputMap.ah} />
+								id={inputMap.ah}
+							/>
 
-							<InputLabel htmlFor={inputMap.ird}>
-								IRD Number
-							</InputLabel>
-							<XUIInput
+							<XUITextInput
+								labelText="IRD Number"
 								isFieldLayout
 								hintMessage="Found on the top of your IR3 statement"
-								name={inputMap.ird}
-								id={inputMap.ird}
-								/>
-
-							<InputLabel htmlFor={inputMap.bank}>
-								Bank account number
-							</InputLabel>
-							<XUIInput
-								inputAttributes={{
-									defaultValue: 'A very invalid message'
+								inputProps={{
+									name: inputMap.ird,
+									id: inputMap.ird
 								}}
+							/>
+
+							<XUITextInput
+								labelText="Bank account number"
+								defaultValue="A very invalid message"
 								validationMessage="Well, it's not right is it"
-								isInvalid={true}
+								isInvalid
 								isFieldLayout
-								name={inputMap.bank}
-								id={inputMap.bank}
+								inputProps={{
+									name: inputMap.bank,
+									id: inputMap.bank
+								}}
 							/>
 
 							<InputLabel htmlFor={inputMap.nameFirst}>
 								Your name
 							</InputLabel>
 							<InputGroup isFieldLayout>
-								<XUIInput name={inputMap.nameFirst} id={inputMap.nameFirst}/>
-								<XUIInput name={inputMap.nameMiddle} id={inputMap.nameMiddle} />
-								<XUIInput name={inputMap.nameLast} id={inputMap.nameLast} />
+								<XUITextInput inputProps={{name:inputMap.nameFirst, id: inputMap.nameFirst}}/>
+								<XUITextInput inputProps={{name:inputMap.nameMiddle, id: inputMap.nameMiddle}}/>
+								<XUITextInput inputProps={{name:inputMap.nameLast, id: inputMap.nameLast}}/>
 							</InputGroup>
 
 							<InputLabel htmlFor={inputMap.nameFirst}>
 								Choose a Food
 							</InputLabel>
-							<div className="xui-inputgroup xui-field-layout xui-u-flex">
+							<div className="xui-textinputgroup xui-field-layout xui-u-flex">
 								<DropDownToggled
-									className="xui-inputwrapper"
+									className="xui-textinputwrapper"
 									onOpen={() => {}}
 									trigger={(
 										<XUIButton>
@@ -260,25 +255,26 @@ test.add(storyNames.formLayout, () => {
 										</DropDown>
 									)}
 								/>
-								<XUIInput
+								<XUITextInput
 									containerClassName="xui-u-flex-1"
-									name={inputMap.foodName}
-									id={inputMap.foodName}
+									inputProps={{
+										name: inputMap.foodName,
+										id: inputMap.foodName
+									}}
 								/>
 							</div>
 
-							<XUITextArea
+							<XUITextInput
+								isMultiline
 								minRows={2}
 								maxRows={5}
-								defaultLayout={false}
-								name={inputMap.autoResize}
-								textareaId={inputMap.autoResize}
-								fieldClassName="xui-field-layout" // this is inconsistent with other form elements
-							>
-								<InputLabel htmlFor={inputMap.autoResize}>
-									This textarea auto-resizes
-								</InputLabel>
-							</XUITextArea>
+								inputProps={{
+									name: inputMap.autoResize,
+									id: inputMap.autoResize
+								}}
+								isFieldLayout
+								labelText="This textarea auto-resizes"
+							/>
 
 						</PanelSection>
 

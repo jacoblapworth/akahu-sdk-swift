@@ -5,7 +5,7 @@
 // Consider what may happen if there is more than one version of XUI's element selectors on the page
 
 /**
- * Most input stylings can be found in objects/_forms.inputs.*.scss files.  This
+ * Most input stylings can be found in objects/_forms.textinputs.scss files.  This
  * file contains just a few element selectors that we either haven't yet decided
  * how to deal with and turn into class selectors, or specific oddities that we
  * want to smooth out.

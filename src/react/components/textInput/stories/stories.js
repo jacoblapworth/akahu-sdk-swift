@@ -149,7 +149,7 @@ storiesWithKnobs.add('Playground', () => (
 		validationMessage={text('validation message', '')}
 		hintMessage={text('hint message', '')}
 		isDisabled={boolean('is disabled', false)}
-		inputAttributes={object('input props', inputProps)}
+		inputProps={object('input props', inputProps)}
 	/>
 ));
 

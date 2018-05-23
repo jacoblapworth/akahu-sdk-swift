@@ -5,7 +5,7 @@ import autosize from 'autosize';
 
 import { compose } from '../helpers/compose';
 import { inputBaseClass } from './private/constants';
-import { calculateMaxHeight } from '../textarea/helpers';
+import { calculateMaxHeight } from './private/helpers';
 import {ns} from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled

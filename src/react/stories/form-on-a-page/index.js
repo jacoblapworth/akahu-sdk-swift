@@ -5,11 +5,9 @@ import React from 'react';
 import DropDown, { DropDownToggled } from '../../dropdown';
 import Picklist, { Pickitem } from '../../picklist';
 import XUIButton, { XUIButtonCaret } from '../../button';
-import XUIInput from '../../input';
 import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../radio';
 import XUISwitch from '../../switch';
-import XUITextArea from '../../textarea';
 import SelectBox, { SelectBoxOption } from '../../select-box';
 import { XUIRow, XUIColumn } from '../../structural';
 
@@ -25,6 +23,7 @@ import { storyNames, compositionKind } from '../tests';
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
+import XUITextInput from '../../textinput';
 
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));
@@ -90,13 +89,14 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="half">
 						<InputLabel>An input</InputLabel>
-						<XUIInput />
+						<XUITextInput />
 					</XUIColumn>
 					<XUIColumn gridColumns="half">
 						<InputLabel>Another input</InputLabel>
-						<XUIInput
+						<XUITextInput
 							isFieldLayout
-							hintMessage="I'm second"/>
+							hintMessage="I'm second"
+						/>
 					</XUIColumn>
 
 					{/* Major section */}
@@ -147,12 +147,12 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="full">
 						<InputLabel>A textarea</InputLabel>
-						<XUITextArea
+						<XUITextInput
+							isMultiline
 							minRows={2}
 							maxRows={5}
-							defaultLayout={false}
-							textareaId="textarea-auto-resize">
-						</XUITextArea>
+							textareaId="textarea-auto-resize"
+						/>
 					</XUIColumn>
 
 					{/* Major section */}

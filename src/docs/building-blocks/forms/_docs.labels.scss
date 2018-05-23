@@ -21,12 +21,12 @@
 // <div class="xui-field-layout xui-column-6-of-12">
 //   <label>
 //     <span class="xui-text-label xui-fieldlabel-layout">Wrapping label</span>
-//     <input class="xui-input" type="text" placeholder=""/>
+//     <input class="xui-textinput xui-textinput--input" type="text" placeholder=""/>
 //   </label>
 // </div>
 // <div class="xui-field-layout xui-column-6-of-12">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Sibling label</label>
-//   <input class="xui-input" id="sibling-example" type="text" placeholder=""/>
+//   <input class="xui-textinput xui-textinput--input" id="sibling-example" type="text" placeholder=""/>
 // </div>
 // </div>
 //
@@ -78,7 +78,7 @@
 // <div class="xui-row-grid">
 // <label class="xui-column-3-of-12">
 //   <span class="xui-text-label xui-fieldlabel-layout">Time taken</span>
-//   <input class="xui-input" type="text" placeholder="2.5 or 2:30"/>
+//   <input class="xui-textinput xui-textinput--input" type="text" placeholder="2.5 or 2:30"/>
 // </label>
 // </div>
 //
@@ -99,7 +99,7 @@
 // Markup:
 // <div>
 // 	<label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
-// 	<input class="xui-input" type="text" id="field2" placeholder="" />
+// 	<input class="xui-textinput xui-textinput--input" type="text" id="field2" placeholder="" />
 // 	<div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
 // </div>
 //

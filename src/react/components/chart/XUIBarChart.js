@@ -20,6 +20,55 @@ import ContentPagination from './customElements/ContentPagination';
 import getGroupPosition, { testIsCloseEnough } from './helpers';
 import { barChartTheme } from './helpers/theme';
 
+const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) => {
+
+	const minWidth = 34;
+	const maxWidth = 200;
+	const barsTotal = bars.length;
+	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, minWidth);
+	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > maxWidth
+		? maxWidth
+		: limitWithLowerThreshold(baseWidth)
+	const isConstrainedWidth = Boolean(maxVisibleItems);
+
+	// What is an "initial" rough estimate of how many bars are going to fit on a
+	// single panel.
+	const sanitisedWidth = isConstrainedWidth
+		// When requesting a "custom" distribution scenario we don't know exactly what
+		// the width is going to be just yet so lets take the raw division for now but
+		// still making sure that we do not let the width get too small (e.g if the
+		// user requested to fit 1000 items on a panel).
+		? limitWithLowerThreshold(contentWidth / maxVisibleItems)
+		// In a "standard" scenario we limit the bar widths against the static upper
+		// and lower thresholds.
+		: limitWithUpperAndLowerThreshold(contentWidth / barsTotal)
+
+	//Now that we have a rough idea of the quantity / width of the bars on a panel
+	// we need to make sure all of the dedicated panel content area is filled up.
+	//    . - - - - - - .
+	//    |    _     ///|
+	//    |  _|o|  _ ///| <--- Wasted space that needs to be
+	//    | |+|o|_|o|///|      distributed among visible bars.
+	//    | |+|o|+|o|///|
+	//    ° - - - - - - °
+	const wholeBarsPerPanel = Math.floor(contentWidth / sanitisedWidth);
+	const hasMultiplePanels = barsTotal > wholeBarsPerPanel;
+	const totalBarsPerPanel = hasPagination || !hasMultiplePanels
+		? Math.min(wholeBarsPerPanel, barsTotal)
+		// When there is an overflow with the native scrolling UI we need to make sure
+		// to show "half" of the next panels bar as an aesthetic way to convey hidden
+		// content to the user.
+		: wholeBarsPerPanel + 0.5;
+	const panelsTotal = Math.ceil(barsTotal / totalBarsPerPanel);
+	const barWidth = hasMultiplePanels || isConstrainedWidth
+		? contentWidth / totalBarsPerPanel
+		: sanitisedWidth;
+	const barsWidth = barWidth * barsTotal;
+
+	return { barsWidth, barWidth, panelsTotal };
+
+};
+
 class XUIBarChart extends Component {
 
 	constructor() {
@@ -158,133 +207,11 @@ class XUIBarChart extends Component {
 			right: 2
 		};
 		const contentWidth = chartWidth - padding.left - padding.right;
-		const { barsWidth, barWidth, panelsTotal } = (() => {
-
-			const barsTotal = bars.length;
-
-			// Simple division
-			// const rawWidth = contentWidth / barsTotal;
-			const minWidth = 34;
-			const maxWidth = 200;
-			const limitWidthWithThreshold = baseWidth => baseWidth < minWidth ? minWidth : Math.min(baseWidth, maxWidth)
-
-			// Thresholds
-			// const aproxWidth = limitWidthWithThreshold(contentWidth / barsTotal);
-
-			// take into cosideration the "max bars" per panel!!!
-			const isConstrainedWidth = Boolean(maxVisibleItems); // maxVisibleItems && barsTotal > maxVisibleItems;
-			const constrainedWidth = isConstrainedWidth
-				? contentWidth / maxVisibleItems // limitWidthWithThreshold(contentWidth / maxVisibleItems)
-				: limitWidthWithThreshold(contentWidth / barsTotal)
-
-			// Fit to content
-			//    . - - - - - - .
-			//    |    _     ///|
-			//    |  _|o|  _ ///| <--- Wasted space that needs to be
-			//    | |+|o|_|o|///|      divided among visible bars.
-			//    | |+|o|+|o|///|
-			//    ° - - - - - - °
-			// const barsPerPanel = Math.floor(contentWidth / constrainedWidth);
-
-			const wholeBars = Math.floor(contentWidth / constrainedWidth);
-			const hasMultiplePanels = barsTotal > wholeBars; // (wholeBars * constrainedWidth) > contentWidth;
-			const barsPerPanel = hasPagination || !hasMultiplePanels
-				? Math.min(wholeBars, barsTotal)
-				: wholeBars + 0.5;
-			const panelsTotal = Math.ceil(barsTotal / barsPerPanel);
-
-			// const barsPerPanel = (() => {
-
-			// 	const wholeBars = Math.floor(contentWidth / constrainedWidth);
-			// 	const noScroll = wholeBars >= barsTotal;
-			// 	return hasPagination || noScroll
-			// 		? wholeBars
-			// 		: wholeBars + 0.5;
-
-			// })();
-
-			// isConstrainedWidth eg has max bars per panel?
-
-			// has TOO LITTLE content to fill the panel width AND is NOT "isConstrainedWidth"
-
-			// has TOO MUCH content and needs to be stretched
-
-			const barWidth = (() => {
-
-				// Xxxxx Xxxxx
-
-				// const isOverflow =
-
-				switch (true) {
-
-					case hasMultiplePanels: {
-						console.log('bar width = hasMultiplePanels');
-						return contentWidth / barsPerPanel;
-
-					}
-
-					case isConstrainedWidth: {
-						console.log('bar width = isConstrainedWidth');
-						return Math.max(contentWidth / barsPerPanel, minWidth);
-
-					}
-
-					default: {
-						console.log('bar width = default');
-						return constrainedWidth; // / barsPerPanel;
-
-					}
-
-				}
-
-			})();
-
-			// const extraContentSpace = contentWidth - (barsPerPanel * constrainedWidth);
-			// const extraBarSpace = extraContentSpace / barsPerPanel
-			// const stretchedWidth = constrainedWidth + extraBarSpace;
-
-
-
-			// const barWidth = stretchedWidth;
-			// // const barWidth = stretchedWidth > maxWidth ? maxWidth : stretchedWidth;
-			// // const barWidth = barsTotal > barsPerPanel ? stretchedWidth : maxWidth;
-			// // const barsWidth = barWidth * barsTotal;
-			// const barsWidth = stretchedWidth * barsTotal;
-			const barsWidth = barWidth * barsTotal;
-
-
-
-			// console.log({
-			// 	contentWidth,
-			// 	barsTotal,
-			// 	isConstrainedWidth,
-			// 	constrainedWidth,
-			// 	barsPerPanel,
-			// 	extraContentSpace,
-			// 	extraBarSpace,
-			// 	barWidth,
-			// 	barsWidth,
-			// });
-
-			console.log({
-				wholeBars,
-				hasMultiplePanels,
-				isConstrainedWidth,
-				maxVisibleItems,
-				constrainedWidth,
-				contentWidth,
-				barsTotal,
-				barsPerPanel,
-				// extraContentSpace,
-				// extraBarSpace,
-				// stretchedWidth,
-				barWidth,
-				barsWidth,
-			});
-
-			return { barsWidth, barWidth, panelsTotal };
-
-		})();
+		const {
+			barsWidth,
+			barWidth,
+			panelsTotal,
+		} = createBarStats({ bars, maxVisibleItems, contentWidth, hasPagination });
 		const addUpStacks = ({ y }) => y.reduce((acc, index) => acc + index, 0);
 		const maxY = bars.map(addUpStacks).sort().reverse()[0];
 		const chartClassName = cn('xui-chart', {

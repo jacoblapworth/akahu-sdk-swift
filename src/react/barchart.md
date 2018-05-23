@@ -12,7 +12,7 @@ class Demo extends React.Component {
 		this.state = { bars: [
 			{ x: "Apple", y: [1, 1, 2, 1] },
 			{ x: "Potato", y: [2, 1] },
-			{ x: "Carrot", y: [1, 3] },
+			{ x: "Carrot Soup", y: [1, 3] },
 		] };
 	}
 

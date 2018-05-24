@@ -69,7 +69,7 @@ class Example extends PureComponent {
 
 ### Confirmation modal
 
-Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-buttons.html#buttons-9) to display buttons as this provides standard padding and responsive behaviour.
+Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-building-blocks-controls-button.html#building-blocks-controls-button-12) to display buttons as this provides standard padding and responsive behaviour.
 
 ```
 const  { PureComponent } = require ( 'react' );

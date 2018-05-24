@@ -60,7 +60,7 @@
 // ExampleClass: ds-example-narrow ds-example-flush ds-example-transparent
 //
 // To dismiss a popover, make sure to either attach an event handler on its trigger, or include internal buttons that toggle visiblity.
-// We recommended using the following [utility class](section-building-blocks-utilities.html#building-blocks-utilities-2) to do this.
+// We recommended using the following [utility class](section-fundamentals-utilities.html#fundamentals-utilities-3) to do this.
 //
 // Classes:
 // xui-u-hidden: Modifier to toggle popover visibility
@@ -89,7 +89,7 @@
 // At a very minimum, the purpose of a popover should be clearly stated using the `aria-labelledby` and 	`aria-describedby` attributes.
 //
 // Additionally, an appropriate role must be defined, and differs for each use case.
-// The `tooltip` [role](https://www.w3.org/TR/wai-aria/roles#tooltip) is used for popovers that provide helper text and become visible in response to a mouse or keyboard event.
+// The `tooltip` [role](https://www.w3.org/TR/wai-aria-1.1/#tooltip) is used for popovers that provide helper text and become visible in response to a mouse or keyboard event.
 // The `dialog` [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role) is used when it is still possible to interact with content outside of the popover while it is being displayed.
 //
 // Styleguide: Building Blocks.Alerts.Popover.4

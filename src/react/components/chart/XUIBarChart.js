@@ -43,7 +43,7 @@ const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) 
 		// and lower thresholds.
 		: limitWithUpperAndLowerThreshold(contentWidth / barsTotal)
 
-	//Now that we have a rough idea of the quantity / width of the bars on a panel
+	// Now that we have a rough idea of the quantity / width of the bars on a panel
 	// we need to make sure all of the dedicated panel content area is filled up.
 	//    . - - - - - - .
 	//    |    _     ///|

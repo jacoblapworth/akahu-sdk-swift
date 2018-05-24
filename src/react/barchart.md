@@ -119,15 +119,15 @@ const addIcon = require('@xero/xui-icon/icons/addition').default;
 const subtractionIcon = require('@xero/xui-icon/icons/subtraction').default;
 
 const data = [
-	{ x: "Apple", y: [1, 1, 2, 1] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
-	{ x: "Banana", y: [4] },
-	{ x: "Berry", y: [2, 2] },
-	{ x: "Orange", y: [3, 1] },
-	{ x: "Beetroot", y: [2, 3] },
-	{ x: "Pumpkin", y: [2, 1, 1, 1] },
-	{ x: "Lettuce", y: [1, 4] },
+	{ x: "Layla Abernathy", y: [1, 1, 2, 1] },
+	{ x: "Dr. Jennifer Bosco", y: [2, 1] },
+	{ x: "Lilian Willms DVM", y: [1, 3] },
+	{ x: "Heloise Stanton", y: [4] },
+	{ x: "Janet Mayert DVM", y: [2, 2] },
+	{ x: "Rollin McCullough", y: [3, 1] },
+	{ x: "Laury Kris", y: [2, 3] },
+	{ x: "Jose Schmitt IV", y: [2, 1, 1, 1] },
+	{ x: "Isom Tremblay", y: [1, 4] },
 ];
 
 class Demo extends React.Component {

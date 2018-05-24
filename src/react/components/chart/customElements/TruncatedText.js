@@ -1,6 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import PropTypes from 'prop-types';
 // import cn from 'classnames';
+
+const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars = 0 }, node) => {
+	const charWidth = node.getComputedTextLength();
+	const newWidth = totalWidth + charWidth;
+
+	return newWidth > maxWidth
+		? { totalWidth, totalChars }
+		: { totalWidth: newWidth, totalChars: totalChars + 1 };
+};
 
 class TruncatedText extends Component {
 
@@ -9,18 +18,12 @@ class TruncatedText extends Component {
 	text;
 	state = { /* charNodes */ };
 
-	updateTruncatedText = () => {
+	updateTruncationReference = () => {
 		const { state, rootNode, maxWidth: prevMaxWidth, text: prevText } = this;
 		const prevCharNodes = this.state.charNodes;
 		const { maxWidth: nextMaxWidth, children: nextText } = this.props;
 		const nextCharNodes = rootNode && rootNode.querySelectorAll('tspan');
 		const shouldUpdate = !(prevCharNodes && nextMaxWidth === prevMaxWidth && nextText === prevText);
-
-		// console.log('UPDATE', {
-		// 	charNodes: prevCharNodes, rootNode, shouldUpdate,
-		// 	maxWidth: `${nextMaxWidth} !== ${prevMaxWidth} = ${nextMaxWidth !== prevMaxWidth}`,
-		// 	text: `${nextText} !== ${prevText} = ${nextText !== prevText}`
-		// });
 
 		if (shouldUpdate) {
 			this.setState({
@@ -28,55 +31,54 @@ class TruncatedText extends Component {
 				charNodes: nextCharNodes,
 			});
 		}
-
 	}
 
 	componentDidMount() {
-		this.updateTruncatedText();
+		this.updateTruncationReference();
 	}
 
 	componentDidUpdate() {
-		this.updateTruncatedText();
+		this.updateTruncationReference();
 	}
 
 	render() {
-		// const { rootNode } = this;
 		const { charNodes } = this.state;
 		const { style, maxWidth, children: text, ...textProps } = this.props;
+		const createTextSpan = (character, key) => <tspan key={key} style={style}>{character}</tspan>;
+		const reducer = createTotalCharacterReducer(maxWidth);
+		const totalChars = charNodes
+			? [...charNodes].reduce(reducer, {}).totalChars
+			: text.length;
 
 		this.maxWidth = maxWidth;
 		this.text = text;
 
-		const { totalChars } = charNodes
-			? [...charNodes].reduce((acc, node) => {
-
-				const { totalWidth, totalChars } = acc;
-				const width = node.getComputedTextLength();
-				const newWidth = totalWidth + width;
-
-				return newWidth > maxWidth
-					? acc
-					: { totalWidth: newWidth, totalChars: totalChars + 1 };
-
-			}, { totalWidth: 20, totalChars: 0 })
-			: { totalChars: text.length };
-
 		return (
-			<text
-				{...textProps}
-				ref={node => this.rootNode = node}>
-
-				{ text.slice(0, totalChars).split('').map((character, key) => (
-					<tspan key={key} style={style}>{character}</tspan>
-				)) }
-
-				{ text.length !== totalChars && <tspan style={style}>...</tspan> }
-
-			</text>
+			<Fragment>
+				{
+				// Create a "hidden" complete version (no ellipses) of the text. Each
+				// character is isolated into its own <tspan> so that we can measure them
+				// individually to determine if their accumulated width exceeds the
+				// allocated display area.
+				// NOTE: No "measuring" className hooks are supplied to this hidden text
+				// block (so it has no influence over visual layout).
+				}
+				<text
+					y="9999999"
+					ref={node => this.rootNode = node}>
+					{ text.split('').map(createTextSpan) }
+				</text>
+				{
+				// The (possibly) truncated display text that is created in reference to
+				// the individual character measurements from above.
+				}
+				<text {...textProps}>
+					{ createTextSpan(text.slice(0, totalChars).trim()) }
+					{ text.length !== totalChars && createTextSpan('...') }
+				</text>
+			</Fragment>
 		);
-
 	}
-
 }
 
 export default TruncatedText

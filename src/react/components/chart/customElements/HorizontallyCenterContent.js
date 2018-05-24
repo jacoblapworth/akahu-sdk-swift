@@ -28,7 +28,7 @@ class HorizontallyCenterContent extends Component {
 	}
 
 	// Measures the size of the supplied content and positions it horizontally in
-	// reference to the supplied width of the container.
+	// reference to the supplied width of the wrapping container.
 	//
 	// NOTE: Content elements will ONLY be measured if they have the ".xui-chart--measure".
 	// This is a good thing as we can ignore any redundant items that Victiory adds

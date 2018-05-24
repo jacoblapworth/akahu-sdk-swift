@@ -81,13 +81,13 @@ const buildExampleSections = (children) => {
 const buildExampleContentblockItem = (children) => {
 	return children.map((child, index) => {
 		if (child.overflow) {
-			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon"><XUIIcon path={overflow}/></XUIButton>;
+			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon path={overflow}/></XUIButton>;
 		}
 		if (child.tag) {
 			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
 		}
 		if (child.leftContent === "checkbox") {
-			child.leftContent = <XUICheckbox isChecked={false}></XUICheckbox>;
+			child.leftContent = <XUICheckbox isChecked={false} isLabelHidden>Row checkbox</XUICheckbox>;
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {

@@ -27,6 +27,7 @@ exports[`XUIRolloverCheckbox allows for a user defined rollover component to be 
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -73,6 +74,7 @@ exports[`XUIRolloverCheckbox displays the checkbox when it's set to be shown 1`]
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -119,6 +121,7 @@ exports[`XUIRolloverCheckbox doesn't display the checkbox when it's set to hidde
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -163,6 +166,7 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid="test-rollovercheckbox--checkbox--input"
         defaultChecked={false}
@@ -178,6 +182,53 @@ exports[`XUIRolloverCheckbox include an automation-id 1`] = `
       <div
         className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
         data-automationid="test-rollovercheckbox--checkbox--checkbox"
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`XUIRolloverCheckbox includes an aria-label, when provided 1`] = `
+<div
+  className="xui-rollovercheckbox--target"
+  data-automationid={undefined}
+  id={undefined}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="xui-rollovercheckbox"
+  >
+    <div
+      className="xui-u-hidden-visually"
+    >
+      <div />
+    </div>
+    <label
+      className="xui-styledcheckboxradio"
+      data-automationid={undefined}
+      onClick={[Function]}
+    >
+      <input
+        aria-label="Test label"
+        className="xui-styledcheckboxradio--input"
+        data-automationid={undefined}
+        defaultChecked={false}
+        disabled={false}
+        name={undefined}
+        onChange={[Function]}
+        onClick={[Function]}
+        required={false}
+        tabIndex={undefined}
+        type="checkbox"
+        value={undefined}
+      />
+      <div
+        className="xui-styledcheckboxradio--checkbox xui-rollovercheckbox--checkbox"
+        data-automationid={undefined}
       />
     </label>
   </div>
@@ -209,6 +260,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a large size whe
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -255,6 +307,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a small size whe
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -301,6 +354,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be a xlarge size wh
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -347,6 +401,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -368,7 +423,7 @@ exports[`XUIRolloverCheckbox renders a variety of sizes will be display the stan
 </div>
 `;
 
-exports[`XUIRolloverCheckbox renders an id on teh root node when passed 1`] = `
+exports[`XUIRolloverCheckbox renders an id on the root node when passed 1`] = `
 <div
   className="xui-rollovercheckbox--target"
   data-automationid={undefined}
@@ -393,6 +448,7 @@ exports[`XUIRolloverCheckbox renders an id on teh root node when passed 1`] = `
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -439,6 +495,7 @@ exports[`XUIRolloverCheckbox renders checked when specified 1`] = `
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         checked={true}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -483,6 +540,7 @@ exports[`XUIRolloverCheckbox renders correctly 1`] = `
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -529,6 +587,7 @@ exports[`XUIRolloverCheckbox renders unchecked when specified 1`] = `
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         checked={false}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -575,6 +634,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -621,6 +681,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes and a disable
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}
@@ -667,6 +728,7 @@ exports[`XUIRolloverCheckbox shouldn't render the disabled classes or a disabled
       onClick={[Function]}
     >
       <input
+        aria-label={undefined}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
         defaultChecked={false}

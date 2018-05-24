@@ -62,8 +62,14 @@ describe('XUIRolloverCheckbox', () => {
 		expect(expected).toMatchSnapshot();
 	});
 
-	it('renders an id on teh root node when passed', () => {
+	it('renders an id on the root node when passed', () => {
 		const { expected } = setup(renderer.create, { id: 'test-id' , rolloverComponent: <div></div> });
+
+		expect(expected).toMatchSnapshot();
+	});
+
+	it('includes an aria-label, when provided', () => {
+		const { expected } = setup(renderer.create, { labelText: 'Test label', rolloverComponent: <div></div> });
 
 		expect(expected).toMatchSnapshot();
 	});

@@ -57,4 +57,10 @@ describe('XUISwitch', function () {
 		expect(automationid).toMatchSnapshot();
 	});
 
+	it('should include an aria-label when labelText is passed', () => {
+		const ariaLabel = renderer.create(<XUISwitch labelText="Switch test" onChange={NOOP}/>);
+
+		expect(ariaLabel).toMatchSnapshot();
+	});
+
 });

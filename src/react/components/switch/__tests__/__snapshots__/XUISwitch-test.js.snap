@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`XUISwitch should include an aria-label when labelText is passed 1`] = `
+<label
+  className="xui-switch"
+  data-automationid={undefined}
+>
+  <input
+    aria-checked={undefined}
+    aria-disabled={undefined}
+    aria-label="Switch test"
+    checked={undefined}
+    className="xui-u-hidden-visually xui-switch--checkbox"
+    data-automationid={undefined}
+    disabled={undefined}
+    name={undefined}
+    onChange={[Function]}
+    role="switch"
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-switch--control"
+    data-automationid={undefined}
+  />
+</label>
+`;
+
 exports[`XUISwitch should render an automationid when a qaHook value is passed 1`] = `
 <label
   className="xui-switch"
@@ -8,6 +34,7 @@ exports[`XUISwitch should render an automationid when a qaHook value is passed 1
   <input
     aria-checked={undefined}
     aria-disabled={undefined}
+    aria-label={undefined}
     checked={undefined}
     className="xui-u-hidden-visually xui-switch--checkbox"
     data-automationid="switch-test--input"

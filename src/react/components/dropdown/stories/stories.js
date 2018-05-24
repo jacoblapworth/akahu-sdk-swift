@@ -14,7 +14,7 @@ import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from "../../icon/XUIIcon";
-import XUIInput from "../../input/XUIInput";
+import XUITextInput from "../../textInput/XUITextInput";
 import info from "@xero/xui-icon/icons/info";
 
 
@@ -29,7 +29,7 @@ import { maxWidthDropdownSizes, dropdownPositionOptions} from '../private/consta
 
 function createItems(items, suffix) {
 	if (Array.isArray(items)) {
-		return items.map(i => createItems(i));
+		return items.map(i => createItems(i, suffix));
 	}
 	items.props.id += (suffix || '');
 	return (
@@ -176,7 +176,15 @@ function buildDropDown(ddSettings) {
 }
 
 const createTriggerInput = (props) => {
-	return <XUIInput placeholder="Placeholder text" {...props}></XUIInput>;
+	return (
+		<XUITextInput
+			placeholder="Placeholder text"
+			labelText="Input label"
+			isLabelHidden
+			{...props}
+		>
+		</XUITextInput>
+	);
 };
 
 const createTriggerButton = () => {
@@ -188,7 +196,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info"><XUIIcon path={info} /></XUIButton>;
 };
 
 const getPositioningTest = () => {

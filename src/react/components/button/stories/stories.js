@@ -22,9 +22,9 @@ const buttonContents = {
 	withCaret: ['Caret button', <XUIButtonCaret key='caret'/>],
 	asGroup: [<XUIButton key='one'>One</XUIButton>, <XUIButton key='two'>Two</XUIButton>],
 	asGroupSm: [<XUIButton key='one' size="small">One</XUIButton>, <XUIButton key='two' size="small">Two</XUIButton>],
-	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, <XUISplitButton key='split'/>],
-	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small"/>],
-	icon: <XUIIcon path={view} />
+	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
+	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small" aria-label='Other actions' />],
+	icon: <XUIIcon path={view} title="Preview" />
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);

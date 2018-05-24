@@ -89,6 +89,7 @@ class XUITextInput extends PureComponent {
 			isDisabled,
 			isMultiline,
 			isManuallyResizable,
+			isLabelHidden,
 			minRows,
 			rows
 		} = input.props;
@@ -148,7 +149,7 @@ class XUITextInput extends PureComponent {
 
 		return(
 			<label className={rootClasses} onKeyDown={onKeyDown}>
-				{labelText != null && (
+				{labelText != null && !isLabelHidden && (
 					<span className={labelClasses}>
 						{labelText}
 					</span>
@@ -167,6 +168,7 @@ class XUITextInput extends PureComponent {
 						placeholder={placeholder}
 						disabled={isDisabled}
 						ref={compose(inputRef, i => this.input = i)}
+						aria-label={isLabelHidden && labelText || undefined}
 						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 						{...inputProps}
 					/>
@@ -240,6 +242,8 @@ XUITextInput.propTypes = {
 	rows: PropTypes.number,
 	/** Whether the textarea should be manually resizable (should only be used with `isMultiline=true` and `rightElement=undefined`) */
 	isManuallyResizable: PropTypes.bool,
+	/** Should label be applied as an aria-label, rather than being visibly displayed. */
+	isLabelHidden: PropTypes.bool
 };
 
 XUITextInput.defaultProps = {

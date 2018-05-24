@@ -76,12 +76,19 @@ export default class XUIRadio extends React.Component {
 			isDisabled && `${ns}-is-disabled`
 		);
 
-		const labelClasses = cn(`${baseClass}--label`, labelClassName);
-		const labelElement = !isLabelHidden ? <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span> : null;
+		const labelClasses = cn(
+			`${baseClass}--label`,
+			labelClassName
+		);
+		const labelElement =
+			!isLabelHidden &&
+			children &&
+			<span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
 			type: 'radio',
 			disabled: isDisabled,
 			required: isRequired,
+			['aria-label']: isLabelHidden && children || undefined,
 			tabIndex,
 			name,
 			onChange,
@@ -159,7 +166,7 @@ XUIRadio.propTypes = {
 	/** The tabindex property to place on the radio input */
 	tabIndex: PropTypes.number,
 
-	/** Prevents the label element from being rendered to the page */
+	/** Prevents the label element from being displayed on the page. Label is still accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 
 	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */

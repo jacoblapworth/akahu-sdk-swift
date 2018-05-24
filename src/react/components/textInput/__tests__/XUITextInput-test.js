@@ -115,6 +115,11 @@ describe('<XUITextInput>', () => {
 			expect(wrapper).toMatchSnapshot();
 		})
 
+		it('renders with a hidden label when one is provided', () => {
+			const wrapper = renderer.create(<XUITextInput labelText="test" isLabelHidden />);
+			expect(wrapper).toMatchSnapshot();
+		})
+
 		it('includes custom classes on the correct nodes', () => {
 			const wrapper = renderer.create(
 				<XUITextInput

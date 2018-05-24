@@ -36,6 +36,7 @@ const TextInputWrapper = props => {
 		isDisabled,
 		value,
 		isMultiline,
+		isLabelHidden,
 		minRows,
 		maxRows,
 		rows,
@@ -95,6 +96,7 @@ const TextInputWrapper = props => {
 			isDisabled={isDisabled}
 			value={value}
 			isMultiline={isMultiline}
+			isLabelHidden={isLabelHidden}
 			minRows={minRows}
 			maxRows={maxRows}
 			rows={rows}
@@ -118,6 +120,7 @@ TextInputWrapper.propTypes = {
 	isDisabled: PropTypes.bool,
 	value: PropTypes.string,
 	isMultiline: PropTypes.bool,
+	isLabelHidden: PropTypes.bool,
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
@@ -132,7 +135,8 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<TextInputWrapper
-		labelText={('label text', '')}
+		labelText={text('label text', 'Test label')}
+		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
 		isMultiline={boolean('is multiline', false)}
@@ -161,6 +165,10 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
+		if (!variationMinusStoryDetails.labelText) {
+			variationMinusStoryDetails.labelText = "Test label";
+			variationMinusStoryDetails.isLabelHidden = true;
+		}
 
 		return <TextInputWrapper {...variationMinusStoryDetails} />;
 

@@ -8,7 +8,11 @@ import {ns} from '../helpers/xuiClassNamespace';
 const baseClass = `${ns}-breadcrumb`;
 
 const getCrumbLabel = (crumb) => {
-	if (!crumb.href) {
+	if (crumb.type) { // HTML nodes and React components have a type property. Objects do not.
+		return React.cloneElement(crumb, {
+			className: cn(crumb.className, `${baseClass}--link`)
+		});
+	} else if (!crumb.href) {
 		return crumb.label;
 	} else {
 		return (
@@ -50,12 +54,17 @@ export default class XUIBreadcrumb extends PureComponent {
 XUIBreadcrumb.propTypes = {
 	className: PropTypes.string,
 	/**
-	 * Array of objects from which to build breadcrumbs.
+	 * Array of objects or nodes from which to build breadcrumbs.
 	 */
-	breadcrumbs: PropTypes.arrayOf(PropTypes.shape({
-		label: PropTypes.string.isRequired,
-		href: PropTypes.string
-	}))
+	breadcrumbs: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.node,
+			PropTypes.shape({
+				label: PropTypes.string.isRequired,
+				href: PropTypes.string
+			})
+		])
+	)
 };
 
 XUIBreadcrumb.defaultProps = {};

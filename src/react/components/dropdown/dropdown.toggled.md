@@ -241,7 +241,7 @@ It is highly recommended that you use [`Autocompleter`](#autocompleter) to imple
 require('array.prototype.find').shim();
 const debounce = require('lodash.debounce');
 const { Component } = require('react');
-const { boldMatch, decorateSubStr, EmptyState } = require('../../autocompleter');
+const { boldMatch, decorateSubStr, XUIAutocompleterEmptyState } = require('../../autocompleter');
 const Pickitem = require('../picklist/Pickitem').default;
 
 const items = ['Apricot', 'Banana', 'Cherry', 'Dragon Fruit', 'Eggplant', 'Fennel', 'Grapefruit', 'Honeydew', 'Iceberg Lettuce', 'Jackfruit', 'Kiwifruit', 'Lime','Mango', 'Nectarine', 'Orange', 'Pineapple', 'Quince', 'Rapberry', 'Starfruit', 'Tomato', 'Uglifruit', 'Valencia Orange', 'Watermelon', 'Xi gua','Yellow quash', 'Zucchini'].map((text, id) => {
@@ -303,7 +303,7 @@ class InputTriggerExample extends Component {
 		}
 		let pickItems;
 		if (visibleItems.length === 0) {
-			pickItems = <EmptyState id="noItems">No Fruit Found</EmptyState>;
+			pickItems = <XUIAutocompleterEmptyState id="noItems">No Fruit Found</XUIAutocompleterEmptyState>;
 		} else {
 			pickItems = visibleItems.map(item => (
 				<Pickitem

@@ -47,15 +47,17 @@ class XUITextInput extends PureComponent {
 	}
 
 	onFocus = e => {
+		this.props.onFocus && this.props.onFocus(e);
 		this.setState({
 			hasFocus: true
-		}, () => this.props.onFocus && this.props.onFocus(e))
+		});
 	};
 
 	onBlur = e => {
+		this.props.onBlur && this.props.onBlur(e);
 		this.setState({
 			hasFocus: false
-		}, () => this.props.onBlur && this.props.onBlur(e))
+		});
 	};
 
 	render(){

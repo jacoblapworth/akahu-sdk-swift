@@ -34,8 +34,24 @@ const createTriggerButton = () => {
 	return <XUIButton size="full-width">A button</XUIButton>;
 };
 
+const createHandlerTriggerButton = () => {
+	const clickHandl = () => {console.log('click')}; // eslint-disable-line no-console
+	const focusHandl = () => {console.log('focus')}; // eslint-disable-line no-console
+	const blurHandl = () => {console.log('blur')}; // eslint-disable-line no-console
+	return (
+		<XUIButton
+			size="full-width"
+			onClick={clickHandl}
+			onFocus={focusHandl}
+			onBlur={blurHandl}
+		>
+			No tip on click
+		</XUIButton>
+	);
+};
+
 const createTriggerLink = () => {
-	return <a href="javascript:void(0);">A link</a>;
+	return <a href="https://www.xero.com" target="_blank" rel="noopener noreferrer">A link</a>;
 };
 
 const createTriggerIcon = () => {
@@ -86,7 +102,7 @@ storiesWithKnobs.add("Playground", () => {
 				<XUITooltip trigger={createTriggerInput()} {...props} >
 					Hello. I am a clue.
 				</XUITooltip>
-				<XUITooltip trigger={createTriggerButton()} {...props} >
+				<XUITooltip trigger={createHandlerTriggerButton()} {...props} >
 					Clue number two.
 				</XUITooltip>
 				<XUITooltip trigger={createTriggerInput()} {...props} >

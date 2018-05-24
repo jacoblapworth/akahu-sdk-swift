@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
+import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 import { baseFontTheme } from '../helpers/theme';
 
@@ -30,33 +31,40 @@ const createStackedAvatar = ({ barWidth, rawText }) => {
 };
 
 const createStackedLabel = (
-	{ rawText },
+	{ rawText, barWidth },
 	{ avatarCircleDiameter, avatarCircleXOffset, avatarCircleYOffset }
 ) => {
 	const labelXOffset = avatarCircleXOffset;
 	const labelYOffset = avatarCircleYOffset + avatarCircleDiameter + 5;
 	const labelText = rawText;
 	const labelStyle = baseFontTheme;
+	const labelTextWidth = barWidth;
 	const labelAnchor = 'middle';
 
-	return { labelXOffset, labelYOffset, labelText, labelStyle, labelAnchor };
+	return {
+		labelXOffset,
+		labelYOffset,
+		labelText,
+		labelStyle,
+		labelTextWidth,
+		labelAnchor,
+	};
 };
 
-// const truncateText = (text, maxChars) => text;
-const truncateText = (text, maxChars) => {
-	const totalChars = text.length;
-	const shouldTruncate = totalChars > maxChars;
+// const truncateText = (text, maxChars) => {
+// 	const totalChars = text.length;
+// 	const shouldTruncate = totalChars > maxChars;
 
-	switch (true) {
-		case shouldTruncate: {
-			const elipsis = '...';
-			const cutOff = maxChars - elipsis.length;
-			const truncated = text.slice(0, cutOff).trim();
-			return truncated + elipsis;
-		}
-		default: return text;
-	}
-};
+// 	switch (true) {
+// 		case shouldTruncate: {
+// 			const elipsis = '...';
+// 			const cutOff = maxChars - elipsis.length;
+// 			const truncated = text.slice(0, cutOff).trim();
+// 			return truncated + elipsis;
+// 		}
+// 		default: return text;
+// 	}
+// };
 
 const responsiveOptions = {
 
@@ -74,11 +82,9 @@ const responsiveOptions = {
 		// |  Label Text  |
 		// °- - - - - - - °
 
-		const { rawText, barWidth } = params;
+		// const { rawText, barWidth } = params;
 		const avatar = createStackedAvatar(params);
 		const label = createStackedLabel(params, avatar);
-		// const marChars = barWidth / 6;
-		// const labelText = truncateText(rawText, marChars);
 
 		return { ...avatar, ...label };
 	},
@@ -89,11 +95,9 @@ const responsiveOptions = {
 		// |  Label Text  |
 		// °- - - - - - - °
 
-		const { rawText, barWidth } = params;
+		// const { rawText, barWidth } = params;
 		const avatar = createStackedAvatar(params);
 		const label = createStackedLabel(params, avatar);
-		// const marChars = barWidth / 6.5;
-		// const labelText = truncateText(rawText, marChars);
 		const labelStyle = LARGE_LABEL_FONT;
 
 		return { ...avatar, ...label, labelStyle };
@@ -112,7 +116,7 @@ const responsiveOptions = {
 		// to set the center value dynamically. In that regard we "left" align the
 		// labels contents and let the component do the calculations.
 		const shouldCalculateCenter = true;
-		const { rawText, barWidth } = params;
+		const { barWidth } = params;
 		const avatar = createStackedAvatar(params);
 		const label = createStackedLabel(params, avatar);
 		const { avatarCircleRadius, avatarCircleDiameter, avatarCircleYOffset } = avatar;
@@ -120,8 +124,6 @@ const responsiveOptions = {
 		const avatarTextXOffset = avatarCircleXOffset;
 		const labelXOffset = avatarCircleXOffset + avatarCircleRadius + 5;
 		const labelYOffset = avatarCircleYOffset + 5;
-		// const marChars = (barWidth - avatarCircleDiameter - 5) / 6.5;
-		// const labelText = truncateText(rawText, marChars);
 		const labelStyle = LARGE_LABEL_FONT;
 		const labelAnchor = 'left';
 		const labelTextWidth = barWidth - avatarCircleDiameter - 5;
@@ -136,7 +138,6 @@ const responsiveOptions = {
 			labelYOffset,
 			labelStyle,
 			labelAnchor,
-			// labelText,
 			labelTextWidth
 		};
 	},
@@ -159,35 +160,6 @@ const getResponsiveOption = width => {
 };
 
 class StackedLabel extends Component {
-
-	truncatedNode;
-
-	state = { /* truncatedNodes */ };
-
-	updateTruncatedText = () => {
-
-		const { state, truncatedNode } = this;
-		const truncatedNodes = truncatedNode.querySelectorAll('tspan');
-		// const
-
-		this.setState({ ...state, truncatedNodes });
-
-		// const contentWidth = contentNode ? getGroupPosition(contentNode).width : 0;
-		// const shouldUpdate = !testIsCloseEnough(contentWidth, state.contentWidth || 0);
-
-		// if (shouldUpdate) {
-		// 	this.setState({ ...state, contentWidth });
-		// }
-
-	}
-
-	componentDidMount() {
-		this.updateTruncatedText();
-	}
-
-	// componentDidUpdate() {
-	// 	this.updateTruncatedText();
-	// }
 
 	render() {
 		const {
@@ -216,44 +188,14 @@ class StackedLabel extends Component {
 			avatarColor,
 			labelXOffset,
 			labelYOffset,
-			labelText = rawText,
+			labelText,
 			labelStyle,
 			labelAnchor,
-			labelTextWidth = barWidth,
+			labelTextWidth,
 			shouldCalculateCenter
 		} = responsiveOption(responsiveParams);
 		const avatarClassName = cn('\n\n\nxui-chart--measure', avatarColor);
 		const avatarStyle = { ...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold' };
-
-		// truncatedNodes
-		// labelTextWidth
-
-		const { truncatedNode } = this;
-		const { truncatedNodes } = this.state;
-
-		const { totalChars } = truncatedNodes
-			? [...truncatedNodes].reduce((acc, node) => {
-
-				const { totalWidth, totalChars } = acc;
-				// const { width = 0, height = 0, x = 0, y = 0 } = node.getBBox();
-				// const { offsetWidth: width } = node;
-				// const { width } = node.getBoundingClientRect();
-				const width = node.getComputedTextLength();
-				const newWidth = totalWidth + width;
-
-				console.log('');
-				console.log({ width, totalWidth, totalChars, node });
-				console.log('getComputedTextLength', node.getComputedTextLength());
-				console.log(`${newWidth} > ${labelTextWidth} = ${newWidth > labelTextWidth}`);
-
-				return newWidth > labelTextWidth
-					? acc
-					: { totalWidth: newWidth, totalChars: totalChars + 1 };
-
-			}, { totalWidth: 20, totalChars: 0 })
-			: { totalChars: labelText.length };
-
-		console.log('TRUNCATION', { totalChars, truncatedNode, truncatedNodes, nodes: truncatedNodes && truncatedNodes.length });
 
 		return (
 			<XAxisLabelWrapper
@@ -277,20 +219,15 @@ class StackedLabel extends Component {
 					</text>
 
 					{ labelText && (
-						<text
-							ref={node => this.truncatedNode = node}
-							className="xui-chart--measure"
-							x={labelXOffset}
-							y={labelYOffset}
-							textAnchor={labelAnchor}>
-
-							{ labelText.slice(0, totalChars).split('').map((character, key) => (
-								<tspan key={key} style={labelStyle}>{character}</tspan>
-							)) }
-
-							{ labelText.length !== totalChars && <tspan style={labelStyle}>...</tspan> }
-
-						</text>
+							<TruncatedText
+								className="xui-chart--measure"
+								x={labelXOffset}
+								y={labelYOffset}
+								textAnchor={labelAnchor}
+								style={labelStyle}
+								maxWidth={labelTextWidth}>
+								{labelText}
+							</TruncatedText>
 					) }
 				</g>
 			</XAxisLabelWrapper>

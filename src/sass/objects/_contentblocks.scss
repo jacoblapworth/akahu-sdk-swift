@@ -499,7 +499,9 @@
 	}
 
 	.#{$ns}-contentblockitem--leftcontent {
-		min-width: 69px; // Height of a contentBlockItem with secondary. TODO: Update with flexi-controls.
+		// This min-width matches the height of a contentBlockItem w/ secondary text, to make the element square.
+		// TODO: Update when flexi-controls and responsive design adjustments come around.
+		min-width: 69px;
 		@include xui-flex-children;
 	}
 

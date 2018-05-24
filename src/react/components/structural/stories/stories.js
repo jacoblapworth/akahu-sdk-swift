@@ -63,7 +63,7 @@ const buildActions = (props) => {
 };
 
 const sampleBreadcrumb = [
-	{label: "hello", href: "#1"},
+	<span role="link" onClick={() => alert('hello')} key="1">hello</span>,
 	{label: "hiya", href: "#2"},
 	{label: "yo"}];
 const exampleBreadcrumb = (

@@ -229,7 +229,7 @@
 // Sizes
 //
 // By default, datepickers span the full width of their containing element.
-// To set your own width, nest the datepicker within another component, such as a <a href="section-building-blocks-dropdowns.html">dropdown</a>, or apply your own value.
+// To set your own width, nest the datepicker within another component, such as a <a href="section-compounds-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
 // A smaller variant of the datepicker is also available by applying the following modifiers to `xui-datepicker`.
 // It is also recommended to remove the `xui-button-icon-large` modifier on the icon buttons when doing so.
 //
@@ -434,7 +434,7 @@
 
 // Accessibility
 //
-// Datepickers must have keyboard support as described in the [W3C documentation](https://www.w3.org/TR/2013/WD-wai-aria-practices-20130307/#kbd_focus).
+// Datepickers must have keyboard support as described in the [W3C documentation](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_discernable_predictable).
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
 // An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //

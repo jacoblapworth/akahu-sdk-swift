@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { alwaysPositive } from '../helpers';
+import { barChartTheme } from '../helpers/theme';
+
+const createAlternateStackColor = stackIndex => {
+	const defaultBarColors = barChartTheme.bar.colorScale;
+	const colorIndex = stackIndex % 2;
+
+	return defaultBarColors[colorIndex];
+};
 
 class StackedBar extends Component {
 
@@ -16,7 +24,7 @@ class StackedBar extends Component {
 	render = () => {
 		const {
 			id,
-			barColors,
+			barColors: customBarColors,
 			onBarClick,
 			barWidth,
 			activeColor,
@@ -115,7 +123,9 @@ class StackedBar extends Component {
 							width={barWidth}
 							x={xLocation}
 							y={yLocation(stackIndex)}
-							fill={isActive(stackIndex) ? activeColor : barColors[stackIndex]}
+							fill={isActive(stackIndex)
+								? activeColor
+								: customBarColors[stackIndex] || createAlternateStackColor(stackIndex)}
 						/>
 					)) }
 				</g>

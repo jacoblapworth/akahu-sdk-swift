@@ -10,7 +10,7 @@ class ContentPagination extends Component {
 		const { currentPage, updatePage } = this.props;
 
 		return (
-			<nav role="navigation" aria-label="Pagination">
+			<nav className="xui-chart--pagination" role="navigation" aria-label="Pagination">
 				<XUIButton
 					variant="icon"
 					className={`xui-button-icon-large`}
@@ -19,7 +19,7 @@ class ContentPagination extends Component {
 					<XUIIcon
 						path={arrowPathData}
 						rotation="90"
-						className={`xui-u-flex-inherit`}
+						// className={`xui-u-flex-inherit`}
 					/>
 				</XUIButton>
 				Page {currentPage}
@@ -31,7 +31,7 @@ class ContentPagination extends Component {
 					<XUIIcon
 						path={arrowPathData}
 						rotation="270"
-						className={`xui-u-flex-inherit`}
+						// className={`xui-u-flex-inherit`}
 					/>
 				</XUIButton>
 			</nav>

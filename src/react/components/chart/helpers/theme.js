@@ -1,7 +1,7 @@
 import { VictoryTheme } from 'victory';
 
 const baseFontTheme = {
-	fill: 'gray',
+	fill: '#657483',
 	fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
 	fontSize: 11
 };
@@ -14,7 +14,7 @@ const axisLineTheme = {
 
 const gridTheme = {
 	fill: 'transparent',
-	stroke: 'gray',
+	stroke: '#EBEDEF',
 	strokeWidth: 1
 };
 
@@ -38,6 +38,11 @@ baseChartTheme.axis.style.grid = {
 baseChartTheme.axis.style.tickLabels = {
 	...baseChartTheme.axis.style.tickLabels,
 	...baseFontTheme,
+};
+
+baseChartTheme.bar = {
+	...baseChartTheme.bar,
+	colorScale: ['#32465A', '#67BBEB'],
 };
 
 const barChartTheme = { ...baseChartTheme };

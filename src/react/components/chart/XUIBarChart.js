@@ -17,6 +17,7 @@ import StackedLabel from './customElements/StackedLabel';
 import GroupWrapper from './customElements/GroupWrapper';
 import GraphTooltip from './customElements/GraphTooltip';
 import ContentPagination from './customElements/ContentPagination';
+import ChartKey from './customElements/ChartKey';
 import getGroupPosition, { testIsCloseEnough } from './helpers';
 import { barChartTheme } from './helpers/theme';
 
@@ -221,15 +222,31 @@ class XUIBarChart extends Component {
 		return (
 			<div className={chartClassName}>
 
-				{title && <h2>{title}</h2>}
-				{title && description && <p>{description}</p>}
+				<div className="xui-chart--header">
 
-				{ hasPagination && panelsTotal > 1 && (
-					<ContentPagination
-						currentPage={currentPage}
-						updatePage={this.updatePage}
-					/>
-				) }
+					{title && <h2 className="xui-chart--title">{title}</h2>}
+
+					{ hasPagination && panelsTotal > 1 && (
+						<div>
+							<ContentPagination
+								currentPage={currentPage}
+								updatePage={this.updatePage}
+							/>
+						</div>
+					) }
+
+					<div>
+						<ChartKey>
+							Hello
+						</ChartKey>
+					</div>
+
+				</div>
+
+
+				{/*title && description && <p>{description}</p> */}
+
+
 
 				<div
 					className="xui-chart--base"

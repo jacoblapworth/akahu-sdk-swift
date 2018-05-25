@@ -38,7 +38,7 @@ class Demo extends React.Component {
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
+				barColors={['lightblue']}
 				activeColor={"hotpink"}
 				createToolTipContent={bar => <strong>{bar.x}</strong>}
 			/>

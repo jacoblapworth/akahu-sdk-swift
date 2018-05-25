@@ -7,7 +7,6 @@
 }
 
 .xui-chart--content {
-	// background: rgba(orange, 0.2);
 	height: 100%;
 	left: 0;
 	overflow-x: auto;
@@ -21,8 +20,23 @@
 	overflow-x: hidden;
 }
 
+.xui-chart--header {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.xui-chart--title {
+	flex-grow: 1;
+	margin: 0;
+}
+
+.xui-chart--pagination {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
 .xui-chart--scroll {
-	// background: rgba(blue, 0.2);
 	height: 100%;
 	position: relative;
 }
@@ -31,7 +45,8 @@
 	transition: $xui-motion-speed-medium;
 }
 
-// .xui-chart .xui-tooltip {
+.xui-chart--content {}
+
 .xui-chart .xui-tooltip--tip {
 	cursor: initial;
 	pointer-events: none;

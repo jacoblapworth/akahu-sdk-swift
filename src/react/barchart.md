@@ -13,7 +13,7 @@ class Demo extends React.Component {
 		this.state = { bars: [
 			{ x: "Apple", y: [1, 1, 2, 1] },
 			{ x: "Potato", y: [2, 1] },
-			{ x: "Carrot Soup", y: [1, 3] },
+			{ x: "Carrot", y: [1, 3] },
 		] };
 	}
 
@@ -253,6 +253,38 @@ class Demo extends React.Component {
 				bars={data}
 				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
 				activeColor={"hotpink"}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+
+class Demo extends React.Component {
+
+	constructor() {
+		super();
+		this.state = { bars: [
+			{ x: "Apple", y: [1, 2, 1] },
+			{ x: "Potato", y: [2, 1] },
+			{ x: "Carrot", y: [1, 3] },
+		] };
+	}
+
+	render() {
+		return (
+			<XUIBarChart
+				id="minYValue"
+				title="Minimum y-axis value"
+				description="Sets a minimum threshold that can be exceeded if a stack requires it"
+				isStacked
+				bars={this.state.bars}
+				minYValue={6}
 			/>
 		);
 	}

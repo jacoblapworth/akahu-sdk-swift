@@ -26,11 +26,12 @@ class StackedBar extends Component {
 			id,
 			barColors: customBarColors,
 			onBarClick,
-			barWidth,
+			barWidth: rawBarWidth,
 			activeColor,
 			updateToolTip,
 			data,
 			datum: bar,
+			maxYDomain,
 			horizontal,
 			index: barIndex,
 			padding,
@@ -55,12 +56,15 @@ class StackedBar extends Component {
 		const yBottom = alwaysPositive(y0);
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
 		const maxHeight = yBottom - yTop;
-		const ratio = maxHeight / maxStack;
+		const ratio = maxHeight / maxYDomain;
 		const maskId = `xui-chart--${id}--bar${barIndex}`;
 		const radius = 3;
 		const divider = 10;
-		const xLocation = barWidth * barIndex;
-		const yLocation = stackIndex => yTop + stacks.slice(stackIndex + 1).reduce((acc, stack) => acc + stack * ratio, 0);
+		const xPos = (rawBarWidth * barIndex) + divider;
+		const yPos = yBottom - (maxStack * ratio);
+		const trimmedBarWidth = rawBarWidth - (divider * 2);
+		const barHeight = (maxStack * ratio) + radius;
+		const yLocation = stackIndex => yBottom - stacks.slice(0, stackIndex).reduce((acc, stack) => acc + stack * ratio, 0) - (stacks[stackIndex] * ratio);
 		const isActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
 
 		// The bar is setup into to main parts.
@@ -94,10 +98,10 @@ class StackedBar extends Component {
 						id={maskId}
 						maskUnits="userSpaceOnUse">
 						<rect
-							x={xLocation + divider}
-							y={yTop}
-							width={barWidth - divider * 2}
-							height={maxHeight + radius}
+							x={xPos}
+							y={yPos}
+							width={trimmedBarWidth}
+							height={barHeight}
 							rx={radius}
 							ry={radius}
 							fill="white"
@@ -119,13 +123,13 @@ class StackedBar extends Component {
 								})
 							}}
 							key={stackIndex}
-							height={stack * ratio}
-							width={barWidth}
-							x={xLocation}
+							x={xPos}
 							y={yLocation(stackIndex)}
-							fill={isActive(stackIndex)
+							width={trimmedBarWidth}
+							height={stack * ratio}
+							fill={activeColor && isActive(stackIndex)
 								? activeColor
-								: customBarColors[stackIndex] || createAlternateStackColor(stackIndex)}
+								: customBarColors && customBarColors[stackIndex] || createAlternateStackColor(stackIndex)}
 						/>
 					)) }
 				</g>

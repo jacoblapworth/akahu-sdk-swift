@@ -12,7 +12,7 @@ const createStackedAvatar = ({ barWidth, rawText }) => {
 	const avatarCircleRadius = 12;
 	const avatarCircleDiameter = avatarCircleRadius * 2;
 	const avatarCircleXOffset = barWidth * 0.5;
-	const avatarCircleYOffset = avatarCircleRadius;
+	const avatarCircleYOffset = avatarCircleRadius + 10;
 	const avatarTextXOffset = avatarCircleXOffset;
 	const avatarTextYOffset = avatarCircleYOffset + 4;
 	const avatarText = abbreviateAvatar(rawText, 2);
@@ -164,6 +164,7 @@ class StackedLabel extends Component {
 	render() {
 		const {
 			barWidth,
+			yPos,
 			angle,
 			datum,
 			index: barIndex,
@@ -176,8 +177,10 @@ class StackedLabel extends Component {
 			x: rawXOffset,
 			y: rawYOffset
 		} = this.props;
+
+		console.log('LABEL', this.props);
 		const responsiveOption = getResponsiveOption(barWidth);
-		const responsiveParams = { barWidth, barIndex, rawText, rawYOffset };
+		const responsiveParams = { barWidth, barIndex, rawText, yPos };
 		const {
 			avatarCircleXOffset,
 			avatarCircleYOffset,
@@ -201,7 +204,7 @@ class StackedLabel extends Component {
 			<XAxisLabelWrapper
 				shouldCalculateCenter={shouldCalculateCenter}
 				labelXOffset={barWidth * barIndex}
-				labelYOffset={rawYOffset}
+				labelYOffset={yPos}
 				labelWidth={barWidth}
 				labelHeight={100}>
 				<g>

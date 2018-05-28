@@ -53,6 +53,7 @@ class StackedBar extends Component {
 			isBarActive,
 			activeStacks = []
 		} = bar;
+		if (!stacks.length) return null;
 		const yBottom = alwaysPositive(y0);
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
 		const ratio = axisHeight / maxYDomain;

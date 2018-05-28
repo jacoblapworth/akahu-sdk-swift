@@ -435,3 +435,31 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [] },
+	{ x: "Potato", y: [] },
+	{ x: "Carrot", y: [] },
+];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="emptyStackData"
+				title="Empty Stack Data"
+				description="Show chart even when no stack data is supplied"
+				isStacked
+				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```

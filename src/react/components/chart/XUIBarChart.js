@@ -176,7 +176,7 @@ class XUIBarChart extends Component {
 			id,
 			title,
 			description,
-			bars,
+			bars: barsRaw,
 			isStacked,
 			hasPagination,
 			barColors,
@@ -184,7 +184,7 @@ class XUIBarChart extends Component {
 			activeColor,
 			createToolTipContent,
 			maxVisibleItems,
-			maxYValue: customMaxYValue,
+			maxYValue: customMaxYValue = 0,
 			formatYAxisLabel: customFormatYAxisLabel,
 			createPaginationMessage,
 		} = this.props;
@@ -198,6 +198,11 @@ class XUIBarChart extends Component {
 		} = this.state;
 
 		const chartHeight = 400;
+		const bars = barsRaw; // barsRaw.map(bar =>  ({...bar, y: bar.y.length ? bar.y : [0.0]}));
+
+		const hasNoXValues = false;
+
+
 		const [toolTipX, toolTipY] = toolTipPosition;
 		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
 		const padding = {
@@ -219,8 +224,9 @@ class XUIBarChart extends Component {
 			panelsTotal,
 		} = createBarStats({ bars, maxVisibleItems, contentWidth, hasPagination });
 		const addUpStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
-		const maxBarValue = bars.map(addUpStacks).reduce((acc, value) => Math.max(acc, value));
-		const maxYDomain = Math.max(customMaxYValue || 0, maxBarValue);
+		const maxBarValue = bars.map(addUpStacks).reduce((acc, value) => Math.max(acc, value), 0);
+		const hasPositiveYValue = Boolean(maxBarValue);
+		const maxYDomain = Math.max(customMaxYValue, maxBarValue);
 		const chartClassName = cn('xui-chart', {
 			[`xui-chart-has-pagination`]: hasPagination
 		});
@@ -236,13 +242,31 @@ class XUIBarChart extends Component {
 		const seperateYAxisLabels = (() => {
 			const minimumGap = 100;
 			const totalLabels = Math.floor(yAxisHeight / minimumGap);
-			const increment = maxYDomain / totalLabels;
+			const increment = hasPositiveYValue || customMaxYValue
+				? maxYDomain / totalLabels
+				// When there are no y-axis values the domain is [0, 0, 0] by default.
+				// This blows up Victory so as a fallback (when there is no data and no
+				// custom y-axis value) we simply count up by "1".
+				: 1;
+
 			return (
 				new Array(totalLabels + 1)
 					.fill(0)
 					.map((_, index) => increment * index)
 			);
 		})();
+
+		console.log('CHART', {
+			seperateYAxisLabels,
+			barsWidth,
+			barWidth,
+			panelsTotal,
+			maxVisibleItems,
+			contentWidth,
+			maxBarValue,
+			maxYDomain,
+			yAxisHeight,
+		});
 
 		return (
 			<div className={chartClassName}>
@@ -386,10 +410,12 @@ class XUIBarChart extends Component {
 							tickFormat={formatYAxisLabel}
 							// tickValues={[0, 2.11, 3.9, 6.1, 8.05]}
 							tickValues={seperateYAxisLabels}
+							// tickValues={false}
 
 							// domainPadding={{ x: [0, 0], y: [0, 0] }}
 							// domainPadding={{ x: [30, 30], y: [30, 30] }}
 							// domain={[0, maxYDomain]}
+							// domain={[0, 0]}
 							// tickCount={3}
 							// tickCount={(() => {
 
@@ -478,7 +504,10 @@ class XUIBarChart extends Component {
 									)}
 
 									tickLabelComponent={(
-										<StackedLabel barWidth={barWidth} />
+										<StackedLabel
+											barWidth={barWidth}
+											yPos={chartHeight - bottom}
+										/>
 									)}
 								/>
 

@@ -7,33 +7,46 @@ import arrowPathData from '@xero/xui-icon/icons/arrow';
 
 class ContentPagination extends Component {
 	render() {
-		const { currentPage, updatePage } = this.props;
+		const {
+			current,
+			total,
+			updatePage,
+			createMessage,
+		} = this.props;
+		const message = createMessage && createMessage(current, total);
 
 		return (
-			<nav className="xui-chart--pagination" role="navigation" aria-label="Pagination">
+			<nav
+				className="xui-chart--pagination"
+				role="navigation"
+				aria-label="Pagination">
+
 				<XUIButton
 					variant="icon"
 					className={`xui-button-icon-large`}
-					onClick={() => updatePage(currentPage - 1)}
-					title="Previous page">
+					onClick={() => updatePage(current - 1)}
+					title="Previous page"
+					isDisabled={current === 1}>
 					<XUIIcon
 						path={arrowPathData}
 						rotation="90"
-						// className={`xui-u-flex-inherit`}
 					/>
 				</XUIButton>
-				Page {currentPage}
+
+				{message}
+
 				<XUIButton
 					variant="icon"
 					className={`xui-button-icon-large`}
-					onClick={() => updatePage(currentPage + 1)}
-					title="Next Page">
+					onClick={() => updatePage(current + 1)}
+					title="Next Page"
+					isDisabled={current === total}>
 					<XUIIcon
 						path={arrowPathData}
 						rotation="270"
-						// className={`xui-u-flex-inherit`}
 					/>
 				</XUIButton>
+
 			</nav>
 		);
 	}

@@ -186,6 +186,7 @@ class XUIBarChart extends Component {
 			maxVisibleItems,
 			maxYValue: customMaxYValue,
 			formatYAxisLabel: customFormatYAxisLabel,
+			createPaginationMessage,
 		} = this.props;
 		const {
 			chartWidth,
@@ -253,7 +254,9 @@ class XUIBarChart extends Component {
 					{ hasPagination && panelsTotal > 1 && (
 						<div>
 							<ContentPagination
-								currentPage={currentPage}
+								current={currentPage}
+								total={panelsTotal}
+								createMessage={createPaginationMessage}
 								updatePage={this.updatePage}
 							/>
 						</div>

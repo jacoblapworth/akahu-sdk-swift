@@ -292,7 +292,7 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="barScroll"
+				id="nativeScroll"
 				title="Native Scroll"
 				description="Scroll bars horizontally to reveal additional content"
 				isStacked
@@ -327,7 +327,7 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="barPagination"
+				id="pagination"
 				title="Pagination Scroll"
 				description={`Click the pagination buttons to reveal "next" and "previous" panels`}
 				isStacked
@@ -341,6 +341,44 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+	{ x: "Banana", y: [4] },
+	{ x: "Berry", y: [1, 2] },
+	{ x: "Orange", y: [3, 1] },
+	{ x: "Beetroot", y: [2, 3] },
+	{ x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ x: "Lettuce", y: [2, 1] },
+];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="customPagination"
+				title="Custom Pagination Message"
+				description="Create a custom message based on the current and total page values"
+				isStacked
+				hasPagination
+				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
+				bars={data}
+				maxVisibleItems={5}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
 
 ```
 require('array.prototype.find').shim();

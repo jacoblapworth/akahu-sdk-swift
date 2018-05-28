@@ -1,6 +1,6 @@
 ## Bar Charts...
 
-#### Example
+#### Examples
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
@@ -11,7 +11,7 @@ class Demo extends React.Component {
 		super();
 		this.handleBarClick = this.handleBarClick.bind(this);
 		this.state = { bars: [
-			{ x: "Apple", y: [1, 1, 2, 1] },
+			{ x: "Apple", y: [2] },
 			{ x: "Potato", y: [2, 1] },
 			{ x: "Carrot", y: [1, 3] },
 		] };
@@ -33,14 +33,12 @@ class Demo extends React.Component {
 		return (
 			<XUIBarChart
 				id="barClick"
-				title="Clickable Bars"
+				title="Clickable Bar"
 				description="Click a bar to toggle the active state"
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				barColors={['lightblue']}
 				activeColor={"hotpink"}
-				createToolTipContent={bar => <strong>{bar.x}</strong>}
 			/>
 		);
 	}
@@ -59,7 +57,7 @@ class Demo extends React.Component {
 		super();
 		this.handleBarClick = this.handleBarClick.bind(this);
 		this.state = { bars: [
-			{ x: "Apple", y: [1, 1, 2, 1] },
+			{ x: "Apple", y: [2] },
 			{ x: "Potato", y: [2, 1] },
 			{ x: "Carrot", y: [1, 3] },
 		] };
@@ -87,13 +85,65 @@ class Demo extends React.Component {
 		return (
 			<XUIBarChart
 				id="barClick"
-				title="Clickable Stacks"
+				title="Clickable Stack"
 				description="Click a stack to toggle the active state"
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
 				activeColor={"hotpink"}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="barTooltip"
+				title="Bar Tooltip"
+				description="Hover over a bar to reveal relevant information"
+				isStacked
+				bars={data}
+				createToolTipContent={bar => <strong>{bar.x}</strong>}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data= [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="stackTooltip"
+				title="Stack Tooltip"
+				description="Hover over a stack to reveal relevant information"
+				isStacked
+				bars={data}
 				createToolTipContent={bar => (
 					<div>
 						<div><strong>{bar.x}</strong></div>
@@ -108,6 +158,32 @@ class Demo extends React.Component {
 <Demo />
 ```
 
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data= [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="maximumBars"
+				title="Maximum Bars"
+				description="Control the maximum amount of bars per panel"
+				isStacked
+				bars={data}
+				maxVisibleItems={3}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
 
 ```
 require('array.prototype.find').shim();
@@ -196,49 +272,55 @@ class Demo extends React.Component {
 <Demo />
 ```
 
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+	{ x: "Banana", y: [4] },
+	{ x: "Berry", y: [1, 2] },
+	{ x: "Orange", y: [3, 1] },
+	{ x: "Beetroot", y: [2, 3] },
+	{ x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ x: "Lettuce", y: [2, 1] },
+];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="barScroll"
+				title="Native Scroll"
+				description="Scroll bars horizontally to reveal additional content"
+				isStacked
+				bars={data}
+				maxVisibleItems={5}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
 
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
-
 const data = [
-		{ x: "Apple", y: [1, 1, 2, 1] },
-		{ x: "Potato", y: [2, 1] },
-		{ x: "Carrot", y: [1, 3] },
-		{ x: "Banana", y: [4] },
-		{ x: "Berry", y: [2, 2] },
-		{ x: "Orange", y: [3, 1] },
-		{ x: "Beetroot", y: [2, 3] },
-		{ x: "Pumpkin", y: [2, 1, 1, 1] },
-		{ x: "Lettuce", y: [1, 4] },
-		{ x: "Apple (1)", y: [1, 1, 2, 1] },
-		{ x: "Potato (1)", y: [2, 1] },
-		{ x: "Carrot (1)", y: [1, 3] },
-		{ x: "Banana (1)", y: [4] },
-		{ x: "Berry (1)", y: [2, 2] },
-		{ x: "Orange (1)", y: [3, 1] },
-		{ x: "Beetroot (1)", y: [2, 3] },
-		{ x: "Pumpkin (1)", y: [2, 1, 1, 1] },
-		{ x: "Lettuce (1)", y: [1, 4] },
-		{ x: "Apple (2)", y: [1, 1, 2, 1] },
-		{ x: "Potato (2)", y: [2, 1] },
-		{ x: "Carrot (2)", y: [1, 3] },
-		{ x: "Banana (2)", y: [4] },
-		{ x: "Berry (2)", y: [2, 2] },
-		{ x: "Orange (2)", y: [3, 1] },
-		{ x: "Beetroot (2)", y: [2, 3] },
-		{ x: "Pumpkin (2)", y: [2, 1, 1, 1] },
-		{ x: "Lettuce (2)", y: [1, 4] },
-		{ x: "Apple (3)", y: [1, 1, 2, 1] },
-		{ x: "Potato (3)", y: [2, 1] },
-		{ x: "Carrot (3)", y: [1, 3] },
-		{ x: "Banana (3)", y: [4] },
-		{ x: "Berry (3)", y: [2, 2] },
-		{ x: "Orange (3)", y: [3, 1] },
-		{ x: "Beetroot (3)", y: [2, 3] },
-		{ x: "Pumpkin (3)", y: [2, 1, 1, 1] },
-		{ x: "Lettuce (3)", y: [1, 4] },
-	];
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+	{ x: "Banana", y: [4] },
+	{ x: "Berry", y: [1, 2] },
+	{ x: "Orange", y: [3, 1] },
+	{ x: "Beetroot", y: [2, 3] },
+	{ x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ x: "Lettuce", y: [2, 1] },
+];
 
 class Demo extends React.Component {
 
@@ -246,13 +328,12 @@ class Demo extends React.Component {
 		return (
 			<XUIBarChart
 				id="barPagination"
-				title="Pagination scroll"
+				title="Pagination Scroll"
 				description={`Click the pagination buttons to reveal "next" and "previous" panels`}
 				isStacked
 				hasPagination
 				bars={data}
-				barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
-				activeColor={"hotpink"}
+				maxVisibleItems={5}
 			/>
 		);
 	}
@@ -264,27 +345,51 @@ class Demo extends React.Component {
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
 
 class Demo extends React.Component {
-
-	constructor() {
-		super();
-		this.state = { bars: [
-			{ x: "Apple", y: [1, 2, 1] },
-			{ x: "Potato", y: [2, 1] },
-			{ x: "Carrot", y: [1, 3] },
-		] };
-	}
 
 	render() {
 		return (
 			<XUIBarChart
-				id="minYValue"
-				title="Minimum y-axis value"
-				description="Sets a minimum threshold that can be exceeded if a stack requires it"
+				id="maxYValue"
+				title="Maximum Y-Axis Value"
+				description="Sets a maximum threshold that can be exceeded if a stack requires it"
 				isStacked
-				bars={this.state.bars}
-				minYValue={6}
+				bars={data}
+				maxYValue={6}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="customYAxis"
+				title="Custom Y-Axis Labels"
+				description="Format labels to enhance the graph axis information"
+				isStacked
+				bars={data}
+				formatYAxisLabel={(value) => `${Math.round(value * 100)}k`}
 			/>
 		);
 	}

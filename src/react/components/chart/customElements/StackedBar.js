@@ -29,6 +29,7 @@ class StackedBar extends Component {
 			barWidth: rawBarWidth,
 			activeColor,
 			updateToolTip,
+			axisHeight,
 			data,
 			datum: bar,
 			maxYDomain,
@@ -52,11 +53,9 @@ class StackedBar extends Component {
 			isBarActive,
 			activeStacks = []
 		} = bar;
-		const yTop = alwaysPositive(y);
 		const yBottom = alwaysPositive(y0);
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
-		const maxHeight = yBottom - yTop;
-		const ratio = maxHeight / maxYDomain;
+		const ratio = axisHeight / maxYDomain;
 		const maskId = `xui-chart--${id}--bar${barIndex}`;
 		const radius = 3;
 		const divider = 10;

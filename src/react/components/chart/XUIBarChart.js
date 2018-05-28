@@ -184,7 +184,7 @@ class XUIBarChart extends Component {
 			activeColor,
 			createToolTipContent,
 			maxVisibleItems,
-			minYValue: customMinYValue,
+			maxYValue: customMaxYValue,
 			formatYAxisLabel: customFormatYAxisLabel,
 		} = this.props;
 		const {
@@ -210,7 +210,8 @@ class XUIBarChart extends Component {
 			// A gap threshold to safegaurd against overflow.
 			right: 2
 		};
-		const contentWidth = chartWidth - padding.left - padding.right;
+		const { top, right, bottom, left } = padding;
+		const contentWidth = chartWidth - left - right;
 		const {
 			barsWidth,
 			barWidth,
@@ -218,19 +219,28 @@ class XUIBarChart extends Component {
 		} = createBarStats({ bars, maxVisibleItems, contentWidth, hasPagination });
 		const addUpStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
 		const maxBarValue = bars.map(addUpStacks).reduce((acc, value) => Math.max(acc, value));
-		const maxYDomain = Math.max(customMinYValue || 0, maxBarValue); // customMinYValue && customMinYValue > maxBarValue ? Math.max(customMinYValue, maxBarValue) : maxBarValue;
-		// console.log(`Math.max(${customMinYValue} || 0, ${maxBarValue}) = ${maxYDomain}`);
+		const maxYDomain = Math.max(customMaxYValue || 0, maxBarValue);
 		const chartClassName = cn('xui-chart', {
 			[`xui-chart-has-pagination`]: hasPagination
 		});
-
-		const formatYAxisLabel = (() => {
+		const yAxisHeight = chartHeight - top - bottom;
+		const formatYAxisLabel = customFormatYAxisLabel || (() => {
 			const decimalPoints = `${maxYDomain}`.split('.')[1] || 0;
 
 			return (rawLabel) => {
 				const factor = Math.pow(10, decimalPoints + 1);
   			return Math.round(rawLabel * factor) / factor;
 			};
+		})();
+		const seperateYAxisLabels = (() => {
+			const minimumGap = 100;
+			const totalLabels = Math.floor(yAxisHeight / minimumGap);
+			const increment = maxYDomain / totalLabels;
+			return (
+				new Array(totalLabels + 1)
+					.fill(0)
+					.map((_, index) => increment * index)
+			);
 		})();
 
 		return (
@@ -372,31 +382,7 @@ class XUIBarChart extends Component {
 
 							tickFormat={formatYAxisLabel}
 							// tickValues={[0, 2.11, 3.9, 6.1, 8.05]}
-							tickValues={(() => {
-
-								const yAxisHeight = chartHeight - padding.top - padding.bottom;
-								const minimumGap = 10;
-								const totalLabels = Math.floor(yAxisHeight / minimumGap);
-								const increment = maxYDomain / totalLabels; // Math.ceil(maxYDomain / totalLabels);
-								const values = (
-									new Array(totalLabels + 1)
-										.fill(0)
-										.map((_, index) => increment * index)
-								);
-
-								console.log({
-									yAxisHeight,
-									minimumGap,
-									totalLabels,
-									increment,
-									values,
-								});
-
-								// return [0, ...values];
-								return values;
-
-
-							})()}
+							tickValues={seperateYAxisLabels}
 
 							// domainPadding={{ x: [0, 0], y: [0, 0] }}
 							// domainPadding={{ x: [30, 30], y: [30, 30] }}
@@ -404,7 +390,7 @@ class XUIBarChart extends Component {
 							// tickCount={3}
 							// tickCount={(() => {
 
-							// 	const yAxisHeight = chartHeight - padding.top - padding.bottom;
+							// 	const yAxisHeight = chartHeight - top - bottom;
 							// 	const minimumGap = 100;
 							// 	const totalLabels = Math.floor(yAxisHeight / minimumGap);
 
@@ -421,7 +407,7 @@ class XUIBarChart extends Component {
 					<div
 						className="xui-chart--content"
 						style={{
-							left: `${padding.left}px`,
+							left: `${left}px`,
 							width: `${contentWidth}px`
 						}}>
 
@@ -499,6 +485,7 @@ class XUIBarChart extends Component {
 										<StackedBar
 											id={id}
 											maxYDomain={maxYDomain}
+											axisHeight={yAxisHeight}
 											barColors={barColors}
 											onBarClick={onBarClick}
 											barWidth={barWidth}

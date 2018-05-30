@@ -3,17 +3,56 @@
 }
 
 .xui-chart--base {
+	height: 400px;
 	position: relative;
 }
 
-.xui-chart--content {
-	height: 100%;
+.xui-chart--content,
+.xui-chart--shadows {
 	left: 0;
 	overflow-x: auto;
 	overflow-y: hidden;
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+
+.xui-chart--content {
+	height: 100%;
+}
+
+.xui-chart--shadows {
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	z-index: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		transition: $xui-motion-speed-fast;
+		width: 100px;
+	}
+}
+
+.xui-chart--shadows:before {
+	box-shadow: $xui-shadow-depth-overlap-left;
+	right: 100%;
+}
+
+.xui-chart--shadows:after {
+	box-shadow: $xui-shadow-depth-overlap-right;
+	left: 100%;
+}
+
+.xui-chart-has-left-shadow .xui-chart--shadows:before,
+.xui-chart-has-right-shadow .xui-chart--shadows:after {
+	opacity: 1;
 }
 
 .xui-chart-has-pagination .xui-chart--content {
@@ -45,9 +84,36 @@
 	transition: $xui-motion-speed-medium;
 }
 
-.xui-chart--content {}
+.xui-chart-is-loading {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 400px;
+}
+
+.xui-chart-is-empty {
+	align-items: center;
+	display: flex;
+	min-height: 300px;
+}
 
 .xui-chart .xui-tooltip--tip {
 	cursor: initial;
 	pointer-events: none;
+}
+
+.xui-chartkey {
+	padding: $xui-s-small;
+}
+
+.xui-chartkey--title {
+
+}
+
+.xui-chartkey--list {
+	@include xui-listreset;
+}
+
+.xui-chartkey--item {
+	padding: $xui-s-small;
 }

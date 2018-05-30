@@ -463,3 +463,84 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="emptyBarData"
+				title="Empty Bar Data"
+				description="Show empty state when no bar data is supplied"
+				isStacked
+				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [] },
+	{ x: "Potato", y: [] },
+	{ x: "Carrot", y: [] },
+];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="loadingState"
+				title="Loading State"
+				description="Show loading state via user stipulation"
+				isLoading
+				isStacked
+				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="chartKey"
+				title="Chart Key"
+				description="xxxxxxxxx"
+				isStacked
+				bars={data}
+				keyLabels={['Xxxx', 'Yyyyy', 'Zzzzzzz']}
+			/>
+		);
+	}
+}
+
+<Demo />
+```

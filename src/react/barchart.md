@@ -38,7 +38,7 @@ class Demo extends React.Component {
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				activeColor={"hotpink"}
+				activeColor={"#51DAAF"}
 			/>
 		);
 	}
@@ -90,7 +90,7 @@ class Demo extends React.Component {
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				activeColor={"hotpink"}
+				activeColor={"#51DAAF"}
 			/>
 		);
 	}
@@ -157,6 +157,40 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+	{ x: "Banana", y: [4] },
+	{ x: "Berry", y: [1, 2] },
+	{ x: "Orange", y: [3, 1] },
+	{ x: "Beetroot", y: [2, 3] },
+	{ x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ x: "Lettuce", y: [2, 1] },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="stackColors"
+				title="Custom Stack Colors"
+				description="Customise the colors on a per stack level"
+				isStacked
+				bars={data}
+				barColors={['#F6534E', '#FA8100', '#B450C8', '#FF6496']}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
 
 ```
 require('array.prototype.find').shim();
@@ -261,7 +295,7 @@ class Demo extends React.Component {
 					bars={this.state.bars}
 					onBarClick={this.handleBarClick}
 					barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
-					activeColor={"hotpink"}
+					activeColor={"#51DAAF"}
 					maxVisibleItems={0}
 				/>
 			</div>

@@ -13,8 +13,8 @@ class XUIBarChart extends Component {
 		const isEmpty = !bars.length;
 
 		switch (true) {
-			case isLoading: return <ChartLoader />;
-			case isEmpty: return <ChartEmpty />;
+			case isLoading: return <ChartLoader {...props} />;
+			case isEmpty: return <ChartEmpty {...props} />;
 			default: return <ChartScaffold {...props} />;
 		}
 	};

@@ -20,6 +20,7 @@ import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
 import getGroupPosition, { testIsCloseEnough } from '../helpers';
 import { barChartTheme } from '../helpers/theme';
+import { CHART_HEIGHT } from '../helpers/constants';
 
 const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) => {
 
@@ -84,7 +85,7 @@ class ChartScaffold extends Component {
 	// scrollNode = null;
 
 	state = {
-		chartWidth: 100,
+		chartWidth: 0,
 		yAxisWidth: 0,
 		xAxisHeight: 0,
 		toolTipPosition: [0, 0],
@@ -231,6 +232,7 @@ class ChartScaffold extends Component {
 			maxYValue: customMaxYValue = 0,
 			formatYAxisLabel: customFormatYAxisLabel,
 			createPaginationMessage,
+			height: chartHeight = CHART_HEIGHT
 		} = props;
 		const {
 			chartWidth,
@@ -244,7 +246,7 @@ class ChartScaffold extends Component {
 
 		// console.log('SCAFFOLD', props);
 
-		const chartHeight = 400;
+		// const chartHeight = 400;
 		// const bars = barsRaw; // barsRaw.map(bar =>  ({...bar, y: bar.y.length ? bar.y : [0.0]}));
 		// const hasNoXValues = false;
 		const [toolTipX, toolTipY] = toolTipPosition;

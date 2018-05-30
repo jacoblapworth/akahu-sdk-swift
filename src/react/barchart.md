@@ -178,7 +178,7 @@ class Demo extends React.Component {
 		return (
 			<XUIBarChart
 				id="stackColors"
-				title="Custom Stack Colors"
+				title="Stack Colors"
 				description="Customise the colors on a per stack level"
 				isStacked
 				bars={data}
@@ -572,6 +572,36 @@ class Demo extends React.Component {
 				bars={data}
 				keyLabels={['Xxxx', 'Yyyyy', 'Zzzzzzz']}
 			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: [2] },
+	{ x: "Potato", y: [2, 1] },
+	{ x: "Carrot", y: [1, 3] },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<div style={{ width: '200px' }}>
+				<XUIBarChart
+					id="chartSize"
+					title="Chart Size"
+					description="Customise the chart size"
+					isStacked
+					bars={data}
+					height={200}
+				/>
+			</div>
 		);
 	}
 }

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
+import { baseFontTheme } from '../helpers/theme';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
-import { baseFontTheme } from '../helpers/theme';
 
 const LARGE_LABEL_FONT = { ...baseFontTheme, fontSize: 13 };
 
@@ -165,20 +165,18 @@ class StackedLabel extends Component {
 		const {
 			barWidth,
 			yPos,
-			angle,
-			datum,
 			index: barIndex,
-			polar,
-			scale,
-			style,
 			text: rawText,
 			textAnchor,
-			verticalAnchor,
 			x: rawXOffset,
 			y: rawYOffset
+			// angle,
+			// datum,
+			// polar,
+			// scale,
+			// style,
+			// verticalAnchor,
 		} = this.props;
-
-		console.log('LABEL', this.props);
 		const responsiveOption = getResponsiveOption(barWidth);
 		const responsiveParams = { barWidth, barIndex, rawText, yPos };
 		const {
@@ -197,7 +195,7 @@ class StackedLabel extends Component {
 			labelTextWidth,
 			shouldCalculateCenter
 		} = responsiveOption(responsiveParams);
-		const avatarClassName = cn('\n\n\nxui-chart--measure', avatarColor);
+		const avatarClassName = cn('xui-chart--measure', avatarColor);
 		const avatarStyle = { ...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold' };
 
 		return (

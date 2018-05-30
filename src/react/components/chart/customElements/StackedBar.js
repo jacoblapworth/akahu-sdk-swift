@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import { alwaysPositive } from '../helpers';
 import { barChartTheme } from '../helpers/theme';
-
-const createAlternateStackColor = stackIndex => {
-	const defaultBarColors = barChartTheme.bar.colorScale;
-	const colorIndex = stackIndex % 2;
-
-	return defaultBarColors[colorIndex];
-};
+import { createAlternateStackColor } from '../helpers/bars';
+import { alwaysPositive } from '../helpers';
 
 class StackedBar extends Component {
 
@@ -24,7 +18,7 @@ class StackedBar extends Component {
 	render = () => {
 		const {
 			id,
-			barColors: customBarColors,
+			barColor,
 			onBarClick,
 			barWidth: rawBarWidth,
 			activeColor,
@@ -33,19 +27,19 @@ class StackedBar extends Component {
 			data,
 			datum: bar,
 			maxYDomain,
-			horizontal,
 			index: barIndex,
-			padding,
-			polar,
-			origin,
-			scale,
-			style,
-			width,
-			height,
-			x,
-			y,
-			y0,
-			x0
+			y0: rawYOffset,
+			// horizontal,
+			// padding,
+			// polar,
+			// origin,
+			// scale,
+			// style,
+			// width,
+			// height,
+			// x,
+			// y,
+			// x0
 		} = this.props;
 
 		const {
@@ -53,8 +47,11 @@ class StackedBar extends Component {
 			isBarActive,
 			activeStacks = []
 		} = bar;
+
 		if (!stacks.length) return null;
-		const yBottom = alwaysPositive(y0);
+
+		const defaultBarColor = barChartTheme.bar.colorScale
+		const yBottom = alwaysPositive(rawYOffset);
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
 		const ratio = axisHeight / maxYDomain;
 		const maskId = `xui-chart--${id}--bar${barIndex}`;
@@ -62,7 +59,7 @@ class StackedBar extends Component {
 		const divider = 10;
 		const xPos = (rawBarWidth * barIndex) + divider;
 		const yPos = yBottom - (maxStack * ratio);
-		const trimmedBarWidth = rawBarWidth - (divider * 2);
+		const trimmedBarWidth = alwaysPositive(rawBarWidth - (divider * 2));
 		const barHeight = (maxStack * ratio) + radius;
 		const yLocation = stackIndex => yBottom - stacks.slice(0, stackIndex).reduce((acc, stack) => acc + stack * ratio, 0) - (stacks[stackIndex] * ratio);
 		const isActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
@@ -129,7 +126,7 @@ class StackedBar extends Component {
 							height={stack * ratio}
 							fill={activeColor && isActive(stackIndex)
 								? activeColor
-								: customBarColors && customBarColors[stackIndex] || createAlternateStackColor(stackIndex)}
+								: barColor && barColor[stackIndex] || createAlternateStackColor({stackColors: defaultBarColor, stackIndex})}
 						/>
 					)) }
 				</g>

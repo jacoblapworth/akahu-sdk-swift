@@ -64,7 +64,9 @@ class ChartKey extends Component {
 				<span className="xui-text-minor">Graph key</span>
 				<Picklist>
 					{ labels.map(label => (
-						<Pickitem key={label}>
+						<Pickitem
+							id={label}
+							key={label}>
 							<XUIIcon className="xui-pickitem--icon" path={radioCheckPathData} />
 							<span>{label}</span>
 						</Pickitem>

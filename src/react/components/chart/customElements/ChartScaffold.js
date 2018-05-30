@@ -6,70 +6,21 @@ import {
 	VictoryBar,
 	VictoryChart,
 	VictoryAxis,
-	VictoryStack,
 	VictoryContainer,
-	VictoryTheme,
 	VictoryLabel,
 	Line
 } from 'victory';
+import { barChartTheme } from '../helpers/theme';
+import getGroupPosition, { testIsCloseEnough, createVictoryPadding } from '../helpers';
+import { CHART_HEIGHT } from '../helpers/constants';
+import { createFormatYAxisLabel, createYAxisTickValues } from '../helpers/yaxis';
+import createBarStats from '../helpers/bars';
 import StackedBar from './StackedBar';
 import StackedLabel from './StackedLabel';
 import GroupWrapper from './GroupWrapper';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
-import getGroupPosition, { testIsCloseEnough } from '../helpers';
-import { barChartTheme } from '../helpers/theme';
-import { CHART_HEIGHT } from '../helpers/constants';
-
-const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) => {
-
-	const minWidth = 34;
-	const maxWidth = 200;
-	const barsTotal = bars.length;
-	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, minWidth);
-	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > maxWidth
-		? maxWidth
-		: limitWithLowerThreshold(baseWidth)
-	const isConstrainedWidth = Boolean(maxVisibleItems);
-
-	// What is an "initial" rough estimate of how many bars are going to fit on a
-	// single panel.
-	const sanitisedWidth = isConstrainedWidth
-		// When requesting a "custom" distribution scenario we don't know exactly what
-		// the width is going to be just yet so lets take the raw division for now but
-		// still making sure that we do not let the width get too small (e.g if the
-		// user requested to fit 1000 items on a panel).
-		? limitWithLowerThreshold(contentWidth / maxVisibleItems)
-		// In a "standard" scenario we limit the bar widths against the static upper
-		// and lower thresholds.
-		: limitWithUpperAndLowerThreshold(contentWidth / barsTotal)
-
-	// Now that we have a rough idea of the quantity / width of the bars on a panel
-	// we need to make sure all of the dedicated panel content area is filled up.
-	//    . - - - - - - .
-	//    |    _     ///|
-	//    |  _|o|  _ ///| <--- Wasted space that needs to be
-	//    | |+|o|_|o|///|      distributed among visible bars.
-	//    | |+|o|+|o|///|
-	//    ° - - - - - - °
-	const wholeBarsPerPanel = Math.floor(contentWidth / sanitisedWidth);
-	const hasMultiplePanels = barsTotal > wholeBarsPerPanel;
-	const totalBarsPerPanel = hasPagination || !hasMultiplePanels
-		? Math.min(wholeBarsPerPanel, barsTotal)
-		// When there is an overflow with the native scrolling UI we need to make sure
-		// to show "half" of the next panels bar as an aesthetic way to convey hidden
-		// content to the user.
-		: wholeBarsPerPanel + 0.5;
-	const panelsTotal = Math.ceil(barsTotal / totalBarsPerPanel);
-	const barWidth = hasMultiplePanels || isConstrainedWidth
-		? contentWidth / totalBarsPerPanel
-		: sanitisedWidth;
-	const barsWidth = barWidth * barsTotal;
-
-	return { barsWidth, barWidth, panelsTotal };
-
-};
 
 class ChartScaffold extends Component {
 
@@ -82,7 +33,6 @@ class ChartScaffold extends Component {
 
 	rootNode = null;
 	contentNode = null;
-	// scrollNode = null;
 
 	state = {
 		chartWidth: 0,
@@ -133,7 +83,7 @@ class ChartScaffold extends Component {
 
 	updateChartWidth = () => {
 		const { rootNode, state } = this;
-		const chartWidth = rootNode ? rootNode.offsetWidth : 100;
+		const chartWidth = rootNode ? rootNode.offsetWidth : 0;
 		const shouldUpdate = !testIsCloseEnough(chartWidth, state.chartWidth);
 
 		if (shouldUpdate) {
@@ -177,14 +127,6 @@ class ChartScaffold extends Component {
 			const leftClassName = `xui-chart-has-left-shadow`;
 			const rightClassName = `xui-chart-has-right-shadow`;
 
-			console.log({
-				scrollLeft,
-				contentWidth,
-				victoryWidth,
-				hasLeftShadow,
-				hasRightShadow,
-			});
-
 			if (hasLeftShadow) {
 				rootNode.classList.add(leftClassName);
 			} else {
@@ -219,18 +161,17 @@ class ChartScaffold extends Component {
 			id,
 			title,
 			description,
-			keyLabels,
-			// bars: barsRaw,
-			bars,
+			keyLabel: keyLabelRaw,
+			bars: barsRaw,
+			barColor: barColorRaw,
 			isStacked,
 			hasPagination,
-			barColors,
 			onBarClick,
 			activeColor,
 			createToolTipContent,
 			maxVisibleItems,
 			maxYValue: customMaxYValue = 0,
-			formatYAxisLabel: customFormatYAxisLabel,
+			formatYAxisLabel: formatYAxisLabelRaw,
 			createPaginationMessage,
 			height: chartHeight = CHART_HEIGHT
 		} = props;
@@ -243,76 +184,27 @@ class ChartScaffold extends Component {
 			currentPage
 		} = state;
 
+		// We support both "plain" and "stacked" bar styles. The difference is that
+		// stacks require arrays of data and plain a single value. Rather than create
+		// two duplicate components we augment the plain data to mimic a stacked
+		// scenario that has only a single stack.
+		const bars = isStacked ? barsRaw : barsRaw.map(bar => ({ ...bar, y: [bar.y] }));
+		const keyLabel = isStacked ? keyLabelRaw : [keyLabelRaw];
+		const barColor = isStacked ? barColorRaw : [barColorRaw];
 
-		// console.log('SCAFFOLD', props);
-
-		// const chartHeight = 400;
-		// const bars = barsRaw; // barsRaw.map(bar =>  ({...bar, y: bar.y.length ? bar.y : [0.0]}));
-		// const hasNoXValues = false;
 		const [toolTipX, toolTipY] = toolTipPosition;
 		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
-		const padding = {
-			// Allow room for y-axis text to be entered on the axis line but not bleed
-			// over the viewbox.
-			top: 10,
-			// Gap between x-axis line + label height + bottom (with room for scroll bars).
-			bottom: 20 + xAxisHeight + 20,
-			// Gap between y-axis line + label width.
-			left: yAxisWidth + 20,
-			// A gap threshold to safegaurd against overflow.
-			right: 2
-		};
-		const { top, right, bottom, left } = padding;
+		const victoryPadding = createVictoryPadding({ xAxisHeight, yAxisWidth });
+		const { top, right, bottom, left } = victoryPadding;
 		const contentWidth = chartWidth - left - right;
-		const {
-			barsWidth,
-			barWidth,
-			panelsTotal,
-		} = createBarStats({ bars, maxVisibleItems, contentWidth, hasPagination });
+		const { barsWidth, barWidth, panelsTotal } = createBarStats({ bars, maxVisibleItems, contentWidth, hasPagination });
 		const addUpStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
 		const maxBarValue = bars.map(addUpStacks).reduce((acc, value) => Math.max(acc, value), 0);
-		const hasPositiveYValue = Boolean(maxBarValue);
 		const maxYDomain = Math.max(customMaxYValue, maxBarValue);
-		const chartClassName = cn('xui-chart', {
-			[`xui-chart-has-pagination`]: hasPagination
-		});
+		const chartClassName = cn('xui-chart', { [`xui-chart-has-pagination`]: hasPagination });
 		const yAxisHeight = chartHeight - top - bottom;
-		const formatYAxisLabel = customFormatYAxisLabel || (() => {
-			const decimalPoints = `${maxYDomain}`.split('.')[1] || 0;
-
-			return (rawLabel) => {
-				const factor = Math.pow(10, decimalPoints + 1);
-  			return Math.round(rawLabel * factor) / factor;
-			};
-		})();
-		const seperateYAxisLabels = (() => {
-			const minimumGap = 100;
-			const totalLabels = Math.floor(yAxisHeight / minimumGap);
-			const increment = hasPositiveYValue || customMaxYValue
-				? maxYDomain / totalLabels
-				// When there are no y-axis values the domain is [0, 0, 0] by default.
-				// This blows up Victory so as a fallback (when there is no data and no
-				// custom y-axis value) we simply count up by "1".
-				: 1;
-
-			return (
-				new Array(totalLabels + 1)
-					.fill(0)
-					.map((_, index) => increment * index)
-			);
-		})();
-
-		// console.log('CHART', {
-		// 	seperateYAxisLabels,
-		// 	barsWidth,
-		// 	barWidth,
-		// 	panelsTotal,
-		// 	maxVisibleItems,
-		// 	contentWidth,
-		// 	maxBarValue,
-		// 	maxYDomain,
-		// 	yAxisHeight,
-		// });
+		const formatYAxisLabel = formatYAxisLabelRaw || createFormatYAxisLabel(maxYDomain);
+		const yAxisTickValues = createYAxisTickValues({ maxYDomain, yAxisHeight });
 
 		return (
 			<div className={chartClassName}>
@@ -332,18 +224,13 @@ class ChartScaffold extends Component {
 						</div>
 					) }
 
-					{ keyLabels && (
+					{ keyLabel && (
 						<div>
-							<ChartKey labels={keyLabels} />
+							<ChartKey labels={keyLabel} />
 						</div>
 					) }
 
 				</div>
-
-
-				{/*title && description && <p>{description}</p> */}
-
-
 
 				<div
 					className="xui-chart--base"
@@ -415,8 +302,7 @@ class ChartScaffold extends Component {
 					//           ------------->  s c r o l l  t o  v i e w  ------------->
 					}
 					<VictoryChart
-						// Y-axis can restrict maximim axis value like Sam wanted.
-						// domain={{ x: [0, 5], y: [0, 5] }}
+						theme={barChartTheme}
 
 						// Push bars "middle" alignment back into the graph "bar" area.
 						// We are controlling this via bespoke components and therefore reset
@@ -424,13 +310,12 @@ class ChartScaffold extends Component {
 						domainPadding={{ x: 0 }}
 
 						// Height of the "svg" graph (px).
-						height={chartHeight} // Default = 300
+						height={chartHeight}
 						width={chartWidth}
 
 						// The space around the "bar" area and the rest of the graph.
-						padding={padding}
+						padding={victoryPadding}
 
-						theme={barChartTheme}
 						containerComponent={(
 							<VictoryContainer
 								responsive={true}
@@ -442,39 +327,15 @@ class ChartScaffold extends Component {
 						<VictoryAxis
 							dependentAxis={true}
 							orientation="left"
-							// offsetX={30}
-							// offsetY={30}
 							scale={{ y: 'linear' }}
-							padding={padding}
-
-							// xAxisHeight={xAxisHeight}
-							// y={1000}
+							padding={victoryPadding}
+							tickFormat={formatYAxisLabel}
+							tickValues={yAxisTickValues}
+							groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
+							tickLabelComponent={<VictoryLabel className="xui-chart--measure"/>}
 
 							// Add the zero at the start of the axis (is hidden by default).
 							crossAxis={false}
-
-							tickFormat={formatYAxisLabel}
-							// tickValues={[0, 2.11, 3.9, 6.1, 8.05]}
-							tickValues={seperateYAxisLabels}
-							// tickValues={false}
-
-							// domainPadding={{ x: [0, 0], y: [0, 0] }}
-							// domainPadding={{ x: [30, 30], y: [30, 30] }}
-							// domain={[0, maxYDomain]}
-							// domain={[0, 0]}
-							// tickCount={3}
-							// tickCount={(() => {
-
-							// 	const yAxisHeight = chartHeight - top - bottom;
-							// 	const minimumGap = 100;
-							// 	const totalLabels = Math.floor(yAxisHeight / minimumGap);
-
-							// 	return totalLabels;
-
-							// })()}
-
-							groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
-							tickLabelComponent={<VictoryLabel className="xui-chart--measure"/>}
 						/>
 
 					</VictoryChart>
@@ -500,7 +361,6 @@ class ChartScaffold extends Component {
 
 						<div
 							className="xui-chart--scroll"
-							// ref={node => (this.scrollNode = node)}
 							style={{
 								...hasPagination && {
 									transform: `translateX(-${(currentPage - 1) * 100}%)`
@@ -508,9 +368,7 @@ class ChartScaffold extends Component {
 							}}>
 
 							<VictoryChart
-								// ref={node => console.log('VICTORY', node)}
-								// Y-axis can restrict maximim axis value like Sam wanted.
-								// domain={{ x: [0, 5], y: [0, 5] }}
+								theme={barChartTheme}
 
 								// Push bars "middle" alignment back into the graph "bar" area.
 								// We are controlling this via bespoke components and therefore reset
@@ -518,13 +376,12 @@ class ChartScaffold extends Component {
 								domainPadding={{ x: 0 }}
 
 								// Height of the "svg" graph (px).
-								height={chartHeight} // Default = 300
+								height={chartHeight}
 								width={barsWidth}
 
 								// The space around the "bar" area and the rest of the graph.
-								padding={padding}
+								padding={victoryPadding}
 
-								theme={barChartTheme}
 								containerComponent={(
 									<VictoryContainer
 										// We want the content to spill out of the charting bounds
@@ -540,18 +397,11 @@ class ChartScaffold extends Component {
 									dependentAxis={false}
 									orientation="bottom"
 									scale={{ x: 'linear' }}
-									padding={padding}
-									// domainPadding={{ x: barWidth * 0.5 }}
-									// yAxisWidth={yAxisWidth}
-									// y={1000}
-									// domain={[0, maxY]}
-									// domain={"x"}
-									// tickCount={5}
-									// width={chartWidth}
+									padding={victoryPadding}
 									width={barsWidth}
 									tickValues={bars.map(({ x }) => x)}
+
 									groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
-									// containerComponent={<GroupWrapper className="xui-chart--xaxis" />}
 
 									gridComponent={(
 										<Line
@@ -573,55 +423,22 @@ class ChartScaffold extends Component {
 
 								<VictoryBar
 									data={bars}
+									y={addUpStacks}
+
+									groupComponent={<GroupWrapper className="xui-chart--bars" />}
+
 									dataComponent={(
 										<StackedBar
 											id={id}
 											maxYDomain={maxYDomain}
 											axisHeight={yAxisHeight}
-											barColors={barColors}
+											barColor={barColor}
 											onBarClick={onBarClick}
 											barWidth={barWidth}
 											activeColor={activeColor}
 											updateToolTip={createToolTipContent && this.updateToolTip}
 										/>
 									)}
-									// Control the x-axis order.
-									// categories={{ x: ['Potato', 'Banana', 'Apple', 'Carrot'] }}
-
-									// Where do the bars position themselfs.
-									// alignment="middle"
-									// !!! Not working?
-									// cornerRadius={3}
-									// !!! Not working?
-									// barRatio={1.5}
-									// Flip the bars 90deg.
-									// horizontal={false} // Default = false
-
-									// Labels.
-									// - - - - - - - - - - - - - - - - - - - - - - - -
-									// labels={(d) => d.y}
-									// style={{ labels: { fill: "white" } }}
-									// labelComponent={<VictoryLabel dy={30} />}
-
-									// For shared events.
-									// name="series-1"
-
-									// !!! Not working?
-									// sortKey="x"
-									// !!! Not working?
-									// sortOrder="ascending"
-									// sortOrder="descending"
-									// !!! Not working?
-									// standalone={false}
-
-									// Let the user set the x-axis from the data schema.
-									// x="x"
-									y={addUpStacks}
-									// Y-axis offset.
-									// y0={0}
-
-									groupComponent={<GroupWrapper className="xui-chart--bars" />}
-									// containerComponent={<GroupWrapper className="xui-chart--bars" />}
 								/>
 
 							</VictoryChart>

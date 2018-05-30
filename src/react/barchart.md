@@ -1,6 +1,7 @@
 ## Bar Charts...
 
 #### Examples
+
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
@@ -182,7 +183,7 @@ class Demo extends React.Component {
 				description="Customise the colors on a per stack level"
 				isStacked
 				bars={data}
-				barColors={['#F6534E', '#FA8100', '#B450C8', '#FF6496']}
+				barColor={['#F6534E', '#FA8100', '#B450C8', '#FF6496']}
 			/>
 		);
 	}
@@ -294,7 +295,7 @@ class Demo extends React.Component {
 					isStacked
 					bars={this.state.bars}
 					onBarClick={this.handleBarClick}
-					barColors={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
+					barColor={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
 					activeColor={"#51DAAF"}
 					maxVisibleItems={0}
 				/>
@@ -570,7 +571,7 @@ class Demo extends React.Component {
 				description="xxxxxxxxx"
 				isStacked
 				bars={data}
-				keyLabels={['Xxxx', 'Yyyyy', 'Zzzzzzz']}
+				keyLabel={['Xxxx', 'Yyyyy', 'Zzzzzzz']}
 			/>
 		);
 	}
@@ -608,3 +609,31 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: 2 },
+	{ x: "Potato", y: 3 },
+	{ x: "Carrot", y: 4 },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="barPlain"
+				title="Plain Bars"
+				description="Plain bar chart with no stacks"
+				bars={data}
+				barColor="#F6534E"
+				keyLabel="Xxxxxx"
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+

@@ -2,6 +2,7 @@
 
 exports[`<NestedDropdown /> should add the animation close class when the animateClose prop is set to true 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open xui-dropdown-is-closing"
   data-automationid={undefined}
   id="1"
@@ -169,6 +170,7 @@ exports[`<NestedDropdown /> should add the animation close class when the animat
 
 exports[`<NestedDropdown /> should add the animation open class when the animateOpen prop is set to true 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open xui-dropdown-is-opening"
   data-automationid={undefined}
   id="1"
@@ -336,6 +338,7 @@ exports[`<NestedDropdown /> should add the animation open class when the animate
 
 exports[`<NestedDropdown /> should allow for a footer to be rendered to the correct panel when passed 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -503,6 +506,7 @@ exports[`<NestedDropdown /> should allow for a footer to be rendered to the corr
 
 exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-small xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -670,6 +674,7 @@ exports[`<NestedDropdown /> should allow the consumer to change the size 1`] = `
 
 exports[`<NestedDropdown /> should be a size large by default 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -837,6 +842,7 @@ exports[`<NestedDropdown /> should be a size large by default 1`] = `
 
 exports[`<NestedDropdown /> should render a passed id instead of automatically generating one 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -1004,6 +1010,7 @@ exports[`<NestedDropdown /> should render a passed id instead of automatically g
 
 exports[`<NestedDropdown /> should render additional classes when passed in the classNames prop 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight nestedDropdown-class xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -1171,6 +1178,7 @@ exports[`<NestedDropdown /> should render additional classes when passed in the 
 
 exports[`<NestedDropdown /> should render an automationid when a qaHook is passed 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid="nestedDropdown-test"
   id="1"
@@ -1338,6 +1346,7 @@ exports[`<NestedDropdown /> should render an automationid when a qaHook is passe
 
 exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to true 1`] = `
 <div
+  aria-expanded={false}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight"
   data-automationid={undefined}
   id="1"
@@ -1505,6 +1514,7 @@ exports[`<NestedDropdown /> should render hidden if the isHidden prop is set to 
 
 exports[`<NestedDropdown /> should render visible if the isHidden prop is set to false 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -1672,6 +1682,7 @@ exports[`<NestedDropdown /> should render visible if the isHidden prop is set to
 
 exports[`<NestedDropdown /> shouldn't add the animation close class when animateClosed is false 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"
@@ -1839,6 +1850,7 @@ exports[`<NestedDropdown /> shouldn't add the animation close class when animate
 
 exports[`<NestedDropdown /> shouldn't add the animation open class when animateOpen is false 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-fixed-large xui-dropdown-fullheight xui-dropdown-is-open"
   data-automationid={undefined}
   id="1"

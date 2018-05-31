@@ -2590,7 +2590,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -2646,7 +2646,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -2702,7 +2702,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -3325,7 +3325,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -3416,7 +3416,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -3507,7 +3507,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -3783,7 +3783,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -3903,7 +3903,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -4023,7 +4023,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -5170,7 +5170,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -5255,7 +5255,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -5340,7 +5340,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -6709,7 +6709,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -6829,7 +6829,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}
@@ -6949,7 +6949,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
-                    aria-haspopup={true}
+                    aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
                     disabled={false}

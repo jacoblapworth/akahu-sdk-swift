@@ -26,7 +26,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
       <button
         aria-activedescendant={null}
         aria-controls={undefined}
-        aria-haspopup={true}
+        aria-haspopup="listbox"
         className="xui-button xui-text-truncated xui-select--button xui-button-standard"
         data-automationid="test-selectbox---button"
         disabled={false}

@@ -425,7 +425,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, ...otherProps } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -433,8 +433,8 @@ export default class DropDownToggled extends PureComponent {
 			'onClick': compose(trigger.props.onClick, ddt.triggerClickHandler),
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
-			'aria-haspopup': true,
-			'aria-controls': dropdown.dropdownId
+			'aria-haspopup': ariaPopupType,
+			'aria-controls': ddt.dropdown && ddt.dropdown.dropdownId
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
@@ -476,7 +476,7 @@ export default class DropDownToggled extends PureComponent {
 				preferredPosition={preferredPosition}
 				maxWidth={-1}
 				useDropdownPositioning={true}
-				{...ddt.props}
+				{...otherProps}
 			>
 					{clonedDropdown}
 			</PositioningInline>
@@ -563,6 +563,10 @@ DropDownToggled.propTypes = {
 	 * Space between trigger and dropdown, in pixels. Defaults to 6.
 	 */
 	triggerDropdownGap: PropTypes.number,
+	/**
+	 * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
+	 */
+	ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false])
 };
 
 DropDownToggled.defaultProps = {
@@ -576,5 +580,6 @@ DropDownToggled.defaultProps = {
 	repositionOnScroll: false,
 	matchTriggerWidth: false,
 	preferredPosition: 'bottom-left',
-	triggerDropdownGap: 6
+	triggerDropdownGap: 6,
+	ariaPopupType: 'listbox'
 };

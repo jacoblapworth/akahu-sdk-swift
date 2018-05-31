@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 // Components we need to test with
 import XUIAutocompleter from '../XUIAutocompleter';
 import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
+import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
+import XUIButton from '../../button/XUIButton';
+import XUIButtonCaret from '../../button/XUIButtonCaret';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import peopleDataSet from '../private/people';
@@ -216,6 +219,8 @@ class DetailedListExample extends Component {
 					loading={isLoading}
 					dropdownSize={dropdownSize}
 					isDisabled={isDisabled}
+					inputLabelText="Sample Autocompleter"
+					isInputLabelHidden
 					pills={
 						selectedPeople.map(person =>
 							<XUIPill
@@ -257,14 +262,124 @@ storiesWithKnobs.add('Playground', () => {
 				placeholder={text('Placeholder', '')}
 				selectedPeople={selectedPerson}
 				isDisabled={boolean('Disabled', false)}
-				dropdownSize={userSelectedSize}
+				dropdownSize={userSelectedSize || undefined}
 				/>
 		</div>
 	);
 });
 
+const isSelected = (item, selectedIds) => item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+
+function createItems(items, selectedId) {
+	if (Array.isArray(items)) {
+		return items.map(i => createItems(i, selectedId));
+	}
+	return React.createElement(Pickitem, {
+		...items.props,
+		value: items.props.id,
+		key: items.props.id,
+		isSelected: isSelected(items, selectedId)
+	}, items.text);
+}
+
+const SecondarySearchData = [
+	{ props: { id: 'ss1' }, text: "Cost" },
+	{ props: { id: 'ss2' }, text: "More Costs" },
+	{ props: { id: 'ss3' }, text: "No Costs" },
+	{ props: { id: 'ss4' }, text: "Nothing about Cost" },
+	{ props: { id: 'ss5' }, text: "Something Unrelated" },
+	{ props: { id: 'ss6' }, text: "Random Item" },
+	{ props: { id: 'ss7' }, text: "Coats" },
+	{ props: { id: 'ss8' }, text: "Big Coat" },
+];
+
+class SecondarySearchExample extends React.Component {
+	state = {
+		data: SecondarySearchData,
+		selectedItem: null,
+		value: ''
+	};
+
+	onOptionSelect = (value) => {
+		this.setState({
+			selectedItem: value
+		});
+	}
+
+	onSearch = (value) => {
+			const matchingData = SecondarySearchData.filter(item => item.text.toLowerCase().includes(value.toLowerCase()));
+
+			this.setState({
+				data: matchingData,
+				value: value
+			})
+	}
+
+	onClose(){
+		this.setState({
+			value: '',
+			data: SecondarySearchData
+		})
+	}
+
+	render() {
+		const { value, data } = this.state;
+
+		const trigger = (
+			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
+				Toggle Me <XUIButtonCaret />
+			</XUIButton>
+		);
+
+		const items = data.length > 0 ? createItems(data, this.state.selectedItem): (<XUIAutocompleterEmptyState />);
+
+		const footer = (
+			<DropDownFooter>
+				<Picklist>
+					<Pickitem id="footerAction">
+						<span>
+							<XUIIcon
+								isInline
+								path={plusIcon}
+								className="xui-margin-right-xsmall"
+							/>
+							Add New Person
+						</span>
+					</Pickitem>
+				</Picklist>
+			</DropDownFooter>
+		);
+
+		return (
+			<div>
+				<XUIAutocompleterSecondarySearch
+					trigger={trigger}
+					onOptionSelect={this.onOptionSelect}
+					onSearch={this.onSearch}
+					searchValue={value}
+					dropdownSize='medium'
+					inputLabelText='secondary search label'
+					isInputLabelHidden
+					qaHook='secondary-search'
+					footer={footer}
+					onClose={() => this.onClose()}
+				>
+					<Picklist>
+						{items}
+					</Picklist>
+				</XUIAutocompleterSecondarySearch>
+			</div>
+		)
+	}
+}
+
+
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
+
+storiesWithVariations.add('Secondary', () => {
+	return <SecondarySearchExample />;
+});
 
 variations.forEach(variation => {
 	storiesWithVariations.add(variation.storyTitle, () => {

@@ -14,7 +14,7 @@ import { barChartTheme } from '../helpers/theme';
 import getGroupPosition, { testIsCloseEnough, createVictoryPadding } from '../helpers';
 import { CHART_HEIGHT } from '../helpers/constants';
 import { createFormatYAxisLabel, createYAxisTickValues } from '../helpers/yaxis';
-import createBarStats from '../helpers/bars';
+import createBarStats, { createBarColorList } from '../helpers/bars';
 import StackedBar from './StackedBar';
 import StackedLabel from './StackedLabel';
 import GroupWrapper from './GroupWrapper';
@@ -193,6 +193,7 @@ class ChartScaffold extends Component {
 		const barColor = isStacked ? barColorRaw : [barColorRaw];
 
 		const [toolTipX, toolTipY] = toolTipPosition;
+		const colorList = createBarColorList({ bars, custom: barColor, base: barChartTheme.bar.colorScale});
 		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
 		const victoryPadding = createVictoryPadding({ xAxisHeight, yAxisWidth });
 		const { top, right, bottom, left } = victoryPadding;
@@ -226,7 +227,9 @@ class ChartScaffold extends Component {
 
 					{ keyLabel && (
 						<div>
-							<ChartKey labels={keyLabel} />
+							<ChartKey
+								labels={keyLabel}
+								colors={colorList}/>
 						</div>
 					) }
 
@@ -432,7 +435,7 @@ class ChartScaffold extends Component {
 											id={id}
 											maxYDomain={maxYDomain}
 											axisHeight={yAxisHeight}
-											barColor={barColor}
+											barColor={colorList}
 											onBarClick={onBarClick}
 											barWidth={barWidth}
 											activeColor={activeColor}

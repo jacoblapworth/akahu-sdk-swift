@@ -108,14 +108,21 @@
 	padding: $xui-s-small;
 }
 
-.xui-chartkey--title {
-
-}
-
 .xui-chartkey--list {
 	@include xui-listreset;
 }
 
 .xui-chartkey--item {
-	padding: $xui-s-small;
+	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-4xlarge;
+	position: relative;
+}
+
+.xui-chartkey--icon {
+	background: $xui-color-grey-4;
+	border-radius: 50%;
+	height: $xui-s-small;
+	left: $xui-s-small;
+	position: absolute;
+	top: $xui-s-standard;
+	width: $xui-s-small;
 }

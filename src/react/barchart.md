@@ -273,31 +273,26 @@ class Demo extends React.Component {
 	}
 
 	render() {
+		const bars = this.state.bars;
+		const total = bars.length;
 		return (
 			<div>
-				<XUIButtonGroup>
-					<XUIButton
-						variant="icon"
-						onClick={this.handleBarSubtract}>
-						<XUIIcon path={subtractionIcon} />
-					</XUIButton>
-					<XUIButton
-						variant="icon"
-						onClick={this.handleBarAdd}>
-						<XUIIcon path={addIcon} />
-					</XUIButton>
-				</XUIButtonGroup>
-				<div>{this.state.bars.length}</div>
+				<XUIButton
+					variant="icon"
+					onClick={this.handleBarSubtract}>
+					<XUIIcon path={subtractionIcon} />
+				</XUIButton>
+				<XUIButton
+					variant="icon"
+					onClick={this.handleBarAdd}>
+					<XUIIcon path={addIcon} />
+				</XUIButton>
 				<XUIBarChart
 					id="barAdd"
-					title="Change Bar Quantity"
+					title={`Show ${total} bar${total === 1 ? '' : 's'}`}
 					description="Click the buttons above to add / subtract bars"
 					isStacked
-					bars={this.state.bars}
-					onBarClick={this.handleBarClick}
-					barColor={['lightblue', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightsalmon']}
-					activeColor={"#51DAAF"}
-					maxVisibleItems={0}
+					bars={bars}
 				/>
 			</div>
 		);
@@ -568,10 +563,10 @@ class Demo extends React.Component {
 			<XUIBarChart
 				id="chartKey"
 				title="Chart Key"
-				description="xxxxxxxxx"
+				description={`Click the "information" icon to reveal the key`}
 				isStacked
 				bars={data}
-				keyLabel={['Xxxx', 'Yyyyy', 'Zzzzzzz']}
+				keyLabel={['Import', 'Export']}
 			/>
 		);
 	}
@@ -628,7 +623,7 @@ class Demo extends React.Component {
 				description="Plain bar chart with no stacks"
 				bars={data}
 				barColor="#F6534E"
-				keyLabel="Xxxxxx"
+				keyLabel="Import"
 			/>
 		);
 	}

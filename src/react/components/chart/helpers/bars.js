@@ -43,14 +43,24 @@ const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) 
 	const barsWidth = barWidth * barsTotal;
 
 	return { barsWidth, barWidth, panelsTotal };
+};
+
+// const createAlternateStackColor = ({stackColors, stackIndex}) => {
+// 	const barColor = stackColors;
+// 	const colorIndex = stackIndex % 2;
+
+// 	return barColor[colorIndex];
+// };
+
+const createBarColorList = ({bars, custom, base }) => {
+	const maxStacks = bars.reduce((acc, { y }) => Math.max(acc, y.length), 0);
+
+	return (
+		new Array(maxStacks)
+			.fill(0)
+			.map((_, index) => custom && custom[index] || base[index % 2])
+	);
 
 };
 
-const createAlternateStackColor = ({stackColors, stackIndex}) => {
-	const barColor = stackColors;
-	const colorIndex = stackIndex % 2;
-
-	return barColor[colorIndex];
-};
-
-export { createBarStats as default, createAlternateStackColor};
+export { createBarStats as default, createBarColorList};

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { barChartTheme } from '../helpers/theme';
-import { createAlternateStackColor } from '../helpers/bars';
 import { alwaysPositive } from '../helpers';
 
 class StackedBar extends Component {
@@ -50,7 +49,6 @@ class StackedBar extends Component {
 
 		if (!stacks.length) return null;
 
-		const defaultBarColor = barChartTheme.bar.colorScale
 		const yBottom = alwaysPositive(rawYOffset);
 		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
 		const ratio = axisHeight / maxYDomain;
@@ -126,7 +124,7 @@ class StackedBar extends Component {
 							height={stack * ratio}
 							fill={activeColor && isActive(stackIndex)
 								? activeColor
-								: barColor && barColor[stackIndex] || createAlternateStackColor({stackColors: defaultBarColor, stackIndex})}
+								: barColor[stackIndex]}
 						/>
 					)) }
 				</g>

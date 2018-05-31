@@ -85,10 +85,10 @@ export default class XUIRadio extends React.Component {
 			children &&
 			<span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
-			type: 'radio',
-			disabled: isDisabled,
-			required: isRequired,
-			['aria-label']: isLabelHidden && children || undefined,
+			'type': 'radio',
+			'disabled': isDisabled,
+			'required': isRequired,
+			'aria-label': isLabelHidden && children || undefined,
 			tabIndex,
 			name,
 			onChange,

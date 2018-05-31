@@ -25,19 +25,23 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 
-storiesWithKnobs.add('Playground', () => (
-	<div style={ wrapperStyles }>
-		<XUIStepper
-			id={ text('id', 'myStepperId') }
-			qaHook={ text('qaHook', 'myStepperQaHook') }
-			currentStep={ number('currentStep', 0) }
-			hasStackedButtons={ boolean('hasStackedButtons', false) }
-			lockLayout={ select('lockLayout', ['default', 'stacked', 'sidebar', 'inline']) }
-			tabs={ object('tabs', baseProps.tabs) }>
-			<h3 style={ contentStyles }>Content Area</h3>
-		</XUIStepper>
-	</div>
-));
+
+storiesWithKnobs.add('Playground', () => {
+	const layout = select('lockLayout', ['default', 'stacked', 'sidebar', 'inline']);
+	return (
+		<div style={ wrapperStyles }>
+			<XUIStepper
+				id={ text('id', `myStepperId_${layout}`) }
+				qaHook={ text('qaHook', 'myStepperQaHook') }
+				currentStep={ number('currentStep', 0) }
+				hasStackedButtons={ boolean('hasStackedButtons', false) }
+				lockLayout={layout}
+				tabs={ object('tabs', baseProps.tabs) }>
+				<h3 style={ contentStyles }>Content Area</h3>
+			</XUIStepper>
+		</div>
+	)
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

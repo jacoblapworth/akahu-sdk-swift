@@ -134,11 +134,11 @@ export default class XUICheckbox extends Component {
 			children &&
 			<span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
-			type: 'checkbox',
-			disabled: isDisabled,
-			required: isRequired,
-			onClick: this.onClick,
-			['aria-label']: isLabelHidden && children || undefined,
+			'type': 'checkbox',
+			'disabled': isDisabled,
+			'required': isRequired,
+			'onClick': this.onClick,
+			'aria-label': isLabelHidden && children || undefined,
 			tabIndex,
 			name,
 			onChange,

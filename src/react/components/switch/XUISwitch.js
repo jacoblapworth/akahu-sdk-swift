@@ -30,7 +30,7 @@ export default class XUISwitch extends PureComponent {
 				<input
 					type="checkbox"
 					role="switch"
-					aria-checked={isChecked}
+					aria-checked={!!isChecked}
 					onChange={onChange}
 					checked={isChecked}
 					name={name}

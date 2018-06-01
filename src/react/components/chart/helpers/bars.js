@@ -45,13 +45,6 @@ const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) 
 	return { barsWidth, barWidth, panelsTotal };
 };
 
-// const createAlternateStackColor = ({stackColors, stackIndex}) => {
-// 	const barColor = stackColors;
-// 	const colorIndex = stackIndex % 2;
-
-// 	return barColor[colorIndex];
-// };
-
 const createBarColorList = ({bars, custom, base }) => {
 	const maxStacks = bars.reduce((acc, { y }) => Math.max(acc, y.length), 0);
 

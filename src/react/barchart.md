@@ -289,7 +289,7 @@ class Demo extends React.Component {
 				</XUIButton>
 				<XUIBarChart
 					id="barAdd"
-					title={`Show ${total} bar${total === 1 ? '' : 's'}`}
+					title={`Showing ${total} bar${total === 1 ? '' : 's'}`}
 					description="Click the buttons above to add / subtract bars"
 					isStacked
 					bars={bars}

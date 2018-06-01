@@ -181,7 +181,7 @@ class ChartScaffold extends Component {
 			xAxisHeight,
 			toolTipPosition,
 			toolTipData,
-			currentPage
+			currentPage: currentPageRaw
 		} = state;
 
 		// We support both "plain" and "stacked" bar styles. The difference is that
@@ -206,6 +206,10 @@ class ChartScaffold extends Component {
 		const yAxisHeight = chartHeight - top - bottom;
 		const formatYAxisLabel = formatYAxisLabelRaw || createFormatYAxisLabel(maxYDomain);
 		const yAxisTickValues = createYAxisTickValues({ maxYDomain, yAxisHeight });
+
+		// If the user resizes the UI we can get into a situation where the current
+		// pagination reference exceeds the available panels.
+		const currentPage = Math.min(currentPageRaw, panelsTotal);
 
 		return (
 			<div className={chartClassName}>

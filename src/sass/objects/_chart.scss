@@ -1,3 +1,6 @@
+@import "../vars";
+@import "../mixins";
+
 .xui-chart {
 
 }
@@ -60,19 +63,39 @@
 }
 
 .xui-chart--header {
+	align-items: center;
 	display: flex;
 	justify-content: flex-end;
+	padding-bottom: $xui-s-2xlarge;
+}
+
+.xui-chart-has-multiline-header .xui-chart--header {
+	flex-wrap: wrap;
 }
 
 .xui-chart--title {
+	@include xui-heading-small;
 	flex-grow: 1;
-	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.xui-chart-has-multiline-header .xui-chart--title {
+	width: calc(100% - #{$xui-s-4xlarge});
 }
 
 .xui-chart--pagination {
 	align-items: center;
 	display: flex;
 	justify-content: center;
+	white-space: nowrap;
+}
+
+.xui-chart-has-multiline-header .xui-chart--pagination {
+	order: 1;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .xui-chart--scroll {

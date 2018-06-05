@@ -632,3 +632,37 @@ class Demo extends React.Component {
 <Demo />
 ```
 
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: 2 },
+	{ x: "Potato", y: 3 },
+	{ x: "Carrot", y: 4 },
+	{ x: "Banana", y: 4 },
+	{ x: "Berry", y: 3 },
+	{ x: "Orange", y: 4 },
+	{ x: "Beetroot", y: 5 },
+	{ x: "Pumpkin", y: 4 },
+	{ x: "Lettuce", y: 3 },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="headerStress"
+				title="Header Stress Test Ensuring Large Amounts of Content is Handled Correctly at Different Screen Sizes"
+				description="Responsively handle large quantities of content in the header area"
+				bars={data}
+				maxVisibleItems={5}
+				keyLabel="Import"
+				hasPagination
+				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
+			/>
+		);
+	}
+}
+
+<Demo />
+```

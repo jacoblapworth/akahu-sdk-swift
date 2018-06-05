@@ -189,10 +189,13 @@ class ChartScaffold extends Component {
 		// two duplicate components we augment the plain data to mimic a stacked
 		// scenario that has only a single stack.
 		const bars = isStacked ? barsRaw : barsRaw.map(bar => ({ ...bar, y: [bar.y] }));
-		const keyLabel = isStacked ? keyLabelRaw : [keyLabelRaw];
-		const barColor = isStacked ? barColorRaw : [barColorRaw];
+		const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
+		const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
+
+		console.log(title, { keyLabel, barColor });
 
 		const [toolTipX, toolTipY] = toolTipPosition;
+		const isChartNarrow = chartWidth <= 520;
 		const colorList = createBarColorList({ bars, custom: barColor, base: barChartTheme.bar.colorScale});
 		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
 		const victoryPadding = createVictoryPadding({ xAxisHeight, yAxisWidth });
@@ -202,10 +205,13 @@ class ChartScaffold extends Component {
 		const addUpStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
 		const maxBarValue = bars.map(addUpStacks).reduce((acc, value) => Math.max(acc, value), 0);
 		const maxYDomain = Math.max(customMaxYValue, maxBarValue);
-		const chartClassName = cn('xui-chart', { [`xui-chart-has-pagination`]: hasPagination });
 		const yAxisHeight = chartHeight - top - bottom;
 		const formatYAxisLabel = formatYAxisLabelRaw || createFormatYAxisLabel(maxYDomain);
 		const yAxisTickValues = createYAxisTickValues({ maxYDomain, yAxisHeight });
+		const chartClassName = cn('xui-chart', {
+			[`xui-chart-has-pagination`]: hasPagination,
+			[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
+		});
 
 		// If the user resizes the UI we can get into a situation where the current
 		// pagination reference exceeds the available panels.
@@ -219,22 +225,19 @@ class ChartScaffold extends Component {
 					{title && <h2 className="xui-chart--title">{title}</h2>}
 
 					{ hasPagination && panelsTotal > 1 && (
-						<div>
-							<ContentPagination
-								current={currentPage}
-								total={panelsTotal}
-								createMessage={createPaginationMessage}
-								updatePage={this.updatePage}
-							/>
-						</div>
+						<ContentPagination
+							current={currentPage}
+							total={panelsTotal}
+							createMessage={createPaginationMessage}
+							updatePage={this.updatePage}
+						/>
 					) }
 
 					{ keyLabel && (
-						<div>
-							<ChartKey
-								labels={keyLabel}
-								colors={colorList}/>
-						</div>
+						<ChartKey
+							labels={keyLabel}
+							colors={colorList}
+						/>
 					) }
 
 				</div>

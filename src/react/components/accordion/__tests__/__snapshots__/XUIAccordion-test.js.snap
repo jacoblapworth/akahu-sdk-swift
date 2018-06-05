@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAccordion /> renders the base component with only required props passed 1`] = `
+<p
+  className={undefined}
+>
+  Hello 
+  testName
+   👋
+</p>
+`;
+
+exports[`<XUIAccordion /> renders the component using all available options 1`] = `
+<p
+  className="testClass"
+>
+  Hello 
+  testName
+   👋
+</p>
+`;

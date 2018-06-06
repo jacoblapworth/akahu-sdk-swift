@@ -145,6 +145,8 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 </div>
 ```
 
+It is also possible to use the `isLabelHidden` prop to visually hide the label, but we strongly recommend providing a label for accessibility purposes, even if it will be hidden.
+
 ### Custom Icons
 
 `XUICheckbox` supports the use of a custom [`XUIIcon`](#icon) to style the presentation of the element.

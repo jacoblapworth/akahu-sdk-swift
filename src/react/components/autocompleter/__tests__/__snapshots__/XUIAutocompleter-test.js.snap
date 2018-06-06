@@ -7,6 +7,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -17,7 +18,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -36,6 +37,9 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
           data-automationid="baseAC"
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid="baseAC--input"
             defaultValue={undefined}
@@ -46,6 +50,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -54,7 +59,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -70,6 +75,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -80,7 +86,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -99,6 +105,9 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -109,6 +118,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -133,6 +143,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -143,7 +154,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -162,6 +173,9 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -172,6 +186,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -180,7 +195,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -196,6 +211,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -206,7 +222,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -225,6 +241,9 @@ exports[`XUIAutocompleter should render a class on the input element when passed
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="test-class xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -235,6 +254,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -243,7 +263,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -259,6 +279,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -269,7 +290,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -288,6 +309,9 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -298,6 +322,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -306,7 +331,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -322,6 +347,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -332,7 +358,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className="test-class"
       onClick={[Function]}
       onFocus={null}
@@ -351,6 +377,9 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -361,6 +390,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -369,7 +399,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -385,6 +415,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -395,7 +426,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -416,6 +447,9 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -426,6 +460,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder="Search"
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -434,7 +469,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -450,6 +485,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -460,7 +496,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -479,6 +515,9 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -489,6 +528,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -497,7 +537,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -513,6 +553,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
   id="test-id"
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -523,7 +564,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -542,6 +583,9 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -552,6 +596,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -560,7 +605,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -576,6 +621,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -586,7 +632,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -605,6 +651,9 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -615,6 +664,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {
@@ -623,7 +673,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
               }
             }
             type={undefined}
-            value={undefined}
+            value=""
           />
         </div>
       </label>
@@ -639,6 +689,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
   id={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
+  role="combobox"
 >
   <div
     className={undefined}
@@ -649,7 +700,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
     <div
       aria-activedescendant={null}
       aria-controls={undefined}
-      aria-haspopup={true}
+      aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
       onFocus={null}
@@ -668,6 +719,9 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
           data-automationid={null}
         >
           <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input"
             data-automationid={null}
             defaultValue={undefined}
@@ -678,6 +732,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             onChange={undefined}
             onFocusCapture={[Function]}
             placeholder={undefined}
+            role="textbox"
             rows={undefined}
             style={
               Object {

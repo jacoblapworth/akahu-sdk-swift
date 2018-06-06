@@ -22,6 +22,7 @@ storiesWithKnobs.add('Playground', () => (
 		isChecked={boolean('checked', false)}
 		isDisabled={boolean('disabled', false)}
 		rolloverComponent={<XUIAvatar value="abc" />}
+		labelText="Rollover checkbox"
 	/>
 ));
 
@@ -33,6 +34,7 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
+		variationMinusStoryDetails.labelText = "Rollover checkbox";
 
 		return <XUIRolloverCheckbox rolloverComponent={<XUIAvatar value="abc" />} {...variationMinusStoryDetails}/>
 	});

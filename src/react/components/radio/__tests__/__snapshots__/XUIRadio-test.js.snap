@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIRadio should have a hidden label, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+>
+  <input
+    aria-label="Hidden label"
+    className="xui-styledcheckboxradio--input"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    id={undefined}
+    name={undefined}
+    onChange={[Function]}
+    required={false}
+    role="radio"
+    tabIndex={undefined}
+    type="radio"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--radio"
+    data-automationid={undefined}
+  />
+</label>
+`;

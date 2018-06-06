@@ -10,7 +10,7 @@ exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1
   <button
     aria-activedescendant={null}
     aria-controls={undefined}
-    aria-haspopup={true}
+    aria-haspopup="listbox"
     className="xui-button xui-button-standard"
     onClick={[Function]}
     onKeyDown={[Function]}

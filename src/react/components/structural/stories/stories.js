@@ -21,6 +21,9 @@ import XUIPanelFooter from '../XUIPanelFooter';
 import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
 import XUICheckbox from '../../checkbox/XUICheckbox';
+import XUIRolloverCheckbox from '../../rolloverCheckbox/rolloverCheckbox';
+import XUIAvatar from '../../avatar/XUIAvatar';
+import XUITag from '../../tag/XUITag';
 import { rowVariants } from '../private/constants';
 
 // Story book things
@@ -78,16 +81,17 @@ const buildExampleSections = (children) => {
 const buildExampleContentblockItem = (children) => {
 	return children.map((child, index) => {
 		if (child.overflow) {
-			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon"><XUIIcon path={overflow}/></XUIButton>;
+			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon path={overflow}/></XUIButton>;
 		}
 		if (child.tag) {
-			child.tag = <span className="xui-tag xui-tag-positive xui-margin-left-small">Positive</span>;
+			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
 		}
 		if (child.leftContent === "checkbox") {
-			child.leftContent = <XUICheckbox isChecked={false}></XUICheckbox>;
-		}
-		if (child.leftContent === "avatar") {
-			child.leftContent = <abbr className="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>;
+			child.leftContent = <XUICheckbox isChecked={false} isLabelHidden>Row checkbox</XUICheckbox>;
+		} else if (child.leftContent === "avatar") {
+			child.leftContent = <XUIAvatar value="Pixar" />;
+		} else if (child.leftContent === "rollover") {
+			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} labelText="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
 		}
 		if (child.action) {
 			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;

@@ -28,10 +28,10 @@ class Example extends PureComponent {
 			<div>
 				<h3>Click the switch</h3>
 				<div className="xui-margin-bottom">
-					<XUISwitch isChecked={this.state.isChecked} onChange={() => this.setState(prevState => ({ isChecked: !prevState.isChecked }))} />
+					<XUISwitch isChecked={this.state.isChecked} onChange={() => this.setState(prevState => ({ isChecked: !prevState.isChecked }))} labelText="Enabled switch" />
 				</div>
 				<div>
-					<XUISwitch isDisabled isChecked={this.state.isChecked} onChange={NOOP} />
+					<XUISwitch isDisabled isChecked={this.state.isChecked} onChange={NOOP} labelText="Disabled switch" />
 				</div>
 			</div>
 		);

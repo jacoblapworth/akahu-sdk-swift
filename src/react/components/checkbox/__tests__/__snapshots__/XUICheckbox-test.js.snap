@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`XUICheckbox should have a hidden label, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+>
+  <input
+    aria-label="Hidden label"
+    className="xui-styledcheckboxradio--input"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--checkbox"
+    data-automationid={undefined}
+  />
+</label>
+`;
+
 exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = `
 <label
   className="xui-styledcheckboxradio"
@@ -7,6 +34,7 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   onClick={[Function]}
 >
   <input
+    aria-label={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid="test-checkbox--input"
     defaultChecked={false}
@@ -22,10 +50,6 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   <div
     className="xui-styledcheckboxradio--checkbox"
     data-automationid="test-checkbox--checkbox"
-  />
-  <span
-    className="xui-styledcheckboxradio--label"
-    data-automationid="test-checkbox--label"
   />
 </label>
 `;

@@ -88,10 +88,10 @@ variations = [...variations,
 				overflow: true
 			},
 			{
-				primaryHeading: 'Item 2 Primary', 
-				secondaryHeading: 'Item 2 Secondary', 
+				primaryHeading: 'Item 2 Primary',
+				secondaryHeading: 'Item 2 Secondary',
 				overflow: true
-			}			
+			}
 		]
 	},
 	{
@@ -100,20 +100,25 @@ variations = [...variations,
 		type: `content block`,
 		items: [
 			{
-				primaryHeading: 'Item 1 Primary', 
-				secondaryHeading: 'Item 1 Secondary', 
+				primaryHeading: 'Item 1 Primary (avatar)',
+				secondaryHeading: 'Item 1 Secondary',
 				leftContent: "avatar",
 				overflow: true
 			},
 			{
-				primaryHeading: 'Item 2 Primary', 
-				secondaryHeading: 'Item 2 Secondary', 
+				primaryHeading: 'Item 2 Primary (checkbox)',
+				secondaryHeading: 'Item 2 Secondary',
 				leftContent: "checkbox",
 				overflow: true
 			},
 			{
-				primaryHeading: 'Item 3 Primary', 
-				secondaryHeading: 'Item 3 Secondary', 
+				primaryHeading: 'Item 3 Primary (rollover)',
+				leftContent: "rollover",
+				overflow: true
+			},
+			{
+				primaryHeading: 'Item 4 Primary',
+				secondaryHeading: 'Item 4 Secondary',
 				tag: true,
 				overflow: true
 			}
@@ -125,14 +130,14 @@ variations = [...variations,
 		type: `content block`,
 		items: [
 			{
-				primaryHeading: 'Item 1 Primary', 
-				secondaryHeading: 'Item 1 Secondary', 
+				primaryHeading: 'Item 1 Primary',
+				secondaryHeading: 'Item 1 Secondary',
 				pinnedValue: true,
 				overflow: true
 			},
 			{
-				primaryHeading: 'Item 2 Primary', 
-				secondaryHeading: 'Item 2 Secondary', 
+				primaryHeading: 'Item 2 Primary',
+				secondaryHeading: 'Item 2 Secondary',
 				action: true,
 				overflow: true
 			}
@@ -149,7 +154,7 @@ variations = [...variations,
 				overflow: true,
 				leftContent: "avatar",
 				pinnedValue: true,
-				action: true, 
+				action: true,
 				tag: true
 			}
 		]
@@ -160,8 +165,8 @@ variations = [...variations,
 		type: `content block`,
 		items: [
 			{
-				primaryHeading: 'Item 2 Primary', 
-				secondaryHeading: 'Item 2 Secondary', 
+				primaryHeading: 'Item 2 Primary',
+				secondaryHeading: 'Item 2 Secondary',
 				hasLayout: false,
 				overflow: true,
 				pinnedValue: true,

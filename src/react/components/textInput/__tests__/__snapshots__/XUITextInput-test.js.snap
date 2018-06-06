@@ -10,6 +10,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
     data-automationid="input-test"
   >
     <input
+      aria-label={undefined}
       className="xui-textinput--input"
       data-automationid="input-test--input"
       defaultValue={undefined}
@@ -59,6 +60,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </svg>
       </div>
       <input
+        aria-label={undefined}
         className="xui-textinput--input xui-padding-left-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -87,6 +89,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       data-automationid={undefined}
     >
       <input
+        aria-label={undefined}
         className="xui-textinput--input xui-padding-right-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -149,6 +152,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </svg>
       </div>
       <input
+        aria-label={undefined}
         className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -198,6 +202,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
     data-automationid="givenQAHook"
   >
     <input
+      aria-label={undefined}
       className="xui-textinput--input"
       data-automationid="givenQAHook--input"
       defaultValue={undefined}
@@ -229,6 +234,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
     data-automationid={undefined}
   >
     <input
+      aria-label={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -265,7 +271,40 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
     data-automationid={undefined}
   >
     <input
+      aria-label={undefined}
       className="custom-input-class xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={undefined}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Text-only input renders with a hidden label when one is provided 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onKeyDown={undefined}
+>
+  <div
+    className="xui-textinput"
+    data-automationid={undefined}
+  >
+    <input
+      aria-label="test"
+      className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
       disabled={undefined}
@@ -301,6 +340,7 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
     data-automationid={undefined}
   >
     <input
+      aria-label={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}

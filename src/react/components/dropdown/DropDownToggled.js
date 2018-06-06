@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
+import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
 import {
 	isNarrowViewport,
@@ -10,7 +11,7 @@ import {
 	throttleToFrame,
 } from './private/helpers';
 import { compose } from '../helpers/compose';
-import {baseClass} from "./private/constants";
+import { baseClass, dropdownPositionOptions } from "./private/constants";
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -423,7 +424,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, ...otherProps } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -431,8 +432,8 @@ export default class DropDownToggled extends PureComponent {
 			'onClick': compose(trigger.props.onClick, ddt.triggerClickHandler),
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
-			'aria-haspopup': true,
-			'aria-controls': dropdown.dropdownId
+			'aria-haspopup': ariaPopupType,
+			'aria-controls': ddt.dropdown && ddt.dropdown.dropdownId
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
@@ -449,6 +450,37 @@ export default class DropDownToggled extends PureComponent {
 			className: dropdown.props.className
 		});
 
+		const commonPositioningProps = {
+			maxHeight: maxHeight,
+			isVisible: !isHidden,
+			shouldRestrictMaxHeight: restrictToViewPort,
+			isNotResponsive: forceDesktop,
+			onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
+			ref: c => this.positioning = c,
+			parentRef: ddt.wrapper,
+			isTriggerWidthMatched: ddt.props.matchTriggerWidth
+		};
+
+		const positionedDropdown = this.state.isNarrowViewport ? (
+			<Positioning
+				{...commonPositioningProps}
+				qaHook={qaHook && `${qaHook}--positioning`}
+			>
+				{clonedDropdown}
+			</Positioning>
+		) : (
+			<PositioningInline
+				{...commonPositioningProps}
+				qaHook={qaHook && `${qaHook}--positioning-inline`}
+				preferredPosition={preferredPosition}
+				maxWidth={-1}
+				useDropdownPositioning={true}
+				{...otherProps}
+			>
+					{clonedDropdown}
+			</PositioningInline>
+		);
+
 		return (
 			<div
 				ref={c => ddt.wrapper = c}
@@ -458,19 +490,7 @@ export default class DropDownToggled extends PureComponent {
 				data-automationid={qaHook}
 			>
 				{clonedTrigger}
-				<Positioning
-					maxHeight={maxHeight}
-					ref={c => this.positioning = c}
-					parentRef={ddt.wrapper}
-					isVisible={!isHidden}
-					shouldRestrictMaxHeight={restrictToViewPort}
-					isTriggerWidthMatched={ddt.props.matchTriggerWidth}
-					isNotResponsive={forceDesktop}
-					onVisible={shouldAnimate(this) ? null : this.onOpenAnimationEnd}
-					qaHook={qaHook && `${qaHook}--positioning`}
-				>
-						{clonedDropdown}
-				</Positioning>
+				{positionedDropdown}
 			</div>
 		);
 	}
@@ -532,7 +552,20 @@ DropDownToggled.propTypes = {
 	 * Setting a number here will force the maximum height of the dropdown to be the number provided (in pixels) if the viewport is too big.
 	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
 	 */
-	maxHeight: PropTypes.number
+	maxHeight: PropTypes.number,
+
+	/**
+	 * Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
+	 */
+	preferredPosition: PropTypes.oneOf(dropdownPositionOptions),
+	/**
+	 * Space between trigger and dropdown, in pixels. Defaults to 6.
+	 */
+	triggerDropdownGap: PropTypes.number,
+	/**
+	 * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
+	 */
+	ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false])
 };
 
 DropDownToggled.defaultProps = {
@@ -545,4 +578,7 @@ DropDownToggled.defaultProps = {
 	forceDesktop: false,
 	repositionOnScroll: false,
 	matchTriggerWidth: false,
+	preferredPosition: 'bottom-left',
+	triggerDropdownGap: 6,
+	ariaPopupType: 'listbox'
 };

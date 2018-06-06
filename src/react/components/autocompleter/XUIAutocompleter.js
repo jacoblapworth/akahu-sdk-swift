@@ -246,16 +246,21 @@ export default class XUIAutocompleter extends PureComponent {
 					inputClassName={inputClassNames}
 					inputRef={i => this.inputNode = i}
 					placeholder={props.placeholder}
-					value={state.value}
+					value={state.value || ''}
 					onChange={this.throttledOnChange}
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
 					isDisabled={props.isDisabled}
+					labelText={props.inputLabelText}
+					isLabelHidden={props.isInputLabelHidden}
 					inputProps={{
 						...props.inputProps,
-						maxLength: props.maxLength,
-						id: props.inputId,
-						style: {
+						'maxLength': props.maxLength,
+						'id': props.inputId,
+						'role': "textbox",
+						'aria-multiline': false,
+						'aria-autocomplete': "list",
+						'style': {
 							flexBasis: state.inputWidth
 						}
 					}}
@@ -295,6 +300,7 @@ export default class XUIAutocompleter extends PureComponent {
 				onBlur={this.onBlur}
 				data-automationid={containerQaHook}
 				id={props.id}
+				role="combobox"
 			>
 				<DropDownToggled
 					ref={c => completer.ddt = c}
@@ -347,6 +353,12 @@ XUIAutocompleter.propTypes = {
 
 	/** CSS class(es) to go on the input container component */
 	inputContainerClassName: PropTypes.string,
+
+	/** Label to show above the input */
+	inputLabelText: PropTypes.string,
+
+	/** Should label be applied as an aria-label, rather than being visibly displayed. */
+	isInputLabelHidden: PropTypes.bool,
 
 	/** Attributes to set on the native input element */
 	inputProps: PropTypes.object,

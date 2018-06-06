@@ -14,12 +14,13 @@
   },
   "files": [
     "react",
-    "sass"
+    "sass",
+    "codemod"
   ],
   "scripts": {
     "build": "node scripts/build",
     "lint": "node scripts/lint/js && node scripts/lint/sass",
-    "prepack": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
+    "prepack": "node scripts/prepack",
     "prepare": "check-engines && nsp check",
     "postmerge": "./post-merge.sh",
     "precommit": "./pre-commit.sh",
@@ -118,6 +119,7 @@
     "uppercamelcase": "3.0.0",
     "webpack": "3.8.1",
     "workbox-build": "3.1.0",
+    "xuishift": "git://github.dev.xero.com/UXE/xuishift.git#1.0.0",
     "yargs": "9.0.1"
   }
 }

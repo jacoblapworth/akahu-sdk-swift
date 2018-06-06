@@ -2,6 +2,7 @@
 
 exports[`forceStatefulPicklist prop renders a automation id when a qaHook is passed 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-is-open"
   data-automationid="dropdown-test--layout"
   id="1"
@@ -93,6 +94,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
 
 exports[`forceStatefulPicklist prop renders qaHooks on inner components when stateful picklist is not being used 1`] = `
 <div
+  aria-expanded={true}
   className="xui-dropdown-layout xui-dropdown-is-open"
   data-automationid="dropdown-test--layout"
   id="1"

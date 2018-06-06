@@ -8,6 +8,7 @@ yarn.lock
 /dist
 /react
 /sass
+/codemod
 src/react/umd.js
 .tmp
 

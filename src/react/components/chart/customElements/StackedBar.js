@@ -5,11 +5,17 @@ import { alwaysPositive } from '../helpers';
 
 class StackedBar extends Component {
 
-	handleToolTipShow = ({ event, barData, barIndex, stackIndex = null }) => {
-		const { updateToolTip } = this.props;
-		const { pageX, pageY } = event;
+	handleToolTipShow = (event, { barData, barIndex, stackIndex = null }) => {
+		const { updateToolTip, padding } = this.props;
+		const getTargetValue = reference => event.target[reference].baseVal.value;
+		const left = getTargetValue('x') + padding.left;
+		const top = getTargetValue('y');
+		const height = getTargetValue('height');
+		const width = getTargetValue('width');
+		const position = { left, top, width, height };
+		const data = { ...barData, barIndex, stackIndex };
 
-		updateToolTip([pageX, pageY], { ...barData, barIndex, stackIndex });
+		updateToolTip(position, data);
 	};
 
 	handleToolTipHide = () => this.props.updateToolTip();
@@ -103,7 +109,7 @@ class StackedBar extends Component {
 									style: { cursor: 'pointer' }
 								}),
 								...(updateToolTip && {
-									onMouseMove: event => this.handleToolTipShow({ event, barData, barIndex, stackIndex }),
+									onMouseEnter: event => this.handleToolTipShow(event, { barData, barIndex, stackIndex }),
 									onMouseLeave: this.handleToolTipHide
 								})
 							}}

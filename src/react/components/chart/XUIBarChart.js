@@ -20,11 +20,15 @@ TODO:
 + Theme
   + Merge CHART_HEIGHT / ACTIVE_COLOR etc into theme
 
-+ xxxx
-  + xxxx
++ Prettify
+  + White space
+  + Padding inside brackets
 
-+ xxxx
-  + xxxx
++ Labels
+	+ An API that can differientate the different labels
+	+ Avatar
+	+ Plain
+	+ Reduce ? <-- ['M', 'Mon', 'Monday']
 
 + xxxx
   + xxxx

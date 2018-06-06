@@ -122,6 +122,10 @@
 	min-height: 300px;
 }
 
+.xui-chart .xui-tooltip {
+	display: block;
+}
+
 .xui-chart .xui-tooltip--tip {
 	cursor: initial;
 	pointer-events: none;

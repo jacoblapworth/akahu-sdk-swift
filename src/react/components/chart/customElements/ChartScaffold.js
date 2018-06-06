@@ -38,7 +38,7 @@ class ChartScaffold extends Component {
 		chartWidth: 0,
 		yAxisWidth: 0,
 		xAxisHeight: 0,
-		toolTipPosition: [0, 0],
+		toolTipPosition: { /* left: 0, right: 0, width, 0, height: 0 */ },
 		toolTipData: { /* bar: {}, stack: {} */ },
 		panelCurrent: 1,
 	};
@@ -67,19 +67,37 @@ class ChartScaffold extends Component {
 		this.handleContentScroll();
 	};
 
-	updateToolTip = (nextPosition = [], toolTipData = {}) => {
-		const [nextX = 0, nextY = 0] = nextPosition;
-		const [prevX, prevY] = this.state.toolTipPosition;
-		const shouldUpdate = nextX !== prevX && nextY !== prevY;
+	updateToolTip = (nextPosition = {}, toolTipData = {}) => {
+		// const [nextX = 0, nextY = 0] = nextPosition;
+		const {left: nextLeft = 0, top: nextTop = 0, width: nextWidth = 0, height: nextHeight = 0} = nextPosition;
+		const {left: prevLeft = 0, top: prevTop = 0, width: prevWidth = 0, height: prevHeight = 0} = this.state.toolTipPosition;
+		const shouldUpdate = (
+			nextLeft !== prevLeft || nextTop !== prevTop ||
+			nextWidth !== prevWidth || nextHeight !== prevHeight
+		);
 
 		if (shouldUpdate) {
 			this.setState({
 				...this.state,
-				toolTipPosition: [nextX, nextY],
+				toolTipPosition: nextPosition,
 				toolTipData
 			});
 		}
 	};
+
+	// updateToolTip = (nextPosition = [], toolTipData = {}) => {
+	// 	const [nextX = 0, nextY = 0] = nextPosition;
+	// 	const [prevX, prevY] = this.state.toolTipPosition;
+	// 	const shouldUpdate = nextX !== prevX && nextY !== prevY;
+
+	// 	if (shouldUpdate) {
+	// 		this.setState({
+	// 			...this.state,
+	// 			toolTipPosition: [nextX, nextY],
+	// 			toolTipData
+	// 		});
+	// 	}
+	// };
 
 	updateChartWidth = () => {
 		const { rootNode, state } = this;
@@ -174,7 +192,7 @@ class ChartScaffold extends Component {
 			hasPagination, createPaginationMessage,
 
 			// Tooltip...
-			toolTipData, toolTipX, toolTipY, hasToolTip, createToolTipMessage,
+			toolTipData, toolTipPosition, hasToolTip, createToolTipMessage,
 
 			// Colors...
 			colorActive, colorStacks,
@@ -226,7 +244,7 @@ class ChartScaffold extends Component {
 						// NOTE: The overflow could cause problems with the tooltip down the
 						// line.
 						height: `${chartHeight}px`,
-						overflow: 'hidden'
+						// overflow: 'hidden'
 					}}>
 					{
 					// We have a situation where we need to create a "responsive" scrolling
@@ -413,6 +431,7 @@ class ChartScaffold extends Component {
 									dataComponent={(
 										<StackedBar
 											chartId={chartId}
+											padding={chartPadding}
 											yAxisMaxValue={yAxisMaxValue}
 											yAxisHeight={yAxisHeight}
 											colorStacks={colorStacks}
@@ -427,16 +446,17 @@ class ChartScaffold extends Component {
 							</VictoryChart>
 						</div>
 					</div>
+
+					{hasToolTip && (
+						<GraphTooltip
+							createMessage={createToolTipMessage(toolTipData)}
+							toolTipPosition={toolTipPosition}
+							// toolTipY={toolTipY}
+							// toolTipX={toolTipX}
+						/>
+					)}
+
 				</div>
-
-				{hasToolTip && (
-					<GraphTooltip
-						createMessage={createToolTipMessage(toolTipData)}
-						toolTipY={toolTipY}
-						toolTipX={toolTipX}
-					/>
-				)}
-
 			</div>
 		);
 	};

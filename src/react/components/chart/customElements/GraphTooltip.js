@@ -5,17 +5,15 @@ import XUITooltip from '../../tooltip/XUITooltip';
 class GraphTooltip extends PureComponent {
 
 	render() {
-		const { createMessage, toolTipY, toolTipX } = this.props;
+		const { createMessage, toolTipPosition: { left, top, width, height } } = this.props;
+		console.log('toolTip', { left, top, width, height });
 		return (
 			<div
 				style={{
-					left: 0,
-					top: 0,
-					transform: `translate(${toolTipX}px, ${toolTipY - 15}px)`,
-					height: 0,
-					width: 0,
+					left, top, height, width,
 					background: 'transparent',
-					position: 'absolute'
+					pointerEvents: 'none',
+					position: 'absolute',
 				}}
 			>
 				<XUITooltip
@@ -24,8 +22,7 @@ class GraphTooltip extends PureComponent {
 					triggerOnFocus={false}
 					triggerOnBlur={false}
 					triggerOnClick={false}
-					triggerOnHover={false}
-					>
+					triggerOnHover={false}>
 					{createMessage}
 				</XUITooltip>
 			</div>

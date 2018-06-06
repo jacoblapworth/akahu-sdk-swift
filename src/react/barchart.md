@@ -104,9 +104,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ x: "Apple", y: 2 },
+	{ x: "Potato", y: 3 },
+	{ x: "Carrot", y: 4 },
 ];
 class Demo extends React.Component {
 

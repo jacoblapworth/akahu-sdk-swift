@@ -112,8 +112,10 @@ const enrichParams = (state, props, chartTheme) => {
 	const colorStacks = createBarColorStacks({ barsData, custom: barColor, base: chartTheme.bar.colorScale});
 
 	// Tooltip...
-	const [toolTipX, toolTipY] = toolTipPosition;
-	const hasToolTip = Boolean(createToolTipMessage && toolTipX && toolTipY);
+	// const [toolTipX, toolTipY] = toolTipPosition;
+	// const hasToolTip = Boolean(createToolTipMessage && toolTipX && toolTipY);
+	const { left: toolTipLeft, top: toolTipTop, width: toolTipWidth, height: toolTipHeight } = toolTipPosition;
+	const hasToolTip = Boolean(createToolTipMessage && toolTipLeft && toolTipTop && toolTipWidth && toolTipHeight);
 
 	// Chart...
 	const isChartNarrow = chartWidth <= 520;
@@ -161,7 +163,7 @@ const enrichParams = (state, props, chartTheme) => {
 		hasPagination, createPaginationMessage,
 
 		// Tooltip...
-		toolTipData, toolTipX, toolTipY, hasToolTip, createToolTipMessage,
+		toolTipData, toolTipPosition, hasToolTip, createToolTipMessage,
 
 		// Colors...
 		colorActive, colorStacks,

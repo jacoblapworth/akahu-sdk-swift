@@ -1,7 +1,14 @@
-const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) => {
+import cn from 'classnames';
+import { createChartPadding } from '../helpers';
+import { CHART_HEIGHT } from '../helpers/constants';
+import { createFormatYAxisLabel, createYAxisTickValues } from '../helpers/yaxis';
+
+const findMaxTotalBarStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
+
+const createBarStats = ({ barsData, maxVisibleItems, contentWidth, hasPagination }) => {
 	const minWidth = 34;
 	const maxWidth = 200;
-	const barsTotal = bars.length;
+	const barsTotal = barsData.length;
 	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, minWidth);
 	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > maxWidth
 		? maxWidth
@@ -42,11 +49,17 @@ const createBarStats = ({ bars, maxVisibleItems, contentWidth, hasPagination }) 
 		: sanitisedWidth;
 	const barsWidth = barWidth * barsTotal;
 
-	return { barsWidth, barWidth, panelsTotal };
+	const barMaxValue = (
+		barsData
+			.map(findMaxTotalBarStacks)
+			.reduce((acc, value) => Math.max(acc, value), 0)
+	);
+
+	return { barsWidth, barWidth, barMaxValue, panelsTotal };
 };
 
-const createBarColorList = ({bars, custom, base }) => {
-	const maxStacks = bars.reduce((acc, { y }) => Math.max(acc, y.length), 0);
+const createBarColorStacks = ({barsData, custom, base }) => {
+	const maxStacks = barsData.reduce((acc, { y }) => Math.max(acc, y.length), 0);
 
 	return (
 		new Array(maxStacks)
@@ -56,4 +69,168 @@ const createBarColorList = ({bars, custom, base }) => {
 
 };
 
-export { createBarStats as default, createBarColorList};
+const enrichParams = (state, props, chartTheme) => {
+
+	const {
+		id,
+		title,
+		description,
+		keyLabel: keyLabelRaw,
+		bars: barsDataRaw,
+		barColor: barColorRaw,
+		isStacked,
+		hasPagination,
+		onBarClick,
+		activeColor: activeColorRaw,
+		createToolTipContent,
+		maxVisibleItems,
+		maxYValue: customMaxYValue = 0,
+		formatYAxisLabel: formatYAxisLabelRaw,
+		createPaginationMessage,
+		height: chartHeight = CHART_HEIGHT
+	} = props;
+
+	const {
+		chartWidth,
+		yAxisWidth,
+		xAxisHeight,
+		toolTipPosition,
+		toolTipData,
+		currentPage: currentPageRaw
+	} = state;
+
+	// We support both "plain" and "stacked" bar styles. The difference is that
+	// stacks require arrays of data and plain a single value. Rather than create
+	// two duplicate components we augment the plain data to mimic a stacked
+	// scenario that has only a single stack.
+	const barsData = isStacked ? barsDataRaw : barsDataRaw.map(bar => ({ ...bar, y: [bar.y] }));
+	const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
+	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
+
+	// Colors...
+	const colorActive = activeColorRaw || 'hotpink';
+	const colorStacks = createBarColorStacks({ barsData, custom: barColor, base: chartTheme.bar.colorScale});
+
+	// Tooltip...
+	const [toolTipX, toolTipY] = toolTipPosition;
+	const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
+
+	// Chart...
+	const isChartNarrow = chartWidth <= 520;
+	const chartPadding = createChartPadding({ xAxisHeight, yAxisWidth });
+	const { top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft } = chartPadding;
+	const chartClassName = cn('xui-chart', {
+		[`xui-chart-has-pagination`]: hasPagination,
+		[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
+	});
+
+	// Content...
+	const contentWidth = chartWidth - chartLeft - chartRight;
+
+	// Bars...
+	const { barsWidth, barWidth, barMaxValue, panelsTotal } = createBarStats({ barsData, maxVisibleItems, contentWidth, hasPagination });
+	// If the user resizes the UI we can get into a situation where the current
+	// pagination reference exceeds the available panels.
+	const currentPage = Math.min(currentPageRaw, panelsTotal);
+
+	// Y-Axis...
+	const maxYDomain = Math.max(customMaxYValue, barMaxValue);
+	const yAxisHeight = chartHeight - chartTop - chartBottom;
+	const formatYAxisLabel = formatYAxisLabelRaw || createFormatYAxisLabel(maxYDomain);
+	const yAxisTickValues = createYAxisTickValues({ maxYDomain, yAxisHeight });
+
+	return {
+
+		chartTheme,
+
+		id,
+		title,
+		description,
+		keyLabelRaw,
+		barsDataRaw,
+		barColorRaw,
+		isStacked,
+		hasPagination,
+		onBarClick,
+		activeColorRaw,
+		createToolTipContent,
+		maxVisibleItems,
+		customMaxYValue,
+		formatYAxisLabelRaw,
+		createPaginationMessage,
+		chartHeight,
+
+		chartWidth,
+		yAxisWidth,
+		xAxisHeight,
+		toolTipPosition,
+		toolTipData,
+		currentPageRaw,
+
+		barsData,
+		keyLabel,
+		barColor,
+		colorActive,
+		colorStacks,
+		toolTipX,
+		toolTipY,
+		hasToolTip,
+		isChartNarrow,
+		chartPadding,
+		chartTop,
+		chartRight,
+		chartBottom,
+		chartLeft,
+		chartClassName,
+		contentWidth,
+		barsWidth,
+		barWidth,
+		barMaxValue,
+		panelsTotal,
+		currentPage,
+		maxYDomain,
+		yAxisHeight,
+		formatYAxisLabel,
+		yAxisTickValues,
+	};
+
+	// return {
+	// 	id,
+	// 	title,
+	// 	description,
+	// 	isChartNarrow,
+	// 	colorActive,
+	// 	colorStacks,
+	// 	hasToolTip,
+	// 	contentWidth,
+	// 	barsWidth,
+	// 	barWidth,
+	// 	barsData,
+	// 	panelsTotal,
+	// 	barMaxValue,
+	// 	maxYDomain,
+	// 	yAxisHeight,
+	// 	formatYAxisLabel,
+	// 	yAxisTickValues,
+	// 	chartClassName,
+	// 	currentPage,
+	// 	onBarClick,
+	// 	keyLabel,
+	// 	chartPadding,
+	// 	chartTop,
+	// 	chartRight,
+	// 	chartBottom,
+	// 	chartLeft,
+	// 	chartTheme,
+	// 	chartHeight,
+	// 	createToolTipContent,
+	// 	toolTipData,
+	// 	toolTipX,
+	// 	toolTipY,
+	// 	hasPagination,
+	// 	createPaginationMessage,
+	// };
+
+};
+
+export { createBarStats as default, createBarColorStacks, enrichParams, findMaxTotalBarStacks};

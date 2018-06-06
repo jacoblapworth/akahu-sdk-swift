@@ -11,10 +11,10 @@ import {
 	Line
 } from 'victory';
 import { barChartTheme } from '../helpers/theme';
-import getGroupPosition, { testIsCloseEnough, createVictoryPadding } from '../helpers';
+import getGroupPosition, { testIsCloseEnough, createChartPadding } from '../helpers';
 import { CHART_HEIGHT } from '../helpers/constants';
 import { createFormatYAxisLabel, createYAxisTickValues } from '../helpers/yaxis';
-import createBarStats, { createBarColorList } from '../helpers/bars';
+import createBarStats, { createBarColorStacks, findMaxTotalBarStacks, enrichParams } from '../helpers/bars';
 import StackedBar from './StackedBar';
 import StackedLabel from './StackedLabel';
 import GroupWrapper from './GroupWrapper';
@@ -157,65 +157,53 @@ class ChartScaffold extends Component {
 
 	render = () => {
 		const { props, state } = this;
+		const params = enrichParams(state, props, barChartTheme);
 		const {
-			id,
-			title,
-			description,
-			keyLabel: keyLabelRaw,
-			bars: barsRaw,
-			barColor: barColorRaw,
-			isStacked,
+
+			// Generic...
+			id, title, description,
+
+			// Chart...
+			chartTheme, chartHeight, chartWidth,
+			chartPadding, chartTop, chartBottom, chartLeft, chartClassName,
+
+			// Content...
+			contentWidth,
+
+			// Bars...
+			barsData, barsWidth, barWidth, onBarClick,
+
+			// Pagination...
 			hasPagination,
-			onBarClick,
-			activeColor,
-			createToolTipContent,
-			maxVisibleItems,
-			maxYValue: customMaxYValue = 0,
-			formatYAxisLabel: formatYAxisLabelRaw,
 			createPaginationMessage,
-			height: chartHeight = CHART_HEIGHT
-		} = props;
-		const {
-			chartWidth,
-			yAxisWidth,
-			xAxisHeight,
-			toolTipPosition,
+			currentPage,
+			panelsTotal,
+
+			// Tooltip...
 			toolTipData,
-			currentPage: currentPageRaw
-		} = state;
+			toolTipX,
+			toolTipY,
+			hasToolTip,
+			createToolTipContent,
 
-		// We support both "plain" and "stacked" bar styles. The difference is that
-		// stacks require arrays of data and plain a single value. Rather than create
-		// two duplicate components we augment the plain data to mimic a stacked
-		// scenario that has only a single stack.
-		const bars = isStacked ? barsRaw : barsRaw.map(bar => ({ ...bar, y: [bar.y] }));
-		const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
-		const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
+			// Colors...
+			colorActive,
+			colorStacks,
 
-		console.log(title, { keyLabel, barColor });
+			// Y-Axis
+			maxYDomain,
+			yAxisHeight,
+			formatYAxisLabel,
+			yAxisTickValues,
 
-		const [toolTipX, toolTipY] = toolTipPosition;
-		const isChartNarrow = chartWidth <= 520;
-		const colorList = createBarColorList({ bars, custom: barColor, base: barChartTheme.bar.colorScale});
-		const hasToolTip = Boolean(createToolTipContent && toolTipX && toolTipY);
-		const victoryPadding = createVictoryPadding({ xAxisHeight, yAxisWidth });
-		const { top, right, bottom, left } = victoryPadding;
-		const contentWidth = chartWidth - left - right;
-		const { barsWidth, barWidth, panelsTotal } = createBarStats({ bars, maxVisibleItems, contentWidth, hasPagination });
-		const addUpStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
-		const maxBarValue = bars.map(addUpStacks).reduce((acc, value) => Math.max(acc, value), 0);
-		const maxYDomain = Math.max(customMaxYValue, maxBarValue);
-		const yAxisHeight = chartHeight - top - bottom;
-		const formatYAxisLabel = formatYAxisLabelRaw || createFormatYAxisLabel(maxYDomain);
-		const yAxisTickValues = createYAxisTickValues({ maxYDomain, yAxisHeight });
-		const chartClassName = cn('xui-chart', {
-			[`xui-chart-has-pagination`]: hasPagination,
-			[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
-		});
+			// Label...
+			keyLabel,
 
-		// If the user resizes the UI we can get into a situation where the current
-		// pagination reference exceeds the available panels.
-		const currentPage = Math.min(currentPageRaw, panelsTotal);
+		} = params;
+
+
+
+
 
 		return (
 			<div className={chartClassName}>
@@ -236,7 +224,7 @@ class ChartScaffold extends Component {
 					{ keyLabel && (
 						<ChartKey
 							labels={keyLabel}
-							colors={colorList}
+							colors={colorStacks}
 						/>
 					) }
 
@@ -312,7 +300,7 @@ class ChartScaffold extends Component {
 					//           ------------->  s c r o l l  t o  v i e w  ------------->
 					}
 					<VictoryChart
-						theme={barChartTheme}
+						theme={chartTheme}
 
 						// Push bars "middle" alignment back into the graph "bar" area.
 						// We are controlling this via bespoke components and therefore reset
@@ -324,7 +312,7 @@ class ChartScaffold extends Component {
 						width={chartWidth}
 
 						// The space around the "bar" area and the rest of the graph.
-						padding={victoryPadding}
+						padding={chartPadding}
 
 						containerComponent={(
 							<VictoryContainer
@@ -338,7 +326,7 @@ class ChartScaffold extends Component {
 							dependentAxis={true}
 							orientation="left"
 							scale={{ y: 'linear' }}
-							padding={victoryPadding}
+							padding={chartPadding}
 							tickFormat={formatYAxisLabel}
 							tickValues={yAxisTickValues}
 							groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
@@ -353,9 +341,9 @@ class ChartScaffold extends Component {
 					<div
 						className="xui-chart--shadows"
 						style={{
-							bottom: `${bottom}px`,
-							left: `${left}px`,
-							top: `${top}px`,
+							bottom: `${chartBottom}px`,
+							left: `${chartLeft}px`,
+							top: `${chartTop}px`,
 							width: `${contentWidth}px`
 						}}
 					/>
@@ -364,7 +352,7 @@ class ChartScaffold extends Component {
 						className="xui-chart--content"
 						ref={node => (this.contentNode = node)}
 						style={{
-							left: `${left}px`,
+							left: `${chartLeft}px`,
 							width: `${contentWidth}px`
 						}}
 						onScroll={this.throttledContentScroll}>
@@ -378,7 +366,7 @@ class ChartScaffold extends Component {
 							}}>
 
 							<VictoryChart
-								theme={barChartTheme}
+								theme={chartTheme}
 
 								// Push bars "middle" alignment back into the graph "bar" area.
 								// We are controlling this via bespoke components and therefore reset
@@ -390,7 +378,7 @@ class ChartScaffold extends Component {
 								width={barsWidth}
 
 								// The space around the "bar" area and the rest of the graph.
-								padding={victoryPadding}
+								padding={chartPadding}
 
 								containerComponent={(
 									<VictoryContainer
@@ -407,9 +395,9 @@ class ChartScaffold extends Component {
 									dependentAxis={false}
 									orientation="bottom"
 									scale={{ x: 'linear' }}
-									padding={victoryPadding}
+									padding={chartPadding}
 									width={barsWidth}
-									tickValues={bars.map(({ x }) => x)}
+									tickValues={barsData.map(({ x }) => x)}
 
 									groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
 
@@ -426,14 +414,15 @@ class ChartScaffold extends Component {
 									tickLabelComponent={(
 										<StackedLabel
 											barWidth={barWidth}
-											yPos={chartHeight - bottom}
+											yPos={chartHeight - chartBottom}
 										/>
 									)}
 								/>
 
 								<VictoryBar
-									data={bars}
-									y={addUpStacks}
+									data={barsData}
+									// y={addUpStacks}
+									y={findMaxTotalBarStacks}
 
 									groupComponent={<GroupWrapper className="xui-chart--bars" />}
 
@@ -442,10 +431,10 @@ class ChartScaffold extends Component {
 											id={id}
 											maxYDomain={maxYDomain}
 											axisHeight={yAxisHeight}
-											barColor={colorList}
+											barColor={colorStacks}
 											onBarClick={onBarClick}
 											barWidth={barWidth}
-											activeColor={activeColor}
+											activeColor={colorActive}
 											updateToolTip={createToolTipContent && this.updateToolTip}
 										/>
 									)}

@@ -1,4 +1,5 @@
-const createVictoryPadding = ({xAxisHeight, yAxisWidth}) => ({
+// https://formidable.com/open-source/victory/docs/common-props/#padding
+const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
 	// Allow room for y-axis text to be entered on the axis line but not bleed
 	// over the viewbox.
 	top: 10,
@@ -10,4 +11,4 @@ const createVictoryPadding = ({xAxisHeight, yAxisWidth}) => ({
 	right: 2
 });
 
-export default createVictoryPadding;
+export default createChartPadding;

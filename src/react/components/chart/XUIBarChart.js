@@ -1,9 +1,40 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import cn from 'classnames';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
+
+/*
+
+TODO:
+
++ Custom namespace
+	+ JS
+	+ CSS
+
++ Remane all params to be consistent
+	+ API props
+	+ generic global params
+	+ props for internal components
+
++ Theme
+  + Merge CHART_HEIGHT / ACTIVE_COLOR etc into theme
+
++ xxxx
+  + xxxx
+
++ xxxx
+  + xxxx
+
++ xxxx
+  + xxxx
+
+Design:
+-------
++ Active color
++ Can hide title
+
+*/
 
 class XUIBarChart extends Component {
 

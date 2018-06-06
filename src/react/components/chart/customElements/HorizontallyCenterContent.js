@@ -8,7 +8,6 @@ class HorizontallyCenterContent extends Component {
 	state = { /* contentWidth */ };
 
 	updateContentWidth = () => {
-
 		const { state, contentNode } = this;
 		const contentWidth = contentNode ? getGroupPosition(contentNode).width : 0;
 		const shouldUpdate = !testIsCloseEnough(contentWidth, state.contentWidth || 0);
@@ -16,7 +15,6 @@ class HorizontallyCenterContent extends Component {
 		if (shouldUpdate) {
 			this.setState({ ...state, contentWidth });
 		}
-
 	}
 
 	componentDidMount() {
@@ -63,9 +61,7 @@ class HorizontallyCenterContent extends Component {
 				width={wrapperWidth}
 				height={wrapperHeight}
 				viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}>
-
 				{ children }
-
 			</svg>
 		);
 	}

@@ -118,7 +118,7 @@ class Demo extends React.Component {
 				description="Hover over a bar to reveal relevant information"
 				isStacked
 				bars={data}
-				createToolTipContent={bar => <strong>{bar.x}</strong>}
+				createToolTipMessage={({x}) => <strong>{x}</strong>}
 			/>
 		);
 	}
@@ -145,10 +145,10 @@ class Demo extends React.Component {
 				description="Hover over a stack to reveal relevant information"
 				isStacked
 				bars={data}
-				createToolTipContent={bar => (
+				createToolTipMessage={({x, stackIndex}) => (
 					<div>
-						<div><strong>{bar.x}</strong></div>
-						<div><strong>{bar.stackIndex + 1 && `Stack #${bar.stackIndex + 1}`}</strong></div>
+						<div><strong>{x}</strong></div>
+						<div><strong>{stackIndex + 1 && `Stack #${stackIndex + 1}`}</strong></div>
 					</div>
 				)}
 			/>
@@ -457,7 +457,7 @@ class Demo extends React.Component {
 				description="Format labels to enhance the graph axis information"
 				isStacked
 				bars={data}
-				formatYAxisLabel={(value) => `${Math.round(value * 100)}k`}
+				createYAxisLabelFormat={(value) => `${Math.round(value * 100)}k`}
 			/>
 		);
 	}

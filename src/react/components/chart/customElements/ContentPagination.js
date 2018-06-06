@@ -7,12 +7,7 @@ import arrowPathData from '@xero/xui-icon/icons/arrow';
 
 class ContentPagination extends Component {
 	render() {
-		const {
-			current,
-			total,
-			updatePage,
-			createMessage,
-		} = this.props;
+		const { current, total, updatePanel, createMessage } = this.props;
 		const message = createMessage && createMessage(current, total);
 
 		return (
@@ -24,7 +19,7 @@ class ContentPagination extends Component {
 				<XUIButton
 					variant="icon"
 					className={`xui-button-icon-large`}
-					onClick={() => updatePage(current - 1)}
+					onClick={() => updatePanel(current - 1)}
 					title="Previous page"
 					isDisabled={current === 1}>
 					<XUIIcon
@@ -38,7 +33,7 @@ class ContentPagination extends Component {
 				<XUIButton
 					variant="icon"
 					className={`xui-button-icon-large`}
-					onClick={() => updatePage(current + 1)}
+					onClick={() => updatePanel(current + 1)}
 					title="Next Page"
 					isDisabled={current === total}>
 					<XUIIcon

@@ -8,63 +8,48 @@ import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const LARGE_LABEL_FONT = { ...baseFontTheme, fontSize: 13 };
 
-const createStackedAvatar = ({ barWidth, rawText }) => {
+const createStackedAvatar = ({ labelWidth, textRaw }) => {
 	const avatarCircleRadius = 12;
 	const avatarCircleDiameter = avatarCircleRadius * 2;
-	const avatarCircleXOffset = barWidth * 0.5;
-	const avatarCircleYOffset = avatarCircleRadius + 10;
-	const avatarTextXOffset = avatarCircleXOffset;
-	const avatarTextYOffset = avatarCircleYOffset + 4;
-	const avatarText = abbreviateAvatar(rawText, 2);
-	const avatarColor = getAvatarColorClass(rawText);
+	const avatarCircleLeft = labelWidth * 0.5;
+	const avatarCircleTop = avatarCircleRadius + 10;
+	const avatarTextLeft = avatarCircleLeft;
+	const avatarTextTop = avatarCircleTop + 4;
+	const avatarText = abbreviateAvatar(textRaw, 2);
+	const avatarColor = getAvatarColorClass(textRaw);
 
 	return {
 		avatarCircleRadius,
 		avatarCircleDiameter,
-		avatarCircleXOffset,
-		avatarCircleYOffset,
-		avatarTextXOffset,
-		avatarTextYOffset,
+		avatarCircleLeft,
+		avatarCircleTop,
+		avatarTextLeft,
+		avatarTextTop,
 		avatarText,
 		avatarColor,
 	};
 };
 
-const createStackedLabel = (
-	{ rawText, barWidth },
-	{ avatarCircleDiameter, avatarCircleXOffset, avatarCircleYOffset }
+const createStackedTag = (
+	{ textRaw, labelWidth },
+	{ avatarCircleDiameter, avatarCircleLeft, avatarCircleTop }
 ) => {
-	const labelXOffset = avatarCircleXOffset;
-	const labelYOffset = avatarCircleYOffset + avatarCircleDiameter + 5;
-	const labelText = rawText;
-	const labelStyle = baseFontTheme;
-	const labelTextWidth = barWidth;
-	const labelAnchor = 'middle';
+	const tagLeft = avatarCircleLeft;
+	const tagTop = avatarCircleTop + avatarCircleDiameter + 5;
+	const tagText = textRaw;
+	const tagStyle = baseFontTheme;
+	const tagTextWidth = labelWidth;
+	const tagAnchor = 'middle';
 
 	return {
-		labelXOffset,
-		labelYOffset,
-		labelText,
-		labelStyle,
-		labelTextWidth,
-		labelAnchor,
+		tagLeft,
+		tagTop,
+		tagText,
+		tagStyle,
+		tagTextWidth,
+		tagAnchor,
 	};
 };
-
-// const truncateText = (text, maxChars) => {
-// 	const totalChars = text.length;
-// 	const shouldTruncate = totalChars > maxChars;
-
-// 	switch (true) {
-// 		case shouldTruncate: {
-// 			const elipsis = '...';
-// 			const cutOff = maxChars - elipsis.length;
-// 			const truncated = text.slice(0, cutOff).trim();
-// 			return truncated + elipsis;
-// 		}
-// 		default: return text;
-// 	}
-// };
 
 const responsiveOptions = {
 
@@ -82,11 +67,10 @@ const responsiveOptions = {
 		// |  Label Text  |
 		// °- - - - - - - °
 
-		// const { rawText, barWidth } = params;
 		const avatar = createStackedAvatar(params);
-		const label = createStackedLabel(params, avatar);
+		const tag = createStackedTag(params, avatar);
 
-		return { ...avatar, ...label };
+		return { ...avatar, ...tag };
 	},
 
 	80(params) {
@@ -95,12 +79,11 @@ const responsiveOptions = {
 		// |  Label Text  |
 		// °- - - - - - - °
 
-		// const { rawText, barWidth } = params;
 		const avatar = createStackedAvatar(params);
-		const label = createStackedLabel(params, avatar);
-		const labelStyle = LARGE_LABEL_FONT;
+		const tag = createStackedTag(params, avatar);
+		const tagStyle = LARGE_LABEL_FONT;
 
-		return { ...avatar, ...label, labelStyle };
+		return { ...avatar, ...tag, tagStyle };
 	},
 
 	100(params) {
@@ -116,29 +99,24 @@ const responsiveOptions = {
 		// to set the center value dynamically. In that regard we "left" align the
 		// labels contents and let the component do the calculations.
 		const shouldCalculateCenter = true;
-		const { barWidth } = params;
+		const { labelWidth } = params;
 		const avatar = createStackedAvatar(params);
-		const label = createStackedLabel(params, avatar);
-		const { avatarCircleRadius, avatarCircleDiameter, avatarCircleYOffset } = avatar;
-		const avatarCircleXOffset = avatarCircleRadius;
-		const avatarTextXOffset = avatarCircleXOffset;
-		const labelXOffset = avatarCircleXOffset + avatarCircleRadius + 5;
-		const labelYOffset = avatarCircleYOffset + 5;
-		const labelStyle = LARGE_LABEL_FONT;
-		const labelAnchor = 'left';
-		const labelTextWidth = barWidth - avatarCircleDiameter - 5;
+		const tag = createStackedTag(params, avatar);
+		const { avatarCircleRadius, avatarCircleDiameter, avatarCircleTop } = avatar;
+		const avatarCircleLeft = avatarCircleRadius;
+		const avatarTextLeft = avatarCircleLeft;
+		const tagLeft = avatarCircleLeft + avatarCircleRadius + 5;
+		const tagTop = avatarCircleTop + 5;
+		const tagStyle = LARGE_LABEL_FONT;
+		const tagAnchor = 'left';
+		const tagTextWidth = labelWidth - avatarCircleDiameter - 5;
 
 		return {
 			shouldCalculateCenter,
 			...avatar,
-			avatarCircleXOffset,
-			avatarTextXOffset,
-			...label,
-			labelXOffset,
-			labelYOffset,
-			labelStyle,
-			labelAnchor,
-			labelTextWidth
+			avatarCircleLeft, avatarTextLeft,
+			...tag,
+			tagLeft, tagTop, tagStyle, tagAnchor, tagTextWidth,
 		};
 	},
 
@@ -146,12 +124,12 @@ const responsiveOptions = {
 
 // Select the responsive option that is most appropriate to the current x-axis
 // segment size.
-const getResponsiveOption = width => {
+const getResponsiveOption = labelWidth => {
 	const responsiveKeys = Object.keys(responsiveOptions);
 	const responsiveKey = (
 		responsiveKeys
 			.reduce(
-				(acc, option) => width > parseInt(option, 10) ? option : acc,
+				(acc, option) => labelWidth > parseInt(option, 10) ? option : acc,
 				responsiveKeys[0]
 			)
 	);
@@ -163,36 +141,20 @@ class StackedLabel extends Component {
 
 	render() {
 		const {
-			barWidth,
-			yPos,
-			index: barIndex,
-			text: rawText,
+			labelWidth,
+			labelTop,
+
+			// Victory...
+			index: labelIndex,
+			text: textRaw,
 			textAnchor,
-			x: rawXOffset,
-			y: rawYOffset
-			// angle,
-			// datum,
-			// polar,
-			// scale,
-			// style,
-			// verticalAnchor,
+
 		} = this.props;
-		const responsiveOption = getResponsiveOption(barWidth);
-		const responsiveParams = { barWidth, barIndex, rawText, yPos };
+		const responsiveOption = getResponsiveOption(labelWidth);
+		const responsiveParams = { labelWidth, labelIndex, textRaw };
 		const {
-			avatarCircleXOffset,
-			avatarCircleYOffset,
-			avatarCircleRadius,
-			avatarTextXOffset,
-			avatarTextYOffset,
-			avatarText,
-			avatarColor,
-			labelXOffset,
-			labelYOffset,
-			labelText,
-			labelStyle,
-			labelAnchor,
-			labelTextWidth,
+			avatarCircleLeft, avatarCircleTop, avatarCircleRadius, avatarTextLeft, avatarTextTop, avatarText, avatarColor,
+			tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 			shouldCalculateCenter
 		} = responsiveOption(responsiveParams);
 		const avatarClassName = cn('xui-chart--measure', avatarColor);
@@ -201,33 +163,33 @@ class StackedLabel extends Component {
 		return (
 			<XAxisLabelWrapper
 				shouldCalculateCenter={shouldCalculateCenter}
-				labelXOffset={barWidth * barIndex}
-				labelYOffset={yPos}
-				labelWidth={barWidth}
+				labelLeft={labelWidth * labelIndex}
+				labelTop={labelTop}
+				labelWidth={labelWidth}
 				labelHeight={100}>
 				<g>
 					<circle
 						className={avatarClassName}
-						cx={avatarCircleXOffset}
-						cy={avatarCircleYOffset}
+						cx={avatarCircleLeft}
+						cy={avatarCircleTop}
 						r={avatarCircleRadius}
 					/>
 					<text
-						x={avatarTextXOffset}
-						y={avatarTextYOffset}
+						x={avatarTextLeft}
+						y={avatarTextTop}
 						textAnchor={textAnchor}>
 						<tspan style={avatarStyle}>{avatarText}</tspan>
 					</text>
 
-					{ labelText && (
+					{ tagText && (
 							<TruncatedText
 								className="xui-chart--measure"
-								x={labelXOffset}
-								y={labelYOffset}
-								textAnchor={labelAnchor}
-								style={labelStyle}
-								maxWidth={labelTextWidth}>
-								{labelText}
+								x={tagLeft}
+								y={tagTop}
+								textAnchor={tagAnchor}
+								style={tagStyle}
+								maxWidth={tagTextWidth}>
+								{tagText}
 							</TruncatedText>
 					) }
 				</g>

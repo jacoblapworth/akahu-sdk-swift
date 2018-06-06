@@ -5,62 +5,52 @@ import { alwaysPositive } from '../helpers';
 
 class StackedBar extends Component {
 
-	handleToolTipShow = ({ event, bar, barIndex, stackIndex = null }) => {
+	handleToolTipShow = ({ event, barData, barIndex, stackIndex = null }) => {
 		const { updateToolTip } = this.props;
 		const { pageX, pageY } = event;
 
-		updateToolTip([pageX, pageY], { ...bar, barIndex, stackIndex });
+		updateToolTip([pageX, pageY], { ...barData, barIndex, stackIndex });
 	};
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
 	render = () => {
 		const {
-			id,
-			barColor,
+			chartId,
+			colorStacks,
+			colorActive,
 			onBarClick,
-			barWidth: rawBarWidth,
-			activeColor,
+			barWidth: barWidthRaw,
 			updateToolTip,
-			axisHeight,
-			data,
-			datum: bar,
-			maxYDomain,
+			yAxisMaxValue,
+			yAxisHeight,
+
+			// Victory...
+			datum: barData,
 			index: barIndex,
 			y0: rawYOffset,
-			// horizontal,
-			// padding,
-			// polar,
-			// origin,
-			// scale,
-			// style,
-			// width,
-			// height,
-			// x,
-			// y,
-			// x0
+
 		} = this.props;
 
-		const {
-			y: stacks,
-			isBarActive,
-			activeStacks = []
-		} = bar;
+		const { y: barStacks, isBarActive, activeStacks = [] } = barData;
+		if (!barStacks.length) return null;
 
-		if (!stacks.length) return null;
-
-		const yBottom = alwaysPositive(rawYOffset);
-		const maxStack = stacks.reduce((acc, stack) => acc + stack, 0);
-		const ratio = axisHeight / maxYDomain;
-		const maskId = `xui-chart--${id}--bar${barIndex}`;
 		const radius = 3;
 		const divider = 10;
-		const xPos = (rawBarWidth * barIndex) + divider;
-		const yPos = yBottom - (maxStack * ratio);
-		const trimmedBarWidth = alwaysPositive(rawBarWidth - (divider * 2));
+		const ratio = yAxisHeight / yAxisMaxValue;
+		const maxStack = barStacks.reduce((acc, stack) => acc + stack, 0);
+		const maskId = `xui-chart--${chartId}--bar${barIndex}`;
+		const barBottom = alwaysPositive(rawYOffset);
+		const barLeft = (barWidthRaw * barIndex) + divider;
+		const barTop = barBottom - (maxStack * ratio);
+		const barWidth = alwaysPositive(barWidthRaw - (divider * 2));
 		const barHeight = (maxStack * ratio) + radius;
-		const yLocation = stackIndex => yBottom - stacks.slice(0, stackIndex).reduce((acc, stack) => acc + stack * ratio, 0) - (stacks[stackIndex] * ratio);
-		const isActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
+		const testIsActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
+		const createStackTop = stackIndex => barBottom - (
+			barStacks
+				.slice(0, stackIndex)
+				.reduce((acc, stack) => acc + stack * ratio, 0)
+		) - (barStacks[stackIndex] * ratio);
 
 		// The bar is setup into to main parts.
 		//
@@ -93,9 +83,9 @@ class StackedBar extends Component {
 						id={maskId}
 						maskUnits="userSpaceOnUse">
 						<rect
-							x={xPos}
-							y={yPos}
-							width={trimmedBarWidth}
+							x={barLeft}
+							y={barTop}
+							width={barWidth}
 							height={barHeight}
 							rx={radius}
 							ry={radius}
@@ -105,26 +95,26 @@ class StackedBar extends Component {
 				</defs>
 
 				<g mask={`url(#${maskId})`}>
-					{ stacks.map((stack, stackIndex) => (
+					{ barStacks.map((barStack, stackIndex) => (
 						<rect
 							{...{
 								...(onBarClick && {
-									onClick: event => onBarClick(event, { ...bar, barIndex, stackIndex }),
+									onClick: event => onBarClick(event, { ...barData, barIndex, stackIndex }),
 									style: { cursor: 'pointer' }
 								}),
 								...(updateToolTip && {
-									onMouseMove: event => this.handleToolTipShow({ event, bar, barIndex, stackIndex }),
+									onMouseMove: event => this.handleToolTipShow({ event, barData, barIndex, stackIndex }),
 									onMouseLeave: this.handleToolTipHide
 								})
 							}}
 							key={stackIndex}
-							x={xPos}
-							y={yLocation(stackIndex)}
-							width={trimmedBarWidth}
-							height={stack * ratio}
-							fill={activeColor && isActive(stackIndex)
-								? activeColor
-								: barColor[stackIndex]}
+							x={barLeft}
+							y={createStackTop(stackIndex)}
+							width={barWidth}
+							height={barStack * ratio}
+							fill={colorActive && testIsActive(stackIndex)
+								? colorActive
+								: colorStacks[stackIndex]}
 						/>
 					)) }
 				</g>

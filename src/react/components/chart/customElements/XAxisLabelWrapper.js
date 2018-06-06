@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 import HorizontallyCenterContent from './HorizontallyCenterContent';
 
 class XAxisLabelWrapper extends Component {
-
 	render() {
 		const {
 			shouldCalculateCenter,
-			labelXOffset,
-			labelYOffset,
+			labelLeft,
+			labelTop,
 			labelWidth,
 			labelHeight,
 			children,
@@ -16,8 +15,8 @@ class XAxisLabelWrapper extends Component {
 
 		return (
 			<svg
-				y={labelYOffset}
-				x={labelXOffset}
+				y={labelTop}
+				x={labelLeft}
 				height={labelHeight}
 				width={labelWidth}
 				viewBox={`0 0 ${labelWidth} ${labelHeight}`}>

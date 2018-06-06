@@ -5,7 +5,6 @@ import XUIButton from '../../button/XUIButton';
 import { CHART_HEIGHT } from '../helpers/constants';
 
 class ChartEmpty extends Component {
-
 	render = () => {
 		const { height: chartHeight = CHART_HEIGHT } = this.props;
 		const emptyHeight = chartHeight * 0.75;
@@ -17,7 +16,11 @@ class ChartEmpty extends Component {
 				style={{ minHeight: `${emptyHeight}px` }}>
 				<h3 className="xui-heading">There is no performance data to display</h3>
 				<p className="xui-heading-xsmall">This graph can be populated by you or your staff entering time</p>
-				<XUIButton className="xui-margin-2xlarge" size='small'>Add a time entry</XUIButton>
+				<XUIButton
+					className="xui-margin-2xlarge"
+					size='small'>
+					Add a time entry
+				</XUIButton>
 			</div>
 		);
 	};

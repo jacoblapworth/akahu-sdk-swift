@@ -13,7 +13,7 @@ import {
 import { barChartTheme } from '../helpers/theme';
 import getGroupPosition, { testIsCloseEnough, createChartPadding } from '../helpers';
 import { CHART_HEIGHT } from '../helpers/constants';
-import { createFormatYAxisLabel, createYAxisTickValues } from '../helpers/yaxis';
+import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
 import createBarStats, { createBarColorStacks, findMaxTotalBarStacks, enrichParams } from '../helpers/bars';
 import StackedBar from './StackedBar';
 import StackedLabel from './StackedLabel';
@@ -28,7 +28,7 @@ class ChartScaffold extends Component {
 		super();
 		this.updateChartWidth = this.updateChartWidth.bind(this);
 		this.updateToolTip = this.updateToolTip.bind(this);
-		this.updatePage = this.updatePage.bind(this);
+		this.updatePanel = this.updatePanel.bind(this);
 	}
 
 	rootNode = null;
@@ -40,7 +40,7 @@ class ChartScaffold extends Component {
 		xAxisHeight: 0,
 		toolTipPosition: [0, 0],
 		toolTipData: { /* bar: {}, stack: {} */ },
-		currentPage: 1,
+		panelCurrent: 1,
 	};
 
 	componentDidMount = () => {
@@ -120,10 +120,10 @@ class ChartScaffold extends Component {
 
 		if (shouldUpdate) {
 			const scrollLeft = contentNode.scrollLeft;
-			const contentWidth = contentNode.clientWidth;
+			const panelWidth = contentNode.clientWidth;
 			const victoryWidth = victoryNode.clientWidth;
 			const hasLeftShadow = scrollLeft > 0;
-			const hasRightShadow = (scrollLeft + contentWidth) < victoryWidth;
+			const hasRightShadow = (scrollLeft + panelWidth) < victoryWidth;
 			const leftClassName = `xui-chart-has-left-shadow`;
 			const rightClassName = `xui-chart-has-right-shadow`;
 
@@ -141,16 +141,16 @@ class ChartScaffold extends Component {
 		}
 	};
 
-	updatePage = currentPage => {
+	updatePanel = panelCurrent => {
 		const minPage = 1;
 		const { state, props } = this;
 		const maxPage = props.bars.length;
-		const sanitisedPage = currentPage < minPage ? minPage : Math.min(currentPage, maxPage);
-		const shouldUpdate = sanitisedPage !== state.currentPage;
+		const sanitisedPage = panelCurrent < minPage ? minPage : Math.min(panelCurrent, maxPage);
+		const shouldUpdate = sanitisedPage !== state.panelCurrent;
 		if (shouldUpdate) {
 			this.setState({
 				...state,
-				currentPage: sanitisedPage
+				panelCurrent: sanitisedPage
 			});
 		}
 	};
@@ -160,64 +160,49 @@ class ChartScaffold extends Component {
 		const params = enrichParams(state, props, barChartTheme);
 		const {
 
-			// Generic...
-			id, title, description,
-
 			// Chart...
-			chartTheme, chartHeight, chartWidth,
+			chartId, chartTitle, chartDescription, chartTheme, chartHeight, chartWidth,
 			chartPadding, chartTop, chartBottom, chartLeft, chartClassName,
 
-			// Content...
-			contentWidth,
+			// Panels...
+			panelWidth, panelCurrent, panelsTotal,
 
 			// Bars...
 			barsData, barsWidth, barWidth, onBarClick,
 
 			// Pagination...
-			hasPagination,
-			createPaginationMessage,
-			currentPage,
-			panelsTotal,
+			hasPagination, createPaginationMessage,
 
 			// Tooltip...
-			toolTipData,
-			toolTipX,
-			toolTipY,
-			hasToolTip,
-			createToolTipContent,
+			toolTipData, toolTipX, toolTipY, hasToolTip, createToolTipMessage,
 
 			// Colors...
-			colorActive,
-			colorStacks,
+			colorActive, colorStacks,
 
-			// Y-Axis
-			maxYDomain,
-			yAxisHeight,
-			formatYAxisLabel,
-			yAxisTickValues,
+			// Y-Axis...
+			yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
+
+			// X-Axis...
+			xAxisTickValues,
 
 			// Label...
 			keyLabel,
 
 		} = params;
 
-
-
-
-
 		return (
 			<div className={chartClassName}>
 
 				<div className="xui-chart--header">
 
-					{title && <h2 className="xui-chart--title">{title}</h2>}
+					{chartTitle && <h2 className="xui-chart--title">{chartTitle}</h2>}
 
 					{ hasPagination && panelsTotal > 1 && (
 						<ContentPagination
-							current={currentPage}
+							current={panelCurrent}
 							total={panelsTotal}
 							createMessage={createPaginationMessage}
-							updatePage={this.updatePage}
+							updatePanel={this.updatePanel}
 						/>
 					) }
 
@@ -316,18 +301,18 @@ class ChartScaffold extends Component {
 
 						containerComponent={(
 							<VictoryContainer
-								responsive={true}
-								title={title}
-								desc={description}
+								responsive
+								title={chartTitle}
+								desc={chartDescription}
 							/>
 						)}>
 
 						<VictoryAxis
-							dependentAxis={true}
+							dependentAxis
 							orientation="left"
 							scale={{ y: 'linear' }}
 							padding={chartPadding}
-							tickFormat={formatYAxisLabel}
+							tickFormat={createYAxisLabelFormat}
 							tickValues={yAxisTickValues}
 							groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
 							tickLabelComponent={<VictoryLabel className="xui-chart--measure"/>}
@@ -344,7 +329,7 @@ class ChartScaffold extends Component {
 							bottom: `${chartBottom}px`,
 							left: `${chartLeft}px`,
 							top: `${chartTop}px`,
-							width: `${contentWidth}px`
+							width: `${panelWidth}px`
 						}}
 					/>
 
@@ -353,7 +338,7 @@ class ChartScaffold extends Component {
 						ref={node => (this.contentNode = node)}
 						style={{
 							left: `${chartLeft}px`,
-							width: `${contentWidth}px`
+							width: `${panelWidth}px`
 						}}
 						onScroll={this.throttledContentScroll}>
 
@@ -361,7 +346,7 @@ class ChartScaffold extends Component {
 							className="xui-chart--scroll"
 							style={{
 								...hasPagination && {
-									transform: `translateX(-${(currentPage - 1) * 100}%)`
+									transform: `translateX(-${(panelCurrent - 1) * 100}%)`
 								}
 							}}>
 
@@ -397,7 +382,7 @@ class ChartScaffold extends Component {
 									scale={{ x: 'linear' }}
 									padding={chartPadding}
 									width={barsWidth}
-									tickValues={barsData.map(({ x }) => x)}
+									tickValues={xAxisTickValues}
 
 									groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
 
@@ -413,46 +398,45 @@ class ChartScaffold extends Component {
 
 									tickLabelComponent={(
 										<StackedLabel
-											barWidth={barWidth}
-											yPos={chartHeight - chartBottom}
+											labelWidth={barWidth}
+											labelTop={chartHeight - chartBottom}
 										/>
 									)}
 								/>
 
 								<VictoryBar
 									data={barsData}
-									// y={addUpStacks}
 									y={findMaxTotalBarStacks}
 
 									groupComponent={<GroupWrapper className="xui-chart--bars" />}
 
 									dataComponent={(
 										<StackedBar
-											id={id}
-											maxYDomain={maxYDomain}
-											axisHeight={yAxisHeight}
-											barColor={colorStacks}
+											chartId={chartId}
+											yAxisMaxValue={yAxisMaxValue}
+											yAxisHeight={yAxisHeight}
+											colorStacks={colorStacks}
 											onBarClick={onBarClick}
+											colorActive={colorActive}
 											barWidth={barWidth}
-											activeColor={colorActive}
-											updateToolTip={createToolTipContent && this.updateToolTip}
+											updateToolTip={createToolTipMessage && this.updateToolTip}
 										/>
 									)}
 								/>
 
 							</VictoryChart>
-
 						</div>
-
 					</div>
 				</div>
+
 				{hasToolTip && (
 					<GraphTooltip
-						toolTipContent={createToolTipContent(toolTipData)}
+						createMessage={createToolTipMessage(toolTipData)}
 						toolTipY={toolTipY}
 						toolTipX={toolTipX}
 					/>
 				)}
+
 			</div>
 		);
 	};

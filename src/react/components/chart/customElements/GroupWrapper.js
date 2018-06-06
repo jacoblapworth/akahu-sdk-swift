@@ -8,7 +8,14 @@ class GroupWrapper extends PureComponent {
 
 	render() {
 		const { className, children } = this.props;
-		return <g key={key += 1} className={className}>{children}</g>;
+
+		return (
+			<g
+				key={key += 1}
+				className={className}>
+				{children}
+			</g>
+		);
 	}
 
 }

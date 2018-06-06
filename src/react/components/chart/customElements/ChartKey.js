@@ -5,11 +5,21 @@ import XUIIcon from '../../icon/XUIIcon';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDown from '../../dropdown/DropDown';
 import infoPathData from '@xero/xui-icon/icons/info';
-import radioCheckPathData from '@xero/xui-icon/icons/radio-check';
 
 class ChartKey extends Component {
+	createLabel = (label, index) => (
+		<li key={label} className="xui-chartkey--item">
+			<div
+				className="xui-chartkey--icon"
+				style={{ background: this.props.colors[index] }}
+			/>
+			{label}
+		</li>
+	);
+
 	render() {
 		const { labels, colors } = this.props;
+
 		const trigger = (
 			<XUIButton
 				variant="icon"
@@ -18,6 +28,7 @@ class ChartKey extends Component {
 				<XUIIcon path={infoPathData} />
 			</XUIButton>
 		);
+
 		const dropdown = (
 			<DropDown
 				className="xui-dropdown-fixed-medium"
@@ -26,15 +37,7 @@ class ChartKey extends Component {
 				<div className="xui-chartkey">
 					<div className="xui-text-minor xui-padding-small">Graph key</div>
 					<ul className="xui-chartkey--list">
-						{ labels.map((label, index) => (
-							<li key={label} className="xui-chartkey--item">
-								<div
-									className="xui-chartkey--icon"
-									style={{ background: colors[index] }}
-								/>
-								{label}
-							</li>
-						)) }
+						{ labels.map(this.createLabel) }
 					</ul>
 				</div>
 			</DropDown>

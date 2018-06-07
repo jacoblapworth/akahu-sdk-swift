@@ -35,7 +35,7 @@ const toggledItems = [
 	'Orange',
 	'Pineapple',
 	'Quince',
-	'Rapberry',
+	'Raspberry',
 	'Starfruit',
 	'Tomato',
 	'Uglifruit',

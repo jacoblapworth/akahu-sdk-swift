@@ -16,7 +16,7 @@ import { CHART_HEIGHT } from '../helpers/constants';
 import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
 import createBarStats, { createBarColorStacks, findMaxTotalBarStacks, enrichParams } from '../helpers/bars';
 import StackedBar from './StackedBar';
-import StackedLabel from './StackedLabel';
+import AvatarLabel from './AvatarLabel';
 import GroupWrapper from './GroupWrapper';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
@@ -39,7 +39,7 @@ class ChartScaffold extends Component {
 		yAxisWidth: 0,
 		xAxisHeight: 0,
 		toolTipPosition: { /* left: 0, right: 0, width, 0, height: 0 */ },
-		toolTipData: { /* bar: {}, stack: {} */ },
+		toolTipMessage: null,
 		panelCurrent: 1,
 	};
 
@@ -67,10 +67,9 @@ class ChartScaffold extends Component {
 		this.handleContentScroll();
 	};
 
-	updateToolTip = (nextPosition = {}, toolTipData = {}) => {
-		// const [nextX = 0, nextY = 0] = nextPosition;
-		const {left: nextLeft = 0, top: nextTop = 0, width: nextWidth = 0, height: nextHeight = 0} = nextPosition;
-		const {left: prevLeft = 0, top: prevTop = 0, width: prevWidth = 0, height: prevHeight = 0} = this.state.toolTipPosition;
+	updateToolTip = (nextPosition = {}, toolTipMessage = null) => {
+		const {left: nextLeft, top: nextTop, width: nextWidth, height: nextHeight} = nextPosition;
+		const {left: prevLeft, top: prevTop, width: prevWidth, height: prevHeight} = this.state.toolTipPosition;
 		const shouldUpdate = (
 			nextLeft !== prevLeft || nextTop !== prevTop ||
 			nextWidth !== prevWidth || nextHeight !== prevHeight
@@ -80,24 +79,10 @@ class ChartScaffold extends Component {
 			this.setState({
 				...this.state,
 				toolTipPosition: nextPosition,
-				toolTipData
+				toolTipMessage
 			});
 		}
 	};
-
-	// updateToolTip = (nextPosition = [], toolTipData = {}) => {
-	// 	const [nextX = 0, nextY = 0] = nextPosition;
-	// 	const [prevX, prevY] = this.state.toolTipPosition;
-	// 	const shouldUpdate = nextX !== prevX && nextY !== prevY;
-
-	// 	if (shouldUpdate) {
-	// 		this.setState({
-	// 			...this.state,
-	// 			toolTipPosition: [nextX, nextY],
-	// 			toolTipData
-	// 		});
-	// 	}
-	// };
 
 	updateChartWidth = () => {
 		const { rootNode, state } = this;
@@ -192,7 +177,7 @@ class ChartScaffold extends Component {
 			hasPagination, createPaginationMessage,
 
 			// Tooltip...
-			toolTipData, toolTipPosition, hasToolTip, createToolTipMessage,
+			toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,
 
 			// Colors...
 			colorActive, colorStacks,
@@ -215,7 +200,7 @@ class ChartScaffold extends Component {
 
 					{chartTitle && <h2 className="xui-chart--title">{chartTitle}</h2>}
 
-					{ hasPagination && panelsTotal > 1 && (
+					{ (hasPagination && panelsTotal > 1) && (
 						<ContentPagination
 							current={panelCurrent}
 							total={panelsTotal}
@@ -401,7 +386,6 @@ class ChartScaffold extends Component {
 									padding={chartPadding}
 									width={barsWidth}
 									tickValues={xAxisTickValues}
-
 									groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
 
 									gridComponent={(
@@ -415,9 +399,11 @@ class ChartScaffold extends Component {
 									)}
 
 									tickLabelComponent={(
-										<StackedLabel
+										<AvatarLabel
+											padding={chartPadding}
 											labelWidth={barWidth}
 											labelTop={chartHeight - chartBottom}
+											updateToolTip={this.updateToolTip}
 										/>
 									)}
 								/>
@@ -425,36 +411,34 @@ class ChartScaffold extends Component {
 								<VictoryBar
 									data={barsData}
 									y={findMaxTotalBarStacks}
-
 									groupComponent={<GroupWrapper className="xui-chart--bars" />}
 
 									dataComponent={(
 										<StackedBar
 											chartId={chartId}
-											padding={chartPadding}
 											yAxisMaxValue={yAxisMaxValue}
 											yAxisHeight={yAxisHeight}
 											colorStacks={colorStacks}
-											onBarClick={onBarClick}
 											colorActive={colorActive}
+											onBarClick={onBarClick}
 											barWidth={barWidth}
-											updateToolTip={createToolTipMessage && this.updateToolTip}
+											createToolTipMessage={createBarToolTipMessage}
+											updateToolTip={this.updateToolTip}
 										/>
 									)}
 								/>
 
 							</VictoryChart>
+
+							{hasToolTip && (
+								<GraphTooltip
+									message={toolTipMessage}
+									position={toolTipPosition}
+								/>
+							)}
+
 						</div>
 					</div>
-
-					{hasToolTip && (
-						<GraphTooltip
-							createMessage={createToolTipMessage(toolTipData)}
-							toolTipPosition={toolTipPosition}
-							// toolTipY={toolTipY}
-							// toolTipX={toolTipX}
-						/>
-					)}
 
 				</div>
 			</div>

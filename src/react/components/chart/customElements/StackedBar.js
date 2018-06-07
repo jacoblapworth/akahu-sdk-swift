@@ -6,16 +6,16 @@ import { alwaysPositive } from '../helpers';
 class StackedBar extends Component {
 
 	handleToolTipShow = (event, { barData, barIndex, stackIndex = null }) => {
-		const { updateToolTip, padding } = this.props;
+		const { updateToolTip, createToolTipMessage } = this.props;
 		const getTargetValue = reference => event.target[reference].baseVal.value;
-		const left = getTargetValue('x') + padding.left;
+		const left = getTargetValue('x');
 		const top = getTargetValue('y');
 		const height = getTargetValue('height');
 		const width = getTargetValue('width');
 		const position = { left, top, width, height };
-		const data = { ...barData, barIndex, stackIndex };
+		const message = createToolTipMessage({ ...barData, barIndex, stackIndex });
 
-		updateToolTip(position, data);
+		updateToolTip(position, message);
 	};
 
 	handleToolTipHide = () => this.props.updateToolTip();
@@ -30,6 +30,7 @@ class StackedBar extends Component {
 			updateToolTip,
 			yAxisMaxValue,
 			yAxisHeight,
+			createToolTipMessage,
 
 			// Victory...
 			datum: barData,
@@ -108,7 +109,7 @@ class StackedBar extends Component {
 									onClick: event => onBarClick(event, { ...barData, barIndex, stackIndex }),
 									style: { cursor: 'pointer' }
 								}),
-								...(updateToolTip && {
+								...((updateToolTip && createToolTipMessage) && {
 									onMouseEnter: event => this.handleToolTipShow(event, { barData, barIndex, stackIndex }),
 									onMouseLeave: this.handleToolTipHide
 								})

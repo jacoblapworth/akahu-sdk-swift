@@ -82,7 +82,7 @@ const enrichParams = (state, props, chartTheme) => {
 		hasPagination,
 		onBarClick,
 		activeColor: activeColorRaw,
-		createToolTipMessage,
+		createBarToolTipMessage,
 		maxVisibleItems,
 		maxYValue: customMaxYValue = 0,
 		createYAxisLabelFormat: createYAxisLabelFormatRaw,
@@ -95,7 +95,7 @@ const enrichParams = (state, props, chartTheme) => {
 		yAxisWidth,
 		xAxisHeight,
 		toolTipPosition,
-		toolTipData,
+		toolTipMessage,
 		panelCurrent: panelCurrentRaw
 	} = state;
 
@@ -113,9 +113,9 @@ const enrichParams = (state, props, chartTheme) => {
 
 	// Tooltip...
 	// const [toolTipX, toolTipY] = toolTipPosition;
-	// const hasToolTip = Boolean(createToolTipMessage && toolTipX && toolTipY);
+	// const hasToolTip = Boolean(createBarToolTipMessage && toolTipX && toolTipY);
 	const { left: toolTipLeft, top: toolTipTop, width: toolTipWidth, height: toolTipHeight } = toolTipPosition;
-	const hasToolTip = Boolean(createToolTipMessage && toolTipLeft && toolTipTop && toolTipWidth && toolTipHeight);
+	const hasToolTip = Boolean(toolTipMessage);
 
 	// Chart...
 	const isChartNarrow = chartWidth <= 520;
@@ -163,7 +163,7 @@ const enrichParams = (state, props, chartTheme) => {
 		hasPagination, createPaginationMessage,
 
 		// Tooltip...
-		toolTipData, toolTipPosition, hasToolTip, createToolTipMessage,
+		toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,
 
 		// Colors...
 		colorActive, colorStacks,

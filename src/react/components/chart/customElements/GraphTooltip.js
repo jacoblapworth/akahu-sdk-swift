@@ -5,8 +5,7 @@ import XUITooltip from '../../tooltip/XUITooltip';
 class GraphTooltip extends PureComponent {
 
 	render() {
-		const { createMessage, toolTipPosition: { left, top, width, height } } = this.props;
-		console.log('toolTip', { left, top, width, height });
+		const { message, position: { left, top, width, height, preferred = 'top' } } = this.props;
 		return (
 			<div
 				style={{
@@ -17,13 +16,14 @@ class GraphTooltip extends PureComponent {
 				}}
 			>
 				<XUITooltip
-					trigger={<div />}
+					trigger={<div style={{ width, height }}/>}
 					isHidden={false}
+					preferredPosition={preferred}
 					triggerOnFocus={false}
 					triggerOnBlur={false}
 					triggerOnClick={false}
 					triggerOnHover={false}>
-					{createMessage}
+					{message}
 				</XUITooltip>
 			</div>
 		);

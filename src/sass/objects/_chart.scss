@@ -1,8 +1,10 @@
 @import "../vars";
 @import "../mixins";
 
-.xui-chart {
+$xui-chart-tooltip-buffer: 100px;
 
+.xui-chart {
+	padding: 30px 0;
 }
 
 .xui-chart--base {
@@ -21,7 +23,9 @@
 }
 
 .xui-chart--content {
-	height: 100%;
+	height: calc(100% + #{$xui-chart-tooltip-buffer * 2});
+	padding-top: $xui-chart-tooltip-buffer;
+	top: -#{$xui-chart-tooltip-buffer};
 }
 
 .xui-chart--shadows {
@@ -67,6 +71,8 @@
 	display: flex;
 	justify-content: flex-end;
 	padding-bottom: $xui-s-2xlarge;
+	position: relative;
+	z-index: 1;
 }
 
 .xui-chart-has-multiline-header .xui-chart--header {

@@ -116,9 +116,8 @@ class Demo extends React.Component {
 				id="barTooltip"
 				title="Bar Tooltip"
 				description="Hover over a bar to reveal relevant information"
-				isStacked
 				bars={data}
-				createToolTipMessage={({x}) => <strong>{x}</strong>}
+				createBarToolTipMessage={({x}) => <strong>{x}</strong>}
 			/>
 		);
 	}
@@ -145,7 +144,7 @@ class Demo extends React.Component {
 				description="Hover over a stack to reveal relevant information"
 				isStacked
 				bars={data}
-				createToolTipMessage={({x, stackIndex}) => (
+				createBarToolTipMessage={({x, stackIndex}) => (
 					<div>
 						<div><strong>{x}</strong></div>
 						<div><strong>{stackIndex + 1 && `Stack #${stackIndex + 1}`}</strong></div>

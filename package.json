@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@xero/xui-icon": "^5.2.0",
+    "@xero/xuishift": "1.0.0",
     "autosize": "4.0.0",
     "babel-runtime": "^6.26.0",
     "classnames": "2.2.5",
@@ -119,7 +120,6 @@
     "uppercamelcase": "3.0.0",
     "webpack": "3.8.1",
     "workbox-build": "3.1.0",
-    "xuishift": "git://github.dev.xero.com/UXE/xuishift.git#1.0.0",
     "yargs": "9.0.1"
   }
 }

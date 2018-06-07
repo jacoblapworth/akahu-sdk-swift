@@ -1,6 +1,7 @@
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import verge from 'verge';
 import { Portal } from 'react-portal';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
@@ -80,12 +81,29 @@ function removeListeners(modal) {
 }
 
 export default class XUIModal extends Component {
+
+	state = { positionSettings: null }
+
 	componentDidMount() {
 		const modal = this;
 		addListeners(this);
 		if (modal.props.isOpen) {
 			lockScroll();
 			modal._isScrollLocked = true;
+
+			const calcOffsetTop = (modal) => {
+				const viewportH = verge.viewportH();
+				const modalHeight = modal._modalNode.getBoundingClientRect().height;
+				return Math.max(((viewportH - modalHeight) / 2) - 15, 0); // subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's (wrapping component) existing padding
+			}
+			const positionSettings = {
+				top: `${calcOffsetTop(modal)}px`,
+				marginTop: 0
+			}
+
+			modal.setState({
+				positionSettings
+			});
 
 			if (!modal._maskNode.contains(document.activeElement)) {
 				modal._modalNode.focus();
@@ -104,7 +122,9 @@ export default class XUIModal extends Component {
 		if (shouldUpdateListeners(this.props, nextProps)) {
 			removeListeners(this);
 		}
+
 	}
+
 
 	componentDidUpdate(prevProps) {
 		const modal = this;
@@ -186,6 +206,9 @@ export default class XUIModal extends Component {
 			isForm,
 			isUsingPortal
 		} = this.props;
+		const {
+			positionSettings
+		} = this.state;
 
 		const maskClasses = cn(
 			`${ns}-mask`,
@@ -246,6 +269,7 @@ export default class XUIModal extends Component {
 					className={modalClasses}
 					tabIndex={isOpen ? 0 : -1}
 					role={isOpen ? 'dialog' : null}
+					style={positionSettings}
 					aria-labelledby={ariaLabelledBy}
 					aria-describedby={ariaDescribedBy}
 					data-automationid={qaHook}

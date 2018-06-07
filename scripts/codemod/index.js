@@ -1,4 +1,4 @@
-const generateXUIShiftTemplate = require('xuishift');
+const generateXUIShiftTemplate = require('@xero/xuishift');
 const { rootDirectory } = require('../helpers');
 const path = require('path');
 const classMapPath = path.join(rootDirectory, '.codemod', 'classReplacements.js');

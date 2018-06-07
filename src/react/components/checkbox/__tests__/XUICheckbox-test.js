@@ -53,6 +53,14 @@ describe('XUICheckbox', function() {
 		expect(automationid).toMatchSnapshot();
 	});
 
+	it('should have a hidden label, if specified', () => {
+		const hiddenLabel = renderer.create(
+			<XUICheckbox onChange={NOOP} isLabelHidden>Hidden label</XUICheckbox>
+		);
+
+		expect(hiddenLabel).toMatchSnapshot();
+	});
+
 	it('should be unchecked by default', () => {
 		const wrapper = mount(<XUICheckbox onChange={NOOP} />);
 

@@ -1,5 +1,5 @@
 A split button is used the present a primary action coupled with a dropdown trigger for secondary actions.
-The `<XUISplitButtonGroup>` component will inherit the `isDisabled` and the `variant` props from the parent component down to the button children.
+The `<XUISplitButtonGroup>` component will inherit the `isDisabled` and the `variant` props from the parent component down to the button children. Provide an `aria-label` for the `XUISplitButton` to ensure accessibility.
 
 A split button can only be completely disabled - you cannot disable only one part of the button
 
@@ -8,6 +8,6 @@ A split button can only be completely disabled - you cannot disable only one par
 
 <XUISplitButtonGroup variant="primary" isDisabled={false} >
 	<XUIButton>Split Button</XUIButton>
-	<XUISplitButton />
+	<XUISplitButton aria-label="More options" />
 </XUISplitButtonGroup>
 ```

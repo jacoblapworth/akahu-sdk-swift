@@ -201,6 +201,23 @@ The UXE team manage releases of XUI via TeamCity. Following are the common build
 * [Deploy to Production [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployS3BreakingChanges) deploy a pre-release build of XUI to production. Depends on successful build of breaking-changes (above). Triggered manually.
 * [Deploy Monorepo Components to Artifactory](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=XeroJS_SharedReactComponents_DeployMonorepoComponentsToArtifactory) and [Deploy Monorepo Components to Artifactory [breaking-changes]](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_DeployBreakingChangesMonorepoComponentsToArtifactory) prepare and deploy React components to artifactory.
 
+### Upgrading between versions of XUI
+
+To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift).
+
+From XUI 14 onwards, the codemod will contain transforms for moving from the previous major version of XUI.
+
+How to run the codemod:
+
+1. Install jscodeshift
+ ```bash
+ npm i -g jscodeshift
+ ```
+1. Run the codemod
+ ```bash
+ jscodeshift -t node_modules/@xero/xui/codemod src/
+ ```
+
 ## Contributing to XUI
 
 We welcome contributions from anyone.

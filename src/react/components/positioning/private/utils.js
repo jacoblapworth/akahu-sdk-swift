@@ -32,7 +32,15 @@ export const getPreferredPosition = function(preferredPositionStr) {
  * @private
  * @returns {string}
  */
-function getAlignment({tooltipRect, triggerRect, viewportGutter, alignmentIsVertical, requestedAlignment, spaces}) {
+function getAlignment({
+			tooltipRect,
+			triggerRect,
+			viewportGutter,
+			alignmentIsVertical,
+			requestedAlignment,
+			spaces,
+			useDropdownPositioning
+		}) {
 	const oppositeSideSpace = mapOppositeSpaces(spaces);
 
 	const smallerDimension = alignmentIsVertical ?
@@ -64,7 +72,7 @@ function getAlignment({tooltipRect, triggerRect, viewportGutter, alignmentIsVert
 		} else {
 			return flipDirection[requestedAlignment];
 		}
-	} else if (centeredOverhang <= smallerDimension - viewportGutter) {
+	} else if (!useDropdownPositioning && centeredOverhang <= smallerDimension - viewportGutter) {
 		return 'center';
 	}
 
@@ -78,14 +86,18 @@ function getAlignment({tooltipRect, triggerRect, viewportGutter, alignmentIsVert
  * @private
  * @returns {string}
  */
-function getTopOffset(side, alignment, triggerHeight) {
+function getTopOffset(side, alignment, triggerHeight, triggerDropdownGap) {
 	// Offset the relatively positioned wrapper for ease, in some cases.
-	if (side === "top" || alignment === "top") {
+	if (side === "top") {
+		return `-${triggerHeight + triggerDropdownGap}px`;
+	} else if (alignment === "top") {
 		return `-${triggerHeight}px`;
 	} else if (side !== "bottom" && alignment === "center") {
 		return `-${triggerHeight / 2}px`;
-	} else {
+	} else if (alignment === "bottom") {
 		return "auto";
+	} else {
+		return `${triggerDropdownGap}px`;
 	}
 }
 
@@ -98,7 +110,7 @@ function getTopOffset(side, alignment, triggerHeight) {
  * @param {Positioning} tooltip
  */
 export const alignBaseWithTrigger = function(tooltipRect, triggerDOM, tooltip) {
-	const { viewportGutter, triggerDropdownGap } = tooltip.props;
+	const { viewportGutter, triggerDropdownGap, useDropdownPositioning } = tooltip.props;
 	const preferredPosition = getPreferredPosition(tooltip.props.preferredPosition);
 	const triggerRect = triggerDOM.getBoundingClientRect();
 	const spaces = getSpacesAroundTrigger(triggerRect);
@@ -122,6 +134,9 @@ export const alignBaseWithTrigger = function(tooltipRect, triggerDOM, tooltip) {
 		} else if (dimensionToCheck <= oppositeSideSpace[side] - viewportGutter - triggerDropdownGap) {
 			// Flip case.
 			return flipDirection[side];
+		} else if (useDropdownPositioning) {
+			// If positioning with top/bottom dropdown behavior, don't even try the flip.
+			return 'bottom';
 		} else {
 			// These cases both get the default alignment.
 			requestedAlignment = defaultAlignemnt;
@@ -147,12 +162,14 @@ export const alignBaseWithTrigger = function(tooltipRect, triggerDOM, tooltip) {
 		viewportGutter,
 		alignmentIsVertical: !isHorizontal,
 		requestedAlignment,
-		spaces
+		spaces,
+		useDropdownPositioning
 	});
 	const calculatedTopOffset = getTopOffset(
 		calculatedSide,
 		calculatedAlignment,
-		triggerRect.height
+		triggerRect.height,
+		triggerDropdownGap
 	);
 
 	tooltip.setState(

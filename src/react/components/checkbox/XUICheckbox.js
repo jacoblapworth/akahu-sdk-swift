@@ -129,12 +129,16 @@ export default class XUICheckbox extends Component {
 			`${baseClass}--label`,
 			labelClassName
 		);
-		const labelElement = isLabelHidden ? null : <span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
+		const labelElement =
+			!isLabelHidden &&
+			children &&
+			<span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
 		const inputProps = {
-			type: 'checkbox',
-			disabled: isDisabled,
-			required: isRequired,
-			onClick: this.onClick,
+			'type': 'checkbox',
+			'disabled': isDisabled,
+			'required': isRequired,
+			'onClick': this.onClick,
+			'aria-label': isLabelHidden && children || undefined,
 			tabIndex,
 			name,
 			onChange,
@@ -212,7 +216,7 @@ XUICheckbox.propTypes = {
 	/** Additional class names on the span (pseudo-label) element  */
 	labelClassName: PropTypes.string,
 
-	/** Prevents the label element from being rendered to the page */
+	/** Prevents the label element from being displayed on the page. Label is still accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 
 	/** The name to use as a reference for the value */

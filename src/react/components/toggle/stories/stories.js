@@ -39,6 +39,7 @@ storiesWithKnobs.add('Playground', () => (
 			color={select('color', Object.keys(colorMap), 'standard')}
 			layout={boolean('full-width?', false) ? 'fullwidth': undefined}
 			variant={boolean('small?', false) ? 'small': undefined}
+			secondaryProps={{'aria-label': 'test label'}}
 		>
 			{buildOptions(toggleOptions)}
 		</XUIToggle>

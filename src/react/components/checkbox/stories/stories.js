@@ -26,7 +26,6 @@ storiesWithKnobs.add('Playground', () => (
 		isIndeterminate={boolean('indeterminate', false)}
 		isReversed={boolean('reversed', false)}
 		value={text('value', '')}
-		label={text('label', 'A Useful Label')}
 	>{text('label text', 'Test checkbox')}</XUICheckbox>
 ));
 

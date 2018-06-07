@@ -39,7 +39,7 @@
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--right-top">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-righttop">
 // 			Tooltip content goes here
 // 		</span>
 // 	</span>
@@ -49,7 +49,7 @@
 
 // Positioning
 //
-// Then, add an additional `xui-positioningInline-*` modifier to specify the preferred position of the tooltip, relative to the trigger. Format is `side-alignment` for example, `top-right` would attempt to place the tooltip above the trigger and aligned to the right edge of the trigger. Side options are `top`, `bottom`, `left`, and `right`, and alignment options are `left`, `right`, `top`, `bottom`, and `center`, as appropriate.
+// Then, add an additional `xui-positioningInline--content-*` modifier to specify the preferred position of the tooltip, relative to the trigger. Format is `sidealignment` for example, `topright` would attempt to place the tooltip above the trigger and aligned to the right edge of the trigger. Side options are `top`, `bottom`, `left`, and `right`, and alignment options are `left`, `right`, `top`, `bottom`, and `center`, as appropriate.
 //
 // Tips:
 // Warning: If done with React, the tooltip will automatically reposition when there is not sufficient space for the tip to appear in the preferred location.
@@ -57,10 +57,10 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Classes:
-// -top-left: Above the trigger, aligned to the left edge
-// -right-center: To the right of the trigger, vertically centered
-// -left-bottom: To the left of the trigger, aligned to the bottom edge
-// -bottom-center: Below the trigger, centered horizontally
+// -topleft: Above the trigger, aligned to the left edge
+// -rightcenter: To the right of the trigger, vertically centered
+// -leftbottom: To the left of the trigger, aligned to the bottom edge
+// -bottomcenter: Below the trigger, centered horizontally
 //
 // Markup:
 // <span class="xui-tooltip">
@@ -68,7 +68,7 @@
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -30px;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--top-left">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-topleft">
 // 			top-left
 // 		</span>
 // 	</span>
@@ -78,8 +78,8 @@
 // 		This is a trigger button
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: -20px;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--right-center">
-// 			right-center
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-rightcenter">
+// 			rightCenter
 // 		</span>
 // 	</span>
 // </span>
@@ -89,7 +89,7 @@
 // 		This is a trigger button
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: column; top: auto;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--left-bottom">
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-leftbottom">
 // 			left-bottom
 // 		</span>
 // 	</span>
@@ -99,8 +99,8 @@
 // 		<svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-info" role="presentation" /></svg>
 // 	</button>
 // 	<span class="xui-positioningInline" style="flex-direction: row; top: auto;">
-// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--bottom-center">
-// 			bottom-center
+// 		<span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-bottomcenter">
+// 			bottomCenter
 // 		</span>
 // 	</span>
 // </span>
@@ -166,86 +166,95 @@
 		width: 10px;
 		z-index: -1;
 	}
-	// TODO: Rename positioningInline to match our naming convention
-	// Vertically placed tooltips
-	&.#{$ns}-positioningInline--top-left,
-	&.#{$ns}-positioningInline--top-center,
-	&.#{$ns}-positioningInline--top-right {
-		bottom: calc(100% + 10px);
-		&:after {
-			bottom: -10px;
-		}
-	}
-	&.#{$ns}-positioningInline--bottom-left,
-	&.#{$ns}-positioningInline--bottom-center,
-	&.#{$ns}-positioningInline--bottom-right {
-		bottom: auto;
-		top: calc(100% + 10px);
-		&:after {
-			top: 0;
-		}
-	}
-	&.#{$ns}-positioningInline--top-left,
-	&.#{$ns}-positioningInline--bottom-left {
-		left: 0;
-		right: auto;
-		&:after {
-			left: 15px;
-		}
-	}
-	&.#{$ns}-positioningInline--top-center,
-	&.#{$ns}-positioningInline--bottom-center {
-		right: auto;
-		&:after {
-			left: 50%;
-		}
-	}
-	&.#{$ns}-positioningInline--top-right,
-	&.#{$ns}-positioningInline--bottom-right {
-		right: 0;
-		&:after {
-			right: 5px;
-		}
-	}
+}
 
-	// Horizontally placed tooltips
-	&.#{$ns}-positioningInline--right-top,
-	&.#{$ns}-positioningInline--right-center,
-	&.#{$ns}-positioningInline--right-bottom {
-		left: calc(100% + 10px);
-		right: auto;
-		&:after {
-			left: 0px;
-		}
-	}
-	&.#{$ns}-positioningInline--left-top,
-	&.#{$ns}-positioningInline--left-center,
-	&.#{$ns}-positioningInline--left-bottom {
-		right: calc(100% + 10px);
-		&:after {
-			right: -10px;
-		}
-	}
-	&.#{$ns}-positioningInline--right-top,
-	&.#{$ns}-positioningInline--left-top {
-		bottom: auto;
-		top: 0;
-		&:after {
-			top: 15px;
-		}
-	}
-	&.#{$ns}-positioningInline--right-center,
-	&.#{$ns}-positioningInline--left-center {
-		bottom: auto;
-		&:after {
-			top: 50%;
-		}
-	}
-	&.#{$ns}-positioningInline--right-bottom,
-	&.#{$ns}-positioningInline--left-bottom {
-		bottom: -100%;
-		&:after {
-			bottom: 5px;
-		}
+// TODO: Rename positioningInline to match our naming convention
+
+// Vertically placed tooltips
+.#{$ns}-positioningInline--content-topleft,
+.#{$ns}-positioningInline--content-topcenter,
+.#{$ns}-positioningInline--content-topright {
+	bottom: 100%;
+	&:after {
+		bottom: -10px;
 	}
 }
+.#{$ns}-positioningInline--content-bottomleft,
+.#{$ns}-positioningInline--content-bottomcenter,
+.#{$ns}-positioningInline--content-bottomright {
+	bottom: auto;
+	top: 100%;
+	&:after {
+		top: 0px;
+	}
+}
+.#{$ns}-positioningInline--content-topleft,
+.#{$ns}-positioningInline--content-bottomleft {
+	left: 0;
+	right: auto;
+	&:after {
+		left: 15px;
+	}
+}
+.#{$ns}-positioningInline--content-topcenter,
+.#{$ns}-positioningInline--content-bottomcenter {
+	left: 50%; // See notes below.
+	right: auto;
+	transform: translateX(-50%); // See notes below.
+	&:after {
+		left: 50%;
+	}
+}
+.#{$ns}-positioningInline--content-topright,
+.#{$ns}-positioningInline--content-bottomright {
+	right: 0px;
+	&:after {
+		right: 5px;
+	}
+}
+
+// Horizontally placed tooltips
+.#{$ns}-positioningInline--content-righttop,
+.#{$ns}-positioningInline--content-rightcenter,
+.#{$ns}-positioningInline--content-rightbottom {
+	left: calc(100% + 10px);
+	right: auto;
+	&:after {
+		left: 0px;
+	}
+}
+.#{$ns}-positioningInline--content-lefttop,
+.#{$ns}-positioningInline--content-leftcenter,
+.#{$ns}-positioningInline--content-leftbottom {
+	right: calc(100% + 10px);
+	&:after {
+		right: -10px;
+	}
+}
+.#{$ns}-positioningInline--content-righttop,
+.#{$ns}-positioningInline--content-lefttop {
+	bottom: auto;
+	top: 0;
+	&:after {
+		top: 15px;
+	}
+}
+.#{$ns}-positioningInline--content-rightcenter,
+.#{$ns}-positioningInline--content-leftcenter {
+	bottom: auto;
+	top: 50%; // See notes below.
+	transform: translateY(-50%); // See notes below.
+	&:after {
+		top: 50%;
+	}
+}
+.#{$ns}-positioningInline--content-rightbottom,
+.#{$ns}-positioningInline--content-leftbottom {
+	bottom: -100%;
+	&:after {
+		bottom: 5px;
+	}
+}
+
+// NB: These are largely for IE, but appear harmless in Chrome, at least for now. No text blurriness observed,
+// even at high zoom.

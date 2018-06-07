@@ -33,6 +33,12 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'has a hidden label',
+		labelText: 'Label text',
+		isLabelHidden: true
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is invalid',
 		isInvalid: true,
 		validationMessage: 'invalid content'

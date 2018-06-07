@@ -88,6 +88,15 @@ describe('<StatefulPicklist /> API Methods', () => {
 
 			expect(wrapper.state().highlightedElement.props.id).toEqual('item2');
 		});
+
+		it('changes the state when highlighting the first item', () => {
+			const item3 = wrapper.instance().findItemById('item3');
+
+			wrapper.instance().highlightItem(item3);
+			wrapper.instance().highlightFirst();
+
+			expect(wrapper.state().highlightedElement.props.id).toEqual('item1');
+		});
 	});
 });
 

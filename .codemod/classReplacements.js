@@ -1,4 +1,4 @@
-export default {
+module.exports = {
 	'xui-u-flex-verticallycentered': 'xui-u-flex-align-center',
 	'xui-u-flex-horizontallycentered': 'xui-u-flex-justify-center',
 	'xui-u-flex-horizontal': 'xui-u-flex-row',

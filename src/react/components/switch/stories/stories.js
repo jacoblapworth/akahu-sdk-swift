@@ -20,6 +20,7 @@ storiesWithKnobs.add('Playground', () => (
 		isChecked={boolean('isChecked', false)}
 		isDisabled={boolean('isDisabled', false)}
 		onChange={NOOP}
+		labelText='Sample switch label'
 	></XUISwitch>
 ));
 
@@ -32,6 +33,7 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 		variationMinusStoryDetails.onChange = NOOP;
+		variationMinusStoryDetails.labelText = 'Sample switch label';
 
 		return <XUISwitch {...variationMinusStoryDetails}/>
 	});

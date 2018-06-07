@@ -231,7 +231,7 @@ export function findPreviousItem(node, el, idCache) {
  * @param {Object} idCache
  * @return {React.element|null} First item in the dropdown.
  */
-function findFirstMenuItem(node, idCache) {
+export function findFirstMenuItem(node, idCache) {
 	let item = null;
 	const findFirst = node => {
 		if (isEnabledMenuItem(node)) {

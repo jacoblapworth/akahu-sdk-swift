@@ -11,12 +11,9 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('XUISwitch', function () {
 
 	it('should render not checked and not disabled', function () {
-		const component = shallow(
-			<XUISwitch onChange={NOOP}/>
-		);
+		const basic = renderer.create(<XUISwitch onChange={NOOP}/>);
 
-		expect(component.html()).not.toContain('checked');
-		expect(component.html()).not.toContain('disabled');
+		expect(basic).toMatchSnapshot();
 	});
 
 	it('should render checked', function () {
@@ -55,6 +52,12 @@ describe('XUISwitch', function () {
 		const automationid = renderer.create(<XUISwitch qaHook="switch-test" onChange={NOOP}/>);
 
 		expect(automationid).toMatchSnapshot();
+	});
+
+	it('should include an aria-label when labelText is passed', () => {
+		const ariaLabel = renderer.create(<XUISwitch labelText="Switch test" onChange={NOOP}/>);
+
+		expect(ariaLabel).toMatchSnapshot();
 	});
 
 });

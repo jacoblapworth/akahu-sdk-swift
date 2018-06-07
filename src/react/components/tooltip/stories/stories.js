@@ -18,15 +18,23 @@ import { variations, storiesWithVariationsKindName } from "./variations";
 import { positionOptions } from "../../positioning/private/constants";
 
 const createTriggerInput = (props) => {
-	return <XUITextInput placeholder="Placeholder text" {...props}></XUITextInput>;
+	return (
+		<XUITextInput
+			placeholder="Placeholder text"
+			labelText="Input label"
+			isLabelHidden
+			{...props}
+		/>
+	);
 };
 const createTipInput = () => {
 	return (
 		<XUITextInput
 			placeholder="Placeholder text"
+			labelText="Input label"
+			isLabelHidden
 			className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
-		>
-		</XUITextInput>
+		/>
 	);
 };
 
@@ -55,7 +63,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info"><XUIIcon path={info} /></XUIButton>;
 };
 
 const createTriggerSpan = () => {

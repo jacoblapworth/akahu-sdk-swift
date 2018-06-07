@@ -1,3 +1,5 @@
+import {createArray} from '../../progressindicator/helpers/utilities';
+
 export const createYAxisLabelFormatThunk = yAxisMaxValue => {
 	const decimalPoints = `${yAxisMaxValue}`.split('.')[1] || 0;
 
@@ -18,9 +20,5 @@ export const createYAxisTickValues = ({ yAxisMaxValue, yAxisHeight }) => {
 		// custom y-axis value) we simply count up by "1".
 		: 1;
 
-	return (
-		new Array(totalLabels + 1)
-			.fill(0)
-			.map((_, index) => increment * index)
-	);
+	return createArray(totalLabels + 1).map((_, index) => increment * index);
 };

@@ -1,13 +1,14 @@
 import cn from 'classnames';
 import { createChartPadding } from '../helpers';
-import { CHART_HEIGHT } from '../helpers/constants';
+import {createArray} from '../../progressindicator/helpers/utilities';
+import { CHART_HEIGHT, BAR_MIN_WIDTH, BAR_MAX_WIDTH } from '../helpers/constants';
 import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
 
 const findMaxTotalBarStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
 
 const createBarStats = ({ barsData, maxVisibleItems, viewportWidth, hasPagination }) => {
-	const minWidth = 34;
-	const maxWidth = 200;
+	const minWidth = BAR_MIN_WIDTH;
+	const maxWidth = BAR_MAX_WIDTH;
 	const barsTotal = barsData.length;
 	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, minWidth);
 	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > maxWidth
@@ -62,8 +63,7 @@ const createBarColorStacks = ({barsData, custom, base }) => {
 	const maxStacks = barsData.reduce((acc, { y }) => Math.max(acc, y.length), 0);
 
 	return (
-		new Array(maxStacks)
-			.fill(0)
+		createArray(maxStacks)
 			.map((_, index) => custom && custom[index] || base[index % 2])
 	);
 

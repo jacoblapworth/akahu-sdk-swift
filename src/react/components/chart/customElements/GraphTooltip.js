@@ -5,11 +5,15 @@ import XUITooltip from '../../tooltip/XUITooltip';
 class GraphTooltip extends PureComponent {
 
 	render() {
-		const { message, position: { left, top, width, height, preferred = 'top' } } = this.props;
+		const {
+			message, leftOffset,
+			position: { left: leftPosition, top, width, height, preferred = 'top' },
+		} = this.props;
 		return (
 			<div
 				style={{
-					left, top, height, width,
+					left: leftPosition - leftOffset,
+					top, height, width,
 					background: 'transparent',
 					pointerEvents: 'none',
 					position: 'absolute',

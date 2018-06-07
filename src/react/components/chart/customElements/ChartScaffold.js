@@ -12,7 +12,7 @@ import {
 } from 'victory';
 import { barChartTheme } from '../helpers/theme';
 import getGroupPosition, { testIsCloseEnough, createChartPadding } from '../helpers';
-import { CHART_HEIGHT } from '../helpers/constants';
+import { CHART_HEIGHT, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH } from '../helpers/constants';
 import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
 import createBarStats, { createBarColorStacks, findMaxTotalBarStacks, enrichParams } from '../helpers/bars';
 import StackedBar from './StackedBar';
@@ -35,9 +35,9 @@ class ChartScaffold extends Component {
 	contentNode = null;
 
 	state = {
-		chartWidth: 0,
-		yAxisWidth: 0,
-		xAxisHeight: 0,
+		chartWidth: CHART_WIDTH,
+		yAxisWidth: Y_AXIS_WIDTH,
+		xAxisHeight: X_AXIS_HEIGHT,
 		toolTipPosition: { /* left: 0, right: 0, width, 0, height: 0 */ },
 		toolTipMessage: null,
 		panelCurrent: 1,
@@ -68,6 +68,7 @@ class ChartScaffold extends Component {
 	};
 
 	updateToolTip = (nextPosition = {}, toolTipMessage = null) => {
+		console.log('updateToolTip');
 		const {left: nextLeft, top: nextTop, width: nextWidth, height: nextHeight} = nextPosition;
 		const {left: prevLeft, top: prevTop, width: prevWidth, height: prevHeight} = this.state.toolTipPosition;
 		const shouldUpdate = (
@@ -85,8 +86,9 @@ class ChartScaffold extends Component {
 	};
 
 	updateChartWidth = () => {
+		console.log('updateChartWidth');
 		const { rootNode, state } = this;
-		const chartWidth = rootNode ? rootNode.offsetWidth : 0;
+		const chartWidth = rootNode ? rootNode.offsetWidth : CHART_WIDTH;
 		const shouldUpdate = !testIsCloseEnough(chartWidth, state.chartWidth);
 
 		if (shouldUpdate) {
@@ -95,9 +97,10 @@ class ChartScaffold extends Component {
 	};
 
 	updateXAxisHeight = () => {
+		console.log('updateXAxisHeight');
 		const { rootNode, state } = this;
 		const xAxisNode = rootNode && rootNode.querySelector('.xui-chart--xaxis');
-		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : 0;
+		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : X_AXIS_HEIGHT;
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
 		if (shouldUpdate) {
@@ -106,9 +109,10 @@ class ChartScaffold extends Component {
 	};
 
 	updateYAxisWidth = () => {
+		console.log('updateYAxisWidth');
 		const { rootNode, state } = this;
 		const yAxisNode = rootNode && rootNode.querySelector('.xui-chart--yaxis');
-		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : 0;
+		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : Y_AXIS_WIDTH;
 		const shouldUpdate = !testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
 		if (shouldUpdate) {
@@ -117,12 +121,13 @@ class ChartScaffold extends Component {
 	};
 
 	handleContentScroll = () => {
+		console.log('handleContentScroll');
 		const { rootNode, contentNode, props: { hasPagination } } = this;
-		const victoryNode = contentNode.querySelector('.VictoryContainer');
+		const victoryNode = contentNode && contentNode.querySelector('.VictoryContainer');
 		const shouldUpdate = !hasPagination && rootNode && contentNode && victoryNode;
 
 		if (shouldUpdate) {
-			const scrollLeft = contentNode.scrollLeft;
+			const {scrollLeft} = contentNode;
 			const panelWidth = contentNode.clientWidth;
 			const victoryWidth = victoryNode.clientWidth;
 			const hasLeftShadow = scrollLeft > 0;
@@ -145,6 +150,7 @@ class ChartScaffold extends Component {
 	};
 
 	updatePanel = panelCurrent => {
+		console.log('updatePanel');
 		const minPage = 1;
 		const { state, props } = this;
 		const maxPage = props.bars.length;
@@ -157,6 +163,12 @@ class ChartScaffold extends Component {
 			});
 		}
 	};
+
+	findScrollOffset = ({hasPagination, panelWidth, panelCurrent}) => (
+		hasPagination
+			? panelCurrent * panelWidth
+			: (this.contentNode ? this.contentNode.scrollLeft : 0)
+	);
 
 	render = () => {
 		const { props, state } = this;
@@ -229,7 +241,7 @@ class ChartScaffold extends Component {
 						// NOTE: The overflow could cause problems with the tooltip down the
 						// line.
 						height: `${chartHeight}px`,
-						// overflow: 'hidden'
+						overflow: 'hidden'
 					}}>
 					{
 					// We have a situation where we need to create a "responsive" scrolling
@@ -430,17 +442,26 @@ class ChartScaffold extends Component {
 
 							</VictoryChart>
 
-							{hasToolTip && (
-								<GraphTooltip
-									message={toolTipMessage}
-									position={toolTipPosition}
-								/>
-							)}
-
 						</div>
 					</div>
-
 				</div>
+
+				{hasToolTip && (
+					<GraphTooltip
+						message={toolTipMessage}
+						position={toolTipPosition}
+
+						// Describes the current state of the contents horizontal scroll for
+						// either a native or pagination system. This is needed to get an
+						// accurate representation of the tooltip HTML trigger that needs
+						// to rest overtop of the nested SVG element. We unfortunately cannot
+						// place the tooltip inside the scrolling container as there are
+						// overflow edge cases that are frequently encountered on each edge
+						// of the wrapping container.
+						leftOffset={this.findScrollOffset(params) - chartLeft}
+					/>
+				)}
+
 			</div>
 		);
 	};

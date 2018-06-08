@@ -38,8 +38,6 @@ XUIToastActions.propTypes = {
 	className: PropTypes.string,
 	/** Adds QA hook to wrapping component */
 	qaHook: PropTypes.string,
-	/** Facility to pass in custom children */
-	children: PropTypes.node,
 	/** Pass in a XUIToastAction as a primary action  */
 	primaryAction: PropTypes.node,
 	/** Pass in a XUIToastAction as a secondary action */

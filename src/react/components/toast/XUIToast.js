@@ -5,7 +5,6 @@ import cross from '@xero/xui-icon/icons/cross';
 import XUIButton from '../button/XUIButton';
 import XUIIcon from '../icon/XUIIcon';
 import { sentimentMap, baseClass } from './private/constants';
-import XUIToastAction from './XUIToastAction';
 import XUIToastActions from './XUIToastActions';
 import XUIToastMessage from './XUIToastMessage';
 

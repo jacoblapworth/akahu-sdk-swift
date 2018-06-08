@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
-import { baseFontTheme } from '../helpers/theme';
+import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
+import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
-const LARGE_LABEL_FONT = { ...baseFontTheme, fontSize: 13 };
+const LARGE_LABEL_FONT = {...baseFontTheme, fontSize: 13};
 
-const createStackedAvatar = ({ labelWidth, textRaw }) => {
+const createStackedAvatar = ({labelWidth, textRaw}) => {
 	const avatarCircleRadius = 12;
 	const avatarCircleDiameter = avatarCircleRadius * 2;
 	const avatarCircleLeft = labelWidth * 0.5;
@@ -32,8 +32,8 @@ const createStackedAvatar = ({ labelWidth, textRaw }) => {
 };
 
 const createStackedTag = (
-	{ textRaw, labelWidth },
-	{ avatarCircleDiameter, avatarCircleLeft, avatarCircleTop }
+	{textRaw, labelWidth},
+	{avatarCircleDiameter, avatarCircleLeft, avatarCircleTop}
 ) => {
 	const tagLeft = avatarCircleLeft;
 	const tagTop = avatarCircleTop + avatarCircleDiameter + 5;
@@ -62,7 +62,7 @@ const responsiveOptions = {
 		const avatar = createStackedAvatar(params);
 		const hasTooltip = true;
 
-		return { hasTooltip, ...avatar };
+		return {hasTooltip, ...avatar};
 	},
 
 	50(params) {
@@ -74,7 +74,7 @@ const responsiveOptions = {
 		const avatar = createStackedAvatar(params);
 		const tag = createStackedTag(params, avatar);
 
-		return { ...avatar, ...tag };
+		return {...avatar, ...tag};
 	},
 
 	80(params) {
@@ -87,7 +87,7 @@ const responsiveOptions = {
 		const tag = createStackedTag(params, avatar);
 		const tagStyle = LARGE_LABEL_FONT;
 
-		return { ...avatar, ...tag, tagStyle };
+		return {...avatar, ...tag, tagStyle};
 	},
 
 	100(params) {
@@ -103,10 +103,10 @@ const responsiveOptions = {
 		// to set the center value dynamically. In that regard we "left" align the
 		// labels contents and let the component do the calculations.
 		const shouldCalculateCenter = true;
-		const { labelWidth } = params;
+		const {labelWidth} = params;
 		const avatar = createStackedAvatar(params);
 		const tag = createStackedTag(params, avatar);
-		const { avatarCircleRadius, avatarCircleDiameter, avatarCircleTop } = avatar;
+		const {avatarCircleRadius, avatarCircleDiameter, avatarCircleTop} = avatar;
 		const avatarCircleLeft = avatarCircleRadius;
 		const avatarTextLeft = avatarCircleLeft;
 		const tagLeft = avatarCircleLeft + avatarCircleRadius + 5;
@@ -142,7 +142,6 @@ const getResponsiveOption = labelWidth => {
 };
 
 class AvatarLabel extends Component {
-
 	handleToolTipShow = (event, message) => {
 		const preferred = 'bottom';
 		const position = { ...getTargetPosition(event), preferred };
@@ -164,14 +163,14 @@ class AvatarLabel extends Component {
 
 		} = this.props;
 		const responsiveOption = getResponsiveOption(labelWidth);
-		const responsiveParams = { labelWidth, labelIndex, textRaw };
+		const responsiveParams = {labelWidth, labelIndex, textRaw};
 		const {
 			hasTooltip, shouldCalculateCenter,
 			avatarCircleLeft, avatarCircleTop, avatarCircleRadius, avatarTextLeft, avatarTextTop, avatarText, avatarColor,
 			tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 		} = responsiveOption(responsiveParams);
 		const avatarClassName = cn('xui-chart--measure', avatarColor);
-		const avatarStyle = { ...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold' };
+		const avatarStyle = {...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold'};
 		const labelLeft = labelWidth * labelIndex;
 		const labelHeight = padding.bottom - 20;
 
@@ -197,21 +196,21 @@ class AvatarLabel extends Component {
 							<tspan style={avatarStyle}>{avatarText}</tspan>
 						</text>
 
-						{ tagText && (
-								<TruncatedText
-									className="xui-chart--measure"
-									x={tagLeft}
-									y={tagTop}
-									textAnchor={tagAnchor}
-									style={tagStyle}
-									maxWidth={tagTextWidth}>
-									{tagText}
-								</TruncatedText>
-						) }
+						{tagText && (
+							<TruncatedText
+								className="xui-chart--measure"
+								x={tagLeft}
+								y={tagTop}
+								textAnchor={tagAnchor}
+								style={tagStyle}
+								maxWidth={tagTextWidth}>
+								{tagText}
+							</TruncatedText>
+						)}
 					</g>
 				</XAxisLabelWrapper>
 
-				{ hasTooltip && (
+				{hasTooltip && (
 					<rect
 						x={labelLeft}
 						y={labelTop}
@@ -221,7 +220,7 @@ class AvatarLabel extends Component {
 						onMouseEnter={event => this.handleToolTipShow(event, textRaw)}
 						onMouseLeave={this.handleToolTipHide}
 					/>
-				) }
+				)}
 			</g>
 		);
 	}

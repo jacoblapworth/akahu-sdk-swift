@@ -1,13 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 // import PropTypes from 'prop-types';
-// import { VictoryContainer } from "victory";
 
 let key = 0;
 
 class GroupWrapper extends PureComponent {
-
 	render() {
-		const { className, children } = this.props;
+		const {className, children} = this.props;
 
 		return (
 			<g
@@ -17,7 +15,6 @@ class GroupWrapper extends PureComponent {
 			</g>
 		);
 	}
-
 }
 
 export default GroupWrapper;

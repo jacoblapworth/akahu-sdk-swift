@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import arrowPathData from '@xero/xui-icon/icons/arrow';
-// import { alwaysPositive } from '../helpers';
 
 class ContentPagination extends Component {
 	render() {
-		const { current, total, updatePanel, createMessage } = this.props;
+		const {current, total, updatePanel, createMessage} = this.props;
 		const message = createMessage && createMessage(current, total);
 
 		return (

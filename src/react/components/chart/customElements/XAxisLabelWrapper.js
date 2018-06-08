@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import HorizontallyCenterContent from './HorizontallyCenterContent';
 
@@ -21,7 +21,7 @@ class XAxisLabelWrapper extends Component {
 				width={labelWidth}
 				viewBox={`0 0 ${labelWidth} ${labelHeight}`}>
 
-				{ shouldCalculateCenter ? (
+				{shouldCalculateCenter ? (
 					// We want to run the centering sequence as little as possible as it's
 					// a "small" design enhancement for a "large" overhead. Unless explicitly
 					// requested we bypass this component.
@@ -30,7 +30,7 @@ class XAxisLabelWrapper extends Component {
 						wrapperHeight={labelHeight}>
 						{children}
 					</HorizontallyCenterContent>
-				) : children }
+				) : children}
 
 			</svg>
 		);

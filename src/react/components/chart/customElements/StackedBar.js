@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
-import { barChartTheme } from '../helpers/theme';
+import {barChartTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
-import { alwaysPositive } from '../helpers';
+import {alwaysPositive} from '../helpers';
 
 class StackedBar extends Component {
 
-	handleToolTipShow = (event, { barData, barIndex, stackIndex = null }) => {
-		const { updateToolTip, createToolTipMessage } = this.props;
+	handleToolTipShow = (event, {barData, barIndex, stackIndex = null}) => {
+		const {updateToolTip, createToolTipMessage} = this.props;
 		const position = getTargetPosition(event);
-		const message = createToolTipMessage({ ...barData, barIndex, stackIndex });
-
+		const message = createToolTipMessage({...barData, barIndex, stackIndex});
 		updateToolTip(position, message);
 	};
 
@@ -32,10 +31,9 @@ class StackedBar extends Component {
 			datum: barData,
 			index: barIndex,
 			y0: rawYOffset,
-
 		} = this.props;
 
-		const { y: barStacks, isBarActive, activeStacks = [] } = barData;
+		const {y: barStacks, isBarActive, activeStacks = []} = barData;
 		if (!barStacks.length) return null;
 
 		const radius = 3;
@@ -98,15 +96,15 @@ class StackedBar extends Component {
 				</defs>
 
 				<g mask={`url(#${maskId})`}>
-					{ barStacks.map((barStack, stackIndex) => (
+					{barStacks.map((barStack, stackIndex) => (
 						<rect
 							{...{
 								...(onBarClick && {
-									onClick: event => onBarClick(event, { ...barData, barIndex, stackIndex }),
-									style: { cursor: 'pointer' }
+									onClick: event => onBarClick(event, {...barData, barIndex, stackIndex}),
+									style: {cursor: 'pointer'}
 								}),
 								...((updateToolTip && createToolTipMessage) && {
-									onMouseEnter: event => this.handleToolTipShow(event, { barData, barIndex, stackIndex }),
+									onMouseEnter: event => this.handleToolTipShow(event, {barData, barIndex, stackIndex}),
 									onMouseLeave: this.handleToolTipHide
 								})
 							}}
@@ -115,11 +113,11 @@ class StackedBar extends Component {
 							y={createStackTop(stackIndex)}
 							width={barWidth}
 							height={barStack * ratio}
-							fill={colorActive && testIsActive(stackIndex)
+							fill={(colorActive && testIsActive(stackIndex))
 								? colorActive
 								: colorStacks[stackIndex]}
 						/>
-					)) }
+					))}
 				</g>
 			</g>
 		);

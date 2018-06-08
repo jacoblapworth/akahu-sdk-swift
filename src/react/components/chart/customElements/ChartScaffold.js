@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import cn from 'classnames';
-import {
-	VictoryBar,
-	VictoryChart,
-	VictoryAxis,
-	VictoryContainer,
-	VictoryLabel,
-	Line
-} from 'victory';
-import { barChartTheme } from '../helpers/theme';
-import getGroupPosition, { testIsCloseEnough, createChartPadding } from '../helpers';
-import { CHART_HEIGHT, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH } from '../helpers/constants';
-import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
-import createBarStats, { createBarColorStacks, findMaxTotalBarStacks, enrichParams } from '../helpers/bars';
+import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
+import {barChartTheme} from '../helpers/theme';
+import getGroupPosition, { testIsCloseEnough, createChartPadding} from '../helpers';
+import {CHART_HEIGHT, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
+import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
+import createBarStats, {createBarColorStacks, findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
 import StackedBar from './StackedBar';
 import AvatarLabel from './AvatarLabel';
 import GroupWrapper from './GroupWrapper';
@@ -23,7 +16,6 @@ import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
 
 class ChartScaffold extends Component {
-
 	constructor() {
 		super();
 		this.updateChartWidth = this.updateChartWidth.bind(this);
@@ -68,7 +60,6 @@ class ChartScaffold extends Component {
 	};
 
 	updateToolTip = (nextPosition = {}, toolTipMessage = null) => {
-		console.log('updateToolTip');
 		const {left: nextLeft, top: nextTop, width: nextWidth, height: nextHeight} = nextPosition;
 		const {left: prevLeft, top: prevTop, width: prevWidth, height: prevHeight} = this.state.toolTipPosition;
 		const shouldUpdate = (
@@ -86,43 +77,39 @@ class ChartScaffold extends Component {
 	};
 
 	updateChartWidth = () => {
-		console.log('updateChartWidth');
-		const { rootNode, state } = this;
+		const {rootNode, state} = this;
 		const chartWidth = rootNode ? rootNode.offsetWidth : CHART_WIDTH;
 		const shouldUpdate = !testIsCloseEnough(chartWidth, state.chartWidth);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, chartWidth });
+			this.setState({...state, chartWidth});
 		}
 	};
 
 	updateXAxisHeight = () => {
-		console.log('updateXAxisHeight');
-		const { rootNode, state } = this;
+		const {rootNode, state} = this;
 		const xAxisNode = rootNode && rootNode.querySelector('.xui-chart--xaxis');
 		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : X_AXIS_HEIGHT;
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, xAxisHeight });
+			this.setState({...state, xAxisHeight});
 		}
 	};
 
 	updateYAxisWidth = () => {
-		console.log('updateYAxisWidth');
-		const { rootNode, state } = this;
+		const {rootNode, state} = this;
 		const yAxisNode = rootNode && rootNode.querySelector('.xui-chart--yaxis');
 		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : Y_AXIS_WIDTH;
 		const shouldUpdate = !testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, yAxisWidth });
+			this.setState({...state, yAxisWidth});
 		}
 	};
 
 	handleContentScroll = () => {
-		console.log('handleContentScroll');
-		const { rootNode, contentNode, props: { hasPagination } } = this;
+		const {rootNode, contentNode, props: {hasPagination}} = this;
 		const victoryNode = contentNode && contentNode.querySelector('.VictoryContainer');
 		const shouldUpdate = !hasPagination && rootNode && contentNode && victoryNode;
 
@@ -150,9 +137,8 @@ class ChartScaffold extends Component {
 	};
 
 	updatePanel = panelCurrent => {
-		console.log('updatePanel');
 		const minPage = 1;
-		const { state, props } = this;
+		const {state, props} = this;
 		const maxPage = props.bars.length;
 		const sanitisedPage = panelCurrent < minPage ? minPage : Math.min(panelCurrent, maxPage);
 		const shouldUpdate = sanitisedPage !== state.panelCurrent;
@@ -171,10 +157,9 @@ class ChartScaffold extends Component {
 	);
 
 	render = () => {
-		const { props, state } = this;
+		const {props, state} = this;
 		const params = enrichParams(state, props, barChartTheme);
 		const {
-
 			// Chart...
 			chartId, chartTitle, chartDescription, chartTheme, chartHeight, chartWidth,
 			chartPadding, chartTop, chartBottom, chartLeft, chartClassName,
@@ -202,7 +187,6 @@ class ChartScaffold extends Component {
 
 			// Label...
 			keyLabel,
-
 		} = params;
 
 		return (
@@ -212,25 +196,25 @@ class ChartScaffold extends Component {
 
 					{chartTitle && <h2 className="xui-chart--title">{chartTitle}</h2>}
 
-					{ (hasPagination && panelsTotal > 1) && (
+					{(hasPagination && panelsTotal > 1) && (
 						<ContentPagination
 							current={panelCurrent}
 							total={panelsTotal}
 							createMessage={createPaginationMessage}
 							updatePanel={this.updatePanel}
 						/>
-					) }
+					)}
 
-					{ keyLabel && (
+					{keyLabel && (
 						<ChartKey
 							labels={keyLabel}
 							colors={colorStacks}
 						/>
-					) }
+					)}
 
 				</div>
 
-				<div style={{ position: 'relative' }}>
+				<div style={{position: 'relative'}}>
 					<div
 						className="xui-chart--base"
 						ref={node => (this.rootNode = node)}
@@ -306,7 +290,7 @@ class ChartScaffold extends Component {
 							// Push bars "middle" alignment back into the graph "bar" area.
 							// We are controlling this via bespoke components and therefore reset
 							// everything back to zero.
-							domainPadding={{ x: 0 }}
+							domainPadding={{x: 0}}
 
 							// Height of the "svg" graph (px).
 							height={chartHeight}
@@ -326,7 +310,7 @@ class ChartScaffold extends Component {
 							<VictoryAxis
 								dependentAxis
 								orientation="left"
-								scale={{ y: 'linear' }}
+								scale={{y: 'linear'}}
 								padding={chartPadding}
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
@@ -372,7 +356,7 @@ class ChartScaffold extends Component {
 									// Push bars "middle" alignment back into the graph "bar" area.
 									// We are controlling this via bespoke components and therefore reset
 									// everything back to zero.
-									domainPadding={{ x: 0 }}
+									domainPadding={{x: 0}}
 
 									// Height of the "svg" graph (px).
 									height={chartHeight}
@@ -395,7 +379,7 @@ class ChartScaffold extends Component {
 									<VictoryAxis
 										dependentAxis={false}
 										orientation="bottom"
-										scale={{ x: 'linear' }}
+										scale={{x: 'linear'}}
 										padding={chartPadding}
 										width={barsWidth}
 										tickValues={xAxisTickValues}

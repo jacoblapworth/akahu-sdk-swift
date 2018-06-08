@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
@@ -8,7 +8,9 @@ import infoPathData from '@xero/xui-icon/icons/info';
 
 class ChartKey extends Component {
 	createLabel = (label, index) => (
-		<li key={label} className="xui-chartkey--item">
+		<li
+			key={label}
+			className="xui-chartkey--item">
 			<div
 				className="xui-chartkey--icon"
 				style={{ background: this.props.colors[index] }}
@@ -18,7 +20,7 @@ class ChartKey extends Component {
 	);
 
 	render() {
-		const { labels, colors } = this.props;
+		const {labels, colors} = this.props;
 
 		const trigger = (
 			<XUIButton

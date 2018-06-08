@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import getGroupPosition, { testIsCloseEnough } from '../helpers';
 
 class HorizontallyCenterContent extends Component {
-
 	contentNode;
 	state = { /* contentWidth */ };
 
@@ -13,7 +12,7 @@ class HorizontallyCenterContent extends Component {
 		const shouldUpdate = !testIsCloseEnough(contentWidth, state.contentWidth || 0);
 
 		if (shouldUpdate) {
-			this.setState({ ...state, contentWidth });
+			this.setState({...state, contentWidth});
 		}
 	}
 
@@ -48,9 +47,8 @@ class HorizontallyCenterContent extends Component {
 	//      <----- W r a p p e r ----->
 
 	render() {
-
-		const { wrapperWidth, wrapperHeight, children } = this.props;
-		const { contentWidth = wrapperWidth } = this.state;
+		const {wrapperWidth, wrapperHeight, children} = this.props;
+		const {contentWidth = wrapperWidth} = this.state;
 		const centerOffset = (wrapperWidth - contentWidth) * 0.5;
 
 		return (
@@ -61,11 +59,10 @@ class HorizontallyCenterContent extends Component {
 				width={wrapperWidth}
 				height={wrapperHeight}
 				viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}>
-				{ children }
+				{children}
 			</svg>
 		);
 	}
-
 }
 
 export default HorizontallyCenterContent;

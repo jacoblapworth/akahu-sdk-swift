@@ -1,13 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 // import PropTypes from 'prop-types';
 import XUITooltip from '../../tooltip/XUITooltip';
 
 class GraphTooltip extends PureComponent {
-
 	render() {
 		const {
 			message, leftOffset,
-			position: { left: leftPosition, top, width, height, preferred = 'top' },
+			position: {left: leftPosition, top, width, height, preferred = 'top'},
 		} = this.props;
 		return (
 			<div
@@ -20,7 +19,7 @@ class GraphTooltip extends PureComponent {
 				}}
 			>
 				<XUITooltip
-					trigger={<div style={{ width, height }}/>}
+					trigger={<div style={{width, height}}/>}
 					isHidden={false}
 					preferredPosition={preferred}
 					triggerOnFocus={false}
@@ -32,7 +31,6 @@ class GraphTooltip extends PureComponent {
 			</div>
 		);
 	}
-
 }
 
 export default GraphTooltip;

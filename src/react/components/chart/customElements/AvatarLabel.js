@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
 import { baseFontTheme } from '../helpers/theme';
+import getTargetPosition from '../helpers/targetposition';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
@@ -143,14 +144,8 @@ const getResponsiveOption = labelWidth => {
 class AvatarLabel extends Component {
 
 	handleToolTipShow = (event, message) => {
-		const getTargetValue = reference => event.target[reference].baseVal.value;
-		const left = getTargetValue('x');
-		const top = getTargetValue('y');
-		const height = getTargetValue('height');
-		const width = getTargetValue('width');
 		const preferred = 'bottom';
-		const position = { left, top, width, height, preferred };
-
+		const position = { ...getTargetPosition(event), preferred };
 		this.props.updateToolTip(position, message)
 	};
 

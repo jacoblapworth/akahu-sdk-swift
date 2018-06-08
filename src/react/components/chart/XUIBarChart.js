@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
@@ -43,8 +43,8 @@ Design:
 class XUIBarChart extends Component {
 
 	render = () => {
-		const { props, state } = this;
-		const { bars = [], isLoading } = props;
+		const {props, state} = this;
+		const {bars = [], isLoading} = props;
 		const isEmpty = !bars.length;
 
 		switch (true) {

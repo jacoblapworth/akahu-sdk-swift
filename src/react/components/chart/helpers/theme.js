@@ -1,4 +1,4 @@
-import { VictoryTheme } from 'victory';
+import {VictoryTheme} from 'victory';
 
 const baseFontTheme = {
 	fill: '#657483',
@@ -18,7 +18,7 @@ const gridTheme = {
 	strokeWidth: 1
 };
 
-const baseChartTheme = { ...VictoryTheme.grayscale };
+const baseChartTheme = {...VictoryTheme.grayscale};
 
 baseChartTheme.axis.style.axis = {
 	...baseChartTheme.axis.style.axis,
@@ -45,6 +45,6 @@ baseChartTheme.bar = {
 	colorScale: ['#32465A', '#67BBEB'],
 };
 
-const barChartTheme = { ...baseChartTheme };
+const barChartTheme = {...baseChartTheme};
 
-export { baseChartTheme as default, barChartTheme, baseFontTheme, axisLineTheme };
+export {baseChartTheme as default, barChartTheme, baseFontTheme, axisLineTheme};

@@ -1,18 +1,16 @@
 import cn from 'classnames';
-import { createChartPadding } from '../helpers';
+import {createChartPadding} from '../helpers';
 import {createArray} from '../../progressindicator/helpers/utilities';
-import { CHART_HEIGHT, BAR_MIN_WIDTH, BAR_MAX_WIDTH } from '../helpers/constants';
-import { createYAxisLabelFormatThunk, createYAxisTickValues } from '../helpers/yaxis';
+import {CHART_HEIGHT, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
+import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 
-const findMaxTotalBarStacks = ({ y }) => y.reduce((acc, value) => acc + value, 0);
+const findMaxTotalBarStacks = ({y}) => y.reduce((acc, value) => acc + value, 0);
 
-const createBarStats = ({ barsData, maxVisibleItems, viewportWidth, hasPagination }) => {
-	const minWidth = BAR_MIN_WIDTH;
-	const maxWidth = BAR_MAX_WIDTH;
+const createBarStats = ({barsData, maxVisibleItems, viewportWidth, hasPagination}) => {
 	const barsTotal = barsData.length;
-	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, minWidth);
-	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > maxWidth
-		? maxWidth
+	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, BAR_MIN_WIDTH);
+	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > BAR_MAX_WIDTH
+		? BAR_MAX_WIDTH
 		: limitWithLowerThreshold(baseWidth)
 	const isConstrainedWidth = Boolean(maxVisibleItems);
 
@@ -56,21 +54,19 @@ const createBarStats = ({ barsData, maxVisibleItems, viewportWidth, hasPaginatio
 			.reduce((acc, value) => Math.max(acc, value), 0)
 	);
 
-	return { barsWidth, barWidth, barMaxValue, barViewports };
+	return {barsWidth, barWidth, barMaxValue, barViewports};
 };
 
 const createBarColorStacks = ({barsData, custom, base }) => {
-	const maxStacks = barsData.reduce((acc, { y }) => Math.max(acc, y.length), 0);
+	const maxStacks = barsData.reduce((acc, {y}) => Math.max(acc, y.length), 0);
 
 	return (
 		createArray(maxStacks)
 			.map((_, index) => custom && custom[index] || base[index % 2])
 	);
-
 };
 
 const enrichParams = (state, props, chartTheme) => {
-
 	const {
 		id: chartId,
 		title: chartTitle,
@@ -103,24 +99,21 @@ const enrichParams = (state, props, chartTheme) => {
 	// stacks require arrays of data and plain a single value. Rather than create
 	// two duplicate components we augment the plain data to mimic a stacked
 	// scenario that has only a single stack.
-	const barsData = isStacked ? barsDataRaw : barsDataRaw.map(bar => ({ ...bar, y: [bar.y] }));
+	const barsData = isStacked ? barsDataRaw : barsDataRaw.map(bar => ({...bar, y: [bar.y]}));
 	const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
 	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
 
 	// Colors...
 	const colorActive = activeColorRaw || 'hotpink';
-	const colorStacks = createBarColorStacks({ barsData, custom: barColor, base: chartTheme.bar.colorScale});
+	const colorStacks = createBarColorStacks({barsData, custom: barColor, base: chartTheme.bar.colorScale});
 
 	// Tooltip...
-	// const [toolTipX, toolTipY] = toolTipPosition;
-	// const hasToolTip = Boolean(createBarToolTipMessage && toolTipX && toolTipY);
-	const { left: toolTipLeft, top: toolTipTop, width: toolTipWidth, height: toolTipHeight } = toolTipPosition;
 	const hasToolTip = Boolean(toolTipMessage);
 
 	// Chart...
 	const isChartNarrow = chartWidth <= 520;
-	const chartPadding = createChartPadding({ xAxisHeight, yAxisWidth });
-	const { top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft } = chartPadding;
+	const chartPadding = createChartPadding({xAxisHeight, yAxisWidth});
+	const {top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft} = chartPadding;
 	const chartClassName = cn('xui-chart', {
 		[`xui-chart-has-pagination`]: hasPagination,
 		[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
@@ -128,8 +121,7 @@ const enrichParams = (state, props, chartTheme) => {
 
 	// Bars...
 	const viewportWidth = chartWidth - chartLeft - chartRight;
-	const { barsWidth, barWidth, barMaxValue, barViewports } = createBarStats({ barsData, maxVisibleItems, viewportWidth, hasPagination });
-
+	const {barsWidth, barWidth, barMaxValue, barViewports} = createBarStats({barsData, maxVisibleItems, viewportWidth, hasPagination});
 
 	// Panels...
 	const panelsTotal = barViewports;
@@ -142,13 +134,12 @@ const enrichParams = (state, props, chartTheme) => {
 	const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
 	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
-	const yAxisTickValues = createYAxisTickValues({ yAxisMaxValue, yAxisHeight });
+	const yAxisTickValues = createYAxisTickValues({yAxisMaxValue, yAxisHeight});
 
 	// X-Axis...
-	const xAxisTickValues = barsData.map(({ x }) => x);
+	const xAxisTickValues = barsData.map(({x}) => x);
 
 	return {
-
 		// Chart...
 		chartId, chartTitle, chartDescription, chartTheme, chartHeight, chartWidth,
 		chartPadding, chartTop, chartBottom, chartLeft, chartClassName,
@@ -176,9 +167,7 @@ const enrichParams = (state, props, chartTheme) => {
 
 		// Label...
 		keyLabel,
-
 	};
-
 };
 
-export { createBarStats as default, createBarColorStacks, enrichParams, findMaxTotalBarStacks};
+export {createBarStats as default, createBarColorStacks, enrichParams, findMaxTotalBarStacks};

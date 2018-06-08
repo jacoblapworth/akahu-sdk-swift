@@ -1,18 +1,19 @@
 import {createArray} from '../../progressindicator/helpers/utilities';
+import {Y_AXIS_MIN_PADDING} from '../helpers/constants';
 
 export const createYAxisLabelFormatThunk = yAxisMaxValue => {
 	const decimalPoints = `${yAxisMaxValue}`.split('.')[1] || 0;
 
-	return (rawLabel) => {
+	return rawLabel => {
 		const factor = Math.pow(10, decimalPoints + 1);
+
 		return Math.round(rawLabel * factor) / factor;
 	};
 };
 
-export const createYAxisTickValues = ({ yAxisMaxValue, yAxisHeight }) => {
-	const minimumGap = 100;
+export const createYAxisTickValues = ({yAxisMaxValue, yAxisHeight}) => {
 	const hasPositiveYValue = Boolean(yAxisMaxValue);
-	const totalLabels = Math.floor(yAxisHeight / minimumGap);
+	const totalLabels = Math.floor(yAxisHeight / Y_AXIS_MIN_PADDING);
 	const increment = hasPositiveYValue
 		? yAxisMaxValue / totalLabels
 		// When there are no y-axis values the domain is [0, 0, 0] by default.

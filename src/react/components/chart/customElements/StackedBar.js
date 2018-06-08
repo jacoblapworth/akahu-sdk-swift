@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { barChartTheme } from '../helpers/theme';
+import getTargetPosition from '../helpers/targetposition';
 import { alwaysPositive } from '../helpers';
 
 class StackedBar extends Component {
 
 	handleToolTipShow = (event, { barData, barIndex, stackIndex = null }) => {
 		const { updateToolTip, createToolTipMessage } = this.props;
-		const getTargetValue = reference => event.target[reference].baseVal.value;
-		const left = getTargetValue('x');
-		const top = getTargetValue('y');
-		const height = getTargetValue('height');
-		const width = getTargetValue('width');
-		const position = { left, top, width, height };
+		const position = getTargetPosition(event);
 		const message = createToolTipMessage({ ...barData, barIndex, stackIndex });
 
 		updateToolTip(position, message);

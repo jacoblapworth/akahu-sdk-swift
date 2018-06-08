@@ -230,238 +230,240 @@ class ChartScaffold extends Component {
 
 				</div>
 
-				<div
-					className="xui-chart--base"
-					ref={node => (this.rootNode = node)}
-					style={{
-						// These two styles are required for IE 11 where the SVG will not fill
-						// its parent container correctly unless the height is explicitly
-						// stipulated. This breaks that width:height ratio so an overflow:hidden
-						// is needed to tame the beast.
-						// NOTE: The overflow could cause problems with the tooltip down the
-						// line.
-						height: `${chartHeight}px`,
-						overflow: 'hidden'
-					}}>
-					{
-					// We have a situation where we need to create a "responsive" scrolling
-					// content area in a static SVG environment that does not allow for such
-					// functionally. In that regard we split the chart into two seperate
-					// <VictoryChart />'s and overlay them over top of each other.
-					//
-					// Graph 1 - acts as the base scaffold that holds the y-axis and
-					// "presentational" width and height.
-					//
-					// Graph 2 - holds the scrollable bar content and x-axis labels that
-					// lays ontop of Graph 1.
-					//
-					//
-					//                 Graph 1 and 2:
-					//                 --------------
-					//     .- - -.- - - - - - - - - - - - - - - -.
-					//     ¦  y  ¦                               ¦
-					//     ¦  .  ¦                               ¦
-					//     ¦  a  ¦                               ¦
-					//     ¦  x  ¦            b a r s            ¦
-					//     ¦  i  ¦                               ¦
-					//     ¦  s  ¦                               ¦
-					//     ¦ - - ¦ - - - - - - - - - - - - - - - ¦
-					//     ¦ /// ¦          x . a x i s          ¦
-					//     °- - -°- - - - - - - - - - - - - - - -°
-					//     .     .                               .
-					//     .     .                               .
-					//     .     .           Graph 1:            .
-					//     .     .           --------            .
-					//     .- - -.- - - - - - - - - - - - - - - -.
-					//     ¦  y  ¦ ///////////////////////////// ¦
-					//     ¦  .  ¦ ///////////////////////////// ¦
-					//     ¦  a  ¦ ///////////////////////////// ¦
-					//     ¦  x  ¦ ///////////////////////////// ¦
-					//     ¦  i  ¦ ///////////////////////////// ¦
-					//     ¦  s  ¦ ///////////////////////////// ¦
-					//     ¦ - - ° ///////////////////////////// ¦
-					//     ¦ /////////////////////////////////// ¦
-					//     °- - - - - - - - - - - - - - - - - - -°
-					//           .                               .
-					//           .                               .
-					//           .           Graph 2:            .
-					//           .           --------            .
-					//           .- - - - - - - - - - - - - - - -.- - - - - - - - - - - -.
-					//           ¦                               ¦ ///////////////////// ¦
-					//           ¦                               ¦ ///////////////////// ¦
-					//           ¦                               ¦ ///////////////////// ¦
-					//           ¦            b a r s            ¦ //  h i d d e n  //// ¦
-					//           ¦                               ¦ //  c o n t e n t  // ¦
-					//           ¦                               ¦ ///////////////////// ¦
-					//           ¦ - - - - - - - - - - - - - - - ¦ ///////////////////// ¦
-					//           ¦          x . a x i s          ¦ ///////////////////// ¦
-					//           °- - - - - - - - - - - - - - - -°- - - - - - - - - - - -°
-					//
-					//           ------------->  s c r o l l  t o  v i e w  ------------->
-					}
-					<VictoryChart
-						theme={chartTheme}
+				<div style={{ position: 'relative' }}>
+					<div
+						className="xui-chart--base"
+						ref={node => (this.rootNode = node)}
+						style={{
+							// These two styles are required for IE 11 where the SVG will not fill
+							// its parent container correctly unless the height is explicitly
+							// stipulated. This breaks that width:height ratio so an overflow:hidden
+							// is needed to tame the beast.
+							// NOTE: The overflow could cause problems with the tooltip down the
+							// line.
+							height: `${chartHeight}px`,
+							overflow: 'hidden'
+						}}>
+						{
+						// We have a situation where we need to create a "responsive" scrolling
+						// content area in a static SVG environment that does not allow for such
+						// functionally. In that regard we split the chart into two seperate
+						// <VictoryChart />'s and overlay them over top of each other.
+						//
+						// Graph 1 - acts as the base scaffold that holds the y-axis and
+						// "presentational" width and height.
+						//
+						// Graph 2 - holds the scrollable bar content and x-axis labels that
+						// lays ontop of Graph 1.
+						//
+						//
+						//                 Graph 1 and 2:
+						//                 --------------
+						//     .- - -.- - - - - - - - - - - - - - - -.
+						//     ¦  y  ¦                               ¦
+						//     ¦  .  ¦                               ¦
+						//     ¦  a  ¦                               ¦
+						//     ¦  x  ¦            b a r s            ¦
+						//     ¦  i  ¦                               ¦
+						//     ¦  s  ¦                               ¦
+						//     ¦ - - ¦ - - - - - - - - - - - - - - - ¦
+						//     ¦ /// ¦          x . a x i s          ¦
+						//     °- - -°- - - - - - - - - - - - - - - -°
+						//     .     .                               .
+						//     .     .                               .
+						//     .     .           Graph 1:            .
+						//     .     .           --------            .
+						//     .- - -.- - - - - - - - - - - - - - - -.
+						//     ¦  y  ¦ ///////////////////////////// ¦
+						//     ¦  .  ¦ ///////////////////////////// ¦
+						//     ¦  a  ¦ ///////////////////////////// ¦
+						//     ¦  x  ¦ ///////////////////////////// ¦
+						//     ¦  i  ¦ ///////////////////////////// ¦
+						//     ¦  s  ¦ ///////////////////////////// ¦
+						//     ¦ - - ° ///////////////////////////// ¦
+						//     ¦ /////////////////////////////////// ¦
+						//     °- - - - - - - - - - - - - - - - - - -°
+						//           .                               .
+						//           .                               .
+						//           .           Graph 2:            .
+						//           .           --------            .
+						//           .- - - - - - - - - - - - - - - -.- - - - - - - - - - - -.
+						//           ¦                               ¦ ///////////////////// ¦
+						//           ¦                               ¦ ///////////////////// ¦
+						//           ¦                               ¦ ///////////////////// ¦
+						//           ¦            b a r s            ¦ //  h i d d e n  //// ¦
+						//           ¦                               ¦ //  c o n t e n t  // ¦
+						//           ¦                               ¦ ///////////////////// ¦
+						//           ¦ - - - - - - - - - - - - - - - ¦ ///////////////////// ¦
+						//           ¦          x . a x i s          ¦ ///////////////////// ¦
+						//           °- - - - - - - - - - - - - - - -°- - - - - - - - - - - -°
+						//
+						//           ------------->  s c r o l l  t o  v i e w  ------------->
+						}
+						<VictoryChart
+							theme={chartTheme}
 
-						// Push bars "middle" alignment back into the graph "bar" area.
-						// We are controlling this via bespoke components and therefore reset
-						// everything back to zero.
-						domainPadding={{ x: 0 }}
+							// Push bars "middle" alignment back into the graph "bar" area.
+							// We are controlling this via bespoke components and therefore reset
+							// everything back to zero.
+							domainPadding={{ x: 0 }}
 
-						// Height of the "svg" graph (px).
-						height={chartHeight}
-						width={chartWidth}
+							// Height of the "svg" graph (px).
+							height={chartHeight}
+							width={chartWidth}
 
-						// The space around the "bar" area and the rest of the graph.
-						padding={chartPadding}
-
-						containerComponent={(
-							<VictoryContainer
-								responsive
-								title={chartTitle}
-								desc={chartDescription}
-							/>
-						)}>
-
-						<VictoryAxis
-							dependentAxis
-							orientation="left"
-							scale={{ y: 'linear' }}
+							// The space around the "bar" area and the rest of the graph.
 							padding={chartPadding}
-							tickFormat={createYAxisLabelFormat}
-							tickValues={yAxisTickValues}
-							groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
-							tickLabelComponent={<VictoryLabel className="xui-chart--measure"/>}
 
-							// Add the zero at the start of the axis (is hidden by default).
-							crossAxis={false}
-						/>
+							containerComponent={(
+								<VictoryContainer
+									responsive
+									title={chartTitle}
+									desc={chartDescription}
+								/>
+							)}>
 
-					</VictoryChart>
+							<VictoryAxis
+								dependentAxis
+								orientation="left"
+								scale={{ y: 'linear' }}
+								padding={chartPadding}
+								tickFormat={createYAxisLabelFormat}
+								tickValues={yAxisTickValues}
+								groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
+								tickLabelComponent={<VictoryLabel className="xui-chart--measure"/>}
 
-					<div
-						className="xui-chart--shadows"
-						style={{
-							bottom: `${chartBottom}px`,
-							left: `${chartLeft}px`,
-							top: `${chartTop}px`,
-							width: `${panelWidth}px`
-						}}
-					/>
+								// Add the zero at the start of the axis (is hidden by default).
+								crossAxis={false}
+							/>
 
-					<div
-						className="xui-chart--content"
-						ref={node => (this.contentNode = node)}
-						style={{
-							left: `${chartLeft}px`,
-							width: `${panelWidth}px`
-						}}
-						onScroll={this.throttledContentScroll}>
+						</VictoryChart>
 
 						<div
-							className="xui-chart--scroll"
+							className="xui-chart--shadows"
 							style={{
-								...hasPagination && {
-									transform: `translateX(-${(panelCurrent - 1) * 100}%)`
-								}
-							}}>
+								bottom: `${chartBottom}px`,
+								left: `${chartLeft}px`,
+								top: `${chartTop}px`,
+								width: `${panelWidth}px`
+							}}
+						/>
 
-							<VictoryChart
-								theme={chartTheme}
+						<div
+							className="xui-chart--content"
+							ref={node => (this.contentNode = node)}
+							style={{
+								left: `${chartLeft}px`,
+								width: `${panelWidth}px`
+							}}
+							onScroll={this.throttledContentScroll}>
 
-								// Push bars "middle" alignment back into the graph "bar" area.
-								// We are controlling this via bespoke components and therefore reset
-								// everything back to zero.
-								domainPadding={{ x: 0 }}
+							<div
+								className="xui-chart--scroll"
+								style={{
+									...hasPagination && {
+										transform: `translateX(-${(panelCurrent - 1) * 100}%)`
+									}
+								}}>
 
-								// Height of the "svg" graph (px).
-								height={chartHeight}
-								width={barsWidth}
+								<VictoryChart
+									theme={chartTheme}
 
-								// The space around the "bar" area and the rest of the graph.
-								padding={chartPadding}
+									// Push bars "middle" alignment back into the graph "bar" area.
+									// We are controlling this via bespoke components and therefore reset
+									// everything back to zero.
+									domainPadding={{ x: 0 }}
 
-								containerComponent={(
-									<VictoryContainer
-										// We want the content to spill out of the charting bounds
-										// (due to our responsive scrolling system). In that regard
-										// we turn off then "responsive" flag which removes the
-										// { height: 100%; width: 100%; } overides and instead rely
-										// on our static sizes that we measure.
-										responsive={false}
-									/>
-								)}>
-
-								<VictoryAxis
-									dependentAxis={false}
-									orientation="bottom"
-									scale={{ x: 'linear' }}
-									padding={chartPadding}
+									// Height of the "svg" graph (px).
+									height={chartHeight}
 									width={barsWidth}
-									tickValues={xAxisTickValues}
-									groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
 
-									gridComponent={(
-										<Line
-											type={"grid"}
-											style={{
-												stroke: 'transparent',
-												strokeWidth: 0
-											}}
+									// The space around the "bar" area and the rest of the graph.
+									padding={chartPadding}
+
+									containerComponent={(
+										<VictoryContainer
+											// We want the content to spill out of the charting bounds
+											// (due to our responsive scrolling system). In that regard
+											// we turn off then "responsive" flag which removes the
+											// { height: 100%; width: 100%; } overides and instead rely
+											// on our static sizes that we measure.
+											responsive={false}
 										/>
-									)}
+									)}>
 
-									tickLabelComponent={(
-										<AvatarLabel
-											padding={chartPadding}
-											labelWidth={barWidth}
-											labelTop={chartHeight - chartBottom}
-											updateToolTip={this.updateToolTip}
-										/>
-									)}
-								/>
+									<VictoryAxis
+										dependentAxis={false}
+										orientation="bottom"
+										scale={{ x: 'linear' }}
+										padding={chartPadding}
+										width={barsWidth}
+										tickValues={xAxisTickValues}
+										groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
 
-								<VictoryBar
-									data={barsData}
-									y={findMaxTotalBarStacks}
-									groupComponent={<GroupWrapper className="xui-chart--bars" />}
+										gridComponent={(
+											<Line
+												type={"grid"}
+												style={{
+													stroke: 'transparent',
+													strokeWidth: 0
+												}}
+											/>
+										)}
 
-									dataComponent={(
-										<StackedBar
-											chartId={chartId}
-											yAxisMaxValue={yAxisMaxValue}
-											yAxisHeight={yAxisHeight}
-											colorStacks={colorStacks}
-											colorActive={colorActive}
-											onBarClick={onBarClick}
-											barWidth={barWidth}
-											createToolTipMessage={createBarToolTipMessage}
-											updateToolTip={this.updateToolTip}
-										/>
-									)}
-								/>
+										tickLabelComponent={(
+											<AvatarLabel
+												padding={chartPadding}
+												labelWidth={barWidth}
+												labelTop={chartHeight - chartBottom}
+												updateToolTip={this.updateToolTip}
+											/>
+										)}
+									/>
 
-							</VictoryChart>
+									<VictoryBar
+										data={barsData}
+										y={findMaxTotalBarStacks}
+										groupComponent={<GroupWrapper className="xui-chart--bars" />}
 
+										dataComponent={(
+											<StackedBar
+												chartId={chartId}
+												yAxisMaxValue={yAxisMaxValue}
+												yAxisHeight={yAxisHeight}
+												colorStacks={colorStacks}
+												colorActive={colorActive}
+												onBarClick={onBarClick}
+												barWidth={barWidth}
+												createToolTipMessage={createBarToolTipMessage}
+												updateToolTip={this.updateToolTip}
+											/>
+										)}
+									/>
+
+								</VictoryChart>
+
+							</div>
 						</div>
 					</div>
+
+					{hasToolTip && (
+						<GraphTooltip
+							message={toolTipMessage}
+							position={toolTipPosition}
+
+							// Describes the current state of the contents horizontal scroll for
+							// either a native or pagination system. This is needed to get an
+							// accurate representation of the tooltip HTML trigger that needs
+							// to rest overtop of the nested SVG element. We unfortunately cannot
+							// place the tooltip inside the scrolling container as there are
+							// overflow edge cases that are frequently encountered on each edge
+							// of the wrapping container.
+							leftOffset={this.findScrollOffset(params) - chartLeft}
+						/>
+					)}
+
 				</div>
-
-				{hasToolTip && (
-					<GraphTooltip
-						message={toolTipMessage}
-						position={toolTipPosition}
-
-						// Describes the current state of the contents horizontal scroll for
-						// either a native or pagination system. This is needed to get an
-						// accurate representation of the tooltip HTML trigger that needs
-						// to rest overtop of the nested SVG element. We unfortunately cannot
-						// place the tooltip inside the scrolling container as there are
-						// overflow edge cases that are frequently encountered on each edge
-						// of the wrapping container.
-						leftOffset={this.findScrollOffset(params) - chartLeft}
-					/>
-				)}
-
 			</div>
 		);
 	};

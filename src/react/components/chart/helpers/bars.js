@@ -70,12 +70,13 @@ const enrichParams = (state, props, chartTheme) => {
 	const {
 		id: chartId,
 		title: chartTitle,
+		isTitleHidden,
 		description: chartDescription,
 		keyLabel: keyLabelRaw,
 		bars: barsDataRaw,
 		barColor: barColorRaw,
 		isStacked,
-		hasPagination,
+		hasPagination: hasPaginationRaw,
 		onBarClick,
 		activeColor: activeColorRaw,
 		createBarToolTipMessage,
@@ -110,7 +111,22 @@ const enrichParams = (state, props, chartTheme) => {
 	// Tooltip...
 	const hasToolTip = Boolean(toolTipMessage);
 
+	// Panels...
+	const panelsTotal = barViewports;
+	const panelWidth = viewportWidth;
+	// If the user resizes the UI we can get into a situation where the current
+	// pagination reference exceeds the available panels.
+	const panelCurrent = Math.min(panelCurrentRaw, panelsTotal);
+
+	// Key...
+	const hasKey = keyLabel && keyLabel.length;
+
+	// Pagination...
+	const hasPagination = hasPaginationRaw && panelsTotal > 1;
+
 	// Chart...
+	const hasChartTitle = !isTitleHidden && chartTitle;
+	const hasChartHeader = hasChartTitle || hasKey || hasPagination;
 	const isChartNarrow = chartWidth <= 520;
 	const chartPadding = createChartPadding({xAxisHeight, yAxisWidth});
 	const {top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft} = chartPadding;
@@ -123,13 +139,6 @@ const enrichParams = (state, props, chartTheme) => {
 	const viewportWidth = chartWidth - chartLeft - chartRight;
 	const {barsWidth, barWidth, barMaxValue, barViewports} = createBarStats({barsData, maxVisibleItems, viewportWidth, hasPagination});
 
-	// Panels...
-	const panelsTotal = barViewports;
-	const panelWidth = viewportWidth;
-	// If the user resizes the UI we can get into a situation where the current
-	// pagination reference exceeds the available panels.
-	const panelCurrent = Math.min(panelCurrentRaw, panelsTotal);
-
 	// Y-Axis...
 	const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
@@ -141,8 +150,9 @@ const enrichParams = (state, props, chartTheme) => {
 
 	return {
 		// Chart...
-		chartId, chartTitle, chartDescription, chartTheme, chartHeight, chartWidth,
-		chartPadding, chartTop, chartBottom, chartLeft, chartClassName,
+		chartId, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
+		chartClassName, chartTheme, chartHeight, chartWidth,
+		chartPadding, chartTop, chartBottom, chartLeft,
 
 		// Panels...
 		panelWidth, panelCurrent, panelsTotal,
@@ -165,8 +175,8 @@ const enrichParams = (state, props, chartTheme) => {
 		// X-Axis...
 		xAxisTickValues,
 
-		// Label...
-		keyLabel,
+		// Key...
+		hasKey, keyLabel,
 	};
 };
 

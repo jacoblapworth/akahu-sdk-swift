@@ -13,7 +13,7 @@ class ChartKey extends Component {
 			className="xui-chartkey--item">
 			<div
 				className="xui-chartkey--icon"
-				style={{ background: this.props.colors[index] }}
+				style={{background: this.props.colors[index]}}
 			/>
 			{label}
 		</li>
@@ -39,7 +39,7 @@ class ChartKey extends Component {
 				<div className="xui-chartkey">
 					<div className="xui-text-minor xui-padding-small">Graph key</div>
 					<ul className="xui-chartkey--list">
-						{ labels.map(this.createLabel) }
+						{labels.map(this.createLabel)}
 					</ul>
 				</div>
 			</DropDown>

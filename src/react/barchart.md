@@ -665,3 +665,29 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: 2 },
+	{ x: "Potato", y: 3 },
+	{ x: "Carrot", y: 4 },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="hideTitle"
+				title="Hidden Title"
+				isTitleHidden
+				description="Hide title yet still use it for accessibility purposes"
+				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```

@@ -161,8 +161,9 @@ class ChartScaffold extends Component {
 		const params = enrichParams(state, props, barChartTheme);
 		const {
 			// Chart...
-			chartId, chartTitle, chartDescription, chartTheme, chartHeight, chartWidth,
-			chartPadding, chartTop, chartBottom, chartLeft, chartClassName,
+			chartId, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
+			chartClassName, chartTheme, chartHeight, chartWidth,
+			chartPadding, chartTop, chartBottom, chartLeft,
 
 			// Panels...
 			panelWidth, panelCurrent, panelsTotal,
@@ -185,34 +186,38 @@ class ChartScaffold extends Component {
 			// X-Axis...
 			xAxisTickValues,
 
-			// Label...
-			keyLabel,
+			// Key...
+			hasKey, keyLabel,
 		} = params;
 
 		return (
 			<div className={chartClassName}>
 
-				<div className="xui-chart--header">
+				{hasChartHeader && (
+					<div className="xui-chart--header">
 
-					{chartTitle && <h2 className="xui-chart--title">{chartTitle}</h2>}
+						{hasChartTitle && (
+							<h2 className="xui-chart--title">{chartTitle}</h2>
+						)}
 
-					{(hasPagination && panelsTotal > 1) && (
-						<ContentPagination
-							current={panelCurrent}
-							total={panelsTotal}
-							createMessage={createPaginationMessage}
-							updatePanel={this.updatePanel}
-						/>
-					)}
+						{hasPagination && (
+							<ContentPagination
+								current={panelCurrent}
+								total={panelsTotal}
+								createMessage={createPaginationMessage}
+								updatePanel={this.updatePanel}
+							/>
+						)}
 
-					{keyLabel && (
-						<ChartKey
-							labels={keyLabel}
-							colors={colorStacks}
-						/>
-					)}
+						{hasKey && (
+							<ChartKey
+								labels={keyLabel}
+								colors={colorStacks}
+							/>
+						)}
 
-				</div>
+					</div>
+				)}
 
 				<div style={{position: 'relative'}}>
 					<div

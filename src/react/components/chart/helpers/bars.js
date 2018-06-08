@@ -1,8 +1,11 @@
+import React from 'react';
 import cn from 'classnames';
 import {createChartPadding} from '../helpers';
 import {createArray} from '../../progressindicator/helpers/utilities';
 import {CHART_HEIGHT, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
+import AvatarLabel from '../customElements/AvatarLabel';
+import StandardLabel from '../customElements/StandardLabel';
 
 const findMaxTotalBarStacks = ({y}) => y.reduce((acc, value) => acc + value, 0);
 
@@ -83,6 +86,7 @@ const enrichParams = (state, props, chartTheme) => {
 		maxVisibleItems,
 		maxYValue: customMaxYValue = 0,
 		createYAxisLabelFormat: createYAxisLabelFormatRaw,
+		xAxisType = 'standard',
 		createPaginationMessage,
 		height: chartHeight = CHART_HEIGHT
 	} = props;
@@ -147,6 +151,12 @@ const enrichParams = (state, props, chartTheme) => {
 
 	// X-Axis...
 	const xAxisTickValues = barsData.map(({x}) => x);
+	const xAxisLabelOptions = {
+		abbreviation: <div />,
+		avatar: AvatarLabel,
+		standard: StandardLabel,
+	};
+	const XAxisLabel = xAxisLabelOptions[xAxisType];
 
 	return {
 		// Chart...
@@ -173,7 +183,7 @@ const enrichParams = (state, props, chartTheme) => {
 		yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
 
 		// X-Axis...
-		xAxisTickValues,
+		xAxisTickValues, XAxisLabel,
 
 		// Key...
 		hasKey, keyLabel,

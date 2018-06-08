@@ -184,7 +184,7 @@ class ChartScaffold extends Component {
 			yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
 
 			// X-Axis...
-			xAxisTickValues,
+			xAxisTickValues, XAxisLabel,
 
 			// Key...
 			hasKey, keyLabel,
@@ -401,7 +401,7 @@ class ChartScaffold extends Component {
 										)}
 
 										tickLabelComponent={(
-											<AvatarLabel
+											<XAxisLabel
 												padding={chartPadding}
 												labelWidth={barWidth}
 												labelTop={chartHeight - chartBottom}

@@ -681,7 +681,7 @@ class Demo extends React.Component {
 			<XUIBarChart
 				id="hideTitle"
 				title="Hidden Title"
-				isTitleHidden
+				isTitlehidden
 				description="Hide title yet still use it for accessibility purposes"
 				bars={data}
 			/>

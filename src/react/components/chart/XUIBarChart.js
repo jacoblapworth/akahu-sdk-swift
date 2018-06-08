@@ -28,7 +28,7 @@ TODO:
 	+ An API that can differientate the different labels
 	+ Avatar
 	+ Plain
-	+ Reduce ? <-- ['M', 'Mon', 'Monday']
+	+ Reduce ? <-- ['M', 'Mon', 'Monday'] abbreviation
 
 + xxxx
   + xxxx

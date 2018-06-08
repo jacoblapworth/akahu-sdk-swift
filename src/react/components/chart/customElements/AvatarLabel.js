@@ -159,9 +159,9 @@ class AvatarLabel extends Component {
 			// Victory...
 			index: labelIndex,
 			text: textRaw,
-			textAnchor,
-
 		} = this.props;
+		const labelLeft = labelWidth * labelIndex;
+		const labelHeight = padding.bottom - 20;
 		const responsiveOption = getResponsiveOption(labelWidth);
 		const responsiveParams = {labelWidth, labelIndex, textRaw};
 		const {
@@ -171,8 +171,6 @@ class AvatarLabel extends Component {
 		} = responsiveOption(responsiveParams);
 		const avatarClassName = cn('xui-chart--measure', avatarColor);
 		const avatarStyle = {...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold'};
-		const labelLeft = labelWidth * labelIndex;
-		const labelHeight = padding.bottom - 20;
 
 		return (
 			<g>
@@ -192,7 +190,7 @@ class AvatarLabel extends Component {
 						<text
 							x={avatarTextLeft}
 							y={avatarTextTop}
-							textAnchor={textAnchor}>
+							textAnchor="middle">
 							<tspan style={avatarStyle}>{avatarText}</tspan>
 						</text>
 

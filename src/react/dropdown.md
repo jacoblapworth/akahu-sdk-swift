@@ -22,7 +22,7 @@ Dropdowns are deceptively complex, so it's important to understand the terms use
 
 #### DropDown
 
-This is the container for the elements that are conditionally shown on the page. It's an absolutely positioned element that floats on top of other content.  Examples of content include the selectable items in a `SelectBox` or the `XUIDatePicker` calendar paired up with a text input.
+This is the container for the elements that are conditionally shown on the page. It's a positioned element that floats on top of most other content.  Examples of content include the selectable items in a `SelectBox` or the `XUIDatePicker` calendar paired up with a text input.
 
 #### Trigger
 

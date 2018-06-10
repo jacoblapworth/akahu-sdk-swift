@@ -110,7 +110,7 @@ test.addDecorator(withReadme(readme));
 
 test.add(nonBackstopStoryNames.modalInModal, () => {
 	const body = document.querySelector('body.xui-container');
-	body.style.height = "200%";
+	if (body && body.style) { body.style.height = "200%"; }
 	return (
 		<Example />
 	);

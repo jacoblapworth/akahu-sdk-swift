@@ -217,7 +217,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon" aria-label="Info"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info" size="full-width"><XUIIcon path={info} /></XUIButton>;
 };
 
 const getPositioningTest = () => {
@@ -298,6 +298,7 @@ const getPositioningTest = () => {
 							<Picklist>{createItems(toggledShort, 'h')}</Picklist>
 						</DropDown>
 						}
+					isBlock
 					{...props}
 				/>
 				<DropDownToggled

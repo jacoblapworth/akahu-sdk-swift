@@ -39,6 +39,7 @@ class OverflowMenu extends PureComponent {
 				trigger={trigger}
 				dropdown={dropdown}
 				className={`${NAME_SPACE}--overflowmenu-body`}
+				isLegacyDisplay
 			/>
 		);
 	};

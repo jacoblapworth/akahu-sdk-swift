@@ -314,6 +314,7 @@ export default class XUIAutocompleter extends PureComponent {
 					forceDesktop={props.forceDesktop}
 					matchTriggerWidth={props.matchTriggerWidth && !props.dropdownSize}
 					qaHook={dropdownQaHook}
+					isBlock
 				/>
 			</div>
 		);

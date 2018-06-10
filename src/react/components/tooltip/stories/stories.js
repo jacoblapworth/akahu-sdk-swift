@@ -4,7 +4,7 @@ import React from "react";
 // Components we need to test with
 import XUIIcon from "../../icon/XUIIcon";
 import XUITooltip from "../XUITooltip";
-import XUITextInput from "../../textInput/XUITextInput";
+import XUIInput from "../../input/XUIInput";
 import XUIButton from "../../button/XUIButton";
 import XUIButtonCaret from "../../button/XUIButtonCaret";
 import info from "@xero/xui-icon/icons/info";
@@ -19,20 +19,18 @@ import { positionOptions } from "../../positioning/private/constants";
 
 const createTriggerInput = (props) => {
 	return (
-		<XUITextInput
+		<XUIInput
 			placeholder="Placeholder text"
-			labelText="Input label"
-			isLabelHidden
+			aria-label="Input label"
 			{...props}
 		/>
 	);
 };
 const createTipInput = () => {
 	return (
-		<XUITextInput
+		<XUIInput
 			placeholder="Placeholder text"
-			labelText="Input label"
-			isLabelHidden
+			aria-label="Input label"
 			className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
 		/>
 	);
@@ -63,7 +61,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon" aria-label="Info"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info" size="full-width"><XUIIcon path={info} /></XUIButton>;
 };
 
 const createTriggerSpan = () => {

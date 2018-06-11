@@ -2,10 +2,12 @@ import {createArray} from '../../progressindicator/helpers/utilities';
 import {Y_AXIS_MIN_PADDING} from '../helpers/constants';
 
 export const createYAxisLabelFormatThunk = yAxisMaxValue => {
-	const decimalPoints = `${yAxisMaxValue}`.split('.')[1] || 0;
+
+	const decimalRaw = `${yAxisMaxValue}`.split('.')[1];
+	const decimalLength = decimalRaw ? decimalRaw.length : 0;
 
 	return rawLabel => {
-		const factor = Math.pow(10, decimalPoints + 1);
+		const factor = Math.pow(10, decimalLength + 1);
 
 		return Math.round(rawLabel * factor) / factor;
 	};

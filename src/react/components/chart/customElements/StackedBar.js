@@ -4,8 +4,28 @@ import {barChartTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
 import {alwaysPositive} from '../helpers';
 
-class StackedBar extends Component {
+const createStackTopThunk = (barBottom, barStacks, ratio) => stackIndex => {
+	const height = alwaysPositive(barStacks[stackIndex] * ratio);
+	const offset = (
+		barStacks
+			.slice(0, stackIndex)
+			.reduce((acc, stack) => acc + stack * ratio, 0)
+	);
 
+	return alwaysPositive(barBottom - offset - height);
+};
+
+// We can encounter the scenario where the disparity between bars total values
+// are so large (10 vs 100000000000000) that bars that have data appear to be
+// empty. In that regard the minimum value a bar with data can have is 1px
+// (to keep the semblance of a visible bar).
+const createStackHeightThunk = ratio => barStack => {
+	const height = alwaysPositive(barStack * ratio);
+
+	return height ? Math.max(height, 1) : 0;
+};
+
+class StackedBar extends Component {
 	handleToolTipShow = (event, {barData, barIndex, stackIndex = null}) => {
 		const {updateToolTip, createToolTipMessage} = this.props;
 		const position = getTargetPosition(event);
@@ -43,15 +63,12 @@ class StackedBar extends Component {
 		const maskId = `xui-chart--${chartId}--bar${barIndex}`;
 		const barBottom = alwaysPositive(rawYOffset);
 		const barLeft = (barWidthRaw * barIndex) + divider;
-		const barTop = barBottom - (maxStack * ratio);
+		const barTop = alwaysPositive(barBottom - (maxStack * ratio));
 		const barWidth = alwaysPositive(barWidthRaw - (divider * 2));
-		const barHeight = (maxStack * ratio) + radius;
+		const barHeight = alwaysPositive((maxStack * ratio) + radius);
 		const testIsActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
-		const createStackTop = stackIndex => barBottom - (
-			barStacks
-				.slice(0, stackIndex)
-				.reduce((acc, stack) => acc + stack * ratio, 0)
-		) - (barStacks[stackIndex] * ratio);
+		const createStackTop = createStackTopThunk(barBottom, barStacks, ratio);
+		const createStackHeight = createStackHeightThunk(ratio);
 
 		// The bar is setup into to main parts.
 		//
@@ -112,7 +129,7 @@ class StackedBar extends Component {
 							x={barLeft}
 							y={createStackTop(stackIndex)}
 							width={barWidth}
-							height={barStack * ratio}
+							height={createStackHeight(barStack)}
 							fill={(colorActive && testIsActive(stackIndex))
 								? colorActive
 								: colorStacks[stackIndex]}

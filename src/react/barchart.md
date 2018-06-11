@@ -497,6 +497,33 @@ class Demo extends React.Component {
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: 0 },
+	{ x: "Potato", y: 0 },
+	{ x: "Carrot", y: 0 },
+];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="emptyBarData"
+				title="Empty Bar Data"
+				description="Show chart even when no bar data is supplied"
+				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
 const data = [];
 
 class Demo extends React.Component {
@@ -530,7 +557,7 @@ class Demo extends React.Component {
 			<XUIBarChart
 				id="emptyCustomData"
 				title="Empty Custom Data"
-				description="xxxxxx"
+				description="Replace the default empty component with a custom version"
 				emptyStateComponent={<p>On No! Zero Data</p>}
 				isStacked
 				bars={data}
@@ -766,6 +793,31 @@ class Demo extends React.Component {
 				description="A responsive label system showing various levels of information"
 				bars={data}
 				xAxisType="abbreviation"
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: 0 },
+	{ x: "Potato", y: 10 },
+	{ x: "Carrot", y: 100000000000000 },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="dataDisparity"
+				title="Data Disparity"
+				description="Keeping small data sets visible when accompanied by data with great disparity"
+				bars={data}
 			/>
 		);
 	}

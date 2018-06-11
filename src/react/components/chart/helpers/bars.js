@@ -105,7 +105,12 @@ const enrichParams = (state, props, chartTheme) => {
 	// stacks require arrays of data and plain a single value. Rather than create
 	// two duplicate components we augment the plain data to mimic a stacked
 	// scenario that has only a single stack.
-	const barsData = isStacked ? barsDataRaw : barsDataRaw.map(bar => ({...bar, y: [bar.y]}));
+	const barsData = (
+		isStacked
+			? barsDataRaw.map(bar => ({...bar, y: bar.y || [0]}))
+			: barsDataRaw.map(bar => ({...bar, y: [bar.y || 0]}))
+	);
+	console.log(chartTitle, barsData);
 	const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
 	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
 

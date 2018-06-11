@@ -6,10 +6,11 @@ import {CHART_HEIGHT, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
 import StandardLabel from '../customElements/StandardLabel';
+import AbbreviationLabel from '../customElements/AbbreviationLabel';
 
 const findMaxTotalBarStacks = ({y}) => y.reduce((acc, value) => acc + value, 0);
 
-const createBarStats = ({barsData, maxVisibleItems, viewportWidth, hasPagination}) => {
+const createBarStats = ({barsData, maxVisibleItems, viewportWidth, hasPaginationRaw}) => {
 	const barsTotal = barsData.length;
 	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, BAR_MIN_WIDTH);
 	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > BAR_MAX_WIDTH
@@ -39,7 +40,7 @@ const createBarStats = ({barsData, maxVisibleItems, viewportWidth, hasPagination
 	//    ° - - - - - - °
 	const wholeBarsPerPanel = Math.floor(viewportWidth / sanitisedWidth);
 	const hasMultiplePanels = barsTotal > wholeBarsPerPanel;
-	const totalBarsPerPanel = hasPagination || !hasMultiplePanels
+	const totalBarsPerPanel = hasPaginationRaw || !hasMultiplePanels
 		? Math.min(wholeBarsPerPanel, barsTotal)
 		// When there is an overflow with the native scrolling UI we need to make sure
 		// to show "half" of the next panels bar as an aesthetic way to convey hidden
@@ -115,18 +116,8 @@ const enrichParams = (state, props, chartTheme) => {
 	// Tooltip...
 	const hasToolTip = Boolean(toolTipMessage);
 
-	// Panels...
-	const panelsTotal = barViewports;
-	const panelWidth = viewportWidth;
-	// If the user resizes the UI we can get into a situation where the current
-	// pagination reference exceeds the available panels.
-	const panelCurrent = Math.min(panelCurrentRaw, panelsTotal);
-
 	// Key...
 	const hasKey = keyLabel && keyLabel.length;
-
-	// Pagination...
-	const hasPagination = hasPaginationRaw && panelsTotal > 1;
 
 	// Chart...
 	const hasChartTitle = !isTitleHidden && chartTitle;
@@ -134,14 +125,25 @@ const enrichParams = (state, props, chartTheme) => {
 	const isChartNarrow = chartWidth <= 520;
 	const chartPadding = createChartPadding({xAxisHeight, yAxisWidth});
 	const {top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft} = chartPadding;
-	const chartClassName = cn('xui-chart', {
-		[`xui-chart-has-pagination`]: hasPagination,
-		[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
-	});
 
 	// Bars...
 	const viewportWidth = chartWidth - chartLeft - chartRight;
-	const {barsWidth, barWidth, barMaxValue, barViewports} = createBarStats({barsData, maxVisibleItems, viewportWidth, hasPagination});
+	const {
+		barsWidth,
+		barWidth,
+		barMaxValue,
+		barViewports,
+	} = createBarStats({barsData, maxVisibleItems, viewportWidth, hasPaginationRaw});
+
+	// Panels...
+	const panelsTotal = barViewports;
+	const panelWidth = viewportWidth;
+	// If the user resizes the UI we can get into a situation where the current
+	// pagination reference exceeds the available panels.
+	const panelCurrent = Math.min(panelCurrentRaw, panelsTotal);
+
+	// Pagination...
+	const hasPagination = hasPaginationRaw && panelsTotal > 1;
 
 	// Y-Axis...
 	const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
@@ -152,11 +154,16 @@ const enrichParams = (state, props, chartTheme) => {
 	// X-Axis...
 	const xAxisTickValues = barsData.map(({x}) => x);
 	const xAxisLabelOptions = {
-		abbreviation: <div />,
+		abbreviation: AbbreviationLabel,
 		avatar: AvatarLabel,
 		standard: StandardLabel,
 	};
 	const XAxisLabel = xAxisLabelOptions[xAxisType];
+
+	const chartClassName = cn('xui-chart', {
+		[`xui-chart-has-pagination`]: hasPagination,
+		[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
+	});
 
 	return {
 		// Chart...

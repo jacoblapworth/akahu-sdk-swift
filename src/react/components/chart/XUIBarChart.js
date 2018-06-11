@@ -28,10 +28,11 @@ TODO:
 	+ An API that can differientate the different labels
 	+ Avatar
 	+ Plain
+	  + Set up text wrapping for largest variant
 	+ Reduce ? <-- ['M', 'Mon', 'Monday'] abbreviation
 
-+ xxxx
-  + xxxx
++ Edge Cases
+  + Large numbers / heavy DP
 
 Design:
 -------

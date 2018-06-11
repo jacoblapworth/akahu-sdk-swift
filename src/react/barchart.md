@@ -604,6 +604,7 @@ class Demo extends React.Component {
 <Demo />
 ```
 
+
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
@@ -630,6 +631,7 @@ class Demo extends React.Component {
 
 <Demo />
 ```
+
 
 ```
 require('array.prototype.find').shim();
@@ -666,6 +668,7 @@ class Demo extends React.Component {
 <Demo />
 ```
 
+
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
@@ -681,9 +684,63 @@ class Demo extends React.Component {
 			<XUIBarChart
 				id="hideTitle"
 				title="Hidden Title"
-				isTitlehidden
+				isTitleHidden
 				description="Hide title yet still use it for accessibility purposes"
 				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "Apple", y: 2 },
+	{ x: "Potato", y: 3 },
+	{ x: "Carrot", y: 4 },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="avatarLabel"
+				title="Avatar Label"
+				description="A responsive Avatar / Tag label combination"
+				bars={data}
+				xAxisType="avatar"
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ x: "M | Mon | Monday | Monday 21 May", y: 2 },
+	{ x: "T | Tue | Tuesday | Tuesday 22 May", y: 3 },
+	{ x: "W | Wed | Wednesday | Wednesday 23 May", y: 4 },
+];
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="abbreviationLabel"
+				title="Abbreviation Label"
+				description="A responsive label system showing various levels of information"
+				bars={data}
+				xAxisType="abbreviation"
 			/>
 		);
 	}

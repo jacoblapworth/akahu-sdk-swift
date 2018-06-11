@@ -72,7 +72,7 @@ class TruncatedText extends Component {
 				}
 				<text {...textProps}>
 					{createTextSpan(text.slice(0, totalChars).trim())}
-					{text.length !== totalChars && createTextSpan('...')}
+					{totalChars < text.length && createTextSpan('...')}
 				</text>
 			</Fragment>
 		);

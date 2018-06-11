@@ -9,40 +9,69 @@ import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const LARGE_LABEL_FONT = {...baseFontTheme, fontSize: 13};
 
-const createInlineTag = ({labelWidth, textRaw}) => {
+const createTagTextThunk = options => option => {
+	const compareTags = (acc = '', tag = '') => (acc || tag);
+	const minTag = options.slice(0, option + 1).reverse().reduce(compareTags);
+	const maxTag = minTag || options.slice(option).reduce(compareTags);
+
+	return minTag || maxTag;
+};
+
+const createInlineTag = ({labelWidth}) => {
 	const tagLeft = labelWidth / 2;
 	const tagTop = 26;
-	const tagText = textRaw;
 	const tagStyle = baseFontTheme;
 	const tagTextWidth = labelWidth - 10;
 	const tagAnchor = 'middle';
 
-	return {tagLeft, tagTop, tagText, tagStyle, tagTextWidth, tagAnchor};
+	return {tagLeft, tagTop, tagStyle, tagTextWidth, tagAnchor};
 };
+
+const createInlineTagLarge = (params) => {
+	const tag = createInlineTag(params);
+	const tagStyle = LARGE_LABEL_FONT;
+	const tagTop = 34;
+
+	return {...tag, tagStyle, tagTop};
+}
 
 const responsiveOptions = {
 
 	0(params) {
 		const hasTooltip = true;
 		const tag = createInlineTag(params);
+		const {getTagText} = params;
+		const tagText = getTagText(0);
 
-		return {hasTooltip, ...tag};
+		return {hasTooltip, ...tag, tagText};
 	},
 
 	50(params) {
-		return createInlineTag(params);
+		const tag = createInlineTag(params);
+		const {getTagText} = params;
+		const tagText = getTagText(1);
+
+		return {...tag, tagText};
+	},
+
+	80(params) {
+		const tag = createInlineTagLarge(params);
+		const {getTagText} = params;
+		const tagText = getTagText(2);
+
+		return {...tag, tagText};
 	},
 
 	100(params) {
-		const tag = createInlineTag(params);
-		const tagStyle = LARGE_LABEL_FONT;
-		const tagTop = 34;
+		const tag = createInlineTagLarge(params);
+		const {getTagText} = params;
+		const tagText = getTagText(3);
 
-		return {...tag, tagStyle, tagTop};
+		return {...tag, tagText};
 	},
 };
 
-class AvatarLabel extends Component {
+class AbbreviationLabel extends Component {
 	handleToolTipShow = (event, message) => {
 		const preferred = 'bottom';
 		const position = { ...getTargetPosition(event), preferred };
@@ -61,10 +90,13 @@ class AvatarLabel extends Component {
 			index: labelIndex,
 			text: textRaw,
 		} = this.props;
+
+		const textOptions = textRaw.split('|').map(option => option.trim());
+		const getTagText = createTagTextThunk(textOptions);
 		const labelLeft = labelWidth * labelIndex;
 		const labelHeight = padding.bottom;
 		const responsiveOption = getResponsiveOption(responsiveOptions, labelWidth);
-		const responsiveParams = {labelWidth, labelIndex, textRaw};
+		const responsiveParams = {labelWidth, labelIndex, textOptions, getTagText};
 		const {
 			hasTooltip, tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 		} = responsiveOption(responsiveParams);
@@ -96,7 +128,7 @@ class AvatarLabel extends Component {
 						width={labelWidth}
 						height={labelHeight - 20}
 						fill="transparent"
-						onMouseEnter={event => this.handleToolTipShow(event, textRaw)}
+						onMouseEnter={event => this.handleToolTipShow(event, getTagText(4))}
 						onMouseLeave={this.handleToolTipHide}
 					/>
 				)}
@@ -105,4 +137,4 @@ class AvatarLabel extends Component {
 	}
 }
 
-export default AvatarLabel;
+export default AbbreviationLabel;

@@ -4,16 +4,17 @@ import cn from 'classnames';
 import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
 import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
+import getResponsiveOption from '../helpers/xaxis';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const LARGE_LABEL_FONT = {...baseFontTheme, fontSize: 13};
 
-const createStackedAvatar = ({labelWidth, textRaw}) => {
+const createStackedAvatar = ({labelWidth, textRaw, top = 10}) => {
 	const avatarCircleRadius = 12;
 	const avatarCircleDiameter = avatarCircleRadius * 2;
 	const avatarCircleLeft = labelWidth * 0.5;
-	const avatarCircleTop = avatarCircleRadius + 10;
+	const avatarCircleTop = avatarCircleRadius + top;
 	const avatarTextLeft = avatarCircleLeft;
 	const avatarTextTop = avatarCircleTop + 4;
 	const avatarText = abbreviateAvatar(textRaw, 2);
@@ -104,7 +105,7 @@ const responsiveOptions = {
 		// labels contents and let the component do the calculations.
 		const shouldCalculateCenter = true;
 		const {labelWidth} = params;
-		const avatar = createStackedAvatar(params);
+		const avatar = createStackedAvatar({...params, top: 20});
 		const tag = createStackedTag(params, avatar);
 		const {avatarCircleRadius, avatarCircleDiameter, avatarCircleTop} = avatar;
 		const avatarCircleLeft = avatarCircleRadius;
@@ -124,21 +125,6 @@ const responsiveOptions = {
 		};
 	},
 
-};
-
-// Select the responsive option that is most appropriate to the current x-axis
-// segment size.
-const getResponsiveOption = labelWidth => {
-	const responsiveKeys = Object.keys(responsiveOptions);
-	const responsiveKey = (
-		responsiveKeys
-			.reduce(
-				(acc, option) => labelWidth > parseInt(option, 10) ? option : acc,
-				responsiveKeys[0]
-			)
-	);
-
-	return responsiveOptions[responsiveKey];
 };
 
 class AvatarLabel extends Component {
@@ -161,8 +147,8 @@ class AvatarLabel extends Component {
 			text: textRaw,
 		} = this.props;
 		const labelLeft = labelWidth * labelIndex;
-		const labelHeight = padding.bottom - 20;
-		const responsiveOption = getResponsiveOption(labelWidth);
+		const labelHeight = padding.bottom;
+		const responsiveOption = getResponsiveOption(responsiveOptions, labelWidth);
 		const responsiveParams = {labelWidth, labelIndex, textRaw};
 		const {
 			hasTooltip, shouldCalculateCenter,
@@ -213,7 +199,7 @@ class AvatarLabel extends Component {
 						x={labelLeft}
 						y={labelTop}
 						width={labelWidth}
-						height={labelHeight}
+						height={labelHeight - 20}
 						fill="transparent"
 						onMouseEnter={event => this.handleToolTipShow(event, textRaw)}
 						onMouseLeave={this.handleToolTipHide}

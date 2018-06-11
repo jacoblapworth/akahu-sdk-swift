@@ -73,7 +73,7 @@
 // Markup:
 //   <div class="xui-textinput xui-textinput-borderless">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//       <svg focusable="false" class="xui-icon">
+//       <svg focusable="false" class="xui-icon xui-blobicon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
 //     </div>
@@ -84,7 +84,7 @@
 //       aria-label="Solid input with icons"/>
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //       <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//         <svg focusable="false" class="xui-icon">
+//         <svg focusable="false" class="xui-icon xui-blobicon">
 //           <use xlink:href="#xui-icon-clear" role="presentation"/>
 //         </svg>
 //       </button>
@@ -115,7 +115,7 @@
 // 	<div class="xui-margin-top-xlarge xui-margin-bottom-small xui-column-6-of-12">
 // 	 <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent">
 // 		<div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-// 			<svg focusable="false" class="xui-icon">
+// 			<svg focusable="false" class="xui-icon xui-blobicon">
 // 				<use xlink:href="#xui-icon-search" role="presentation" />
 // 			</svg>
 // 		</div>
@@ -140,7 +140,7 @@
 //   <!-- Transparent + Inverted with icons-->
 //   <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//       <svg focusable="false" class="xui-icon">
+//       <svg focusable="false" class="xui-icon xui-blobicon">
 //         <use xlink:href="#xui-icon-search" role="presentation" />
 //       </svg>
 //     </div>
@@ -182,7 +182,7 @@
 // <!-- Icon left -->
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <svg focusable="false" class="xui-icon">
+//     <svg focusable="false" class="xui-icon xui-blobicon">
 //       <use xlink:href="#xui-icon-url" role="presentation" />
 //     </svg>
 //   </div>
@@ -194,7 +194,7 @@
 // </div>
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <svg focusable="false" class="xui-icon">
+//     <svg focusable="false" class="xui-icon xui-blobicon">
 //       <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
 //   </div>
@@ -216,7 +216,7 @@
 // </div>
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon xui-textinput--sideelement-has-background xui-textinput--sideelement-twitter">
-//     <svg focusable="false" class="xui-icon">
+//     <svg focusable="false" class="xui-icon xui-blobicon">
 //     <use xlink:href="#xui-icon-social-twitter" role="presentation" />
 //     </svg>
 //   </div>
@@ -238,7 +238,7 @@
 // Markup:
 // <div class="xui-textinput xui-margin">
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
-//     <svg focusable="false" class="xui-icon">
+//     <svg focusable="false" class="xui-icon xui-blobicon">
 //       <use xlink:href="#xui-icon-search" role="presentation" />
 //     </svg>
 //   </div>
@@ -249,7 +249,7 @@
 //     aria-label="Search"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
-//       <svg focusable="false" class="xui-icon">
+//       <svg focusable="false" class="xui-icon xui-blobicon">
 //         <use xlink:href="#xui-icon-clear" role="presentation"/>
 //       </svg>
 //     </button>
@@ -264,7 +264,7 @@
 //     aria-label="Issue date"/>
 //   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
 //     <button type="button" class="xui-button xui-button-icon" title="Select a date" aria-label="Select a date">
-//       <svg focusable="false" class="xui-icon">
+//       <svg focusable="false" class="xui-icon xui-blobicon">
 //         <use xlink:href="#xui-icon-date-start" role="presentation"/>
 //       </svg>
 //     </button>

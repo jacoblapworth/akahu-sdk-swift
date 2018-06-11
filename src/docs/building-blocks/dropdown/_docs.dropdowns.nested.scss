@@ -60,7 +60,7 @@
 //               <span>Status</span>
 //               <span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span>
 //             </span>
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+//             <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
 //               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
 //             </svg>
 //           </button>
@@ -71,7 +71,7 @@
 //               <span>Date range</span>
 //               <span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span>
 //             </span>
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+//             <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
 //               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
 //             </svg>
 //           </button>
@@ -82,7 +82,7 @@
 //               <span>Created by</span>
 //               <span class="xui-text-secondary xui-margin-left-small">Kirk Holloway +2 others</span>
 //             </span>
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
+//             <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
 //               <use xlink:href="#xui-icon-arrow" role="presentation"></use>
 //             </svg>
 //           </button>
@@ -106,8 +106,8 @@
 //     <div class="xui-dropdown--header-container">
 //       <div class="xui-dropdown--header-leftcontent">
 //         <button class="xui-button xui-button-icon xui-button-icon-large xui-u-flex-none" type="button">
-//           <svg focusable="false" class="xui-icon">
-//             <use role="presentation" class="xui-icon" xlink:href="#xui-icon-back"></use>
+//           <svg focusable="false" class="xui-icon xui-blobicon">
+//             <use role="presentation" xlink:href="#xui-icon-back"></use>
 //           </svg>
 //         </button>
 //         <div class="xui-heading-small xui-margin-left-small xui-text-truncated">
@@ -124,7 +124,7 @@
 //       <div class="xui-datepicker">
 //         <header class="xui-datepicker--header">
 //           <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--prevbutton" aria-label="Go to previous month" title="Go to previous month">
-//             <svg focusable="false" class="xui-icon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-90"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //           </button>
 //           <form class="xui-datepicker--heading-dates">
 //             <div class="xui-datepicker--heading xui-datepicker--heading-month">
@@ -145,7 +145,7 @@
 //             </div>
 //           </form>
 //           <button type="button" class="xui-button xui-button-icon xui-button-icon-large xui-datepicker--nextbutton" aria-label="Go to next month" title="Go to next month">
-//             <svg focusable="false" class="xui-icon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
+//             <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-270"> <use xlink:href="#xui-icon-arrow" role="presentation" /></svg>
 //           </button>
 //         </header>
 //         <div class="xui-datepicker--body" role="grid" aria-label="Select a day">

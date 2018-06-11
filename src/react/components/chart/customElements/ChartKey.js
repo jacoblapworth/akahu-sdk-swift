@@ -10,9 +10,9 @@ class ChartKey extends Component {
 	createLabel = (label, index) => (
 		<li
 			key={label}
-			className="xui-chartkey--item">
+			className="xui-chart--key-item">
 			<div
-				className="xui-chartkey--icon"
+				className="xui-chart--key-icon"
 				style={{background: this.props.colors[index]}}
 			/>
 			{label}
@@ -36,9 +36,9 @@ class ChartKey extends Component {
 				className="xui-dropdown-fixed-medium"
 				hasKeyboardEvents={false}
 				restrictFocus={false}>
-				<div className="xui-chartkey">
+				<div className="xui-chart--key">
 					<div className="xui-text-minor xui-padding-small">Graph key</div>
-					<ul className="xui-chartkey--list">
+					<ul className="xui-chart--key-list">
 						{labels.map(this.createLabel)}
 					</ul>
 				</div>

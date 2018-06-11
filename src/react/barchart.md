@@ -521,6 +521,31 @@ class Demo extends React.Component {
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
+const data = [];
+
+class Demo extends React.Component {
+
+	render() {
+		return (
+			<XUIBarChart
+				id="emptyCustomData"
+				title="Empty Custom Data"
+				description="xxxxxx"
+				emptyStateComponent={<p>On No! Zero Data</p>}
+				isStacked
+				bars={data}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
 const data = [
 	{ x: "Apple", y: [] },
 	{ x: "Potato", y: [] },

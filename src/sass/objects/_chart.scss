@@ -131,20 +131,20 @@
 	pointer-events: none;
 }
 
-.xui-chartkey {
+.xui-chart--key {
 	padding: $xui-s-small;
 }
 
-.xui-chartkey--list {
+.xui-chart--key-list {
 	@include xui-listreset;
 }
 
-.xui-chartkey--item {
+.xui-chart--key-item {
 	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-4xlarge;
 	position: relative;
 }
 
-.xui-chartkey--icon {
+.xui-chart--key-icon {
 	background: $xui-color-grey-4;
 	border-radius: 50%;
 	height: $xui-s-small;
@@ -152,4 +152,12 @@
 	position: absolute;
 	top: $xui-s-standard;
 	width: $xui-s-small;
+}
+
+.xui-chart--empty {
+	@include xui-text-muted;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }

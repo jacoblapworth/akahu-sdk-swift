@@ -104,14 +104,13 @@ const enrichParams = (state, props, chartTheme) => {
 	// stacks require arrays of data and plain a single value. Rather than create
 	// two duplicate components we augment the plain data to mimic a stacked
 	// scenario that has only a single stack.
+	const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
+	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
 	const barsData = (
 		isStacked
 			? barsDataRaw.map(bar => ({...bar, y: bar.y || [0]}))
 			: barsDataRaw.map(bar => ({...bar, y: [bar.y || 0]}))
 	);
-	console.log(chartTitle, barsData);
-	const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
-	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
 
 	// Colors...
 	const colorStacks = createBarColorStacks({barsData, custom: barColor, base: chartTheme.bar.colorScale});
@@ -149,10 +148,17 @@ const enrichParams = (state, props, chartTheme) => {
 	const hasPagination = hasPaginationRaw && panelsTotal > 1;
 
 	// Y-Axis...
-	const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
+	// const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
+	const {yAxisTickValues, yAxisMaxValue} = createYAxisTickValues({
+		yAxisHeight,
+		maxValues: [customMaxYValue, barMaxValue]
+	});
 	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
-	const yAxisTickValues = createYAxisTickValues({yAxisMaxValue, yAxisHeight});
+	// const yAxisHeight = chartHeight - chartTop - chartBottom;
+	// const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
+	// const yAxisTickValues = createYAxisTickValues({yAxisMaxValue, yAxisHeight});
+	// const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
 
 	// X-Axis...
 	const xAxisTickValues = barsData.map(({x}) => x);

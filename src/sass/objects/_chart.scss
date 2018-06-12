@@ -1,17 +1,17 @@
 @import "../vars";
 @import "../mixins";
 
-.xui-chart {
+.#{$ns}-chart {
 
 }
 
-.xui-chart--base {
+.#{$ns}-chart--base {
 	height: 400px;
 	position: relative;
 }
 
-.xui-chart--content,
-.xui-chart--shadows {
+.#{$ns}-chart--content,
+.#{$ns}-chart--shadows {
 	left: 0;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -20,11 +20,11 @@
 	top: 0;
 }
 
-.xui-chart--content {
+.#{$ns}-chart--content {
 	height: 100%;
 }
 
-.xui-chart--shadows {
+.#{$ns}-chart--shadows {
 	overflow: hidden;
 	pointer-events: none;
 	position: absolute;
@@ -43,37 +43,37 @@
 	}
 }
 
-.xui-chart--shadows:before {
+.#{$ns}-chart--shadows:before {
 	box-shadow: $xui-shadow-depth-overlap-left;
 	right: 100%;
 }
 
-.xui-chart--shadows:after {
+.#{$ns}-chart--shadows:after {
 	box-shadow: $xui-shadow-depth-overlap-right;
 	left: 100%;
 }
 
-.xui-chart-has-left-shadow .xui-chart--shadows:before,
-.xui-chart-has-right-shadow .xui-chart--shadows:after {
+.#{$ns}-chart-has-left-shadow .#{$ns}-chart--shadows:before,
+.#{$ns}-chart-has-right-shadow .#{$ns}-chart--shadows:after {
 	opacity: 1;
 }
 
-.xui-chart-has-pagination .xui-chart--content {
+.#{$ns}-chart-has-pagination .#{$ns}-chart--content {
 	overflow-x: hidden;
 }
 
-.xui-chart--header {
+.#{$ns}-chart--header {
 	align-items: center;
 	display: flex;
 	justify-content: flex-end;
 	padding-bottom: $xui-s-2xlarge;
 }
 
-.xui-chart-has-multiline-header .xui-chart--header {
+.#{$ns}-chart-has-multiline-header .#{$ns}-chart--header {
 	flex-wrap: wrap;
 }
 
-.xui-chart--title {
+.#{$ns}-chart--title {
 	@include xui-heading-small;
 	flex-grow: 1;
 	overflow: hidden;
@@ -81,40 +81,40 @@
 	white-space: nowrap;
 }
 
-.xui-chart-has-multiline-header .xui-chart--title {
+.#{$ns}-chart-has-multiline-header .#{$ns}-chart--title {
 	width: calc(100% - #{$xui-s-4xlarge});
 }
 
-.xui-chart--pagination {
+.#{$ns}-chart--pagination {
 	align-items: center;
 	display: flex;
 	justify-content: center;
 	white-space: nowrap;
 }
 
-.xui-chart-has-multiline-header .xui-chart--pagination {
+.#{$ns}-chart-has-multiline-header .#{$ns}-chart--pagination {
 	order: 1;
 	justify-content: space-between;
 	width: 100%;
 }
 
-.xui-chart--scroll {
+.#{$ns}-chart--scroll {
 	height: 100%;
 	position: relative;
 }
 
-.xui-chart-has-pagination .xui-chart--scroll {
+.#{$ns}-chart-has-pagination .#{$ns}-chart--scroll {
 	transition: $xui-motion-speed-medium;
 }
 
-.xui-chart-is-loading {
+.#{$ns}-chart-is-loading {
 	align-items: center;
 	display: flex;
 	justify-content: center;
 	height: 400px;
 }
 
-.xui-chart-is-empty {
+.#{$ns}-chart-is-empty {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -122,29 +122,29 @@
 	min-height: 300px;
 }
 
-.xui-chart .xui-tooltip {
+.#{$ns}-chart .#{$ns}-tooltip {
 	display: block;
 }
 
-.xui-chart .xui-tooltip--tip {
+.#{$ns}-chart .#{$ns}-tooltip--tip {
 	cursor: initial;
 	pointer-events: none;
 }
 
-.xui-chart--key {
+.#{$ns}-chart--key {
 	padding: $xui-s-small;
 }
 
-.xui-chart--key-list {
+.#{$ns}-chart--key-list {
 	@include xui-listreset;
 }
 
-.xui-chart--key-item {
+.#{$ns}-chart--key-item {
 	padding: $xui-s-small $xui-s-small $xui-s-small $xui-s-4xlarge;
 	position: relative;
 }
 
-.xui-chart--key-icon {
+.#{$ns}-chart--key-icon {
 	background: $xui-color-grey-4;
 	border-radius: 50%;
 	height: $xui-s-small;
@@ -154,7 +154,7 @@
 	width: $xui-s-small;
 }
 
-.xui-chart--empty {
+.#{$ns}-chart--empty {
 	@include xui-text-muted;
 	align-items: center;
 	display: flex;

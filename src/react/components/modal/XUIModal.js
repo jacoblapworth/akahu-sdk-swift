@@ -80,6 +80,7 @@ function removeListeners(modal) {
 	}
 }
 
+
 export default class XUIModal extends Component {
 
 	state = { positionSettings: null }
@@ -91,19 +92,7 @@ export default class XUIModal extends Component {
 			lockScroll();
 			modal._isScrollLocked = true;
 
-			const calcOffsetTop = (modal) => {
-				const viewportH = verge.viewportH();
-				const modalHeight = modal._modalNode.getBoundingClientRect().height;
-				return Math.max(((viewportH - modalHeight) / 2) - 15, 0); // subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's (wrapping component) existing padding
-			}
-			const positionSettings = {
-				top: `${calcOffsetTop(modal)}px`,
-				marginTop: 0
-			}
-
-			modal.setState({
-				positionSettings
-			});
+			this.calcOffsetTop();
 
 			if (!modal._maskNode.contains(document.activeElement)) {
 				modal._modalNode.focus();
@@ -125,10 +114,10 @@ export default class XUIModal extends Component {
 
 	}
 
-
 	componentDidUpdate(prevProps) {
 		const modal = this;
 		const { isOpen, restrictFocus } = modal.props;
+
 
 		if (shouldUpdateListeners(this.props, prevProps)) {
 			addListeners(this);
@@ -137,6 +126,9 @@ export default class XUIModal extends Component {
 		if (isOpen && !modal._isScrollLocked) {
 			lockScroll();
 			modal._isScrollLocked = true;
+
+			this.calcOffsetTop();
+
 		}
 
 		if (!isOpen && modal._isScrollLocked) {
@@ -152,6 +144,18 @@ export default class XUIModal extends Component {
 		) {
 			modal._modalNode.focus();
 		}
+	}
+
+	calcOffsetTop = () => {
+		const viewportH = verge.viewportH();
+		const modalHeight = this._modalNode.getBoundingClientRect().height;
+		const calculatedOffsetTop = Math.max(((viewportH - modalHeight) / 2) - 15, 0); // subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's (wrapping component) existing padding
+		const positionSettings = {
+			top: `${calculatedOffsetTop}px`
+		};
+		this.setState({
+			positionSettings
+		});
 	}
 
 	/**

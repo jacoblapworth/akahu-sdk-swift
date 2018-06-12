@@ -17,8 +17,7 @@ class ContentPagination extends Component {
 				aria-label="Pagination">
 
 				<XUIButton
-					variant="icon"
-					className={`xui-button-icon-large`}
+					variant="icon-large"
 					onClick={() => updatePanel(current - 1)}
 					title="Previous page"
 					isDisabled={current === 1}>
@@ -31,8 +30,7 @@ class ContentPagination extends Component {
 				{message}
 
 				<XUIButton
-					variant="icon"
-					className={`xui-button-icon-large`}
+					variant="icon-large"
 					onClick={() => updatePanel(current + 1)}
 					title="Next Page"
 					isDisabled={current === total}>

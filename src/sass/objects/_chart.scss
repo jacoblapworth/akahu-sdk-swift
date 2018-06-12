@@ -120,6 +120,7 @@
 	flex-direction: column;
 	justify-content: center;
 	min-height: 300px;
+	text-align: center;
 }
 
 .#{$ns}-chart .#{$ns}-tooltip {
@@ -132,6 +133,12 @@
 }
 
 .#{$ns}-chart--key {
+	padding: $xui-s-small;
+}
+
+.#{$ns}-chart--key-title {
+	@include xui-text-muted;
+	@include xui-text-xsmall;
 	padding: $xui-s-small;
 }
 

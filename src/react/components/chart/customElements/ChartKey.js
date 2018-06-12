@@ -25,8 +25,7 @@ class ChartKey extends Component {
 
 		const trigger = (
 			<XUIButton
-				variant="icon"
-				className={`xui-button-icon-large`}
+				variant="icon-large"
 				title={title}>
 				<XUIIcon path={infoPathData} />
 			</XUIButton>
@@ -34,11 +33,12 @@ class ChartKey extends Component {
 
 		const dropdown = (
 			<DropDown
-				className="xui-dropdown-fixed-medium"
+			fixedWidth
+				size="medium"
 				hasKeyboardEvents={false}
 				restrictFocus={false}>
 				<div className={`${NAME_SPACE}-chart--key`}>
-					<div className="xui-text-minor xui-padding-small">{title}</div>
+					<div className={`${NAME_SPACE}-chart--key-title`}>{title}</div>
 					<ul className={`${NAME_SPACE}-chart--key-list`}>
 						{labels.map(this.createLabel)}
 					</ul>

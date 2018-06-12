@@ -393,7 +393,7 @@ class ChartScaffold extends Component {
 
 										gridComponent={(
 											<Line
-												type={"grid"}
+												type="grid"
 												style={{
 													stroke: 'transparent',
 													strokeWidth: 0

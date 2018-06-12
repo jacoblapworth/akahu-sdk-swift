@@ -20,13 +20,13 @@ class ChartKey extends Component {
 	);
 
 	render() {
-		const {labels, colors} = this.props;
+		const {title, labels, colors} = this.props;
 
 		const trigger = (
 			<XUIButton
 				variant="icon"
 				className={`xui-button-icon-large`}
-				title="Toggle key">
+				title={title}>
 				<XUIIcon path={infoPathData} />
 			</XUIButton>
 		);
@@ -37,7 +37,7 @@ class ChartKey extends Component {
 				hasKeyboardEvents={false}
 				restrictFocus={false}>
 				<div className="xui-chart--key">
-					<div className="xui-text-minor xui-padding-small">Graph key</div>
+					<div className="xui-text-minor xui-padding-small">{title}</div>
 					<ul className="xui-chart--key-list">
 						{labels.map(this.createLabel)}
 					</ul>

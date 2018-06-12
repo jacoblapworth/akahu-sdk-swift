@@ -187,7 +187,7 @@ class ChartScaffold extends Component {
 			xAxisTickValues, XAxisLabel,
 
 			// Key...
-			hasKey, keyLabel,
+			hasKey, keyTitle, keyLabel,
 		} = params;
 
 		return (
@@ -211,6 +211,7 @@ class ChartScaffold extends Component {
 
 						{hasKey && (
 							<ChartKey
+								title={keyTitle}
 								labels={keyLabel}
 								colors={colorStacks}
 							/>

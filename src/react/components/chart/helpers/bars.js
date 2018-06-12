@@ -77,6 +77,7 @@ const enrichParams = (state, props, chartTheme) => {
 		isTitleHidden,
 		description: chartDescription,
 		keyLabel: keyLabelRaw,
+		keyTitle = 'Graph key',
 		bars: barsDataRaw,
 		barColor: barColorRaw,
 		isStacked,
@@ -202,7 +203,7 @@ const enrichParams = (state, props, chartTheme) => {
 		xAxisTickValues, XAxisLabel,
 
 		// Key...
-		hasKey, keyLabel,
+		hasKey, keyTitle, keyLabel,
 	};
 };
 

@@ -616,6 +616,7 @@ class Demo extends React.Component {
 				isStacked
 				bars={data}
 				keyLabel={['Import', 'Export']}
+				keyTitle="Chart Key"
 			/>
 		);
 	}

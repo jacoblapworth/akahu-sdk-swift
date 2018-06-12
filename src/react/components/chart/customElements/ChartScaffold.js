@@ -5,7 +5,7 @@ import cn from 'classnames';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
 import {barChartTheme} from '../helpers/theme';
 import getGroupPosition, { testIsCloseEnough, createChartPadding} from '../helpers';
-import {CHART_HEIGHT, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
+import {NAME_SPACE, CHART_HEIGHT, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import createBarStats, {createBarColorStacks, findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
 import StackedBar from './StackedBar';
@@ -88,7 +88,7 @@ class ChartScaffold extends Component {
 
 	updateXAxisHeight = () => {
 		const {rootNode, state} = this;
-		const xAxisNode = rootNode && rootNode.querySelector('.xui-chart--xaxis');
+		const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
 		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : X_AXIS_HEIGHT;
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
 
@@ -99,7 +99,7 @@ class ChartScaffold extends Component {
 
 	updateYAxisWidth = () => {
 		const {rootNode, state} = this;
-		const yAxisNode = rootNode && rootNode.querySelector('.xui-chart--yaxis');
+		const yAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--yaxis`);
 		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : Y_AXIS_WIDTH;
 		const shouldUpdate = !testIsCloseEnough(yAxisWidth, state.yAxisWidth);
 
@@ -119,8 +119,8 @@ class ChartScaffold extends Component {
 			const victoryWidth = victoryNode.clientWidth;
 			const hasLeftShadow = scrollLeft > 0;
 			const hasRightShadow = (scrollLeft + panelWidth) < victoryWidth;
-			const leftClassName = `xui-chart-has-left-shadow`;
-			const rightClassName = `xui-chart-has-right-shadow`;
+			const leftClassName = `${NAME_SPACE}-chart-has-left-shadow`;
+			const rightClassName = `${NAME_SPACE}-chart-has-right-shadow`;
 
 			if (hasLeftShadow) {
 				rootNode.classList.add(leftClassName);
@@ -194,10 +194,10 @@ class ChartScaffold extends Component {
 			<div className={chartClassName}>
 
 				{hasChartHeader && (
-					<div className="xui-chart--header">
+					<div className={`${NAME_SPACE}-chart--header`}>
 
 						{hasChartTitle && (
-							<h2 className="xui-chart--title">{chartTitle}</h2>
+							<h2 className={`${NAME_SPACE}-chart--title`}>{chartTitle}</h2>
 						)}
 
 						{hasPagination && (
@@ -222,7 +222,7 @@ class ChartScaffold extends Component {
 
 				<div style={{position: 'relative'}}>
 					<div
-						className="xui-chart--base"
+						className={`${NAME_SPACE}-chart--base`}
 						ref={node => (this.rootNode = node)}
 						style={{
 							// These two styles are required for IE 11 where the SVG will not fill
@@ -320,8 +320,8 @@ class ChartScaffold extends Component {
 								padding={chartPadding}
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
-								groupComponent={<GroupWrapper className="xui-chart--yaxis" />}
-								tickLabelComponent={<VictoryLabel className="xui-chart--measure"/>}
+								groupComponent={<GroupWrapper className={`${NAME_SPACE}-chart--yaxis`} />}
+								tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`}/>}
 
 								// Add the zero at the start of the axis (is hidden by default).
 								crossAxis={false}
@@ -330,7 +330,7 @@ class ChartScaffold extends Component {
 						</VictoryChart>
 
 						<div
-							className="xui-chart--shadows"
+							className={`${NAME_SPACE}-chart--shadows`}
 							style={{
 								bottom: `${chartBottom}px`,
 								left: `${chartLeft}px`,
@@ -340,7 +340,7 @@ class ChartScaffold extends Component {
 						/>
 
 						<div
-							className="xui-chart--content"
+							className={`${NAME_SPACE}-chart--content`}
 							ref={node => (this.contentNode = node)}
 							style={{
 								left: `${chartLeft}px`,
@@ -349,7 +349,7 @@ class ChartScaffold extends Component {
 							onScroll={this.throttledContentScroll}>
 
 							<div
-								className="xui-chart--scroll"
+								className={`${NAME_SPACE}-chart--scroll`}
 								style={{
 									...hasPagination && {
 										transform: `translateX(-${(panelCurrent - 1) * 100}%)`
@@ -389,7 +389,7 @@ class ChartScaffold extends Component {
 										padding={chartPadding}
 										width={barsWidth}
 										tickValues={xAxisTickValues}
-										groupComponent={<GroupWrapper className="xui-chart--xaxis" />}
+										groupComponent={<GroupWrapper className={`${NAME_SPACE}-chart--xaxis`} />}
 
 										gridComponent={(
 											<Line
@@ -414,7 +414,7 @@ class ChartScaffold extends Component {
 									<VictoryBar
 										data={barsData}
 										y={findMaxTotalBarStacks}
-										groupComponent={<GroupWrapper className="xui-chart--bars" />}
+										groupComponent={<GroupWrapper className={`${NAME_SPACE}-chart--bars`} />}
 
 										dataComponent={(
 											<StackedBar

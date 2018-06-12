@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import arrowPathData from '@xero/xui-icon/icons/arrow';
+import {NAME_SPACE} from '../helpers/constants';
 
 class ContentPagination extends Component {
 	render() {
@@ -11,7 +12,7 @@ class ContentPagination extends Component {
 
 		return (
 			<nav
-				className="xui-chart--pagination"
+				className={`${NAME_SPACE}-chart--pagination`}
 				role="navigation"
 				aria-label="Pagination">
 

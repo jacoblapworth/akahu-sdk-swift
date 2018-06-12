@@ -1,8 +1,9 @@
 import {alwaysPositive} from './index';
+import {NAME_SPACE} from './constants';
 
 const getGroupPosition = (groupNode) => {
 	const nodes = groupNode
-		? [...groupNode.querySelectorAll('.xui-chart--measure')]
+		? [...groupNode.querySelectorAll(`.${NAME_SPACE}-chart--measure`)]
 		: [];
 
 	if (!nodes.length) return {width: 0, height: 0};

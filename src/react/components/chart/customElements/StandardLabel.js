@@ -4,6 +4,7 @@ import cn from 'classnames';
 import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
 import getResponsiveOption from '../helpers/xaxis';
+import {NAME_SPACE} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
@@ -78,7 +79,7 @@ class AvatarLabel extends Component {
 					labelHeight={labelHeight}>
 					{tagText && (
 						<TruncatedText
-							className="xui-chart--measure"
+							className={`${NAME_SPACE}-chart--measure`}
 							x={tagLeft}
 							y={tagTop}
 							textAnchor={tagAnchor}

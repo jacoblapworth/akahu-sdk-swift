@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 // import PropTypes from 'prop-types';
 import {barChartTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
-import {BAR_ACTIVE} from '../helpers/constants';
+import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
 import {alwaysPositive} from '../helpers';
 
 const createStackTop = ({barBottom, barStacks, ratio, stackIndex}) => {
@@ -102,7 +102,7 @@ class StackedBar extends Component {
 		const divider = 10;
 		const ratio = yAxisHeight / yAxisMaxValue;
 		const maxStack = barStacks.reduce((acc, stack) => acc + stack, 0);
-		const maskId = `xui-chart--${chartId}--bar${barIndex}`;
+		const maskId = `${NAME_SPACE}-chart--${chartId}--bar${barIndex}`;
 		const barBottom = alwaysPositive(rawYOffset);
 		const barLeft = (barWidthRaw * barIndex) + divider;
 		const barTop = alwaysPositive(barBottom - (maxStack * ratio));

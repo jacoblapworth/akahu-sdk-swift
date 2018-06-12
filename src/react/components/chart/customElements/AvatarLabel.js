@@ -5,6 +5,7 @@ import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
 import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
 import getResponsiveOption from '../helpers/xaxis';
+import {NAME_SPACE} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
@@ -155,7 +156,7 @@ class AvatarLabel extends Component {
 			avatarCircleLeft, avatarCircleTop, avatarCircleRadius, avatarTextLeft, avatarTextTop, avatarText, avatarColor,
 			tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 		} = responsiveOption(responsiveParams);
-		const avatarClassName = cn('xui-chart--measure', avatarColor);
+		const avatarClassName = cn(`${NAME_SPACE}-chart--measure`, avatarColor);
 		const avatarStyle = {...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold'};
 
 		return (
@@ -182,7 +183,7 @@ class AvatarLabel extends Component {
 
 						{tagText && (
 							<TruncatedText
-								className="xui-chart--measure"
+								className={`${NAME_SPACE}-chart--measure`}
 								x={tagLeft}
 								y={tagTop}
 								textAnchor={tagAnchor}

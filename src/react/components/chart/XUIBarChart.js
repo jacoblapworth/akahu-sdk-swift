@@ -23,6 +23,8 @@ TODO:
 
 + XUI icon new table version
 
++ Next / Previous button titles
+
 Design:
 -------
 

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {CHART_HEIGHT} from '../helpers/constants';
+import {CHART_HEIGHT, NAME_SPACE} from '../helpers/constants';
 
 class ChartEmpty extends Component {
 	render = () => {
 		const {emptyStateComponent, emptyMessage = 'There is no data to display', height: chartHeight = CHART_HEIGHT} = this.props;
 		const emptyHeight = chartHeight * 0.75;
-		const chartClassName = cn('xui-chart', `xui-chart-is-empty`, 'xui-text-align-center');
+		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`, 'xui-text-align-center');
 
 		return (
 			<div
@@ -15,7 +15,7 @@ class ChartEmpty extends Component {
 				style={{minHeight: `${emptyHeight}px`}}>
 
 				{emptyStateComponent || (
-					<div className="xui-chart--empty">
+					<div className={`${NAME_SPACE}-chart--empty`}>
 						<svg
 							className="xui-icon xui-icon-large"
 							viewBox="0 0 30 30">

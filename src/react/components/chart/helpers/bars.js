@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import {createChartPadding} from '../helpers';
 import {createArray} from '../../progressindicator/helpers/utilities';
-import {CHART_HEIGHT, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
+import {CHART_HEIGHT, NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
 import StandardLabel from '../customElements/StandardLabel';
@@ -170,9 +170,9 @@ const enrichParams = (state, props, chartTheme) => {
 	};
 	const XAxisLabel = xAxisLabelOptions[xAxisType];
 
-	const chartClassName = cn('xui-chart', {
-		[`xui-chart-has-pagination`]: hasPagination,
-		[`xui-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
+	const chartClassName = cn(`${NAME_SPACE}-chart`, {
+		[`${NAME_SPACE}-chart-has-pagination`]: hasPagination,
+		[`${NAME_SPACE}-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
 	});
 
 	return {

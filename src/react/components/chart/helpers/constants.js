@@ -8,3 +8,4 @@ export const Y_AXIS_WIDTH = 50;
 export const Y_AXIS_MIN_PADDING = 100;
 export const BAR_MIN_WIDTH = 34;
 export const BAR_MAX_WIDTH = 200;
+export const BAR_ACTIVE = 'hsla(0, 0%, 100%, 0.25)';

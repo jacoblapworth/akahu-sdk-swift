@@ -39,7 +39,6 @@ class Demo extends React.Component {
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				activeColor={"#51DAAF"}
 			/>
 		);
 	}
@@ -91,7 +90,6 @@ class Demo extends React.Component {
 				isStacked
 				bars={this.state.bars}
 				onBarClick={this.handleBarClick}
-				activeColor={"#51DAAF"}
 			/>
 		);
 	}

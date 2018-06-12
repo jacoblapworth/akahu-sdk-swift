@@ -82,7 +82,6 @@ const enrichParams = (state, props, chartTheme) => {
 		isStacked,
 		hasPagination: hasPaginationRaw,
 		onBarClick,
-		activeColor: activeColorRaw,
 		createBarToolTipMessage,
 		maxVisibleItems,
 		maxYValue: customMaxYValue = 0,
@@ -115,7 +114,6 @@ const enrichParams = (state, props, chartTheme) => {
 	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
 
 	// Colors...
-	const colorActive = activeColorRaw || 'hotpink';
 	const colorStacks = createBarColorStacks({barsData, custom: barColor, base: chartTheme.bar.colorScale});
 
 	// Tooltip...
@@ -189,7 +187,7 @@ const enrichParams = (state, props, chartTheme) => {
 		toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,
 
 		// Colors...
-		colorActive, colorStacks,
+		colorStacks,
 
 		// Y-Axis...
 		yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,

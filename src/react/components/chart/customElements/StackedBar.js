@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 // import PropTypes from 'prop-types';
 import {barChartTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
+import {BAR_ACTIVE} from '../helpers/constants';
 import {alwaysPositive} from '../helpers';
 
-const createStackTopThunk = (barBottom, barStacks, ratio) => stackIndex => {
+const createStackTop = ({barBottom, barStacks, ratio, stackIndex}) => {
 	const height = alwaysPositive(barStacks[stackIndex] * ratio);
 	const offset = (
 		barStacks
@@ -19,7 +20,7 @@ const createStackTopThunk = (barBottom, barStacks, ratio) => stackIndex => {
 // are so large (10 vs 100000000000000) that bars that have data appear to be
 // empty. In that regard the minimum value a bar with data can have is 1px
 // (to keep the semblance of a visible bar).
-const createStackHeightThunk = ratio => barStack => {
+const createStackHeight = ({barStack, ratio}) => {
 	const height = alwaysPositive(barStack * ratio);
 
 	return height ? Math.max(height, 1) : 0;
@@ -35,17 +36,58 @@ class StackedBar extends Component {
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
+	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
+		const {
+			onBarClick,
+			updateToolTip,
+			createToolTipMessage,
+			colorStacks,
+			index: barIndex,
+			datum: barData,
+		} = this.props;
+		const {isBarActive, activeStacks = []} = barData;
+		const testIsActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
+		const stackTop = createStackTop({barBottom, barStacks, ratio, stackIndex});
+		const stackHeight = createStackHeight({barStack, ratio});
+		const clickProps = onBarClick && {
+			onClick: event => onBarClick(event, {...barData, barIndex, stackIndex}),
+			style: {cursor: 'pointer'}
+		};
+		const toolTipProps = (updateToolTip && createToolTipMessage) && {
+			onMouseEnter: event => this.handleToolTipShow(event, {barData, barIndex, stackIndex}),
+			onMouseLeave: this.handleToolTipHide
+		};
+
+		return (
+			<Fragment key={stackIndex}>
+				<rect
+					{...{...clickProps, ...toolTipProps}}
+					x={barLeft}
+					y={stackTop}
+					width={barWidth}
+					height={stackHeight}
+					fill={colorStacks[stackIndex]}
+				/>
+				{testIsActive(stackIndex) && (
+					<rect
+						style={{pointerEvents: 'none'}}
+						x={barLeft}
+						y={stackTop}
+						width={barWidth}
+						height={stackHeight}
+						fill={BAR_ACTIVE}
+					/>
+				)}
+			</Fragment>
+		);
+	};
+
 	render = () => {
 		const {
 			chartId,
-			colorStacks,
-			colorActive,
-			onBarClick,
 			barWidth: barWidthRaw,
-			updateToolTip,
 			yAxisMaxValue,
 			yAxisHeight,
-			createToolTipMessage,
 
 			// Victory...
 			datum: barData,
@@ -53,7 +95,7 @@ class StackedBar extends Component {
 			y0: rawYOffset,
 		} = this.props;
 
-		const {y: barStacks, isBarActive, activeStacks = []} = barData;
+		const {y: barStacks} = barData;
 		if (!barStacks.length) return null;
 
 		const radius = 3;
@@ -66,9 +108,7 @@ class StackedBar extends Component {
 		const barTop = alwaysPositive(barBottom - (maxStack * ratio));
 		const barWidth = alwaysPositive(barWidthRaw - (divider * 2));
 		const barHeight = alwaysPositive((maxStack * ratio) + radius);
-		const testIsActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
-		const createStackTop = createStackTopThunk(barBottom, barStacks, ratio);
-		const createStackHeight = createStackHeightThunk(ratio);
+		const createStack = this.createStackThunk({ratio, barBottom, barLeft, barWidth, barStacks});
 
 		// The bar is setup into to main parts.
 		//
@@ -113,28 +153,7 @@ class StackedBar extends Component {
 				</defs>
 
 				<g mask={`url(#${maskId})`}>
-					{barStacks.map((barStack, stackIndex) => (
-						<rect
-							{...{
-								...(onBarClick && {
-									onClick: event => onBarClick(event, {...barData, barIndex, stackIndex}),
-									style: {cursor: 'pointer'}
-								}),
-								...((updateToolTip && createToolTipMessage) && {
-									onMouseEnter: event => this.handleToolTipShow(event, {barData, barIndex, stackIndex}),
-									onMouseLeave: this.handleToolTipHide
-								})
-							}}
-							key={stackIndex}
-							x={barLeft}
-							y={createStackTop(stackIndex)}
-							width={barWidth}
-							height={createStackHeight(barStack)}
-							fill={(colorActive && testIsActive(stackIndex))
-								? colorActive
-								: colorStacks[stackIndex]}
-						/>
-					))}
+					{barStacks.map(createStack)}
 				</g>
 			</g>
 		);

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import getGroupPosition, { testIsCloseEnough } from '../helpers';
 
 class HorizontallyCenterContent extends Component {
@@ -66,3 +66,9 @@ class HorizontallyCenterContent extends Component {
 }
 
 export default HorizontallyCenterContent;
+
+HorizontallyCenterContent.propTypes = {
+	wrapperWidth: PropTypes.number,
+	wrapperHeight: PropTypes.number,
+	children: PropTypes.element,
+};

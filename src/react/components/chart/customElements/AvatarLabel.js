@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
 import {baseFontTheme} from '../helpers/theme';
@@ -212,3 +212,14 @@ class AvatarLabel extends Component {
 }
 
 export default AvatarLabel;
+
+AvatarLabel.propTypes = {
+	labelWidth: PropTypes.number,
+	labelTop: PropTypes.number,
+	updateToolTip: PropTypes.func,
+	index: PropTypes.number,
+	text: PropTypes.string,
+	padding: PropTypes.shape({
+		bottom: PropTypes.number
+	}),
+};

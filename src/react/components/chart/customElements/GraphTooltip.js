@@ -1,18 +1,15 @@
 import React, {PureComponent} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import XUITooltip from '../../tooltip/XUITooltip';
 
 class GraphTooltip extends PureComponent {
 	render() {
-		const {
-			message, leftOffset,
-			position: {left: leftPosition, top, width, height, preferred = 'top'},
-		} = this.props;
+		const {message, offset, left, top, width, height, preferred} = this.props;
 		return (
 			<div
 				style={{
-					left: leftPosition - leftOffset,
 					top, height, width,
+					left: left - offset,
 					background: 'transparent',
 					pointerEvents: 'none',
 					position: 'absolute',
@@ -34,3 +31,20 @@ class GraphTooltip extends PureComponent {
 }
 
 export default GraphTooltip;
+
+GraphTooltip.propTypes = {
+	message: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.element,
+	]),
+	offset: PropTypes.number,
+	left: PropTypes.number,
+	top: PropTypes.number,
+	width: PropTypes.number,
+	height: PropTypes.number,
+	preferred: PropTypes.string,
+};
+
+GraphTooltip.defaultProps = {
+  preferred: 'top'
+};

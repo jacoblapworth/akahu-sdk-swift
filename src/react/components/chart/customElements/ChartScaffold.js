@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import cn from 'classnames';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
@@ -439,8 +439,8 @@ class ChartScaffold extends Component {
 
 					{hasToolTip && (
 						<GraphTooltip
+							{...toolTipPosition}
 							message={toolTipMessage}
-							position={toolTipPosition}
 
 							// Describes the current state of the contents horizontal scroll for
 							// either a native or pagination system. This is needed to get an
@@ -449,7 +449,7 @@ class ChartScaffold extends Component {
 							// place the tooltip inside the scrolling container as there are
 							// overflow edge cases that are frequently encountered on each edge
 							// of the wrapping container.
-							leftOffset={this.findScrollOffset(params) - chartLeft}
+							offset={this.findScrollOffset(params) - chartLeft}
 						/>
 					)}
 
@@ -461,4 +461,33 @@ class ChartScaffold extends Component {
 
 export default ChartScaffold;
 
-ChartScaffold.propTypes = {};
+ChartScaffold.propTypes = {
+	id: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	isTitleHidden: PropTypes.bool,
+	description: PropTypes.string,
+
+	keyLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+	]),
+
+	keyTitle: PropTypes.string,
+	bars: PropTypes.array,
+
+	barColor: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.arrayOf(PropTypes.string),
+	]),
+
+	isStacked: PropTypes.bool,
+	onBarClick: PropTypes.func,
+	createBarToolTipMessage: PropTypes.func,
+	maxVisibleItems: PropTypes.number,
+	maxYValue: PropTypes.number,
+	createYAxisLabelFormat: PropTypes.func,
+	xAxisType: PropTypes.string,
+	hasPagination: PropTypes.bool,
+	createPaginationMessage: PropTypes.func,
+	height: PropTypes.number,
+};

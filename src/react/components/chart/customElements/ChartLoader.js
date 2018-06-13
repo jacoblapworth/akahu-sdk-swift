@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../../loader/XUILoader';
-import {CHART_HEIGHT, NAME_SPACE} from '../helpers/constants';
+import {NAME_SPACE} from '../helpers/constants';
 
 class ChartLoader extends Component {
 	render = () => {
-		const {height: chartHeight = CHART_HEIGHT} = this.props;
+		const {height: chartHeight} = this.props;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);
 
 		return (
@@ -20,3 +20,7 @@ class ChartLoader extends Component {
 }
 
 export default ChartLoader;
+
+ChartLoader.propTypes = {
+	height: PropTypes.number,
+};

@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {barChartTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
 import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
@@ -161,3 +161,17 @@ class StackedBar extends Component {
 }
 
 export default StackedBar;
+
+StackedBar.propTypes = {
+	chartId: PropTypes.string,
+	onBarClick: PropTypes.func,
+	updateToolTip: PropTypes.func,
+	createToolTipMessage: PropTypes.func,
+	colorStacks: PropTypes.arrayOf(PropTypes.string),
+	datum: PropTypes.object,
+	index: PropTypes.number,
+	barWidth: PropTypes.number,
+	yAxisMaxValue: PropTypes.number,
+	yAxisHeight: PropTypes.number,
+	y0: PropTypes.number,
+};

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import arrowPathData from '@xero/xui-icon/icons/arrow';
@@ -46,3 +46,10 @@ class ContentPagination extends Component {
 }
 
 export default ContentPagination;
+
+ContentPagination.propTypes = {
+	current: PropTypes.number,
+	total: PropTypes.number,
+	updatePanel: PropTypes.func,
+	createMessage: PropTypes.func,
+};

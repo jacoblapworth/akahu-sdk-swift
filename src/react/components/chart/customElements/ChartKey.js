@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import DropDownToggled from '../../dropdown/DropDownToggled';
@@ -21,7 +21,7 @@ class ChartKey extends Component {
 	);
 
 	render() {
-		const {title, labels, colors} = this.props;
+		const {title, labels} = this.props;
 
 		const trigger = (
 			<XUIButton
@@ -56,3 +56,9 @@ class ChartKey extends Component {
 }
 
 export default ChartKey;
+
+ChartKey.propTypes = {
+	title: PropTypes.string,
+	labels: PropTypes.arrayOf(PropTypes.string),
+	colors: PropTypes.arrayOf(PropTypes.string),
+};

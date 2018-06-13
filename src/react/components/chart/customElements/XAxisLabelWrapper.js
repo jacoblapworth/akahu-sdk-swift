@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import HorizontallyCenterContent from './HorizontallyCenterContent';
 
 class XAxisLabelWrapper extends Component {
@@ -38,3 +38,12 @@ class XAxisLabelWrapper extends Component {
 }
 
 export default XAxisLabelWrapper;
+
+XAxisLabelWrapper.propTypes = {
+	shouldCalculateCenter: PropTypes.bool,
+	labelLeft: PropTypes.number,
+	labelTop: PropTypes.number,
+	labelWidth: PropTypes.number,
+	labelHeight: PropTypes.number,
+	children: PropTypes.element,
+};

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
@@ -139,3 +139,14 @@ class AbbreviationLabel extends Component {
 }
 
 export default AbbreviationLabel;
+
+AbbreviationLabel.propTypes = {
+	labelWidth: PropTypes.number,
+	labelTop: PropTypes.number,
+	updateToolTip: PropTypes.func,
+	index: PropTypes.number,
+	text: PropTypes.string,
+	padding: PropTypes.shape({
+		bottom: PropTypes.number
+	}),
+};

@@ -426,7 +426,7 @@ class Demo extends React.Component {
 				description="Sets a maximum threshold that can be exceeded if a stack requires it"
 				isStacked
 				bars={data}
-				maxYValue={6}
+				maxYValue={20}
 			/>
 		);
 	}

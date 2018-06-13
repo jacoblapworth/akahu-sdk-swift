@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const createTotalCharacterReducer = maxWidth => ({totalWidth = 20, totalChars = 0}, node) => {
 	const charWidth = node.getComputedTextLength();
@@ -44,9 +44,13 @@ class TruncatedText extends Component {
 		const {style, maxWidth, children: text, ...textProps} = this.props;
 		const createTextSpan = (character, key) => <tspan key={key} style={style}>{character}</tspan>;
 		const reducer = createTotalCharacterReducer(maxWidth);
-		const totalChars = charNodes
+		const totalCharsRaw = charNodes
 			? [...charNodes].reduce(reducer, {}).totalChars
 			: text.length;
+		// If the area is super restrictive (a really thin bar) the math can workout
+		// to no room for any letters to appear. In that regard we force one character
+		// to be squeezed in.
+		const totalChars = Math.max(totalCharsRaw, 1);
 
 		this.maxWidth = maxWidth;
 		this.text = text;
@@ -80,3 +84,13 @@ class TruncatedText extends Component {
 }
 
 export default TruncatedText
+
+TruncatedText.propTypes = {
+	className: PropTypes.string,
+	children: PropTypes.string,
+	textAnchor: PropTypes.string,
+	style: PropTypes.object,
+	x: PropTypes.number,
+	y: PropTypes.number,
+	maxWidth: PropTypes.number,
+};

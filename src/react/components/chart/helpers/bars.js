@@ -77,7 +77,7 @@ const enrichParams = (state, props, chartTheme) => {
 		isTitleHidden,
 		description: chartDescription,
 		keyLabel: keyLabelRaw,
-		keyTitle = 'Graph key',
+		keyTitle,
 		bars: barsDataRaw,
 		barColor: barColorRaw,
 		isStacked,
@@ -85,11 +85,11 @@ const enrichParams = (state, props, chartTheme) => {
 		onBarClick,
 		createBarToolTipMessage,
 		maxVisibleItems,
-		maxYValue: customMaxYValue = 0,
+		maxYValue: customMaxYValue,
 		createYAxisLabelFormat: createYAxisLabelFormatRaw,
-		xAxisType = 'standard',
+		xAxisType,
 		createPaginationMessage,
-		height: chartHeight = CHART_HEIGHT
+		height: chartHeight
 	} = props;
 
 	const {

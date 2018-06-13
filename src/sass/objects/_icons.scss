@@ -38,13 +38,13 @@
 // xLarge: 60px viewbox: `.xui-icon-xlarge`
 //
 // Markup:
-//  <svg focusable="false" class="xui-icon">
+//  <svg focusable="false" class="xui-icon xui-blobicon">
 //		<use xlink:href="#xui-icon-search" role="presentation"/>
 //	</svg>
-//  <svg focusable="false" class="xui-icon xui-icon-large">
+//  <svg focusable="false" class="xui-icon xui-blobicon xui-icon-large">
 //		<use xlink:href="#xui-icon-search" role="presentation"/>
 //	</svg>
-//  <svg focusable="false" class="xui-icon xui-icon-xlarge">
+//  <svg focusable="false" class="xui-icon xui-blobicon xui-icon-xlarge">
 //		<use xlink:href="#xui-icon-search" role="presentation"/>
 //	</svg>
 //
@@ -61,12 +61,12 @@
 // Markup:
 //  <button class='xui-button xui-button-main'>
 //  	Button
-//  	<svg focusable="false" class="xui-icon xui-icon-inline">
+//  	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-inline">
 //			<use xlink:href="#xui-icon-caret" role="presentation"/>
 //		</svg>
 // 	</button>
 //  <p class='xui-button xui-margin-left'>
-//  	<svg focusable="false" class="xui-icon xui-icon-inline">
+//  	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-inline">
 //			<use xlink:href="#xui-icon-tag" role="presentation"/>
 //		</svg>
 //  	Text
@@ -103,34 +103,34 @@
 // Black faint: `.xui-icon-color-black-faint`
 //
 // Markup:
-//	<svg focusable="false" class="xui-icon">
+//	<svg focusable="false" class="xui-icon xui-blobicon">
 // 		<use xlink:href="#xui-icon-filter" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-standard">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-standard">
 // 		<use xlink:href="#xui-icon-contact" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-blue">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-blue">
 // 		<use xlink:href="#xui-icon-xero" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-red">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-red">
 // 		<use xlink:href="#xui-icon-stop" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-green">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-green">
 // 		<use xlink:href="#xui-icon-checkbox-check" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-pdf">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-file-pdf">
 // 		<use xlink:href="#xui-icon-file-pdf" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-file-spreadsheet">
 // 		<use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white xui-background-grey-1">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-white xui-background-grey-1">
 // 		<use xlink:href="#xui-icon-notification" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white-muted xui-background-grey-1">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-white-muted xui-background-grey-1">
 // 		<use xlink:href="#xui-icon-link" role="presentation"/>
 // 	</svg>
-//	<svg focusable="false" class="xui-icon xui-icon-color-white-faint xui-background-grey-1">
+//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-white-faint xui-background-grey-1">
 // 		<use xlink:href="#xui-icon-print" role="presentation"/>
 // 	</svg>
 //
@@ -147,16 +147,16 @@
 // 270deg: 		`.xui-u-rotate-270`
 //
 // Markup:
-// <svg focusable="false" class="xui-icon">
+// <svg focusable="false" class="xui-icon xui-blobicon">
 // 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
 // </svg>
-// <svg focusable="false" class="xui-icon xui-u-rotate-90">
+// <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-90">
 // 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
 // </svg>
-// <svg focusable="false" class="xui-icon xui-u-rotate-180">
+// <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-180">
 // 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
 // </svg>
-// <svg focusable="false" class="xui-icon xui-u-rotate-270">
+// <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-270">
 // 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
 // </svg>
 //

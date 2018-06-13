@@ -11,7 +11,7 @@ module.exports = function (handlebars) {
 					</a>
 					{{#if menu}}
 						<label for="ds-input-{{referenceURI}}" class="ds-nav--item--icon">
-							<svg class="xui-icon xui-icon-rotate-270 ds-nav--item--icon-fill"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
+							<svg class="xui-icon xui-blobicon xui-icon-rotate-270 ds-nav--item--icon-fill"> <use xlink:href="#xui-icon-arrow" role="presentation"/></svg>
 						</label>
 					{{/if}}
 				</div>
@@ -54,7 +54,7 @@ module.exports = function (handlebars) {
 				</option>
 			{{/ifDepth}} {{/each}}
 			</select>
-			<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+			<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-standard xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 		</nav>
 	{{/ifSections}}
 	`);

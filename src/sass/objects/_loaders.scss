@@ -237,7 +237,7 @@
 //	<div class="xui-mask xui-mask-is-active" aria-hidden="false">
 // 	<section class="xui-modal xui-modal-layout" role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-text">
 //     <button type="button" class="xui-button xui-button-icon xui-modal--close xui-u-hidden-content" title="Close" aria-label="Close">
-//       <svg focusable="false" class="xui-icon"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-cross" role="presentation"></use></svg>
+//       <svg focusable="false" class="xui-icon xui-blobicon"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-cross" role="presentation"></use></svg>
 //     </button>
 //     <header class="xui-modal--header xui-padding-left-large xui-u-hidden-content">
 //       <h3 id="modal-heading" class="xui-modal--heading">Modal title</h3>
@@ -262,7 +262,7 @@
 // 								<option>View only</option>
 // 								<option>View and edit</option>
 // 							</select>
-// 							<svg focusable="false" class="xui-icon xui-icon-color-standard xui-select--caret">
+// 							<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-standard xui-select--caret">
 // 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#xui-icon-caret" role="presentation"></use>
 // 							</svg>
 // 						</div>
@@ -321,7 +321,7 @@
 // 		</div>
 // 		<div class="xui-margin-horizontal-small">
 // 			<div class="xui-u-flex" data-ref="toggled-wrapper">
-// 				<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button"><svg class="xui-icon" viewbox="0 0 30 30">
+// 				<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button"><svg class="xui-icon xui-blobicon" viewbox="0 0 30 30">
 // 				<use xlink:href="#xui-icon-overflow" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>
 // 			</div>
 // 		</div>

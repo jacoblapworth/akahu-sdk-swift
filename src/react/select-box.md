@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
 	<a href="../section-building-blocks-controls-select.html">Select Box in the XUI Documentation</a>
@@ -18,8 +18,9 @@
 
 In the following example, the `buttonContent` of `SelectBox` is being set to value of the selected item in the example's state.
 
-```
+```jsx
 const { Component } = require('react');
+const XUIIcon = require('./components/icon/XUIIcon').default;
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
 const bank = require('@xero/xui-icon/icons/bank').default;
 
@@ -30,7 +31,7 @@ const banks = [
 	'Westpac',
 ];
 
-class MiniApp extends Component {
+class SelectBoxExample extends Component {
 	constructor (props, context) {
 		super(props, context);
 
@@ -62,7 +63,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					buttonContent={
 						<span>
-							<XUIIcon isInline path={bank} className="xui-margin-right-none"/>
+							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
 					}
@@ -88,14 +89,14 @@ class MiniApp extends Component {
 	}
 }
 
-	<MiniApp />
+<SelectBoxExample />
 ```
 
 ### Multi Select
 
 You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
 
-```
+```jsx
 const { Component } = require('react');
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
 
@@ -156,8 +157,9 @@ class MiniApp extends Component {
 
 The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop.
 
-```
+```jsx
 const { Component } = require('react');
+const XUIIcon = require('./components/icon/XUIIcon').default;
 const TextHelpers = require ('./components/select-box/TextHelpers').default;
 const bank = require('@xero/xui-icon/icons/bank').default;
 
@@ -200,7 +202,7 @@ class MiniApp extends Component {
 					label="Select a Bank"
 					buttonContent={
 						<span>
-							<XUIIcon isInline path={bank} className="xui-margin-right-none"/>
+							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
 							{TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
 						</span>
 					}
@@ -227,5 +229,5 @@ class MiniApp extends Component {
 	}
 }
 
-	<MiniApp />
+<MiniApp />
 ```

@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import XUIIcon from '../XUIIcon';
 import iconData from '@xero/xui-icon/lib/private/iconData';
-import { sizeClasses, rotationClasses, colorClasses } from '../private/constants';
+import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -28,12 +28,11 @@ storiesWithKnobs.add('Playground', () => {
 
 	return (
 		<XUIIcon
-			path={select('Icon', swappedIconData, iconData.other.xero)}
-			size={select('Size', Object.keys(sizeClasses), 'large')}
+			icon={select('Icon', swappedIconData, iconData.other.xero)}
+			size={select('Size', Object.keys(wrapperSizeClasses), 'large')}
 			rotation={rotation > 0 ? rotation : null}
 			color={select('Color', Object.keys(colorClasses), 'standard')}
-			isInline={boolean('Inline', false)}
-			viewBox={text('View Box', '0 0 30 30')}
+			isBoxed={boolean('Boxed', true)}
 			title={text('Title', '')}
 			desc={text('Desc', '')}
 			role={text('Role', undefined)}
@@ -62,13 +61,13 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 
-		let example;
-		if (subVariants) {
-			example = generateSubVariants(subVariants, variationMinusStoryDetails);
-		} else {
-			example = <XUIIcon {...variationMinusStoryDetails} />
-		}
+		return subVariants
+			? generateSubVariants(subVariants, variationMinusStoryDetails)
+			: (
+				<div className="capture">
+					<XUIIcon {...variationMinusStoryDetails} />
+				</div>
+			);
 
-		return example;
 	});
 });

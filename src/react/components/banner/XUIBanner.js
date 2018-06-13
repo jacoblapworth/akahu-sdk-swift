@@ -22,7 +22,7 @@ export default function XUIBanner(props) {
 
 	const closeButton = onCloseClick && (
 		<button data-automationid={closeQAHook} className={cn(`${ns}-button`, `${ns}-button-icon`, `${ns}-banner--close`)} title="Close" onClick={onCloseClick}>
-			<XUIIcon path={crossIcon} />
+			<XUIIcon icon={crossIcon} isBoxed />
 		</button>
 	);
 

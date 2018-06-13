@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
 	<a href="../section-compounds-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
@@ -12,23 +12,23 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 <div class="xui-margin-vertical">
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="#input">Input</a></span>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="#avatar">Avatar</a></span>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="#dropdown">Dropdown</a></span>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="#pill">Pill</a></span>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
 		<span><a href="#tag">Tag</a></span>
 	</div>
 </div>
@@ -291,6 +291,7 @@ When using `XUIAutocompleter` for selecting a single option, use the `leftElemen
 
 ```jsx
 const { boldMatch, decorateSubStr } = require('./autocompleter');
+const XUIIcon = require('./components/icon/XUIIcon').default;
 const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutocompleterEmptyState').default;
 const XUITextInputSideElement = require('./components/textInput/XUITextInputSideElement').default;
 const { Component } = require('react');
@@ -377,7 +378,7 @@ class SingleSelectExample extends Component {
 		const rightElement = selectedPersonId != null && (
 			<XUITextInputSideElement type="icon">
 				<XUIButton variant="icon" onClick={() => this.selectPerson(null)}>
-					<XUIIcon path={crossIcon} />
+					<XUIIcon icon={crossIcon} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		);

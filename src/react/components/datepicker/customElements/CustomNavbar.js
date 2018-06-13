@@ -146,7 +146,7 @@ export default class CustomNavbar extends PureComponent {
 					aria-label={labels.previousMonth}
 					qaHook={qaHook && `${qaHook}--previous-month-button`}
 				>
-					<XUIIcon path={arrow} rotation="90" />
+					<XUIIcon icon={arrow} rotation="90" isBoxed />
 				</XUIButton>
 
 				<div className="xui-datepicker--heading-dates">
@@ -162,7 +162,7 @@ export default class CustomNavbar extends PureComponent {
 					aria-label={labels.nextMonth}
 					qaHook={qaHook && `${qaHook}--next-month-button`}
 				>
-					<XUIIcon path={arrow} rotation="270" />
+					<XUIIcon icon={arrow} rotation="270" isBoxed />
 				</XUIButton>
 			</header>
 		);

@@ -193,23 +193,26 @@
 	fill: currentColor;
 	fill-rule: evenodd;
 	flex: none; // Prevent distortion if parent has display: flex
-	height: $xui-icon-standard;
 	pointer-events: none; // Don't hog the cursor if inside buttons/links
+}
+
+.#{$ns}-blobicon {
+	height: $xui-icon-standard;
 	width: $xui-icon-standard;
+
+	&.#{$ns}-icon-inline {
+		margin: -10px -8px -6px;
+		vertical-align: middle;
+	}
 }
 
-.#{$ns}-icon-inline {
-	margin: -10px -8px -6px;
-	vertical-align: middle;
-}
-
-.#{$ns}-icon-large,
+.#{$ns}-blobicon-large,
 .#{$ns}-iconwrapper-large {
 	height: $xui-icon-large;
 	width: $xui-icon-large;
 }
 
-.#{$ns}-icon-xlarge,
+.#{$ns}-blobicon-xlarge,
 .#{$ns}-iconwrapper-xlarge {
 	height: $xui-icon-xlarge;
 	width: $xui-icon-xlarge;

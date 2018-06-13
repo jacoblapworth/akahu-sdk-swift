@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
 	<a href="../section-building-blocks-controls-toggle.html">Toggle in the XUI Documentation</a>
@@ -49,7 +49,8 @@ const radioToggle = {
 
 To create `XUIToggleOption`s that only contain icons, `icon` should be passed to the `layout` prop on `XUIToggle`.
 
-```
+```js
+const XUIIcon = require('./components/icon/XUIIcon').default;
 const bold = require('@xero/xui-icon/icons/bold').default
 const italic = require('@xero/xui-icon/icons/italic').default
 const underline = require('@xero/xui-icon/icons/underline').default;
@@ -63,9 +64,9 @@ const iconToggle = {
 <div>
 	<div className="xui-margin-bottom">
 		<XUIToggle>
-			<XUIToggleOption { ...iconToggle } isChecked><XUIIcon path={bold} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle }><XUIIcon path={italic} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle }><XUIIcon path={underline} /></XUIToggleOption>
+			<XUIToggleOption { ...iconToggle } isChecked><XUIIcon icon={bold} /></XUIToggleOption>
+			<XUIToggleOption { ...iconToggle }><XUIIcon icon={italic} /></XUIToggleOption>
+			<XUIToggleOption { ...iconToggle }><XUIIcon icon={underline} /></XUIToggleOption>
 		</XUIToggle>
 	</div>
 </div>

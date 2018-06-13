@@ -4,6 +4,7 @@
 const DropDownToggled = require('./DropDownToggled').default;
 const DropDownFooter = require('./DropDownFooter').default;
 const Pickitem = require('../picklist/Pickitem').default;
+const XUIIcon = require('../icon/XUIIcon').default;
 const checked = require ( '@xero/xui-icon/icons/checkbox-check' ).default;
 const searchPath = require ( '@xero/xui-icon/icons/search' ).default;
 const plusIcon = require ( '@xero/xui-icon/icons/plus' ).default;
@@ -115,7 +116,7 @@ class XDD extends Component {
 					fieldClassName="xui-u-fullwidth"
 					leftElement={
 						<XUITextInputSideElement type="icon">
-							<XUIIcon path={searchPath} />
+							<XUIIcon icon={searchPath} isBoxed />
 						</XUITextInputSideElement>
 					}
 				/>
@@ -129,7 +130,7 @@ class XDD extends Component {
 						<span>
 							<XUIIcon
 								isInline
-								path={plusIcon}
+								icon={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Fruit

@@ -47,7 +47,7 @@ const TextInputWrapper = props => {
 			case 'icon':
 				return (
 					<XUITextInputSideElement type="icon" alignment={sideElementAlignment}>
-						<XUIIcon path={clearPath} />
+						<XUIIcon icon={clearPath} isBoxed />
 					</XUITextInputSideElement>
 				);
 			case 'iconWithBackground':
@@ -57,7 +57,7 @@ const TextInputWrapper = props => {
 						backgroundColor={'facebook'}
 						alignment={sideElementAlignment}
 					>
-						<XUIIcon path={facebookPath} />
+						<XUIIcon icon={facebookPath} isBoxed />
 					</XUITextInputSideElement>
 				);
 			case 'text':

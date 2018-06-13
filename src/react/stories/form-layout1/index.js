@@ -183,7 +183,7 @@ test.add(storyNames.formLayout, () => {
 				<div className="xui-panel xui-page-width-standard xui-margin-vertical-xlarge">
 
 					<Form noLayout ref={c => this._form = c}>
-						<header className="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered">
+						<header className="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
 							<div className="xui-panel--heading xui-margin-left-small">All major inputs in various formats</div>
 						</header>
 
@@ -439,7 +439,7 @@ test.add(storyNames.formLayout, () => {
 
 						<footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">
 							<p className="xui-margin-right">
-								The results of the form are published as an object to the <XUITag>console</XUITag> when you click this button <XUIIcon isInline path={arrow} rotation="270" />
+								The results of the form are published as an object to the <XUITag>console</XUITag> when you click this button <XUIIcon icon={arrow} rotation="270" />
 							</p>
 							<XUIButton
 								variant="primary"

@@ -51,11 +51,15 @@
 		fill: $xui-color-grey-alpha-4;
 		opacity: 1;
 	}
-}
 
-.#{$ns}-styledcheckboxradio .#{$ns}-icon {
-	flex-shrink: 0; // Prevent SVG from shrinking when label text is long
-	pointer-events: none;
+	.#{$ns}-iconwrapper {
+		flex-shrink: 0; // Prevent SVG from shrinking when label text is long
+		pointer-events: none;
+	}
+
+	.#{$ns}-icon {
+		overflow: visible;
+	}
 }
 
 .#{$ns}-styledcheckboxradio--focus,
@@ -91,13 +95,13 @@
 .#{$ns}-styledcheckboxradio--input {
 	@include xui-position-offscreen-input;
 
-	&:hover + .#{$ns}-icon {
+	&:hover + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			stroke: $xui-color-grey-3;
 		}
 	}
 
-	&:focus:not(:hover) + .#{$ns}-icon {
+	&:focus:not(:hover) + .#{$ns}-iconwrapper {
 
 		// Focus layer to match box-shadow on standard HTML inputs ($xui-shadow-focus)
 		// TODO: Remove focus layer and use CSS filters on main layer instead
@@ -113,7 +117,7 @@
 		}
 	}
 
-	&:active + .#{$ns}-icon {
+	&:active + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--focus {
 			opacity: 0; // Hide focus
 			stroke: transparent;
@@ -124,7 +128,7 @@
 		}
 	}
 
-	&:checked + .#{$ns}-icon {
+	&:checked + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: $xui-color-xero-blue;
 			stroke: $xui-color-xero-blue;
@@ -136,29 +140,29 @@
 		}
 	}
 
-	&:checked:hover + .#{$ns}-icon,
-	&:checked:focus + .#{$ns}-icon {
+	&:checked:hover + .#{$ns}-iconwrapper,
+	&:checked:focus + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: darken($xui-color-xero-blue, 7%);
 			stroke: darken($xui-color-xero-blue, 7%);
 		}
 	}
 
-	&:checked:active + .#{$ns}-icon {
+	&:checked:active + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: $xui-color-xero-blue;
 			stroke: darken($xui-color-xero-blue, 7%);
 		}
 	}
 
-	&[type=checkbox]:indeterminate + .#{$ns}-icon {
+	&[type=checkbox]:indeterminate + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: $xui-color-xero-blue;
 			stroke: $xui-color-xero-blue;
 		}
 	}
 
-	&:indeterminate + .#{$ns}-icon {
+	&:indeterminate + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--check {
 			fill: transparent;
 			opacity: 0; // Hide checkmark
@@ -171,8 +175,8 @@
 	}
 
 	// Indeterminate, hover/focus
-	&:indeterminate:hover + .#{$ns}-icon,
-	&:indeterminate:focus + .#{$ns}-icon {
+	&:indeterminate:hover + .#{$ns}-iconwrapper,
+	&:indeterminate:focus + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			stroke: $xui-color-grey-alpha-3;
 
@@ -184,7 +188,7 @@
 	}
 
 	// Indeterminate, active
-	&:indeterminate:active + .#{$ns}-icon {
+	&:indeterminate:active + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: $xui-color-xero-blue;
 			stroke: darken($xui-color-xero-blue, 7%);
@@ -193,8 +197,8 @@
 
 	// Disabled styles
 	// ===============
-	&:disabled + .#{$ns}-icon,
-	&:disabled:hover + .#{$ns}-icon {
+	&:disabled + .#{$ns}-iconwrapper,
+	&:disabled:hover + .#{$ns}-iconwrapper {
 		.#{$ns}-styledcheckboxradio--main {
 			fill: $xui-color-grey-6;
 			stroke: $xui-color-grey-alpha-4;

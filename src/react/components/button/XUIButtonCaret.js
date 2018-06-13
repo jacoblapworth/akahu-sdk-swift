@@ -2,14 +2,11 @@ import React from 'react';
 import XUIIcon from '../icon/XUIIcon';
 import caret from '@xero/xui-icon/icons/caret';
 import PropTypes from "prop-types";
-import cn from 'classnames';
+import cn from "classnames";
 import {ns} from "../helpers/xuiClassNamespace";
 
 export default function XUIButtonCaret({className, ...props}) {
-	const classes = cn(className, `${ns}-button--caret`);
-	return (
-		<XUIIcon path={caret} className={classes} {...props}/>
-	);
+	return <XUIIcon className={cn(className, `${ns}-button--caret`)} icon={caret} {...props} />;
 }
 
 XUIButtonCaret.propTypes = {

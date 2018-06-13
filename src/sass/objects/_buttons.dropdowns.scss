@@ -1,23 +1,19 @@
 @import "../mixins";
+@import "../vars";
 
 .#{$ns}-button--caret {
-	@include xui-margin-top(-7px);
-	@include xui-margin-left(-6px);
-	@include xui-margin-right(-10px);
-	@include xui-margin-bottom(-11px);
+	margin-left: $xui-s-xsmall;
+	vertical-align: middle;
 
-	// The bizarre magic number BS done above is so that the caret will sit nicely inline with some text when button
-	// text is the sibling of a caret button.  Until we can revamp all the icon svgs to not include enough whitespace
-	// to make everything look good in a 30x30 box, we can just undo all the magic number BS above and let the svg
-	// determine the width of the split button and nudge it down using top margin to line up with text consistently.
-	//
-	// @author dev-johnsanders
 	.#{$ns}-button-split & {
-		margin: 4px 0 0;
+		@include xui-margin-horizontal($xui-s-small);
 	}
 
-	.#{$ns}-button-split.#{$ns}-button-small & {
-		margin: 0 0 -4px;
+	&.#{$ns}-blobicon {
+		@include xui-margin-top(-7px);
+		@include xui-margin-left(-6px);
+		@include xui-margin-right(-10px);
+		@include xui-margin-bottom(-11px);
 	}
 }
 

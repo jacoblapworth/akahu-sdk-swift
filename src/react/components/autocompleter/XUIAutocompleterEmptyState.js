@@ -14,7 +14,7 @@ const XUIAutocompleterEmptyState = props => (
 		data-automationid={props.qaHook}
 		id={props.id}
 	>
-		<XUIIcon path={props.iconPath} size="large" />
+		<XUIIcon icon={props.icon} size="large" isBoxed />
 		{props.children}
 	</div>
 );
@@ -22,14 +22,14 @@ const XUIAutocompleterEmptyState = props => (
 XUIAutocompleterEmptyState.propTypes = {
 	qaHook: PropTypes.string,
 	id: PropTypes.string,
-	iconPath: PropTypes.string,
+	icon: PropTypes.object,
 	children: PropTypes.node,
 	className: PropTypes.string
 };
 
 XUIAutocompleterEmptyState.defaultProps = {
 	children: 'No results found',
-	iconPath: search,
+	icon: search,
 };
 
 export default XUIAutocompleterEmptyState;

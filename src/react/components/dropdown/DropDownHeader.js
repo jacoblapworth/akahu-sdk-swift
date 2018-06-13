@@ -49,7 +49,7 @@ export default class DropDownHeader extends PureComponent {
 				aria-label={backButtonLabel}
 				qaHook={qaHook != null ? `${qaHook}--button-back` : null}
 			>
-				<XUIIcon path={back} />
+				<XUIIcon icon={back} isBoxed />
 			</XUIButton> : null;
 
 		const secondaryButton = onSecondaryButtonClick ?

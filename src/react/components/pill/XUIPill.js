@@ -93,7 +93,7 @@ export default class XUIPill extends Component {
 				aria-label={deleteButtonLabel}
 				qaHook={qaHook && `${qaHook}--delete`}
 			>
-				<XUIIcon path={crossSmall} />
+				<XUIIcon icon={crossSmall} isBoxed />
 			</XUIButton>
 		);
 

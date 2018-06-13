@@ -34,7 +34,7 @@ function createItems(items, suffix) {
 
 const toggledItems = AddIdPropsToTextList(LongListLongItems);
 
-const button = <span><XUIIcon isInline path={education} className="xui-margin-right-none"/>Choose a classic book</span>;
+const button = <span><XUIIcon icon={education} className="xui-margin-right-xsmall"/>Choose a classic book</span>;
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -59,7 +59,7 @@ storiesWithKnobs.add('Playground', () => {
 			defaultLayout={boolean('defaultLayout', true)}
 			buttonContent={
 				<span>
-					<XUIIcon isInline path={education} className="xui-margin-right-none"/>
+					<XUIIcon icon={education} className="xui-margin-right-xsmall"/>
 					{text('placeholder text', 'Choose a classic book')}
 				</span>
 			}

@@ -9,10 +9,7 @@ export default class EmptyState extends PureComponent {
 
 		return (
 			<div className={`${ns}-u-flex ${ns}-u-flex-horizontallycentered ${ns}-u-flex-verticallycentered ${ns}-u-flex-vertical ${ns}-textcolor-muted`}>
-				<XUIIcon
-					path={tablePathData}
-					size="large"
-				/>
+				<XUIIcon icon={tablePathData} size="large" isBoxed />
 				<div>{this.props.children}</div>
 			</div>
 		);

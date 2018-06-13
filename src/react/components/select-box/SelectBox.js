@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
-import caret from '@xero/xui-icon/icons/caret';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUIButton from '../button/XUIButton';
-import XUIIcon from '../icon/XUIIcon';
+import XUIButtonCaret from '../button/XUIButtonCaret';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
 import {ns} from "../helpers/xuiClassNamespace";
@@ -51,7 +50,7 @@ export default class SelectBox extends Component {
 		const { props } = selectBox;
 		const containerClasses = props.containerClasses || '';
 		const buttonClasses = cn(
-			props.isTextTruncated && `${ns}-text-truncated`,
+			props.isTextTruncated && props.buttonVariant && `${ns}-text-truncated`,
 			!props.buttonVariant && `${ns}-select--button`,
 			props.buttonClasses
 		);
@@ -66,8 +65,12 @@ export default class SelectBox extends Component {
 			props.labelHidden && `${ns}-u-hidden-visually`
 		);
 		const dropDownClasses = props.dropDownClasses;
-		const caretClasses = props.buttonVariant ? `${ns}-button--caret` : `${ns}-select--caret`;
-
+		const caretClasses = !props.buttonVariant ? `${ns}-select--caret` : '';
+		const content = !props.buttonVariant ? (
+			<span className={`${ns}-select--content`}>
+				{props.buttonContent}
+			</span>
+		) : props.buttonContent;
 		const trigger = (
 			<XUIButton
 				className={buttonClasses}
@@ -76,13 +79,8 @@ export default class SelectBox extends Component {
 				variant={props.buttonVariant}
 				qaHook={setQaHook(props.qaHook, qaHooks.button)}
 			>
-				{props.buttonContent}
-				<XUIIcon
-					className={caretClasses}
-					path={caret}
-					title="Toggle List"
-					qaHook={setQaHook(props.qaHook, qaHooks.buttonIcon)}
-				/>
+				{content}
+				<XUIButtonCaret className={caretClasses} title="Toggle List" qaHook={setQaHook(props.qaHook, qaHooks.buttonIcon)}/>
 			</XUIButton>
 		);
 
@@ -111,21 +109,21 @@ export default class SelectBox extends Component {
 				<div className={inputGroupClasses} data-automationid={setQaHook(props.qaHook, qaHooks.inputGroup)}>
 					{
 						!props.children || (Array.isArray(props.children) && !props.children.length)
-							?
-							trigger
-							:
-							<DropDownToggled
-								ref={c => selectBox.ddt = c}
-								trigger={trigger}
-								dropdown={dropdown}
-								id={selectBox.state.ariaId}
-								onClose={props.onDropdownHide}
-								closeOnSelect={props.closeAfterSelection}
-								isHidden={!props.isOpen}
-								forceDesktop={props.forceDesktop}
-								matchTriggerWidth={props.matchTriggerWidth}
-								qaHook={setQaHook(props.qaHook, qaHooks.dropdownToggled)}
-							/>
+							? trigger
+							: (
+								<DropDownToggled
+									ref={c => selectBox.ddt = c}
+									trigger={trigger}
+									dropdown={dropdown}
+									id={selectBox.state.ariaId}
+									onClose={props.onDropdownHide}
+									closeOnSelect={props.closeAfterSelection}
+									isHidden={!props.isOpen}
+									forceDesktop={props.forceDesktop}
+									matchTriggerWidth={props.matchTriggerWidth}
+									qaHook={setQaHook(props.qaHook, qaHooks.dropdownToggled)}
+								/>
+							)
 					}
 				</div>
 			</div>
@@ -179,7 +177,7 @@ SelectBox.propTypes = {
 	/** Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,
 
-	/** Optionally toggles the text truncation */
+	/** Optionally toggles the text truncation - can only be set to false when using the button variant */
 	isTextTruncated: PropTypes.bool,
 
 	/** Force the desktop experience, even if the viewport is narrow enough for mobile */

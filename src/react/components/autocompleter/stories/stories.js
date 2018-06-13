@@ -193,8 +193,7 @@ class DetailedListExample extends Component {
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
-								isInline
-								path={plusIcon}
+								icon={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Person
@@ -339,9 +338,10 @@ class SecondarySearchExample extends React.Component {
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
-								isInline
-								path={plusIcon}
+								icon={plusIcon}
 								className="xui-margin-right-xsmall"
+
+
 							/>
 							Add New Person
 						</span>

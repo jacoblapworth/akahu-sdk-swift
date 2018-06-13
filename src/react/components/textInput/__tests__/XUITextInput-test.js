@@ -237,7 +237,7 @@ describe('<XUITextInput>', () => {
 		it('should render side elements correctly', () => {
 			const sideElement = (
 				<XUITextInputSideElement type="icon">
-					<XUIIcon path={accessibility} />
+					<XUIIcon icon={accessibility} isBoxed />
 				</XUITextInputSideElement>
 			);
 			const wrapper = renderer.create(

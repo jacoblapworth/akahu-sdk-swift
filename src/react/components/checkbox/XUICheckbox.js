@@ -2,9 +2,6 @@ import '../helpers/xuiGlobalChecks';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import checkboxCheck from '@xero/xui-icon/icons/checkbox-check';
-import checkboxIndeterminate from '@xero/xui-icon/icons/checkbox-indeterminate';
-import checkboxMain from '@xero/xui-icon/icons/checkbox-main';
 import {baseClass} from './constants';
 import {ns} from "../helpers/xuiClassNamespace";
 
@@ -37,15 +34,28 @@ const onLabelClick = e => {
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  *
  */
-const buildSvgCheckbox = (qaHook, {svgClassName, iconMainPath, iconCheckPath, iconIndeterminatePath}) => {
+const buildSvgCheckbox = (qaHook, {svgClassName, iconMain}) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
+	const createPathWithClass = className => (
+		<path
+			d={iconMain.path}
+			className={className}
+			role="presentation"
+		/>
+	);
 	return (
-		<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
-			<path d={iconMainPath || checkboxMain} className={`${baseClass}--focus`} role="presentation" />
-			<path d={iconMainPath || checkboxMain} className={`${baseClass}--main`} role="presentation" />
-			{iconMainPath && !iconCheckPath ? null : <path d={iconCheckPath || checkboxCheck} className={`${baseClass}--check`} role="presentation" />}
-			{iconMainPath && !iconIndeterminatePath ? null : <path d={iconIndeterminatePath || checkboxIndeterminate} className={`${baseClass}--indeterminate`} role="presentation" />}
-		</svg>
+		<div className={`${ns}-iconwrapper`}>
+			<svg
+				className={svgClasses}
+				data-automationid={qaHook && `${qaHook}--icon`}
+				width={iconMain.width}
+				height={iconMain.height}
+				viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
+			>
+				{createPathWithClass(`${baseClass}--focus`)}
+				{createPathWithClass(`${baseClass}--main`)}
+			</svg>
+		</div>
 	);
 };
 
@@ -70,7 +80,7 @@ const buildHtmlCheckbox = (qaHook, htmlClassName) => {
  *
  */
 const buildCheckbox = (qaHook, htmlClassName, svgSettings) => {
-	if (svgSettings.iconMainPath || svgSettings.iconCheckPath || svgSettings.iconIndeterminatePath) {
+	if (svgSettings.iconMain) {
 		return buildSvgCheckbox(qaHook, svgSettings);
 	}
 	return buildHtmlCheckbox(qaHook, htmlClassName);
@@ -102,9 +112,7 @@ export default class XUICheckbox extends Component {
 			children,
 			className,
 			qaHook,
-			iconCheckPath,
-			iconIndeterminatePath,
-			iconMainPath,
+			iconMain,
 			isDefaultChecked,
 			isChecked,
 			isDisabled,
@@ -146,9 +154,7 @@ export default class XUICheckbox extends Component {
 		};
 		const svgSettings = {
 			svgClassName,
-			iconMainPath,
-			iconCheckPath,
-			iconIndeterminatePath
+			iconMain,
 		};
 
 		// If the user has not passed in anything for the isChecked prop, we need to set the
@@ -185,14 +191,12 @@ XUICheckbox.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** The icon path to use for the checkmark */
-	iconCheckPath: PropTypes.string,
-
-	/** The icon path to use for the indeterminate mark */
-	iconIndeterminatePath: PropTypes.string,
-
 	/** The icon path to use for the checkbox */
-	iconMainPath: PropTypes.string,
+	iconMain: PropTypes.shape({
+		path: PropTypes.string.isRequired,
+		height: PropTypes.number.isRequired,
+		width: PropTypes.number.isRequired,
+	}),
 
 	/** The input is selected */
 	isChecked: PropTypes.bool,

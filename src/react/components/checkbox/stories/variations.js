@@ -56,7 +56,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with an icon',
 		labelText: 'Icon Example',
-		iconMainPath: starIcon
+		iconMain: starIcon
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

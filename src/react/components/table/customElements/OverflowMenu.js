@@ -14,10 +14,7 @@ class OverflowMenu extends PureComponent {
 		<XUIButton
 			variant="icon"
 			className={`${ns}-button-icon-large`}>
-			<XUIIcon
-				path={overflowPathData}
-				className={`${ns}-u-flex-inherit`}
-			/>
+			<XUIIcon icon={overflowPathData} className={`${ns}-u-flex-inherit`} isBoxed />
 		</XUIButton>
 	);
 

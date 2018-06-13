@@ -1296,18 +1296,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         <div
           className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
         >
-          <svg
-            className="xui-icon xui-icon-large"
+          <div
+            className="xui-iconwrapper xui-iconwrapper-large"
             data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
           >
-            <path
-              d="M8.92857143,8 C8.46428571,7.99999999 8,8.5064935 8.00928571,9.01298701 L8,19.987013 C8,20.4935065 8.46428571,21 8.92857143,21 L20.0714286,21 C20.5357143,21 21,20.4935065 21,19.987013 L21,9.01298704 C21,8.46428571 20.5357143,8 20.0714286,8 L8.92857143,8 Z M9,13 L12,13 L12,16 L9,16 L9,13 Z M9,17 L12,17 L12,20 L9,20 L9,17 Z M13,17 L16,17 L16,20 L13,20 L13,17 Z M13,13 L16,13 L16,16 L13,16 L13,13 Z M17,13 L20,13 L20,16 L17,16 L17,13 Z M17,17 L20,17 L20,20 L17,20 L17,17 Z"
-              role="presentation"
-            />
-          </svg>
+            <svg
+              className="xui-icon"
+              data-automationid={undefined}
+              focusable="false"
+              height={17.333333333333332}
+              viewBox="0 0 13 13"
+              width={17.333333333333332}
+            >
+              <path
+                d="M.929 0H12.07c.465 0 .929.464.929 1.013v10.974c0 .507-.464 1.013-.929 1.013H.93C.464 13 0 12.494 0 11.987L.01 1.013C0 .506.463 0 .928 0zM1 5v3h3V5H1zm0 4v3h3V9H1zm4 0v3h3V9H5zm0-4v3h3V5H5zm4 0v3h3V5H9zm0 4v3h3V9H9z"
+                role="presentation"
+              />
+            </svg>
+          </div>
           <div>
             Nothing to show here
           </div>
@@ -1385,18 +1391,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         <div
           className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
         >
-          <svg
-            className="xui-icon xui-icon-large"
+          <div
+            className="xui-iconwrapper xui-iconwrapper-large"
             data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
           >
-            <path
-              d="M8.92857143,8 C8.46428571,7.99999999 8,8.5064935 8.00928571,9.01298701 L8,19.987013 C8,20.4935065 8.46428571,21 8.92857143,21 L20.0714286,21 C20.5357143,21 21,20.4935065 21,19.987013 L21,9.01298704 C21,8.46428571 20.5357143,8 20.0714286,8 L8.92857143,8 Z M9,13 L12,13 L12,16 L9,16 L9,13 Z M9,17 L12,17 L12,20 L9,20 L9,17 Z M13,17 L16,17 L16,20 L13,20 L13,17 Z M13,13 L16,13 L16,16 L13,16 L13,13 Z M17,13 L20,13 L20,16 L17,16 L17,13 Z M17,17 L20,17 L20,20 L17,20 L17,17 Z"
-              role="presentation"
-            />
-          </svg>
+            <svg
+              className="xui-icon"
+              data-automationid={undefined}
+              focusable="false"
+              height={17.333333333333332}
+              viewBox="0 0 13 13"
+              width={17.333333333333332}
+            >
+              <path
+                d="M.929 0H12.07c.465 0 .929.464.929 1.013v10.974c0 .507-.464 1.013-.929 1.013H.93C.464 13 0 12.494 0 11.987L.01 1.013C0 .506.463 0 .928 0zM1 5v3h3V5H1zm0 4v3h3V9H1zm4 0v3h3V9H5zm0-4v3h3V5H5zm4 0v3h3V5H9zm0 4v3h3V9H9z"
+                role="presentation"
+              />
+            </svg>
+          </div>
           <div>
             Custom Message
           </div>
@@ -1585,18 +1597,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         <div
           className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
         >
-          <svg
-            className="xui-icon xui-icon-large"
+          <div
+            className="xui-iconwrapper xui-iconwrapper-large"
             data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
           >
-            <path
-              d="M8.92857143,8 C8.46428571,7.99999999 8,8.5064935 8.00928571,9.01298701 L8,19.987013 C8,20.4935065 8.46428571,21 8.92857143,21 L20.0714286,21 C20.5357143,21 21,20.4935065 21,19.987013 L21,9.01298704 C21,8.46428571 20.5357143,8 20.0714286,8 L8.92857143,8 Z M9,13 L12,13 L12,16 L9,16 L9,13 Z M9,17 L12,17 L12,20 L9,20 L9,17 Z M13,17 L16,17 L16,20 L13,20 L13,17 Z M13,13 L16,13 L16,16 L13,16 L13,13 Z M17,13 L20,13 L20,16 L17,16 L17,13 Z M17,17 L20,17 L20,20 L17,20 L17,17 Z"
-              role="presentation"
-            />
-          </svg>
+            <svg
+              className="xui-icon"
+              data-automationid={undefined}
+              focusable="false"
+              height={17.333333333333332}
+              viewBox="0 0 13 13"
+              width={17.333333333333332}
+            >
+              <path
+                d="M.929 0H12.07c.465 0 .929.464.929 1.013v10.974c0 .507-.464 1.013-.929 1.013H.93C.464 13 0 12.494 0 11.987L.01 1.013C0 .506.463 0 .928 0zM1 5v3h3V5H1zm0 4v3h3V9H1zm4 0v3h3V9H5zm0-4v3h3V5H5zm4 0v3h3V5H9zm0 4v3h3V9H9z"
+                role="presentation"
+              />
+            </svg>
+          </div>
           <div>
             Nothing to show here
           </div>
@@ -2415,18 +2433,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         <div
           className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
         >
-          <svg
-            className="xui-icon xui-icon-large"
+          <div
+            className="xui-iconwrapper xui-iconwrapper-large"
             data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
           >
-            <path
-              d="M8.92857143,8 C8.46428571,7.99999999 8,8.5064935 8.00928571,9.01298701 L8,19.987013 C8,20.4935065 8.46428571,21 8.92857143,21 L20.0714286,21 C20.5357143,21 21,20.4935065 21,19.987013 L21,9.01298704 C21,8.46428571 20.5357143,8 20.0714286,8 L8.92857143,8 Z M9,13 L12,13 L12,16 L9,16 L9,13 Z M9,17 L12,17 L12,20 L9,20 L9,17 Z M13,17 L16,17 L16,20 L13,20 L13,17 Z M13,13 L16,13 L16,16 L13,16 L13,13 Z M17,13 L20,13 L20,16 L17,16 L17,13 Z M17,17 L20,17 L20,20 L17,20 L17,17 Z"
-              role="presentation"
-            />
-          </svg>
+            <svg
+              className="xui-icon"
+              data-automationid={undefined}
+              focusable="false"
+              height={17.333333333333332}
+              viewBox="0 0 13 13"
+              width={17.333333333333332}
+            >
+              <path
+                d="M.929 0H12.07c.465 0 .929.464.929 1.013v10.974c0 .507-.464 1.013-.929 1.013H.93C.464 13 0 12.494 0 11.987L.01 1.013C0 .506.463 0 .928 0zM1 5v3h3V5H1zm0 4v3h3V9H1zm4 0v3h3V9H5zm0-4v3h3V5H5zm4 0v3h3V5H9zm0 4v3h3V9H9z"
+                role="presentation"
+              />
+            </svg>
+          </div>
           <div>
             Nothing to show here
           </div>
@@ -2599,18 +2623,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -2655,18 +2685,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -2711,18 +2747,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -3334,18 +3376,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -3425,18 +3473,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -3516,18 +3570,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -3792,18 +3852,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -3912,18 +3978,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -4032,18 +4104,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -4395,11 +4473,12 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
-                    style={null}
-                    viewBox="0 0 30 30"
+                    height={11}
+                    viewBox="0 0 8 11"
+                    width={8}
                   >
                     <path
-                      d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z"
+                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
                       role="presentation"
                     />
                   </svg>
@@ -4533,14 +4612,15 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     1
                   </span>
                   <svg
-                    className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
+                    className="xui-icon xui-u-rotate-180 xui-table--sortbutton-icon xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
-                    style={null}
-                    viewBox="0 0 30 30"
+                    height={11}
+                    viewBox="0 0 8 11"
+                    width={8}
                   >
                     <path
-                      d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z"
+                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
                       role="presentation"
                     />
                   </svg>
@@ -4674,14 +4754,15 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     1
                   </span>
                   <svg
-                    className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
+                    className="xui-icon xui-u-rotate-180 xui-table--sortbutton-icon xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
-                    style={null}
-                    viewBox="0 0 30 30"
+                    height={11}
+                    viewBox="0 0 8 11"
+                    width={8}
                   >
                     <path
-                      d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z"
+                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
                       role="presentation"
                     />
                   </svg>
@@ -5179,18 +5260,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -5264,18 +5351,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -5349,18 +5442,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -6718,18 +6817,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -6838,18 +6943,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -6958,18 +7069,24 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     tabIndex={0}
                     type="button"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <div
+                      className="xui-u-flex-inherit xui-iconwrapper"
                       data-automationid={undefined}
-                      focusable="false"
-                      style={null}
-                      viewBox="0 0 30 30"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
+                      <svg
+                        className="xui-icon"
+                        data-automationid={undefined}
+                        focusable="false"
+                        height={13}
+                        viewBox="0 0 3 13"
+                        width={3}
+                      >
+                        <path
+                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </td>

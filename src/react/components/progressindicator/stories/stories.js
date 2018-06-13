@@ -160,7 +160,7 @@ variations.forEach(variation => {
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, props, children);
 
 	} else if (isErrorWithIcon) {
-		const starIcon = <XUIIcon path={iconPath} />;
+		const starIcon = <XUIIcon icon={iconPath} isBoxed />;
 
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, { hardErrorAlert: starIcon, ...props });
 

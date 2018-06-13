@@ -24,7 +24,7 @@ const buttonContents = {
 	asGroupSm: [<XUIButton key='one' size="small">One</XUIButton>, <XUIButton key='two' size="small">Two</XUIButton>],
 	asSplitGroup: [<XUIButton key='main'>Main</XUIButton>, <XUISplitButton key='split' aria-label='Other actions' />],
 	asSplitGroupSm: [<XUIButton key='main' size="small">Main</XUIButton>, <XUISplitButton key='split' size="small" aria-label='Other actions' />],
-	icon: <XUIIcon path={view} title="Preview" />
+	icon: <XUIIcon icon={view} title="Preview" isBoxed />
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);

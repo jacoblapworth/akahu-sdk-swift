@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
 	<a href="../section-compounds-navigation-isolation-header.html">Isolation Header in the XUI Documentation</a>
@@ -21,14 +21,14 @@ const XUIButton = require('./button').default;
 <XUIIsolationHeader>
 	<XUIIsolationHeaderNavigation>
 		<XUIButton className="xui-margin-right-small" variant="icon-large">
-			<XUIIcon path={cross} />
+			<XUIIcon icon={cross} />
 		</XUIButton>
 		<XUIIsolationHeaderTitle>Main Title</XUIIsolationHeaderTitle>
 		<XUIIsolationHeaderSecondaryTitle>Secondary Title</XUIIsolationHeaderSecondaryTitle>
 	</XUIIsolationHeaderNavigation>
 	<XUIIsolationHeaderActions>
 		<XUIButton variant="icon-large">
-			<XUIIcon path={overflow} />
+			<XUIIcon icon={overflow} />
 		</XUIButton>
 	</XUIIsolationHeaderActions>
 </XUIIsolationHeader>

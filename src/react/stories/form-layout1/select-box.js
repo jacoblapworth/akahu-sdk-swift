@@ -46,7 +46,7 @@ export default class LayoutSelect extends React.Component {
 					htmlFor={htmlFor}
 					buttonContent={
 						<span>
-							<XUIIcon isInline path={bank} className="xui-margin-right-none" />
+							<XUIIcon icon={bank} className="xui-margin-right-none" />
 							{displayText}
 						</span>
 					}

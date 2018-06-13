@@ -149,7 +149,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 						value={value || ''}
 						leftElement={
 							<XUITextInputSideElement>
-								<XUIIcon path={searchPath} />
+								<XUIIcon icon={searchPath} isBoxed />
 							</XUITextInputSideElement>
 						}
 						placeholder={props.placeholder}

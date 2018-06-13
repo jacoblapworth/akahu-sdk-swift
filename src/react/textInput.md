@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
 	<a href="../section-building-blocks-controls-textinput.html">Text Input in the XUI Documentation</a>
@@ -155,7 +155,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Search"
 		leftElement={
 			<XUITextInputSideElement type="icon">
-				<XUIIcon path={searchPath} />
+				<XUIIcon isBoxed icon={searchPath} />
 			</XUITextInputSideElement>
 		}
 	/>
@@ -164,7 +164,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Linkedin"
 		leftElement={
 			<XUITextInputSideElement type="icon" backgroundColor="linkedin">
-				<XUIIcon path={linkedinPath} />
+				<XUIIcon isBoxed icon={linkedinPath} />
 			</XUITextInputSideElement>
 		}
 	/>
@@ -173,7 +173,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Facebook"
 		leftElement={
 			<XUITextInputSideElement type="icon" backgroundColor="facebook">
-				<XUIIcon path={facebookPath} />
+				<XUIIcon isBoxed icon={facebookPath} />
 			</XUITextInputSideElement>
 		}
 	/>
@@ -182,7 +182,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Facebook Right"
 		rightElement={
 			<XUITextInputSideElement type="icon" backgroundColor="facebook">
-				<XUIIcon path={facebookPath} />
+				<XUIIcon isBoxed icon={facebookPath} />
 			</XUITextInputSideElement>
 		}
 	/>
@@ -260,7 +260,7 @@ const XUIButton = require ( './button.js' ).default;
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="top">
 				<XUIButton variant="icon">
-					<XUIIcon path={attachPath} />
+					<XUIIcon isBoxed icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -272,7 +272,7 @@ const XUIButton = require ( './button.js' ).default;
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="center">
 				<XUIButton variant="icon">
-					<XUIIcon path={attachPath} />
+					<XUIIcon isBoxed icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -284,7 +284,7 @@ const XUIButton = require ( './button.js' ).default;
 		rightElement={
 			<XUITextInputSideElement type="icon" alignment="bottom">
 				<XUIButton variant="icon">
-					<XUIIcon path={attachPath} />
+					<XUIIcon isBoxed icon={attachPath} />
 				</XUIButton>
 			</XUITextInputSideElement>
 		}
@@ -295,7 +295,7 @@ const XUIButton = require ( './button.js' ).default;
 		placeholder="Bottom aligned top-aligned content with background"
 		leftElement={
 			<XUITextInputSideElement type="icon" alignment="top" backgroundColor="facebook">
-				<XUIIcon path={facebookPath} />
+				<XUIIcon isBoxed icon={facebookPath} />
 			</XUITextInputSideElement>
 		}
 	/>
@@ -305,6 +305,7 @@ const XUIButton = require ( './button.js' ).default;
 
 #### Input Groups
 ```js
+const XUIIcon = require('./icon.js').default;
 const facebook = require ('@xero/xui-icon/icons/social-facebook').default;
 const cn = require('classnames');
 <div>
@@ -336,7 +337,7 @@ const cn = require('classnames');
 				fieldClassName="xui-column-4-of-12"
 				leftElement={
 					<XUITextInputSideElement type="icon" backgroundColor="facebook">
-						<XUIIcon path={facebook} />
+						<XUIIcon isBoxed icon={facebook} />
 					</XUITextInputSideElement>
 				}
 				placeholder='placeholder'
@@ -365,7 +366,7 @@ const cn = require('classnames');
 		<XUITextInput
 			leftElement={
 				<XUITextInputSideElement type="icon" backgroundColor="facebook">
-					<XUIIcon path={facebook} />
+					<XUIIcon isBoxed icon={facebook} />
 				</XUITextInputSideElement>
 			}
 			placeholder='placeholder'
@@ -407,6 +408,7 @@ const cn = require('classnames');
 ```js
 const search = require ('@xero/xui-icon/icons/search').default;
 const cn = require('classnames');
+const XUIIcon = require('./icon.js').default;
 
 	<div style={{
 		backgroundColor: '#32465a',
@@ -426,7 +428,7 @@ const cn = require('classnames');
 		<XUITextInput
 			leftElement={
 				<XUITextInputSideElement type="icon">
-					<XUIIcon path={search} />
+					<XUIIcon isBoxed icon={search} />
 				</XUITextInputSideElement>
 			}
 			isBorderlessTransparent={true}
@@ -441,6 +443,7 @@ const cn = require('classnames');
 const { PureComponent } = require ( 'react' );
 const clear = require ('@xero/xui-icon/icons/clear').default;
 const search = require ('@xero/xui-icon/icons/search').default;
+const XUIIcon = require('./icon.js').default;
 const XUIButton = require ( './button.js' ).default;
 const NOOP = () => {};
 
@@ -476,7 +479,7 @@ class Example extends PureComponent {
 				onClick={this.onClearButtonClick}
 				variant="icon"
 			>
-				<XUIIcon path={clear} />
+				<XUIIcon isBoxed icon={clear} />
 			</XUIButton>
 		);
 
@@ -484,7 +487,7 @@ class Example extends PureComponent {
 			<XUITextInput
 				leftElement={
 					<XUITextInputSideElement type="icon">
-						<XUIIcon path={search} />
+						<XUIIcon isBoxed icon={search} />
 					</XUITextInputSideElement>}
 				rightElement={button}
 				onChange={this.onChange}

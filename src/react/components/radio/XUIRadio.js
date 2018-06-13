@@ -2,8 +2,6 @@ import '../helpers/xuiGlobalChecks';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import radioMain from '@xero/xui-icon/icons/radio-main';
-import radioCheck from '@xero/xui-icon/icons/radio-check';
 import {baseClass} from "./constants";
 import {ns} from "../helpers/xuiClassNamespace";
 
@@ -21,20 +19,29 @@ const onLabelClick = e => {
 };
 
 const buildRadio = (qaHook, htmlClassName, svgSettings) => {
-	if (svgSettings.iconMainPath || svgSettings.iconCheckPath) {
+	if (svgSettings.iconMain) {
 		return buildSvgRadio(qaHook, svgSettings);
 	} else {
 		return buildHtmlRadio(qaHook, htmlClassName);
 	}
 };
 
-const buildSvgRadio = (qaHook, {svgClassName, iconMainPath, iconCheckPath}) => {
+const buildSvgRadio = (qaHook, {svgClassName, iconMain}) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
-	return (<svg className={svgClasses} data-automationid={qaHook && `${qaHook}--icon`}>
-					<path className={`${baseClass}--focus`} role="presentation" d={iconMainPath || radioMain} />
-					<path className={`${baseClass}--main`} role="presentation" d={iconMainPath || radioMain} />
-					{iconMainPath && !iconCheckPath ? null : <path className={`${baseClass}--check`} role="presentation" d={iconCheckPath || radioCheck} />}
-				</svg>);
+	return (
+		<div className="xui-iconwrapper">
+			<svg
+				className={svgClasses}
+				data-automationid={qaHook && `${qaHook}--icon`}
+				width={iconMain.width}
+				height={iconMain.height}
+				viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
+			>
+				<path className={`${baseClass}--focus`} role="presentation" d={iconMain.path} />
+				<path className={`${baseClass}--main`} role="presentation" d={iconMain.path} />
+			</svg>
+		</div>
+	);
 };
 
 const buildHtmlRadio = (qaHook, htmlClassName) => {
@@ -51,8 +58,7 @@ export default class XUIRadio extends React.Component {
 			children,
 			className,
 			qaHook,
-			iconCheckPath,
-			iconMainPath,
+			iconMain,
 			isDefaultChecked,
 			isChecked,
 			isDisabled,
@@ -97,8 +103,7 @@ export default class XUIRadio extends React.Component {
 		};
 		const svgSettings = {
 			svgClassName,
-			iconCheckPath,
-			iconMainPath
+			iconMain
 		};
 
 		if (typeof isChecked !== 'boolean') {
@@ -127,11 +132,12 @@ XUIRadio.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** The icon path to use for the checkmark */
-	iconCheckPath: PropTypes.string,
-
 	/** The icon path to use for the radio */
-	iconMainPath: PropTypes.string,
+	iconMain: PropTypes.shape({
+		path: PropTypes.string.isRequired,
+		height: PropTypes.number.isRequired,
+		width: PropTypes.number.isRequired,
+	}),
 
 	/** The input is selected */
 	isChecked: PropTypes.bool,

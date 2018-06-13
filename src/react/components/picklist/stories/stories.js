@@ -88,7 +88,7 @@ variations.forEach(variation => {
 				<div className="xui-panel" style={{width: "500px"}}>
 					<ul className="xui-picklist xui-picklist-layout" role="tree">
 						<li className="xui-pickitem" role="treeitem">
-							<XUIIcon path={view} className="xui-pickitem--icon" />
+							<XUIIcon icon={view} className="xui-pickitem--icon" isBoxed />
 							<span className="xui-pickitem--body">
 								<span className="xui-pickitem--text">Create new</span>
 							</span>

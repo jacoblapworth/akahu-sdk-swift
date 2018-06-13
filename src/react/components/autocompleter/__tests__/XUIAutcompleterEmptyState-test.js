@@ -33,7 +33,7 @@ describe('<XUIAutocompleterEmptyState />', () => {
     });
 
     it('should change the icon when the name is passed to iconPath', () => {
-        const iconComp = renderer.create(<XUIAutocompleterEmptyState iconPath={filter}/>);
+        const iconComp = renderer.create(<XUIAutocompleterEmptyState iconicon={filter}/>);
 
         expect(iconComp).toMatchSnapshot();
     });

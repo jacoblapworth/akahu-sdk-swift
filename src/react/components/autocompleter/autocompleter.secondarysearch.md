@@ -1,7 +1,7 @@
 
 This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the DropDown opens. The `SecondarySearch` component is a separate component to the `Autocompleter` but share similar APIs.
 
-```
+```js
 const { boldMatch, decorateSubStr } = require('./helpers/highlighting');
 const Pickitem = require('../picklist/Pickitem').default;
 const DropDownFooter = require('../dropdown/DropDownFooter').default;
@@ -87,14 +87,11 @@ class SecondarySearchExample extends React.Component {
 			<DropDownFooter>
 				<Picklist>
 					<Pickitem id="footerAction">
-						<span>
-							<XUIIcon
-								isInline
-								path={plusIcon}
-								className="xui-margin-right-xsmall"
-							/>
-							Add New Person
-						</span>
+						<XUIIcon
+							icon={plusIcon}
+							className="xui-margin-right-xsmall"
+						/>
+						Add New Person
 					</Pickitem>
 				</Picklist>
 			</DropDownFooter>

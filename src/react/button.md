@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 		</svg>
 		<a href="../section-building-blocks-controls-button.html">Button in the XUI Documentation</a>
@@ -46,28 +46,27 @@ Icon buttons are supported by the `icon`, `icon-inverted`, `icon-large` and `ico
 When placing `XUIIcon` alone in a button, ensure accessibility by adding a `title` prop on the `XUIIcon`, or a `title` and `aria-label` on the button itself.
 
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
-As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefox compatibility.
 
-```
+```jsx
 	const XUIIcon = require('./components/icon/XUIIcon').default;
 	const icon = require('@xero/xui-icon/icons/overflow').default;
 	<div>
 
 		<XUIButton variant="icon">
-			<XUIIcon path={icon} title="Dots menu" />
+			<XUIIcon icon={icon} title="Dots menu" />
 		</XUIButton>
 
 		<XUIButton variant="icon" className="xui-button-icon-large">
-			<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
+			<XUIIcon icon={icon} title="Dots menu" size="large" />
 		</XUIButton>
 
 		<div className="xui-padding-xsmall xui-background-grey-1">
 			<XUIButton variant="icon-inverted">
-				<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
+				<XUIIcon icon={icon} title="Dots menu" />
 			</XUIButton>
 
 			<XUIButton variant="icon-inverted" className="xui-button-icon-large">
-				<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
+				<XUIIcon icon={icon} title="Dots menu" size="large" />
 			</XUIButton>
 		</div>
 

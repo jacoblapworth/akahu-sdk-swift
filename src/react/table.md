@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 		</svg>
 		<a href="../section-compounds-displayingdata-table.html">Table component in the XUI Documentation</a>

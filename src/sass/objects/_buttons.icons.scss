@@ -7,7 +7,9 @@
 	border-radius: 50%;
 	color: $xui-color-grey-alpha-2;
 	display: inline-flex;
+	height: $xui-icon-standard;
 	justify-content: center;
+	width: $xui-icon-standard;
 
 	.#{$ns}-icon {
 		@include xui-margin-horizontal-auto; // Safari seems to ignore the flex rules and does not center horizontally

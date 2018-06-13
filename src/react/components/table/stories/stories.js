@@ -129,7 +129,7 @@ storiesWithKnobs.add('Playground', () => {
 	const onCellClick = boolean('onCellClick', false);
 	const hasWrapping = boolean('hasWrapping', false);
 	const cellProps = {
-		...onCellClick && { onCellClick: (({ _id }) => () => alert(`Click cell in row ${_id}`)) },
+		...(onCellClick && { onCellClick: (({ _id }) => () => alert(`Click cell in row ${_id}`)) }),
 		hasWrapping,
 	};
 

@@ -63,7 +63,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon" aria-label="Info"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
 };
 
 const createTriggerSpan = () => {

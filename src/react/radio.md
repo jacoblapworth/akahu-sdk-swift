@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-icon-large xui-icon-color-blue">
+	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
 		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
 	</svg>
 	<a href="../section-building-blocks-controls-radio.html">Radio in the XUI Documentation</a>
@@ -96,7 +96,7 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 const customMainIcon = require ('@xero/xui-icon/icons/star').default;
 const customCheckIcon = require ('@xero/xui-icon/icons/suggestion').default;
 <div>
-	<XUIRadio name="customRadio" iconMainPath={customMainIcon}>
+	<XUIRadio name="customRadio" iconMain={customMainIcon}>
 		Favourite
 	</XUIRadio>
 </div>

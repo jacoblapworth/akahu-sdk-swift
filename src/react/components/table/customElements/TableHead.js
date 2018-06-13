@@ -86,10 +86,9 @@ class TableHead extends PureComponent {
 				<span>{children}</span>
 
 				<XUIIcon
-					path={sortPathData}
+					icon={sortPathData}
 					className={`${NAME_SPACE}--sortbutton-icon`}
 					rotation={isSortAsc ? null : 180}
-					isInline
 				/>
 
 			</button>

@@ -37,7 +37,10 @@ export default class XUIBreadcrumb extends PureComponent {
 			if (itemIndex !== breadcrumbs.length - 1) {
 				crumbElements.push(
 					<li key={`arrow-${itemIndex}`} className={`${baseClass}-arrow`}>
-						<XUIIcon className={`${baseClass}--icon ${ns}-u-rotate-270`} path={arrow} />
+						<XUIIcon
+							className={`${baseClass}--icon ${ns}-u-rotate-270`}
+							icon={arrow}
+							isBoxed />
 					</li>
 				)
 			}

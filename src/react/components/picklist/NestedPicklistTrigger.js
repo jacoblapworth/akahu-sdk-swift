@@ -29,7 +29,7 @@ export default class NestedPicklistTrigger extends PureComponent {
 				{...secondaryProps}
 			>
 				{hasChildren ? <span className={`${ns}-pickitem--text`}>{children}</span> : null}
-				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} path={arrow} />
+				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={arrow} isBoxed />
 			</label>
 		);
 	}

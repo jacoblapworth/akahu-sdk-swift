@@ -63,7 +63,7 @@ export default function XUIToast(
 			title="Close"
 			onClick={onCloseClick}
 		>
-			<XUIIcon path={cross} />
+			<XUIIcon icon={cross} isBoxed />
 		</XUIButton>
 		: null;
 

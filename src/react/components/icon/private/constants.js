@@ -1,10 +1,17 @@
 import {ns} from "../../helpers/xuiClassNamespace";
 
 export const baseClass = `${ns}-icon`;
-export const sizeClasses = {
+export const wrapperClass = `${baseClass}wrapper`;
+export const wrapperSizeClasses = {
 	standard: '',
-	large: `${baseClass}-large`,
-	xlarge: `${baseClass}-xlarge`
+	large: `${wrapperClass}-large`,
+	xlarge: `${wrapperClass}-xlarge`
+};
+
+export const iconSizeMultipliers = {
+	standard: 1,
+	large: 4/3,
+	xlarge: 1.5,
 };
 
 export const rotationClasses = {

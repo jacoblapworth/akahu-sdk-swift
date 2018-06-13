@@ -37,7 +37,7 @@ function getComponent({isPositionFixed, title, secondaryTitle, navigationIconPat
 		<div style={{width: '600px'}}>
 			<XUIIsolationHeader isPositionFixed={isPositionFixed}>
 				<XUIIsolationHeaderNavigation>
-					{navigationIconPath && <XUIButton variant="icon-large" aria-label="navigate"><XUIIcon path={navigationIconPath} /></XUIButton>}
+					{navigationIconPath && <XUIButton variant="icon-large" aria-label="navigate"><XUIIcon icon={navigationIconPath} isBoxed /></XUIButton>}
 					{hasAvatar && <XUIAvatar className="xui-margin-right-small" value="ABC" />}
 					{title && <XUIIsolationHeaderTitle>{title}</XUIIsolationHeaderTitle> }
 					{secondaryTitle && <XUIIsolationHeaderSecondaryTitle>{secondaryTitle}</XUIIsolationHeaderSecondaryTitle> }
@@ -46,7 +46,7 @@ function getComponent({isPositionFixed, title, secondaryTitle, navigationIconPat
 				<XUIIsolationHeaderActions>
 					{hasActionsSecondaryButton && <XUIButton size="small" variant="standard">Secondary</XUIButton>}
 					{hasActionsPrimaryButton && <XUIButton size="small" className="xui-margin-left-small" variant="primary">Primary</XUIButton>}
-					{actionIconPath && <XUIButton variant="icon-large" aria-label="action"><XUIIcon path={actionIconPath} /></XUIButton>}
+					{actionIconPath && <XUIButton variant="icon-large" aria-label="action"><XUIIcon icon={actionIconPath} isBoxed /></XUIButton>}
 				</XUIIsolationHeaderActions>
 			</XUIIsolationHeader>
 		</div>

@@ -775,7 +775,7 @@
 .#{$ns}-submenu-uicontrol--icon {
 	align-self: center;
 	color: $xui-color-grey-alpha-2;
-	margin: 3px;
+	margin: 5px;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 
 	// For (non-split) submenus, ensure left spacing between pickitem text and the control icon
@@ -874,10 +874,9 @@
 }
 
 .#{$ns}-pickitem--icon {
-	display: inline;
 	margin: 0 15px;
 	position: absolute;
-	top: 4px;
+	top: 5px;
 }
 
 .#{$ns}-pickitem--icon ~ .#{$ns}-pickitem--body {

@@ -1,10 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-.#{$ns}-select {
-	position: relative;
-}
-
 .#{$ns}-select--control {
 	@include xui-commoninput;
 
@@ -22,15 +18,14 @@
 }
 
 .#{$ns}-select--caret {
-	pointer-events: none;
-	position: absolute;
-	right: 3px;
-	top: $xui-s-xsmall;
-	z-index: 2;
-
+	align-self: center;
 	.#{$ns}-is-disabled ~ & {
 		opacity: .4;
 	}
+}
+
+.#{$ns}-select--content {
+	@include xui-text-truncated;
 }
 
 .#{$ns}-select--button {
@@ -39,14 +34,11 @@
 	border: $xui-border-standard;
 	border-radius: $xui-radius;
 	color: $xui-color-grey-1;
-	display: block;
+	display: flex;
 	font-weight: normal;
 	min-height: $xui-input-height;
-	overflow: hidden;
-	padding: $xui-input-padding-vertical $xui-s-2xlarge $xui-input-padding-vertical $xui-input-padding-horizontal;
+	padding: $xui-input-padding-vertical $xui-input-padding-horizontal $xui-input-padding-vertical $xui-input-padding-horizontal;
 	text-align: left;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 }
 
 .#{$ns}-dropdownmenu-select {

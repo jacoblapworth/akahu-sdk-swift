@@ -247,18 +247,26 @@ export default class XUIModal extends Component {
 				<XUIIcon path={cross} />
 			</XUIButton>
 		) : null;
-		let containsHeader = false;
+		let headerElement;
 		const finalChildren = Children.map(children, child => {
 			if (child && child.type === XUIModalHeader) {
-				containsHeader = true;
-				return cloneElement(child, { ...child.props }, [
+				headerElement = cloneElement(child, { ...child.props }, [
 					child.props.children,
 					closeButton
 				]);
+				return null;
 			} else {
 				return child;
 			}
 		});
+		// Our CSS requires that the modal close button sits inside a header element
+		if (headerElement == null && closeButton != null) {
+			headerElement = (
+				<XUIModalHeader qaHook={qaHook && `${qaHook}--header`}>
+					{closeButton}
+				</XUIModalHeader>
+			);
+		}
 		const MainElement = isForm ? 'form' : 'section';
 		const childNodes = (
 			<div
@@ -279,11 +287,7 @@ export default class XUIModal extends Component {
 					data-automationid={qaHook}
 					ref={m => (this._modalNode = m)}
 				>
-					{!containsHeader ? (
-						<XUIModalHeader qaHook={qaHook && `${qaHook}--header`}>
-							{closeButton}
-						</XUIModalHeader>
-					) : null}
+					{headerElement}
 					{finalChildren}
 				</MainElement>
 			</div>

@@ -101,21 +101,6 @@ class AbbreviationLabel extends PureComponent {
 			hasTooltip, tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 		} = responsiveOption(responsiveParams);
 
-		console.log('ABBR', this.props, {
-			textOptions,
-			getTagText,
-			labelLeft,
-			labelHeight,
-			responsiveOption,
-			hasTooltip,
-			tagLeft,
-			tagTop,
-			tagText,
-			tagStyle,
-			tagAnchor,
-			tagTextWidth,
-		});
-
 		return (
 			<g>
 				<XAxisLabelWrapper

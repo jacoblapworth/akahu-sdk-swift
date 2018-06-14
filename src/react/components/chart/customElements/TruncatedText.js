@@ -12,35 +12,10 @@ const createTotalCharacterReducer = maxWidth => ({totalWidth = 20, totalChars = 
 
 class TruncatedText extends Component {
 	rootNode;
-	maxWidth;
-	text;
-	state = { /* charNodes */ };
-
-	updateTruncationReference = () => {
-		const {state, rootNode, maxWidth: prevMaxWidth, text: prevText} = this;
-		const prevCharNodes = this.state.charNodes;
-		const {maxWidth: nextMaxWidth, children: nextText} = this.props;
-		const nextCharNodes = rootNode && rootNode.querySelectorAll('tspan');
-		const shouldUpdate = !(prevCharNodes && nextMaxWidth === prevMaxWidth && nextText === prevText);
-
-		if (shouldUpdate) {
-			this.setState({
-				...state,
-				charNodes: nextCharNodes,
-			});
-		}
-	}
-
-	componentDidMount() {
-		this.updateTruncationReference();
-	}
-
-	componentDidUpdate() {
-		this.updateTruncationReference();
-	}
 
 	render() {
-		const {charNodes} = this.state;
+		const {rootNode} = this;
+		const charNodes = rootNode ? rootNode.querySelectorAll('tspan') : [];
 		const {style, maxWidth, children: text, ...textProps} = this.props;
 		const createTextSpan = (character, key) => <tspan key={key} style={style}>{character}</tspan>;
 		const reducer = createTotalCharacterReducer(maxWidth);
@@ -51,9 +26,6 @@ class TruncatedText extends Component {
 		// to no room for any letters to appear. In that regard we force one character
 		// to be squeezed in.
 		const totalChars = Math.max(totalCharsRaw, 1);
-
-		this.maxWidth = maxWidth;
-		this.text = text;
 
 		return (
 			<Fragment>

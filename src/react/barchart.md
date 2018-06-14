@@ -204,7 +204,7 @@ class Demo extends React.Component {
 				chartDescription="Control the maximum amount of bars per panel"
 				isStacked
 				barsData={data}
-				maxVisibleItems={3}
+				xAxisVisibleItems={3}
 			/>
 		);
 	}
@@ -321,7 +321,7 @@ class Demo extends React.Component {
 				chartDescription="Scroll bars horizontally to reveal additional content"
 				isStacked
 				barsData={data}
-				maxVisibleItems={5}
+				xAxisVisibleItems={5}
 			/>
 		);
 	}
@@ -357,7 +357,7 @@ class Demo extends React.Component {
 				isStacked
 				hasPagination
 				barsData={data}
-				maxVisibleItems={5}
+				xAxisVisibleItems={5}
 			/>
 		);
 	}
@@ -394,7 +394,7 @@ class Demo extends React.Component {
 				hasPagination
 				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
 				barsData={data}
-				maxVisibleItems={5}
+				xAxisVisibleItems={5}
 			/>
 		);
 	}
@@ -423,7 +423,7 @@ class Demo extends React.Component {
 				chartDescription="Sets a maximum threshold that can be exceeded if a stack requires it"
 				isStacked
 				barsData={data}
-				maxYValue={20}
+				yAxisMaxValue={20}
 			/>
 		);
 	}
@@ -704,7 +704,7 @@ class Demo extends React.Component {
 				chartTitle="Header Stress Test Ensuring Large Amounts of Content is Handled Correctly at Different Screen Sizes"
 				chartDescription="Responsively handle large quantities of content in the header area"
 				barsData={data}
-				maxVisibleItems={5}
+				xAxisVisibleItems={5}
 				keyLabel="Import"
 				hasPagination
 				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}

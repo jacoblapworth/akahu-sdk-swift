@@ -20,7 +20,7 @@ class ContentPagination extends Component {
 
 		return (
 			<nav
-				qaHook={qaHook}
+				data-automationid={qaHook && `${qaHook}--pagination`}
 				className={`${NAME_SPACE}-chart--pagination`}
 				role="navigation"
 				aria-label="Pagination">

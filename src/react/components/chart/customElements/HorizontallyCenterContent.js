@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import getGroupPosition, {testIsCloseEnough} from '../helpers';
+import {testIsCloseEnough} from '../helpers/utilities';
+import getGroupPosition from '../helpers/groupposition';
 
 class HorizontallyCenterContent extends Component {
 	contentNode;
@@ -8,8 +9,8 @@ class HorizontallyCenterContent extends Component {
 
 	updateContentWidth = () => {
 		const { state, contentNode } = this;
-		const contentWidth = contentNode ? getGroupPosition(contentNode).width : 0;
-		const shouldUpdate = !testIsCloseEnough(contentWidth, state.contentWidth || 0);
+		const contentWidth = contentNode && getGroupPosition(contentNode).width;
+		const shouldUpdate = !testIsCloseEnough(contentWidth || 0, state.contentWidth || 0);
 
 		if (shouldUpdate) {
 			this.setState({...state, contentWidth});

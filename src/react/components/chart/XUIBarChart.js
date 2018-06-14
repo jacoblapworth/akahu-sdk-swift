@@ -15,8 +15,6 @@ TODO:
 
 + Remove inline styles
 
-+ Utils
-
 + PureComponent
 
 Design:

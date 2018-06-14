@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
 import {barChartTheme} from '../helpers/theme';
-import getGroupPosition, {testIsCloseEnough} from '../helpers';
+import {testIsCloseEnough} from '../helpers/utilities';
+import getGroupPosition from '../helpers/groupposition';
 import {NAME_SPACE, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
 import {findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
 import StackedBar from './StackedBar';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
+import GroupWrapper from './GroupWrapper';
 
 class ChartScaffold extends Component {
 	constructor() {
@@ -148,7 +150,7 @@ class ChartScaffold extends Component {
 
 	findScrollOffset = ({hasPagination, panelWidth, panelCurrent}) => (
 		hasPagination
-			? panelCurrent * panelWidth
+			? (panelCurrent - 1) * panelWidth
 			: (this.contentNode ? this.contentNode.scrollLeft : 0)
 	);
 
@@ -327,8 +329,8 @@ class ChartScaffold extends Component {
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
 								groupComponent={(
-									<g
-										data-automationid={qaHook && `${qaHook}--yaxis`}
+									<GroupWrapper
+										qahook-automationid={qaHook && `${qaHook}--yaxis`}
 										className={`${NAME_SPACE}-chart--yaxis`}
 									/>
 								)}
@@ -401,8 +403,8 @@ class ChartScaffold extends Component {
 										width={barsWidth}
 										tickValues={xAxisTickValues}
 										groupComponent={(
-											<g
-												data-automationid={qaHook && `${qaHook}--xaxis`}
+											<GroupWrapper
+												qahook-automationid={qaHook && `${qaHook}--xaxis`}
 												className={`${NAME_SPACE}-chart--xaxis`}
 											/>
 										)}
@@ -431,8 +433,8 @@ class ChartScaffold extends Component {
 										data={barsData}
 										y={findMaxTotalBarStacks}
 										groupComponent={(
-											<g
-												data-automationid={qaHook && `${qaHook}--bars`}
+											<GroupWrapper
+												qahook={qaHook && `${qaHook}--bars`}
 												className={`${NAME_SPACE}-chart--bars`}
 											/>
 										)}

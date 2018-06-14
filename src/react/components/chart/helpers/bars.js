@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import {createChartPadding} from '../helpers';
+import {createChartPadding} from '../helpers/utilities';
 import {createArray} from '../../progressindicator/helpers/utilities';
 import {NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';

@@ -1,5 +1,11 @@
+export const alwaysPositive = value => Math.max(0, value) || 0;
+
+export const testIsCloseEnough = (next, previous, threshold = 2) => (
+	next > previous - threshold && next < previous + threshold
+);
+
 // https://formidable.com/open-source/victory/docs/common-props/#padding
-const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
+export const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
 	// Allow room for y-axis text to be entered on the axis line but not bleed
 	// over the viewbox.
 	top: 10,
@@ -10,5 +16,3 @@ const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
 	// A gap threshold to safegaurd against overflow.
 	right: 2
 });
-
-export default createChartPadding;

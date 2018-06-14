@@ -1,4 +1,4 @@
-import {alwaysPositive} from './index';
+import {alwaysPositive} from './utilities';
 import {NAME_SPACE} from './constants';
 
 const getGroupPosition = (groupNode) => {

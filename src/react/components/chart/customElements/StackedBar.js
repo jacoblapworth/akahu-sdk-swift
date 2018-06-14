@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
 import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
-import {alwaysPositive} from '../helpers';
+import {alwaysPositive} from '../helpers/utilities';
 
 const createStackTop = ({barBottom, barStacks, ratio, stackIndex}) => {
 	const height = alwaysPositive(barStacks[stackIndex] * ratio);

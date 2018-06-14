@@ -139,7 +139,7 @@ class ChartScaffold extends Component {
 	updatePanel = panelCurrent => {
 		const minPage = 1;
 		const {state, props} = this;
-		const maxPage = props.bars.length;
+		const maxPage = props.barsData.length;
 		const sanitisedPage = panelCurrent < minPage ? minPage : Math.min(panelCurrent, maxPage);
 		const shouldUpdate = sanitisedPage !== state.panelCurrent;
 		if (shouldUpdate) {
@@ -462,33 +462,29 @@ class ChartScaffold extends Component {
 export default ChartScaffold;
 
 ChartScaffold.propTypes = {
-	id: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-	isTitleHidden: PropTypes.bool,
-	description: PropTypes.string,
-
+	chartId: PropTypes.string.isRequired,
+	chartTitle: PropTypes.string.isRequired,
+	isChartTitleHidden: PropTypes.bool,
+	chartDescription: PropTypes.string,
+	chartHeight: PropTypes.number,
+	keyTitle: PropTypes.string,
 	keyLabel: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
 	]),
-
-	keyTitle: PropTypes.string,
-	bars: PropTypes.array,
-
+	barsData: PropTypes.array,
 	barColor: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.arrayOf(PropTypes.string),
 	]),
-
 	isStacked: PropTypes.bool,
 	onBarClick: PropTypes.func,
 	activeBars: PropTypes.object,
 	createBarToolTipMessage: PropTypes.func,
-	maxVisibleItems: PropTypes.number,
-	maxYValue: PropTypes.number,
-	createYAxisLabelFormat: PropTypes.func,
 	xAxisType: PropTypes.string,
+	xAxisVisibleItems: PropTypes.number,
+	yAxisMaxValue: PropTypes.number,
+	createYAxisLabelFormat: PropTypes.func,
 	hasPagination: PropTypes.bool,
 	createPaginationMessage: PropTypes.func,
-	height: PropTypes.number,
 };

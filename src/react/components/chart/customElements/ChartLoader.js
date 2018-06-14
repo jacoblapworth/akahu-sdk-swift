@@ -6,7 +6,7 @@ import {NAME_SPACE} from '../helpers/constants';
 
 class ChartLoader extends Component {
 	render = () => {
-		const {height: chartHeight} = this.props;
+		const {chartHeight} = this.props;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);
 
 		return (
@@ -22,5 +22,5 @@ class ChartLoader extends Component {
 export default ChartLoader;
 
 ChartLoader.propTypes = {
-	height: PropTypes.number,
+	chartHeight: PropTypes.number,
 };

@@ -8,7 +8,7 @@ const chartPathData = 'M20,20.5h2v1H8v-1h2v-7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v
 
 class ChartEmpty extends Component {
 	render = () => {
-		const {emptyStateComponent, emptyMessage, height: chartHeight} = this.props;
+		const {emptyStateComponent, emptyMessage, chartHeight} = this.props;
 		const emptyHeight = chartHeight * 0.75;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`);
 
@@ -34,5 +34,5 @@ export default ChartEmpty;
 ChartEmpty.propTypes = {
 	emptyStateComponent: PropTypes.element,
 	emptyMessage: PropTypes.string,
-	height: PropTypes.number,
+	chartHeight: PropTypes.number,
 };

@@ -36,5 +36,5 @@ export const createYAxisTickValues = ({yAxisHeight, maxValues}) => {
 		createArray(totalLabels + 1).map((_, index) => increment * index)
 	);
 
-	return {yAxisTickValues, yAxisMaxValue}
+	return {yAxisTickValues, yAxisMaxValue};
 };

@@ -31,11 +31,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="barClick"
-				title="Clickable Bar"
-				description="Click a bar to toggle the active state"
+				chartId="barClick"
+				chartTitle="Clickable Bar"
+				chartDescription="Click a bar to toggle the active state"
 				isStacked
-				bars={data}
+				barsData={data}
 				onBarClick={this.handleBarClick}
 				activeBars={this.state.activeBars}
 			/>
@@ -79,11 +79,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="barClick"
-				title="Clickable Stack"
-				description="Click a stack to toggle the active state"
+				chartId="barClick"
+				chartTitle="Clickable Stack"
+				chartDescription="Click a stack to toggle the active state"
 				isStacked
-				bars={data}
+				barsData={data}
 				onBarClick={this.handleBarClick}
 				activeBars={this.state.activeBars}
 			/>
@@ -107,10 +107,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="barTooltip"
-				title="Bar Tooltip"
-				description="Hover over a bar to reveal relevant information"
-				bars={data}
+				chartId="barTooltip"
+				chartTitle="Bar Tooltip"
+				chartDescription="Hover over a bar to reveal relevant information"
+				barsData={data}
 				createBarToolTipMessage={({x}) => <strong>{x}</strong>}
 			/>
 		);
@@ -133,11 +133,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="stackTooltip"
-				title="Stack Tooltip"
-				description="Hover over a stack to reveal relevant information"
+				chartId="stackTooltip"
+				chartTitle="Stack Tooltip"
+				chartDescription="Hover over a stack to reveal relevant information"
 				isStacked
-				bars={data}
+				barsData={data}
 				createBarToolTipMessage={({x, stackIndex}) => (
 					<div>
 						<div><strong>{x}</strong></div>
@@ -171,11 +171,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="stackColors"
-				title="Stack Colors"
-				description="Customise the colors on a per stack level"
+				chartId="stackColors"
+				chartTitle="Stack Colors"
+				chartDescription="Customise the colors on a per stack level"
 				isStacked
-				bars={data}
+				barsData={data}
 				barColor={['#F6534E', '#FA8100', '#B450C8', '#FF6496']}
 			/>
 		);
@@ -199,11 +199,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="maximumBars"
-				title="Maximum Bars"
-				description="Control the maximum amount of bars per panel"
+				chartId="maximumBars"
+				chartTitle="Maximum Bars"
+				chartDescription="Control the maximum amount of bars per panel"
 				isStacked
-				bars={data}
+				barsData={data}
 				maxVisibleItems={3}
 			/>
 		);
@@ -282,11 +282,11 @@ class Demo extends React.Component {
 					<XUIIcon path={addIcon} />
 				</XUIButton>
 				<XUIBarChart
-					id="barAdd"
-					title={`Showing ${total} bar${total === 1 ? '' : 's'}`}
-					description="Click the buttons above to add / subtract bars"
+					chartId="barAdd"
+					chartTitle={`Showing ${total} bar${total === 1 ? '' : 's'}`}
+					chartDescription="Click the buttons above to add / subtract bars"
 					isStacked
-					bars={bars}
+					barsData={bars}
 				/>
 			</div>
 		);
@@ -316,11 +316,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="nativeScroll"
-				title="Native Scroll"
-				description="Scroll bars horizontally to reveal additional content"
+				chartId="nativeScroll"
+				chartTitle="Native Scroll"
+				chartDescription="Scroll bars horizontally to reveal additional content"
 				isStacked
-				bars={data}
+				barsData={data}
 				maxVisibleItems={5}
 			/>
 		);
@@ -351,12 +351,12 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="pagination"
-				title="Pagination Scroll"
-				description={`Click the pagination buttons to reveal "next" and "previous" panels`}
+				chartId="pagination"
+				chartTitle="Pagination Scroll"
+				chartDescription={`Click the pagination buttons to reveal "next" and "previous" panels`}
 				isStacked
 				hasPagination
-				bars={data}
+				barsData={data}
 				maxVisibleItems={5}
 			/>
 		);
@@ -387,13 +387,13 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="customPagination"
-				title="Custom Pagination Message"
-				description="Create a custom message based on the current and total page values"
+				chartId="customPagination"
+				chartTitle="Custom Pagination Message"
+				chartDescription="Create a custom message based on the current and total page values"
 				isStacked
 				hasPagination
 				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
-				bars={data}
+				barsData={data}
 				maxVisibleItems={5}
 			/>
 		);
@@ -418,11 +418,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="maxYValue"
-				title="Maximum Y-Axis Value"
-				description="Sets a maximum threshold that can be exceeded if a stack requires it"
+				chartId="maxYValue"
+				chartTitle="Maximum Y-Axis Value"
+				chartDescription="Sets a maximum threshold that can be exceeded if a stack requires it"
 				isStacked
-				bars={data}
+				barsData={data}
 				maxYValue={20}
 			/>
 		);
@@ -446,11 +446,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="customYAxis"
-				title="Custom Y-Axis Labels"
-				description="Format labels to enhance the graph axis information"
+				chartId="customYAxis"
+				chartTitle="Custom Y-Axis Labels"
+				chartDescription="Format labels to enhance the graph axis information"
 				isStacked
-				bars={data}
+				barsData={data}
 				createYAxisLabelFormat={(value) => `${Math.round(value * 100)}k`}
 			/>
 		);
@@ -475,11 +475,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="emptyStackData"
-				title="Empty Stack Data"
-				description="Show chart even when no stack data is supplied"
+				chartId="emptyStackData"
+				chartTitle="Empty Stack Data"
+				chartDescription="Show chart even when no stack data is supplied"
 				isStacked
-				bars={data}
+				barsData={data}
 			/>
 		);
 	}
@@ -503,10 +503,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="emptyBarData"
-				title="Empty Bar Data"
-				description="Show chart even when no bar data is supplied"
-				bars={data}
+				chartId="emptyBarData"
+				chartTitle="Empty Bar Data"
+				chartDescription="Show chart even when no bar data is supplied"
+				barsData={data}
 			/>
 		);
 	}
@@ -526,11 +526,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="emptyBarData"
-				title="Empty Bar Data"
-				description="Show empty state when no bar data is supplied"
+				chartId="emptyBarData"
+				chartTitle="Empty Bar Data"
+				chartDescription="Show empty state when no bar data is supplied"
 				isStacked
-				bars={data}
+				barsData={data}
 			/>
 		);
 	}
@@ -550,12 +550,12 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="emptyCustomData"
-				title="Empty Custom Data"
-				description="Replace the default empty component with a custom version"
+				chartId="emptyCustomData"
+				chartTitle="Empty Custom Data"
+				chartDescription="Replace the default empty component with a custom version"
 				emptyStateComponent={<p>On No! Zero Data</p>}
 				isStacked
-				bars={data}
+				barsData={data}
 			/>
 		);
 	}
@@ -579,12 +579,12 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="loadingState"
-				title="Loading State"
-				description="Show loading state via user stipulation"
+				chartId="loadingState"
+				chartTitle="Loading State"
+				chartDescription="Show loading state via user stipulation"
 				isLoading
 				isStacked
-				bars={data}
+				barsData={data}
 			/>
 		);
 	}
@@ -607,11 +607,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="chartKey"
-				title="Chart Key"
-				description={`Click the "information" icon to reveal the key`}
+				chartId="chartKey"
+				chartTitle="Chart Key"
+				chartDescription={`Click the "information" icon to reveal the key`}
 				isStacked
-				bars={data}
+				barsData={data}
 				keyLabel={['Import', 'Export']}
 				keyTitle="Chart Key"
 			/>
@@ -637,12 +637,12 @@ class Demo extends React.Component {
 		return (
 			<div style={{ width: '200px' }}>
 				<XUIBarChart
-					id="chartSize"
-					title="Chart Size"
-					description="Customise the chart size"
+					chartId="chartSize"
+					chartTitle="Chart Size"
+					chartDescription="Customise the chart size"
 					isStacked
-					bars={data}
-					height={200}
+					barsData={data}
+					chartHeight={200}
 				/>
 			</div>
 		);
@@ -666,10 +666,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="barPlain"
-				title="Plain Bars"
-				description="Plain bar chart with no stacks"
-				bars={data}
+				chartId="barPlain"
+				chartTitle="Plain Bars"
+				chartDescription="Plain bar chart with no stacks"
+				barsData={data}
 				barColor="#F6534E"
 				keyLabel="Import"
 			/>
@@ -700,10 +700,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="headerStress"
-				title="Header Stress Test Ensuring Large Amounts of Content is Handled Correctly at Different Screen Sizes"
-				description="Responsively handle large quantities of content in the header area"
-				bars={data}
+				chartId="headerStress"
+				chartTitle="Header Stress Test Ensuring Large Amounts of Content is Handled Correctly at Different Screen Sizes"
+				chartDescription="Responsively handle large quantities of content in the header area"
+				barsData={data}
 				maxVisibleItems={5}
 				keyLabel="Import"
 				hasPagination
@@ -730,11 +730,11 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="hideTitle"
-				title="Hidden Title"
-				isTitleHidden
-				description="Hide title yet still use it for accessibility purposes"
-				bars={data}
+				chartId="hideTitle"
+				chartTitle="Hidden Title"
+				isChartTitleHidden
+				chartDescription="Hide title yet still use it for accessibility purposes"
+				barsData={data}
 			/>
 		);
 	}
@@ -757,10 +757,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="avatarLabel"
-				title="Avatar Label"
-				description="A responsive Avatar / Tag label combination"
-				bars={data}
+				chartId="avatarLabel"
+				chartTitle="Avatar Label"
+				chartDescription="A responsive Avatar / Tag label combination"
+				barsData={data}
 				xAxisType="avatar"
 			/>
 		);
@@ -784,10 +784,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="abbreviationLabel"
-				title="Abbreviation Label"
-				description="A responsive label system showing various levels of information"
-				bars={data}
+				chartId="abbreviationLabel"
+				chartTitle="Abbreviation Label"
+				chartDescription="A responsive label system showing various levels of information"
+				barsData={data}
 				xAxisType="abbreviation"
 			/>
 		);
@@ -810,10 +810,10 @@ class Demo extends React.Component {
 	render() {
 		return (
 			<XUIBarChart
-				id="dataDisparity"
-				title="Data Disparity"
-				description="Keeping small data sets visible when accompanied by data with great disparity"
-				bars={data}
+				chartId="dataDisparity"
+				chartTitle="Data Disparity"
+				chartDescription="Keeping small data sets visible when accompanied by data with great disparity"
+				barsData={data}
 			/>
 		);
 	}

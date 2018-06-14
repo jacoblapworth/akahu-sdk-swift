@@ -10,13 +10,13 @@ import AbbreviationLabel from '../customElements/AbbreviationLabel';
 
 const findMaxTotalBarStacks = ({y}) => y.reduce((acc, value) => acc + value, 0);
 
-const createBarStats = ({barsData, maxVisibleItems, viewportWidth, hasPaginationRaw}) => {
+const createBarStats = ({barsData, xAxisVisibleItems, viewportWidth, hasPaginationRaw}) => {
 	const barsTotal = barsData.length;
 	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, BAR_MIN_WIDTH);
 	const limitWithUpperAndLowerThreshold = baseWidth => baseWidth > BAR_MAX_WIDTH
 		? BAR_MAX_WIDTH
 		: limitWithLowerThreshold(baseWidth)
-	const isConstrainedWidth = Boolean(maxVisibleItems);
+	const isConstrainedWidth = Boolean(xAxisVisibleItems);
 
 	// What is an "initial" rough estimate of how many bars are going to fit on a
 	// single panel.
@@ -25,7 +25,7 @@ const createBarStats = ({barsData, maxVisibleItems, viewportWidth, hasPagination
 		// the width is going to be just yet so lets take the raw division for now but
 		// still making sure that we do not let the width get too small (e.g if the
 		// user requested to fit 1000 items on a panel).
-		? limitWithLowerThreshold(viewportWidth / maxVisibleItems)
+		? limitWithLowerThreshold(viewportWidth / xAxisVisibleItems)
 		// In a "standard" scenario we limit the bar widths against the static upper
 		// and lower thresholds.
 		: limitWithUpperAndLowerThreshold(viewportWidth / barsTotal)
@@ -93,25 +93,25 @@ const createActiveBars = (activeBarsRaw, barsData) => (
 
 const enrichParams = (state, props, chartTheme) => {
 	const {
-		id: chartId,
-		title: chartTitle,
-		isTitleHidden,
-		description: chartDescription,
+		chartId,
+		chartTitle,
+		isChartTitleHidden,
+		chartDescription,
+		chartHeight,
 		keyLabel: keyLabelRaw,
 		keyTitle,
-		bars: barsDataRaw,
+		barsData: barsDataRaw,
 		barColor: barColorRaw,
 		activeBars: activeBarsRaw,
 		isStacked,
 		hasPagination: hasPaginationRaw,
 		onBarClick,
 		createBarToolTipMessage,
-		maxVisibleItems,
-		maxYValue: customMaxYValue,
+		xAxisVisibleItems,
+		yAxisMaxValue: yAxisMaxValueRaw,
 		createYAxisLabelFormat: createYAxisLabelFormatRaw,
 		xAxisType,
 		createPaginationMessage,
-		height: chartHeight
 	} = props;
 
 	const {
@@ -145,7 +145,7 @@ const enrichParams = (state, props, chartTheme) => {
 	const hasKey = keyLabel && keyLabel.length;
 
 	// Chart...
-	const hasChartTitle = !isTitleHidden && chartTitle;
+	const hasChartTitle = !isChartTitleHidden && chartTitle;
 	const hasChartHeader = hasChartTitle || hasKey || hasPagination;
 	const isChartNarrow = chartWidth <= 520;
 	const chartPadding = createChartPadding({xAxisHeight, yAxisWidth});
@@ -156,7 +156,7 @@ const enrichParams = (state, props, chartTheme) => {
 	const activeBars = activeBarsRaw ? createActiveBars(activeBarsRaw, barsData) : {};
 	const {
 		barsWidth, barWidth, barMaxValue, barViewports,
-	} = createBarStats({barsData, maxVisibleItems, viewportWidth, hasPaginationRaw});
+	} = createBarStats({barsData, xAxisVisibleItems, viewportWidth, hasPaginationRaw});
 
 	// Panels...
 	const panelsTotal = barViewports;
@@ -172,7 +172,7 @@ const enrichParams = (state, props, chartTheme) => {
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
 	const {yAxisTickValues, yAxisMaxValue} = createYAxisTickValues({
 		yAxisHeight,
-		maxValues: [customMaxYValue, barMaxValue]
+		maxValues: [yAxisMaxValueRaw, barMaxValue]
 	});
 	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
 

@@ -156,6 +156,8 @@ class ChartScaffold extends Component {
 		const {props, state} = this;
 		const params = enrichParams(state, props, barChartTheme);
 		const {
+			qaHook,
+
 			// Chart...
 			chartId, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
 			chartClassName, chartTheme, chartHeight, chartWidth,
@@ -187,17 +189,22 @@ class ChartScaffold extends Component {
 		} = params;
 
 		return (
-			<div className={chartClassName}>
+			<div
+				data-automationid={qaHook}
+				className={chartClassName}>
 
 				{hasChartHeader && (
 					<div className={`${NAME_SPACE}-chart--header`}>
 
 						{hasChartTitle && (
-							<h2 className={`${NAME_SPACE}-chart--title`}>{chartTitle}</h2>
+							<h2
+								data-automationid={qaHook && `${qaHook}--title`}
+								className={`${NAME_SPACE}-chart--title`}>{chartTitle}</h2>
 						)}
 
 						{hasPagination && (
 							<ContentPagination
+								qaHook={qaHook && `${qaHook}--pagination`}
 								current={panelCurrent}
 								total={panelsTotal}
 								createMessage={createPaginationMessage}
@@ -209,6 +216,7 @@ class ChartScaffold extends Component {
 
 						{hasKey && (
 							<ChartKey
+								qaHook={qaHook && `${qaHook}--key`}
 								title={keyTitle}
 								labels={keyLabel}
 								colors={colorStacks}
@@ -318,7 +326,12 @@ class ChartScaffold extends Component {
 								padding={chartPadding}
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
-								groupComponent={<g className={`${NAME_SPACE}-chart--yaxis`} />}
+								groupComponent={(
+									<g
+										data-automationid={qaHook && `${qaHook}--yaxis`}
+										className={`${NAME_SPACE}-chart--yaxis`}
+									/>
+								)}
 								tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`}/>}
 
 								// Add the zero at the start of the axis (is hidden by default).
@@ -387,7 +400,12 @@ class ChartScaffold extends Component {
 										padding={chartPadding}
 										width={barsWidth}
 										tickValues={xAxisTickValues}
-										groupComponent={<g className={`${NAME_SPACE}-chart--xaxis`} />}
+										groupComponent={(
+											<g
+												data-automationid={qaHook && `${qaHook}--xaxis`}
+												className={`${NAME_SPACE}-chart--xaxis`}
+											/>
+										)}
 
 										gridComponent={(
 											<Line
@@ -412,7 +430,12 @@ class ChartScaffold extends Component {
 									<VictoryBar
 										data={barsData}
 										y={findMaxTotalBarStacks}
-										groupComponent={<g className={`${NAME_SPACE}-chart--bars`} />}
+										groupComponent={(
+											<g
+												data-automationid={qaHook && `${qaHook}--bars`}
+												className={`${NAME_SPACE}-chart--bars`}
+											/>
+										)}
 
 										dataComponent={(
 											<StackedBar
@@ -438,6 +461,7 @@ class ChartScaffold extends Component {
 					{hasToolTip && (
 						<GraphTooltip
 							{...toolTipPosition}
+							qaHook={qaHook}
 							message={toolTipMessage}
 
 							// Describes the current state of the contents horizontal scroll for
@@ -460,6 +484,7 @@ class ChartScaffold extends Component {
 export default ChartScaffold;
 
 ChartScaffold.propTypes = {
+	qaHook: PropTypes.string,
 	chartId: PropTypes.string.isRequired,
 	chartTitle: PropTypes.string.isRequired,
 	isChartTitleHidden: PropTypes.bool,

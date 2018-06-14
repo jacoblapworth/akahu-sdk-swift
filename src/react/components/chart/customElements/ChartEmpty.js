@@ -8,12 +8,13 @@ const chartPathData = 'M20,20.5h2v1H8v-1h2v-7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v
 
 class ChartEmpty extends Component {
 	render = () => {
-		const {emptyStateComponent, emptyMessage, chartHeight} = this.props;
+		const {qaHook, emptyStateComponent, emptyMessage, chartHeight} = this.props;
 		const emptyHeight = chartHeight * 0.75;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`);
 
 		return (
 			<div
+				data-automationid={qaHook && `${qaHook}--empty`}
 				className={chartClassName}
 				style={{minHeight: `${emptyHeight}px`}}>
 
@@ -32,6 +33,7 @@ class ChartEmpty extends Component {
 export default ChartEmpty;
 
 ChartEmpty.propTypes = {
+	qaHook: PropTypes.string,
 	emptyStateComponent: PropTypes.element,
 	emptyMessage: PropTypes.string,
 	chartHeight: PropTypes.number,

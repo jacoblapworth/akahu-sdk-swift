@@ -7,11 +7,20 @@ import {NAME_SPACE} from '../helpers/constants';
 
 class ContentPagination extends Component {
 	render() {
-		const {current, total, updatePanel, createMessage, paginationNextLabel, paginationPreviousLabel} = this.props;
+		const {
+			qaHook,
+			current,
+			total,
+			updatePanel,
+			createMessage,
+			paginationNextLabel,
+			paginationPreviousLabel,
+		} = this.props;
 		const message = createMessage && createMessage(current, total);
 
 		return (
 			<nav
+				qaHook={qaHook}
 				className={`${NAME_SPACE}-chart--pagination`}
 				role="navigation"
 				aria-label="Pagination">
@@ -48,8 +57,11 @@ class ContentPagination extends Component {
 export default ContentPagination;
 
 ContentPagination.propTypes = {
+	qaHook: PropTypes.string,
 	current: PropTypes.number,
 	total: PropTypes.number,
 	updatePanel: PropTypes.func,
 	createMessage: PropTypes.func,
+	paginationNextLabel: PropTypes.string,
+	paginationPreviousLabel: PropTypes.string,
 };

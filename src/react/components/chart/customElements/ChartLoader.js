@@ -6,11 +6,12 @@ import {NAME_SPACE} from '../helpers/constants';
 
 class ChartLoader extends Component {
 	render = () => {
-		const {chartHeight} = this.props;
+		const {qaHook, chartHeight} = this.props;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);
 
 		return (
 			<div
+				data-automationid={qaHook && `${qaHook}--loader`}
 				className={chartClassName}
 				style={{height: `${chartHeight}px`}}>
 				<XUILoader label={ 'Loading' } />
@@ -22,5 +23,6 @@ class ChartLoader extends Component {
 export default ChartLoader;
 
 ChartLoader.propTypes = {
+	qaHook: PropTypes.string,
 	chartHeight: PropTypes.number,
 };

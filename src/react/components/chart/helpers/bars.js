@@ -92,6 +92,7 @@ const createActiveBars = (activeBarsRaw, barsData) => (
 
 const enrichParams = (state, props, chartTheme) => {
 	const {
+		qaHook,
 		chartId,
 		chartTitle,
 		isChartTitleHidden,
@@ -192,6 +193,8 @@ const enrichParams = (state, props, chartTheme) => {
 	});
 
 	return {
+		qaHook,
+
 		// Chart...
 		chartId, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
 		chartClassName, chartTheme, chartHeight, chartWidth,

@@ -21,7 +21,7 @@ class ChartKey extends Component {
 	);
 
 	render() {
-		const {title, labels} = this.props;
+		const {qaHook, title, labels} = this.props;
 
 		const trigger = (
 			<XUIButton
@@ -33,7 +33,7 @@ class ChartKey extends Component {
 
 		const dropdown = (
 			<DropDown
-			fixedWidth
+				fixedWidth
 				size="medium"
 				hasKeyboardEvents={false}
 				restrictFocus={false}>
@@ -48,6 +48,7 @@ class ChartKey extends Component {
 
 		return (
 			<DropDownToggled
+				qaHook={qaHook && `${qaHook}--key`}
 				trigger={trigger}
 				dropdown={dropdown}
 			/>
@@ -58,6 +59,7 @@ class ChartKey extends Component {
 export default ChartKey;
 
 ChartKey.propTypes = {
+	qaHook: PropTypes.string,
 	title: PropTypes.string,
 	labels: PropTypes.arrayOf(PropTypes.string),
 	colors: PropTypes.arrayOf(PropTypes.string),

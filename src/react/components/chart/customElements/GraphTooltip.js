@@ -4,7 +4,7 @@ import XUITooltip from '../../tooltip/XUITooltip';
 
 class GraphTooltip extends PureComponent {
 	render() {
-		const {message, offset, left, top, width, height, preferred} = this.props;
+		const {qaHook, message, offset, left, top, width, height, preferred} = this.props;
 		return (
 			<div
 				style={{
@@ -16,6 +16,7 @@ class GraphTooltip extends PureComponent {
 				}}
 			>
 				<XUITooltip
+					qaHook={qaHook}
 					trigger={<div style={{width, height}}/>}
 					isHidden={false}
 					preferredPosition={preferred}

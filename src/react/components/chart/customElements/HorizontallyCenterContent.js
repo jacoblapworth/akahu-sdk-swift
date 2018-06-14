@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import getGroupPosition, { testIsCloseEnough } from '../helpers';
+import getGroupPosition, {testIsCloseEnough} from '../helpers';
 
 class HorizontallyCenterContent extends Component {
 	contentNode;

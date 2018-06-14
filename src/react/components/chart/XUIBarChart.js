@@ -11,11 +11,13 @@ TODO:
 
 + XUI icon new table version
 
-+ Next / Previous button titles
-
 + QA Hooks
 
 + Remove inline styles
+
++ Utils
+
++ PureComponent
 
 Design:
 -------
@@ -41,6 +43,8 @@ class XUIBarChart extends Component {
 export default XUIBarChart;
 
 XUIBarChart.propTypes = {
+
+	qaHook: PropTypes.string,
 
 	/** Unique identifier for the chart. */
 	chartId: PropTypes.string.isRequired,

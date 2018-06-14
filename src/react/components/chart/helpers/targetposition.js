@@ -1,9 +1,21 @@
+const getTargetValueThunk = event => reference => {
+	let value;
+
+	try {
+		value = event.target[reference].baseVal.value;
+	} catch (e) {
+		value = 0;
+	}
+
+	return value;
+}
+
 const getTargetPosition = event => {
-	const getTargetValue = reference => event.target[reference].baseVal.value;
-	const left = getTargetValue('x');
-	const top = getTargetValue('y');
-	const height = getTargetValue('height');
-	const width = getTargetValue('width');
+	const getValue = getTargetValueThunk(event);
+	const left = getValue('x');
+	const top = getValue('y');
+	const height = getValue('height');
+	const width = getValue('width');
 
 	return { left, top, width, height };
 };

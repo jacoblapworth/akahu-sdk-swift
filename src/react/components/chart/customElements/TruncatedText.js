@@ -12,6 +12,28 @@ const createTotalCharacterReducer = maxWidth => ({totalWidth = 20, totalChars = 
 
 class TruncatedText extends Component {
 	rootNode;
+	state = { /* maxWidth, text */ };
+
+	updateTruncationReference = () => {
+		const {state: { maxWidth: prevMaxWidth, text: prevText }} = this;
+		const {maxWidth: nextMaxWidth, children: nextText} = this.props;
+		const shouldUpdate = !(nextMaxWidth === prevMaxWidth && nextText === prevText);
+
+		if (shouldUpdate) {
+			this.setState({
+				maxWidth: nextMaxWidth,
+				text: nextText,
+			});
+		}
+	}
+
+	componentDidMount = () => {
+		this.updateTruncationReference();
+	}
+
+	componentDidUpdate = () => {
+		this.updateTruncationReference();
+	}
 
 	render() {
 		const {rootNode} = this;

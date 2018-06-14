@@ -11,7 +11,6 @@ import StackedBar from './StackedBar';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
-import GroupWrapper from './GroupWrapper';
 
 class ChartScaffold extends Component {
 	constructor() {
@@ -329,8 +328,8 @@ class ChartScaffold extends Component {
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
 								groupComponent={(
-									<GroupWrapper
-										qahook-automationid={qaHook && `${qaHook}--yaxis`}
+									<g
+										data-automationid={qaHook && `${qaHook}--yaxis`}
 										className={`${NAME_SPACE}-chart--yaxis`}
 									/>
 								)}
@@ -403,8 +402,8 @@ class ChartScaffold extends Component {
 										width={barsWidth}
 										tickValues={xAxisTickValues}
 										groupComponent={(
-											<GroupWrapper
-												qahook-automationid={qaHook && `${qaHook}--xaxis`}
+											<g
+												data-automationid={qaHook && `${qaHook}--xaxis`}
 												className={`${NAME_SPACE}-chart--xaxis`}
 											/>
 										)}
@@ -433,8 +432,8 @@ class ChartScaffold extends Component {
 										data={barsData}
 										y={findMaxTotalBarStacks}
 										groupComponent={(
-											<GroupWrapper
-												qahook={qaHook && `${qaHook}--bars`}
+											<g
+												data-automationid={qaHook && `${qaHook}--bars`}
 												className={`${NAME_SPACE}-chart--bars`}
 											/>
 										)}

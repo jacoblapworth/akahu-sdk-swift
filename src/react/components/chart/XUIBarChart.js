@@ -11,11 +11,7 @@ TODO:
 
 + XUI icon new table version
 
-+ Check new prop changes to .md
-
 + Remove inline styles
-
-+ PureComponent
 
 + yAxisMaxValue --> yAxisDefaultTopValue
 
@@ -123,7 +119,7 @@ XUIBarChart.propTypes = {
 	xAxisVisibleItems: PropTypes.number,
 
 	/** The maximum number to place at the top of the y-axis */
-	yAxisMaxValue: PropTypes.number,
+	yAxisDefaultTopValue: PropTypes.number,
 
 	/** Function to create a custom representation of the y-axis labels. */
 	createYAxisLabelFormat: PropTypes.func,
@@ -159,7 +155,7 @@ XUIBarChart.defaultProps = {
 	keyTitle: 'Graph key',
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
-	yAxisMaxValue: 0,
+	yAxisDefaultTopValue: 0,
 	paginationNextLabel: 'Next Page',
 	paginationPreviousLabel: 'Previous page',
 };

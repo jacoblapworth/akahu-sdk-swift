@@ -107,7 +107,7 @@ const enrichParams = (state, props, chartTheme) => {
 		onBarClick,
 		createBarToolTipMessage,
 		xAxisVisibleItems,
-		yAxisMaxValue: yAxisMaxValueRaw,
+		yAxisDefaultTopValue,
 		createYAxisLabelFormat: createYAxisLabelFormatRaw,
 		xAxisType,
 		hasPagination: hasPaginationRaw,
@@ -174,7 +174,7 @@ const enrichParams = (state, props, chartTheme) => {
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
 	const {yAxisTickValues, yAxisMaxValue} = createYAxisTickValues({
 		yAxisHeight,
-		maxValues: [yAxisMaxValueRaw, barMaxValue]
+		maxValues: [yAxisDefaultTopValue, barMaxValue]
 	});
 	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
 

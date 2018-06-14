@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../../loader/XUILoader';
 import {NAME_SPACE} from '../helpers/constants';
 
-class ChartLoader extends Component {
+class ChartLoader extends PureComponent {
 	render = () => {
 		const {qaHook, chartHeight} = this.props;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-loading`);

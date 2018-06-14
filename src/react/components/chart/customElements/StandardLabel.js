@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
@@ -42,7 +42,7 @@ const responsiveOptions = {
 	},
 };
 
-class AvatarLabel extends Component {
+class AvatarLabel extends PureComponent {
 	handleToolTipShow = (event, message) => {
 		const preferred = 'bottom';
 		const position = { ...getTargetPosition(event), preferred };

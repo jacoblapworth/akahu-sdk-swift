@@ -9,7 +9,7 @@ class GroupWrapper extends Component {
 
 		return (
 			<g
-				key={key += 1}
+				// key={key += 1}
 				data-automationid={qaHook}
 				className={className}>
 				{children}

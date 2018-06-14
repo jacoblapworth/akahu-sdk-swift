@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import HorizontallyCenterContent from './HorizontallyCenterContent';
 
-class XAxisLabelWrapper extends Component {
+class XAxisLabelWrapper extends PureComponent {
 	render() {
 		const {
 			shouldCalculateCenter,

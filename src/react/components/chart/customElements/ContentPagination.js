@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import arrowPathData from '@xero/xui-icon/icons/arrow';
 import {NAME_SPACE} from '../helpers/constants';
 
-class ContentPagination extends Component {
+class ContentPagination extends PureComponent {
 	render() {
 		const {
 			qaHook,

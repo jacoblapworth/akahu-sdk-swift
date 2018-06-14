@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
@@ -7,7 +7,7 @@ import DropDown from '../../dropdown/DropDown';
 import infoPathData from '@xero/xui-icon/icons/info';
 import {NAME_SPACE} from '../helpers/constants';
 
-class ChartKey extends Component {
+class ChartKey extends PureComponent {
 	createLabel = (label, index) => (
 		<li
 			key={label}

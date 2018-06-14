@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
 import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
@@ -25,7 +25,7 @@ const createStackHeight = ({barStack, ratio}) => {
 	return height ? Math.max(height, 1) : 0;
 };
 
-class StackedBar extends Component {
+class StackedBar extends PureComponent {
 	handleToolTipShow = (event, barData) => {
 		const {updateToolTip, createToolTipMessage} = this.props;
 		const position = getTargetPosition(event);

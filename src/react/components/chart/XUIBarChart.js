@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {CHART_HEIGHT} from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
@@ -11,11 +11,15 @@ TODO:
 
 + XUI icon new table version
 
-+ QA Hooks
++ Check new prop changes to .md
 
 + Remove inline styles
 
 + PureComponent
+
++ yAxisMaxValue --> yAxisDefaultTopValue
+
++ Label tooltip ALWAYS on
 
 Design:
 -------
@@ -23,7 +27,7 @@ Design:
 
 */
 
-class XUIBarChart extends Component {
+class XUIBarChart extends PureComponent {
 
 	render = () => {
 		const {props} = this;

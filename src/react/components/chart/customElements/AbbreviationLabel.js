@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {baseFontTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
@@ -71,7 +71,7 @@ const responsiveOptions = {
 	},
 };
 
-class AbbreviationLabel extends Component {
+class AbbreviationLabel extends PureComponent {
 	handleToolTipShow = (event, message) => {
 		const preferred = 'bottom';
 		const position = { ...getTargetPosition(event), preferred };
@@ -100,6 +100,21 @@ class AbbreviationLabel extends Component {
 		const {
 			hasTooltip, tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
 		} = responsiveOption(responsiveParams);
+
+		console.log('ABBR', this.props, {
+			textOptions,
+			getTagText,
+			labelLeft,
+			labelHeight,
+			responsiveOption,
+			hasTooltip,
+			tagLeft,
+			tagTop,
+			tagText,
+			tagStyle,
+			tagAnchor,
+			tagTextWidth,
+		});
 
 		return (
 			<g>

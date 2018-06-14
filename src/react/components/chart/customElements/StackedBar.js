@@ -27,34 +27,36 @@ const createStackHeight = ({barStack, ratio}) => {
 };
 
 class StackedBar extends Component {
-	handleToolTipShow = (event, {barData, barIndex, stackIndex = null}) => {
+	handleToolTipShow = (event, barData) => {
 		const {updateToolTip, createToolTipMessage} = this.props;
 		const position = getTargetPosition(event);
-		const message = createToolTipMessage({...barData, barIndex, stackIndex});
+		const message = createToolTipMessage(barData);
 		updateToolTip(position, message);
 	};
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
-	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
+	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex = null) => {
 		const {
 			onBarClick,
 			updateToolTip,
 			createToolTipMessage,
 			colorStacks,
+			activeBars,
 			index: barIndex,
 			datum: barData,
 		} = this.props;
-		const {isBarActive, activeStacks = []} = barData;
-		const testIsActive = stackIndex => isBarActive || activeStacks.indexOf(stackIndex) >= 0;
+		const {id: barId} = barData;
+		const testIsActive = stackIndex => (activeBars[barId] || []).indexOf(stackIndex) >= 0;
 		const stackTop = createStackTop({barBottom, barStacks, ratio, stackIndex});
 		const stackHeight = createStackHeight({barStack, ratio});
+		const interactionParams = {...barData, barIndex, barId, stackIndex};
 		const clickProps = onBarClick && {
-			onClick: event => onBarClick(event, {...barData, barIndex, stackIndex}),
+			onClick: event => onBarClick(event, interactionParams),
 			style: {cursor: 'pointer'}
 		};
 		const toolTipProps = (updateToolTip && createToolTipMessage) && {
-			onMouseEnter: event => this.handleToolTipShow(event, {barData, barIndex, stackIndex}),
+			onMouseEnter: event => this.handleToolTipShow(event, interactionParams),
 			onMouseLeave: this.handleToolTipHide
 		};
 
@@ -95,14 +97,14 @@ class StackedBar extends Component {
 			y0: rawYOffset,
 		} = this.props;
 
-		const {y: barStacks} = barData;
+		const {id: barId, y: barStacks} = barData;
 		if (!barStacks.length) return null;
 
 		const radius = 3;
 		const divider = 10;
 		const ratio = yAxisHeight / yAxisMaxValue;
 		const maxStack = barStacks.reduce((acc, stack) => acc + stack, 0);
-		const maskId = `${NAME_SPACE}-chart--${chartId}--bar${barIndex}`;
+		const maskId = `${NAME_SPACE}-chart--bar-mask-${chartId}${barId}`;
 		const barBottom = alwaysPositive(rawYOffset);
 		const barLeft = (barWidthRaw * barIndex) + divider;
 		const barTop = alwaysPositive(barBottom - (maxStack * ratio));
@@ -168,6 +170,7 @@ StackedBar.propTypes = {
 	updateToolTip: PropTypes.func,
 	createToolTipMessage: PropTypes.func,
 	colorStacks: PropTypes.arrayOf(PropTypes.string),
+	activeBars: PropTypes.object,
 	datum: PropTypes.object,
 	index: PropTypes.number,
 	barWidth: PropTypes.number,

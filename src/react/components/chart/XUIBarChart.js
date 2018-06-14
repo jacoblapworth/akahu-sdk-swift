@@ -17,7 +17,6 @@ TODO:
 	+ bars = barData
 	+ maxVisibleItems = maxXItems
 	+ createYAxisLabelFormat = createYLabel
-	+ id = chartId
 	+ title = chartTitle
 	+ description = chartDescription
 	+ height = chartHeight
@@ -27,6 +26,10 @@ TODO:
 + Next / Previous button titles
 
 + Isolate active bars / stacks
+
++ QA Hooks
+
++ Remove inline styles
 
 Design:
 -------
@@ -84,6 +87,12 @@ XUIBarChart.propTypes = {
 	/** Bar data consisting of an x-axis label and y-axis value(s). */
 	bars: PropTypes.arrayOf(PropTypes.shape({
 
+		/** Unique identifier for an individual bar. */
+		id: PropTypes.oneOfType([
+			PropTypes.number,
+			PropTypes.string,
+		]),
+
 		/** X-axis label (in the correct format for the "xAxisType") */
 		x: PropTypes.string,
 
@@ -107,6 +116,9 @@ XUIBarChart.propTypes = {
 
 	/** Handler for when a bar "click" interaction occurs. */
 	onBarClick: PropTypes.func,
+
+	/** xxxxxxxxxxx */
+	activeBars: PropTypes.object,
 
 	/** Function to create a customised message for when a bar "hover" interaction occurs. */
 	createBarToolTipMessage: PropTypes.func,

@@ -5,29 +5,27 @@
 ```
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
-
+const data = [
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
+];
 class Demo extends React.Component {
 
 	constructor() {
 		super();
 		this.handleBarClick = this.handleBarClick.bind(this);
-		this.state = { bars: [
-			{ x: "Apple", y: [2] },
-			{ x: "Potato", y: [2, 1] },
-			{ x: "Carrot", y: [1, 3] },
-		] };
+		this.state = { activeBars: {} };
 	}
 
-	handleBarClick(event, bar) {
-		const { barIndex } = bar;
-		const { bars } = this.state
-		const currentBar = bars[barIndex];
+	handleBarClick(event, {barId}) {
+		const { activeBars } = this.state
+		const activeState = activeBars[barId] || false;
 
-		this.setState({ bars: [
-			...bars.slice(0, barIndex),
-			{ ...currentBar, isBarActive: !currentBar.isBarActive },
-			...bars.slice(barIndex + 1),
-		] });
+		this.setState({ activeBars: {
+			...activeBars,
+			[barId]: !activeState
+		} });
 	}
 
 	render() {
@@ -37,59 +35,9 @@ class Demo extends React.Component {
 				title="Clickable Bar"
 				description="Click a bar to toggle the active state"
 				isStacked
-				bars={this.state.bars}
+				bars={data}
 				onBarClick={this.handleBarClick}
-			/>
-		);
-	}
-}
-
-<Demo />
-```
-
-```
-require('array.prototype.find').shim();
-const {XUIBarChart} = require('./barchart');
-
-class Demo extends React.Component {
-
-	constructor() {
-		super();
-		this.handleBarClick = this.handleBarClick.bind(this);
-		this.state = { bars: [
-			{ x: "Apple", y: [2] },
-			{ x: "Potato", y: [2, 1] },
-			{ x: "Carrot", y: [1, 3] },
-		] };
-	}
-
-	handleBarClick(event, bar) {
-		const { barIndex, stackIndex } = bar;
-		const { bars } = this.state
-		const currentBar = bars[barIndex];
-		const { activeStacks = [] } = currentBar;
-		const activeIndex = activeStacks.indexOf(stackIndex);
-		const isActive = activeIndex >= 0;
-
-		this.setState({ bars: [
-			...bars.slice(0, barIndex),
-			{ ...currentBar, activeStacks: isActive
-				? [...activeStacks.slice(0, activeIndex), ...activeStacks.slice(activeIndex + 1)]
-				: [...activeStacks, stackIndex]
-			},
-			...bars.slice(barIndex + 1),
-		] });
-	}
-
-	render() {
-		return (
-			<XUIBarChart
-				id="barClick"
-				title="Clickable Stack"
-				description="Click a stack to toggle the active state"
-				isStacked
-				bars={this.state.bars}
-				onBarClick={this.handleBarClick}
+				activeBars={this.state.activeBars}
 			/>
 		);
 	}
@@ -102,9 +50,57 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 2 },
-	{ x: "Potato", y: 3 },
-	{ x: "Carrot", y: 4 },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
+];
+class Demo extends React.Component {
+
+	constructor() {
+		super();
+		this.handleBarClick = this.handleBarClick.bind(this);
+		this.state = { activeBars: {} };
+	}
+
+	handleBarClick(event, { barId, stackIndex }) {
+		const { activeBars } = this.state
+		const activeBar = activeBars[barId] || [];
+		const activeIndex = activeBar.indexOf(stackIndex);
+		const isActive = activeIndex >= 0;
+
+		this.setState({ activeBars: {
+			...activeBars,
+			[barId]: isActive
+				? [...activeBar.slice(0, activeIndex), ...activeBar.slice(activeIndex + 1)]
+				: [...activeBar, stackIndex]
+		}});
+	}
+
+	render() {
+		return (
+			<XUIBarChart
+				id="barClick"
+				title="Clickable Stack"
+				description="Click a stack to toggle the active state"
+				isStacked
+				bars={data}
+				onBarClick={this.handleBarClick}
+				activeBars={this.state.activeBars}
+			/>
+		);
+	}
+}
+
+<Demo />
+```
+
+```
+require('array.prototype.find').shim();
+const {XUIBarChart} = require('./barchart');
+const data = [
+	{ id: 0, x: "Apple", y: 2 },
+	{ id: 1, x: "Potato", y: 3 },
+	{ id: 2, x: "Carrot", y: 4 },
 ];
 class Demo extends React.Component {
 
@@ -128,9 +124,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data= [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
 ];
 class Demo extends React.Component {
 
@@ -160,15 +156,15 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
-	{ x: "Banana", y: [4] },
-	{ x: "Berry", y: [1, 2] },
-	{ x: "Orange", y: [3, 1] },
-	{ x: "Beetroot", y: [2, 3] },
-	{ x: "Pumpkin", y: [1, 1, 1, 1] },
-	{ x: "Lettuce", y: [2, 1] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
+	{ id: 3, x: "Banana", y: [4] },
+	{ id: 4, x: "Berry", y: [1, 2] },
+	{ id: 5, x: "Orange", y: [3, 1] },
+	{ id: 6, x: "Beetroot", y: [2, 3] },
+	{ id: 7, x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ id: 8, x: "Lettuce", y: [2, 1] },
 ];
 class Demo extends React.Component {
 
@@ -194,9 +190,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data= [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
 ];
 class Demo extends React.Component {
 
@@ -227,15 +223,15 @@ const addIcon = require('@xero/xui-icon/icons/addition').default;
 const subtractionIcon = require('@xero/xui-icon/icons/subtraction').default;
 
 const data = [
-	{ x: "Layla Abernathy", y: [1, 1, 2, 1] },
-	{ x: "Dr. Jennifer Bosco", y: [2, 1] },
-	{ x: "Lilian Willms DVM", y: [1, 3] },
-	{ x: "Heloise Stanton", y: [4] },
-	{ x: "Janet Mayert DVM", y: [2, 2] },
-	{ x: "Rollin McCullough", y: [3, 1] },
-	{ x: "Laury Kris", y: [2, 3] },
-	{ x: "Jose Schmitt IV", y: [2, 1, 1, 1] },
-	{ x: "Isom Tremblay", y: [1, 4] },
+	{ id: 0, x: "Layla Abernathy", y: [1, 1, 2, 1] },
+	{ id: 1, x: "Dr. Jennifer Bosco", y: [2, 1] },
+	{ id: 2, x: "Lilian Willms DVM", y: [1, 3] },
+	{ id: 3, x: "Heloise Stanton", y: [4] },
+	{ id: 4, x: "Janet Mayert DVM", y: [2, 2] },
+	{ id: 5, x: "Rollin McCullough", y: [3, 1] },
+	{ id: 6, x: "Laury Kris", y: [2, 3] },
+	{ id: 7, x: "Jose Schmitt IV", y: [2, 1, 1, 1] },
+	{ id: 8, x: "Isom Tremblay", y: [1, 4] },
 ];
 
 class Demo extends React.Component {
@@ -254,10 +250,11 @@ class Demo extends React.Component {
 		const version = Math.floor(total / data.length);
 		const bar = data[index];
 		const x = version ? `${bar.x} (${version})` : bar.x;
+		const id = bars.length;
 
 		this.setState({ bars: [
 			...bars,
-			{ ...bar, x }
+			{ ...bar, id, x }
 		] });
 	}
 
@@ -303,15 +300,15 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
-	{ x: "Banana", y: [4] },
-	{ x: "Berry", y: [1, 2] },
-	{ x: "Orange", y: [3, 1] },
-	{ x: "Beetroot", y: [2, 3] },
-	{ x: "Pumpkin", y: [1, 1, 1, 1] },
-	{ x: "Lettuce", y: [2, 1] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
+	{ id: 3, x: "Banana", y: [4] },
+	{ id: 4, x: "Berry", y: [1, 2] },
+	{ id: 5, x: "Orange", y: [3, 1] },
+	{ id: 6, x: "Beetroot", y: [2, 3] },
+	{ id: 7, x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ id: 8, x: "Lettuce", y: [2, 1] },
 ];
 
 class Demo extends React.Component {
@@ -338,15 +335,15 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
-	{ x: "Banana", y: [4] },
-	{ x: "Berry", y: [1, 2] },
-	{ x: "Orange", y: [3, 1] },
-	{ x: "Beetroot", y: [2, 3] },
-	{ x: "Pumpkin", y: [1, 1, 1, 1] },
-	{ x: "Lettuce", y: [2, 1] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
+	{ id: 3, x: "Banana", y: [4] },
+	{ id: 4, x: "Berry", y: [1, 2] },
+	{ id: 5, x: "Orange", y: [3, 1] },
+	{ id: 6, x: "Beetroot", y: [2, 3] },
+	{ id: 7, x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ id: 8, x: "Lettuce", y: [2, 1] },
 ];
 
 class Demo extends React.Component {
@@ -374,15 +371,15 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
-	{ x: "Banana", y: [4] },
-	{ x: "Berry", y: [1, 2] },
-	{ x: "Orange", y: [3, 1] },
-	{ x: "Beetroot", y: [2, 3] },
-	{ x: "Pumpkin", y: [1, 1, 1, 1] },
-	{ x: "Lettuce", y: [2, 1] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
+	{ id: 3, x: "Banana", y: [4] },
+	{ id: 4, x: "Berry", y: [1, 2] },
+	{ id: 5, x: "Orange", y: [3, 1] },
+	{ id: 6, x: "Beetroot", y: [2, 3] },
+	{ id: 7, x: "Pumpkin", y: [1, 1, 1, 1] },
+	{ id: 8, x: "Lettuce", y: [2, 1] },
 ];
 
 class Demo extends React.Component {
@@ -411,9 +408,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
 ];
 
 class Demo extends React.Component {
@@ -439,9 +436,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
 ];
 
 class Demo extends React.Component {
@@ -468,9 +465,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [] },
-	{ x: "Potato", y: [] },
-	{ x: "Carrot", y: [] },
+	{ id: 0, x: "Apple", y: [] },
+	{ id: 1, x: "Potato", y: [] },
+	{ id: 2, x: "Carrot", y: [] },
 ];
 
 class Demo extends React.Component {
@@ -496,9 +493,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 0 },
-	{ x: "Potato", y: 0 },
-	{ x: "Carrot", y: 0 },
+	{ id: 0, x: "Apple", y: 0 },
+	{ id: 1, x: "Potato", y: 0 },
+	{ id: 2, x: "Carrot", y: 0 },
 ];
 
 class Demo extends React.Component {
@@ -572,9 +569,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [] },
-	{ x: "Potato", y: [] },
-	{ x: "Carrot", y: [] },
+	{ id: 0, x: "Apple", y: [] },
+	{ id: 1, x: "Potato", y: [] },
+	{ id: 2, x: "Carrot", y: [] },
 ];
 
 class Demo extends React.Component {
@@ -601,9 +598,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
 ];
 class Demo extends React.Component {
 
@@ -630,9 +627,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: [2] },
-	{ x: "Potato", y: [2, 1] },
-	{ x: "Carrot", y: [1, 3] },
+	{ id: 0, x: "Apple", y: [2] },
+	{ id: 1, x: "Potato", y: [2, 1] },
+	{ id: 2, x: "Carrot", y: [1, 3] },
 ];
 class Demo extends React.Component {
 
@@ -660,9 +657,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 2 },
-	{ x: "Potato", y: 3 },
-	{ x: "Carrot", y: 4 },
+	{ id: 0, x: "Apple", y: 2 },
+	{ id: 1, x: "Potato", y: 3 },
+	{ id: 2, x: "Carrot", y: 4 },
 ];
 class Demo extends React.Component {
 
@@ -688,15 +685,15 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 2 },
-	{ x: "Potato", y: 3 },
-	{ x: "Carrot", y: 4 },
-	{ x: "Banana", y: 4 },
-	{ x: "Berry", y: 3 },
-	{ x: "Orange", y: 4 },
-	{ x: "Beetroot", y: 5 },
-	{ x: "Pumpkin", y: 4 },
-	{ x: "Lettuce", y: 3 },
+	{ id: 0, x: "Apple", y: 2 },
+	{ id: 1, x: "Potato", y: 3 },
+	{ id: 2, x: "Carrot", y: 4 },
+	{ id: 3, x: "Banana", y: 4 },
+	{ id: 4, x: "Berry", y: 3 },
+	{ id: 5, x: "Orange", y: 4 },
+	{ id: 6, x: "Beetroot", y: 5 },
+	{ id: 7, x: "Pumpkin", y: 4 },
+	{ id: 8, x: "Lettuce", y: 3 },
 ];
 class Demo extends React.Component {
 
@@ -724,9 +721,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 2 },
-	{ x: "Potato", y: 3 },
-	{ x: "Carrot", y: 4 },
+	{ id: 0, x: "Apple", y: 2 },
+	{ id: 1, x: "Potato", y: 3 },
+	{ id: 2, x: "Carrot", y: 4 },
 ];
 class Demo extends React.Component {
 
@@ -751,9 +748,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 2 },
-	{ x: "Potato", y: 3 },
-	{ x: "Carrot", y: 4 },
+	{ id: 0, x: "Apple", y: 2 },
+	{ id: 1, x: "Potato", y: 3 },
+	{ id: 2, x: "Carrot", y: 4 },
 ];
 class Demo extends React.Component {
 
@@ -778,9 +775,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "M | Mon | Monday | Monday 21 May", y: 2 },
-	{ x: "T | Tue | Tuesday | Tuesday 22 May", y: 3 },
-	{ x: "W | Wed | Wednesday | Wednesday 23 May", y: 4 },
+	{ id: 0, x: "M | Mon | Monday | Monday 21 May", y: 2 },
+	{ id: 1, x: "T | Tue | Tuesday | Tuesday 22 May", y: 3 },
+	{ id: 2, x: "W | Wed | Wednesday | Wednesday 23 May", y: 4 },
 ];
 class Demo extends React.Component {
 
@@ -804,9 +801,9 @@ class Demo extends React.Component {
 require('array.prototype.find').shim();
 const {XUIBarChart} = require('./barchart');
 const data = [
-	{ x: "Apple", y: 0 },
-	{ x: "Potato", y: 10 },
-	{ x: "Carrot", y: 100000000000000 },
+	{ id: 0, x: "Apple", y: 0 },
+	{ id: 1, x: "Potato", y: 10 },
+	{ id: 2, x: "Carrot", y: 100000000000000 },
 ];
 class Demo extends React.Component {
 

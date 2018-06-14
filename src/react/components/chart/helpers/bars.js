@@ -70,6 +70,27 @@ const createBarColorStacks = ({barsData, custom, base }) => {
 	);
 };
 
+const createActiveBars = (activeBarsRaw, barsData) => (
+	Object
+		.keys(activeBarsRaw)
+		// Does the ID reference exist in the barData array?
+		.filter(key => barsData.filter(({id}) => `${id}` === key).length)
+		// Is the ID reference relating to an "active" state e.g NOT "false" or "[]".
+		.filter((key) => {
+			const state = activeBarsRaw[key];
+			return Array.isArray(state) ? state.length : Boolean(state);
+		})
+		// Turn back into an "active" stack ONLY object (only arrays, no booleans).
+		.reduce((acc, key) => {
+			const stateRaw = activeBarsRaw[key];
+			const state = Array.isArray(stateRaw)
+				? stateRaw
+				: createArray(barsData[key].y.length).map((_, index) => index)
+
+			return {...acc, [key]: state};
+		}, {})
+);
+
 const enrichParams = (state, props, chartTheme) => {
 	const {
 		id: chartId,
@@ -80,6 +101,7 @@ const enrichParams = (state, props, chartTheme) => {
 		keyTitle,
 		bars: barsDataRaw,
 		barColor: barColorRaw,
+		activeBars: activeBarsRaw,
 		isStacked,
 		hasPagination: hasPaginationRaw,
 		onBarClick,
@@ -131,11 +153,9 @@ const enrichParams = (state, props, chartTheme) => {
 
 	// Bars...
 	const viewportWidth = chartWidth - chartLeft - chartRight;
+	const activeBars = activeBarsRaw ? createActiveBars(activeBarsRaw, barsData) : {};
 	const {
-		barsWidth,
-		barWidth,
-		barMaxValue,
-		barViewports,
+		barsWidth, barWidth, barMaxValue, barViewports,
 	} = createBarStats({barsData, maxVisibleItems, viewportWidth, hasPaginationRaw});
 
 	// Panels...
@@ -150,16 +170,11 @@ const enrichParams = (state, props, chartTheme) => {
 
 	// Y-Axis...
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
-	// const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
 	const {yAxisTickValues, yAxisMaxValue} = createYAxisTickValues({
 		yAxisHeight,
 		maxValues: [customMaxYValue, barMaxValue]
 	});
 	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
-	// const yAxisHeight = chartHeight - chartTop - chartBottom;
-	// const yAxisMaxValue = Math.max(customMaxYValue, barMaxValue);
-	// const yAxisTickValues = createYAxisTickValues({yAxisMaxValue, yAxisHeight});
-	// const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
 
 	// X-Axis...
 	const xAxisTickValues = barsData.map(({x}) => x);
@@ -185,7 +200,7 @@ const enrichParams = (state, props, chartTheme) => {
 		panelWidth, panelCurrent, panelsTotal,
 
 		// Bars...
-		barsData, barsWidth, barWidth, onBarClick,
+		barsData, barsWidth, barWidth, onBarClick, activeBars,
 
 		// Pagination...
 		hasPagination, createPaginationMessage,

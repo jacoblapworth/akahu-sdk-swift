@@ -169,7 +169,7 @@ class ChartScaffold extends Component {
 			panelWidth, panelCurrent, panelsTotal,
 
 			// Bars...
-			barsData, barsWidth, barWidth, onBarClick,
+			barsData, barsWidth, barWidth, onBarClick, activeBars,
 
 			// Pagination...
 			hasPagination, createPaginationMessage,
@@ -178,7 +178,7 @@ class ChartScaffold extends Component {
 			toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,
 
 			// Colors...
-			colorActive, colorStacks,
+			colorStacks,
 
 			// Y-Axis...
 			yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
@@ -422,8 +422,8 @@ class ChartScaffold extends Component {
 												yAxisMaxValue={yAxisMaxValue}
 												yAxisHeight={yAxisHeight}
 												colorStacks={colorStacks}
-												colorActive={colorActive}
 												onBarClick={onBarClick}
+												activeBars={activeBars}
 												barWidth={barWidth}
 												createToolTipMessage={createBarToolTipMessage}
 												updateToolTip={this.updateToolTip}
@@ -482,6 +482,7 @@ ChartScaffold.propTypes = {
 
 	isStacked: PropTypes.bool,
 	onBarClick: PropTypes.func,
+	activeBars: PropTypes.object,
 	createBarToolTipMessage: PropTypes.func,
 	maxVisibleItems: PropTypes.number,
 	maxYValue: PropTypes.number,

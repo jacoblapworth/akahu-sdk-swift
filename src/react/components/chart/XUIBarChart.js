@@ -17,8 +17,6 @@ TODO:
 
 + Remove inline styles
 
-+ Group wrapper components
-
 Design:
 -------
 
@@ -130,6 +128,12 @@ XUIBarChart.propTypes = {
 	/** Function to create a custom pagination message based on the charts "current" and "total" pagination "panels". */
 	createPaginationMessage: PropTypes.func,
 
+	/** Accessibility label for pagination button. */
+	paginationNextLabel: PropTypes.string,
+
+	/** Accessibility label for pagination button. */
+	paginationPreviousLabel: PropTypes.string,
+
 	/** Customise the default pagination message. */
 	emptyMessage: PropTypes.oneOfType([
 		PropTypes.string,
@@ -150,4 +154,6 @@ XUIBarChart.defaultProps = {
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
 	yAxisMaxValue: 0,
+	paginationNextLabel: 'Next Page',
+	paginationPreviousLabel: 'Previous page',
 };

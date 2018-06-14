@@ -7,7 +7,7 @@ import {NAME_SPACE} from '../helpers/constants';
 
 class ContentPagination extends Component {
 	render() {
-		const {current, total, updatePanel, createMessage} = this.props;
+		const {current, total, updatePanel, createMessage, paginationNextLabel, paginationPreviousLabel} = this.props;
 		const message = createMessage && createMessage(current, total);
 
 		return (
@@ -19,7 +19,7 @@ class ContentPagination extends Component {
 				<XUIButton
 					variant="icon-large"
 					onClick={() => updatePanel(current - 1)}
-					title="Previous page"
+					title={paginationPreviousLabel}
 					isDisabled={current === 1}>
 					<XUIIcon
 						path={arrowPathData}
@@ -32,7 +32,7 @@ class ContentPagination extends Component {
 				<XUIButton
 					variant="icon-large"
 					onClick={() => updatePanel(current + 1)}
-					title="Next Page"
+					title={paginationNextLabel}
 					isDisabled={current === total}>
 					<XUIIcon
 						path={arrowPathData}

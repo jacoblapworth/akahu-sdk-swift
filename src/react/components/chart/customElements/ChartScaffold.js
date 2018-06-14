@@ -168,7 +168,7 @@ class ChartScaffold extends Component {
 			barsData, barsWidth, barWidth, onBarClick, activeBars,
 
 			// Pagination...
-			hasPagination, createPaginationMessage,
+			hasPagination, createPaginationMessage, paginationNextLabel, paginationPreviousLabel,
 
 			// Tooltip...
 			toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,
@@ -202,6 +202,8 @@ class ChartScaffold extends Component {
 								total={panelsTotal}
 								createMessage={createPaginationMessage}
 								updatePanel={this.updatePanel}
+								paginationNextLabel={paginationNextLabel}
+								paginationPreviousLabel={paginationPreviousLabel}
 							/>
 						)}
 

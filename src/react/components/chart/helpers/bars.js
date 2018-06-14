@@ -103,14 +103,16 @@ const enrichParams = (state, props, chartTheme) => {
 		barColor: barColorRaw,
 		activeBars: activeBarsRaw,
 		isStacked,
-		hasPagination: hasPaginationRaw,
 		onBarClick,
 		createBarToolTipMessage,
 		xAxisVisibleItems,
 		yAxisMaxValue: yAxisMaxValueRaw,
 		createYAxisLabelFormat: createYAxisLabelFormatRaw,
 		xAxisType,
+		hasPagination: hasPaginationRaw,
 		createPaginationMessage,
+		paginationNextLabel,
+		paginationPreviousLabel,
 	} = props;
 
 	const {
@@ -202,7 +204,7 @@ const enrichParams = (state, props, chartTheme) => {
 		barsData, barsWidth, barWidth, onBarClick, activeBars,
 
 		// Pagination...
-		hasPagination, createPaginationMessage,
+		hasPagination, createPaginationMessage, paginationNextLabel, paginationPreviousLabel,
 
 		// Tooltip...
 		toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,

@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
-import cn from 'classnames';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
 import {barChartTheme} from '../helpers/theme';
-import getGroupPosition, { testIsCloseEnough, createChartPadding} from '../helpers';
-import {NAME_SPACE, CHART_HEIGHT, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
-import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
-import createBarStats, {createBarColorStacks, findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
+import getGroupPosition, {testIsCloseEnough} from '../helpers';
+import {NAME_SPACE, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
+import {findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
 import StackedBar from './StackedBar';
-import AvatarLabel from './AvatarLabel';
-import GroupWrapper from './GroupWrapper';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
@@ -320,7 +316,7 @@ class ChartScaffold extends Component {
 								padding={chartPadding}
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
-								groupComponent={<GroupWrapper className={`${NAME_SPACE}-chart--yaxis`} />}
+								groupComponent={<g className={`${NAME_SPACE}-chart--yaxis`} />}
 								tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`}/>}
 
 								// Add the zero at the start of the axis (is hidden by default).
@@ -389,7 +385,7 @@ class ChartScaffold extends Component {
 										padding={chartPadding}
 										width={barsWidth}
 										tickValues={xAxisTickValues}
-										groupComponent={<GroupWrapper className={`${NAME_SPACE}-chart--xaxis`} />}
+										groupComponent={<g className={`${NAME_SPACE}-chart--xaxis`} />}
 
 										gridComponent={(
 											<Line
@@ -414,7 +410,7 @@ class ChartScaffold extends Component {
 									<VictoryBar
 										data={barsData}
 										y={findMaxTotalBarStacks}
-										groupComponent={<GroupWrapper className={`${NAME_SPACE}-chart--bars`} />}
+										groupComponent={<g className={`${NAME_SPACE}-chart--bars`} />}
 
 										dataComponent={(
 											<StackedBar

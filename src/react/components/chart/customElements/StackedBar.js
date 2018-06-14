@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {barChartTheme} from '../helpers/theme';
 import getTargetPosition from '../helpers/targetposition';
 import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
 import {alwaysPositive} from '../helpers';

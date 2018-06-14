@@ -17,6 +17,8 @@ TODO:
 
 + Remove inline styles
 
++ Group wrapper components
+
 Design:
 -------
 

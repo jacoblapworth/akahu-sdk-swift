@@ -1,8 +1,7 @@
-import React from 'react';
 import cn from 'classnames';
 import {createChartPadding} from '../helpers';
 import {createArray} from '../../progressindicator/helpers/utilities';
-import {CHART_HEIGHT, NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
+import {NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
 import StandardLabel from '../customElements/StandardLabel';

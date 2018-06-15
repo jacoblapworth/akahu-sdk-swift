@@ -420,9 +420,9 @@ class ChartScaffold extends Component {
 
 										tickLabelComponent={(
 											<XAxisLabel
-												padding={chartPadding}
 												labelWidth={barWidth}
 												labelTop={chartHeight - chartBottom}
+												labelHeight={chartBottom}
 												updateToolTip={this.updateToolTip}
 											/>
 										)}

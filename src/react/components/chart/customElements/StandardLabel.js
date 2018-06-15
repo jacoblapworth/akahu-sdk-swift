@@ -1,106 +1,71 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {baseFontTheme} from '../helpers/theme';
-import getTargetPosition from '../helpers/targetposition';
-import getResponsiveOption from '../helpers/xaxis';
+import getResponsiveOptions from '../helpers/xaxis';
 import {NAME_SPACE} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const LARGE_LABEL_FONT = {...baseFontTheme, fontSize: 13};
 
-const createInlineTag = ({labelWidth, textRaw}) => {
-	const tagLeft = labelWidth / 2;
-	const tagTop = 26;
-	const tagText = textRaw;
-	const tagStyle = baseFontTheme;
-	const tagTextWidth = labelWidth - 10;
-	const tagAnchor = 'middle';
-
-	return {tagLeft, tagTop, tagText, tagStyle, tagTextWidth, tagAnchor};
-};
+const createInlineTag = ({labelWidth, textRaw}) => ({
+	tagLeft: labelWidth / 2,
+	tagTop: 26,
+	tagText: textRaw,
+	tagStyle: baseFontTheme,
+	tagTextWidth: labelWidth - 10,
+	tagAnchor: 'middle',
+});
 
 const responsiveOptions = {
 
-	0(params) {
-		const hasTooltip = true;
-		const tag = createInlineTag(params);
+	0: params => createInlineTag(params),
 
-		return {hasTooltip, ...tag};
-	},
+	50: params => createInlineTag(params),
 
-	50(params) {
-		return createInlineTag(params);
-	},
-
-	100(params) {
-		const tag = createInlineTag(params);
-		const tagStyle = LARGE_LABEL_FONT;
-		const tagTop = 34;
-
-		return {...tag, tagStyle, tagTop};
-	},
+	100: params => ({
+		...createInlineTag(params),
+		tagStyle: LARGE_LABEL_FONT,
+		tagTop: 34,
+		toolTipOffset: 10,
+	}),
 };
 
 class AvatarLabel extends PureComponent {
-	handleToolTipShow = (event, message) => {
-		const preferred = 'bottom';
-		const position = { ...getTargetPosition(event), preferred };
-		this.props.updateToolTip(position, message)
-	};
-
-	handleToolTipHide = () => this.props.updateToolTip();
-
 	render = () => {
 		const {
-			padding,
-			labelWidth,
-			labelTop,
-
+			updateToolTip, labelWidth, labelTop, labelHeight,
 			// Victory...
-			index: labelIndex,
-			text: textRaw,
+			index: labelIndex, text: textRaw,
 		} = this.props;
-		const labelLeft = labelWidth * labelIndex;
-		const labelHeight = padding.bottom;
-		const responsiveOption = getResponsiveOption(responsiveOptions, labelWidth);
-		const responsiveParams = {labelWidth, labelIndex, textRaw};
 		const {
-			hasTooltip, tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
-		} = responsiveOption(responsiveParams);
+			// Tag...
+			tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
+			// ToolTip...
+			toolTipOffset,
+		} = getResponsiveOptions(responsiveOptions, {labelWidth, labelIndex, textRaw});
 
 		return (
-			<g>
-				<XAxisLabelWrapper
-					labelLeft={labelLeft}
-					labelTop={labelTop}
-					labelWidth={labelWidth}
-					labelHeight={labelHeight}>
-					{tagText && (
-						<TruncatedText
-							className={`${NAME_SPACE}-chart--measure`}
-							x={tagLeft}
-							y={tagTop}
-							textAnchor={tagAnchor}
-							style={tagStyle}
-							maxWidth={tagTextWidth}>
-							{tagText}
-						</TruncatedText>
-					)}
-				</XAxisLabelWrapper>
-
-				{hasTooltip && (
-					<rect
-						x={labelLeft}
-						y={labelTop}
-						width={labelWidth}
-						height={labelHeight - 20}
-						fill="transparent"
-						onMouseEnter={event => this.handleToolTipShow(event, textRaw)}
-						onMouseLeave={this.handleToolTipHide}
-					/>
+			<XAxisLabelWrapper
+				toolTipMessage={textRaw}
+				toolTipOffset={toolTipOffset}
+				updateToolTip={updateToolTip}
+				labelLeft={labelWidth * labelIndex}
+				labelTop={labelTop}
+				labelWidth={labelWidth}
+				labelHeight={labelHeight}>
+				{tagText && (
+					<TruncatedText
+						className={`${NAME_SPACE}-chart--measure`}
+						x={tagLeft}
+						y={tagTop}
+						textAnchor={tagAnchor}
+						style={tagStyle}
+						maxWidth={tagTextWidth}>
+						{tagText}
+					</TruncatedText>
 				)}
-			</g>
+			</XAxisLabelWrapper>
 		);
 	}
 }
@@ -108,6 +73,7 @@ class AvatarLabel extends PureComponent {
 export default AvatarLabel;
 
 AvatarLabel.propTypes = {
+	labelHeight: PropTypes.number,
 	labelWidth: PropTypes.number,
 	labelTop: PropTypes.number,
 	updateToolTip: PropTypes.func,

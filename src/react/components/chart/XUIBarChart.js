@@ -16,7 +16,9 @@ TODO:
 
 + Label / Bar tooltip are now ALWAYS on
   + How do the defaults work with stacked interface?
-  + Can we reuse the y-axis tick formatter?
+	+ Can we reuse the y-axis tick formatter?
+	+ position for different font sizes
+	+ turn tooltips off now
 
 + Documentation
 	+ XUI docs (Fin)

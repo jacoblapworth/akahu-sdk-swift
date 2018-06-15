@@ -1,16 +1,17 @@
-// Select the responsive option that is most appropriate to the current x-axis
-// segment size.
-const getResponsiveOption = (options, width) => {
+// Select the responsive options that are most appropriate to the current x-axis
+// label width.
+const getResponsiveOptions = (options, params) => {
+	const {labelWidth} = params;
 	const keys = Object.keys(options);
 	const key = (
 		keys
 			.reduce(
-				(acc, option) => width > parseInt(option, 10) ? option : acc,
+				(acc, option) => labelWidth > parseInt(option, 10) ? option : acc,
 				keys[0]
 			)
 	);
 
-	return options[key];
+	return options[key](params);
 };
 
-export default getResponsiveOption;
+export default getResponsiveOptions;

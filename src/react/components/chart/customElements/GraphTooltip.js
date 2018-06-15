@@ -43,5 +43,5 @@ GraphTooltip.propTypes = {
 };
 
 GraphTooltip.defaultProps = {
-  preferred: 'top'
+  preferred: 'top',
 };

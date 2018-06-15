@@ -35,11 +35,10 @@ class StackedBar extends PureComponent {
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
-	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex = null) => {
+	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
 		const {
 			onBarClick,
-			updateToolTip,
-			createToolTipMessage,
+			isToolTipHidden,
 			colorStacks,
 			activeBars,
 			index: barIndex,
@@ -54,7 +53,7 @@ class StackedBar extends PureComponent {
 			onClick: event => onBarClick(event, interactionParams),
 			style: {cursor: 'pointer'}
 		};
-		const toolTipProps = (updateToolTip && createToolTipMessage) && {
+		const toolTipProps = !isToolTipHidden && {
 			onMouseEnter: event => this.handleToolTipShow(event, interactionParams),
 			onMouseLeave: this.handleToolTipHide
 		};
@@ -166,6 +165,7 @@ export default StackedBar;
 StackedBar.propTypes = {
 	chartId: PropTypes.string,
 	onBarClick: PropTypes.func,
+	isToolTipHidden: PropTypes.bool,
 	updateToolTip: PropTypes.func,
 	createToolTipMessage: PropTypes.func,
 	colorStacks: PropTypes.arrayOf(PropTypes.string),

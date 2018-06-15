@@ -18,6 +18,7 @@ class XAxisLabelWrapper extends PureComponent {
 		const {
 			toolTipMessage,
 			toolTipOffset,
+			isToolTipHidden,
 			shouldCalculateCenter,
 			labelLeft,
 			labelTop,
@@ -49,7 +50,7 @@ class XAxisLabelWrapper extends PureComponent {
 
 				</svg>
 
-				{toolTipMessage && (
+				{(!isToolTipHidden && toolTipMessage) && (
 					<rect
 						y={labelTop}
 						x={labelLeft}
@@ -71,6 +72,7 @@ XAxisLabelWrapper.propTypes = {
 	shouldCalculateCenter: PropTypes.bool,
 	toolTipMessage: PropTypes.string,
 	toolTipOffset: PropTypes.number,
+	isToolTipHidden: PropTypes.bool,
 	updateToolTip: PropTypes.func,
 	labelLeft: PropTypes.number,
 	labelTop: PropTypes.number,

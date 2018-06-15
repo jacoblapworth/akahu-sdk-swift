@@ -108,7 +108,7 @@ const responsiveOptions = {
 class AvatarLabel extends PureComponent {
 	render = () => {
 		const {
-			updateToolTip, labelWidth, labelTop, labelHeight,
+			isToolTipHidden, updateToolTip, labelWidth, labelTop, labelHeight,
 			// Victory...
 			index: labelIndex, text: textRaw,
 		} = this.props;
@@ -127,6 +127,7 @@ class AvatarLabel extends PureComponent {
 				shouldCalculateCenter={shouldCalculateCenter}
 				toolTipMessage={textRaw}
 				toolTipOffset={toolTipOffset}
+				isToolTipHidden={isToolTipHidden}
 				updateToolTip={updateToolTip}
 				labelLeft={labelWidth * labelIndex}
 				labelTop={labelTop}
@@ -166,10 +167,11 @@ class AvatarLabel extends PureComponent {
 export default AvatarLabel;
 
 AvatarLabel.propTypes = {
+	updateToolTip: PropTypes.func,
+	isToolTipHidden: PropTypes.bool,
 	labelHeight: PropTypes.number,
 	labelWidth: PropTypes.number,
 	labelTop: PropTypes.number,
-	updateToolTip: PropTypes.func,
 	index: PropTypes.number,
 	text: PropTypes.string,
 };

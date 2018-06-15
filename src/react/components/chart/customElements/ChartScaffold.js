@@ -174,7 +174,7 @@ class ChartScaffold extends Component {
 			hasPagination, createPaginationMessage, paginationNextLabel, paginationPreviousLabel,
 
 			// Tooltip...
-			toolTipMessage, toolTipPosition, hasToolTip, createBarToolTipMessage,
+			hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
 
 			// Colors...
 			colorStacks,
@@ -423,6 +423,7 @@ class ChartScaffold extends Component {
 												labelWidth={barWidth}
 												labelTop={chartHeight - chartBottom}
 												labelHeight={chartBottom}
+												isToolTipHidden={isXAxisToolTipHidden}
 												updateToolTip={this.updateToolTip}
 											/>
 										)}
@@ -447,6 +448,7 @@ class ChartScaffold extends Component {
 												onBarClick={onBarClick}
 												activeBars={activeBars}
 												barWidth={barWidth}
+												isToolTipHidden={isBarToolTipHidden}
 												createToolTipMessage={createBarToolTipMessage}
 												updateToolTip={this.updateToolTip}
 											/>
@@ -505,6 +507,8 @@ ChartScaffold.propTypes = {
 	onBarClick: PropTypes.func,
 	activeBars: PropTypes.object,
 	createBarToolTipMessage: PropTypes.func,
+	isBarToolTipHidden: PropTypes.bool,
+	isXAxisToolTipHidden: PropTypes.bool,
 	xAxisType: PropTypes.string,
 	xAxisVisibleItems: PropTypes.number,
 	yAxisMaxValue: PropTypes.number,

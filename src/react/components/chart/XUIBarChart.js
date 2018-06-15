@@ -14,11 +14,7 @@ TODO:
   + Seperate PR
   + Setup against new "viewbox" system
 
-+ Label / Bar tooltip are now ALWAYS on
-  + How do the defaults work with stacked interface?
-	+ Can we reuse the y-axis tick formatter?
-	+ position for different font sizes
-	+ turn tooltips off now
++ bar "click" and "hover" args should represent reflect the isStacked prop
 
 + Documentation
 	+ XUI docs (Fin)
@@ -116,6 +112,12 @@ XUIBarChart.propTypes = {
 
 	/** Function to create a customised message for when a bar "hover" interaction occurs. */
 	createBarToolTipMessage: PropTypes.func,
+
+	/** Xxxxxxxx */
+	isBarToolTipHidden: PropTypes.bool,
+
+	/** Xxxxxxxx */
+	isXAxisToolTipHidden: PropTypes.bool,
 
 	/** Specify the charys x-axis label format. */
 	xAxisType: PropTypes.oneOf(['abbreviation', 'avatar', 'standard']),

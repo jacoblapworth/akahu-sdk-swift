@@ -57,7 +57,7 @@ const responsiveOptions = {
 class AbbreviationLabel extends PureComponent {
 	render = () => {
 		const {
-			updateToolTip, labelWidth, labelTop, labelHeight,
+			isToolTipHidden, updateToolTip, labelWidth, labelTop, labelHeight,
 			// Victory...
 			index: labelIndex, text: textRaw,
 		} = this.props;
@@ -74,6 +74,7 @@ class AbbreviationLabel extends PureComponent {
 			<XAxisLabelWrapper
 				toolTipMessage={getTagText(4)}
 				toolTipOffset={toolTipOffset}
+				isToolTipHidden={isToolTipHidden}
 				updateToolTip={updateToolTip}
 				labelLeft={labelWidth * labelIndex}
 				labelTop={labelTop}
@@ -98,10 +99,11 @@ class AbbreviationLabel extends PureComponent {
 export default AbbreviationLabel;
 
 AbbreviationLabel.propTypes = {
+	updateToolTip: PropTypes.func,
+	isToolTipHidden: PropTypes.bool,
 	labelHeight: PropTypes.number,
 	labelWidth: PropTypes.number,
 	labelTop: PropTypes.number,
-	updateToolTip: PropTypes.func,
 	index: PropTypes.number,
 	text: PropTypes.string,
 };

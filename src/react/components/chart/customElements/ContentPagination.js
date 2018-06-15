@@ -6,7 +6,7 @@ import arrowPathData from '@xero/xui-icon/icons/arrow';
 import {NAME_SPACE} from '../helpers/constants';
 
 class ContentPagination extends PureComponent {
-	render() {
+	render = () => {
 		const {
 			qaHook,
 			current,

@@ -8,7 +8,7 @@ const chartPathData = 'M20,20.5h2v1H8v-1h2v-7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v
 
 class ChartEmpty extends PureComponent {
 	render = () => {
-		const {qaHook, emptyStatePureComponent, emptyMessage, chartHeight} = this.props;
+		const {qaHook, emptyStateComponent, emptyMessage, chartHeight} = this.props;
 		const emptyHeight = chartHeight * 0.75;
 		const chartClassName = cn(`${NAME_SPACE}-chart`, `${NAME_SPACE}-chart-is-empty`);
 
@@ -18,7 +18,7 @@ class ChartEmpty extends PureComponent {
 				className={chartClassName}
 				style={{minHeight: `${emptyHeight}px`}}>
 
-				{emptyStatePureComponent || (
+				{emptyStateComponent || (
 					<div className={`${NAME_SPACE}-chart--empty`}>
 						<XUIIcon path={chartPathData}/>
 						<div>{emptyMessage}</div>

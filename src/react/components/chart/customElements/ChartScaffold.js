@@ -227,7 +227,7 @@ class ChartScaffold extends Component {
 					</div>
 				)}
 
-				<div style={{position: 'relative'}}>
+				<div className={`${NAME_SPACE}-chart--position`}>
 					<div
 						className={`${NAME_SPACE}-chart--base`}
 						ref={node => (this.rootNode = node)}

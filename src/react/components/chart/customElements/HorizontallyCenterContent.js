@@ -17,11 +17,11 @@ class HorizontallyCenterContent extends Component {
 		}
 	}
 
-	componentDidMount() {
+	componentDidMount = () => {
 		this.updateContentWidth();
 	}
 
-	componentDidUpdate() {
+	componentDidUpdate = () => {
 		this.updateContentWidth();
 	}
 
@@ -47,7 +47,7 @@ class HorizontallyCenterContent extends Component {
 	//      °- -°- - - - - - - - -°- -°
 	//      <----- W r a p p e r ----->
 
-	render() {
+	render = () => {
 		const {wrapperWidth, wrapperHeight, children} = this.props;
 		const {contentWidth = wrapperWidth} = this.state;
 		const centerOffset = (wrapperWidth - contentWidth) * 0.5;

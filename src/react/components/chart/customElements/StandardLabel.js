@@ -51,7 +51,7 @@ class AvatarLabel extends PureComponent {
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
-	render() {
+	render = () => {
 		const {
 			padding,
 			labelWidth,

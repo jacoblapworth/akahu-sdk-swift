@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import HorizontallyCenterContent from './HorizontallyCenterContent';
 
 class XAxisLabelWrapper extends PureComponent {
-	render() {
+	render = () => {
 		const {
 			shouldCalculateCenter,
 			labelLeft,

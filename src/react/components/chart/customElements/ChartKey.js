@@ -20,7 +20,7 @@ class ChartKey extends PureComponent {
 		</li>
 	);
 
-	render() {
+	render = () => {
 		const {qaHook, title, labels} = this.props;
 
 		const trigger = (

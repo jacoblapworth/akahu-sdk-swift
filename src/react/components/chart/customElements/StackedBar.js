@@ -102,13 +102,13 @@ class StackedBar extends PureComponent {
 		const radius = 3;
 		const divider = 10;
 		const ratio = yAxisHeight / yAxisMaxValue;
-		const maxStack = barStacks.reduce((acc, stack) => acc + stack, 0);
+		const totalStack = barStacks.reduce((acc, stack) => acc + stack, 0);
 		const maskId = `${NAME_SPACE}-chart--bar-mask-${chartId}${barId}`;
 		const barBottom = alwaysPositive(rawYOffset);
 		const barLeft = (barWidthRaw * barIndex) + divider;
-		const barTop = alwaysPositive(barBottom - (maxStack * ratio));
+		const barTop = alwaysPositive(barBottom - (totalStack * ratio));
 		const barWidth = alwaysPositive(barWidthRaw - (divider * 2));
-		const barHeight = alwaysPositive((maxStack * ratio) + radius);
+		const barHeight = alwaysPositive((totalStack * ratio) + radius);
 		const createStack = this.createStackThunk({ratio, barBottom, barLeft, barWidth, barStacks});
 
 		// The bar is setup into to main parts.

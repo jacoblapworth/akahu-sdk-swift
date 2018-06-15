@@ -8,18 +8,21 @@ import ChartEmpty from './customElements/ChartEmpty';
 /*
 
 TODO:
+-----
 
 + XUI icon new table version
+  + Seperate PR
+  + Setup against new "viewbox" system
 
-+ Remove inline styles
++ Label / Bar tooltip are now ALWAYS on
+  + How do the defaults work with stacked interface?
+  + Can we reuse the y-axis tick formatter?
 
-+ yAxisMaxValue --> yAxisDefaultTopValue
-
-+ Label tooltip ALWAYS on
-
-Design:
--------
-
++ Documentation
+	+ XUI docs (Fin)
+  + React docs
+  + Storybook
+  + Jest snapshots
 
 */
 

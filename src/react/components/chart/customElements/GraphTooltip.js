@@ -1,20 +1,15 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import XUITooltip from '../../tooltip/XUITooltip';
+import {NAME_SPACE} from '../helpers/constants';
 
 class GraphTooltip extends PureComponent {
-	render() {
+	render = () => {
 		const {qaHook, message, offset, left, top, width, height, preferred} = this.props;
 		return (
 			<div
-				style={{
-					top, height, width,
-					left: left - offset,
-					background: 'transparent',
-					pointerEvents: 'none',
-					position: 'absolute',
-				}}
-			>
+				className={`${NAME_SPACE}-chart--tooltip`}
+				style={{top, height, width, left: left - offset}}>
 				<XUITooltip
 					qaHook={qaHook}
 					trigger={<div style={{width, height}}/>}
@@ -34,6 +29,7 @@ class GraphTooltip extends PureComponent {
 export default GraphTooltip;
 
 GraphTooltip.propTypes = {
+	qaHook: PropTypes.string,
 	message: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.element,

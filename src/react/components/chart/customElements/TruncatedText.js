@@ -35,7 +35,7 @@ class TruncatedText extends Component {
 		this.updateTruncationReference();
 	}
 
-	render() {
+	render = () => {
 		const {rootNode} = this;
 		const charNodes = rootNode ? rootNode.querySelectorAll('tspan') : [];
 		const {style, maxWidth, children: text, ...textProps} = this.props;

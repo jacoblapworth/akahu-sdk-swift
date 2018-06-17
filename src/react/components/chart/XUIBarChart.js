@@ -113,10 +113,10 @@ XUIBarChart.propTypes = {
 	/** Function to create a customised message for when a bar "hover" interaction occurs. */
 	createBarToolTipMessage: PropTypes.func,
 
-	/** Xxxxxxxx */
+	/** Hide tooltip when referencing standard or stacked bars. */
 	isBarToolTipHidden: PropTypes.bool,
 
-	/** Xxxxxxxx */
+	/** Hide tooltip when referencing components that reside in the x-axis */
 	isXAxisToolTipHidden: PropTypes.bool,
 
 	/** Specify the charys x-axis label format. */

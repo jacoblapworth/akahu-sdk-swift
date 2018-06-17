@@ -8,7 +8,7 @@ import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const LARGE_LABEL_FONT = {...baseFontTheme, fontSize: 13};
 
-const createInlineTag = ({labelWidth, textRaw}) => ({
+const getInlineTagDimensions = ({labelWidth, textRaw}) => ({
 	tagLeft: labelWidth / 2,
 	tagTop: 26,
 	tagText: textRaw,
@@ -19,12 +19,12 @@ const createInlineTag = ({labelWidth, textRaw}) => ({
 
 const responsiveOptions = {
 
-	0: params => createInlineTag(params),
+	0: params => getInlineTagDimensions(params),
 
-	50: params => createInlineTag(params),
+	50: params => getInlineTagDimensions(params),
 
 	100: params => ({
-		...createInlineTag(params),
+		...getInlineTagDimensions(params),
 		tagStyle: LARGE_LABEL_FONT,
 		tagTop: 34,
 		toolTipOffset: 10,

@@ -16,7 +16,7 @@ const createTagTextThunk = options => option => {
 	return minTag || maxTag;
 };
 
-const createInlineTag = ({labelWidth}) => ({
+const getInlineTagDimensions = ({labelWidth}) => ({
 	tagLeft: labelWidth / 2,
 	tagTop: 26,
 	tagStyle: baseFontTheme,
@@ -24,8 +24,8 @@ const createInlineTag = ({labelWidth}) => ({
 	tagAnchor: 'middle',
 });
 
-const createInlineTagLarge = (params) => ({
-	...createInlineTag(params),
+const createInlineTagLargeDimensions = (params) => ({
+	...getInlineTagDimensions(params),
 	tagStyle: LARGE_LABEL_FONT,
 	tagTop: 30,
 });
@@ -33,22 +33,22 @@ const createInlineTagLarge = (params) => ({
 const responsiveOptions = {
 
 	0: params => ({
-		...createInlineTag(params),
+		...getInlineTagDimensions(params),
 		tagText: params.getTagText(0),
 	}),
 
 	50: params => ({
-		...createInlineTag(params),
+		...getInlineTagDimensions(params),
 		tagText: params.getTagText(1),
 	}),
 
 	80: params => ({
-		...createInlineTagLarge(params),
+		...createInlineTagLargeDimensions(params),
 		tagText: params.getTagText(1),
 	}),
 
 	100: params => ({
-		...createInlineTagLarge(params),
+		...createInlineTagLargeDimensions(params),
 		tagText: params.getTagText(3),
 		toolTipOffset: 10,
 	}),

@@ -10,7 +10,7 @@ import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const LARGE_LABEL_FONT = {...baseFontTheme, fontSize: 13};
 
-const createStackedAvatar = ({labelWidth, textRaw, top = 10}) => {
+const getStackedAvatarDimensions = ({labelWidth, textRaw, top = 10}) => {
 	const avatarCircleRadius = 12;
 	const avatarCircleLeft = labelWidth * 0.5;
 	const avatarCircleTop = avatarCircleRadius + top;
@@ -28,7 +28,7 @@ const createStackedAvatar = ({labelWidth, textRaw, top = 10}) => {
 	};
 };
 
-const createStackedTag = (
+const getStackedTagDimensions = (
 	{textRaw, labelWidth},
 	{avatarCircleDiameter, avatarCircleLeft, avatarCircleTop}
 ) => ({
@@ -45,18 +45,18 @@ const responsiveOptions = {
 	// .- - - .
 	// |  ()  | <-- Avatar only
 	// °- - - °
-	0: params => createStackedAvatar(params),
+	0: params => getStackedAvatarDimensions(params),
 
 	// .- - - - - - - .
 	// |      ()      | <-- Stacked / Small font
 	// |  Label Text  |
 	// °- - - - - - - °
 	50: params => {
-		const avatar = createStackedAvatar(params);
+		const avatar = getStackedAvatarDimensions(params);
 
 		return {
 			...avatar,
-			...createStackedTag(params, avatar),
+			...getStackedTagDimensions(params, avatar),
 		};
 	},
 
@@ -65,11 +65,11 @@ const responsiveOptions = {
 	// |  Label Text  |
 	// °- - - - - - - °
 	80: params => {
-		const avatar = createStackedAvatar(params);
+		const avatar = getStackedAvatarDimensions(params);
 
 		return {
 			...avatar,
-			...createStackedTag(params, avatar),
+			...getStackedTagDimensions(params, avatar),
 			tagStyle: LARGE_LABEL_FONT,
 		};
 	},
@@ -86,7 +86,7 @@ const responsiveOptions = {
 	// to set the center value dynamically. In that regard we "left" align the
 	// labels contents and let the component do the calculations.
 	100: params => {
-		const avatar = createStackedAvatar({...params, top: 20});
+		const avatar = getStackedAvatarDimensions({...params, top: 20});
 		const {avatarCircleRadius, avatarCircleDiameter, avatarCircleTop} = avatar;
 
 		return {
@@ -94,7 +94,7 @@ const responsiveOptions = {
 			...avatar,
 			avatarCircleLeft: avatarCircleRadius,
 			avatarTextLeft: avatarCircleRadius,
-			...createStackedTag(params, avatar),
+			...getStackedTagDimensions(params, avatar),
 			tagLeft: avatarCircleDiameter + 5,
 			tagTop: avatarCircleTop + 5,
 			tagStyle: LARGE_LABEL_FONT,

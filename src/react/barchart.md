@@ -34,7 +34,7 @@ class Demo extends React.Component {
 				chartId="barClick"
 				chartTitle="Clickable Bar"
 				chartDescription="Click a bar to toggle the active state"
-				isStacked
+				isBarStacked
 				barsData={data}
 				onBarClick={this.handleBarClick}
 				activeBars={this.state.activeBars}
@@ -82,7 +82,7 @@ class Demo extends React.Component {
 				chartId="barClick"
 				chartTitle="Clickable Stack"
 				chartDescription="Click a stack to toggle the active state"
-				isStacked
+				isBarStacked
 				barsData={data}
 				onBarClick={this.handleBarClick}
 				activeBars={this.state.activeBars}
@@ -136,7 +136,7 @@ class Demo extends React.Component {
 				chartId="stackTooltip"
 				chartTitle="Stack Tooltip"
 				chartDescription="Hover over a stack to reveal relevant information"
-				isStacked
+				isBarStacked
 				barsData={data}
 				createBarToolTipMessage={({x, stackIndex}) => (
 					<div>
@@ -174,7 +174,7 @@ class Demo extends React.Component {
 				chartId="stackColors"
 				chartTitle="Stack Colors"
 				chartDescription="Customise the colors on a per stack level"
-				isStacked
+				isBarStacked
 				barsData={data}
 				barColor={['#F6534E', '#FA8100', '#B450C8', '#FF6496']}
 			/>
@@ -202,7 +202,7 @@ class Demo extends React.Component {
 				chartId="maximumBars"
 				chartTitle="Maximum Bars"
 				chartDescription="Control the maximum amount of bars per panel"
-				isStacked
+				isBarStacked
 				barsData={data}
 				xAxisVisibleItems={3}
 			/>
@@ -285,7 +285,7 @@ class Demo extends React.Component {
 					chartId="barAdd"
 					chartTitle={`Showing ${total} bar${total === 1 ? '' : 's'}`}
 					chartDescription="Click the buttons above to add / subtract bars"
-					isStacked
+					isBarStacked
 					barsData={bars}
 				/>
 			</div>
@@ -319,7 +319,7 @@ class Demo extends React.Component {
 				chartId="nativeScroll"
 				chartTitle="Native Scroll"
 				chartDescription="Scroll bars horizontally to reveal additional content"
-				isStacked
+				isBarStacked
 				barsData={data}
 				xAxisVisibleItems={5}
 			/>
@@ -354,7 +354,7 @@ class Demo extends React.Component {
 				chartId="pagination"
 				chartTitle="Pagination Scroll"
 				chartDescription={`Click the pagination buttons to reveal "next" and "previous" panels`}
-				isStacked
+				isBarStacked
 				hasPagination
 				barsData={data}
 				xAxisVisibleItems={5}
@@ -390,7 +390,7 @@ class Demo extends React.Component {
 				chartId="customPagination"
 				chartTitle="Custom Pagination Message"
 				chartDescription="Create a custom message based on the current and total page values"
-				isStacked
+				isBarStacked
 				hasPagination
 				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
 				barsData={data}
@@ -421,9 +421,9 @@ class Demo extends React.Component {
 				chartId="maxYValue"
 				chartTitle="Maximum Y-Axis Value"
 				chartDescription="Sets a maximum threshold that can be exceeded if a stack requires it"
-				isStacked
+				isBarStacked
 				barsData={data}
-				yAxisMaxValue={20}
+				yAxisDefaultTopValue={20}
 			/>
 		);
 	}
@@ -449,7 +449,7 @@ class Demo extends React.Component {
 				chartId="customYAxis"
 				chartTitle="Custom Y-Axis Labels"
 				chartDescription="Format labels to enhance the graph axis information"
-				isStacked
+				isBarStacked
 				barsData={data}
 				createYAxisLabelFormat={(value) => `${Math.round(value * 100)}k`}
 			/>
@@ -478,7 +478,7 @@ class Demo extends React.Component {
 				chartId="emptyStackData"
 				chartTitle="Empty Stack Data"
 				chartDescription="Show chart even when no stack data is supplied"
-				isStacked
+				isBarStacked
 				barsData={data}
 			/>
 		);
@@ -529,7 +529,7 @@ class Demo extends React.Component {
 				chartId="emptyBarData"
 				chartTitle="Empty Bar Data"
 				chartDescription="Show empty state when no bar data is supplied"
-				isStacked
+				isBarStacked
 				barsData={data}
 			/>
 		);
@@ -554,7 +554,7 @@ class Demo extends React.Component {
 				chartTitle="Empty Custom Data"
 				chartDescription="Replace the default empty component with a custom version"
 				emptyStateComponent={<p>On No! Zero Data</p>}
-				isStacked
+				isBarStacked
 				barsData={data}
 			/>
 		);
@@ -583,7 +583,7 @@ class Demo extends React.Component {
 				chartTitle="Loading State"
 				chartDescription="Show loading state via user stipulation"
 				isLoading
-				isStacked
+				isBarStacked
 				barsData={data}
 			/>
 		);
@@ -610,7 +610,7 @@ class Demo extends React.Component {
 				chartId="chartKey"
 				chartTitle="Chart Key"
 				chartDescription={`Click the "information" icon to reveal the key`}
-				isStacked
+				isBarStacked
 				barsData={data}
 				keyLabel={['Import', 'Export']}
 				keyTitle="Chart Key"
@@ -640,7 +640,7 @@ class Demo extends React.Component {
 					chartId="chartSize"
 					chartTitle="Chart Size"
 					chartDescription="Customise the chart size"
-					isStacked
+					isBarStacked
 					barsData={data}
 					chartHeight={200}
 				/>

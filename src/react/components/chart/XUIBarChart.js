@@ -61,7 +61,7 @@ XUIBarChart.propTypes = {
 	chartHeight: PropTypes.number,
 
 	/** Identify if the bar made out of multiple smaller stacked bars. */
-	isStacked: PropTypes.bool,
+	isBarStacked: PropTypes.bool,
 
 	/** A text of representation of the bar or each bar stack. */
 	keyLabel: PropTypes.oneOfType([

@@ -160,7 +160,7 @@ class ChartScaffold extends Component {
 			qaHook,
 
 			// Chart...
-			chartId, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
+			chartId, isBarStacked, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
 			chartClassName, chartTheme, chartHeight, chartWidth,
 			chartPadding, chartTop, chartBottom, chartLeft,
 
@@ -442,6 +442,7 @@ class ChartScaffold extends Component {
 										dataComponent={(
 											<StackedBar
 												chartId={chartId}
+												isBarStacked={isBarStacked}
 												yAxisMaxValue={yAxisMaxValue}
 												yAxisHeight={yAxisHeight}
 												colorStacks={colorStacks}
@@ -503,7 +504,7 @@ ChartScaffold.propTypes = {
 		PropTypes.string,
 		PropTypes.arrayOf(PropTypes.string),
 	]),
-	isStacked: PropTypes.bool,
+	isBarStacked: PropTypes.bool,
 	onBarClick: PropTypes.func,
 	activeBars: PropTypes.object,
 	createBarToolTipMessage: PropTypes.func,

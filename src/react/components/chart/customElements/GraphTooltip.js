@@ -31,6 +31,7 @@ export default GraphTooltip;
 GraphTooltip.propTypes = {
 	qaHook: PropTypes.string,
 	message: PropTypes.oneOfType([
+		PropTypes.number,
 		PropTypes.string,
 		PropTypes.element,
 	]),

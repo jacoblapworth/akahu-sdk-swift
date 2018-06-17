@@ -3,27 +3,7 @@ import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
 import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
 import {alwaysPositive} from '../helpers/utilities';
-
-const createStackTop = ({barBottom, barStacks, ratio, stackIndex}) => {
-	const height = alwaysPositive(barStacks[stackIndex] * ratio);
-	const offset = (
-		barStacks
-			.slice(0, stackIndex)
-			.reduce((acc, stack) => acc + stack * ratio, 0)
-	);
-
-	return alwaysPositive(barBottom - offset - height);
-};
-
-// We can encounter the scenario where the disparity between bars total values
-// are so large (10 vs 100000000000000) that bars that have data appear to be
-// empty. In that regard the minimum value a bar with data can have is 1px
-// (to keep the semblance of a visible bar).
-const createStackHeight = ({barStack, ratio}) => {
-	const height = alwaysPositive(barStack * ratio);
-
-	return height ? Math.max(height, 1) : 0;
-};
+import {createStackTop, createStackHeight, createInteractionParams} from '../helpers/bars';
 
 class StackedBar extends PureComponent {
 	handleToolTipShow = (event, barData) => {
@@ -37,6 +17,7 @@ class StackedBar extends PureComponent {
 
 	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
 		const {
+			isBarStacked,
 			onBarClick,
 			isToolTipHidden,
 			colorStacks,
@@ -48,7 +29,7 @@ class StackedBar extends PureComponent {
 		const testIsActive = stackIndex => (activeBars[barId] || []).indexOf(stackIndex) >= 0;
 		const stackTop = createStackTop({barBottom, barStacks, ratio, stackIndex});
 		const stackHeight = createStackHeight({barStack, ratio});
-		const interactionParams = {...barData, barIndex, barId, stackIndex};
+		const interactionParams = createInteractionParams(isBarStacked, {...barData, barIndex, barId, stackIndex});
 		const clickProps = onBarClick && {
 			onClick: event => onBarClick(event, interactionParams),
 			style: {cursor: 'pointer'}
@@ -164,6 +145,7 @@ export default StackedBar;
 
 StackedBar.propTypes = {
 	chartId: PropTypes.string,
+	isBarStacked: PropTypes.bool,
 	onBarClick: PropTypes.func,
 	isToolTipHidden: PropTypes.bool,
 	updateToolTip: PropTypes.func,

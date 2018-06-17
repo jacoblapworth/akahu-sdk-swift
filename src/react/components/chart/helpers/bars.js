@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import {createChartPadding} from '../helpers/utilities';
 import {createArray} from '../../progressindicator/helpers/utilities';
+import {alwaysPositive, createChartPadding} from '../helpers/utilities';
 import {NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
@@ -90,6 +90,40 @@ const createActiveBars = (activeBarsRaw, barsData) => (
 		}, {})
 );
 
+const createStackTop = ({barBottom, barStacks, ratio, stackIndex}) => {
+	const height = alwaysPositive(barStacks[stackIndex] * ratio);
+	const offset = (
+		barStacks
+			.slice(0, stackIndex)
+			.reduce((acc, stack) => acc + stack * ratio, 0)
+	);
+
+	return alwaysPositive(barBottom - offset - height);
+};
+
+// We can encounter the scenario where the disparity between bars total values
+// are so large (10 vs 100000000000000) that bars that have data appear to be
+// empty. In that regard the minimum value a bar with data can have is 1px
+// (to keep the semblance of a visible bar).
+const createStackHeight = ({barStack, ratio}) => {
+	const height = alwaysPositive(barStack * ratio);
+
+	return height ? Math.max(height, 1) : 0;
+};
+
+// Because we augment the supplied data to act like a stacked bar (even if its a
+// plain version) we need to sanitise the data back to its original intention
+// when creating callback params for the user.
+const createInteractionParams = (isBarStacked, paramsStacked) => {
+	switch (true) {
+		case isBarStacked: return paramsStacked;
+		default: {
+			const {barStacks, y, ...paramsPlain} = paramsStacked; // eslint-disable-line no-unused-vars
+			return {...paramsPlain, y: y[0]};
+		}
+	}
+};
+
 const enrichParams = (state, props, chartTheme) => {
 	const {
 		qaHook,
@@ -103,7 +137,7 @@ const enrichParams = (state, props, chartTheme) => {
 		barsData: barsDataRaw,
 		barColor: barColorRaw,
 		activeBars: activeBarsRaw,
-		isStacked,
+		isBarStacked,
 		onBarClick,
 		createBarToolTipMessage: createBarToolTipMessageRaw,
 		isBarToolTipHidden,
@@ -131,10 +165,10 @@ const enrichParams = (state, props, chartTheme) => {
 	// stacks require arrays of data and plain a single value. Rather than create
 	// two duplicate components we augment the plain data to mimic a stacked
 	// scenario that has only a single stack.
-	const keyLabel = keyLabelRaw && (isStacked ? keyLabelRaw : [keyLabelRaw]);
-	const barColor = barColorRaw && (isStacked ? barColorRaw : [barColorRaw]);
+	const keyLabel = keyLabelRaw && (isBarStacked ? keyLabelRaw : [keyLabelRaw]);
+	const barColor = barColorRaw && (isBarStacked ? barColorRaw : [barColorRaw]);
 	const barsData = (
-		isStacked
+		isBarStacked
 			? barsDataRaw.map(bar => ({...bar, y: bar.y || [0]}))
 			: barsDataRaw.map(bar => ({...bar, y: [bar.y || 0]}))
 	);
@@ -200,7 +234,7 @@ const enrichParams = (state, props, chartTheme) => {
 		qaHook,
 
 		// Chart...
-		chartId, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
+		chartId, isBarStacked, hasChartHeader, chartTitle, hasChartTitle, chartDescription,
 		chartClassName, chartTheme, chartHeight, chartWidth,
 		chartPadding, chartTop, chartBottom, chartLeft,
 
@@ -230,4 +264,12 @@ const enrichParams = (state, props, chartTheme) => {
 	};
 };
 
-export {createBarStats as default, createBarColorStacks, enrichParams, findMaxTotalBarStacks};
+export {
+	createBarStats as default,
+	createBarColorStacks,
+	enrichParams,
+	findMaxTotalBarStacks,
+	createStackTop,
+	createStackHeight,
+	createInteractionParams,
+};

@@ -46,6 +46,7 @@ test.add(storyNames.dateDDInModal, () => {
 					trigger={trigger}
 					dropdown={dropdown}
 					isHidden={false}
+					restrictToViewPort={false}
 				/>
 			</XUIModalBody>
 		</XUIModal>

@@ -1,14 +1,43 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import XUIToastActions from '../XUIToastActions';
+import XUIToastAction from '../XUIToastAction';
 
 describe('<XUIToastActions />', () => {
-    it('should render a passed qaHook as an auotmation id', () => {
-        const automationId = renderer.create(<XUIToastActions qaHook="toast-actions">
-                <button>Action 1</button>
-                <button>Action 2</button>
-            </XUIToastActions>);
+	it('should render a passed qaHook as an automation id', () => {
+		const toastActions = renderer.create(
+			<XUIToastActions qaHook="toast-actions">
+				<XUIToastAction>Action 1</XUIToastAction>
+				<XUIToastAction>Action 2</XUIToastAction>
+			</XUIToastActions>
+			);
 
-        expect(automationId).toMatchSnapshot();
-    });
-}); 
+			expect(toastActions).toMatchSnapshot();
+	});
+
+	it('should render non-breaking in the old API style', () => {
+		const toastActions = renderer.create(
+			<XUIToastActions
+				className="custom-class"
+				qaHook="toast-actions">
+				<XUIToastAction href="#">Action 1</XUIToastAction>
+				<XUIToastAction href="#">Action 2</XUIToastAction>
+			</XUIToastActions>
+			);
+
+			expect(toastActions).toMatchSnapshot();
+	});
+
+	it('should render using the new API style', () => {
+		const toastActions = renderer.create(
+			<XUIToastActions
+				className="custom-class"
+				qaHook="toast-actions"
+				primaryAction={<XUIToastAction href="#">Action 1</XUIToastAction>}
+				secondaryAction={<XUIToastAction href="#">Action 2</XUIToastAction>}>
+			</XUIToastActions>
+			);
+
+			expect(toastActions).toMatchSnapshot();
+	});
+});

@@ -273,7 +273,7 @@ test.add(storyNames.formLayout, () => {
 								defaultLayout={false}
 								name={inputMap.autoResize}
 								textareaId={inputMap.autoResize}
-								className="xui-field-layout" // this is inconsistent with other form elements
+								fieldClassName="xui-field-layout" // this is inconsistent with other form elements
 							>
 								<InputLabel htmlFor={inputMap.autoResize}>
 									This textarea auto-resizes
@@ -333,7 +333,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel htmlFor={`${inputMap.whatCity}-Wellington`}>
 								Choose a city
 							</InputLabel>
-							<XUIRadioGroup className="xui-field-layout">
+							<XUIRadioGroup className="xui-field-layout" groupLabel="cities">
 								{
 									[
 										'Wellington',
@@ -357,7 +357,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel htmlFor="whatBird">
 								Favourite Birds
 							</InputLabel>
-							<XUICheckboxGroup className="xui-field-layout">
+							<XUICheckboxGroup className="xui-field-layout" groupLabel="birds">
 								{
 									[
 										'Tūī',
@@ -381,7 +381,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel htmlFor={`${inputMap.whatColour}-Red`}>
 								Choose one colour
 							</InputLabel>
-							<XUIToggle className="xui-field-layout" layout="form">
+							<XUIToggle className="xui-field-layout" layout="form" secondaryProps={{'aria-label': "colors"}}>
 								{
 									[
 										'Red',
@@ -408,7 +408,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel htmlFor={`${inputMap.whatColour2}-Red`}>
 								Choose many colours
 							</InputLabel>
-							<XUIToggle className="xui-field-layout" layout="form">
+							<XUIToggle className="xui-field-layout" layout="form" secondaryProps={{role: 'group'}}>
 								{
 									[
 										'Red',

@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Picklist from '../picklist/Picklist';
 import cn from 'classnames';
 import {baseClass} from './private/constants';
 
 /**
  * Wrapper component for contents of a dropdown footer.  DropDown does expect this to be the
- * wrapper, so it's use is mandatory.
+ * wrapper, so it's use is mandatory. It can accept pickItems directly, or you can custom build the content.
  *
  * @export
  * @class DropDownFooter
@@ -13,13 +14,18 @@ import {baseClass} from './private/constants';
  */
 export default class DropDownFooter extends PureComponent {
   render() {
-    const footer = this;
-    const { children, className, qaHook } = footer.props;
+		const { children, className, qaHook, pickItems } = this.props;
 
-    const classes = cn(`${baseClass}--footer`, className);
-
+		const footerClass = `${baseClass}--footer`;
+		const classes = cn(footerClass, className);
+		const pickList = pickItems && (
+				<Picklist className={`${footerClass}--picklist`}>
+					{pickItems}
+				</Picklist>
+			);
     return (
-      <div className={classes} ref={f => footer.rootNode = f} data-automationid={qaHook}>
+      <div className={classes} ref={f => this.rootNode = f} data-automationid={qaHook}>
+				{pickList}
 				{children}
 			</div>
     );
@@ -29,5 +35,9 @@ export default class DropDownFooter extends PureComponent {
 DropDownFooter.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  qaHook: PropTypes.string
+	qaHook: PropTypes.string,
+	/**
+	 * An optional array of one or more PickItem components to be added to the DropDownFooter in a PickList with standardised styling.
+	 */
+	pickItems: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
 };

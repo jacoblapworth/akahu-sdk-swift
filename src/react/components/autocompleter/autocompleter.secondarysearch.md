@@ -35,7 +35,7 @@ function createItems(items, selectedId) {
 
 class SecondarySearchExample extends React.Component {
 	constructor() {
-		super();
+		super(this.props);
 
 		const sse = this;
 
@@ -73,7 +73,7 @@ class SecondarySearchExample extends React.Component {
 
 	render() {
 		const sse = this;
-		const { value } = sse.state;
+		const { value, data } = sse.state;
 
 		const trigger = (
 			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
@@ -81,11 +81,11 @@ class SecondarySearchExample extends React.Component {
 			</XUIButton>
 		);
 
-		const items = sse.state.data.length > 0 ? createItems(sse.state.data, sse.state.selectedItem): (<XUIAutocompleterEmptyState />);
+		const items = data.length > 0 ? createItems(data, sse.state.selectedItem): (<XUIAutocompleterEmptyState />);
 
 		const footer = (
-			<DropDownFooter>
-				<Picklist>
+			<DropDownFooter
+				pickItems={(
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
@@ -94,20 +94,22 @@ class SecondarySearchExample extends React.Component {
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Person
-							</span>
+						</span>
 					</Pickitem>
-				</Picklist>
-			</DropDownFooter>
+				)}
+			/>
 		);
 
 		return (
-		<div>
+			<div>
 				<XUIAutocompleterSecondarySearch
 					trigger={trigger}
 					onOptionSelect={sse.onOptionSelect}
 					onSearch={sse.onSearch}
 					searchValue={value}
 					dropdownSize='medium'
+					inputLabelText='secondary search label'
+					isInputLabelHidden
 					qaHook='secondary-search'
 					footer={footer}
 					onClose={() => this.onClose()}
@@ -116,7 +118,8 @@ class SecondarySearchExample extends React.Component {
 						{items}
 					</Picklist>
 				</XUIAutocompleterSecondarySearch>
-			</div>)
+			</div>
+		)
 	}
 }
 

@@ -125,6 +125,7 @@ export default class SelectBox extends Component {
 								forceDesktop={props.forceDesktop}
 								matchTriggerWidth={props.matchTriggerWidth}
 								qaHook={setQaHook(props.qaHook, qaHooks.dropdownToggled)}
+								isBlock
 							/>
 					}
 				</div>

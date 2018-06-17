@@ -43,6 +43,8 @@ Different styles of button are available by passing different values to the `var
 
 Icon buttons are supported by the `icon`, `icon-inverted`, `icon-large` and `icon-inverted-large` variants.
 
+When placing `XUIIcon` alone in a button, ensure accessibility by adding a `title` prop on the `XUIIcon`, or a `title` and `aria-label` on the button itself.
+
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
 As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefox compatibility.
 
@@ -52,20 +54,20 @@ As this uses flexbox, ensure you add `xui-u-flex-inherit` to the Icon for Firefo
 	<div>
 
 		<XUIButton variant="icon">
-			<XUIIcon path={icon} />
+			<XUIIcon path={icon} title="Dots menu" />
 		</XUIButton>
 
 		<XUIButton variant="icon" className="xui-button-icon-large">
-			<XUIIcon path={icon} className="xui-u-flex-inherit" />
+			<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
 		</XUIButton>
 
 		<div className="xui-padding-xsmall xui-background-grey-1">
 			<XUIButton variant="icon-inverted">
-				<XUIIcon path={icon} className="xui-u-flex-inherit" />
+				<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
 			</XUIButton>
 
 			<XUIButton variant="icon-inverted" className="xui-button-icon-large">
-				<XUIIcon path={icon} className="xui-u-flex-inherit" />
+				<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
 			</XUIButton>
 		</div>
 

@@ -58,6 +58,7 @@ storiesWithKnobs.add('Playground | Circular', () => (
 			progress={number('progress', 5)}
 			isSegmented={boolean('isSegmented', false)}
 			isGrow={boolean('isGrow', false)}
+			thickness={number('thickness', 3)}
 			hasToolTip={boolean('hasToolTip', false)}
 			toolTipMessage={text('toolTipMessage', '')}
 			isAlertOnComplete={boolean('isAlertOnComplete', false)}
@@ -79,6 +80,8 @@ storiesWithKnobs.add('Playground | Linear', () => (
 			progress={number('progress', 5)}
 			isSegmented={boolean('isSegmented', false)}
 			isGrow={boolean('isGrow', false)}
+			thickness={number('thickness', 4)}
+			hasSegmentDots={boolean('hasSegmentDots', false)}
 			hasToolTip={boolean('hasToolTip', false)}
 			toolTipMessage={text('toolTipMessage', '')}
 			isOverflow={boolean('isOverflow', false)}
@@ -152,7 +155,7 @@ variations.forEach(variation => {
 
 	} else if (isCustomContent) {
 
-		const children = <img style={{ width: '100%', height: 'auto' }} src="http://via.placeholder.com/350x350" />;
+		const children = <img style={{ width: '100%', height: 'auto' }} alt="custom image" src="http://via.placeholder.com/350x350" />;
 
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, props, children);
 

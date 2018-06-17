@@ -63,8 +63,10 @@ const enrichLinearProps = (props) => {
 	// A "soft" error will not be visible if the UI is currently in an "overflow" scenario.
 	const isSoftError = base.isSoftError && !base.isOverflow;
 	const classes = cn(base.classes, `${NAME_SPACE}-linear`);
+	// Segment dots are only relevant if the configuration is also set to segments.
+	const hasSegmentDots = base.hasSegmentDots && base.isSegmented;
 
-	return { ...base, isSoftError, classes };
+	return { ...base, isSoftError, classes, hasSegmentDots };
 
 };
 

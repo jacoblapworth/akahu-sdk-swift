@@ -15,11 +15,10 @@
 const onToastClose = () => {alert( 'Standard toast closed' )};
 
 <div>
-	<XUIToast>
-		<XUIToastMessage> System Message </XUIToastMessage>
-	</XUIToast>
-	<XUIToast onCloseClick={onToastClose}>
-		<XUIToastMessage> Standard </XUIToastMessage>
+	<XUIToast message="System Message" />
+	<XUIToast
+		onCloseClick={onToastClose}
+		message="Standard">
 	</XUIToast>
 </div>
 ```

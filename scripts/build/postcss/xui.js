@@ -39,12 +39,12 @@ const postcssXui = () =>
 						folders.forEach(folder => {
 							const finalFileToWrite = path.resolve(folder, 'xui.css');
 							taskSpinner.info(`Writing File: ${finalFileToWrite}`);
+
 							copyFile(
-								path.resolve(rootDirectory, './.tmp', 'xui.css'),
+								path.resolve(rootDirectory, '.tmp', 'xui.css'),
 								finalFileToWrite
 							);
 						});
-						copyFile;
 					})
 					.then(succeed)
 					.catch(fail);

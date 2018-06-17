@@ -28,6 +28,17 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'has a label',
+		labelText: 'Label text'
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'has a hidden label',
+		labelText: 'Label text',
+		isLabelHidden: true
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is invalid',
 		isInvalid: true,
 		validationMessage: 'invalid content'
@@ -105,6 +116,7 @@ const variations = [
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'multiline input grown to fit contents',
 		isMultiline: true,
+		maxRows: 5,
 		value: 'test\ntest\ntest\ntest\ntest',
 	},
 	{

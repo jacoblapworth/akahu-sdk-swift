@@ -172,6 +172,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -186,10 +187,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -236,6 +233,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -250,10 +248,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -287,6 +281,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -301,10 +296,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -338,6 +329,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -352,10 +344,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -423,6 +411,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -437,10 +426,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -487,6 +472,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -501,10 +487,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -538,6 +520,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -554,10 +537,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-styledcheckboxradio--checkbox"
                     data-automationid={undefined}
                   />
-                  <span
-                    className="xui-styledcheckboxradio--label"
-                    data-automationid={undefined}
-                  />
                 </label>
               </td>
               <td
@@ -589,6 +568,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -603,10 +583,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -674,6 +650,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -688,10 +665,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -738,6 +711,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -752,10 +726,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -789,6 +759,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -803,10 +774,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -840,6 +807,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -854,10 +822,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -1336,6 +1300,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -1424,6 +1389,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -1562,6 +1528,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -1576,10 +1543,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -1626,6 +1589,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -2455,6 +2419,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             className="xui-icon xui-icon-large"
             data-automationid={undefined}
             focusable="false"
+            style={null}
             viewBox="0 0 30 30"
           >
             <path
@@ -2622,30 +2587,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -2677,30 +2647,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -2732,30 +2707,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -2811,6 +2791,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -2825,10 +2806,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -2931,6 +2908,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -2945,10 +2923,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -3017,6 +2991,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3031,10 +3006,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -3103,6 +3074,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3117,10 +3089,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -3366,30 +3334,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3456,30 +3429,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3546,30 +3524,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3620,6 +3603,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3634,10 +3618,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -3745,6 +3725,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3759,10 +3740,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -3827,30 +3804,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3867,6 +3849,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3881,10 +3864,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -3949,30 +3928,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3989,6 +3973,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -4003,10 +3988,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -4071,30 +4052,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -4445,6 +4431,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
+                    style={null}
                     viewBox="0 0 30 30"
                   >
                     <path
@@ -4585,6 +4572,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
+                    style={null}
                     viewBox="0 0 30 30"
                   >
                     <path
@@ -4725,6 +4713,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     className="xui-icon xui-table--sortbutton-icon xui-u-rotate-180 xui-icon-inline"
                     data-automationid={undefined}
                     focusable="false"
+                    style={null}
                     viewBox="0 0 30 30"
                   >
                     <path
@@ -5104,6 +5093,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5118,10 +5108,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -5173,6 +5159,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5187,10 +5174,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -5220,30 +5203,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -5260,6 +5248,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5274,10 +5263,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -5307,30 +5292,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -5347,6 +5337,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5361,10 +5352,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -5394,30 +5381,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -6561,6 +6553,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -6575,10 +6568,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -6686,6 +6675,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -6700,10 +6690,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -6768,30 +6754,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -6808,6 +6799,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -6822,10 +6814,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -6890,30 +6878,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -6930,6 +6923,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   onClick={[Function]}
                 >
                   <input
+                    aria-label={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -6944,10 +6938,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   />
                   <div
                     className="xui-styledcheckboxradio--checkbox"
-                    data-automationid={undefined}
-                  />
-                  <span
-                    className="xui-styledcheckboxradio--label"
                     data-automationid={undefined}
                   />
                 </label>
@@ -7012,30 +7002,35 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup={true}
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <svg
-                      className="xui-icon xui-u-flex-inherit"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
-                      focusable="false"
-                      viewBox="0 0 30 30"
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <path
-                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                        role="presentation"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        className="xui-icon xui-u-flex-inherit"
+                        data-automationid={undefined}
+                        focusable="false"
+                        style={null}
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>

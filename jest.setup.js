@@ -1,3 +1,11 @@
+/**
+ * Shim needed to bin unnecessary requestAnimationFrame errors
+ * https://github.com/facebook/jest/issues/4545#issuecomment-332762365
+ */
+global.requestAnimationFrame = (callback) => {
+	setTimeout(callback, 0);
+};
+
 /* eslint-disable no-console */
 const util = require('util');
 

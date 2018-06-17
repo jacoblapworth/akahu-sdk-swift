@@ -19,7 +19,7 @@
 
 // Anatomy
 //
-// To create a checkbox, use the following classes in combination with a native checkbox input.
+// To create a switch, use the following classes in combination with a native checkbox input.
 // To turn the switch on, simply add the `checked` attribute to the input.
 //
 // Classes:
@@ -29,11 +29,11 @@
 //
 // Markup:
 // <label class="xui-switch">
-//   <input type="checkbox" class="xui-switch--checkbox">
+//   <input type="checkbox" class="xui-switch--checkbox" role="switch" aria-label="sample switch">
 //   <span class="xui-switch--control"></span>
 // </label>
 // <label class="xui-switch">
-//   <input type="checkbox" class="xui-switch--checkbox" checked>
+//   <input type="checkbox" class="xui-switch--checkbox" checked role="switch" aria-label="sample switch2">
 //   <span class="xui-switch--control"></span>
 // </label>
 //
@@ -49,11 +49,11 @@
 //
 // Markup:
 // <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" class="xui-switch--checkbox" disabled>
+//   <input type="checkbox" class="xui-switch--checkbox" disabled role="switch" aria-label="sample switch3">
 //   <span class="xui-switch--control"></span>
 // </label>
 // <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" class="xui-switch--checkbox" disabled checked>
+//   <input type="checkbox" class="xui-switch--checkbox" disabled checked role="switch" aria-label="sample switch4">
 //   <span class="xui-switch--control"></span>
 // </label>
 //

@@ -21,6 +21,7 @@ const inputProps = {};
 
 const TextInputWrapper = props => {
 	const {
+		labelText,
 		inputProps,
 		isBorderlessTransparent,
 		isBorderlessSolid,
@@ -35,6 +36,7 @@ const TextInputWrapper = props => {
 		isDisabled,
 		value,
 		isMultiline,
+		isLabelHidden,
 		minRows,
 		maxRows,
 		rows,
@@ -79,6 +81,7 @@ const TextInputWrapper = props => {
 
 	return(
 		<XUITextInput
+			labelText={labelText}
 			inputProps={inputProps}
 			leftElement={makeSideElement(leftElementType, leftElementAlignment)}
 			rightElement={makeSideElement(rightElementType, rightElementAlignment)}
@@ -93,6 +96,7 @@ const TextInputWrapper = props => {
 			isDisabled={isDisabled}
 			value={value}
 			isMultiline={isMultiline}
+			isLabelHidden={isLabelHidden}
 			minRows={minRows}
 			maxRows={maxRows}
 			rows={rows}
@@ -101,6 +105,7 @@ const TextInputWrapper = props => {
 }
 
 TextInputWrapper.propTypes = {
+	labelText: PropTypes.labelText,
 	inputProps: PropTypes.object,
 	isBorderlessTransparent: PropTypes.bool,
 	isBorderlessSolid: PropTypes.bool,
@@ -115,6 +120,7 @@ TextInputWrapper.propTypes = {
 	isDisabled: PropTypes.bool,
 	value: PropTypes.string,
 	isMultiline: PropTypes.bool,
+	isLabelHidden: PropTypes.bool,
 	minRows: PropTypes.number,
 	maxRows: PropTypes.number,
 	rows: PropTypes.number,
@@ -129,6 +135,8 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<TextInputWrapper
+		labelText={text('label text', 'Test label')}
+		isLabelHidden={boolean('is label hidden', false)}
 		placeholder={text('placeholder', 'placeholder text')}
 		value={text('value')}
 		isMultiline={boolean('is multiline', false)}
@@ -157,6 +165,10 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = { ...variation };
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
+		if (!variationMinusStoryDetails.labelText) {
+			variationMinusStoryDetails.labelText = "Test label";
+			variationMinusStoryDetails.isLabelHidden = true;
+		}
 
 		return <TextInputWrapper {...variationMinusStoryDetails} />;
 

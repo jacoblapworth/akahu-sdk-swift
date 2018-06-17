@@ -9,7 +9,7 @@
 // Styleguide: Building Blocks.Controls.Toggle
 
 // Best practice
-// 
+//
 // Tips:
 // Do: Use toggles to provide quick access to options without the need for a dropdown
 // Warning: Avoid including more than three options inside a toggle
@@ -22,7 +22,7 @@
 // To create a standard toggle, use the following classes.
 // Note that spacing must be provided by the consumer.
 //
-// Classes: 
+// Classes:
 // xui-toggle: Toggle container
 // xui-toggle-option: Toggle option
 // xui-toggle--label: Toggle text content
@@ -31,7 +31,7 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle">
+// <div class="xui-toggle" role="radiogroup" aria-label="aa">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="aa" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Including tax</span>
@@ -60,7 +60,7 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle xui-toggle-fullwidth-layout">
+// <div class="xui-toggle xui-toggle-fullwidth-layout" role="radiogroup" aria-label="bb">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="bb" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">As they happen</span>
@@ -79,7 +79,7 @@
 
 // Size
 //
-// To create a toggle for use in more compact spaces, apply the following modifier. 
+// To create a toggle for use in more compact spaces, apply the following modifier.
 //
 // Classes:
 // xui-toggle-small: Apply to toggle
@@ -87,7 +87,7 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle xui-toggle-small">
+// <div class="xui-toggle xui-toggle-small" role="radiogroup" aria-label="dd">
 //   <label class="xui-toggle-option">
 //     <input type="radio" name="dd" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-horizontal-small">Fixed</span>
@@ -111,7 +111,7 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle">
+// <div class="xui-toggle" role="radiogroup" aria-label="ee">
 //   <label class="xui-toggle-option xui-is-disabled">
 //   <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
@@ -134,7 +134,7 @@
 // ExampleClass: ds-example-dark
 //
 // Markup:
-// <div class="xui-toggle xui-toggle-inverted">
+// <div class="xui-toggle xui-toggle-inverted" role="radiogroup" aria-label="ff">
 //   <label class="xui-toggle-option">
 //   <input type="radio" name="ff" class="xui-toggle--input" checked/>
 //     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">

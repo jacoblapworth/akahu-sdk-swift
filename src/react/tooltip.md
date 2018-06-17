@@ -22,7 +22,7 @@ const XUIIcon = require('./components/icon/XUIIcon.js').default;
 const info = require('@xero/xui-icon/icons/info').default;
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" size="full-size"><XUIIcon path={info} /></XUIButton>;
 };
 const createTriggerButton = () => {
 	return <XUIButton size="full-width">A button</XUIButton>;

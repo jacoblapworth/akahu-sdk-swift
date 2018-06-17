@@ -7,16 +7,20 @@ exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1
   data-ref="toggled-wrapper"
   onKeyDown={[Function]}
 >
-  <button
-    aria-activedescendant={null}
-    aria-controls={undefined}
-    aria-haspopup={true}
-    className="xui-button xui-button-standard"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    qaHook="ddt-example--trigger"
+  <span
+    className="xui-dropdownToggled--innerWrap"
   >
-    HOC Button
-  </button>
+    <button
+      aria-activedescendant={null}
+      aria-controls={undefined}
+      aria-haspopup="listbox"
+      className="xui-button xui-button-standard"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      qaHook="ddt-example--trigger"
+    >
+      HOC Button
+    </button>
+  </span>
 </div>
 `;

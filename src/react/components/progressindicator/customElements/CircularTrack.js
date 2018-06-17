@@ -1,8 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import WithCircularStroke from './WithCircularStroke';
+import WithCircularGrowth from './WithCircularGrowth';
 import { NAME_SPACE } from '../helpers/constants';
+
+const DEFAULT_THICKNESS = 3;
+
+// Make sure the stroke width has a minimum viable value and a maximum that does
+// not exceed its half of the <svg /> (or the browser throws an error).
+const standardiseThickness = (width, thickness) => {
+
+	const max = width / 2;
+	const min = DEFAULT_THICKNESS;
+
+	return thickness < min ? min : Math.min(thickness, max);
+
+};
 
 // HACK: The addition of this <canvas /> is to address an IE11 bug where <svg />
 // options are not scaling accurately.
@@ -74,10 +87,12 @@ const CircularTrack = ({
 	progress,
 	isSegmented,
 	customContent,
-	strokeWidth,
+	thickness,
+	elementWidth,
 }) => {
 
-	const viewBoxWidth = 100;
+	const strokeWidth = standardiseThickness(elementWidth, thickness);
+	const viewBoxWidth = elementWidth;
 	const viewBoxHeight = viewBoxWidth;
 	const center = viewBoxWidth / 2;
 	const radius = center - (strokeWidth / 2);
@@ -175,10 +190,12 @@ CircularTrack.propTypes = {
 	progress: PropTypes.number.isRequired,
 	isSegmented: PropTypes.bool,
 	customContent: PropTypes.node,
-
-	/** The SVG stroke width generated via the the "WithCircularStroke" HOC. */
-	strokeWidth: PropTypes.number,
-
+	thickness: PropTypes.number,
+	elementWidth: PropTypes.number,
 };
 
-export default WithCircularStroke(CircularTrack);
+CircularTrack.defaultProps = {
+	thickness: DEFAULT_THICKNESS,
+};
+
+export default WithCircularGrowth(CircularTrack);

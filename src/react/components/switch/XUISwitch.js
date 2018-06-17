@@ -13,7 +13,8 @@ export default class XUISwitch extends PureComponent {
 			name,
 			value,
 			qaHook,
-			className
+			className,
+			labelText
 		} = this.props;
 
 		const labelClasses = cn(
@@ -28,11 +29,15 @@ export default class XUISwitch extends PureComponent {
 			<label data-automationid={qaHook && `${qaHook}--label`} className={labelClasses}>
 				<input
 					type="checkbox"
+					role="switch"
+					aria-checked={!!isChecked}
 					onChange={onChange}
 					checked={isChecked}
 					name={name}
 					value={value}
 					disabled={isDisabled}
+					aria-disabled={isDisabled}
+					aria-label={labelText}
 					className={inputClasses}
 					data-automationid={qaHook && `${qaHook}--input`}/>
 				<div className={`${ns}-switch--control`} data-automationid={qaHook}></div>
@@ -53,5 +58,7 @@ XUISwitch.propTypes = {
 	/** Name attribute for the input */
 	name : PropTypes.string,
 	/** Value attribute for the input */
-	value: PropTypes.string
+	value: PropTypes.string,
+	/** Input label for accessibility purposes. Will not be visibly displayed. */
+	labelText: PropTypes.string
 };

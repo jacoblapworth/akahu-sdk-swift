@@ -14,10 +14,8 @@ TODO:
   + Seperate PR
   + Setup against new "viewbox" system
 
-+ bar "click" and "hover" args should represent reflect the isStacked prop
-
 + Documentation
-	+ XUI docs (Fin)
+  + XUI docs (Fin)
   + React docs
   + Storybook
   + Jest snapshots
@@ -68,7 +66,7 @@ XUIBarChart.propTypes = {
 		/** Single label for standard bar. */
 		PropTypes.string,
 		/** Multiple labels for stacked bar. */
-    PropTypes.arrayOf(PropTypes.string),
+		PropTypes.arrayOf(PropTypes.string),
 	]),
 
 	/** Key title inside the dropdown container. */

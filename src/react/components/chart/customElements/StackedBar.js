@@ -1,7 +1,7 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
-import {BAR_ACTIVE, NAME_SPACE} from '../helpers/constants';
+import {BAR_ACTIVE, NAME_SPACE, BAR_RADIUS, BAR_PADDING_X} from '../helpers/constants';
 import {alwaysPositive} from '../helpers/utilities';
 import {createStackTop, createStackHeight, createInteractionParams} from '../helpers/bars';
 
@@ -79,8 +79,8 @@ class StackedBar extends PureComponent {
 		const {id: barId, y: barStacks} = barData;
 		if (!barStacks.length) return null;
 
-		const radius = 3;
-		const divider = 10;
+		const radius = BAR_RADIUS;
+		const divider = BAR_PADDING_X;
 		const ratio = yAxisHeight / yAxisMaxValue;
 		const totalStack = barStacks.reduce((acc, stack) => acc + stack, 0);
 		const maskId = `${NAME_SPACE}-chart--bar-mask-${chartId}${barId}`;

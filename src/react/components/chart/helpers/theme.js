@@ -1,9 +1,10 @@
 import {VictoryTheme} from 'victory';
+import {LABEL_FONT_SMALL} from './constants';
 
 const baseFontTheme = {
 	fill: '#657483',
 	fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
-	fontSize: 11
+	fontSize: LABEL_FONT_SMALL
 };
 
 const axisLineTheme = {

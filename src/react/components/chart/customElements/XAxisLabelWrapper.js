@@ -27,8 +27,6 @@ class XAxisLabelWrapper extends PureComponent {
 			children,
 		} = this.props
 
-		console.log('tool', this.props);
-
 		return (
 			<Fragment>
 				<svg

@@ -18,7 +18,7 @@ export const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
 });
 
 export const pause = (items, callback) => {
-	const min = 500 + (items.length * 50);
-	const max = 2000;
+	const min = items.length || 1 * 10;
+	const max = 1000;
 	setTimeout(callback, Math.min(min, max));
 }

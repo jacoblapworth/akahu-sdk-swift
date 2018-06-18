@@ -27,18 +27,20 @@ class PositioningInline extends Positioning {
 		this.setState({
 			maxHeight: null,
 			maxWidth: null,
-			minWidth: null,
+			marginLeft: null,
+			marginRight: null,
 			width: null
 		});
-		this.calculateMaxDimensions();
 
 		if (props.isVisible) {
 			this.positionComponent();
+		} else {
+			this.calculateMaxDimensions();
 		}
 	}
 
 	/**
-	 * Calculate positioning of the tooltip if the trigger is rendered.
+	 * Calculate positioning of the popup if the trigger is rendered.
 	 *
 	 * @public
 	 */
@@ -51,22 +53,27 @@ class PositioningInline extends Positioning {
 
 			if (isBaseRendered(baseRect)) {
 				alignBaseWithTrigger(baseRect, triggerDOM, this);
+				this.calculateMaxDimensions(baseRect);
 			}
 		}
 	}
 
 	/**
-	 * Uses the viewport and trigger element to determine the available space in which to display a tooltip.
+	 * Uses the viewport and trigger element to determine the available space in which to display a
+	 * popup element such as a tooltip or dropdown.
 	 * Also applies any consumer-supplied maxHeight/maxWidth.
 	 *
 	 * @public
+	 * @param {Object} popupRect
+	 *
 	 */
-	calculateMaxDimensions = () => {
-		const { viewportGutter, parentRef, triggerDropdownGap, maxHeight, maxWidth, preferredPosition } = this.props;
+	calculateMaxDimensions = (popupRect) => {
+		const baseRect = popupRect || this.positionEl && this.positionEl.firstChild.getBoundingClientRect();
+		const { viewportGutter, parentRef, triggerDropdownGap, maxHeight, maxWidth, preferredPosition, shouldRestrictMaxHeight } = this.props;
 		const { positionVertically } = getPreferredPosition(preferredPosition);
 		const triggerDOM = parentRef != null && parentRef.firstChild;
 
-		if (triggerDOM != null && verge.inViewport(triggerDOM)) {
+		if (isBaseRendered(baseRect) && triggerDOM != null && verge.inViewport(triggerDOM)) {
 			if (!this.props.isNotResponsive && isNarrowViewport()) {
 				// For mobile or very small screens, offer the full viewport, as max. Figure positioning later.
 				const viewportH = verge.viewportH();
@@ -83,14 +90,22 @@ class PositioningInline extends Positioning {
 					maxWidth: maxWidth
 				};
 				if (positionVertically) {
-					// Get viewport size either above or below, minus gutters.
-					const largerVerticalSpace = Math.max(spaces.above, spaces.below) - viewportGutter - triggerDropdownGap;
-					maxDimensions.maxHeight = maxHeight ? Math.min(largerVerticalSpace, maxHeight) : largerVerticalSpace;
+					if (shouldRestrictMaxHeight) {
+						// Get viewport size either above or below, minus gutters.
+						const largerVerticalSpace = Math.max(spaces.above, spaces.below) - viewportGutter - triggerDropdownGap;
+						maxDimensions.maxHeight = maxHeight ? Math.min(largerVerticalSpace, maxHeight) : largerVerticalSpace;
+					} else {
+						maxDimensions.maxHeight = null;
+					}
 
 					// Widest the tip could be in any alignment.
 					const possibleCenteredSize = Math.min(spaces.left, spaces.right) * 2;
 					const largestAvailableWidth = Math.max(spaces.left, spaces.right, possibleCenteredSize) + triggerRect.width;
-					maxDimensions.maxWidth = maxWidth ? Math.min(largestAvailableWidth, maxWidth) : largestAvailableWidth;
+					if(maxWidth === -1) {
+						maxDimensions.maxWidth = null;
+					} else {
+						maxDimensions.maxWidth = maxWidth ? Math.min(largestAvailableWidth, maxWidth) : largestAvailableWidth;
+					}
 				} else {
 					// Get viewport size to the left or right, minus gutters.
 					const largerHorizontalSpace = Math.max(spaces.left, spaces.right) - viewportGutter - triggerDropdownGap;
@@ -109,34 +124,46 @@ class PositioningInline extends Positioning {
 	/**
 	 * Uses internal state to work out inline styles and returns them.
 	 *
-	 * @return {{ maxHeight: Number, maxWidth: Number, width: Number, minWidth: Number }}
+	 * @return {{ maxHeight: Number, maxWidth: Number, width: Number, marginLeft: Number, marginRight: Number }}
 	 */
 	getStyles = () => {
-		const { maxHeight, maxWidth, minWidth } = this.state;
-		const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
+		const { maxHeight, maxWidth, side, alignment } = this.state;
+		const { isTriggerWidthMatched, parentRef, isNotResponsive, isVisible } = this.props;
 		const isMobile = isNarrowViewport() && !isNotResponsive;
 		let width = null;
 		let newMaxWidth = maxWidth;
 		if (isTriggerWidthMatched && !isMobile && (parentRef != null) && (parentRef.firstChild != null)) {
-			// Trigger width matching is not available for tooltips, but has been tested
-			// and could have future use.
 			width = parentRef.firstChild.getBoundingClientRect().width;
 			newMaxWidth = null;
 		}
-		let newMinWidth = minWidth && newMaxWidth ? Math.min(minWidth, newMaxWidth) : minWidth || null;
-
+		let marginLeft = null;
+		let marginRight = null;
+		if (isVisible) {
+			// NB: Negative horizontal margins allow content to stretch to the max-width. This has
+			// a similar effect to width: max-content, but works in all tested browsers, when
+			// combined with the positioning + translate offsets used for centering in the CSS.
+			let maxMargin = this.props.maxWidth && newMaxWidth ?
+				Math.max(this.props.maxWidth, newMaxWidth) :
+				newMaxWidth || this.props.maxWidth;
+			if (side === 'left' || alignment === 'right') {
+				marginLeft = -1 * maxMargin;
+			} else {
+				marginRight = -1 * maxMargin;
+			}
+		}
 		return {
 			maxHeight: isMobile ? null : maxHeight,
 			width,
-			maxWidth: newMaxWidth,
-			minWidth: newMinWidth
+			marginLeft,
+			marginRight,
+			maxWidth: newMaxWidth
 		};
 	};
 
 	render() {
 		const { children, qaHook, className } = this.props;
 		const { side, alignment, topOffset, isHorizontal } = this.state;
-		const sideAlignClassName = side ? `${baseClass}--${side}-${alignment}` : "";
+		const sideAlignClassName = side ? `${baseClass}--content-${side}${alignment}` : "";
 		const childClasses = cn(children.props.className, sideAlignClassName);
 		const wrapperClasses = cn(baseClass, className);
 
@@ -168,7 +195,7 @@ PositioningInline.propTypes = {
 	parentRef: PropTypes.object,
 	/** A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
 	viewportGutter: PropTypes.number,
-	/** A max height will mean an overflowed tooltip will scroll for the user rather than render outside of the viewport. True by default. */
+	/** A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
 	shouldRestrictMaxHeight: PropTypes.bool,
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	isNotResponsive: PropTypes.bool,
@@ -181,6 +208,7 @@ PositioningInline.propTypes = {
 	/**
 	 * Setting a number here will force the maximum size of the child to be the number provided (in pixels).
 	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
+	 * Setting either to -1 will set the value to null.
 	 */
 	maxHeight: PropTypes.number,
 	maxWidth: PropTypes.number,
@@ -189,7 +217,13 @@ PositioningInline.propTypes = {
 	 * This will potentially be over-ridden by dimensions of the viewport and tip contents.
 	 * Providing only the side (top, right, bottom, left) will default to a center-aligned tip.
 	 */
-	preferredPosition: PropTypes.oneOf(positionOptions)
+	preferredPosition: PropTypes.oneOf(positionOptions),
+	/**
+	 * Limit positioning to standard dropdown behaviour. The positioned element will only show above
+	 * or below the trigger (never to the side), and will be flush to the left or right of the
+	 * trigger (never centered).
+	 */
+	useDropdownPositioning: PropTypes.bool
 };
 
 PositioningInline.defaultProps = {

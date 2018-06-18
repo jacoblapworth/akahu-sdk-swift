@@ -47,6 +47,14 @@ const buildUmd = require(path.resolve(
 	'build',
 	'umd_webpack.js'
 ));
+const buildServiceWorker = require(path.resolve(
+	rootDirectory,
+	'scripts',
+	'build',
+	'serviceworker.js'
+));
+
+console.log('buildServiceWorker', buildServiceWorker);
 
 function build() {
 	return taskRunner(taskSpinner => {
@@ -62,6 +70,7 @@ function build() {
 					cssminXui()
 				]).then(({ stdout }) => console.log(stdout));
 			})
+			.then(buildServiceWorker())
 			.then(succeed)
 			.catch(fail);
 	}, __filename);

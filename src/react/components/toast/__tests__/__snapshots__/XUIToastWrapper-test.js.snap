@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIToastWrapper /> should render a passed custom class 1`] = `
+<div
+  className="custom-class xui-toastwrapper xui-container"
+  data-automationid={undefined}
+>
+  Message Content
+</div>
+`;
+
+exports[`<XUIToastWrapper /> should render a passed qaHook as an automation id 1`] = `
+<div
+  className="xui-toastwrapper xui-container"
+  data-automationid="toast-actions"
+>
+  Wrapper
+</div>
+`;
+
+exports[`<XUIToastWrapper /> should render closed 1`] = `null`;

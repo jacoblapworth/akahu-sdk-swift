@@ -35,6 +35,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				value: searchValue
 			});
 		}
+		this.highlightFirstItem();
 	}
 
 	/**
@@ -85,7 +86,20 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	highlightItem = item => {
-		this.dropdown.highlightItem(item);
+		if(this.dropdown) {
+			this.dropdown.highlightItem(item);
+		}
+	}
+
+	/**
+	 * Manually highlights the first item in the list for selection.
+	 *
+	 * @public
+	 */
+	highlightFirstItem = () => {
+		if(this.dropdown) {
+			this.dropdown.highlightFirstItem();
+		}
 	}
 
 	/**
@@ -132,7 +146,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					<XUITextInput
 						className={props.inputClassName}
 						containerClassName={props.inputContainerClassName}
-						value={value}
+						value={value || ''}
 						leftElement={
 							<XUITextInputSideElement>
 								<XUIIcon path={searchPath} />
@@ -142,9 +156,14 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 						onChange={this.throttledOnChange}
 						inputRef={c => completer.input = c}
 						isBorderlessSolid
+						labelText={props.inputLabelText}
+						isLabelHidden={props.isInputLabelHidden}
 						inputProps={{
 							...props.inputProps,
-							id: props.inputId
+							'id': props.inputId,
+							'role': "textbox",
+							'aria-multiline': false,
+							'aria-autocomplete': "list",
 						}}
 					/>
 			</div>
@@ -164,6 +183,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				header={searchItem}
 				footer={props.footer}
 				restrictFocus={props.restrictFocus}
+				shouldManageInitialHighlight={false}
+				forceStatefulPicklist={true}
 			>
 			{props.children}
 		</DropDown>);
@@ -173,6 +194,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				ref={c => completer.rootNode = c}
 				className={props.className}
 				data-automationid={containerQaHook}
+				role="combobox"
 			>
 				<DropDownToggled
 					ref={c => completer.ddt = c}
@@ -252,6 +274,12 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
 	/** ID to be applied to the XUIAutocompleterInput component. */
 	inputId: PropTypes.string,
+
+	/** Label to show above the input */
+	inputLabelText: PropTypes.string,
+
+	/** Should label be applied as an aria-label, rather than being visibly displayed. */
+	isinputLabelHidden: PropTypes.bool,
 
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,

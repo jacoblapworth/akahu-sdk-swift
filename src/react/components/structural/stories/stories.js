@@ -2,6 +2,7 @@
 import React from 'react';
 
 // Components we need to test with
+import XUIIcon from '../../icon/XUIIcon';
 import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
 import XUIPageHeader from '../XUIPageHeader';
@@ -9,7 +10,6 @@ import XUIBreadcrumb from '../XUIBreadcrumb';
 import XUIPicklist from '../../picklist/Picklist';
 import XUIPickitem from '../../picklist/Pickitem';
 import XUIButton from '../../button/XUIButton';
-import XUIIcon from '../../icon/XUIIcon';
 import overflow from '@xero/xui-icon/icons/overflow';
 import XUIActions from '../XUIActions';
 import XUIOverviewBlock from '../XUIOverviewBlock';
@@ -18,6 +18,12 @@ import XUIPanel from '../XUIPanel';
 import XUIPanelSection from '../XUIPanelSection';
 import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
+import XUIContentBlock from '../XUIContentBlock';
+import XUIContentBlockItem from '../XUIContentBlockItem';
+import XUICheckbox from '../../checkbox/XUICheckbox';
+import XUIRolloverCheckbox from '../../rolloverCheckbox/rolloverCheckbox';
+import XUIAvatar from '../../avatar/XUIAvatar';
+import XUITag from '../../tag/XUITag';
 import { rowVariants } from '../private/constants';
 
 // Story book things
@@ -56,8 +62,9 @@ const buildActions = (props) => {
 			secondaryAction={<XUIButton size="small">Two</XUIButton>}
 			{...props}
 		/>
-);
+	);
 };
+
 const sampleBreadcrumb = [
 	<span role="link" onClick={() => alert('hello')} key="1">hello</span>,
 	{label: "hiya", href: "#2"},
@@ -69,6 +76,31 @@ const buildExampleSections = (children) => {
 	return children.map((child, index) => {
 		return <XUIOverviewSection key={index} {...child} />
 	});
+};
+
+const buildExampleContentblockItem = (children) => {
+	return children.map((child, index) => {
+		if (child.overflow) {
+			child.overflow = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="Overflow menu"><XUIIcon path={overflow}/></XUIButton>;
+		}
+		if (child.tag) {
+			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
+		}
+		if (child.leftContent === "checkbox") {
+			child.leftContent = <XUICheckbox isChecked={false} isLabelHidden>Row checkbox</XUICheckbox>;
+		} else if (child.leftContent === "avatar") {
+			child.leftContent = <XUIAvatar value="Pixar" />;
+		} else if (child.leftContent === "rollover") {
+			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} labelText="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
+		}
+		if (child.action) {
+			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
+		}
+		if (child.pinnedValue) {
+			child.pinnedValue = "0.00";
+		}
+		return <XUIContentBlockItem key={index} {...child} />
+	})
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -99,6 +131,7 @@ storiesWithKnobs.add('Playground', () => {
 		</XUIRow>
 	);
 });
+
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
@@ -171,6 +204,13 @@ variations.forEach(variation => {
 								<p>Other critical info would go here.</p>
 							</XUIPanelSection>
 					</XUIPanel>
+				</div>
+			)
+		} else if (type === "content block") {
+			const { items } = variationMinusStoryDetails;
+			return (
+				<div className="xui-panel" style={{minWidth: "700px"}}>
+					<XUIContentBlock {...variationMinusStoryDetails}>{buildExampleContentblockItem(items)}</XUIContentBlock>
 				</div>
 			)
 		}

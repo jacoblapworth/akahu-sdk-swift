@@ -52,6 +52,14 @@ describe('XUIRadio', () => {
 		expect(component).toMatchSnapshot();
 	});
 
+	it('should have a hidden label, if specified', () => {
+		const hiddenLabel = renderer.create(
+			<XUIRadio onChange={NOOP} isLabelHidden>Hidden label</XUIRadio>
+		);
+
+		expect(hiddenLabel).toMatchSnapshot();
+	});
+
 	describe('icon combinations', () => {
 		const defaultComponent = shallow(<XUIRadio onChange={NOOP} iconMainPath={radioMain} iconCheckPath={radioCheck}/>);
 		// SVG element uses xui-icon class

@@ -47,6 +47,20 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'side by side',
+		ddSettings: {
+			children: 'side-by-side'
+		}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'with positioning test',
+		ddSettings: {
+			children: 'positioning-test'
+		}
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with maxHeight',
 		ddSettings: {},
 		maxHeight: 200

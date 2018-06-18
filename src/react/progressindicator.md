@@ -7,7 +7,7 @@
 
 The Progress Indicator comes in two main variants (**Circular**, **Linear**). They are isolated as individual components `import { XUIProgressCircular, XUIProgressLinear } from '@xero/xui/react/progressindicator';`.
 
-There are a multitude of props that can augment the specifics of each main variant. Most of the functionality is at parity between Circular and Linear layouts however there are some additional aesthetic enhancements that only the Circular version inherits *(see below)*.
+There are a multitude of props that can augment the specifics of each main variant. Most of the functionality is at parity between Circular and Linear layouts however there are some additional aesthetic enhancements that are **only** relevant to one UI format *(see below)*.
 
 **Note:** The unique `id` prop specifically relates to things like defining `<svg />` masks and *ARIA* Tool Tip attributes. Because the ID associations can be ambiguous we require a unique ID for all component instances to ensure maximum compatibility.
 
@@ -45,20 +45,46 @@ const {XUIProgressLinear} = require('./progressindicator');
 <XUIProgressLinear id="segments-linear" total={5} progress={3} isSegmented />
 ```
 
+### Thickness
+
+#### Linear
+
+Set the thickness of the track using the `thickness` prop.
+
+```
+const {XUIProgressLinear} = require('./progressindicator');
+<XUIProgressLinear id="thickness-linear" total={5} progress={3} thickness={20} />
+```
+
+#### Circular
+```
+const {XUIProgressCircular} = require('./progressindicator');
+<XUIProgressCircular id="thickness-circular" total={5} progress={3} thickness={7} />
+```
+
 ### Grow
 
 #### Circular
 
-Set the Circular UI to fill the width of its parent container with the `isGrow` prop.
+Set the UI to fill the width of its parent container with the `isGrow` prop.
 
 **Note:**
 + The height will automatically resize proportionally to retain the components circular shape.
-+ The `stroke` attribute on the `<svg />` will automatically resize based on the components dimensions.
++ The track `thickness` will automatically resize based on the components dimensions.
 
 ```
 const {XUIProgressCircular} = require('./progressindicator');
-<div style={{ maxWidth: '300px', width: 'calc(50vw / 4)' }}>
-	<XUIProgressCircular id="grow-circular" total={5} progress={3} isGrow />
+<div style={{ background: '#F5F6F7', maxWidth: '300px', padding: '10px', width: 'calc(50vw / 4)' }}>
+	<XUIProgressCircular id="grow-dynamic-circular" total={5} progress={3} isGrow />
+</div>
+```
+
+You can override the generated track thickness with the `thickness` prop.
+
+```
+const {XUIProgressCircular} = require('./progressindicator');
+<div style={{ background: '#F5F6F7', maxWidth: '300px', padding: '10px', width: 'calc(50vw / 4)' }}>
+	<XUIProgressCircular id="grow-static-circular" total={5} progress={3} isGrow thickness={30}/>
 </div>
 ```
 
@@ -70,8 +96,17 @@ Sets the Linear UI to fill the height of its parent container.
 
 ```
 const {XUIProgressLinear} = require('./progressindicator');
-<div style={{ height: 'calc(50vw / 20)', maxHeight: '50px' }}>
+<div style={{ background: '#F5F6F7', height: 'calc(50vw / 10)', maxHeight: '70px', padding: '10px' }}>
 	<XUIProgressLinear id="grow-linear" total={5} progress={3} isGrow />
+</div>
+```
+
+You can override the generated track thickness with the `thickness` prop. The track will be vertically centered inside the *grow* area.
+
+```
+const {XUIProgressLinear} = require('./progressindicator');
+<div style={{ background: '#F5F6F7', height: '100px', padding: '10px' }}>
+	<XUIProgressLinear id="grow-linear" total={5} progress={3} isGrow thickness={10}/>
 </div>
 ```
 
@@ -197,5 +232,31 @@ const {XUIProgressCircular} = require('./progressindicator');
 	<XUIProgressCircular id="central-content-circular" total={5} progress={3} isGrow>
 		<img style={{ width: '100%', height: 'auto' }} src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/48.jpg" />
 	</XUIProgressCircular>
+</div>
+```
+
+```
+const {XUIProgressCircular} = require('./progressindicator');
+<div style={{ width: '100px' }}>
+	<XUIProgressCircular id="central-content-circular" total={5} progress={3} isGrow>
+		<div
+			style={{height: '100%'}}
+			className="xui-u-flex xui-u-flex-justify-center xui-u-flex-align-center xui-heading xui-textcolor-faint">
+			60%
+		</div>
+	</XUIProgressCircular>
+</div>
+```
+
+## Linear Only Examples
+
+### Segment *Dots*
+
+Change the traditional segment *dashes* to instead render as circular *dots* using the `hasSegmentDots` prop.
+
+```
+const {XUIProgressLinear} = require('./progressindicator');
+<div style={{ width: `${30 * 9}px` }}>
+	<XUIProgressLinear id="dots-linear" total={5} progress={3} thickness={30} isSegmented hasSegmentDots />
 </div>
 ```

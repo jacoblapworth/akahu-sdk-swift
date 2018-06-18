@@ -68,6 +68,7 @@ class XUITextInput extends PureComponent {
 			isInvalid,
 			isBorderlessTransparent,
 			isBorderlessSolid,
+			labelText,
 			validationMessage,
 			hintMessage,
 			onChange,
@@ -80,6 +81,7 @@ class XUITextInput extends PureComponent {
 			isFieldLayout,
 			fieldClassName,
 			containerClassName,
+			labelClassName,
 			inputClassName,
 			defaultValue,
 			placeholder,
@@ -87,6 +89,7 @@ class XUITextInput extends PureComponent {
 			isDisabled,
 			isMultiline,
 			isManuallyResizable,
+			isLabelHidden,
 			minRows,
 			rows
 		} = input.props;
@@ -131,6 +134,12 @@ class XUITextInput extends PureComponent {
 			isDisabled && `${inputBaseClass}-is-disabled`
 		);
 
+		const labelClasses = cn(
+			labelClassName,
+			`${ns}-text-label`,
+			`${ns}-fieldlabel-layout`
+		);
+
 		const InputEl = isMultiline ? 'textarea' : 'input';
 
 		inputProps.style = {
@@ -139,8 +148,13 @@ class XUITextInput extends PureComponent {
 		};
 
 		return(
-			<div className={rootClasses} onKeyDown={onKeyDown}>
-				<label className={baseClasses} data-automationid={qaHook}>
+			<label className={rootClasses} onKeyDown={onKeyDown}>
+				{labelText != null && !isLabelHidden && (
+					<span className={labelClasses}>
+						{labelText}
+					</span>
+				)}
+				<div className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
 					<InputEl
 						type={type}
@@ -154,13 +168,14 @@ class XUITextInput extends PureComponent {
 						placeholder={placeholder}
 						disabled={isDisabled}
 						ref={compose(inputRef, i => this.input = i)}
+						aria-label={isLabelHidden && labelText || undefined}
 						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 						{...inputProps}
 					/>
 					{rightElement}
-				</label>
+				</div>
 				{message}
-			</div>
+			</label>
 		)
 	}
 }
@@ -181,6 +196,8 @@ XUITextInput.propTypes = {
 	onBlur: PropTypes.func,
 	/** Function to call on keydown inside the textinput */
 	onKeyDown: PropTypes.func,
+	/** Label to show above the input */
+	labelText: PropTypes.string,
 	/** Whether the current input value is invalid */
 	isInvalid: PropTypes.bool,
 	/** Validation message to show under the input if `isInvalid` is true */
@@ -201,6 +218,8 @@ XUITextInput.propTypes = {
 	fieldClassName: PropTypes.string,
 	/** Class names to add to the div wrapping the input and icons */
 	containerClassName: PropTypes.string,
+	/** Class names to add to the label */
+	labelClassName: PropTypes.string,
 	/** Class names to add to the input element */
 	inputClassName: PropTypes.string,
 	/** Placeholder text for the input */
@@ -223,6 +242,8 @@ XUITextInput.propTypes = {
 	rows: PropTypes.number,
 	/** Whether the textarea should be manually resizable (should only be used with `isMultiline=true` and `rightElement=undefined`) */
 	isManuallyResizable: PropTypes.bool,
+	/** Should label be applied as an aria-label, rather than being visibly displayed. */
+	isLabelHidden: PropTypes.bool
 };
 
 XUITextInput.defaultProps = {

@@ -1,6 +1,7 @@
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import verge from 'verge';
 import { Portal } from 'react-portal';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
@@ -79,13 +80,19 @@ function removeListeners(modal) {
 	}
 }
 
+
 export default class XUIModal extends Component {
+
+	state = { positionSettings: null }
+
 	componentDidMount() {
 		const modal = this;
 		addListeners(this);
 		if (modal.props.isOpen) {
 			lockScroll();
 			modal._isScrollLocked = true;
+
+			this.calcOffsetTop();
 
 			if (!modal._maskNode.contains(document.activeElement)) {
 				modal._modalNode.focus();
@@ -104,11 +111,13 @@ export default class XUIModal extends Component {
 		if (shouldUpdateListeners(this.props, nextProps)) {
 			removeListeners(this);
 		}
+
 	}
 
 	componentDidUpdate(prevProps) {
 		const modal = this;
 		const { isOpen, restrictFocus } = modal.props;
+
 
 		if (shouldUpdateListeners(this.props, prevProps)) {
 			addListeners(this);
@@ -117,6 +126,9 @@ export default class XUIModal extends Component {
 		if (isOpen && !modal._isScrollLocked) {
 			lockScroll();
 			modal._isScrollLocked = true;
+
+			this.calcOffsetTop();
+
 		}
 
 		if (!isOpen && modal._isScrollLocked) {
@@ -132,6 +144,18 @@ export default class XUIModal extends Component {
 		) {
 			modal._modalNode.focus();
 		}
+	}
+
+	calcOffsetTop = () => {
+		const viewportH = verge.viewportH();
+		const modalHeight = this._modalNode.getBoundingClientRect().height;
+		const calculatedOffsetTop = Math.max(((viewportH - modalHeight) / 2) - 15, 0); // subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's (wrapping component) existing padding
+		const positionSettings = {
+			top: `${calculatedOffsetTop}px`
+		};
+		this.setState({
+			positionSettings
+		});
 	}
 
 	/**
@@ -186,6 +210,9 @@ export default class XUIModal extends Component {
 			isForm,
 			isUsingPortal
 		} = this.props;
+		const {
+			positionSettings
+		} = this.state;
 
 		const maskClasses = cn(
 			`${ns}-mask`,
@@ -220,18 +247,26 @@ export default class XUIModal extends Component {
 				<XUIIcon path={cross} />
 			</XUIButton>
 		) : null;
-		let containsHeader = false;
+		let headerElement;
 		const finalChildren = Children.map(children, child => {
 			if (child && child.type === XUIModalHeader) {
-				containsHeader = true;
-				return cloneElement(child, { ...child.props }, [
+				headerElement = cloneElement(child, { ...child.props }, [
 					child.props.children,
 					closeButton
 				]);
+				return null;
 			} else {
 				return child;
 			}
 		});
+		// Our CSS requires that the modal close button sits inside a header element
+		if (headerElement == null && closeButton != null) {
+			headerElement = (
+				<XUIModalHeader qaHook={qaHook && `${qaHook}--header`}>
+					{closeButton}
+				</XUIModalHeader>
+			);
+		}
 		const MainElement = isForm ? 'form' : 'section';
 		const childNodes = (
 			<div
@@ -246,16 +281,13 @@ export default class XUIModal extends Component {
 					className={modalClasses}
 					tabIndex={isOpen ? 0 : -1}
 					role={isOpen ? 'dialog' : null}
+					style={positionSettings}
 					aria-labelledby={ariaLabelledBy}
 					aria-describedby={ariaDescribedBy}
 					data-automationid={qaHook}
 					ref={m => (this._modalNode = m)}
 				>
-					{!containsHeader ? (
-						<XUIModalHeader qaHook={qaHook && `${qaHook}--header`}>
-							{closeButton}
-						</XUIModalHeader>
-					) : null}
+					{headerElement}
 					{finalChildren}
 				</MainElement>
 			</div>

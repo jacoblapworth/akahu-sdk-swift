@@ -29,6 +29,7 @@ export default class DropDownHeader extends PureComponent {
 			isPrimaryButtonDisabled,
 			isSecondaryButtonDisabled,
 			onBackButtonClick,
+			backButtonLabel,
 			onlyShowForMobile,
 			leftContent,
 			rightContent
@@ -45,6 +46,7 @@ export default class DropDownHeader extends PureComponent {
 				variant="icon-large"
 				className={`${ns}-u-flex-none`}
 				onClick={onBackButtonClick}
+				aria-label={backButtonLabel}
 				qaHook={qaHook != null ? `${qaHook}--button-back` : null}
 			>
 				<XUIIcon path={back} />
@@ -162,6 +164,9 @@ DropDownHeader.propTypes = {
 	/** Callback for when the back button is pressed (back button will not be rendered if this is not provided) */
 	onBackButtonClick: PropTypes.func,
 
+	/** Specify an alternate label attribute for the back button, defaults to 'Back'. */
+	backButtonLabel: PropTypes.string,
+
 	/** Whether the header should only be shown at mobile sizes. */
 	onlyShowForMobile: PropTypes.bool,
 
@@ -175,5 +180,6 @@ DropDownHeader.propTypes = {
 DropDownHeader.defaultProps = {
 	primaryButtonContent: 'Apply',
 	secondaryButtonContent: 'Cancel',
+	backButtonLabel: 'Back',
 	onlyShowForMobile: false,
 };

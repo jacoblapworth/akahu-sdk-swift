@@ -125,8 +125,8 @@ class XDD extends Component {
 		);
 
 		const dropdownFooter = (
-			<DropDownFooter>
-				<Picklist>
+			<DropDownFooter
+				pickItems={(
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
@@ -137,8 +137,7 @@ class XDD extends Component {
 							Add New Fruit
 							</span>
 					</Pickitem>
-				</Picklist>
-			</DropDownFooter>
+				)} />
 		);
 
 		const trigger = (

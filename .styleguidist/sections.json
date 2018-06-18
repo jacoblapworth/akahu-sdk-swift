@@ -113,7 +113,7 @@
 					},
 					{
 						"name": "Text Input",
-						"content": "../src/react/textInput.md",
+						"content": "../src/react/textinput.md",
 						"components": "../src/react/components/textInput/XUITextInput.js",
 						"sections": [
 							{
@@ -347,6 +347,11 @@
 			{
 				"name": "Displaying data",
 				"sections": [
+					{
+						"name": "Content Block",
+						"content": "../src/react/components/structural/structural.contentblock.md",
+						"components": "../src/react/components/structural/XUIContentBlock*.js"
+					},
 					{
 						"name": "Overview Block",
 						"content": "../src/react/components/structural/structural.overviewblock.md",

@@ -132,8 +132,8 @@ class NestedExample extends Component {
 		);
 
 		const dropdownFooter = (
-			<DropDownFooter>
-				<Picklist>
+			<DropDownFooter
+				pickItems={(
 					<Pickitem
 						id="custom"
 						key="custom"
@@ -141,8 +141,8 @@ class NestedExample extends Component {
 					>
 						Custom Date
 					</Pickitem>
-				</Picklist>
-			</DropDownFooter>
+				)}
+			/>
 		);
 
 		const dropdown = (

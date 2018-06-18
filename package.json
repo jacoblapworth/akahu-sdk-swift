@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "13.2.2",
+  "version": "13.3.0",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -14,12 +14,13 @@
   },
   "files": [
     "react",
-    "sass"
+    "sass",
+    "codemod"
   ],
   "scripts": {
     "build": "node scripts/build",
     "lint": "node scripts/lint/js && node scripts/lint/sass",
-    "prepack": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
+    "prepack": "node scripts/prepack",
     "prepare": "check-engines && nsp check",
     "postmerge": "./post-merge.sh",
     "precommit": "./pre-commit.sh",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "@xero/xui-icon": "^5.2.0",
+    "@xero/xuishift": "1.0.0",
     "autosize": "4.0.0",
     "babel-runtime": "^6.26.0",
     "classnames": "2.2.5",
@@ -80,27 +82,12 @@
     "eslint-plugin-react": "7.4.0",
     "extract-text-webpack-plugin": "3.0.1",
     "gaze": "1.1.2",
-    "grunt": "1.0.1",
-    "grunt-cli": "1.2.0",
-    "grunt-contrib-clean": "1.1.0",
-    "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-csslint": "2.0.0",
-    "grunt-contrib-cssmin": "2.2.1",
-    "grunt-contrib-watch": "1.0.0",
-    "grunt-if": "0.1.5",
-    "grunt-postcss": "0.9.0",
-    "grunt-sass": "2.0.0",
-    "grunt-scss-lint": "0.5.0",
-    "grunt-shell": "2.1.0",
-    "grunt-template": "1.0.0",
     "husky": "0.14.3",
     "inquirer": "5.1.0",
     "jest": "21.2.1",
     "jest-teamcity-reporter": "0.7.0",
     "kss": "3.0.0-beta.18",
     "lint-staged": "6.1.1",
-    "load-grunt-config": "0.19.2",
-    "load-grunt-tasks": "3.5.2",
     "make-runnable": "1.3.6",
     "marked": "0.3.6",
     "maxmin": "2.1.0",
@@ -128,11 +115,11 @@
     "style-loader": "0.19.0",
     "stylelint": "8.2.0",
     "stylelint-order": "0.7.0",
-    "time-grunt": "1.4.0",
     "tiny-lr": "1.1.1",
     "tinycolor2": "1.4.1",
     "uppercamelcase": "3.0.0",
     "webpack": "3.8.1",
+    "workbox-build": "3.1.0",
     "yargs": "9.0.1"
   }
 }

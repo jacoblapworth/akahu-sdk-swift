@@ -26,6 +26,10 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 	padding: 0;
 }
 
+.#{$ns}-textinputwrapper {
+	display: block;
+}
+
 /* stylelint-disable no-duplicate-selectors  */
 // This is defined below xui-textinput to ensure the correct padding is applied
 .#{$ns}-textinput--input {

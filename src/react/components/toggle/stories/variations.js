@@ -4,6 +4,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Unstyled',
+		secondaryProps: {
+			"aria-label": "test-label"
+		},
 		options: [
 			{
 				name: 'tg2',
@@ -22,6 +25,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Toggle Options',
+		secondaryProps: {
+			"aria-label": "test-label"
+		},
 		layout: 'fullwidth',
 		options: [
 			{
@@ -43,6 +49,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Options',
+		secondaryProps: {
+			"aria-label": "test-label"
+		},
 		layout: 'fullwidth',
 		color: 'inverted',
 		options: [
@@ -65,6 +74,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked / Disabled',
+		secondaryProps: {
+			"aria-label": "test-label"
+		},
 		layout: 'fullwidth',
 		options: [
 			{
@@ -82,6 +94,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Inverted Checked / Disabled',
+		secondaryProps: {
+			"aria-label": "test-label"
+		},
 		layout: 'fullwidth',
 		color: 'inverted',
 		options: [
@@ -100,6 +115,9 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Small Variant',
+		secondaryProps: {
+			"aria-label": "test-label"
+		},
 		layout: 'fullwidth',
 		variant: 'small',
 		options: [
@@ -121,6 +139,10 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checkboxes',
+		secondaryProps: {
+			"aria-label": "test-label",
+			"role": "group"
+		},
 		layout: 'fullwidth',
 		options: [
 			{

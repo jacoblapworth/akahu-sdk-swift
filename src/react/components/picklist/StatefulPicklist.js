@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
+	findFirstMenuItem,
 	findInitialHighlightedItem,
 	findPreviousItem,
 	findNextItem,
@@ -189,6 +190,16 @@ class StatefulPicklist extends Component {
 	}
 
 	/**
+	 * Highlights the first item in the list.
+	 *
+	 * @public
+	 */
+	highlightFirst() {
+		const firstItem = findFirstMenuItem(this.list, this.idCache);
+		this.highlightItem(firstItem);
+	}
+
+	/**
 	 * Highlights the item passed in and fires the onHighlightChange callback.
 	 *
 	 * @public
@@ -212,10 +223,16 @@ class StatefulPicklist extends Component {
 	 * 2. Try and highlight the first selected item.
 	 * 3. Highlight the first item in the list.
 	 *
+	 * If these rules don't apply to you - for example, if you're a search box - you
+	 * can get the shouldManageInitialHighlight prop to false
+	 *
 	 * @public
 	 * @memberof StatefulPicklist
 	 */
 	highlightInitial() {
+		if (this.props.shouldManageInitialHighlight === false) {
+			return;
+		}
 		const highlightedEl = this.getHighlighted();
 		const canFindHighlightedEl = highlightedEl && this.idCache.hasOwnProperty(highlightedEl.props.id) && this.idCache[highlightedEl.props.id];
 		if (!canFindHighlightedEl) {
@@ -350,6 +367,9 @@ StatefulPicklist.propTypes = {
 	/** ID of the list */
 	id: PropTypes.string,
 
+	/** Whether the StatefulPicklist manages highlighting of list elements */
+	shouldManageInitialHighlight: PropTypes.bool,
+
 	/** Enables a generalised callback when an item has been selected. */
 	onSelect: PropTypes.func,
 
@@ -372,7 +392,8 @@ StatefulPicklist.defaultProps = {
 	canFocus: false,
 	secondaryProps : {
 		role:"tree"
-	}
+	},
+	shouldManageInitialHighlight: true,
 };
 
 /**

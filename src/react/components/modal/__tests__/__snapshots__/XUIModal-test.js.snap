@@ -14,6 +14,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
     role={null}
+    style={null}
     tabIndex={-1}
   >
     <header
@@ -34,6 +35,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path
@@ -64,6 +66,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
     role={null}
+    style={null}
     tabIndex={-1}
   >
     <header
@@ -84,6 +87,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
           className="xui-icon"
           data-automationid={undefined}
           focusable="false"
+          style={null}
           viewBox="0 0 30 30"
         >
           <path

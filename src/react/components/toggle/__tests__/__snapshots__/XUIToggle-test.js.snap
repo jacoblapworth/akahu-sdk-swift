@@ -4,5 +4,6 @@ exports[`XUIToggle should have a qaHook if provided 1`] = `
 <div
   className="xui-toggle"
   data-automationid="cheese-and-crackers"
+  role="radiogroup"
 />
 `;

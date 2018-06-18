@@ -23,34 +23,39 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
       data-ref="toggled-wrapper"
       onKeyDown={[Function]}
     >
-      <button
-        aria-activedescendant={null}
-        aria-controls={undefined}
-        aria-haspopup={true}
-        className="xui-button xui-text-truncated xui-select--button xui-button-standard"
-        data-automationid="test-selectbox---button"
-        disabled={false}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-        type="button"
+      <span
+        className=""
       >
-        test
-        <svg
-          className="xui-icon xui-select--caret"
-          data-automationid="test-selectbox---button-icon"
-          focusable="false"
-          viewBox="0 0 30 30"
+        <button
+          aria-activedescendant={null}
+          aria-controls={undefined}
+          aria-haspopup="listbox"
+          className="xui-button xui-text-truncated xui-select--button xui-button-standard"
+          data-automationid="test-selectbox---button"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+          type="button"
         >
-          <title>
-            Toggle List
-          </title>
-          <path
-            d="M10,13L15 18 20 13z"
-            role="presentation"
-          />
-        </svg>
-      </button>
+          test
+          <svg
+            className="xui-icon xui-select--caret"
+            data-automationid="test-selectbox---button-icon"
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <title>
+              Toggle List
+            </title>
+            <path
+              d="M10,13L15 18 20 13z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </span>
     </div>
   </div>
 </div>

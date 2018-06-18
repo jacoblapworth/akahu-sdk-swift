@@ -14,3 +14,5 @@ export const fixedWidthDropdownSizes = {
 	large: `${baseClass}-fixed-large`,
 	xlarge: `${baseClass}-fixed-xlarge`
 };
+
+export const dropdownPositionOptions = ['bottom-left', 'bottom-right', 'top-left', 'top-right'];

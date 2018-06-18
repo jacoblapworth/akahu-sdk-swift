@@ -16,3 +16,9 @@ export const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
 	// A gap threshold to safegaurd against overflow.
 	right: 2
 });
+
+export const pause = (items, callback) => {
+	const min = 500 + (items.length * 50);
+	const max = 2000;
+	setTimeout(callback, Math.min(min, max));
+}

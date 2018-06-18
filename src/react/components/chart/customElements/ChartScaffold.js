@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
 import {barChartTheme} from '../helpers/theme';
-import {testIsCloseEnough} from '../helpers/utilities';
+import {testIsCloseEnough, pause} from '../helpers/utilities';
 import getGroupPosition from '../helpers/groupposition';
 import {NAME_SPACE, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
 import {findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
@@ -83,19 +83,18 @@ class ChartScaffold extends Component {
 		}
 	};
 
-	updateXAxisHeight = () => {
+	updateXAxisHeight = () => pause(this.props.barsData, () => {
 		const {rootNode, state} = this;
 		const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
 		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : X_AXIS_HEIGHT;
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
-		console.log(xAxisHeight, state.xAxisHeight, shouldUpdate);
 
 		if (shouldUpdate) {
 			this.setState({...state, xAxisHeight});
 		}
-	};
+	});
 
-	updateYAxisWidth = () => {
+	updateYAxisWidth = () => pause(this.props.barsData, () => {
 		const {rootNode, state} = this;
 		const yAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--yaxis`);
 		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : Y_AXIS_WIDTH;
@@ -104,7 +103,7 @@ class ChartScaffold extends Component {
 		if (shouldUpdate) {
 			this.setState({...state, yAxisWidth});
 		}
-	};
+	});
 
 	handleContentScroll = () => {
 		const {rootNode, contentNode, props: {hasPagination}} = this;

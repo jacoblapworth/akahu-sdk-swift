@@ -28,7 +28,7 @@ class XUIBarChart extends PureComponent {
 
 	render = () => {
 		const {props} = this;
-		const {barsData = [], isLoading} = props;
+		const {barsData, isLoading} = props;
 		const isEmpty = !barsData.length;
 
 		switch (true) {
@@ -137,11 +137,11 @@ XUIBarChart.propTypes = {
 	/** Function to create a custom pagination message based on the charts "current" and "total" pagination "panels". */
 	createPaginationMessage: PropTypes.func,
 
-	/** Accessibility label for pagination button. */
-	paginationNextLabel: PropTypes.string,
+	/** Accessibility title for pagination button. */
+	paginationNextTitle: PropTypes.string,
 
-	/** Accessibility label for pagination button. */
-	paginationPreviousLabel: PropTypes.string,
+	/** Accessibility title for pagination button. */
+	paginationPreviousTitle: PropTypes.string,
 
 	/** Customise the default pagination message. */
 	emptyMessage: PropTypes.oneOfType([
@@ -159,10 +159,11 @@ XUIBarChart.propTypes = {
 
 XUIBarChart.defaultProps = {
 	chartHeight: CHART_HEIGHT,
+	barsData: [],
 	keyTitle: 'Graph key',
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
 	yAxisDefaultTopValue: 0,
-	paginationNextLabel: 'Next Page',
-	paginationPreviousLabel: 'Previous page',
+	paginationNextTitle: 'Next Page',
+	paginationPreviousTitle: 'Previous page',
 };

@@ -148,8 +148,8 @@ const enrichParams = (state, props, chartTheme) => {
 		xAxisType,
 		hasPagination: hasPaginationRaw,
 		createPaginationMessage,
-		paginationNextLabel,
-		paginationPreviousLabel,
+		paginationNextTitle,
+		paginationPreviousTitle,
 	} = props;
 
 	const {
@@ -223,7 +223,7 @@ const enrichParams = (state, props, chartTheme) => {
 	// Tooltip...
 	const hasToolTip = Boolean(toolTipMessage);
 	const createBarToolTipMessage = createBarToolTipMessageRaw
-		|| (({y: stackData, stackIndex}) => createYAxisLabelFormat(stackData[stackIndex]));
+		|| (({y, stackIndex}) => createYAxisLabelFormat(isBarStacked ? y[stackIndex] : y));
 
 	const chartClassName = cn(`${NAME_SPACE}-chart`, {
 		[`${NAME_SPACE}-chart-has-pagination`]: hasPagination,
@@ -245,7 +245,7 @@ const enrichParams = (state, props, chartTheme) => {
 		barsData, barsWidth, barWidth, onBarClick, activeBars,
 
 		// Pagination...
-		hasPagination, createPaginationMessage, paginationNextLabel, paginationPreviousLabel,
+		hasPagination, createPaginationMessage, paginationNextTitle, paginationPreviousTitle,
 
 		// Tooltip...
 		hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,

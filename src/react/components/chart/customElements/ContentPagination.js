@@ -13,8 +13,8 @@ class ContentPagination extends PureComponent {
 			total,
 			updatePanel,
 			createMessage,
-			paginationNextLabel,
-			paginationPreviousLabel,
+			paginationNextTitle,
+			paginationPreviousTitle,
 		} = this.props;
 		const message = createMessage && createMessage(current, total);
 
@@ -28,7 +28,7 @@ class ContentPagination extends PureComponent {
 				<XUIButton
 					variant="icon-large"
 					onClick={() => updatePanel(current - 1)}
-					title={paginationPreviousLabel}
+					title={paginationPreviousTitle}
 					isDisabled={current === 1}>
 					<XUIIcon
 						path={arrowPathData}
@@ -41,7 +41,7 @@ class ContentPagination extends PureComponent {
 				<XUIButton
 					variant="icon-large"
 					onClick={() => updatePanel(current + 1)}
-					title={paginationNextLabel}
+					title={paginationNextTitle}
 					isDisabled={current === total}>
 					<XUIIcon
 						path={arrowPathData}
@@ -62,6 +62,6 @@ ContentPagination.propTypes = {
 	total: PropTypes.number,
 	updatePanel: PropTypes.func,
 	createMessage: PropTypes.func,
-	paginationNextLabel: PropTypes.string,
-	paginationPreviousLabel: PropTypes.string,
+	paginationNextTitle: PropTypes.string,
+	paginationPreviousTitle: PropTypes.string,
 };

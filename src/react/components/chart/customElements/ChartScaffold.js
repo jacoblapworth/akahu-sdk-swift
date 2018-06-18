@@ -88,6 +88,7 @@ class ChartScaffold extends Component {
 		const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
 		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : X_AXIS_HEIGHT;
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
+		console.log(xAxisHeight, state.xAxisHeight, shouldUpdate);
 
 		if (shouldUpdate) {
 			this.setState({...state, xAxisHeight});
@@ -171,7 +172,7 @@ class ChartScaffold extends Component {
 			barsData, barsWidth, barWidth, onBarClick, activeBars,
 
 			// Pagination...
-			hasPagination, createPaginationMessage, paginationNextLabel, paginationPreviousLabel,
+			hasPagination, createPaginationMessage, paginationNextTitle, paginationPreviousTitle,
 
 			// Tooltip...
 			hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
@@ -210,8 +211,8 @@ class ChartScaffold extends Component {
 								total={panelsTotal}
 								createMessage={createPaginationMessage}
 								updatePanel={this.updatePanel}
-								paginationNextLabel={paginationNextLabel}
-								paginationPreviousLabel={paginationPreviousLabel}
+								paginationNextTitle={paginationNextTitle}
+								paginationPreviousTitle={paginationPreviousTitle}
 							/>
 						)}
 

@@ -25,7 +25,9 @@ class XAxisLabelWrapper extends PureComponent {
 			labelWidth,
 			labelHeight,
 			children,
-		} = this.props;
+		} = this.props
+
+		console.log('tool', this.props);
 
 		return (
 			<Fragment>

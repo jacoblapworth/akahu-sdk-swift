@@ -16,10 +16,8 @@ const getStackedAvatarDimensions = ({labelWidth, textRaw, top = 10}) => {
 	const avatarCircleTop = avatarCircleRadius + top;
 
 	return {
-		avatarCircleRadius: 12,
+		avatarCircleRadius, avatarCircleLeft, avatarCircleTop,
 		avatarCircleDiameter: avatarCircleRadius * 2,
-		avatarCircleLeft: labelWidth * 0.5,
-		avatarCircleTop: avatarCircleRadius + top,
 		avatarTextLeft: avatarCircleLeft,
 		avatarTextTop: avatarCircleTop + 4,
 		avatarText: abbreviateAvatar(textRaw, 2),

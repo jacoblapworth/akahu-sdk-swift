@@ -40,7 +40,7 @@ class PositioningInline extends Positioning {
 	}
 
 	/**
-	 * Calculate positioning of the tooltip if the trigger is rendered.
+	 * Calculate positioning of the popup if the trigger is rendered.
 	 *
 	 * @public
 	 */
@@ -53,23 +53,27 @@ class PositioningInline extends Positioning {
 
 			if (isBaseRendered(baseRect)) {
 				alignBaseWithTrigger(baseRect, triggerDOM, this);
-				this.calculateMaxDimensions();
+				this.calculateMaxDimensions(baseRect);
 			}
 		}
 	}
 
 	/**
-	 * Uses the viewport and trigger element to determine the available space in which to display a tooltip.
+	 * Uses the viewport and trigger element to determine the available space in which to display a
+	 * popup element such as a tooltip or dropdown.
 	 * Also applies any consumer-supplied maxHeight/maxWidth.
 	 *
 	 * @public
+	 * @param {Object} popupRect
+	 *
 	 */
-	calculateMaxDimensions = () => {
+	calculateMaxDimensions = (popupRect) => {
+		const baseRect = popupRect || this.positionEl && this.positionEl.firstChild.getBoundingClientRect();
 		const { viewportGutter, parentRef, triggerDropdownGap, maxHeight, maxWidth, preferredPosition, shouldRestrictMaxHeight } = this.props;
 		const { positionVertically } = getPreferredPosition(preferredPosition);
 		const triggerDOM = parentRef != null && parentRef.firstChild;
 
-		if (triggerDOM != null && verge.inViewport(triggerDOM)) {
+		if (isBaseRendered(baseRect) && triggerDOM != null && verge.inViewport(triggerDOM)) {
 			if (!this.props.isNotResponsive && isNarrowViewport()) {
 				// For mobile or very small screens, offer the full viewport, as max. Figure positioning later.
 				const viewportH = verge.viewportH();
@@ -129,8 +133,6 @@ class PositioningInline extends Positioning {
 		let width = null;
 		let newMaxWidth = maxWidth;
 		if (isTriggerWidthMatched && !isMobile && (parentRef != null) && (parentRef.firstChild != null)) {
-			// Trigger width matching is not available for tooltips, but has been tested
-			// and could have future use.
 			width = parentRef.firstChild.getBoundingClientRect().width;
 			newMaxWidth = null;
 		}
@@ -193,7 +195,7 @@ PositioningInline.propTypes = {
 	parentRef: PropTypes.object,
 	/** A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
 	viewportGutter: PropTypes.number,
-	/** A max height will mean an overflowed tooltip will scroll for the user rather than render outside of the viewport. True by default. */
+	/** A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
 	shouldRestrictMaxHeight: PropTypes.bool,
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	isNotResponsive: PropTypes.bool,

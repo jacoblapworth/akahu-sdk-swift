@@ -84,8 +84,8 @@ class SecondarySearchExample extends React.Component {
 		const items = data.length > 0 ? createItems(data, sse.state.selectedItem): (<XUIAutocompleterEmptyState />);
 
 		const footer = (
-			<DropDownFooter>
-				<Picklist>
+			<DropDownFooter
+				pickItems={(
 					<Pickitem id="footerAction">
 						<XUIIcon
 							icon={plusIcon}
@@ -93,8 +93,8 @@ class SecondarySearchExample extends React.Component {
 						/>
 						Add New Person
 					</Pickitem>
-				</Picklist>
-			</DropDownFooter>
+				)}
+			/>
 		);
 
 		return (

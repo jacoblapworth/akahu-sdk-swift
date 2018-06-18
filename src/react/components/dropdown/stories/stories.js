@@ -13,9 +13,10 @@ import XUIButtonCaret from '../../button/XUIButtonCaret';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
-import XUIIcon from "../../icon/XUIIcon";
+import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from "../../textInput/XUITextInput";
 import info from "@xero/xui-icon/icons/info";
+import plusIcon from '@xero/xui-icon/icons/plus';
 
 
 // Story book things
@@ -56,7 +57,25 @@ const header = (
 		onSecondaryButtonClick={NOOP} />
 );
 const footer = (
-	<DropDownFooter title='Dropdown footer'>This is a dropdown footer.</DropDownFooter>
+	<DropDownFooter
+		title='Dropdown footer'
+		pickItems={[
+			<Pickitem id="1" value="1" key="1">
+				<XUIIcon
+					icon={plusIcon}
+					className="xui-margin-right-xsmall"
+				/>
+				Item 1
+			</Pickitem>,
+			<Pickitem id="2" value="2" key="2">
+				<XUIIcon
+					icon={plusIcon}
+					className="xui-margin-right-xsmall"
+				/>
+				Item 2
+			</Pickitem>
+		]}
+	/>
 );
 const picklist = (
 	<Picklist>{createItems(toggledItems)}</Picklist>
@@ -277,6 +296,7 @@ const getPositioningTest = () => {
 							<Picklist>{createItems(toggledShort, 'h')}</Picklist>
 						</DropDown>
 						}
+					isBlock
 					{...props}
 				/>
 				<DropDownToggled

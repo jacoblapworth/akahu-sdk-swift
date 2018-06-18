@@ -30,7 +30,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 		if (prevProps.searchThrottleInterval !== searchThrottleInterval) {
 			this.bindOnChange(searchThrottleInterval);
 		}
-		if (prevProps.value !== searchValue) {
+		if (prevProps.searchValue !== searchValue) {
 			this.setState({
 				value: searchValue
 			});

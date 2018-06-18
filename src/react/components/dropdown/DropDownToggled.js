@@ -12,6 +12,7 @@ import {
 } from './private/helpers';
 import { compose } from '../helpers/compose';
 import { baseClass, dropdownPositionOptions } from "./private/constants";
+import {ns} from "../helpers/xuiClassNamespace";
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -424,7 +425,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, ...otherProps } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, isBlock, ...otherProps } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -461,7 +462,7 @@ export default class DropDownToggled extends PureComponent {
 			isTriggerWidthMatched: ddt.props.matchTriggerWidth
 		};
 
-		const positionedDropdown = this.state.isNarrowViewport ? (
+		const positionedDropdown = isLegacyDisplay || this.state.isNarrowViewport ? (
 			<Positioning
 				{...commonPositioningProps}
 				qaHook={qaHook && `${qaHook}--positioning`}
@@ -489,8 +490,10 @@ export default class DropDownToggled extends PureComponent {
 				data-ref='toggled-wrapper'
 				data-automationid={qaHook}
 			>
-				{clonedTrigger}
-				{positionedDropdown}
+				<span className={!isBlock && `${ns}-dropdownToggled--innerWrap` || ''}>
+					{clonedTrigger}
+					{positionedDropdown}
+				</span>
 			</div>
 		);
 	}
@@ -539,6 +542,9 @@ DropDownToggled.propTypes = {
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
+	/** Force the legacy (portaled) display. Not great for accessibility, but useful for some cases like in very small scrolling containers, or with a series of nested absolutely positioned elements. */
+	isLegacyDisplay: PropTypes.bool,
+
 	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
 	repositionOnScroll: PropTypes.bool,
 
@@ -554,6 +560,10 @@ DropDownToggled.propTypes = {
 	 */
 	maxHeight: PropTypes.number,
 
+	/**
+	 * Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
+	 */
+	isBlock: PropTypes.bool,
 	/**
 	 * Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
 	 */
@@ -580,5 +590,7 @@ DropDownToggled.defaultProps = {
 	matchTriggerWidth: false,
 	preferredPosition: 'bottom-left',
 	triggerDropdownGap: 6,
+	isLegacyDisplay: false,
+	isBlock: false,
 	ariaPopupType: 'listbox'
 };

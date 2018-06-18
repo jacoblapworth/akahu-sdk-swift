@@ -2611,37 +2611,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -2673,37 +2677,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -2735,37 +2743,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3364,37 +3376,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3461,37 +3477,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3558,37 +3578,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3840,37 +3864,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -3966,37 +3994,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -4092,37 +4124,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -5248,37 +5284,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -5339,37 +5379,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -5430,37 +5474,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -6805,37 +6853,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -6931,37 +6983,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>
@@ -7057,37 +7113,41 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <button
-                    aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-haspopup="listbox"
-                    className="xui-button xui-button-icon-large xui-button-icon"
-                    data-automationid={undefined}
-                    disabled={false}
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <span
+                    className="xui-dropdownToggled--innerWrap"
                   >
-                    <div
-                      className="xui-u-flex-inherit xui-iconwrapper"
+                    <button
+                      aria-activedescendant={null}
+                      aria-controls={undefined}
+                      aria-haspopup="listbox"
+                      className="xui-button xui-button-icon-large xui-button-icon"
                       data-automationid={undefined}
+                      disabled={false}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      tabIndex={0}
+                      type="button"
                     >
-                      <svg
-                        className="xui-icon"
+                      <div
+                        className="xui-u-flex-inherit xui-iconwrapper"
                         data-automationid={undefined}
-                        focusable="false"
-                        height={13}
-                        viewBox="0 0 3 13"
-                        width={3}
                       >
-                        <path
-                          d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </div>
-                  </button>
+                        <svg
+                          className="xui-icon"
+                          data-automationid={undefined}
+                          focusable="false"
+                          height={13}
+                          viewBox="0 0 3 13"
+                          width={3}
+                        >
+                          <path
+                            d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                            role="presentation"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </span>
                 </div>
               </td>
             </tr>

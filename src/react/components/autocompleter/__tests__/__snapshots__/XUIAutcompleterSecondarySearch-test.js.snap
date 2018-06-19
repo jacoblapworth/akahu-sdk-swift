@@ -12,15 +12,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -37,15 +41,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -62,15 +70,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -87,15 +99,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the root nod
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -112,15 +128,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -137,15 +157,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -162,15 +186,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -187,15 +215,19 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
     data-ref="toggled-wrapper"
     onKeyDown={[Function]}
   >
-    <button
-      aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-haspopup="listbox"
-      onClick={[Function]}
-      onKeyDown={[Function]}
+    <span
+      className="xui-dropdownToggled--innerWrap"
     >
-      trigger
-    </button>
+      <button
+        aria-activedescendant={null}
+        aria-controls={undefined}
+        aria-haspopup="listbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+      >
+        trigger
+      </button>
+    </span>
   </div>
 </div>
 `;

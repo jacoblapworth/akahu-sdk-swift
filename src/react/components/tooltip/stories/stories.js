@@ -21,8 +21,7 @@ const createTriggerInput = (props) => {
 	return (
 		<XUITextInput
 			placeholder="Placeholder text"
-			labelText="Input label"
-			isLabelHidden
+			aria-label="Input label"
 			{...props}
 		/>
 	);
@@ -31,8 +30,7 @@ const createTipInput = () => {
 	return (
 		<XUITextInput
 			placeholder="Placeholder text"
-			labelText="Input label"
-			isLabelHidden
+			aria-label="Input label"
 			className="xui-input-borderless-inverted xui-input-borderless xui-input-borderless-solid"
 		/>
 	);

@@ -186,11 +186,11 @@
 }
 
 .#{$ns}-modal {
+	align-self: flex-start;
 	background-color: $xui-color-white;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-pop;
-	margin-bottom: auto; // Margin top & bottom required to fix flex > align-items: center for children taller than the container.
-	margin-top: auto;
+	margin-bottom: $xui-s-standard;
 	outline: none;
 	position: relative;
 }

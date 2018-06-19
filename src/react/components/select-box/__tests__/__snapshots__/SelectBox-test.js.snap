@@ -23,40 +23,44 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
       data-ref="toggled-wrapper"
       onKeyDown={[Function]}
     >
-      <button
-        aria-activedescendant={null}
-        aria-controls={undefined}
-        aria-haspopup="listbox"
-        className="xui-button xui-select--button xui-button-standard"
-        data-automationid="test-selectbox---button"
-        disabled={false}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-        type="button"
+      <span
+        className=""
       >
-        <span
-          className="xui-select--content"
+        <button
+          aria-activedescendant={null}
+          aria-controls={undefined}
+          aria-haspopup="listbox"
+          className="xui-button xui-select--button xui-button-standard"
+          data-automationid="test-selectbox---button"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+          type="button"
         >
-          test
-        </span>
-        <svg
-          className="xui-icon xui-select--caret xui-button--caret xui-icon-inline"
-          data-automationid="test-selectbox---button-icon"
-          focusable="false"
-          height={5}
-          viewBox="0 0 10 5"
-          width={10}
-        >
-          <title>
-            Toggle List
-          </title>
-          <path
-            d="M0 0l5 5 5-5z"
-            role="presentation"
-          />
-        </svg>
-      </button>
+          <span
+            className="xui-select--content"
+          >
+            test
+          </span>
+          <svg
+            className="xui-icon xui-select--caret xui-button--caret xui-icon-inline"
+            data-automationid="test-selectbox---button-icon"
+            focusable="false"
+            height={5}
+            viewBox="0 0 10 5"
+            width={10}
+          >
+            <title>
+              Toggle List
+            </title>
+            <path
+              d="M0 0l5 5 5-5z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </span>
     </div>
   </div>
 </div>

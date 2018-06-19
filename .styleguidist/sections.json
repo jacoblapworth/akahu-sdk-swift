@@ -113,7 +113,7 @@
 					},
 					{
 						"name": "Text Input",
-						"content": "../src/react/textInput.md",
+						"content": "../src/react/textinput.md",
 						"components": "../src/react/components/textInput/XUITextInput.js",
 						"sections": [
 							{

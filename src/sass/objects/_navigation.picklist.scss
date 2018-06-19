@@ -882,3 +882,8 @@
 .#{$ns}-pickitem--icon ~ .#{$ns}-pickitem--body {
 	padding-left: $xui-s-6xlarge;
 }
+
+// In the specific context of a dropdownfooter, pickitems should be blue.
+.#{$ns}-dropdown--footer--picklist .#{$ns}-pickitem--body {
+	color: $xui-color-action;
+}

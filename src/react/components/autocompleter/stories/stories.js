@@ -188,19 +188,17 @@ class DetailedListExample extends Component {
 		} = example.props;
 
 		const footer = (
-			<DropDownFooter>
-				<Picklist>
+			<DropDownFooter
+				pickItems={(
 					<Pickitem id="footerAction">
-						<span>
 							<XUIIcon
 								icon={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Person
-							</span>
 					</Pickitem>
-				</Picklist>
-			</DropDownFooter>
+				)}
+			/>
 		);
 
 		const dropdownFixedWidth = dropdownSize != null ? false: true;
@@ -333,8 +331,8 @@ class SecondarySearchExample extends React.Component {
 		const items = data.length > 0 ? createItems(data, this.state.selectedItem): (<XUIAutocompleterEmptyState />);
 
 		const footer = (
-			<DropDownFooter>
-				<Picklist>
+			<DropDownFooter
+				pickItems={(
 					<Pickitem id="footerAction">
 						<span>
 							<XUIIcon
@@ -346,8 +344,8 @@ class SecondarySearchExample extends React.Component {
 							Add New Person
 						</span>
 					</Pickitem>
-				</Picklist>
-			</DropDownFooter>
+				)}
+			/>
 		);
 
 		return (

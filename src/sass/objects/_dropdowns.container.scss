@@ -256,3 +256,7 @@
 .#{$ns}-dropdown-input-layout-match {
 	border: 1px solid transparent;
 }
+
+.#{$ns}-dropdownToggled--innerWrap {
+	display: inline-table;
+}

@@ -51,8 +51,6 @@ const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutoco
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
-const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
-const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	console.log(idsToExclude);
@@ -173,8 +171,6 @@ const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutoco
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
-const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
-const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	const val = value.toLowerCase();
@@ -297,8 +293,6 @@ const XUITextInputSideElement = require('./components/textInput/XUITextInputSide
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
-const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
-const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
 
 const filterPeople = (peopleToSearch, value) => {

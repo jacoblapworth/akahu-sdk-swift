@@ -9,6 +9,10 @@ import AbbreviationLabel from '../customElements/AbbreviationLabel';
 
 const findMaxTotalBarStacks = ({y}) => y.reduce((acc, value) => acc + value, 0);
 
+const findMaxChartStackQuantity = barsData => barsData.reduce((acc, {y}) => Math.max(acc, y.length), 0);
+
+({y}) => y.reduce((acc, value) => acc + value, 0);
+
 const createBarStats = ({barsData, xAxisVisibleItems, viewportWidth, hasPaginationRaw}) => {
 	const barsTotal = barsData.length;
 	const limitWithLowerThreshold = baseWidth => Math.max(baseWidth, BAR_MIN_WIDTH);
@@ -136,6 +140,7 @@ const enrichParams = (state, props, chartTheme) => {
 		keyTitle,
 		barsData: barsDataRaw,
 		barColor: barColorRaw,
+		barColorActive,
 		activeBars: activeBarsRaw,
 		isBarStacked,
 		onBarClick,
@@ -173,21 +178,17 @@ const enrichParams = (state, props, chartTheme) => {
 			: barsDataRaw.map(bar => ({...bar, y: [bar.y || 0]}))
 	);
 
-	// Colors...
-	const colorStacks = createBarColorStacks({barsData, custom: barColor, base: chartTheme.bar.colorScale});
-
 	// Key...
-	const hasKey = keyLabel && keyLabel.length;
+	const hasKey = keyLabel && keyLabel.filter(key => key).length === findMaxChartStackQuantity(barsData);
 
 	// Chart...
-	const hasChartTitle = !isChartTitleHidden && chartTitle;
-	const hasChartHeader = hasChartTitle || hasKey || hasPagination;
 	const isChartNarrow = chartWidth <= 520;
 	const chartPadding = createChartPadding({xAxisHeight, yAxisWidth});
 	const {top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft} = chartPadding;
 
 	// Bars...
 	const viewportWidth = chartWidth - chartLeft - chartRight;
+	const barColorStacks = createBarColorStacks({barsData, custom: barColor, base: chartTheme.bar.colorScale});
 	const activeBars = activeBarsRaw ? createActiveBars(activeBarsRaw, barsData) : {};
 	const {
 		barsWidth, barWidth, barMaxValue, barViewports,
@@ -225,6 +226,8 @@ const enrichParams = (state, props, chartTheme) => {
 	const createBarToolTipMessage = createBarToolTipMessageRaw
 		|| (({y, stackIndex}) => createYAxisLabelFormat(isBarStacked ? y[stackIndex] : y));
 
+	const hasChartTitle = !isChartTitleHidden && chartTitle;
+	const hasChartHeader = Boolean(hasChartTitle || hasKey || hasPagination);
 	const chartClassName = cn(`${NAME_SPACE}-chart`, {
 		[`${NAME_SPACE}-chart-has-pagination`]: hasPagination,
 		[`${NAME_SPACE}-chart-has-multiline-header`]: hasPagination && createPaginationMessage && isChartNarrow
@@ -242,16 +245,13 @@ const enrichParams = (state, props, chartTheme) => {
 		panelWidth, panelCurrent, panelsTotal,
 
 		// Bars...
-		barsData, barsWidth, barWidth, onBarClick, activeBars,
+		barsData, barsWidth, barWidth, onBarClick, activeBars, barColorActive, barColorStacks,
 
 		// Pagination...
 		hasPagination, createPaginationMessage, paginationNextTitle, paginationPreviousTitle,
 
 		// Tooltip...
 		hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
-
-		// Colors...
-		colorStacks,
 
 		// Y-Axis...
 		yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,

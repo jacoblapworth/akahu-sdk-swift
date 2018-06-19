@@ -168,16 +168,13 @@ class ChartScaffold extends Component {
 			panelWidth, panelCurrent, panelsTotal,
 
 			// Bars...
-			barsData, barsWidth, barWidth, onBarClick, activeBars,
+			barsData, barsWidth, barWidth, onBarClick, activeBars, barColorActive, barColorStacks,
 
 			// Pagination...
 			hasPagination, createPaginationMessage, paginationNextTitle, paginationPreviousTitle,
 
 			// Tooltip...
 			hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
-
-			// Colors...
-			colorStacks,
 
 			// Y-Axis...
 			yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
@@ -220,7 +217,7 @@ class ChartScaffold extends Component {
 								qaHook={qaHook && `${qaHook}--key`}
 								title={keyTitle}
 								labels={keyLabel}
-								colors={colorStacks}
+								colors={barColorStacks}
 							/>
 						)}
 
@@ -445,7 +442,8 @@ class ChartScaffold extends Component {
 												isBarStacked={isBarStacked}
 												yAxisMaxValue={yAxisMaxValue}
 												yAxisHeight={yAxisHeight}
-												colorStacks={colorStacks}
+												colorStacks={barColorStacks}
+												colorActive={barColorActive}
 												onBarClick={onBarClick}
 												activeBars={activeBars}
 												barWidth={barWidth}
@@ -507,6 +505,7 @@ ChartScaffold.propTypes = {
 	isBarStacked: PropTypes.bool,
 	onBarClick: PropTypes.func,
 	activeBars: PropTypes.object,
+	barColorActive: PropTypes.string,
 	createBarToolTipMessage: PropTypes.func,
 	isBarToolTipHidden: PropTypes.bool,
 	isXAxisToolTipHidden: PropTypes.bool,

@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {CHART_HEIGHT} from './helpers/constants';
+import {CHART_HEIGHT, BAR_ACTIVE} from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
@@ -102,6 +102,9 @@ XUIBarChart.propTypes = {
 		PropTypes.arrayOf(PropTypes.string),
 	]),
 
+	/** Customise the active colour with a style that can be injected into a "fill" property e.g #000 */
+	barColorActive: PropTypes.string,
+
 	/** Handler for when a bar "click" interaction occurs. */
 	onBarClick: PropTypes.func,
 
@@ -159,6 +162,7 @@ XUIBarChart.defaultProps = {
 	chartHeight: CHART_HEIGHT,
 	barsData: [],
 	keyTitle: 'Graph key',
+	barColorActive: BAR_ACTIVE,
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
 	yAxisDefaultTopValue: 0,

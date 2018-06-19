@@ -1,7 +1,7 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
-import {BAR_ACTIVE, NAME_SPACE, BAR_RADIUS, BAR_PADDING_X} from '../helpers/constants';
+import {NAME_SPACE, BAR_RADIUS, BAR_PADDING_X} from '../helpers/constants';
 import {alwaysPositive} from '../helpers/utilities';
 import {createStackTop, createStackHeight, createInteractionParams} from '../helpers/bars';
 
@@ -21,6 +21,7 @@ class StackedBar extends PureComponent {
 			onBarClick,
 			isToolTipHidden,
 			colorStacks,
+			colorActive,
 			activeBars,
 			index: barIndex,
 			datum: barData,
@@ -56,7 +57,7 @@ class StackedBar extends PureComponent {
 						y={stackTop}
 						width={barWidth}
 						height={stackHeight}
-						fill={BAR_ACTIVE}
+						fill={colorActive}
 					/>
 				)}
 			</Fragment>
@@ -151,6 +152,7 @@ StackedBar.propTypes = {
 	updateToolTip: PropTypes.func,
 	createToolTipMessage: PropTypes.func,
 	colorStacks: PropTypes.arrayOf(PropTypes.string),
+	colorActive: PropTypes.string,
 	activeBars: PropTypes.object,
 	datum: PropTypes.object,
 	index: PropTypes.number,

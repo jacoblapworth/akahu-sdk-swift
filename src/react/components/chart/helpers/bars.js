@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import {createArray} from '../../progressindicator/helpers/utilities';
 import {alwaysPositive, createChartPadding} from '../helpers/utilities';
-import {NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH} from '../helpers/constants';
+import {NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH, CHART_BREAKPOINT} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
 import StandardLabel from '../customElements/StandardLabel';
@@ -182,7 +182,7 @@ const enrichParams = (state, props, chartTheme) => {
 	const hasKey = keyLabel && keyLabel.filter(key => key).length === findMaxChartStackQuantity(barsData);
 
 	// Chart...
-	const isChartNarrow = chartWidth <= 520;
+	const isChartNarrow = chartWidth <= CHART_BREAKPOINT;
 	const chartPadding = createChartPadding({xAxisHeight, yAxisWidth});
 	const {top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft} = chartPadding;
 

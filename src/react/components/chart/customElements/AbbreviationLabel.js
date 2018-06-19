@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {baseFontTheme} from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
-import {NAME_SPACE, LABEL_FONT_LARGE} from '../helpers/constants';
+import {NAME_SPACE, CHART_FONT_LARGE} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
@@ -24,7 +24,7 @@ const getInlineTagDimensions = ({labelWidth}) => ({
 
 const createInlineTagLargeDimensions = (params) => ({
 	...getInlineTagDimensions(params),
-	tagStyle: {...baseFontTheme, fontSize: LABEL_FONT_LARGE},
+	tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
 	tagTop: 30,
 });
 

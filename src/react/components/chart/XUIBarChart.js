@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {CHART_HEIGHT, BAR_ACTIVE} from './helpers/constants';
+import {CHART_HEIGHT, BAR_ACTIVE_COLOR} from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
@@ -156,16 +156,19 @@ XUIBarChart.propTypes = {
 	/** Show the charts "loading" state. */
 	isLoading: PropTypes.bool,
 
+	/** Accessibility label for the <XUILoader>. */
+	loadingLabel: PropTypes.string,
 };
 
 XUIBarChart.defaultProps = {
 	chartHeight: CHART_HEIGHT,
 	barsData: [],
 	keyTitle: 'Graph key',
-	barColorActive: BAR_ACTIVE,
+	barColorActive: BAR_ACTIVE_COLOR,
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
 	yAxisDefaultTopValue: 0,
 	paginationNextTitle: 'Next Page',
 	paginationPreviousTitle: 'Previous page',
+	loadingLabel: 'Loading'
 };

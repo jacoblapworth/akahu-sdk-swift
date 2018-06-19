@@ -4,7 +4,7 @@ import cn from 'classnames';
 import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
 import {baseFontTheme} from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
-import {NAME_SPACE, LABEL_FONT_LARGE} from '../helpers/constants';
+import {NAME_SPACE, CHART_FONT_LARGE} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
@@ -66,7 +66,7 @@ const responsiveOptions = {
 		return {
 			...avatar,
 			...getStackedTagDimensions(params, avatar),
-			tagStyle: {...baseFontTheme, fontSize: LABEL_FONT_LARGE},
+			tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
 		};
 	},
 
@@ -93,7 +93,7 @@ const responsiveOptions = {
 			...getStackedTagDimensions(params, avatar),
 			tagLeft: avatarCircleDiameter + 5,
 			tagTop: avatarCircleTop + 5,
-			tagStyle: {...baseFontTheme, fontSize: LABEL_FONT_LARGE},
+			tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
 			tagAnchor: 'left',
 			tagTextWidth: params.labelWidth - avatarCircleDiameter - 5,
 			toolTipOffset: 14,

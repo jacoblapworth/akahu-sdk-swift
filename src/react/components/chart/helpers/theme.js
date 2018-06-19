@@ -1,10 +1,17 @@
 import {VictoryTheme} from 'victory';
-import {LABEL_FONT_SMALL} from './constants';
+import {
+	CHART_FONT_SMALL,
+	CHART_FONT_FAMILY,
+	CHART_FONT_COLOR,
+	GRID_COLOR,
+	BAR_ODD_COLOR,
+	BAR_EVEN_COLOR,
+} from './constants';
 
 const baseFontTheme = {
-	fill: '#657483',
-	fontFamily: `"Helvetica Neue", Helvetica, Arial, sans-serif`,
-	fontSize: LABEL_FONT_SMALL
+	fill: CHART_FONT_COLOR,
+	fontFamily: CHART_FONT_FAMILY,
+	fontSize: CHART_FONT_SMALL
 };
 
 const axisLineTheme = {
@@ -15,7 +22,7 @@ const axisLineTheme = {
 
 const gridTheme = {
 	fill: 'transparent',
-	stroke: '#EBEDEF',
+	stroke: GRID_COLOR,
 	strokeWidth: 1
 };
 
@@ -43,7 +50,7 @@ baseChartTheme.axis.style.tickLabels = {
 
 baseChartTheme.bar = {
 	...baseChartTheme.bar,
-	colorScale: ['#32465A', '#67BBEB'],
+	colorScale: [BAR_ODD_COLOR, BAR_EVEN_COLOR],
 };
 
 const barChartTheme = {...baseChartTheme};

@@ -383,16 +383,16 @@
 								"components": "../src/react/components/table/XUITableCell.js"
 							}
 						]
-					}
-				]
-			},
-			{
-				"name": "Chart",
-				"content": "../src/react/barchart.md",
-				"sections": [
+					},
 					{
-						"name": "Bar Chart",
-						"components": "../src/react/components/chart/XUIBarChart.js"
+						"name": "Charts",
+						"content": "../src/react/barchart.md",
+						"sections": [
+							{
+								"name": "Bar Chart",
+								"components": "../src/react/components/chart/XUIBarChart.js"
+							}
+						]
 					}
 				]
 			}

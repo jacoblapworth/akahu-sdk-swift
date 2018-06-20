@@ -42,7 +42,7 @@ const responsiveOptions = {
 
 	80: params => ({
 		...createInlineTagLargeDimensions(params),
-		tagText: params.getTagText(1),
+		tagText: params.getTagText(2),
 	}),
 
 	100: params => ({

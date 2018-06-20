@@ -20,8 +20,9 @@ class ChartScaffold extends Component {
 		this.updatePanel = this.updatePanel.bind(this);
 	}
 
-	rootNode = null;
-	contentNode = null;
+	rootNode;
+	contentNode;
+	throttledAction;
 
 	state = {
 		chartWidth: CHART_WIDTH,
@@ -43,8 +44,8 @@ class ChartScaffold extends Component {
 	};
 
 	componentWillUnmount = () => {
-		window.removeEventListener('resize', this.throttledAction);
 		if (this.throttledAction) {
+			window.removeEventListener('resize', this.throttledAction);
 			this.throttledAction.cancel();
 		}
 	};

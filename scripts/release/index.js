@@ -15,6 +15,14 @@ const updateVersion = require(path.resolve(
 	'update-versions',
 	'index.js'
 ));
+const updateVersionForCheckXUIVersionJsFile = require(
+	path.resolve(
+		rootDirectory,
+		'scripts',
+		'versions',
+		'versions.js'
+	)
+)
 const packageJsonLocation = path.resolve(rootDirectory, 'package.json');
 const packageJson = require(packageJsonLocation);
 
@@ -88,9 +96,12 @@ function writePackageJson(cb) {
 
 			console.log('Package JSON version updated');
 
-			updateVersion(newPackageJson.version);
+			updateVersion(newPackageJson.version)
+				.then(
+					() => updateVersionForCheckXUIVersionJsFile(newPackageJson.version)
+				);
 
-			cb();
+			cb && cb();
 
 			return;
 		}

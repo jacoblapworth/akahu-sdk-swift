@@ -156,7 +156,7 @@ XUIBarChart.propTypes = {
 	/** Show the charts "loading" state. */
 	isLoading: PropTypes.bool,
 
-	/** Accessibility label for the <XUILoader>. */
+	/** Accessibility label for the `<XUILoader>`. */
 	loadingLabel: PropTypes.string,
 };
 

@@ -26,7 +26,8 @@
     "precommit": "./pre-commit.sh",
     "prepush": "./pre-push.sh",
     "start": "node scripts/start",
-    "test": "node scripts/test"
+    "test": "node scripts/test",
+    "release": "node scripts/release"
   },
   "dependencies": {
     "@xero/xui-icon": "^5.2.0",

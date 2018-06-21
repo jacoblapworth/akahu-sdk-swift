@@ -30,7 +30,7 @@ class StackedBar extends PureComponent {
 		const testIsActive = stackIndex => (activeBars[barId] || []).indexOf(stackIndex) >= 0;
 		const stackTop = createStackTop({barBottom, barStacks, ratio, stackIndex});
 		const stackHeight = createStackHeight({barStack, ratio});
-		const interactionParams = createInteractionParams(isBarStacked, {...barData, barIndex, barId, stackIndex});
+		const interactionParams = createInteractionParams(isBarStacked, {...barData, barIndex, stackIndex});
 		const clickProps = onBarClick && {
 			onClick: event => onBarClick(event, interactionParams),
 			style: {cursor: 'pointer'}

@@ -6,12 +6,22 @@ import {NAME_SPACE, CHART_FONT_LARGE} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
+// Get the tag text that is closest to the supplied index.
+//
+// + The thunk sets a persistent reference to all of the text options.
+//
+// + We first try and get the text from the index and if it does not exist we move
+//   our way DOWN the list of options to get the first tag with content (smaller
+//   text values have a better chance of fitting into the label area).
+//
+// + If moving down the options list found no results then we instead move UP the
+//   list to get the first tag with content.
 const createTagTextThunk = options => option => {
 	const compareTags = (acc = '', tag = '') => (acc || tag);
-	const minTag = options.slice(0, option + 1).reverse().reduce(compareTags);
-	const maxTag = minTag || options.slice(option).reduce(compareTags);
+	const smallTagText = options.slice(0, option + 1).reverse().reduce(compareTags);
+	const largeTagText = smallTagText || options.slice(option).reduce(compareTags);
 
-	return minTag || maxTag;
+	return smallTagText || largeTagText;
 };
 
 const getInlineTagDimensions = ({labelWidth}) => ({

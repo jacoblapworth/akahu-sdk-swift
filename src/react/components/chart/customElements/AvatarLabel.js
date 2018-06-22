@@ -4,18 +4,16 @@ import cn from 'classnames';
 import {getAvatarColorClass, abbreviateAvatar} from '../../avatar/utils';
 import {baseFontTheme} from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
-import {NAME_SPACE, CHART_FONT_LARGE} from '../helpers/constants';
+import {NAME_SPACE, CHART_FONT_LARGE, AVATAR_RADIUS} from '../helpers/constants';
 import TruncatedText from './TruncatedText';
 import XAxisLabelWrapper from './XAxisLabelWrapper';
 
 const getStackedAvatarDimensions = ({labelWidth, textRaw, top = 10}) => {
-	const avatarCircleRadius = 12;
 	const avatarCircleLeft = labelWidth * 0.5;
-	const avatarCircleTop = avatarCircleRadius + top;
+	const avatarCircleTop = AVATAR_RADIUS + top;
 
 	return {
-		avatarCircleRadius, avatarCircleLeft, avatarCircleTop,
-		avatarCircleDiameter: avatarCircleRadius * 2,
+		avatarCircleLeft, avatarCircleTop,
 		avatarTextLeft: avatarCircleLeft,
 		avatarTextTop: avatarCircleTop + 4,
 		avatarText: abbreviateAvatar(textRaw, 2),
@@ -26,10 +24,10 @@ const getStackedAvatarDimensions = ({labelWidth, textRaw, top = 10}) => {
 
 const getStackedTagDimensions = (
 	{textRaw, labelWidth},
-	{avatarCircleDiameter, avatarCircleLeft, avatarCircleTop}
+	{avatarCircleLeft, avatarCircleTop}
 ) => ({
 	tagLeft: avatarCircleLeft,
-	tagTop: avatarCircleTop + avatarCircleDiameter + 5,
+	tagTop: avatarCircleTop + (AVATAR_RADIUS * 2) + 5,
 	tagText: textRaw,
 	tagStyle: baseFontTheme,
 	tagTextWidth: labelWidth,
@@ -83,19 +81,19 @@ const responsiveOptions = {
 	// labels contents and let the component do the calculations.
 	100: params => {
 		const avatar = getStackedAvatarDimensions({...params, top: 20});
-		const {avatarCircleRadius, avatarCircleDiameter, avatarCircleTop} = avatar;
+		const {avatarCircleTop} = avatar;
 
 		return {
 			shouldCalculateCenter: true,
 			...avatar,
-			avatarCircleLeft: avatarCircleRadius,
-			avatarTextLeft: avatarCircleRadius,
+			avatarCircleLeft: AVATAR_RADIUS,
+			avatarTextLeft: AVATAR_RADIUS,
 			...getStackedTagDimensions(params, avatar),
-			tagLeft: avatarCircleDiameter + 5,
+			tagLeft: (AVATAR_RADIUS * 2) + 5,
 			tagTop: avatarCircleTop + 5,
 			tagStyle: {...baseFontTheme, fontSize: CHART_FONT_LARGE},
 			tagAnchor: 'left',
-			tagTextWidth: params.labelWidth - avatarCircleDiameter - 5,
+			tagTextWidth: params.labelWidth - (AVATAR_RADIUS * 2) - 5,
 			toolTipOffset: 14,
 		};
 	},
@@ -110,7 +108,7 @@ class AvatarLabel extends PureComponent {
 		} = this.props;
 		const {
 			// Avatar...
-			avatarCircleLeft, avatarCircleTop, avatarCircleRadius, avatarTextLeft,
+			avatarCircleLeft, avatarCircleTop, avatarTextLeft,
 			avatarTextTop, avatarText, avatarClassName, avatarStyle,
 			// Tag...
 			shouldCalculateCenter, tagLeft, tagTop, tagText, tagStyle, tagAnchor, tagTextWidth,
@@ -134,7 +132,7 @@ class AvatarLabel extends PureComponent {
 						className={avatarClassName}
 						cx={avatarCircleLeft}
 						cy={avatarCircleTop}
-						r={avatarCircleRadius}
+						r={AVATAR_RADIUS}
 					/>
 					<text
 						x={avatarTextLeft}

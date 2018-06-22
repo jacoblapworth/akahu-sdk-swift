@@ -24,3 +24,5 @@ export const BAR_ODD_COLOR = '#32465A';
 export const BAR_EVEN_COLOR = '#67BBEB';
 
 export const GRID_COLOR = '#EBEDEF';
+
+export const AVATAR_RADIUS = 12;

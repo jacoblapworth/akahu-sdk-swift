@@ -93,6 +93,7 @@ class XUITable extends Component {
 			hasPinnedLastColumn,
 			createDividerClassesThunk,
 			onRowClick,
+			shouldRowClick,
 			header,
 			footer,
 			columns,
@@ -161,6 +162,7 @@ class XUITable extends Component {
 							checkedIds,
 							onCheckOneToggle,
 							onRowClick,
+							shouldRowClick,
 							hasOverflowMenu,
 							createOverflowMenu,
 							createDividerClassesThunk,
@@ -280,8 +282,11 @@ XUITable.propTypes = {
 	// Interaction.  //
 	// - - - - - - - //
 
-	/** A function that conditionally returns a click handler for rows that need an interaction or a falsey value for rows that do not. Check the React docs under Tables > Interactions for an example. */
+	/** A callback function for row interactions. */
 	onRowClick: PropTypes.func,
+
+	/** A function that receives a single rows data set and determines if that particular row should have the `onRowClick` click handler applied to it. */
+	shouldRowCLick: PropTypes.func,
 
 	// - - - - - - //
 	// Appendages. //

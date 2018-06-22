@@ -290,7 +290,8 @@ const variations = [
 						content: 'The quick brown fox jumps over the lazy dog'
 					},
 				},
-				onRowClick: () => noop,
+				onRowClick: noop,
+				shouldRowClick: () => true,
 			}
 		}]
 	},

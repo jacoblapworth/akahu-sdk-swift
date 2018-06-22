@@ -7,6 +7,24 @@ export const cellPosition = {
 	last: `${NAME_SPACE}--cell-last`,
 };
 
+export const createRowClickCallback = ({shouldRowClick, rowData, onRowClick}) => {
+	switch (true) {
+		// Checks the click handlers relevance (`shouldRowClick`) against this
+		// particular rows data and then returns the handler (`onRowClick`) if required.
+		case Boolean(shouldRowClick): return shouldRowClick(rowData) && onRowClick;
+
+		// The legacy system that takes the `onRowClick` as a thunk
+		// (`(args) => isRelevant() && () => ...`) and does the relevance test as well
+		// as the click handling all in same prop. This was hard for our users to
+		// grasp so we use the method above as the primary conditional / handler
+		// combination.
+		case Boolean(onRowClick): return onRowClick(rowData);
+
+		// Do not create an interaction for the current row.
+		default: return null;
+	}
+};
+
 export const createCellLocationClasses = ({ columns, index, hasCheckbox, hasOverflowMenu }) => {
 	const { length } = columns;
 	const total = hasCheckbox && hasOverflowMenu

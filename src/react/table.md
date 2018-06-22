@@ -751,7 +751,7 @@ const {
 
 Add *Cell* and row interactions using the `onCellClick` and `onRowClick` props.
 
-The `onRowClick` prop is run on **every** row and returns a *Thunk* allowing you to conditionally decide a rows interaction *"relevance"* independently.
+The `onRowClick` prop works in conjunction with the `shouldRowClick` prop to determine if the current row should have a click the click handler applied to it.
 
 **Note:** A *Cell* interaction will be ** overridden** if its parent row has an interaction on it (**not** nesting links inside links). This can be seen in the below example where the *"Banana"* row has no *Cell* interactions even though they were requested.
 
@@ -767,7 +767,8 @@ const {
 		abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
 		def456: { fruit: 'Apple', color: 'Red', price: 3.49 }
 	} }
-	onRowClick={ ({ fruit }) => (fruit === 'Banana') && (() => alert(`You clicked the ${fruit} row`)) }>
+	shouldRowClick={ ({ fruit }) => (fruit === 'Banana') }
+	onRowClick={ (event, { fruit }) => alert(`You clicked the ${fruit} row`) }>
 
 	<Column
 		head={ <Cell>Fruit</Cell> }

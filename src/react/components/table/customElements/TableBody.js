@@ -6,6 +6,7 @@ import {
 	cellPosition,
 	createCellLocationClasses,
 	createInteractionProps,
+	createRowClickCallback,
 } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 import OverflowMenu from './OverflowMenu';
@@ -101,6 +102,7 @@ class TableBody extends PureComponent {
 			checkedIds,
 			onCheckOneToggle,
 			onRowClick,
+			shouldRowClick,
 			hasOverflowMenu,
 			createOverflowMenu,
 			createDividerClassesThunk,
@@ -110,9 +112,9 @@ class TableBody extends PureComponent {
 			<tbody className={`${NAME_SPACE}--body`}>
 
 				{data && data.map((rowData, rowIndex) => {
-					const uniqueInteraction = onRowClick && onRowClick(rowData);
-					const isRowLink = uniqueInteraction;
-					const interactionProps = isRowLink && createInteractionProps(uniqueInteraction, rowData);
+					const rowClickCallback = createRowClickCallback({shouldRowClick, rowData, onRowClick})
+					const isRowLink = Boolean(rowClickCallback);
+					const interactionProps = isRowLink && createInteractionProps(rowClickCallback, rowData);
 					const dividerClasses = createDividerClassesThunk(rowIndex);
 					const className = cn(
 						`${NAME_SPACE}--row`,
@@ -185,6 +187,7 @@ TableBody.propTypes = {
 
 	// Interaction.
 	onRowClick: PropTypes.func,
+	shouldRowClick: PropTypes.func,
 
 };
 

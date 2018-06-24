@@ -59,8 +59,8 @@ Optional arguments
 	)} : Force a new alpha, updates UP to the next major, 1.0.0 will go to 2.0.0 as will 1.0.0-beta|alpha
 
 	- ${chalk.bold.cyan(
-		'<major|minor|patch> <alpha|beta>'
-	)} : Allows you to upgrade to the next major, minor or patch AND go alpha or beta at the same time. e.g '-- minor alpha' gives you 13.3.0 -> 13.4.0-alpha.1.
+		'<major|minor|patch> <alpha|beta|rc>'
+	)} : Allows you to upgrade to the next major, minor or patch AND go alpha or beta or RC at the same time. e.g '-- minor alpha' gives you 13.3.0 -> 13.4.0-alpha.1.
 ---------------------
 `;
 if (args.includes('-h') || args.includes('-help')) {

@@ -5,7 +5,7 @@ const packageJson = require('../../package.json');
 module.exports = (newVersion) => {
 
 	const versions = {
-		xui: newVersion,
+		xui: newVersion || packageJson.version, // Default set as it's used by pre-commit.sh without arguments
 		react: packageJson.dependencies.react
 	};
 

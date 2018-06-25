@@ -32,6 +32,7 @@ export default function XUIToastAction({
 		<XUIButton
 			{...props}
 			isLink={isLink}
+			href={href}
 			variant="link"
 			size="small"
 			className={className}

@@ -21,10 +21,9 @@ export default function XUIToastActions(
 	return (
 		<XUIActions
 			hasLayout={false}
-			tagName={numberOfChildren > 0 ? 'ul' : undefined}
 			className={classNames}
-			primaryAction={primaryAction && React.cloneElement(primaryAction, { usesActions: true })}
-			secondaryAction={secondaryAction && React.cloneElement(secondaryAction, { usesActions: true })}
+			primaryAction={primaryAction}
+			secondaryAction={secondaryAction}
 			data-automationid={qaHook}>
 
 			{limitedChildren}

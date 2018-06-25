@@ -1,4 +1,4 @@
-export const alwaysPositive = value => Math.max(0, value) || 0;
+export const forceValuePositive = value => Math.sqrt(value * value) || 0;
 
 export const testIsCloseEnough = (next, previous, threshold = 2) => (
 	next > previous - threshold && next < previous + threshold

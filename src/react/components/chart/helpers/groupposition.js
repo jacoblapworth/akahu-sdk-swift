@@ -1,4 +1,4 @@
-import {alwaysPositive} from './utilities';
+import {forceValuePositive} from './utilities';
 import {NAME_SPACE} from './constants';
 
 const getGroupPosition = (groupNode) => {
@@ -33,8 +33,8 @@ const getGroupPosition = (groupNode) => {
 	});
 
 	return {
-		width: alwaysPositive(position.maxLeft - position.minLeft),
-		height: alwaysPositive(position.maxTop - position.minTop)
+		width: forceValuePositive(position.maxLeft - position.minLeft),
+		height: forceValuePositive(position.maxTop - position.minTop)
 	};
 };
 

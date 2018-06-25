@@ -12,6 +12,8 @@ const stackedBarsData = [
 	{ id: 2, x: "Carrot", y: [1, 2, 3] },
 ];
 
+const stackedBarColor = ['#50E3C2', null, '#AC00FF'];
+
 const variations = [
 	{
 		storyKind,
@@ -56,7 +58,7 @@ const variations = [
 			chartDescription: 'Colored stacks on a stacked layout',
 			isBarStacked: true,
 			barsData: stackedBarsData,
-			barColor: ['#50E3C2', null, '#AC00FF'],
+			barColor: stackedBarColor,
 		}]
 	},
 // - - - - - - - - - -
@@ -302,6 +304,33 @@ const variations = [
 			testStyles: {width: '50%'},
 		}]
 	},
+// - - - - - - - - - -
+{
+	storyKind,
+	storyTitle: 'Standard Negative Bars',
+	examples: [{
+		chartId: 'standardNegativeBars',
+		chartTitle: 'Standard Negative Bars',
+		chartDescription: 'Negative states on a standard layout',
+		barsData: [
+			{...standardBarsData[0], y: -1},
+			{...standardBarsData[1], y: 1},
+			{...standardBarsData[2], y: -2},
+		],
+	},
+	{
+		chartId: 'stackedNegativeBars',
+		chartTitle: 'Stacked Negative Bars',
+		chartDescription: 'Negative states on a stacked layout',
+		isBarStacked: true,
+		barsData: [
+			{...standardBarsData[0], y: [-1]},
+			{...standardBarsData[1], y: [1, -2]},
+			{...standardBarsData[2], y: [-1, 2, -3]},
+		],
+		barColor: stackedBarColor,
+	}]
+},
 ];
 
 module.exports = {

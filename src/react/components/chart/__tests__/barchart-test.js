@@ -6,6 +6,8 @@ import noop from '../../helpers/noop'
 import XUIBarChart from '../XUIBarChart';
 import StackedBar from '../customElements/StackedBar';
 import ContentPagination from '../customElements/ContentPagination';
+import {X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
+import {createChartPadding} from '../helpers/utilities';
 import {enrichParams} from '../helpers/bars';
 import {barChartTheme} from '../helpers/theme';
 
@@ -47,10 +49,15 @@ const defaultChartProps = {
 	chartDescription: 'Chart Jest test',
 };
 
+const defaultChartPadding = createChartPadding({
+	xAxisHeight: X_AXIS_HEIGHT,
+	yAxisWidth: Y_AXIS_WIDTH,
+});
+
 const defaultBarProps = {
 	// XUI...
 	chartId: '123',
-	yAxisMaxValue: 100,
+	yAxisTickValues: [0, 1, 2, 3],
 	yAxisHeight: 300,
 	colorStacks: ['black'],
 	colorActive: 'green',
@@ -58,11 +65,11 @@ const defaultBarProps = {
 	barWidth: 100,
 	isToolTipHidden: false,
 	updateToolTip: noop,
+	padding: defaultChartPadding,
 
 	// Victory...
 	datum: stackedBarsProps.barsData[0],
 	index: 2,
-	y0: 0,
 };
 
 const defaultPaginatioProps = {

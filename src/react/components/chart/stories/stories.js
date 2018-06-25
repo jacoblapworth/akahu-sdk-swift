@@ -46,6 +46,7 @@ storiesWithKnobs.add('Playground', () => {
 		</div>
 	) : undefined;
 	const isLoading = boolean('Show loading state', false);
+	const hasNegativeValues = boolean('Include bars with negative values', false);
 
 	const xAxisTypes = ['abbreviation', 'avatar', 'standard'];
 	const xAxisType = select('X-axis type', xAxisTypes, 'standard', 'xAxisType');
@@ -71,7 +72,8 @@ storiesWithKnobs.add('Playground', () => {
 		barColor = color('Bar color', '', 'barColor');
 		keyLabel = text('Bar key', '');
 	}
-	const randomise = () => Math.random() * 4;
+	const multiplyWithNegativity = () => hasNegativeValues && Math.round(Math.random()) ? -1 : 1;
+	const randomise = () => Math.random() * 4 * multiplyWithNegativity();
 	const wrapperStyles = {width: `${chartWidth}px`};
 	const isLabelAbbreviation = xAxisType === 'abbreviation';
 	const barsData = createArray(barsTotal).map((_, id) => {

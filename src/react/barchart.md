@@ -49,7 +49,7 @@ class Demo extends React.Component {
 				barsData={data}
 				onBarClick={this.handleBarClick}
 				activeBars={this.state.activeBars}
-				createBarToolTipMessage={({y}) => `${y} Item${y > 1 ? 's' : ''}`}
+				createBarToolTipMessage={({y}) => `${y} Item${Math.sqrt(y * y) === 1 ? '' : 's'}`}
 				keyLabel="Healthy food"
 				barColor="#FF6496"
 				barColorActive="rgba(0,0,0,0.5)"
@@ -99,7 +99,10 @@ class Demo extends React.Component {
 				barsData={data}
 				onBarClick={this.handleBarClick}
 				activeBars={this.state.activeBars}
-				createBarToolTipMessage={({y, stackIndex}) => `${y[stackIndex]} ${keyLabel[stackIndex]} Item${y[stackIndex] > 1 ? 's' : ''}`}
+				createBarToolTipMessage={({y, stackIndex}) => {
+					const value = y[stackIndex];
+					return `${value} ${keyLabel[stackIndex]} Item${Math.sqrt(value * value) === 1 ? '' : 's'}`
+				}}
 				keyLabel={keyLabel}
 				barColor={["#5C5CE6", "#51DAAF"]}
 				barColorActive="rgba(0,0,0,0.5)"

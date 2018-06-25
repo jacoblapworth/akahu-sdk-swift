@@ -6,7 +6,7 @@ import {barChartTheme} from '../helpers/theme';
 import {testIsCloseEnough, pause} from '../helpers/utilities';
 import getGroupPosition from '../helpers/groupposition';
 import {NAME_SPACE, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
-import {findMaxTotalBarStacks, enrichParams} from '../helpers/bars';
+import {enrichParams} from '../helpers/bars';
 import StackedBar from './StackedBar';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
@@ -178,7 +178,7 @@ class ChartScaffold extends Component {
 			hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
 
 			// Y-Axis...
-			yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
+			yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
 
 			// X-Axis...
 			xAxisTickValues, XAxisLabel,
@@ -429,7 +429,6 @@ class ChartScaffold extends Component {
 
 									<VictoryBar
 										data={barsData}
-										y={findMaxTotalBarStacks}
 										groupComponent={(
 											<g
 												data-automationid={qaHook && `${qaHook}--bars`}
@@ -441,13 +440,14 @@ class ChartScaffold extends Component {
 											<StackedBar
 												chartId={chartId}
 												isBarStacked={isBarStacked}
-												yAxisMaxValue={yAxisMaxValue}
+												yAxisTickValues={yAxisTickValues}
 												yAxisHeight={yAxisHeight}
 												colorStacks={barColorStacks}
 												colorActive={barColorActive}
 												onBarClick={onBarClick}
 												activeBars={activeBars}
 												barWidth={barWidth}
+												padding={chartPadding}
 												isToolTipHidden={isBarToolTipHidden}
 												createToolTipMessage={createBarToolTipMessage}
 												updateToolTip={this.updateToolTip}

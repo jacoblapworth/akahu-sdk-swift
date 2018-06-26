@@ -58,7 +58,6 @@ exports[`<XUIToastActions /> should render non-breaking in the old API style 1`]
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
-      role="button"
       tabIndex={0}
       target={undefined}
     >
@@ -78,7 +77,6 @@ exports[`<XUIToastActions /> should render non-breaking in the old API style 1`]
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
-      role="button"
       tabIndex={0}
       target={undefined}
     >
@@ -102,7 +100,6 @@ exports[`<XUIToastActions /> should render using the new API style 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
-    role="button"
     tabIndex={0}
     target={undefined}
   >
@@ -117,7 +114,6 @@ exports[`<XUIToastActions /> should render using the new API style 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
-    role="button"
     tabIndex={0}
     target={undefined}
   >

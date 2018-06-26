@@ -1,6 +1,6 @@
-@import "mixins.layout.breakpoints";
-@import "mixins.layout.marginpadding";
-@import "mixins.layout.grids";
+@import "layout.breakpoints";
+@import "layout.marginpadding";
+@import "layout.grids";
 @import "../vars";
 
 @mixin xui-container {

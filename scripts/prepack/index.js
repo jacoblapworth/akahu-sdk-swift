@@ -20,7 +20,7 @@ function prepack() {
 			babelBuild(),
 			codemodBuild()
 		])
-		.then(({ stdout }) => console.log(stdout))
+		.then(({ stdout }) => console.log(stdout)) //eslint-disable-line no-console
 		.then(() => {
 			ncp(reactBuildOutputPath, reactMoveToLocation);
 			ncp(sassSourceLocation, sassMoveToLocation);

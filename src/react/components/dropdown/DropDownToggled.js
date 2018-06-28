@@ -13,7 +13,6 @@ import {
 } from './private/helpers';
 import { compose } from '../helpers/compose';
 import { baseClass, dropdownPositionOptions } from "./private/constants";
-import {ns} from "../helpers/xuiClassNamespace";
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -426,7 +425,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, isBlock, ...otherProps } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, ...otherProps } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -491,10 +490,8 @@ export default class DropDownToggled extends PureComponent {
 				data-ref='toggled-wrapper'
 				data-automationid={qaHook}
 			>
-				<span className={!isBlock && `${ns}-dropdownToggled--innerWrap` || ''}>
-					{clonedTrigger}
-					{positionedDropdown}
-				</span>
+				{clonedTrigger}
+				{positionedDropdown}
 			</div>
 		);
 	}
@@ -543,7 +540,7 @@ DropDownToggled.propTypes = {
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** Force the legacy (portaled) display. Not great for accessibility, but useful for some cases like in very small scrolling containers, or with a series of nested absolutely positioned elements. */
+	/** Use the "legacy" (portaled) display. Currently defaults to "true." */
 	isLegacyDisplay: PropTypes.bool,
 
 	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
@@ -562,15 +559,15 @@ DropDownToggled.propTypes = {
 	maxHeight: PropTypes.number,
 
 	/**
-	 * Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
+	 * This setting is only for non-legacy display. Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
 	 */
 	isBlock: PropTypes.bool,
 	/**
-	 * Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
+	 * This setting is only for non-legacy display. Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
 	 */
 	preferredPosition: PropTypes.oneOf(dropdownPositionOptions),
 	/**
-	 * Space between trigger and dropdown, in pixels. Defaults to 6.
+	 * This setting is only for non-legacy display. Space between trigger and dropdown, in pixels. Defaults to 6.
 	 */
 	triggerDropdownGap: PropTypes.number,
 	/**
@@ -591,7 +588,7 @@ DropDownToggled.defaultProps = {
 	matchTriggerWidth: false,
 	preferredPosition: 'bottom-left',
 	triggerDropdownGap: 6,
-	isLegacyDisplay: false,
+	isLegacyDisplay: true,
 	isBlock: false,
 	ariaPopupType: 'listbox'
 };

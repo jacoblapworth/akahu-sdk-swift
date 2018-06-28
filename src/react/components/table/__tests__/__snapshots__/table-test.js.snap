@@ -2587,35 +2587,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -2647,35 +2643,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -2707,35 +2699,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -3334,35 +3322,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -3429,35 +3413,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -3524,35 +3504,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -3804,35 +3780,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -3928,35 +3900,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -4052,35 +4020,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -5203,35 +5167,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -5292,35 +5252,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -5381,35 +5337,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -6754,35 +6706,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -6878,35 +6826,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>
@@ -7002,35 +6946,31 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   data-ref="toggled-wrapper"
                   onKeyDown={[Function]}
                 >
-                  <span
-                    className="xui-dropdownToggled--innerWrap"
+                  <button
+                    aria-activedescendant={null}
+                    aria-controls={undefined}
+                    aria-haspopup="listbox"
+                    className="xui-button xui-button-icon-large xui-button-icon"
+                    data-automationid={undefined}
+                    disabled={false}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    tabIndex={0}
+                    type="button"
                   >
-                    <button
-                      aria-activedescendant={null}
-                      aria-controls={undefined}
-                      aria-haspopup="listbox"
-                      className="xui-button xui-button-icon-large xui-button-icon"
+                    <svg
+                      className="xui-icon xui-u-flex-inherit"
                       data-automationid={undefined}
-                      disabled={false}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      tabIndex={0}
-                      type="button"
+                      focusable="false"
+                      style={null}
+                      viewBox="0 0 30 30"
                     >
-                      <svg
-                        className="xui-icon xui-u-flex-inherit"
-                        data-automationid={undefined}
-                        focusable="false"
-                        style={null}
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
-                          role="presentation"
-                        />
-                      </svg>
-                    </button>
-                  </span>
+                      <path
+                        d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </td>
             </tr>

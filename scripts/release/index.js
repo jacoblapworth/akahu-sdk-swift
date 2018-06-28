@@ -22,7 +22,9 @@ const updateVersionForCheckXUIVersionJsFile = require(
 		'versions',
 		'versions.js'
 	)
-)
+);
+const packageLockUpdate = require('./package-lock-update');
+
 const packageJsonLocation = path.resolve(rootDirectory, 'package.json');
 const packageJson = require(packageJsonLocation);
 
@@ -46,6 +48,19 @@ Optional arguments
 	- ${chalk.bold.cyan(
 		'beta'
 	)} : Force a new beta, will fail if already in beta. Useful for skipping Alpha releases
+	- ${chalk.bold.cyan(
+		'patch'
+	)} : Force a new patch, updates UP to the next patch, 1.0.0 will go to 1.0.1 as will 1.0.0-beta|alpha
+	- ${chalk.bold.cyan(
+		'minor'
+	)} : Force a new beta, updates UP to the next minor, 1.0.0 will go to 1.1.0 as will 1.0.0-beta|alpha
+	- ${chalk.bold.cyan(
+		'major'
+	)} : Force a new alpha, updates UP to the next major, 1.0.0 will go to 2.0.0 as will 1.0.0-beta|alpha
+
+	- ${chalk.bold.cyan(
+		'<major|minor|patch> <alpha|beta|rc>'
+	)} : Allows you to upgrade to the next major, minor or patch AND go alpha or beta or RC at the same time. e.g '-- minor alpha' gives you 13.3.0 -> 13.4.0-alpha.1.
 ---------------------
 `;
 if (args.includes('-h') || args.includes('-help')) {
@@ -73,13 +88,40 @@ currentVersion.rc = versionParts[2].split('-')[1] === 'rc';
 currentVersion.abNumeral =
 	(versionParts[3] && parseInt(versionParts[3])) || currentVersion.abNumeral;
 
-if (!currentVersion.alpha && !currentVersion.beta && args.includes('alpha')) {
-	newPackageJson.version = iterateVersion('alpha_new');
+// Ordering is important, because you might go '-- major minor alpha' and go from 13.0.0 to 14.1.0-beta.1 for some reason
+// And that reason might be important, but it's easier to setup support for it now than later on and it doesn't really
+// Affect anything otherwise.
+// This will work for chains '-- major minor' as well as non-chains '-- major'
+if (args.includes('major')) {
+	newPackageJson.version = iterateVersion('major');
 	intendToWriteFile = true;
 }
-
-if (!currentVersion.beta && args.includes('beta')) {
-	newPackageJson.version = iterateVersion('beta_new');
+if (args.includes('minor')) {
+	newPackageJson.version = iterateVersion('minor');
+	intendToWriteFile = true;
+}
+if (args.includes('patch')) {
+	newPackageJson.version = iterateVersion('patch');
+	intendToWriteFile = true;
+}
+if (args.includes('alpha')) {
+	if (currentVersion.beta || currentVersion.rc) {
+		console.log(chalk.red.bold(`You can't do an alpha release after a beta or RC release has already occurred, current version ${version}`));
+		return
+	}
+	newPackageJson.version = currentVersion('alpha') ? iterateVersion('alpha++') : iterateVersion('alpha_new');
+	intendToWriteFile = true;
+}
+if (args.includes('beta')) {
+	if (currentVersion.rc) {
+		console.log(chalk.red.bold(`You can't do a beta release after an RC release has already occurred, current version ${version}`));
+		return;
+	}
+	newPackageJson.version = currentVersion.beta ? iterateVersion('beta++') : iterateVersion('beta_new');
+	intendToWriteFile = true;
+}
+if (args.includes('rc')) {
+	newPackageJson.version = currentVersion.rc ? iterateVersion('rc++') : iterateVersion('rc_new');
 	intendToWriteFile = true;
 }
 
@@ -113,22 +155,34 @@ function iterateVersion(iterateType) {
 
 	switch (iterateType) {
 		case 'patch':
+			currentVersion.patch = currentVersion.patch + 1;
 			return `${major}.${minor}.${patch + 1}`;
 		case 'minor':
+			currentVersion.minor = currentVersion.minor + 1;
 			return `${major}.${minor + 1}.0`;
 		case 'major':
+			currentVersion.major = currentVersion.major + 1;
 			return `${major + 1}.0.0`;
 		case 'alpha_new':
+			currentVersion.alpha = true;
 			return `${major}.${minor}.${patch}-alpha.1`;
 		case 'alpha++':
+			currentVersion.alpha = true;
+			currentVersion.abNumeral = currentVersion.abNumeral + 1;
 			return `${major}.${minor}.${patch}-alpha.${abNumeral + 1}`;
 		case 'beta_new':
+			currentVersion.beta = true;
 			return `${major}.${minor}.${patch}-beta.1`;
 		case 'beta++':
+			currentVersion.beta = true;
+			currentVersion.abNumeral = currentVersion.abNumeral + 1;
 			return `${major}.${minor}.${patch}-beta.${abNumeral + 1}`;
 		case 'rc_new':
+			currentVersion.rc = true;
 			return `${major}.${minor}.${patch}-rc.1`;
 		case 'rc++':
+			currentVersion.rc = true;
+			currentVersion.abNumeral = currentVersion.abNumeral + 1;
 			return `${major}.${minor}.${patch}-rc.${abNumeral + 1}`;
 		case 'fin':
 			return `${major}.${minor}.${patch}`;
@@ -227,12 +281,28 @@ const initialQuestion = {
 };
 
 if (intendToWriteFile) {
+	let messagePartBasedOnReleaseType = '';
+
+	switch(true) {
+		case args.includes('alpha'):
+			messagePartBasedOnReleaseType = 'an alpha';
+			break;
+		case args.includes('beta'):
+			messagePartBasedOnReleaseType = 'a beta';
+			break;
+		case args.includes('patch'):
+			messagePartBasedOnReleaseType = 'a patch';
+			break;
+		case args.includes('minor'):
+			messagePartBasedOnReleaseType = 'a minor';
+			break;
+		case args.includes('major'):
+			messagePartBasedOnReleaseType = 'a major';
+			break;
+	}
+
 	initialQuestion.type = 'confirm';
-	initialQuestion.message = `Confirm you wish to update to do ${(args.includes(
-		'alpha'
-	) &&
-		'an alpha') ||
-		(args.includes('beta') && 'a beta')} release`;
+	initialQuestion.message = `Current version ${version}, Confirm you wish to update to do ${messagePartBasedOnReleaseType} release`;
 	initialQuestion.name = 'update-version';
 	initialQuestion.choices = undefined;
 }
@@ -271,6 +341,6 @@ inquirer.prompt([initialQuestion]).then(answers => {
 					} finished. Have a nice day!`
 				)
 			)
-		);
+		).then(() => packageLockUpdate());
 	});
 });

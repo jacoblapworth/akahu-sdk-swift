@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { NavbarPropTypes, DateUtils } from 'react-day-picker';
+import { DateUtils } from 'react-day-picker';
 import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import arrow from '@xero/xui-icon/icons/arrow';
@@ -158,7 +158,7 @@ export default class CustomNavbar extends PureComponent {
 					variant={navButtonVariant}
 					isDisabled={!showNextButton}
 					className={classNames.navButtonNext}
-					onClick={() => nextClickHandler()} // If you just pass the fuction, shit blows up since the internals of DayPicker expect a function callback arg
+					onClick={() => nextClickHandler()} // If you just pass the function, shit blows up since the internals of DayPicker expect a function callback arg
 					aria-label={labels.nextMonth}
 					qaHook={qaHook && `${qaHook}--next-month-button`}
 				>
@@ -170,14 +170,16 @@ export default class CustomNavbar extends PureComponent {
 }
 
 CustomNavbar.propTypes = {
-	...NavbarPropTypes,
-	classNames: NavbarPropTypes.classNames,
-	showPreviousButton: NavbarPropTypes.showPreviousButton,
-	showNextButton: NavbarPropTypes.showNextButton,
-	onPreviousClick: NavbarPropTypes.onPreviousClick,
-	onNextClick: NavbarPropTypes.onNextClick,
-	labels: NavbarPropTypes.labels,
-	dir: NavbarPropTypes.dir,
+	classNames: PropTypes.string,
+	showPreviousButton: PropTypes.bool,
+	showNextButton: PropTypes.bool,
+	onPreviousClick: PropTypes.func,
+	onNextClick: PropTypes.func,
+	labels: PropTypes.shape({
+		previousMonth: PropTypes.string.isRequired,
+		nextMonth: PropTypes.string.isRequired
+	}),
+	dir: PropTypes.string,
 	previousMonth: PropTypes.instanceOf(Date),
 	months: PropTypes.arrayOf(PropTypes.string),
 	onMonthSelect: PropTypes.func,

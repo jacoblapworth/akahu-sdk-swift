@@ -1,21 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIAccordion /> renders the base component with only required props passed 1`] = `
-<p
+<div
   className={undefined}
->
-  Hello 
-  testName
-   👋
-</p>
+  data-automationid={undefined}
+/>
 `;
 
 exports[`<XUIAccordion /> renders the component using all available options 1`] = `
-<p
+<div
   className="testClass"
+  data-automationid="testQaHook"
 >
-  Hello 
-  testName
-   👋
-</p>
+  testItem
+</div>
 `;

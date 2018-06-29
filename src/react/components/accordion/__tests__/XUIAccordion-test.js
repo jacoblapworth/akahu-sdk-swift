@@ -8,11 +8,11 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<XUIAccordion />', () => {
 	it('renders the base component with only required props passed', () => {
-		const testComponent = renderer.create(<XUIAccordion name="testName" />);
+		const testComponent = renderer.create(<XUIAccordion ListItem={() => "testItem"} />);
 		expect(testComponent).toMatchSnapshot();
 	});
 	it('renders the component using all available options', () => {
-		const testComponent = renderer.create(<XUIAccordion name="testName" className="testClass" />);
+		const testComponent = renderer.create(<XUIAccordion ListItem={() => "testItem"} className="testClass" qaHook="testQaHook" data={[{ id: 1, name: 'John Smith' }]} />);
 		expect(testComponent).toMatchSnapshot();
 	});
 });

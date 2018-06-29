@@ -1,9 +1,12 @@
+import React from 'react';
+
 const storyKind = 'Instances/XUIAccordion';
 const variations = [
 	{
 		storyKind,
-		storyTitle: 'basic (add custom name)',
-		name: 'John Smith'
+		storyTitle: 'basic',
+		data: [{ id: 1, name: 'John Smith' }],
+		ListItem: props => <p className="xui-panel xui-padding">Hello {props.name} 👋</p>,
 	}
 ];
 

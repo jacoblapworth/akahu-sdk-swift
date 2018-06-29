@@ -9,7 +9,7 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => <XUIAccordion name={ text('name', 'John Smith') } />);
+storiesWithKnobs.add('Playground', () => <XUIAccordion ListItem={() => <p className="xui-panel xui-padding">Hello 👋</p>} />);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

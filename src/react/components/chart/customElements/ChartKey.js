@@ -27,7 +27,7 @@ class ChartKey extends PureComponent {
 			<XUIButton
 				variant="icon-large"
 				title={title}>
-				<XUIIcon icon={infoPathData} />
+				<XUIIcon path={infoPathData} />
 			</XUIButton>
 		);
 

@@ -31,7 +31,7 @@ class ContentPagination extends PureComponent {
 					title={paginationPreviousTitle}
 					isDisabled={current === 1}>
 					<XUIIcon
-						icon={arrowPathData}
+						path={arrowPathData}
 						rotation="90"
 					/>
 				</XUIButton>
@@ -44,7 +44,7 @@ class ContentPagination extends PureComponent {
 					title={paginationNextTitle}
 					isDisabled={current === total}>
 					<XUIIcon
-						icon={arrowPathData}
+						path={arrowPathData}
 						rotation="270"
 					/>
 				</XUIButton>

@@ -18,15 +18,14 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-90 xui-icon-inline"
+      className="xui-icon xui-u-rotate-90"
       data-automationid={undefined}
       focusable="false"
-      height={7}
-      viewBox="0 0 11 7"
-      width={11}
+      style={null}
+      viewBox="0 0 30 30"
     >
       <path
-        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
         role="presentation"
       />
     </svg>
@@ -42,15 +41,14 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-270 xui-icon-inline"
+      className="xui-icon xui-u-rotate-270"
       data-automationid={undefined}
       focusable="false"
-      height={7}
-      viewBox="0 0 11 7"
-      width={11}
+      style={null}
+      viewBox="0 0 30 30"
     >
       <path
-        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
         role="presentation"
       />
     </svg>
@@ -76,15 +74,14 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-90 xui-icon-inline"
+      className="xui-icon xui-u-rotate-90"
       data-automationid={undefined}
       focusable="false"
-      height={7}
-      viewBox="0 0 11 7"
-      width={11}
+      style={null}
+      viewBox="0 0 30 30"
     >
       <path
-        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
         role="presentation"
       />
     </svg>
@@ -100,15 +97,14 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-270 xui-icon-inline"
+      className="xui-icon xui-u-rotate-270"
       data-automationid={undefined}
       focusable="false"
-      height={7}
-      viewBox="0 0 11 7"
-      width={11}
+      style={null}
+      viewBox="0 0 30 30"
     >
       <path
-        d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
         role="presentation"
       />
     </svg>

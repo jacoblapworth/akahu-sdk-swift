@@ -20,11 +20,10 @@ class ChartEmpty extends PureComponent {
 
 				{emptyStateComponent || (
 					<div className={`${NAME_SPACE}-chart--empty`}>
-						<XUIIcon icon={{
-							path: chartPathData,
-							width: 30,
-							height: 30
-						}}/>
+						<XUIIcon
+							path={chartPathData}
+							size="large"
+						/>
 						<div>{emptyMessage}</div>
 					</div>
 				)}

@@ -12,7 +12,6 @@ import {
 } from './private/helpers';
 import { compose } from '../helpers/compose';
 import { baseClass, dropdownPositionOptions } from "./private/constants";
-import {ns} from "../helpers/xuiClassNamespace";
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 
@@ -425,7 +424,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, isBlock, ...otherProps } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, ...otherProps } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -490,10 +489,8 @@ export default class DropDownToggled extends PureComponent {
 				data-ref='toggled-wrapper'
 				data-automationid={qaHook}
 			>
-				<span className={!isBlock && `${ns}-dropdownToggled--innerWrap` || ''}>
-					{clonedTrigger}
-					{positionedDropdown}
-				</span>
+				{clonedTrigger}
+				{positionedDropdown}
 			</div>
 		);
 	}
@@ -590,7 +587,7 @@ DropDownToggled.defaultProps = {
 	matchTriggerWidth: false,
 	preferredPosition: 'bottom-left',
 	triggerDropdownGap: 6,
-	isLegacyDisplay: false,
+	isLegacyDisplay: true,
 	isBlock: false,
 	ariaPopupType: 'listbox'
 };

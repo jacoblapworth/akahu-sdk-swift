@@ -119,7 +119,9 @@ export default class XUITooltip extends PureComponent {
 		const wrapperClasses = cn(
 			wrapperClassName,
 			baseClass,
-			isDisabled && `${ns}-is-disabled`
+			isDisabled && `${ns}-is-disabled`,
+			!isHidden && `${baseClass}-tipopen`,
+			isAnimating && `${baseClass}-tipanimating`
 		);
 
 		const tipClasses = cn(

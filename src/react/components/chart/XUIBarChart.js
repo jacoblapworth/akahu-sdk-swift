@@ -5,25 +5,7 @@ import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
 
-/*
-
-TODO:
------
-
-+ XUI icon new table version
-  + Seperate PR
-  + Setup against new "viewbox" system
-
-+ Documentation
-  + XUI docs (Fin)
-  + React docs
-  + Storybook
-  + Jest snapshots
-
-*/
-
 class XUIBarChart extends PureComponent {
-
 	render = () => {
 		const {props} = this;
 		const {barsData, isLoading} = props;
@@ -138,6 +120,9 @@ XUIBarChart.propTypes = {
 	/** Function to create a custom pagination message based on the charts "current" and "total" pagination "panels". */
 	createPaginationMessage: PropTypes.func,
 
+	/** Accessibility aria-label for pagination component. */
+	paginationLabel: PropTypes.string,
+
 	/** Accessibility title for pagination button. */
 	paginationNextTitle: PropTypes.string,
 
@@ -168,6 +153,7 @@ XUIBarChart.defaultProps = {
 	emptyMessage: 'There is no data to display',
 	xAxisType: 'standard',
 	yAxisDefaultTopValue: 0,
+	paginationLabel: 'Pagination',
 	paginationNextTitle: 'Next Page',
 	paginationPreviousTitle: 'Previous page',
 	loadingLabel: 'Loading'

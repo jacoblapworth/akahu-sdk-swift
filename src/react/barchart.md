@@ -359,6 +359,7 @@ class Demo extends React.Component {
 				keyLabel="Healthy food"
 				hasPagination
 				createPaginationMessage={(current, total) => `Page ${current} of ${total}`}
+				paginationLabel="Chart Pagination"
 				paginationNextTitle="Next set of data"
 				paginationPreviousTitle="Previous set of data"
 			/>

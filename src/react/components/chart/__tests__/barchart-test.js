@@ -78,6 +78,7 @@ const defaultPaginatioProps = {
 	total: 5,
 	createMessage: noop,
 	updatePanel: noop,
+	paginationLabel: 'Pagination',
 	paginationNextTitle: 'Next',
 	paginationPreviousTitle: 'Previous',
 };

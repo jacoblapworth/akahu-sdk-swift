@@ -189,6 +189,7 @@ const enrichParams = (state, props, chartTheme) => {
 		xAxisType,
 		hasPagination: hasPaginationRaw,
 		createPaginationMessage,
+		paginationLabel,
 		paginationNextTitle,
 		paginationPreviousTitle,
 	} = props;
@@ -288,7 +289,7 @@ const enrichParams = (state, props, chartTheme) => {
 		barsData, barsWidth, barWidth, onBarClick, activeBars, barColorActive, barColorStacks,
 
 		// Pagination...
-		hasPagination, createPaginationMessage, paginationNextTitle, paginationPreviousTitle,
+		hasPagination, createPaginationMessage, paginationLabel, paginationNextTitle, paginationPreviousTitle,
 
 		// Tooltip...
 		hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,

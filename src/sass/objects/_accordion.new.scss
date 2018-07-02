@@ -1,0 +1,9 @@
+@import "../mixins";
+
+.#{$ns}-accordionitem-new--emptystate {
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

@@ -116,6 +116,7 @@ const sideBySide = (
 		className="xui-margin-right-large"
 		preferredPosition="bottom-right"
 		isHidden={false}
+		isLegacyDisplay={false}
 		dropdown={
 			<DropDown size="large" restrictFocus={false}>
 				<Picklist>{createItems(toggledItems, 'one')}</Picklist>

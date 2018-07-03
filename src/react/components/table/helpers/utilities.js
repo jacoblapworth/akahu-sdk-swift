@@ -59,7 +59,6 @@ export const queryIsValidInteraction = (event) => {
 // Register an interaction on a Cell or Row providing there is not an predefined
 // action residing in the location that was clicked.
 const createInteractionHandler = (handler, data) => (event) => {
-
 	const isValidInteraction = queryIsValidInteraction(event);
 	const {target} = event;
 	const isRow = target.classList.contains(`${NAME_SPACE}--row-link`);

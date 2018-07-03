@@ -130,6 +130,7 @@ class TableHead extends PureComponent {
 		return sortKey
 			? this.createSortButton({
 					children,
+					key,
 					className,
 					sortKey,
 					activeSortKey,

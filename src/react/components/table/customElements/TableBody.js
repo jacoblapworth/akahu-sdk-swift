@@ -47,7 +47,7 @@ class TableBody extends PureComponent {
 		);
 	};
 
-	createOverflowMenuCell = ({ rowData, createOverflowMenu, dividerClasses }) => {
+	createOverflowMenuCell = ({ rowData, createOverflowMenu, overflowMenuTitle, dividerClasses }) => {
 		const items = createOverflowMenu && createOverflowMenu(rowData);
 		const hasItems = Boolean(items && items.length);
 		const className = cn(
@@ -60,7 +60,11 @@ class TableBody extends PureComponent {
 		return (
 			<TableData className={className}>
 				{NBSP}
-				{hasItems && <OverflowMenu {...{ items }} />}
+				{hasItems && (
+					<OverflowMenu
+						items={items}
+						overflowMenuTitle={overflowMenuTitle}/>
+				)}
 			</TableData>
 		);
 	};
@@ -110,6 +114,7 @@ class TableBody extends PureComponent {
 			shouldRowClick,
 			hasOverflowMenu,
 			createOverflowMenu,
+			overflowMenuTitle,
 			createDividerClassesThunk,
 		} = this.props;
 
@@ -161,8 +166,8 @@ class TableBody extends PureComponent {
 							{hasOverflowMenu && this.createOverflowMenuCell({
 								rowData,
 								createOverflowMenu,
-								dividerClasses
-								,
+								overflowMenuTitle,
+								dividerClasses,
 							})}
 
 						</tr>
@@ -191,6 +196,7 @@ TableBody.propTypes = {
 	// Overflow Menu.
 	hasOverflowMenu: PropTypes.bool,
 	createOverflowMenu: PropTypes.func,
+	overflowMenuTitle: PropTypes.string,
 
 	// Interaction.
 	onRowClick: PropTypes.func,

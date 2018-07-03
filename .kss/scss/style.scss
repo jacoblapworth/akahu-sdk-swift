@@ -984,18 +984,77 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-steps {
+	@include xui-listreset;
+	color: $xui-color-grey-alpha-2;
+	cursor: default;
+	display: flex;
+	justify-content: center;
 	margin-left: -10px;
 }
 
-.ds-step:nth-last-child(n+2) {
-	margin-right: 10px;
+.ds-step {
+	align-items: center;
+	display: flex;
+	position: relative;
+
+	&:nth-last-child(n+2) {
+		margin-right: 10px;
+	}
+
+	&::after {
+		background-color: transparent;
+		bottom: 0;
+		content: "";
+		display: block;
+		height: 3px;
+		left: 10px; // Offset $xui-s-actionlink
+		position: absolute;
+		width: calc(100% - 20px); // (100%) - (20px offset $xui-s-actionlink)
+	}
 }
 
+
+.ds-step-layout {
+	@include xui-padding-vertical($xui-s-standard);
+}
+
+// Step icon
 .ds-step--icon {
+	position: absolute;
 	left: -20px;
+	top: calc(50% - 15px);
 }
 
-.xui-steps-interactive .xui-step-is-complete .ds-step--body {
+// Step text
+.ds-step--body {
+	@include xui-text-line-height-compact;
+
+	color: currentColor;
+	outline: none;
+	padding: $xui-s-actionlink;
+	text-align: center;
+}
+
+// Interactive completed step
+.ds-steps-interactive {
+	.ds-step-is-complete .ds-step--body {
+		&:hover {
+			color: $xui-color-xero-blue;
+		}
+
+		&:focus {
+			background-color: rgba($xui-color-grey-1, 0.05);
+			border-radius: $xui-radius;
+		}
+
+		&:active {
+			background-color: rgba($xui-color-grey-1, 0.1);
+			border-radius: $xui-radius;
+		}
+	}
+}
+
+.ds-steps-interactive .ds-step-is-complete .ds-step--body {
 	padding: 5px 10px;
 	font-size: 13px;
 	color: $xui-color-grey-2;

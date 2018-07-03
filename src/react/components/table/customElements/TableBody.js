@@ -20,6 +20,7 @@ class TableBody extends PureComponent {
 		rowData,
 		checkedIds,
 		onCheckOneToggle,
+		checkOneRowLabel,
 		dividerClasses,
 	}) => {
 		const { _id } = rowData;
@@ -38,7 +39,10 @@ class TableBody extends PureComponent {
 					className={`${NAME_SPACE}--checkbox-body`}
 					isChecked={isChecked}
 					onChange={(event) => onCheckOneToggle(event, _id)}
-				/>
+					isLabelHidden
+				>
+				{checkOneRowLabel}
+				</XUICheckbox>
 			</TableData>
 		);
 	};
@@ -101,6 +105,7 @@ class TableBody extends PureComponent {
 			hasCheckbox,
 			checkedIds,
 			onCheckOneToggle,
+			checkOneRowLabel,
 			onRowClick,
 			shouldRowClick,
 			hasOverflowMenu,
@@ -131,6 +136,7 @@ class TableBody extends PureComponent {
 								rowData,
 								checkedIds,
 								onCheckOneToggle,
+								checkOneRowLabel,
 								dividerClasses,
 							})}
 
@@ -180,6 +186,7 @@ TableBody.propTypes = {
 	hasCheckbox: PropTypes.bool,
 	checkedIds: PropTypes.array,
 	onCheckOneToggle: PropTypes.func,
+	checkOneRowLabel: PropTypes.string,
 
 	// Overflow Menu.
 	hasOverflowMenu: PropTypes.bool,

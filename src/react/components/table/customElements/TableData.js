@@ -7,7 +7,9 @@ class HeadData extends PureComponent {
 		const { children, ...props } = this.props;
 
 		return (
-			<th {...props}>
+			<th
+				{...props}
+				tabIndex="0">
 				{children || NBSP}
 			</th>
 		);
@@ -24,7 +26,9 @@ class BodyData extends PureComponent {
 		const { children, ...props } = this.props;
 
 		return (
-			<td {...props}>
+			<td
+				{...props}
+				tabIndex="0">
 				{children || NBSP}
 			</td>
 		);

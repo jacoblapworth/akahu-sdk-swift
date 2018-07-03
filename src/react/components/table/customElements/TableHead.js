@@ -7,6 +7,7 @@ import sortPathData from '@xero/xui-icon/icons/sort-single';
 import {
 	cellPosition,
 	createCellLocationClasses,
+	queryIsValidInteraction,
 } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 import TableData from './TableData';
@@ -15,11 +16,12 @@ import {ns} from "../../helpers/xuiClassNamespace";
 const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-heading-separator`;
 
 class TableHead extends PureComponent {
-	createCheckBoxCell = (
+	createCheckBoxCell = ({
 		data,
 		checkedIds,
-		onCheckAllToggle
-	) => {
+		onCheckAllToggle,
+		checkAllRowsLabel,
+	}) => {
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			HEAD_CELL_CLASSES,
@@ -43,7 +45,9 @@ class TableHead extends PureComponent {
 						isIndeterminate={isIndeterminate}
 						className={`${NAME_SPACE}--checkbox-head`}
 						onChange={onCheckAllToggle}
-					/>
+						isLabelHidden>
+						{checkAllRowsLabel}
+					</XUICheckbox>
 				)}
 			</TableData>
 		);
@@ -65,24 +69,23 @@ class TableHead extends PureComponent {
 		);
 	};
 
-	createsortbutton = ({
+	createSortButton = ({
 		children,
 		sortKey,
-		isSortActive,
+		activeSortKey,
 		isSortAsc,
 		onSortChange,
+		...props,
 	}) => {
-		const buttonClassName = cn(
+		const isSortActive = activeSortKey && activeSortKey === sortKey;
+		const interactionhandler = event => queryIsValidInteraction(event) && onSortChange(sortKey);
+		const className = cn(
+			props.className,
 			`${NAME_SPACE}--sortbutton`,
 			isSortActive && `${NAME_SPACE}--sortbutton-active`
 		);
-
-		return (
-			<button
-				className={buttonClassName}
-				onClick={() => onSortChange(sortKey)}
-				type="button">
-
+		const content = (
+			<div>
 				<span>{children}</span>
 
 				<XUIIcon
@@ -90,9 +93,17 @@ class TableHead extends PureComponent {
 					className={`${NAME_SPACE}--sortbutton-icon`}
 					rotation={isSortAsc ? null : 180}
 				/>
-
-			</button>
+			</div>
 		);
+
+		return createElement(TableData, {
+			...props,
+			className,
+			tabIndex: '0',
+			role: 'button',
+			onClick: interactionhandler,
+			onKeyDown: interactionhandler,
+		}, content);
 	};
 
 	createGenericCell = ({
@@ -109,24 +120,27 @@ class TableHead extends PureComponent {
 			className: suppliedClasses,
 		} = head.props;
 		const key = `column-cell-${index}`;
-		const isSortActive = activeSortKey && activeSortKey === sortKey;
 		const isHead = true;
 		const className = cn(
 			HEAD_CELL_CLASSES,
 			cellLocationClasses,
 			suppliedClasses,
 		);
-		const content = sortKey
-			? this.createsortbutton({
-				children,
-				sortKey,
-				isSortActive,
-				isSortAsc,
-				onSortChange,
-			})
-			: <span>{children}</span>;
 
-		return createElement(TableData, { isHead, key, className }, content);
+		return sortKey
+			? this.createSortButton({
+					children,
+					className,
+					sortKey,
+					activeSortKey,
+					isSortAsc,
+					onSortChange,
+				})
+			: createElement(TableData, {
+					isHead,
+					key,
+					className
+				}, <span>{children}</span>)
 	};
 
 	render = () => {
@@ -139,6 +153,7 @@ class TableHead extends PureComponent {
 			hasCheckbox,
 			checkedIds,
 			onCheckAllToggle,
+			checkAllRowsLabel,
 			hasOverflowMenu,
 		} = this.props;
 
@@ -146,7 +161,12 @@ class TableHead extends PureComponent {
 			<thead className={`${NAME_SPACE}--head`}>
 				<tr className={`${NAME_SPACE}--row ${ns}-text-align-left`}>
 
-					{hasCheckbox && this.createCheckBoxCell(data, checkedIds, onCheckAllToggle)}
+					{hasCheckbox && this.createCheckBoxCell({
+						data,
+						checkedIds,
+						onCheckAllToggle,
+						checkAllRowsLabel,
+					})}
 
 					{columns.map(({ props: { head } }, index) => (
 
@@ -183,6 +203,7 @@ TableHead.propTypes = {
 	hasCheckbox: PropTypes.bool,
 	checkedIds: PropTypes.array,
 	onCheckAllToggle: PropTypes.func,
+	checkAllRowsLabel: PropTypes.string,
 	isCheckAllStatusChecked: PropTypes.bool,
 	isCheckAllStatusIndeterminate: PropTypes.bool,
 

@@ -252,6 +252,10 @@ XUITable.propTypes = {
 	/** Callback to handle a single checkbox interaction inside of a row. */
 	onCheckOneToggle: PropTypes.func,
 
+	checkOneRowLabel: PropTypes.string,
+
+	checkAllRowsLabel: PropTypes.string,
+
 	// - - - - - - - //
 	// Overflow Menu. //
 	// - - - - - - - //
@@ -314,6 +318,8 @@ XUITable.defaultProps = {
 	checkedIds: {},
 	loaderLabel: 'Loading more data',
 	emptyMessage: 'Nothing to show here',
+	checkOneRowLabel: 'Select row',
+	checkAllRowsLabel: 'Select all rows',
 };
 
 export default XUITable;

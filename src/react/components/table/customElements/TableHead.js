@@ -36,6 +36,7 @@ class TableHead extends PureComponent {
 		return (
 			<TableData
 				className={className}
+				tabIndex="-1"
 				isHead>
 				{NBSP}
 				{onCheckAllToggle && (

@@ -8,8 +8,8 @@ class HeadData extends PureComponent {
 
 		return (
 			<th
-				{...props}
-				tabIndex="0">
+				tabIndex="0"
+				{...props}>
 				{children || NBSP}
 			</th>
 		);
@@ -27,8 +27,8 @@ class BodyData extends PureComponent {
 
 		return (
 			<td
-				{...props}
-				tabIndex="0">
+				tabIndex="0"
+				{...props}>
 				{children || NBSP}
 			</td>
 		);

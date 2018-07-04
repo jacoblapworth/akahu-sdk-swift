@@ -1097,6 +1097,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table--sortbutton {
 	background: $xui-color-white;
+	cursor: pointer;
 	height: $xui-s-4xlarge;
 	outline: 0;
 	overflow: hidden;
@@ -1121,9 +1122,13 @@ $xui-table-z-alert: 4;
 	transform: translateX(#{$xui-s-standard});
 }
 
-.#{$ns}-table--sortbutton-icon {
-	opacity: 0;
+.#{$ns}-table--sortbutton > * {
 	transition: $xui-motion-speed-fast;
+}
+
+.#{$ns}-table--sortbutton-icon {
+	margin-left: 8px;
+	opacity: 0;
 }
 
 .#{$ns}-table--sortbutton-active .#{$ns}-table--sortbutton-icon {

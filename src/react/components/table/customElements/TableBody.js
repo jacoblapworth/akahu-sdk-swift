@@ -33,7 +33,9 @@ class TableBody extends PureComponent {
 		);
 
 		return (
-			<TableData className={className}>
+			<TableData
+				className={className}
+				tabIndex="-1">
 				{NBSP}
 				<XUICheckbox
 					className={`${NAME_SPACE}--checkbox-body`}
@@ -58,7 +60,9 @@ class TableBody extends PureComponent {
 		);
 
 		return (
-			<TableData className={className}>
+			<TableData
+				className={className}
+				tabIndex="-1">
 				{NBSP}
 				{hasItems && (
 					<OverflowMenu

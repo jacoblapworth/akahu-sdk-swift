@@ -28,7 +28,7 @@ const tableStyles = {
 };
 
 const appendageStyles = {
-	background: 'skyblue',
+	background: 'darkslategray',
 	color: 'white',
 	fontWeight: 'bold',
 	padding: '20px',
@@ -37,12 +37,12 @@ const appendageStyles = {
 const customStyles = (`
 
 .xui-table-visualTesting-tableWrapper {
-	border: 10px solid skyblue !important;
+	border: 10px solid darkslategray !important;
 	border-radius: 10px !important;
 }
 
 .xui-table-visualTesting-cell {
-	background: skyblue !important;
+	background: darkslategray !important;
 	color: white !important;
 	font-weight: bold !important;
 }
@@ -74,8 +74,7 @@ const createCustomStyles = () => {
 const createTags = (total) => new Array(total).fill(0).map((_, index) => (
 	<XUITag
 		key={index}
-		className="xui-margin-right-xsmall"
-		variant="positive">
+		className="xui-margin-right-xsmall">
 		{`tag ${index + 1}`}
 	</XUITag>
 ));

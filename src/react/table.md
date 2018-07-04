@@ -682,7 +682,7 @@ const {
 const Appendage = ({ children }) => (
 	<div
 		className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-padding-horizontal-small"
-		style={ { background: 'skyblue' } }>
+		style={ { background: 'darkslategray' } }>
 		{ children }
 	</div>
 );
@@ -835,7 +835,7 @@ const {
 const emptyStateComponent = (
 	<div
 		className="xui-heading xui-textcolor-inverted xui-padding-vertical-large xui-padding-horizontal-small"
-		style={ { background: 'skyblue' } }>
+		style={ { background: 'darkslategray' } }>
 		No fruit found... "Orange" you going to search again?
 	</div>
 );

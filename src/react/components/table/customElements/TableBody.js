@@ -20,6 +20,7 @@ class TableBody extends PureComponent {
 		rowData,
 		checkedIds,
 		onCheckOneToggle,
+		checkOneRowLabel,
 		dividerClasses,
 	}) => {
 		const { _id } = rowData;
@@ -32,18 +33,23 @@ class TableBody extends PureComponent {
 		);
 
 		return (
-			<TableData className={className}>
+			<TableData
+				className={className}
+				tabIndex="-1">
 				{NBSP}
 				<XUICheckbox
 					className={`${NAME_SPACE}--checkbox-body`}
 					isChecked={isChecked}
 					onChange={(event) => onCheckOneToggle(event, _id)}
-				/>
+					isLabelHidden
+				>
+				{checkOneRowLabel}
+				</XUICheckbox>
 			</TableData>
 		);
 	};
 
-	createOverflowMenuCell = ({ rowData, createOverflowMenu, dividerClasses }) => {
+	createOverflowMenuCell = ({ rowData, createOverflowMenu, overflowMenuTitle, dividerClasses }) => {
 		const items = createOverflowMenu && createOverflowMenu(rowData);
 		const hasItems = Boolean(items && items.length);
 		const className = cn(
@@ -54,9 +60,15 @@ class TableBody extends PureComponent {
 		);
 
 		return (
-			<TableData className={className}>
+			<TableData
+				className={className}
+				tabIndex="-1">
 				{NBSP}
-				{hasItems && <OverflowMenu {...{ items }} />}
+				{hasItems && (
+					<OverflowMenu
+						items={items}
+						overflowMenuTitle={overflowMenuTitle}/>
+				)}
 			</TableData>
 		);
 	};
@@ -101,10 +113,12 @@ class TableBody extends PureComponent {
 			hasCheckbox,
 			checkedIds,
 			onCheckOneToggle,
+			checkOneRowLabel,
 			onRowClick,
 			shouldRowClick,
 			hasOverflowMenu,
 			createOverflowMenu,
+			overflowMenuTitle,
 			createDividerClassesThunk,
 		} = this.props;
 
@@ -131,6 +145,7 @@ class TableBody extends PureComponent {
 								rowData,
 								checkedIds,
 								onCheckOneToggle,
+								checkOneRowLabel,
 								dividerClasses,
 							})}
 
@@ -155,8 +170,8 @@ class TableBody extends PureComponent {
 							{hasOverflowMenu && this.createOverflowMenuCell({
 								rowData,
 								createOverflowMenu,
-								dividerClasses
-								,
+								overflowMenuTitle,
+								dividerClasses,
 							})}
 
 						</tr>
@@ -180,10 +195,12 @@ TableBody.propTypes = {
 	hasCheckbox: PropTypes.bool,
 	checkedIds: PropTypes.array,
 	onCheckOneToggle: PropTypes.func,
+	checkOneRowLabel: PropTypes.string,
 
 	// Overflow Menu.
 	hasOverflowMenu: PropTypes.bool,
 	createOverflowMenu: PropTypes.func,
+	overflowMenuTitle: PropTypes.string,
 
 	// Interaction.
 	onRowClick: PropTypes.func,

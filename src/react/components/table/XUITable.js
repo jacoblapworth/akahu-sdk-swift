@@ -87,8 +87,11 @@ class XUITable extends Component {
 			checkedIds,
 			onCheckAllToggle,
 			onCheckOneToggle,
+			checkOneRowLabel,
+			checkAllRowsLabel,
 			hasOverflowMenu,
 			createOverflowMenu,
+			overflowMenuTitle,
 			hasPinnedFirstColumn,
 			hasPinnedLastColumn,
 			createDividerClassesThunk,
@@ -150,6 +153,7 @@ class XUITable extends Component {
 								hasCheckbox,
 								checkedIds,
 								onCheckAllToggle,
+								checkAllRowsLabel,
 								hasOverflowMenu,
 							}} />
 
@@ -161,10 +165,12 @@ class XUITable extends Component {
 							hasCheckbox,
 							checkedIds,
 							onCheckOneToggle,
+							checkOneRowLabel,
 							onRowClick,
 							shouldRowClick,
 							hasOverflowMenu,
 							createOverflowMenu,
+							overflowMenuTitle,
 							createDividerClassesThunk,
 						}} />
 
@@ -252,6 +258,12 @@ XUITable.propTypes = {
 	/** Callback to handle a single checkbox interaction inside of a row. */
 	onCheckOneToggle: PropTypes.func,
 
+	/** Describes the "single row" checkbox functionality for accessibility purposes. */
+	checkOneRowLabel: PropTypes.string,
+
+	/** Describes the "all rows" checkbox functionality for accessibility purposes. */
+	checkAllRowsLabel: PropTypes.string,
+
 	// - - - - - - - //
 	// Overflow Menu. //
 	// - - - - - - - //
@@ -261,6 +273,9 @@ XUITable.propTypes = {
 
 	/** A function that is supplied the data from each row and returns an array of Pickitem components. */
 	createOverflowMenu: PropTypes.func,
+
+	/** Describes the overflow menu functionality for accessibility purposes. */
+	overflowMenuTitle: PropTypes.string,
 
 	// - - - - //
 	// Sorting //
@@ -314,6 +329,9 @@ XUITable.defaultProps = {
 	checkedIds: {},
 	loaderLabel: 'Loading more data',
 	emptyMessage: 'Nothing to show here',
+	checkOneRowLabel: 'Select row',
+	checkAllRowsLabel: 'Select all rows',
+	overflowMenuTitle: 'More row options',
 };
 
 export default XUITable;

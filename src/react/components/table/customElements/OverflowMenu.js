@@ -10,11 +10,16 @@ import { NAME_SPACE } from '../helpers/constants';
 import {ns} from "../../helpers/xuiClassNamespace";
 
 class OverflowMenu extends PureComponent {
-	createTrigger = () => (
+	createTrigger = overflowMenuTitle => (
 		<XUIButton
 			variant="icon"
 			className={`${ns}-button-icon-large`}>
-			<XUIIcon icon={overflowPathData} className={`${ns}-u-flex-inherit`} isBoxed />
+			<XUIIcon
+				icon={overflowPathData}
+				className={`${ns}-u-flex-inherit`}
+				title={overflowMenuTitle}
+				isBoxed
+			/>
 		</XUIButton>
 	);
 
@@ -27,8 +32,8 @@ class OverflowMenu extends PureComponent {
 	);
 
 	render = () => {
-		const { items } = this.props;
-		const trigger = this.createTrigger();
+		const { items, overflowMenuTitle } = this.props;
+		const trigger = this.createTrigger(overflowMenuTitle);
 		const dropdown = this.createDropDown(items);
 
 		return (
@@ -44,6 +49,7 @@ class OverflowMenu extends PureComponent {
 
 OverflowMenu.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.node).isRequired,
+	overflowMenuTitle: PropTypes.string,
 };
 
 export default OverflowMenu;

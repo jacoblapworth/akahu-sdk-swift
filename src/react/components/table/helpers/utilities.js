@@ -46,14 +46,21 @@ export const createCellLocationClasses = ({ columns, index, hasCheckbox, hasOver
 	}
 };
 
+export const queryIsValidInteraction = (event) => {
+	const spaceBar = 32;
+	const enterKey = 13;
+	const { keyCode, type } = event;
+	const isClick = type === 'click';
+	const isKeyboard = type === 'keydown' && (keyCode === spaceBar || keyCode === enterKey);
+
+	return isClick || isKeyboard;
+};
+
 // Register an interaction on a Cell or Row providing there is not an predefined
 // action residing in the location that was clicked.
 const createInteractionHandler = (handler, data) => (event) => {
-	const spaceBar = 32;
-	const enterKey = 13;
-	const { keyCode, target, type } = event;
-	const isClick = type === 'click';
-	const isKeyboard = type === 'keydown' && (keyCode === spaceBar || keyCode === enterKey);
+	const isValidInteraction = queryIsValidInteraction(event);
+	const {target} = event;
 	const isRow = target.classList.contains(`${NAME_SPACE}--row-link`);
 	const isActionCell = !isRow && (() => {
 		const isCell = target.classList.contains(`${NAME_SPACE}--cell`);
@@ -62,7 +69,7 @@ const createInteractionHandler = (handler, data) => (event) => {
 		return !cellNode || cellNode.classList.contains(`${NAME_SPACE}--cell-action`);
 	})();
 
-	if ((isClick || isKeyboard) && !isActionCell) {
+	if (isValidInteraction && !isActionCell) {
 		return handler(event, data);
 	}
 };

@@ -168,6 +168,7 @@
 		@include stepperLinkColor($xui-color-grey-5);
 	}
 
+	&.#{$ns}-stepper-link-active:focus,
 	&.#{$ns}-stepper-link-standard:focus,
 	&.#{$ns}-stepper-link-error:focus {
 		@include stepperLinkColor($xui-color-blue-xdark);

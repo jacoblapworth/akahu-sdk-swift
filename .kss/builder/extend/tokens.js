@@ -206,7 +206,7 @@ const renderTableTokens = (tokens, tokenType) => {
 				example = `<div style="width:${value};height:${value};" class="ds-spacing-example"></div>`;
 				break;
 			case types.icon:
-				example = `<svg focusable="false" style="width:${value};height:${value}" class="xui-icon xui-blobicon"><use xlink:href="#xui-icon-search" role="presentation"/></svg>`;
+				example = `<div class="xui-iconwrapper"><svg focusable="false" style="width:${value};height:${value}" class="xui-icon"><use xlink:href="#xui-icon-search" role="presentation"/></svg></div>`;
 				break;
 			case types.table:
 				example = '';

@@ -5,7 +5,9 @@ module.exports = function (handlebars) {
 				<li class="ds-step ds-step ds-step-layout ds-step-is-complete">
 					<a class="ds-step--body ds-step--body" href="section-{{parentReferenceURI}}.html">
 						<span class="">{{parentHeader}}</span>
-						<svg focusable="false" class="ds-step--icon ds-step--icon xui-icon xui-blobicon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+						<div class="ds-step--icon ds-step--icon xui-iconwrapper">
+							<svg focusable="false" class="xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation" /></svg>
+						</div>
 					</a>
 				</li>
 			{{/if}}

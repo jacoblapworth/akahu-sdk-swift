@@ -211,6 +211,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper,
 .#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-button,
+.#{$ns}-textinputgroup > .#{$ns}-textinput,
 .#{$ns}-textinputgroup > .#{$ns}-button,
 .#{$ns}-textinputgroup .#{$ns}-select--control {
 	border-radius: 0;

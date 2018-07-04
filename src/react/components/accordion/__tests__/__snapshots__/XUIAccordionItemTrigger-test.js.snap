@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAccordionItemTrigger /> should render an automation id when passed in the qaHook prop 1`] = `
+<div
+  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  data-automationid="test-qahook"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordionitem-new--trigger--caret"
+  >
+    <button
+      className="xui-button xui-button-icon-large xui-button-icon"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-u-flex-inherit xui-transition"
+        data-automationid={undefined}
+        focusable="false"
+        style={null}
+        viewBox="0 0 30 30"
+      >
+        <path
+          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+  >
+    <div
+      className="xui-padding-vertical xui-u-flex-grow"
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordionItemTrigger /> should render closed 1`] = `
+<div
+  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordionitem-new--trigger--caret"
+  >
+    <button
+      className="xui-button xui-button-icon-large xui-button-icon"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-u-flex-inherit xui-transition"
+        data-automationid={undefined}
+        focusable="false"
+        style={null}
+        viewBox="0 0 30 30"
+      >
+        <path
+          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+  >
+    <div
+      className="xui-padding-vertical xui-u-flex-grow"
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordionItemTrigger /> should render open 1`] = `
+<div
+  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordionitem-new--trigger--caret"
+  >
+    <button
+      className="xui-button xui-button-icon-large xui-button-icon"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
+        data-automationid={undefined}
+        focusable="false"
+        style={null}
+        viewBox="0 0 30 30"
+      >
+        <path
+          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+  >
+    <div
+      className="xui-padding-vertical xui-u-flex-grow"
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordionItemTrigger /> should render with available props 1`] = `
+<div
+  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordionitem-new--trigger--caret"
+  >
+    <button
+      className="xui-button xui-button-icon-large xui-button-icon"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-u-flex-inherit xui-transition"
+        data-automationid={undefined}
+        focusable="false"
+        style={null}
+        viewBox="0 0 30 30"
+      >
+        <path
+          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <abbr
+    role="presentation"
+  >
+    GB
+  </abbr>
+  <div
+    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+  >
+    <div
+      className="xui-padding-vertical xui-u-flex-grow"
+    >
+      <div
+        className="xui-heading-small xui-text-wordbreak"
+      >
+        This is the title
+      </div>
+      <div
+        className="xui-textcolor-muted xui-text-wordbreak"
+      >
+        <div>
+          <span>
+            Nodes!
+          </span>
+          <br />
+          Plain text
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-accordionitem-new--trigger--rightcontent"
+    >
+      <div
+        className="xui-heading-small xui-text-deemphasis xui-padding-vertical-small xui-margin-right-small"
+      >
+        00:00
+      </div>
+      <button>
+        Action
+      </button>
+      <button>
+        ...
+      </button>
+    </div>
+  </div>
+</div>
+`;

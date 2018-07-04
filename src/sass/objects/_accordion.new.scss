@@ -8,6 +8,50 @@ $transition-duration: 0.15s;
 	width: 100%;
 }
 
+.#{$ns}-accordionitem-new {
+	background-color: $xui-color-white;
+	box-shadow: $xui-shadow-border-all;
+	outline: 0;
+	position: relative;
+	transition-duration: $transition-duration;
+	transition-property: width, margin, padding;
+	-ms-transition: none;
+	width: 100%;
+
+	@media (min-width: $xui-breakpoint-medium) {
+		&:first-child {
+			border-top-left-radius: $xui-radius;
+			border-top-right-radius: $xui-radius;
+		}
+
+		&:last-child {
+			border-bottom-left-radius: $xui-radius;
+			border-bottom-right-radius: $xui-radius;
+		}
+	}
+}
+
+.#{$ns}-accordionitem-new-is-open {
+	box-shadow: $xui-shadow-depth-lift;
+	z-index: 1;
+}
+
+.#{$ns}-accordionitem-new-pop {
+	border-radius: $xui-radius;
+	margin-left: -$pop-width;
+	width: calc(100% + #{2 * $pop-width});
+
+	.#{$ns}-accordionitem-new--trigger-is-open {
+		padding-left: $pop-width;
+		padding-right: $pop-width;
+	}
+
+	.#{$ns}-accordionitem-new--content--item {
+		padding-left: $pop-width;
+		padding-right: $pop-width;
+	}
+}
+
 .#{$ns}-accordionitem-new--trigger {
 	cursor: pointer;
 	transition-duration: $transition-duration;
@@ -45,6 +89,17 @@ $transition-duration: 0.15s;
 	@media (max-width: $xui-breakpoint-narrow) {
 		align-self: flex-start;
 	}
+}
+
+.#{$ns}-accordionitem-new--content {
+	opacity: 0;
+}
+
+.#{$ns}-accordionitem-new--content-is-open {
+	border-top: $xui-border-muted;
+	opacity: 1;
+	transition: opacity $transition-duration ease-in-out $transition-duration;
+	-ms-transition: none;
 }
 
 .#{$ns}-accordionitem-new--emptystate {

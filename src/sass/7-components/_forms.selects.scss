@@ -5,7 +5,7 @@
 	@include xui-commoninput;
 
 	cursor: pointer;
-	padding-right: $xui-s-2xlarge;
+	padding-right: $xui-s-3xlarge;
 
 	&::-ms-expand {
 		display: none;
@@ -15,6 +15,22 @@
 		color: transparent;
 		text-shadow: 0 0 0 $xui-color-black;
 	}
+
+	~ .#{$ns}-select--caret {
+		align-items: center;
+		bottom: 0;
+		margin: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: $xui-icon-standard;
+		z-index: 2;
+	}
+}
+
+.#{$ns}-select {
+	position: relative; // Required for the native select to position its caret correctly
 }
 
 .#{$ns}-select--caret {

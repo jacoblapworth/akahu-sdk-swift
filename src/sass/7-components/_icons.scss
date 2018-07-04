@@ -38,13 +38,13 @@
 // xLarge: 60px viewbox: `.xui-icon-xlarge`
 //
 // Markup:
-//  <svg focusable="false" class="xui-icon xui-blobicon">
+//  <svg focusable="false" class="xui-icon">
 //		<use xlink:href="#xui-icon-search" role="presentation"/>
 //	</svg>
-//  <svg focusable="false" class="xui-icon xui-blobicon xui-icon-large">
+//  <svg focusable="false" class="xui-icon xui-icon-large">
 //		<use xlink:href="#xui-icon-search" role="presentation"/>
 //	</svg>
-//  <svg focusable="false" class="xui-icon xui-blobicon xui-icon-xlarge">
+//  <svg focusable="false" class="xui-icon xui-icon-xlarge">
 //		<use xlink:href="#xui-icon-search" role="presentation"/>
 //	</svg>
 //
@@ -52,25 +52,23 @@
 
 // Placement
 //
-// By default, icons are centered within a 30px viewbox, to enable easier tabular alignment.
-// However, if you are intending to place icons alongside text, such as in [buttons](section-building-blocks-controls-button.html#building-blocks-controls-button-7), use the following modifier to ensure lineheight is not affected.
+// By default, icons are placed inline. When a set size is required, use the wrapper classes to center them in a box.
 //
 // Definitions:
-// Inline: Alongside text: `.xui-icon-inline`
+// Base: `.xui-iconwrapper`
+// Large: `.xui-iconwrapper-large`
+// XLarge: `.xui-iconwrapper-xlarge`
 //
 // Markup:
-//  <button class='xui-button xui-button-main'>
-//  	Button
-//  	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-inline">
-//			<use xlink:href="#xui-icon-caret" role="presentation"/>
-//		</svg>
-// 	</button>
-//  <p class='xui-button xui-margin-left'>
-//  	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-inline">
-//			<use xlink:href="#xui-icon-tag" role="presentation"/>
-//		</svg>
-//  	Text
-// 	</p>
+// <div class="xui-iconwrapper xui-textcolor-inverted xui-background-grey-1">
+//   <svg class="xui-icon"><use xlink:href="#xui-icon-filter" role="presentation"/></svg>
+// </div>
+// <div class="xui-iconwrapper xui-iconwrapper-large xui-textcolor-inverted xui-background-grey-1">
+//   <svg class="xui-icon xui-icon-large"><use xlink:href="#xui-icon-filter" role="presentation"/></svg>
+// </div>
+// <div class="xui-iconwrapper xui-iconwrapper-xlarge xui-textcolor-inverted xui-background-grey-1">
+//   <svg class="xui-icon xui-icon-xlarge"><use xlink:href="#xui-icon-filter" role="presentation"/></svg>
+// </div>
 //
 // Styleguide: Fundamentals.Icons.3
 
@@ -103,36 +101,58 @@
 // Black faint: `.xui-icon-color-black-faint`
 //
 // Markup:
-//	<svg focusable="false" class="xui-icon xui-blobicon">
-// 		<use xlink:href="#xui-icon-filter" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-standard">
-// 		<use xlink:href="#xui-icon-contact" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-blue">
-// 		<use xlink:href="#xui-icon-xero" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-red">
-// 		<use xlink:href="#xui-icon-stop" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-green">
-// 		<use xlink:href="#xui-icon-checkbox-check" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-file-pdf">
-// 		<use xlink:href="#xui-icon-file-pdf" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-file-spreadsheet">
-// 		<use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-white xui-background-grey-1">
-// 		<use xlink:href="#xui-icon-notification" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-white-muted xui-background-grey-1">
-// 		<use xlink:href="#xui-icon-link" role="presentation"/>
-// 	</svg>
-//	<svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-white-faint xui-background-grey-1">
-// 		<use xlink:href="#xui-icon-print" role="presentation"/>
-// 	</svg>
+// <div class="xui-row-flex">
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon">
+// 			<use xlink:href="#xui-icon-filter" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-standard">
+// 			<use xlink:href="#xui-icon-contact" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-blue">
+// 			<use xlink:href="#xui-icon-xero" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-red">
+// 			<use xlink:href="#xui-icon-stop" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-green">
+// 			<use xlink:href="#xui-icon-checkbox-check" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-file-pdf">
+// 			<use xlink:href="#xui-icon-file-pdf" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-file-spreadsheet">
+// 			<use xlink:href="#xui-icon-file-spreadsheet" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper xui-background-grey-1">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-white">
+// 			<use xlink:href="#xui-icon-notification" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper xui-background-grey-1">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-white-muted">
+// 			<use xlink:href="#xui-icon-link" role="presentation"/>
+// 		</svg>
+//  </div>
+//	<div class="xui-iconwrapper xui-background-grey-1">
+// 		<svg focusable="false" class="xui-icon xui-icon-color-white-faint">
+// 			<use xlink:href="#xui-icon-print" role="presentation"/>
+// 		</svg>
+//  </div>
+// </div>
 //
 // Styleguide: Fundamentals.Icons.4
 
@@ -147,18 +167,26 @@
 // 270deg: 		`.xui-u-rotate-270`
 //
 // Markup:
-// <svg focusable="false" class="xui-icon xui-blobicon">
-// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
-// </svg>
-// <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-90">
-// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
-// </svg>
-// <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-180">
-// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
-// </svg>
-// <svg focusable="false" class="xui-icon xui-blobicon xui-u-rotate-270">
-// 	<use xlink:href="#xui-icon-arrow" role="presentation"/>
-// </svg>
+// <div class="xui-iconwrapper">
+//   <svg focusable="false" class="xui-icon">
+//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
+//   </svg>
+// </div>
+// <div class="xui-iconwrapper">
+//   <svg focusable="false" class="xui-icon xui-u-rotate-90">
+//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
+//   </svg>
+// </div>
+// <div class="xui-iconwrapper">
+//   <svg focusable="false" class="xui-icon xui-u-rotate-180">
+//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
+//   </svg>
+// </div>
+// <div class="xui-iconwrapper">
+//   <svg focusable="false" class="xui-icon xui-u-rotate-270">
+//     <use xlink:href="#xui-icon-arrow" role="presentation"/>
+//   </svg>
+// </div>
 //
 // Styleguide: Fundamentals.Icons.5
 
@@ -194,28 +222,7 @@
 	fill-rule: evenodd;
 	flex: none; // Prevent distortion if parent has display: flex
 	pointer-events: none; // Don't hog the cursor if inside buttons/links
-}
-
-.#{$ns}-blobicon {
-	height: $xui-icon-standard;
-	width: $xui-icon-standard;
-
-	&.#{$ns}-icon-inline {
-		margin: -10px -8px -6px;
-		vertical-align: middle;
-	}
-}
-
-.#{$ns}-blobicon-large,
-.#{$ns}-iconwrapper-large {
-	height: $xui-icon-large;
-	width: $xui-icon-large;
-}
-
-.#{$ns}-blobicon-xlarge,
-.#{$ns}-iconwrapper-xlarge {
-	height: $xui-icon-xlarge;
-	width: $xui-icon-xlarge;
+	vertical-align: text-bottom;
 }
 
 $icon-colours:

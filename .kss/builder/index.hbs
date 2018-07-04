@@ -109,10 +109,6 @@
 						{{injectXUIIconLoaderExample}}
 					{{/ifStyleguide}}
 
-					{{#ifStyleguide "Fundamentals.Icons.7" }}
-						{{xuiIconDocs}}
-					{{/ifStyleguide}}
-
 					{{#if markdown}}
 					<div class="ds-description">
 						{{{includePage markdown}}}
@@ -251,6 +247,10 @@
 
 			</div>
 			{{/if}}
+
+			{{#ifStyleguide "Fundamentals.Icons.7" }}
+				{{xuiIconDocs}}
+			{{/ifStyleguide}}
 
 		{{/wrapSection}}
 		{{/each}}

@@ -196,11 +196,6 @@ export default class XUIDatePicker extends PureComponent {
 			if (onSelectDate) {
 				onSelectDate(date);
 			}
-			if (modifiers[customClassNames.outside]) {
-				this.setState({
-					currentMonth: date,
-				});
-			}
 		}
 	}
 
@@ -282,7 +277,7 @@ export default class XUIDatePicker extends PureComponent {
 				}}
 				dir={dir}
 				disabledDays={this.isDayDisabled}
-				enableOutsideDays={showDaysInOtherMonths}
+				showOutsideDays={showDaysInOtherMonths}
 				firstDayOfWeek={firstDayOfWeek}
 				fixedWeeks={showFixedNumberOfWeeks}
 				fromMonth={minDate}
@@ -290,6 +285,7 @@ export default class XUIDatePicker extends PureComponent {
 					nextMonth: nextButtonLabel,
 					previousMonth: prevButtonLabel,
 				}}
+				enableOutsideDaysClick={false}
 				locale={locale}
 				modifiers={modifiers}
 				month={this.state.currentMonth}
@@ -343,9 +339,9 @@ XUIDatePicker.propTypes = {
 	 * If the user has only selected the first date in the range, pass that in as the "from" property.
 	 */
 	selectedRange: PropTypes.shape({
-    from: PropTypes.instanceOf(Date),
-    to: PropTypes.instanceOf(Date),
-  }),
+		from: PropTypes.instanceOf(Date),
+		to: PropTypes.instanceOf(Date),
+	}),
 
 	/** If you need to render a calendar in a small amount of horizontal space, set this flag to shrink things down a bit. */
 	isCompact: PropTypes.bool,

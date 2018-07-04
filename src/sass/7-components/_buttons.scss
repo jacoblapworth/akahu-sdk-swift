@@ -136,7 +136,7 @@
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon" title="Close the window" aria-label="Close the window">
-//  <svg focusable="false" class="xui-icon xui-blobicon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 // </button>
 //
 // Styleguide: Building Blocks.Controls.Button.5
@@ -153,7 +153,7 @@
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="More options" aria-label="More options">
-//   <svg focusable="false" class="xui-icon xui-blobicon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
+//   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
 // </button>
 //
 // Styleguide: Building Blocks.Controls.Button.5.1
@@ -180,7 +180,7 @@
 // Markup:
 // <button type="button" class="xui-button xui-button-standard">
 //    Dropdown
-//   <svg focusable="false" class="xui-icon xui-blobicon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//   <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 // </button>
 //
 // Styleguide: Building Blocks.Controls.Button.6
@@ -197,7 +197,7 @@
 //
 // Markup:
 // <button type="button" class="xui-button xui-button-standard">
-//   <svg focusable="false" class="xui-icon xui-blobicon xui-icon-inline"> <use xlink:href="#xui-icon-plus" role="presentation" /></svg>
+//   <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-plus" role="presentation" /></svg>
 //   Create invoice
 // </button>
 //
@@ -238,7 +238,7 @@
 // <div class="xui-buttongroup">
 //   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Dropdown</button>
 //   <button type="button" class="xui-button xui-button-grouped xui-button-standard xui-button-split" aria-label="More actions">
-//     <svg focusable="false" class="xui-icon xui-blobicon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//     <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 //  </button>
 // </div>
 //
@@ -260,7 +260,7 @@
 // <button type="button" class="xui-button xui-button-standard xui-button-inverted">Standard</button>
 // <button type="button" class="xui-button xui-button-borderless-inverted">Borderless</button>
 // <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Go back to the previous page" aria-label="Go back to the previous page">
-//  <svg focusable="false" class="xui-icon xui-blobicon"><use xlink:href="#xui-icon-back"></use></svg>
+//  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
 // </button>
 //
 // Styleguide: Building Blocks.Controls.Button.10
@@ -280,7 +280,7 @@
 // <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">Standard</button>
 // <button type="button" disabled class="xui-button xui-button-borderless-standard xui-button-is-disabled">Borderless</button>
 // <button type="button" disabled class="xui-button xui-button-icon xui-button-is-disabled" title="Go back to the previous page" aria-label="Go back to the previous page">
-//  <svg focusable="false" class="xui-icon xui-blobicon"><use xlink:href="#xui-icon-back"></use></svg>
+//  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
 // </button>
 //
 // Styleguide: Building Blocks.Controls.Button.11

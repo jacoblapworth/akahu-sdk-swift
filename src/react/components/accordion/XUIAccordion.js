@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 
 export default class XUIAccordion extends PureComponent {
 	state = {
@@ -16,7 +17,7 @@ export default class XUIAccordion extends PureComponent {
 		const { ListItem } = this.props;
 
 		return (
-			<div data-automationid={this.props.qaHook} className={this.props.className}>
+			<div data-automationid={this.props.qaHook} className={cn('xui-accordion-new', this.props.className)}>
 				{this.props.data.map(item => (
 					<ListItem
 						isOpen={this.state.openId === item[this.props.idKey]}

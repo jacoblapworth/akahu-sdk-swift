@@ -2,14 +2,14 @@
 
 exports[`<XUIAccordion /> renders the base component with only required props passed 1`] = `
 <div
-  className={undefined}
+  className="xui-accordion-new"
   data-automationid={undefined}
 />
 `;
 
 exports[`<XUIAccordion /> renders the component using all available options 1`] = `
 <div
-  className="testClass"
+  className="xui-accordion-new testClass"
   data-automationid="testQaHook"
 >
   testItem

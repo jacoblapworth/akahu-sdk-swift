@@ -106,11 +106,7 @@
 					{{/if}}
 
 					{{#ifStyleguide "Fundamentals.Icons.1" }}
-						{{injectXuiIconBlobExample}}
-					{{/ifStyleguide}}
-
-					{{#ifStyleguide "Fundamentals.Icons.7" }}
-						{{xuiIconDocs}}
+						{{injectXUIIconLoaderExample}}
 					{{/ifStyleguide}}
 
 					{{#if markdown}}
@@ -146,7 +142,7 @@
 					<a class="ds-component-link xui-button xui-button-icon xui-button-icon-large" href="{{url}}" title="See the {{name}} React component">
 						<svg
 							focusable="false"
-							class="xui-icon xui-blobicon xui-blobicon-large xui-icon-color-blue"
+							class="xui-icon xui-iconwrapper-large xui-icon-color-blue"
 							xmlns:svg="http://www.w3.org/2000/svg"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 30 30">
@@ -252,6 +248,10 @@
 			</div>
 			{{/if}}
 
+			{{#ifStyleguide "Fundamentals.Icons.7" }}
+				{{xuiIconDocs}}
+			{{/ifStyleguide}}
+
 		{{/wrapSection}}
 		{{/each}}
 
@@ -271,8 +271,8 @@
 </nav>
 <!-- SCRIPTS -->
 {{serviceWorker}}
-{{xuiIconBlob}}
 {{{scripts}}}
+{{xuiIconLoader}}
 </body>
 
 </html>

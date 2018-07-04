@@ -197,9 +197,11 @@
 // <div class='xui-panel'>
 //   <ul class="xui-picklist xui-picklist-layout" role="tree">
 //     <li class="xui-pickitem" role="treeitem">
-//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-blobicon xui-icon-color-standard">
-//         <use xlink:href="#xui-icon-plus" role="presentation"></use>
-//       </svg>
+//       <div class="xui-iconwrapper xui-pickitem--icon">
+//         <svg focusable="false" class="xui-icon xui-icon-color-standard">
+//           <use xlink:href="#xui-icon-plus" role="presentation"></use>
+//         </svg>
+//       </div>
 //       <span class="xui-pickitem--body">
 //         <span class="xui-pickitem--text">
 //           Create new
@@ -207,9 +209,11 @@
 //       </span>
 //     </li>
 //     <li class="xui-pickitem" role="treeitem">
-//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-blobicon xui-icon-color-standard">
-//         <use xlink:href="#xui-icon-help" role="presentation"></use>
-//       </svg>
+//       <div class="xui-iconwrapper xui-pickitem--icon">
+//         <svg focusable="false" class="xui-icon xui-icon-color-standard">
+//           <use xlink:href="#xui-icon-help" role="presentation"></use>
+//         </svg>
+//       </div>
 //       <span class="xui-pickitem--body">
 //         <span class="xui-pickitem--text xui-text-truncated">
 //           Help
@@ -219,9 +223,11 @@
 //   </ul>
 //   <ul class="xui-picklist xui-picklist-layout" role="tree">
 //     <li class="xui-pickitem" role="treeitem">
-//       <svg focusable="false" class="xui-pickitem--icon xui-icon xui-blobicon xui-icon-color-standard">
-//         <use xlink:href="#xui-icon-lock" role="presentation"></use>
-//       </svg>
+//       <div class="xui-iconwrapper xui-pickitem--icon">
+//         <svg focusable="false" class="xui-icon xui-icon-color-standard">
+//           <use xlink:href="#xui-icon-lock" role="presentation"></use>
+//         </svg>
+//       </div>
 //       <span class="xui-pickitem--body">
 //         <span class="xui-pickitem--text xui-text-truncated">
 //           Logout
@@ -248,9 +254,11 @@
 // 					<span>Status</span>
 // 					<span class="xui-text-secondary xui-margin-left-small">Draft, Sent</span>
 // 				</span>
-// 				<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
-// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 				</svg>
+// 				<div class="xui-iconwrapper xui-margin-right-small">
+// 					<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+// 				</div>
 // 			</button>
 // 		</li>
 // 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
@@ -259,9 +267,11 @@
 // 					<span>Date range</span>
 // 					<span class="xui-text-secondary xui-margin-left-small">1 Apr 2016 — 31 Mar 2017</span>
 // 				</span>
-// 				<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
-// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 				</svg>
+// 				<div class="xui-iconwrapper xui-margin-right-small">
+// 					<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+// 				</div>
 // 			</button>
 // 		</li>
 // 		<li class="xui-pickitem" role="treeitem" tabindex="-1" >
@@ -270,9 +280,11 @@
 // 					<span>Created by</span>
 // 					<span class="xui-text-secondary xui-margin-left-small">Kirk Holloway +2 others</span>
 // 				</span>
-// 				<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard xui-margin-right-small">
-// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 				</svg>
+// 				<div class="xui-iconwrapper xui-margin-right-small">
+// 					<svg focusable="false" class="xui-icon xui-u-rotate-270 xui-icon-color-standard">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+// 				</div>
 // 			</button>
 // 		</li>
 // 	</ul>
@@ -463,9 +475,11 @@
 // 			<input id="nested-checkbox" type="checkbox" class="xui-pickitem--submenucontrol" aria-owns="nested" value="on" tabindex="-1">
 // 			<label for="nested-checkbox" class="xui-submenu-uicontrol--label xui-pickitem--body" title="Open or close the menu" role="button" aria-label="Open or close the menu" tabindex="-1">
 // 				<span class="xui-pickitem--text">Accounts</span>
-// 				<svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 				</svg>
+// 				<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
+// 					<svg focusable="false" class="xui-icon">
+// 						<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 					</svg>
+// 				</div>
 // 			</label>
 // 			<ul id="nested" class="xui-submenu xui-submenu-layout" role="group">
 // 				<li class="xui-pickitem" role="option">
@@ -515,9 +529,11 @@
 // 				</div>
 // 			</div>
 // 		<label for="split-checkbox" class="xui-submenu-uicontrol" title="Show or hide more options" aria-label="Show or hide more options" tabindex="-1" >
-// 			<svg focusable="false" class="xui-icon xui-submenu-uicontrol--icon">
-// 				<use xlink:href="#xui-icon-arrow" role="presentation"></use>
-// 			</svg>
+// 			<div class="xui-iconwrapper xui-submenu-uicontrol--icon">
+// 				<svg focusable="false" class="xui-icon">
+// 					<use xlink:href="#xui-icon-arrow" role="presentation"></use>
+// 				</svg>
+// 			</div>
 // 		</label>
 // 		<ul id="split" class="xui-submenu xui-submenu-layout" role="group">
 // 			<li class="xui-pickitem xui-pickitem-multiselect" role="option">

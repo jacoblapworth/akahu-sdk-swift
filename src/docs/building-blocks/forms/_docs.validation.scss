@@ -14,25 +14,25 @@
 
 // Feedback on fields
 //
-// Add `xui-input-is-invalid` to inputs to display their error state. If the problem is with a group, as a whole, add the class to all nested inputs.
+// Add `xui-textinput-is-invalid` to inputs to display their error state. If the problem is with a group, as a whole, add the class to all nested inputs.
 //
 // Error messages are added below fields. They replace the note if one exists.
 //
 // Markup:
 // <div class="xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Phone number</label>
-//   <input type="text" class="xui-input xui-input-is-invalid" aria-label="Text input"/>
+//   <input type="text" class="xui-textinput xui-textinput--input xui-textinput-is-invalid" aria-label="Text input"/>
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
 // </div>
 // <div class="xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Description</label>
-//   <textarea class="xui-input xui-u-resize-vertical xui-input-is-invalid" aria-label="Text area field"></textarea>
+//   <textarea class="xui-textinput xui-textinput--input xui-u-resize-vertical xui-textinput-is-invalid" aria-label="Text area field"></textarea>
 // </div>
 // <div class="xui-field-layout">
-//   <div class="xui-inputgroup">
-//     <input class="xui-input xui-column-2-of-12 xui-input-is-invalid" placeholder="2 columns"/>
-//     <input class="xui-input xui-column-5-of-12 xui-input-is-invalid" placeholder="5 columns"/>
-//     <input class="xui-input xui-column-5-of-12 xui-input-is-invalid" placeholder="5 columns"/>
+//   <div class="xui-textinputgroup">
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12 xui-textinput-is-invalid" placeholder="2 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns"/>
 //   </div>
 // </div>
 //
@@ -59,13 +59,13 @@
 // 		<header class="xui-modal--header">
 // 			<div class='xui-modal--heading'>Almost there, we just need a contact</div>
 // 			<button title="Close" class="xui-modal--close xui-button xui-button-icon" tabindex="0" type="button">
-// 				<svg focusable="false" class="xui-icon xui-blobicon">
+// 				<svg focusable="false" class="xui-icon">
 // 					<use xlink:href="#xui-icon-cross" role="presentation"/>
 // 				</svg>
 // 			</button>
 // 		</header>
 // 		<div class="xui-modal--body">
-// 			<div class="xui-inputwrapper">
+// 			<div class="xui-textinputwrapper">
 // 				<input type="text" class="xui-textinput xui-textinput--input" placeholder="Contact name" aria-label="Contact name">
 // 			</div>
 // 		</div>

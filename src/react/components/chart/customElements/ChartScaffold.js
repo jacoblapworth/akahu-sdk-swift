@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
@@ -12,9 +12,10 @@ import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
 import ChartKey from './ChartKey';
 
-class ChartScaffold extends Component {
+class ChartScaffold extends PureComponent {
 	constructor() {
 		super();
+		this.testIsChartMounted = this.testIsChartMounted.bind(this);
 		this.updateChartWidth = this.updateChartWidth.bind(this);
 		this.updateToolTip = this.updateToolTip.bind(this);
 		this.updatePanel = this.updatePanel.bind(this);
@@ -33,7 +34,16 @@ class ChartScaffold extends Component {
 		panelCurrent: 1,
 	};
 
+	// We utilise a "pause" system to ensure the various DOM elements update before
+	// measuring them. This intentional millisecond latency can create an edge case
+	// where if the component is unmounted between this time then the reference DOM
+	// nodes are no longer relevant. In that regard we have a hook to check that the
+	// component is still mounted before continuing with the render sequence.
+	isChartMounted = false;
+	testIsChartMounted = () => this.isChartMounted;
+
 	componentDidMount = () => {
+		this.isChartMounted = true;
 		const throttledResize = throttle(this.updateChartWidth, 1000);
 		window.addEventListener('resize', throttledResize);
 		this.throttledContentScroll = throttle(this.handleContentScroll, 100);
@@ -44,17 +54,23 @@ class ChartScaffold extends Component {
 	};
 
 	componentWillUnmount = () => {
+		this.isChartMounted = false;
+
 		if (this.throttledAction) {
-			window.removeEventListener('resize', this.throttledAction);
 			this.throttledAction.cancel();
+			window.removeEventListener('resize', this.throttledAction);
 		}
 	};
 
 	componentDidUpdate = () => {
-		this.updateChartWidth();
-		this.updateYAxisWidth();
-		this.updateXAxisHeight();
-		this.handleContentScroll();
+		const shouldUpdate = this.testIsChartMounted();
+
+		if (shouldUpdate) {
+			this.updateChartWidth();
+			this.updateYAxisWidth();
+			this.updateXAxisHeight();
+			this.handleContentScroll();
+		}
 	};
 
 	updateToolTip = (nextPosition = {}, toolTipMessage = null) => {
@@ -76,30 +92,30 @@ class ChartScaffold extends Component {
 
 	updateChartWidth = () => {
 		const {rootNode, state} = this;
-		const chartWidth = rootNode ? rootNode.offsetWidth : CHART_WIDTH;
-		const shouldUpdate = !testIsCloseEnough(chartWidth, state.chartWidth);
+		const chartWidth = rootNode && rootNode.offsetWidth;
+		const shouldUpdate = !testIsCloseEnough(chartWidth || CHART_WIDTH, state.chartWidth);
 
 		if (shouldUpdate) {
 			this.setState({...state, chartWidth});
 		}
 	};
 
-	updateXAxisHeight = () => pause(this.props.barsData, () => {
+	updateXAxisHeight = () => pause(this.testIsChartMounted, this.props.barsData, () => {
 		const {rootNode, state} = this;
 		const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
-		const xAxisHeight = xAxisNode ? getGroupPosition(xAxisNode).height : X_AXIS_HEIGHT;
-		const shouldUpdate = !testIsCloseEnough(xAxisHeight, state.xAxisHeight);
+		const xAxisHeight = xAxisNode && getGroupPosition(xAxisNode).height;
+		const shouldUpdate = !testIsCloseEnough(xAxisHeight || X_AXIS_HEIGHT, state.xAxisHeight);
 
 		if (shouldUpdate) {
 			this.setState({...state, xAxisHeight});
 		}
 	});
 
-	updateYAxisWidth = () => pause(this.props.barsData, () => {
+	updateYAxisWidth = () => pause(this.testIsChartMounted, this.props.barsData, () => {
 		const {rootNode, state} = this;
 		const yAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--yaxis`);
-		const yAxisWidth = yAxisNode ? getGroupPosition(yAxisNode).width : Y_AXIS_WIDTH;
-		const shouldUpdate = !testIsCloseEnough(yAxisWidth, state.yAxisWidth);
+		const yAxisWidth = yAxisNode && getGroupPosition(yAxisNode).width;
+		const shouldUpdate = !testIsCloseEnough(yAxisWidth || Y_AXIS_WIDTH, state.yAxisWidth);
 
 		if (shouldUpdate) {
 			this.setState({...state, yAxisWidth});
@@ -140,6 +156,7 @@ class ChartScaffold extends Component {
 		const maxPage = props.barsData.length;
 		const sanitisedPage = panelCurrent < minPage ? minPage : Math.min(panelCurrent, maxPage);
 		const shouldUpdate = sanitisedPage !== state.panelCurrent;
+
 		if (shouldUpdate) {
 			this.setState({
 				...state,

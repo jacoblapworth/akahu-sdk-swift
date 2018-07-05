@@ -21,7 +21,7 @@ const getGroupPosition = (groupNode) => {
 	})();
 
 	nodes.forEach(node => {
-		const {width = 0, height = 0, x = 0, y = 0} = node.getBBox();
+		const {width = 0, height = 0, x = 0, y = 0} = (node.getBBox ? node.getBBox() : {});
 		const {maxLeft, maxTop, minTop, minLeft} = position;
 
 		position = {

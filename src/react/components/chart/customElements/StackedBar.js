@@ -143,7 +143,7 @@ class StackedBar extends PureComponent {
 		const barZeroBase = (yAxisMaxValue * ratio) + padding.top;
 		const barLeft = (barWidthRaw * barIndex) + divider;
 		const barTop = barZeroBase - (positiveStacksValue * ratio);
-		const barWidth = barWidthRaw - (divider * 2);
+		const barWidth = Math.max(barWidthRaw - (divider * 2), 0);
 		const barHeight = createStackHeight(totalStacksValue * ratio);
 		const createStack = this.createStackThunk({ratio, barZeroBase, barLeft, barWidth, barStacks});
 

@@ -147,6 +147,7 @@ class WrapPillsExample extends Component {
 								value={people[id].name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(id)}
+								isMaxContentWidth
 								key={id}
 							/>
 						)
@@ -267,6 +268,7 @@ class DisableWrapPills extends Component {
 								value={people[id].name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(id)}
+								isMaxContentWidth
 								key={id}
 							/>
 						)

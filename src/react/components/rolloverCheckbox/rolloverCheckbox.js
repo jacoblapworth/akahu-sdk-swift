@@ -111,6 +111,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
 				data-automationid={qaHook}
+				role="presentation"
 			>
 				<div className={baseClass}>
 					<div className={!showRollover ? `${ns}-u-hidden-visually` : null}>
@@ -125,6 +126,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
 						htmlClassName={`${baseClass}--checkbox`}
 						qaHook={qaHook && `${qaHook}--checkbox`}
 						className={showRollover ? `${ns}-u-hidden-visually` : null}
+						tabIndex={0}
 					>{labelText}</XUICheckbox>
 				</div>
 			</div>

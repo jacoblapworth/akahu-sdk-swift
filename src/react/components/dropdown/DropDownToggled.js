@@ -263,21 +263,6 @@ export default class DropDownToggled extends PureComponent {
 	};
 
 	/**
-	 * Will close the list if either esc or tab keys are pressed on keydown.
-	 * Will tab to next index if tab key is pressed
-	 *
-	 * @param {KeyboardEvent} event key down event object
-	 */
-	onKeyDown = event => {
-		if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
-			// If the user doesn't want to close when the tab key is hit, don't
-			if (event.keyCode !== 9 || this.props.closeOnTab) {
-				this.closeDropDown();
-			}
-		}
-	};
-
-	/**
 	 * Will close the dropdown if the esc key is pressed within the dropdown.
 	 *
 	 * @param {KeyboardEvent} event key down event object
@@ -299,6 +284,11 @@ export default class DropDownToggled extends PureComponent {
 		if (event.keyCode === 40 && this.state.isHidden) {
 			event.preventDefault();
 			this.openDropDown();
+		} else if (!this.state.isHidden && (event.keyCode === 9 || event.keyCode === 27)) {
+			// If the user doesn't want to close when the tab key is hit, don't
+			if (event.keyCode !== 9 || this.props.closeOnTab) {
+				this.closeDropDown();
+			}
 		}
 	};
 
@@ -424,7 +414,7 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, isLegacyDisplay, ...otherProps } = ddt.props;
+		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, ariaRole, isLegacyDisplay, ...otherProps } = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -433,7 +423,8 @@ export default class DropDownToggled extends PureComponent {
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': ariaPopupType,
-			'aria-controls': ddt.dropdown && ddt.dropdown.dropdownId
+			'aria-controls': ddt.dropdown && ddt.dropdown.dropdownId,
+			'aria-expanded': !isHidden
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
@@ -481,13 +472,19 @@ export default class DropDownToggled extends PureComponent {
 			</PositioningInline>
 		);
 
+		const wrapperAria = {
+			'role': ariaRole || 'presentation',
+			'aria-expanded': ariaRole && !isHidden || undefined,
+			'aria-owns': ddt.dropdown && ddt.dropdown.dropdownId,
+		};
+
 		return (
 			<div
 				ref={c => ddt.wrapper = c}
 				className={className}
-				onKeyDown={ddt.onKeyDown}
 				data-ref='toggled-wrapper'
 				data-automationid={qaHook}
+				{...wrapperAria}
 			>
 				{clonedTrigger}
 				{positionedDropdown}
@@ -572,7 +569,11 @@ DropDownToggled.propTypes = {
 	/**
 	 * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
 	 */
-	ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false])
+	ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false]),
+	/**
+	 * Aria role for dropdown wrapper
+	 */
+	ariaRole: PropTypes.string
 };
 
 DropDownToggled.defaultProps = {

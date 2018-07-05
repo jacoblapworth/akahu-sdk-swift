@@ -185,6 +185,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				restrictFocus={props.restrictFocus}
 				shouldManageInitialHighlight={false}
 				forceStatefulPicklist={true}
+				ariaRole="combobox"
 			>
 			{props.children}
 		</DropDown>);
@@ -194,7 +195,6 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 				ref={c => completer.rootNode = c}
 				className={props.className}
 				data-automationid={containerQaHook}
-				role="combobox"
 			>
 				<DropDownToggled
 					ref={c => completer.ddt = c}

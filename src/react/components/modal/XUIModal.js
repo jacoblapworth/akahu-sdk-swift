@@ -276,6 +276,7 @@ export default class XUIModal extends Component {
 				aria-hidden={!isOpen}
 				data-automationid={qaHook && `${qaHook}--mask`}
 				ref={m => (this._maskNode = m)}
+				role="presentation"
 			>
 				<MainElement
 					className={modalClasses}

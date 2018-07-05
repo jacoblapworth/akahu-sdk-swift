@@ -81,7 +81,7 @@ describe('XUITooltip', () => {
 			const onEventSpy = jest.fn();
 			const { expected } = setup({onOpen: onEventSpy}, mount);
 
-			expected.find('.xui-tooltip').simulate('mouseOver');
+			expected.find('.xui-tooltip a').simulate('mouseOver');
 			jest.runTimersToTime(2000);
 
 			expect(onEventSpy).toHaveBeenCalledTimes(1);
@@ -91,7 +91,7 @@ describe('XUITooltip', () => {
 			const onEventSpy = jest.fn();
 			const { expected } = setup({triggerOnHover: false, onOpen: onEventSpy}, mount);
 
-			expected.find('.xui-tooltip').simulate('mouseOver');
+			expected.find('.xui-tooltip a').simulate('mouseOver');
 			jest.runTimersToTime(1000);
 
 			expect(onEventSpy).not.toBeCalled();
@@ -101,7 +101,7 @@ describe('XUITooltip', () => {
 			const onEventSpy = jest.fn();
 			const { expected } = setup({isDisabled: true, onOpen: onEventSpy}, mount);
 
-			expected.find('.xui-tooltip').simulate('mouseOver');
+			expected.find('.xui-tooltip a').simulate('mouseOver');
 			jest.runTimersToTime(1000);
 
 			expect(onEventSpy).not.toBeCalled();
@@ -111,9 +111,9 @@ describe('XUITooltip', () => {
 			const onEventSpy = jest.fn();
 			const { expected } = setup({onClose: onEventSpy}, mount);
 
-			expected.find('.xui-tooltip').simulate('mouseOver');
+			expected.find('.xui-tooltip a').simulate('mouseOver');
 			jest.runTimersToTime(1000);
-			expected.find('.xui-tooltip').simulate('mouseOut');
+			expected.find('.xui-tooltip a').simulate('mouseOut');
 			jest.runTimersToTime(1000);
 
 			expect(onEventSpy).toHaveBeenCalledTimes(1);
@@ -212,7 +212,7 @@ describe('XUITooltip', () => {
 		const onEventSpy = jest.fn();
 		const { expected } = setup({onOpen: onEventSpy}, mount);
 
-		expected.find('.xui-tooltip').simulate('mouseOver');
+		expected.find('.xui-tooltip a').simulate('mouseOver');
 		expect(onEventSpy).not.toBeCalled();
 
 		jest.runTimersToTime(1000);
@@ -223,9 +223,9 @@ describe('XUITooltip', () => {
 		const onEventSpy = jest.fn();
 		const { expected } = setup({onClose: onEventSpy}, mount);
 
-		expected.find('.xui-tooltip').simulate('mouseOver');
+		expected.find('.xui-tooltip a').simulate('mouseOver');
 		jest.runTimersToTime(1000);
-		expected.find('.xui-tooltip').simulate('mouseOut');
+		expected.find('.xui-tooltip a').simulate('mouseOut');
 		expect(onEventSpy).not.toBeCalled();
 
 		jest.runTimersToTime(1000);
@@ -236,7 +236,7 @@ describe('XUITooltip', () => {
 		const onEventSpy = jest.fn();
 		const { expected } = setup({onOpen: onEventSpy, openDelay: 5000}, mount);
 
-		expected.find('.xui-tooltip').simulate('mouseOver');
+		expected.find('.xui-tooltip a').simulate('mouseOver');
 
 		jest.runTimersToTime(1000);
 		expect(onEventSpy).not.toBeCalled();
@@ -249,9 +249,9 @@ describe('XUITooltip', () => {
 		const onEventSpy = jest.fn();
 		const { expected } = setup({onClose: onEventSpy, closeDelay: 5000}, mount);
 
-		expected.find('.xui-tooltip').simulate('mouseOver');
+		expected.find('.xui-tooltip a').simulate('mouseOver');
 		jest.runTimersToTime(1000);
-		expected.find('.xui-tooltip').simulate('mouseOut');
+		expected.find('.xui-tooltip a').simulate('mouseOut');
 		jest.runTimersToTime(1000);
 		expect(onEventSpy).not.toBeCalled();
 

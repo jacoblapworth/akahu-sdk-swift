@@ -20,15 +20,20 @@ export default class NestedPicklistTrigger extends PureComponent {
 
 		return (
 			<label
+				htmlFor={`${id}-checkbox`}
 				ref={n => this.rootNode = n}
 				data-automationid={qaHook}
-				htmlFor={`${id}-checkbox`}
 				className={classNames}
 				onClick={onClick}
+				onKeyDown={onClick}
 				onMouseOver={onMouseOver}
+				onFocus={onMouseOver}
+				// TODO: fix this overall interaction between the label and checkbox in NestedPicklistContainer.js
+				role="button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
+				tabIndex={0}
 				{...secondaryProps}
 			>
-				{hasChildren ? <span className={`${ns}-pickitem--text`}>{children}</span> : null}
+				{hasChildren ? <label className={`${ns}-pickitem--text`}>{children}</label> : null}
 				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={arrow} isBoxed />
 			</label>
 		);

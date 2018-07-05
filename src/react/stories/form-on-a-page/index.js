@@ -88,14 +88,15 @@ test.add(storyNames.formOnAPage, () => {
 
 					{/* Major section */}
 					<XUIColumn gridColumns="half">
-						<InputLabel>An input</InputLabel>
-						<XUITextInput />
+						<XUITextInput
+							labelText="An input"
+						/>
 					</XUIColumn>
 					<XUIColumn gridColumns="half">
-						<InputLabel>Another input</InputLabel>
 						<XUITextInput
 							isFieldLayout
 							hintMessage="I'm second"
+							labelText="Another input"
 						/>
 					</XUIColumn>
 
@@ -141,13 +142,13 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="full" className="xui-padding-vertical">
 						<InputLabel>A switch</InputLabel>
-						<XUISwitch onChange={NOOP} />
+						<XUISwitch labelText="A switch" onChange={NOOP} />
 					</XUIColumn>
 
 					{/* Major section */}
 					<XUIColumn gridColumns="full">
-						<InputLabel>A textarea</InputLabel>
 						<XUITextInput
+							labelText="A textarea"
 							isMultiline
 							minRows={2}
 							maxRows={5}

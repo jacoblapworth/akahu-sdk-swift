@@ -300,7 +300,6 @@ export default class XUIAutocompleter extends PureComponent {
 				onBlur={this.onBlur}
 				data-automationid={containerQaHook}
 				id={props.id}
-				role="combobox"
 			>
 				<DropDownToggled
 					ref={c => completer.ddt = c}
@@ -315,6 +314,7 @@ export default class XUIAutocompleter extends PureComponent {
 					matchTriggerWidth={props.matchTriggerWidth && !props.dropdownSize}
 					qaHook={dropdownQaHook}
 					isBlock
+					ariaRole="combobox"
 				/>
 			</div>
 		);

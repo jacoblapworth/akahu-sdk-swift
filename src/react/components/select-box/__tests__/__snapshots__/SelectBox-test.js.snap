@@ -10,6 +10,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
     data-automationid="test-selectbox---label"
     htmlFor="test"
     onClick={[Function]}
+    role="presentation"
   >
     test
   </label>
@@ -18,14 +19,17 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
     data-automationid="test-selectbox---inputgroup"
   >
     <div
+      aria-expanded={undefined}
+      aria-owns={undefined}
       className={undefined}
       data-automationid="test-selectbox---dropdowntoggled"
       data-ref="toggled-wrapper"
-      onKeyDown={[Function]}
+      role="presentation"
     >
       <button
         aria-activedescendant={null}
         aria-controls={undefined}
+        aria-expanded={false}
         aria-haspopup="listbox"
         className="xui-button xui-select--button xui-button-standard"
         data-automationid="test-selectbox---button"

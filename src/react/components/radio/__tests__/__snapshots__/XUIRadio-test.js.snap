@@ -5,9 +5,11 @@ exports[`XUIRadio should have a hidden label, if specified 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label="Hidden label"
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid={undefined}
     defaultChecked={false}
@@ -33,9 +35,11 @@ exports[`XUIRadio should render with an icon when one is provided 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label={undefined}
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid={undefined}
     defaultChecked={false}

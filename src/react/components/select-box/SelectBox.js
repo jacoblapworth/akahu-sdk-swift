@@ -103,6 +103,7 @@ export default class SelectBox extends Component {
 					htmlFor={selectBox.state.ariaId}
 					onClick={selectBox.onLabelClick}
 					data-automationid={setQaHook(props.qaHook, qaHooks.label)}
+					role="presentation"
 				>
 					{props.label}
 				</label>

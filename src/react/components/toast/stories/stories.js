@@ -87,6 +87,8 @@ storiesWithKnobs.add('Playground', () => {
 			onCloseClick={NOOP}
 			onMouseOver={NOOP}
 			onMouseLeave={NOOP}
+			onFocus={NOOP}
+			onBlur={NOOP}
 			defaultLayout={boolean('defaultLayout', true)}
 			className={text('className', '')}
 			messageText={text('message', 'Message text')}
@@ -111,6 +113,8 @@ variations.forEach(variation => {
 				onCloseClick={NOOP}
 				onMouseOver={NOOP}
 				onMouseLeave={NOOP}
+				onFocus={NOOP}
+				onBlur={NOOP}
 				{...variationMinusStoryDetails}/>
 		)
 	});

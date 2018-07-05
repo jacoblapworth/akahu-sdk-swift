@@ -155,7 +155,7 @@ variations.forEach(variation => {
 
 	} else if (isCustomContent) {
 
-		const children = <img style={{ width: '100%', height: 'auto' }} alt="custom image" src="http://via.placeholder.com/350x350" />;
+		const children = <img style={{ width: '100%', height: 'auto' }} alt="custom indicator fill" src="http://via.placeholder.com/350x350" />;
 
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, props, children);
 

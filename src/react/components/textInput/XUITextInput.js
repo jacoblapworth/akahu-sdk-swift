@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import autosize from 'autosize';
+import uuidv4 from 'uuid/v4';
 
 import { compose } from '../helpers/compose';
 import { inputBaseClass } from './private/constants';
@@ -16,6 +17,8 @@ class XUITextInput extends PureComponent {
 	state = {
 		hasFocus: false
 	};
+	// User can manually proivde an id, or we will generate one.
+	labelId = this.props.labelId || uuidv4();
 
 	componentDidMount() {
 		const { maxRows } = this.props;
@@ -140,6 +143,12 @@ class XUITextInput extends PureComponent {
 			`${ns}-fieldlabel-layout`
 		);
 
+		const labelElement = labelText != null && !isLabelHidden && (
+			<span className={labelClasses} id={this.labelId}>
+				{labelText}
+			</span>
+		);
+
 		const InputEl = isMultiline ? 'textarea' : 'input';
 
 		inputProps.style = {
@@ -148,12 +157,8 @@ class XUITextInput extends PureComponent {
 		};
 
 		return(
-			<label className={rootClasses} onKeyDown={onKeyDown}>
-				{labelText != null && !isLabelHidden && (
-					<span className={labelClasses}>
-						{labelText}
-					</span>
-				)}
+			<label className={rootClasses} onKeyDown={onKeyDown} role="presentation">
+				{labelElement}
 				<div className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
 					<InputEl
@@ -169,6 +174,8 @@ class XUITextInput extends PureComponent {
 						disabled={isDisabled}
 						ref={compose(inputRef, i => this.input = i)}
 						aria-label={isLabelHidden && labelText || undefined}
+						// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
+						aria-labelledby={labelElement && this.labelId || !labelText && this.props.labelId || undefined}
 						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 						{...inputProps}
 					/>
@@ -243,7 +250,9 @@ XUITextInput.propTypes = {
 	/** Whether the textarea should be manually resizable (should only be used with `isMultiline=true` and `rightElement=undefined`) */
 	isManuallyResizable: PropTypes.bool,
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
-	isLabelHidden: PropTypes.bool
+	isLabelHidden: PropTypes.bool,
+	/** Provide a specific label ID which will be used as the "labelleby" aria property */
+	labelId: PropTypes.string
 };
 
 XUITextInput.defaultProps = {

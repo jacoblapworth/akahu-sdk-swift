@@ -4,6 +4,7 @@ import SelectBoxOption from '../SelectBoxOption';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import uuidv4 from 'uuid/v4';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,6 +15,9 @@ createComponent.propTypes = {
     children: PropTypes.node
 }
 
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testCheckboxId');
+
 describe('<SelectBoxOption />', () => {
     it('should render an automaion id when provided with a qaHook', () => {
         const automationid = renderer.create(createComponent({qaHook: 'test-sbo', children: 'Child'}))
@@ -23,49 +27,49 @@ describe('<SelectBoxOption />', () => {
 
     it('should render text as truncated when the truncatedText prop is set to true', () => {
         const truncated = renderer.create(
-            createComponent({ 
-                truncatedText: true, 
+            createComponent({
+                truncatedText: true,
                 children: 'This text should be truncated and only visible on one line because it\'s so long.'
             })
         );
-        
+
         expect(truncated).toMatchSnapshot();
     });
 
     it('shouldn\'t render text as truncated when the truncatedText prop is set to false', () => {
         const truncated = renderer.create(
-            createComponent({ 
-                truncatedText: false, 
+            createComponent({
+                truncatedText: false,
                 children: 'This text should not be truncated even though it\'s long.'
             })
         );
-        
+
         expect(truncated).toMatchSnapshot();
     });
 
     it('should render checkboxes when the showCheckboxes prop is set to true', () => {
         const checkboxes = renderer.create(
-            createComponent({ 
+            createComponent({
                 showCheckboxes: true
             })
         );
-        
+
         expect(checkboxes).toMatchSnapshot();
     });
 
     it('shouldn\'t render checkboxes when the showCheckboxes prop is set to false', () => {
         const checkboxes = renderer.create(
-            createComponent({ 
+            createComponent({
                 showCheckboxes: false
             })
         );
-        
+
         expect(checkboxes).toMatchSnapshot();
     });
 
     it('should render extra classes on the option element when values are added to the optionClasses prop', () => {
         const optionClasses = renderer.create(
-            createComponent({ 
+            createComponent({
                 optionClasses: 'option-class'
             })
         );
@@ -75,47 +79,47 @@ describe('<SelectBoxOption />', () => {
 
     it('should render the option as disabled when the isDisabled prop is true', () => {
         const checkboxes = renderer.create(
-            createComponent({ 
+            createComponent({
                 isDisabled: true
             })
         );
-        
+
         expect(checkboxes).toMatchSnapshot();
     });
 
-    it('should render the option  and the checkboxesas disabled when the isDisabled and showCheckboxes props are true', () => {
+    it('should render the option and the checkboxes as disabled when the isDisabled and showCheckboxes props are true', () => {
         const checkboxes = renderer.create(
-            createComponent({ 
+            createComponent({
                 isDisabled: true,
                 showCheckboxes: true
             })
         );
-        
+
         expect(checkboxes).toMatchSnapshot();
     });
 
     it('should render the option as disabled when the isDisabled prop is false', () => {
         const checkboxes = renderer.create(
-            createComponent({ 
+            createComponent({
                 isDisabled: false
             })
         );
-        
+
         expect(checkboxes).toMatchSnapshot();
     });
 
     it('should render the correct value passed in', () => {
         const valueComp = renderer.create(
-            createComponent({ 
+            createComponent({
                 value: 'value text'
             })
         );
-        
+
         expect(valueComp).toMatchSnapshot();
     });
 
     it('should render the selected class if isSelected is true', () => {
-        const selected = renderer.create(createComponent({ 
+        const selected = renderer.create(createComponent({
             isSelected: true
         }));
 
@@ -123,7 +127,7 @@ describe('<SelectBoxOption />', () => {
     });
 
     it('shouldn\'t render the selected class if isSelected is false', () => {
-        const selected = renderer.create(createComponent({ 
+        const selected = renderer.create(createComponent({
             isSelected: false
         }));
 
@@ -137,7 +141,7 @@ describe('<SelectBoxOption />', () => {
     });
 
     it('should render the highlighted class if isHighlighted is true', () => {
-        const highlighted = renderer.create(createComponent({ 
+        const highlighted = renderer.create(createComponent({
             isHighlighted: true
         }));
 
@@ -145,7 +149,7 @@ describe('<SelectBoxOption />', () => {
     });
 
     it('shouldn\'t render the highlighted class if isHighlighted is false', () => {
-        const highlighted = renderer.create(createComponent({ 
+        const highlighted = renderer.create(createComponent({
             isHighlighted: false
         }));
 

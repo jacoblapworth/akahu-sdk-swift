@@ -72,6 +72,8 @@ export default function XUIToast(
 			className={classNames}
 			onMouseOver={onMouseOver}
 			onMouseLeave={onMouseLeave}
+			onFocus={onMouseOver}
+			onBlur={onMouseLeave}
 			role={a11yRole}
 			aria-hidden={isHidden}
 			data-automationid={qaHook}

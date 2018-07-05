@@ -5,9 +5,11 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label="Hidden label"
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid={undefined}
     defaultChecked={false}
@@ -32,9 +34,11 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
   className="xui-styledcheckboxradio"
   data-automationid="test-checkbox"
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label={undefined}
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid="test-checkbox--input"
     defaultChecked={false}
@@ -54,14 +58,52 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
 </label>
 `;
 
+exports[`XUICheckbox should have a visible label, if specified 1`] = `
+<label
+  className="xui-styledcheckboxradio"
+  data-automationid={undefined}
+  onClick={[Function]}
+  role="presentation"
+>
+  <input
+    aria-label={undefined}
+    aria-labelledby="testCheckboxId"
+    className="xui-styledcheckboxradio--input"
+    data-automationid={undefined}
+    defaultChecked={false}
+    disabled={false}
+    name={undefined}
+    onChange={[Function]}
+    onClick={[Function]}
+    required={false}
+    tabIndex={undefined}
+    type="checkbox"
+    value={undefined}
+  />
+  <div
+    className="xui-styledcheckboxradio--checkbox"
+    data-automationid={undefined}
+  />
+  <span
+    className="xui-styledcheckboxradio--label"
+    data-automationid={undefined}
+    id="testCheckboxId"
+  >
+    Visible label
+  </span>
+</label>
+`;
+
 exports[`XUICheckbox should render with an icon when one is provided 1`] = `
 <label
   className="xui-styledcheckboxradio"
   data-automationid={undefined}
   onClick={[Function]}
+  role="presentation"
 >
   <input
     aria-label={undefined}
+    aria-labelledby={undefined}
     className="xui-styledcheckboxradio--input"
     data-automationid={undefined}
     defaultChecked={false}

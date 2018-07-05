@@ -51,26 +51,43 @@ test.add(storyNames.multiDropDowns, () => {
 
 	return (
 		<div className="xui-u-flex">
-			<XUITextInput fieldClassName="xui-margin-small"/>
+			<XUITextInput
+				fieldClassName="xui-margin-small"
+				labelText="Input label"
+				isLabelHidden
+			/>
 			<XUIModal isOpen>
 				<XUIModalBody>
 					This is some Modal content.
-					<XUITextInput />
+					<XUITextInput
+						labelText="Input label"
+						isLabelHidden
+					/>
 					<DropDownToggled
 						trigger={buildTrigger('Short Trigger')}
 						dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
 						isHidden={false}
 					/>
 					This is some Modal content.
-					<XUITextInput />
+					<XUITextInput
+						labelText="Input label"
+						isLabelHidden
+					/>
 					<DropDownToggled
 						trigger={buildTrigger('Medium Dropdown Trigger')}
 						dropdown={buildDropdownPicklist(lists.MedListMedItems)}
 					/>
-					<XUITextInput />
+					<XUITextInput
+						labelText="Input label"
+						isLabelHidden
+					/>
 				</XUIModalBody>
 			</XUIModal>
-			<XUITextInput fieldClassName="xui-margin-vertical-small"/>
+			<XUITextInput
+				fieldClassName="xui-margin-vertical-small"
+				labelText="Input label"
+				isLabelHidden
+			/>
 		</div>
 	);
 });

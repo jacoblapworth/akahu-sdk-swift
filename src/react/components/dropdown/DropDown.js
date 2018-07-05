@@ -168,7 +168,8 @@ export default class DropDown extends PureComponent {
 			forceDesktop,
 			forceStatefulPicklist,
 			bodyClassName,
-			shouldManageInitialHighlight
+			shouldManageInitialHighlight,
+			ariaRole
 		} = this.props;
 
 		const dropdownClasses = cn(
@@ -190,6 +191,7 @@ export default class DropDown extends PureComponent {
 				size={size}
 				style={style}
 				qaHook={qaHook && `${qaHook}--layout`}
+				ariaRole={ariaRole}
 			>
 				<DropDownPanel
 					footer={footer}
@@ -280,7 +282,12 @@ DropDown.propTypes = {
 	bodyClassName: PropTypes.string,
 
 	/** Whether the StatefulPicklist manages highlighting of list elements */
-	shouldManageInitialHighlight: PropTypes.bool
+	shouldManageInitialHighlight: PropTypes.bool,
+
+	/**
+	 * Aria role for dropdown layout element
+	 */
+	ariaRole: PropTypes.string
 };
 
 DropDown.defaultProps = {

@@ -233,7 +233,8 @@ class DropDownPanel extends PureComponent {
 				data-automationid={qaHook}
 				aria-hidden={isHidden}
 				id={panelId}
-				tabIndex={0}
+				tabIndex={-1}
+				role="presentation"
 				onKeyDown={this.keyDownHandler}
 				style={style}
 			>
@@ -245,6 +246,7 @@ class DropDownPanel extends PureComponent {
 						maxHeight,
 						overflowY
 					}}
+					role="presentation"
 				>
 					{header}
 					{shouldAddStatefulPicklist ? (

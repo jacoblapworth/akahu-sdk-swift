@@ -5,3 +5,4 @@ coverage/*
 .visual-testing/*
 .tmp/*
 .kss/*
+src/react/components/*/__tests__/*-test.js

@@ -7,6 +7,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
   data-automationid="xui-modal--mask"
   id="test-modal"
   onClick={null}
+  role="presentation"
 >
   <section
     aria-describedby={undefined}
@@ -65,6 +66,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
   data-automationid="xui-modal--mask"
   id={undefined}
   onClick={null}
+  role="presentation"
 >
   <section
     aria-describedby={undefined}

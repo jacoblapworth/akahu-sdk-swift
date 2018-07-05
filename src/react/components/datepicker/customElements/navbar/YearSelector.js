@@ -26,6 +26,7 @@ export default function YearSelector({
 		</label>
 	);
 
+	/* eslint-disable jsx-a11y/no-onchange */
 	const select = visibleYears.length === 1
 		? null
 		: (
@@ -47,6 +48,7 @@ export default function YearSelector({
 				}
 			</select>
 		);
+	/* eslint-enable jsx-a11y/no-onchange */
 
 	return (
 		<div className="xui-datepicker--heading xui-heading-item xui-datepicker--heading-year">

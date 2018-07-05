@@ -101,7 +101,6 @@ export default class XUITooltip extends PureComponent {
 			wrapperClassName,
 			isDisabled,
 			triggerOnFocus,
-			triggerOnBlur,
 			triggerOnClick,
 			triggerOnHover,
 		} = this.props;
@@ -143,14 +142,14 @@ export default class XUITooltip extends PureComponent {
 				trigger.props.onKeyDown :
 				(triggerOnClick && this.onTriggerKeyDown) || undefined,
 			'onFocus': compose(trigger.props.onFocus, () => {this.setState({isFocused: true})}),
-			'onBlur': triggerOnBlur ? compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}) : undefined,
+			'onBlur': compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}),
+			'onMouseOver': triggerOnHover ? this.openTooltip : undefined,
+			'onMouseOut': triggerOnHover && ignoreFocus ? this.closeTooltip : undefined,
 			'aria-describedby': this.tooltipId
 		});
 
 		return (
 			<span className={wrapperClasses}
-				onMouseOver={triggerOnHover ? this.openTooltip : undefined}
-				onMouseOut={triggerOnHover && ignoreFocus ? this.closeTooltip : undefined}
 				ref={c => this.setState({wrapper: c})}>
 				{clonedTrigger}
 				<PositioningInline

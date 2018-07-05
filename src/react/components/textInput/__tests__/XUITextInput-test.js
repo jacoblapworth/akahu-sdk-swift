@@ -111,7 +111,7 @@ describe('<XUITextInput>', () => {
 		});
 
 		it('renders with a label when one is provided', () => {
-			const wrapper = renderer.create(<XUITextInput labelText="test" />);
+			const wrapper = renderer.create(<XUITextInput labelText="test" labelId="testLabel" />);
 			expect(wrapper).toMatchSnapshot();
 		})
 
@@ -128,6 +128,7 @@ describe('<XUITextInput>', () => {
 					inputClassName="custom-input-class"
 					labelClassName="custom-label-class"
 					labelText="test"
+					labelId="testLabel"
 				/>);
 
 			expect(wrapper).toMatchSnapshot();

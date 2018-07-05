@@ -27,7 +27,7 @@ import { variations, storiesWithVariationsKindName, dropdownSizes } from './vari
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
-		const val = value.toLowerCase();
+		const val = value && value.toLowerCase();
 
 		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
 		return !peopleToExclude.find(person => person.id === node.id) && (node.name.toLowerCase().indexOf(val) > -1
@@ -44,7 +44,7 @@ class DetailedListExample extends Component {
 		const example = this;
 
 		example.state = {
-			value: null,
+			value: '',
 			people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
 			selectedPeople: [peopleDataSet[0]]
 		};
@@ -77,7 +77,6 @@ class DetailedListExample extends Component {
 		const example = this;
 		const { selectedPeople } = example.state;
 		const lastSelectedPerson = selectedPeople[selectedPeople.length - 1];
-
 		example.deletePerson(lastSelectedPerson.id);
 	}
 

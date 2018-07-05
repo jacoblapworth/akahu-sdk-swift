@@ -47,6 +47,7 @@ export default class DropDownLayout extends PureComponent {
 			style,
 			size,
 			qaHook,
+			ariaRole
 		} = this.props;
 
 		const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
@@ -68,7 +69,7 @@ export default class DropDownLayout extends PureComponent {
 				id={id}
 				onAnimationEnd={this.onAnimationEnd}
 				style={style}
-				aria-expanded={!isHidden}
+				role={ariaRole}
 			>
 				<div className={`${baseClass}--mask`} data-automationid={qaHook && `${qaHook}--mask`}></div>
 				{children}
@@ -119,4 +120,8 @@ DropDownLayout.propTypes = {
 
 	children: PropTypes.node.isRequired,
 	qaHook: PropTypes.string,
+	/**
+	 * Aria role for dropdown layout
+	 */
+	ariaRole: PropTypes.string
 };

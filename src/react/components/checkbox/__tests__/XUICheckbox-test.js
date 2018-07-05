@@ -4,12 +4,16 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import star from '@xero/xui-icon/icons/star';
 import XUICheckbox from '../XUICheckbox';
+import uuidv4 from 'uuid/v4';
 
 import div from './helpers/container';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testCheckboxId');
 
 describe('XUICheckbox', function() {
 	let wrapper;
@@ -54,6 +58,13 @@ describe('XUICheckbox', function() {
 		);
 
 		expect(hiddenLabel).toMatchSnapshot();
+	});
+	it('should have a visible label, if specified', () => {
+		const visibleLabel = renderer.create(
+			<XUICheckbox onChange={NOOP}>Visible label</XUICheckbox>
+		);
+
+		expect(visibleLabel).toMatchSnapshot();
 	});
 
 	it('should be unchecked by default', () => {

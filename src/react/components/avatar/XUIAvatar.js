@@ -44,7 +44,7 @@ export default class XUIAvatar extends PureComponent {
 		);
 
 		return imageUrl && !imageError ? (
-			<img onError={this.onError} data-automationid={qaHook} className={avatarClassNames} role="presentation" alt="" src={imageUrl}/>
+			<img onError={this.onError} data-automationid={qaHook} className={avatarClassNames} alt="" src={imageUrl}/>
 		) : (
 			<abbr
 				data-automationid={qaHook}

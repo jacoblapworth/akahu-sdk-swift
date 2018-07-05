@@ -32,6 +32,8 @@ export default class Picklist extends Component {
 			isHorizontal && `${ns}-picklist-horizontal`
 		);
 
+		/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+		// Deferring the fix for this until we determine how to change the surface of pickitems & picklists
 		return (
 			<ul
 				className={classes}
@@ -44,6 +46,7 @@ export default class Picklist extends Component {
 				{children}
 			</ul>
 		)
+		/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
 	}
 }
 

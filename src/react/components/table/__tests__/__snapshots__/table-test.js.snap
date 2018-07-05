@@ -183,9 +183,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -248,9 +250,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -300,9 +304,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -352,9 +358,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -438,9 +446,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -503,9 +513,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -555,9 +567,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -607,9 +621,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -693,9 +709,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -758,9 +776,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -810,9 +830,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -862,9 +884,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={true}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -1644,9 +1668,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio xui-is-disabled"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -2783,14 +2809,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -2852,14 +2881,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -2921,14 +2953,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3014,9 +3049,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3142,9 +3179,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3236,9 +3275,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3330,9 +3371,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -3619,14 +3662,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3730,14 +3776,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3841,14 +3890,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3929,9 +3981,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -4063,9 +4117,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -4150,14 +4206,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -4204,9 +4263,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -4291,14 +4352,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -4345,9 +4409,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -4432,14 +4498,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -5570,9 +5639,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5641,9 +5712,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5686,14 +5759,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -5740,9 +5816,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5785,14 +5863,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -5839,9 +5920,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -5884,14 +5967,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -7197,9 +7283,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-head xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select all rows"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -7331,9 +7419,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -7418,14 +7508,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -7472,9 +7565,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -7559,14 +7654,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -7613,9 +7711,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   className="xui-table--checkbox-body xui-styledcheckboxradio"
                   data-automationid={undefined}
                   onClick={[Function]}
+                  role="presentation"
                 >
                   <input
                     aria-label="Select row"
+                    aria-labelledby={undefined}
                     checked={false}
                     className="xui-styledcheckboxradio--input"
                     data-automationid={undefined}
@@ -7700,14 +7800,17 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
+                  aria-expanded={undefined}
+                  aria-owns={undefined}
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
-                  onKeyDown={[Function]}
+                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
                     aria-controls={undefined}
+                    aria-expanded={false}
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}

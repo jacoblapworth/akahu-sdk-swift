@@ -217,16 +217,28 @@ test.add(storyNames.formLayout, () => {
 								}}
 							/>
 
-							<InputLabel htmlFor={inputMap.nameFirst}>
+							<InputLabel>
 								Your name
 							</InputLabel>
 							<InputGroup isFieldLayout>
-								<XUITextInput inputProps={{name:inputMap.nameFirst, id: inputMap.nameFirst}}/>
-								<XUITextInput inputProps={{name:inputMap.nameMiddle, id: inputMap.nameMiddle}}/>
-								<XUITextInput inputProps={{name:inputMap.nameLast, id: inputMap.nameLast}}/>
+								<XUITextInput
+									labelText="First name"
+									isLabelHidden
+									inputProps={{name:inputMap.nameFirst, id: inputMap.nameFirst}}
+								/>
+								<XUITextInput
+									labelText="Middle name"
+									isLabelHidden
+									inputProps={{name:inputMap.nameMiddle, id: inputMap.nameMiddle}}
+								/>
+								<XUITextInput
+									labelText="Last name"
+									isLabelHidden
+									inputProps={{name:inputMap.nameLast, id: inputMap.nameLast}}
+								/>
 							</InputGroup>
 
-							<InputLabel htmlFor={inputMap.nameFirst}>
+							<InputLabel>
 								Choose a Food
 							</InputLabel>
 							<div className="xui-textinputgroup xui-field-layout xui-u-flex">
@@ -257,6 +269,8 @@ test.add(storyNames.formLayout, () => {
 								/>
 								<XUITextInput
 									containerClassName="xui-u-flex-1"
+									labelText="Input label"
+									isLabelHidden
 									inputProps={{
 										name: inputMap.foodName,
 										id: inputMap.foodName
@@ -281,11 +295,7 @@ test.add(storyNames.formLayout, () => {
 						<PanelSection formLayout headerContent="Selects" className="xui-padding-vertical">
 
 							<LayoutSelect
-								label={
-									<span>
-										Please select a bank
-									</span>
-								} // Use this instead of <InputLabel /> (inconsistent)
+								label='Please select a bank' // Use this instead of <InputLabel /> (inconsistent)
 								title="Choose a bank"
 								name={inputMap.bankChoice}
 								htmlFor={inputMap.bankChoice}
@@ -299,6 +309,8 @@ test.add(storyNames.formLayout, () => {
 								Add people
 							</InputLabel>
 							<XUIAutocompleter
+								inputLabelText="input label"
+								isInputLabelHidden
 								className="xui-field-layout"
 								ref={ac => this._autocompleter = ac}
 								onSearch={this.onSearchChangeHandler}
@@ -326,9 +338,7 @@ test.add(storyNames.formLayout, () => {
 
 						<PanelSection formLayout headerContent="Radios and Checkboxes" className="xui-padding-vertical">
 
-							<InputLabel htmlFor={`${inputMap.whatCity}-Wellington`}>
-								Choose a city
-							</InputLabel>
+							<InputLabel>Choose a city</InputLabel>
 							<XUIRadioGroup className="xui-field-layout" groupLabel="cities">
 								{
 									[
@@ -374,7 +384,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUICheckboxGroup>
 
-							<InputLabel htmlFor={`${inputMap.whatColour}-Red`}>
+							<InputLabel>
 								Choose one colour
 							</InputLabel>
 							<XUIToggle className="xui-field-layout" layout="form" secondaryProps={{'aria-label': "colors"}}>
@@ -401,7 +411,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUIToggle>
 
-							<InputLabel htmlFor={`${inputMap.whatColour2}-Red`}>
+							<InputLabel>
 								Choose many colours
 							</InputLabel>
 							<XUIToggle className="xui-field-layout" layout="form" secondaryProps={{role: 'group'}}>
@@ -434,7 +444,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel htmlFor={inputMap.thingOn}>
 								Is the thing on
 							</InputLabel>
-							<XUISwitch onChange={NOOP} name={inputMap.thingOn} id={inputMap.thingOn} />
+							<XUISwitch labelText="switch label" onChange={NOOP} name={inputMap.thingOn} id={inputMap.thingOn} />
 						</PanelSection>
 
 						<footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">

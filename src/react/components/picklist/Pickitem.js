@@ -51,12 +51,13 @@ export default class Pickitem extends PureComponent {
 		const listeners = !isDisabled ? { onClick, onBlur, onFocus, onKeyDown, onMouseOver } : null;
 
 		const Tag = isSplit ? 'div' : 'li';
+		const itemRole = isSplit ? undefined : ariaRole;
 
 		return (
 			<Tag
 				className={classes}
 				aria-selected={isMultiselect ? isSelected : null}
-				role={ariaRole}
+				role={itemRole}
 				id={id}
 				data-automationid={qaHook}
 				aria-label={ariaLabel}

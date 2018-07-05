@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {baseClass} from "./constants";
 import {ns} from "../helpers/xuiClassNamespace";
+import uuidv4 from 'uuid/v4';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is wrapped inside a label,
@@ -52,6 +53,9 @@ const buildHtmlRadio = (qaHook, htmlClassName) => {
 };
 
 export default class XUIRadio extends React.Component {
+	// User can manually proivde an id, or we will generate one.
+	labelId = this.props.labelId || uuidv4();
+
 	render() {
 		const {
 			tabIndex,
@@ -88,13 +92,22 @@ export default class XUIRadio extends React.Component {
 		);
 		const labelElement =
 			!isLabelHidden &&
-			children &&
-			<span className={labelClasses} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>;
+			children && (
+				<span
+					id={this.labelId}
+					className={labelClasses}
+					data-automationid={qaHook && `${qaHook}--label`}
+				>
+					{children}
+				</span>
+			);
 		const inputProps = {
 			'type': 'radio',
 			'disabled': isDisabled,
 			'required': isRequired,
 			'aria-label': isLabelHidden && children || undefined,
+			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
+			'aria-labelledby': labelElement && this.labelId || !children && this.props.labelId || undefined,
 			tabIndex,
 			name,
 			onChange,
@@ -118,7 +131,7 @@ export default class XUIRadio extends React.Component {
 		}
 
 		return (
-			<label className={classes} data-automationid={qaHook} onClick={onLabelClick}>
+			<label className={classes} data-automationid={qaHook} onClick={onLabelClick} role="presentation">
 				<input role={role} className={`${baseClass}--input`} {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
 				{buildRadio(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
@@ -181,7 +194,10 @@ XUIRadio.propTypes = {
 	/** Role to be applied for screen readers */
 	role: PropTypes.string,
 
-	id: PropTypes.string
+	id: PropTypes.string,
+
+	/** Provide a specific label ID which will be used as the "labelleby" aria property */
+	labelId: PropTypes.string
 };
 
 XUIRadio.defaultProps = {

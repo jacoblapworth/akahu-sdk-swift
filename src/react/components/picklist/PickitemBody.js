@@ -17,7 +17,15 @@ const NOOP = () => {};
 const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, isMultiselect, children, checkboxClassName, target, qaHook }) => {
 	if (isMultiselect) {
 		return (
-			<div className={`${ns}-pickitem--body`} onClick={onClick} onKeyDown={onKeyDown} onMouseOver={onMouseOver} data-automationid={qaHook}>
+			<div
+				className={`${ns}-pickitem--body`}
+				onClick={onClick}
+				onKeyDown={onKeyDown}
+				onMouseOver={onMouseOver}
+				onFocus={onMouseOver}
+				data-automationid={qaHook}
+				role="presentation"
+			>
 				<XUICheckbox
 					onChange={NOOP}
 					isChecked={isSelected}

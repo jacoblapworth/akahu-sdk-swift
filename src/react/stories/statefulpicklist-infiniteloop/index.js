@@ -56,8 +56,6 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 				<div
 					id="spl-wrapper"
 					ref={comp => (this._rootNode = comp)}
-					tabIndex={0}
-					onKeyDown={this.onKeyDown}
 					style={{ width: '300px' }}
 				>
 					<XUIAutoCompleter
@@ -66,6 +64,8 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 						footer={this.renderFooter(false)}
 						onSearch={this.onSearch}
 						value={this.state.value}
+						inputLabelText="label here"
+						isInputLabelHidden
 						openOnFocus
 					>
 						<Picklist>

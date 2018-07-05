@@ -60,14 +60,14 @@ const footer = (
 	<DropDownFooter
 		title='Dropdown footer'
 		pickItems={[
-			<Pickitem id="1" value="1" key="1">
+			<Pickitem id="aa" value="aa" key="aa">
 				<XUIIcon
 					icon={plusIcon}
 					className="xui-margin-right-xsmall"
 				/>
 				Item 1
 			</Pickitem>,
-			<Pickitem id="2" value="2" key="2">
+			<Pickitem id="bb" value="bb" key="bb">
 				<XUIIcon
 					icon={plusIcon}
 					className="xui-margin-right-xsmall"
@@ -211,7 +211,7 @@ const createTriggerButton = () => {
 };
 
 const createTriggerLink = () => {
-	return <a href="javascript:void(0);">A link</a>;
+	return <a href="javascript:void(0);">A link</a>; // eslint-disable-line jsx-a11y/anchor-is-valid
 };
 
 const createTriggerIcon = () => {

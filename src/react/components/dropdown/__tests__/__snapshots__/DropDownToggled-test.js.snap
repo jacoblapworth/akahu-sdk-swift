@@ -2,14 +2,17 @@
 
 exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1`] = `
 <div
+  aria-expanded={undefined}
+  aria-owns={undefined}
   className={undefined}
   data-automationid="ddt-example"
   data-ref="toggled-wrapper"
-  onKeyDown={[Function]}
+  role="presentation"
 >
   <button
     aria-activedescendant={null}
     aria-controls={undefined}
+    aria-expanded={false}
     aria-haspopup="listbox"
     className="xui-button xui-button-standard"
     onClick={[Function]}

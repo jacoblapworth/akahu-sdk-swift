@@ -154,16 +154,20 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
     className="xui-pickitem--body"
     data-automationid={undefined}
     onClick={undefined}
+    onFocus={undefined}
     onKeyDown={undefined}
     onMouseOver={undefined}
+    role="presentation"
   >
     <label
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby="testCheckboxId"
         checked={false}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -183,6 +187,7 @@ exports[`<SelectBoxOption /> should render checkboxes when the showCheckboxes pr
       <span
         className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
         data-automationid={undefined}
+        id="testCheckboxId"
       >
         <span
           className=""
@@ -312,7 +317,7 @@ exports[`<SelectBoxOption /> should render the highlighted class if isHighlighte
 </li>
 `;
 
-exports[`<SelectBoxOption /> should render the option  and the checkboxesas disabled when the isDisabled and showCheckboxes props are true 1`] = `
+exports[`<SelectBoxOption /> should render the option and the checkboxes as disabled when the isDisabled and showCheckboxes props are true 1`] = `
 <li
   aria-label={undefined}
   aria-selected={false}
@@ -325,16 +330,20 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
     className="xui-pickitem--body"
     data-automationid={undefined}
     onClick={undefined}
+    onFocus={undefined}
     onKeyDown={undefined}
     onMouseOver={undefined}
+    role="presentation"
   >
     <label
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio"
       data-automationid={undefined}
       onClick={[Function]}
+      role="presentation"
     >
       <input
         aria-label={undefined}
+        aria-labelledby="testCheckboxId"
         checked={false}
         className="xui-styledcheckboxradio--input"
         data-automationid={undefined}
@@ -354,6 +363,7 @@ exports[`<SelectBoxOption /> should render the option  and the checkboxesas disa
       <span
         className="xui-styledcheckboxradio--label xui-pickitem-multiselect--label"
         data-automationid={undefined}
+        id="testCheckboxId"
       >
         <span
           className=""

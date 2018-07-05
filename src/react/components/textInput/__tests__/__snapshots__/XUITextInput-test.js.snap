@@ -4,6 +4,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput"
@@ -11,6 +12,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
   >
     <input
       aria-label={undefined}
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid="input-test--input"
       defaultValue={undefined}
@@ -37,6 +39,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   <label
     className="xui-textinputwrapper"
     onKeyDown={undefined}
+    role="presentation"
   >
     <div
       className="xui-textinput"
@@ -67,6 +70,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       </div>
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-left-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -89,6 +93,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   <label
     className="xui-textinputwrapper"
     onKeyDown={undefined}
+    role="presentation"
   >
     <div
       className="xui-textinput"
@@ -96,6 +101,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     >
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-right-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -141,6 +147,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   <label
     className="xui-textinputwrapper"
     onKeyDown={undefined}
+    role="presentation"
   >
     <div
       className="xui-textinput"
@@ -171,6 +178,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       </div>
       <input
         aria-label={undefined}
+        aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
         data-automationid={undefined}
         defaultValue={undefined}
@@ -220,6 +228,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput"
@@ -227,6 +236,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
   >
     <input
       aria-label={undefined}
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid="givenQAHook--input"
       defaultValue={undefined}
@@ -252,6 +262,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput xui-textinput-is-disabled"
@@ -259,6 +270,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
   >
     <input
       aria-label={undefined}
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -284,9 +296,11 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
 <label
   className="custom-field-class xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <span
     className="custom-label-class xui-text-label xui-fieldlabel-layout"
+    id="testLabel"
   >
     test
   </span>
@@ -296,6 +310,7 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
   >
     <input
       aria-label={undefined}
+      aria-labelledby="testLabel"
       className="custom-input-class xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -321,6 +336,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <div
     className="xui-textinput"
@@ -328,6 +344,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
   >
     <input
       aria-label="test"
+      aria-labelledby={undefined}
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}
@@ -353,9 +370,11 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
 <label
   className="xui-textinputwrapper"
   onKeyDown={undefined}
+  role="presentation"
 >
   <span
     className="xui-text-label xui-fieldlabel-layout"
+    id="testLabel"
   >
     test
   </span>
@@ -365,6 +384,7 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
   >
     <input
       aria-label={undefined}
+      aria-labelledby="testLabel"
       className="xui-textinput--input"
       data-automationid={undefined}
       defaultValue={undefined}

@@ -24,11 +24,12 @@ const itemLabels = [
 	'This item will be a bit longer and just fine!'
 ];
 
-const buildItemsFromSettings = function(settings, listIndex) {
+const buildItemsFromSettings = function(settings, listIndex, componentType) {
 	const listItems = [];
 	settings.forEach((item, itemIndex) => {
 		const unique = `${listIndex}-${itemIndex}`;
-		listItems.push(<XUIPickitem key={unique} id={unique} {...item}>
+		const role = componentType == 'StatefulPicklist' ? 'treeitem' : undefined;
+		listItems.push(<XUIPickitem key={unique} id={unique} ariaRole={role} {...item}>
 			{item.value || itemLabels[itemIndex % itemLabels.length]}
 		</XUIPickitem>);
 	});
@@ -39,13 +40,15 @@ const buildLists = function(lists, componentType) {
 	const builtLists = [];
 	lists.forEach((list, index) => {
 		const listObj = {...list};
-		const listItems = buildItemsFromSettings(listObj.items, index);
+		const listItems = buildItemsFromSettings(listObj.items, index, componentType);
 		delete listObj.items;
-
+		const secProps = {
+			role: componentType != 'StatefulPicklist' ? 'listbox' : 'tree'
+		};
 		if (componentType === 'NestedPicklist') {
-			builtLists.push(<NestedPicklist key={index} {...listObj}>{listItems}</NestedPicklist>);
+			builtLists.push(<NestedPicklist key={index} secondaryProps={secProps} {...listObj}>{listItems}</NestedPicklist>);
 		} else {
-			builtLists.push(<XUIPicklist key={index} {...listObj}>{listItems}</XUIPicklist>);
+			builtLists.push(<XUIPicklist key={index} secondaryProps={secProps} {...listObj}>{listItems}</XUIPicklist>);
 		}
 	});
 	return builtLists;
@@ -58,6 +61,7 @@ storiesWithKnobs.add('Playground', () => (
 	<XUIPicklist
 		defaultLayout={boolean('defaultLayout', true)}
 		isHorizontal={boolean('isHorizontal', false)}
+		secondaryProps={{role: 'listbox'}}
 	>
 		<XUIPickitem key="1" id="1"
 			isSelected={boolean('first item isSelected', false)}

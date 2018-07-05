@@ -105,7 +105,7 @@ const TextInputWrapper = props => {
 }
 
 TextInputWrapper.propTypes = {
-	labelText: PropTypes.labelText,
+	labelText: PropTypes.string,
 	inputProps: PropTypes.object,
 	isBorderlessTransparent: PropTypes.bool,
 	isBorderlessSolid: PropTypes.bool,

@@ -66,6 +66,7 @@ export default class Form extends React.PureComponent {
 
 		return (
 			<form
+				role="presentation"
 				{...other}
 				className={cn(
 					{

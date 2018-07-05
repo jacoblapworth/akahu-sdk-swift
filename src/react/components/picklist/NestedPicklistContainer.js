@@ -67,7 +67,11 @@ export default class NestedPicklistContainer extends PureComponent {
 		const isExpanded = container.state.open;
 		const { className, children, qaHook, id, secondaryProps } = container.props;
 		return (
-			<li data-automationid={qaHook} className={cn(className, `${ns}-picklist--nestedcontainer`)}>
+			<li
+				data-automationid={qaHook}
+				className={cn(className, `${ns}-picklist--nestedcontainer`)}
+				aria-expanded={isExpanded}
+			>
 				<input
 					data-automationid={qaHook && `${qaHook}--checkbox`}
 					type="checkbox"
@@ -77,7 +81,6 @@ export default class NestedPicklistContainer extends PureComponent {
 					tabIndex="-1"
 					onChange={container.toggle}
 					aria-owns={id}
-					aria-expanded={isExpanded}
 					{...secondaryProps}
 				/>
 				{children}

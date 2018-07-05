@@ -22,7 +22,6 @@ class ContentPagination extends PureComponent {
 			<nav
 				data-automationid={qaHook && `${qaHook}--pagination`}
 				className={`${NAME_SPACE}-chart--pagination`}
-				role="navigation"
 				aria-label="Pagination">
 
 				<XUIButton

@@ -31,7 +31,7 @@ export default function XUIToggleOption(props) {
 	);
 
 	return (
-		<label className={classes} data-automationid={qaHook}>
+		<label htmlFor={id} className={classes} data-automationid={qaHook}>
 			<input
 				className={`${baseClass}--input`}
 				data-automationid={qaHook && `${qaHook}--input`}

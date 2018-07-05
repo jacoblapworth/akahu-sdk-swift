@@ -222,7 +222,6 @@
 	fill-rule: evenodd;
 	flex: none; // Prevent distortion if parent has display: flex
 	pointer-events: none; // Don't hog the cursor if inside buttons/links
-	vertical-align: text-bottom;
 }
 
 $icon-colours:

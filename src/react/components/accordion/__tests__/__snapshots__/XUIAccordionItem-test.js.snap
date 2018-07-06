@@ -30,7 +30,7 @@ exports[`<XUIAccordionItem /> should render closed 1`] = `
 
 exports[`<XUIAccordionItem /> should render open, defaulting to empty state 1`] = `
 <div
-  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-pop"
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
   data-automationid={undefined}
 >
   <button>
@@ -65,7 +65,7 @@ exports[`<XUIAccordionItem /> should render open, defaulting to empty state 1`] 
 
 exports[`<XUIAccordionItem /> should render open, with children 1`] = `
 <div
-  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-pop"
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
   data-automationid={undefined}
 >
   <button>

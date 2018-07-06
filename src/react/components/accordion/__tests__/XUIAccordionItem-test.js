@@ -41,4 +41,20 @@ describe('<XUIAccordionItem />', () => {
 
         expect(openItem).toMatchSnapshot();
     });
+
+    it('should render open, and not pop', () => {
+        const openItem = renderer.create(createComponent({ isOpen: true }));
+
+        openItem.getInstance().setState({ left: 0, right: 1024 });
+
+        expect(openItem).toMatchSnapshot();
+    });
+
+    it('should render open, and pop', () => {
+        const openItem = renderer.create(createComponent({ isOpen: true }));
+
+        openItem.getInstance().setState({ left: 30, right: 970 });
+
+        expect(openItem).toMatchSnapshot();
+    });
 });

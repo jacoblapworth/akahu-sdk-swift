@@ -55,13 +55,7 @@ $transition-duration: 0.15s;
 .#{$ns}-accordionitem-new-no-pop {
 	border-radius: 0;
 
-	&:before {
-		content: '';
-		background: $xui-color-blue;
-		height: 100%;
-		position: absolute;
-		width: 3px;
-	}
+	@include xui-highlight-left($xui-color-blue);
 }
 
 .#{$ns}-accordionitem-new--trigger {

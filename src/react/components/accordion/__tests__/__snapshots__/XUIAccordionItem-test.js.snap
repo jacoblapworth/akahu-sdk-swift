@@ -28,7 +28,42 @@ exports[`<XUIAccordionItem /> should render closed 1`] = `
 </div>
 `;
 
-exports[`<XUIAccordionItem /> should render open, defaulting to empty state 1`] = `
+exports[`<XUIAccordionItem /> should render open, and not pop 1`] = `
+<div
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+  data-automationid={undefined}
+>
+  <button>
+    This is the trigger
+  </button>
+  <div
+    className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+  >
+    <div
+      className="xui-textcolor-muted xui-accordionitem-new--emptystate"
+      data-automationid={undefined}
+    >
+      <svg
+        className="xui-icon xui-icon-large"
+        data-automationid={undefined}
+        focusable="false"
+        style={null}
+        viewBox="0 0 30 30"
+      >
+        <path
+          d="M13,10 L21,10 L21,12 L13,12 L13,10 Z M9,10 L11,10 L11,12 L9,12 L9,10 Z M9,14 L11,14 L11,16 L9,16 L9,14 Z M13,14 L21,14 L21,16 L13,16 L13,14 Z M13,18 L21,18 L21,20 L13,20 L13,18 Z M9,18 L11,18 L11,20 L9,20 L9,18 Z"
+          role="presentation"
+        />
+      </svg>
+      <div>
+        Nothing available to show
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordionItem /> should render open, and pop 1`] = `
 <div
   className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-pop"
   data-automationid={undefined}
@@ -63,9 +98,44 @@ exports[`<XUIAccordionItem /> should render open, defaulting to empty state 1`] 
 </div>
 `;
 
+exports[`<XUIAccordionItem /> should render open, defaulting to empty state 1`] = `
+<div
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+  data-automationid={undefined}
+>
+  <button>
+    This is the trigger
+  </button>
+  <div
+    className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+  >
+    <div
+      className="xui-textcolor-muted xui-accordionitem-new--emptystate"
+      data-automationid={undefined}
+    >
+      <svg
+        className="xui-icon xui-icon-large"
+        data-automationid={undefined}
+        focusable="false"
+        style={null}
+        viewBox="0 0 30 30"
+      >
+        <path
+          d="M13,10 L21,10 L21,12 L13,12 L13,10 Z M9,10 L11,10 L11,12 L9,12 L9,10 Z M9,14 L11,14 L11,16 L9,16 L9,14 Z M13,14 L21,14 L21,16 L13,16 L13,14 Z M13,18 L21,18 L21,20 L13,20 L13,18 Z M9,18 L11,18 L11,20 L9,20 L9,18 Z"
+          role="presentation"
+        />
+      </svg>
+      <div>
+        Nothing available to show
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<XUIAccordionItem /> should render open, with children 1`] = `
 <div
-  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-pop"
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
   data-automationid={undefined}
 >
   <button>

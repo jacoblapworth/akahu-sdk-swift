@@ -52,6 +52,12 @@ $transition-duration: 0.15s;
 	}
 }
 
+.#{$ns}-accordionitem-new-no-pop {
+	border-radius: 0;
+
+	@include xui-highlight-left($xui-color-blue);
+}
+
 .#{$ns}-accordionitem-new--trigger {
 	cursor: pointer;
 	transition-duration: $transition-duration;

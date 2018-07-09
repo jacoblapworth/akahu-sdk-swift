@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import { compose } from '../helpers/compose';
+import XUIButton from '../button/XUIButton';
 import PositioningInline from '../positioning/PositioningInline';
 import { positionOptions } from '../positioning/private/constants';
 import cn from 'classnames';
@@ -8,6 +9,7 @@ import uuidv4 from 'uuid/v4';
 import {ns} from "../helpers/xuiClassNamespace";
 
 const baseClass = `${ns}-tooltip`;
+const inlineElements = /^(a|span|em|strong|i|b|abbr)$/;
 
 export default class XUITooltip extends PureComponent {
 	state = {
@@ -92,6 +94,11 @@ export default class XUITooltip extends PureComponent {
 		}
 	};
 
+	isInlineTrigger = (trigger) => {
+		const triggerType = trigger.type;
+		return inlineElements.test(triggerType) || (triggerType === XUIButton && trigger.props.isLink);
+	};
+
 	render() {
 		const {
 			children,
@@ -118,6 +125,8 @@ export default class XUITooltip extends PureComponent {
 		const wrapperClasses = cn(
 			wrapperClassName,
 			baseClass,
+			this.state.isFocused && `${ns}-has-focused-trigger`,
+			this.isInlineTrigger(this.props.trigger) && `${ns}-is-inline-trigger`,
 			isDisabled && `${ns}-is-disabled`,
 			!isHidden && `${baseClass}-tipopen`,
 			isAnimating && `${baseClass}-tipanimating`

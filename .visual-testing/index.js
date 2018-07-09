@@ -46,6 +46,11 @@ const componentsToTest = [
 		variationsPath: `${variationsPath}/banner/stories/variations.js`
 	},
 	{
+		testsPrefix: 'XUI Bar Chart',
+		variationsPath: `${variationsPath}/chart/stories/variations.js`,
+		readyEvent: 'xui-bar-chart-ready-event',
+	},
+	{
 		testsPrefix: 'XUI Button',
 		variationsPath: `${variationsPath}/button/stories/variations.js`
 	},

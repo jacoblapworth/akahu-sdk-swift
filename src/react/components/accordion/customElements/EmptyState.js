@@ -4,29 +4,27 @@ import listIconPath from '@xero/xui-icon/icons/list';
 import XUIIcon from '../../icon/XUIIcon';
 import {ns} from "../../helpers/xuiClassNamespace";
 
-export default class EmptyState extends PureComponent {
+export default class XUIAccordionItemEmptyState extends PureComponent {
 	render() {
-		const { children, qaHook } = this.props;
+		const { children, iconPath, qaHook } = this.props;
 
 		return (
-			<div
-				data-automationid={qaHook}
-				className={`${ns}-textcolor-muted ${ns}-accordionitem-new--emptystate`}>
-				<XUIIcon
-					size="large"
-					path={listIconPath}
-				/>
+			<div data-automationid={qaHook} className={`${ns}-textcolor-muted ${ns}-accordionitem-new--emptystate`}>
+				<XUIIcon size="large" path={iconPath} />
 				<div>{children}</div>
 			</div>
 		);
 	}
 }
 
-EmptyState.propTypes = {
+XUIAccordionItemEmptyState.propTypes = {
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
+	// Path of an icon, consumed by XUIIcon
+	iconPath: PropTypes.string,
 };
 
-EmptyState.defaultProps = {
+XUIAccordionItemEmptyState.defaultProps = {
 	children: 'Nothing available to show',
+	iconPath: listIconPath,
 };

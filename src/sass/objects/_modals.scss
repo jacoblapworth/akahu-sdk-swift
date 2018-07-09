@@ -158,6 +158,10 @@
 // It also needs to be labelled appropriately and keyboard focus must be managed.
 // The `aria-labelledby` and `aria-describedby` attributes can be used to ensure the purpose of the modal is clear.
 //
+// In addition, when opening a modal, apply the `aria-hidden` attribute to any siblings of the modal that should not be interactive when the modal is open.
+// This attribute indicates to assistive technology that background content is not for interaction, at that time.
+// Take care not to apply the attribute to any ancestors of the modal, and be sure to remove them, when the modal closes.
+//
 // Styleguide: Compounds.CollectingInput.Modals.9
 
 .#{$ns}-mask {

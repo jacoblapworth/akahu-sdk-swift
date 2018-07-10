@@ -1,0 +1,60 @@
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import { getRectangle, shouldAccordionPop } from '../private/helpers';
+
+export default class AccordionWrapper extends PureComponent {
+	state = { left: null, right: null };
+
+	componentDidMount() {
+		this.setRect();
+	}
+
+	componentDidUpdate(prevProps) {
+		if (prevProps.isOpen !== this.props.isOpen) this.setRect();
+	}
+
+	popClassName() {
+		if (!this.props.isOpen) return '';
+		if (shouldAccordionPop(this.state)) return 'xui-accordionitem-new-pop';
+		return 'xui-accordionitem-new-no-pop';
+	}
+
+	setRect = () => {
+		const { left, right } = getRectangle(this.accordionItem);
+		this.setState({ left, right });
+	};
+
+	setRef = ref => {
+		this.accordionItem = ref;
+	};
+
+	render() {
+		const { children, isOpen, qaHook, trigger } = this.props;
+
+		return (
+			<div
+				ref={this.setRef}
+				data-automationid={qaHook}
+				className={cn(
+					'xui-accordionitem-new',
+					{ 'xui-accordionitem-new-is-open': isOpen },
+					this.popClassName()
+				)}>
+				{trigger}
+				<div className={cn('xui-accordionitem-new--content', {
+					'xui-accordionitem-new--content-is-open': isOpen,
+				})}>
+					{children}
+				</div>
+			</div>
+		);
+	}
+}
+
+AccordionWrapper.propTypes = {
+	qaHook: PropTypes.string,
+	children: PropTypes.node,
+	isOpen: PropTypes.bool.isRequired,
+	trigger: PropTypes.node.isRequired,
+};

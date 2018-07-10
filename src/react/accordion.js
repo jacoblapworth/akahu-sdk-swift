@@ -1,3 +1,4 @@
 import XUIAccordion from './components/accordion/XUIAccordion';
+import XUIAccordionItem from './components/accordion/XUIAccordionItem';
 
-export default XUIAccordion;
+export { XUIAccordion as default, XUIAccordionItem };

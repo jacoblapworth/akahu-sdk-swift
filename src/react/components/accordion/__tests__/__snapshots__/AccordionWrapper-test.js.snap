@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAccordion /> | Accordion Wrapper should render open, and not pop 1`] = `
+<div
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+  data-automationid={undefined}
+>
+  <div>
+    John Smith
+  </div>
+  <div
+    className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+  >
+    <div>
+      Accountant
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> | Accordion Wrapper should render open, and pop 1`] = `
+<div
+  className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-pop"
+  data-automationid={undefined}
+>
+  <div>
+    John Smith
+  </div>
+  <div
+    className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+  >
+    <div>
+      Accountant
+    </div>
+  </div>
+</div>
+`;

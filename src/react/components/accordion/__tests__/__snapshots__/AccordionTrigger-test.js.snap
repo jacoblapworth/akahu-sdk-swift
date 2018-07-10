@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIAccordionItemTrigger /> should render an automation id when passed in the qaHook prop 1`] = `
+exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
   className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
   data-automationid="test-qahook"
@@ -40,12 +40,18 @@ exports[`<XUIAccordionItemTrigger /> should render an automation id when passed 
   >
     <div
       className="xui-padding-vertical xui-u-flex-grow"
-    />
+    >
+      <div
+        className="xui-heading-small xui-text-wordbreak"
+      >
+        John Smith
+      </div>
+    </div>
   </div>
 </div>
 `;
 
-exports[`<XUIAccordionItemTrigger /> should render closed 1`] = `
+exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
   className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
   data-automationid={undefined}
@@ -85,12 +91,18 @@ exports[`<XUIAccordionItemTrigger /> should render closed 1`] = `
   >
     <div
       className="xui-padding-vertical xui-u-flex-grow"
-    />
+    >
+      <div
+        className="xui-heading-small xui-text-wordbreak"
+      >
+        John Smith
+      </div>
+    </div>
   </div>
 </div>
 `;
 
-exports[`<XUIAccordionItemTrigger /> should render open 1`] = `
+exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
   className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
   data-automationid={undefined}
@@ -130,12 +142,18 @@ exports[`<XUIAccordionItemTrigger /> should render open 1`] = `
   >
     <div
       className="xui-padding-vertical xui-u-flex-grow"
-    />
+    >
+      <div
+        className="xui-heading-small xui-text-wordbreak"
+      >
+        John Smith
+      </div>
+    </div>
   </div>
 </div>
 `;
 
-exports[`<XUIAccordionItemTrigger /> should render with available props 1`] = `
+exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
   className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
   data-automationid={undefined}
@@ -184,7 +202,7 @@ exports[`<XUIAccordionItemTrigger /> should render with available props 1`] = `
       <div
         className="xui-heading-small xui-text-wordbreak"
       >
-        This is the title
+        John Smith
       </div>
       <div
         className="xui-textcolor-muted xui-text-wordbreak"
@@ -197,6 +215,9 @@ exports[`<XUIAccordionItemTrigger /> should render with available props 1`] = `
           Plain text
         </div>
       </div>
+    </div>
+    <div>
+      Custom content
     </div>
     <div
       className="xui-accordionitem-new--trigger--rightcontent"

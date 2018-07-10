@@ -14,15 +14,15 @@ export default class XUIAccordion extends PureComponent {
 	};
 
 	render() {
-		const { ListItem } = this.props;
+		const { className, data, idKey, ListItem, qaHook } = this.props;
 
 		return (
-			<div data-automationid={this.props.qaHook} className={cn('xui-accordion-new', this.props.className)}>
-				{this.props.data.map(item => (
+			<div data-automationid={qaHook} className={cn('xui-accordion-new', className)}>
+				{data.map(item => (
 					<ListItem
-						isOpen={this.state.openId === item[this.props.idKey]}
-						onClick={this.updateOpenId(item[this.props.idKey])}
-						key={item[this.props.idKey]}
+						isOpen={this.state.openId === item[idKey]}
+						onClick={this.updateOpenId(item[idKey])}
+						key={item[idKey]}
 						item={item}
 					/>
 				))}

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import { compose } from '../helpers/compose';
-import XUIButton from '../button/XUIButton';
 import PositioningInline from '../positioning/PositioningInline';
 import { positionOptions } from '../positioning/private/constants';
 import cn from 'classnames';
@@ -9,7 +8,6 @@ import uuidv4 from 'uuid/v4';
 import {ns} from "../helpers/xuiClassNamespace";
 
 const baseClass = `${ns}-tooltip`;
-const inlineElements = /^(a|span|em|strong|i|b|abbr)$/;
 
 export default class XUITooltip extends PureComponent {
 	state = {
@@ -94,9 +92,13 @@ export default class XUITooltip extends PureComponent {
 		}
 	};
 
-	isInlineTrigger = (trigger) => {
-		const triggerType = trigger.type;
-		return inlineElements.test(triggerType) || (triggerType === XUIButton && trigger.props.isLink);
+	componentDidMount = () => {
+		const rootNode = this.trigger && (this.trigger.rootNode || this.trigger.inputNode) || this.trigger;
+		if (!rootNode) {
+			return;
+		}
+		const displayProp = window.getComputedStyle(rootNode).display;
+		this.triggerIsInline = /inline/.test(displayProp);
 	};
 
 	render() {
@@ -126,7 +128,7 @@ export default class XUITooltip extends PureComponent {
 			wrapperClassName,
 			baseClass,
 			this.state.isFocused && `${ns}-has-focused-trigger`,
-			this.isInlineTrigger(this.props.trigger) && `${ns}-is-inline-trigger`,
+			this.triggerIsInline && `${ns}-has-inline-trigger`,
 			isDisabled && `${ns}-is-disabled`,
 			!isHidden && `${baseClass}-tipopen`,
 			isAnimating && `${baseClass}-tipanimating`

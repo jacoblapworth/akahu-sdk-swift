@@ -119,6 +119,13 @@
 	&.#{$ns}-has-focused-trigger {
 		overflow: visible;
 	}
+	&.#{$ns}-has-inline-trigger {
+		vertical-align: bottom;
+
+		& > *:first-child {
+			display: block;
+		}
+	}
 }
 
 .#{$ns}-positioningInline {

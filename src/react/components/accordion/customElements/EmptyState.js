@@ -6,11 +6,11 @@ import {ns} from "../../helpers/xuiClassNamespace";
 
 export default class XUIAccordionItemEmptyState extends PureComponent {
 	render() {
-		const { children, iconPath, qaHook } = this.props;
+		const { children, qaHook } = this.props;
 
 		return (
 			<div data-automationid={qaHook} className={`${ns}-textcolor-muted ${ns}-accordion-new--emptystate`}>
-				<XUIIcon size="large" path={iconPath} />
+				<XUIIcon size="large" path={listIconPath} />
 				<div>{children}</div>
 			</div>
 		);
@@ -20,11 +20,8 @@ export default class XUIAccordionItemEmptyState extends PureComponent {
 XUIAccordionItemEmptyState.propTypes = {
 	qaHook: PropTypes.string,
 	children: PropTypes.node,
-	// Path of an icon, consumed by XUIIcon
-	iconPath: PropTypes.string,
 };
 
 XUIAccordionItemEmptyState.defaultProps = {
 	children: 'Nothing available to show',
-	iconPath: listIconPath,
 };

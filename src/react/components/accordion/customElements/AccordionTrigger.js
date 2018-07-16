@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from "../../helpers/xuiClassNamespace";
 import arrow from '@xero/xui-icon/icons/arrow';
 import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
@@ -50,7 +51,7 @@ export default class AccordionTrigger extends PureComponent {
 		);
 
 		const builtRightContent = (builtPinnedValue || action || overflow) && (
-			<div className="xui-accordiontrigger-new--rightcontent">
+			<div className={`${ns}-accordiontrigger-new--rightcontent`}>
 				{builtPinnedValue}
 				{action}
 				{overflow}
@@ -68,12 +69,12 @@ export default class AccordionTrigger extends PureComponent {
 					'xui-panel--section',
 					'xui-u-flex',
 					'xui-u-flex-verticallycentered',
-					'xui-accordiontrigger-new', {
-						'xui-accordiontrigger-new-is-open': isOpen,
+					`${ns}-accordiontrigger-new`, {
+						[`${ns}-accordiontrigger-new-is-open`]: isOpen,
 					},
 				)}
 			>
-				<div className="xui-accordiontrigger-new--caret">
+				<div className={`${ns}-accordiontrigger-new--caret`}>
 					<XUIButton
 						className="xui-button-icon-large"
 						tabIndex={-1}

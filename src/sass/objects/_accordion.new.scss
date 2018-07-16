@@ -9,13 +9,13 @@ $transition-duration: 0.15s;
 }
 
 .#{$ns}-accordionwrapper-new {
+	-ms-transition: none;
 	background-color: $xui-color-white;
 	box-shadow: $xui-shadow-border-all;
 	outline: 0;
 	position: relative;
 	transition-duration: $transition-duration;
 	transition-property: width, margin, padding;
-	-ms-transition: none;
 	width: 100%;
 
 	@media (min-width: $xui-breakpoint-medium) {
@@ -53,10 +53,10 @@ $transition-duration: 0.15s;
 }
 
 .#{$ns}-accordiontrigger-new {
+	-ms-transition: none;
 	cursor: pointer;
 	transition-duration: $transition-duration;
 	transition-property: width, margin, padding;
-	-ms-transition: none;
 
 	&:hover {
 		background: $xui-color-grey-alpha-7;
@@ -96,10 +96,10 @@ $transition-duration: 0.15s;
 }
 
 .#{$ns}-accordionwrapper-new--content-is-open {
+	-ms-transition: none;
 	border-top: $xui-border-muted;
 	opacity: 1;
 	transition: opacity $transition-duration ease-in-out $transition-duration;
-	-ms-transition: none;
 }
 
 .#{$ns}-accordion-new--emptystate {

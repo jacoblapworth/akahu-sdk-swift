@@ -10,16 +10,20 @@ export default class XUIAccordion extends PureComponent {
 		openId: null,
 	};
 
-	updateOpenId = id => () => {
+	updateOpenId = id => {
 		this.setState(prevState => ({
 			openId: prevState.openId === id ? null : id,
 		}));
 	};
 
-	createAccordionItem = ({props: {children, ...item}}, index) => {
+	createAccordionItem = ({props: {children, onItemClick, ...item}}, index) => {
 		const {items, idKey, qaHook, emptyStateComponent, emptyMessage} = this.props;
 		const itemId = items[index][idKey];
 		const isOpen = this.state.openId === itemId;
+		const handleClick = () => {
+			this.updateOpenId(itemId);
+			onItemClick && onItemClick({itemId, isOpen: !isOpen});
+		};
 
 		return (
 			<AccordionWrapper
@@ -30,7 +34,7 @@ export default class XUIAccordion extends PureComponent {
 					<AccordionTrigger
 						qaHook={qaHook && `${qaHook}-trigger`}
 						isOpen={isOpen}
-						onClick={this.updateOpenId(itemId)}
+						onClick={handleClick}
 						{...item}
 					/>
 				)}>

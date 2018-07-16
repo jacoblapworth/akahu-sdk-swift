@@ -19,7 +19,9 @@ const {
 		{ id: 3, name: 'Ernest Hemmingway', content: 'Contractor' }
 	]}
 	createItem={({name, content}) => (
-		<XUIAccordionItem primaryHeading={name}>
+		<XUIAccordionItem
+			primaryHeading={name}
+			onItemClick={({itemId, isOpen}) => console.log(`clicked! ${itemId} | ${isOpen}`)}>
 			{content}
 		</XUIAccordionItem>
 	)}

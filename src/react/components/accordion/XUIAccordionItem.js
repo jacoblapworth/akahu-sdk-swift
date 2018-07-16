@@ -33,6 +33,9 @@ XUIAccordionItem.propTypes = {
 
 	/* Any component passed as right most content, typically a `dropdown toggled` component. */
 	overflow: PropTypes.node,
+
+	/** xxxxx */
+	onItemClick: PropTypes.func,
 };
 
 export default XUIAccordionItem;

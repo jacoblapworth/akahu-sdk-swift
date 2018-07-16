@@ -1,20 +1,28 @@
 @import "../vars";
 @import "../mixins";
 
-$pop-width: 8px;
-$transition-duration: 0.15s;
+$xui-accordion-new-pop-width: 8px;
 
 .#{$ns}-accordion-new {
 	width: 100%;
 }
 
+.#{$ns}-accordion-new--emptystate {
+	@include xui-text-muted;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 140px;
+	justify-content: center;
+}
+
 .#{$ns}-accordionwrapper-new {
-	-ms-transition: none;
 	background-color: $xui-color-white;
 	box-shadow: $xui-shadow-border-all;
+	-ms-transition: none;
 	outline: 0;
 	position: relative;
-	transition-duration: $transition-duration;
+	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
 	width: 100%;
 
@@ -31,20 +39,15 @@ $transition-duration: 0.15s;
 	}
 }
 
-.#{$ns}-accordionwrapper-new-is-open {
-	box-shadow: $xui-shadow-depth-lift;
-	z-index: 1;
+.#{$ns}-accordionwrapper-new--content {
+	opacity: 0;
 }
 
-.#{$ns}-accordionwrapper-new-pop {
-	border-radius: $xui-radius;
-	margin-left: -$pop-width;
-	width: calc(100% + #{2 * $pop-width});
-
-	.#{$ns}-accordiontrigger-new-is-open {
-		padding-left: $pop-width;
-		padding-right: $pop-width;
-	}
+.#{$ns}-accordionwrapper-new--content-is-open {
+	border-top: $xui-border-muted;
+	-ms-transition: none;
+	opacity: 1;
+	transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
 }
 
 .#{$ns}-accordionwrapper-new-no-pop {
@@ -52,15 +55,40 @@ $transition-duration: 0.15s;
 	@include xui-highlight-left($xui-color-blue);
 }
 
+.#{$ns}-accordionwrapper-new-is-open {
+	box-shadow: $xui-shadow-depth-lift;
+	z-index: 1;
+}
+
+.#{$ns}-accordionwrapper-new-pop {
+	border-radius: $xui-radius;
+	margin-left: -$xui-accordion-new-pop-width;
+	width: calc(100% + #{2 * $xui-accordion-new-pop-width});
+
+	.#{$ns}-accordiontrigger-new-is-open {
+		padding-left: $xui-accordion-new-pop-width;
+		padding-right: $xui-accordion-new-pop-width;
+	}
+}
+
 .#{$ns}-accordiontrigger-new {
-	-ms-transition: none;
+	align-items: center;
+	border-top: $xui-border-muted;
 	cursor: pointer;
-	transition-duration: $transition-duration;
+	display: flex;
+	margin: 0;
+	-ms-transition: none;
+	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
+
+	&:first-child {
+		border-top: 0;
+	}
 
 	&:hover {
 		background: $xui-color-grey-alpha-7;
 	}
+
 	&:active {
 		background: $xui-color-grey-alpha-6;
 	}
@@ -68,12 +96,20 @@ $transition-duration: 0.15s;
 
 .#{$ns}-accordiontrigger-new--caret {
 	align-items: center;
-	flex: none;
-	padding: 5px;
+	display: flex;
+	justify-content: center;
+	height: $xui-icon-xlarge;
+	padding: $xui-s-xsmall;
+	width: $xui-icon-xlarge;
 
 	@media (max-width: $xui-breakpoint-narrow) {
 		align-self: flex-start;
 	}
+}
+
+.#{$ns}-accordiontrigger-new--caret .#{$ns}-icon {
+	transition-duration: $xui-motion-speed-medium;
+	transition-property: all;
 }
 
 .#{$ns}-accordiontrigger-new--rightcontent {
@@ -81,31 +117,42 @@ $transition-duration: 0.15s;
 	align-self: stretch;
 	display: flex;
 	flex-shrink: 0;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding-bottom: 5px;
-	padding-top: 5px;
+	margin-left: $xui-s-small;
+	margin-right: $xui-s-small;
+	padding-bottom: $xui-s-xsmall;
+	padding-top: $xui-s-xsmall;
 
 	@media (max-width: $xui-breakpoint-narrow) {
 		align-self: flex-start;
 	}
 }
 
-.#{$ns}-accordionwrapper-new--content {
-	opacity: 0;
-}
-
-.#{$ns}-accordionwrapper-new--content-is-open {
-	-ms-transition: none;
-	border-top: $xui-border-muted;
-	opacity: 1;
-	transition: opacity $transition-duration ease-in-out $transition-duration;
-}
-
-.#{$ns}-accordion-new--emptystate {
+.#{$ns}-accordiontrigger-new--content {
 	align-items: center;
 	display: flex;
-	flex-direction: column;
-	height: 140px;
-	justify-content: center;
+	flex-basis: auto;
+	flex-grow: 1;
+}
+
+.#{$ns}-accordiontrigger-new--headings {
+	flex-basis: auto;
+	flex-grow: 1;
+	padding: $xui-s-standard 0;
+}
+
+.#{$ns}-accordiontrigger-new--primaryheading {
+	@include xui-heading-small;
+	@include xui-text-wordbreak;
+}
+
+.#{$ns}-accordiontrigger-new--secondaryheading {
+	@include xui-text-muted;
+	@include xui-text-wordbreak;
+}
+
+.#{$ns}-accordiontrigger-new--pinnedvalue {
+	@include xui-heading-small;
+	@include xui-text-deemphasis;
+	margin-right: $xui-s-small;
+	padding: $xui-s-small 0;
 }

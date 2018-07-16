@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import {ns} from "../helpers/xuiClassNamespace";
 import AccordionWrapper from './customElements/AccordionWrapper';
 import AccordionTrigger from './customElements/AccordionTrigger';
 import EmptyState from './customElements/EmptyState';
@@ -54,7 +55,7 @@ export default class XUIAccordion extends PureComponent {
 		return (
 			<div
 				data-automationid={qaHook}
-				className={cn('xui-accordion-new', className)}>
+				className={cn(`${ns}-accordion-new`, className)}>
 				{shouldCreateItems && items.map(createItem).map(this.createAccordionItem)}
 			</div>
 		);

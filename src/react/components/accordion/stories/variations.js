@@ -93,6 +93,7 @@ const variations = [
 								secondaryHeading={`${minutes} chargeable (${percentage}%)`}
 								leftContent={<XUIAvatar size="medium" value={contact} variant="business" />}
 								pinnedValue={minutes}
+								href="#"
 							/>
 						))}
 					</XUIContentBlock>

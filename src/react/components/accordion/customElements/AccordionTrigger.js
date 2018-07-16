@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import {ns} from "../../helpers/xuiClassNamespace";
-import arrow from '@xero/xui-icon/icons/arrow';
-import XUIButton from '../../button/XUIButton';
+import arrowPath from '@xero/xui-icon/icons/arrow';
 import XUIIcon from '../../icon/XUIIcon';
 
 export default class AccordionTrigger extends PureComponent {
@@ -32,31 +31,27 @@ export default class AccordionTrigger extends PureComponent {
 			secondaryHeading
 		} = this.props;
 
-		const builtPrimaryHeading = primaryHeading && (
-			<div className="xui-heading-small xui-text-wordbreak">
+		const primaryHeadingScaffold = primaryHeading && (
+			<div className={`${ns}-accordiontrigger-new--primaryheading`}>
 				{primaryHeading}
-			</div>
-		);
+			</div>);
 
-		const builtSecondaryHeading = secondaryHeading && (
-			<div className="xui-textcolor-muted xui-text-wordbreak">
+		const secondaryHeadingScaffold = secondaryHeading && (
+			<div className={`${ns}-accordiontrigger-new--secondaryheading`}>
 				{secondaryHeading}
-			</div>
-		);
+			</div>);
 
-		const builtPinnedValue = pinnedValue && (
-			<div className="xui-heading-small xui-text-deemphasis xui-padding-vertical-small xui-margin-right-small">
+		const pinnedValueScaffold = pinnedValue && (
+			<div className={`${ns}-accordiontrigger-new--pinnedvalue`}>
 				{pinnedValue}
-			</div>
-		);
+			</div>);
 
-		const builtRightContent = (builtPinnedValue || action || overflow) && (
+		const builtRightContent = (pinnedValueScaffold || action || overflow) && (
 			<div className={`${ns}-accordiontrigger-new--rightcontent`}>
-				{builtPinnedValue}
+				{pinnedValueScaffold}
 				{action}
 				{overflow}
-			</div>
-		);
+			</div>);
 
 		return (
 			<div
@@ -65,32 +60,22 @@ export default class AccordionTrigger extends PureComponent {
 				onKeyDown={this.onKeyDown}
 				tabIndex="0"
 				role="button"
-				className={cn(
-					'xui-panel--section',
-					'xui-u-flex',
-					'xui-u-flex-verticallycentered',
-					`${ns}-accordiontrigger-new`, {
-						[`${ns}-accordiontrigger-new-is-open`]: isOpen,
-					},
-				)}
-			>
+				className={cn(`${ns}-accordiontrigger-new`, {
+					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
+				})}>
 				<div className={`${ns}-accordiontrigger-new--caret`}>
-					<XUIButton
-						className="xui-button-icon-large"
-						tabIndex={-1}
-						variant="icon">
-						<XUIIcon
-							className="xui-u-flex-inherit xui-transition"
-							path={arrow}
-							rotation={isOpen ? 180 : null}
-						/>
-					</XUIButton>
+					<XUIIcon
+						path={arrowPath}
+						rotation={isOpen ? 180 : null}
+					/>
 				</div>
+
 				{leftContent}
-				<div className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered">
-					<div className="xui-padding-vertical xui-u-flex-grow">
-						{builtPrimaryHeading}
-						{builtSecondaryHeading}
+
+				<div className={`${ns}-accordiontrigger-new--content`}>
+					<div className={`${ns}-accordiontrigger-new--headings`}>
+						{primaryHeadingScaffold}
+						{secondaryHeadingScaffold}
 					</div>
 					{custom}
 					{builtRightContent}

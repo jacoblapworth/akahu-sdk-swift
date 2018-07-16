@@ -2,7 +2,7 @@
 
 exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  className="xui-accordiontrigger-new"
   data-automationid="test-qahook"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -10,39 +10,29 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--caret"
   >
-    <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+    <svg
+      className="xui-icon"
       data-automationid={undefined}
-      disabled={false}
-      onClick={[Function]}
-      onKeyDown={undefined}
-      tabIndex={-1}
-      type="button"
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
     >
-      <svg
-        className="xui-icon xui-u-flex-inherit xui-transition"
-        data-automationid={undefined}
-        focusable="false"
-        style={null}
-        viewBox="0 0 30 30"
-      >
-        <path
-          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-          role="presentation"
-        />
-      </svg>
-    </button>
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
   </div>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
@@ -53,7 +43,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 
 exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  className="xui-accordiontrigger-new"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -61,39 +51,29 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--caret"
   >
-    <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+    <svg
+      className="xui-icon"
       data-automationid={undefined}
-      disabled={false}
-      onClick={[Function]}
-      onKeyDown={undefined}
-      tabIndex={-1}
-      type="button"
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
     >
-      <svg
-        className="xui-icon xui-u-flex-inherit xui-transition"
-        data-automationid={undefined}
-        focusable="false"
-        style={null}
-        viewBox="0 0 30 30"
-      >
-        <path
-          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-          role="presentation"
-        />
-      </svg>
-    </button>
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
   </div>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
@@ -104,7 +84,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+  className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -112,39 +92,29 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--caret"
   >
-    <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+    <svg
+      className="xui-icon xui-u-rotate-180"
       data-automationid={undefined}
-      disabled={false}
-      onClick={[Function]}
-      onKeyDown={undefined}
-      tabIndex={-1}
-      type="button"
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
     >
-      <svg
-        className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
-        data-automationid={undefined}
-        focusable="false"
-        style={null}
-        viewBox="0 0 30 30"
-      >
-        <path
-          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-          role="presentation"
-        />
-      </svg>
-    </button>
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
   </div>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
@@ -155,7 +125,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  className="xui-accordiontrigger-new"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -163,30 +133,20 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--caret"
   >
-    <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+    <svg
+      className="xui-icon"
       data-automationid={undefined}
-      disabled={false}
-      onClick={[Function]}
-      onKeyDown={undefined}
-      tabIndex={-1}
-      type="button"
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
     >
-      <svg
-        className="xui-icon xui-u-flex-inherit xui-transition"
-        data-automationid={undefined}
-        focusable="false"
-        style={null}
-        viewBox="0 0 30 30"
-      >
-        <path
-          d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-          role="presentation"
-        />
-      </svg>
-    </button>
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
   </div>
   <abbr
     role="presentation"
@@ -194,18 +154,18 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     GB
   </abbr>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
       <div
-        className="xui-textcolor-muted xui-text-wordbreak"
+        className="xui-accordiontrigger-new--secondaryheading"
       >
         <div>
           <span>
@@ -220,10 +180,10 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
       Custom content
     </div>
     <div
-      className="xui-accordionitem-new--trigger--rightcontent"
+      className="xui-accordiontrigger-new--rightcontent"
     >
       <div
-        className="xui-heading-small xui-text-deemphasis xui-padding-vertical-small xui-margin-right-small"
+        className="xui-accordiontrigger-new--pinnedvalue"
       >
         00:00
       </div>

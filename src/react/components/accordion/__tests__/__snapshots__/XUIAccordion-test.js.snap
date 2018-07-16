@@ -6,11 +6,11 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionitem-new"
+    className="xui-accordionwrapper-new"
     data-automationid={undefined}
   >
     <div
-      className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+      className="xui-accordiontrigger-new"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -18,39 +18,29 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordionitem-new--trigger--caret"
+        className="xui-accordiontrigger-new--caret"
       >
-        <button
-          className="xui-button xui-button-icon-large xui-button-icon"
+        <svg
+          className="xui-icon"
           data-automationid={undefined}
-          disabled={false}
-          onClick={[Function]}
-          onKeyDown={undefined}
-          tabIndex={-1}
-          type="button"
+          focusable="false"
+          style={null}
+          viewBox="0 0 30 30"
         >
-          <svg
-            className="xui-icon xui-u-flex-inherit xui-transition"
-            data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
-          >
-            <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-              role="presentation"
-            />
-          </svg>
-        </button>
+          <path
+            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+            role="presentation"
+          />
+        </svg>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+        className="xui-accordiontrigger-new--content"
       >
         <div
-          className="xui-padding-vertical xui-u-flex-grow"
+          className="xui-accordiontrigger-new--headings"
         >
           <div
-            className="xui-heading-small xui-text-wordbreak"
+            className="xui-accordiontrigger-new--primaryheading"
           >
             John Smith
           </div>
@@ -58,7 +48,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
       </div>
     </div>
     <div
-      className="xui-accordionitem-new--content"
+      className="xui-accordionwrapper-new--content"
     />
   </div>
 </div>
@@ -70,11 +60,11 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
   data-automationid="testHook"
 >
   <div
-    className="xui-accordionitem-new"
+    className="xui-accordionwrapper-new"
     data-automationid="testHook-wrapper"
   >
     <div
-      className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+      className="xui-accordiontrigger-new"
       data-automationid="testHook-trigger"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -82,39 +72,29 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordionitem-new--trigger--caret"
+        className="xui-accordiontrigger-new--caret"
       >
-        <button
-          className="xui-button xui-button-icon-large xui-button-icon"
+        <svg
+          className="xui-icon"
           data-automationid={undefined}
-          disabled={false}
-          onClick={[Function]}
-          onKeyDown={undefined}
-          tabIndex={-1}
-          type="button"
+          focusable="false"
+          style={null}
+          viewBox="0 0 30 30"
         >
-          <svg
-            className="xui-icon xui-u-flex-inherit xui-transition"
-            data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
-          >
-            <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-              role="presentation"
-            />
-          </svg>
-        </button>
+          <path
+            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+            role="presentation"
+          />
+        </svg>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+        className="xui-accordiontrigger-new--content"
       >
         <div
-          className="xui-padding-vertical xui-u-flex-grow"
+          className="xui-accordiontrigger-new--headings"
         >
           <div
-            className="xui-heading-small xui-text-wordbreak"
+            className="xui-accordiontrigger-new--primaryheading"
           >
             John Smith
           </div>
@@ -122,7 +102,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
       </div>
     </div>
     <div
-      className="xui-accordionitem-new--content"
+      className="xui-accordionwrapper-new--content"
     />
   </div>
 </div>
@@ -134,11 +114,11 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
     data-automationid={undefined}
   >
     <div
-      className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -146,41 +126,31 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordionitem-new--trigger--caret"
+        className="xui-accordiontrigger-new--caret"
       >
-        <button
-          className="xui-button xui-button-icon-large xui-button-icon"
+        <svg
+          className="xui-icon xui-u-rotate-180"
           data-automationid={undefined}
-          disabled={false}
-          onClick={[Function]}
-          onKeyDown={undefined}
-          tabIndex={-1}
-          type="button"
+          focusable="false"
+          style={null}
+          viewBox="0 0 30 30"
         >
-          <svg
-            className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
-            data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
-          >
-            <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-              role="presentation"
-            />
-          </svg>
-        </button>
+          <path
+            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+            role="presentation"
+          />
+        </svg>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+        className="xui-accordiontrigger-new--content"
       >
         <div
-          className="xui-padding-vertical xui-u-flex-grow"
+          className="xui-accordiontrigger-new--headings"
         />
       </div>
     </div>
     <div
-      className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
     >
       <div>
         Custom empty state component
@@ -196,11 +166,11 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
     data-automationid={undefined}
   >
     <div
-      className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -208,44 +178,34 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordionitem-new--trigger--caret"
+        className="xui-accordiontrigger-new--caret"
       >
-        <button
-          className="xui-button xui-button-icon-large xui-button-icon"
+        <svg
+          className="xui-icon xui-u-rotate-180"
           data-automationid={undefined}
-          disabled={false}
-          onClick={[Function]}
-          onKeyDown={undefined}
-          tabIndex={-1}
-          type="button"
+          focusable="false"
+          style={null}
+          viewBox="0 0 30 30"
         >
-          <svg
-            className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
-            data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
-          >
-            <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-              role="presentation"
-            />
-          </svg>
-        </button>
+          <path
+            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+            role="presentation"
+          />
+        </svg>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+        className="xui-accordiontrigger-new--content"
       >
         <div
-          className="xui-padding-vertical xui-u-flex-grow"
+          className="xui-accordiontrigger-new--headings"
         />
       </div>
     </div>
     <div
-      className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
     >
       <div
-        className="xui-textcolor-muted xui-accordionitem-new--emptystate"
+        className="xui-accordion-new--emptystate"
         data-automationid={undefined}
       >
         <svg
@@ -275,11 +235,11 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
     data-automationid={undefined}
   >
     <div
-      className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -287,39 +247,29 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordionitem-new--trigger--caret"
+        className="xui-accordiontrigger-new--caret"
       >
-        <button
-          className="xui-button xui-button-icon-large xui-button-icon"
+        <svg
+          className="xui-icon xui-u-rotate-180"
           data-automationid={undefined}
-          disabled={false}
-          onClick={[Function]}
-          onKeyDown={undefined}
-          tabIndex={-1}
-          type="button"
+          focusable="false"
+          style={null}
+          viewBox="0 0 30 30"
         >
-          <svg
-            className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
-            data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
-          >
-            <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-              role="presentation"
-            />
-          </svg>
-        </button>
+          <path
+            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+            role="presentation"
+          />
+        </svg>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+        className="xui-accordiontrigger-new--content"
       >
         <div
-          className="xui-padding-vertical xui-u-flex-grow"
+          className="xui-accordiontrigger-new--headings"
         >
           <div
-            className="xui-heading-small xui-text-wordbreak"
+            className="xui-accordiontrigger-new--primaryheading"
           >
             John Smith
           </div>
@@ -327,7 +277,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
       </div>
     </div>
     <div
-      className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
     >
       Accountant
     </div>
@@ -362,11 +312,11 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionitem-new xui-accordionitem-new-is-open xui-accordionitem-new-no-pop"
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
     data-automationid={undefined}
   >
     <div
-      className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -374,44 +324,34 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordionitem-new--trigger--caret"
+        className="xui-accordiontrigger-new--caret"
       >
-        <button
-          className="xui-button xui-button-icon-large xui-button-icon"
+        <svg
+          className="xui-icon xui-u-rotate-180"
           data-automationid={undefined}
-          disabled={false}
-          onClick={[Function]}
-          onKeyDown={undefined}
-          tabIndex={-1}
-          type="button"
+          focusable="false"
+          style={null}
+          viewBox="0 0 30 30"
         >
-          <svg
-            className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
-            data-automationid={undefined}
-            focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
-          >
-            <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-              role="presentation"
-            />
-          </svg>
-        </button>
+          <path
+            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+            role="presentation"
+          />
+        </svg>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+        className="xui-accordiontrigger-new--content"
       >
         <div
-          className="xui-padding-vertical xui-u-flex-grow"
+          className="xui-accordiontrigger-new--headings"
         />
       </div>
     </div>
     <div
-      className="xui-accordionitem-new--content xui-accordionitem-new--content-is-open"
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
     >
       <div
-        className="xui-textcolor-muted xui-accordionitem-new--emptystate"
+        className="xui-accordion-new--emptystate"
         data-automationid={undefined}
       >
         <svg

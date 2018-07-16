@@ -63,7 +63,7 @@ export default class AccordionTrigger extends PureComponent {
 				className={cn(`${ns}-accordiontrigger-new`, {
 					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
 				})}>
-				<div className={`${ns}-accordiontrigger-new--caret`}>
+				<div className={`${ns}-accordiontrigger-new--arrow`}>
 					<XUIIcon
 						path={arrowPath}
 						rotation={isOpen ? 180 : null}

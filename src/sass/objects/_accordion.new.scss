@@ -94,11 +94,12 @@ $xui-accordion-new-pop-width: 8px;
 	}
 }
 
-.#{$ns}-accordiontrigger-new--caret {
+.#{$ns}-accordiontrigger-new--arrow {
 	align-items: center;
 	display: flex;
 	height: $xui-icon-xlarge;
 	justify-content: center;
+	overflow: hidden;
 	padding: $xui-s-xsmall;
 	width: $xui-icon-xlarge;
 
@@ -107,7 +108,7 @@ $xui-accordion-new-pop-width: 8px;
 	}
 }
 
-.#{$ns}-accordiontrigger-new--caret .#{$ns}-icon {
+.#{$ns}-accordiontrigger-new--arrow .#{$ns}-icon {
 	transition-duration: $xui-motion-speed-medium;
 	transition-property: all;
 }

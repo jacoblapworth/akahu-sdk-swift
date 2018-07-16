@@ -34,7 +34,7 @@ XUIAccordionItem.propTypes = {
 	/* Any component passed as right most content, typically a `dropdown toggled` component. */
 	overflow: PropTypes.node,
 
-	/** xxxxx */
+	/** Callback for a accordion item toggle. Returns the arguments `{ itemId: 'John Smith', isOpen: true }`. */
 	onItemClick: PropTypes.func,
 };
 

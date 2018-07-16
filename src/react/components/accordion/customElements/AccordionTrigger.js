@@ -50,7 +50,7 @@ export default class AccordionTrigger extends PureComponent {
 		);
 
 		const builtRightContent = (builtPinnedValue || action || overflow) && (
-			<div className="xui-accordionitem-new--trigger--rightcontent">
+			<div className="xui-accordiontrigger-new--rightcontent">
 				{builtPinnedValue}
 				{action}
 				{overflow}
@@ -68,12 +68,12 @@ export default class AccordionTrigger extends PureComponent {
 					'xui-panel--section',
 					'xui-u-flex',
 					'xui-u-flex-verticallycentered',
-					'xui-accordionitem-new--trigger', {
-						'xui-accordionitem-new--trigger-is-open': isOpen,
+					'xui-accordiontrigger-new', {
+						'xui-accordiontrigger-new-is-open': isOpen,
 					},
 				)}
 			>
-				<div className="xui-accordionitem-new--trigger--caret">
+				<div className="xui-accordiontrigger-new--caret">
 					<XUIButton
 						className="xui-button-icon-large"
 						tabIndex={-1}

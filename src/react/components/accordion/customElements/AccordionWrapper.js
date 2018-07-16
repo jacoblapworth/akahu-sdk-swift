@@ -16,8 +16,8 @@ export default class AccordionWrapper extends PureComponent {
 
 	popClassName() {
 		if (!this.props.isOpen) return '';
-		if (shouldAccordionPop(this.state)) return 'xui-accordionitem-new-pop';
-		return 'xui-accordionitem-new-no-pop';
+		if (shouldAccordionPop(this.state)) return 'xui-accordionwrapper-new-pop';
+		return 'xui-accordionwrapper-new-no-pop';
 	}
 
 	setRect = () => {
@@ -37,13 +37,13 @@ export default class AccordionWrapper extends PureComponent {
 				ref={this.setRef}
 				data-automationid={qaHook}
 				className={cn(
-					'xui-accordionitem-new',
-					{ 'xui-accordionitem-new-is-open': isOpen },
+					'xui-accordionwrapper-new',
+					{ 'xui-accordionwrapper-new-is-open': isOpen },
 					this.popClassName()
 				)}>
 				{trigger}
-				<div className={cn('xui-accordionitem-new--content', {
-					'xui-accordionitem-new--content-is-open': isOpen,
+				<div className={cn('xui-accordionwrapper-new--content', {
+					'xui-accordionwrapper-new--content-is-open': isOpen,
 				})}>
 					{children}
 				</div>

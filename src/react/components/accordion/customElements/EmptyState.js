@@ -9,7 +9,7 @@ export default class XUIAccordionItemEmptyState extends PureComponent {
 		const { children, iconPath, qaHook } = this.props;
 
 		return (
-			<div data-automationid={qaHook} className={`${ns}-textcolor-muted ${ns}-accordionitem-new--emptystate`}>
+			<div data-automationid={qaHook} className={`${ns}-textcolor-muted ${ns}-accordion-new--emptystate`}>
 				<XUIIcon size="large" path={iconPath} />
 				<div>{children}</div>
 			</div>

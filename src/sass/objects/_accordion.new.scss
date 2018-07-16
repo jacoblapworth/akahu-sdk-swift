@@ -19,9 +19,9 @@ $xui-accordion-new-pop-width: 8px;
 .#{$ns}-accordionwrapper-new {
 	background-color: $xui-color-white;
 	box-shadow: $xui-shadow-border-all;
-	-ms-transition: none;
 	outline: 0;
 	position: relative;
+	-ms-transition: none;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
 	width: 100%;
@@ -45,8 +45,8 @@ $xui-accordion-new-pop-width: 8px;
 
 .#{$ns}-accordionwrapper-new--content-is-open {
 	border-top: $xui-border-muted;
-	-ms-transition: none;
 	opacity: 1;
+	-ms-transition: none;
 	transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
 }
 
@@ -97,8 +97,8 @@ $xui-accordion-new-pop-width: 8px;
 .#{$ns}-accordiontrigger-new--caret {
 	align-items: center;
 	display: flex;
-	justify-content: center;
 	height: $xui-icon-xlarge;
+	justify-content: center;
 	padding: $xui-s-xsmall;
 	width: $xui-icon-xlarge;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import XUIAccordion from '../XUIAccordion';
+import XUIAccordionItem from '../XUIAccordionItem';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
@@ -12,11 +13,19 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => <XUIAccordion ListItem={() => <p className="xui-panel xui-padding">Hello 👋</p>} />);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(fn => <div style={{ maxWidth: '940px', margin: '100px auto'  }}>{fn()}</div>)
+storiesWithVariations.addDecorator(fn => <div style={{ width: '940px', margin: '100px auto'  }}>{fn()}</div>)
 
 variations.forEach(variation => {
-	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
-	const Comparison = <XUIAccordion {...props} />;
+	const { storyTitle, storyKind, createItem, ...props } = variation; // eslint-disable-line no-unused-vars
+	const Comparison = (
+		<XUIAccordion
+			{...props}
+			createItem={(props => {
+				const {children, ...item} = createItem(props);
+				return <XUIAccordionItem {...item}>{children}</XUIAccordionItem>;
+			})}
+		/>
+	);
 
 	storiesWithVariations.add(storyTitle, () => Comparison);
 });

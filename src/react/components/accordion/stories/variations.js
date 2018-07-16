@@ -1,82 +1,57 @@
-import React from 'react';
-import XUIAccordionItem from '../XUIAccordionItem';
-import XUIAccordionItemTrigger from '../XUIAccordionItemTrigger';
-import XUIAvatar from '../../avatar/XUIAvatar';
-import XUIButton from '../../button/XUIButton';
-import XUIContentBlock from '../../structural/XUIContentBlock';
-import XUIContentBlockItem from '../../structural/XUIContentBlockItem';
-
+const React = require('react');
+const XUIAvatar = require('../../avatar/XUIAvatar').default;
+const XUIButton = require('../../button/XUIButton').default;
+const XUIContentBlock = require('../../structural/XUIContentBlock').default;
+const XUIContentBlockItem = require('../../structural/XUIContentBlockItem').default;
 const storyKind = 'Instances/XUIAccordion';
 const variations = [
 	{
 		storyKind,
 		storyTitle: 'basic accordion',
-		data: [
+		items: [
 			{ id: 1, name: 'John Smith' },
 			{ id: 2, name: 'Barry Allen' },
 			{ id: 3, name: 'Ernest Hemmingway' }
 		],
-		ListItem: props => {
-			const trigger = (
-				<XUIAccordionItemTrigger
-					primaryHeading={props.item.name}
-					isOpen={props.isOpen}
-					onClick={props.onClick}
-				/>
-			);
-
-			return (
-				<XUIAccordionItem
-					isOpen={props.isOpen}
-					trigger={trigger}
-				/>
-			)
-		},
+		createItem: ({id, name}) => ({
+			id,
+			primaryHeading: name
+		})
 	},
 	{
 		storyKind,
-		storyTitle: 'more complex accordion',
-		data: [
-			{ id: 1, primaryHeading: 'John Smith', secondaryHeading: '0 projects', pinnedValue: '0:00' },
-			{ id: 2, primaryHeading: 'Barry Allen', secondaryHeading: '0 projects', pinnedValue: '0:00' },
-			{ id: 3, primaryHeading: 'Ernest Hemmingway', secondaryHeading: '0 projects', pinnedValue: '0:00' }
+		storyTitle: 'accordion tab composition',
+		items: [
+			{ id: 1, name: 'John Smith', projects: '0 projects', minutes: '0:00' },
+			{ id: 2, name: 'Barry Allen', projects: '0 projects', minutes: '0:00' },
+			{ id: 3, name: 'Ernest Hemmingway', projects: '0 projects', minutes: '0:00' }
 		],
-		ListItem: props => {
-			const { isOpen, item, onClick } = props;
-
-			return (
-				<XUIAccordionItem
-					isOpen={isOpen}
-					trigger={
-						<XUIAccordionItemTrigger
-							{...item}
-							leftContent={<XUIAvatar value={item.primaryHeading} className="xui-margin-right" />}
-							isOpen={isOpen}
-							onClick={onClick}
-							action={<XUIButton size="small">See more</XUIButton>}
-						/>
-					}
-				/>
-			)
-		},
+		createItem: ({id, name, projects, minutes}) => ({
+			id,
+			primaryHeading: name,
+			secondaryHeading: projects,
+			pinnedValue: minutes,
+			leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
+			action: <XUIButton size="small">See more</XUIButton>,
+		})
 	},
 	{
 		storyKind,
-		storyTitle: 'accordion with populated accordion item content',
-		data: [
+		storyTitle: 'with child content',
+		items: [
 			{
 				id: 1,
-				userName: 'John Smith',
-				childItems: [
+				name: 'John Smith',
+				contacts: [
 					{
-						contactName: 'Peggy Olsen',
-						projectName: 'Heinz',
+						contact: 'Peggy Olsen',
+						project: 'Heinz',
 						minutes: '00:20',
 						percentage: '66',
 					},
 					{
-						contactName: 'Pete Campbell',
-						projectName: 'American Aviation',
+						contact: 'Pete Campbell',
+						project: 'American Aviation',
 						minutes: '15:30',
 						percentage: '75',
 					}
@@ -84,11 +59,11 @@ const variations = [
 			},
 			{
 				id: 2,
-				userName: 'Barry Allen',
-				childItems: [
+				name: 'Barry Allen',
+				contacts: [
 					{
-						contactName: 'Don Draper',
-						projectName: 'Mad men',
+						contact: 'Don Draper',
+						project: 'Mad men',
 						minutes: '1500:00',
 						percentage: '100',
 					}
@@ -96,44 +71,34 @@ const variations = [
 			},
 			{
 				id: 3,
-				userName: 'Ernest Hemmingway',
-				childItems: []
+				name: 'Ernest Hemmingway',
+				contacts: []
 			}
 		],
-		ListItem: props => {
-			const { isOpen, item, onClick } = props;
-
-			const content = Boolean(item.childItems.length) && (
-				<XUIContentBlock>
-					{item.childItems.map(item => (
-						<XUIContentBlockItem
-							primaryHeading={`${item.contactName} - ${item.projectName}`}
-							secondaryHeading={`${item.minutes} chargeable (${item.percentage}%)`}
-							leftContent={<XUIAvatar size="medium" value={item.contactName} variant="business" />}
-							pinnedValue={item.minutes}
-						/>
-					))}
-				</XUIContentBlock>
-			);
-
-			return (
-				<XUIAccordionItem
-					isOpen={isOpen}
-					trigger={
-						<XUIAccordionItemTrigger
-							primaryHeading={item.userName}
-							secondaryHeading={`${item.childItems.length} project${item.childItems.length === 1 ? '' : 's'}`}
-							leftContent={<XUIAvatar value={item.userName} className="xui-margin-right" />}
-							isOpen={isOpen}
-							onClick={onClick}
-							action={<XUIButton size="small">See more</XUIButton>}
-						/>
-					}
-				>
-					{content}
-				</XUIAccordionItem>
-			)
-		},
+		createItem: ({id, name, contacts, time}) => {
+			const totalContacts = contacts.length;
+			return {
+				id,
+				primaryHeading: name,
+				secondaryHeading: `${totalContacts} project${totalContacts === 1 ? '' : 's'}`,
+				pinnedValue: time,
+				leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
+				action: <XUIButton size="small">See more</XUIButton>,
+				children: Boolean(totalContacts) && (
+					<XUIContentBlock>
+						{contacts.map(({contact, project, minutes, percentage}, key) => (
+							<XUIContentBlockItem
+								key={key}
+								primaryHeading={`${contact} - ${project}`}
+								secondaryHeading={`${minutes} chargeable (${percentage}%)`}
+								leftContent={<XUIAvatar size="medium" value={contact} variant="business" />}
+								pinnedValue={minutes}
+							/>
+						))}
+					</XUIContentBlock>
+				)
+			};
+		}
 	}
 ];
 

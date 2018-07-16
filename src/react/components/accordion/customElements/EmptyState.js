@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import XUIIcon from '../icon/XUIIcon';
 import listIconPath from '@xero/xui-icon/icons/list';
-import {ns} from "../helpers/xuiClassNamespace";
+import XUIIcon from '../../icon/XUIIcon';
+import {ns} from "../../helpers/xuiClassNamespace";
 
 export default class XUIAccordionItemEmptyState extends PureComponent {
 	render() {

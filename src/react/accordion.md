@@ -8,5 +8,20 @@
 ## Example
 
 ```
-<XUIAccordion name="John Smith" />
+const {
+	default: XUIAccordion,
+	XUIAccordionItem,
+} = require('./accordion');
+<XUIAccordion
+	items={[
+		{ id: 1, name: 'John Smith', content: 'Accountant' },
+		{ id: 2, name: 'Barry Allen', content: 'Bookkeeper' },
+		{ id: 3, name: 'Ernest Hemmingway', content: 'Contractor' }
+	]}
+	createItem={({name, content}) => (
+		<XUIAccordionItem primaryHeading={name}>
+			{content}
+		</XUIAccordionItem>
+	)}
+/>
 ```

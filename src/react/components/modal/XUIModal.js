@@ -8,7 +8,7 @@ import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
-import portalContainer, { portalClass } from '../helpers/portalContainer';
+import portalContainer from '../helpers/portalContainer';
 import {baseClass} from './constants';
 import {ns} from "../helpers/xuiClassNamespace";
 
@@ -20,6 +20,8 @@ export const modalSizes = {
 	xlarge: `${baseClass}-width-xlarge`,
 	fullscreen: `${baseClass}-fullscreen`
 };
+
+const maskClass = `${ns}-mask`;
 
 /**
  * Predicate to determine if the props of a modal have changed in such as way as to necessitate
@@ -181,9 +183,9 @@ export default class XUIModal extends Component {
 		const modal = this;
 		const { isOpen, restrictFocus } = modal.props;
 		if (isOpen && restrictFocus) {
-			const maskNode = document.querySelector(`.${portalClass}`);
+			const maskNode = document.querySelector(`.${maskClass}`);
 			const targetIsWindow = event.target === window;
-			if (targetIsWindow || !maskNode.contains(event.target)) {
+			if (targetIsWindow || (maskNode && !maskNode.contains(event.target))) {
 				event.stopPropagation();
 				if (modal._modalNode) {
 					modal._modalNode.focus();
@@ -215,9 +217,9 @@ export default class XUIModal extends Component {
 		} = this.state;
 
 		const maskClasses = cn(
-			`${ns}-mask`,
+			maskClass,
 			maskClassName,
-			isOpen && `${ns}-mask-is-active`
+			isOpen && `${maskClass}-is-active`
 		);
 		const modalClasses = cn(
 			baseClass,
@@ -228,7 +230,7 @@ export default class XUIModal extends Component {
 		const overlayClickHandler =
 			hideOnOverlayClick && onClose
 				? function(event) {
-						if (event.target.classList.contains(`${ns}-mask`) && isOpen) {
+						if (event.target.classList.contains(maskClass) && isOpen) {
 							onClose();
 						}
 					}

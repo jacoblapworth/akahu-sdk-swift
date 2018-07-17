@@ -11,7 +11,7 @@ export const wrapperSizeClasses = {
 export const iconSizeMultipliers = {
 	standard: 1,
 	large: 4/3,
-	xlarge: 1.5,
+	xlarge: 2,
 };
 
 export const rotationClasses = {

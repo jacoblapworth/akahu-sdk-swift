@@ -216,6 +216,16 @@
 	width: $xui-icon-standard;
 }
 
+.#{$ns}-iconwrapper-large {
+	height: $xui-icon-large;
+	width: $xui-icon-large;
+}
+
+.#{$ns}-iconwrapper-xlarge {
+	height: $xui-icon-xlarge;
+	width: $xui-icon-xlarge;
+}
+
 .#{$ns}-icon {
 	display: inline-block;
 	fill: currentColor;

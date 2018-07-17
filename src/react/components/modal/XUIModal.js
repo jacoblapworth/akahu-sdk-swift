@@ -8,7 +8,7 @@ import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
-import portalContainer from '../helpers/portalContainer';
+import portalContainer, { portalClass } from '../helpers/portalContainer';
 import {baseClass} from './constants';
 import {ns} from "../helpers/xuiClassNamespace";
 
@@ -183,9 +183,10 @@ export default class XUIModal extends Component {
 		const modal = this;
 		const { isOpen, restrictFocus } = modal.props;
 		if (isOpen && restrictFocus) {
-			const maskNode = document.querySelector(`.${maskClass}`);
+			// Need to check if the focus is within this modal mask, or in another portalled element (e.g. dropdowns)
+			const maskAndPortalNodes = [...document.querySelectorAll(`.${portalClass}, .${maskClass}`)];
 			const targetIsWindow = event.target === window;
-			if (targetIsWindow || (maskNode && !maskNode.contains(event.target))) {
+			if (targetIsWindow || !maskAndPortalNodes.some(node => node.contains(event.target))) {
 				event.stopPropagation();
 				if (modal._modalNode) {
 					modal._modalNode.focus();

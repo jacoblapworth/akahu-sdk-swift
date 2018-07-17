@@ -13,7 +13,7 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => <XUIAccordion ListItem={() => <p className="xui-panel xui-padding">Hello 👋</p>} />);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(fn => <div style={{ width: '940px', margin: '100px auto'  }}>{fn()}</div>)
+storiesWithVariations.addDecorator(fn => <div style={{ maxWidth: '940px', margin: '100px auto'  }}>{fn()}</div>)
 
 variations.forEach(variation => {
 	const { storyTitle, storyKind, createItem, ...props } = variation; // eslint-disable-line no-unused-vars

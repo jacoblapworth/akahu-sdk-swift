@@ -32,7 +32,7 @@ const variations = [
 			secondaryHeading: projects,
 			pinnedValue: minutes,
 			leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
-			action: <XUIButton size="small">See more</XUIButton>,
+			action: <XUIButton size="small" className="xui-margin-right-small">See more</XUIButton>,
 		})
 	},
 	{
@@ -83,7 +83,7 @@ const variations = [
 				secondaryHeading: `${totalContacts} project${totalContacts === 1 ? '' : 's'}`,
 				pinnedValue: time,
 				leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
-				action: <XUIButton size="small">See more</XUIButton>,
+				action: <XUIButton size="small" className="xui-margin-right-small">See more</XUIButton>,
 				children: Boolean(totalContacts) && (
 					<XUIContentBlock>
 						{contacts.map(({contact, project, minutes, percentage}, key) => (

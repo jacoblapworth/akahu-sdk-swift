@@ -38,6 +38,8 @@ const {
 } = require('./accordion');
 const XUIAvatar = require('./avatar').default;
 const XUIButton = require('./button').default;
+const XUIIcon = require('./icon').default;
+const icon = require('@xero/xui-icon/icons/overflow').default;
 <XUIAccordion
 	items={[
 		{ id: 1, name: 'John Smith', content: 'Accountant' },
@@ -48,7 +50,12 @@ const XUIButton = require('./button').default;
 		<XUIAccordionItem
 			primaryHeading={name}
 			leftContent={<XUIAvatar value={name} className="xui-margin-right" />}
-			action={<XUIButton size="small">See more</XUIButton>}>
+			pinnedValue={(
+				<XUIButton variant="icon-large" className="xui-u-hidden-medium xui-u-hidden-wide">
+					<XUIIcon path={icon} title="Dots menu" className="xui-u-flex-inherit" />
+				</XUIButton>
+			)}
+			action={<XUIButton className="xui-u-hidden-narrow xui-margin-right-small" size="small">See more</XUIButton>}>
 			<div className="xui-padding-horizontal-large xui-padding-vertical-4xlarge">
 				{content}
 			</div>

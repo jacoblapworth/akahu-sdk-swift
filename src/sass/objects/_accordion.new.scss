@@ -154,6 +154,5 @@ $xui-accordion-new-pop-width: 8px;
 .#{$ns}-accordiontrigger-new--pinnedvalue {
 	@include xui-heading-small;
 	@include xui-text-deemphasis;
-	margin-right: $xui-s-small;
 	padding: $xui-s-small 0;
 }

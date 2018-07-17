@@ -4,6 +4,7 @@ import cn from 'classnames';
 import {ns} from "../../helpers/xuiClassNamespace";
 import arrowPath from '@xero/xui-icon/icons/arrow';
 import XUIIcon from '../../icon/XUIIcon';
+import XUIButton from '../../button/XUIButton';
 
 export default class AccordionTrigger extends PureComponent {
 	onKeyDown = event => {
@@ -64,10 +65,15 @@ export default class AccordionTrigger extends PureComponent {
 					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
 				})}>
 				<div className={`${ns}-accordiontrigger-new--arrow`}>
-					<XUIIcon
-						path={arrowPath}
-						rotation={isOpen ? 180 : null}
-					/>
+					<XUIButton
+						variant="icon-large"
+						title={'Xxxxxxxxxx'}
+						tabIndex={-1}>
+						<XUIIcon
+							path={arrowPath}
+							rotation={isOpen ? 180 : null}
+						/>
+					</XUIButton>
 				</div>
 
 				{leftContent}

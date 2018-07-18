@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button when the current panel is at its "maximum" value 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-chart--pagination"
+  data-automationid="myChart--pagination"
+  role="navigation"
+>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Previous"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-90"
+      data-automationid={undefined}
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
+    >
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+    data-automationid={undefined}
+    disabled={true}
+    onClick={[Function]}
+    onKeyDown={null}
+    tabIndex={-1}
+    title="Next"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-270"
+      data-automationid={undefined}
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
+    >
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</nav>
+`;
+
+exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" button when the current panel is at its "minimum" value 1`] = `
+<nav
+  aria-label="Pagination"
+  className="xui-chart--pagination"
+  data-automationid="myChart--pagination"
+  role="navigation"
+>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"
+    data-automationid={undefined}
+    disabled={true}
+    onClick={[Function]}
+    onKeyDown={null}
+    tabIndex={-1}
+    title="Previous"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-90"
+      data-automationid={undefined}
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
+    >
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+  <button
+    className="xui-button xui-button-icon xui-button-icon-large"
+    data-automationid={undefined}
+    disabled={false}
+    onClick={[Function]}
+    onKeyDown={undefined}
+    tabIndex={0}
+    title="Next"
+    type="button"
+  >
+    <svg
+      className="xui-icon xui-u-rotate-270"
+      data-automationid={undefined}
+      focusable="false"
+      style={null}
+      viewBox="0 0 30 30"
+    >
+      <path
+        d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+        role="presentation"
+      />
+    </svg>
+  </button>
+</nav>
+`;

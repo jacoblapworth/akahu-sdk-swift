@@ -67,7 +67,7 @@ const buildActions = (props) => {
 
 const sampleBreadcrumb = [
 	<span role="link" onClick={() => alert('hello')} key="1">hello</span>,
-	{label: "hiya", href: "#2"},
+	{label: "hiya I have multiple words", href: "#2"},
 	{label: "yo"}];
 const exampleBreadcrumb = (
 	<XUIBreadcrumb breadcrumbs={sampleBreadcrumb}></XUIBreadcrumb>

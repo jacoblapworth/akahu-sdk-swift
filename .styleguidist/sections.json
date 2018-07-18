@@ -350,7 +350,14 @@
 					{
 						"name": "Accordion",
 						"content": "../src/react/accordion.md",
-						"components": "../src/react/components/accordion/XUIAccordion.js"
+						"sections": [
+							{
+								"components": "../src/react/components/accordion/XUIAccordion.js"
+							},
+							{
+								"components": "../src/react/components/accordion/XUIAccordionItem.js"
+							}
+						]
 					},
 					{
 						"name": "Content Block",

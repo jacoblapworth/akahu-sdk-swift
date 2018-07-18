@@ -2,7 +2,8 @@
 
 exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new"
   data-automationid="test-qahook"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -10,19 +11,20 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--arrow"
   >
     <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+      className="xui-button xui-button-icon xui-button-icon-large"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
       onKeyDown={undefined}
       tabIndex={-1}
+      title="Toggle"
       type="button"
     >
       <svg
-        className="xui-icon xui-u-flex-inherit xui-transition"
+        className="xui-icon"
         data-automationid={undefined}
         focusable="false"
         style={null}
@@ -36,13 +38,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
     </button>
   </div>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
@@ -53,7 +55,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 
 exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -61,19 +64,20 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--arrow"
   >
     <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+      className="xui-button xui-button-icon xui-button-icon-large"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
       onKeyDown={undefined}
       tabIndex={-1}
+      title="Toggle"
       type="button"
     >
       <svg
-        className="xui-icon xui-u-flex-inherit xui-transition"
+        className="xui-icon"
         data-automationid={undefined}
         focusable="false"
         style={null}
@@ -87,13 +91,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
     </button>
   </div>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
@@ -104,7 +108,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger xui-accordionitem-new--trigger-is-open"
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -112,19 +117,20 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--arrow"
   >
     <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+      className="xui-button xui-button-icon xui-button-icon-large"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
       onKeyDown={undefined}
       tabIndex={-1}
+      title="Toggle"
       type="button"
     >
       <svg
-        className="xui-icon xui-u-flex-inherit xui-transition xui-u-rotate-180"
+        className="xui-icon xui-u-rotate-180"
         data-automationid={undefined}
         focusable="false"
         style={null}
@@ -138,13 +144,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
     </button>
   </div>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
@@ -155,7 +161,8 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 
 exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
-  className="xui-panel--section xui-u-flex xui-u-flex-verticallycentered xui-accordionitem-new--trigger"
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -163,19 +170,20 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
   tabIndex="0"
 >
   <div
-    className="xui-accordionitem-new--trigger--caret"
+    className="xui-accordiontrigger-new--arrow"
   >
     <button
-      className="xui-button xui-button-icon-large xui-button-icon"
+      className="xui-button xui-button-icon xui-button-icon-large"
       data-automationid={undefined}
       disabled={false}
       onClick={[Function]}
       onKeyDown={undefined}
       tabIndex={-1}
+      title="Toggle"
       type="button"
     >
       <svg
-        className="xui-icon xui-u-flex-inherit xui-transition"
+        className="xui-icon"
         data-automationid={undefined}
         focusable="false"
         style={null}
@@ -194,18 +202,18 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     GB
   </abbr>
   <div
-    className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered"
+    className="xui-accordiontrigger-new--content"
   >
     <div
-      className="xui-padding-vertical xui-u-flex-grow"
+      className="xui-accordiontrigger-new--headings"
     >
       <div
-        className="xui-heading-small xui-text-wordbreak"
+        className="xui-accordiontrigger-new--primaryheading"
       >
         John Smith
       </div>
       <div
-        className="xui-textcolor-muted xui-text-wordbreak"
+        className="xui-accordiontrigger-new--secondaryheading"
       >
         <div>
           <span>
@@ -220,19 +228,23 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
       Custom content
     </div>
     <div
-      className="xui-accordionitem-new--trigger--rightcontent"
+      className="xui-accordiontrigger-new--rightcontent"
     >
       <div
-        className="xui-heading-small xui-text-deemphasis xui-padding-vertical-small xui-margin-right-small"
+        className="xui-accordiontrigger-new--pinnedvalue"
       >
         00:00
       </div>
       <button>
         Action
       </button>
-      <button>
-        ...
-      </button>
+      <div
+        className="xui-accordiontrigger-new--overflowcontent"
+      >
+        <button>
+          ...
+        </button>
+      </div>
     </div>
   </div>
 </div>

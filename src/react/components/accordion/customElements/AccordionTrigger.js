@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import arrow from '@xero/xui-icon/icons/arrow';
-import XUIButton from '../../button/XUIButton';
+import {ns} from "../../helpers/xuiClassNamespace";
+import arrowPath from '@xero/xui-icon/icons/arrow';
 import XUIIcon from '../../icon/XUIIcon';
+import XUIButton from '../../button/XUIButton';
 
 export default class AccordionTrigger extends PureComponent {
 	onKeyDown = event => {
@@ -24,6 +25,7 @@ export default class AccordionTrigger extends PureComponent {
 			isOpen,
 			leftContent,
 			onClick,
+			toggleLabel,
 			overflow,
 			pinnedValue,
 			qaHook,
@@ -31,31 +33,27 @@ export default class AccordionTrigger extends PureComponent {
 			secondaryHeading
 		} = this.props;
 
-		const builtPrimaryHeading = primaryHeading && (
-			<div className="xui-heading-small xui-text-wordbreak">
+		const primaryHeadingScaffold = primaryHeading && (
+			<div className={`${ns}-accordiontrigger-new--primaryheading`}>
 				{primaryHeading}
-			</div>
-		);
+			</div>);
 
-		const builtSecondaryHeading = secondaryHeading && (
-			<div className="xui-textcolor-muted xui-text-wordbreak">
+		const secondaryHeadingScaffold = secondaryHeading && (
+			<div className={`${ns}-accordiontrigger-new--secondaryheading`}>
 				{secondaryHeading}
-			</div>
-		);
+			</div>);
 
-		const builtPinnedValue = pinnedValue && (
-			<div className="xui-heading-small xui-text-deemphasis xui-padding-vertical-small xui-margin-right-small">
+		const pinnedValueScaffold = pinnedValue && (
+			<div className={`${ns}-accordiontrigger-new--pinnedvalue`}>
 				{pinnedValue}
-			</div>
-		);
+			</div>);
 
-		const builtRightContent = (builtPinnedValue || action || overflow) && (
-			<div className="xui-accordionitem-new--trigger--rightcontent">
-				{builtPinnedValue}
+		const builtRightContent = (pinnedValueScaffold || action || overflow) && (
+			<div className={`${ns}-accordiontrigger-new--rightcontent`}>
+				{pinnedValueScaffold}
 				{action}
-				{overflow}
-			</div>
-		);
+				<div className={`${ns}-accordiontrigger-new--overflowcontent`}>{overflow}</div>
+			</div>);
 
 		return (
 			<div
@@ -64,32 +62,28 @@ export default class AccordionTrigger extends PureComponent {
 				onKeyDown={this.onKeyDown}
 				tabIndex="0"
 				role="button"
-				className={cn(
-					'xui-panel--section',
-					'xui-u-flex',
-					'xui-u-flex-verticallycentered',
-					'xui-accordionitem-new--trigger', {
-						'xui-accordionitem-new--trigger-is-open': isOpen,
-					},
-				)}
-			>
-				<div className="xui-accordionitem-new--trigger--caret">
+				aria-label={toggleLabel}
+				className={cn(`${ns}-accordiontrigger-new`, {
+					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
+				})}>
+				<div className={`${ns}-accordiontrigger-new--arrow`}>
 					<XUIButton
-						className="xui-button-icon-large"
-						tabIndex={-1}
-						variant="icon">
+						variant="icon-large"
+						title={toggleLabel}
+						tabIndex={-1}>
 						<XUIIcon
-							className="xui-u-flex-inherit xui-transition"
-							path={arrow}
+							path={arrowPath}
 							rotation={isOpen ? 180 : null}
 						/>
 					</XUIButton>
 				</div>
+
 				{leftContent}
-				<div className="xui-u-flex xui-u-flex-grow xui-u-flex-verticallycentered">
-					<div className="xui-padding-vertical xui-u-flex-grow">
-						{builtPrimaryHeading}
-						{builtSecondaryHeading}
+
+				<div className={`${ns}-accordiontrigger-new--content`}>
+					<div className={`${ns}-accordiontrigger-new--headings`}>
+						{primaryHeadingScaffold}
+						{secondaryHeadingScaffold}
 					</div>
 					{custom}
 					{builtRightContent}
@@ -103,6 +97,7 @@ AccordionTrigger.propTypes = {
 	qaHook: PropTypes.string,
 	custom: PropTypes.node,
 	onClick: PropTypes.func.isRequired,
+	toggleLabel: PropTypes.string.isRequired,
 	isOpen: PropTypes.bool,
 	leftContent: PropTypes.node,
 	primaryHeading: PropTypes.node,

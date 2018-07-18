@@ -11,6 +11,7 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 	it('should render an automation id when passed in the qaHook prop', () => {
 		const component = renderer.create(
 			<AccordionTrigger
+				toggleLabel="Toggle"
 				onClick={noop}
 				qaHook="test-qahook"
 				primaryHeading="John Smith"
@@ -23,6 +24,7 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 	it('should render closed', () => {
 		const component = renderer.create(
 			<AccordionTrigger
+				toggleLabel="Toggle"
 				onClick={noop}
 				primaryHeading="John Smith"
 			/>
@@ -34,6 +36,7 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 	it('should render open', () => {
 		const component = renderer.create(
 			<AccordionTrigger
+				toggleLabel="Toggle"
 				isOpen
 				onClick={noop}
 				primaryHeading="John Smith"
@@ -46,6 +49,7 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 	it('should render with available props', () => {
 		const component = renderer.create(
 			<AccordionTrigger
+				toggleLabel="Toggle"
 				onClick={noop}
 				primaryHeading="John Smith"
 				leftContent={<abbr role="presentation">GB</abbr>}
@@ -70,6 +74,7 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const onClick = jest.fn();
 		const component = mount(
 			<AccordionTrigger
+				toggleLabel="Toggle"
 				onClick={onClick}
 				qaHook={qaHook}
 				primaryHeading="John Smith"
@@ -85,6 +90,7 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 		const onClick = jest.fn();
 		const component = mount(
 			<AccordionTrigger
+				toggleLabel="Toggle"
 				onClick={onClick}
 				qaHook={qaHook}
 				primaryHeading="John Smith"

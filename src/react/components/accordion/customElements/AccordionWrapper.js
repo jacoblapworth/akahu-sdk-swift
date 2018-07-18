@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getRectangle, shouldAccordionPop } from '../private/helpers';
+import {ns} from "../../helpers/xuiClassNamespace";
 
 export default class AccordionWrapper extends PureComponent {
 	state = { left: null, right: null };
@@ -16,8 +17,8 @@ export default class AccordionWrapper extends PureComponent {
 
 	popClassName() {
 		if (!this.props.isOpen) return '';
-		if (shouldAccordionPop(this.state)) return 'xui-accordionitem-new-pop';
-		return 'xui-accordionitem-new-no-pop';
+		if (shouldAccordionPop(this.state)) return `${ns}-accordionwrapper-new-pop`;
+		return `${ns}-accordionwrapper-new-no-pop`;
 	}
 
 	setRect = () => {
@@ -37,13 +38,13 @@ export default class AccordionWrapper extends PureComponent {
 				ref={this.setRef}
 				data-automationid={qaHook}
 				className={cn(
-					'xui-accordionitem-new',
-					{ 'xui-accordionitem-new-is-open': isOpen },
+					`${ns}-accordionwrapper-new`,
+					{ [`${ns}-accordionwrapper-new-is-open`]: isOpen },
 					this.popClassName()
 				)}>
 				{trigger}
-				<div className={cn('xui-accordionitem-new--content', {
-					'xui-accordionitem-new--content-is-open': isOpen,
+				<div className={cn(`${ns}-accordionwrapper-new--content`, {
+					[`${ns}-accordionwrapper-new--content-is-open`]: isOpen,
 				})}>
 					{children}
 				</div>

@@ -1,7 +1,5 @@
 import verge from 'verge';
-
-const calcSpaceRight = rect => Math.max(verge.viewportW() - rect.right, 0);
-const calcSpaceLeft = rect => Math.max(rect.left, 0);
+import {calcSpaceRight, calcSpaceLeft} from '../../positioning/private/dom-helpers';
 
 const getSpacesHorizontal = rect => ({
 	spaceLeft: calcSpaceLeft(rect),

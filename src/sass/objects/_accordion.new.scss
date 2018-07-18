@@ -1,22 +1,31 @@
 @import "../vars";
 @import "../mixins";
 
-$pop-width: 8px;
-$transition-duration: 0.15s;
+$xui-accordion-new-pop-width: 8px;
 
 .#{$ns}-accordion-new {
 	width: 100%;
 }
 
-.#{$ns}-accordionitem-new {
+.#{$ns}-accordion-new--emptystate {
+	@include xui-text-muted;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 140px;
+	justify-content: center;
+}
+
+.#{$ns}-accordionwrapper-new {
 	background-color: $xui-color-white;
 	box-shadow: $xui-shadow-border-all;
 	outline: 0;
 	position: relative;
-	transition-duration: $transition-duration;
+	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
-	-ms-transition: none;
 	width: 100%;
+	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	-ms-transition: none;
 
 	@media (min-width: $xui-breakpoint-medium) {
 		&:first-child {
@@ -31,87 +40,128 @@ $transition-duration: 0.15s;
 	}
 }
 
-.#{$ns}-accordionitem-new-is-open {
+.#{$ns}-accordionwrapper-new--content {
+	opacity: 0;
+}
+
+.#{$ns}-accordionwrapper-new--content-is-open {
+	border-top: $xui-border-muted;
+	opacity: 1;
+	transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
+	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	-ms-transition: none;
+}
+
+.#{$ns}-accordionwrapper-new-no-pop {
+	border-radius: 0;
+	@include xui-highlight-left($xui-color-blue);
+}
+
+.#{$ns}-accordionwrapper-new-is-open {
 	box-shadow: $xui-shadow-depth-lift;
 	z-index: 1;
 }
 
-.#{$ns}-accordionitem-new-pop {
+.#{$ns}-accordionwrapper-new-pop {
 	border-radius: $xui-radius;
-	margin-left: -$pop-width;
-	width: calc(100% + #{2 * $pop-width});
+	margin-left: -$xui-accordion-new-pop-width;
+	width: calc(100% + #{2 * $xui-accordion-new-pop-width});
 
-	.#{$ns}-accordionitem-new--trigger-is-open {
-		padding-left: $pop-width;
-		padding-right: $pop-width;
-	}
-
-	.#{$ns}-accordionitem-new--content--item {
-		padding-left: $pop-width;
-		padding-right: $pop-width;
+	.#{$ns}-accordiontrigger-new-is-open {
+		padding-left: $xui-accordion-new-pop-width;
+		padding-right: $xui-accordion-new-pop-width;
 	}
 }
 
-.#{$ns}-accordionitem-new-no-pop {
-	border-radius: 0;
-
-	@include xui-highlight-left($xui-color-blue);
-}
-
-.#{$ns}-accordionitem-new--trigger {
+.#{$ns}-accordiontrigger-new {
+	align-items: center;
+	border-top: $xui-border-muted;
 	cursor: pointer;
-	transition-duration: $transition-duration;
+	display: flex;
+	margin: 0;
+	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
+	/* stylelint-disable-next-line order/properties-alphabetical-order */
 	-ms-transition: none;
+
+	&:first-child {
+		border-top: 0;
+	}
 
 	&:hover {
 		background: $xui-color-grey-alpha-7;
 	}
+
 	&:active {
 		background: $xui-color-grey-alpha-6;
 	}
 }
 
-.#{$ns}-accordionitem-new--trigger--caret {
+.#{$ns}-accordiontrigger-new--arrow {
 	align-items: center;
-	flex: none;
-	padding: 5px;
+	display: flex;
+	height: $xui-icon-xlarge;
+	justify-content: center;
+	overflow: hidden;
+	padding: $xui-s-xsmall;
+	width: $xui-icon-xlarge;
 
 	@media (max-width: $xui-breakpoint-narrow) {
 		align-self: flex-start;
 	}
 }
 
-.#{$ns}-accordionitem-new--trigger--rightcontent {
+.#{$ns}-accordiontrigger-new--arrow .#{$ns}-icon {
+	transition-duration: $xui-motion-speed-fast;
+	transition-property: all;
+}
+
+.#{$ns}-accordiontrigger-new--rightcontent {
 	align-items: center;
 	align-self: stretch;
 	display: flex;
 	flex-shrink: 0;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding-bottom: 5px;
-	padding-top: 5px;
+	// margin-left: $xui-s-small;
+	// margin-right: $xui-s-small;
+	padding: $xui-s-xsmall $xui-s-large $xui-s-xsmall $xui-s-xsmall;
+	// // padding-right: $xui-s-standard;
+	// padding-bottom: $xui-s-xsmall;
+	// padding-top: $xui-s-xsmall;
 
 	@media (max-width: $xui-breakpoint-narrow) {
 		align-self: flex-start;
 	}
 }
 
-.#{$ns}-accordionitem-new--content {
-	opacity: 0;
-}
-
-.#{$ns}-accordionitem-new--content-is-open {
-	border-top: $xui-border-muted;
-	opacity: 1;
-	transition: opacity $transition-duration ease-in-out $transition-duration;
-	-ms-transition: none;
-}
-
-.#{$ns}-accordionitem-new--emptystate {
+.#{$ns}-accordiontrigger-new--content {
 	align-items: center;
 	display: flex;
-	flex-direction: column;
-	height: 140px;
-	justify-content: center;
+	flex-basis: auto;
+	flex-grow: 1;
+}
+
+.#{$ns}-accordiontrigger-new--headings {
+	flex-basis: auto;
+	flex-grow: 1;
+	padding: $xui-s-standard 0;
+}
+
+.#{$ns}-accordiontrigger-new--primaryheading {
+	@include xui-heading-small;
+	@include xui-text-wordbreak;
+}
+
+.#{$ns}-accordiontrigger-new--secondaryheading {
+	@include xui-text-muted;
+	@include xui-text-wordbreak;
+}
+
+.#{$ns}-accordiontrigger-new--pinnedvalue {
+	@include xui-heading-small;
+	@include xui-text-deemphasis;
+	padding: $xui-s-small 0;
+}
+
+.#{$ns}-accordiontrigger-new--overflowcontent .xui-button-icon {
+	margin-right: -#{$xui-s-small};
 }

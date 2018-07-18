@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIAccordion from '../XUIAccordion';
@@ -100,5 +100,27 @@ describe('<XUIAccordion />', () => {
 		);
 
 		expect(component).toMatchSnapshot();
+	});
+
+	it('should call supplied item callback', () => {
+		const qaHook = 'test-id';
+		const onItemClick = jest.fn();
+		const getArgs = () => onItemClick.mock.calls[0][0];
+		const component = mount(
+			<XUIAccordion
+				qaHook={qaHook}
+				idKey="name"
+				items={[{ name: 'John Smith', content: 'Accountant' }]}
+				createItem={({name, content}) => (
+					<XUIAccordionItem
+						primaryHeading={name}
+						onItemClick={onItemClick}>{content}</XUIAccordionItem>
+				)}
+			/>
+		);
+
+		component.find(`[data-automationid="${qaHook}-trigger"]`).simulate('click');
+		expect(onItemClick).toHaveBeenCalled();
+		expect(getArgs()).toMatchObject({ name: 'John Smith', content: 'Accountant', isOpen: true });
 	});
 });

@@ -61,7 +61,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon" aria-label="Info" className="xui-u-fullwidth"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info" size="full-width"><XUIIcon path={info} /></XUIButton>;
 };
 
 const createTriggerSpan = () => {

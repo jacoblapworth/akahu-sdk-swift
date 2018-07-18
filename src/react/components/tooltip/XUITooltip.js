@@ -93,12 +93,13 @@ export default class XUITooltip extends PureComponent {
 	};
 
 	componentDidMount = () => {
-		const rootNode = this.trigger && (this.trigger.rootNode || this.trigger.inputNode) || this.trigger;
+		const { trigger } = this;
+		const rootNode = trigger && (trigger.rootNode || trigger.inputNode) || trigger;
 		if (!rootNode) {
 			return;
 		}
-		const displayProp = window.getComputedStyle(rootNode).display;
-		this.triggerIsInline = /inline/.test(displayProp);
+		const { display } = window.getComputedStyle(rootNode);
+		this.triggerIsInline = /inline/.test(display);
 	};
 
 	render() {

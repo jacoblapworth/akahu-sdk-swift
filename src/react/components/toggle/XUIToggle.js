@@ -25,7 +25,7 @@ XUIToggle.propTypes = {
 	layout: PropTypes.oneOf(Object.keys(layoutMap)),
 	/** The variant of the toggle */
 	variant: PropTypes.oneOf(Object.keys(variantMap)),
-	/* Additional props to pass to the root HTML element. Recommend adding an "aria-label" for accessibility */
+	/** Additional props to pass to the root HTML element. Recommend adding an "aria-label" for accessibility */
 	secondaryProps: PropTypes.object,
 };
 

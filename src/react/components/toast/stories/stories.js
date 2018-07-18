@@ -48,7 +48,7 @@ class DetailedToast extends Component {
 
 		if (props.usingXUIActions) {
 			clonedProps.primaryAction = allActions[0];
-			clonedProps.secondaryAction = allActions[0];
+			clonedProps.secondaryAction = allActions[1];
 			clonedProps.message = props.message;
 			childActions = null;
 			delete clonedProps.actions;

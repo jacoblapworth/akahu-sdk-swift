@@ -51,8 +51,6 @@ const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutoco
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
-const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
-const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	console.log(idsToExclude);
@@ -149,6 +147,7 @@ class WrapPillsExample extends Component {
 								value={people[id].name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(id)}
+								isMaxContentWidth
 								key={id}
 							/>
 						)
@@ -173,8 +172,6 @@ const XUIAutocompleterEmptyState = require('./components/autocompleter/XUIAutoco
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
-const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
-const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
 	const val = value.toLowerCase();
@@ -271,6 +268,7 @@ class DisableWrapPills extends Component {
 								value={people[id].name}
 								className="xui-autocompleter--pill"
 								onDeleteClick={()=>this.deletePerson(id)}
+								isMaxContentWidth
 								key={id}
 							/>
 						)
@@ -296,8 +294,6 @@ const XUITextInputSideElement = require('./components/textInput/XUITextInputSide
 const { Component } = require('react');
 const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
-const DropDownFooter = require('./components/dropdown/DropDownFooter').default;
-const plusIcon = require('@xero/xui-icon/icons/plus' ).default;
 const crossIcon = require('@xero/xui-icon/icons/cross-small').default;
 
 const filterPeople = (peopleToSearch, value) => {

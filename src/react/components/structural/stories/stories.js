@@ -67,7 +67,7 @@ const buildActions = (props) => {
 
 const sampleBreadcrumb = [
 	<span role="link" onClick={() => alert('hello')} key="1">hello</span>,
-	{label: "hiya", href: "#2"},
+	{label: "hiya I have multiple words", href: "#2"},
 	{label: "yo"}];
 const exampleBreadcrumb = (
 	<XUIBreadcrumb breadcrumbs={sampleBreadcrumb}></XUIBreadcrumb>
@@ -91,7 +91,7 @@ const buildExampleContentblockItem = (children) => {
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {
-			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
+			child.leftContent = <XUIRolloverCheckbox isCheckboxHidden={true} labelText="contentBlockItem rollover" rolloverComponent={<XUIAvatar value="Tim Redmond" />}/>;
 		}
 		if (child.action) {
 			child.action = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;

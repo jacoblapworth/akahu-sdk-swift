@@ -13,9 +13,10 @@ import XUIButtonCaret from '../../button/XUIButtonCaret';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
-import XUIIcon from "../../icon/XUIIcon";
+import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from "../../textInput/XUITextInput";
 import info from "@xero/xui-icon/icons/info";
+import plusIcon from '@xero/xui-icon/icons/plus';
 
 
 // Story book things
@@ -56,7 +57,27 @@ const header = (
 		onSecondaryButtonClick={NOOP} />
 );
 const footer = (
-	<DropDownFooter title='Dropdown footer'>This is a dropdown footer.</DropDownFooter>
+	<DropDownFooter
+		title='Dropdown footer'
+		pickItems={[
+			<Pickitem id="1" value="1" key="1">
+				<XUIIcon
+					isInline
+					path={plusIcon}
+					className="xui-margin-right-xsmall"
+				/>
+				Item 1
+			</Pickitem>,
+			<Pickitem id="2" value="2" key="2">
+				<XUIIcon
+					isInline
+					path={plusIcon}
+					className="xui-margin-right-xsmall"
+				/>
+				Item 2
+			</Pickitem>
+		]}
+	/>
 );
 const picklist = (
 	<Picklist>{createItems(toggledItems)}</Picklist>
@@ -95,6 +116,7 @@ const sideBySide = (
 		className="xui-margin-right-large"
 		preferredPosition="bottom-right"
 		isHidden={false}
+		isLegacyDisplay={false}
 		dropdown={
 			<DropDown size="large" restrictFocus={false}>
 				<Picklist>{createItems(toggledItems, 'one')}</Picklist>
@@ -196,7 +218,7 @@ const createTriggerLink = () => {
 };
 
 const createTriggerIcon = () => {
-	return <XUIButton variant="icon" aria-label="Info"><XUIIcon path={info} /></XUIButton>;
+	return <XUIButton variant="icon" aria-label="Info" size="full-width"><XUIIcon path={info} /></XUIButton>;
 };
 
 const getPositioningTest = () => {
@@ -277,6 +299,7 @@ const getPositioningTest = () => {
 							<Picklist>{createItems(toggledShort, 'h')}</Picklist>
 						</DropDown>
 						}
+					isBlock
 					{...props}
 				/>
 				<DropDownToggled

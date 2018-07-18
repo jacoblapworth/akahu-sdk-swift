@@ -129,7 +129,7 @@ test.add(storyNames.formOnAPage, () => {
 					<XUIColumn gridColumns="half">
 
 						<InputLabel>Grouped radios</InputLabel>
-						<XUIRadioGroup>
+						<XUIRadioGroup groupLabel="cities">
 							<XUIRadio name="radioGroup">Wellington</XUIRadio>
 							<XUIRadio name="radioGroup">Canberra</XUIRadio>
 							<XUIRadio name="radioGroup">Washington D.C</XUIRadio>

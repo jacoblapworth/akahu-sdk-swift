@@ -113,7 +113,7 @@
 					},
 					{
 						"name": "Text Input",
-						"content": "../src/react/textInput.md",
+						"content": "../src/react/textinput.md",
 						"components": "../src/react/components/textInput/XUITextInput.js",
 						"sections": [
 							{
@@ -410,6 +410,16 @@
 							},
 							{
 								"components": "../src/react/components/table/XUITableCell.js"
+							}
+						]
+					},
+					{
+						"name": "Charts",
+						"content": "../src/react/barchart.md",
+						"sections": [
+							{
+								"name": "Bar Chart",
+								"components": "../src/react/components/chart/XUIBarChart.js"
 							}
 						]
 					}

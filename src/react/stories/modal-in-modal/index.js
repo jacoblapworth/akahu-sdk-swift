@@ -94,6 +94,7 @@ class Example2 extends Component {
 								dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
 								isHidden={false}
 								repositionOnScroll={true}
+								isLegacyDisplay={false}
 							/>
 						</div>
 					</XUIModalBody>
@@ -110,7 +111,7 @@ test.addDecorator(withReadme(readme));
 
 test.add(nonBackstopStoryNames.modalInModal, () => {
 	const body = document.querySelector('body.xui-container');
-	body.style.height = "200%";
+	if (body && body.style) { body.style.height = "200%"; }
 	return (
 		<Example />
 	);

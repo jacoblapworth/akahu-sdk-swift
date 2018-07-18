@@ -92,6 +92,16 @@ export default class XUITooltip extends PureComponent {
 		}
 	};
 
+	componentDidMount = () => {
+		const { trigger } = this;
+		const rootNode = trigger && (trigger.rootNode || trigger.inputNode) || trigger;
+		if (!rootNode) {
+			return;
+		}
+		const { display } = window.getComputedStyle(rootNode);
+		this.triggerIsInline = /inline/.test(display);
+	};
+
 	render() {
 		const {
 			children,
@@ -101,8 +111,9 @@ export default class XUITooltip extends PureComponent {
 			wrapperClassName,
 			isDisabled,
 			triggerOnFocus,
+			triggerOnBlur,
 			triggerOnClick,
-			triggerOnHover
+			triggerOnHover,
 		} = this.props;
 		const { isHidden, isAnimating, isFocused } = this.state;
 		const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -118,7 +129,11 @@ export default class XUITooltip extends PureComponent {
 		const wrapperClasses = cn(
 			wrapperClassName,
 			baseClass,
-			isDisabled && `${ns}-is-disabled`
+			this.state.isFocused && `${ns}-has-focused-trigger`,
+			this.triggerIsInline && `${ns}-has-inline-trigger`,
+			isDisabled && `${ns}-is-disabled`,
+			!isHidden && `${baseClass}-tipopen`,
+			isAnimating && `${baseClass}-tipanimating`
 		);
 
 		const tipClasses = cn(
@@ -140,9 +155,8 @@ export default class XUITooltip extends PureComponent {
 				trigger.props.onKeyDown :
 				(triggerOnClick && this.onTriggerKeyDown) || undefined,
 			'onFocus': compose(trigger.props.onFocus, () => {this.setState({isFocused: true})}),
-			'onBlur': compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}),
-			'aria-haspopup': true,
-			'aria-controls': this.tooltipId
+			'onBlur': triggerOnBlur ? compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}) : undefined,
+			'aria-describedby': this.tooltipId
 		});
 
 		return (
@@ -156,7 +170,12 @@ export default class XUITooltip extends PureComponent {
 					isVisible={!this.state.isHidden}
 					{...this.props}
 				>
-					<span className={tipClasses} data-automationid={qaHook && `${qaHook}--tooltip`}>
+					<span
+						role="tooltip"
+						aria-hidden={this.state.isHidden}
+						id={this.tooltipId}
+						className={tipClasses}
+						data-automationid={qaHook && `${qaHook}--tooltip`}>
 						{children}
 					</span>
 				</PositioningInline>
@@ -203,6 +222,9 @@ XUITooltip.propTypes = {
 	/** Whether giving focus to the trigger should toggle the tooltip open/closed. Defaults to false. */
 	triggerOnFocus: PropTypes.bool,
 
+	/** Whether focusing off the trigger should change the tooltip to closed. Defaults to true. */
+	triggerOnBlur: PropTypes.bool,
+
 	/** Whether hovering over the trigger should toggle the tooltip open/closed. Defaults to true. */
 	triggerOnHover: PropTypes.bool,
 
@@ -225,6 +247,7 @@ XUITooltip.defaultProps = {
 	isDisabled: false,
 	triggerOnClick: false,
 	triggerOnFocus: false,
+	triggerOnBlur: true,
 	triggerOnHover: true,
 	maxWidth: 220,
 	openDelay: 500,

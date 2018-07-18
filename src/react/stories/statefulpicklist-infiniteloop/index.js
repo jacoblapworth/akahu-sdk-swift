@@ -41,13 +41,13 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
 		renderFooter = shouldRender => (
 			<ConditionalRender shouldRender={shouldRender}>
-				<DropDownFooter>
-					<Picklist>
+				<DropDownFooter
+					pickItems={(
 						<Pickitem id="footerAction" onSelect={this.onSelect}>
 							<span>Add New Fruit</span>
 						</Pickitem>
-					</Picklist>
-				</DropDownFooter>
+					)}
+				/>
 			</ConditionalRender>
 		);
 

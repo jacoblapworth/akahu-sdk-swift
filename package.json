@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "13.3.0-beta.1",
+  "version": "13.4.0",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -14,21 +14,24 @@
   },
   "files": [
     "react",
-    "sass"
+    "sass",
+    "codemod"
   ],
   "scripts": {
     "build": "node scripts/build",
     "lint": "node scripts/lint/js && node scripts/lint/sass",
-    "prepack": "node scripts/build/babel && ncp ./dist/react react && ncp ./src/sass sass",
+    "prepack": "node scripts/prepack",
     "prepare": "check-engines && nsp check",
-    "postmerge": "./post-merge.sh",
-    "precommit": "./pre-commit.sh",
-    "prepush": "./pre-push.sh",
+    "postmerge": "bash post-merge.sh",
+    "precommit": "bash pre-commit.sh",
+    "prepush": "bash pre-push.sh",
     "start": "node scripts/start",
-    "test": "node scripts/test"
+    "test": "node scripts/test",
+    "release": "node scripts/release"
   },
   "dependencies": {
     "@xero/xui-icon": "^5.2.0",
+    "@xero/xuishift": "1.0.0",
     "autosize": "4.0.0",
     "babel-runtime": "^6.26.0",
     "classnames": "2.2.5",
@@ -43,7 +46,8 @@
     "react-portal": "^4.0.0",
     "scrollbar-width": "3.1.1",
     "uuid": "3.1.0",
-    "verge": "1.10.2"
+    "verge": "1.10.2",
+    "victory": "0.26.0"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "3.3.15",

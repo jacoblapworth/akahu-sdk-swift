@@ -1,4 +1,4 @@
-`DropDownToggled` connects the trigger element with the dropdown.  The two elements are siblings in a React render tree, but `DropDown` itself will render as an immediate child of the body no matter where it is in the React virtual DOM. Because of this, `DropDownToggled` is required to assist with positioning and interaction between the two components.
+`DropDownToggled` connects the trigger element with the dropdown, in terms of behavior and wrapping the two elements for positioning.
 
 ## Basic Use Cases
 
@@ -354,3 +354,8 @@ class InputTriggerExample extends Component {
 * `inputAttributes.onKeyDown=function` -> `XUIInput`:
   * If `triggerClickAction="none"`, you should open the dropdown here by calling `DropDownToggled.openDropDown`.
   * `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.
+
+
+### Inline display
+
+We've added the ability for DropDown to position the DropDownPanel inline with your content, for improved accessibility and to resolve a few tough positioning scenarios, like dropdowns in a scrolling modal, or preferring to align the dropdown to the right of the trigger. To use this, set `isLegacyDisplay` to false on `DropDownToggled` and see the accompanying related props.

@@ -1,20 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
 import { baseClass } from './private/constants';
-import { ns } from "../helpers/xuiClassNamespace";
-
-const ContainerElement = ({children, qaHook, ...props}) => (
-	<li
-		{...props}
-		className={`${baseClass}--action`}
-		data-automationid={qaHook}>
-
-		{children}
-
-	</li>
-);
 
 export default function XUIToastAction({
 	className,
@@ -32,6 +19,7 @@ export default function XUIToastAction({
 		<XUIButton
 			{...props}
 			isLink={isLink}
+			href={href}
 			variant="link"
 			size="small"
 			className={className}
@@ -46,9 +34,12 @@ export default function XUIToastAction({
 		return customToastButton;
 	} else {
 		return (
-			<ContainerElement qaHook={qaHook} {...props}>
+			<li
+				{...props}
+				className={`${baseClass}--action`}
+				data-automationid={qaHook}>
 				{customToastButton}
-			</ContainerElement>
+			</li>
 		)
 	}
 

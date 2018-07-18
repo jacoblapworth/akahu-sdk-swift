@@ -7,8 +7,7 @@ exports[`XUITooltip allows for different trigger components to be passed 1`] = `
   onMouseOver={[Function]}
 >
   <span
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     onBlur={[Function]}
     onClick={undefined}
     onFocus={[Function]}
@@ -32,8 +31,11 @@ exports[`XUITooltip allows for different trigger components to be passed 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -57,8 +59,7 @@ exports[`XUITooltip include an automation-id 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -78,8 +79,11 @@ exports[`XUITooltip include an automation-id 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid="test-tooltip--tooltip"
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -103,8 +107,7 @@ exports[`XUITooltip include an id, if provided 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test-tooltip-id"
-    aria-haspopup={true}
+    aria-describedby="test-tooltip-id"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -124,8 +127,11 @@ exports[`XUITooltip include an id, if provided 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid={undefined}
+      id="test-tooltip-id"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -149,8 +155,7 @@ exports[`XUITooltip include provided classNames 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -170,8 +175,11 @@ exports[`XUITooltip include provided classNames 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="test-tooltip-class xui-tooltip--tip"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -195,8 +203,7 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -216,8 +223,11 @@ exports[`XUITooltip include provided wrapperClassNames 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -241,8 +251,7 @@ exports[`XUITooltip renders correctly 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -262,8 +271,11 @@ exports[`XUITooltip renders correctly 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -287,8 +299,7 @@ exports[`XUITooltip sets maxHeight 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -308,8 +319,11 @@ exports[`XUITooltip sets maxHeight 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -333,8 +347,7 @@ exports[`XUITooltip sets maxWidth 1`] = `
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -354,8 +367,11 @@ exports[`XUITooltip sets maxWidth 1`] = `
     }
   >
     <span
+      aria-hidden={true}
       className="xui-tooltip--tip"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,
@@ -374,13 +390,12 @@ exports[`XUITooltip sets maxWidth 1`] = `
 
 exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
 <span
-  className="xui-tooltip"
+  className="xui-tooltip xui-tooltip-tipopen"
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
   <a
-    aria-controls="test"
-    aria-haspopup={true}
+    aria-describedby="test"
     href="javascript:void(0);"
     onBlur={[Function]}
     onClick={undefined}
@@ -400,8 +415,11 @@ exports[`XUITooltip sets visibility classes, if set to be visible 1`] = `
     }
   >
     <span
+      aria-hidden={false}
       className="xui-tooltip--tip xui-tooltip--tip-open"
       data-automationid={undefined}
+      id="test"
+      role="tooltip"
       style={
         Object {
           "marginLeft": null,

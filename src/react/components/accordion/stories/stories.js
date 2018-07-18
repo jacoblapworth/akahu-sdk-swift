@@ -29,7 +29,7 @@ storiesWithKnobs.add('Playground', () => {
 	const hasOverflow = boolean('Show overflow', false);
 	const hasCustom = boolean('Show custom content', false);
 	const hasOnItemClick = boolean('Has item click callback', false);
-	const hasEmptyState = boolean('Show empty state', true);
+	const hasEmptyState = boolean('Show empty state', false);
 	const onItemClick = ({id, isOpen}) => alert(`${isOpen ? 'Open' : 'Close'} accordion item #${id}`);
 	const names = ['Earnest Borer', 'Brandy Lindgren', 'Armando Erdman', 'Maverick Hoeger', 'Kailey Hodkiewicz'];
 	const addresses = ['410 Lorine Garden', '9973 Runolfsson Circles', '331 Kihn Plaza', '805 Tommie Canyon', '7368 Kovacek Pines']
@@ -38,14 +38,14 @@ storiesWithKnobs.add('Playground', () => {
 		primaryHeading: hasPrimaryHeading && names[index],
 		secondaryHeading: hasSecondaryHeading && addresses[index],
 		leftContent: hasLeftContent && <XUIAvatar value={names[index]} className="xui-margin-right" />,
-		pinnedValue: hasPinnedValue && <XUIButton size="small" variant="negative" className="xui-margin-right-small">Delete</XUIButton>,
-		action: hasAction && <XUIButton size="small" className="xui-margin-right-small">Update</XUIButton>,
+		pinnedValue: hasPinnedValue && <span className="xui-margin-horizontal-small">{`${3 * index}:00`}</span>,
+		action: hasAction && <XUIButton size="small" className="xui-margin-left-small">Update</XUIButton>,
 		onItemClick: hasOnItemClick ? onItemClick : undefined,
 		overflow: hasOverflow && (
-			<XUIButton variant="icon-large"><XUIIcon path={overflowPathData} title="Overflow menu"/></XUIButton>
+			<XUIButton variant="icon-large" className="xui-margin-left-small"><XUIIcon path={overflowPathData} title="Overflow menu"/></XUIButton>
 		),
 		custom: hasCustom && [
-			<XUIButton key="0" variant="icon-large"><XUIIcon path={notificationPathData} title="Overflow menu"/></XUIButton>,
+			<XUIButton key="0" variant="icon-large" className="xui-margin-left-small"><XUIIcon path={notificationPathData} title="Overflow menu"/></XUIButton>,
 			<XUIButton key="1" variant="icon-large"><XUIIcon path={copyPathData} title="Overflow menu"/></XUIButton>
 		],
 	}));
@@ -55,7 +55,7 @@ storiesWithKnobs.add('Playground', () => {
 			<XUIAccordion
 				items={items}
 				createItem={(item => (
-					<XUIAccordionItem {...item}>{hasEmptyState && (
+					<XUIAccordionItem {...item}>{!hasEmptyState && (
 						<XUIContentBlock>
 							{createArray(item.id).map((_, index) => (
 								<XUIContentBlockItem

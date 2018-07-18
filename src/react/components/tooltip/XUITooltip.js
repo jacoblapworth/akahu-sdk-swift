@@ -92,6 +92,16 @@ export default class XUITooltip extends PureComponent {
 		}
 	};
 
+	componentDidMount = () => {
+		const { trigger } = this;
+		const rootNode = trigger && (trigger.rootNode || trigger.inputNode) || trigger;
+		if (!rootNode) {
+			return;
+		}
+		const { display } = window.getComputedStyle(rootNode);
+		this.triggerIsInline = /inline/.test(display);
+	};
+
 	render() {
 		const {
 			children,
@@ -118,6 +128,8 @@ export default class XUITooltip extends PureComponent {
 		const wrapperClasses = cn(
 			wrapperClassName,
 			baseClass,
+			this.state.isFocused && `${ns}-has-focused-trigger`,
+			this.triggerIsInline && `${ns}-has-inline-trigger`,
 			isDisabled && `${ns}-is-disabled`,
 			!isHidden && `${baseClass}-tipopen`,
 			isAnimating && `${baseClass}-tipanimating`

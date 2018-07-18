@@ -2,7 +2,7 @@ import React from 'react';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
 import { storiesOf } from '@storybook/react';
-import {withKnobs, object, boolean, text, select, number, color} from '@storybook/addon-knobs';
+import {withKnobs, boolean, number} from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 import { variations, storiesWithVariationsKindName } from './variations';
 import {createArray} from '../../progressindicator/helpers/utilities';
@@ -51,7 +51,7 @@ storiesWithKnobs.add('Playground', () => {
 	}));
 
 	return (
-		<div style={{width: '940px'}}>
+		<div style={{minWidth: '300px'}}>
 			<XUIAccordion
 				items={items}
 				createItem={(item => (
@@ -62,7 +62,7 @@ storiesWithKnobs.add('Playground', () => {
 									key={index}
 									primaryHeading={names[index]}
 									overflow={<XUIButton variant="icon-large"><XUIIcon path={overflowPathData} title="Overflow menu"/></XUIButton>}
-									pinnedValue={`${3 * item.id * index}:00`}
+									pinnedValue={`${3 * item.id}:00`}
 									href="#"
 								/>
 							))}

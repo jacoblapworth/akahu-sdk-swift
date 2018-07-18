@@ -30,9 +30,9 @@ const variations = [
 			id,
 			primaryHeading: name,
 			secondaryHeading: projects,
-			pinnedValue: minutes,
+			pinnedValue: <span className="xui-margin-right-small">{minutes}</span>,
 			leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
-			action: <XUIButton size="small" className="xui-margin-right-small">See more</XUIButton>,
+			action: <XUIButton size="small">See more</XUIButton>,
 		})
 	},
 	{
@@ -75,15 +75,14 @@ const variations = [
 				contacts: []
 			}
 		],
-		createItem: ({id, name, contacts, time}) => {
+		createItem: ({id, name, contacts}) => {
 			const totalContacts = contacts.length;
 			return {
 				id,
 				primaryHeading: name,
 				secondaryHeading: `${totalContacts} project${totalContacts === 1 ? '' : 's'}`,
-				pinnedValue: time,
 				leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
-				action: <XUIButton size="small" className="xui-margin-right-small">See more</XUIButton>,
+				action: <XUIButton size="small">See more</XUIButton>,
 				children: Boolean(totalContacts) && (
 					<XUIContentBlock>
 						{contacts.map(({contact, project, minutes, percentage}, key) => (

@@ -25,6 +25,7 @@ export default class AccordionTrigger extends PureComponent {
 			isOpen,
 			leftContent,
 			onClick,
+			toggleLabel,
 			overflow,
 			pinnedValue,
 			qaHook,
@@ -51,7 +52,7 @@ export default class AccordionTrigger extends PureComponent {
 			<div className={`${ns}-accordiontrigger-new--rightcontent`}>
 				{pinnedValueScaffold}
 				{action}
-				{overflow}
+				<div className={`${ns}-accordiontrigger-new--overflowcontent`}>{overflow}</div>
 			</div>);
 
 		return (
@@ -61,13 +62,14 @@ export default class AccordionTrigger extends PureComponent {
 				onKeyDown={this.onKeyDown}
 				tabIndex="0"
 				role="button"
+				aria-label={toggleLabel}
 				className={cn(`${ns}-accordiontrigger-new`, {
 					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
 				})}>
 				<div className={`${ns}-accordiontrigger-new--arrow`}>
 					<XUIButton
 						variant="icon-large"
-						title={'Xxxxxxxxxx'}
+						title={toggleLabel}
 						tabIndex={-1}>
 						<XUIIcon
 							path={arrowPath}
@@ -95,6 +97,7 @@ AccordionTrigger.propTypes = {
 	qaHook: PropTypes.string,
 	custom: PropTypes.node,
 	onClick: PropTypes.func.isRequired,
+	toggleLabel: PropTypes.string.isRequired,
 	isOpen: PropTypes.bool,
 	leftContent: PropTypes.node,
 	primaryHeading: PropTypes.node,

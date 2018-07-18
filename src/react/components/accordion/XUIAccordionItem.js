@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class XUIAccordionItem extends PureComponent {
+export default class XUIAccordionItem extends PureComponent {
 	// This component does not render anything. It is purely a way to capture and
 	// validate the user facing props for an accordion "Item".
 
@@ -13,29 +13,27 @@ class XUIAccordionItem extends PureComponent {
 
 XUIAccordionItem.propTypes = {
 
-	/** A space to accommodate additional content that is not addressed by the various "official" trigger props. */
+	/** A space to accommodate additional content that is not addressed by the various _"official"_ trigger props. */
 	custom: PropTypes.node,
 
-	/** Left most consumer specified component option, sits to the right of the caret. Typically an `avatar`, `checkbox` or `rollover checkbox` component. */
+	/** Left most consumer specified component option, sits to the right of the arrow. Typically an `<XUIAvatar />`, `<XUICheckbox />` or `<XUIRolloverCheckbox />` component. */
 	leftContent: PropTypes.node,
 
-	/* Plain text heading. */
+	/** Primary heading content. */
 	primaryHeading: PropTypes.node,
 
-	/* Plain text secondary heading. */
+	/** Secondary heading content. */
 	secondaryHeading: PropTypes.node,
 
-	/* Text pinned to right side of the accordion item trigger. */
+	/** Pinned to right side of the accordion item trigger. */
 	pinnedValue: PropTypes.node,
 
-	/* Optional actions to be right aligned. Use the XUIActions component. */
+	/** Optional actions to be right aligned. Use the `<XUIActions />` component. */
 	action: PropTypes.node,
 
-	/* Any component passed as right most content, typically a `dropdown toggled` component. */
+	/** Any component passed as right most content, typically a `<DropDownToggled />` component. */
 	overflow: PropTypes.node,
 
-	/** Callback for a accordion item toggle. Returns the arguments `{ itemId: 'John Smith', isOpen: true }`. */
+	/** Callback for a accordion item toggle. Returns the entire `item` from the `items` array in addition to an `isOpen` boolean representing the items toggled state. */
 	onItemClick: PropTypes.func,
 };
-
-export default XUIAccordionItem;

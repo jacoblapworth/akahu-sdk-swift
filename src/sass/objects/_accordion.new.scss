@@ -21,10 +21,11 @@ $xui-accordion-new-pop-width: 8px;
 	box-shadow: $xui-shadow-border-all;
 	outline: 0;
 	position: relative;
-	-ms-transition: none;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
 	width: 100%;
+	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	-ms-transition: none;
 
 	@media (min-width: $xui-breakpoint-medium) {
 		&:first-child {
@@ -46,8 +47,9 @@ $xui-accordion-new-pop-width: 8px;
 .#{$ns}-accordionwrapper-new--content-is-open {
 	border-top: $xui-border-muted;
 	opacity: 1;
-	-ms-transition: none;
 	transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
+	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	-ms-transition: none;
 }
 
 .#{$ns}-accordionwrapper-new-no-pop {
@@ -77,9 +79,10 @@ $xui-accordion-new-pop-width: 8px;
 	cursor: pointer;
 	display: flex;
 	margin: 0;
-	-ms-transition: none;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
+	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	-ms-transition: none;
 
 	&:first-child {
 		border-top: 0;
@@ -109,7 +112,7 @@ $xui-accordion-new-pop-width: 8px;
 }
 
 .#{$ns}-accordiontrigger-new--arrow .#{$ns}-icon {
-	transition-duration: $xui-motion-speed-medium;
+	transition-duration: $xui-motion-speed-fast;
 	transition-property: all;
 }
 
@@ -118,10 +121,12 @@ $xui-accordion-new-pop-width: 8px;
 	align-self: stretch;
 	display: flex;
 	flex-shrink: 0;
-	margin-left: $xui-s-small;
-	margin-right: $xui-s-small;
-	padding-bottom: $xui-s-xsmall;
-	padding-top: $xui-s-xsmall;
+	// margin-left: $xui-s-small;
+	// margin-right: $xui-s-small;
+	padding: $xui-s-xsmall $xui-s-large $xui-s-xsmall $xui-s-xsmall;
+	// // padding-right: $xui-s-standard;
+	// padding-bottom: $xui-s-xsmall;
+	// padding-top: $xui-s-xsmall;
 
 	@media (max-width: $xui-breakpoint-narrow) {
 		align-self: flex-start;
@@ -155,4 +160,8 @@ $xui-accordion-new-pop-width: 8px;
 	@include xui-heading-small;
 	@include xui-text-deemphasis;
 	padding: $xui-s-small 0;
+}
+
+.#{$ns}-accordiontrigger-new--overflowcontent .xui-button-icon {
+	margin-right: -#{$xui-s-small};
 }

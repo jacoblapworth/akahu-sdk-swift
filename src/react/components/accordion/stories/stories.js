@@ -38,15 +38,15 @@ storiesWithKnobs.add('Playground', () => {
 		primaryHeading: hasPrimaryHeading && names[index],
 		secondaryHeading: hasSecondaryHeading && addresses[index],
 		leftContent: hasLeftContent && <XUIAvatar value={names[index]} className="xui-margin-right" />,
-		pinnedValue: hasPinnedValue && <XUIButton size="small" variant="negative" className="xui-margin-right-small">Delete</XUIButton>,
-		action: hasAction && <XUIButton size="small" className="xui-margin-right-small">Update</XUIButton>,
+		pinnedValue: hasPinnedValue && <XUIButton size="small" variant="negative" className="xui-margin-left-small">Delete</XUIButton>,
+		action: hasAction && <XUIButton size="small" className="xui-margin-left-small">Update</XUIButton>,
 		onItemClick: hasOnItemClick ? onItemClick : undefined,
 		overflow: hasOverflow && (
-			<XUIButton variant="icon-large"><XUIIcon path={overflowPathData} title="Overflow menu"/></XUIButton>
+			<XUIButton variant="icon-large" className="xui-margin-left-small"><XUIIcon path={overflowPathData} title="Overflow menu"/></XUIButton>
 		),
 		custom: hasCustom && [
-			<XUIButton key="0" variant="icon-large"><XUIIcon path={notificationPathData} title="Overflow menu"/></XUIButton>,
-			<XUIButton key="1" variant="icon-large"><XUIIcon path={copyPathData} title="Overflow menu"/></XUIButton>
+			<XUIButton key="0" variant="icon-large" className="xui-margin-left-small"><XUIIcon path={notificationPathData} title="Overflow menu"/></XUIButton>,
+			<XUIButton key="1" variant="icon-large" className="xui-margin-left-small"><XUIIcon path={copyPathData} title="Overflow menu"/></XUIButton>
 		],
 	}));
 

@@ -24,10 +24,15 @@ $xui-accordion-new-pop-width: 8px;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
 	width: 100%;
-	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	// There is an issue with the expand animation on IE where the fast content
+	// expand toggle animation is suboptimal. Because the animation is a very subtle
+	// enhancement it was decided to remove the effect for the offending browsers.
+	// The `-ms` declaration needs to come after the other transition references and
+	// therefore needs to ignore the alphabetical linting rule.
+	// stylelint-disable-next-line order/properties-alphabetical-order
 	-ms-transition: none;
 
-	@media (min-width: $xui-breakpoint-medium) {
+	@include xui-breakpoint-wide {
 		&:first-child {
 			border-top-left-radius: $xui-radius;
 			border-top-right-radius: $xui-radius;
@@ -48,7 +53,7 @@ $xui-accordion-new-pop-width: 8px;
 	border-top: $xui-border-muted;
 	opacity: 1;
 	transition: opacity $xui-motion-speed-fast ease-in-out $xui-motion-speed-fast;
-	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	// stylelint-disable-next-line order/properties-alphabetical-order
 	-ms-transition: none;
 }
 
@@ -81,7 +86,7 @@ $xui-accordion-new-pop-width: 8px;
 	margin: 0;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin, padding;
-	/* stylelint-disable-next-line order/properties-alphabetical-order */
+	// stylelint-disable-next-line order/properties-alphabetical-order
 	-ms-transition: none;
 
 	&:first-child {
@@ -106,7 +111,7 @@ $xui-accordion-new-pop-width: 8px;
 	padding: $xui-s-xsmall;
 	width: $xui-icon-xlarge;
 
-	@media (max-width: $xui-breakpoint-narrow) {
+	@include xui-breakpoint-narrow {
 		align-self: flex-start;
 	}
 }
@@ -121,14 +126,9 @@ $xui-accordion-new-pop-width: 8px;
 	align-self: stretch;
 	display: flex;
 	flex-shrink: 0;
-	// margin-left: $xui-s-small;
-	// margin-right: $xui-s-small;
 	padding: $xui-s-xsmall $xui-s-large $xui-s-xsmall $xui-s-xsmall;
-	// // padding-right: $xui-s-standard;
-	// padding-bottom: $xui-s-xsmall;
-	// padding-top: $xui-s-xsmall;
 
-	@media (max-width: $xui-breakpoint-narrow) {
+	@include xui-breakpoint-narrow {
 		align-self: flex-start;
 	}
 }

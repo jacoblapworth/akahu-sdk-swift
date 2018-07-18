@@ -121,6 +121,6 @@ describe('<XUIAccordion />', () => {
 
 		component.find(`[data-automationid="${qaHook}-trigger"]`).simulate('click');
 		expect(onItemClick).toHaveBeenCalled();
-		expect(getArgs()).toMatchObject({ itemId: 'John Smith', isOpen: true });
+		expect(getArgs()).toMatchObject({ name: 'John Smith', content: 'Accountant', isOpen: true });
 	});
 });

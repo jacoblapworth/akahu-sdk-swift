@@ -10,6 +10,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
     data-automationid={undefined}
   >
     <div
+      aria-label="Toggle"
       className="xui-accordiontrigger-new"
       data-automationid={undefined}
       onClick={[Function]}
@@ -20,18 +21,29 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
       <div
         className="xui-accordiontrigger-new--arrow"
       >
-        <svg
-          className="xui-icon"
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
         >
-          <path
-            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-            role="presentation"
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              role="presentation"
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="xui-accordiontrigger-new--content"
@@ -64,6 +76,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
     data-automationid="testHook-wrapper"
   >
     <div
+      aria-label="Toggle"
       className="xui-accordiontrigger-new"
       data-automationid="testHook-trigger"
       onClick={[Function]}
@@ -74,18 +87,29 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
       <div
         className="xui-accordiontrigger-new--arrow"
       >
-        <svg
-          className="xui-icon"
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
         >
-          <path
-            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-            role="presentation"
-          />
-        </svg>
+          <svg
+            className="xui-icon"
+            data-automationid={undefined}
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              role="presentation"
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="xui-accordiontrigger-new--content"
@@ -118,6 +142,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
     data-automationid={undefined}
   >
     <div
+      aria-label="Toggle"
       className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
@@ -128,18 +153,29 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
       <div
         className="xui-accordiontrigger-new--arrow"
       >
-        <svg
-          className="xui-icon xui-u-rotate-180"
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
         >
-          <path
-            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-            role="presentation"
-          />
-        </svg>
+          <svg
+            className="xui-icon xui-u-rotate-180"
+            data-automationid={undefined}
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              role="presentation"
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="xui-accordiontrigger-new--content"
@@ -170,6 +206,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
     data-automationid={undefined}
   >
     <div
+      aria-label="Toggle"
       className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
@@ -180,18 +217,29 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
       <div
         className="xui-accordiontrigger-new--arrow"
       >
-        <svg
-          className="xui-icon xui-u-rotate-180"
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
         >
-          <path
-            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-            role="presentation"
-          />
-        </svg>
+          <svg
+            className="xui-icon xui-u-rotate-180"
+            data-automationid={undefined}
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              role="presentation"
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="xui-accordiontrigger-new--content"
@@ -239,6 +287,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
     data-automationid={undefined}
   >
     <div
+      aria-label="Toggle"
       className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
@@ -249,18 +298,29 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
       <div
         className="xui-accordiontrigger-new--arrow"
       >
-        <svg
-          className="xui-icon xui-u-rotate-180"
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
         >
-          <path
-            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-            role="presentation"
-          />
-        </svg>
+          <svg
+            className="xui-icon xui-u-rotate-180"
+            data-automationid={undefined}
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              role="presentation"
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="xui-accordiontrigger-new--content"
@@ -316,6 +376,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
     data-automationid={undefined}
   >
     <div
+      aria-label="Toggle"
       className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
       data-automationid={undefined}
       onClick={[Function]}
@@ -326,18 +387,29 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
       <div
         className="xui-accordiontrigger-new--arrow"
       >
-        <svg
-          className="xui-icon xui-u-rotate-180"
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
           data-automationid={undefined}
-          focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
         >
-          <path
-            d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
-            role="presentation"
-          />
-        </svg>
+          <svg
+            className="xui-icon xui-u-rotate-180"
+            data-automationid={undefined}
+            focusable="false"
+            style={null}
+            viewBox="0 0 30 30"
+          >
+            <path
+              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              role="presentation"
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="xui-accordiontrigger-new--content"

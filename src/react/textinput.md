@@ -99,7 +99,7 @@ class Example extends PureComponent {
 					onFocus={this.onFocus}
 					onBlur={this.onBlur}
 					placeholder="I have a hint when I'm focused"
-					hintMessage={this.state.hasFocus && 'Just a good old hint'}
+					hintMessage={this.state.hasFocus && 'Just a good old hint' || ''}
 					isFieldLayout
 				/>
 			</div>

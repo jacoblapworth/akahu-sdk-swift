@@ -19,7 +19,7 @@ class Example extends PureComponent {
 		super(props);
 
 		this.state = {
-			checked: true,
+			isChecked: true,
 		};
 	}
 

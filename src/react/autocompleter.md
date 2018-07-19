@@ -53,7 +53,6 @@ const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
-	console.log(idsToExclude);
 	const val = value.toLowerCase();
 	return peopleToSearch.filter((person, index) =>
 		idsToExclude.indexOf(index) === -1 &&

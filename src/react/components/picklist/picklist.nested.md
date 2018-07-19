@@ -39,10 +39,10 @@ class StatefulMultiselectPicklist extends React.Component {
 					<NestedPicklistContainer id="nested">
 						<NestedPicklistTrigger id="nestedTrigger" ref={c => smp.trigger = c}>Nested List</NestedPicklistTrigger>
 						<NestedPicklist>
-							<Pickitem id="a" isSelected={smp.state.selectedItems.a}>A</Pickitem>
-							<Pickitem id="b" isSelected={smp.state.selectedItems.b}>B</Pickitem>
-							<Pickitem id="c" isSelected={smp.state.selectedItems.c}>C</Pickitem>
-							<Pickitem id="d" isSelected={smp.state.selectedItems.d}>D</Pickitem>
+							<Pickitem ariaRole='treeitem' id="a" isSelected={smp.state.selectedItems.a}>A</Pickitem>
+							<Pickitem ariaRole='treeitem' id="b" isSelected={smp.state.selectedItems.b}>B</Pickitem>
+							<Pickitem ariaRole='treeitem' id="c" isSelected={smp.state.selectedItems.c}>C</Pickitem>
+							<Pickitem ariaRole='treeitem' id="d" isSelected={smp.state.selectedItems.d}>D</Pickitem>
 						</NestedPicklist>
 					</NestedPicklistContainer>
 					<NestedPicklistContainer id="split">
@@ -51,10 +51,10 @@ class StatefulMultiselectPicklist extends React.Component {
 						</Pickitem>
 						<NestedPicklistTrigger id="nestedSplit" />
 						<NestedPicklist>
-							<Pickitem id="aa" isSelected={smp.state.selectedItems.aa}>aa</Pickitem>
-							<Pickitem id="bb" isSelected={smp.state.selectedItems.bb}>bb</Pickitem>
-							<Pickitem id="cc" isSelected={smp.state.selectedItems.cc}>cc</Pickitem>
-							<Pickitem id="dd" isSelected={smp.state.selectedItems.dd}>dd</Pickitem>
+							<Pickitem ariaRole='treeitem' id="aa" isSelected={smp.state.selectedItems.aa}>aa</Pickitem>
+							<Pickitem ariaRole='treeitem' id="bb" isSelected={smp.state.selectedItems.bb}>bb</Pickitem>
+							<Pickitem ariaRole='treeitem' id="cc" isSelected={smp.state.selectedItems.cc}>cc</Pickitem>
+							<Pickitem ariaRole='treeitem' id="dd" isSelected={smp.state.selectedItems.dd}>dd</Pickitem>
 						</NestedPicklist>
 					</NestedPicklistContainer>
 				</Picklist>

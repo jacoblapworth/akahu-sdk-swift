@@ -13,7 +13,7 @@
 
 Use the `type` prop on `XUIToggleOption`s to specify whether they should behave like checkboxes or like radios.
 
-```
+```jsx
 const checkboxToggle = {
 	name: 'toggle-checkbox',
 	onChange: () => {},
@@ -28,45 +28,18 @@ const radioToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth">
+		<XUIToggle layout="fullwidth" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		</XUIToggle>
 	</div><div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth">
+		<XUIToggle layout="fullwidth" secondaryProps={{'aria-label': 'radio toggle'}}>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
-		</XUIToggle>
-	</div>
-</div>
-```
-
-### Icon Toggles
-
-To create `XUIToggleOption`s that only contain icons, `icon` should be passed to the `layout` prop on `XUIToggle`.
-
-```js
-const XUIIcon = require('./components/icon/XUIIcon').default;
-const bold = require('@xero/xui-icon/icons/bold').default
-const italic = require('@xero/xui-icon/icons/italic').default
-const underline = require('@xero/xui-icon/icons/underline').default;
-
-const iconToggle = {
-	name: 'toggle-icon',
-	onChange: () => {},
-	type: 'checkbox'
-};
-
-<div>
-	<div className="xui-margin-bottom">
-		<XUIToggle>
-			<XUIToggleOption { ...iconToggle } isChecked><XUIIcon icon={bold} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle }><XUIIcon icon={italic} /></XUIToggleOption>
-			<XUIToggleOption { ...iconToggle }><XUIIcon icon={underline} /></XUIToggleOption>
 		</XUIToggle>
 	</div>
 </div>
@@ -76,7 +49,7 @@ const iconToggle = {
 
 To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s `color` prop.
 
-```
+```jsx
 const checkboxToggle = {
 	name: 'toggle-checkbox-inverted',
 	onChange: () => {},
@@ -84,7 +57,7 @@ const checkboxToggle = {
 };
 
 <div className="xui-padding xui-color-white xui-background-grey-1">
-		<XUIToggle layout="fullwidth" color="inverted">
+		<XUIToggle layout="fullwidth" color="inverted" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
@@ -97,7 +70,7 @@ const checkboxToggle = {
 
 To make your toggles smaller (same size as small buttons), pass `"small"` to `XUIToggle`'s `variant` prop.
 
-```
+```jsx
 const radioToggle = {
 	name: 'toggle-radio-layout-size',
 	onChange: () => {},
@@ -111,7 +84,7 @@ const checkboxToggle = {
 };
 
 <div>
-	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth">
+	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" secondaryProps={{'aria-label': 'radio toggle'}}>
 		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>
@@ -135,12 +108,11 @@ const checkboxToggle = {
 
 <form className="xui-form-layout">
 	<div className="xui-field-layout">
-		<label className="xui-text-label xui-fieldlabel-layout">Input</label>
-		<XUITextInput type="url" placeholer="http://www.xero.com" />
+		<XUITextInput type="url" placeholer="http://www.xero.com" labelText="Input" />
 	</div>
 	<div className="xui-field-layout">
 		<label className="xui-text-label xui-fieldlabel-layout">Toggle</label>
-		<XUIToggle layout="form">
+		<XUIToggle layout="form" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

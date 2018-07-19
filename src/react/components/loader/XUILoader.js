@@ -48,7 +48,8 @@ XUILoader.propTypes = {
 
 XUILoader.defaultProps = {
 	defaultLayout: true,
-	size: 'standard'
+	size: 'standard',
+	label: 'Loading'
 };
 
 export default XUILoader;

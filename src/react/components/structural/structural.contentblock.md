@@ -19,7 +19,7 @@ const XUIButton = require('../button/XUIButton').default;
 const XUIIcon = require('../icon/XUIIcon').default;
 const overflow = require('@xero/xui-icon/icons/overflow').default;
 
-const overflowButton = <XUIButton className="xui-button-icon-large" variant="icon"><XUIIcon icon={overflow}/></XUIButton>;
+const overflowButton = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="More options"><XUIIcon icon={overflow}/></XUIButton>;
 
 <XUIContentBlock className="xui-panel">
 	<XUIContentBlockItem primaryHeading="Primary" overflow={overflowButton}/>
@@ -39,7 +39,7 @@ const XUITag = require('../tag/XUITag').default;
 const XUIIcon = require('../icon/XUIIcon').default;
 const overflow = require('@xero/xui-icon/icons/overflow').default;
 
-const overflowButton = <XUIButton className="xui-button-icon-large" variant="icon"><XUIIcon icon={overflow}/></XUIButton>;
+const overflowButton = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="More options"><XUIIcon icon={overflow}/></XUIButton>;
 const avatar = <XUIAvatar value="Tim Redmond" />;
 const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>}/>;
 const tag = <XUITag className="xui-margin-left-small" variant="positive">Positive tag</XUITag>;

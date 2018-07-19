@@ -34,6 +34,7 @@ const TextInputWrapper = props => {
 		rightElementAlignment,
 		placeholder,
 		isDisabled,
+		defaultValue,
 		value,
 		isMultiline,
 		isLabelHidden,
@@ -91,7 +92,7 @@ const TextInputWrapper = props => {
 			validationMessage={validationMessage}
 			hintMessage={hintMessage}
 			type="text"
-			defaultValue='default Value'
+			defaultValue={defaultValue || 'default Value'}
 			placeholder={placeholder}
 			isDisabled={isDisabled}
 			value={value}
@@ -118,6 +119,7 @@ TextInputWrapper.propTypes = {
 	rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
 	placeholder: PropTypes.string,
 	isDisabled: PropTypes.bool,
+	defaultValue: PropTypes.string,
 	value: PropTypes.string,
 	isMultiline: PropTypes.bool,
 	isLabelHidden: PropTypes.bool,

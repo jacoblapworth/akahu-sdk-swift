@@ -57,29 +57,25 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right icon',
-		rightElementType: 'icon',
-		defaultValue: 'default text'
+		rightElementType: 'icon'
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right icon with background colour',
 		rightElementType: 'iconWithBackground',
-		hasRightElementBackground: true,
-		defaultValue: 'Very long default text which should hopefully display the righthand padding that will be applied by the wrapper'
+		hasRightElementBackground: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right text element',
 		rightElementType: 'text',
-		hasRightElementBackground: true,
-		defaultValue: 'Very long default text which should hopefully display the righthand padding that will be applied by the wrapper'
+		hasRightElementBackground: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'has a right button element',
 		rightElementType: 'button',
-		hasRightElementBackground: true,
-		defaultValue: 'Very long default text which should hopefully display the righthand padding that will be applied by the wrapper'
+		hasRightElementBackground: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -117,7 +113,7 @@ const variations = [
 		storyTitle: 'multiline input grown to fit contents',
 		isMultiline: true,
 		maxRows: 5,
-		value: 'test\ntest\ntest\ntest\ntest',
+		defaultValue: 'test\ntest\ntest\ntest\ntest',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

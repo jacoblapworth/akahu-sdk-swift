@@ -27,7 +27,7 @@ import { variations, storiesWithVariationsKindName, dropdownSizes } from './vari
 
 const filterPeople = (data, value, peopleToExclude) => {
 	return data.filter(node => {
-		const val = value && value.toLowerCase();
+		const val = value && value.toLowerCase() || '';
 
 		//You could use String.includes here, however you would need to add the polyfill for IE11 support.
 		return !peopleToExclude.find(person => person.id === node.id) && (node.name.toLowerCase().indexOf(val) > -1
@@ -38,23 +38,13 @@ const filterPeople = (data, value, peopleToExclude) => {
 
 //Example to show how the children can be styled however and you also define your own search criteria.
 class DetailedListExample extends Component {
-	constructor() {
-		super();
+	state = {
+		value: '',
+		people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
+		selectedPeople: [peopleDataSet[0]]
+	};
 
-		const example = this;
-
-		example.state = {
-			value: '',
-			people: filterPeople(peopleDataSet, '', [peopleDataSet[0]]),
-			selectedPeople: [peopleDataSet[0]]
-		};
-
-		example.onSearchChangeHandler = example.onSearchChangeHandler.bind(example);
-		example.deletePerson = example.deletePerson.bind(example);
-		example.deleteLastPerson = example.deleteLastPerson.bind(example);
-	}
-
-	onSearchChangeHandler(value) {
+	onSearchChangeHandler = (value) => {
 		const example = this;
 		example.completer.openDropDown();
 		example.setState(prevState => ({
@@ -63,7 +53,7 @@ class DetailedListExample extends Component {
 		}));
 	}
 
-	deletePerson(id) {
+	deletePerson = (id) => {
 		this.setState(prevState => {
 			const selectedPeople = [...prevState.selectedPeople.filter(person => person.id !== id)];
 			return {
@@ -73,7 +63,7 @@ class DetailedListExample extends Component {
 		});
 	}
 
-	deleteLastPerson() {
+	deleteLastPerson= () => {
 		const example = this;
 		const { selectedPeople } = example.state;
 		const lastSelectedPerson = selectedPeople[selectedPeople.length - 1];

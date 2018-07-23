@@ -23,14 +23,30 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		messageText: 'Toast with two actions',
-		storyTitle: 'with two actions',
-		actionProps: [{
-			text: 'Action One'
-		},
-		{
-			text: 'Action Two'
-		}]
+		messageText: 'Toast with two small actions',
+		storyTitle: 'with two small actions',
+		actionProps: [
+			{ text: 'Action 1' },
+			{ text: 'Action 2' }
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		messageText: 'Toast with two medium actions',
+		storyTitle: 'with two medium actions',
+		actionProps: [
+			{ text: 'Action 1 medium' },
+			{ text: 'Action 2 medium' }
+		]
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		messageText: 'Toast with two long actions',
+		storyTitle: 'with two long actions',
+		actionProps: [
+			{ text: 'Action One with a large amount of text to force wrapping' },
+			{ text: 'Action Two with a large amount of text to force wrapping' }
+		]
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

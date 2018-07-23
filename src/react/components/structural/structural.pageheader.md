@@ -20,10 +20,10 @@ const Picklist = require('../picklist/Picklist').default;
 const Pickitem = require('../picklist/Pickitem').default;
 
 const builtTabs = (
-	<Picklist>
-		<Pickitem id="one">See all</Pickitem>
-		<Pickitem id="two" isSelected>Edit</Pickitem>
-		<Pickitem id="three" >Add</Pickitem>
+	<Picklist secondaryProps={{ role: 'menu' }}>
+		<Pickitem ariaRole='menuitem' id="one">See all</Pickitem>
+		<Pickitem ariaRole='menuitem' id="two" isSelected>Edit</Pickitem>
+		<Pickitem ariaRole='menuitem' id="three" >Add</Pickitem>
 	</Picklist>
 );
 

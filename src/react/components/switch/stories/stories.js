@@ -1,5 +1,5 @@
 // Libs
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 // Components we need to test with
 import XUISwitch from '../XUISwitch';
@@ -12,16 +12,27 @@ import NOOP from '../../helpers/noop';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
+class Example extends PureComponent {
+	state = { isChecked: false }
+	render () {
+		return (
+			<XUISwitch
+				isChecked={this.state.isChecked}
+				onChange={() => this.setState(prevState => ({ isChecked: !prevState.isChecked }))}
+				{...this.props}
+			/>
+		);
+	}
+}
+
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
-	<XUISwitch
-		isChecked={boolean('isChecked', false)}
+	<Example
 		isDisabled={boolean('isDisabled', false)}
-		onChange={NOOP}
 		labelText='Sample switch label'
-	></XUISwitch>
+	/>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

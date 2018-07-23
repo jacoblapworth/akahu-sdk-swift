@@ -39,6 +39,7 @@ export function TableOfContentsRenderer({ classes, children, searchTerm, onSearc
 			<div className={classes.root}>
 				<div className={classes.search}>
 					<input
+						aria-label="Search contents"
 						value={searchTerm}
 						className={classes.input}
 						placeholder="Filter by name"

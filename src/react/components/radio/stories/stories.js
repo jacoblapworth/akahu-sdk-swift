@@ -45,7 +45,7 @@ variations.forEach(variation => {
 		} else if (isSeries) {
 			return <div aria-label="r1" role="radiogroup">
 				<XUIRadio key="r1-1" name="rg1">Medium radio label goes here</XUIRadio>
-				<XUIRadio key="r1-2" isChecked={true} name="rg1">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
+				<XUIRadio key="r1-2" isDefaultChecked={true} name="rg1">Longish radio label goes here, but this one really goes on and on and on and on</XUIRadio>
 				<XUIRadio key="r1-3" name="rg1">Third</XUIRadio>
 			</div>
 		} else {

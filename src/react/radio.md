@@ -17,7 +17,7 @@ The `XUIRadio` supports properties for use with forms like the HTML radio input,
 You can use as an uncontrolled component by not setting `isChecked` on any of the radio buttons, and optionally providing an `isDefaultChecked` property on one.
 
 ```
-<div>
+<div role="radiogroup" aria-label="test group">
 		<XUIRadio name="test" isDefaultChecked>Default option</XUIRadio>
 		<XUIRadio name="test">Another option</XUIRadio>
 		<XUIRadio name="test">And another</XUIRadio>
@@ -51,7 +51,7 @@ class Example extends PureComponent {
 	render() {
 		const { selectedItem } = this.state;
 		return (
-			<div>
+			<div role="radiogroup" aria-label="pets group">
 				{selectedItem == null
 					? 'What\'s your favourite pet?'
 					: `Your favourite: ${selectedItem}`
@@ -76,7 +76,7 @@ class Example extends PureComponent {
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
 ```
-<div>
+<div role="radiogroup" aria-label="reversed group">
 		<XUIRadio isReversed name="reversedRadios">An option</XUIRadio>
 		<XUIRadio isReversed name="reversedRadios">Another option</XUIRadio>
 		<XUIRadio isReversed name="reversedRadios" isDisabled>Disabled option</XUIRadio>

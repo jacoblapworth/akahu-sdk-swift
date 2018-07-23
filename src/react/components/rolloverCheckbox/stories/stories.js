@@ -19,7 +19,6 @@ storiesWithKnobs.add('Playground', () => (
 	<XUIRolloverCheckbox
 		isCheckboxHidden={boolean('checkbox hidden', true)}
 		size={select('hit target size', sizeClassNames, 'medium')}
-		isChecked={boolean('checked', false)}
 		isDisabled={boolean('disabled', false)}
 		rolloverComponent={<XUIAvatar value="abc" />}
 		labelText="Rollover checkbox"

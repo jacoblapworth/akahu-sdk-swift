@@ -13,7 +13,7 @@ Refer to the following sections of the XUI Documentation for more information ab
 <div class="xui-margin-vertical">
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#input">Input</a></span>
+		<span><a href="#text-input">Text Input</a></span>
 	</div>
 	<div>
 		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
@@ -53,7 +53,6 @@ const people  = require('./components/autocompleter/private/people').default;
 const Pickitem = require('./components/picklist/Pickitem').default;
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
-	console.log(idsToExclude);
 	const val = value.toLowerCase();
 	return peopleToSearch.filter((person, index) =>
 		idsToExclude.indexOf(index) === -1 &&
@@ -136,6 +135,8 @@ class WrapPillsExample extends Component {
 
 		return (
 				<XUIAutocompleter
+					inputLabelText='autocompleter'
+					isInputLabelHidden
 					ref={ac => this.completer = ac}
 					onSearch={this.onSearchChangeHandler}
 					placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
@@ -255,6 +256,8 @@ class DisableWrapPills extends Component {
 
 		return (
 				<XUIAutocompleter
+					inputLabelText='autocompleter'
+					isInputLabelHidden
 					ref={ac => this.completer = ac}
 					onSearch={this.onSearchChangeHandler}
 					placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
@@ -371,7 +374,7 @@ class SingleSelectExample extends Component {
 		);
 		const rightElement = selectedPersonId != null && (
 			<XUITextInputSideElement type="icon">
-				<XUIButton variant="icon" onClick={() => this.selectPerson(null)}>
+				<XUIButton variant="icon" onClick={() => this.selectPerson(null)} aria-label="Clear">
 					<XUIIcon icon={crossIcon} />
 				</XUIButton>
 			</XUITextInputSideElement>
@@ -379,6 +382,8 @@ class SingleSelectExample extends Component {
 
 		return (
 			<XUIAutocompleter
+				inputLabelText='autocompleter'
+				isInputLabelHidden
 				ref={ac => this.completer = ac}
 				onSearch={this.onSearchChangeHandler}
 				placeholder="Select a person"

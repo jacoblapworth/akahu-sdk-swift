@@ -16,16 +16,9 @@ For information about what to consider when using a `XUIDatePicker` within a `Dr
 To use a standard `XUIDatePicker`, you should use the `onSelectDate` callback to update state in your application. This callback will receive the new selected date as a parameter.
 
 ```
-   const XUIDatePicker = require('./datepicker').default;
-   const PropTypes = require('prop-types');
+	const XUIDatePicker = require('./datepicker').default;
 
-   const today = new Date();
-   const lastWeek = new Date();
-   lastWeek.setDate(lastWeek.getDate() - 7);
-   const nextMonth = new Date();
-   nextMonth.setMonth(nextMonth.getMonth() + 1);
-
-   class ExamplePicker extends React.Component {
+	class ExamplePicker extends React.Component {
      constructor(props) {
        super(props);
 
@@ -34,18 +27,18 @@ To use a standard `XUIDatePicker`, you should use the `onSelectDate` callback to
        };
 
    		this.onSelectDate = newDate => {
-   			this.setState({
-           selectedDate: newDate,
-         });
+   		  this.setState({
+            selectedDate: newDate,
+          });
    		};
      }
 
      render() {
        return (
-   			<XUIDatePicker
-   				onSelectDate={this.onSelectDate}
-   				selectedDate={this.state.selectedDate}
-   			/>
+   		 <XUIDatePicker
+          onSelectDate={this.onSelectDate}
+          selectedDate={this.state.selectedDate}
+         />
        );
      }
    }

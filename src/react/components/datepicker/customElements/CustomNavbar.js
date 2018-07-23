@@ -170,7 +170,11 @@ export default class CustomNavbar extends PureComponent {
 }
 
 CustomNavbar.propTypes = {
-	classNames: PropTypes.string,
+	classNames: PropTypes.shape({
+		navBar: PropTypes.string,
+		navButtonPrev: PropTypes.string,
+		navButtonNext: PropTypes.string,
+	}),
 	showPreviousButton: PropTypes.bool,
 	showNextButton: PropTypes.bool,
 	onPreviousClick: PropTypes.func,

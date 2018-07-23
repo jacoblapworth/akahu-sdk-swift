@@ -87,7 +87,7 @@ const buildExampleContentblockItem = (children) => {
 			child.tag = <XUITag className="xui-margin-left-small" variant="positive">Positive</XUITag>;
 		}
 		if (child.leftContent === "checkbox") {
-			child.leftContent = <XUICheckbox isChecked={false} isLabelHidden>Row checkbox</XUICheckbox>;
+			child.leftContent = <XUICheckbox isLabelHidden>Row checkbox</XUICheckbox>;
 		} else if (child.leftContent === "avatar") {
 			child.leftContent = <XUIAvatar value="Pixar" />;
 		} else if (child.leftContent === "rollover") {

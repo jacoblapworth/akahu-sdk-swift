@@ -19,6 +19,8 @@
 	~ .#{$ns}-select--caret {
 		align-items: center;
 		bottom: 0;
+		display: flex;
+		justify-content: center;
 		margin: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
 		pointer-events: none;
 		position: absolute;

@@ -190,11 +190,6 @@
 	display: inline-block;
 }
 
-// TODO: Deprecated in XUI12; remove in XUI14
-.#{$ns}-banner-animated {
-	animation: #{$ns}-banner-animation $xui-motion-speed-fast;
-}
-
 .#{$ns}-banner--messagedetail {
 	color: $xui-color-grey-alpha-2;
 }

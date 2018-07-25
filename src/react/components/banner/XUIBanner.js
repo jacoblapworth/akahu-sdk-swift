@@ -16,7 +16,6 @@ export default function XUIBanner(props) {
 		onCloseClick,
 		children,
 		defaultLayout,
-		shouldAnimate,
 	} = props;
 	const closeQAHook = qaHook && `${qaHook}-close--button`;
 
@@ -35,8 +34,7 @@ export default function XUIBanner(props) {
 		className,
 		`${ns}-banner`,
 		{
-			[`${ns}-banner-layout`]: defaultLayout,
-			[`${ns}-banner-animated`]: shouldAnimate,
+			[`${ns}-banner-layout`]: defaultLayout
 		},
 		sentimentClass
 	);
@@ -65,12 +63,8 @@ XUIBanner.propTypes = {
 
 	/** Applies a role attribute to the toast element. This will override any component-determined value. */
 	role: PropTypes.string,
-
-	/** Whether or not the banner should animate into the page. Defaults to true */
-	shouldAnimate: PropTypes.bool,
 };
 
 XUIBanner.defaultProps = {
 	defaultLayout: true,
-	shouldAnimate: true,
 };

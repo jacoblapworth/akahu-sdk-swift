@@ -446,17 +446,6 @@
 //
 // Styleguide: Compounds.DisplayingData.ContentBlock.3.5
 
-// Additional classes
-//
-// Flag: Deprecated
-//
-// Classes:
-// xui-contentblock--item-layout: Use utility classes instead
-// xui-contentblock--item-negative: This style is no longer supported
-// xui-contentblock--item-selected: This style is no longer supported
-//
-// Styleguide: Compounds.DisplayingData.ContentBlock.4
-
 .#{$ns}-contentblock {
 	border-collapse: collapse;
 	margin: 0;
@@ -464,17 +453,11 @@
 	width: 100%;
 }
 
-.#{$ns}-contentblock--item, //TODO: Remove in XUI14
 .#{$ns}-contentblockitem {
 	border-top: $xui-border-muted;
 	list-style: none; // TODO use xui-listreset
 	min-height: inherit; // IE11 bug fix
 	position: relative;
-
-	// TODO Deprecated in XUI12, remove in XUI14
-	&.#{$ns}-contentblock--item-selected {
-		background-color: fade-out($xui-color-xero-blue, 0.9);
-	}
 
 	&:first-of-type {
 		border-top: 0;
@@ -484,8 +467,6 @@
 .#{$ns}-contentblockitem-layout {
 	align-items: center;
 	display: flex;
-	// TODO Deprecated in XUI12, remove in XUI14
-	@include xui-text-line-height; // 1.5
 
 	.#{$ns}-contentblockitem--actions {
 		margin-right: $xui-s-small;
@@ -560,11 +541,6 @@
 	font-size: $xui-font-size-medium;
 	font-weight: $xui-font-weight-deemphasis;
 	line-height: $xui-line-height-compact;
-}
-
-// TODO Deprecated in XUI12, remove in XUI14
-.#{$ns}-contentblock--item-negative {
-	@include xui-highlight-left($xui-color-xero-red);
 }
 
 .#{$ns}-rowlink {

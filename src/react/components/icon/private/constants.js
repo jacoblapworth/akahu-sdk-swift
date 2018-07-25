@@ -22,7 +22,6 @@ export const rotationClasses = {
 
 /* eslint-disable camelcase */
 export const colorClasses = {
-	"standard": `${baseClass}-color-standard`,
 	"black": `${baseClass}-color-black`,
 	'black-muted': `${baseClass}-color-black-muted`,
 	'black-faint': `${baseClass}-color-black-faint`,

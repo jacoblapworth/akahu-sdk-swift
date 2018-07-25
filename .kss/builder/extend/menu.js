@@ -55,7 +55,7 @@ module.exports = function (handlebars) {
 			{{/ifDepth}} {{/each}}
 			</select>
 			<div class="xui-select--caret xui-iconwrapper">
-				<svg focusable="false" class="xui-icon xui-icon-color-standard"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+				<svg focusable="false" class="xui-icon xui-icon-color-black-muted"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
 			</div>
 		</nav>
 	{{/ifSections}}

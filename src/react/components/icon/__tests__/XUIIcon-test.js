@@ -51,7 +51,7 @@ describe('XUIIcon', () => {
 		const wrapper = mount(
 			<div>
 				<XUIIcon icon={accessibility} />
-				<XUIIcon icon={accessibility} color={'standard'} />
+				<XUIIcon icon={accessibility} color={'black-muted'} />
 				<XUIIcon icon={accessibility} color={'red'} />
 				<XUIIcon icon={accessibility} color={'green'} />
 				<XUIIcon icon={accessibility} color={'white'} />
@@ -64,7 +64,7 @@ describe('XUIIcon', () => {
 		);
 
 		const icons = wrapper.find('.xui-icon');
-		expect(icons.at(0).hasClass('xui-icon-color-standard')).toBeFalsy();
+		expect(icons.at(0).hasClass('xui-icon-color-black-muted')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-red')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-green')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-white')).toBeFalsy();
@@ -74,7 +74,7 @@ describe('XUIIcon', () => {
 		expect(icons.at(0).hasClass('xui-icon-color-white-faint')).toBeFalsy();
 		expect(icons.at(0).hasClass('xui-icon-color-white-muted')).toBeFalsy();
 
-		expect(icons.at(1).hasClass('xui-icon-color-standard')).toBeTruthy();
+		expect(icons.at(1).hasClass('xui-icon-color-black-muted')).toBeTruthy();
 
 		expect(icons.at(2).hasClass('xui-icon-color-red')).toBeTruthy();
 

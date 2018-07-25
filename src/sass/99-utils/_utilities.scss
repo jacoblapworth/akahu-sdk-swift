@@ -239,26 +239,6 @@
 	flex: none;
 }
 
-.#{$ns}-u-flex-verticallycentered { // TODO: Remove in XUI 14
-	align-items: center;
-}
-
-.#{$ns}-u-flex-horizontallycentered { // TODO: Remove in XUI 14
-	justify-content: center;
-}
-
-.#{$ns}-u-flex-horizontal { // TODO: Remove in XUI 14
-	flex-direction: row;
-}
-
-.#{$ns}-u-flex-vertical { // TODO: Remove in XUI 14
-	flex-direction: column;
-}
-
-.#{$ns}-u-spacebetween { // TODO: Remove in XUI 14
-	justify-content: space-between;
-}
-
 .#{$ns}-u-flex-1 {
 	flex: 1;
 }
@@ -301,22 +281,18 @@
 		flex-direction: column;
 	}
 
-	.#{$ns}-u-flex-space-between#{$suffix},//TODO: Remove in XUI 14
 	.#{$ns}-u-flex-justify-space-between#{$suffix} {
 		justify-content: space-between;
 	}
 
-	.#{$ns}-u-flex-space-around#{$suffix},//TODO: Remove in XUI 14
 	.#{$ns}-u-flex-justify-space-around#{$suffix}{
 		justify-content: space-around;
 	}
 
-	.#{$ns}-u-flex-justify-left#{$suffix},//TODO: Remove in XUI 14
 	.#{$ns}-u-flex-justify-start#{$suffix} {
 		justify-content: flex-start;
 	}
 
-	.#{$ns}-u-flex-justify-right#{$suffix},//TODO: Remove in XUI 14
 	.#{$ns}-u-flex-justify-end#{$suffix} {
 		justify-content: flex-end;
 	}

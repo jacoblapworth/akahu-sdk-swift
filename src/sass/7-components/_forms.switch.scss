@@ -17,14 +17,6 @@
 	}
 }
 
-// TODO: Deprecated in XUI12, remove in XUI14
-.#{$ns}-switch--labeltext {
-	display: inline-block;
-	margin-left: 5px;
-	user-select: none;
-	vertical-align: middle;
-}
-
 .#{$ns}-switch--control {
 	background-color: $xui-color-grey-alpha-4;
 	border-radius: 40px;

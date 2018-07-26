@@ -32,6 +32,10 @@ const fullPageSettings = {
  */
 const componentsToTest = [
 	{
+		testsPrefix: 'XUI Accordion',
+		variationsPath: `${variationsPath}/accordion/stories/variations.js`
+	},
+	{
 		testsPrefix: 'XUI Autocompleter',
 		variationsPath: `${variationsPath}/autocompleter/stories/variations.js`,
 		...fullPageSettings
@@ -44,6 +48,11 @@ const componentsToTest = [
 	{
 		testsPrefix: 'XUI Banner',
 		variationsPath: `${variationsPath}/banner/stories/variations.js`
+	},
+	{
+		testsPrefix: 'XUI Bar Chart',
+		variationsPath: `${variationsPath}/chart/stories/variations.js`,
+		readyEvent: 'xui-bar-chart-ready-event',
 	},
 	{
 		testsPrefix: 'XUI Button',

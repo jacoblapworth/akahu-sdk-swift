@@ -217,6 +217,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					closeOnSelect={props.closeOnSelect}
 					className={dropdownToggledClasses}
 					matchTriggerWidth={props.matchTriggerWidth}
+					isBlock={props.isBlock}
 				/>
 			</div>
 		);
@@ -289,6 +290,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
 	/** Label to show above the input */
 	inputLabelText: PropTypes.string,
+
+	/** Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. */
+	isBlock: PropTypes.bool,
 
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
 	isinputLabelHidden: PropTypes.bool,

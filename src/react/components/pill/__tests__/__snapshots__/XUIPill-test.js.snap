@@ -2,7 +2,7 @@
 
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
-  className="xui-pill xui-pill-layout"
+  className="xui-pill xui-pill-layout xui-pill-maxwidth"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -28,7 +28,7 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
-  className="xui-pill xui-pill-layout"
+  className="xui-pill xui-pill-layout xui-pill-maxwidth"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -52,7 +52,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
 
 exports[`<XUIPill /> should render a title when passed 1`] = `
 <div
-  className="xui-pill xui-pill-layout"
+  className="xui-pill xui-pill-layout xui-pill-maxwidth"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -72,7 +72,7 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
 
 exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1`] = `
 <div
-  className="xui-pill xui-pill-layout"
+  className="xui-pill xui-pill-layout xui-pill-maxwidth"
   data-automationid="pill-test"
   onBlur={[Function]}
   onFocus={[Function]}

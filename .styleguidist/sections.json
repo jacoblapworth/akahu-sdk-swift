@@ -348,6 +348,18 @@
 				"name": "Displaying data",
 				"sections": [
 					{
+						"name": "Accordion",
+						"content": "../src/react/accordion.md",
+						"sections": [
+							{
+								"components": "../src/react/components/accordion/XUIAccordion.js"
+							},
+							{
+								"components": "../src/react/components/accordion/XUIAccordionItem.js"
+							}
+						]
+					},
+					{
 						"name": "Content Block",
 						"content": "../src/react/components/structural/structural.contentblock.md",
 						"components": "../src/react/components/structural/XUIContentBlock*.js"
@@ -398,6 +410,16 @@
 							},
 							{
 								"components": "../src/react/components/table/XUITableCell.js"
+							}
+						]
+					},
+					{
+						"name": "Charts",
+						"content": "../src/react/barchart.md",
+						"sections": [
+							{
+								"name": "Bar Chart",
+								"components": "../src/react/components/chart/XUIBarChart.js"
 							}
 						]
 					}

@@ -22,6 +22,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 .#{$ns}-textinput {
 	@include xui-commoninput;
 	align-items: center;
+	cursor: text;
 	display: flex;
 	padding: 0;
 }

@@ -11,6 +11,14 @@ XUI provides ten approved colours for Avatars. `XUIAvatar` handles selecting a c
 
 `XUIAvatar`s can be grouped together using `XUIAvatarGroup`.
 
+### How to use avatars
+
+Avatars alone are not meant to communicate the full identity of a person or business, but to provide an additional visual representation that is easy to recognise.
+
+* Use avatars alongside an entity's entire name
+* Use a group of avatars to show a brief thumbnail view of a group of entities
+* Don't use avatars without a full entity-name, if the name is critical to the value of the information being shown
+
 ## Examples
 
 ### Avatar variants

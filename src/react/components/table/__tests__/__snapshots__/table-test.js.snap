@@ -1417,7 +1417,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -1515,7 +1515,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -1730,7 +1730,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -2626,7 +2626,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-vertical xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"

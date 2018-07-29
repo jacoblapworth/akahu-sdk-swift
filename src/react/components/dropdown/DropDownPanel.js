@@ -224,7 +224,7 @@ class DropDownPanel extends PureComponent {
 		}
 
 		const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
-		const scrollableContainerClasses = `${ns}-u-flex ${ns}-u-flex-vertical ${baseClass}--scrollable-container ${ns}-u-flex-grow`;
+		const scrollableContainerClasses = `${ns}-u-flex ${ns}-u-flex-column ${baseClass}--scrollable-container ${ns}-u-flex-grow`;
 
 		return (
 			<div

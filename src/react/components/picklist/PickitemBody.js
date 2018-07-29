@@ -14,7 +14,20 @@ const NOOP = () => {};
  *
  * @param {Object} props
  */
-const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelected, href, isMultiselect, children, checkboxClassName, target, qaHook }) => {
+const PickitemBody = ({
+	onClick,
+	onKeyDown,
+	shouldTruncate,
+	onMouseOver,
+	isSelected,
+	href,
+	isMultiselect,
+	children,
+	checkboxClassName,
+	target,
+	qaHook,
+	tabIndex
+}) => {
 	if (isMultiselect) {
 		return (
 			<div
@@ -43,11 +56,11 @@ const PickitemBody = ({ onClick, onKeyDown, shouldTruncate, onMouseOver, isSelec
 	const rel = target ? "noopener noreferrer" : null;
 	const childProps = {
 		className: `${ns}-pickitem--body`,
-		tabIndex: '-1',
 		onClick,
 		onKeyDown,
 		onMouseOver,
 		rel,
+		tabIndex
 	};
 
 	const textClassName = cn(
@@ -74,7 +87,8 @@ PickitemBody.propTypes = {
 	onMouseOver: PropTypes.func,
 	target: PropTypes.string,
 	shouldTruncate: PropTypes.bool,
-	qaHook: PropTypes.string
+	qaHook: PropTypes.string,
+	tabIndex: PropTypes.string,
 };
 
 export default PickitemBody;

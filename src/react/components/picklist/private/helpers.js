@@ -347,7 +347,10 @@ function cloneMenuItem(node, spl) {
 	const injectedProps = {
 		isHighlighted: matches(node, spl.state.highlightedElement),
 		onMouseOver: compose(node.props.onMouseOver, event => spl.onMouseOver(event, id)),
-		ref: compose(node.ref, c => spl.idCache[getId(node)] = c)
+		ref: compose(node.ref, c => spl.idCache[getId(node)] = c),
+		pickitemBodyProps: {
+			tabIndex: '-1',
+		}
 	};
 
 	if (!isNestedListTrigger(node)) {

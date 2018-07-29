@@ -24,7 +24,7 @@ exports[`<Pickitem /> should set an automation id when a qaHook is provided 1`] 
       onKeyDown={undefined}
       onMouseOver={undefined}
       rel={null}
-      tabIndex="-1"
+      tabIndex={undefined}
       type="button"
     >
       <span

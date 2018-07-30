@@ -100,4 +100,10 @@ XUIProgressCircular.propTypes = {
 	/** A "color" key that overrides the default "progress" blue track swatch. */
 	progressColor: PropTypes.oneOf(['orange', 'yellow', 'green', 'mint', 'turquoise', 'blue', 'violet', 'grape', 'pink', 'grey', 'purple', 'lightGreen']),
 
+	/** Specify an ARIA label for the progress indicator */
+	ariaLabel: PropTypes.string,
+
+	/** The id of an element that provides an ARIA label for the progress indicator */
+	ariaLabelledBy: PropTypes.string
+
 };

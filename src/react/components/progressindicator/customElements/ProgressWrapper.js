@@ -19,6 +19,8 @@ const ProgressWrapper = (props) => {
 		hasToolTip,
 		toolTipId,
 		toolTipMessage,
+		ariaLabel,
+		ariaLabelledBy
 	} = props;
 
 	return (
@@ -30,6 +32,8 @@ const ProgressWrapper = (props) => {
 			aria-valuemax={ariaMax}
 			aria-valuetext={toolTipMessage}
 			data-automationid={qaHook}
+			aria-label={ariaLabel}
+			aria-labelledby={ariaLabelledBy}
 			{...createColorOverride(totalColor, 'total')}
 			{...createColorOverride(progressColor, 'current')}>
 
@@ -63,6 +67,8 @@ ProgressWrapper.propTypes = {
 	toolTipId: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 	toolTipMessage: PropTypes.string.isRequired,
 	thickness: PropTypes.number,
+	ariaLabel: PropTypes.string,
+	ariaLabelledBy: PropTypes.string,
 };
 
 export default ProgressWrapper;

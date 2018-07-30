@@ -19,7 +19,7 @@ module.exports = function (handlebars) {
 
 	handlebars.registerPartial('breadcrumbs', `
 		<nav>
-			<ul class="ds-steps ds-steps ds-steps-interactive xui-u-flex-justify-left">
+			<ul class="ds-steps ds-steps ds-steps-interactive xui-u-flex-justify-start">
 				<li class="ds-step ds-step ds-step-layout ds-step-is-complete">
 					<a class="ds-step--body ds-step--body" href="index.html">XUI</a>
 				</li>

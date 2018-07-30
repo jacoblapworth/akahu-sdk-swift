@@ -9,7 +9,7 @@ export default class TableAlert extends PureComponent {
 		const { children, qaHook } = this.props;
 		return (
 			<div
-				className={`${ns}-u-flex ${ns}-u-flex-verticallycentered ${ns}-u-flex-horizontallycentered ${NAME_SPACE}--alert`}
+				className={`${ns}-u-flex ${ns}-u-flex-align-center ${ns}-u-flex-justify-center ${NAME_SPACE}--alert`}
 				data-automationid={qaHook}>
 				{children}
 			</div>

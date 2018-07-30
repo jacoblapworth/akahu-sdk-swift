@@ -1413,11 +1413,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-justify-center xui-u-flex-align-center xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -1511,11 +1511,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-justify-center xui-u-flex-align-center xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -1609,7 +1609,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
@@ -1726,11 +1726,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-justify-center xui-u-flex-align-center xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -2374,7 +2374,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
@@ -2463,7 +2463,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
@@ -2622,11 +2622,11 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div
-          className="xui-u-flex xui-u-flex-horizontallycentered xui-u-flex-verticallycentered xui-u-flex-column xui-textcolor-muted"
+          className="xui-u-flex xui-u-flex-justify-center xui-u-flex-align-center xui-u-flex-column xui-textcolor-muted"
         >
           <div
             className="xui-iconwrapper xui-iconwrapper-large"
@@ -2685,7 +2685,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
         </table>
       </div>
       <div
-        className="xui-u-flex xui-u-flex-verticallycentered xui-u-flex-horizontallycentered xui-table--alert"
+        className="xui-u-flex xui-u-flex-align-center xui-u-flex-justify-center xui-table--alert"
         data-automationid={undefined}
       >
         <div

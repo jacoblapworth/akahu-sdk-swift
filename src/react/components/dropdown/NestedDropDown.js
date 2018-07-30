@@ -71,7 +71,7 @@ export default class NestedDropDown extends DropDown {
 
 		return (
 			<DropDownLayout
-				id={dropdown.dropdownId}
+				id={dropdown.props.id}
 				isHidden={isHidden}
 				className={dropdownClasses}
 				size={size}

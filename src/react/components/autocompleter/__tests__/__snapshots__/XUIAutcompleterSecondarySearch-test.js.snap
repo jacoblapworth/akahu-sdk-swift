@@ -7,7 +7,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -15,8 +15,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -34,7 +33,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -42,8 +41,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -61,7 +59,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -69,8 +67,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -88,7 +85,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the root nod
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -96,8 +93,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the root nod
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -115,7 +111,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -123,8 +119,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -142,7 +137,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -150,8 +145,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -169,7 +163,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -177,8 +171,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -196,7 +189,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
 >
   <div
     aria-expanded={undefined}
-    aria-owns={undefined}
+    aria-owns="testDropdownId"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -204,8 +197,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
   >
     <button
       aria-activedescendant={null}
-      aria-controls={undefined}
-      aria-expanded={false}
+      aria-controls="testDropdownId"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}

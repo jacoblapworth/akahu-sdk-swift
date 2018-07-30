@@ -9,6 +9,10 @@ import Pickitem from '../../picklist/Pickitem';
 import XUILoader from '../../loader/XUILoader';
 import DropDownToggled from '../../dropdown/DropDownToggled';
 import DropDownLayout from '../../dropdown/DropDownLayout';
+import uuidv4 from 'uuid/v4';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

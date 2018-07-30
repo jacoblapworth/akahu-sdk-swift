@@ -2810,7 +2810,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -2818,8 +2818,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -2882,7 +2881,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -2890,8 +2889,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -2954,7 +2952,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -2962,8 +2960,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3663,7 +3660,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -3671,8 +3668,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3777,7 +3773,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -3785,8 +3781,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -3891,7 +3886,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -3899,8 +3894,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -4207,7 +4201,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -4215,8 +4209,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -4353,7 +4346,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -4361,8 +4354,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -4499,7 +4491,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -4507,8 +4499,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -5760,7 +5751,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -5768,8 +5759,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -5864,7 +5854,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -5872,8 +5862,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -5968,7 +5957,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -5976,8 +5965,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -7509,7 +7497,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -7517,8 +7505,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -7655,7 +7642,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -7663,8 +7650,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}
@@ -7801,7 +7787,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                  
                 <div
                   aria-expanded={undefined}
-                  aria-owns={undefined}
+                  aria-owns="testDropdownId"
                   className="xui-table--overflowmenu-body"
                   data-automationid={undefined}
                   data-ref="toggled-wrapper"
@@ -7809,8 +7795,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <button
                     aria-activedescendant={null}
-                    aria-controls={undefined}
-                    aria-expanded={false}
+                    aria-controls="testDropdownId"
                     aria-haspopup="listbox"
                     className="xui-button xui-button-icon-large xui-button-icon"
                     data-automationid={undefined}

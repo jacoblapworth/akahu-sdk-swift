@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import verge from 'verge';
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
+import uuidv4 from 'uuid/v4';
 import {
 	isNarrowViewport,
 	addEventListeners,
@@ -91,6 +92,8 @@ export default class DropDownToggled extends PureComponent {
 			isClosing: false,
 		};
 	}
+
+	dropdownId = this.dropdown && this.dropdown.props.id || uuidv4();
 
 	/**
 	 * Attaches the event listeners based on state.
@@ -300,7 +303,7 @@ export default class DropDownToggled extends PureComponent {
 	onMouseDown = event => {
 		const ddt = this;
 		const { firstChild: trigger } = ddt.wrapper;
-		const dropdown = ddt.dropdown && document.getElementById(ddt.dropdown.dropdownId);
+		const dropdown = ddt.dropdown && document.getElementById(this.dropdownId);
 
 		/*
 		Summary of below checks:
@@ -423,12 +426,12 @@ export default class DropDownToggled extends PureComponent {
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': ariaPopupType,
-			'aria-controls': ddt.dropdown && ddt.dropdown.dropdownId,
-			'aria-expanded': !isHidden
+			'aria-controls': this.dropdownId
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
 			isHidden,
+			id: this.dropdownId,
 			forceDesktop: forceDesktop,
 			animateOpen: isOpening,
 			animateClosed: isClosing,
@@ -475,7 +478,7 @@ export default class DropDownToggled extends PureComponent {
 		const wrapperAria = {
 			'role': ariaRole || 'presentation',
 			'aria-expanded': ariaRole && !isHidden || undefined,
-			'aria-owns': ddt.dropdown && ddt.dropdown.dropdownId,
+			'aria-owns': this.dropdownId,
 		};
 
 		return (

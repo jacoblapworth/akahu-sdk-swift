@@ -20,7 +20,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
   >
     <div
       aria-expanded={undefined}
-      aria-owns={undefined}
+      aria-owns="testDropdownId"
       className={undefined}
       data-automationid="test-selectbox---dropdowntoggled"
       data-ref="toggled-wrapper"
@@ -28,8 +28,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
     >
       <button
         aria-activedescendant={null}
-        aria-controls={undefined}
-        aria-expanded={false}
+        aria-controls="testDropdownId"
         aria-haspopup="listbox"
         className="xui-button xui-select--button xui-button-standard"
         data-automationid="test-selectbox---button"

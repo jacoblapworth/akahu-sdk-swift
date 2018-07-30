@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import uuidv4 from 'uuid/v4';
 import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
@@ -18,10 +17,6 @@ import {ns} from "../helpers/xuiClassNamespace";
  * @extends {PureComponent}
  */
 export default class DropDown extends PureComponent {
-	constructor(props) {
-		super(props);
-		this.dropdownId = props.id || uuidv4();
-	}
 
 	componentDidMount() {
 		const { isHidden, restrictFocus } = this.props;
@@ -184,7 +179,7 @@ export default class DropDown extends PureComponent {
 				className={dropdownClasses}
 				fixedWidth={fixedWidth}
 				forceDesktop={forceDesktop}
-				id={this.dropdownId}
+				id={this.props.id} // This will be generated, if necessary, at a higher level. Now, always provided.
 				isHidden={isHidden}
 				onCloseAnimationEnd={onCloseAnimationEnd}
 				onOpenAnimationEnd={onOpenAnimationEnd}

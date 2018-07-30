@@ -338,8 +338,11 @@ test.add(storyNames.formLayout, () => {
 
 						<PanelSection formLayout headerContent="Radios and Checkboxes" className="xui-padding-vertical">
 
-							<InputLabel>Choose a city</InputLabel>
-							<XUIRadioGroup className="xui-field-layout" groupLabel="cities">
+							<XUIRadioGroup
+								className="xui-field-layout"
+								groupLabel="Choose a city"
+								isLabelHidden={false}
+							>
 								{
 									[
 										'Wellington',
@@ -360,10 +363,11 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUIRadioGroup>
 
-							<InputLabel htmlFor="whatBird">
-								Favourite Birds
-							</InputLabel>
-							<XUICheckboxGroup className="xui-field-layout" groupLabel="birds">
+							<XUICheckboxGroup
+								className="xui-field-layout"
+								groupLabel="Favourite Birds"
+								isLabelHidden={false}
+							>
 								{
 									[
 										'Tūī',

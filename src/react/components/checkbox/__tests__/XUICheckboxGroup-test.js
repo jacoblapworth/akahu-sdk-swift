@@ -41,14 +41,12 @@ describe('XUICheckboxGroup', function() {
 		expect(wrapper.find('label.cats').first().text()).toEqual('cats');
 	});
 
-
 	// className property (additional classes)
 	it('should use additional classes if provided', function () {
 		const wrapper = mount(<XUICheckboxGroup className="dogs-are-totes-patotes" />);
 
 		expect(wrapper.getDOMNode().getAttribute('class')).toEqual(expect.stringContaining('dogs-are-totes-patotes'));
 	});
-
 
 	// qaHook property
 	it('should have a qaHook if provided', function () {
@@ -57,4 +55,13 @@ describe('XUICheckboxGroup', function() {
 		expect(wrapper.getDOMNode().getAttribute('data-automationid')).toEqual(expect.stringContaining('cheese-and-crackers'));
 	});
 
+	it('should include a visible label, provided a label and flagged to show', () => {
+		const labelTest = mount(<XUICheckboxGroup groupLabel="Birds" isLabelHidden={false} />);
+		expect(labelTest.find('.xui-text-label')).toHaveLength(1);
+	});
+
+	it('should include a hidden ARIA label, provided a label only', () => {
+		const hiddenLabelTest = mount(<XUICheckboxGroup groupLabel="Birds" />);
+		expect(hiddenLabelTest.getDOMNode().getAttribute('aria-label')).toEqual(expect.stringContaining('Birds'));
+	});
 });

@@ -39,7 +39,7 @@ variations.forEach(variation => {
 
 		if(isGroup){
 			return (
-				<XUICheckboxGroup>
+				<XUICheckboxGroup groupLabel="Birds" isLabelHidden={false}>
 					<XUICheckbox isDefaultChecked={true}>
 						Kakapo
 					</XUICheckbox>

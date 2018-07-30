@@ -58,4 +58,13 @@ describe('XUIRadioGroup', function() {
 		expect(wrapper.getDOMNode().getAttribute('data-automationid')).toEqual('cheese-and-crackers');
 	});
 
+	it('should include a visible label, provided a label and flagged to show', () => {
+		const labelTest = mount(<XUIRadioGroup groupLabel="Birds" isLabelHidden={false} />);
+		expect(labelTest.find('.xui-text-label')).toHaveLength(1);
+	});
+
+	it('should include a hidden ARIA label, provided a label only', () => {
+		const hiddenLabelTest = mount(<XUIRadioGroup groupLabel="Birds" />);
+		expect(hiddenLabelTest.getDOMNode().getAttribute('aria-label')).toEqual(expect.stringContaining('Birds'));
+	});
 });

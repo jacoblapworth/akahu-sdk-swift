@@ -14,7 +14,7 @@ class ChartLoader extends PureComponent {
 				data-automationid={qaHook && `${qaHook}--loader`}
 				className={chartClassName}
 				style={{height: `${chartHeight}px`}}>
-				<XUILoader label={loadingLabel} />
+				<XUILoader ariaLabel={loadingLabel} />
 			</div>
 		);
 	};

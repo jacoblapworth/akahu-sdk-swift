@@ -20,7 +20,7 @@ describe('SelectBox', function () {
 	beforeEach(function () {
 		select = mount(
 			<SelectBox
-				label="Test Select Box"
+				labelText="Test Select Box"
 				value={options[0]}
 				name="Test"
 				buttonContent={options[0]}
@@ -61,7 +61,7 @@ describe('SelectBox', function () {
 		select = mount(
 			<SelectBox
 				value="Test"
-				label="Does not have children"
+				labelText="Does not have children"
 				name="Test"
 				buttonContent="test"
 				buttonClasses="blah"
@@ -115,9 +115,9 @@ describe('SelectBox', function () {
 		const select = renderer.create(
 			<SelectBox
 				qaHook='test-selectbox'
-				label='test'
+				labelText='test'
 				buttonContent="test"
-				ariaId='test'
+				id='test'
 				forceDesktop
 			>
 				<SelectBoxOption id='1' value='A sample option' label='test' qaHook='test-selectboxoption'>A sample option</SelectBoxOption>

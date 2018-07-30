@@ -30,7 +30,7 @@ export default class SelectBox extends Component {
 		const selectBox = this;
 
 		selectBox.state = {
-			ariaId: props.ariaId || uuidv4()
+			ariaId: props.id || uuidv4()
 		};
 
 		selectBox.isDropDownOpen = selectBox.isDropDownOpen.bind(selectBox);
@@ -60,9 +60,9 @@ export default class SelectBox extends Component {
 		);
 		const labelClasses = cn(
 			`${ns}-text-label`,
-			props.labelClasses,
+			props.labelClassName,
 			props.defaultLayout && `${ns}-fieldlabel-layout`,
-			props.labelHidden && `${ns}-u-hidden-visually`
+			props.islabelHidden && `${ns}-u-hidden-visually`
 		);
 		const dropDownClasses = props.dropDownClasses;
 		const caretClasses = !props.buttonVariant ? `${ns}-select--caret` : '';
@@ -106,7 +106,7 @@ export default class SelectBox extends Component {
 					data-automationid={setQaHook(props.qaHook, qaHooks.label)}
 					role="presentation"
 				>
-					{props.label}
+					{props.labelText}
 				</label>
 				<div className={inputGroupClasses} data-automationid={setQaHook(props.qaHook, qaHooks.inputGroup)}>
 					{
@@ -136,13 +136,13 @@ export default class SelectBox extends Component {
 
 SelectBox.propTypes = {
 	/** Input Label */
-	label: PropTypes.string.isRequired,
+	labelText: PropTypes.string.isRequired,
 
 	/** Additional classes to be applied to the label */
-	labelClasses: PropTypes.string,
+	labelClassName: PropTypes.string,
 
 	/** Input Label visibility */
-	labelHidden: PropTypes.bool,
+	islabelHidden: PropTypes.bool,
 
 	/** When a selection is made, close the dropdown */
 	closeAfterSelection: PropTypes.bool,
@@ -198,12 +198,12 @@ SelectBox.propTypes = {
 	/** Whether focus should be restricted to the dropdown while it's open. */
 	restrictFocus: PropTypes.bool,
 
-	/** Used primarily to associate a label with it's matched content. If none is provide it's automatically generated. */
-	ariaId: PropTypes.string
+	/** Used primarily to associate a label with it's matched content. If none is provided it's automatically generated. */
+	id: PropTypes.string
 };
 
 SelectBox.defaultProps = {
-	labelHidden: false,
+	islabelHidden: false,
 	closeAfterSelection: true,
 	defaultLayout: true,
 	isOpen: false,

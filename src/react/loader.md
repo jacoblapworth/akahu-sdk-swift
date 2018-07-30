@@ -8,10 +8,10 @@
 
 `XUILoader` is given a layout class by default. This is good for putting in large empty states, like panels, while loading data.
 
-We recommend using the `label` prop to provide information to screen readers.
+We recommend using the `ariaLabel` prop to provide information to screen readers.
 
 ```
-<XUILoader label="Loading more data" />
+<XUILoader ariaLabel="Loading more data" />
 ```
 ### Disabled Layout
 

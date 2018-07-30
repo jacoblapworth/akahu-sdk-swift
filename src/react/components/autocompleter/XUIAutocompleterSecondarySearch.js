@@ -283,7 +283,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	isBlock: PropTypes.bool,
 
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
-	isinputLabelHidden: PropTypes.bool,
+	isInputLabelHidden: PropTypes.bool,
 
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,

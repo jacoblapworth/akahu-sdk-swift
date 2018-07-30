@@ -44,8 +44,8 @@ storiesWithKnobs.add('Playground', () => {
 
 	return (
 		<SelectBox
-			label={text('label', 'Label for the select box')}
-			labelHidden={boolean('labelHidden', false)}
+			labelText={text('labelText', 'Label for the select box')}
+			isLabelHidden={boolean('isLabelHidden', false)}
 			buttonClasses={text('buttonClasses', '')}
 			containerClasses={text('containerClasses', '')}
 			dropDownClasses={text('dropDownClasses', '')}
@@ -87,7 +87,7 @@ variations.forEach(variation => {
 
 		return (
 			<SelectBox{...variationMinusStoryDetails}
-				label={variation.storyTitle}>
+				labelText={variation.storyTitle}>
 			{createItems(items)}
 			</SelectBox>
 		);

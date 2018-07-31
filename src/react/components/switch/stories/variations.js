@@ -4,27 +4,27 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Default',
-		isChecked: false,
 		isDisabled: false
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'is Checked',
+		storyTitle: 'is Checked and reversed',
 		isChecked: true,
-		isDisabled: false
+		isDisabled: false,
+		isReversed: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'is Disabled',
-		isChecked: false,
-		isDisabled: true
+		storyTitle: 'is Disabled with Hidden Label',
+		isDisabled: true,
+		isLabelHidden: true
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is Checked and Disabled',
 		isChecked: true,
 		isDisabled: true
-	}
+	},
 ];
 
 module.exports = {

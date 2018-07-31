@@ -141,8 +141,7 @@ test.add(storyNames.formOnAPage, () => {
 
 					{/* Major section */}
 					<XUIColumn gridColumns="full" className="xui-padding-vertical">
-						<InputLabel>A switch</InputLabel>
-						<XUISwitch labelText="A switch" onChange={NOOP} />
+						<XUISwitch onChange={NOOP} isReversed >A switch</XUISwitch>
 					</XUIColumn>
 
 					{/* Major section */}

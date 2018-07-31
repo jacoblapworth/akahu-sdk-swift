@@ -6,7 +6,7 @@ import XUISwitch from '../XUISwitch';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 import NOOP from '../../helpers/noop';
 
@@ -31,8 +31,11 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
 	<Example
 		isDisabled={boolean('isDisabled', false)}
-		labelText='Sample switch label'
-	/>
+		isLabelHidden={boolean('label hidden', false)}
+		isReversed={boolean('reversed', false)}
+	>
+		{text('label text', 'Sample switch label')}
+	</Example>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -44,8 +47,7 @@ variations.forEach(variation => {
 		variationMinusStoryDetails.storyKind = undefined;
 		variationMinusStoryDetails.storyTitle = undefined;
 		variationMinusStoryDetails.onChange = NOOP;
-		variationMinusStoryDetails.labelText = 'Sample switch label';
 
-		return <XUISwitch {...variationMinusStoryDetails}/>
+		return <XUISwitch {...variationMinusStoryDetails}>Sample switch label</XUISwitch>
 	});
 });

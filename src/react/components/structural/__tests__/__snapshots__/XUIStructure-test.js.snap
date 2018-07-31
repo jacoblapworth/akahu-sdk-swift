@@ -372,7 +372,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
           onKeyDown={undefined}
           onMouseOver={undefined}
           rel={null}
-          tabIndex="-1"
+          tabIndex={undefined}
           type="button"
         >
           <span
@@ -397,7 +397,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
           onKeyDown={undefined}
           onMouseOver={undefined}
           rel={null}
-          tabIndex="-1"
+          tabIndex={undefined}
           type="button"
         >
           <span
@@ -422,7 +422,7 @@ exports[`<XUI Structure/> Panel and panel section: renders a panel with all the 
           onKeyDown={undefined}
           onMouseOver={undefined}
           rel={null}
-          tabIndex="-1"
+          tabIndex={undefined}
           type="button"
         >
           <span

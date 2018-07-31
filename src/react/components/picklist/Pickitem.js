@@ -36,7 +36,8 @@ export default class Pickitem extends PureComponent {
 			isSplit,
 			ariaLabel,
 			target,
-			shouldTruncate
+			shouldTruncate,
+			pickitemBodyProps
 		} = pickItem.props;
 
 		const classes = cn(
@@ -63,14 +64,17 @@ export default class Pickitem extends PureComponent {
 				aria-label={ariaLabel}
 			>
 				<PickitemBody
-					shouldTruncate={shouldTruncate}
-					isSelected={isSelected}
-					isMultiselect={isMultiselect}
-					href={href}
-					checkboxClassName={checkboxClassName}
-					target={target}
+					{...{
+						shouldTruncate,
+						isSelected,
+						isMultiselect,
+						href,
+						checkboxClassName,
+						target,
+						...pickitemBodyProps,
+						...listeners
+					}}
 					qaHook={qaHook && `${qaHook}--body`}
-					{...listeners}
 				>
 					{children}
 				</PickitemBody>
@@ -120,7 +124,9 @@ Pickitem.propTypes = {
 	/** When a link is preferred, this target prop can be used on the <a> tag*/
 	target: PropTypes.string,
 	/** Whether to truncate text instead of wrapping */
-	shouldTruncate: PropTypes.bool
+	shouldTruncate: PropTypes.bool,
+	/** Props to pass to the pickitem body */
+	pickitemBodyProps: PropTypes.object,
 };
 
 Pickitem.defaultProps = {

@@ -67,7 +67,7 @@
 //
 // Markup:
 // <div class="xui-panel">
-//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered xui-u-flex-space-between">
+//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center xui-u-flex-space-between">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //     <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="More options" aria-label="More options">
 //       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-overflow" role="presentation" /></svg>
@@ -149,7 +149,7 @@
 //
 // Markup:
 // <form class="xui-panel">
-//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered">
+//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //   </header>
 // <div class="xui-panel--section xui-padding-horizontal-large xui-padding-top-xlarge xui-padding-bottom-large">
@@ -190,12 +190,12 @@
 //
 // Markup:
 // <div class='xui-panel xui-contentblock'>
-// <div class="xui-contentblockitem xui-u-flex xui-u-flex-verticallycentered">
+// <div class="xui-contentblockitem xui-u-flex xui-u-flex-align-center">
 // <div class="xui-margin-horizontal">
 //   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">SB</abbr>
 // </div>
 // <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
 //     <span class="xui-heading-small">Six Barrel Soda</span>
 //     <span class="xui-tag xui-tag-warning xui-margin-left-small">Awaiting payment</span>
 //   </span>
@@ -206,7 +206,7 @@
 //   </div>
 // </a>
 // <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//     <div class="xui-u-flex xui-u-flex-align-center">
 //       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">118.20</div>
 //       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //         <svg focusable="false" class="xui-icon">
@@ -216,12 +216,12 @@
 //     </div>
 //   </div>
 // </div>
-// <div class="xui-contentblockitem xui-u-flex xui-u-flex-verticallycentered">
+// <div class="xui-contentblockitem xui-u-flex xui-u-flex-align-center">
 // <div class="xui-margin-horizontal">
 //   <abbr class="xui-avatar xui-avatar-color-5" role="presentation">LB</abbr>
 // </div>
 // <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
 //     <span class="xui-heading-small">Lucky Burger</span>
 //     <span class="xui-tag xui-tag-negative xui-margin-left-small">Overdue</span>
 //   </span>
@@ -232,7 +232,7 @@
 //   </div>
 // </a>
 // <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//     <div class="xui-u-flex xui-u-flex-align-center">
 //       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">346.40</div>
 //       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //         <svg focusable="false" class="xui-icon">
@@ -242,12 +242,12 @@
 //     </div>
 //   </div>
 // </div>
-// <div class="xui-contentblockitem xui-u-flex xui-u-flex-verticallycentered">
+// <div class="xui-contentblockitem xui-u-flex xui-u-flex-align-center">
 // <div class="xui-margin-horizontal">
 //   <abbr class="xui-avatar xui-avatar-color-8" role="presentation">HE</abbr>
 // </div>
 // <a href="#" class="xui-u-overflow-hidden xui-u-flex-1 xui-padding-vertical xui-rowlink">
-//   <span class="xui-text-truncated xui-u-flex xui-u-flex-verticallycentered">
+//   <span class="xui-text-truncated xui-u-flex xui-u-flex-align-center">
 //     <span class="xui-heading-small">Hornblower Enterprises</span>
 //     <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
 //   </span>
@@ -258,7 +258,7 @@
 //   </div>
 // </a>
 // <div class="xui-margin-horizontal-small">
-//     <div class="xui-u-flex xui-u-flex-verticallycentered">
+//     <div class="xui-u-flex xui-u-flex-align-center">
 //       <div class="xui-heading-small xui-text-deemphasis xui-text-align-right xui-margin-right-small">74.99</div>
 //       <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //         <svg focusable="false" class="xui-icon">
@@ -307,7 +307,7 @@
 //     </ul>
 //   </div>
 //   <div class="xui-u-flex-1">
-//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-verticallycentered">
+//   <header class="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
 //     <div class="xui-panel--heading xui-margin-left-small">Panel heading</div>
 //   </header>
 //     <div class="xui-panel--section xui-padding-top-large xui-padding-horizontal-large xui-padding-bottom-small">

@@ -321,11 +321,11 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
+// <div class="xui-u-flex xui-u-flex-align-center xui-heading-small xui-textcolor-muted ">
 // <div class="xui-u-flex-1 xui-padding-vertical xui-padding-left-large">
 //    Section
 // </div>
-//    <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
+//    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
@@ -344,12 +344,12 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
+// <div class="xui-u-flex xui-u-flex-align-center xui-heading-small xui-textcolor-muted ">
 // <div class="xui-u-flex-1 xui-padding-vertical xui-padding-left-large">
 //    <span>Section</span>
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
 // </div>
-//    <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
+//    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //        <svg focusable="false" class="xui-icon">
 //          <use xlink:href="#xui-icon-overflow"></use>
@@ -368,12 +368,12 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted">
+// <div class="xui-u-flex xui-u-flex-align-center xui-heading-small xui-textcolor-muted">
 // <div class="xui-u-flex-1 xui-padding-vertical xui-padding-left-large">
 //    <span>Section</span>
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
 // </div>
-//    <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
+//    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <div class="xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
 //			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //        <svg focusable="false" class="xui-icon">
@@ -395,8 +395,8 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
-// <div class="xui-margin-horizontal xui-u-flex xui-u-flex-verticallycentered">
+// <div class="xui-u-flex xui-u-flex-align-center xui-heading-small xui-textcolor-muted ">
+// <div class="xui-margin-horizontal xui-u-flex xui-u-flex-align-center">
 // 	<label class="xui-styledcheckboxradio">
 //  	 <input class="xui-styledcheckboxradio--input" type="checkbox">
 //  	 <div class="xui-styledcheckboxradio--checkbox"></div>
@@ -406,7 +406,7 @@
 //    <span>Section</span>
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
 // </div>
-//    <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
+//    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <div class="xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
 //			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //        <svg focusable="false" class="xui-icon">
@@ -426,7 +426,7 @@
 // ExampleClass: ds-example-flush ds-example-wide
 //
 // Markup:
-// <div class="xui-u-flex xui-u-flex-verticallycentered xui-heading-small xui-textcolor-muted ">
+// <div class="xui-u-flex xui-u-flex-align-center xui-heading-small xui-textcolor-muted ">
 // <div class="xui-margin-horizontal">
 //   <abbr class="xui-avatar xui-avatar-color-2" role="presentation">S</abbr>
 // </div>
@@ -434,7 +434,7 @@
 //    <span>Section</span>
 // 		<span class="xui-text-deemphasis xui-margin-left-xsmall">3</span>
 // </div>
-//    <div class="xui-u-flex xui-u-flex-verticallycentered xui-margin-horizontal-small">
+//    <div class="xui-u-flex xui-u-flex-align-center xui-margin-horizontal-small">
 //      <div class="xui-text-deemphasis xui-text-align-right xui-margin-right-small">0.00</div>
 //			<button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
 //        <svg focusable="false" class="xui-icon">

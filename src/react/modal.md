@@ -205,7 +205,7 @@ class Example extends PureComponent {
 				<XUIButton onClick={this.toggleModal}>Modal without a header</XUIButton>
 				<XUIModal isOpen={this.state.showModal} onClose={() => this.setState({ showModal: false })} size="large">
 					<XUIModalBody>
-						<div className="xui-u-flex xui-u-flex-column xui-u-flex-verticallycentered">
+						<div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
 							<img src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png" style={{maxWidth:'100%'}}/>
 							<h2>Welcome to Projects</h2>
 							<div className="xui-padding-2xlarge">
@@ -214,7 +214,7 @@ class Example extends PureComponent {
 							</div>
 						</div>
 					</XUIModalBody>
-					<XUIModalFooter className="xui-u-flex xui-u-flex-horizontallycentered">
+					<XUIModalFooter className="xui-u-flex xui-u-flex-justify-center">
 						<XUIButton
 							className="xui-margin-right"
 							variant="borderless-primary"

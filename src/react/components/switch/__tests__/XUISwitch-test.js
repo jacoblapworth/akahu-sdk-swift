@@ -54,8 +54,20 @@ describe('XUISwitch', function () {
 		expect(automationid).toMatchSnapshot();
 	});
 
-	it('should include an aria-label when labelText is passed', () => {
-		const ariaLabel = renderer.create(<XUISwitch labelText="Switch test" onChange={NOOP}/>);
+	it('should include a tex label when label is passed', () => {
+		const ariaLabel = renderer.create(<XUISwitch onChange={NOOP} labelId="testLabelId">Switch test</XUISwitch>);
+
+		expect(ariaLabel).toMatchSnapshot();
+	});
+
+	it('should include an aria-label when label is passed and hidden', () => {
+		const ariaLabel = renderer.create(<XUISwitch onChange={NOOP} isLabelHidden>Switch test</XUISwitch>);
+
+		expect(ariaLabel).toMatchSnapshot();
+	});
+
+	it('should include a reversed class when a text labe is present and isReversed is set', () => {
+		const ariaLabel = renderer.create(<XUISwitch onChange={NOOP} labelId="testLabelId" isReversed>Switch test</XUISwitch>);
 
 		expect(ariaLabel).toMatchSnapshot();
 	});

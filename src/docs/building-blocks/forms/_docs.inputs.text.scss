@@ -139,10 +139,10 @@
 //
 // Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
 //
-// exampleClass: ds-example-flush
+// exampleClass: ds-example-flush ds-example-dark
 //
 // Markup:
-// <div class="xui-padding xui-background-grey-1">
+// <div class="xui-padding ">
 //   <!-- Transparent + Inverted with icons-->
 //   <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
 //     <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">

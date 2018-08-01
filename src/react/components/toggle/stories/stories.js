@@ -12,6 +12,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
+import ExampleContainer from '../../../docs/ExampleContainer';
+
 import { storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
@@ -56,7 +58,12 @@ variations.forEach(variation => {
 		delete variationMinusStoryDetails.options;
 		delete variationMinusStoryDetails.storyKind;
 		delete variationMinusStoryDetails.storyTitle;
-		return <div style={{width:'500px'}}><XUIToggle {...variationMinusStoryDetails}>{buildOptions(options)}</XUIToggle></div>;
+		const attrs = {
+			isInverted: variationMinusStoryDetails.color == 'inverted',
+			style: {width:"500px"}
+		};
+		return <ExampleContainer { ...attrs} ><XUIToggle {...variationMinusStoryDetails}>{buildOptions(options)}</XUIToggle></ExampleContainer >;
+		
 	});
 });
 

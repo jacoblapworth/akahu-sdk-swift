@@ -110,12 +110,9 @@ export default class XUIPill extends Component {
 	}
 }
 
-const noop = () => {};
-
 XUIPill.defaultProps = {
 	deleteButtonLabel: 'Delete',
 	defaultLayout: true,
-	onClick: noop
 };
 
 XUIPill.propTypes = {

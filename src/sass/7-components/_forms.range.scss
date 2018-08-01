@@ -1,0 +1,83 @@
+@import "../vars";
+
+/*
+ * Custom styling for `<input type="range">`
+ * After Ana Tudor:
+ * https://codepen.io/thebabydino/pen/qVQLzm
+ */
+
+$xui-range-slider-track-color: $xui-color-grey-5;
+$xui-range-slider-height: 2px;
+$xui-range-slider-thumb-diameter: $xui-s-xlarge;
+
+@mixin xui-range-slider-track {
+	background: $xui-range-slider-track-color;
+	border: none;
+	box-sizing: border-box;
+	height: $xui-range-slider-height;
+	width: 100%;
+}
+
+@mixin xui-range-slider-thumb {
+	background: $xui-color-white;
+	border: $xui-border-muted;
+	border-radius: 50%;
+	box-sizing: border-box;
+	height: $xui-range-slider-thumb-diameter;
+	width: $xui-range-slider-thumb-diameter;
+}
+
+.#{$ns}-range-slider {
+	-webkit-appearance: none;
+	background: transparent;
+	height: $xui-range-slider-thumb-diameter;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	//	I’d normally alphabetise these browser-specific properties,
+	//	but Edge accepts both `-ms-thumb` and `-webkit-slider-thumb` styles.
+	//	Since Edge and Chrome position the thumb differently (of course),
+	//	Chrome needs to come first so Edge’s `-ms-thumb` style will rule the day.
+
+	&::-webkit-slider-runnable-track {
+		@include xui-range-slider-track;
+	}
+
+	&::-moz-range-track {
+		@include xui-range-slider-track;
+	}
+
+	&::-ms-track {
+		@include xui-range-slider-track;
+		color: $xui-range-slider-track-color;
+	}
+
+	&::-ms-fill-lower,
+	&::-ms-fill-upper {
+		background-color: $xui-range-slider-track-color;
+	}
+
+	&::-webkit-slider-thumb {
+		@include xui-range-slider-thumb;
+		-webkit-appearance: none;
+		margin-top: ($xui-range-slider-height - $xui-range-slider-thumb-diameter) * 0.5;
+	}
+
+	&::-moz-range-thumb {
+		@include xui-range-slider-thumb;
+	}
+
+	&::-ms-thumb {
+		@include xui-range-slider-thumb;
+		margin-top: 0;
+	}
+}

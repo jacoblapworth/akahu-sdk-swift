@@ -616,29 +616,29 @@
 //     <table class="xui-table-element">
 //       <thead class="xui-table--head">
 //         <tr class="xui-table--row xui-text-align-left">
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell-first">
-//             <button class="xui-table--sortbutton xui-table--sortbutton-active" type="button">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active" role="button">
+//             <div>
 //               Fruit
-//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon" viewBox="0 0 30 30"><path d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z" role="presentation"></path></svg>
-//             </button>
+//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon"><use xlink:href="#xui-icon-sort-single"/></svg>
+//             </div>
 //           </th>
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell-second">
-//             <button class="xui-table--sortbutton" type="button">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton" role="button">
+//             <div>
 //               Color
-//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon" viewBox="0 0 30 30"><path d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z" role="presentation"></path></svg>
-//             </button>
+//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon"><use xlink:href="#xui-icon-sort-single"/></svg>
+//             </div>
 //           </th>
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast">
-//             <button class="xui-table--sortbutton" type="button">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton" role="button">
+//             <div>
 //               Inventory
-//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon" viewBox="0 0 30 30"><path d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z" role="presentation"></path></svg>
-//             </button>
+//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon"><use xlink:href="#xui-icon-sort-single"/></svg>
+//             </div>
 //           </th>
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell-last">
-//             <button class="xui-table--sortbutton" type="button">
+//           <th class="xui-table--cell xui-heading-separator xui-table--cell-last xui-table--sortbutton" role="button">
+//             <div>
 //               <span>Price</span>
-//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon" viewBox="0 0 30 30"><path d="M16,17 L14,17 L12,15 L11,16 L15,20 L19,16 L18,15 L16,17 L16,9 L14,9 L14,17 L16,17 Z" role="presentation"></path></svg>
-//             </button>
+//               <svg focusable="false" class="xui-icon xui-table--sortbutton-icon"><use xlink:href="#xui-icon-sort-single"/></svg>
+//             </div>
 //           </th>
 //         </tr>
 //       </thead>
@@ -765,7 +765,7 @@
 //           <td class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div class="dropdown-toggled-wrapper xui-table--overflowmenu-body" data-ref="toggled-wrapper">
 //               <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><path d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z" role="presentation"></path></svg>
+//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><use xlink:href="#xui-icon-overflow"/></svg>
 //               </button>
 //             </div>
 //           </td>
@@ -785,7 +785,7 @@
 //           <td class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div class="dropdown-toggled-wrapper xui-table--overflowmenu-body" data-ref="toggled-wrapper">
 //               <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><path d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z" role="presentation"></path></svg>
+//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><use xlink:href="#xui-icon-overflow"/></svg>
 //               </button>
 //             </div>
 //           </td>
@@ -805,7 +805,7 @@
 //           <td class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div class="dropdown-toggled-wrapper xui-table--overflowmenu-body" data-ref="toggled-wrapper">
 //               <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><path d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z" role="presentation"></path></svg>
+//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><use xlink:href="#xui-icon-overflow"/></svg>
 //               </button>
 //             </div>
 //           </td>
@@ -865,7 +865,7 @@
 //           <td class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div class="dropdown-toggled-wrapper xui-table--overflowmenu-body" data-ref="toggled-wrapper">
 //               <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><path d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z" role="presentation"></path></svg>
+//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><use xlink:href="#xui-icon-overflow"/></svg>
 //               </button>
 //             </div>
 //           </td>
@@ -890,7 +890,7 @@
 //           <td class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div class="dropdown-toggled-wrapper xui-table--overflowmenu-body" data-ref="toggled-wrapper">
 //               <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><path d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z" role="presentation"></path></svg>
+//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><use xlink:href="#xui-icon-overflow"/></svg>
 //               </button>
 //             </div>
 //           </td>
@@ -915,7 +915,7 @@
 //           <td class="xui-table--cell-action xui-table--cell xui-padding-small xui-table--cell-last xui-table--cell-divider">&nbsp;
 //             <div class="dropdown-toggled-wrapper xui-table--overflowmenu-body" data-ref="toggled-wrapper">
 //               <button aria-haspopup="true" class="xui-button xui-button-icon-large xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><path d="M14.5,11 C15.3284271,11 16,10.3284271 16,9.5 C16,8.67157288 15.3284271,8 14.5,8 C13.6715729,8 13,8.67157288 13,9.5 C13,10.3284271 13.6715729,11 14.5,11 Z M14.5,21 C15.3284271,21 16,20.3284271 16,19.5 C16,18.6715729 15.3284271,18 14.5,18 C13.6715729,18 13,18.6715729 13,19.5 C13,20.3284271 13.6715729,21 14.5,21 Z M14.5,16 C15.3284271,16 16,15.3284271 16,14.5 C16,13.6715729 15.3284271,13 14.5,13 C13.6715729,13 13,13.6715729 13,14.5 C13,15.3284271 13.6715729,16 14.5,16 Z" role="presentation"></path></svg>
+//                 <svg focusable="false" class="xui-icon" viewBox="0 0 30 30"><use xlink:href="#xui-icon-overflow"/></svg>
 //               </button>
 //             </div>
 //           </td>
@@ -1105,6 +1105,7 @@ $xui-table-z-alert: 4;
 .#{$ns}-table--sortbutton-icon {
 	margin-left: 8px;
 	opacity: 0;
+	vertical-align: middle;
 }
 
 .#{$ns}-table--sortbutton-active .#{$ns}-table--sortbutton-icon {

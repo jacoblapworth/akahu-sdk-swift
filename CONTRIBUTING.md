@@ -262,15 +262,6 @@ e.g.
 // Negative: `xui-color-negative`:	<div class="xui-container"><span class="xui-color-negative">Yes, delete this invoice</span></div>
 //
 // Styleguide: Fundamentals.Typography.30.2
-
-// Status colours
-//
-// Flag: Deprecated
-//
-// Older versions of XUI contained specific 'status' classes: `xui-text-status`, `xui-text-status-negative` and `xui-text-status-positive`.
-// Please use either tags or the sentiment colours above.
-//
-// Styleguide: Fundamentals.Typography.30.2.1
 ```
 
 Documentation style guide

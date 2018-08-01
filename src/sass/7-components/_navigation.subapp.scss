@@ -44,11 +44,6 @@
 	}
 }
 
-// Deprecated in XUI12, remove in XUI14
-.#{$ns}-pageheading--content-layout-titleonly {
-	height: 40px;
-}
-
 .#{$ns}-pageheading--breadcrumbs, // TODO: deprecate in a later version
 .#{$ns}-breadcrumbs {
 	align-items: center;

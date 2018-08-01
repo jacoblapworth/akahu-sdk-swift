@@ -15,5 +15,4 @@ export const variantMap = {
 /** @private layoutMap - Map layouts to classes */
 export const layoutMap = {
 	fullwidth: `${baseClass}-fullwidth-layout`,
-	form: `${baseClass}-form-layout`
 };

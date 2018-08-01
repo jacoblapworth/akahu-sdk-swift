@@ -1,12 +1,13 @@
 @import "../mixins";
 @import "../vars";
 
-
+// TODO: update uses of this var to $xui-s-xsmall, when flexible controls are available.
+$xui-switch-label-padding: $xui-s-small - 2;
 
 .#{$ns}-switch {
-	display: inline-block;
+	align-items: center;
+	display: inline-flex; // Inline inputs
 	position: relative;
-	vertical-align: top;
 
 	&.#{$ns}-is-disabled {
 		// Disabled due to iOS - no cursor, but we still want this for desktop clients
@@ -59,5 +60,31 @@
 			left: auto;
 			transform: translate(18px);
 		}
+	}
+}
+
+// Label spacing
+// =============
+.#{$ns}-switch--label {
+	flex-grow: 1;
+
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) & {
+		padding-left: $xui-switch-label-padding;
+	}
+
+	.#{$ns}-is-disabled & {
+		color: $xui-color-grey-alpha-4;
+	}
+}
+
+
+// Right-aligned input
+// ===================
+.#{$ns}-switch-reversed {
+	flex-direction: row-reverse;
+	justify-content: space-between;
+
+	.#{$ns}-switch--label {
+		padding-right: $xui-switch-label-padding;
 	}
 }

@@ -441,10 +441,9 @@ test.add(storyNames.formLayout, () => {
 						</PanelSection>
 
 						<PanelSection formLayout headerContent="Switches" className="xui-padding-vertical">
-							<InputLabel htmlFor={inputMap.thingOn}>
+							<XUISwitch onChange={NOOP} name={inputMap.thingOn} labelId={inputMap.thingOn} isReversed>
 								Is the thing on
-							</InputLabel>
-							<XUISwitch labelText="switch label" onChange={NOOP} name={inputMap.thingOn} id={inputMap.thingOn} />
+							</XUISwitch>
 						</PanelSection>
 
 						<footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large">

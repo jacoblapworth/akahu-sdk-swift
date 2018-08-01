@@ -25,16 +25,18 @@
 // Classes:
 // xui-switch: Apply to label containing the switch
 // xui-switch--checkbox: Apply to native input to hide it
-// xui-switch--control: Apply to span immediately after the input
+// xui-switch--control: Apply to div or span immediately after the input
+// xui-switch--label: Apply to a sibling element of the input
 //
 // Markup:
-// <label class="xui-switch">
-//   <input type="checkbox" class="xui-switch--checkbox" role="switch" aria-label="sample switch">
-//   <span class="xui-switch--control"></span>
+// <label class="xui-switch" role="presentation">
+// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" role="switch" aria-checked="false" aria-disabled="false" aria-label="sample switch">
+// 	<div class="xui-switch--control"></div>
 // </label>
-// <label class="xui-switch">
-//   <input type="checkbox" class="xui-switch--checkbox" checked role="switch" aria-label="sample switch2">
-//   <span class="xui-switch--control"></span>
+// <label class="xui-switch" role="presentation">
+// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" role="switch" aria-checked="false" aria-disabled="false" aria-labelledby="switch-label">
+// 	<div class="xui-switch--control"></div>
+// 	<span id="switch-label" class="xui-switch--label">A switch</span>
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Switch.3
@@ -58,3 +60,19 @@
 // </label>
 //
 // Styleguide: Building Blocks.Controls.Switch.4
+
+// Reversing the label
+//
+// When providing a text label for a switch, you can change the order of the control and the text.
+//
+// Classes:
+// xui-switch-reversed: If a text label is present, apply this to the `<label>` wrapper to reverse its order
+//
+// Markup:
+// <label class="xui-switch xui-switch-reversed" role="presentation">
+// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" role="switch" aria-checked="false" aria-disabled="false" aria-labelledby="switch-label">
+// 	<div class="xui-switch--control"></div>
+// 	<span id="switch-label" class="xui-switch--label">A reversed switch</span>
+// </label>
+//
+// Styleguide: Building Blocks.Controls.Switch.5

@@ -18,14 +18,15 @@ export default function XUICapsule({
 	onBlur,
 }) {
 	const isInteractive = (href != null || typeof onClick === 'function');
+	const classNames = cn(className,
+		`${ns}-capsule`,
+		isInteractive && `${ns}-capsule-interactive`,
+		!isValid && `${ns}-capsule-invalid`
+	);
 
-	return (
+	return isInteractive ? (
 		<XUIButton
-			className={cn(className,
-				`${ns}-capsule`,
-				isInteractive && `${ns}-capsule-interactive`,
-				!isValid && `${ns}-capsule-invalid`
-			)}
+			className={classNames}
 			href={href}
 			isLink={isLink}
 			target={target}
@@ -36,6 +37,10 @@ export default function XUICapsule({
 		>
 			{children}
 		</XUIButton>
+	) : (
+		<span className={classNames}>
+			{children}
+		</span>
 	);
 }
 

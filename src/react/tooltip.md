@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-alerts-tooltip.html">Tooltip in the XUI Documentation</a>
+	<a href="../section-building-blocks-alerts-tooltip.html" isDocLink>Tooltip in the XUI Documentation</a>
 </div>
 
 `XUITooltip` provides additional information in-line with page elements.

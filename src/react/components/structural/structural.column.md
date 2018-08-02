@@ -1,9 +1,6 @@
 
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-2">Columns in the XUI Documentation</a>
+	<a href="../section-fundamentals-layout.html#fundamentals-layout-2-2" isDocLink>Columns in the XUI Documentation</a>
 </div>
 
 `XUIColumn` components are placed inside rows and accept props to determine their width within a 12-column grid.

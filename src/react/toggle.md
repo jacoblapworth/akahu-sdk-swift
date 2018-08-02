@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-controls-toggle.html">Toggle in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-toggle.html" isDocLink>Toggle in the XUI Documentation</a>
 </div>
 
 `XUIToggle` is a control that can behave like a radio, or like a checkbox. It supports different layout patterns for a variety of use cases.

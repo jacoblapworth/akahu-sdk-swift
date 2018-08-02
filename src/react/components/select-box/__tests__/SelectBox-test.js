@@ -75,6 +75,24 @@ describe('SelectBox', function () {
 		expect(select.instance().isDropDownOpen()).toBeFalsy();
 	});
 
+	it('should not open the dropdown on click if the control is disabled', function () {
+		select = mount(
+			<SelectBox
+				label='test'
+				buttonContent="test"
+				buttonClasses="blah"
+				isOpen={false}
+				forceDesktop
+				isDisabled
+			>
+				<SelectBoxOption id='1' value='A sample option' label='test'>A sample option</SelectBoxOption>
+			</SelectBox>
+		);
+
+		select.find('button.blah').first().simulate('click');
+		expect(select.instance().isDropDownOpen()).toBeFalsy();
+	});
+
 	it('should call onSelect on click of option', function () {
 
 		then(() => select.find('.xui-pickitem').first().simulate('click'))
@@ -103,6 +121,21 @@ describe('SelectBox', function () {
 				forceDesktop
 			>
 				<SelectBoxOption id='1' value='A sample option' label='test' qaHook='test-selectboxoption'>A sample option</SelectBoxOption>
+			</SelectBox>
+		);
+
+		expect(select).toMatchSnapshot();
+	});
+
+	it('should render the trigger in a disabled state if `isDisabled` is set', () => {
+		const select = renderer.create(
+			<SelectBox
+				label='test'
+				buttonContent="test"
+				forceDesktop
+				isDisabled
+			>
+				<SelectBoxOption id='1' value='A sample option' label='test'>A sample option</SelectBoxOption>
 			</SelectBox>
 		);
 

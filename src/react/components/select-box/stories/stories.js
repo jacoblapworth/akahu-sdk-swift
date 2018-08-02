@@ -57,6 +57,7 @@ storiesWithKnobs.add('Playground', () => {
 			matchTriggerWidth={boolean('matchTriggerWidth', true)}
 			forceDesktop={boolean('forceDesktop', true)}
 			defaultLayout={boolean('defaultLayout', true)}
+			isDisabled={boolean('isDisabled', false)}
 			buttonContent={
 				<span>
 					<XUIIcon icon={education} className="xui-margin-right-xsmall"/>

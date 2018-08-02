@@ -78,6 +78,7 @@ export default class SelectBox extends Component {
 				ref={c => selectBox.trigger = c}
 				variant={props.buttonVariant}
 				qaHook={setQaHook(props.qaHook, qaHooks.button)}
+				isDisabled={props.isDisabled}
 			>
 				{content}
 				<XUIButtonCaret className={caretClasses} title="Toggle List" qaHook={setQaHook(props.qaHook, qaHooks.buttonIcon)}/>
@@ -175,6 +176,9 @@ SelectBox.propTypes = {
 
 	/** The XUI button variant to use as a trigger for the select box */
 	buttonVariant: PropTypes.string,
+
+	/** Whether the button trigger and functionality are disabled */
+	isDisabled: PropTypes.bool,
 
 	/** Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,

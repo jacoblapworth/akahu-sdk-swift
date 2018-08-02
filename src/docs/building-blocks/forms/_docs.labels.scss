@@ -17,6 +17,7 @@
 // Do: Apply classes to a nested span if the label wraps the input
 // Do: Add a label above the input if space is available
 // Warning: Only consider adding a label within the input if space above is not available
+// Dont: Don't use a symbol to indicate fields as required without explaining what it means
 //
 // Markup:
 // <div class="xui-row-grid">

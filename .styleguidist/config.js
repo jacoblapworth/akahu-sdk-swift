@@ -71,10 +71,9 @@ const config = {
 				"rsg-components/Link": path.resolve(styleguidePath, "components/Link"),
 				"rsg-components/StyleGuide/StyleGuideRenderer": path.resolve(styleguidePath, "components/StyleGuide"),
 				"rsg-components/TableOfContents/TableOfContentsRenderer": path.resolve(styleguidePath, "components/TableOfContents"),
-				"rsg-components/Preview": path.resolve(styleguidePath, "components/Preview"),
+				"rsg-components/Wrapper/Wrapper": path.resolve(styleguidePath, "components/Wrapper"),
 				"rsg-components/Pathline": path.resolve(styleguidePath, "components/Pathline"),
 				"rsg-components/Playground/PlaygroundRenderer": path.resolve(styleguidePath, "components/PlaygroundRenderer")
-
 			},
 			extensions: [
 				".js",
@@ -86,7 +85,6 @@ const config = {
 	title: 'XUI React Docs',
 	styleguideDir: outputPath,
 	highlightTheme: 'erlang-dark',
-	template: path.resolve(styleguidePath, 'template.html'),
 	ignore: [
 		"**/Positioning.js",
 		"**/Constants.js",

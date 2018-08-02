@@ -92,7 +92,7 @@ const checkboxToggle = {
 
 ### Other Supported Layouts
 
-When using `XUIToggle` with text content, it's recommended to use the `form` layout.
+When using `XUIToggle` with text content, it's recommended to use the `fullwidth` layout.
 
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
@@ -109,7 +109,7 @@ const checkboxToggle = {
 	</div>
 	<div className="xui-field-layout">
 		<label className="xui-text-label xui-fieldlabel-layout">Toggle</label>
-		<XUIToggle layout="form" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
+		<XUIToggle layout="fullwidth" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

@@ -9,7 +9,7 @@ import NOOP from '../../helpers/noop';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
@@ -39,9 +39,11 @@ storiesWithKnobs.add('Playground', () => (
 	<div style={{ width: '500px' }}>
 		<XUIToggle
 			color={select('color', Object.keys(colorMap), 'standard')}
-			layout={boolean('full-width?', false) ? 'fullwidth' : undefined}
-			variant={boolean('small?', false) ? 'small' : undefined}
-			secondaryProps={{ 'aria-label': 'test label' }}
+			layout={boolean('full-width?', false) ? 'fullwidth': undefined}
+			variant={boolean('small?', false) ? 'small': undefined}
+			labelText={text('labelText', '')}
+			isLabelHidden={boolean('isLabelHidden', false)}
+			isFieldLayout={boolean('isFieldLayout', true)}
 		>
 			{buildOptions(toggleOptions)}
 		</XUIToggle>

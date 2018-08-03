@@ -4,7 +4,11 @@ import cn from 'classnames';
 import XUIIcon from '../../icon/XUIIcon';
 import {NAME_SPACE} from '../helpers/constants';
 
-const chartPathData = 'M20,20.5h2v1H8v-1h2v-7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v7h2v-11c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1V20.5z';
+const chartIcon = {
+	width: 30,
+	height: 30,
+	path: 'M20,20.5h2v1H8v-1h2v-7c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1v7h2v-11c0-0.6,0.4-1,1-1h2c0.6,0,1,0.4,1,1V20.5z'
+};
 
 class ChartEmpty extends PureComponent {
 	render = () => {
@@ -20,7 +24,10 @@ class ChartEmpty extends PureComponent {
 
 				{emptyStateComponent || (
 					<div className={`${NAME_SPACE}-chart--empty`}>
-						<XUIIcon path={chartPathData}/>
+						<XUIIcon
+							icon={chartIcon}
+							size="large"
+						/>
 						<div>{emptyMessage}</div>
 					</div>
 				)}

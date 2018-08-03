@@ -2,8 +2,18 @@ import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import getTargetPosition from '../helpers/targetposition';
 import {NAME_SPACE, BAR_RADIUS, BAR_PADDING_X} from '../helpers/constants';
-import {alwaysPositive} from '../helpers/utilities';
-import {createStackTop, createStackHeight, createInteractionParams} from '../helpers/bars';
+import {forceValuePositive} from '../helpers/utilities';
+import {getMinAndMaxYAxisTickValues} from '../helpers/yaxis';
+import {
+	createStackTop,
+	createStackHeight,
+	createInteractionParams,
+	testIsAnyStackNegative,
+	testIsAnyStackPositive,
+	testIsCurrentStackPositive,
+	addStackItems,
+	forceAddStackItems,
+} from '../helpers/bars';
 
 class StackedBar extends PureComponent {
 	handleToolTipShow = (event, barData) => {
@@ -15,7 +25,48 @@ class StackedBar extends PureComponent {
 
 	handleToolTipHide = () => this.props.updateToolTip();
 
-	createStackThunk = ({ratio, barBottom, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
+	createBarMask = ({barLeft, barTop, barWidth, barHeight}) => {
+		const {datum: {y: stackData}} = this.props;
+		const isAnyStackNegative = testIsAnyStackNegative(stackData);
+		const isAnyStackPositive = testIsAnyStackPositive(stackData);
+		const cornerOverrideHeight = Math.min(BAR_RADIUS, barHeight);
+		const baseProps = {
+			x: barLeft,
+			y: barTop,
+			width: barWidth,
+			height: barHeight,
+			fill: 'white',
+		};
+
+		return (
+			<Fragment>
+				<rect
+					{...baseProps}
+					rx={BAR_RADIUS}
+					ry={BAR_RADIUS}
+				/>
+				{
+					// Remove the masks rounded corners on the bars "top" / "bottom" sides
+					// that touch the "zero" base line.
+				}
+				{(isAnyStackNegative && !isAnyStackPositive) && (
+					<rect
+						{...baseProps}
+						height={cornerOverrideHeight}
+					/>
+				)}
+				{(!isAnyStackNegative && isAnyStackPositive) && (
+					<rect
+						{...baseProps}
+						height={cornerOverrideHeight}
+						y={barTop + (barHeight - cornerOverrideHeight)}
+					/>
+				)}
+			</Fragment>
+		);
+	};
+
+	createStackThunk = ({ratio, barZeroBase, barLeft, barWidth, barStacks}) => (barStack, stackIndex) => {
 		const {
 			isBarStacked,
 			onBarClick,
@@ -28,8 +79,8 @@ class StackedBar extends PureComponent {
 		} = this.props;
 		const {id: barId} = barData;
 		const testIsActive = stackIndex => (activeBars[barId] || []).indexOf(stackIndex) >= 0;
-		const stackTop = createStackTop({barBottom, barStacks, ratio, stackIndex});
-		const stackHeight = createStackHeight({barStack, ratio});
+		const stackTop = createStackTop({barZeroBase, barStacks, ratio, stackIndex});
+		const stackHeight = createStackHeight(barStack * ratio);
 		const interactionParams = createInteractionParams(isBarStacked, {...barData, barIndex, stackIndex});
 		const clickProps = onBarClick && {
 			onClick: event => onBarClick(event, interactionParams),
@@ -68,38 +119,41 @@ class StackedBar extends PureComponent {
 		const {
 			chartId,
 			barWidth: barWidthRaw,
-			yAxisMaxValue,
+			yAxisTickValues,
 			yAxisHeight,
+			padding,
 
 			// Victory...
 			datum: barData,
 			index: barIndex,
-			y0: rawYOffset,
+			// Unused Victory references...
+			// alignment, data, height, horizontal, index, origin, polar, width, x, x0, y, y0
 		} = this.props;
 
 		const {id: barId, y: barStacks} = barData;
 		if (!barStacks.length) return null;
 
-		const radius = BAR_RADIUS;
 		const divider = BAR_PADDING_X;
-		const ratio = yAxisHeight / yAxisMaxValue;
-		const totalStack = barStacks.reduce((acc, stack) => acc + stack, 0);
+		const {yAxisMinValue, yAxisMaxValue} = getMinAndMaxYAxisTickValues(yAxisTickValues);
+		const yAxisValueSpan = forceValuePositive(yAxisMinValue) + forceValuePositive(yAxisMaxValue)
+		const ratio = yAxisHeight / yAxisValueSpan;
+		const totalStacksValue = barStacks.reduce(forceAddStackItems, 0);
+		const positiveStacksValue = barStacks.filter(testIsCurrentStackPositive).reduce(addStackItems, 0);
 		const maskId = `${NAME_SPACE}-chart--bar-mask-${chartId}${barId}`;
-		const barBottom = alwaysPositive(rawYOffset);
+		const barZeroBase = (yAxisMaxValue * ratio) + padding.top;
 		const barLeft = (barWidthRaw * barIndex) + divider;
-		const barTop = alwaysPositive(barBottom - (totalStack * ratio));
-		const barWidth = alwaysPositive(barWidthRaw - (divider * 2));
-		const barHeight = alwaysPositive((totalStack * ratio) + radius);
-		const createStack = this.createStackThunk({ratio, barBottom, barLeft, barWidth, barStacks});
+		const barTop = barZeroBase - (positiveStacksValue * ratio);
+		const barWidth = Math.max(barWidthRaw - (divider * 2), 0);
+		const barHeight = createStackHeight(totalStacksValue * ratio);
+		const createStack = this.createStackThunk({ratio, barZeroBase, barLeft, barWidth, barStacks});
 
-		// The bar is setup into to main parts.
+		// The bar is setup into two main parts.
 		//
-		// 1. The "stacked" <rect />'s that make up the visual part of the bars. These
-		// bars are pushed up flush against each other and the x/y axis creating a solid
-		// box model.
+		// 1. The "stacked" <rect />'s that make up the visual part of the bars. Each
+		//    "stack" can have independent click and tooltip interactions applied to it.
 		//
 		//      My Graph.
-		//      ¯¯¯¯¯¯¯¯
+		//      ¯¯¯¯¯¯¯¯¯
 		//   8 .
 		//     |             .----.
 		//   6 |             |////|
@@ -111,10 +165,9 @@ class StackedBar extends PureComponent {
 		//   0     ()  ()  ()  ()  ()
 		//         Vv  Ww  Xx  Yy  Zz
 		//
-		// 2. The "mask" that rounds the top corners of the entire bar and adds a
-		// horisontal divider between the x/y axis and the bars themselfs.
-		// NOTE: The mask extends slightly below the bottom of the bar so that their are
-		// only rounded corners at the top.
+		// 2. The "mask" that rounds the top corners of the entire bar. Bars that
+		//    original from the "zero" base line (either above or below) do NOT have
+		//    rounded corners from the origination side.
 
 		return (
 			<g>
@@ -122,15 +175,7 @@ class StackedBar extends PureComponent {
 					<mask
 						id={maskId}
 						maskUnits="userSpaceOnUse">
-						<rect
-							x={barLeft}
-							y={barTop}
-							width={barWidth}
-							height={barHeight}
-							rx={radius}
-							ry={radius}
-							fill="white"
-						/>
+						{this.createBarMask({barLeft, barTop, barWidth, barHeight})}
 					</mask>
 				</defs>
 
@@ -157,7 +202,7 @@ StackedBar.propTypes = {
 	datum: PropTypes.object,
 	index: PropTypes.number,
 	barWidth: PropTypes.number,
-	yAxisMaxValue: PropTypes.number,
+	padding: PropTypes.object,
+	yAxisTickValues: PropTypes.arrayOf(PropTypes.number),
 	yAxisHeight: PropTypes.number,
-	y0: PropTypes.number,
 };

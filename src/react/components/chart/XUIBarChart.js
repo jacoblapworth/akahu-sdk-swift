@@ -5,25 +5,7 @@ import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
 
-/*
-
-TODO:
------
-
-+ XUI icon new table version
-  + Seperate PR
-  + Setup against new "viewbox" system
-
-+ Documentation
-  + XUI docs (Fin)
-  + React docs
-  + Storybook
-  + Jest snapshots
-
-*/
-
 class XUIBarChart extends PureComponent {
-
 	render = () => {
 		const {props} = this;
 		const {barsData, isLoading} = props;

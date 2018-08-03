@@ -355,6 +355,6 @@ class InputTriggerExample extends Component {
   * `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.
 
 
-### Legacy style display
+### Inline display
 
-We've updated the DropDown to position the DropDownPanel inline with your content, for improved accessibility and a few common positioning scenarios. In some circumstances, like inside a small scrollable container, or with nested absolutely-positioned elements, you may wish to revert to the previous behavior which places the DropDownPanel in the DOM at the end of the body, much like a modal. To do this, set `isLegacyDisplay` to true on `DropDownToggled`.
+We've added the ability for DropDown to position the DropDownPanel inline with your content, for improved accessibility and to resolve a few tough positioning scenarios, like dropdowns in a scrolling modal, or preferring to align the dropdown to the right of the trigger. To use this, set `isLegacyDisplay` to false on `DropDownToggled` and see the accompanying related props.

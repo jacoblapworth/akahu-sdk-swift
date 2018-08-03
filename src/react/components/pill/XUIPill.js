@@ -52,7 +52,8 @@ export default class XUIPill extends Component {
 			secondaryText,
 			target,
 			title,
-			value
+			value,
+			isMaxContentWidth
 		} = pill.props;
 
 		const baseClass = `${ns}-pill`;
@@ -61,6 +62,7 @@ export default class XUIPill extends Component {
 			className,
 			baseClass,
 			defaultLayout && `${baseClass}-layout`,
+			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove in XUI 14
 			isInvalid && `${baseClass}-is-invalid`,
 			pill.state.isFocused && `${baseClass}-is-focused`,
 			onDeleteClick && `${baseClass}-is-deleteable`
@@ -141,5 +143,7 @@ XUIPill.propTypes = {
 	/** Adds a muted secondary text for the pill, appears before the main value. */
 	secondaryText: PropTypes.string,
 	/** The text to display inside the pill. */
-	value: PropTypes.string
+	value: PropTypes.string,
+	/** Whether the pill shouldn't have a set max-width */
+	isMaxContentWidth: PropTypes.bool
 };

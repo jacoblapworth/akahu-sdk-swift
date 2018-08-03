@@ -1,36 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIToastAction /> should be able to render custom class names 1`] = `
-<button
-  className="xui-button custom-class xui-toast--action xui-button-borderless-main xui-button-small"
-  data-automationid={undefined}
-  disabled={false}
-  onClick={[Function]}
-  onKeyDown={undefined}
-  tabIndex={0}
-  type="button"
->
-  Action 1
-</button>
-`;
+exports[`<XUIToastAction /> should be able to render custom class names 1`] = `null`;
 
-exports[`<XUIToastAction /> should render a custom href because it's a link 1`] = `
-<a
-  className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
-  data-automationid={undefined}
-  disabled={false}
-  href="javascript:void(0)"
-  onClick={[Function]}
-  onKeyDown={undefined}
-  onKeyPress={[Function]}
-  rel={undefined}
-  role="button"
-  tabIndex={0}
-  target={undefined}
->
-  Action 1
-</a>
-`;
+exports[`<XUIToastAction /> should render a custom href because it's a link 1`] = `null`;
 
 exports[`<XUIToastAction /> should render a passed qaHook as an automation id 1`] = `
 <button

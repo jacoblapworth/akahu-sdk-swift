@@ -43,6 +43,7 @@ test.add(storyNames.dateDDInModal, () => {
 			<XUIModalBody>
 				This is some Datepicker Modal content.
 				<DropDownToggled
+					isLegacyDisplay={false}
 					trigger={trigger}
 					dropdown={dropdown}
 					isHidden={false}

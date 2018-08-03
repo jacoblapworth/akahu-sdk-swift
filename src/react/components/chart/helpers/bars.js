@@ -1,17 +1,20 @@
 import cn from 'classnames';
 import {createArray} from '../../progressindicator/helpers/utilities';
-import {alwaysPositive, createChartPadding} from '../helpers/utilities';
+import {forceValuePositive, createChartPadding} from '../helpers/utilities';
 import {NAME_SPACE, BAR_MIN_WIDTH, BAR_MAX_WIDTH, CHART_BREAKPOINT} from '../helpers/constants';
 import {createYAxisLabelFormatThunk, createYAxisTickValues} from '../helpers/yaxis';
 import AvatarLabel from '../customElements/AvatarLabel';
 import StandardLabel from '../customElements/StandardLabel';
 import AbbreviationLabel from '../customElements/AbbreviationLabel';
 
-const findMaxTotalBarStacks = ({y}) => y.reduce((acc, value) => acc + value, 0);
-
+const testIsCurrentStackNegative = stack => stack < 0;
+const testIsCurrentStackPositive = stack => !testIsCurrentStackNegative(stack);
+const testStackData = (stacks, query) => Boolean(stacks.filter(query).length);
+const testIsAnyStackNegative = stacks => testStackData(stacks, testIsCurrentStackNegative);
+const testIsAnyStackPositive = stacks => testStackData(stacks, testIsCurrentStackPositive);
 const findMaxChartStackQuantity = barsData => barsData.reduce((acc, {y}) => Math.max(acc, y.length), 0);
-
-({y}) => y.reduce((acc, value) => acc + value, 0);
+const addStackItems = (acc, stack) => acc + stack;
+const forceAddStackItems = (acc, stack) => addStackItems(acc, forceValuePositive(stack));
 
 const createBarStats = ({barsData, xAxisVisibleItems, viewportWidth, hasPaginationRaw}) => {
 	const barsTotal = barsData.length;
@@ -57,11 +60,16 @@ const createBarStats = ({barsData, xAxisVisibleItems, viewportWidth, hasPaginati
 
 	const barMaxValue = (
 		barsData
-			.map(findMaxTotalBarStacks)
-			.reduce((acc, value) => Math.max(acc, value), 0)
+			.map(({y}) => y.filter(testIsCurrentStackPositive).reduce(addStackItems, 0))
+			.reduce((acc, stacks) => Math.max(acc, stacks), 0)
+	);
+	const barMinValue = (
+		barsData
+			.map(({y}) => y.filter(testIsCurrentStackNegative).reduce(addStackItems, 0))
+			.reduce((acc, stacks) => Math.min(acc, stacks), 0)
 	);
 
-	return {barsWidth, barWidth, barMaxValue, barViewports};
+	return {barsWidth, barWidth, barMaxValue, barMinValue, barViewports};
 };
 
 const createBarColorStacks = ({barsData, custom, base }) => {
@@ -94,23 +102,51 @@ const createActiveBars = (activeBarsRaw, barsData) => (
 		}, {})
 );
 
-const createStackTop = ({barBottom, barStacks, ratio, stackIndex}) => {
-	const height = alwaysPositive(barStacks[stackIndex] * ratio);
-	const offset = (
-		barStacks
-			.slice(0, stackIndex)
-			.reduce((acc, stack) => acc + stack * ratio, 0)
-	);
+const createStackTop = ({barZeroBase, barStacks, ratio, stackIndex}) => {
+	const stackTop = barStacks[stackIndex];
+	const combineStacksAsPixels = (acc, stack) => acc + (stack * ratio);
+	const offset = testIsCurrentStackNegative(stackTop)
 
-	return alwaysPositive(barBottom - offset - height);
+		// + Stacks are initially positioned with the "top" aligned to the "zero"
+		//   baseline.
+
+		// + We then take into consideration the previously positioned stacks in the
+		//   sequence thus far and offset based on their accumulated offset (either
+		//   positive / negative).
+		? barStacks
+				.slice(0, stackIndex)
+				.filter(testIsCurrentStackNegative)
+				.reduce(combineStacksAsPixels, 0)
+
+		// NOTE: "positive" stacks (above the "zero" axis) need to take their own size
+		// into consideration when determining the offset as stacks start in the
+		// negative quadrant (see diagram below).
+		//
+		//   BEFORE:                                   AFTER:
+		//  --------                                  -------
+		//  Stack with a value of "+1"                Stack is reorientated into the
+		//  starts with its top flush to               "positive" axis by taking its own
+		//  the "zero" axis.                          size into consideration.
+		//
+		//   1 -  -  -  -  -  -  -                     1 -. -  -  - .-  -  -
+		//                                                | / / / / |
+		//   0 -. -  -  - .-  -  -                     0 -° -  -  - °-  -  -
+		//      | / / / / |
+		//  -1 -° -  -  - °-  -  -                    -1 -  -  -  -  -  -  -
+		: barStacks
+				.slice(0, stackIndex + 1)
+				.filter(testIsCurrentStackPositive)
+				.reduce(combineStacksAsPixels, 0);
+
+	return barZeroBase - offset;
 };
 
 // We can encounter the scenario where the disparity between bars total values
 // are so large (10 vs 100000000000000) that bars that have data appear to be
 // empty. In that regard the minimum value a bar with data can have is 1px
 // (to keep the semblance of a visible bar).
-const createStackHeight = ({barStack, ratio}) => {
-	const height = alwaysPositive(barStack * ratio);
+const createStackHeight = heightRaw => {
+	const height = forceValuePositive(heightRaw);
 
 	return height ? Math.max(height, 1) : 0;
 };
@@ -153,6 +189,7 @@ const enrichParams = (state, props, chartTheme) => {
 		xAxisType,
 		hasPagination: hasPaginationRaw,
 		createPaginationMessage,
+		paginationLabel,
 		paginationNextTitle,
 		paginationPreviousTitle,
 	} = props;
@@ -187,11 +224,13 @@ const enrichParams = (state, props, chartTheme) => {
 	const {top: chartTop, right: chartRight, bottom: chartBottom, left: chartLeft} = chartPadding;
 
 	// Bars...
-	const viewportWidth = chartWidth - chartLeft - chartRight;
 	const barColorStacks = createBarColorStacks({barsData, custom: barColor, base: chartTheme.bar.colorScale});
 	const activeBars = activeBarsRaw ? createActiveBars(activeBarsRaw, barsData) : {};
+	// Round viewport down so that we do not accidentally trigger the horizontal
+	// overflow shadows.
+	const viewportWidth = Math.floor(chartWidth - chartLeft - chartRight);
 	const {
-		barsWidth, barWidth, barMaxValue, barViewports,
+		barsWidth, barWidth, barMaxValue, barMinValue, barViewports,
 	} = createBarStats({barsData, xAxisVisibleItems, viewportWidth, hasPaginationRaw});
 
 	// Panels...
@@ -206,11 +245,13 @@ const enrichParams = (state, props, chartTheme) => {
 
 	// Y-Axis...
 	const yAxisHeight = chartHeight - chartTop - chartBottom;
-	const {yAxisTickValues, yAxisMaxValue} = createYAxisTickValues({
+	const yAxisTickValues = createYAxisTickValues({
 		yAxisHeight,
-		maxValues: [yAxisDefaultTopValue, barMaxValue]
+		minValue: barMinValue,
+		// Find the largest value between the largest bar, the supplied y-axis value etc.
+		maxValue: Math.max(yAxisDefaultTopValue, barMaxValue),
 	});
-	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisMaxValue);
+	const createYAxisLabelFormat = createYAxisLabelFormatRaw || createYAxisLabelFormatThunk(yAxisTickValues);
 
 	// X-Axis...
 	const xAxisTickValues = barsData.map(({x}) => x);
@@ -248,13 +289,13 @@ const enrichParams = (state, props, chartTheme) => {
 		barsData, barsWidth, barWidth, onBarClick, activeBars, barColorActive, barColorStacks,
 
 		// Pagination...
-		hasPagination, createPaginationMessage, paginationNextTitle, paginationPreviousTitle,
+		hasPagination, createPaginationMessage, paginationLabel, paginationNextTitle, paginationPreviousTitle,
 
 		// Tooltip...
 		hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
 
 		// Y-Axis...
-		yAxisMaxValue, yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
+		yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
 
 		// X-Axis...
 		xAxisTickValues, XAxisLabel,
@@ -268,8 +309,12 @@ export {
 	createBarStats as default,
 	createBarColorStacks,
 	enrichParams,
-	findMaxTotalBarStacks,
 	createStackTop,
 	createStackHeight,
 	createInteractionParams,
+	testIsAnyStackNegative,
+	testIsAnyStackPositive,
+	testIsCurrentStackPositive,
+	addStackItems,
+	forceAddStackItems,
 };

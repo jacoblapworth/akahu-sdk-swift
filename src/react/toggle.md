@@ -109,7 +109,7 @@ const checkboxToggle = {
 	</div>
 	<div className="xui-field-layout">
 		<label className="xui-text-label xui-fieldlabel-layout">Toggle</label>
-		<XUIToggle layout="form" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
+		<XUIToggle layout="fullwidth" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

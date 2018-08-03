@@ -539,7 +539,7 @@ DropDownToggled.propTypes = {
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** Force the legacy (portaled) display. Not great for accessibility, but useful for some cases like in very small scrolling containers, or with a series of nested absolutely positioned elements. */
+	/** Use the "legacy" (portaled) display. Currently defaults to "true." */
 	isLegacyDisplay: PropTypes.bool,
 
 	/** Repositioning on scroll is usually just annoying.  However, if you have a fixed position trigger, it's essential to make sure that the dropdown stays next to the trigger. */
@@ -558,15 +558,15 @@ DropDownToggled.propTypes = {
 	maxHeight: PropTypes.number,
 
 	/**
-	 * Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
+	 * This setting is only for non-legacy display. Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. Defaults to false.
 	 */
 	isBlock: PropTypes.bool,
 	/**
-	 * Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
+	 * This setting is only for non-legacy display. Preferred position to display the dropdown, relative to the trigger. Defaults to bottom-left.
 	 */
 	preferredPosition: PropTypes.oneOf(dropdownPositionOptions),
 	/**
-	 * Space between trigger and dropdown, in pixels. Defaults to 6.
+	 * This setting is only for non-legacy display. Space between trigger and dropdown, in pixels. Defaults to 6.
 	 */
 	triggerDropdownGap: PropTypes.number,
 	/**

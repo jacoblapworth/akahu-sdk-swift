@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
+<div
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new"
+  data-automationid="test-qahook"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordiontrigger-new--arrow"
+  >
+    <button
+      className="xui-button xui-button-icon xui-button-icon-large"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      title="Toggle"
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-inline"
+        data-automationid={undefined}
+        focusable="false"
+        height={7}
+        viewBox="0 0 11 7"
+        width={11}
+      >
+        <path
+          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="xui-accordiontrigger-new--content"
+  >
+    <div
+      className="xui-accordiontrigger-new--headings"
+    >
+      <div
+        className="xui-accordiontrigger-new--primaryheading"
+      >
+        John Smith
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
+<div
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordiontrigger-new--arrow"
+  >
+    <button
+      className="xui-button xui-button-icon xui-button-icon-large"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      title="Toggle"
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-inline"
+        data-automationid={undefined}
+        focusable="false"
+        height={7}
+        viewBox="0 0 11 7"
+        width={11}
+      >
+        <path
+          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="xui-accordiontrigger-new--content"
+  >
+    <div
+      className="xui-accordiontrigger-new--headings"
+    >
+      <div
+        className="xui-accordiontrigger-new--primaryheading"
+      >
+        John Smith
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
+<div
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordiontrigger-new--arrow"
+  >
+    <button
+      className="xui-button xui-button-icon xui-button-icon-large"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      title="Toggle"
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-u-rotate-180 xui-icon-inline"
+        data-automationid={undefined}
+        focusable="false"
+        height={7}
+        viewBox="0 0 11 7"
+        width={11}
+      >
+        <path
+          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="xui-accordiontrigger-new--content"
+  >
+    <div
+      className="xui-accordiontrigger-new--headings"
+    >
+      <div
+        className="xui-accordiontrigger-new--primaryheading"
+      >
+        John Smith
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
+<div
+  aria-label="Toggle"
+  className="xui-accordiontrigger-new"
+  data-automationid={undefined}
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <div
+    className="xui-accordiontrigger-new--arrow"
+  >
+    <button
+      className="xui-button xui-button-icon xui-button-icon-large"
+      data-automationid={undefined}
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={undefined}
+      tabIndex={-1}
+      title="Toggle"
+      type="button"
+    >
+      <svg
+        className="xui-icon xui-icon-inline"
+        data-automationid={undefined}
+        focusable="false"
+        height={7}
+        viewBox="0 0 11 7"
+        width={11}
+      >
+        <path
+          d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+          role="presentation"
+        />
+      </svg>
+    </button>
+  </div>
+  <abbr
+    role="presentation"
+  >
+    GB
+  </abbr>
+  <div
+    className="xui-accordiontrigger-new--content"
+  >
+    <div
+      className="xui-accordiontrigger-new--headings"
+    >
+      <div
+        className="xui-accordiontrigger-new--primaryheading"
+      >
+        John Smith
+      </div>
+      <div
+        className="xui-accordiontrigger-new--secondaryheading"
+      >
+        <div>
+          <span>
+            Nodes!
+          </span>
+          <br />
+          Plain text
+        </div>
+      </div>
+    </div>
+    <div>
+      Custom content
+    </div>
+    <div
+      className="xui-accordiontrigger-new--rightcontent"
+    >
+      <div
+        className="xui-accordiontrigger-new--pinnedvalue"
+      >
+        00:00
+      </div>
+      <button>
+        Action
+      </button>
+      <div
+        className="xui-accordiontrigger-new--overflowcontent"
+      >
+        <button>
+          ...
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

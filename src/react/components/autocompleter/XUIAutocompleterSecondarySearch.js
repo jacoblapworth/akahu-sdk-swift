@@ -9,7 +9,9 @@ import searchPath from '@xero/xui-icon/icons/search'
 import XUITextInput from '../textInput/XUITextInput';
 import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
 import XUIIcon from '../icon/XUIIcon';
-import {ns} from "../helpers/xuiClassNamespace";
+
+import { compose } from '../helpers/compose';
+import { ns } from "../helpers/xuiClassNamespace";
 
 import { intervalRunner, isVisible } from './private/helpers';
 
@@ -63,6 +65,15 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	}
 
 	/**
+	 * Clears the value in the search box.
+	 *
+	 * @public
+	 */
+	clearValue = () => {
+		this.setState({ value: "" });
+	}
+
+	/**
 	 * Set the state as not hidden in order to toggle the list open.
 	 *
 	 * @public
@@ -108,6 +119,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	onOpen = () => {
+		this.setState({ value: this.props.searchValue });
 		this.focusInput();
 		this.props.onOpen && this.props.onOpen();
 	}
@@ -129,7 +141,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	render() {
 		const completer = this;
 		const props = completer.props;
-		const {value} = completer.state;
+		const { value } = completer.state;
 
 		let listQaHook = null;
 		let containerQaHook = null;
@@ -146,7 +158,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					<XUITextInput
 						className={props.inputClassName}
 						containerClassName={props.inputContainerClassName}
-						value={value || ''}
+						value={value || ""}
 						leftElement={
 							<XUITextInputSideElement>
 								<XUIIcon icon={searchPath} isBoxed />
@@ -201,7 +213,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					trigger={props.trigger}
 					dropdown={dropdown}
 					onOpen={completer.onOpen}
-					onClose={props.onClose}
+					onClose={compose(this.props.onClose, this.clearValue)}
 					closeOnSelect={props.closeOnSelect}
 					className={dropdownToggledClasses}
 					matchTriggerWidth={props.matchTriggerWidth}

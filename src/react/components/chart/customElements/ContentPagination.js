@@ -13,6 +13,7 @@ class ContentPagination extends PureComponent {
 			total,
 			updatePanel,
 			createMessage,
+			paginationLabel,
 			paginationNextTitle,
 			paginationPreviousTitle,
 		} = this.props;
@@ -22,15 +23,14 @@ class ContentPagination extends PureComponent {
 			<nav
 				data-automationid={qaHook && `${qaHook}--pagination`}
 				className={`${NAME_SPACE}-chart--pagination`}
-				aria-label="Pagination">
-
+				aria-label={paginationLabel}>
 				<XUIButton
 					variant="icon-large"
 					onClick={() => updatePanel(current - 1)}
 					title={paginationPreviousTitle}
 					isDisabled={current === 1}>
 					<XUIIcon
-						path={arrowPathData}
+						icon={arrowPathData}
 						rotation="90"
 					/>
 				</XUIButton>
@@ -43,7 +43,7 @@ class ContentPagination extends PureComponent {
 					title={paginationNextTitle}
 					isDisabled={current === total}>
 					<XUIIcon
-						path={arrowPathData}
+						icon={arrowPathData}
 						rotation="270"
 					/>
 				</XUIButton>
@@ -61,6 +61,7 @@ ContentPagination.propTypes = {
 	total: PropTypes.number,
 	updatePanel: PropTypes.func,
 	createMessage: PropTypes.func,
+	paginationLabel: PropTypes.string,
 	paginationNextTitle: PropTypes.string,
 	paginationPreviousTitle: PropTypes.string,
 };

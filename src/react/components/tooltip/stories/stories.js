@@ -67,7 +67,7 @@ const createTriggerIcon = () => {
 };
 
 const createTriggerSpan = () => {
-	return <span style={{textDecoration: "underline"}} tabIndex={0}>Beauty is everywhere</span>;
+	return <span style={{textDecoration: "underline"}}>Beauty is everywhere</span>;
 };
 
 const createParaWithInlineTrigger = (props) => {

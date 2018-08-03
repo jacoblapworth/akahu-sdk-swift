@@ -155,7 +155,7 @@ export default class XUITooltip extends PureComponent {
 				trigger.props.onKeyDown :
 				(triggerOnClick && this.onTriggerKeyDown) || undefined,
 			'onFocus': compose(trigger.props.onFocus, () => {this.setState({isFocused: true})}),
-			'onBlur': compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}),
+			'onBlur': triggerOnBlur ? compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}) : undefined,
 			'onMouseOver': triggerOnHover ? this.openTooltip : undefined,
 			'onMouseOut': triggerOnHover && ignoreFocus ? this.closeTooltip : undefined,
 			'aria-describedby': this.tooltipId

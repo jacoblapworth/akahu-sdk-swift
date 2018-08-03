@@ -41,7 +41,7 @@ storiesWithKnobs.add('Playground', () => {
 	const createPaginationMessage = boolean('Create custom pagination message', false) && ((current, total) => `Page ${current} of ${total}`);
 	const emptyStateComponent = boolean('Show empty state custom component', false) ? (
 		<div className="xui-text-align-center">
-			<h3 className="xui-heading-xlarge">Sorry 🙁</h3>
+			<h3 className="xui-heading-xlarge">Sorry <span role="img" aria-label="Confused face">🙁</span></h3>
 			<p className="xui-heading-small">There is no data to display!</p>
 		</div>
 	) : undefined;

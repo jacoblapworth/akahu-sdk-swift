@@ -78,7 +78,7 @@ describe('SelectBox', function () {
 	it('should not open the dropdown on click if the control is disabled', function () {
 		select = mount(
 			<SelectBox
-				label='test'
+				labelText='test'
 				buttonContent="test"
 				buttonClasses="blah"
 				isOpen={false}
@@ -117,7 +117,7 @@ describe('SelectBox', function () {
 				qaHook='test-selectbox'
 				labelText='test'
 				buttonContent="test"
-				id='test'
+				id='testThisSelect'
 				forceDesktop
 			>
 				<SelectBoxOption id='1' value='A sample option' label='test' qaHook='test-selectboxoption'>A sample option</SelectBoxOption>
@@ -130,7 +130,7 @@ describe('SelectBox', function () {
 	it('should render the trigger in a disabled state if `isDisabled` is set', () => {
 		const select = renderer.create(
 			<SelectBox
-				label='test'
+				labelText='test'
 				buttonContent="test"
 				forceDesktop
 				isDisabled

@@ -131,12 +131,12 @@ describe('<DropDownToggled />', () => {
 		});
 	});
 
-	it('should render a passed qaHook as an auotmation id', () => {
+	it('should render a passed qaHook as an auotmation id and manually set ID', () => {
         const automationId = renderer.create(
 			<DropDownToggled
 				qaHook="ddt-example"
 				trigger={getTrigger({qaHook: 'ddt-example--trigger'})}
-				dropdown={getDropDown({ id: '1' })}
+				dropdown={getDropDown({ id: 'gday' })}
 			/>
 		);
 

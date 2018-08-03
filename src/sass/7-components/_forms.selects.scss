@@ -57,6 +57,9 @@
 	min-height: $xui-input-height;
 	padding: $xui-input-padding-vertical $xui-input-padding-horizontal $xui-input-padding-vertical $xui-input-padding-horizontal;
 	text-align: left;
+	&.#{$ns}-button-is-disabled {
+		background-image: none; // Needs to strip out some button-like behavior, to look like an input when disabled.
+	}
 }
 
 .#{$ns}-dropdownmenu-select {

@@ -387,7 +387,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel>
 								Choose one colour
 							</InputLabel>
-							<XUIToggle className="xui-field-layout" layout="form" secondaryProps={{'aria-label': "colors"}}>
+							<XUIToggle className="xui-field-layout" layout="fullwidth" secondaryProps={{'aria-label': "colors"}}>
 								{
 									[
 										'Red',
@@ -414,7 +414,7 @@ test.add(storyNames.formLayout, () => {
 							<InputLabel>
 								Choose many colours
 							</InputLabel>
-							<XUIToggle className="xui-field-layout" layout="form" secondaryProps={{role: 'group'}}>
+							<XUIToggle className="xui-field-layout" layout="fullwidth" secondaryProps={{role: 'group'}}>
 								{
 									[
 										'Red',

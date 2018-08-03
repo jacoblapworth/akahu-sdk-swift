@@ -44,8 +44,8 @@ storiesWithKnobs.add('Playground', () => {
 
 	return (
 		<SelectBox
-			label={text('label', 'Label for the select box')}
-			labelHidden={boolean('labelHidden', false)}
+			labelText={text('labelText', 'Label for the select box')}
+			isLabelHidden={boolean('isLabelHidden', false)}
 			buttonClasses={text('buttonClasses', '')}
 			containerClasses={text('containerClasses', '')}
 			dropDownClasses={text('dropDownClasses', '')}
@@ -57,6 +57,7 @@ storiesWithKnobs.add('Playground', () => {
 			matchTriggerWidth={boolean('matchTriggerWidth', true)}
 			forceDesktop={boolean('forceDesktop', true)}
 			defaultLayout={boolean('defaultLayout', true)}
+			isDisabled={boolean('isDisabled', false)}
 			buttonContent={
 				<span>
 					<XUIIcon icon={education} className="xui-margin-right-xsmall"/>
@@ -86,7 +87,7 @@ variations.forEach(variation => {
 
 		return (
 			<SelectBox{...variationMinusStoryDetails}
-				label={variation.storyTitle}>
+				labelText={variation.storyTitle}>
 			{createItems(items)}
 			</SelectBox>
 		);

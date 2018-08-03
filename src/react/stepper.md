@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-compounds-navigation-stepper.html">Stepper in the XUI Documentation</a>
+	<a href="../section-compounds-navigation-stepper.html" isDocLink>Stepper in the XUI Documentation</a>
 </div>
 
 The Stepper is a scaffold that renders a sequence of tabs and an *active* content panel. `import XUIStepper from '@xero/xui/react/stepper';`.

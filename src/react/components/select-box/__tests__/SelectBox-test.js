@@ -20,7 +20,7 @@ describe('SelectBox', function () {
 	beforeEach(function () {
 		select = mount(
 			<SelectBox
-				label="Test Select Box"
+				labelText="Test Select Box"
 				value={options[0]}
 				name="Test"
 				buttonContent={options[0]}
@@ -61,13 +61,31 @@ describe('SelectBox', function () {
 		select = mount(
 			<SelectBox
 				value="Test"
-				label="Does not have children"
+				labelText="Does not have children"
 				name="Test"
 				buttonContent="test"
 				buttonClasses="blah"
 				isOpen={false}
 				forceDesktop
 			>
+			</SelectBox>
+		);
+
+		select.find('button.blah').first().simulate('click');
+		expect(select.instance().isDropDownOpen()).toBeFalsy();
+	});
+
+	it('should not open the dropdown on click if the control is disabled', function () {
+		select = mount(
+			<SelectBox
+				labelText='test'
+				buttonContent="test"
+				buttonClasses="blah"
+				isOpen={false}
+				forceDesktop
+				isDisabled
+			>
+				<SelectBoxOption id='1' value='A sample option' label='test'>A sample option</SelectBoxOption>
 			</SelectBox>
 		);
 
@@ -97,12 +115,27 @@ describe('SelectBox', function () {
 		const select = renderer.create(
 			<SelectBox
 				qaHook='test-selectbox'
-				label='test'
+				labelText='test'
 				buttonContent="test"
-				ariaId='test'
+				id='testThisSelect'
 				forceDesktop
 			>
 				<SelectBoxOption id='1' value='A sample option' label='test' qaHook='test-selectboxoption'>A sample option</SelectBoxOption>
+			</SelectBox>
+		);
+
+		expect(select).toMatchSnapshot();
+	});
+
+	it('should render the trigger in a disabled state if `isDisabled` is set', () => {
+		const select = renderer.create(
+			<SelectBox
+				labelText='test'
+				buttonContent="test"
+				forceDesktop
+				isDisabled
+			>
+				<SelectBoxOption id='1' value='A sample option' label='test'>A sample option</SelectBoxOption>
 			</SelectBox>
 		);
 

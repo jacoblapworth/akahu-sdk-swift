@@ -94,7 +94,7 @@ describe('XUIAutocompleter', () => {
 		expect(wrapper.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(0);
 
 		const disableWrapPills = mount(createComponent({ disableWrapPills: true, pills: [<XUIPill value="test" key="1" />] }));
-		expect(disableWrapPills.find('.xui-autocompleter--trigger-nopillwrap').length).toEqual(1);
+		expect(disableWrapPills.find('.xui-autocompleter--pills-nopillwrap').length).toEqual(1);
 	});
 
 	it('should not add padding classes to the input when pills prop is an empty array', () => {

@@ -26,16 +26,19 @@
 // Markup:
 // <!-- Dropdown closed -->
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout">Custom</label>
-//   <div class="xui-select xui-select-layout">
-//     <input type="hidden" value="Select option 1"/>
-//     <button type="button" class="xui-button xui-select--button" aria-haspopup="true">
+//   <label class="xui-text-label xui-fieldlabel-layout" for="text_box_button">Custom</label>
+//   <div class="xui-select-layout">
+// 		<div data-ref="toggled-wrapper" role="presentation" aria-owns="test_box">
+//     <button aria-haspopup="listbox" id="text_box_button" aria-controls="test_box" class="xui-button xui-select--button xui-button-standard" tabindex="0" type="button">
 //       <span class="xui-select--content">Select option 1</span>
-//       <svg focusable="false" class="xui-icon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret xui-icon-inline">
+//				 <use xlink:href="#xui-icon-caret" role="presentation" />
+//			 </svg>
 //     </button>
-//     <div class="xui-dropdown-layout">
+//	 </div>
+//     <div class="xui-dropdown-layout" id="test_box">
 //       <div class="xui-dropdown--mask"></div>
-//       <div class="xui-dropdown--body">
+//       <div class="xui-dropdown--body" role="presentation">
 //         <ul class="xui-picklist">
 //           <li class="xui-pickitem" tabindex="0">
 //             <button class="xui-pickitem--body" tabindex="-1">Select option 1</button>
@@ -52,23 +55,26 @@
 //   </div>
 // </div>
 // <!-- Dropdown open -->
-// <div class="xui-select xui-select-layout">
-//   <input type="hidden" value="Select option 1"/>
-//   <button type="button" class="xui-button xui-select--button pseudo-class-active" aria-haspopup="true">
-//     <span class="xui-select--content">Select option 3</span>
-//     <svg focusable="false" class="xui-icon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
-//   </button>
-//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening">
+// <div class="xui-select-layout">
+//   <div data-ref="toggled-wrapper" role="presentation" aria-owns="test_box2">
+//     <button aria-haspopup="listbox" aria-controls="test_box2" class="xui-button xui-select--button xui-button-standard" tabindex="0" type="button">
+//       <span class="xui-select--content">Select option 3</span>
+//       <svg focusable="false" class="xui-icon xui-select--caret xui-button--caret xui-icon-inline">
+//				 <use xlink:href="#xui-icon-caret" role="presentation" />
+//			 </svg>
+//     </button>
+//	 </div>
+//   <div class="xui-dropdown-layout xui-dropdown-is-open xui-dropdown-is-opening" id="test_box2">
 //     <div class="xui-dropdown--mask"></div>
-//     <div class="xui-dropdown--body">
-//       <ul class="xui-picklist">
-//         <li class="xui-pickitem" tabindex="0">
+//     <div class="xui-dropdown--body" role="presentation">
+//       <ul class="xui-picklist xui-picklist-layout" role="group">
+//         <li class="xui-pickitem" role="option" tabindex="0">
 //           <button class="xui-pickitem--body" tabindex="-1">Select option 1</button>
 //         </li>
-//         <li class="xui-pickitem" tabindex="0">
+//         <li class="xui-pickitem" role="option" tabindex="0">
 //           <button class="xui-pickitem--body" tabindex="-1">Select option 2</button>
 //         </li>
-//         <li class="xui-pickitem xui-pickitem-is-selected" tabindex="0">
+//         <li class="xui-pickitem xui-pickitem-is-selected" role="option" tabindex="0">
 //           <button class="xui-pickitem--body" tabindex="-1">Select option 3</button>
 //         </li>
 //       </ul>
@@ -77,8 +83,6 @@
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Select.1
-
-
 
 
 // Native selects

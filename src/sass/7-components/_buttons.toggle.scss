@@ -15,14 +15,6 @@
 	width: 100%;
 }
 
-// Form Layout
-.#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
-	line-height: $xui-line-height-button;
-	min-height: $xui-input-height;
-	padding-bottom: 8px;
-	padding-top: 8px;
-}
-
 // Small variant
 .#{$ns}-toggle-small .#{$ns}-toggle--label {
 	padding-bottom: 4px; // 5px leads to a height of 31px
@@ -32,11 +24,6 @@
 .#{$ns}-toggle-small .#{$ns}-toggle--label,
 .#{$ns}-toggle-small .#{$ns}-toggle-option {
 	min-height: $xui-input-height-small;
-}
-
-.#{$ns}-toggle-form-layout .#{$ns}-toggle-option,
-.#{$ns}-toggle-form-layout .#{$ns}-toggle--label {
-	flex-grow: 1;
 }
 
 // Base toggle

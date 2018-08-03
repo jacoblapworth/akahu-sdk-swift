@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-building-blocks-identifiers-avatar.html">Avatar in the XUI Documentation</a>
+		<a href="../section-building-blocks-identifiers-avatar.html" isDocLink>Avatar in the XUI Documentation</a>
 </div>
 
 Avatars come in two variants: Circular, used to represent people, and Rectangular, used to represent businesses. Both variants support the use of images.

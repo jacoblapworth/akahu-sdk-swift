@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-building-blocks-controls-select.html">Select Box in the XUI Documentation</a>
+	<a href="../section-building-blocks-controls-select.html" isDocLink>Select Box in the XUI Documentation</a>
 </div>
 
 `SelectBox` is an opinionated component which wraps [`DropDown`](#dropdown) and [`DropDownToggled`](#dropdowntoggled). It's designed as a simple alternative to using an HTML `<select />`. If you need more fine grained control or other behaviour you should use the suite of [`DropDown`](#dropdown) components directly.
@@ -60,7 +57,7 @@ class SelectBoxExample extends Component {
 				<SelectBox
 					ref={c => this.selectOne = c}
 					name="selectOne"
-					label="Select a Bank"
+					labelText="Select a Bank"
 					buttonContent={
 						<span>
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>
@@ -128,7 +125,7 @@ class MiniApp extends Component {
 				ref={c => this.isMultiselect = c}
 				name="isMultiselect"
 				buttonContent={TextHelpers.getText(MiniApp.state.selectedBoats, 'Choose a few boats')}
-				label="Select Several Boats"
+				labelText="Select Several Boats"
 				closeAfterSelection={false}
 				onSelect={MiniApp.onBoatSelect}
 			>
@@ -199,7 +196,7 @@ class MiniApp extends Component {
 				<SelectBox
 					ref={c => this.selectOne = c}
 					name="selectOne"
-					label="Select a Bank"
+					labelText="Select a Bank"
 					buttonContent={
 						<span>
 							<XUIIcon icon={bank} className="xui-margin-right-xsmall"/>

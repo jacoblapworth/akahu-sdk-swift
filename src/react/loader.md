@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-	<a href="../section-building-blocks-identifiers-loader.html">Loader in the XUI Documentation</a>
+	<a href="../section-building-blocks-identifiers-loader.html" isDocLink>Loader in the XUI Documentation</a>
 </div>
 
 ## Examples
@@ -11,10 +8,10 @@
 
 `XUILoader` is given a layout class by default. This is good for putting in large empty states, like panels, while loading data.
 
-We recommend using the `label` prop to provide information to screen readers.
+We recommend using the `ariaLabel` prop to provide information to screen readers.
 
 ```
-<XUILoader label="Loading more data" />
+<XUILoader ariaLabel="Loading more data" />
 ```
 ### Disabled Layout
 

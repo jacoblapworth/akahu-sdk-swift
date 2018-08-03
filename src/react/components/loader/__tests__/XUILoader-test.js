@@ -8,33 +8,33 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('XUILoader', function () {
 	it('should render with an aria label describing its purpose', function () {
 		const testString = 'Something is loading, please wait';
-		const wrapper = mount(<XUILoader label={testString} />);
+		const wrapper = mount(<XUILoader ariaLabel={testString} />);
 		expect(wrapper.getDOMNode().getAttribute('aria-label')).toEqual(testString);
 	});
 
 	it('should add extra classes when defined', function () {
 		const testClass = 'test-class';
-		const wrapper = mount(<XUILoader className={testClass} label="Something is loading, please wait" />);
+		const wrapper = mount(<XUILoader className={testClass} ariaLabel="Something is loading, please wait" />);
 		expect(wrapper.getDOMNode().classList.contains(testClass)).toBeTruthy();
 	});
 
 	it('should add the layout class by default', function () {
 		const testClass = 'test-class';
-		const wrapper = mount(<XUILoader className={testClass} label="Something is loading, please wait" />);
+		const wrapper = mount(<XUILoader className={testClass} ariaLabel="Something is loading, please wait" />);
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeTruthy();
 	});
 
 	it('should not add the layout class if `defaultLayout` is set to `false`', function () {
-		const wrapper = mount(<XUILoader defaultLayout={false} label="Something is loading, please wait" />);
+		const wrapper = mount(<XUILoader defaultLayout={false} ariaLabel="Something is loading, please wait" />);
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeFalsy();
 	});
 
 	it('should add appropriate size classes', function () {
 		const wrapper = mount(
 			<div>
-				<XUILoader label="Something is loading, please wait" />
-				<XUILoader size="small" label="Something is loading, please wait" />
-				<XUILoader size="large" label="Something is loading, please wait" />
+				<XUILoader ariaLabel="Something is loading, please wait" />
+				<XUILoader size="small" ariaLabel="Something is loading, please wait" />
+				<XUILoader size="large" ariaLabel="Something is loading, please wait" />
 			</div>
 		);
 
@@ -48,7 +48,7 @@ describe('XUILoader', function () {
 		const wrapper = mount(
 			<XUILoader
 				isInverted={true}
-				label="Something is loading, please wait" />
+				ariaLabel="Something is loading, please wait" />
 		);
 
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-inverted')).toBeTruthy();
@@ -58,7 +58,7 @@ describe('XUILoader', function () {
 		const wrapper = mount(
 			<XUILoader
 				retainLayout={true}
-				label="Something is loading, please wait" />
+				ariaLabel="Something is loading, please wait" />
 		);
 		expect(wrapper.getDOMNode().classList.contains('xui-loader-retain-layout')).toBeTruthy();
 	});

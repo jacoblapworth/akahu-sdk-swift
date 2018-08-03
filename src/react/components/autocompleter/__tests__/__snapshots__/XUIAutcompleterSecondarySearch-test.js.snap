@@ -52,14 +52,14 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
 </div>
 `;
 
-exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input when a value is passed to the inputId prop 1`] = `
+exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown node when passed in the id prop 1`] = `
 <div
   className={undefined}
   data-automationid={null}
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns="test-id"
     className="xui-u-fullwidth"
     data-automationid={undefined}
     data-ref="toggled-wrapper"
@@ -67,7 +67,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
   >
     <button
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls="test-id"
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -78,7 +78,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
 </div>
 `;
 
-exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the root node when passed in the id prop 1`] = `
+exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input when a value is passed to the inputId prop 1`] = `
 <div
   className={undefined}
   data-automationid={null}

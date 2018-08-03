@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-			<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-		</svg>
-		<a href="../section-building-blocks-identifiers-progressindicator.html">Progress Indicator in the XUI Documentation</a>
+	<a href="../section-building-blocks-identifiers-progressindicator.html" isDocLink>Progress Indicator in the XUI Documentation</a>
 </div>
 
 The Progress Indicator comes in two main variants (**Circular**, **Linear**). They are isolated as individual components `import { XUIProgressCircular, XUIProgressLinear } from '@xero/xui/react/progressindicator';`.

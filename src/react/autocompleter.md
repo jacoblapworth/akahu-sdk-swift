@@ -1,8 +1,5 @@
 <div class="xui-margin-vertical">
-	<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue">
-		<use xlink:href="#xui-icon-bookmark" role="presentation"/>
-	</svg>
-	<a href="../section-compounds-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
+	<a isDocLink href="../section-compounds-collectinginput-autocompleter.html">Autocompleter in the XUI Documentation</a>
 </div>
 `XUIAutocompleter` is a component that composes many other components together. It's an input where users can type to filter a list of items to select.
 
@@ -12,24 +9,19 @@ Refer to the following sections of the XUI Documentation for more information ab
 
 <div class="xui-margin-vertical">
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#text-input">Text Input</a></span>
+		<a href="#text-input" isDocLink>Text Input</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#avatar">Avatar</a></span>
+		<a href="#avatar" isDocLink>Avatar</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#dropdown">Dropdown</a></span>
+		<a href="#dropdown" isDocLink>Dropdown</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#pill">Pill</a></span>
+		<a href="#pill" isDocLink>Pill</a>
 	</div>
 	<div>
-		<svg focusable="false" class="xui-icon xui-icon-inline xui-blobicon xui-blobicon-large xui-icon-color-blue"> <use xlink:href="#xui-icon-bookmark" role="presentation"/></svg>
-		<span><a href="#tag">Tag</a></span>
+		<a href="#tag" isDocLink>Tag</a>
 	</div>
 </div>
 

@@ -25,23 +25,14 @@ function setQaHook(propsQaHook, suffix) {
 }
 
 export default class SelectBox extends Component {
-	constructor(props) {
-		super(props);
-		const selectBox = this;
 
-		selectBox.state = {
-			ariaId: props.ariaId || uuidv4()
-		};
+	selectId = this.props.id || uuidv4();
 
-		selectBox.isDropDownOpen = selectBox.isDropDownOpen.bind(selectBox);
-		selectBox.onLabelClick = selectBox.onLabelClick.bind(selectBox);
-	}
-
-	isDropDownOpen() {
+	isDropDownOpen = () => {
 		return !!this.ddt && this.ddt.isDropDownOpen();
 	}
 
-	onLabelClick() {
+	onLabelClick = () => {
 		this.trigger.focus();
 	}
 
@@ -60,9 +51,9 @@ export default class SelectBox extends Component {
 		);
 		const labelClasses = cn(
 			`${ns}-text-label`,
-			props.labelClasses,
+			props.labelClassName,
 			props.defaultLayout && `${ns}-fieldlabel-layout`,
-			props.labelHidden && `${ns}-u-hidden-visually`
+			props.islabelHidden && `${ns}-u-hidden-visually`
 		);
 		const dropDownClasses = props.dropDownClasses;
 		const caretClasses = !props.buttonVariant ? `${ns}-select--caret` : '';
@@ -78,6 +69,7 @@ export default class SelectBox extends Component {
 				ref={c => selectBox.trigger = c}
 				variant={props.buttonVariant}
 				qaHook={setQaHook(props.qaHook, qaHooks.button)}
+				isDisabled={props.isDisabled}
 			>
 				{content}
 				<XUIButtonCaret className={caretClasses} title="Toggle List" qaHook={setQaHook(props.qaHook, qaHooks.buttonIcon)}/>
@@ -90,6 +82,7 @@ export default class SelectBox extends Component {
 				onSelect={props.onSelect}
 				qaHook={setQaHook(props.qaHook, qaHooks.dropdown)}
 				restrictFocus={props.restrictFocus}
+				id={selectBox.selectId}
 			>
 				<Picklist>
 					{props.children}
@@ -100,12 +93,12 @@ export default class SelectBox extends Component {
 		return (
 			<div data-automationid={props.qaHook} className={containerClasses}>
 				<label className={labelClasses}
-					htmlFor={selectBox.state.ariaId}
+					htmlFor={selectBox.selectId}
 					onClick={selectBox.onLabelClick}
 					data-automationid={setQaHook(props.qaHook, qaHooks.label)}
 					role="presentation"
 				>
-					{props.label}
+					{props.labelText}
 				</label>
 				<div className={inputGroupClasses} data-automationid={setQaHook(props.qaHook, qaHooks.inputGroup)}>
 					{
@@ -116,7 +109,6 @@ export default class SelectBox extends Component {
 									ref={c => selectBox.ddt = c}
 									trigger={trigger}
 									dropdown={dropdown}
-									id={selectBox.state.ariaId}
 									onClose={props.onDropdownHide}
 									closeOnSelect={props.closeAfterSelection}
 									isHidden={!props.isOpen}
@@ -135,13 +127,13 @@ export default class SelectBox extends Component {
 
 SelectBox.propTypes = {
 	/** Input Label */
-	label: PropTypes.string.isRequired,
+	labelText: PropTypes.string.isRequired,
 
 	/** Additional classes to be applied to the label */
-	labelClasses: PropTypes.string,
+	labelClassName: PropTypes.string,
 
 	/** Input Label visibility */
-	labelHidden: PropTypes.bool,
+	islabelHidden: PropTypes.bool,
 
 	/** When a selection is made, close the dropdown */
 	closeAfterSelection: PropTypes.bool,
@@ -176,6 +168,9 @@ SelectBox.propTypes = {
 	/** The XUI button variant to use as a trigger for the select box */
 	buttonVariant: PropTypes.string,
 
+	/** Whether the button trigger and functionality are disabled */
+	isDisabled: PropTypes.bool,
+
 	/** Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,
 
@@ -194,12 +189,12 @@ SelectBox.propTypes = {
 	/** Whether focus should be restricted to the dropdown while it's open. */
 	restrictFocus: PropTypes.bool,
 
-	/** Used primarily to associate a label with it's matched content. If none is provide it's automatically generated. */
-	ariaId: PropTypes.string
+	/** ID to apply to the dropdown. Used primarily to associate a label with it's matched content. If none is provided it's automatically generated. */
+	id: PropTypes.string
 };
 
 SelectBox.defaultProps = {
-	labelHidden: false,
+	islabelHidden: false,
 	closeAfterSelection: true,
 	defaultLayout: true,
 	isOpen: false,

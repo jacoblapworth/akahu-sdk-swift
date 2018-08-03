@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
@@ -31,8 +31,16 @@ class XUIInnerPill extends PureComponent {
 			`${ns}-pill--content`,
 			!href && `${ns}-pill--button`
 		);
+		const innerPillQaHook = qaHook && `${qaHook}--inner`;
+		const contents = (
+			<Fragment>
+				{avatarEl}
+				{secondaryTextEl}
+				{valueEl}
+			</Fragment>
+		);
 
-		return (
+		return (href || onClick) ? (
 			<XUIButton
 				className={className}
 				isLink={!!href}
@@ -41,12 +49,14 @@ class XUIInnerPill extends PureComponent {
 				title={title}
 				variant="unstyled"
 				onClick={onClick}
-				qaHook={qaHook && `${qaHook}--inner`}
+				qaHook={innerPillQaHook}
 			>
-				{avatarEl}
-				{secondaryTextEl}
-				{valueEl}
+				{contents}
 			</XUIButton>
+		): (
+			<span className={className} data-automationid={innerPillQaHook}>
+				{contents}
+			</span>
 		);
 	}
 }

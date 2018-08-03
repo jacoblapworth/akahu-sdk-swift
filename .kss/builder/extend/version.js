@@ -20,7 +20,7 @@ module.exports = function(handlebars) {
 		return new handlebars.SafeString(`<script src="${xuiIconLoader}"></script>`);
 	});
 
-	handlebars.registerHelper('injectXuiIconLoaderExample', function() {
+	handlebars.registerHelper('injectXUIIconLoaderExample', function() {
 		this.description = this.description.replace('@xuiIconLoaderURL', `<code>&lt;script src=&quot;${xuiIconLoader}&quot;&gt;&lt;/script&gt;</code>`);
 	});
 }

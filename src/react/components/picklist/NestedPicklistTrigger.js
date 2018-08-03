@@ -7,7 +7,7 @@ import {ns} from "../helpers/xuiClassNamespace";
 
 export default class NestedPicklistTrigger extends PureComponent {
 	render() {
-		const { className, qaHook, isHighlighted, onClick, onMouseOver, children, isSelected, secondaryProps } = this.props;
+		const { className, qaHook, isHighlighted, onClick, onMouseOver, children, isSelected, ariaLabel, secondaryProps } = this.props;
 		const { id } = this.context;
 		const hasChildren = children && (typeof children !== 'string' || children.trim().length > 0);
 		const classNames = cn(
@@ -31,6 +31,7 @@ export default class NestedPicklistTrigger extends PureComponent {
 				// TODO: fix this overall interaction between the label and checkbox in NestedPicklistContainer.js
 				role="button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
 				tabIndex={0}
+				aria-label={ariaLabel}
 				{...secondaryProps}
 			>
 				{hasChildren ? <label className={`${ns}-pickitem--text`}>{children}</label> : null}
@@ -49,15 +50,16 @@ NestedPicklistTrigger.propTypes = {
 	isSelected: PropTypes.bool,
 	onClick: PropTypes.func,
 	onMouseOver: PropTypes.func,
+	ariaLabel: PropTypes.string,
 	secondaryProps: PropTypes.object
 };
 
 NestedPicklistTrigger.defaultProps = {
 	split: false,
 	isHighlighted: false,
+	ariaLabel: 'Toggle submenu',
 	secondaryProps: {
-		"aria-label": "Toggle submenu",
-		"role": "button"
+		role: "button"
 	},
 	/*
 	 DO NOT REMOVE

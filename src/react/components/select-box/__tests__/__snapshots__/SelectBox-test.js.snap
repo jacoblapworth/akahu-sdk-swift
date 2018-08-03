@@ -8,7 +8,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
   <label
     className="xui-text-label xui-fieldlabel-layout"
     data-automationid="test-selectbox---label"
-    htmlFor="test"
+    htmlFor="testThisSelect"
     onClick={[Function]}
     role="presentation"
   >
@@ -20,7 +20,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
   >
     <div
       aria-expanded={undefined}
-      aria-owns="testDropdownId"
+      aria-owns="testThisSelect"
       className={undefined}
       data-automationid="test-selectbox---dropdowntoggled"
       data-ref="toggled-wrapper"
@@ -28,7 +28,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
     >
       <button
         aria-activedescendant={null}
-        aria-controls="testDropdownId"
+        aria-controls="testThisSelect"
         aria-haspopup="listbox"
         className="xui-button xui-select--button xui-button-standard"
         data-automationid="test-selectbox---button"
@@ -46,6 +46,71 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
         <svg
           className="xui-icon xui-select--caret xui-button--caret xui-icon-inline"
           data-automationid="test-selectbox---button-icon"
+          focusable="false"
+          height={5}
+          viewBox="0 0 10 5"
+          width={10}
+        >
+          <title>
+            Toggle List
+          </title>
+          <path
+            d="M0 0l5 5 5-5z"
+            role="presentation"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SelectBox should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
+<div
+  className=""
+  data-automationid={undefined}
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={null}
+    htmlFor="testDropdownId"
+    onClick={[Function]}
+    role="presentation"
+  >
+    test
+  </label>
+  <div
+    className="xui-select-layout"
+    data-automationid={null}
+  >
+    <div
+      aria-expanded={undefined}
+      aria-owns="testDropdownId"
+      className={undefined}
+      data-automationid={null}
+      data-ref="toggled-wrapper"
+      role="presentation"
+    >
+      <button
+        aria-activedescendant={null}
+        aria-controls="testDropdownId"
+        aria-haspopup="listbox"
+        className="xui-button xui-select--button xui-button-standard xui-button-is-disabled"
+        data-automationid={null}
+        disabled={true}
+        onClick={[Function]}
+        onKeyDown={null}
+        tabIndex={-1}
+        type="button"
+      >
+        <span
+          className="xui-select--content"
+        >
+          test
+        </span>
+        <svg
+          className="xui-icon xui-select--caret xui-button--caret xui-icon-inline"
+          data-automationid={null}
           focusable="false"
           height={5}
           viewBox="0 0 10 5"

@@ -17,7 +17,7 @@
 // To include these, you will need to import the icons into your page using the following script, and then reference their name via the `xlink:href` attribute.
 // If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>XUI icon repository</a>.
 //
-// @xuiIconLoaderUrl
+// @xuiIconLoaderURL
 //
 // Definitions:
 // Class: Apply to `<svg>` tag: `.xui-icon`
@@ -30,7 +30,7 @@
 // Icons are available in a number of sizes.
 // The default size is optimised for use inside buttons and form controls.
 // The additional sizes are intended mainly for read only contexts such as empty states or success screens.
-// To define size, use the following modifiers.
+// If using the `iconLoader` script mentioned above, adding the following classes will modify the scale of the icons added to your page.
 //
 // Definitions:
 // Default: Standard scale: none

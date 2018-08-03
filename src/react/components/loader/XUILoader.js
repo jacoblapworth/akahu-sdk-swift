@@ -17,7 +17,7 @@ const XUILoader = (props) => {
 	);
 
 	return (
-		<div data-automationid={props.qaHook} className={className} role="progressbar" aria-label={props.label}>
+		<div data-automationid={props.qaHook} className={className} role="progressbar" aria-label={props.ariaLabel}>
 			{dot}{dot}{dot}
 		</div>
 	);
@@ -31,7 +31,7 @@ XUILoader.propTypes = {
 	qaHook: PropTypes.string,
 
 	/** adds aria-label to the loader wrapping div */
-	label: PropTypes.string,
+	ariaLabel: PropTypes.string,
 
 	/** Defaults to `true`. Sets the default layout class on the loader wrapping div */
 	defaultLayout: PropTypes.bool,
@@ -49,7 +49,7 @@ XUILoader.propTypes = {
 XUILoader.defaultProps = {
 	defaultLayout: true,
 	size: 'standard',
-	label: 'Loading'
+	ariaLabel: 'Loading'
 };
 
 export default XUILoader;

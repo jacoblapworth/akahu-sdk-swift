@@ -93,7 +93,7 @@ export default class DropDownToggled extends PureComponent {
 		};
 	}
 
-	dropdownId = this.dropdown && this.dropdown.props.id || uuidv4();
+	dropdownId = this.props.dropdown && this.props.dropdown.props.id || uuidv4();
 
 	/**
 	 * Attaches the event listeners based on state.

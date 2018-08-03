@@ -35,6 +35,12 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'is disabled',
+		isDisabled: true,
+		isOpen: false
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with no default layout',
 		defaultLayout: false,
 		isOpen: false

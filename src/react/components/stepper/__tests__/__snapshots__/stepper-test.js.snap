@@ -967,11 +967,13 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-progress"
               >
                 <XUIProgressCircular
+                  ariaLabel="Standard"
                   id="myCustomStepperId-tab-0"
                   progress={3}
                   total={5}
                 >
                   <ProgressWrapper
+                    ariaLabel="Standard"
                     ariaMax={5}
                     ariaMin={0}
                     ariaNow={3}
@@ -988,6 +990,8 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     total={5}
                   >
                     <div
+                      aria-label="Standard"
+                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
@@ -1143,11 +1147,13 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-progress"
               >
                 <XUIProgressCircular
+                  ariaLabel="Standard"
                   id="myCustomStepperId-tab-1"
                   progress={3}
                   total={5}
                 >
                   <ProgressWrapper
+                    ariaLabel="Standard"
                     ariaMax={5}
                     ariaMin={0}
                     ariaNow={3}
@@ -1164,6 +1170,8 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     total={5}
                   >
                     <div
+                      aria-label="Standard"
+                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
@@ -1324,11 +1332,13 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-progress"
               >
                 <XUIProgressCircular
+                  ariaLabel="Error"
                   id="myCustomStepperId-tab-2"
                   progress={3}
                   total={5}
                 >
                   <ProgressWrapper
+                    ariaLabel="Error"
                     ariaMax={5}
                     ariaMin={0}
                     ariaNow={3}
@@ -1345,6 +1355,8 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     total={5}
                   >
                     <div
+                      aria-label="Error"
+                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}
@@ -1502,11 +1514,13 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                 className="xui-stepper-link-progress"
               >
                 <XUIProgressCircular
+                  ariaLabel="Error"
                   id="myCustomStepperId-tab-3"
                   progress={3}
                   total={5}
                 >
                   <ProgressWrapper
+                    ariaLabel="Error"
                     ariaMax={5}
                     ariaMin={0}
                     ariaNow={3}
@@ -1523,6 +1537,8 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
                     total={5}
                   >
                     <div
+                      aria-label="Error"
+                      aria-labelledby={undefined}
                       aria-valuemax={5}
                       aria-valuemin={0}
                       aria-valuenow={3}

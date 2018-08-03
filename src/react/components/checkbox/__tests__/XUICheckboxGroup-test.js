@@ -44,24 +44,24 @@ describe('XUICheckboxGroup', function() {
 	// className property (additional classes)
 	it('should use additional classes if provided', function () {
 		const wrapper = mount(<XUICheckboxGroup className="dogs-are-totes-patotes" />);
-
-		expect(wrapper.getDOMNode().getAttribute('class')).toEqual(expect.stringContaining('dogs-are-totes-patotes'));
+		expect(wrapper.find('.dogs-are-totes-patotes.xui-styledcheckboxradio-group')).toHaveLength(1);
 	});
 
 	// qaHook property
 	it('should have a qaHook if provided', function () {
 		const wrapper = mount(<XUICheckboxGroup qaHook="cheese-and-crackers" />);
 
-		expect(wrapper.getDOMNode().getAttribute('data-automationid')).toEqual(expect.stringContaining('cheese-and-crackers'));
+		expect(wrapper.find('[data-automationid="cheese-and-crackers"]')).toHaveLength(1);
 	});
 
-	it('should include a visible label, provided a label and flagged to show', () => {
-		const labelTest = mount(<XUICheckboxGroup groupLabel="Birds" isLabelHidden={false} />);
+	it('should include a visible label', () => {
+		const labelTest = mount(<XUICheckboxGroup groupLabel="Birds" />);
 		expect(labelTest.find('.xui-text-label')).toHaveLength(1);
 	});
 
-	it('should include a hidden ARIA label, provided a label only', () => {
-		const hiddenLabelTest = mount(<XUICheckboxGroup groupLabel="Birds" />);
-		expect(hiddenLabelTest.getDOMNode().getAttribute('aria-label')).toEqual(expect.stringContaining('Birds'));
+	it('should include a hidden ARIA label, if provided a label and flagged to hide', () => {
+		const testLabel = "Birds";
+		const hiddenLabelTest = mount(<XUICheckboxGroup groupLabel={testLabel} isLabelHidden />);
+		expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
 	});
 });

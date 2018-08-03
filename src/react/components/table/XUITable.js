@@ -180,7 +180,7 @@ class XUITable extends Component {
 
 				{isLoading && (
 					<TableAlert qaHook={qaHook && `${qaHook}-loader`}>
-						<XUILoader label={ loaderLabel } />
+						<XUILoader ariaLabel={ loaderLabel } />
 					</TableAlert>
 				)}
 

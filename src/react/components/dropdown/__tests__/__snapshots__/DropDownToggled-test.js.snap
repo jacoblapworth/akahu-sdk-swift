@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1`] = `
+exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id and manually set ID 1`] = `
 <div
   aria-expanded={undefined}
-  aria-owns="testDropdownId"
+  aria-owns="gday"
   className={undefined}
   data-automationid="ddt-example"
   data-ref="toggled-wrapper"
@@ -11,7 +11,7 @@ exports[`<DropDownToggled /> should render a passed qaHook as an auotmation id 1
 >
   <button
     aria-activedescendant={null}
-    aria-controls="testDropdownId"
+    aria-controls="gday"
     aria-haspopup="listbox"
     className="xui-button xui-button-standard"
     onClick={[Function]}

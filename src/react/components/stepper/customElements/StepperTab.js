@@ -41,6 +41,7 @@ export default class StepperTab extends PureComponent {
 								id={id}
 								total={totalProgress}
 								progress={currentProgress}
+								ariaLabel={name}
 							/>
 						</div>
 

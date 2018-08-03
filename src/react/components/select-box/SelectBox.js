@@ -25,23 +25,14 @@ function setQaHook(propsQaHook, suffix) {
 }
 
 export default class SelectBox extends Component {
-	constructor(props) {
-		super(props);
-		const selectBox = this;
 
-		selectBox.state = {
-			ariaId: props.id || uuidv4()
-		};
+	selectId = this.props.id || uuidv4();
 
-		selectBox.isDropDownOpen = selectBox.isDropDownOpen.bind(selectBox);
-		selectBox.onLabelClick = selectBox.onLabelClick.bind(selectBox);
-	}
-
-	isDropDownOpen() {
+	isDropDownOpen = () => {
 		return !!this.ddt && this.ddt.isDropDownOpen();
 	}
 
-	onLabelClick() {
+	onLabelClick = () => {
 		this.trigger.focus();
 	}
 
@@ -91,6 +82,7 @@ export default class SelectBox extends Component {
 				onSelect={props.onSelect}
 				qaHook={setQaHook(props.qaHook, qaHooks.dropdown)}
 				restrictFocus={props.restrictFocus}
+				id={selectBox.selectId}
 			>
 				<Picklist>
 					{props.children}
@@ -101,7 +93,7 @@ export default class SelectBox extends Component {
 		return (
 			<div data-automationid={props.qaHook} className={containerClasses}>
 				<label className={labelClasses}
-					htmlFor={selectBox.state.ariaId}
+					htmlFor={selectBox.selectId}
 					onClick={selectBox.onLabelClick}
 					data-automationid={setQaHook(props.qaHook, qaHooks.label)}
 					role="presentation"
@@ -117,7 +109,6 @@ export default class SelectBox extends Component {
 									ref={c => selectBox.ddt = c}
 									trigger={trigger}
 									dropdown={dropdown}
-									id={selectBox.state.ariaId}
 									onClose={props.onDropdownHide}
 									closeOnSelect={props.closeAfterSelection}
 									isHidden={!props.isOpen}
@@ -198,7 +189,7 @@ SelectBox.propTypes = {
 	/** Whether focus should be restricted to the dropdown while it's open. */
 	restrictFocus: PropTypes.bool,
 
-	/** Used primarily to associate a label with it's matched content. If none is provided it's automatically generated. */
+	/** ID to apply to the dropdown. Used primarily to associate a label with it's matched content. If none is provided it's automatically generated. */
 	id: PropTypes.string
 };
 

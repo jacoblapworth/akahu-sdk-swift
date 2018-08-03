@@ -36,12 +36,12 @@ const toggleOptions = [
 	},
 ];
 storiesWithKnobs.add('Playground', () => (
-	<div style={{width:'500px'}}>
+	<div style={{ width: '500px' }}>
 		<XUIToggle
 			color={select('color', Object.keys(colorMap), 'standard')}
-			layout={boolean('full-width?', false) ? 'fullwidth': undefined}
-			variant={boolean('small?', false) ? 'small': undefined}
-			secondaryProps={{'aria-label': 'test label'}}
+			layout={boolean('full-width?', false) ? 'fullwidth' : undefined}
+			variant={boolean('small?', false) ? 'small' : undefined}
+			secondaryProps={{ 'aria-label': 'test label' }}
 		>
 			{buildOptions(toggleOptions)}
 		</XUIToggle>
@@ -60,14 +60,14 @@ variations.forEach(variation => {
 		delete variationMinusStoryDetails.storyTitle;
 		const attrs = {
 			isInverted: variationMinusStoryDetails.color == 'inverted',
-			style: {width:"500px"}
+			style: { width: "500px" }
 		};
-		return <ExampleContainer { ...attrs} ><XUIToggle {...variationMinusStoryDetails}>{buildOptions(options)}</XUIToggle></ExampleContainer >;
-		
+		return <ExampleContainer {...attrs} ><XUIToggle {...variationMinusStoryDetails}>{buildOptions(options)}</XUIToggle></ExampleContainer >;
+
 	});
 });
 
-const buildOptions = function(options) {
+const buildOptions = function (options) {
 	return options.map((option, index) => {
 		option.onChange = NOOP;
 		return <XUIToggleOption key={index} {...option}>{option.value}</XUIToggleOption>;

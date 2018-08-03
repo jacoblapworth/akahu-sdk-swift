@@ -92,6 +92,16 @@ const config = {
 		"**/__tests__/**"
 	],
 	sections: componentSections,
+	template: {
+		head: {
+			links: [
+				{
+					rel: 'stylesheet',
+					href: '../dist/xui.css'
+				}
+			]
+		}
+	},
 	getComponentPathLine(componentPath) {
 		let name = path.basename(componentPath, '.js');
 		const dir = path.dirname(componentPath).split('/').pop();

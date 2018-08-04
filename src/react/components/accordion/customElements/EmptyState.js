@@ -20,6 +20,6 @@ export default class XUIAccordionItemEmptyState extends PureComponent {
 
 XUIAccordionItemEmptyState.propTypes = {
 	qaHook: PropTypes.string,
-	emptyIcon: PropTypes.string,
+	emptyIcon: PropTypes.object,
 	children: PropTypes.node,
 };

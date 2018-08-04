@@ -5,7 +5,6 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
   aria-label="Pagination"
   className="xui-chart--pagination"
   data-automationid="myChart--pagination"
-  role="navigation"
 >
   <button
     className="xui-button xui-button-icon xui-button-icon-large"
@@ -63,7 +62,6 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
   aria-label="Pagination"
   className="xui-chart--pagination"
   data-automationid="myChart--pagination"
-  role="navigation"
 >
   <button
     className="xui-button xui-button-icon xui-button-icon-large xui-button-is-disabled"

@@ -1,6 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIAccordion /> associate items to a custom key 1`] = `null`;
+exports[`<XUIAccordion /> associate items to a custom key 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-accordionwrapper-new"
+    data-automationid={undefined}
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new"
+      data-automationid={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        >
+          <div
+            className="xui-accordiontrigger-new--primaryheading"
+          >
+            John Smith
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content"
+    />
+  </div>
+</div>
+`;
 
 exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
 <div
@@ -101,14 +166,15 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
             data-automationid={undefined}
             focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
           >
             <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
             />
           </svg>
@@ -165,14 +231,15 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
             data-automationid={undefined}
             focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
           >
             <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
             />
           </svg>
@@ -194,14 +261,15 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
         data-automationid={undefined}
       >
         <svg
-          className="xui-icon xui-icon-large"
+          className="xui-icon xui-icon-inline"
           data-automationid={undefined}
           focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          height={13.333333333333332}
+          viewBox="0 0 12 10"
+          width={16}
         >
           <path
-            d="M13,10 L21,10 L21,12 L13,12 L13,10 Z M9,10 L11,10 L11,12 L9,12 L9,10 Z M9,14 L11,14 L11,16 L9,16 L9,14 Z M13,14 L21,14 L21,16 L13,16 L13,14 Z M13,18 L21,18 L21,20 L13,20 L13,18 Z M9,18 L11,18 L11,20 L9,20 L9,18 Z"
+            d="M4 0h8v2H4V0zM0 0h2v2H0V0zm0 4h2v2H0V4zm4 0h8v2H4V4zm0 4h8v2H4V8zM0 8h2v2H0V8z"
             role="presentation"
           />
         </svg>
@@ -336,14 +404,15 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180"
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
             data-automationid={undefined}
             focusable="false"
-            style={null}
-            viewBox="0 0 30 30"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
           >
             <path
-              d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
             />
           </svg>
@@ -365,14 +434,15 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
         data-automationid={undefined}
       >
         <svg
-          className="xui-icon xui-icon-large"
+          className="xui-icon xui-icon-inline"
           data-automationid={undefined}
           focusable="false"
-          style={null}
-          viewBox="0 0 30 30"
+          height={13.333333333333332}
+          viewBox="0 0 12 10"
+          width={16}
         >
           <path
-            d="M13,10 L21,10 L21,12 L13,12 L13,10 Z M9,10 L11,10 L11,12 L9,12 L9,10 Z M9,14 L11,14 L11,16 L9,16 L9,14 Z M13,14 L21,14 L21,16 L13,16 L13,14 Z M13,18 L21,18 L21,20 L13,20 L13,18 Z M9,18 L11,18 L11,20 L9,20 L9,18 Z"
+            d="M4 0h8v2H4V0zM0 0h2v2H0V0zm0 4h2v2H0V4zm4 0h8v2H4V4zm0 4h8v2H4V8zM0 8h2v2H0V8z"
             role="presentation"
           />
         </svg>

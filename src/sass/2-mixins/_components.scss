@@ -1,6 +1,7 @@
 @import "../vars";
 
 @mixin xui-input-base {
+	appearance: none; // For removing default input styling in Safari
 	background-color: transparent;
 	border-radius: $xui-radius;
 	color: inherit;

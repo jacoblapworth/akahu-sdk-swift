@@ -92,6 +92,16 @@ export default class XUITooltip extends PureComponent {
 		}
 	};
 
+	componentDidMount = () => {
+		const { trigger } = this;
+		const rootNode = trigger && (trigger.rootNode || trigger.inputNode) || trigger;
+		if (!rootNode) {
+			return;
+		}
+		const { display } = window.getComputedStyle(rootNode);
+		this.triggerIsInline = /inline/.test(display);
+	};
+
 	render() {
 		const {
 			children,
@@ -101,6 +111,7 @@ export default class XUITooltip extends PureComponent {
 			wrapperClassName,
 			isDisabled,
 			triggerOnFocus,
+			triggerOnBlur,
 			triggerOnClick,
 			triggerOnHover,
 		} = this.props;
@@ -118,6 +129,8 @@ export default class XUITooltip extends PureComponent {
 		const wrapperClasses = cn(
 			wrapperClassName,
 			baseClass,
+			this.state.isFocused && `${ns}-has-focused-trigger`,
+			this.triggerIsInline && `${ns}-has-inline-trigger`,
 			isDisabled && `${ns}-is-disabled`,
 			!isHidden && `${baseClass}-tipopen`,
 			isAnimating && `${baseClass}-tipanimating`
@@ -142,7 +155,7 @@ export default class XUITooltip extends PureComponent {
 				trigger.props.onKeyDown :
 				(triggerOnClick && this.onTriggerKeyDown) || undefined,
 			'onFocus': compose(trigger.props.onFocus, () => {this.setState({isFocused: true})}),
-			'onBlur': compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}),
+			'onBlur': triggerOnBlur ? compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}) : undefined,
 			'onMouseOver': triggerOnHover ? this.openTooltip : undefined,
 			'onMouseOut': triggerOnHover && ignoreFocus ? this.closeTooltip : undefined,
 			'aria-describedby': this.tooltipId

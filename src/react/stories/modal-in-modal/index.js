@@ -94,6 +94,7 @@ class Example2 extends Component {
 								dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
 								isHidden={false}
 								repositionOnScroll={true}
+								isLegacyDisplay={false}
 							/>
 						</div>
 					</XUIModalBody>

@@ -19,12 +19,11 @@ exports[`<XUIToastAction /> should render a custom href because it's a link 1`] 
   className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
   data-automationid={undefined}
   disabled={false}
-  href="javascript:void(0)"
+  href="https://www.xero.com"
   onClick={[Function]}
   onKeyDown={undefined}
   onKeyPress={[Function]}
   rel={undefined}
-  role="button"
   tabIndex={0}
   target={undefined}
 >

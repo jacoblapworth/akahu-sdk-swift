@@ -67,12 +67,12 @@ const createTriggerIcon = () => {
 };
 
 const createTriggerSpan = () => {
-	return <span style={{textDecoration: "underline"}}>look at what we have</span>;
+	return <span style={{textDecoration: "underline"}}>Beauty is everywhere</span>;
 };
 
 const createParaWithInlineTrigger = (props) => {
 	return (
-		<p style={{marginTop: 0}}>So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You can just push a little tree out of your brush like that. Look around, <XUITooltip trigger={createTriggerSpan()} {...props}>Inline triggers</XUITooltip>. Beauty is everywhere, you only have to look to see it.</p>
+		<p style={{marginTop: 0}}>So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You can just push a little tree out of your brush like that. Look around, look at what we have. <XUITooltip trigger={createTriggerSpan()} {...props}>Inline triggers</XUITooltip>, you only have to look to see it.</p>
 	);
 };
 

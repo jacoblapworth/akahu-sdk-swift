@@ -1,4 +1,4 @@
-export const alwaysPositive = value => Math.max(0, value) || 0;
+export const forceValuePositive = value => Math.sqrt(value * value) || 0;
 
 export const testIsCloseEnough = (next, previous, threshold = 2) => (
 	next > previous - threshold && next < previous + threshold
@@ -17,8 +17,8 @@ export const createChartPadding = ({xAxisHeight, yAxisWidth}) => ({
 	right: 2
 });
 
-export const pause = (items, callback) => {
+export const pause = (shouldUpdate, items, callback) => {
 	const min = items.length || 1 * 10;
 	const max = 1000;
-	setTimeout(callback, Math.min(min, max));
+	setTimeout(callback, shouldUpdate() && Math.min(min, max));
 }

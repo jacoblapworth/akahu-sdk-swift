@@ -15,6 +15,7 @@ export default function XUIToastAction({
 		<XUIButton
 			{...props}
 			isLink={!!href}
+			href={href}
 			variant="link"
 			size="small"
 			className={cn(className, `${baseClass}--action`)}

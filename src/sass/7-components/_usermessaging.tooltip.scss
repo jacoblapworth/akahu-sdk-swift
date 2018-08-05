@@ -112,13 +112,19 @@
 .#{$ns}-tooltip {
 	cursor: pointer;
 	display: inline-block;
-	line-height: .75; // Inline blocks include extra space at the bottom to allow for character descenders.
-	// We need to account for (remove) this extra height for the purpose of vertical alignment.
 	overflow: hidden;
 
 	&.#{$ns}-tooltip-tipopen,
-	&.#{$ns}-tooltip-tipanimating {
+	&.#{$ns}-tooltip-tipanimating,
+	&.#{$ns}-has-focused-trigger {
 		overflow: visible;
+	}
+	&.#{$ns}-has-inline-trigger {
+		vertical-align: bottom;
+
+		& > *:first-child {
+			display: block;
+		}
 	}
 }
 

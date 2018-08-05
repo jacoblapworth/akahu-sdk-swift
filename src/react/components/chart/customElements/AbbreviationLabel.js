@@ -68,7 +68,10 @@ class AbbreviationLabel extends PureComponent {
 			isToolTipHidden, updateToolTip, labelWidth, labelTop, labelHeight,
 			// Victory...
 			index: labelIndex, text: textRaw,
+			// Unused Victory references...
+			// scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x, y, verticalAnchor, textAnchor, datum
 		} = this.props;
+
 		const textOptions = textRaw.split('|').map(option => option.trim());
 		const getTagText = createTagTextThunk(textOptions);
 		const {

@@ -44,7 +44,6 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
-    role="button"
     tabIndex={0}
     target={undefined}
   >
@@ -59,7 +58,6 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
-    role="button"
     tabIndex={0}
     target={undefined}
   >
@@ -82,7 +80,6 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
-    role="button"
     tabIndex={0}
     target={undefined}
   >
@@ -97,7 +94,6 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
-    role="button"
     tabIndex={0}
     target={undefined}
   >

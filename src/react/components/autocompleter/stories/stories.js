@@ -282,8 +282,7 @@ const SecondarySearchData = [
 class SecondarySearchExample extends React.Component {
 	state = {
 		data: SecondarySearchData,
-		selectedItem: null,
-		value: ''
+		selectedItem: null
 	};
 
 	onOptionSelect = (value) => {
@@ -296,20 +295,12 @@ class SecondarySearchExample extends React.Component {
 			const matchingData = SecondarySearchData.filter(item => item.text.toLowerCase().includes(value.toLowerCase()));
 
 			this.setState({
-				data: matchingData,
-				value: value
+				data: matchingData
 			})
 	}
 
-	onClose(){
-		this.setState({
-			value: '',
-			data: SecondarySearchData
-		})
-	}
-
 	render() {
-		const { value, data } = this.state;
+		const { data } = this.state;
 
 		const trigger = (
 			<XUIButton type="button" onClick={() => {}} data-ref="toggled_trigger">
@@ -343,13 +334,11 @@ class SecondarySearchExample extends React.Component {
 					trigger={trigger}
 					onOptionSelect={this.onOptionSelect}
 					onSearch={this.onSearch}
-					searchValue={value}
 					dropdownSize='medium'
 					inputLabelText='secondary search label'
 					isInputLabelHidden
 					qaHook='secondary-search'
 					footer={footer}
-					onClose={() => this.onClose()}
 				>
 					<Picklist>
 						{items}
@@ -359,7 +348,6 @@ class SecondarySearchExample extends React.Component {
 		)
 	}
 }
-
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

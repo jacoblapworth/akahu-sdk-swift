@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is passed to iconPath 1`] = `
+exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is passed to icon 1`] = `
 <div
   className="xui-u-flex xui-padding-vertical-large xui-u-flex-column xui-u-flex-align-center xui-textcolor-muted"
   data-automationid={undefined}
@@ -14,12 +14,12 @@ exports[`<XUIAutocompleterEmptyState /> should change the icon when the name is 
       className="xui-icon"
       data-automationid={undefined}
       focusable="false"
-      height={20}
-      viewBox="0 0 15 15"
-      width={20}
+      height={14.666666666666666}
+      viewBox="0 0 10 11"
+      width={13.333333333333332}
     >
       <path
-        d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+        d="M10 2V0H0v2l4 5v4h2V7l4-5z"
         role="presentation"
       />
     </svg>

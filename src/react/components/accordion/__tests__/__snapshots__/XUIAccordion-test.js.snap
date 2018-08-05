@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIAccordion /> associate items to a custom key 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-accordionwrapper-new"
+    data-automationid={undefined}
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new"
+      data-automationid={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        >
+          <div
+            className="xui-accordiontrigger-new--primaryheading"
+          >
+            John Smith
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content"
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
+<div
+  className="xui-accordion-new testClass"
+  data-automationid="testHook"
+>
+  <div
+    className="xui-accordionwrapper-new"
+    data-automationid="testHook-wrapper"
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new"
+      data-automationid="testHook-trigger"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        >
+          <div
+            className="xui-accordiontrigger-new--primaryheading"
+          >
+            John Smith
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content"
+    />
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    data-automationid={undefined}
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      data-automationid={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        />
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+    >
+      <div>
+        Custom empty state component
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    data-automationid={undefined}
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      data-automationid={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        />
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+    >
+      <div
+        className="xui-accordion-new--emptystate"
+        data-automationid={undefined}
+      >
+        <svg
+          className="xui-icon xui-icon-inline"
+          data-automationid={undefined}
+          focusable="false"
+          height={13.333333333333332}
+          viewBox="0 0 12 10"
+          width={16}
+        >
+          <path
+            d="M4 0h8v2H4V0zM0 0h2v2H0V0zm0 4h2v2H0V4zm4 0h8v2H4V4zm0 4h8v2H4V8zM0 8h2v2H0V8z"
+            role="presentation"
+          />
+        </svg>
+        <div>
+          Custom empty state message
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> should render an open accordion item 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    data-automationid={undefined}
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      data-automationid={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        >
+          <div
+            className="xui-accordiontrigger-new--primaryheading"
+          >
+            John Smith
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+    >
+      Accountant
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUIAccordion /> should render the accordion with a custom class name 1`] = `
+<div
+  className="xui-accordion-new testClass"
+  data-automationid={undefined}
+/>
+`;
+
+exports[`<XUIAccordion /> should render the accordion with a custom qa hook 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid="testHook"
+/>
+`;
+
+exports[`<XUIAccordion /> should render the base component with only required props passed 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+/>
+`;
+
+exports[`<XUIAccordion /> should render the default empty state 1`] = `
+<div
+  className="xui-accordion-new"
+  data-automationid={undefined}
+>
+  <div
+    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    data-automationid={undefined}
+  >
+    <div
+      aria-label="Toggle"
+      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      data-automationid={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="xui-accordiontrigger-new--arrow"
+      >
+        <button
+          className="xui-button xui-button-icon xui-button-icon-large"
+          data-automationid={undefined}
+          disabled={false}
+          onClick={[Function]}
+          onKeyDown={undefined}
+          tabIndex={-1}
+          title="Toggle"
+          type="button"
+        >
+          <svg
+            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            data-automationid={undefined}
+            focusable="false"
+            height={7}
+            viewBox="0 0 11 7"
+            width={11}
+          >
+            <path
+              d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
+              role="presentation"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="xui-accordiontrigger-new--content"
+      >
+        <div
+          className="xui-accordiontrigger-new--headings"
+        />
+      </div>
+    </div>
+    <div
+      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+    >
+      <div
+        className="xui-accordion-new--emptystate"
+        data-automationid={undefined}
+      >
+        <svg
+          className="xui-icon xui-icon-inline"
+          data-automationid={undefined}
+          focusable="false"
+          height={13.333333333333332}
+          viewBox="0 0 12 10"
+          width={16}
+        >
+          <path
+            d="M4 0h8v2H4V0zM0 0h2v2H0V0zm0 4h2v2H0V4zm4 0h8v2H4V4zm0 4h8v2H4V8zM0 8h2v2H0V8z"
+            role="presentation"
+          />
+        </svg>
+        <div>
+          Nothing available to show
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

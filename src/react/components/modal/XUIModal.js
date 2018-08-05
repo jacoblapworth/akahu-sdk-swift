@@ -21,6 +21,8 @@ export const modalSizes = {
 	fullscreen: `${baseClass}-fullscreen`
 };
 
+const maskClass = `${ns}-mask`;
+
 /**
  * Predicate to determine if the props of a modal have changed in such as way as to necessitate
  * adding/removing global event listeners.
@@ -181,9 +183,10 @@ export default class XUIModal extends Component {
 		const modal = this;
 		const { isOpen, restrictFocus } = modal.props;
 		if (isOpen && restrictFocus) {
-			const maskNode = document.querySelector(`.${portalClass}`);
+			// Need to check if the focus is within this modal mask, or in another portalled element (e.g. dropdowns)
+			const maskAndPortalNodes = [...document.querySelectorAll(`.${portalClass}, .${maskClass}`)];
 			const targetIsWindow = event.target === window;
-			if (targetIsWindow || !maskNode.contains(event.target)) {
+			if (targetIsWindow || !maskAndPortalNodes.some(node => node.contains(event.target))) {
 				event.stopPropagation();
 				if (modal._modalNode) {
 					modal._modalNode.focus();
@@ -215,9 +218,9 @@ export default class XUIModal extends Component {
 		} = this.state;
 
 		const maskClasses = cn(
-			`${ns}-mask`,
+			maskClass,
 			maskClassName,
-			isOpen && `${ns}-mask-is-active`
+			isOpen && `${maskClass}-is-active`
 		);
 		const modalClasses = cn(
 			baseClass,
@@ -228,7 +231,7 @@ export default class XUIModal extends Component {
 		const overlayClickHandler =
 			hideOnOverlayClick && onClose
 				? function(event) {
-						if (event.target.classList.contains(`${ns}-mask`) && isOpen) {
+						if (event.target.classList.contains(maskClass) && isOpen) {
 							onClose();
 						}
 					}

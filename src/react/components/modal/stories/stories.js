@@ -1,11 +1,13 @@
 // Libs
-import React from 'react';
+import React, { Fragment } from 'react';
 
 // Components we need to test with
 import XUIModal, { modalSizes } from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
+import XUITextInput from "../../textInput/XUITextInput";
+import XUIButton from "../../button/XUIButton";
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -29,16 +31,23 @@ isolatedInstance.add('XUIModal', () => {
 	) : null;
 
 	return (
-		<XUIModal
-			isOpen={boolean('Is open', true)}
-			size={select('Size', Object.keys(modalSizes))}
-			isForm={boolean('Main content is a form', false)}>
-			{header}
-			<XUIModalBody>
-				Plain modal
-			</XUIModalBody>
-			{footer}
-		</XUIModal>
+		<Fragment>
+			<XUITextInput />
+			<XUIButton>Test button</XUIButton>
+			<XUIModal
+				isOpen={boolean('Is open', true)}
+				size={select('Size', Object.keys(modalSizes))}
+				isForm={boolean('Main content is a form', false)}
+				isUsingPortal={boolean('Uses portal', true)}>
+				{header}
+				<XUIModalBody>
+					Plain modal
+					<XUITextInput />
+					<XUIButton>Test button</XUIButton>
+				</XUIModalBody>
+				{footer}
+			</XUIModal>
+		</Fragment>
 	)
 });
 

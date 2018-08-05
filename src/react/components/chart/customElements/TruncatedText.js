@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 const createTotalCharacterReducer = maxWidth => ({totalWidth = 20, totalChars = 0}, node) => {
@@ -10,7 +10,7 @@ const createTotalCharacterReducer = maxWidth => ({totalWidth = 20, totalChars = 
 		: {totalWidth: newWidth, totalChars: totalChars + 1};
 };
 
-class TruncatedText extends Component {
+class TruncatedText extends PureComponent {
 	rootNode;
 	state = { /* maxWidth, text */ };
 

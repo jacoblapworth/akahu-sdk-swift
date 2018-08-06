@@ -1,0 +1,51 @@
+// Pagination
+//
+// Introduction: There are a number of reasons why you’d want to paginate data. Data restrictions, speed concerns, improving digestibility, and screen size restrictions being among the key factors.
+//
+// Styleguide: Patterns.Pagination
+
+// Best practice
+//
+// Tips:
+// Do: Only show the amount of data that is appropriate for your screen size
+// Do: Use labels to outline where you are in the context of the entire dataset
+// Do: Use xui-buttons to explicitly trigger pagination
+// Do: Use xui loader when pagination is triggered on scroll
+// Do: Use dot indicators when pagination is few and linear
+// Do: Allow for infinite page cycling or restricted pagination sequence, depending on context
+// Do: Optimize for the device when possible, ie. snap to scroll
+// Warning: Consider the data size you are loading by default, especially if mobile is a likely use-case
+// Dont: Don’t rely on a dot indicator as the only way to trigger pagination
+//
+// Styleguide: Patterns.Pagination.1
+
+// Applications
+//
+// Styleguide: Patterns.Pagination.2
+
+// Lists – Content block, Table, Card
+//
+// Tips:
+// Do: Trigger pagination on scroll
+// Do: Use xui loader when fetching data
+// Warning: Consider the data size you are loading by default, especially if mobile is a likely use-case
+//
+// Styleguide: Patterns.Pagination.2.1
+
+// Charts – Bar
+//
+// Tips:
+// Do: Show contextually appropriate amount of data. Ie. week & month view
+// Do: Use labels to outline where you are in the context of the entire process (Page 2 of 5)
+// Do: Use xui-button-icons with left and right arrows to trigger preceding and subsequent pages
+// Warning: Consider the data size you are loading by default, especially if mobile is a likely use-case
+//
+// Styleguide: Patterns.Pagination.2.2
+
+// Pages – Invoice
+//
+// Tips:
+// Do: Use icon buttons with left and right icons to trigger preceding and subsequent documents
+// Warning: Only implement when viewing items on bulk is a common task-driven behaviour
+//
+// Styleguide: Patterns.Pagination.2.3

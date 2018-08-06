@@ -17,8 +17,8 @@ class XUITextInput extends PureComponent {
 	state = {
 		hasFocus: false
 	};
-	// User can manually proivde an id, or we will generate one.
-	labelId = this.props.labelId || uuidv4();
+
+	generatedId = uuidv4();
 
 	componentDidMount() {
 		const { maxRows } = this.props;
@@ -101,13 +101,22 @@ class XUITextInput extends PureComponent {
 			hasFocus,
 		} = this.state;
 
+		const labelId = input.props.labelId || `${this.generatedId}-label`;
+		const messageId = `${this.generatedId}-message`;
+		const showingErrorMessage = isInvalid && validationMessage;
 		const message = (validationMessage || hintMessage) && (
-			<div className={cn(
-				`${ns}-validation`,
-				`${ns}-validation-layout`,
-				(isInvalid && validationMessage) && `${ns}-validation-is-invalid`
-			)}
-			data-automationid={`${qaHook}--message`}>{(isInvalid && validationMessage) ? validationMessage : hintMessage}</div>
+			<div
+				className={cn(
+					`${ns}-validation`,
+					`${ns}-validation-layout`,
+					showingErrorMessage && `${ns}-validation-is-invalid`
+				)}
+				data-automationid={qaHook && `${qaHook}--message`}
+				role="status"
+				id={messageId}
+			>
+				{showingErrorMessage ? validationMessage : hintMessage}
+			</div>
 		);
 
 		const classes = cn (
@@ -144,7 +153,7 @@ class XUITextInput extends PureComponent {
 		);
 
 		const labelElement = labelText != null && !isLabelHidden && (
-			<span className={labelClasses} id={this.labelId}>
+			<span className={labelClasses} id={labelId}>
 				{labelText}
 			</span>
 		);
@@ -155,6 +164,11 @@ class XUITextInput extends PureComponent {
 			...inputProps.style,
 			maxHeight // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 		};
+
+		// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
+		const ariaLabelledBy = labelElement && labelId || !labelText && this.props.labelId || undefined;
+		// Add hidden label or placeholder as labelText if not labelled by anything else
+		const ariaLabel = (isLabelHidden && labelText) || (!ariaLabelledBy && placeholder) || undefined;
 
 		return(
 			<label className={rootClasses} onKeyDown={onKeyDown} role="presentation">
@@ -173,9 +187,9 @@ class XUITextInput extends PureComponent {
 						placeholder={placeholder}
 						disabled={isDisabled}
 						ref={compose(inputRef, i => this.input = i)}
-						aria-label={isLabelHidden && labelText || undefined}
-						// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-						aria-labelledby={labelElement && this.labelId || !labelText && this.props.labelId || undefined}
+						aria-label={ariaLabel}
+						aria-labelledby={ariaLabelledBy}
+						aria-describedby={message && messageId}
 						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 						{...inputProps}
 					/>

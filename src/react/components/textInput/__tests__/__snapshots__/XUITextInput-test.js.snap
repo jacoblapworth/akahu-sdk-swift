@@ -11,6 +11,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
     data-automationid="input-test"
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
       className="xui-textinput--input"
@@ -69,6 +70,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
       <input
+        aria-describedby={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-left-none"
@@ -100,6 +102,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       data-automationid={undefined}
     >
       <input
+        aria-describedby={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-right-none"
@@ -177,6 +180,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
         </div>
       </div>
       <input
+        aria-describedby={undefined}
         aria-label={undefined}
         aria-labelledby={undefined}
         className="xui-textinput--input xui-padding-left-none xui-padding-right-none"
@@ -235,6 +239,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
     data-automationid="givenQAHook"
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
       className="xui-textinput--input"
@@ -269,6 +274,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
       aria-labelledby={undefined}
       className="xui-textinput--input"
@@ -309,6 +315,7 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
       aria-labelledby="testLabel"
       className="custom-input-class xui-textinput--input"
@@ -343,6 +350,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label="test"
       aria-labelledby={undefined}
       className="xui-textinput--input"
@@ -383,6 +391,7 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
     data-automationid={undefined}
   >
     <input
+      aria-describedby={undefined}
       aria-label={undefined}
       aria-labelledby="testLabel"
       className="xui-textinput--input"
@@ -402,6 +411,92 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
       type={undefined}
       value={undefined}
     />
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-textinput xui-textinput-is-invalid"
+    data-automationid={undefined}
+  >
+    <input
+      aria-describedby="testGeneratedId-message"
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={[Function]}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    data-automationid={undefined}
+    id="testGeneratedId-message"
+    role="status"
+  >
+    Boo
+  </div>
+</label>
+`;
+
+exports[`<XUITextInput> Validation and hints renders with a hint message if one is provided and the input is valid 1`] = `
+<label
+  className="xui-textinputwrapper"
+  onKeyDown={undefined}
+  role="presentation"
+>
+  <div
+    className="xui-textinput"
+    data-automationid={undefined}
+  >
+    <input
+      aria-describedby="testGeneratedId-message"
+      aria-label={undefined}
+      aria-labelledby={undefined}
+      className="xui-textinput--input"
+      data-automationid={undefined}
+      defaultValue={undefined}
+      disabled={undefined}
+      onBlurCapture={[Function]}
+      onChange={[Function]}
+      onFocusCapture={[Function]}
+      placeholder={undefined}
+      rows={undefined}
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+      type={undefined}
+      value={undefined}
+    />
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    data-automationid={undefined}
+    id="testGeneratedId-message"
+    role="status"
+  >
+    Boo
   </div>
 </label>
 `;

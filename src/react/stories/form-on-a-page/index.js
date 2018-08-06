@@ -118,8 +118,7 @@ test.add(storyNames.formOnAPage, () => {
 					{/* Major section */}
 					<XUIColumn gridColumns="half">
 
-						<InputLabel>Grouped checkboxes</InputLabel>
-						<XUICheckboxGroup>
+						<XUICheckboxGroup labelText="Grouped checkboxes">
 							<XUICheckbox>Tūī</XUICheckbox>
 							<XUICheckbox>Pīwakawaka</XUICheckbox>
 							<XUICheckbox>Ruru</XUICheckbox>
@@ -129,8 +128,7 @@ test.add(storyNames.formOnAPage, () => {
 					</XUIColumn>
 					<XUIColumn gridColumns="half">
 
-						<InputLabel>Grouped radios</InputLabel>
-						<XUIRadioGroup groupLabel="cities">
+						<XUIRadioGroup labelText="Grouped radios">
 							<XUIRadio name="radioGroup">Wellington</XUIRadio>
 							<XUIRadio name="radioGroup">Canberra</XUIRadio>
 							<XUIRadio name="radioGroup">Washington D.C</XUIRadio>

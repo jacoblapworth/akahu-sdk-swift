@@ -51,11 +51,19 @@ describe('XUIRadioGroup', function() {
 
 	// qaHook property
 	it('should have a qaHook if provided', function () {
-		const wrapper = mount(
-			<XUIRadioGroup qaHook="cheese-and-crackers" />
-		);
+		const wrapper = mount(<XUIRadioGroup qaHook="cheese-and-crackers" />);
 
-		expect(wrapper.getDOMNode().getAttribute('data-automationid')).toEqual('cheese-and-crackers');
+		expect(wrapper.find('[data-automationid="cheese-and-crackers"]')).toHaveLength(1);
 	});
 
+	it('should include a visible label', () => {
+		const labelTest = mount(<XUIRadioGroup labelText="Birds" />);
+		expect(labelTest.find('.xui-text-label')).toHaveLength(1);
+	});
+
+	it('should include a hidden ARIA label, if provided a label and flagged to hide', () => {
+		const testLabel = "Birds";
+		const hiddenLabelTest = mount(<XUIRadioGroup labelText={testLabel} isLabelHidden />);
+		expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
+	});
 });

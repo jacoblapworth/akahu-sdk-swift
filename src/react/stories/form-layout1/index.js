@@ -340,7 +340,7 @@ test.add(storyNames.formLayout, () => {
 
 							<XUIRadioGroup
 								isFieldLayout
-								groupLabel="Choose a city"
+								labelText="Choose a city"
 							>
 								{
 									[
@@ -364,7 +364,7 @@ test.add(storyNames.formLayout, () => {
 
 							<XUICheckboxGroup
 								isFieldLayout
-								groupLabel="Favourite Birds"
+								labelText="Favourite Birds"
 							>
 								{
 									[

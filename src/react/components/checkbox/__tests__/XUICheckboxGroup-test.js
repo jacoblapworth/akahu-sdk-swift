@@ -55,13 +55,13 @@ describe('XUICheckboxGroup', function() {
 	});
 
 	it('should include a visible label', () => {
-		const labelTest = mount(<XUICheckboxGroup groupLabel="Birds" />);
+		const labelTest = mount(<XUICheckboxGroup labelText="Birds" />);
 		expect(labelTest.find('.xui-text-label')).toHaveLength(1);
 	});
 
 	it('should include a hidden ARIA label, if provided a label and flagged to hide', () => {
 		const testLabel = "Birds";
-		const hiddenLabelTest = mount(<XUICheckboxGroup groupLabel={testLabel} isLabelHidden />);
+		const hiddenLabelTest = mount(<XUICheckboxGroup labelText={testLabel} isLabelHidden />);
 		expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
 	});
 });

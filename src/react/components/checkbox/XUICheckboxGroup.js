@@ -20,7 +20,7 @@ export default class XUICheckboxGroup extends PureComponent {
 			children,
 			className,
 			qaHook,
-			groupLabel,
+			labelText,
 			isLabelHidden,
 			isFieldLayout,
 			labelClassName,
@@ -39,9 +39,9 @@ export default class XUICheckboxGroup extends PureComponent {
 			`${ns}-fieldlabel-layout`
 		);
 
-		const labelElement = !isLabelHidden && groupLabel && (
+		const labelElement = !isLabelHidden && labelText && (
 			<div className={labelClasses} id={this.id}>
-				{groupLabel}
+				{labelText}
 			</div>
 		);
 
@@ -51,7 +51,7 @@ export default class XUICheckboxGroup extends PureComponent {
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
-					aria-label={isLabelHidden && groupLabel || undefined}
+					aria-label={isLabelHidden && labelText || undefined}
 					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
 					aria-labelledby={labelElement && this.id || labelId || undefined}
 				>
@@ -69,7 +69,7 @@ XUICheckboxGroup.propTypes = {
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 	/** Label the radio group for accessibility. Highly recommended */
-	groupLabel: PropTypes.string,
+	labelText: PropTypes.string,
 	/** Whether the label should be visible or hidden. Defaults to visible */
 	isLabelHidden: PropTypes.bool,
 	/** Whether to use the field layout classes. Defaults to true. */

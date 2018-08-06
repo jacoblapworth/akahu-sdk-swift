@@ -46,13 +46,13 @@ export default class XUIToggle extends PureComponent {
 		return (
 			<div className={rootClasses}>
 				{labelElement}
-				{ /* Default the role to radiogroup, but allow it to be superceded by secondaryProps. */ }
 				<div
 					className={classes}
 					data-automationid={qaHook}
 					aria-label={isLabelHidden && labelText || undefined}
 					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
 					aria-labelledby={labelElement && this.id || labelId || undefined}
+					// Default the role to radiogroup, but allow it to be superceded by secondaryProps.
 					role="radiogroup"
 					{...secondaryProps}
 				>
@@ -73,7 +73,7 @@ XUIToggle.propTypes = {
 	layout: PropTypes.oneOf(Object.keys(layoutMap)),
 	/** The variant of the toggle */
 	variant: PropTypes.oneOf(Object.keys(variantMap)),
-	/** Additional props to pass to the root HTML element */
+	/** Additional props to pass to the toggle element */
 	secondaryProps: PropTypes.object,
 	/** Label to show above the toggle */
 	labelText: PropTypes.string,

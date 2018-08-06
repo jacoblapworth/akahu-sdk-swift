@@ -40,7 +40,6 @@
 
 // Application structure and layout
 // -----------------------------------------------------------------------------
-@import "5-structure/grid";
 @import "5-structure/page.content";
 
 // Visual containers
@@ -83,3 +82,4 @@
 @import "99-utils/animation-keyframes"; // XUI keyframes. Should only be imported once.
 @import "99-utils/utilities";
 @import "99-utils/marginpadding";
+@import "99-utils/grid";

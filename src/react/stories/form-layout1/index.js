@@ -386,10 +386,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUICheckboxGroup>
 
-							<InputLabel>
-								Choose one colour
-							</InputLabel>
-							<XUIToggle className="xui-field-layout" layout="fullwidth" secondaryProps={{'aria-label': "colors"}}>
+							<XUIToggle className="xui-field-layout" layout="fullwidth" labelText="Choose one colour">
 								{
 									[
 										'Red',
@@ -413,10 +410,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUIToggle>
 
-							<InputLabel>
-								Choose many colours
-							</InputLabel>
-							<XUIToggle className="xui-field-layout" layout="fullwidth" secondaryProps={{role: 'group'}}>
+							<XUIToggle className="xui-field-layout" layout="fullwidth" labelText="Choose many colours">
 								{
 									[
 										'Red',

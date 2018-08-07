@@ -25,14 +25,14 @@ const radioToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
+		<XUIToggle layout="fullwidth" labelText='checkbox toggle' isLabelHidden>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		</XUIToggle>
 	</div><div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" secondaryProps={{'aria-label': 'radio toggle'}}>
+		<XUIToggle layout="fullwidth" labelText='radio toggle' isLabelHidden>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
 			<XUIToggleOption { ...radioToggle }>Radio</XUIToggleOption>
@@ -55,7 +55,7 @@ const checkboxToggle = {
 };
 
 <ExampleContainer className="xui-padding xui-color-white" isInverted>
-	<XUIToggle layout="fullwidth" color="inverted" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
+	<XUIToggle layout="fullwidth" color="inverted" labelText='checkbox toggle' isLabelHidden>
 		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
@@ -82,7 +82,7 @@ const checkboxToggle = {
 };
 
 <div>
-	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" secondaryProps={{'aria-label': 'radio toggle'}}>
+	<XUIToggle className="xui-margin-bottom" variant="small" layout="fullwidth" labelText='radio toggle' isLabelHidden>
 		<XUIToggleOption { ...radioToggle }>Uno</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Dos</XUIToggleOption>
 		<XUIToggleOption { ...radioToggle }>Tres</XUIToggleOption>
@@ -109,8 +109,7 @@ const checkboxToggle = {
 		<XUITextInput type="url" placeholer="http://www.xero.com" labelText="Input" />
 	</div>
 	<div className="xui-field-layout">
-		<label className="xui-text-label xui-fieldlabel-layout">Toggle</label>
-		<XUIToggle layout="fullwidth" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
+		<XUIToggle layout="fullwidth" labelText='Toggle'>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

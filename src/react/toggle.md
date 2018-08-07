@@ -25,7 +25,7 @@ const radioToggle = {
 
 <div>
 	<div className="xui-margin-bottom">
-		<XUIToggle layout="fullwidth" labelText='checkbox toggle' isLabelHidden secondaryProps={{role: 'group'}}>
+		<XUIToggle layout="fullwidth" labelText='checkbox toggle' isLabelHidden>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
@@ -109,7 +109,7 @@ const checkboxToggle = {
 		<XUITextInput type="url" placeholer="http://www.xero.com" labelText="Input" />
 	</div>
 	<div className="xui-field-layout">
-		<XUIToggle layout="fullwidth" labelText='Toggle' secondaryProps={{role: 'group'}}>
+		<XUIToggle layout="fullwidth" labelText='Toggle'>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>

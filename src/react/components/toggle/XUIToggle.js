@@ -8,6 +8,12 @@ import uuidv4 from 'uuid/v4';
 
 export default class XUIToggle extends PureComponent {
 	id = this.props.labelId || uuidv4();
+
+	toggleIsCheckbox() {
+		const { children } = this.props;
+		const isCheckbox = child => (child && child.props.type === 'checkbox');
+		return children != null && React.Children.map(children, isCheckbox).some(Boolean);
+	}
 	render() {
 		const {
 			children,
@@ -43,18 +49,19 @@ export default class XUIToggle extends PureComponent {
 			isFieldLayout && `${ns}-field-layout`
 		);
 
+		const ariaRole = secondaryProps && secondaryProps.role || this.toggleIsCheckbox() ? 'group' : 'radiogroup';
+
 		return (
 			<div className={rootClasses}>
 				{labelElement}
 				<div
+					{...secondaryProps}
+					role={ariaRole}
 					className={classes}
 					data-automationid={qaHook}
 					aria-label={isLabelHidden && labelText || undefined}
 					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
 					aria-labelledby={labelElement && this.id || labelId || undefined}
-					// Default the role to radiogroup, but allow it to be superceded by secondaryProps.
-					role="radiogroup"
-					{...secondaryProps}
 				>
 					{children}
 				</div>

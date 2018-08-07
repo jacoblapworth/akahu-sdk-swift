@@ -410,7 +410,7 @@ test.add(storyNames.formLayout, () => {
 								}
 							</XUIToggle>
 
-							<XUIToggle className="xui-field-layout" layout="fullwidth" labelText="Choose many colours" secondaryProps={{role: 'group'}}>
+							<XUIToggle className="xui-field-layout" layout="fullwidth" labelText="Choose many colours">
 								{
 									[
 										'Red',

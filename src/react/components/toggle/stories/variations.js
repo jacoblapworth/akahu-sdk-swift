@@ -135,9 +135,6 @@ const variations = [
 		storyTitle: 'is Checkboxes',
 		labelText: 'text-label',
 		isLabelHidden: true,
-		secondaryProps: {
-			role: 'group'
-		},
 		layout: 'fullwidth',
 		options: [
 			{

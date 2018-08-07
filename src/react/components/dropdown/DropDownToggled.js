@@ -464,12 +464,12 @@ export default class DropDownToggled extends PureComponent {
 			</Positioning>
 		) : (
 			<PositioningInline
+				{...otherProps}
 				{...commonPositioningProps}
 				qaHook={qaHook && `${qaHook}--positioning-inline`}
 				preferredPosition={preferredPosition}
 				maxWidth={-1}
 				useDropdownPositioning={true}
-				{...otherProps}
 			>
 					{clonedDropdown}
 			</PositioningInline>
@@ -483,11 +483,11 @@ export default class DropDownToggled extends PureComponent {
 
 		return (
 			<div
+				{...wrapperAria}
 				ref={c => ddt.wrapper = c}
 				className={className}
 				data-ref='toggled-wrapper'
 				data-automationid={qaHook}
-				{...wrapperAria}
 			>
 				{clonedTrigger}
 				{positionedDropdown}

@@ -73,6 +73,7 @@ export default class NestedPicklistContainer extends PureComponent {
 				aria-expanded={isExpanded}
 			>
 				<input
+					{...secondaryProps}
 					data-automationid={qaHook && `${qaHook}--checkbox`}
 					type="checkbox"
 					checked={isExpanded}
@@ -81,7 +82,6 @@ export default class NestedPicklistContainer extends PureComponent {
 					tabIndex="-1"
 					onChange={container.toggle}
 					aria-owns={id}
-					{...secondaryProps}
 				/>
 				{children}
 			</li>

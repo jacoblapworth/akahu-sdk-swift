@@ -36,12 +36,12 @@ export default class Picklist extends Component {
 		// Deferring the fix for this until we determine how to change the surface of pickitems & picklists
 		return (
 			<ul
+				{...secondaryProps}
 				className={classes}
 				id={id}
 				onKeyDown={onKeyDown}
 				onMouseDown={onMouseDown}
 				data-automationid={qaHook}
-				{...secondaryProps}
 			>
 				{children}
 			</ul>

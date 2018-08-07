@@ -18,6 +18,7 @@ You can give `XUIButton` a click handler to perform actions when the button is t
 Different styles of button are available by passing different values to the `variant` prop.
 
 ```
+	const ExampleContainer = require('./docs/ExampleContainer').default;
 	<div>
 		<div>
 			<XUIButton className="xui-margin-right" variant="standard">Standard</XUIButton>
@@ -32,9 +33,9 @@ Different styles of button are available by passing different values to the `var
 			<XUIButton className="xui-margin-right" variant="borderless-negative">Borderless Negative</XUIButton>
 			<XUIButton className="xui-margin-right" variant="borderless-muted">Borderless Muted</XUIButton>
 		</div>
-		<div className="xui-padding-xsmall xui-background-grey-1">
+		<ExampleContainer className="xui-padding-xsmall" isInverted>
 			<XUIButton className="xui-margin-right" variant="borderless-inverted">Borderless Inverted</XUIButton>
-		</div>
+		</ExampleContainer>
 	</div>
 ```
 
@@ -57,7 +58,7 @@ If you add the `xui-button-icon-large` class to the button, it will be given a l
 			<XUIIcon icon={icon} title="Dots menu" size="large" />
 		</XUIButton>
 
-		<div className="xui-padding-xsmall xui-background-grey-1">
+		<ExampleContainer className="xui-padding-xsmall" isInverted>
 			<XUIButton variant="icon-inverted">
 				<XUIIcon icon={icon} title="Dots menu" />
 			</XUIButton>
@@ -65,7 +66,7 @@ If you add the `xui-button-icon-large` class to the button, it will be given a l
 			<XUIButton variant="icon-inverted" className="xui-button-icon-large">
 				<XUIIcon icon={icon} title="Dots menu" size="large" />
 			</XUIButton>
-		</div>
+		</ExampleContainer>
 
 	</div>
 ```

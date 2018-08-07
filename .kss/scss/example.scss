@@ -1,3 +1,7 @@
+@import "../../src/sass/mixins";
+@import "../../src/sass/vars";
+@import "./mixins";
+
 .ds-example-default {
 	background: $xui-color-grey-7;
 	padding: $xui-s-large;

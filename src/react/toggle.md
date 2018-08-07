@@ -47,20 +47,21 @@ const radioToggle = {
 To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s `color` prop.
 
 ```jsx
+const ExampleContainer = require('./docs/ExampleContainer').default;
 const checkboxToggle = {
 	name: 'toggle-checkbox-inverted',
 	onChange: () => {},
 	type: 'checkbox'
 };
 
-<div className="xui-padding xui-color-white xui-background-grey-1">
-		<XUIToggle layout="fullwidth" color="inverted" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
-			<XUIToggleOption { ...checkboxToggle } isDisabled>Disabled</XUIToggleOption>
-		</XUIToggle>
-</div>
+<ExampleContainer className="xui-padding xui-color-white" isInverted>
+	<XUIToggle layout="fullwidth" color="inverted" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
+		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
+		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
+		<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>
+		<XUIToggleOption { ...checkboxToggle } isDisabled>Disabled</XUIToggleOption>
+	</XUIToggle>
+</ExampleContainer>
 ```
 
 ### Variants

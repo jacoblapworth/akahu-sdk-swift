@@ -34,8 +34,9 @@ Apart from the `standard` size, Loaders can also be `small` or `large`.
 Loaders support inverted backgrounds
 
 ```
-<div className="xui-background-grey-1">
+const ExampleContainer = require('./docs/ExampleContainer').default;
+<ExampleContainer className="xui-padding-xsmall" isInverted>
   <XUILoader isInverted={true} />
-</div>
+</ExampleContainer>
 ```
 

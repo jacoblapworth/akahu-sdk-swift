@@ -8,10 +8,10 @@ export default class NestedPicklist extends PureComponent {
 		const { children, className, qaHook, secondaryProps } = this.props;
 		return (
 			<ul
+				{...secondaryProps}
 				className={cn(className, `${ns}-submenu ${ns}-submenu-layout`)}
 				id={this.context.id}
 				data-automationid={qaHook}
-				{...secondaryProps}
 			>
 				{children}
 			</ul>

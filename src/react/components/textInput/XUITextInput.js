@@ -162,6 +162,7 @@ class XUITextInput extends PureComponent {
 				<div className={baseClasses} data-automationid={qaHook}>
 					{leftElement}
 					<InputEl
+						{...inputProps}
 						type={type}
 						value={value}
 						defaultValue={defaultValue}
@@ -177,7 +178,6 @@ class XUITextInput extends PureComponent {
 						// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
 						aria-labelledby={labelElement && this.labelId || !labelText && this.props.labelId || undefined}
 						rows={isMultiline ? rows || minRows : undefined} // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
-						{...inputProps}
 					/>
 					{rightElement}
 				</div>

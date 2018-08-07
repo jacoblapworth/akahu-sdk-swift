@@ -340,6 +340,7 @@ class StatefulPicklist extends Component {
 
 		return (
 			<StatefulPicklistWrapper
+				{...secondaryProps}
 				data-automationid={qaHook}
 				ref={c => spl.list = c}
 				onMouseDown={spl.onMouseDown}
@@ -348,7 +349,6 @@ class StatefulPicklist extends Component {
 				id={id}
 				tabIndex={canFocus ? 0 : null}
 				aria-activedescendant={spl.getHighlightedId()}
-				{...secondaryProps}
 			>
 				{cloneChildren(children, spl)}
 			</StatefulPicklistWrapper>

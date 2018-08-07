@@ -44,11 +44,11 @@ export default class XUIAccordion extends PureComponent {
 				qaHook={qaHook && `${qaHook}-wrapper`}
 				trigger={(
 					<AccordionTrigger
+						{...triggerProps}
 						qaHook={qaHook && `${qaHook}-trigger`}
 						isOpen={isOpen}
 						onClick={handleClick}
 						toggleLabel={toggleLabel}
-						{...triggerProps}
 					/>
 				)}>
 				{isOpen && (

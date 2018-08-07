@@ -21,9 +21,6 @@ describe('<XUITextInput>', () => {
 			wrapper = mount(
 				<XUITextInput
 					qaHook={qaHook}
-					inputProps= {{
-						className: className
-					}}
 				/>
 			);
 		});
@@ -39,11 +36,6 @@ describe('<XUITextInput>', () => {
 			expect(automationId).toMatchSnapshot();
 		});
 
-		it('should pass "containerClassName" to container element', () => {
-			const input = wrapper.find('input');
-			expect(input.hasClass(className)).toBeTruthy();
-		});
-
 		it('should default to no icon', () => {
 			expect(wrapper.find('XUIIcon')).toHaveLength(0);
 		});
@@ -55,7 +47,6 @@ describe('<XUITextInput>', () => {
 		let input;
 		let className = 'someClassName';
 		let qaHook = 'givenQAHook';
-		let additionalAttrs = { placeholder : 'This is an input' };
 
 		beforeEach(() => {
 			wrapper= mount(
@@ -65,7 +56,7 @@ describe('<XUITextInput>', () => {
 					onChange={ NOOP }
 					style={ {backgroundColor: 'darkred'} }
 					aria-haspopup={ true }
-					inputProps={ additionalAttrs }
+					placeholder='This is an input'
 				/>
 			);
 

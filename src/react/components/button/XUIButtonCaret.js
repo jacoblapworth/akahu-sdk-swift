@@ -6,7 +6,13 @@ import cn from "classnames";
 import {ns} from "../helpers/xuiClassNamespace";
 
 export default function XUIButtonCaret({className, ...props}) {
-	return <XUIIcon className={cn(className, `${ns}-button--caret`)} icon={caret} {...props} />;
+	return (
+		<XUIIcon
+			{...props}
+			className={cn(className, `${ns}-button--caret`)}
+			icon={caret}
+		/>
+	);
 }
 
 XUIButtonCaret.propTypes = {

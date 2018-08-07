@@ -166,9 +166,9 @@ export default class XUITooltip extends PureComponent {
 				ref={c => this.setState({wrapper: c})}>
 				{clonedTrigger}
 				<PositioningInline
+					{...this.props}
 					parentRef={this.state.wrapper}
 					isVisible={!this.state.isHidden}
-					{...this.props}
 				>
 					<span
 						role="tooltip"

@@ -20,6 +20,7 @@ export default class NestedPicklistTrigger extends PureComponent {
 
 		return (
 			<label
+				{...secondaryProps}
 				htmlFor={`${id}-checkbox`}
 				ref={n => this.rootNode = n}
 				data-automationid={qaHook}
@@ -32,7 +33,6 @@ export default class NestedPicklistTrigger extends PureComponent {
 				role="button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
 				tabIndex={0}
 				aria-label={ariaLabel}
-				{...secondaryProps}
 			>
 				{hasChildren ? <label className={`${ns}-pickitem--text`}>{children}</label> : null}
 				<XUIIcon className={`${ns}-submenu-uicontrol--icon`} icon={arrow} isBoxed />

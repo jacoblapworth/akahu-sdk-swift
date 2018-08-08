@@ -6,6 +6,7 @@ import Styled from 'rsg-components/Styled'; // eslint-disable-line import/no-unr
 import cx from 'classnames';
 
 import '../styles.scss';
+import '../../src/sass/xui.scss';
 
 const styles = ({ color, fontFamily, fontSize, mq, space, maxWidth }) => ({
 	root: {

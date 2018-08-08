@@ -6,6 +6,8 @@ Enhanced version of the native radio element. Use in place of `<input type="radi
 
 The `XUIRadio` supports properties for use with forms like the HTML radio input, including `isRequired`, `name`, and `value`.
 
+Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
+
 ## Examples
 
 

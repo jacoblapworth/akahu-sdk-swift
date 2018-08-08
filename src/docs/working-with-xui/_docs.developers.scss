@@ -35,11 +35,14 @@
 
 // Structure of CSS
 //
-// XUI CSS can be generally thought of as three parts:
+// XUI CSS can be generally thought of as six parts:
 //
-// 1. **Foundational CSS** can be used for page layout, typography, spacing, etc. that will never have an associated React component and will be frequently used directly to layout pages and content within applications.
-// 2. **Component CSS** organised under Building Blocks this CSS is used to style React components. It will work with HTML or another template language, however it is always preferable to use a premade React component over these classes directly.
-// 3. **Utilities and helpers** provide CSS classes to do common things that might need managing and in a consistent way eg hiding, rotating. The Utilities are found at the end of the Building Blocks section.
+// 1. **Reset** is the reset of browser CSS, this sets an even experience for all browsers for the core HTML elements including `html`, `body`, and `main` as examples.
+// 2. **Base** is the the basic CSS classes you need to start writing a XUI-based application.
+// 3. **Structure** is where you will find your page layouts.
+// 4. **Containers** is the home for the components we make that generally _contain_ other components such as panels.
+// 5. **Components** is where the bulk of the CSS library lives, the bread and butter which is the core UI components themselves such as `button` and `accordion`
+// 6. **Utils** is where the features of the library that aren't specific to a component live, such as the margin and padding classes as well as layout helpers. They're generally very specific and perform one task.
 //
 // Styleguide: Getting Started.Developing with XUI.1.1
 
@@ -115,6 +118,13 @@
 //
 // 1. XUI exposes its variables and mixins and these can be brought into an application or component to gain access to things like colours and spacing.
 // 2. XUI React components can be used to compose new and interesting components that can be used inside an app and shared with your friends
+//
+// If you're planning on writing a component using our CSS, we recommend the following two files as your keys to building using our conventions and standards.
+//
+// |File|Description|
+// |:--|:--|
+// |/src/sass/_vars.scss|You'll be able to access all of XUI's variables we use throughout the XUI css system including colours, spacing, borders and typography|
+// |/src/sass/_mixins.scss|Mixins are used reasonably heavily to template features of the components we build, from buttons to our responsive breakpoint system, you'll find what you need here|
 //
 // Styleguide: Getting Started.Developing with XUI.3
 

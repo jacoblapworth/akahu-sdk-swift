@@ -184,6 +184,8 @@
 // To do this, simply set the `data-xui-progress-current-color` and `data-xui-progress-total-color` attributes to any of the following colors.
 // Note that `xui-color-red` is reserved for the error state.
 //
+// Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
+//
 // Definitions:
 // Orange: `xui-color-orange`: `orange`
 // Yellow: `xui-color-yellow`: `yellow`
@@ -199,8 +201,10 @@
 // Tips:
 // Do: Use custom colors to align progress indicators to the theme of the application
 // Do: Use custom colors when indicating sentiment other than a simple error
+// Do: When using custom colors, use descriptive text like "65%"
 // Warning: Avoid using multiple coloured progress-indictaors on a single screen unless they indicate sentiment
 // Don't: Don't use custom colors to indicate a simple error, use the pre-defined error classes instead
+// Dont: When using custom colors, avoid vague text like "In progress"
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -433,13 +437,20 @@
 // Accessibility
 //
 // Make sure to apply the `progressbar` role to the progress indicator.
+//
 // Additionally, if the actual value of progress can be determined, make sure to indicate this using `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes.
+//
 // If the progress value is indeterminate, omit the `aria-valuenow` attribute.
+//
 // Screenreaders will generally render the value of `aria-valuenow` as a percent of the range between the value of `aria-valuemin` and `aria-valuemax`, unless `aria-valuetext` is specified.
+//
 // Additionally, a tooltip is also available out of the box on hover.
+//
 // The default message is the `aria-valuetext` value, but you can specify a custom message too.
 //
-// Styleguide: Building Blocks.Identifiers.ProgressIndicator.8
+// Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
+//
+// Styleguide: Building Blocks.Identifiers.ProgressIndicator.9
 
 $xui-progress-circular-min-width: 20px;
 $xui-progress-linear-min-height: 4px;

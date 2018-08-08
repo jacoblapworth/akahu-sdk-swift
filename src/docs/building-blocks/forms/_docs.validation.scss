@@ -16,7 +16,11 @@
 //
 // Add `xui-textinput-is-invalid` to inputs to display their error state. If the problem is with a group, as a whole, add the class to all nested inputs.
 //
-// Error messages are added below fields. They replace the note if one exists.
+// Always include a colour change, descriptive message, and an icon on the problematic input, so it’s still meaningful to people who can’t discern colour.
+// * Position error text underneath the input
+// * If there is no space below the input as it is in a group, position it at the bottom of the group in text form
+// * If there is no space below the input, position it at the top of the input in a banner
+// * If there is no space below the input, include an icon that can inherit focus that displays a tooltip with the full error message
 //
 // Markup:
 // <div class="xui-field-layout">

@@ -99,14 +99,14 @@
 
 // Sentiment
 //
-// Flag: Under review
-//
 // Tips:
+// Do: When using sentiment, use descriptive text like "% increase"
 // Do: Use sentiment classes for system messages
 // Do: Don't include a close button, persist the toast until the issue is resolved
 // Warning: Avoid using sentiment classes other than on blocking issues
+// Dont: When using sentiment, avoid vague text like "%"
 //
-// To add sentiment, apply the following modifiers.
+// To add sentiment, apply the following modifiers. Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Classes:
 // xui-toast-negative: Negative modifier

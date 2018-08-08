@@ -42,7 +42,15 @@
 
 // Variants
 //
-// Then, add an additional `xui-button-*` modifier to specify which kind of button you require.
+// Add a `xui-button-*` modifier to specify which kind of button you require.
+//
+// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using a ‘negative’ button:
+//
+// Tips:
+// Do: When using color variation, use descriptive text like "Delete user records"
+// Dont: When using color variation, avoid vague text like "Complete"
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -63,6 +71,14 @@
 // Borderless
 //
 // Borderless `xui-button-*` modifiers are also available for actions that require less visual emphasis.
+//
+// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using a ‘negative’ button:
+//
+// Tips:
+// Do: When using color variation, use descriptive text like "Delete user records"
+// Dont: When using color variation, avoid vague text like "Complete"
 //
 // Classes:
 // -borderless-standard: Standard text color

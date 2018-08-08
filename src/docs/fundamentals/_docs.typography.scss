@@ -100,6 +100,14 @@
 
 // Sentiment colours
 //
+// Tips:
+// Do: When using sentiment, use descriptive text like "% increase"
+// Dont: When using sentiment, avoid vague text like "%"
+//
+// Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using text with a ‘positive’ sentiment:<br />
+//
 // Definitions:
 // Positive: `xui-textcolor-positive`:	<div class="xui-container"><span class="xui-textcolor-positive">21.3% decrease</span></div>
 // Negative: `xui-textcolor-negative`:	<div class="xui-container"><span class="xui-textcolor-negative">Yes, delete this invoice</span></div>

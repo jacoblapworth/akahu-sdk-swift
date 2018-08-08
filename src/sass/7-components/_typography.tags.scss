@@ -14,9 +14,13 @@
 // Tips:
 // Do: Use default or neutral tags for basic categorisation.
 // Do: Use colored tags to indicate sentiment.
+// Do: When using color variation, use descriptive text like "Invoiced"
 // Warning: Always provide a clear text label, as the meaning of colors is not universally understood.
+// Dont: When using color variation, avoid vague text like "INV 0032"
 //
 // First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment.
+//
+// Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
 // Default: <span class="xui-tag">Default</span>: none

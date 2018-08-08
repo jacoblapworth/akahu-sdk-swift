@@ -55,6 +55,14 @@
 //
 // To indicate sentiment, apply one of our standard text color utilities.
 //
+// Use descriptive text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, using a `positive` sentiment:
+//
+// Tips:
+// Do: When using sentiment, use descriptive text like "+35%"
+// Dont: When using sentiment, avoid vague text like "35%"
+//
 // Classes:
 // xui-textcolor-positive: Positive sentiment
 // xui-textcolor-negative: Negative sentiment

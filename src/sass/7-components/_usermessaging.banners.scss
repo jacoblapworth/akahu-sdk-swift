@@ -73,7 +73,13 @@
 
 // Sentiment
 //
+// Tips:
+// Do: When using sentiment, use descriptive text like "We are unable to load your data due to a problem with your internet connection"
+// Dont: When using sentiment, avoid vague text like "Internet connection"
+//
 // Positive and negative sentiment can be applied to banners by adding the following modifiers to `xui-banner`.
+//
+// Use descriptive text alongside colour sentiment to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
 // Positive: Adds green border: `-positive`

@@ -14,7 +14,7 @@
 // Tips:
 // Do: When disabling radios within groups, disable the entire group
 // Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
-// Warning: Avoid partially disabled groups and pre-selected, but disabled radios as these have been known to have keyboard navigation problems
+// Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
 //
 // Styleguide: Building Blocks.Controls.Radio.1
 

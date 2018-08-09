@@ -7,10 +7,11 @@ import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
-import { lockScroll, unlockScroll } from '../helpers/lockScroll';
+import { registerModal, deRegisterTopModal } from '../helpers/modalManager';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
 import {baseClass} from './constants';
 import {ns} from "../helpers/xuiClassNamespace";
+import uuidv4 from 'uuid/v4';
 
 export const modalSizes = {
 	default: `${baseClass}-width-default`,
@@ -82,21 +83,25 @@ function removeListeners(modal) {
 	}
 }
 
-
 export default class XUIModal extends Component {
 
-	state = { positionSettings: null }
+	state = { positionSettings: null };
+
+	generatedHeaderId = uuidv4();
 
 	componentDidMount() {
 		const modal = this;
 		addListeners(this);
-		if (modal.props.isOpen) {
-			lockScroll();
+		if (modal.props.isOpen && !this.state.isTopModal) {
+			const activeElement = document.activeElement;
+			this.priorFocusedEl = activeElement;
+			registerModal(this);
+
 			modal._isScrollLocked = true;
 
 			this.calcOffsetTop();
 
-			if (!modal._maskNode.contains(document.activeElement)) {
+			if (!modal._maskNode.contains(activeElement)) {
 				modal._modalNode.focus();
 			}
 		}
@@ -105,7 +110,6 @@ export default class XUIModal extends Component {
 	componentWillUnmount() {
 		removeListeners(this);
 
-		unlockScroll();
 		this._isScrollLocked = false;
 	}
 
@@ -113,36 +117,36 @@ export default class XUIModal extends Component {
 		if (shouldUpdateListeners(this.props, nextProps)) {
 			removeListeners(this);
 		}
-
 	}
 
 	componentDidUpdate(prevProps) {
 		const modal = this;
 		const { isOpen, restrictFocus } = modal.props;
-
+		const { isTopModal } = modal.state;
+		const activeElement = document.activeElement;
 
 		if (shouldUpdateListeners(this.props, prevProps)) {
 			addListeners(this);
 		}
 
-		if (isOpen && !modal._isScrollLocked) {
-			lockScroll();
+		if (isOpen && !modal._isScrollLocked && !isTopModal) {
+			this.priorFocusedEl = activeElement;
+			registerModal(this);
 			modal._isScrollLocked = true;
 
 			this.calcOffsetTop();
-
 		}
 
-		if (!isOpen && modal._isScrollLocked) {
-			unlockScroll();
+		if (!isOpen && modal._isScrollLocked && isTopModal) {
 			modal._isScrollLocked = false;
+			deRegisterTopModal();
 		}
 
 		if (
 			isOpen &&
 			restrictFocus &&
 			(!prevProps.isOpen || !prevProps.restrictFocus) &&
-			!modal._maskNode.contains(document.activeElement)
+			!modal._maskNode.contains(activeElement)
 		) {
 			modal._modalNode.focus();
 		}
@@ -168,8 +172,10 @@ export default class XUIModal extends Component {
 	 */
 	_keyUpHandler(event) {
 		const { isOpen, onClose } = this.props;
+		const { isTopModal } = this.state;
 		const escapeKeyCode = 27;
-		if (event.keyCode === escapeKeyCode && isOpen && onClose) {
+		if (event.keyCode === escapeKeyCode && isOpen && onClose && isTopModal) {
+			event.stopImmediatePropagation(); // Necessary for nested inline modals event bubbling.
 			onClose();
 		}
 	}
@@ -211,16 +217,19 @@ export default class XUIModal extends Component {
 			qaHook,
 			id,
 			isForm,
-			isUsingPortal
+			isUsingPortal,
+			closeButtonLabel
 		} = this.props;
 		const {
-			positionSettings
+			positionSettings,
+			isTopModal
 		} = this.state;
 
 		const maskClasses = cn(
 			maskClass,
 			maskClassName,
-			isOpen && `${maskClass}-is-active`
+			isOpen && `${maskClass}-is-active`,
+			!isTopModal && `${ns}-unmask` // unmasks previous modal's mask if there is more than 1 modal open
 		);
 		const modalClasses = cn(
 			baseClass,
@@ -241,7 +250,7 @@ export default class XUIModal extends Component {
 			<XUIButton
 				qaHook={qaHook && `${qaHook}--close`}
 				onClick={onClose}
-				title="Close"
+				title={closeButtonLabel}
 				className={cn(`${baseClass}--close`, closeClassName)}
 				key="close-button"
 				type="button"
@@ -253,7 +262,10 @@ export default class XUIModal extends Component {
 		let headerElement;
 		const finalChildren = Children.map(children, child => {
 			if (child && child.type === XUIModalHeader) {
-				headerElement = cloneElement(child, { ...child.props }, [
+				// Use the provided header ID or apply a generated one.
+				// This will be used for the label of the modal, if another is not provided.
+				const headerId = child.props.id || this.generatedHeaderId;
+				headerElement = cloneElement(child, { ...child.props, id: headerId }, [
 					child.props.children,
 					closeButton
 				]);
@@ -276,17 +288,18 @@ export default class XUIModal extends Component {
 				id={id}
 				className={maskClasses}
 				onClick={overlayClickHandler}
-				aria-hidden={!isOpen}
+				aria-hidden={!isOpen || !isTopModal}
 				data-automationid={qaHook && `${qaHook}--mask`}
 				ref={m => (this._maskNode = m)}
 				role="presentation"
 			>
 				<MainElement
 					className={modalClasses}
-					tabIndex={isOpen ? 0 : -1}
+					tabIndex={isOpen && isTopModal ? 0 : -1}
 					role={isOpen ? 'dialog' : null}
 					style={positionSettings}
-					aria-labelledby={ariaLabelledBy}
+					// If a modal header has been provided, it can be used for the label.
+					aria-labelledby={ariaLabelledBy || headerElement && headerElement.props.id || undefined}
 					aria-describedby={ariaDescribedBy}
 					data-automationid={qaHook}
 					ref={m => (this._modalNode = m)}
@@ -324,6 +337,9 @@ XUIModal.propTypes = {
 	/** Bind a function to fire when the modal requests to be hidden */
 	onClose: PropTypes.func,
 
+	/** Label to be applied to the modal close "X" button, for accessibility. Defaults to "Close" */
+	closeButtonLabel: PropTypes.string,
+
 	/** The size (aka width) of this modal */
 	size: PropTypes.oneOf(['default', 'small', 'medium', 'large', 'xlarge', 'fullscreen']),
 
@@ -345,7 +361,7 @@ XUIModal.propTypes = {
 	/** Restricts focus to elements within the modal while it is open */
 	restrictFocus: PropTypes.bool,
 
-	/** ID for the element containing an appropriate label for screen readers */
+	/** ID for the element containing an appropriate label for screen readers. If a ModalHeader is provided, it will automatically be used as the labelling element. */
 	ariaLabelledBy: PropTypes.string,
 
 	/** ID for the element containing an appropriate description for screen readers */
@@ -371,5 +387,6 @@ XUIModal.defaultProps = {
 	defaultLayout: true,
 	restrictFocus: true,
 	isUsingPortal: true,
-	isForm: false
+	isForm: false,
+	closeButtonLabel: 'Close'
 };

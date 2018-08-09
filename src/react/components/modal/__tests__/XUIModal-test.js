@@ -6,6 +6,10 @@ import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
+import uuidv4 from 'uuid/v4';
+
+jest.mock('uuid/v4');
+uuidv4.mockImplementation(() => 'generatedHeaderId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -21,6 +25,7 @@ describe('XUIModal', () => {
 				qaHook="xui-modal"
 				onClose={NOOP}
 			>
+				<XUIModalHeader>Test header</XUIModalHeader>
 				<div>test</div>
 			</XUIModal>
 		);
@@ -34,7 +39,7 @@ describe('XUIModal', () => {
 				id="test-modal"
 				className="classyMcClassFace"
 				maskClassName="maskClassyMcClassFace"
-				onClose={function() {}}
+				onClose={NOOP}
 				closeClassName="closeClassyMcClassFace"
 			/>
 		);
@@ -52,14 +57,15 @@ describe('XUIModal', () => {
 	it('Should render with the appropriate size modifier', function() {
 		const component = mount(
 			<div>
-				<XUIModal isUsingPortal={false} id="test-modal-small" size="small" />
-				<XUIModal isUsingPortal={false} id="test-modal-medium" size="medium" />
-				<XUIModal isUsingPortal={false} id="test-modal-large" size="large" />
-				<XUIModal isUsingPortal={false} id="test-modal-xlarge" size="xlarge" />
+				<XUIModal isUsingPortal={false} id="test-modal-small" size="small" onClose={NOOP} />
+				<XUIModal isUsingPortal={false} id="test-modal-medium" size="medium" onClose={NOOP} />
+				<XUIModal isUsingPortal={false} id="test-modal-large" size="large" onClose={NOOP} />
+				<XUIModal isUsingPortal={false} id="test-modal-xlarge" size="xlarge" onClose={NOOP} />
 				<XUIModal
 					isUsingPortal={false}
 					id="test-modal-fullscreen"
 					size="fullscreen"
+					onClose={NOOP}
 				/>
 			</div>
 		);
@@ -177,8 +183,9 @@ describe('XUIModal', () => {
 					id="test-modal-nolayout"
 					defaultLayout={false}
 					isOpen={true}
+					onClose={NOOP}
 				/>
-				<XUIModal isUsingPortal={false} id="test-modal-layout" />
+				<XUIModal isUsingPortal={false} id="test-modal-layout" onClose={NOOP} />
 			</div>
 		);
 		const firstModal = component.find('#test-modal-nolayout .xui-modal');

@@ -10,7 +10,8 @@ const storyNames = {
 
 const nonBackstopStoryNames = {
 	inifiniteStatefulPicklist: 'Infinite JS errors in StatefulPicklist render',
-	modalInModal: 'Modal in a modal with dropdown'
+	modalInModal: 'Modal in a modal with dropdown',
+	fiveNestedModals: 'Multiple nested modals'
 };
 
 const variations = [];

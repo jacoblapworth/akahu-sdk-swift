@@ -189,6 +189,10 @@
 	visibility: visible;
 }
 
+.#{$ns}-unmask {
+	background-color: transparentize($xui-color-grey-1, 1);
+}
+
 .#{$ns}-modal {
 	align-self: flex-start;
 	background-color: $xui-modal-bg-color;

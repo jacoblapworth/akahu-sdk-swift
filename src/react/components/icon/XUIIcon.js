@@ -24,20 +24,24 @@ export default function XUIIcon(props) {
 		!icon && sizeClasses[size], // TODO: apply multiplier to width and height instead?
 		colorClasses[color],
 		rotationClasses[rotation],
-		isInline && `${baseClass}-inline`
+		isInline && !icon && `${baseClass}-inline`
 	);
+
+	const width = icon && isInline ? icon.width : 30;
+	const height = icon && isInline ? icon.height : 30;
+	const pathTransform = icon && !isInline ? `translate(${(30 - icon.width) / 2},${(30 - icon.height) / 2})` : undefined;
 
 	const optionalTitle = title? <title>{ title }</title> : null;
 	const optionalDescription = desc? <desc>{ desc }</desc> : null;
-	const viewBox = icon ? `0 0 ${icon.width} ${icon.height}` : props.viewBox;
+	const viewBox = icon ? `0 0 ${width} ${height}` : props.viewBox;
 	const path = icon ? icon.path : props.path;
-	const style = icon ? { width: `${icon.width}px`, height: `${icon.height}px`} : null;
+	const style = icon ? { width: `${width}px`, height: `${height}px`} : null;
 
 	return(
 		<svg data-automationid={qaHook} focusable="false" style={style} className={ classes } viewBox={ viewBox }>
 			{ optionalTitle }
 			{ optionalDescription }
-			<path d={ path } role={ role } />
+			<path d={ path } role={ role } transform={pathTransform} />
 		</svg>
 	);
 }

@@ -11,6 +11,7 @@ exports[`XUIButtonCaret renders a passed qaHook as an automationId 1`] = `
   <path
     d="M10,13L15 18 20 13z"
     role="presentation"
+    transform={undefined}
   />
 </svg>
 `;

@@ -41,6 +41,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
             <path
               d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
               role="presentation"
+              transform={undefined}
             />
           </svg>
         </button>
@@ -107,6 +108,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
             <path
               d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
               role="presentation"
+              transform={undefined}
             />
           </svg>
         </button>
@@ -173,6 +175,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
             <path
               d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
               role="presentation"
+              transform={undefined}
             />
           </svg>
         </button>
@@ -237,6 +240,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
             <path
               d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
               role="presentation"
+              transform={undefined}
             />
           </svg>
         </button>
@@ -266,6 +270,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
           <path
             d="M13,10 L21,10 L21,12 L13,12 L13,10 Z M9,10 L11,10 L11,12 L9,12 L9,10 Z M9,14 L11,14 L11,16 L9,16 L9,14 Z M13,14 L21,14 L21,16 L13,16 L13,14 Z M13,18 L21,18 L21,20 L13,20 L13,18 Z M9,18 L11,18 L11,20 L9,20 L9,18 Z"
             role="presentation"
+            transform={undefined}
           />
         </svg>
         <div>
@@ -318,6 +323,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
             <path
               d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
               role="presentation"
+              transform={undefined}
             />
           </svg>
         </button>
@@ -407,6 +413,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
             <path
               d="M15,18.4142136 C15,18.4142136 19.9706882,13.4435253 20.7071068,12.7071068 L19.2928932,11.2928932 C18.5564747,12.0293118 14.9999998,15.5900002 14.9999998,15.5900002 L10.7071068,11.2928932 L9.29289322,12.7071068 L15,18.4142136 Z"
               role="presentation"
+              transform={undefined}
             />
           </svg>
         </button>
@@ -436,6 +443,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
           <path
             d="M13,10 L21,10 L21,12 L13,12 L13,10 Z M9,10 L11,10 L11,12 L9,12 L9,10 Z M9,14 L11,14 L11,16 L9,16 L9,14 Z M13,14 L21,14 L21,16 L13,16 L13,14 Z M13,18 L21,18 L21,20 L13,20 L13,18 Z M9,18 L11,18 L11,20 L9,20 L9,18 Z"
             role="presentation"
+            transform={undefined}
           />
         </svg>
         <div>

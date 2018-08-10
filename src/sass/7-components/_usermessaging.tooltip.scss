@@ -154,8 +154,8 @@
 	right: 0;
 	text-align: center;
 	transition: opacity $xui-motion-speed-fast linear;
-	width: intrinsic; // Safari's non-standard implementation of max-content.
 	width: max-content;
+	width: intrinsic; // Safari's non-standard implementation of max-content.
 	z-index: 3;
 	> * {
 		box-sizing: border-box;

@@ -2,12 +2,12 @@
 import React from 'react';
 
 // Components we need to test with
-import XUIModal, { XUIModalBody } from '../../modal';
-import DropDown, { DropDownToggled } from '../../dropdown';
-import XUIDatePicker from '../../datepicker';
-import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIModal, { XUIModalBody } from '../../../modal';
+import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDatePicker from '../../../datepicker';
+import XUIButton, { XUIButtonCaret } from '../../../button';
 
-import NOOP from '../../components/helpers/noop';
+import NOOP from '../../../components/helpers/noop';
 import { storyNames, compositionKind } from '../tests';
 
 // Story book things

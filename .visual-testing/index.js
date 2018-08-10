@@ -165,13 +165,13 @@ const componentsToTest = [
 	},
 	{
 		testsPrefix: 'Compositions',
-		variationsPath: '../.tmp/react-dev/stories/tests.js',
+		variationsPath: '../.tmp/react-dev/stories/compositions/tests.js',
 		delay: 1500,
 		...fullPageSettings
 	},
 	{
 		testsPrefix: 'Page Layouts',
-		variationsPath: '../.tmp/react-dev/page-layouts/tests.js',
+		variationsPath: '../.tmp/react-dev/stories/page-layouts/tests.js',
 		...fullPageSettings
 	}
 ];

@@ -2,10 +2,10 @@
 import React from 'react';
 
 // Components we need to test with
-import XUIModal, { XUIModalBody } from '../../modal';
-import DropDown, { DropDownToggled } from '../../dropdown';
-import Picklist, { Pickitem } from '../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../button';
+import XUIModal, { XUIModalBody } from '../../../modal';
+import DropDown, { DropDownToggled } from '../../../dropdown';
+import Picklist, { Pickitem } from '../../../picklist';
+import XUIButton, { XUIButtonCaret } from '../../../button';
 
 import { storyNames, compositionKind } from '../tests';
 

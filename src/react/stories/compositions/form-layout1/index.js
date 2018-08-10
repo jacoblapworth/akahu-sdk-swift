@@ -3,21 +3,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
-import DropDown, { DropDownToggled } from '../../dropdown';
-import Picklist, { Pickitem } from '../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import XUITextInput from '../../textinput';
-import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
-import XUIRadio, { XUIRadioGroup } from '../../radio';
-import XUISwitch from '../../switch';
-import XUIToggle, { XUIToggleOption } from '../../toggle';
-import XUIAutocompleter, { XUIAutocompleterEmptyState } from '../../autocompleter';
-import people from '../../components/autocompleter/private/people';
-import XUIAvatar from '../../avatar';
-import { decorateSubStr, boldMatch } from '../../components/autocompleter/helpers/highlighting';
-import XUIPill from '../../pill';
-import XUITag from '../../tag';
-import XUIIcon from '../../icon';
+import DropDown, { DropDownToggled } from '../../../dropdown';
+import Picklist, { Pickitem } from '../../../picklist';
+import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUITextInput from '../../../textinput';
+import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
+import XUIRadio, { XUIRadioGroup } from '../../../radio';
+import XUISwitch from '../../../switch';
+import XUIToggle, { XUIToggleOption } from '../../../toggle';
+import XUIAutocompleter, { XUIAutocompleterEmptyState } from '../../../autocompleter';
+import people from '../../../components/autocompleter/private/people';
+import XUIAvatar from '../../../avatar';
+import { decorateSubStr, boldMatch } from '../../../components/autocompleter/helpers/highlighting';
+import XUIPill from '../../../pill';
+import XUITag from '../../../tag';
+import XUIIcon from '../../../icon';
 import arrow from '@xero/xui-icon/icons/arrow';
 
 // Private modules

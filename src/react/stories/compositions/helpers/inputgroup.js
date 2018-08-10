@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { getAllClasses } from '../../components/structural/XUIColumn';
+import { getAllClasses } from '../../../components/structural/XUIColumn';
 
 const InputGroup = ({ children, className, isFieldLayout, ...other }) => {
 	const columns = {

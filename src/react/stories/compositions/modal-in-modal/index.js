@@ -2,11 +2,11 @@
 import React, { Component } from 'react';
 
 // Components we need to test with
-import XUIModal, { XUIModalBody, XUIModalHeader } from '../../modal';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import DropDown, { DropDownToggled } from '../../dropdown';
-import Picklist, { Pickitem } from '../../picklist';
-import lists from '../../components/helpers/list';
+import XUIModal, { XUIModalBody, XUIModalHeader } from '../../../modal';
+import XUIButton, { XUIButtonCaret } from '../../../button';
+import DropDown, { DropDownToggled } from '../../../dropdown';
+import Picklist, { Pickitem } from '../../../picklist';
+import lists from '../../../components/helpers/list';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 

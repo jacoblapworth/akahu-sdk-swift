@@ -2,18 +2,18 @@
 import React from 'react';
 
 // Components we need to test with
-import XUIModal, { XUIModalBody } from '../../modal';
-import DropDown, { DropDownToggled } from '../../dropdown';
-import Picklist, { Pickitem } from '../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import XUITextInput from '../../textinput';
+import XUIModal, { XUIModalBody } from '../../../modal';
+import DropDown, { DropDownToggled } from '../../../dropdown';
+import Picklist, { Pickitem } from '../../../picklist';
+import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUITextInput from '../../../textinput';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
 
-import lists from '../../components/helpers/list';
+import lists from '../../../components/helpers/list';
 import { storyNames, compositionKind } from '../tests';
 
 const test = storiesOf(compositionKind, module);

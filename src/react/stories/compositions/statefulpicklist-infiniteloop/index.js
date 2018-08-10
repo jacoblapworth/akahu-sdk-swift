@@ -2,9 +2,9 @@
 import React from 'react';
 
 // Components we need to test with
-import Picklist, { Pickitem } from '../../picklist';
-import { DropDownFooter } from '../../dropdown';
-import XUIAutoCompleter from '../../autocompleter';
+import Picklist, { Pickitem } from '../../../picklist';
+import { DropDownFooter } from '../../../dropdown';
+import XUIAutoCompleter from '../../../autocompleter';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 

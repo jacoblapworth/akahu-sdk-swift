@@ -2,14 +2,14 @@
 import React from 'react';
 
 // Components we need to test with
-import DropDown, { DropDownToggled } from '../../dropdown';
-import Picklist, { Pickitem } from '../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../button';
-import XUICheckbox, { XUICheckboxGroup } from '../../checkbox';
-import XUIRadio, { XUIRadioGroup } from '../../radio';
-import XUISwitch from '../../switch';
-import SelectBox, { SelectBoxOption } from '../../select-box';
-import { XUIRow, XUIColumn } from '../../structural';
+import DropDown, { DropDownToggled } from '../../../dropdown';
+import Picklist, { Pickitem } from '../../../picklist';
+import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
+import XUIRadio, { XUIRadioGroup } from '../../../radio';
+import XUISwitch from '../../../switch';
+import SelectBox, { SelectBoxOption } from '../../../select-box';
+import { XUIRow, XUIColumn } from '../../../structural';
 
 // Private modules
 import Form from '../helpers/form';
@@ -23,7 +23,7 @@ import { storyNames, compositionKind } from '../tests';
 import { storiesOf } from '@storybook/react';
 import { withReadme } from 'storybook-readme';
 import readme from './README.md';
-import XUITextInput from '../../textinput';
+import XUITextInput from '../../../textinput';
 
 const test = storiesOf(compositionKind, module);
 test.addDecorator(withReadme(readme));

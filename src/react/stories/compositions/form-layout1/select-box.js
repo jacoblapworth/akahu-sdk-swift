@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components we need to test with
-import SelectBox, { SelectBoxOption } from '../../select-box';
+import SelectBox, { SelectBoxOption } from '../../../select-box';
 const bank = require('@xero/xui-icon/icons/bank').default;
-import XUIIcon from '../../icon';
+import XUIIcon from '../../../icon';
 
 export default class LayoutSelect extends React.Component {
 	constructor() {

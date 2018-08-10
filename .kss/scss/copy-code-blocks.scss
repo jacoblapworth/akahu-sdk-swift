@@ -1,7 +1,7 @@
 .clipboard-button {
 	align-items: center;
-	background: rgba($xui-color-grey-1, 0.95);
-	color: $xui-color-grey-5;
+	background: $ds-markup-bg-color;
+	color: $ds-markup-color;
 	border-radius: 3px;
 	display: flex;
 	height: 25px;
@@ -25,7 +25,7 @@
 		height: 0;
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
-		border-left: 5px solid rgba($xui-color-grey-1, 0.95);
+		border-left: 5px solid $ds-markup-bg-color;
 		transform: rotate(90deg) translateX(-1px) translateY(-3px);
 		bottom: 0;
 	}
@@ -38,7 +38,6 @@
 		position: absolute;
 		top: 5px;
 		left: -250%;
-		background: rgba(red, 0.1);
 		background: transparent;
 		width: 600%;
 		height: 35px;
@@ -46,7 +45,7 @@
 	}
 
 	&:hover {
-		color: $xui-color-grey-7;
+		color: $ds-markup-hover-color;
 	}
 }
 

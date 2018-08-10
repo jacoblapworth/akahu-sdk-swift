@@ -29,7 +29,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	transform: perspective(1px) translateZ(0);
-	box-shadow: 0 0 0 1px $xui-color-grey-alpha-6;
+	box-shadow: $xui-shadow-depth-pop;
 	transition-duration: 0.3s;
 	&:nth-child(3n-2) {
 		margin-left: 0;
@@ -55,7 +55,7 @@
 .ds-tile--home:hover {
 	transform: scale(1.03);
 	transition-timing-function: $ds-motion-curve-bouncy;
-	box-shadow: 0 0 0 1px rgba(50,70,90,0.1), 0 4px 15px rgba($xui-color-grey-1, 0.2);
+	box-shadow: 0 0 0 1px rgba(50,70,90,0.1), 0 4px 15px rgba($ds-dark-bg-color, 0.2);
 }
 
 .ds-tile--home a {
@@ -113,7 +113,7 @@
 }
 
 .ds-tile--home-updates {
-	background: $xui-color-grey-1;
+	background: $ds-dark-bg-color;
 	.xui-heading-large {
 		color: $xui-color-white;
 	}

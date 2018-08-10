@@ -28,7 +28,7 @@
 	width: $xui-starting-width;
 
 	&:hover {
-		background: $xui-color-grey-alpha-7;
+		background: $ds-card-hover-bg-color;
 	}
 
 	@include xui-breakpoint-medium {

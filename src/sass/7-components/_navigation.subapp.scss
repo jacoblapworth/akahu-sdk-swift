@@ -1,6 +1,6 @@
 .#{$ns}-pageheading {
 	align-items: stretch;
-	background-color: $xui-color-white;
+	background-color: $xui-pageheading-bg-color;
 	box-shadow: $xui-shadow-border-bottom;
 	display: flex;
 	flex-wrap: nowrap;
@@ -65,7 +65,7 @@
 }
 
 .#{$ns}-breadcrumb--link {
-	@include xui-button-borderless($xui-color-xero-blue, $xui-color-xero-dark-blue);
+	@include xui-button-borderless($xui-breadcrumb-link-color, $xui-breadcrumb-link-hover-color);
 	display: block;
 	line-height: inherit; // Overrides the line-height from the xui-button-borderless mixin, which is mostly good.
 	min-height: $xui-input-height-small;
@@ -80,7 +80,7 @@
 }
 
 .#{$ns}-breadcrumb--icon {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-breadcrumb-icon-color;
 	margin-top: 3px;
 }
 

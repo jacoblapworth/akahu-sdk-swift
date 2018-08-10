@@ -333,9 +333,9 @@
 
 .#{$ns}-isolationheader {
 	align-items: center;
-	background-color: $xui-color-white;
+	background-color: $xui-isolationheader-bg-color;
 	box-shadow: $xui-shadow-depth-overlap-top;
-	color: $xui-color-black;
+	color: $xui-isolationheader-color;
 	display: flex;
 	height: $xui-navigation-height;
 	overflow: hidden;
@@ -351,7 +351,7 @@
 }
 
 .#{$ns}-isolationheader-inverted {
-	background: $xui-color-grey-2;
+	background: $xui-isolationheader-inverted-bg-color;
 	color: $xui-color-white;
 }
 

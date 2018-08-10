@@ -20,10 +20,10 @@ Provides reset for button styles applied by the browser
 /*
 Standard XUI button shadow
 
-$fade - alpha value for the box shadow to be applied with
+$color - alpha value for the box shadow to be applied with
 */
-@mixin xui-button-shadow($fade) {
-	box-shadow: inset 0 0 0 40px rgba(0, 0, 0, $fade);
+@mixin xui-button-shadow($color) {
+	box-shadow: inset 0 0 0 40px $color;
 }
 
 /*
@@ -55,7 +55,7 @@ Provides active button styling. Contents will be applied when active.
 $bg-color - Background color to use when active
 $border-color - Border color to use when active
 */
-@mixin xui-button-active($bg-color: $xui-color-grey-6, $border-color: $xui-color-grey-3) {
+@mixin xui-button-active($bg-color: $xui-color-grey-7, $border-color: $xui-color-grey-3) {
 	&:active {
 		background-color: $bg-color;
 		border-color: $border-color;
@@ -87,7 +87,7 @@ $color - Text color to use
 $background-image - Background image to use
 $border - Border to use
 */
-@mixin xui-button-variant($background-color: $xui-color-white, $color: $xui-color-xero-blue, $background-image: null, $border: null) {
+@mixin xui-button-variant($background-color: $xui-color-white, $color: $xui-color-blue, $background-image: null, $border: null) {
 	background-clip: padding-box;
 	background-color: $background-color;
 	background-image: $background-image;
@@ -115,7 +115,7 @@ $text-hover-color - Text color to use on hover
 $background-focus - Background color to use on focus
 $background-active - Background color to use while active
 */
-@mixin xui-button-borderless($text-color, $text-hover-color, $background-focus: $xui-color-grey-alpha-7, $background-active: $xui-color-grey-alpha-6) {
+@mixin xui-button-borderless($text-color, $text-hover-color, $background-focus: $xui-button-borderless-focus-bg-color, $background-active: $xui-button-borderless-active-bg-color) {
 	background: transparent;
 	border-radius: $xui-radius;
 	color: $text-color;
@@ -127,10 +127,12 @@ $background-active - Background color to use while active
 	transition-property: color, background;
 	transition-timing-function: $xui-motion-curve-standard;
 	&:hover {
+		background: $background-focus;
 		color: $text-hover-color;
 	}
 	&:focus {
 		background: $background-focus;
+		color: $text-hover-color;
 	}
 	&:active {
 		background: $background-active;
@@ -145,7 +147,7 @@ $focus-bg-color - Background color to use when focused
 $active-bg-color - Background color to use when active
 $hover-bg-color - Background color to use when hovered
 */
-@mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-color-grey-alpha-7, $active-bg-color: $xui-color-grey-alpha-6, $hover-bg-color: none) {
+@mixin xui-button-icon-states($text-color: $xui-color-grey-1, $focus-bg-color: $xui-button-borderless-focus-bg-color, $active-bg-color:$xui-button-borderless-active-bg-color, $hover-bg-color: $xui-button-borderless-focus-bg-color) {
 	&:hover {
 		background-color: $hover-bg-color;
 		color: $text-color;
@@ -153,6 +155,7 @@ $hover-bg-color - Background color to use when hovered
 
 	&:focus {
 		background: $focus-bg-color;
+		color: $text-color;
 		outline: none;
 	}
 

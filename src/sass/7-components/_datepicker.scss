@@ -513,7 +513,7 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--button-is-disabled {
 	cursor: default;
 	&::before {
-		color: $xui-color-grey-4;
+		color: $xui-datepicker-button-disabled-color;
 	}
 }
 
@@ -550,13 +550,13 @@ $xui-datepicker-day-size-compact: 30px;
 	width: 100%;
 
 	&:focus + .#{$ns}-datepicker--heading-label {
-		background: $xui-color-grey-alpha-7;
+		background: $xui-datepicker-heading-label-focus-bg-color;
 	}
 	&:active + .#{$ns}-datepicker--heading-label {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-heading-label-active-bg-color;
 	}
 	&:hover + .#{$ns}-datepicker--heading-label {
-		color: $xui-color-xero-blue;
+		color: $xui-datepicker-heading-label-hover-color;
 	}
 }
 
@@ -664,13 +664,13 @@ $xui-datepicker-day-size-compact: 30px;
 	&:not(.#{$ns}-datepicker--day-is-in-range) {
 		&:active, &:focus {
 			.#{$ns}-datepicker--day--time {
-				background-color: $xui-color-grey-alpha-7;
+				background-color: $xui-datepicker-day-focus-bg-color;
 			}
 		}
 	}
 	&:not(.#{$ns}-datepicker--day-is-in-selected-range):active {
 		.#{$ns}-datepicker--day--time {
-			background-color: $xui-color-grey-alpha-6;
+			background-color: $xui-datepicker-day-bg-color;
 		}
 	}
 }
@@ -692,7 +692,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--weekday {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-datepicker-weekday-color;
 	cursor: default;
 	font-size: $xui-font-size-xsmall;
 	font-weight: normal;
@@ -707,35 +707,31 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--day-is-othermonth {
-	color: $xui-color-grey-alpha-3;
+	color: $xui-datepicker-othermonth-color;
 }
 
 .#{$ns}-datepicker--day-is-today {
-	color: $xui-color-xero-blue;
+	color: $xui-datepicker-today-color;
 }
 
 .#{$ns}-datepicker--day-is-selected {
 	&:not(.#{$ns}-datepicker--day-is-selected-middle) {
 		.#{$ns}-datepicker--day--time {
-			background: $xui-color-xero-blue;
-			box-shadow: 0 0 0 0 $xui-color-xero-blue;
-			color: $xui-color-white;
+			background: $xui-datepicker-selected-bg-color;
+			box-shadow: 0 0 0 0 $xui-datepicker-selected-shadow-color;
+			color: $xui-datepicker-selected-color;
 			transition: box-shadow $xui-motion-speed-fast $xui-motion-curve-standard;
 		}
 	}
 	&:focus {
 		.#{$ns}-datepicker--day--time {
-			background: $xui-color-xero-dark-blue;
+			background: $xui-datepicker-selected-focus-bg-color;
 		}
 	}
-	&:active {
-		.#{$ns}-datepicker--day--time {
-			box-shadow: 0 0 0 2px $xui-color-xero-dark-blue;
-		}
-	}
+	&:active,
 	&:active:focus {
 		.#{$ns}-datepicker--day--time {
-			box-shadow: 0 0 0 2px $xui-color-xero-dark-blue;
+			box-shadow: 0 0 0 2px $xui-datepicker-selected-active-shadow-color;
 		}
 	}
 }
@@ -743,94 +739,94 @@ $xui-datepicker-day-size-compact: 30px;
 .#{$ns}-datepicker--day-is-disabled {
 	cursor: default;
 	.#{$ns}-datepicker--day--time {
-		color: $xui-color-grey-alpha-4;
+		color: $xui-datepicker-disabled-color;
 	}
 }
 
 .#{$ns}-datepicker--day-is-hovered-start {
 	&::before {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 		@include xui-datepicker-highlight-size-left();
 	}
 	&::after {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 	}
 }
 
 .#{$ns}-datepicker--day-is-hovered-middle {
 	&::before {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 	}
 	&::after {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 	}
 }
 
 .#{$ns}-datepicker--day-is-hovered-end {
 	&::before {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 	}
 	&::after {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 		@include xui-datepicker-highlight-size-right();
 	}
 }
 
 .#{$ns}-datepicker--day-is-selected-start {
 	&::before {
-		background: $xui-color-xero-blue;
+		background: $xui-datepicker-selected-bg-color;
 		@include xui-datepicker-highlight-size-left();
 	}
 	&::after {
-		background: $xui-color-xero-blue;
+		background: $xui-datepicker-selected-bg-color;
 	}
 	.#{$ns}-datepicker--day--time {
-		color: $xui-color-white;
+		color: $xui-datepicker-selected-color;
 	}
 }
 
 .#{$ns}-datepicker--day-is-selected-middle {
 	&::before {
-		background: $xui-color-xero-blue;
+		background: $xui-datepicker-selected-bg-color;
 	}
 	&::after {
-		background: $xui-color-xero-blue;
+		background: $xui-datepicker-selected-bg-color;
 	}
 	.#{$ns}-datepicker--day--time {
-		color: $xui-color-white;
+		color: $xui-datepicker-selected-color;
 	}
 }
 
 
 .#{$ns}-datepicker--day-is-selected-end {
 	&::before {
-		background: $xui-color-xero-blue;
+		background: $xui-datepicker-selected-bg-color;
 	}
 	&::after {
-		background: $xui-color-xero-blue;
+		background: $xui-datepicker-selected-bg-color;
 		@include xui-datepicker-highlight-size-right();
 	}
 	.#{$ns}-datepicker--day--time {
-		color: $xui-color-white;
+		color: $xui-datepicker-selected-color;
 	}
 }
 
 .#{$ns}-datepicker--day-is-selected-hovered-start {
 	&::before {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 		@include xui-datepicker-highlight-size-left();
 	}
 	&::after {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 	}
 }
 
 .#{$ns}-datepicker--day-is-selected-hovered-end {
 	&::before {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 	}
 	&::after {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-datepicker-hover-bg-color;
 		@include xui-datepicker-highlight-size-right();
 	}
 }

@@ -43,7 +43,7 @@
 
 	&:before,
 	&:after {
-		background: $xui-color-grey-5;
+		background: $xui-color-grey-6;
 		content: '';
 		display: block;
 		height: calc(50% - #{$xui-s-large});
@@ -115,7 +115,7 @@
 	width: 100%;
 
 	&:before {
-		background: $xui-color-grey-5;
+		background: $xui-color-grey-6;
 		bottom: 0;
 		content: '';
 		display: block;
@@ -165,7 +165,7 @@
 	}
 
 	&.#{$ns}-stepper-link-disabled:hover {
-		@include stepperLinkColor($xui-color-grey-5);
+		@include stepperLinkColor($xui-color-grey-6);
 	}
 
 	&.#{$ns}-stepper-link-active:focus,
@@ -182,7 +182,7 @@
 	}
 
 	&.#{$ns}-stepper-link-disabled:focus {
-		@include stepperLinkColor($xui-color-grey-5);
+		@include stepperLinkColor($xui-color-grey-6);
 		background: transparent;
 	}
 }
@@ -348,9 +348,8 @@
 .#{$ns}-stepper-link-description {
 	font-size: $xui-font-size-xsmall;
 }
-
 .#{$ns}-stepper-link-error {
-	@include stepperLinkColor($xui-color-negative);
+	@include stepperLinkColor($xui-invalid-color);
 }
 
 .#{$ns}-stepper-link-active {
@@ -359,5 +358,5 @@
 }
 
 .#{$ns}-stepper-link-disabled {
-	@include stepperLinkColor($xui-color-grey-5);
+	@include stepperLinkColor($xui-color-grey-6);
 }

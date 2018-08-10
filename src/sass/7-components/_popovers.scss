@@ -95,7 +95,7 @@
 // Styleguide: Building Blocks.Alerts.Popover.4
 
 .#{$ns}-popover {
-	background-color: $xui-color-white;
+	background-color: $xui-popover-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-lift;
 	position: relative;
@@ -104,7 +104,7 @@
 // TODO: Deprecated in XUI12, remove in XUI14
 .#{$ns}-popover--arrow {
 	display: inline-block;
-	fill: $xui-color-white;
+	fill: $xui-popover-bg-color;
 	//If font-size is set to inherit, when font size is too big the arrow will shift down and out of place
 	font-size: 1px;
 	height: 16px;
@@ -193,12 +193,12 @@
 	}
 
 	&--border {
-		stroke: $xui-color-grey-alpha-5;
+		stroke: $xui-popover-arrow-border-color;
 	}
 }
 
 .#{$ns}-popover-arrow:before {
-	border-bottom: 8px solid $xui-color-grey-alpha-5;
+	border-bottom: 8px solid $xui-popover-arrow-border-color;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
 	content: '';
@@ -208,7 +208,7 @@
 }
 
 .#{$ns}-popover-arrow:after {
-	border-bottom: 8px solid $xui-color-white;
+	border-bottom: 8px solid $xui-popover-bg-color;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
 	content: '';

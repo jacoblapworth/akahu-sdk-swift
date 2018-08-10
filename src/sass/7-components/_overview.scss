@@ -89,7 +89,7 @@
 // Styleguide: Compounds.DisplayingData.OverviewBlock.3
 
 .#{$ns}-overview {
-	background-color: $xui-color-grey-alpha-7;
+	background-color: $xui-overview-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-border-all;
 	display: flex;
@@ -105,7 +105,7 @@
 }
 
 .#{$ns}-overview--label {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-overview-label-color;
 }
 
 .#{$ns}-overview--value {

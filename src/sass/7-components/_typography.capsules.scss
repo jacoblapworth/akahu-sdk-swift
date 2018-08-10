@@ -69,20 +69,20 @@
 }
 
 .#{$ns}-capsule-interactive {
-	color: $xui-color-blue;
+	color: $xui-capsule-interactive-color;
 }
 
 .#{$ns}-capsule-invalid {
-	background: $xui-color-negative;
-	color: $xui-color-white;
+	background: $xui-invalid-bg-color;
+	color: $xui-capsule-invalid-color;
 }
 
 .#{$ns}-capsule:focus {
-	background-color: $xui-color-action;
-	color: $xui-color-white;
+	$xui-capsule-focus-bg-color: $xui-color-blue;
+	color: $xui-capsule-focus-color;
 }
 
 .#{$ns}-capsule-invalid:focus {
-	background-color: $xui-color-negative;
+	background-color: $xui-invalid-bg-color;
 	box-shadow: $xui-shadow-focus;
 }

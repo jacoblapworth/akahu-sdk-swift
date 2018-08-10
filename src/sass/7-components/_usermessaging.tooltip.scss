@@ -138,11 +138,11 @@
 }
 
 .#{$ns}-tooltip--tip {
-	background-color: $xui-color-grey-1;
+	background-color: $xui-tooltip-bg-color;
 	border-radius: $xui-radius;
 	bottom: 0;
-	box-shadow: 0 0 0 1px $xui-color-white-alpha-4, 0 3px 6px 0 $xui-color-grey-alpha-5;
-	color: $xui-color-white;
+	box-shadow: 0 0 0 1px $xui-tooltip-shadow-color, 0 3px 6px 0 $xui-tooltip-shadow-color;
+	color: $xui-tooltip-color;
 	cursor: auto;
 	display: block;
 	line-height: $xui-line-height;
@@ -170,8 +170,8 @@
 	}
 
 	&:after {
-		background: $xui-color-grey-1;
-		box-shadow: 1px 1px 0 0 $xui-color-white-alpha-4;
+		background: $xui-tooltip-bg-color;
+		box-shadow: 1px 1px 0 0 $xui-tooltip-shadow-color;
 		content: '';
 		height: 10px;
 		position: absolute;
@@ -197,7 +197,7 @@
 	bottom: auto;
 	top: 100%;
 	&:after {
-		box-shadow: -1px -1px 0 0 $xui-color-white-alpha-4;
+		box-shadow: -1px -1px 0 0 $xui-tooltip-shadow-color;
 		top: 0px;
 	}
 }
@@ -233,7 +233,7 @@
 	left: calc(100% + 10px);
 	right: auto;
 	&:after {
-		box-shadow: -1px 1px 0 0 $xui-color-white-alpha-4;
+		box-shadow: -1px 1px 0 0 $xui-tooltip-shadow-color;
 		left: 0px;
 	}
 }
@@ -242,7 +242,7 @@
 .#{$ns}-positioningInline--content-leftbottom {
 	right: calc(100% + 10px);
 	&:after {
-		box-shadow: 1px -1px 0 0 $xui-color-white-alpha-4;
+		box-shadow: 1px -1px 0 0 $xui-tooltip-shadow-color;
 		right: -10px;
 	}
 }

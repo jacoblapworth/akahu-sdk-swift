@@ -4,11 +4,11 @@
 
 
 .#{$ns}-input-is-invalid, .#{$ns}-textinput-is-invalid {
-	border-color: $xui-color-xero-red;
+	border-color: $xui-textinput-invalid-border-color;
 	z-index: 1;
 
 	&:focus,
 	&:hover {
-		border-color: $xui-color-xero-red;
+		border-color: $xui-textinput-invalid-border-color;
 	}
 }

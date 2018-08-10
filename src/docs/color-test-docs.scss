@@ -1,0 +1,441 @@
+// Color Test
+//
+// Weight: 6.0
+//
+// Styleguide: Color Test
+
+// Button
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <button type="button" class="xui-button "></button>
+// <button class='xui-button xui-button-standard {{modifier_class}}'>Standard</button>
+// <button class='xui-button xui-button-main {{modifier_class}}'>Main</button>
+// <button class='xui-button xui-button-create {{modifier_class}}'>Create</button>
+// <button class='xui-button xui-button-negative {{modifier_class}}'>Negative</button>
+//
+// Styleguide: Color Test.1
+
+// Borderless Button
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <button class='xui-button xui-button-borderless-standard {{modifier_class}}'>Standard</button>
+// <button class='xui-button xui-button-borderless-muted {{modifier_class}}'>Muted</button>
+// <button class='xui-button xui-button-borderless-main {{modifier_class}}'>Main</button>
+// <button class='xui-button xui-button-borderless-create {{modifier_class}}'>Create</button>
+// <button class='xui-button xui-button-borderless-negative {{modifier_class}}'>Negative</button>
+//
+// Styleguide: Color Test.1.1
+
+
+
+// Icon Button
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-icon {{modifier_class}}" title="Close the window" aria-label="Close the window">
+//  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+// </button>
+//
+// Styleguide: Color Test.1.2
+
+
+// Dropdown/Inline Icon Button
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-standard {{modifier_class}}">
+//    Dropdown
+//   <svg focusable="false" class="xui-icon xui-button--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// </button>
+//
+// Styleguide: Color Test.1.3
+
+// Grouped Button
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class="xui-buttongroup">
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard {{modifier_class}}">Delete</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Copy</button>
+//   <button type="button" class="xui-button xui-button-grouped xui-button-standard">Edit</button>
+// </div>
+//
+// Styleguide: Color Test.1.4
+
+// Inverted Button
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// ExampleClass: ds-example-dark
+//
+// Markup:
+// <button type="button" class="xui-button xui-button-standard xui-button-inverted {{modifier_class}}">Standard</button>
+// <button type="button" class="xui-button xui-button-main xui-button-inverted {{modifier_class}}">Main</button>
+// <button type="button" class="xui-button xui-button-create xui-button-inverted {{modifier_class}}">Create</button>
+// <button type="button" class="xui-button xui-button-negative xui-button-inverted {{modifier_class}}">Negative</button>
+// <button type="button" class="xui-button xui-button-borderless-inverted {{modifier_class}}">Borderless</button>
+// <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted {{modifier_class}}" title="Go back to the previous page" aria-label="Go back to the previous page">
+// <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+// </button>
+//
+// Styleguide: Color Test.1.5
+
+// Checkbox
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="checkbox">
+//   <div class="xui-styledcheckboxradio--checkbox"></div>
+//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="checkbox" checked>
+//   <div class="xui-styledcheckboxradio--checkbox"></div>
+//   <span class="xui-styledcheckboxradio--label">Checked</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-is-disabled">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="checkbox" disabled>
+//   <div class="xui-styledcheckboxradio--checkbox"></div>
+//   <span class="xui-styledcheckboxradio--label">Disabled</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-is-disabled">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="checkbox" checked disabled>
+//   <div class="xui-styledcheckboxradio--checkbox"></div>
+//   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
+// </label>
+//
+// Styleguide: Color Test.2
+
+// SVG Checkbox
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <label class="xui-styledcheckboxradio" role="presentation"><input type="checkbox" class="xui-styledcheckboxradio--input {{modifier_class}}" value="" ><div class="xui-iconwrapper"><svg class="xui-icon" width="15" height="15" viewBox="0 0 15 15"><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--focus" role="presentation"></path><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--main" role="presentation"></path></svg></div><span id="af14b251-a8b1-482b-9a2b-045f9952fc91" class="xui-styledcheckboxradio--label">Unchecked</span></label>
+// <label class="xui-styledcheckboxradio" role="presentation"><input checked type="checkbox" class="xui-styledcheckboxradio--input {{modifier_class}}" value="" ><div class="xui-iconwrapper"><svg class="xui-icon" width="15" height="15" viewBox="0 0 15 15"><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--focus" role="presentation"></path><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--main" role="presentation"></path></svg></div><span id="af14b251-a8b1-482b-9a2b-045f9952fc91" class="xui-styledcheckboxradio--label">Checked</span></label>
+// <label class="xui-styledcheckboxradio" role="presentation"><input disabled type="checkbox" class="xui-styledcheckboxradio--input {{modifier_class}}" value="" ><div class="xui-iconwrapper"><svg class="xui-icon" width="15" height="15" viewBox="0 0 15 15"><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--focus" role="presentation"></path><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--main" role="presentation"></path></svg></div><span id="af14b251-a8b1-482b-9a2b-045f9952fc91" class="xui-styledcheckboxradio--label">Disabled</span></label>
+// <label class="xui-styledcheckboxradio" role="presentation"><input checked disabled type="checkbox" class="xui-styledcheckboxradio--input {{modifier_class}}" value="" ><div class="xui-iconwrapper"><svg class="xui-icon" width="15" height="15" viewBox="0 0 15 15"><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--focus" role="presentation"></path><path d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z" class="xui-styledcheckboxradio--main" role="presentation"></path></svg></div><span id="af14b251-a8b1-482b-9a2b-045f9952fc91" class="xui-styledcheckboxradio--label">Checked and disabled</span></label>
+//
+// Styleguide: Color Test.2.1
+
+// Radio
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="radio" role="radio" id="r0" name="rg0">
+//   <div class="xui-styledcheckboxradio--radio"></div>
+//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
+// </label>
+// <label class="xui-styledcheckboxradio">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="radio" role="radio" checked>
+//   <div class="xui-styledcheckboxradio--radio"></div>
+//   <span class="xui-styledcheckboxradio--label">Checked</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-is-disabled">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="radio" role="radio" disabled>
+//   <div class="xui-styledcheckboxradio--radio"></div>
+//   <span class="xui-styledcheckboxradio--label">Disabled</span>
+// </label>
+// <label class="xui-styledcheckboxradio xui-is-disabled">
+//   <input class="xui-styledcheckboxradio--input {{modifier_class}}" type="radio" role="radio" checked disabled>
+//   <div class="xui-styledcheckboxradio--radio"></div>
+//   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
+// </label>
+//
+// Styleguide: Color Test.3
+
+
+
+// Select
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class="xui-select">
+// <select class="xui-select--control {{modifier_class}} " id="group-button-example3">
+//   <option>Value 1</option>
+//   <option>Value 2</option>
+//   <option>Value 3</option>
+// </select>
+// <div class="xui-select--caret">
+//   <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-standard"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// </div>
+// </div>
+//
+// Styleguide: Color Test.4
+
+
+// Switch
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <label class="xui-switch">
+//   <input type="checkbox" class="xui-switch--checkbox {{modifier_class}}" role="switch" aria-label="sample switch">
+//   <span class="xui-switch--control"></span>
+// </label>
+// <label class="xui-switch">
+//   <input type="checkbox" class="xui-switch--checkbox {{modifier_class}}" checked role="switch" aria-label="sample switch2">
+//   <span class="xui-switch--control"></span>
+// </label>
+// <label class="xui-switch xui-is-disabled">
+//   <input type="checkbox" class="xui-switch--checkbox {{modifier_class}}" disabled role="switch" aria-label="sample switch3">
+//   <span class="xui-switch--control"></span>
+// </label>
+// <label class="xui-switch xui-is-disabled">
+//   <input type="checkbox" class="xui-switch--checkbox {{modifier_class}}" disabled checked role="switch" aria-label="sample switch4">
+//   <span class="xui-switch--control"></span>
+// </label>
+//
+// Styleguide: Color Test.5
+
+// Text Input
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <input class="xui-textinput xui-textinput--input {{modifier_class}}" type="text" placeholder="Standard Input" aria-label="Standard input"/>
+//
+// Styleguide: Color Test.6
+
+
+// Borderless Input
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class="xui-textinput xui-textinput-borderless">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <div class="xui-iconwrapper">
+//     	<svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-search" role="presentation" />
+//       </svg>
+//     </div>
+//   </div>
+//   <input
+//     class="xui-textinput--input xui-padding-horizontal-none {{modifier_class}}"
+//     type="search"
+//     placeholder="Solid input with icons"
+//     aria-label="Solid input with icons"/>
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">
+//       <div class="xui-iconwrapper">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-clear" role="presentation"/>
+//         </svg>
+//       </div>
+//     </button>
+//   </div>
+// </div>
+//
+// Styleguide: Color Test.6.1
+
+// Transparent Input
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent">
+// <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <div class="xui-iconwrapper">
+// <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-search" role="presentation" />
+//       </svg>
+//   </div>
+// </div>
+// <input id="transparent-example" class="xui-textinput--input xui-padding-left-none {{modifier_class}}" type="search" placeholder="Search all expenses" aria-label="Transparent input with icons" />
+// </div>
+//
+// Styleguide: Color Test.6.2
+
+// Inverted Input
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// ExampleClass: ds-example-dark
+//
+// Markup:
+// <!-- Transparent + Inverted with icons-->
+// <div class="xui-textinput xui-textinput-borderless xui-textinput-borderless-transparent xui-textinput-borderless-inverted">
+//   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+//     <div class="xui-iconwrapper">
+//     <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-search" role="presentation" />
+//       </svg>
+//     </div>
+// </div>
+//   <input
+//     class="xui-textinput--input xui-padding-left-none {{modifier_class}}"
+//     type="search"
+//     placeholder="Transparent inverted input with icons"
+//     aria-label="Transparent inverted input with icons" />
+// </div>
+// <!-- Solid + Inverted -->
+// <div class="xui-margin-top">
+//   <input
+//     class="xui-textinput xui-textinput--input xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted {{modifier_class}}"
+//     type="text"
+//     placeholder="Solid inverted input"
+//     aria-label="Solid inverted input"/>
+// </div>
+//
+// Styleguide: Color Test.6.3
+
+
+// Toggle
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class="xui-toggle" role="radiogroup" aria-label="aa">
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="aa" class="xui-toggle--input {{modifier_class}}" checked/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Including tax</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="aa" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Excluding tax</span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="aa" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">No tax</span>
+//   </label>
+// </div>
+//
+// Styleguide: Color Test.7
+
+
+// Inverted Toggle
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// ExampleClass: ds-example-dark
+//
+// Markup:
+// <div class="xui-toggle xui-toggle-inverted xui-background-grey-2" role="radiogroup" aria-label="ff">
+//   <label class="xui-toggle-option">
+//   <input type="radio" name="ff" class="xui-toggle--input {{modifier_class}}" checked/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//         <use xlink:href="#xui-icon-desktop" role="presentation"/>
+//       </svg>
+//     </span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="ff" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//         <use xlink:href="#xui-icon-mobile" role="presentation"/>
+//       </svg>
+//     </span>
+//   </label>
+//   <label class="xui-toggle-option">
+//     <input type="radio" name="ff" class="xui-toggle--input"/>
+//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal-small">
+//       <svg focusable="false" class="xui-icon xui-icon-inline">
+//         <use xlink:href="#xui-icon-print" role="presentation"/>
+//       </svg>
+//     </span>
+//   </label>
+// </div>
+//
+// Styleguide: Color Test.7.1
+
+// Stepper
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class="xui-stepper">
+//   <div class="xui-stepper-wrapper xui-stepper-sidebar" role="tablist">
+//     <div class="xui-stepper-tab xui-stepper-tab-first" aria-controls="stepper-inline-standard-panel" aria-selected="true" role="tab" style="order: 0;">
+//       <button class="xui-stepper-link xui-stepper-link-standard {{modifier_class}}" tabindex="0">
+//         <div class="xui-stepper-link-wrapper">
+//           <div class="xui-stepper-link-icon">
+//             <span class="xui-stepper-link-step">1</span>
+//           </div>
+//           <div class="xui-stepper-link-text">
+//             <span class="xui-stepper-link-heading xui-heading-small">Step 1</span>
+//           </div>
+//         </div>
+//       </button>
+//     </div>
+//   </div>
+// </div>
+//
+// Styleguide: Color Test.8
+
+// Dropdown
+//
+// :hover - hover
+// :active - active
+// :focus - focus
+//
+// Markup:
+// <div class='xui-dropdown-layout xui-dropdown-is-open'>
+//   <div class='xui-dropdown--mask'></div>
+//   <div class='xui-dropdown--body'>
+//     <ul class="xui-picklist xui-picklist-layout" role="tree">
+//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body {{modifier_class}}">
+//           <span class="xui-pickitem--text">Edit</span>
+//         </button>
+//       </li>
+//       <li class="xui-pickitem" role="treeitem" tabindex="-1" >
+//         <button type="button" class="xui-pickitem--body">
+//           <span class="xui-pickitem--text">Delete</span>
+//         </button>
+//       </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// Styleguide: Color Test.9
+

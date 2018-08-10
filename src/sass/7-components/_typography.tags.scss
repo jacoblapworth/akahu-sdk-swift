@@ -93,10 +93,10 @@
 // Styleguide: Building Blocks.Identifiers.Tag.2
 
 .#{$ns}-tag {
-	background-color: $xui-color-white;
+	background-color: $xui-tag-bg-color;
 	border-radius: $xui-radius;
-	box-shadow: inset 0 0 0 1px $xui-color-grey-alpha-4;
-	color: $xui-color-grey-alpha-2;
+	box-shadow: inset 0 0 0 1px $xui-tag-shadow-color;
+	color: $xui-tag-color;
 	display: inline-block;
 	font-size: $xui-font-size-xsmall;
 	line-height: $xui-font-size-xsmall;
@@ -104,22 +104,22 @@
 	vertical-align: middle;
 }
 .#{$ns}-tag-neutral {
-	background-color: $xui-color-grey-alpha-6;
+	background-color: $xui-tag-neutral-bg-color;
 }
 
 .#{$ns}-tag-positive {
-	background-color: $xui-color-green-xlight;
-	box-shadow: inset 0 0 0 1px $xui-color-green-light;
-	color: $xui-color-green-xdark;
+	background-color: $xui-tag-positive-bg-color;
+	box-shadow: inset 0 0 0 1px $xui-tag-positive-shadow-color;
+	color: $xui-tag-positive-color;
 }
 .#{$ns}-tag-warning {
-	background-color: $xui-color-orange-xlight;
-	box-shadow: inset 0 0 0 1px $xui-color-orange-light;
-	color: $xui-color-orange-xdark;
+	background-color: $xui-tag-warning-bg-color;
+	box-shadow: inset 0 0 0 1px $xui-tag-warning-shadow-color;
+	color: $xui-tag-warning-color;
 }
 .#{$ns}-tag-negative {
-	background-color: $xui-color-red-xlight;
-	box-shadow: inset 0 0 0 1px $xui-color-red-light;
-	color: $xui-color-red-xdark;
+	background-color: $xui-tag-negative-bg-color;
+	box-shadow: inset 0 0 0 1px $xui-tag-negative-shadow-color;
+	color: $xui-tag-negative-color;
 }
 

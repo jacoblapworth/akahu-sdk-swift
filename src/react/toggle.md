@@ -55,7 +55,7 @@ const checkboxToggle = {
 };
 
 <ExampleContainer className="xui-padding xui-color-white" isInverted>
-	<XUIToggle layout="fullwidth" color="inverted" labelText='checkbox toggle' isLabelHidden>
+	<XUIToggle layout="fullwidth" color="inverted" secondaryProps={{role: 'group', 'aria-label': 'checkbox toggle'}}>
 		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		<XUIToggleOption { ...checkboxToggle }>Checkbox</XUIToggleOption>
 		<XUIToggleOption { ...checkboxToggle } isDisabled isChecked>Disabled</XUIToggleOption>

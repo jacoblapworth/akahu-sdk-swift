@@ -19,7 +19,7 @@ $xui-switch-label-padding: $xui-s-small - 2;
 }
 
 .#{$ns}-switch--control {
-	background-color: $xui-color-grey-alpha-4;
+	background-color: $xui-switch-bg-color;
 	border-radius: 40px;
 	cursor: pointer;
 	display: inline-block;
@@ -30,7 +30,7 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	vertical-align: middle;
 	width: 40px;
 	&::before {
-		background-color: $xui-color-white;
+		background-color: $xui-switch-check-bg-color;
 		border-radius: 50%;
 		content: " ";
 		display: inline-block;
@@ -41,7 +41,7 @@ $xui-switch-label-padding: $xui-s-small - 2;
 		width: 18px;
 	}
 	.#{$ns}-is-disabled & {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-switch-diabled-bg-color;
 	}
 }
 
@@ -52,9 +52,9 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	}
 
 	&:checked + .#{$ns}-switch--control {
-		background: $xui-color-xero-blue;
+		background: $xui-switch-checked-bg-color;
 		.#{$ns}-is-disabled & {
-			background: $xui-color-blue-xlight;
+			background: $xui-switch-checked-diabled-bg-color;
 		}
 		&::before {
 			left: auto;

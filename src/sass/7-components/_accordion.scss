@@ -709,13 +709,13 @@
 }
 
 .#{$ns}-accordionitem {
-	background-color: $xui-color-white;
+	background-color: $xui-panel-bg-color;
 	outline: none;
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: width, margin;
 	width: 100%;
 	&:focus {
-		background: $xui-color-grey-7;
+		background: $xui-color-grey-8;
 	}
 }
 

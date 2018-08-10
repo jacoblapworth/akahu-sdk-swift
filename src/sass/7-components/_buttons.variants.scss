@@ -1,11 +1,11 @@
 @import "../vars";
 
-@each $variant, $color in $xui-button-variants-background-colors {
+@each $variant, $color in $xui-button-variants-bg {
 	.#{$ns}-button-#{$variant} {
 
 		@if $variant == standard {
 			// TODO: figure out a way to do this without a border, as it adds unwanted width
-			@include xui-button-variant($color, $xui-color-xero-blue, linear-gradient($xui-color-white, $xui-color-white), 1px solid $xui-color-grey-alpha-4);
+			@include xui-button-variant($color, $xui-color-blue, linear-gradient($xui-color-white, $xui-color-white), 1px solid $xui-button-border-color);
 		} @else {
 			@include xui-button-variant($color, $xui-color-white);
 		}
@@ -13,11 +13,11 @@
 		@include xui-button-focus($xui-shadow-focus);
 
 		@include xui-button-hover {
-			@include xui-button-shadow(0.05);
+			@include xui-button-shadow($xui-button-hover-shadow-color);
 		}
 
 		@include xui-button-active($color, $color) {
-			@include xui-button-shadow(0.1);
+			@include xui-button-shadow($xui-button-active-shadow-color);
 		}
 
 	}

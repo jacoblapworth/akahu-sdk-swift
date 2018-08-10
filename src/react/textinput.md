@@ -466,11 +466,9 @@ const cn = require('classnames');
 const search = require ('@xero/xui-icon/icons/search').default;
 const cn = require('classnames');
 const XUIIcon = require('./icon.js').default;
+const ExampleContainer = require('./docs/ExampleContainer').default;
 
-	<div style={{
-		backgroundColor: '#32465a',
-		padding: '10px',
-	}}>
+	<ExampleContainer className="xui-padding-xsmall" isInverted>
 		<XUITextInput
 			leftElement={
 				<XUITextInputSideElement type="text">
@@ -496,7 +494,7 @@ const XUIIcon = require('./icon.js').default;
 			labelText='input'
 			isLabelHidden
 		/>
-	</div>
+	</ExampleContainer>
 ```
 
 #### Stateful Clear Button

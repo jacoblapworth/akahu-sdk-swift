@@ -37,7 +37,7 @@ storiesWithKnobs.add('Playground', () => {
 	};
 
 	return (
-		<ExampleContainer { ...attrs }>
+		<ExampleContainer {...attrs}>
 			<XUILoader
 				defaultLayout={defaultLayout}
 				size={size}
@@ -81,7 +81,7 @@ variations.forEach(variation => {
 			example = <XUILoader {...variationMinusStoryDetails} className="xui-loader-static"></XUILoader>;
 		}
 		return (
-			<ExampleContainer { ...attrs }>
+			<ExampleContainer {...attrs}>
 				{example}
 			</ExampleContainer>
 		)

@@ -123,21 +123,21 @@
 // Styleguide: Building Blocks.Alerts.Banner.4
 
 .#{$ns}-banner {
-	background-color: $xui-color-white;
+	background-color: $xui-banner-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-border-all;
-	color: $xui-color-grey-1;
+	color: $xui-banner-color;
 	opacity: 1;
 	position: relative;
 	transition: opacity $xui-motion-speed-fast $xui-motion-curve-standard;
 }
 
 .#{$ns}-banner-positive {
-	@include xui-highlight-left($xui-color-xero-green, $xui-radius, true);
+	@include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-banner-negative {
-	@include xui-highlight-left($xui-color-xero-red, $xui-radius, true);
+	@include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-banner-layout {
@@ -197,7 +197,7 @@
 }
 
 .#{$ns}-banner--messagedetail {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-banner-message-color;
 }
 
 .#{$ns}-banner--actions,

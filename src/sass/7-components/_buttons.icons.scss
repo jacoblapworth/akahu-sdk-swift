@@ -5,7 +5,7 @@
 	@include xui-button-icon-states;
 	align-items: center;
 	border-radius: 50%;
-	color: $xui-color-grey-alpha-2;
+	color: $xui-button-icon-color;
 	display: inline-flex;
 	height: $xui-icon-standard;
 	justify-content: center;
@@ -17,15 +17,15 @@
 	}
 
 	&.#{$ns}-button-is-disabled {
-		color: $xui-color-grey-alpha-3;
+		color: $xui-button-icon-disabled-color;
 	}
 
 	&-inverted {
-		@include xui-button-icon-states($xui-color-white, $xui-color-shadow-inverted-medium, $xui-color-shadow-inverted-strong);
-		color: $xui-color-inverted-alpha-2;
+		@include xui-button-icon-states($xui-color-white, $xui-button-borderless-inverted-focus-bg-color, $xui-button-borderless-inverted-active-bg-color, $xui-button-borderless-inverted-focus-bg-color);
+		color: $xui-button-icon-inverted-color;
 
 		&.#{$ns}-button-is-disabled {
-			color: $xui-color-inverted-alpha-3;
+			color: $xui-button-icon-inverted-disabled-color;
 		}
 	}
 

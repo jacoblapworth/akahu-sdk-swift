@@ -430,39 +430,4 @@
 //   </div>
 // </div>
 //
-// Styleguide: Compounds.Navigation.Stepper.3.4
-
-.#{$ns}-isolationheader {
-	align-items: center;
-	background-color: $xui-color-white;
-	box-shadow: $xui-shadow-depth-overlap-top;
-	color: $xui-color-black;
-	display: flex;
-	height: $xui-navigation-height;
-	overflow: hidden;
-	padding: 0 $xui-s-small;
-	white-space: nowrap;
-}
-
-.#{$ns}-isolationheader-inverted {
-	background: $xui-color-grey-2;
-	color: $xui-color-white;
-}
-
-.#{$ns}-isolationheader--navigation,
-.#{$ns}-isolationheader--actions {
-	align-items: center;
-	align-self: stretch;
-	display: flex;
-	overflow: hidden;
-	white-space: nowrap;
-}
-
-.#{$ns}-isolationheader--navigation {
-	padding-right: $xui-s-small;
-}
-
-.#{$ns}-isolationheader--actions {
-	flex-shrink: 0; // The navigation can shrink because it should be mostly text; the actions should be buttons
-	margin-left: auto;
-}
+// Styleguide: Compounds.Navigation.Stepper.3.4o

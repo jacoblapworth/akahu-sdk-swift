@@ -2,7 +2,7 @@
 
 .#{$ns}-button-borderless {
 	&-standard {
-		@include xui-button-borderless($xui-color-grey-1, $xui-color-xero-dark-blue);
+		@include xui-button-borderless($xui-color-grey-1, $xui-color-blue-xdark);
 	}
 	&-muted {
 		@include xui-button-borderless($xui-color-grey-alpha-2, $xui-color-grey-1);
@@ -11,27 +11,27 @@
 		}
 	}
 	&-main {
-		@include xui-button-borderless($xui-color-xero-blue, $xui-color-xero-dark-blue);
+		@include xui-button-borderless($xui-color-blue, $xui-color-blue-xdark);
 		&.#{$ns}-button-is-disabled {
 			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
 		}
 	}
 	&-create {
-		@include xui-button-borderless($xui-color-xero-green, $xui-color-xero-dark-green);
+		@include xui-button-borderless($xui-color-green, $xui-color-green-xdark);
 		&.#{$ns}-button-is-disabled {
 			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
 		}
 	}
 	&-negative {
-		@include xui-button-borderless($xui-color-xero-red, $xui-color-xero-dark-red);
+		@include xui-button-borderless($xui-color-red, $xui-color-red-xdark);
 		&.#{$ns}-button-is-disabled {
 			@include xui-button-is-disabled(none, $xui-color-grey-alpha-4);
 		}
 	}
 	&-inverted {
-		@include xui-button-borderless($xui-color-inverted-alpha-2, $xui-color-white, $xui-color-inverted-alpha-6, $xui-color-inverted-alpha-5);
+		@include xui-button-borderless($xui-color-white-alpha-2, $xui-color-white, $xui-button-borderless-inverted-focus-bg-color, $xui-button-borderless-inverted-active-bg-color);
 		&.#{$ns}-button-is-disabled {
-			@include xui-button-is-disabled(none, $xui-color-inverted-alpha-4);
+			@include xui-button-is-disabled(none, $xui-color-white-alpha-4);
 		}
 	}
 }

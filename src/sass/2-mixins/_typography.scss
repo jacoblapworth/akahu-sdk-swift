@@ -12,7 +12,6 @@
 	}
 */
 
-
 @mixin xui-text-small {
 	font-size: $xui-font-size-small;
 }
@@ -58,15 +57,15 @@
 
 // Text color
 @mixin xui-text-muted {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-text-muted-color;
 }
 
 @mixin xui-text-positive {
-	color: $xui-color-xero-green;
+	color: $xui-text-positive-color;
 }
 
 @mixin xui-text-negative {
-	color: $xui-color-xero-red;
+	color: $xui-text-negative-color;
 }
 
 // Letter spacing

@@ -371,9 +371,10 @@
 //
 // Styleguide: Building Blocks.Identifiers.Loader.12
 
+
 .#{$ns}-loader {
 	align-items: center;
-	color: $xui-color-grey-alpha-3;
+	color: $xui-loader-color;
 	display: flex;
 	justify-content: center;
 }

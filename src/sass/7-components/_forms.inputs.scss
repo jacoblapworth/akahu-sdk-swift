@@ -77,7 +77,7 @@
 	.#{$ns}-textinput-is-invalid:nth-child(n+2),
 	.#{$ns}-textinputwrapper:nth-child(n+2) .#{$ns}-textinput-is-invalid,
 	.#{$ns}-select:nth-child(n+2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
-		border-left: 1px solid $xui-color-xero-red;
+		border-left: 1px solid $xui-color-red;
 		margin-left: -1px;
 	}
 }

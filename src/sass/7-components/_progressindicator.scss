@@ -454,24 +454,10 @@
 
 $xui-progress-circular-min-width: 20px;
 $xui-progress-linear-min-height: 4px;
-$xui-progress-total-color: $xui-color-grey-alpha-6;
-$xui-progress-current-color: $xui-color-blue;
-$xui-progress-error-color: $xui-color-red;
-$xui-progress-colors: (
-	(orange,  $xui-color-orange),
-	(yellow,  $xui-color-yellow),
-	(green,  $xui-color-green),
-	(mint,  $xui-color-mint),
-	(turquoise,  $xui-color-turquoise),
-	(blue,  $xui-color-blue),
-	(violet,  $xui-color-violet),
-	(grape,  $xui-color-grape),
-	(pink,  $xui-color-pink),
-	(grey,  $xui-color-grey-1),
-);
+
 
 // TODO: rename this to be XUI prefixed and kebab-cased
-@mixin addTotalTrackColor($color: $xui-progress-total-color) {
+@mixin addTotalTrackColor($color: $xui-progress-total-bg-color) {
 
 	&:not(.#{$ns}-progress-overflow) .#{$ns}-progress-linear-track {
 		background: $color;
@@ -483,7 +469,7 @@ $xui-progress-colors: (
 }
 
 // TODO: rename this to be XUI prefixed and kebab-cased
-@mixin addCurrentTrackColor($color: $xui-progress-current-color) {
+@mixin addCurrentTrackColor($color: $xui-progress-current-bg-color) {
 
 	&.#{$ns}-progress-complete .#{$ns}-progress-icon,
 	&:not(.#{$ns}-progress-error-soft) .#{$ns}-progress-linear-current {
@@ -668,7 +654,7 @@ $xui-progress-colors: (
 .#{$ns}-progress-icon {
 	align-items: center;
 	border-radius: 50%;
-	color: $xui-color-white;
+	color: $xui-progress-icon-color;
 	display: flex;
 	height: 100%;
 	justify-content: center;

@@ -29,7 +29,7 @@
 // Base toggle
 .#{$ns}-toggle {
 	align-items: stretch;
-	color: $xui-color-grey-1;
+	color: $xui-toggle-color;
 	display: flex;
 
 	// Disabled toggles should not appear semi-transparent
@@ -38,7 +38,7 @@
 	}
 
 	.#{$ns}-toggle--label:hover {
-		background-color: $xui-color-grey-alpha-7;
+		background-color: $xui-toggle-label-hover-bg-color;
 	}
 
 	// Focus, not hover
@@ -48,38 +48,36 @@
 
 	// Active
 	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
-		background-color: $xui-color-grey-alpha-6;
+		background-color: $xui-toggle-label-active-bg-color;
 	}
 
 	// Checked
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
-		background-color: $xui-color-grey-1;
-		border-color: $xui-color-grey-1;
-		color: $xui-color-white;
+		background-color: $xui-toggle-label-checked-bg-color;
+		border-color: $xui-toggle-label-checked-border-color;
+		color: $xui-toggle-label-checked-color;
 		z-index: 1;
 	}
 
 	// Checked, hover
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
-		background-color: rgba($xui-color-grey-1, 0.95);
+		background-color: $xui-toggle-label-checked-hover-bg-color;
 	}
 
 	// Checked, active
 	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
-		background-color: rgba($xui-color-grey-1, 0.90);
+		background-color: $xui-toggle-label-checked-active-bg-color;
 	}
 
 	// Checked, disabled
 	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
-		background-color: $xui-color-grey-alpha-6;
-		border-color: $xui-color-grey-alpha-5;
-		color: $xui-color-grey-alpha-4;
+		background-color: $xui-toggle-label-disabled-bg-color;
 	}
 
 	// Disabled
 	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
-		border-color: $xui-color-grey-alpha-5;
-		color: $xui-color-grey-alpha-4;
+		border-color: $xui-toggle-label-disabled-border-color;
+		color: $xui-toggle-label-disabled-color;
 	}
 }
 
@@ -91,7 +89,7 @@
 // Label styles
 .#{$ns}-toggle--label {
 	align-items: center;
-	border: $xui-border-standard;
+	border: $xui-border-control;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -105,16 +103,16 @@
 
 // Inverted styles
 .#{$ns}-toggle-inverted {
-	color: $xui-color-white;
+	color: $xui-toggle-inverted-color;
 
 	.#{$ns}-toggle--label {
-		border-color: $xui-color-inverted-alpha-4;
-		color: $xui-color-white;
+		border-color: $xui-toggle-label-inverted-border-color;
+		color: $xui-toggle-inverted-color;
 	}
 
 	// Hover
 	.#{$ns}-toggle--label:hover {
-		background-color: $xui-color-shadow-inverted-light;
+		background-color: $xui-toggle-label-inverted-hover-bg-color;
 	}
 
 	// Focus, not hover
@@ -124,38 +122,36 @@
 
 	// Active
 	.#{$ns}-toggle--input:active + .#{$ns}-toggle--label {
-		background-color: $xui-color-shadow-inverted-medium;
+		background-color: $xui-toggle-label-inverted-active-bg-color;
 	}
 
 	// Checked
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label {
-		background-color: $xui-color-white;
-		border-color: $xui-color-white;
-		color: $xui-color-grey-1;
+		background-color: $xui-toggle-label-inverted-checked-bg-color;
+		border-color: $xui-toggle-label-inverted-checked-border-color;
+		color: $xui-toggle-label-inverted-checked-color;
 		z-index: 1;
 	}
 
 	// Checked, hover
 	.#{$ns}-toggle--input:checked + .#{$ns}-toggle--label:hover {
-		background-color: rgba($xui-color-white, 0.95);
+		background-color: $xui-toggle-label-inverted-checked-hover-bg-color;
 	}
 
 	// Checked, active
 	.#{$ns}-toggle--input:checked:active + .#{$ns}-toggle--label {
-		background-color: rgba($xui-color-white, 0.90);
+		background-color: $xui-toggle-label-inverted-checked-active-bg-color;
 	}
 
 	// Checked, disabled
 	.#{$ns}-toggle--input:checked:disabled + .#{$ns}-toggle--label {
-		background-color: $xui-color-inverted-alpha-6;
-		border-color: $xui-color-inverted-alpha-5;
-		color: $xui-color-inverted-alpha-4;
+		background-color: $xui-toggle-label-inverted-disabled-bg-color;
 	}
 
 	// Disabled
 	.#{$ns}-toggle--input:disabled + .#{$ns}-toggle--label {
-		border-color: $xui-color-inverted-alpha-5;
-		color: $xui-color-inverted-alpha-4;
+		border-color: $xui-toggle-label-inverted-disabled-border-color;
+		color: $xui-toggle-label-inverted-disabled-color;
 	}
 }
 

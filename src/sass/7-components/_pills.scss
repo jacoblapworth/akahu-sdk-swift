@@ -239,7 +239,7 @@
 
 &.#{$ns}-pill {
 	align-items: center;
-	background-color: $xui-color-grey-alpha-6;
+	background-color: $xui-pill-bg-color;
 	border-radius: $xui-s-large;
 	cursor: default;
 	display: inline-flex;
@@ -258,7 +258,7 @@
 }
 
 .#{$ns}-pill--secondary {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-pill-secondary-color;
 	margin-right: 5px;
 }
 
@@ -280,7 +280,7 @@
 
 // TODO: rename to xui-pill-focus given xui-styledcheckboxradio-focus and xui-textinput-focus
 &.#{$ns}-pill-is-focused {
-	background-color: rgba($xui-color-black, 0.15);
+	background-color: $xui-pill-focused-bg-color;
 }
 
 // TODO: typo fix: rename to pill-is-deletable (no second e in deletable)
@@ -289,25 +289,25 @@
 }
 
 .#{$ns}-pill-is-invalid {
-	background-color: $xui-color-xero-red;
-	color: $xui-color-white;
+	background-color: $xui-pill-invalid-bg-color;
+	color: $xui-pill-invalid-color;
 
 	&.#{$ns}-pill-is-focused {
-		background-color: $xui-color-red-dark;
+		background-color: $xui-pill-invalid-focused-bg-color;
 	}
 
 	// TODO: Deprecated, remove in XUI14 as we now use inverted buttons for this
 	.#{$ns}-pill--button-icon,
 	.#{$ns}-pill--content {
-		color: $xui-color-white;
+		color: $xui-pill-invalid-color;
 	}
 
 	.#{$ns}-pill--text {
-		color: $xui-color-white;
+		color: $xui-pill-invalid-color;
 	}
 
 	.#{$ns}-pill--secondary {
-		color: $xui-color-inverted-alpha-2;
+		color: $xui-pill-invalid-secondary-color;
 	}
 }
 
@@ -329,20 +329,20 @@
 
 	&.#{$ns}-pill-is-invalid {
 		.#{$ns}-pill--text {
-			color: $xui-color-red;
+			color: $xui-pill-single-invalid-color;
 		}
 
 		.#{$ns}-pill--secondary {
-			color: $xui-color-grey-alpha-2;
+			color: $xui-pill-single-invalid-secondary-color;
 		}
 
 		&.#{$ns}-pill-is-focused {
-			background: $xui-color-white;
+			background: $xui-pill-single-invalid-focused-bg-color;
 		}
 	}
 }
 
 // TODO: Deprecated, remove in XUI14 as now we use the standard invalid class
 .#{$ns}-pill-single-is-invalid {
-	color: $xui-color-red;
+	color: $xui-pill-single-invalid-color;
 }

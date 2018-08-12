@@ -209,17 +209,17 @@
 						</div>
 					</div>
 
-					{{#each modifiers}}
-					<div class="kss-modifier__name kss-style ds-section-part">
-						{{name}}
-					</div>
-					<div class="kss-modifier__description kss-style ds-section-part">
-						{{{description}}}
-					</div>
-					<div class="kss-modifier__example ds-section-part">
-						{{{markup}}}
-					</div>
-					{{/each}}
+					{{#if modifiers}}
+						<p class="xui-heading">Modifiers</p>
+						<div class="ds-section-part ds-example-default {{exampleclass}} xui-margin-bottom">
+						{{#each modifiers}}
+							<code>{{name}}</code> <!--<span class="xui-textcolor-faint">{{{description}}}</span>-->
+							<div class="ds-example--inner xui-container">
+								{{{markup}}}
+							</div>
+						{{/each}}
+						</div>
+					{{/if}}
 
 				</div>
 				<!--ds-example-->

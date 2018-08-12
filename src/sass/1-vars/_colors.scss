@@ -3,10 +3,11 @@
  */
 
 // @tokenparserstartignore
+$xui-color-black: #000a1e;
 $xui-color-white: #fff;
-$xui-color-blue: #028DDE;
-$xui-color-red: #F6534E;
-$xui-color-green: #57c40a;
+$xui-color-blue: #0078c8;
+$xui-color-red: #dc3246;
+$xui-color-green: #00823c;
 // @tokenparserendignore
 
 // @section Neutrals
@@ -14,19 +15,21 @@ $xui-color-green: #57c40a;
 // @type color
 //
 // Grey 1 : Primary text
-$xui-color-grey-1: #32465a;
+$xui-color-grey-1: $xui-color-black;
 // Grey 2 : Secondary text
 $xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
 // Grey 3 : Placeholder text
-$xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 50%);
-// Grey 4 : Standard borders
-$xui-color-grey-4: mix($xui-color-grey-1, $xui-color-white, 35%);
-// Grey 5 : Subtle borders
-$xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 20%);
-// Grey 6 : Page background
-$xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 10%);
-// Grey 7 : Hover states
-$xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 5%);
+$xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 65%);
+// Grey 4 : ?? Standard borders
+$xui-color-grey-4: mix($xui-color-grey-1, $xui-color-white, 50%);
+// Grey 5 : ?? Subtle borders
+$xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 35%);
+// Grey 6 : ??
+$xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 20%);
+// Grey 7 : Page background
+$xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 10%);
+// Grey 8 : Hover states
+$xui-color-grey-8: mix($xui-color-grey-1, $xui-color-white, 5%);
 // White : Element backgrounds
 $xui-color-white: $xui-color-white;
 
@@ -34,28 +37,34 @@ $xui-color-white: $xui-color-white;
 // @type color
 //
 // Action: Primary color for any interactive element
-$xui-color-action: $xui-color-blue;
+$xui-action-primary-color: $xui-color-blue;
 // Negative: Destructive actions or indicating negative sentiment
-$xui-color-negative: $xui-color-red;
+$xui-action-negative-color: $xui-color-red;
 // Positive: Creating new items or indicating positive sentiment
-$xui-color-positive: $xui-color-green;
+$xui-action-positive-color: $xui-color-green;
+
+
 
 // @section Transparent greys
 // @description Use transparent greys to create borders and backgrounds which darken any underlying color.
 // @type transparent-color
 //
+// Grey alpha 1
+$xui-color-grey-alpha-1: rgba($xui-color-grey-1, 1);
 // Grey alpha 2
 $xui-color-grey-alpha-2: rgba($xui-color-grey-1, 0.75);
 // Grey alpha 3
-$xui-color-grey-alpha-3: rgba($xui-color-grey-1, 0.5);
+$xui-color-grey-alpha-3: rgba($xui-color-grey-1, 0.65);
 // Grey alpha 4
-$xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.35);
+$xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.50);
 // Grey alpha 5
-$xui-color-grey-alpha-5: rgba($xui-color-grey-1, 0.2);
+$xui-color-grey-alpha-5: rgba($xui-color-grey-1, 0.35);
 // Grey alpha 6
-$xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.1);
+$xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.20);
 // Grey alpha 7
-$xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.05);
+$xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.10);
+// Grey alpha 8
+$xui-color-grey-alpha-8: rgba($xui-color-grey-1, 0.05);
 
 // @section Transparent whites
 // @description Use transparent whites to create interfaces on strongly colored backgrounds. Be careful to ensure primary and secondary text has sufficent contrast.
@@ -64,79 +73,81 @@ $xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.05);
 // White alpha 2: Secondary text
 $xui-color-white-alpha-2: rgba($xui-color-white, 0.75);
 // White alpha 3: Faint or placeholder text
-$xui-color-white-alpha-3: rgba($xui-color-white, 0.5);
+$xui-color-white-alpha-3: rgba($xui-color-white, 0.65);
 // White alpha 4
-$xui-color-white-alpha-4: rgba($xui-color-white, 0.35);
+$xui-color-white-alpha-4: rgba($xui-color-white, 0.50);
 // White alpha 5
-$xui-color-white-alpha-5: rgba($xui-color-white, 0.2);
+$xui-color-white-alpha-5: rgba($xui-color-white, 0.35);
 // White alpha 6
-$xui-color-white-alpha-6: rgba($xui-color-white, 0.1);
+$xui-color-white-alpha-6: rgba($xui-color-white, 0.20);
 // White alpha 7
-$xui-color-white-alpha-7: rgba($xui-color-white, 0.05);
+$xui-color-white-alpha-7: rgba($xui-color-white, 0.10);
+// White alpha 8
+$xui-color-white-alpha-8: rgba($xui-color-white, 0.05);
 
 // @section Brights
 // @description Use the brights to sprinkle <strong>occasional</strong> pings of color into Xero applications – they're great for charts or to create moments of punch. If you need to indicate status try a <a href="./section-building-blocks-identifiers-tag.html">standard tag</a> instead. For lighter and darker variants use the modifiers `-xlight`, `-light`, `-dark`, and `-xdark`.
 // @type brights
 //
 $xui-color-red: $xui-color-red; // This is needed to add the color into the docs color grid
-$xui-color-red-xlight:        mix(#FFF, $xui-color-red, 80%);
-$xui-color-red-light:         mix(#FFF, $xui-color-red, 40%);
-$xui-color-red-dark:          mix(#000, $xui-color-red, 10%);
-$xui-color-red-xdark:         mix(#000, $xui-color-red, 20%);
+$xui-color-red-xlight:        mix(#FFF, $xui-color-red, 65%);
+$xui-color-red-light:         mix(#FFF, $xui-color-red, 50%);
+$xui-color-red-dark:          mix($xui-color-grey-1, $xui-color-red, 50%);
+$xui-color-red-xdark:         mix($xui-color-grey-1, $xui-color-red, 65%);
 
-$xui-color-orange: #FA8100;
-$xui-color-orange-xlight:     mix(#FFF, $xui-color-orange, 80%);
-$xui-color-orange-light:      mix(#FFF, $xui-color-orange, 40%);
-$xui-color-orange-dark:       mix(#000, $xui-color-orange, 10%);
-$xui-color-orange-xdark:      mix(#000, $xui-color-orange, 20%);
+$xui-color-orange: #fa8200;
+$xui-color-orange-xlight:     mix(#FFF, $xui-color-orange, 65%);
+$xui-color-orange-light:      mix(#FFF, $xui-color-orange, 50%);
+$xui-color-orange-dark:       mix($xui-color-grey-1, $xui-color-orange, 50%);
+$xui-color-orange-xdark:      mix($xui-color-grey-1, $xui-color-orange, 65%);
 
-$xui-color-yellow: #F8A900;
-$xui-color-yellow-xlight:     mix(#FFF, $xui-color-yellow, 80%);
-$xui-color-yellow-light:      mix(#FFF, $xui-color-yellow, 40%);
-$xui-color-yellow-dark:       mix(#000, $xui-color-yellow, 10%);
-$xui-color-yellow-xdark:      mix(#000, $xui-color-yellow, 20%);
+$xui-color-yellow: #faaa00;
+$xui-color-yellow-xlight:     mix(#FFF, $xui-color-yellow, 65%);
+$xui-color-yellow-light:      mix(#FFF, $xui-color-yellow, 50%);
+$xui-color-yellow-dark:       mix($xui-color-grey-1, $xui-color-yellow, 50%);
+$xui-color-yellow-xdark:      mix($xui-color-grey-1, $xui-color-yellow, 65%);
 
 $xui-color-green: $xui-color-green; // This is needed to add the color into the docs color grid
-$xui-color-green-xlight:      mix(#FFF, $xui-color-green, 80%);
-$xui-color-green-light:       mix(#FFF, $xui-color-green, 40%);
-$xui-color-green-dark:        mix(#000, $xui-color-green, 10%);
-$xui-color-green-xdark:       mix(#000, $xui-color-green, 20%);
+$xui-color-green-xlight:      mix(#FFF, $xui-color-green, 65%);
+$xui-color-green-light:       mix(#FFF, $xui-color-green, 50%);
+$xui-color-green-dark:        mix($xui-color-grey-1, $xui-color-green, 50%);
+$xui-color-green-xdark:       mix($xui-color-grey-1, $xui-color-green, 65%);
 
-$xui-color-mint: #51DAAF;
-$xui-color-mint-xlight:       mix(#FFF, $xui-color-mint, 80%);
-$xui-color-mint-light:        mix(#FFF, $xui-color-mint, 40%);
-$xui-color-mint-dark:         mix(#000, $xui-color-mint, 10%);
-$xui-color-mint-xdark:        mix(#000, $xui-color-mint, 20%);
+$xui-color-mint: #50dcaa;
+$xui-color-mint-xlight:       mix(#FFF, $xui-color-mint, 65%);
+$xui-color-mint-light:        mix(#FFF, $xui-color-mint, 50%);
+$xui-color-mint-dark:         mix($xui-color-grey-1, $xui-color-mint, 50%);
+$xui-color-mint-xdark:        mix($xui-color-grey-1, $xui-color-mint, 65%);
 
-$xui-color-turquoise: #3ADCF6;
-$xui-color-turquoise-xlight:  mix(#FFF,$xui-color-turquoise, 80%);
-$xui-color-turquoise-light:   mix(#FFF,$xui-color-turquoise, 40%);
-$xui-color-turquoise-dark:    mix(#000, $xui-color-turquoise, 10%);
-$xui-color-turquoise-xdark:   mix(#000, $xui-color-turquoise, 20%);
+$xui-color-turquoise: #3cdcfa;
+$xui-color-turquoise-xlight:  mix(#FFF,$xui-color-turquoise, 65%);
+$xui-color-turquoise-light:   mix(#FFF,$xui-color-turquoise, 50%);
+$xui-color-turquoise-dark:    mix($xui-color-grey-1, $xui-color-turquoise, 50%);
+$xui-color-turquoise-xdark:   mix($xui-color-grey-1, $xui-color-turquoise, 65%);
 
 $xui-color-blue: $xui-color-blue; // This is needed to add the color into the docs color grid
-$xui-color-blue-xlight:       mix(#FFF, $xui-color-blue, 80%);
-$xui-color-blue-light:        mix(#FFF, $xui-color-blue, 40%);
-$xui-color-blue-dark:         mix(#000, $xui-color-blue, 10%);
-$xui-color-blue-xdark:        mix(#000, $xui-color-blue, 20%);
+$xui-color-blue-xlight:       mix(#FFF, $xui-color-blue, 65%);
+$xui-color-blue-light:        mix(#FFF, $xui-color-blue, 50%);
+$xui-color-blue-dark:         mix($xui-color-grey-1, $xui-color-blue, 50%);
+$xui-color-blue-xdark:        mix($xui-color-grey-1, $xui-color-blue, 65%);
 
-$xui-color-violet: #5C5CE6;
-$xui-color-violet-xlight:     mix(#FFF,$xui-color-violet, 80%);
-$xui-color-violet-light:      mix(#FFF,$xui-color-violet, 40%);
-$xui-color-violet-dark:       mix(#000,$xui-color-violet, 10%);
-$xui-color-violet-xdark:      mix(#000,$xui-color-violet, 20%);
+$xui-color-violet: #5a5ae6;
+$xui-color-violet-xlight:     mix(#FFF,$xui-color-violet, 65%);
+$xui-color-violet-light:      mix(#FFF,$xui-color-violet, 50%);
+$xui-color-violet-dark:       mix($xui-color-grey-1,$xui-color-violet, 50%);
+$xui-color-violet-xdark:      mix($xui-color-grey-1,$xui-color-violet, 65%);
 
-$xui-color-grape: #B450C8;
-$xui-color-grape-xlight:      mix(#FFF, $xui-color-grape, 80%);
-$xui-color-grape-light:       mix(#FFF, $xui-color-grape, 40%);
-$xui-color-grape-dark:        mix(#000, $xui-color-grape, 10%);
-$xui-color-grape-xdark:       mix(#000, $xui-color-grape, 20%);
+$xui-color-grape: #b446c8;
+$xui-color-grape-xlight:      mix(#FFF, $xui-color-grape, 65%);
+$xui-color-grape-light:       mix(#FFF, $xui-color-grape, 50%);
+$xui-color-grape-dark:        mix($xui-color-grey-1, $xui-color-grape, 50%);
+$xui-color-grape-xdark:       mix($xui-color-grey-1, $xui-color-grape, 65%);
 
-$xui-color-pink: #FF6496;
-$xui-color-pink-xlight:       mix(#FFF, $xui-color-pink, 80%);
-$xui-color-pink-light:        mix(#FFF, $xui-color-pink, 40%);
-$xui-color-pink-dark:         mix(#000, $xui-color-pink, 10%);
-$xui-color-pink-xdark:        mix(#000, $xui-color-pink, 20%);
+$xui-color-pink: #ff6496;
+$xui-color-pink-xlight:       mix(#FFF, $xui-color-pink, 65%);
+$xui-color-pink-light:        mix(#FFF, $xui-color-pink, 50%);
+$xui-color-pink-dark:         mix($xui-color-grey-1, $xui-color-pink, 50%);
+$xui-color-pink-xdark:        mix($xui-color-grey-1, $xui-color-pink, 65%);
 
 // @section Specialty colors
 // @description Provide extra recognition for common brand or file types. Most often used for icons.
@@ -155,48 +166,407 @@ $xui-color-file-pdf: #db4437;
 
 // @tokenparserstartignore
 
-$xui-color-avatar-1: $xui-color-red-light;
-$xui-color-avatar-2: $xui-color-orange-light;
-$xui-color-avatar-3: $xui-color-yellow-light;
-$xui-color-avatar-4: $xui-color-green-light;
-$xui-color-avatar-5: $xui-color-mint-light;
-$xui-color-avatar-6: $xui-color-turquoise-light;
-$xui-color-avatar-7: $xui-color-blue-light;
-$xui-color-avatar-8: $xui-color-violet-light;
-$xui-color-avatar-9: $xui-color-grape-light;
-$xui-color-avatar-10: $xui-color-pink-light;
+// Generic
+
+$xui-color-divider: $xui-color-grey-7;
+$xui-color-bg-tint: $xui-color-grey-6;
+$xui-color-focus: $xui-color-grey-8; // This is not the ring, is it a background colour?
+$xui-color-active: $xui-color-grey-7;
+$xui-color-disabled: $xui-color-grey-5;
+
+// 2018-08-08 Re-factored to these after chatting with Finn.
+$xui-standard-shadow-color: $xui-color-grey-alpha-6;
+$xui-overlap-shadow-color: $xui-color-grey-alpha-8;
+$xui-standard-border-color: $xui-color-grey-6;
+$xui-muted-border-color: $xui-color-grey-6;
+
+// For controls and checkboxes and inputs and selects
+$xui-control-border-color: $xui-color-grey-5;
+$xui-control-hover-border-color: $xui-color-grey-4;
+$xui-control-active-border-color: $xui-color-grey-3;
+$xui-control-disabled-border-color: $xui-color-grey-4;
+$xui-control-bg-color: $xui-color-white;
+
+
+$xui-invalid-color: $xui-color-red;
+$xui-invalid-bg-color: $xui-color-red;
+
+// Map base colours to rest of library
+
+// MIXINS
+
+// buttons
+// components
+// elements
+// layout
+// state
+// Typography
+$xui-text-muted-color: $xui-color-grey-alpha-2;
+$xui-text-positive-color: $xui-color-green;
+$xui-text-negative-color: $xui-color-red;
+
+// RESET
+
+$xui-link-color: $xui-color-blue;
+
+// BASE
+
+$xui-body-bg-color: $xui-color-grey-8;
+
+// Continaers
+
+$xui-panel-bg-color: $xui-color-white;
+
+// Components
+
+// $xui-accordion-bg-color: $xui-panel-bg-color;
+
+$xui-avatar-counter-bg-color: $xui-color-grey-6;
+$xui-avatar-counter-color: $xui-color-grey-2;
+
+$xui-avatar-bg-color-1: $xui-color-red-light;
+$xui-avatar-bg-color-2: $xui-color-orange-light;
+$xui-avatar-bg-color-3: $xui-color-yellow-light;
+$xui-avatar-bg-color-4: $xui-color-green-light;
+$xui-avatar-bg-color-5: $xui-color-mint-light;
+$xui-avatar-bg-color-6: $xui-color-turquoise-light;
+$xui-avatar-bg-color-7: $xui-color-blue-light;
+$xui-avatar-bg-color-8: $xui-color-violet-light;
+$xui-avatar-bg-color-9: $xui-color-grape-light;
+$xui-avatar-bg-color-10: $xui-color-pink-light;
+$xui-avatar-color-1: $xui-color-red-dark;
+$xui-avatar-color-2: $xui-color-orange-dark;
+$xui-avatar-color-3: $xui-color-yellow-dark;
+$xui-avatar-color-4: $xui-color-green-dark;
+$xui-avatar-color-5: $xui-color-mint-dark;
+$xui-avatar-color-6: $xui-color-turquoise-dark;
+$xui-avatar-color-7: $xui-color-blue-dark;
+$xui-avatar-color-8: $xui-color-violet-dark;
+$xui-avatar-color-9: $xui-color-grape-dark;
+$xui-avatar-color-10: $xui-color-pink-dark;
+
+// button
+
+$xui-button-variants-bg: (
+	standard : null,
+	main : $xui-color-blue,
+	create : $xui-color-green,
+	negative : $xui-color-red
+);
+
+$xui-button-icon-color: $xui-color-grey-alpha-3;
+$xui-button-icon-disabled-color: $xui-color-grey-alpha-4;
+
+$xui-button-icon-inverted-color: $xui-color-white-alpha-2;
+$xui-button-icon-inverted-disabled-color: $xui-color-white-alpha-3;
+
+$xui-button-border-color: $xui-color-grey-5;
+$xui-button-hover-border: $xui-color-grey-4;
+
+$xui-button-borderless-focus-bg-color: $xui-color-grey-alpha-8;
+$xui-button-borderless-active-bg-color: $xui-color-grey-alpha-7;
+$xui-button-borderless-inverted-focus-bg-color: $xui-color-white-alpha-7;
+$xui-button-borderless-inverted-active-bg-color: $xui-color-white-alpha-6;
+
+$xui-toggle-color: $xui-color-grey-2;
+$xui-toggle-label-hover-bg-color: $xui-color-grey-alpha-8;
+$xui-toggle-label-active-bg-color: $xui-color-grey-alpha-7;
+$xui-toggle-label-checked-bg-color: $xui-color-grey-2;
+$xui-toggle-label-checked-hover-bg-color: rgba($xui-color-grey-2, 0.95);
+$xui-toggle-label-checked-active-bg-color: rgba($xui-color-grey-2, 0.90);
+$xui-toggle-label-checked-border-color: $xui-color-grey-2;
+$xui-toggle-label-checked-color: $xui-color-white;
+$xui-toggle-label-disabled-bg-color: $xui-color-grey-alpha-7;
+$xui-toggle-label-disabled-border-color: $xui-color-grey-alpha-6;
+$xui-toggle-label-disabled-color: $xui-color-grey-alpha-5;
+
+$xui-toggle-inverted-color: $xui-color-white;
+$xui-toggle-label-inverted-border-color: $xui-color-white-alpha-4;
+$xui-toggle-label-inverted-hover-bg-color: $xui-color-white-alpha-7;
+$xui-toggle-label-inverted-active-bg-color: $xui-color-white-alpha-6;
+$xui-toggle-label-inverted-checked-bg-color: $xui-color-white;
+$xui-toggle-label-inverted-checked-hover-bg-color: rgba($xui-color-white, 0.95);
+$xui-toggle-label-inverted-checked-active-bg-color: rgba($xui-color-white, 0.90);
+$xui-toggle-label-inverted-checked-border-color: $xui-color-white;
+$xui-toggle-label-inverted-checked-color: $xui-color-grey-2;
+$xui-toggle-label-inverted-disabled-bg-color: $xui-color-white-alpha-6;
+$xui-toggle-label-inverted-disabled-border-color: $xui-color-white-alpha-5;
+$xui-toggle-label-inverted-disabled-color: $xui-color-white-alpha-4;
+
+$xui-button-hover-shadow-color: $xui-color-grey-alpha-8;
+$xui-button-active-shadow-color: $xui-color-grey-alpha-7;
 
 $xui-shadow-focus: 0 0 0 3px $xui-color-grey-alpha-6;
-$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-white-alpha-6;
+$xui-shadow-focus-inverted: 0 0 0 3px $xui-color-white-alpha-5;
 
 $xui-color-white-muted: $xui-color-white-alpha-2;
 $xui-color-white-faint: $xui-color-white-alpha-3;
 $xui-color-black-muted: $xui-color-grey-alpha-2;
 $xui-color-black-faint: $xui-color-grey-alpha-3;
-$xui-color-shadow-inverted-light: $xui-color-white-alpha-7;
-$xui-color-shadow-inverted-medium: $xui-color-white-alpha-6;
-$xui-color-shadow-inverted-strong: $xui-color-white-alpha-5;
+// only used for inverted icon buttons.
+// making better variables for icons and borderless buttons
+//$xui-color-shadow-inverted-light: $xui-color-white-alpha-7;
+//$xui-color-shadow-inverted-medium: $xui-color-white-alpha-6;
+// $xui-color-shadow-inverted-strong: $xui-color-white-alpha-5;
 
-// TODO: remove in XUI 14
-$xui-color-black: #32465a;
-$xui-color-xero-green: #57c40a;
-$xui-color-xero-red: #f6534e;
-$xui-color-xero-dark-green: mix($xui-color-xero-green, #000, 90%);
-$xui-color-xero-dark-red: mix($xui-color-xero-red, #000, 90%);
-$xui-color-xero-dark-purple: #643cfa;
-$xui-color-xero-light-blue: #3adcf6;
-$xui-color-xero-light-green: #51daaf;
-$xui-color-xero-orange: #fa8100;
-$xui-color-xero-yellow: #f8a900;
-$xui-color-xero-pink: #ff6496;
-$xui-color-xero-purple: #b450c8;
-$xui-color-xero-blue: $xui-color-blue;
-$xui-color-xero-dark-blue: mix($xui-color-xero-blue, #000, 90%);
-$xui-color-inverted-alpha-2: rgba($xui-color-white, 0.75);
-$xui-color-inverted-alpha-3: rgba($xui-color-white, 0.5);
-$xui-color-inverted-alpha-4: rgba($xui-color-white, 0.35);
-$xui-color-inverted-alpha-5: rgba($xui-color-white, 0.2);
-$xui-color-inverted-alpha-6: rgba($xui-color-white, 0.1);
-$xui-color-inverted-alpha-7: rgba($xui-color-white, 0.05);
+// Datepicker
 
+$xui-datepicker-button-disabled-color: $xui-color-grey-5;
+$xui-datepicker-heading-label-focus-bg-color: $xui-color-grey-alpha-7;
+$xui-datepicker-heading-label-active-bg-color: $xui-color-grey-alpha-6;
+$xui-datepicker-heading-label-hover-color: $xui-color-blue;
+$xui-datepicker-day-bg-color: $xui-color-grey-alpha-7;
+$xui-datepicker-day-focus-bg-color: $xui-color-grey-alpha-6;
+$xui-datepicker-weekday-color: $xui-color-grey-alpha-2;
+$xui-datepicker-othermonth-color: $xui-color-grey-alpha-3;
+$xui-datepicker-today-color: $xui-color-blue;
+$xui-datepicker-selected-bg-color: $xui-color-blue;
+$xui-datepicker-selected-shadow-color: $xui-color-blue;
+$xui-datepicker-selected-color: $xui-color-white;
+$xui-datepicker-selected-focus-bg-color: $xui-color-blue-xdark;
+$xui-datepicker-selected-active-shadow-color: $xui-color-blue-xdark;
+$xui-datepicker-disabled-color: $xui-color-grey-alpha-4;
+$xui-datepicker-hover-bg-color: $xui-color-grey-alpha-6;
+
+// Dropdowns
+
+$xui-dropdown-mask-bg-color: transparentize($xui-color-grey-1, 0.5);
+$xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-5;
+
+// Forms
+
+$xui-validation-color: $xui-color-grey-alpha-2;
+$xui-validation-invalid-color: $xui-color-red;
+
+// Inputs
+
+$xui-input-bg-color: $xui-color-white;
+$xui-input-hover-border-color: $xui-color-grey-alpha-3;
+$xui-input-placeholder-color: $xui-color-grey-alpha-3;
+
+$xui-textinput-sideelement-inverted-color: $xui-color-white;
+$xui-textinput-borderless-transparent-focus-bg-color: rgba($xui-color-black, 0.05);
+$xui-textinput-borderless-transparent-inverted-focus-bg-color: $xui-color-white-alpha-6;
+$xui-textinput-borderless-solid-bg-color: rgba($xui-color-black, 0.05);
+$xui-textinput-borderless-solid-focus-bg-color: rgba($xui-color-black, 0.01);
+$xui-textinput-borderless-solid-inverted-bg-color: $xui-color-white-alpha-6;
+$xui-textinput-borderless-solid-inverted-focus-bg-color: $xui-color-white-alpha-5;
+$xui-textinput-borderless-inverted-color: $xui-color-white;
+$xui-textinput-invalid-border-color: $xui-color-red;
+
+// Checkbox Radio
+
+$xui-checkboxradio-label-disabled-color: $xui-color-grey-alpha-4;
+$xui-checkboxradio-disabled-bg-color: $xui-color-grey-7;
+$xui-checkboxradio-check-disabled-fill: $xui-color-grey-5;
+
+$xui-checkboxradio-hover-border-color: $xui-control-hover-border-color;
+$xui-checkboxradio-hover-bg-color: $xui-color-grey-8;
+
+$xui-checkboxradio-active-border-color: $xui-color-grey-3;
+$xui-checkboxradio-active-bg-color: $xui-color-grey-7; // Can not be alpha because focus ring bleeds in and this causes a compound 
+
+$xui-checkboxradio-checked-hover-bg-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
+$xui-checkboxradio-checked-active-bg-color: mix($xui-color-grey-1, $xui-color-blue, 20%);
+
+
+$xui-checkboxradio-disabled-fill: $xui-color-grey-7;
+$xui-checkboxradio-disabled-checked-fill: $xui-color-grey-4;
+$xui-checkboxradio-focus-stroke: $xui-color-grey-alpha-6;
+$xui-checkboxradio-checked-fill: $xui-color-blue;
+$xui-checkboxradio-checked-stroke: $xui-color-blue;
+$xui-checkboxradio-disabled-stroke: $xui-control-disabled-border-color;
+$xui-checkboxradio-check-checked-fill: $xui-color-white;
+
+
+
+// Select
+
+$xui-select-color: $xui-color-grey-1;
+
+// Switch
+
+$xui-switch-bg-color: $xui-color-grey-alpha-4;
+$xui-switch-check-bg-color: $xui-color-white;
+$xui-switch-checked-bg-color: $xui-color-blue;
+$xui-switch-diabled-bg-color: $xui-color-grey-alpha-6;
+$xui-switch-checked-diabled-bg-color: $xui-color-blue-xlight;
+
+// Isolation Header
+
+$xui-isolationheader-bg-color: $xui-color-white;
+$xui-isolationheader-color: $xui-color-black;
+$xui-isolationheader-inverted-bg-color: $xui-color-grey-2;
+$xui-isolationheader-color: $xui-color-white;
+
+// Loader
+
+$xui-loader-color: $xui-color-grey-alpha-3;
+$xui-loader-inverted-color: $xui-color-white-alpha-4;
+
+// Modals
+
+$xui-mask-bg-color: transparentize($xui-color-grey-1, 0.3);
+$xui-modal-bg-color: $xui-color-white;
+
+// Picklists
+
+$xui-pickitem-focus-bg-color: $xui-color-grey-alpha-7;
+$xui-pickitem-active-bg-color: $xui-color-grey-alpha-6;
+$xui-pickitem-selected-color: $xui-color-blue;
+$xui-submenu-uicontrol-icon-color: $xui-color-grey-alpha-2;
+
+// Page heading
+
+$xui-pageheading-bg-color: $xui-color-white;
+$xui-breadcrumb-link-color: $xui-color-blue;
+$xui-breadcrumb-link-hover-color: $xui-color-blue-xdark;
+$xui-breadcrumb-icon-color: $xui-color-grey-alpha-2;
+
+// Overview
+
+$xui-overview-bg-color: $xui-color-grey-alpha-7;
+$xui-overview-label-color: $xui-color-grey-alpha-2;
+
+// Pill
+
+$xui-pill-bg-color: $xui-color-grey-alpha-6;
+$xui-pill-secondary-color: $xui-color-grey-alpha-2;
+$xui-pill-focused-bg-color: rgba($xui-color-black, 0.15);
+$xui-pill-invalid-bg-color: $xui-color-red;
+$xui-pill-invalid-color: $xui-color-white;
+$xui-pill-invalid-focused-bg-color: $xui-color-red-xdark;
+$xui-pill-invalid-secondary-color: $xui-color-white-alpha-2;
+
+$xui-pill-single-invalid-color: $xui-color-red;
+$xui-pill-single-invalid-secondary-color: $xui-color-grey-alpha-2;
+$xui-pill-single-invalid-focused-bg-color: $xui-color-white;
+
+// Pop over
+
+$xui-popover-bg-color: $xui-color-white;
+$xui-popover-arrow-border-color: $xui-color-grey-alpha-5;
+
+// Tables
+
+$xui-table-bg-color: $xui-color-white;
+$xui-table-sortbutton-hover-color: $xui-color-blue-dark;
+$xui-table-sortbutton-focus-bg-color: $xui-color-grey-8;
+$xui-table-sortbutton-active-bg-color: $xui-color-grey-7;
+$xui-table-divider-bg-color: $xui-color-grey-alpha-5;
+$xui-table-link-hover-bg-color: $xui-color-grey-8;
+$xui-table-link-focus-bg-color: $xui-color-grey-7;
+
+// Typography
+
+$xui-text-primary-color: $xui-color-grey-1;
+$xui-text-secondary-color: $xui-color-grey-3;
+$xui-text-placeholder-color: $xui-color-grey-3;
+$xui-text-minorlink-focus-color: $xui-color-blue;
+
+$xui-text-faint-color: $xui-color-grey-alpha-3;
+$xui-text-icon-color: $xui-color-grey-alpha-2;
+$xui-text-inverted-color: $xui-color-white;
+$xui-text-inverted-muted: $xui-color-white-muted;
+$xui-text-inverted-faint: $xui-color-white-faint;
+
+// Capsule
+
+$xui-capsule-interactive-color: $xui-color-blue;
+$xui-capsule-invalid-color: $xui-color-white;
+$xui-capsule-focus-bg-color: $xui-color-blue;
+$xui-capsule-focus-color: $xui-color-white;
+
+// Tag
+
+$xui-tag-bg-color: $xui-color-white;
+$xui-tag-shadow-color: $xui-color-grey-alpha-4;
+$xui-tag-color: $xui-color-grey-alpha-2;
+$xui-tag-neutral-bg-color: $xui-color-grey-alpha-6;
+$xui-tag-positive-bg-color: $xui-color-green-xlight;
+$xui-tag-positive-shadow-color: $xui-color-green-light;
+$xui-tag-positive-color: $xui-color-green-xdark;
+$xui-tag-warning-bg-color: $xui-color-orange-xlight;
+$xui-tag-warning-shadow-color: $xui-color-orange-light;
+$xui-tag-warning-color: $xui-color-orange-xdark;
+$xui-tag-negative-bg-color: $xui-color-red-xlight;
+$xui-tag-negative-shadow-color: $xui-color-red-light;
+$xui-tag-negative-color: $xui-color-red-xdark;
+
+// Banner
+
+$xui-banner-bg-color: $xui-color-white;
+$xui-banner-color: $xui-color-grey-1;
+$xui-banner-positive-bg-color: $xui-color-green;
+$xui-bannger-negative-bg-color: $xui-color-red;
+$xui-banner-message-color: $xui-color-grey-alpha-2;
+
+// Toast
+
+$xui-toast-bg-color: transparentize($xui-color-white, 0.1);
+$xui-toast-color: $xui-color-grey-1;
+
+// Tooltip
+
+$xui-tooltip-bg-color: $xui-color-grey-1;
+$xui-tooltip-color: $xui-color-white;
+$xui-tooltip-shadow-color: $xui-color-white-alpha-4;
+
+
+// Controls
+
+
+$xui-input-disabled: $xui-color-grey-8;
+$xui-color-pill-bg: $xui-color-grey-7;
+
+// Progress Indicator
+
+//TODO Progress indicator track is too dark
+
+$xui-progress-total-bg-color: $xui-color-grey-alpha-6;
+$xui-progress-current-bg-color: $xui-color-blue;
+$xui-progress-error-color: $xui-color-red;
+$xui-progress-colors: (
+	(orange,  $xui-color-orange),
+	(yellow,  $xui-color-yellow),
+	(green,  $xui-color-green),
+	(mint,  $xui-color-mint),
+	(turquoise,  $xui-color-turquoise),
+	(blue,  $xui-color-blue),
+	(violet,  $xui-color-violet),
+	(grape,  $xui-color-grape),
+	(pink,  $xui-color-pink),
+	(grey,  $xui-color-grey-1),
+);
+$xui-progress-icon-color: $xui-color-white;
+
+// Icon
+
+$xui-color-icon: $xui-color-grey-3;
+$xui-color-icon-hover: $xui-color-grey-2;
+$xui-color-icon-decorative: $xui-color-grey-4;
+
+$icon-colours:
+	(
+		standard: $xui-color-black-muted,
+		black: $xui-color-grey-1,
+		black-muted: $xui-color-black-muted,
+		black-faint: $xui-color-black-faint,
+		white: $xui-color-white,
+		white-muted: $xui-color-white-muted,
+		white-faint: $xui-color-white-faint,
+		blue: $xui-color-blue,
+		dark-blue: $xui-color-blue-xdark,
+		red: $xui-color-red,
+		green: $xui-color-green,
+		orange: $xui-color-orange,
+		yellow: $xui-color-yellow,
+		mint: $xui-color-mint,
+		turquoise: $xui-color-turquoise,
+		violet: $xui-color-violet,
+		grape: $xui-color-grape,
+		pink: $xui-color-pink,
+		file-spreadsheet: $xui-color-file-spreadsheet,
+		file-pdf: $xui-color-file-pdf
+	);
 // @tokenparserendignore

@@ -1009,7 +1009,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table-pinleft .#{$ns}-table-element:before,
 .#{$ns}-table-pinright .#{$ns}-table-element:after {
-	background: $xui-color-white;
+	background: $xui-table-bg-color;
 	content: '';
 	display: block;
 	height: 100%;
@@ -1040,7 +1040,7 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-table--row {
-	background: $xui-color-white;
+	background: $xui-table-bg-color;
 	transition: $xui-motion-speed-fast;
 }
 
@@ -1048,21 +1048,18 @@ $xui-table-z-alert: 4;
 	cursor: pointer;
 	outline: 0;
 
-	&:hover {
-		background: $xui-color-grey-7;
+	&:hover,
+	&:active {
+		background: $xui-table-link-hover-bg-color;
 	}
 
 	&:focus {
-		background: $xui-color-grey-6;
-	}
-
-	&:active {
-		background: $xui-color-grey-7;
+		background: $xui-table-link-focus-bg-color;
 	}
 }
 
 .#{$ns}-table--sortbutton {
-	background: $xui-color-white;
+	background: $xui-table-bg-color;
 	cursor: pointer;
 	height: $xui-s-4xlarge;
 	outline: 0;
@@ -1072,15 +1069,15 @@ $xui-table-z-alert: 4;
 	width: 100%;
 
 	&:hover {
-		color: $xui-color-blue-dark;
+		color: $xui-table-sortbutton-hover-color;
 	}
 
 	&:focus {
-		background: $xui-color-grey-7;
+		background: $xui-table-sortbutton-focus-bg-color;
 	}
 
 	&:active {
-		background: $xui-color-grey-6;
+		background: $xui-table-sortbutton-active-bg-color;
 	}
 }
 
@@ -1174,7 +1171,7 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-table--cell-divider:after {
-	background: $xui-color-grey-alpha-5;
+	background: $xui-table-divider-bg-color;
 	content: '';
 	display: block;
 	height: 1px;
@@ -1233,11 +1230,11 @@ $xui-table-z-alert: 4;
 
 	&:hover,
 	&:active {
-		background: $xui-color-grey-7;
+		background: $xui-table-link-hover-bg-color;
 	}
 
 	&:focus {
-		background: $xui-color-grey-6;
+		background: $xui-table-link-focus-bg-color;
 	}
 }
 

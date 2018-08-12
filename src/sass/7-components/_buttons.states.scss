@@ -13,7 +13,7 @@
 		@include xui-button-is-disabled;
 	}
 
-	@each $variant, $color in $xui-button-variants-background-colors {
+	@each $variant, $color in $xui-button-variants-bg {
 
 		@if $variant != standard {
 			&.#{$ns}-button-#{$variant} {

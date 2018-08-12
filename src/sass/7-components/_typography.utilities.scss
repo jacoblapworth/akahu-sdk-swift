@@ -76,7 +76,7 @@
 // Color
 
 .#{$ns}-textcolor-standard {
-	color: $xui-color-black;
+	color: $xui-text-primary-color;
 }
 
 .#{$ns}-textcolor-muted {
@@ -85,11 +85,11 @@
 
 .#{$ns}-text-placeholder,
 .#{$ns}-textcolor-faint {
-	color: $xui-color-grey-alpha-3;
+	color: $xui-text-faint-color;
 }
 
 .#{$ns}-textcolor-icon {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-text-icon-color;
 }
 
 .#{$ns}-textcolor-positive {
@@ -104,13 +104,13 @@
 
 
 .#{$ns}-textcolor-inverted {
-	color: $xui-color-white;
+	color: $xui-text-inverted-color;
 }
 
 .#{$ns}-textcolor-inverted-muted {
-	color: $xui-color-white-muted;
+	color: $xui-text-inverted-muted;
 }
 
 .#{$ns}-textcolor-inverted-faint {
-	color: $xui-color-white-faint;
+	color: $xui-text-inverted-faint;
 }

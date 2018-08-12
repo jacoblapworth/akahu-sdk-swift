@@ -6,43 +6,45 @@
 // @type shadow
 //
 // Lift: For temporary elements that overlap content, such as tooltips and dropdowns: $xui-shadow-depth-lift
-$xui-shadow-depth-lift: 0 0 0 1px $xui-color-grey-alpha-5, 0 3px 6px 0 $xui-color-grey-alpha-5;
+$xui-shadow-depth-lift: 0 0 0 1px $xui-standard-shadow-color, 0 3px 6px 0 $xui-standard-shadow-color;
 // Pop: For prominent elements that overlap content, such as modals. Often used in conjunction with a mask : $xui-shadow-depth-pop
-$xui-shadow-depth-pop: 0 0 0 1px $xui-color-grey-alpha-5, 0 8px 16px 0 $xui-color-grey-alpha-5;
+$xui-shadow-depth-pop: 0 0 0 1px $xui-standard-shadow-color, 0 8px 16px 0 $xui-standard-shadow-color;
 
 // @section Indicating overflow
 // @description To indicate that an element does not scroll within its parent, but sits above the content on a separate plane, use one of the following box-shadow variables.
 // @type shadow
 //
 // Top: For toolbars and other navigational elements fixed to the top, with content that scrolls beneath: $xui-shadow-depth-overlap-top
-$xui-shadow-depth-overlap-top: 0 1px 0 0 $xui-color-grey-alpha-5, 0 3px 0 0 $xui-color-grey-alpha-7;
+$xui-shadow-depth-overlap-top: 0 1px 0 0 $xui-standard-shadow-color, 0 3px 0 0 $xui-overlap-shadow-color;
 // Bottom: For toolbars and other navigational elements fixed to the bottom, with content that scrolls beneath: $xui-shadow-depth-overlap-bottom
-$xui-shadow-depth-overlap-bottom: 0 -1px 0 0 $xui-color-grey-alpha-5, 0 -3px 0 0 $xui-color-grey-alpha-7;
+$xui-shadow-depth-overlap-bottom: 0 -1px 0 0 $xui-standard-shadow-color, 0 -3px 0 0 $xui-overlap-shadow-color;
 // Left: For toolbars and other navigational elements fixed to the left, with content that scrolls beneath: $xui-shadow-depth-overlap-left
-$xui-shadow-depth-overlap-left: 1px 0 0 0 $xui-color-grey-alpha-5, 3px 0 0 0 $xui-color-grey-alpha-7;
+$xui-shadow-depth-overlap-left: 1px 0 0 0 $xui-standard-shadow-color, 3px 0 0 0 $xui-overlap-shadow-color;
 // Right: For toolbars and other navigational elements fixed to the right, with content that scrolls beneath: $xui-shadow-depth-overlap-right
-$xui-shadow-depth-overlap-right: -1px 0 0 0 $xui-color-grey-alpha-5, -3px 0 0 0 $xui-color-grey-alpha-7;
+$xui-shadow-depth-overlap-right: -1px 0 0 0 $xui-standard-shadow-color, -3px 0 0 0 $xui-overlap-shadow-color;
 
 // @section Shadow borders
 // @description To create the appearance of a border, but position it outside the element in order to multiply with the background layer, use one of the following box-shadow variables.
 // @type shadow
 //
 // All: Applies an external border to all sides: $xui-shadow-border-all
-$xui-shadow-border-all: 0 0 0 1px $xui-color-grey-alpha-5;
+$xui-shadow-border-all: 0 0 0 1px $xui-standard-shadow-color;
 // Top: Applies an external border to the top: $xui-shadow-border-top
-$xui-shadow-border-top: 0 -1px 0 0 $xui-color-grey-alpha-5;
+$xui-shadow-border-top: 0 -1px 0 0 $xui-standard-shadow-color;
 // Right: Applies an external border to the right: $xui-shadow-border-right
-$xui-shadow-border-right: 1px 0 0 0 $xui-color-grey-alpha-5;
+$xui-shadow-border-right: 1px 0 0 0 $xui-standard-shadow-color;
 // Bottom: Applies an external border to the bottom: $xui-shadow-border-bottom
-$xui-shadow-border-bottom: 0 1px 0 0 $xui-color-grey-alpha-5;
+$xui-shadow-border-bottom: 0 1px 0 0 $xui-standard-shadow-color;
 // Left: Applies an external border to the left: $xui-shadow-border-left
-$xui-shadow-border-left: -1px 0 0 0 $xui-color-grey-alpha-5;
+$xui-shadow-border-left: -1px 0 0 0 $xui-standard-shadow-color;
 
 // @section Standard borders
 // @description To create a traditional border around an element, use one of the following border variables. However, unless the background color is constant, we recommend using shadow borders instead, to prevent introducing contrast issues.
 // @type border
 //
 // Standard: Applies a standard border to all sides: $xui-border-standard
-$xui-border-standard: 1px solid $xui-color-grey-4;
+$xui-border-standard: 1px solid $xui-standard-border-color;
+// Controls: Input, Radio, Checkbox, etc.
+$xui-border-control: 1px solid $xui-control-border-color;
 // Muted: Applies a muted border to all sides: $xui-border-muted
-$xui-border-muted: 1px solid $xui-color-grey-5;
+$xui-border-muted: 1px solid $xui-muted-border-color;

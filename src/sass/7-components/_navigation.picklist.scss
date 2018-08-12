@@ -639,11 +639,11 @@
 
 	&:hover,
 	&:focus {
-		background: $xui-color-grey-alpha-7;
+		background: $xui-pickitem-focus-bg-color;
 	}
 
 	&:active {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-pickitem-active-bg-color;
 	}
 
 	// Fixes an alignment issue with the arrow icon indicators in non-split menuitems
@@ -662,14 +662,14 @@
 }
 
 .#{$ns}-pickitem-is-hovered {
-	background: $xui-color-grey-alpha-7;
+	background: $xui-pickitem-focus-bg-color;
 	&:hover,
 	&:focus {
-		background: $xui-color-grey-alpha-7;
+		background: $xui-pickitem-focus-bg-color;
 	}
 
 	&:active {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-pickitem-active-bg-color;
 	}
 }
 
@@ -686,7 +686,7 @@
 
 .#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem--multiselect):not(.#{$ns}-pickitem-multiselect) > .#{$ns}-pickitem--body {
 	// TODO: remove the old portion of this selector
-	color: $xui-color-xero-blue;
+	color: $xui-pickitem-selected-color;
 
 	&::before {
 		border-left: 3px solid currentColor;
@@ -780,17 +780,17 @@
 
 	&:hover,
 	&:focus {
-		background: $xui-color-grey-alpha-7;
+		background: $xui-pickitem-focus-bg-color;
 	}
 
 	&:active {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-pickitem-active-bg-color;
 	}
 }
 
 .#{$ns}-submenu-uicontrol--icon {
 	align-self: center;
-	color: $xui-color-grey-alpha-2;
+	color: $xui-submenu-uicontrol-icon-color;
 	margin: 5px;
 	transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 
@@ -854,11 +854,11 @@
 
 	&:hover,
 	&:focus {
-		background: $xui-color-grey-alpha-7;
+		background: $xui-pickitem-focus-bg-color;
 	}
 
 	&:active {
-		background: $xui-color-grey-alpha-6;
+		background: $xui-pickitem-active-bg-color;
 	}
 }
 
@@ -901,5 +901,5 @@
 
 // In the specific context of a dropdownfooter, pickitems should be blue.
 .#{$ns}-dropdown--footer--picklist .#{$ns}-pickitem--body {
-	color: $xui-color-action;
+	color: $xui-action-primary-color;
 }

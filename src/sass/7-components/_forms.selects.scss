@@ -1,6 +1,7 @@
 @import "../vars";
 @import "../mixins";
 
+
 .#{$ns}-select--control {
 	@include xui-commoninput;
 
@@ -49,9 +50,9 @@
 .#{$ns}-select--button {
 	@include xui-commoninput;
 	background-color: transparent;
-	border: $xui-border-standard;
+	border: $xui-border-control;
 	border-radius: $xui-radius;
-	color: $xui-color-grey-1;
+	color: $xui-select-color;
 	display: flex;
 	font-weight: normal;
 	min-height: $xui-input-height;

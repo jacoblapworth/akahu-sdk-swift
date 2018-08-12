@@ -20,12 +20,12 @@
 }
 
 .#{$ns}-validation {
-	color: $xui-color-grey-alpha-2;
+	color: $xui-validation-color;
 	font-size: $xui-font-size-xsmall;
 }
 
 .#{$ns}-validation-is-invalid {
-	color: $xui-color-xero-red;
+	color: $xui-validation-invalid-color;
 }
 
 .#{$ns}-form-inline {

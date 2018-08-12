@@ -405,8 +405,11 @@
 		border-color: $xui-color-white;
 		// Retains left-hand border style for buttongroups
 		&.#{$ns}-button-grouped:nth-child(n+2) {
-			border-left: 1px solid $xui-color-grey-alpha-4;
+			border-left: 1px solid $xui-button-border-color;
 		}
+	}
+	&:focus {
+		@include xui-button-focus($xui-shadow-focus-inverted);
 	}
 	&:hover {
 		box-shadow: inherit;

@@ -95,7 +95,7 @@ button::-moz-focus-inner {
 // Really want to apply theming, and default colours on links no longer are
 // accessible by default
 a {
-	color: $xui-color-xero-blue;
+	color: $xui-link-color;
 	cursor: pointer;
 	text-decoration: none;
 }

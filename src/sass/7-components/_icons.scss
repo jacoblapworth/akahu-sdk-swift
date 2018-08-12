@@ -233,29 +233,7 @@
 	pointer-events: none; // Don't hog the cursor if inside buttons/links
 }
 
-$icon-colours:
-	(
-		standard: $xui-color-black-muted,
-		black: $xui-color-grey-1,
-		black-muted: $xui-color-black-muted,
-		black-faint: $xui-color-black-faint,
-		white: $xui-color-white,
-		white-muted: $xui-color-white-muted,
-		white-faint: $xui-color-white-faint,
-		blue: $xui-color-blue,
-		dark-blue: $xui-color-xero-dark-blue,
-		red: $xui-color-red,
-		green: $xui-color-green,
-		orange: $xui-color-orange,
-		yellow: $xui-color-yellow,
-		mint: $xui-color-mint,
-		turquoise: $xui-color-turquoise,
-		violet: $xui-color-violet,
-		grape: $xui-color-grape,
-		pink: $xui-color-pink,
-		file-spreadsheet: $xui-color-file-spreadsheet,
-		file-pdf: $xui-color-file-pdf
-	);
+
 
 @each $colourName, $colorHex in $icon-colours {
 	.#{$ns}-icon-color-#{$colourName} {

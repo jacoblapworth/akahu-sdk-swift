@@ -5,10 +5,10 @@ $toast-max-width: 400px;
 
 .#{$ns}-toast {
 	@include xui-clearfix;
-	background: transparentize($xui-color-white, 0.1);
+	background: $xui-toast-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-lift;
-	color: $xui-color-grey-1;
+	color: $xui-toast-color;
 	display: inline-block;
 	max-width: $toast-max-width;
 	opacity: 1;
@@ -31,11 +31,11 @@ $toast-max-width: 400px;
 }
 
 .#{$ns}-toast-positive {
-	@include xui-highlight-left($xui-color-xero-green, $xui-radius, true);
+	@include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-toast-negative {
-	@include xui-highlight-left($xui-color-xero-red, $xui-radius, true);
+	@include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
 }
 
 .#{$ns}-toast-layout {

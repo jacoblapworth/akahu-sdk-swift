@@ -166,7 +166,7 @@
 
 .#{$ns}-mask {
 	align-items: center;
-	background-color: transparentize($xui-color-grey-1, 0.3);
+	background-color: $xui-mask-bg-color;
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -191,7 +191,7 @@
 
 .#{$ns}-modal {
 	align-self: flex-start;
-	background-color: $xui-color-white;
+	background-color: $xui-modal-bg-color;
 	border-radius: $xui-radius;
 	box-shadow: $xui-shadow-depth-pop;
 	margin-bottom: $xui-s-standard;

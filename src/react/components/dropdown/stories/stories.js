@@ -63,6 +63,7 @@ const footer = (
 			<Pickitem id="aa" value="aa" key="aa">
 				<XUIIcon
 					icon={plusIcon}
+					isBoxed
 					className="xui-margin-right-xsmall"
 				/>
 				Item 1
@@ -70,6 +71,7 @@ const footer = (
 			<Pickitem id="bb" value="bb" key="bb">
 				<XUIIcon
 					icon={plusIcon}
+					isBoxed
 					className="xui-margin-right-xsmall"
 				/>
 				Item 2

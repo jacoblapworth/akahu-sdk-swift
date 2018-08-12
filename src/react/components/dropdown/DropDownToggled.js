@@ -146,7 +146,8 @@ export default class DropDownToggled extends PureComponent {
 					}
 					scrollIntoViewIfNecessary(this.wrapper.firstChild);
 				}
-				if (shouldLockScroll(ddt)) {
+				// Checking for the wrapper confirms that component is fully mounted
+				if (shouldLockScroll(ddt) && this.wrapper) {
 					this.setState({
 						shouldUnlockScroll: lockScroll()
 					});
@@ -192,8 +193,8 @@ export default class DropDownToggled extends PureComponent {
 				// Add window event listeners to make sure things still look good on browser resize
 				addEventListeners(ddt);
 
-				// If we are animating, add the animation class now
-				if (shouldAnimate(ddt)) {
+				// If we are animating, add the animation class, after checking that the component is mounted
+				if (shouldAnimate(ddt) && this.wrapper) {
 					ddt.setState(() => ({
 						isOpening: true,
 					}));

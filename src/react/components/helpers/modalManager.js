@@ -4,9 +4,7 @@ import { portalClass } from './portalContainer';
 const openedModals = []; // modal registry
 
 // Which modal is on the top of the stack?
-const getTopModal = () => {
-	return openedModals[openedModals.length - 1];
-};
+const getTopModal = () => openedModals[openedModals.length - 1];
 
 // To properly set the aria-hidden attribute, we need all the siblings of the portal.
 const getModalSiblings = () => {
@@ -22,11 +20,8 @@ const getModalSiblings = () => {
 // Set or unset portal siblings from being aria-hidden.
 // NB: If a direct child of the body has its own aria-hidden values, these will be overridden.
 const setSiblingsAriaHidden = (toHide) => {
-	const nodes = getModalSiblings();
-	for (let i = 0, l = nodes.length; i < l; i++) {
-		nodes[i].setAttribute('aria-hidden', toHide);
-	}
-}
+	[...getModalSiblings()].forEach(node => node.setAttribute('aria-hidden', toHide));
+};
 
 export const registerModal = newModal => {
 	if (!openedModals.length) {

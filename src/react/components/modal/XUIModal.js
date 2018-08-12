@@ -85,21 +85,24 @@ function removeListeners(modal) {
 
 export default class XUIModal extends Component {
 
-	state = { positionSettings: null };
+	state = {
+		positionSettings: null,
+		isTopModal: null // This is handled and manipulated by helpers/modalManager
+	};
 
 	generatedHeaderId = uuidv4();
 
 	componentDidMount() {
 		const modal = this;
-		addListeners(this);
-		if (modal.props.isOpen && !this.state.isTopModal) {
+		addListeners(modal);
+		if (modal.props.isOpen && !modal.state.isTopModal) {
 			const activeElement = document.activeElement;
-			this.priorFocusedEl = activeElement;
-			registerModal(this);
+			modal.priorFocusedEl = activeElement;
+			registerModal(modal);
 
 			modal._isScrollLocked = true;
 
-			this.calcOffsetTop();
+			modal.calcOffsetTop();
 
 			if (!modal._maskNode.contains(activeElement)) {
 				modal._modalNode.focus();
@@ -125,16 +128,16 @@ export default class XUIModal extends Component {
 		const { isTopModal } = modal.state;
 		const activeElement = document.activeElement;
 
-		if (shouldUpdateListeners(this.props, prevProps)) {
-			addListeners(this);
+		if (shouldUpdateListeners(modal.props, prevProps)) {
+			addListeners(modal);
 		}
 
 		if (isOpen && !modal._isScrollLocked && !isTopModal) {
-			this.priorFocusedEl = activeElement;
-			registerModal(this);
+			modal.priorFocusedEl = activeElement;
+			registerModal(modal);
 			modal._isScrollLocked = true;
 
-			this.calcOffsetTop();
+			modal.calcOffsetTop();
 		}
 
 		if (!isOpen && modal._isScrollLocked && isTopModal) {

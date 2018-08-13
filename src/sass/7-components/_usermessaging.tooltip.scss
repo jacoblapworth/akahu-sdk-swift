@@ -141,7 +141,7 @@
 	background-color: $xui-tooltip-bg-color;
 	border-radius: $xui-radius;
 	bottom: 0;
-	box-shadow: 0 0 0 1px $xui-tooltip-shadow-color, 0 3px 6px 0 $xui-tooltip-shadow-color;
+	box-shadow: 0 0 0 1px $xui-tooltip-outline-shadow-color, 0 3px 6px 0 $xui-tooltip-shadow-color;
 	color: $xui-tooltip-color;
 	cursor: auto;
 	display: block;

@@ -426,12 +426,12 @@ $xui-breadcrumb-icon-color: $xui-color-grey-alpha-2;
 
 // Overview
 
-$xui-overview-bg-color: $xui-color-grey-alpha-7;
+$xui-overview-bg-color: $xui-color-grey-alpha-8;
 $xui-overview-label-color: $xui-color-grey-alpha-2;
 
 // Pill
 
-$xui-pill-bg-color: $xui-color-grey-alpha-6;
+$xui-pill-bg-color: $xui-color-grey-alpha-7;
 $xui-pill-secondary-color: $xui-color-grey-alpha-2;
 $xui-pill-focused-bg-color: rgba($xui-color-black, 0.15);
 $xui-pill-invalid-bg-color: $xui-color-red;
@@ -511,7 +511,8 @@ $xui-toast-color: $xui-color-grey-1;
 
 $xui-tooltip-bg-color: $xui-color-grey-1;
 $xui-tooltip-color: $xui-color-white;
-$xui-tooltip-shadow-color: $xui-color-white-alpha-4;
+$xui-tooltip-shadow-color: $xui-color-grey-alpha-6;
+$xui-tooltip-outline-shadow-color: $xui-color-white-alpha-5;
 
 
 // Controls

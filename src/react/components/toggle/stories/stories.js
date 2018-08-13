@@ -64,8 +64,13 @@ variations.forEach(variation => {
 			isInverted: variationMinusStoryDetails.color == 'inverted',
 			style: { width: "500px" }
 		};
-		return <ExampleContainer {...attrs} ><XUIToggle {...variationMinusStoryDetails}>{buildOptions(options)}</XUIToggle></ExampleContainer >;
-
+		return (
+			<ExampleContainer {...attrs}>
+				<XUIToggle {...variationMinusStoryDetails}>
+					{buildOptions(options)}
+				</XUIToggle>
+			</ExampleContainer>
+		);
 	});
 });
 

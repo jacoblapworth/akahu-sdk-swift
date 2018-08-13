@@ -42,7 +42,7 @@
 
 * Switch: `isReversed`, `labelId`, `labelClassName`, and `isLabelHidden` props have been added, to match the Checkbox and Radio labelling API
 * RadioGroup & CheckboxGroup: `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, and `isFieldLayout` have been added
-* Toggle: `labelText`, `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, and `isFieldLayout` have been added
+* Toggle: `labelText`, `labelId`, `labelClassName`, `isLabelHidden`, `fieldClassName`, `isDefaultChecked` and `isFieldLayout` have been added
 * NestedPicklistTrigger: `ariaLabel` has been added to provide assistive tech with information about the expansion button
 * ProgressWrapper, ProgressCircular, & ProgressLinear: `ariaLabel` and `ariaLabelledBy` have been added
 * RolloverCheckbox: `ariaLabelledBy` has been added

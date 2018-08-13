@@ -16,6 +16,7 @@ export default function XUIToggleOption(props) {
 		className,
 		qaHook,
 		isChecked,
+		isDefaultChecked,
 		isDisabled,
 		isRequired,
 		name,
@@ -36,6 +37,7 @@ export default function XUIToggleOption(props) {
 				className={`${baseClass}--input`}
 				data-automationid={qaHook && `${qaHook}--input`}
 				checked={isChecked}
+				defaultChecked={isDefaultChecked}
 				disabled={isDisabled}
 				required={isRequired}
 				name={name}
@@ -56,6 +58,8 @@ XUIToggleOption.propTypes = {
 	qaHook: PropTypes.string,
 	/** The input is selected */
 	isChecked: PropTypes.bool,
+	/** The input is selected initially, but not in a controlled manner */
+	isDefaultChecked: PropTypes.bool,
 	/** The input is disabled */
 	isDisabled: PropTypes.bool,
 	/** The input is required for form submission */

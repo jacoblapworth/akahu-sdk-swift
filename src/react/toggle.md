@@ -4,6 +4,8 @@
 
 `XUIToggle` is a control that can behave like a radio, or like a checkbox. It supports different layout patterns for a variety of use cases.
 
+Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
+
 ## Examples
 
 ### Checkboxes or Radios

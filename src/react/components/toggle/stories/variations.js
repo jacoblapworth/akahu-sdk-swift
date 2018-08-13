@@ -33,7 +33,7 @@ const variations = [
 				value: 'toggle1'
 			},
 			{
-				isChecked: true,
+				isDefaultChecked: true,
 				name: 'tg3',
 				value: 'toggle2'
 			},
@@ -57,7 +57,7 @@ const variations = [
 				value: 'toggle1'
 			},
 			{
-				isChecked: true,
+				isDefaultChecked: true,
 				name: 'tg4',
 				value: 'toggle2'
 			},
@@ -124,7 +124,7 @@ const variations = [
 				value: 'toggle2'
 			},
 			{
-				isChecked: true,
+				isDefaultChecked: true,
 				name: 'tg7',
 				value: 'toggle3'
 			}

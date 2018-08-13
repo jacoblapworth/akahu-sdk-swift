@@ -10,6 +10,7 @@ exports[`XUIToggleOption should have a qaHook on the root node if provided 1`] =
     checked={undefined}
     className="xui-toggle--input"
     data-automationid="cheese-and-crackers--input"
+    defaultChecked={undefined}
     disabled={undefined}
     id={undefined}
     name={undefined}

@@ -11,9 +11,12 @@
 // Best practice
 //
 // Tips:
+// Do: When disabling toggles within groups, disable the entire group
 // Do: Use toggles to provide quick access to options without the need for a dropdown
 // Do: Associate the toggle control with a label, using the appropriate ARIA attributes
+// Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
 // Warning: Avoid including more than three options inside a toggle
+// Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
 // Dont: Don't use toggles when content is dynamic or long, use a vertical radio group instead
 //
 // Styleguide: Building Blocks.Controls.Toggle.1

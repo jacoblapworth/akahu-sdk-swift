@@ -306,8 +306,8 @@
 			opacity: 1;
 		}
 		&:checked + .#{$ns}-styledcheckboxradio--radio:after {
-			background-color: $xui-control-border-color;
-			border-color: $xui-checkboxradio-check-disabled-fill;
+			background-color: $xui-checkboxradio-disabled-checked-fill;
+			border-color: $xui-checkboxradio-disabled-fill;
 		}
 	}
 }

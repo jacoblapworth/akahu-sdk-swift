@@ -1048,13 +1048,17 @@ $xui-table-z-alert: 4;
 	cursor: pointer;
 	outline: 0;
 
+	&:focus {
+		background: $xui-table-link-focus-bg-color;
+	}
+}
+
+.#{$ns}-table-nopointerevents .#{$ns}-table--row-link,
+.#{$ns}-table--row-hasprecedence.#{$ns}-table--row-link {
+
 	&:hover,
 	&:active {
 		background: $xui-table-link-hover-bg-color;
-	}
-
-	&:focus {
-		background: $xui-table-link-focus-bg-color;
 	}
 }
 
@@ -1085,7 +1089,7 @@ $xui-table-z-alert: 4;
 	transform: translateX(#{$xui-s-standard});
 }
 
-.#{$ns}-table--sortbutton > * {
+.#{$ns}-table--sortbutton * {
 	transition: $xui-motion-speed-fast;
 }
 
@@ -1228,13 +1232,17 @@ $xui-table-z-alert: 4;
 	outline: 0;
 	transition: $xui-motion-speed-fast;
 
+	&:focus {
+		background: $xui-table-link-focus-bg-color;
+	}
+}
+
+.#{$ns}-table-nopointerevents .#{$ns}-table--cell-link,
+.#{$ns}-table--cell-hasprecedence.#{$ns}-table--cell-link {
+
 	&:hover,
 	&:active {
 		background: $xui-table-link-hover-bg-color;
-	}
-
-	&:focus {
-		background: $xui-table-link-focus-bg-color;
 	}
 }
 

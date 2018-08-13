@@ -750,7 +750,9 @@ Add *Cell* and row interactions using the `onCellClick` and `onRowClick` props.
 
 The `onRowClick` prop works in conjunction with the `shouldRowClick` prop to determine if the current row should have a click the click handler applied to it.
 
-**Note:** A *Cell* interaction will be ** overridden** if its parent row has an interaction on it (**not** nesting links inside links). This can be seen in the below example where the *"Banana"* row has no *Cell* interactions even though they were requested.
+**Note:**
++ A *Cell* interaction will be ** overridden** if its parent row has an interaction on it (**not** nesting links inside links). This can be seen in the below example where the *"Banana"* row has no *Cell* interactions even though they were requested.
++ You can nest interaction items (`<button />`, `<a />`) inside of a cell and ignore the generic cell states (e.g `:hover`). Just make sure you `stopPropagation` on the nested interaction elements _(see example below)_.
 
 ```
 const {
@@ -758,6 +760,9 @@ const {
 	XUITableColumn: Column,
 	XUITableCell: Cell,
 } = require('./table');
+const XUIButton = require('./button').default;
+const XUIIcon = require('./icon').default;
+const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 
 <Table
 	data={ {
@@ -774,12 +779,26 @@ const {
 
 	<Column
 		head={ <Cell>Color</Cell> }
-		body={ ({ color }) => <Cell onCellClick={ () => alert(`You clicked ${color}`) }>{ color }</Cell> }
+		body={ ({ color }) => (
+			<Cell onCellClick={ () => alert(`You clicked ${color}`) }>
+				{ color }, <a href="#" className="xui-text-link" onPointerOver={event => event.stopPropagation()}>more</a>
+			</Cell>
+		) }
 	/>
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell onCellClick={ () => alert(`You clicked $${price}`) }>${ price }</Cell> }
+		body={ ({ price }) => (
+			<Cell onCellClick={ () => alert(`You clicked $${price}`) }>
+				${ price }
+				<XUIButton
+					className="xui-margin-left"
+					size="small"
+					onPointerOver={event => event.stopPropagation()}>
+					<XUIIcon icon={tickIcon} />
+				</XUIButton>
+			</Cell>
+		) }
 	/>
 
 </Table>

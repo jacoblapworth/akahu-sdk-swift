@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames'
 import XUICheckbox from '../../checkbox/XUICheckbox';
 import {
-	cellPosition,
+	getCellLocation,
 	createCellLocationClasses,
 	createInteractionProps,
 	createRowClickCallback,
@@ -16,6 +16,7 @@ import {ns} from "../../helpers/xuiClassNamespace";
 const BODY_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-padding-small`;
 
 class TableBody extends PureComponent {
+	state = { hasPrecedence: false };
 	createCheckBoxCell = ({
 		rowData,
 		checkedIds,
@@ -28,7 +29,7 @@ class TableBody extends PureComponent {
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			BODY_CELL_CLASSES,
-			cellPosition.first,
+			createCellLocationClasses('first'),
 			dividerClasses,
 		);
 
@@ -41,6 +42,7 @@ class TableBody extends PureComponent {
 					className={`${NAME_SPACE}--checkbox-body`}
 					isChecked={isChecked}
 					onChange={(event) => onCheckOneToggle(event, _id)}
+					tabIndex={0}
 					isLabelHidden
 				>
 				{checkOneRowLabel}
@@ -55,7 +57,7 @@ class TableBody extends PureComponent {
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			BODY_CELL_CLASSES,
-			cellPosition.last,
+			createCellLocationClasses('last'),
 			dividerClasses,
 		);
 
@@ -79,7 +81,8 @@ class TableBody extends PureComponent {
 		columnIndex,
 		isRowLink,
 		dividerClasses,
-		cellLocationClasses,
+		cellLocation,
+		ensureCellVisibility,
 	}) => {
 		const body = funcAsComponent(rowData, columnIndex);
 		const {
@@ -95,7 +98,7 @@ class TableBody extends PureComponent {
 		const className = cn(
 			BODY_CELL_CLASSES,
 			dividerClasses,
-			cellLocationClasses,
+			createCellLocationClasses(cellLocation),
 			suppliedClasses,
 			{
 				[`${NAME_SPACE}--cell-link`]: isCellLink,
@@ -103,7 +106,12 @@ class TableBody extends PureComponent {
 			},
 		);
 
-		return createElement(TableData, { key, ...interactionProps, className }, children);
+		return createElement(TableData, {
+				key,
+				className,
+				onFocus: ensureCellVisibility,
+				...interactionProps,
+			}, children);
 	};
 
 	render = () => {
@@ -120,6 +128,7 @@ class TableBody extends PureComponent {
 			createOverflowMenu,
 			overflowMenuTitle,
 			createDividerClassesThunk,
+			ensureCellVisibility,
 		} = this.props;
 
 		return (
@@ -127,19 +136,22 @@ class TableBody extends PureComponent {
 
 				{data && data.map((rowData, rowIndex) => {
 					const rowClickCallback = createRowClickCallback({shouldRowClick, rowData, onRowClick})
-					const isRowLink = Boolean(rowClickCallback);
+					const isRowLink = rowClickCallback ? Boolean(rowClickCallback) : undefined;
 					const interactionProps = isRowLink && createInteractionProps(rowClickCallback, rowData);
 					const dividerClasses = createDividerClassesThunk(rowIndex);
 					const className = cn(
 						`${NAME_SPACE}--row`,
 						{ [`${NAME_SPACE}--row-link`]: isRowLink },
+						{ [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence }
 					);
 
 					return (
 						<tr
 							{...interactionProps}
 							key={`row-${rowIndex}`}
-							className={className}>
+							className={className}
+							onPointerOver={isRowLink && (() => this.setState(() => ({ hasPrecedence: true })))}
+							onPointerOut={isRowLink && (() => this.setState(() => ({ hasPrecedence: false })))}>
 
 							{hasCheckbox && this.createCheckBoxCell({
 								rowData,
@@ -150,21 +162,17 @@ class TableBody extends PureComponent {
 							})}
 
 							{columns.map(({ props: { body } }, columnIndex) => (
-
 								this.createGenericCell({
 									body,
 									rowData,
 									columnIndex,
 									isRowLink,
 									dividerClasses,
-									cellLocationClasses: createCellLocationClasses({
-										columns,
-										index: columnIndex,
-										hasCheckbox,
-										hasOverflowMenu,
+									ensureCellVisibility,
+									cellLocation: getCellLocation({
+										columns, index: columnIndex, hasCheckbox, hasOverflowMenu,
 									})
 								})
-
 							))}
 
 							{hasOverflowMenu && this.createOverflowMenuCell({
@@ -187,6 +195,7 @@ TableBody.propTypes = {
 
 	data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 	columns: PropTypes.node,
+	ensureCellVisibility: PropTypes.func,
 
 	// Divider.
 	createDividerClassesThunk: PropTypes.func,
@@ -205,7 +214,6 @@ TableBody.propTypes = {
 	// Interaction.
 	onRowClick: PropTypes.func,
 	shouldRowClick: PropTypes.func,
-
 };
 
 export default TableBody;

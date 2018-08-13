@@ -343,6 +343,11 @@
 						]
 					},
 					{
+						"name": "Bar chart",
+						"components": "../src/react/components/chart/XUIBarChart.js",
+						"content": "../src/react/barchart.md"
+					},
+					{
 						"name": "Content Block",
 						"content": "../src/react/components/structural/structural.contentblock.md",
 						"components": "../src/react/components/structural/XUIContentBlock*.js"
@@ -393,16 +398,6 @@
 							},
 							{
 								"components": "../src/react/components/table/XUITableCell.js"
-							}
-						]
-					},
-					{
-						"name": "Charts",
-						"content": "../src/react/barchart.md",
-						"sections": [
-							{
-								"name": "Bar Chart",
-								"components": "../src/react/components/chart/XUIBarChart.js"
 							}
 						]
 					}

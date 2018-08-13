@@ -5,7 +5,7 @@ import XUICheckbox from '../../checkbox/XUICheckbox';
 import XUIIcon from '../../icon/XUIIcon';
 import sortPathData from '@xero/xui-icon/icons/sort-single';
 import {
-	cellPosition,
+	getCellLocation,
 	createCellLocationClasses,
 	queryIsValidInteraction,
 } from '../helpers/utilities';
@@ -25,7 +25,7 @@ class TableHead extends PureComponent {
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			HEAD_CELL_CLASSES,
-			cellPosition.first
+			createCellLocationClasses('first'),
 		);
 		const totalCheckIds = checkedIds.length;
 		const totalData = data.length;
@@ -46,6 +46,7 @@ class TableHead extends PureComponent {
 						isIndeterminate={isIndeterminate}
 						className={`${NAME_SPACE}--checkbox-head`}
 						onChange={onCheckAllToggle}
+						tabIndex={0}
 						isLabelHidden>
 						{checkAllRowsLabel}
 					</XUICheckbox>
@@ -58,7 +59,7 @@ class TableHead extends PureComponent {
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			HEAD_CELL_CLASSES,
-			cellPosition.last
+			createCellLocationClasses('last'),
 		);
 
 		return (
@@ -100,7 +101,6 @@ class TableHead extends PureComponent {
 		return createElement(TableData, {
 			...props,
 			className,
-			tabIndex: '0',
 			role: 'button',
 			onClick: interactionhandler,
 			onKeyDown: interactionhandler,
@@ -113,7 +113,8 @@ class TableHead extends PureComponent {
 		activeSortKey,
 		isSortAsc,
 		onSortChange,
-		cellLocationClasses
+		cellLocation,
+		ensureCellVisibility,
 	}) => {
 		const {
 			children,
@@ -122,9 +123,10 @@ class TableHead extends PureComponent {
 		} = head.props;
 		const key = `column-cell-${index}`;
 		const isHead = true;
+		const onFocus = ensureCellVisibility;
 		const className = cn(
 			HEAD_CELL_CLASSES,
-			cellLocationClasses,
+			createCellLocationClasses(cellLocation),
 			suppliedClasses,
 		);
 
@@ -137,11 +139,13 @@ class TableHead extends PureComponent {
 					activeSortKey,
 					isSortAsc,
 					onSortChange,
+					onFocus,
 				})
 			: createElement(TableData, {
 					isHead,
 					key,
-					className
+					className,
+					onFocus,
 				}, <span>{children}</span>)
 	};
 
@@ -157,6 +161,7 @@ class TableHead extends PureComponent {
 			onCheckAllToggle,
 			checkAllRowsLabel,
 			hasOverflowMenu,
+			ensureCellVisibility,
 		} = this.props;
 
 		return (
@@ -178,11 +183,9 @@ class TableHead extends PureComponent {
 							activeSortKey,
 							isSortAsc,
 							onSortChange,
-							cellLocationClasses: createCellLocationClasses({
-								columns,
-								index,
-								hasCheckbox,
-								hasOverflowMenu,
+							ensureCellVisibility,
+							cellLocation: getCellLocation({
+								columns, index, hasCheckbox, hasOverflowMenu,
 							})
 						})
 
@@ -200,6 +203,7 @@ TableHead.propTypes = {
 
 	data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 	columns: PropTypes.node.isRequired,
+	ensureCellVisibility: PropTypes.func,
 
 	// Checkbox.
 	hasCheckbox: PropTypes.bool,

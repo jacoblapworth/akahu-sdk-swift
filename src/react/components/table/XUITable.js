@@ -7,7 +7,7 @@ import throttle from 'lodash.throttle';
 import XUILoader from '../loader/XUILoader';
 import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
-import { NAME_SPACE } from './helpers/constants';
+import { NAME_SPACE, ACTION_WIDTH } from './helpers/constants';
 import TableHead from './customElements/TableHead';
 import TableBody from './customElements/TableBody';
 import EmptyState from './customElements/EmptyState';
@@ -21,12 +21,12 @@ class XUITable extends Component {
 
 	componentDidUpdate = () => {
 		this.setCurrentWidth();
-		this.setCurrentScroll();
+		this.setScrollOverflow();
 	};
 
 	componentDidMount = () => {
 		this.resizeThrottled = throttle(this.setCurrentWidth, 500);
-		this.scrollThrottled = throttle(this.setCurrentScroll, 100);
+		this.scrollThrottled = throttle(this.setScrollOverflow, 100);
 		this.setCurrentWidth();
 		window.addEventListener('resize', this.resizeThrottled);
 	};
@@ -46,7 +46,7 @@ class XUITable extends Component {
 		}
 	};
 
-	setCurrentScroll = () => {
+	setScrollOverflow = () => {
 		const { rootNode, wrapperNode, tableNode } = this;
 		const scrollLeft = wrapperNode && wrapperNode.scrollLeft;
 		const wrapperWidth = wrapperNode && wrapperNode.clientWidth;
@@ -67,8 +67,57 @@ class XUITable extends Component {
 		}
 	};
 
+	ensureCellVisibility = event => {
+		const { wrapperNode, props } = this;
+		const { hasPinnedFirstColumn, hasPinnedLastColumn } = props;
+
+		// When "pinned" colums are not active the browser can handle showing cells
+		// natively so we bail to save CPU and extra edge cases.
+		if (!(hasPinnedFirstColumn || hasPinnedLastColumn)) { return; }
+
+		// Generic measurements around where we are in the Table in respect to
+		// width / scroll etc.
+		const {clientWidth: cellWidth, offsetLeft: cellOffset } = event.target;
+		const scrollOffset = wrapperNode.scrollLeft;
+		const wrapperWidth = wrapperNode.clientWidth;
+
+		// Where does the "left" and "right" of the Cell reside in respect to the
+		// visible viewing area.
+		const relativeLeftOffset = cellOffset - scrollOffset;
+		const relativeRightOffset = relativeLeftOffset + cellWidth;
+
+		let hasCellReset = false;
+
+		if (!hasCellReset && hasPinnedLastColumn) {
+			// Cell to the left so that the right side becomes visible from under the
+			// pinned last column.
+			const overlap = relativeRightOffset - (wrapperWidth - ACTION_WIDTH);
+			const hasRightOverlap = relativeRightOffset > wrapperWidth - ACTION_WIDTH;
+
+			wrapperNode.scrollLeft = hasRightOverlap ? scrollOffset + overlap : scrollOffset;
+			hasCellReset = hasRightOverlap;
+		}
+
+		if (!hasCellReset && hasPinnedFirstColumn) {
+			// Move Cell to the right so that the left side becomes visible from under
+			// the pinned first column.
+			const overlap = ACTION_WIDTH - relativeLeftOffset;
+			const hasLeftOverlap = hasPinnedFirstColumn && relativeLeftOffset < ACTION_WIDTH;
+
+			wrapperNode.scrollLeft = hasLeftOverlap ? scrollOffset - overlap : scrollOffset;
+			hasCellReset = hasLeftOverlap;
+		}
+
+		if (hasCellReset) {
+			// We are fudging with the scroll and therefore the overflow shadows may not
+			// be representative of the current scroll values (lets take a look to make sure).
+			this.setScrollOverflow();
+		}
+
+	};
+
 	render = () => {
-		const { state, props, rootNode, tableNode, wrapperNode } = this;
+		const { state, props, rootNode, tableNode, wrapperNode, ensureCellVisibility } = this;
 		const {
 			qaHook,
 			className: suppliedClasses,
@@ -101,6 +150,7 @@ class XUITable extends Component {
 			footer,
 			columns,
 			data,
+			hasPointerEvents,
 		} = enrichProps(state, props, { rootNode, tableNode, wrapperNode });
 
 		const className = cn(
@@ -113,6 +163,7 @@ class XUITable extends Component {
 				[`${NAME_SPACE}-pinleft`]: hasPinnedFirstColumn,
 				[`${NAME_SPACE}-pinright`]: hasPinnedLastColumn,
 				[`${NAME_SPACE}-hasheader`]: hasHeader,
+				[`${NAME_SPACE}-nopointerevents`]: !hasPointerEvents,
 			}
 		);
 
@@ -155,6 +206,7 @@ class XUITable extends Component {
 								onCheckAllToggle,
 								checkAllRowsLabel,
 								hasOverflowMenu,
+								ensureCellVisibility,
 							}} />
 
 						)}
@@ -172,6 +224,7 @@ class XUITable extends Component {
 							createOverflowMenu,
 							overflowMenuTitle,
 							createDividerClassesThunk,
+							ensureCellVisibility,
 						}} />
 
 					</table>

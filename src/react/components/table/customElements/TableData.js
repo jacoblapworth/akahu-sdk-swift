@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { NBSP } from '../helpers/constants';
+import cn from 'classnames'
+import { NAME_SPACE, NBSP } from '../helpers/constants';
 
 class HeadData extends PureComponent {
 	render = () => {
@@ -8,7 +9,6 @@ class HeadData extends PureComponent {
 
 		return (
 			<th
-				tabIndex="0"
 				{...props}>
 				{children || NBSP}
 			</th>
@@ -22,16 +22,40 @@ HeadData.propTypes = {
 };
 
 class BodyData extends PureComponent {
+	// Determines if the cell has "precedence" in that it is the primary attention
+	// of the user and not a nested button or link. This way a nested button can
+	// stop the event from propagating up to the parent cell and invoking the
+	// interaction effects like `:hover`.
+	state = { hasPrecedence: false };
 	render = () => {
-		const { children, ...props } = this.props;
-
+		const { children, onClick, className: suppliedClasses, ...props } = this.props;
+		const className = cn(
+			suppliedClasses,
+			{ [`${NAME_SPACE}--cell-hasprecedence`]: this.state.hasPrecedence }
+		);
+		// TODO: Ascertain best course of action from an accessibility perspective
+		// allowing nested cell interactions (`<a />`  and `<button />`) along with
+		// the "best practice" requirements around tabbing (all cells -vs- interaction
+		// cells only).
+		//
+		// eslint-disable jsx-a11y/no-noninteractive-element-interactions
 		return (
 			<td
-				tabIndex="0"
-				{...props}>
+				{...{
+					...props,
+					...onClick && {
+						onClick,
+						onKeyDown: onClick,
+						onPointerOver: onClick && (() => this.setState(() => ({ hasPrecedence: true }))),
+						onPointerOut: onClick && (() => this.setState(() => ({ hasPrecedence: false }))),
+						role: 'button',
+					}
+				}}
+				className={className}>
 				{children || NBSP}
 			</td>
 		);
+		// eslint-enable jsx-a11y/no-noninteractive-element-interactions
 	};
 }
 
@@ -57,6 +81,10 @@ const TableData = ({ isHead, ...props }) => (
 
 TableData.propTypes = {
 	isHead: PropTypes.bool,
-}
+};
+
+TableData.defaultProps = {
+	tabIndex: 0
+};
 
 export default TableData;

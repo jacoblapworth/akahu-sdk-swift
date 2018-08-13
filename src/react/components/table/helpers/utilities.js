@@ -1,6 +1,7 @@
 import { NAME_SPACE } from './constants';
+import cn from 'classnames'
 
-export const cellPosition = {
+const cellClassNames = {
 	first: `${NAME_SPACE}--cell-first`,
 	second: `${NAME_SPACE}--cell-second`,
 	secondtolast: `${NAME_SPACE}--cell-secondtolast`,
@@ -25,7 +26,7 @@ export const createRowClickCallback = ({shouldRowClick, rowData, onRowClick}) =>
 	}
 };
 
-export const createCellLocationClasses = ({ columns, index, hasCheckbox, hasOverflowMenu }) => {
+export const getCellLocation = ({ columns, index, hasCheckbox, hasOverflowMenu }) => {
 	const { length } = columns;
 	const total = hasCheckbox && hasOverflowMenu
 		? length + 1
@@ -37,13 +38,28 @@ export const createCellLocationClasses = ({ columns, index, hasCheckbox, hasOver
 	const isLast = location === total;
 
 	switch (true) {
-		case isFirst: return cellPosition.first;
-		case isLast: return cellPosition.last;
-		case isSecond && isSecondToLast: return `${cellPosition.second} ${cellPosition.secondtolast}`;
-		case isSecond: return cellPosition.second;
-		case isSecondToLast: return cellPosition.secondtolast;
+		case isFirst: return 'first';
+		case isLast: return 'last';
+		case isSecond && isSecondToLast: return 'middle';
+		case isSecond: return 'second';
+		case isSecondToLast: return 'secondtolast';
 		default: return '';
 	}
+};
+
+const hasCellLocationThunk = location => option => location === option;
+
+export const createCellLocationClasses = location => {
+	const hasCellLocation = hasCellLocationThunk(location);
+	const { first, last, second, secondtolast } = cellClassNames;
+
+	return cn({
+		[first]: hasCellLocation('first'),
+		[last]: hasCellLocation('last'),
+		[`${second} ${secondtolast}`]: hasCellLocation('middle'),
+		[second]: hasCellLocation('second'),
+		[secondtolast]: hasCellLocation('secondtolast'),
+	});
 };
 
 export const queryIsValidInteraction = (event) => {
@@ -178,6 +194,11 @@ export const enrichProps = (state, props, { tableNode }) => {
 
 	const createDividerClassesThunk = createDividerClasses(hasHeader);
 
+	// We use Pointer Events to determine how to handle nested buttons and links
+	// inside of cells. If we do not have Pointer Events in the browser then we use
+	// the generic css implementation via a className hook.
+	const hasPointerEvents = window.PointerEvent;
+
 	return {
 		...props,
 		data: sortedData,
@@ -189,5 +210,6 @@ export const enrichProps = (state, props, { tableNode }) => {
 		hasPinnedFirstColumn,
 		hasPinnedLastColumn,
 		createDividerClassesThunk,
+		hasPointerEvents,
 	};
 };

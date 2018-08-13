@@ -184,7 +184,9 @@ $xui-muted-border-color: $xui-color-grey-6;
 $xui-control-border-color: $xui-color-grey-5;
 $xui-control-hover-border-color: $xui-color-grey-4;
 $xui-control-active-border-color: $xui-color-grey-3;
-$xui-control-disabled-border-color: $xui-color-grey-4;
+$xui-control-disabled-border-color: $xui-color-grey-alpha-4;
+$xui-control-disabled-bg-color: $xui-color-grey-alpha-7;
+$xui-control-disabled-color: $xui-color-grey-alpha-2;
 $xui-control-bg-color: $xui-color-white;
 
 
@@ -358,13 +360,13 @@ $xui-textinput-invalid-border-color: $xui-color-red;
 
 $xui-checkboxradio-label-disabled-color: $xui-color-grey-alpha-4;
 $xui-checkboxradio-disabled-bg-color: $xui-color-grey-7;
-$xui-checkboxradio-check-disabled-fill: $xui-color-grey-5;
+$xui-checkboxradio-check-disabled-fill: $xui-color-grey-4;
 
 $xui-checkboxradio-hover-border-color: $xui-control-hover-border-color;
 $xui-checkboxradio-hover-bg-color: $xui-color-grey-8;
 
 $xui-checkboxradio-active-border-color: $xui-color-grey-3;
-$xui-checkboxradio-active-bg-color: $xui-color-grey-7; // Can not be alpha because focus ring bleeds in and this causes a compound 
+$xui-checkboxradio-active-bg-color: $xui-color-grey-7; // Can not be alpha because focus ring bleeds in and this causes a compound
 
 $xui-checkboxradio-checked-hover-bg-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
 $xui-checkboxradio-checked-active-bg-color: mix($xui-color-grey-1, $xui-color-blue, 20%);
@@ -397,7 +399,6 @@ $xui-switch-checked-diabled-bg-color: $xui-color-blue-xlight;
 $xui-isolationheader-bg-color: $xui-color-white;
 $xui-isolationheader-color: $xui-color-black;
 $xui-isolationheader-inverted-bg-color: $xui-color-grey-2;
-$xui-isolationheader-color: $xui-color-white;
 
 // Loader
 

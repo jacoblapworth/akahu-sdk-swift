@@ -14,8 +14,8 @@
 
 // Provides coloring for disabled XUI forms
 @mixin xui-disabled-form {
-	background-color: $xui-color-grey-alpha-6;
-	border-color: $xui-color-grey-alpha-4;
-	color: $xui-color-grey-alpha-2;
-	-webkit-text-fill-color: $xui-color-grey-alpha-2;
+	background-color: $xui-control-disabled-bg-color;
+	border-color: $xui-control-disabled-border-color;
+	color: $xui-control-disabled-color;
+	-webkit-text-fill-color: $xui-control-disabled-color;
 }

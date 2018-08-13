@@ -130,11 +130,12 @@ export default class XUICheckbox extends Component {
 			labelClassName,
 			htmlClassName
 		} = this.props;
+
 		const classes = cn(
 			className,
 			baseClass,
 			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-is-disabled`
+			isDisabled && `${ns}-styledcheckboxradio-is-disabled`
 		);
 
 		const labelClasses = cn(

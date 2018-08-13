@@ -1665,7 +1665,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <label
-                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-is-disabled"
+                  className="xui-table--checkbox-head xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
                   data-automationid={undefined}
                   onClick={[Function]}
                   role="presentation"

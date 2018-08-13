@@ -182,6 +182,7 @@ class DetailedListExample extends Component {
 					<Pickitem id="footerAction">
 							<XUIIcon
 								icon={plusIcon}
+								isBoxed
 								className="xui-margin-right-xsmall"
 							/>
 							Add New Person
@@ -317,9 +318,8 @@ class SecondarySearchExample extends React.Component {
 						<span>
 							<XUIIcon
 								icon={plusIcon}
+								isBoxed
 								className="xui-margin-right-xsmall"
-
-
 							/>
 							Add New Person
 						</span>

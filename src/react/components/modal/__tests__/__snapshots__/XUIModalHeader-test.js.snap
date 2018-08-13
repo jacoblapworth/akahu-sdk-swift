@@ -4,6 +4,7 @@ exports[`XUIModalHeader renders a passed qaHook as an automationId 1`] = `
 <header
   className="xui-modal--header xui-modal--heading xui-padding-left-large"
   data-automationid="test-modal--header"
+  id={undefined}
 >
   <div />
 </header>

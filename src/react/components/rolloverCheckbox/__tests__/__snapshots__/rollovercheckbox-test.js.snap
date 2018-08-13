@@ -669,7 +669,7 @@ exports[`XUIRolloverCheckbox should render the disabled classes and a disabled c
       <div />
     </div>
     <label
-      className="xui-styledcheckboxradio xui-is-disabled"
+      className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
       data-automationid={undefined}
       onClick={[Function]}
       role="presentation"

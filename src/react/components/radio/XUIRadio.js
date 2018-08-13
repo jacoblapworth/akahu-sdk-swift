@@ -83,7 +83,7 @@ export default class XUIRadio extends React.Component {
 			className,
 			`${baseClass}`,
 			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-is-disabled`
+			isDisabled && `${ns}-styledcheckboxradio-is-disabled`
 		);
 
 		const labelClasses = cn(

@@ -25,7 +25,7 @@
 	flex-grow: 1;
 	padding: 6px 3px 3px;
 
-	.#{$ns}-is-disabled & {
+	.#{$ns}-styledcheckboxradio-is-disabled & {
 		color: $xui-checkboxradio-label-disabled-color;
 	}
 }
@@ -47,12 +47,6 @@
 	display: inline-flex; // Inline inputs
 	user-select: none;
 
-	// TODO: Opacity override
-	&.#{$ns}-is-disabled {
-		fill: $xui-checkboxradio-disabled-fill;
-		opacity: 1;
-	}
-
 	.#{$ns}-iconwrapper {
 		flex-shrink: 0; // Prevent SVG from shrinking when label text is long
 		pointer-events: none;
@@ -60,6 +54,11 @@
 
 	.#{$ns}-icon {
 		overflow: visible;
+	}
+
+	&.#{$ns}-styledcheckboxradio-is-disabled {
+		fill: $xui-checkboxradio-disabled-fill;
+		cursor: auto;
 	}
 }
 
@@ -286,7 +285,7 @@
 		opacity: 1;
 	}
 
-	&:disabled {
+	&:disabled, &:disabled:hover {
 		& + .#{$ns}-styledcheckboxradio--checkbox,
 		& + .#{$ns}-styledcheckboxradio--radio {
 			background-color: $xui-checkboxradio-disabled-bg-color;
@@ -329,6 +328,10 @@
 		content: '';
 		opacity: 0;
 		position: absolute;
+	}
+
+	.#{$ns}-styledcheckboxradio-is-disabled & {
+		cursor: not-allowed;
 	}
 }
 
@@ -405,5 +408,13 @@
 		height: 100%;
 		transition: all $xui-motion-speed-medium cubic-bezier(0.25, 1, 0.5, 1.2);
 		width: 100%;
+
+		.#{$ns}-styledcheckboxradio-is-disabled & {
+			cursor: not-allowed;
+		}
+	}
+
+	.#{$ns}-styledcheckboxradio-is-disabled & {
+		cursor: not-allowed;
 	}
 }

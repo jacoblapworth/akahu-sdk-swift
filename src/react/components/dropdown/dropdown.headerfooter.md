@@ -130,6 +130,7 @@ class XDD extends Component {
 						<span>
 							<XUIIcon
 								isInline
+								isBoxed
 								icon={plusIcon}
 								className="xui-margin-right-xsmall"
 							/>

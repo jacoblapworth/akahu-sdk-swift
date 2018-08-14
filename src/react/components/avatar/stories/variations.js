@@ -102,6 +102,11 @@ const avatarVariations = [
 		avatarLength: 5,
 		maxAvatars: 3
 	},
+	{
+		storyKind: storiesWithVariationsKindName,
+		storyTitle: `color variants`,
+		colors: true
+	}
 ]
 
 module.exports = {

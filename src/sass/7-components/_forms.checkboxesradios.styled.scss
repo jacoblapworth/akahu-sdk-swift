@@ -57,8 +57,8 @@
 	}
 
 	&.#{$ns}-styledcheckboxradio-is-disabled {
-		fill: $xui-checkboxradio-disabled-fill;
 		cursor: auto;
+		fill: $xui-checkboxradio-disabled-fill;
 	}
 }
 

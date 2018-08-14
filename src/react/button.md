@@ -46,6 +46,7 @@ When placing `XUIIcon` alone in a button, ensure accessibility by adding a `titl
 If you add the `xui-button-icon-large` class to the button, it will be given a larger touch target.
 
 ```jsx
+	const ExampleContainer = require('./docs/ExampleContainer').default;
 	const XUIIcon = require('./components/icon/XUIIcon').default;
 	const icon = require('@xero/xui-icon/icons/overflow').default;
 	<div>

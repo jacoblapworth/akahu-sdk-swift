@@ -154,7 +154,6 @@
 //
 //
 // Definitions:
-// Standard link: `xui-text-link`: Adds link hover and focus highlighting
 // Minor link: `xui-text-minorlink`: Use only for very secondary inconsequential elements to inherit parent text colour but retain standard link hover and focus highlighting.
 //
 // Markup:
@@ -163,19 +162,19 @@
 // <tr>
 // <th class="xui-text-align-left">Account</th><th class="xui-text-align-right xui-padding-left-large">This month</th><th class="xui-text-align-right xui-padding-left-large">Year to date</th></tr>
 // <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Advertising (600)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">10,453.75</a></td>
+//  <td class="xui-text-align-left"><a href="#">Advertising (600)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">10,453.75</a></td>
 // </tr>
 // <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Entertainment (620)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">53.60</a></td>
+//  <td class="xui-text-align-left"><a href="#">Entertainment (620)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">53.60</a></td>
 // </tr>
 // <tr>
-//  <td class="xui-text-align-left"><a class="xui-text-link">Inventory (140)</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
-//  <td class="xui-text-align-right"><a class="xui-text-minorlink">0.00</a></td>
+//  <td class="xui-text-align-left"><a href="#">Inventory (140)</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
+//  <td class="xui-text-align-right"><a class="xui-text-minorlink" href="#">0.00</a></td>
 // </tr>
 // </tbody></table>
 // </div>

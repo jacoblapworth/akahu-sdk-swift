@@ -56,6 +56,8 @@ buttonVariants.forEach((buttonVariant, index) => {
 	variations.push({
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `as ${isIcon ? '' : size} ${buttonVariant}`,
+		href: buttonVariant === 'link' ? '#' : undefined,
+		isLink: buttonVariant === 'link',
 		size: size,
 		value: isIcon ? undefined : `${buttonVariant}`,
 		contentsKey: isIcon ? 'icon' : undefined,

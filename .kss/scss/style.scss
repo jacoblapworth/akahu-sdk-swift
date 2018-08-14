@@ -610,8 +610,10 @@ $kss-color-padding: #eeebff;
 	font-size: $xui-font-size-medium;
 	height: 52px;
 	padding: 0 $xui-s-large;
+	text-decoration: none;
 	transition: all .15s ease-in-out;
 	width: 100%;
+
 	&:hover:not(:focus) {
 		background: $ds-nav-item-hover-bg-color;
 		color: $ds-text-primary-color;
@@ -691,8 +693,10 @@ $kss-color-padding: #eeebff;
 	height: auto;
 	padding: 6px $xui-s-large;
 	position: relative;
+	text-decoration: none;
 	transition: all .15s ease-in-out;
 	width: 100%;
+
 	&:hover {
 		color: $xui-color-blue;
 	}

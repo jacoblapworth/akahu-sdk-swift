@@ -1,20 +1,11 @@
 @import "../vars";
 
 // Links
-
-.#{$ns}-text-link {
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
-}
-
 .#{$ns}-text-minorlink {
 	color: inherit;
 
 	&:hover,
 	&:focus {
 		color: $xui-text-minorlink-focus-color;
-		text-decoration: underline;
 	}
 }

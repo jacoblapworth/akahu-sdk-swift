@@ -97,5 +97,17 @@ button::-moz-focus-inner {
 a {
 	color: $xui-link-color;
 	cursor: pointer;
-	text-decoration: none;
+
+	// CSS Order chosen to specifically show light to dark unless focused.
+	&:hover {
+		color: $xui-color-blue-dark;
+	}
+
+	&:active {
+		color: $xui-color-blue-xdark;
+	}
+
+	&:focus {
+		color: $xui-color-blue-dark;
+	}
 }

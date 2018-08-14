@@ -15,6 +15,9 @@ Provides reset for button styles applied by the browser
 	margin: 0;
 	outline: none;
 	padding: 0;
+	// Sometimes a button can be a link,
+	// We don't want the default link style applied here.
+	text-decoration: none;
 }
 
 /*

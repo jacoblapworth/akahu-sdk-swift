@@ -346,3 +346,11 @@
 .#{$ns}-pill-single-is-invalid {
 	color: $xui-pill-single-invalid-color;
 }
+
+.#{$ns}-pill--content:not(.#{$ns}-pill--button) {
+	text-decoration: none;
+
+	.#{$ns}-pill--text {
+		text-decoration: underline;
+	}
+}

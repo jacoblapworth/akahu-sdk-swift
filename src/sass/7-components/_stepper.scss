@@ -15,6 +15,7 @@
 // Do: Use for stepped flows such as a setup
 // Do: Use in combination with `xui-isolationheader` for flows that are only ever completed once
 // Do: Use progress indicator variant of stepper for steps which include nested progression
+// Do: Allow the React component to determine the optimal responsive layout internally
 // Warning: Keep the number of steps appropriate. Not too little or too many (3 to 6 is a good range)
 // Dont: Don’t nest steppers inside of each other
 //

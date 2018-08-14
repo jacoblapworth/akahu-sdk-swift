@@ -228,6 +228,7 @@
 		border-radius: 0;
 		margin-top: -3px;
 
+		&.#{$ns}-stepper-link-active:focus,
 		&.#{$ns}-stepper-link-standard:focus,
 		&.#{$ns}-stepper-link-error:focus {
 			background: transparent;
@@ -359,4 +360,5 @@
 
 .#{$ns}-stepper-link-disabled {
 	@include stepperLinkColor($xui-color-grey-6);
+	cursor: not-allowed;
 }

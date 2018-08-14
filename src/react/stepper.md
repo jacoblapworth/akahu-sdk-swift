@@ -12,6 +12,8 @@ The Stepper is a scaffold that renders a sequence of tabs and an *active* conten
 
 By default the Stepper will lay its elements out in a manner that conforms to its own internal element queries. There is however the ability to lock the design to one of the following layout options.
 
+**Note:** Although we allow the ability to opt out of the responsive functionality that comes built into the Stepper we **strongly** recommend that you retain these responsive capabilities by **not** using the `lockLayout` prop. This ensures that the your Stepper instance has optimal usability in the widest range of scenarios.
+
 #### Inline *(standard)*
 
 Lock by supplying the string `inline` to the prop `lockLayout`.

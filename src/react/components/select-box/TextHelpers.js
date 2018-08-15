@@ -18,12 +18,11 @@ function compareValuesByLength(a, b) {
 	}
 
 	// Alphabetically if comparing two strings of same length
-	if(typeof a === 'string' && typeof b === 'string') {
-		a = a.toLowerCase();
-		b = b.toLowerCase();
+	if (typeof a === 'string' && typeof b === 'string') {
+		return a.localeCompare(b, undefined, { sensitivity: 'base' });
 	}
 
-	//Otherwise compare size of numbers
+	// Otherwise compare size of numbers
 	if (a < b) {
 		return -1;
 	}
@@ -31,7 +30,7 @@ function compareValuesByLength(a, b) {
 		return 1;
 	}
 
-	//Default
+	// Default
 	return 0;
 }
 
@@ -70,5 +69,5 @@ function getText(value, placeholder) {
 }
 
 export default {
-	getText
+	getText,
 };

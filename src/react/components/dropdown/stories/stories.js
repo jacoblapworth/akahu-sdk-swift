@@ -14,8 +14,8 @@ import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
-import XUITextInput from "../../textInput/XUITextInput";
-import info from "@xero/xui-icon/icons/info";
+import XUITextInput from '../../textInput/XUITextInput';
+import info from '@xero/xui-icon/icons/info';
 import plusIcon from '@xero/xui-icon/icons/plus';
 
 
@@ -26,7 +26,7 @@ import centered from '@storybook/addon-centered';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
-import { maxWidthDropdownSizes, dropdownPositionOptions} from '../private/constants';
+import { maxWidthDropdownSizes, dropdownPositionOptions } from '../private/constants';
 
 function createItems(items, suffix) {
 	if (Array.isArray(items)) {
@@ -52,13 +52,14 @@ const trigger = (
 );
 const header = (
 	<DropDownHeader
-		title='Dropdown header'
+		title="Dropdown header"
 		onPrimaryButtonClick={NOOP}
-		onSecondaryButtonClick={NOOP} />
+		onSecondaryButtonClick={NOOP}
+	/>
 );
 const footer = (
 	<DropDownFooter
-		title='Dropdown footer'
+		title="Dropdown footer"
 		pickItems={[
 			<Pickitem id="aa" value="aa" key="aa">
 				<XUIIcon
@@ -75,7 +76,7 @@ const footer = (
 					className="xui-margin-right-xsmall"
 				/>
 				Item 2
-			</Pickitem>
+			</Pickitem>,
 		]}
 	/>
 );
@@ -85,7 +86,7 @@ const picklist = (
 
 const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
 const datepicker = (
-	<XUIDatePicker onSelectDate={NOOP} isCompact={true} displayedMonth={datePickerDate}/>
+	<XUIDatePicker onSelectDate={NOOP} isCompact displayedMonth={datePickerDate} />
 );
 const plaintext = (
 	<p>Some content that appears in a dropdown panel would go here.</p>
@@ -95,15 +96,17 @@ const nested = (
 		<DropDownPanel panelId="samplePicklist">
 			{picklist}
 		</DropDownPanel>
-		<DropDownPanel panelId="customDate"
-					header={(
-						<DropDownHeader
-							title="Example Title"
-							onBackButtonClick={NOOP}
-							secondaryButtonContent="Cancel"
-							onSecondaryButtonClick={NOOP}
-						/>
-					)}>
+		<DropDownPanel
+			panelId="customDate"
+			header={(
+				<DropDownHeader
+					title="Example Title"
+					onBackButtonClick={NOOP}
+					secondaryButtonContent="Cancel"
+					onSecondaryButtonClick={NOOP}
+				/>
+			)}
+		>
 			{datepicker}
 		</DropDownPanel>
 	</NestedDropDown>
@@ -112,24 +115,24 @@ const nested = (
 const sideBySide = (
 	<div className="xui-panel xui-row-flex xui-padding-large">
 		<DropDownToggled
-		trigger={trigger}
-		className="xui-margin-right-large"
-		preferredPosition="bottom-right"
-		isHidden={false}
-		isLegacyDisplay={false}
-		dropdown={
-			<DropDown size="large" restrictFocus={false}>
-				<Picklist>{createItems(toggledItems, 'one')}</Picklist>
-			</DropDown>
+			trigger={trigger}
+			className="xui-margin-right-large"
+			preferredPosition="bottom-right"
+			isHidden={false}
+			isLegacyDisplay={false}
+			dropdown={
+				<DropDown size="large" restrictFocus={false}>
+					<Picklist>{createItems(toggledItems, 'one')}</Picklist>
+				</DropDown>
 			}
 		/>
 		<DropDownToggled
-		trigger={<XUIButton>Open for even more goodies<XUIButtonCaret /></XUIButton>}
-		isHidden={false}
-		dropdown={
-			<DropDown size="large" restrictFocus={false}>
-				<Picklist>{createItems(toggledItems, 'two')}</Picklist>
-			</DropDown>
+			trigger={<XUIButton>Open for even more goodies<XUIButtonCaret /></XUIButton>}
+			isHidden={false}
+			dropdown={
+				<DropDown size="large" restrictFocus={false}>
+					<Picklist>{createItems(toggledItems, 'two')}</Picklist>
+				</DropDown>
 			}
 		/>
 	</div>
@@ -197,63 +200,58 @@ function buildDropDown(ddSettings) {
 	);
 }
 
-const createTriggerInput = (props) => {
-	return (
-		<XUITextInput
-			placeholder="Placeholder text"
-			labelText="Input label"
-			isLabelHidden
-			{...props}
-		>
-		</XUITextInput>
-	);
-};
+const createTriggerInput = props => (
+	<XUITextInput
+		placeholder="Placeholder text"
+		labelText="Input label"
+		isLabelHidden
+		{...props}
+	/>
+);
 
-const createTriggerButton = () => {
-	return <XUIButton size="full-width">A button</XUIButton>;
-};
+const createTriggerButton = () => <XUIButton size="full-width">A button</XUIButton>;
 
-const createTriggerLink = () => {
-	return <a href="javascript:void(0);">A link</a>; // eslint-disable-line jsx-a11y/anchor-is-valid
-};
+const createTriggerLink = () =>
+	 <a href="javascript:void(0);">A link</a> // eslint-disable-line jsx-a11y/anchor-is-valid
+;
 
-const createTriggerIcon = () => {
-	return <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
-};
+const createTriggerIcon = () => <XUIButton variant="icon" aria-label="Info"><XUIIcon icon={info} isBoxed /></XUIButton>;
 
 const getPositioningTest = () => {
 	const props = {
-		preferredPosition: "bottom-left",
-		isHidden: false
+		preferredPosition: 'bottom-left',
+		isHidden: false,
 	};
 	const ddProps = {
 		isHidden: true,
 		restrictFocus: false,
-		size: 'small'
+		size: 'small',
 	};
 
 	return (
 		<div style={{
-			width: "100%",
-			height: "100%",
-			position: "absolute",
+			width: '100%',
+			height: '100%',
+			position: 'absolute',
 			top: 0,
-			left: 0
-		}}>
+			left: 0,
+		}}
+		>
 			<div style={{
-				alignItems: "flex-start",
-				display: "inline-flex",
-				height: "50%",
-				justifyContent: "space-between",
-				width: "100%"
-			}}>
+				alignItems: 'flex-start',
+				display: 'inline-flex',
+				height: '50%',
+				justifyContent: 'space-between',
+				width: '100%',
+			}}
+			>
 				<DropDownToggled
 					trigger={createTriggerInput()}
 					dropdown={
 						<DropDown {...ddProps}>
 							<Picklist>{createItems(toggledShort, 'a')}</Picklist>
 						</DropDown>
-						}
+					}
 					{...props}
 				/>
 				<DropDownToggled
@@ -262,7 +260,7 @@ const getPositioningTest = () => {
 						<DropDown {...ddProps}>
 							<Picklist>{createItems(toggledShort, 'b')}</Picklist>
 						</DropDown>
-						}
+					}
 					{...props}
 				/>
 				<DropDownToggled
@@ -271,25 +269,26 @@ const getPositioningTest = () => {
 						<DropDown {...ddProps}>
 							<Picklist>{createItems(toggledShort, 'c')}</Picklist>
 						</DropDown>
-						}
+					}
 					{...props}
 				/>
 			</div>
 			<div style={{
-				alignItems: "flex-end",
-				display: "inline-flex",
-				height: "50%",
-				justifyContent: "space-between",
-				justifyItems: "flex-end",
-				width: "100%"
-			}}>
+				alignItems: 'flex-end',
+				display: 'inline-flex',
+				height: '50%',
+				justifyContent: 'space-between',
+				justifyItems: 'flex-end',
+				width: '100%',
+			}}
+			>
 				<DropDownToggled
 					trigger={createTriggerButton()}
 					dropdown={
 						<DropDown {...ddProps}>
 							<Picklist>{createItems(toggledShort, 'g')}</Picklist>
 						</DropDown>
-						}
+					}
 					{...props}
 				/>
 				<DropDownToggled
@@ -298,7 +297,7 @@ const getPositioningTest = () => {
 						<DropDown {...ddProps}>
 							<Picklist>{createItems(toggledShort, 'h')}</Picklist>
 						</DropDown>
-						}
+					}
 					isBlock
 					{...props}
 				/>
@@ -308,12 +307,12 @@ const getPositioningTest = () => {
 						<DropDown {...ddProps}>
 							<Picklist>{createItems(toggledShort, 'i')}</Picklist>
 						</DropDown>
-						}
+					}
 					{...props}
 				/>
+			</div>
 		</div>
-	</div>
-)
+	);
 };
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);

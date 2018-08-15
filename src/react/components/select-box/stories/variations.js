@@ -25,55 +25,55 @@ const buildCheckboxItems = () => {
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'is default'
+		storyTitle: 'is default',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with hidden label and button variant',
 		labelHidden: true,
-		buttonVariant: 'create'
+		buttonVariant: 'create',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is disabled',
 		isDisabled: true,
-		isOpen: false
+		isOpen: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with no default layout',
 		defaultLayout: false,
-		isOpen: false
+		isOpen: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'without matching trigger width',
-		matchTriggerWidth: false
+		matchTriggerWidth: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with truncation and no icon',
 		buttonContent: 'Choose a classic book',
 		isTextTruncated: true,
-		containerClasses: 'xui-column-9-of-12'
+		containerClasses: 'xui-column-9-of-12',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with option variations',
 		buttonContent: 'Books',
-		items: buildCustomItems()
+		items: buildCustomItems(),
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with checkboxes and option variations',
 		buttonContent: 'Books',
 		closeAfterSelection: false,
-		items: buildCheckboxItems()
-	}
+		items: buildCheckboxItems(),
+	},
 ];
 
 
 module.exports = {
 	storiesWithVariationsKindName,
-	variations
-}
+	variations,
+};

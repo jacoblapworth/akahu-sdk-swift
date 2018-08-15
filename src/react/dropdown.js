@@ -11,5 +11,5 @@ export {
 	DropDownHeader,
 	DropDownFooter,
 	DropDownPanel,
-	NestedDropDown
+	NestedDropDown,
 };

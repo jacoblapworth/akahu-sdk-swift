@@ -7,21 +7,23 @@ import XUILoader from '../loader/XUILoader';
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
 import XUITextInput from '../textInput/XUITextInput';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
-/*
- * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input
+/**
+ * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
+ * right arrow keys should move cursor in the input
+ *
  * @private
  * @type {Array}
  */
-const ignoreKeyboardEvents = [32,37,39];
+const ignoreKeyboardEvents = [32, 37, 39];
 
 export default class XUIAutocompleter extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
 			focused: false,
-			value: props.searchValue
+			value: props.searchValue,
 		};
 		this.bindOnChange(props.searchThrottleInterval);
 	}
@@ -42,8 +44,9 @@ export default class XUIAutocompleter extends PureComponent {
 			this.bindOnChange(searchThrottleInterval);
 		}
 		if (prevProps.searchValue !== searchValue) {
-			this.setState({
-				value: searchValue
+			// TODO: Investigate whether setState can be moved
+			this.setState({ // eslint-disable-line
+				value: searchValue,
 			});
 		}
 		if (prevProps.placeholder !== placeholder) {
@@ -70,7 +73,7 @@ export default class XUIAutocompleter extends PureComponent {
 			this.throttledOnChange = event => {
 				event.persist();
 				this.setState({
-					value: event.target.value
+					value: event.target.value,
 				});
 				throttled(event.target.value);
 			};
@@ -90,7 +93,7 @@ export default class XUIAutocompleter extends PureComponent {
 			}px`;
 			if (this.state.inputWidth !== inputWidth) {
 				this.setState({
-					inputWidth
+					inputWidth,
 				});
 			}
 		}
@@ -129,11 +132,12 @@ export default class XUIAutocompleter extends PureComponent {
 	};
 
 	/**
-	* @public
-	* If a onHighlightChange prop is passed to the completer, it's called passing in the highlighted item.
-	*
-	* @param {item} Object
-	*/
+	 * @public
+	 * If a onHighlightChange prop is passed to the completer, it's called passing
+	 * in the highlighted item.
+	 *
+	 * @param {item} Object
+	 */
 	onHighlightChange = item => {
 		this.props.onHighlightChange && this.props.onHighlightChange(item);
 	};
@@ -149,7 +153,7 @@ export default class XUIAutocompleter extends PureComponent {
 
 		if (
 			event.key === 'Backspace' &&
-			this.inputNode.value === "" &&
+			this.inputNode.value === '' &&
 			onBackspacePill &&
 			pills &&
 			(pills.length > 0 || React.isValidElement(pills))
@@ -167,7 +171,7 @@ export default class XUIAutocompleter extends PureComponent {
 	onFocus = () => {
 		this.focusInput();
 		this.setState({
-			focused: true
+			focused: true,
 		});
 	};
 
@@ -175,7 +179,7 @@ export default class XUIAutocompleter extends PureComponent {
 		setTimeout(() => {
 			if (this.rootNode && !this.rootNode.contains(document.activeElement)) {
 				this.setState({
-					focused: false
+					focused: false,
 				});
 			}
 		}, 333);
@@ -184,7 +188,7 @@ export default class XUIAutocompleter extends PureComponent {
 	renderPills = () => {
 		const {
 			disableWrapPills,
-			pills
+			pills,
 		} = this.props;
 		return disableWrapPills ? (
 			<div
@@ -198,70 +202,104 @@ export default class XUIAutocompleter extends PureComponent {
 
 	render() {
 		const completer = this;
-		const props = completer.props;
-		const state = completer.state;
+		const {
+			qaHook,
+			pills,
+			leftElement,
+			inputContainerClassName,
+			disableWrapPills,
+			inputClassName,
+			openOnFocus,
+			triggerClassName,
+			placeholder,
+			rightElement,
+			isDisabled,
+			inputLabelText,
+			isInputLabelHidden,
+			inputProps,
+			maxLength,
+			inputId,
+			dropdownId,
+			onOptionSelect,
+			dropdownClassName,
+			dropdownSize,
+			dropdownFixedWidth,
+			footer,
+			loading,
+			children,
+			className,
+			id,
+			onOpen,
+			onClose,
+			closeOnTab,
+			closeOnSelect,
+			forceDesktop,
+			matchTriggerWidth,
+		} = this.props;
+		const { value, focused, inputWidth } = this.state;
 		let inputQaHook = null;
 		let listQaHook = null;
 		let containerQaHook = null;
 		let dropdownQaHook = null;
-		if (props.qaHook) {
-			inputQaHook = `${props.qaHook}`; //TODO: Investigate whether we should add --input here in 14
-			listQaHook = `${props.qaHook}--list`;
-			containerQaHook = `${props.qaHook}--container`;
-			dropdownQaHook = `${props.qaHook}--dropdown`;
+		if (qaHook) {
+			inputQaHook = `${qaHook}`; // TODO: Investigate whether we should add --input here in 14
+			listQaHook = `${qaHook}--list`;
+			containerQaHook = `${qaHook}--container`;
+			dropdownQaHook = `${qaHook}--dropdown`;
 		}
-		const hasPills = props.pills != null && (props.pills.length > 0 || React.isValidElement(props.pills));
-		const textInputLeftElement = hasPills ? this.renderPills() : props.leftElement;
+		const hasPills = pills != null && (pills.length > 0 || React.isValidElement(pills));
+		const textInputLeftElement = hasPills ? this.renderPills() : leftElement;
 
 		const containerClassNames = cn(
-			props.inputContainerClassName,
+			inputContainerClassName,
 			{
-				[`${ns}-autocompleter--trigger-pillwrap`]: hasPills && !props.disableWrapPills,
-			});
+				[`${ns}-autocompleter--trigger-pillwrap`]: hasPills && !disableWrapPills,
+			},
+		);
 
 		const inputClassNames = cn(
-			props.inputClassName,
+			inputClassName,
 			`${ns}-autocompleter--textinput`,
-			{[`${ns}-padding-left-small`]: hasPills}
+			{ [`${ns}-padding-left-small`]: hasPills },
 		);
 
 		const trigger = (
 			<div
 				ref={tg => this.trigger = tg}
-				onFocus={props.openOnFocus ? this.onInputFocus : null}
-				className={props.triggerClassName}
+				onFocus={openOnFocus ? this.onInputFocus : null}
+				className={triggerClassName}
 			>
 				<div
 					ref={p => this.placeholder = p}
 					className={`${ns}-autocompleter--textinputplaceholder`}
 					aria-hidden
 				>
-					{props.placeholder}
+					{placeholder}
 				</div>
 				<XUITextInput
 					leftElement={textInputLeftElement}
-					rightElement={props.rightElement}
+					rightElement={rightElement}
 					containerClassName={containerClassNames}
 					inputClassName={inputClassNames}
 					inputRef={i => this.inputNode = i}
-					placeholder={props.placeholder}
-					value={state.value || ''}
+					placeholder={placeholder}
+					value={value || ''}
 					onChange={this.throttledOnChange}
 					onKeyDown={this.onInputKeyDown}
 					qaHook={inputQaHook}
-					isDisabled={props.isDisabled}
-					labelText={props.inputLabelText}
-					isLabelHidden={props.isInputLabelHidden}
+					isDisabled={isDisabled}
+					labelText={inputLabelText}
+					isLabelHidden={isInputLabelHidden}
 					inputProps={{
-						...props.inputProps,
-						'maxLength': props.maxLength,
-						'id': props.inputId,
-						'role': "textbox",
+						...inputProps,
+						'maxLength': maxLength,
+						'id': inputId,
+						'role': 'textbox',
 						'aria-multiline': false,
-						'aria-autocomplete': "list",
+						'aria-autocomplete': 'list',
 						'style': {
-							flexBasis: state.inputWidth
-						}
+							flexBasis: inputWidth,
+						},
 					}}
 				/>
 			</div>
@@ -271,24 +309,24 @@ export default class XUIAutocompleter extends PureComponent {
 			<DropDown
 				ref={c => completer.dropdown = c}
 				ignoreKeyboardEvents={ignoreKeyboardEvents}
-				id={props.dropdownId}
-				onSelect={props.onOptionSelect}
+				id={dropdownId}
+				onSelect={onOptionSelect}
 				hasKeyboardEvents={false}
-				className={props.dropdownClassName}
+				className={dropdownClassName}
 				qaHook={listQaHook}
 				restrictFocus={false}
-				size={props.dropdownSize}
-				fixedWidth={props.dropdownFixedWidth}
-				footer={props.footer}
+				size={dropdownSize}
+				fixedWidth={dropdownFixedWidth}
+				footer={footer}
 				onHighlightChange={completer.onHighlightChange}
 			>
-				{props.loading ? <Picklist><XUILoader /></Picklist> : props.children}
+				{loading ? <Picklist><XUILoader /></Picklist> : children}
 			</DropDown>
 		);
 
 		const classNames = cn(
-			props.className,
-			state.focused && `${ns}-autocompleter--trigger-focus`
+			className,
+			focused && `${ns}-autocompleter--trigger-focus`,
 		);
 
 		return (
@@ -298,19 +336,19 @@ export default class XUIAutocompleter extends PureComponent {
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
 				data-automationid={containerQaHook}
-				id={props.id}
+				id={id}
 			>
 				<DropDownToggled
 					ref={c => completer.ddt = c}
 					trigger={trigger}
 					dropdown={dropdown}
-					onOpen={props.onOpen}
-					onClose={props.onClose}
-					closeOnTab={props.closeOnTab}
-					closeOnSelect={props.closeOnSelect}
+					onOpen={onOpen}
+					onClose={onClose}
+					closeOnTab={closeOnTab}
+					closeOnSelect={closeOnSelect}
 					triggerClickAction="none"
-					forceDesktop={props.forceDesktop}
-					matchTriggerWidth={props.matchTriggerWidth && !props.dropdownSize}
+					forceDesktop={forceDesktop}
+					matchTriggerWidth={matchTriggerWidth && !dropdownSize}
 					qaHook={dropdownQaHook}
 					isBlock
 					ariaRole="combobox"
@@ -320,7 +358,7 @@ export default class XUIAutocompleter extends PureComponent {
 	}
 }
 
-//TODO: Rename `pills` to `leftElement` for XUI 14.
+// TODO: Rename `pills` to `leftElement` for XUI 14.
 XUIAutocompleter.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
@@ -372,13 +410,15 @@ XUIAutocompleter.propTypes = {
 	/** Max length of the input */
 	maxLength: PropTypes.number,
 
-	/** A set of pills to show next to input. Useful for showing what was selected in a multi-select. Can also be used similarly to `XUITextInput`'s `leftElement`. */
+	/** A set of pills to show next to input. Useful for showing what was selected in a multi-select.
+	 * Can also be used similarly to `XUITextInput`'s `leftElement`. */
 	pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 
 	/** Right element to render within the `XUITextInput` component */
 	rightElement: PropTypes.node,
 
-	/** Left element to render within the `XUITextInput` component. Should not be used together with the `pills` prop */
+	/** Left element to render within the `XUITextInput` component. Should not be used together with
+	 * the `pills` prop */
 	leftElement: PropTypes.node,
 
 	/** Callback for when the list opens */
@@ -408,7 +448,8 @@ XUIAutocompleter.propTypes = {
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
+	/** If a size is set, this will force the dropdown to that size instead of setting it as a
+	 * max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
 	/**
@@ -434,7 +475,7 @@ XUIAutocompleter.propTypes = {
 	onHighlightChange: PropTypes.func,
 
 	qaHook: PropTypes.string,
-	children: PropTypes.node
+	children: PropTypes.node,
 };
 
 XUIAutocompleter.defaultProps = {
@@ -445,5 +486,5 @@ XUIAutocompleter.defaultProps = {
 	forceDesktop: true,
 	dropdownFixedWidth: false,
 	matchTriggerWidth: true,
-	disableWrapPills: false
+	disableWrapPills: false,
 };

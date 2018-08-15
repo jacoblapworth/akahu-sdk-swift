@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUICheckbox from '../checkbox/XUICheckbox';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 const NOOP = () => {};
 
@@ -26,7 +26,7 @@ const PickitemBody = ({
 	checkboxClassName,
 	target,
 	qaHook,
-	tabIndex
+	tabIndex,
 }) => {
 	if (isMultiselect) {
 		return (
@@ -48,24 +48,29 @@ const PickitemBody = ({
 					className={cn(checkboxClassName, `${ns}-pickitem-multiselect--checkbox`)}
 					labelClassName={`${ns}-pickitem-multiselect--label`}
 				>
-					<span className={shouldTruncate ? `${ns}-text-truncated` : ''} data-automationid={qaHook && `${qaHook}--label`}>{children}</span>
+					<span
+						className={shouldTruncate ? `${ns}-text-truncated` : ''}
+						data-automationid={qaHook && `${qaHook}--label`}
+					>
+						{children}
+					</span>
 				</XUICheckbox>
 			</div>
 		);
 	}
-	const rel = target ? "noopener noreferrer" : null;
+	const rel = target ? 'noopener noreferrer' : null;
 	const childProps = {
 		className: `${ns}-pickitem--body`,
 		onClick,
 		onKeyDown,
 		onMouseOver,
 		rel,
-		tabIndex
+		tabIndex,
 	};
 
 	const textClassName = cn(
 		`${ns}-pickitem--text`,
-		shouldTruncate && `${ns}-text-truncated`
+		shouldTruncate && `${ns}-text-truncated`,
 	);
 
 	const text = <span className={textClassName}>{children}</span>;

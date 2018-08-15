@@ -8,45 +8,45 @@ const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'looks like an input',
-		openDrawer: false
+		openDrawer: false,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'with placeholders',
-		placeholder: 'I am a placeholder'
+		placeholder: 'I am a placeholder',
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'shows loading when passed loading prop and dropdown is open',
 		openDrawer: true,
-		isLoading: true
+		isLoading: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'when open shows drawer',
-		openDrawer: true
+		openDrawer: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'shows a pill when an item is selected',
-		selectedPeople: 0
+		selectedPeople: 0,
 	},
 	...dropdownSizes.map(dropdownSize => ({
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: `shows a ${dropdownSize} dropdown`,
 		openDrawer: true,
-		dropdownSize
+		dropdownSize,
 	})),
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'is disabled',
-		isDisabled: true
+		isDisabled: true,
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'no drawer footer',
 		openDrawer: true,
-		noDrawerFooter: true
+		noDrawerFooter: true,
 	},
 ];
 
@@ -54,5 +54,5 @@ module.exports = {
 	variations,
 	NOOP,
 	storiesWithVariationsKindName,
-	dropdownSizes
-}
+	dropdownSizes,
+};

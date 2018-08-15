@@ -1,9 +1,11 @@
-import '../helpers/xuiGlobalChecks';
+/* eslint-disable */
+// TODO: Overhaul this whole file and enable linting - a lot of functions accessing/setting state from outside of the component
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import verge from 'verge';
-import {Portal} from 'react-portal';
+import { Portal } from 'react-portal';
 import cn from 'classnames';
+import '../helpers/xuiGlobalChecks';
 import {
 	isNarrowViewport,
 	calcSpaceAbove,
@@ -17,7 +19,7 @@ import {
 	detachListeners,
 } from './private/dom-helpers';
 import portalContainer from '../helpers/portalContainer';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
  * @private
@@ -76,13 +78,13 @@ function alignBaseWithTrigger(popupRect, triggerRect, popup) {
 * @param {Positioning} popup
 */
 function alignBottomLeft(popup) {
-		popup.setState({
-			bottom: 0,
-			left: 0,
-			maxHeight: null,
-			transformY: null,
-			top: null,
-		});
+	popup.setState({
+		bottom: 0,
+		left: 0,
+		maxHeight: null,
+		transformY: null,
+		top: null,
+	});
 }
 
 /**
@@ -121,7 +123,7 @@ function getDefaultState() {
 		alignTop: false,
 		maxHeight: verge.viewportH() * 0.99,
 		positioned: false,
-		marginLeft: 0
+		marginLeft: 0,
 	};
 }
 
@@ -141,7 +143,7 @@ function getPositionCalculationStyles(popup) {
 			top: 0,
 			transform: null,
 			maxHeight: '99%',
-			maxWidth: '99%'
+			maxWidth: '99%',
 		};
 	}
 	return null;
@@ -271,7 +273,7 @@ class Positioning extends PureComponent {
 				const calculatedHeight = maxHeight ? Math.min(availableSpace, maxHeight) : availableSpace;
 
 				popup.setState({
-					maxHeight: calculatedHeight
+					maxHeight: calculatedHeight,
 				});
 			}
 		}
@@ -283,7 +285,7 @@ class Positioning extends PureComponent {
 	 * @return {{ maxHeight: Number, left: Number, top: Number, transformY: String }}
 	 */
 	getStyles = () => {
-		const { maxHeight, transform, top, bottom, marginLeft } = this.state;
+		const { maxHeight, transform, top, bottom, marginLeft, } = this.state;
 		const { isTriggerWidthMatched, parentRef, isNotResponsive } = this.props;
 		const isMobile = isNarrowViewport() && !isNotResponsive;
 		let width = null;
@@ -301,7 +303,7 @@ class Positioning extends PureComponent {
 			bottom,
 			transform: isMobile ? '' : transform,
 			willChange: 'transform, max-height, max-width, top, bottom, margin-left',
-			marginLeft
+			marginLeft,
 		};
 	};
 
@@ -311,11 +313,11 @@ class Positioning extends PureComponent {
 		const { positioned } = popup.state;
 		const positioningStyles = getPositionCalculationStyles(popup);
 		const clonedChildren = !isVisible || !positioned ? children : React.cloneElement(children, {
-			className : cn(
+			className: cn(
 				children.props.className,
-				`${ns}-dropdown-input-layout-match`
+				`${ns}-dropdown-input-layout-match`,
 			),
-			style : popup.getStyles()
+			style: popup.getStyles(),
 		});
 
 		return isVisible ? (
@@ -332,13 +334,13 @@ Positioning.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
 	qaHook: PropTypes.string,
-	/**true when the component is rendered but not displayed */
+	/** true when the component is rendered but not displayed */
 	isVisible: PropTypes.bool,
-	/**A DOM object of the parent node. */
+	/** A DOM object of the parent node. */
 	parentRef: PropTypes.object,
-	/**A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
+	/** A buffer value added to measure between the edge of the viewport and the component before flipping its position. */
 	viewportGutter: PropTypes.number,
-	/**A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
+	/** A max height will mean an overflowed popup will scroll for the user rather than render outside of the viewport. True by default. */
 	shouldRestrictMaxHeight: PropTypes.bool,
 	/** Force the desktop UI, even if the viewport is narrow enough for mobile. */
 	isNotResponsive: PropTypes.bool,
@@ -352,7 +354,7 @@ Positioning.propTypes = {
 	 * Setting a number here will force the maximum height of the child to be the number provided (in pixels) if the viewport is too big.
 	 * When the viewport is smaller than this number, it still shrinks, but never grows beyond that number.
 	 */
-	maxHeight: PropTypes.number
+	maxHeight: PropTypes.number,
 };
 
 Positioning.defaultProps = {

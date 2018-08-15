@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
-import { compose } from '../helpers/compose';
-import PositioningInline from '../positioning/PositioningInline';
-import { positionOptions } from '../positioning/private/constants';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import uuidv4 from 'uuid/v4';
-import {ns} from "../helpers/xuiClassNamespace";
+
+import compose from '../helpers/compose';
+import PositioningInline from '../positioning/PositioningInline';
+import { positionOptions } from '../positioning/private/constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-tooltip`;
 
@@ -13,7 +14,7 @@ export default class XUITooltip extends PureComponent {
 	state = {
 		isHidden: this.props.isHidden,
 		isFocused: false,
-		isAnimating: false
+		isAnimating: false,
 	};
 	tooltipId = this.props.id || uuidv4();
 
@@ -23,7 +24,7 @@ export default class XUITooltip extends PureComponent {
 	 * @public
 	 * @param {Boolean} isClick
 	 */
-	openTooltip = (isClick) => {
+	openTooltip = isClick => {
 		const { isDisabled, openDelay, onOpen } = this.props;
 		if (isDisabled) {
 			return;
@@ -39,7 +40,7 @@ export default class XUITooltip extends PureComponent {
 	 * @public
 	 * @param {Boolean} isClick
 	 */
-	closeTooltip = (isClick) => {
+	closeTooltip = isClick => {
 		const { closeDelay, onClose } = this.props;
 		// No delay for click open/close or if it's already animating.
 		const delay = (isClick === true || this.state.isAnimating) ? 0 : closeDelay;
@@ -54,18 +55,18 @@ export default class XUITooltip extends PureComponent {
 	 * @param {Boolean} isOpening // false for a close action
 	 * @param {Function} callBack // If provided by the consumer, a function to call on open/close.
 	 */
-	handleOpenClose = (delay, isOpening, callBack ) => {
+	handleOpenClose = (delay, isOpening, callBack) => {
 		window.clearTimeout(this.animationStartTimer);
 		this.animationStartTimer = setTimeout(() => {
 			window.clearTimeout(this.animationFinishTimer);
 			callBack && callBack();
 			this.setState({
 				isHidden: !isOpening,
-				isAnimating: true
+				isAnimating: true,
 			});
 			this.animationFinishTimer = setTimeout(() => {
 				this.setState({
-					isAnimating: false
+					isAnimating: false,
 				});
 			}, 100); // 100ms is the current animation time.
 		}, delay);
@@ -86,15 +87,15 @@ export default class XUITooltip extends PureComponent {
 	 * @private
 	 * @memberof XUITooltip
 	 */
-	onTriggerKeyDown = (event) => {
-		if(event.key === "Enter" || event.keyCode === 13 || event.which === 13) {
-				this.toggle();
+	onTriggerKeyDown = event => {
+		if (event.key === 'Enter' || event.keyCode === 13 || event.which === 13) {
+			this.toggle();
 		}
 	};
 
 	componentDidMount = () => {
 		const { trigger } = this;
-		const rootNode = trigger && (trigger.rootNode || trigger.inputNode) || trigger;
+		const rootNode = (trigger && (trigger.rootNode || trigger.inputNode)) || trigger;
 		if (!rootNode) {
 			return;
 		}
@@ -133,14 +134,14 @@ export default class XUITooltip extends PureComponent {
 			this.triggerIsInline && `${ns}-has-inline-trigger`,
 			isDisabled && `${ns}-is-disabled`,
 			!isHidden && `${baseClass}-tipopen`,
-			isAnimating && `${baseClass}-tipanimating`
+			isAnimating && `${baseClass}-tipanimating`,
 		);
 
 		const tipClasses = cn(
 			className,
 			`${baseClass}--tip`,
 			!isHidden && `${baseClass}--tip-open`,
-			isAnimating && `${baseClass}--tip-animating`
+			isAnimating && `${baseClass}--tip-animating`,
 		);
 		const triggerHasOwnHandlers = trigger.props.onClick || trigger.props.onKeyDown;
 
@@ -154,16 +155,26 @@ export default class XUITooltip extends PureComponent {
 			'onKeyDown': triggerHasOwnHandlers ?
 				trigger.props.onKeyDown :
 				(triggerOnClick && this.onTriggerKeyDown) || undefined,
-			'onFocus': compose(trigger.props.onFocus, () => {this.setState({isFocused: true})}),
-			'onBlur': triggerOnBlur ? compose(trigger.props.onBlur, () => {this.setState({isFocused: false})}) : undefined,
+			'onFocus': compose(
+				trigger.props.onFocus,
+				() => this.setState({ isFocused: true }),
+			),
+			'onBlur': triggerOnBlur
+				? compose(
+					trigger.props.onBlur,
+					() => this.setState({ isFocused: false }),
+				)
+				: undefined,
 			'onMouseOver': triggerOnHover ? this.openTooltip : undefined,
 			'onMouseOut': triggerOnHover && ignoreFocus ? this.closeTooltip : undefined,
-			'aria-describedby': this.tooltipId
+			'aria-describedby': this.tooltipId,
 		});
 
 		return (
-			<span className={wrapperClasses}
-				ref={c => this.setState({wrapper: c})}>
+			<span
+				className={wrapperClasses}
+				ref={c => this.setState({ wrapper: c })}
+			>
 				{clonedTrigger}
 				<PositioningInline
 					{...this.props}
@@ -175,7 +186,8 @@ export default class XUITooltip extends PureComponent {
 						aria-hidden={this.state.isHidden}
 						id={this.tooltipId}
 						className={tipClasses}
-						data-automationid={qaHook && `${qaHook}--tooltip`}>
+						data-automationid={qaHook && `${qaHook}--tooltip`}
+					>
 						{children}
 					</span>
 				</PositioningInline>
@@ -210,22 +222,26 @@ XUITooltip.propTypes = {
 	/** Element used to trigger the tooltip opening/closing */
 	trigger: PropTypes.element.isRequired,
 
-	/** Setting a number here will force the maximum width of the tooltip to be the number provided (in pixels). */
+	/** Setting a number here will force the maximum width of the tooltip to be the
+	 * number provided (in pixels). */
 	maxWidth: PropTypes.number,
 
-	/** Setting a number here will force the maximum height of the tooltip to be the number provided (in pixels). */
+	/** Setting a number here will force the maximum height of the tooltip to be the
+	 * number provided (in pixels). */
 	maxHeight: PropTypes.number,
 
 	/** Whether clicking on the trigger should toggle the tooltip open/closed. Defaults to false. */
 	triggerOnClick: PropTypes.bool,
 
-	/** Whether giving focus to the trigger should toggle the tooltip open/closed. Defaults to false. */
+	/** Whether giving focus to the trigger should toggle the tooltip open/closed.
+	 * Defaults to false. */
 	triggerOnFocus: PropTypes.bool,
 
 	/** Whether focusing off the trigger should change the tooltip to closed. Defaults to true. */
 	triggerOnBlur: PropTypes.bool,
 
-	/** Whether hovering over the trigger should toggle the tooltip open/closed. Defaults to true. */
+	/** Whether hovering over the trigger should toggle the tooltip open/closed.
+	 * Defaults to true. */
 	triggerOnHover: PropTypes.bool,
 
 	/** Allow the tooltip to be disabled, for cases of disabled inputs, narrow viewport etc. */
@@ -239,7 +255,7 @@ XUITooltip.propTypes = {
 	 * This will potentially be over-ridden by dimensions of the viewport and tip contents.
 	 * Providing only the side (top, right, bottom, left) will default to a center-aligned tip.
 	 */
-	preferredPosition: PropTypes.oneOf(positionOptions)
+	preferredPosition: PropTypes.oneOf(positionOptions),
 };
 
 XUITooltip.defaultProps = {
@@ -252,5 +268,5 @@ XUITooltip.defaultProps = {
 	maxWidth: 220,
 	openDelay: 500,
 	closeDelay: 100,
-	preferredPosition: 'top'
+	preferredPosition: 'top',
 };

@@ -1,4 +1,4 @@
-import { unlockScroll, lockScroll } from "./lockScroll";
+import { unlockScroll, lockScroll } from './lockScroll';
 import { portalClass } from './portalContainer';
 
 const openedModals = []; // modal registry
@@ -13,13 +13,14 @@ const getModalSiblings = () => {
 		return document.querySelectorAll(`body > :not(.${portalClass})`);
 	}
 	// For non-portal modal implementations, aria-hidden won't be managed, as we can't reasonably
-	// predict the markup structure to correctly apply the attribute. It can be done, but not reasonably.
+	// predict the markup structure to correctly apply the attribute. It can be done, but not
+	// reasonably.
 	return [];
 };
 
 // Set or unset portal siblings from being aria-hidden.
 // NB: If a direct child of the body has its own aria-hidden values, these will be overridden.
-const setSiblingsAriaHidden = (toHide) => {
+const setSiblingsAriaHidden = toHide => {
 	[...getModalSiblings()].forEach(node => node.setAttribute('aria-hidden', toHide));
 };
 

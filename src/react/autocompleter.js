@@ -8,5 +8,5 @@ export {
 	XUIAutocompleterEmptyState,
 	XUIAutocompleterSecondarySearch,
 	boldMatch,
-	decorateSubStr
+	decorateSubStr,
 };

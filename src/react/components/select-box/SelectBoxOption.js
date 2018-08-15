@@ -1,34 +1,55 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Pickitem from '../picklist/Pickitem';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default class SelectBoxOption extends PureComponent {
 	render() {
-		const props = this.props;
-		const isText = typeof props.children[0] === 'string';
-		const shouldTruncateChildren = isText && props.truncatedText;
-		const children = props.children;
-		const contents = shouldTruncateChildren ? <span className={`${ns}-text-truncated`}>{children}</span> : children;
+		const {
+			children,
+			truncatedText,
+			onClick,
+			onSelect,
+			id,
+			showCheckboxes,
+			value,
+			optionClasses,
+			isDisabled,
+			isSelected,
+			isHighlighted,
+			onBlur,
+			onFocus,
+			onKeyDown,
+			href,
+			ariaRole,
+			onMouseOver,
+			qaHook,
+		} = this.props;
+		const isText = typeof children[0] === 'string';
+		const shouldTruncateChildren = isText && truncatedText;
+		const contents = shouldTruncateChildren
+			? <span className={`${ns}-text-truncated`}>{children}</span>
+			: children;
 		return (
 			<Pickitem
-				onClick={props.onClick}
-				onSelect={props.onSelect}
-				id={props.id}
-				isMultiselect={props.showCheckboxes}
-				value={props.value}
-				className={props.optionClasses}
-				disabled={props.isDisabled}
-				isSelected={props.isSelected}
-				isHighlighted={props.isHighlighted}
-				isDisabled={props.isDisabled}
-				onBlur={props.onBlur}
-				onFocus={props.onFocus}
-				onKeyDown={props.onKeyDown}
-				href={props.href}
-				ariaRole={props.ariaRole}
-				onMouseOver={props.onMouseOver}
-				qaHook={props.qaHook}
+				{...{
+					onClick,
+					onSelect,
+					id,
+					value,
+					isSelected,
+					isHighlighted,
+					isDisabled,
+					onBlur,
+					onFocus,
+					onKeyDown,
+					href,
+					ariaRole,
+					onMouseOver,
+					qaHook,
+				}}
+				className={optionClasses}
+				isMultiselect={showCheckboxes}
 			>
 				{contents}
 			</Pickitem>
@@ -77,7 +98,7 @@ SelectBoxOption.propTypes = {
 	/** defaults to `option` for the aria role attribute, but can be defined for other uses. */
 	ariaRole: PropTypes.string,
 	/** The automation-id to add to the item */
-	qaHook: PropTypes.string
+	qaHook: PropTypes.string,
 };
 
 SelectBoxOption.defaultProps = {
@@ -86,6 +107,11 @@ SelectBoxOption.defaultProps = {
 	showCheckboxes: false,
 	isDisabled: false,
 	truncatedText: false,
-	_isMenuItem: true,
-	ariaRole: 'option'
+	ariaRole: 'option',
+	/*
+	 DO NOT REMOVE
+	 This property is needed so that the StatefulPicklist will properly recognize this
+	 component as a menu item.
+	 */
+	_isMenuItem: true, // eslint-disable-line
 };

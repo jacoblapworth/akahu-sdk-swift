@@ -14,14 +14,14 @@ const positionOptions = [
 	'left',
 	'left-top',
 	'left-center',
-	'left-bottom'
+	'left-bottom',
 ];
 const defaultAlignemnt = 'center';
 const flipDirection = {
 	top: 'bottom',
 	bottom: 'top',
 	left: 'right',
-	right: 'left'
+	right: 'left',
 };
 const verticals = ['top', 'bottom'];
 const horizontals = ['left', 'right'];
@@ -31,5 +31,5 @@ module.exports = {
 	defaultAlignemnt,
 	flipDirection,
 	verticals,
-	horizontals
-}
+	horizontals,
+};

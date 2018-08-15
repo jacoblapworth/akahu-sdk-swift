@@ -8,7 +8,7 @@ import XUIButton from '../button/XUIButton';
 import XUIButtonCaret from '../button/XUIButtonCaret';
 import Picklist from '../picklist/Picklist';
 import qaHooks from './qaHooks';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
  * If a qaHook is supplied in component props this helper provides a suffix for
@@ -25,12 +25,9 @@ function setQaHook(propsQaHook, suffix) {
 }
 
 export default class SelectBox extends Component {
-
 	selectId = this.props.id || uuidv4();
 
-	isDropDownOpen = () => {
-		return !!this.ddt && this.ddt.isDropDownOpen();
-	}
+	isDropDownOpen = () => !!this.ddt && this.ddt.isDropDownOpen()
 
 	onLabelClick = () => {
 		this.trigger.focus();
@@ -38,83 +35,109 @@ export default class SelectBox extends Component {
 
 	render() {
 		const selectBox = this;
-		const { props } = selectBox;
-		const containerClasses = props.containerClasses || '';
-		const buttonClasses = cn(
-			props.isTextTruncated && props.buttonVariant && `${ns}-text-truncated`,
-			!props.buttonVariant && `${ns}-select--button`,
-			props.buttonClasses
+		const {
+			dropDownClasses,
+			containerClasses,
+			isTextTruncated,
+			buttonVariant,
+			buttonClasses,
+			defaultLayout,
+			inputGroupClasses,
+			labelClassName,
+			islabelHidden,
+			buttonContent,
+			qaHook,
+			isDisabled,
+			onSelect,
+			restrictFocus,
+			children,
+			labelText,
+			onDropdownHide,
+			closeAfterSelection,
+			isOpen,
+			forceDesktop,
+			matchTriggerWidth,
+		} = this.props;
+
+		const buttonClassNames = cn(
+			isTextTruncated && buttonVariant && `${ns}-text-truncated`,
+			!buttonVariant && `${ns}-select--button`,
+			buttonClasses,
 		);
-		const inputGroupClasses = cn(
-			props.defaultLayout && `${ns}-select-layout`,
-			props.inputGroupClasses
+		const inputGroupClassNames = cn(
+			defaultLayout && `${ns}-select-layout`,
+			inputGroupClasses,
 		);
 		const labelClasses = cn(
 			`${ns}-text-label`,
-			props.labelClassName,
-			props.defaultLayout && `${ns}-fieldlabel-layout`,
-			props.islabelHidden && `${ns}-u-hidden-visually`
+			labelClassName,
+			defaultLayout && `${ns}-fieldlabel-layout`,
+			islabelHidden && `${ns}-u-hidden-visually`,
 		);
-		const dropDownClasses = props.dropDownClasses;
-		const caretClasses = !props.buttonVariant ? `${ns}-select--caret` : '';
-		const content = !props.buttonVariant ? (
+		const caretClasses = !buttonVariant && `${ns}-select--caret`;
+		const content = !buttonVariant ? (
 			<span className={`${ns}-select--content`}>
-				{props.buttonContent}
+				{buttonContent}
 			</span>
-		) : props.buttonContent;
+		) : buttonContent;
 		const trigger = (
 			<XUIButton
-				className={buttonClasses}
+				className={buttonClassNames}
 				type="button"
 				ref={c => selectBox.trigger = c}
-				variant={props.buttonVariant}
-				qaHook={setQaHook(props.qaHook, qaHooks.button)}
-				isDisabled={props.isDisabled}
+				variant={buttonVariant}
+				qaHook={setQaHook(qaHook, qaHooks.button)}
+				isDisabled={isDisabled}
 			>
 				{content}
-				<XUIButtonCaret className={caretClasses} title="Toggle List" qaHook={setQaHook(props.qaHook, qaHooks.buttonIcon)}/>
+				<XUIButtonCaret
+					className={caretClasses}
+					title="Toggle List"
+					qaHook={setQaHook(qaHook, qaHooks.buttonIcon)}
+				/>
 			</XUIButton>
 		);
 
 		const dropdown = (
 			<DropDown
 				className={dropDownClasses}
-				onSelect={props.onSelect}
-				qaHook={setQaHook(props.qaHook, qaHooks.dropdown)}
-				restrictFocus={props.restrictFocus}
+				onSelect={onSelect}
+				qaHook={setQaHook(qaHook, qaHooks.dropdown)}
+				restrictFocus={restrictFocus}
 				id={selectBox.selectId}
 			>
 				<Picklist>
-					{props.children}
+					{children}
 				</Picklist>
 			</DropDown>
 		);
 
 		return (
-			<div data-automationid={props.qaHook} className={containerClasses}>
-				<label className={labelClasses}
+			<div data-automationid={qaHook} className={containerClasses}>
+				<label
+					className={labelClasses}
 					htmlFor={selectBox.selectId}
 					onClick={selectBox.onLabelClick}
-					data-automationid={setQaHook(props.qaHook, qaHooks.label)}
+					data-automationid={setQaHook(qaHook, qaHooks.label)}
 					role="presentation"
 				>
-					{props.labelText}
+					{labelText}
 				</label>
-				<div className={inputGroupClasses} data-automationid={setQaHook(props.qaHook, qaHooks.inputGroup)}>
+				<div className={inputGroupClassNames} data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}>
 					{
-						!props.children || (Array.isArray(props.children) && !props.children.length)
+						!children || (Array.isArray(children) && !children.length)
 							? trigger
 							: (
 								<DropDownToggled
 									ref={c => selectBox.ddt = c}
 									trigger={trigger}
 									dropdown={dropdown}
-									onClose={props.onDropdownHide}
-									closeOnSelect={props.closeAfterSelection}
-									isHidden={!props.isOpen}
-									forceDesktop={props.forceDesktop}
-									matchTriggerWidth={props.matchTriggerWidth}
-									qaHook={setQaHook(props.qaHook, qaHooks.dropdownToggled)}
+									onClose={onDropdownHide}
+									closeOnSelect={closeAfterSelection}
+									isHidden={!isOpen}
+									forceDesktop={forceDesktop}
+									matchTriggerWidth={matchTriggerWidth}
+									qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
 									isBlock
 								/>
 							)
@@ -126,6 +149,7 @@ export default class SelectBox extends Component {
 }
 
 SelectBox.propTypes = {
+	children: PropTypes.node,
 	/** Input Label */
 	labelText: PropTypes.string.isRequired,
 
@@ -174,7 +198,10 @@ SelectBox.propTypes = {
 	/** Whether or not the list should be forced open */
 	isOpen: PropTypes.bool,
 
-	/** Optionally toggles the text truncation - can only be set to false when using the button variant */
+	/**
+	 * Optionally toggles the text truncation - can only be set to false when using the button
+	 * variant
+	 */
 	isTextTruncated: PropTypes.bool,
 
 	/** Force the desktop experience, even if the viewport is narrow enough for mobile */
@@ -182,15 +209,17 @@ SelectBox.propTypes = {
 
 	/**
 	 * Setting to false will allow the dropdown's width to be set independent of the trigger width.
-	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
+	 * Note: Setting this to true will override any size prop on DropDown.  XUI design has also decided
+	 * to keep a minimum width on the dropdown, so dropdown may not match the width of narrow triggers.
 	 */
 	matchTriggerWidth: PropTypes.bool,
 
 	/** Whether focus should be restricted to the dropdown while it's open. */
 	restrictFocus: PropTypes.bool,
 
-	/** ID to apply to the dropdown. Used primarily to associate a label with it's matched content. If none is provided it's automatically generated. */
-	id: PropTypes.string
+	/** ID to apply to the dropdown. Used primarily to associate a label with it's matched content.
+	 * If none is provided it's automatically generated. */
+	id: PropTypes.string,
 };
 
 SelectBox.defaultProps = {

@@ -1,10 +1,6 @@
 @import "../vars";
 @import "../mixins";
 
-.#{$ns}-chart {
-
-}
-
 .#{$ns}-chart--position,
 .#{$ns}-chart--base {
 	position: relative;

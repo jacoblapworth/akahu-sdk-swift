@@ -20,7 +20,10 @@ const getStackedAvatarDimensions = ({ labelWidth, textRaw, top = 10 }) => {
 		avatarText: abbreviateAvatar(textRaw, 2),
 		avatarClassName: cn(`${NAME_SPACE}-chart--measure`, getAvatarColorClass(textRaw)),
 		avatarStyle: {
-			...baseFontTheme, fill: 'white', fontSize: '10px', fontWeight: 'bold',
+			...baseFontTheme,
+			fill: null, // Removing the Victory inline "fill" so that we can target via CSS.
+			fontSize: '10px',
+			fontWeight: 'bold',
 		},
 	};
 };

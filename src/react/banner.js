@@ -7,5 +7,5 @@ export {
 	XUIBanner as default,
 	XUIBannerAction,
 	XUIBannerActions,
-	XUIBannerMessage
+	XUIBannerMessage,
 };

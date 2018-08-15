@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-contentblockitem`;
 
@@ -18,36 +18,36 @@ export default class XUIContentBlockItem extends PureComponent {
 			pinnedValue,
 			secondaryHeading,
 			primaryHeading,
-			tag
+			tag,
 		} = this.props;
 
 		const clonedAction = action && React.cloneElement(action, {
 			className: cn(
 				action.props.className,
-				`${baseClass}--actions`
-			)
+				`${baseClass}--actions`,
+			),
 		});
-		
+
 		const builtPrimaryHeadingAndTag = primaryHeading && (
 			<span className={`${baseClass}--toplinks`}>
 				<span className={`${baseClass}--primaryheading`}>
-				{primaryHeading}
+					{primaryHeading}
 				</span>
 				{tag}
 			</span>
 		);
-		
-		const builtSecondaryHeading = secondaryHeading && 
+
+		const builtSecondaryHeading = secondaryHeading &&
 			<div className={`${baseClass}--secondaryheading`}>
 				{secondaryHeading}
 			</div>;
 
-		const builtPinnedValue = pinnedValue && 
+		const builtPinnedValue = pinnedValue &&
 			<div className={`${baseClass}--pinnedvalue`}>
 				{pinnedValue}
 			</div>;
-		
-		const builtLeftContent = leftContent && 
+
+		const builtLeftContent = leftContent &&
 			<div className={`${baseClass}--leftcontent`}>
 				{leftContent}
 			</div>;
@@ -58,21 +58,21 @@ export default class XUIContentBlockItem extends PureComponent {
 			<Tag href={href} className={`${baseClass}--links`}>
 				{builtPrimaryHeadingAndTag}
 				{builtSecondaryHeading}
-			</Tag>		
+			</Tag>
 		);
-			
+
 
 		const builtRightContent = (builtPinnedValue || action || overflow) && (
 			<div className={`${baseClass}--rightcontent`}>
 				{builtPinnedValue}
 				{clonedAction}
 				{overflow}
-			</div> 
+			</div>
 		);
 
 		const divClasses = cn(`${baseClass}`, hasLayout && `${baseClass}-layout`, className);
 
-		return (	
+		return (
 			<li className={divClasses}>
 				{builtLeftContent}
 				{children}
@@ -122,9 +122,9 @@ XUIContentBlockItem.propTypes = {
 	/**
 	 * Tag or other user determined node to go to right of primary heading
 	 */
-	tag: PropTypes.element
+	tag: PropTypes.element,
 };
 
 XUIContentBlockItem.defaultProps = {
-	hasLayout: true
+	hasLayout: true,
 };

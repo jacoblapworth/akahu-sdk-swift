@@ -1,12 +1,12 @@
-import '../helpers/xuiGlobalChecks';
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import {sizeClassNames, baseClass} from './private/constants';
+import '../helpers/xuiGlobalChecks';
+import { sizeClassNames, baseClass } from './private/constants';
 
 const dot = <div className={`${baseClass}--dot`} />;
 
-const XUILoader = (props) => {
+const XUILoader = props => {
 	const className = cn(
 		baseClass,
 		sizeClassNames[props.size],
@@ -17,7 +17,12 @@ const XUILoader = (props) => {
 	);
 
 	return (
-		<div data-automationid={props.qaHook} className={className} role="progressbar" aria-label={props.ariaLabel}>
+		<div
+			data-automationid={props.qaHook}
+			className={className}
+			role="progressbar"
+			aria-label={props.ariaLabel}
+		>
 			{dot}{dot}{dot}
 		</div>
 	);
@@ -42,14 +47,15 @@ XUILoader.propTypes = {
 	/** Sets the loader to the inverted colour scheme */
 	isInverted: PropTypes.bool,
 
-	/** Adds the retain layout class, used in combination with buttons. Applying this prop will cause `defaultLayout` prop to be ignored. */
-	retainLayout: PropTypes.bool
+	/** Adds the retain layout class, used in combination with buttons. Applying this prop
+	 * will cause `defaultLayout` prop to be ignored. */
+	retainLayout: PropTypes.bool,
 };
 
 XUILoader.defaultProps = {
 	defaultLayout: true,
 	size: 'standard',
-	ariaLabel: 'Loading'
+	ariaLabel: 'Loading',
 };
 
 export default XUILoader;

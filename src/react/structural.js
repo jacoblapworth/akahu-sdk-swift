@@ -25,5 +25,5 @@ export {
 	XUIPanel,
 	XUIPanelHeading,
 	XUIPanelFooter,
-	XUIPanelSection
- };
+	XUIPanelSection,
+};

@@ -10,4 +10,4 @@ export {
 	XUIIsolationHeaderNavigation,
 	XUIIsolationHeaderTitle,
 	XUIIsolationHeaderSecondaryTitle,
-}
+};

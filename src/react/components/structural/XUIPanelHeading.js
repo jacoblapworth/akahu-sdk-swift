@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-panel`;
 
-const XUIPanelHeading = ({children, className, hasLayout, tagName, ...spreadProps}) => {
+const XUIPanelHeading = ({
+	children,
+	className,
+	hasLayout,
+	tagName,
+	...spreadProps
+}) => {
 	const classes = cn(
 		className,
 		`${baseClass}--heading`,
 		`${baseClass}--header`,
-		hasLayout && `${baseClass}--heading-layout`
+		hasLayout && `${baseClass}--heading-layout`,
 	);
 	const Tag = tagName;
 	return (
@@ -33,12 +39,12 @@ XUIPanelHeading.propTypes = {
 	/**
 	 * Main element tag type. Defaults to "header"
 	 */
-	tagName: PropTypes.string
+	tagName: PropTypes.string,
 };
 
 XUIPanelHeading.defaultProps = {
 	hasLayout: true,
-	tagName: 'header'
+	tagName: 'header',
 };
 
 export { XUIPanelHeading as default };

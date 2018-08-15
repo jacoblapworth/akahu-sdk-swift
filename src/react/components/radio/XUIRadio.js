@@ -1,33 +1,26 @@
-import '../helpers/xuiGlobalChecks';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {baseClass} from "./constants";
-import {ns} from "../helpers/xuiClassNamespace";
 import uuidv4 from 'uuid/v4';
+import '../helpers/xuiGlobalChecks';
+import { baseClass } from './constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
- * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is wrapped inside a label,
- * then clicking the label will also cause a new click event on the input, which also bubbles up. If a consumer
- * attaches an onClick event listener further up the DOM, we don't want it to be fired twice.
+ * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
+ * wrapped inside a label, then clicking the label will also cause a new click event
+ * on the input, which also bubbles up. If a consumer attaches an onClick event listener
+ * further up the DOM, we don't want it to be fired twice.
  *
  * @private
  */
 const onLabelClick = e => {
-	if(e.target.tagName !== 'INPUT') {
+	if (e.target.tagName !== 'INPUT') {
 		e.stopPropagation();
 	}
 };
 
-const buildRadio = (qaHook, htmlClassName, svgSettings) => {
-	if (svgSettings.iconMain) {
-		return buildSvgRadio(qaHook, svgSettings);
-	} else {
-		return buildHtmlRadio(qaHook, htmlClassName);
-	}
-};
-
-const buildSvgRadio = (qaHook, {svgClassName, iconMain}) => {
+const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 	const svgClasses = cn(`${ns}-icon`, svgClassName);
 	return (
 		<div className="xui-iconwrapper">
@@ -48,8 +41,15 @@ const buildSvgRadio = (qaHook, {svgClassName, iconMain}) => {
 const buildHtmlRadio = (qaHook, htmlClassName) => {
 	const htmlClasses = cn(`${baseClass}--radio`, htmlClassName);
 	return (
-		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`}/>
+		<div className={htmlClasses} data-automationid={qaHook && `${qaHook}--radio`} />
 	);
+};
+
+const buildRadio = (qaHook, htmlClassName, svgSettings) => {
+	if (svgSettings.iconMain) {
+		return buildSvgRadio(qaHook, svgSettings);
+	}
+	return buildHtmlRadio(qaHook, htmlClassName);
 };
 
 export default class XUIRadio extends React.Component {
@@ -76,19 +76,19 @@ export default class XUIRadio extends React.Component {
 			labelClassName,
 			isLabelHidden,
 			role,
-			id
+			id,
 		} = this.props;
 
 		const classes = cn(
 			className,
 			`${baseClass}`,
 			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-styledcheckboxradio-is-disabled`
+			isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
 		);
 
 		const labelClasses = cn(
 			`${baseClass}--label`,
-			labelClassName
+			labelClassName,
 		);
 		const labelElement =
 			!isLabelHidden &&
@@ -105,18 +105,21 @@ export default class XUIRadio extends React.Component {
 			'type': 'radio',
 			'disabled': isDisabled,
 			'required': isRequired,
-			'aria-label': isLabelHidden && children || undefined,
+			'aria-label': (isLabelHidden && children) || undefined,
 			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby': labelElement && this.labelId || !children && this.props.labelId || undefined,
+			'aria-labelledby':
+				(labelElement && this.labelId)
+				|| (!children && this.props.labelId)
+				|| undefined,
 			tabIndex,
 			name,
 			onChange,
 			value,
-			id
+			id,
 		};
 		const svgSettings = {
 			svgClassName,
-			iconMain
+			iconMain,
 		};
 
 		if (typeof isChecked !== 'boolean') {
@@ -132,7 +135,12 @@ export default class XUIRadio extends React.Component {
 
 		return (
 			<label className={classes} data-automationid={qaHook} onClick={onLabelClick} role="presentation">
-				<input role={role} className={`${baseClass}--input`} {...inputProps} data-automationid={qaHook && `${qaHook}--input`} />
+				<input
+					role={role}
+					className={`${baseClass}--input`}
+					data-automationid={qaHook && `${qaHook}--input`}
+					{...inputProps}
+				/>
 				{buildRadio(qaHook, htmlClassName, svgSettings)}
 				{labelElement}
 			</label>
@@ -170,7 +178,7 @@ XUIRadio.propTypes = {
 	/** The name to use as a reference for the value */
 	name: PropTypes.string,
 
-	/**onChange - The function to call when the control changes state */
+	/** onChange - The function to call when the control changes state */
 	onChange: PropTypes.func,
 
 	/** The value to return on form submission */
@@ -185,10 +193,12 @@ XUIRadio.propTypes = {
 	/** The tabindex property to place on the radio input */
 	tabIndex: PropTypes.number,
 
-	/** Prevents the label element from being displayed on the page. Label is still accessible to screen readers. */
+	/** Prevents the label element from being displayed on the page. Label is still
+	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 
-	/** Used to output an uncontrolled checkbox component.  If a value is passed to the isChecked prop, this prop will be ignored. */
+	/** Used to output an uncontrolled checkbox component.  If a value is passed to the
+	 * isChecked prop, this prop will be ignored. */
 	isDefaultChecked: PropTypes.bool,
 
 	/** Role to be applied for screen readers */
@@ -197,7 +207,7 @@ XUIRadio.propTypes = {
 	id: PropTypes.string,
 
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
-	labelId: PropTypes.string
+	labelId: PropTypes.string,
 };
 
 XUIRadio.defaultProps = {
@@ -206,5 +216,5 @@ XUIRadio.defaultProps = {
 	isIndeterminate: false,
 	isRequired: false,
 	isReversed: false,
-	role: "radio"
+	role: 'radio',
 };

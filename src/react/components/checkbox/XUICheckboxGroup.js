@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {baseClass} from "./constants";
-import {ns} from "../helpers/xuiClassNamespace";
 import uuidv4 from 'uuid/v4';
+import { baseClass } from './constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
  * Presentational (aka dumb) component that outputs the container necessary to implement
@@ -25,18 +25,18 @@ export default class XUICheckboxGroup extends PureComponent {
 			isFieldLayout,
 			labelClassName,
 			fieldClassName,
-			labelId
+			labelId,
 		} = this.props;
 
 		const rootClasses = cn(
 			fieldClassName,
-			isFieldLayout && `${ns}-field-layout`
+			isFieldLayout && `${ns}-field-layout`,
 		);
 
 		const labelClasses = cn(
 			labelClassName,
 			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`
+			`${ns}-fieldlabel-layout`,
 		);
 
 		const labelElement = !isLabelHidden && labelText && (
@@ -51,9 +51,9 @@ export default class XUICheckboxGroup extends PureComponent {
 				<div
 					className={cn(className, `${baseClass}-group`)}
 					data-automationid={qaHook}
-					aria-label={isLabelHidden && labelText || undefined}
+					aria-label={(isLabelHidden && labelText) || undefined}
 					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-					aria-labelledby={labelElement && this.id || labelId || undefined}
+					aria-labelledby={(labelElement && this.id) || labelId || undefined}
 				>
 					{children}
 				</div>
@@ -83,5 +83,5 @@ XUICheckboxGroup.propTypes = {
 };
 
 XUICheckboxGroup.defaultProps = {
-	isFieldLayout: false
+	isFieldLayout: false,
 };

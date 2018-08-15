@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-overview`;
 
@@ -19,7 +19,7 @@ export default class XUIOverviewBlock extends PureComponent {
 			<div {...spreadProps} className={classes}>
 				{children}
 			</div>
-		)
+		);
 	}
 }
 
@@ -29,9 +29,9 @@ XUIOverviewBlock.propTypes = {
 	/**
 	 * Applies default layout styling.
 	 */
-	hasLayout: PropTypes.bool
+	hasLayout: PropTypes.bool,
 };
 
 XUIOverviewBlock.defaultProps = {
-	hasLayout: true
+	hasLayout: true,
 };

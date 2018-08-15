@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-pageheading`;
 
@@ -13,15 +13,16 @@ const buildTitleAndTabs = (title, tabs) => {
 		// Allows for title + tabs or tabs only
 		const clonedTabs = React.cloneElement(tabs, {
 			// Make sure this is horizontal in the pagehead
-			isHorizontal : true
+			isHorizontal: true,
 		});
 		return (
 			<div className={`${baseClass}--tabs`}>
 				{builtTitle}
 				{clonedTabs}
 			</div>
-		)
+		);
 	}
+	return null;
 };
 
 export default class XUIPageHeader extends PureComponent {
@@ -40,10 +41,10 @@ export default class XUIPageHeader extends PureComponent {
 		const classes = cn(className, baseClass);
 		const clonedBreadcrumb = breadcrumb && React.cloneElement(breadcrumb, {
 			// Add the necessary pagehead class to the provided breadcrumb.
-			className : cn(
+			className: cn(
 				breadcrumb.props.className,
-				`${baseClass}--breadcrumbs`
-			)
+				`${baseClass}--breadcrumbs`,
+			),
 		});
 		const builtTitleAndTabs = buildTitleAndTabs(title, tabs);
 		const builtActions = actions && <div className={`${baseClass}--actions`}>{actions}</div>;
@@ -59,7 +60,7 @@ export default class XUIPageHeader extends PureComponent {
 					{builtActions}
 				</div>
 			</header>
-		)
+		);
 	}
 }
 
@@ -67,7 +68,8 @@ XUIPageHeader.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	/**
-	 * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard would go here
+	 * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard
+	 * would go here
 	 */
 	contentClassName: PropTypes.string,
 	/**
@@ -89,9 +91,9 @@ XUIPageHeader.propTypes = {
 	/**
 	 * Components or html to be right-aligned in the pageheading
 	 */
-	actions: PropTypes.node
+	actions: PropTypes.node,
 };
 
 XUIPageHeader.defaultProps = {
-	hasLayout: true
+	hasLayout: true,
 };

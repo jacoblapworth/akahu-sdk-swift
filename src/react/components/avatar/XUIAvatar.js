@@ -1,27 +1,27 @@
-import '../helpers/xuiGlobalChecks';
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {sizeClassNames, classNames, variantClassNames} from './constants';
-import {getAvatarColorClass, abbreviateAvatar} from './utils';
+import '../helpers/xuiGlobalChecks';
+import { sizeClassNames, classNames, variantClassNames } from './constants';
+import { getAvatarColorClass, abbreviateAvatar } from './utils';
 
 export default class XUIAvatar extends PureComponent {
 	state = {
-		imageError: false
+		imageError: false,
 	};
 
 	/**
 	 * onError handler for the image element
 	 * @param {Error} e Error object
 	 */
-	onError = (e) => {
-		const { props } = this;
+	onError = e => {
+		const { onError } = this.props;
 
 		this.setState({
-			imageError: true
+			imageError: true,
 		});
 
-		props.onError && props.onError(e);
+		onError && onError(e);
 	};
 
 	render() {
@@ -33,27 +33,33 @@ export default class XUIAvatar extends PureComponent {
 			size,
 			identifier,
 			value,
-			variant
+			variant,
 		} = this.props;
 
 		const avatarClassNames = cn(
 			className,
 			classNames.base,
 			sizeClassNames[size],
-			variantClassNames[variant]
+			variantClassNames[variant],
 		);
 
 		return imageUrl && !imageError ? (
-			<img onError={this.onError} data-automationid={qaHook} className={avatarClassNames} alt="" src={imageUrl}/>
+			<img
+				onError={this.onError}
+				data-automationid={qaHook}
+				className={avatarClassNames}
+				alt=""
+				src={imageUrl}
+			/>
 		) : (
 			<abbr
 				data-automationid={qaHook}
-				className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl))} role="presentation"
+				className={cn(avatarClassNames, getAvatarColorClass(identifier || value || imageUrl))}
+				role="presentation"
 			>
 				{abbreviateAvatar(value, variant === 'business' ? 3 : 2)}
 			</abbr>
 		);
-
 	}
 }
 
@@ -65,26 +71,28 @@ XUIAvatar.propTypes = {
 	variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 
 	/** The text to display in the avatar */
-	value: function(props, propName) {
+	value(props, propName) {
 		if (!props[propName] && !props.imageUrl) {
 			return new Error('Avatar component requires either a non-empty `value` or `imageUrl` property');
 		}
+		return null;
 	},
 
 	/** the image the component should render. Initials rendered otherwise */
 	imageUrl: PropTypes.string,
 
 	/** The size of the avatar. Can be small, medium, large or xlarge */
-	size: PropTypes.oneOf(Object.keys(sizeClassNames)).isRequired,
+	size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
-	/** A unique string that will be used to generate the color of the avatar if color is not provided. If this is not set then value is used as the identifier. */
+	/** A unique string that will be used to generate the color of the avatar if color is not
+	 * provided. If this is not set then value is used as the identifier. */
 	identifier: PropTypes.string,
 
 	/** Error handler if the avatar image fails to load */
-	onError: PropTypes.func
+	onError: PropTypes.func,
 };
 
 XUIAvatar.defaultProps = {
 	size: 'medium',
-	value: ''
+	value: '',
 };

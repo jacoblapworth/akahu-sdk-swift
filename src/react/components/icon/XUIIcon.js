@@ -1,14 +1,14 @@
-import '../helpers/xuiGlobalChecks';
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
+import '../helpers/xuiGlobalChecks';
 import {
 	baseClass,
 	wrapperClass,
 	wrapperSizeClasses,
 	rotationClasses,
 	colorClasses,
-	iconSizeMultipliers
+	iconSizeMultipliers,
 } from './private/constants';
 
 export default function XUIIcon(props) {
@@ -63,15 +63,15 @@ export default function XUIIcon(props) {
 		>
 			{svgElement}
 		</div>
-	)
+	);
 }
 
 XUIIcon.propTypes = {
-	/** An object describing the path, width and height. This will render a SVG only as big as the icon itself */
+	/** An object describing the path, width and height. */
 	icon: PropTypes.shape({
 		path: PropTypes.string.isRequired,
 		width: PropTypes.number.isRequired,
-		height: PropTypes.number.isRequired
+		height: PropTypes.number.isRequired,
 	}).isRequired,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
@@ -84,7 +84,10 @@ XUIIcon.propTypes = {
 	/** Role to be applied to the SVG for screen readers */
 	role: PropTypes.string,
 	/** Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270 */
-	rotation: PropTypes.oneOf(Object.keys(rotationClasses).concat(Object.keys(rotationClasses).map(n => parseInt(n)))),
+	rotation: PropTypes.oneOf([
+		...Object.keys(rotationClasses),
+		...Object.keys(rotationClasses).map(n => parseInt(n)),
+	]),
 	/** Adds a color modifier to the icon */
 	color: PropTypes.oneOf(Object.keys(colorClasses)),
 	/** Whether the icon should be wrapped in a wrapper with a set size */

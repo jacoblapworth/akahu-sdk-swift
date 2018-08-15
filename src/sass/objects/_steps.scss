@@ -542,4 +542,5 @@
 
 .#{$ns}-stepper-link-disabled {
 	@include stepperLinkColor($xui-color-grey-5);
+	cursor: not-allowed;
 }

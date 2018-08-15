@@ -15,7 +15,7 @@ import YearSelector from './navbar/YearSelector';
  * @param {Number} keyCode
  * @returns {Boolean}
  */
-const isArrowKey = keyCode => keyCode >=37 && keyCode <= 40;
+const isArrowKey = keyCode => keyCode >= 37 && keyCode <= 40;
 
 export default class CustomNavbar extends PureComponent {
 	constructor(props) {
@@ -32,14 +32,16 @@ export default class CustomNavbar extends PureComponent {
 	}
 
 	onMonthChange = event => {
+		const { previousMonth } = this.props;
 		const year = this.yearSelect == null
-			? DateUtils.addMonths(this.props.previousMonth, 1).getFullYear()
+			? DateUtils.addMonths(previousMonth, 1).getFullYear()
 			: this.yearSelect.value;
 
 		this.onDateChange(new Date(year, event.target.value, 1));
 	}
 
 	onMonthSelectKeyDown = event => {
+		const { previousMonth } = this.props;
 		const keyCode = event.keyCode == null ? event.which : event.keyCode;
 		if (isArrowKey(keyCode)) {
 			event.stopPropagation(); // Prevent react-day-picker from doing anything
@@ -47,28 +49,32 @@ export default class CustomNavbar extends PureComponent {
 			const previousMonthKey = dir === 'rtl' ? 39 : 37;
 			const nextMonthKey = dir === 'rtl' ? 37 : 39;
 			switch (keyCode) {
-				case previousMonthKey: {
-					this.onDateChange(this.props.previousMonth);
-					break;
-				}
-				case nextMonthKey: {
-					const nextMonth = DateUtils.addMonths(this.props.previousMonth, 2);
-					this.onDateChange(nextMonth);
-					break;
-				}
+			case previousMonthKey: {
+				this.onDateChange(previousMonth);
+				break;
+			}
+			case nextMonthKey: {
+				const nextMonth = DateUtils.addMonths(previousMonth, 2);
+				this.onDateChange(nextMonth);
+				break;
+			}
+			default:
+				break;
 			}
 		}
 	}
 
 	onYearChange = event => {
+		const { previousMonth } = this.props;
 		const month = this.monthSelect == null
-			? DateUtils.addMonths(this.props.previousMonth, 1).getMonth()
+			? DateUtils.addMonths(previousMonth, 1).getMonth()
 			: this.monthSelect.value;
 
 		this.onDateChange(new Date(event.target.value, month, 1));
 	}
 
 	onYearSelectKeyDown = event => {
+		const { previousMonth } = this.props;
 		const keyCode = event.keyCode == null ? event.which : event.keyCode;
 		if (isArrowKey(keyCode)) {
 			event.stopPropagation(); // Prevent react-day-picker from doing anything
@@ -76,16 +82,18 @@ export default class CustomNavbar extends PureComponent {
 			const previousYearKey = dir === 'rtl' ? 39 : 37;
 			const nextYearKey = dir === 'rtl' ? 37 : 39;
 			switch (keyCode) {
-				case previousYearKey: { // Left => previous year
-					const lastYear = DateUtils.addMonths(this.props.previousMonth, -11);
-					this.onDateChange(lastYear);
-					break;
-				}
-				case nextYearKey: { // Right => next year
-					const nextYear = DateUtils.addMonths(this.props.previousMonth, 13);
-					this.onDateChange(nextYear);
-					break;
-				}
+			case previousYearKey: { // Left => previous year
+				const lastYear = DateUtils.addMonths(previousMonth, -11);
+				this.onDateChange(lastYear);
+				break;
+			}
+			case nextYearKey: { // Right => next year
+				const nextYear = DateUtils.addMonths(previousMonth, 13);
+				this.onDateChange(nextYear);
+				break;
+			}
+			default:
+				break;
 			}
 		}
 	}
@@ -105,7 +113,7 @@ export default class CustomNavbar extends PureComponent {
 			minDate,
 			isCompact,
 			locale,
-			qaHook
+			qaHook,
 		} = this.props;
 		const currentMonthDate = DateUtils.addMonths(previousMonth, 1);
 		const previousClickHandler = dir === 'rtl' ? onNextClick : onPreviousClick;
@@ -142,7 +150,8 @@ export default class CustomNavbar extends PureComponent {
 					variant={navButtonVariant}
 					isDisabled={!showPreviousButton}
 					className={classNames.navButtonPrev}
-					onClick={() => previousClickHandler()} // If you just pass the fuction, shit blows up since the internals of DayPicker expect a function callback arg
+					// Can't just pass a function because DayPicker expects a function callback arg
+					onClick={() => previousClickHandler()}
 					aria-label={labels.previousMonth}
 					qaHook={qaHook && `${qaHook}--previous-month-button`}
 				>
@@ -158,7 +167,8 @@ export default class CustomNavbar extends PureComponent {
 					variant={navButtonVariant}
 					isDisabled={!showNextButton}
 					className={classNames.navButtonNext}
-					onClick={() => nextClickHandler()} // If you just pass the function, shit blows up since the internals of DayPicker expect a function callback arg
+					// Can't just pass a function because DayPicker expects a function callback arg
+					onClick={() => nextClickHandler()}
 					aria-label={labels.nextMonth}
 					qaHook={qaHook && `${qaHook}--next-month-button`}
 				>
@@ -181,7 +191,7 @@ CustomNavbar.propTypes = {
 	onNextClick: PropTypes.func,
 	labels: PropTypes.shape({
 		previousMonth: PropTypes.string.isRequired,
-		nextMonth: PropTypes.string.isRequired
+		nextMonth: PropTypes.string.isRequired,
 	}),
 	dir: PropTypes.string,
 	previousMonth: PropTypes.instanceOf(Date),
@@ -191,7 +201,7 @@ CustomNavbar.propTypes = {
 	maxDate: PropTypes.instanceOf(Date),
 	isCompact: PropTypes.bool,
 	locale: PropTypes.string,
-	qaHook: PropTypes.string
+	qaHook: PropTypes.string,
 };
 
 CustomNavbar.defaultProps = {

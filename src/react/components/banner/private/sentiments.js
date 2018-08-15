@@ -1,12 +1,12 @@
-import {ns} from '../../helpers/xuiClassNamespace';
+import { ns } from '../../helpers/xuiClassNamespace';
 
-export const sentimentMap = {
+export default {
 	positive: {
 		class: `${ns}-banner-positive`,
-		role: 'status'
+		role: 'status',
 	},
 	negative: {
 		class: `${ns}-banner-negative`,
-		role: 'alert'
-	}
+		role: 'alert',
+	},
 };

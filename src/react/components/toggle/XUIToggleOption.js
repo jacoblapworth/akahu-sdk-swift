@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {baseClass} from './private/constants';
-import {ns} from '../helpers/xuiClassNamespace';
+import { baseClass } from './private/constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 /** @private typeMap - Map types to attributes */
 const typeMap = {
 	radio: 'radio',
-	checkbox: 'checkbox'
+	checkbox: 'checkbox',
 };
 
 export default function XUIToggleOption(props) {
@@ -23,12 +23,12 @@ export default function XUIToggleOption(props) {
 		onChange,
 		type,
 		value,
-		id
+		id,
 	} = props;
 	const classes = cn(
 		className,
 		`${baseClass}-option`,
-		isDisabled && `${ns}-is-disabled`
+		isDisabled && `${ns}-is-disabled`,
 	);
 
 	return (
@@ -72,9 +72,9 @@ XUIToggleOption.propTypes = {
 	type: PropTypes.oneOf(Object.keys(typeMap)),
 	/** The value to return on form submission */
 	value: PropTypes.string,
-	id: PropTypes.string
+	id: PropTypes.string,
 };
 
 XUIToggleOption.defaultProps = {
-	type: typeMap.radio
+	type: typeMap.radio,
 };

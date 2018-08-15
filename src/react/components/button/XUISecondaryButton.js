@@ -1,17 +1,17 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import XUIButton from './XUIButton';
 import XUIButtonCaret from './XUIButtonCaret';
-import cn from 'classnames';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUISplitButton extends PureComponent {
 	render() {
 		const { className, ...spreadProps } = this.props;
 		spreadProps.children = null;
 		return (
-			<XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped={true}>
+			<XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped>
 				<XUIButtonCaret />
 			</XUIButton>
 		);
@@ -25,10 +25,12 @@ XUISplitButton.propTypes = {
 	/** Determines if the button is disabled or not. */
 	isDisabled: PropTypes.bool,
 
-	/** If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. **/
+	/** If true, sets appropriate `rel` values to prevent new page from having access to
+	 * `window.opener`. Should be used for links pointing at external sites. * */
 	isExternalLink: PropTypes.bool,
 
-	/** If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+	/** If true, shows a loader inside the button and also disables the button to prevent
+	 * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
 	isLoading: PropTypes.bool,
 
 	/** If this button is part of a parent button group */
@@ -40,7 +42,10 @@ XUISplitButton.propTypes = {
 	/** Bind a function to fire when the button is clicked */
 	onClick: PropTypes.func,
 
-	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`, 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative', 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or `unstyled`. */
+	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
+	 * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
+	 * 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or
+	 * `unstyled`. */
 	variant: PropTypes.oneOf(Object.keys(VariantClassNames)),
 
 	/** Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
@@ -50,7 +55,7 @@ XUISplitButton.propTypes = {
 	isLink: PropTypes.bool,
 
 	/** The type attribute of this button. `submit`, `button`, or `reset`. */
-	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])), // Can't use Object.values without polyfilling for older supported browsers
+	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])),
 
 	/** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	href: PropTypes.string,
@@ -76,5 +81,5 @@ XUISplitButton.defaultProps = {
 	isDisabled: false,
 	isExternalLink: false,
 	isGrouped: false,
-	isLoading: false
+	isLoading: false,
 };

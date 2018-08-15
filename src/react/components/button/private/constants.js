@@ -1,4 +1,4 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 /**
  * @public
@@ -7,7 +7,7 @@ import {ns} from "../../helpers/xuiClassNamespace";
 export const SizeClassNames = {
 	'small': `${ns}-button-small`,
 	'full-width': `${ns}-u-fullwidth`,
-	'full-width-mobile': `${ns}-button-fullwidth-layout`
+	'full-width-mobile': `${ns}-button-fullwidth-layout`,
 };
 
 /**
@@ -30,7 +30,7 @@ export const VariantClassNames = {
 	'icon-large': `${ns}-button-icon ${ns}-button-icon-large`,
 	'icon-inverted': `${ns}-button-icon ${ns}-button-icon-inverted`,
 	'icon-inverted-large': `${ns}-button-icon ${ns}-button-icon-inverted ${ns}-button-icon-large`,
-	'unstyled': ''
+	'unstyled': '',
 };
 
 /**
@@ -40,5 +40,5 @@ export const VariantClassNames = {
 export const ButtonTypes = {
 	submit: 'submit',
 	button: 'button',
-	reset: 'reset'
+	reset: 'reset',
 };

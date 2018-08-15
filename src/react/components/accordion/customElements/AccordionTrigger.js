@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from "../../helpers/xuiClassNamespace";
 import arrowPath from '@xero/xui-icon/icons/arrow';
+import { ns } from '../../helpers/xuiClassNamespace';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 
@@ -30,7 +30,7 @@ export default class AccordionTrigger extends PureComponent {
 			pinnedValue,
 			qaHook,
 			primaryHeading,
-			secondaryHeading
+			secondaryHeading,
 		} = this.props;
 
 		const primaryHeadingScaffold = primaryHeading && (
@@ -65,12 +65,14 @@ export default class AccordionTrigger extends PureComponent {
 				aria-label={toggleLabel}
 				className={cn(`${ns}-accordiontrigger-new`, {
 					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
-				})}>
+				})}
+			>
 				<div className={`${ns}-accordiontrigger-new--arrow`}>
 					<XUIButton
 						variant="icon-large"
 						title={toggleLabel}
-						tabIndex={-1}>
+						tabIndex={-1}
+					>
 						<XUIIcon
 							icon={arrowPath}
 							rotation={isOpen ? 180 : null}

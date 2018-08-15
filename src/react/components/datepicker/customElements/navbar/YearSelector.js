@@ -14,7 +14,7 @@ export default function YearSelector({
 	const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
 	const maxYear = maxDate ? maxDate.getFullYear() : currentYear + 10;
 	const visibleYears = [];
-	for (let i = startYear; i <= maxYear; i++) {
+	for (let i = startYear; i <= maxYear; i += 1) {
 		visibleYears.push(i);
 	}
 	const label = (
@@ -66,5 +66,6 @@ YearSelector.propTypes = {
 	selectRef: PropTypes.func,
 	onChange: PropTypes.func,
 	onKeyDown: PropTypes.func,
-	locale: PropTypes.string,
+	// TODO: Implement locale
+	locale: PropTypes.string,// eslint-disable-line
 };

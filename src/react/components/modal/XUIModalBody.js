@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {baseClass} from './constants';
+import { baseClass } from './constants';
 
 export default function XUIModalBody({ className, children, qaHook }) {
 	const classNames = cn(
 		`${baseClass}--body`,
-		className
+		className,
 	);
 
 	return (
@@ -19,9 +19,5 @@ export default function XUIModalBody({ className, children, qaHook }) {
 XUIModalBody.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
-	qaHook: PropTypes.string
-};
-
-XUIModalBody.defaultProps = {
-	defaultLayout: true,
+	qaHook: PropTypes.string,
 };

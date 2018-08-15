@@ -4,7 +4,10 @@ import cn from 'classnames';
 import DropDownLayout from './DropDownLayout';
 import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
+
+// TODO: Tidy up lint rules with remaining dropdown-ish components
+/* eslint-disable */
 
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
@@ -17,7 +20,6 @@ import {ns} from "../helpers/xuiClassNamespace";
  * @extends {PureComponent}
  */
 export default class DropDown extends PureComponent {
-
 	componentDidMount() {
 		const { isHidden, restrictFocus } = this.props;
 		if (!isHidden && restrictFocus) {
@@ -75,16 +77,16 @@ export default class DropDown extends PureComponent {
 		}
 	};
 
-	// TODO: This should be extracted into a separate consumable when we figure out how to do tab key management
+	// TODO: Extract this into a separate consumable when we figure out how to do tab key management
 	/**
 	 * @private
 	 * @param {Object} event - A focus change event which is set to be listened to by the window
 	 * Limits the focusable elements to those within the dropdown
-	 **/
+	 * */
 	_restrictFocus = event => {
 		const dropdown = this;
 		if (dropdown.panel != null && dropdown.panel.rootNode != null) {
-			const rootNode = dropdown.panel.rootNode;
+			const { rootNode } = dropdown.panel;
 			const targetIsWindow = event.target === window;
 			if (targetIsWindow || !rootNode.contains(event.target)) {
 				event.stopPropagation();
@@ -140,7 +142,7 @@ export default class DropDown extends PureComponent {
 	};
 
 	lockScroll = () => {
-		lockScroll()
+		lockScroll();
 	};
 
 	render() {
@@ -164,12 +166,12 @@ export default class DropDown extends PureComponent {
 			forceStatefulPicklist,
 			bodyClassName,
 			shouldManageInitialHighlight,
-			ariaRole
+			ariaRole,
 		} = this.props;
 
 		const dropdownClasses = cn(
 			className,
-			header && `${ns}-dropdown-fullheight`
+			header && `${ns}-dropdown-fullheight`,
 		);
 
 		return (
@@ -179,7 +181,7 @@ export default class DropDown extends PureComponent {
 				className={dropdownClasses}
 				fixedWidth={fixedWidth}
 				forceDesktop={forceDesktop}
-				id={this.props.id} // This will be generated, if necessary, at a higher level. Now, always provided.
+				id={this.props.id} // This will be generated, if necessary, at a higher level
 				isHidden={isHidden}
 				onCloseAnimationEnd={onCloseAnimationEnd}
 				onOpenAnimationEnd={onOpenAnimationEnd}
@@ -200,7 +202,7 @@ export default class DropDown extends PureComponent {
 					ref={c => this.panel = c}
 					shouldManageInitialHighlight={shouldManageInitialHighlight}
 					style={{
-						maxHeight: style && style.maxHeight
+						maxHeight: style && style.maxHeight,
 					}}
 					bodyClassName={bodyClassName}
 				>
@@ -222,7 +224,8 @@ DropDown.propTypes = {
 	/** Whether or not this component is hidden. */
 	isHidden: PropTypes.bool,
 
-	/** Applies the correct XUI class based on the chose size. Default will fits to children's width. */
+	/** Applies the correct XUI class based on the chose size. Default will
+	 * fits to children's width. */
 	size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 
 	/** An array of keydown keycodes to be ignored from dropdown behaviour. */
@@ -282,7 +285,7 @@ DropDown.propTypes = {
 	/**
 	 * Aria role for dropdown layout element
 	 */
-	ariaRole: PropTypes.string
+	ariaRole: PropTypes.string,
 };
 
 DropDown.defaultProps = {

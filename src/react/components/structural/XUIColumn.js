@@ -1,33 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 import { columnShortNames } from './private/constants';
 
 const getClass = (width, suffix) => {
-	let colClass = "";
+	let colClass = '';
 	if (width) {
-		colClass = `${ns}-column-${columnShortNames[width] || width}-of-12${suffix || ""}`;
+		colClass = `${ns}-column-${columnShortNames[width] || width}-of-12${suffix || ''}`;
 	}
 	return colClass;
 };
 
-const getAllClasses = ({className, gridColumns, gridColumnsMedium, gridColumnsWide}) => {
-	return cn(
-		className,
-		getClass(gridColumns),
-		getClass(gridColumnsMedium, "-medium"),
-		getClass(gridColumnsWide, "-wide"));
-};
+const getAllClasses = ({
+	className,
+	gridColumns,
+	gridColumnsMedium,
+	gridColumnsWide,
+}) => cn(
+	className,
+	getClass(gridColumns),
+	getClass(gridColumnsMedium, '-medium'),
+	getClass(gridColumnsWide, '-wide'),
+);
 
-const XUIColumn = ({children, className, gridColumns, gridColumnsMedium, gridColumnsWide, ...spreadProps}) =>
+const XUIColumn = ({
+	children,
+	className,
+	gridColumns,
+	gridColumnsMedium,
+	gridColumnsWide,
+	...spreadProps
+}) => (
 	<div
 		{...spreadProps}
-		className={getAllClasses({className, gridColumns, gridColumnsMedium, gridColumnsWide})}
+		className={getAllClasses({
+			className, gridColumns, gridColumnsMedium, gridColumnsWide,
+		})}
 	>
 		{children}
-	</div>;
+	</div>
+);
 
 XUIColumn.propTypes = {
 	children: PropTypes.node,
@@ -37,29 +51,29 @@ XUIColumn.propTypes = {
 	 */
 	gridColumns: PropTypes.oneOfType([
 		PropTypes.string,
-		PropTypes.number
+		PropTypes.number,
 	]),
 	/**
 	 * Grid columns at viewport 940 - 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
 	gridColumnsMedium: PropTypes.oneOfType([
 		PropTypes.string,
-		PropTypes.number
+		PropTypes.number,
 	]),
 	/**
 	 * Grid columns at viewport > 1160px wide. Can be 1-12 or any of [full, half, third, quarter]
 	 */
 	gridColumnsWide: PropTypes.oneOfType([
 		PropTypes.string,
-		PropTypes.number
+		PropTypes.number,
 	]),
 };
 
 XUIColumn.defaultProps = {
-	gridColumns: 12
+	gridColumns: 12,
 };
 
 export {
 	XUIColumn as default,
-	getAllClasses
+	getAllClasses,
 };

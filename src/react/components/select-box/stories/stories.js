@@ -13,7 +13,7 @@ import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { VariantClassNames } from '../../button/private/constants';
-import { storiesWithVariationsKindName, variations} from './variations';
+import { storiesWithVariationsKindName, variations } from './variations';
 import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
 function createItems(items, suffix) {
@@ -34,41 +34,37 @@ function createItems(items, suffix) {
 
 const toggledItems = AddIdPropsToTextList(LongListLongItems);
 
-const button = <span><XUIIcon icon={education} className="xui-margin-right-xsmall"/>Choose a classic book</span>;
+const button = <span><XUIIcon icon={education} className="xui-margin-right-xsmall" />Choose a classic book</span>;
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
-storiesWithKnobs.add('Playground', () => {
-
-
-	return (
-		<SelectBox
-			labelText={text('labelText', 'Label for the select box')}
-			isLabelHidden={boolean('isLabelHidden', false)}
-			buttonClasses={text('buttonClasses', '')}
-			containerClasses={text('containerClasses', '')}
-			dropDownClasses={text('dropDownClasses', '')}
-			inputGroupClasses={text('inputGroupClasses', '')}
-			buttonVariant={select('buttonVariant', ['none', ...Object.keys(VariantClassNames)], 'none') === 'none' ?
-					undefined :
-					select('buttonVariant', ['none', ...Object.keys(VariantClassNames)], 'none')}
-			isTextTruncated={boolean('isTextTruncated', false)}
-			matchTriggerWidth={boolean('matchTriggerWidth', true)}
-			forceDesktop={boolean('forceDesktop', true)}
-			defaultLayout={boolean('defaultLayout', true)}
-			isDisabled={boolean('isDisabled', false)}
-			buttonContent={
-				<span>
-					<XUIIcon icon={education} className="xui-margin-right-xsmall"/>
-					{text('placeholder text', 'Choose a classic book')}
-				</span>
-			}
-		>
+storiesWithKnobs.add('Playground', () => (
+	<SelectBox
+		labelText={text('labelText', 'Label for the select box')}
+		isLabelHidden={boolean('isLabelHidden', false)}
+		buttonClasses={text('buttonClasses', '')}
+		containerClasses={text('containerClasses', '')}
+		dropDownClasses={text('dropDownClasses', '')}
+		inputGroupClasses={text('inputGroupClasses', '')}
+		buttonVariant={select('buttonVariant', ['none', ...Object.keys(VariantClassNames)], 'none') === 'none' ?
+			undefined :
+			select('buttonVariant', ['none', ...Object.keys(VariantClassNames)], 'none')}
+		isTextTruncated={boolean('isTextTruncated', false)}
+		matchTriggerWidth={boolean('matchTriggerWidth', true)}
+		forceDesktop={boolean('forceDesktop', true)}
+		defaultLayout={boolean('defaultLayout', true)}
+		isDisabled={boolean('isDisabled', false)}
+		buttonContent={
+			<span>
+				<XUIIcon icon={education} className="xui-margin-right-xsmall" />
+				{text('placeholder text', 'Choose a classic book')}
+			</span>
+		}
+	>
 		{createItems(toggledItems)}
-		</SelectBox>
-	);
-});
+	</SelectBox>
+));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
@@ -78,7 +74,7 @@ variations.forEach(variation => {
 		const variationMinusStoryDetails = {
 			isOpen: true,
 			buttonContent: button,
-			...variation
+			...variation,
 		};
 		const items = variationMinusStoryDetails.items || toggledItems;
 		delete variationMinusStoryDetails.items;
@@ -86,9 +82,11 @@ variations.forEach(variation => {
 		delete variationMinusStoryDetails.storyTitle;
 
 		return (
-			<SelectBox{...variationMinusStoryDetails}
-				labelText={variation.storyTitle}>
-			{createItems(items)}
+			<SelectBox
+				{...variationMinusStoryDetails}
+				labelText={variation.storyTitle}
+			>
+				{createItems(items)}
 			</SelectBox>
 		);
 	});

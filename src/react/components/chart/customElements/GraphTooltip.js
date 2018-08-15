@@ -1,24 +1,30 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import XUITooltip from '../../tooltip/XUITooltip';
-import {NAME_SPACE} from '../helpers/constants';
+import { NAME_SPACE } from '../helpers/constants';
 
 class GraphTooltip extends PureComponent {
 	render = () => {
-		const {qaHook, message, offset, left, top, width, height, preferred} = this.props;
+		const {
+			qaHook, message, offset, left, top, width, height, preferred,
+		} = this.props;
 		return (
 			<div
 				className={`${NAME_SPACE}-chart--tooltip`}
-				style={{top, height, width, left: left - offset}}>
+				style={{
+					top, height, width, left: left - offset,
+				}}
+			>
 				<XUITooltip
 					qaHook={qaHook}
-					trigger={<div style={{width, height}}/>}
+					trigger={<div style={{ width, height }} />}
 					isHidden={false}
 					preferredPosition={preferred}
 					triggerOnFocus={false}
 					triggerOnBlur={false}
 					triggerOnClick={false}
-					triggerOnHover={false}>
+					triggerOnHover={false}
+				>
 					{message}
 				</XUITooltip>
 			</div>
@@ -44,5 +50,5 @@ GraphTooltip.propTypes = {
 };
 
 GraphTooltip.defaultProps = {
-  preferred: 'top',
+	preferred: 'top',
 };

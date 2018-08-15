@@ -1,16 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import XUIButton from '../../button';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import XUIButton from '../../button';
+import { ns } from '../helpers/xuiClassNamespace';
 
-export default function XUIBannerAction(props) {
-	const className = cn(props.className, `${ns}-button-small`);
-	const buttonQaHook = props.qaHook && `${props.qaHook}--button`;
+export default function XUIBannerAction({
+	className,
+	qaHook,
+	onClick,
+	href,
+	isLink,
+	children,
+}) {
+	const buttonClassName = cn(className, `${ns}-button-small`);
+	const buttonQaHook = qaHook && `${qaHook}--button`;
 
 	return (
-		<li className={`${ns}-banner--action`} data-automationid={props.qaHook}>
-			<XUIButton onClick={props.onClick} href={props.href} isLink={props.isLink} variant="link" className={className} qaHook={buttonQaHook}>{props.children}</XUIButton>
+		<li className={`${ns}-banner--action`} data-automationid={qaHook}>
+			<XUIButton
+				onClick={onClick}
+				href={href}
+				isLink={isLink}
+				variant="link"
+				className={buttonClassName}
+				qaHook={buttonQaHook}
+			>
+				{children}
+			</XUIButton>
 		</li>
 	);
 }
@@ -24,9 +40,9 @@ XUIBannerAction.propTypes = {
 	/** URL of the link */
 	href: PropTypes.string,
 	/** Whether or not to render this button using an anchor element */
-	isLink: PropTypes.bool
+	isLink: PropTypes.bool,
 };
 
 XUIBannerAction.defaultProps = {
-	isLink: false
+	isLink: false,
 };

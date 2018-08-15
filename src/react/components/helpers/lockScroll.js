@@ -19,13 +19,15 @@ export const isScrollLocked = () => document.documentElement.classList.contains(
  * @export
  */
 export const lockScroll = () => {
-	scrollLockCount++;
+	scrollLockCount += 1;
 	if (!isScrollLocked()) {
-		const body = document.body;
+		const { body } = document;
 		const html = document.documentElement;
 		const existingPadding = parseInt(getComputedStyle(body, 'paddingRight'), 10);
 		const scrollbarSize = calcScrollbarWidth();
-		const newPadding = isNaN(existingPadding) || !isFinite(existingPadding) ? scrollbarSize : scrollbarSize + existingPadding;
+		const newPadding = Number.isNaN(existingPadding) || !Number.isFinite(existingPadding)
+			? scrollbarSize
+			: scrollbarSize + existingPadding;
 
 		// FF scrolls the HTML element.  Chrome scrolls the body.  Handle either.
 		const scrollElement = body.scrollTop > 0 || html.scrollTop === 0 ? body : html;
@@ -62,6 +64,6 @@ export const unlockScroll = () => {
 		window.scrollTo(scrollState.left, scrollState.top);
 	}
 	if (scrollLockCount) {
-		scrollLockCount--;
+		scrollLockCount -= 1;
 	}
 };

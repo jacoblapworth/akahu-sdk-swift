@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import XUIIcon from '../../icon/XUIIcon';
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class XUIAccordionItemEmptyState extends PureComponent {
 	render() {
@@ -10,7 +10,8 @@ export default class XUIAccordionItemEmptyState extends PureComponent {
 		return (
 			<div
 				data-automationid={qaHook}
-				className={`${ns}-accordion-new--emptystate`}>
+				className={`${ns}-accordion-new--emptystate`}
+			>
 				<XUIIcon size="large" icon={emptyIcon} />
 				<div>{children}</div>
 			</div>

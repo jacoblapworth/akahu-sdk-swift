@@ -16,7 +16,7 @@ const LongListLongItems = [
 	'The Canterbury Tales',
 	'The Woman in White',
 	'The Call of the Wild, White Fang and Other Stories',
-	'The Metamorphosis, In the Penal Colony, and Other Stories: The Great Short Works of Franz Kafka'
+	'The Metamorphosis, In the Penal Colony, and Other Stories: The Great Short Works of Franz Kafka',
 ];
 
 const MedListMedItems = [
@@ -29,7 +29,7 @@ const MedListMedItems = [
 	'Frankenstein',
 	'Sense and Sensibility',
 	'Fahrenheit 451',
-	'Romeo and Juliet'
+	'Romeo and Juliet',
 ];
 
 const ShortListShortItems = [
@@ -38,19 +38,15 @@ const ShortListShortItems = [
 	'The Hobbit',
 	'Dracula',
 	'Emma',
-	'Macbeth'
+	'Macbeth',
 ];
 
 // Commonly used for building PickItems.
-const AddIdPropsToTextList = (stringList) => {
-	return stringList.map( (text,id) => {
-		return { props: { id }, text };
-	});
-};
+const AddIdPropsToTextList = stringList => stringList.map((text, id) => ({ props: { id }, text }));
 
 module.exports = {
 	LongListLongItems,
 	MedListMedItems,
 	ShortListShortItems,
-	AddIdPropsToTextList
+	AddIdPropsToTextList,
 };

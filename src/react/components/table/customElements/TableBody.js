@@ -1,6 +1,6 @@
 import React, { PureComponent, createElement } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames'
+import cn from 'classnames';
 import XUICheckbox from '../../checkbox/XUICheckbox';
 import {
 	getCellLocation,
@@ -11,7 +11,7 @@ import {
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 import OverflowMenu from './OverflowMenu';
 import TableData from './TableData';
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 const BODY_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-padding-small`;
 
@@ -36,22 +36,25 @@ class TableBody extends PureComponent {
 		return (
 			<TableData
 				className={className}
-				tabIndex="-1">
+				tabIndex="-1"
+			>
 				{NBSP}
 				<XUICheckbox
 					className={`${NAME_SPACE}--checkbox-body`}
 					isChecked={isChecked}
-					onChange={(event) => onCheckOneToggle(event, _id)}
+					onChange={event => onCheckOneToggle(event, _id)}
 					tabIndex={0}
 					isLabelHidden
 				>
-				{checkOneRowLabel}
+					{checkOneRowLabel}
 				</XUICheckbox>
 			</TableData>
 		);
 	};
 
-	createOverflowMenuCell = ({ rowData, createOverflowMenu, overflowMenuTitle, dividerClasses }) => {
+	createOverflowMenuCell = ({
+		rowData, createOverflowMenu, overflowMenuTitle, dividerClasses,
+	}) => {
 		const items = createOverflowMenu && createOverflowMenu(rowData);
 		const hasItems = Boolean(items && items.length);
 		const className = cn(
@@ -64,12 +67,14 @@ class TableBody extends PureComponent {
 		return (
 			<TableData
 				className={className}
-				tabIndex="-1">
+				tabIndex="-1"
+			>
 				{NBSP}
 				{hasItems && (
 					<OverflowMenu
 						items={items}
-						overflowMenuTitle={overflowMenuTitle}/>
+						overflowMenuTitle={overflowMenuTitle}
+					/>
 				)}
 			</TableData>
 		);
@@ -107,11 +112,11 @@ class TableBody extends PureComponent {
 		);
 
 		return createElement(TableData, {
-				key,
-				className,
-				onFocus: ensureCellVisibility,
-				...interactionProps,
-			}, children);
+			key,
+			className,
+			onFocus: ensureCellVisibility,
+			...interactionProps,
+		}, children);
 	};
 
 	render = () => {
@@ -135,23 +140,24 @@ class TableBody extends PureComponent {
 			<tbody className={`${NAME_SPACE}--body`}>
 
 				{data && data.map((rowData, rowIndex) => {
-					const rowClickCallback = createRowClickCallback({shouldRowClick, rowData, onRowClick})
+					const rowClickCallback = createRowClickCallback({ shouldRowClick, rowData, onRowClick });
 					const isRowLink = rowClickCallback ? Boolean(rowClickCallback) : undefined;
 					const interactionProps = isRowLink && createInteractionProps(rowClickCallback, rowData);
 					const dividerClasses = createDividerClassesThunk(rowIndex);
 					const className = cn(
 						`${NAME_SPACE}--row`,
 						{ [`${NAME_SPACE}--row-link`]: isRowLink },
-						{ [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence }
+						{ [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence },
 					);
 
 					return (
 						<tr
 							{...interactionProps}
-							key={`row-${rowIndex}`}
+							key={`row-${rowIndex}`} // eslint-disable-line react/no-array-index-key
 							className={className}
 							onPointerOver={isRowLink && (() => this.setState(() => ({ hasPrecedence: true })))}
-							onPointerOut={isRowLink && (() => this.setState(() => ({ hasPrecedence: false })))}>
+							onPointerOut={isRowLink && (() => this.setState(() => ({ hasPrecedence: false })))}
+						>
 
 							{hasCheckbox && this.createCheckBoxCell({
 								rowData,
@@ -171,7 +177,7 @@ class TableBody extends PureComponent {
 									ensureCellVisibility,
 									cellLocation: getCellLocation({
 										columns, index: columnIndex, hasCheckbox, hasOverflowMenu,
-									})
+									}),
 								})
 							))}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default function XUIBannerActions(props) {
 	const className = cn(props.className, `${ns}-banner--actions`);
@@ -16,5 +16,5 @@ export default function XUIBannerActions(props) {
 XUIBannerActions.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
-	qaHook: PropTypes.string
+	qaHook: PropTypes.string,
 };

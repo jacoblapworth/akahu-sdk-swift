@@ -10,24 +10,22 @@ import XUIToastMessage from './XUIToastMessage';
 
 const sentiments = Object.keys(sentimentMap);
 
-export default function XUIToast(
-	{
-		qaHook,
-		isHidden,
-		sentiment,
-		onCloseClick,
-		onMouseOver,
-		onMouseLeave,
-		children,
-		defaultLayout,
-		actions,
-		message,
-		role,
-		primaryAction,
-		secondaryAction
-	}
-) {
-
+export default function XUIToast({
+	className,
+	qaHook,
+	isHidden,
+	sentiment,
+	onCloseClick,
+	onMouseOver,
+	onMouseLeave,
+	children,
+	defaultLayout,
+	actions,
+	message,
+	role,
+	primaryAction,
+	secondaryAction,
+}) {
 	const sentimentData = sentimentMap[sentiment];
 	const sentimentClass = sentimentData && sentimentData.class;
 	const a11yRole = role || (sentimentData && sentimentData.role) || 'status';
@@ -43,7 +41,8 @@ export default function XUIToast(
 	const actionsNewAPI = primaryAction != null ? (
 		<XUIToastActions
 			primaryAction={primaryAction}
-			secondaryAction={secondaryAction}>
+			secondaryAction={secondaryAction}
+		>
 			{actions}
 		</XUIToastActions>
 	) : null;
@@ -52,10 +51,11 @@ export default function XUIToast(
 		baseClass,
 		isHidden && `${baseClass}-is-hidden`,
 		defaultLayout && `${baseClass}-layout`,
-		sentimentClass
+		sentimentClass,
+		className,
 	);
 
-	const close = onCloseClick ?
+	const close = onCloseClick ? (
 		<XUIButton
 			qaHook={buttonQAHook}
 			className={`${baseClass}--close`}
@@ -65,7 +65,7 @@ export default function XUIToast(
 		>
 			<XUIIcon icon={cross} isBoxed />
 		</XUIButton>
-		: null;
+	) : null;
 
 	return (
 		<div
@@ -85,7 +85,6 @@ export default function XUIToast(
 			{actionsNewAPI}
 		</div>
 	);
-
 }
 
 XUIToast.propTypes = {
@@ -96,17 +95,17 @@ XUIToast.propTypes = {
 	/** Facility to pass in custom children */
 	children: PropTypes.node,
 	/** Hides the component when set to true */
-	isHidden : PropTypes.bool,
+	isHidden: PropTypes.bool,
 	/** The sentiment of the toast (positive or negative) */
-	sentiment : PropTypes.oneOf(sentiments),
+	sentiment: PropTypes.oneOf(sentiments),
 	/** When defined, displays the close button */
-	onCloseClick : PropTypes.func,
+	onCloseClick: PropTypes.func,
 	/** Handles the event for when the mouse hovers over the toast */
-	onMouseOver : PropTypes.func,
+	onMouseOver: PropTypes.func,
 	/** Handles the event for when the mouse moves out of the toast */
-	onMouseLeave : PropTypes.func,
+	onMouseLeave: PropTypes.func,
 	/** Applies default layout class to the component */
-	defaultLayout : PropTypes.bool,
+	defaultLayout: PropTypes.bool,
 	/** Applies a role attribute to the toast element.
 	 * This will override any component-determined value.
 	 * Set to `status` by default
@@ -120,14 +119,13 @@ XUIToast.propTypes = {
 	 * `secondaryAction` */
 	primaryAction: PropTypes.node,
 	/** Secondary action */
-	secondaryAction: (props, propName) => {
-		if (!props.primaryAction && props[propName] != null) {
-			return new Error(`${propName} only gets rendered when you supply a primaryAction`);
-		}
-	}
+	secondaryAction: (props, propName) =>
+		((!props.primaryAction && props[propName] != null)
+			? new Error(`${propName} only gets rendered when you supply a primaryAction`)
+			: null),
 };
 
 XUIToast.defaultProps = {
-	isHidden : false,
-	defaultLayout: true
+	isHidden: false,
+	defaultLayout: true,
 };

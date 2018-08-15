@@ -7,59 +7,57 @@ Enzyme.configure({ adapter: new Adapter() });
 jest.useFakeTimers();
 
 describe('autocompleter helpers', () => {
-    describe('isVisible', () => {
-        it('should return true for a visible html element', () => {
-            const node = mount(<div id='visibleElement'></div>);
+	describe('isVisible', () => {
+		it('should return true for a visible html element', () => {
+			const node = mount(<div id="visibleElement" />);
 
-            expect(isVisible(node.instance())).toBeTruthy();
-        });
+			expect(isVisible(node.instance())).toBeTruthy();
+		});
 
-        it('should return false for an invisible html element', () => {
-            const node = mount(<div id='visibleElement' style={ { visibility: 'hidden' } }></div>);
+		it('should return false for an invisible html element', () => {
+			const node = mount(<div id="visibleElement" style={{ visibility: 'hidden' }} />);
 
-            expect(isVisible(node.instance())).toBeFalsy();
-        });
+			expect(isVisible(node.instance())).toBeFalsy();
+		});
+	});
 
-    });
+	describe('intervalRunner', () => {
+		it('should run until the check returns true', done => {
+			let count = 0;
+			let success = false;
+			const check = jest.fn().mockImplementation(() => {
+				if (count <= 5) {
+					count += 1;
+					return false;
+				}
 
-    describe('intervalRunner', () => {
-        it('should run until the check returns true', (done) => {
-            let count = 0;
-            let success = false;
-            const check = jest.fn().mockImplementation(() => {
-                if(count <= 5){
-                    count++
-                    return false;
-                }
+				return true;
+			});
+			const callback = jest.fn().mockImplementation(() => {
+				success = true;
+				done();
+			});
 
-                return true;
-            } );
-            const callback = jest.fn().mockImplementation(() => {
-                success = true;
-                done();
-            });
+			expect(success).toBeFalsy();
 
-            expect(success).toBeFalsy();
+			intervalRunner(check, callback);
+			// This function is marked to change to advanceTimersByTime from version 21.3.0
+			jest.runTimersToTime(1000);
 
-            intervalRunner(check, callback);
-            // This function is marked to change to advanceTimersByTime from version 21.3.0
-            jest.runTimersToTime(1000);
+			expect(check.mock.calls.length).toBeGreaterThan(5);
+			expect(callback.mock.calls.length).toEqual(1);
+			expect(success).toBeTruthy();
+		});
 
-            expect(check.mock.calls.length).toBeGreaterThan(5);
-            expect(callback.mock.calls.length).toEqual(1);
-            expect(success).toBeTruthy();
+		it('should never call the successful callback if the check is never returned true', () => {
+			const check = jest.fn().mockImplementation(() => false);
+			const callback = jest.fn();
+			intervalRunner(check, callback);
+			// This function is marked to change to advanceTimersByTime from version 21.3.0
+			jest.runTimersToTime(1000);
 
-        });
-
-        it('should never call the successful callback if the check is never returned true', () => {
-            const check = jest.fn().mockImplementation(() => false);
-            const callback = jest.fn()
-            intervalRunner(check, callback);
-            // This function is marked to change to advanceTimersByTime from version 21.3.0
-            jest.runTimersToTime(1000);
-
-            expect(check.mock.calls.length).toBeGreaterThan(5);
-            expect(callback.mock.calls.length).toEqual(0);
-        });
-    });
+			expect(check.mock.calls.length).toBeGreaterThan(5);
+			expect(callback.mock.calls.length).toEqual(0);
+		});
+	});
 });

@@ -1,13 +1,13 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClass = `${ns}-toast`;
 export const sentimentMap = {
 	positive: {
 		class: `${baseClass}-positive`,
-		role: 'alert'
+		role: 'alert',
 	},
 	negative: {
 		class: `${baseClass}-negative`,
-		role: 'alert'
-	}
+		role: 'alert',
+	},
 };

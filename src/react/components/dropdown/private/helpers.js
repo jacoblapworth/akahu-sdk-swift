@@ -19,12 +19,13 @@ export const isVisible = node => node && window.getComputedStyle(node).visibilit
  *
  * @return {boolean}
  */
-export const isRendered = element => element && element.offsetHeight > 0 &&  element.offsetWidth > 0;
+export const isRendered = element => element && element.offsetHeight > 0 && element.offsetWidth > 0;
 
 /**
- * Attempts to run the passed predicate, if successful it will run the callback method and clear. If unsuccessful, it
- * will run several times over five seconds. If it's still unsuccessful after that it will try again several times over
- * a half second. If it's still not successful it will stop trying.
+ * Attempts to run the passed predicate, if successful it will run the callback method and clear.
+ * If unsuccessful, it will run several times over five seconds. If it's still unsuccessful after
+ * that it will try again several times over a half second. If it's still not successful it will
+ * stop trying.
  *
  * @public
  * @param {Function} predicate
@@ -38,15 +39,15 @@ export const intervalRunner = (predicate, callback) => {
 		let interval = 0;
 		const maxCount = 5;
 		const delay = 100;
-		const checker = function () {
+		const checker = () => {
 			const check = predicate();
 			if (check) {
 				callback();
 			}
-			if (check|| counter > maxCount) {
+			if (check || counter > maxCount) {
 				clearInterval(interval);
 			}
-			counter++;
+			counter += 1;
 		};
 
 		interval = setInterval(checker, delay);
@@ -71,15 +72,17 @@ export function scrollTopPosition(itemDOM, scrollableDOM) {
 	let scrollTopAmount = scrollableDOM.scrollTop;
 
 	if (elRect.bottom > scrollableElRect.bottom) {
-		scrollTopAmount = scrollTopAmount + (elRect.bottom - scrollableElRect.bottom);
+		scrollTopAmount += (elRect.bottom - scrollableElRect.bottom);
 	} else if (elRect.top < scrollableElRect.top) {
-		scrollTopAmount = scrollTopAmount - (scrollableElRect.top - elRect.top);
+		scrollTopAmount -= (scrollableElRect.top - elRect.top);
 	}
 
 	return scrollTopAmount;
 }
 
-export const isNarrowViewport = () => typeof window !== 'undefined' && window.document.documentElement.clientWidth < breakpoints.narrow;
+export const isNarrowViewport = () =>
+	typeof window !== 'undefined'
+	&& window.document.documentElement.clientWidth < breakpoints.narrow;
 
 /**
  * Add the window event listeners that the DropDownToggled depends on.
@@ -127,10 +130,10 @@ export const throttleToFrame = fn => {
 		fn();
 		requestingFrame = false;
 	};
-	return function () {
+	return () => {
 		if (!requestingFrame) {
 			window.requestAnimationFrame(wrapped);
 			requestingFrame = true;
 		}
 	};
-}
+};

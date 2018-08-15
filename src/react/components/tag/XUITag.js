@@ -1,22 +1,28 @@
-import '../helpers/xuiGlobalChecks';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+import '../helpers/xuiGlobalChecks';
 import { baseClass, variants } from './private/constants';
 
-const XUITag = ({className, variant, qaHook, children}) =>
+const XUITag = ({
+	className,
+	variant,
+	qaHook,
+	children,
+}) => (
 	<span
 		className={cn(
 			baseClass,
 			className,
-			variants[variant]
+			variants[variant],
 		)}
 		role="status"
 		data-automationid={qaHook}
 	>
 		{children}
-	</span>;
+	</span>
+);
 
 XUITag.propTypes = {
 	children: PropTypes.node,
@@ -27,7 +33,7 @@ XUITag.propTypes = {
 };
 
 XUITag.defaultProps = {
-	variant: 'standard'
+	variant: 'standard',
 };
 
 export { XUITag as default, variants };

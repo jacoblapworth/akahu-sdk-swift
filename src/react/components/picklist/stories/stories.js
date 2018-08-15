@@ -21,10 +21,10 @@ import { storiesWithVariationsKindName, variations } from './variations';
 const itemLabels = [
 	'Hello, I am an item',
 	'Short item',
-	'This item will be a bit longer and just fine!'
+	'This item will be a bit longer and just fine!',
 ];
 
-const buildItemsFromSettings = function(settings, listIndex, componentType) {
+const buildItemsFromSettings = function (settings, listIndex, componentType) {
 	const listItems = [];
 	settings.forEach((item, itemIndex) => {
 		const unique = `${listIndex}-${itemIndex}`;
@@ -36,14 +36,14 @@ const buildItemsFromSettings = function(settings, listIndex, componentType) {
 	return listItems;
 };
 
-const buildLists = function(lists, componentType) {
+const buildLists = function (lists, componentType) {
 	const builtLists = [];
 	lists.forEach((list, index) => {
-		const listObj = {...list};
+		const listObj = { ...list };
 		const listItems = buildItemsFromSettings(listObj.items, index, componentType);
 		delete listObj.items;
 		const secProps = {
-			role: componentType != 'StatefulPicklist' ? 'listbox' : 'tree'
+			role: componentType != 'StatefulPicklist' ? 'listbox' : 'tree',
 		};
 		if (componentType === 'NestedPicklist') {
 			builtLists.push(<NestedPicklist key={index} secondaryProps={secProps} {...listObj}>{listItems}</NestedPicklist>);
@@ -61,11 +61,15 @@ storiesWithKnobs.add('Playground', () => (
 	<XUIPicklist
 		defaultLayout={boolean('defaultLayout', true)}
 		isHorizontal={boolean('isHorizontal', false)}
-		secondaryProps={{role: 'listbox'}}
+		secondaryProps={{ role: 'listbox' }}
 	>
-		<XUIPickitem key="1" id="1"
+		<XUIPickitem
+			key="1"
+			id="1"
 			isSelected={boolean('first item isSelected', false)}
-			isDisabled={boolean('first item isDisabled', false)}>Item number 1</XUIPickitem>
+			isDisabled={boolean('first item isDisabled', false)}
+		>Item number 1
+		</XUIPickitem>
 		<XUIPickitem key="2" id="2">Item two is a rather long so we can see what that does</XUIPickitem>
 		<XUIPickitem key="3" id="3">Item 3 is medium length</XUIPickitem>
 	</XUIPicklist>
@@ -86,10 +90,10 @@ variations.forEach(variation => {
 
 	storiesWithVariations.add(storyTitle, () => {
 		if (componentType === 'markupOnly') {
-			return <div className="xui-panel" style={{width: "500px"}} dangerouslySetInnerHTML={{__html: markup}}></div>;
+			return <div className="xui-panel" style={{ width: '500px' }} dangerouslySetInnerHTML={{ __html: markup }} />;
 		} else if (componentType === 'XUIIcon') {
 			return (
-				<div className="xui-panel" style={{width: "500px"}}>
+				<div className="xui-panel" style={{ width: '500px' }}>
 					<ul className="xui-picklist xui-picklist-layout" role="tree">
 						<li className="xui-pickitem" role="treeitem">
 							<XUIIcon icon={view} className="xui-pickitem--icon" isBoxed />
@@ -112,19 +116,18 @@ variations.forEach(variation => {
 		} else if (componentType === 'NestedPicklist') {
 			return (
 				<XUIPicklist {...variationMinusStoryDetails}>
-						<NestedPicklistContainer id="nested" isOpen={isOpen}>
-							<NestedPicklistTrigger id="nestedTrigger">Nested list</NestedPicklistTrigger>
-							{listComponents[0]}
-						</NestedPicklistContainer>
-						<NestedPicklistContainer id="split" isOpen={isOpen}>
-							<XUIPickitem id="splitTrigger" isSplit={true} isMultiselect={true}>Split nested list</XUIPickitem>
-							<NestedPicklistTrigger id="nestedSplit" />
-							{listComponents[1]}
-						</NestedPicklistContainer>
-					</XUIPicklist>
+					<NestedPicklistContainer id="nested" isOpen={isOpen}>
+						<NestedPicklistTrigger id="nestedTrigger">Nested list</NestedPicklistTrigger>
+						{listComponents[0]}
+					</NestedPicklistContainer>
+					<NestedPicklistContainer id="split" isOpen={isOpen}>
+						<XUIPickitem id="splitTrigger" isSplit isMultiselect>Split nested list</XUIPickitem>
+						<NestedPicklistTrigger id="nestedSplit" />
+						{listComponents[1]}
+					</NestedPicklistContainer>
+				</XUIPicklist>
 			);
-		} else {
-			return listComponents;
 		}
+		return listComponents;
 	});
 });

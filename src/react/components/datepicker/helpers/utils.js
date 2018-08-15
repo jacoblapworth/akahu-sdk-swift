@@ -8,7 +8,7 @@ import { DateUtils } from 'react-day-picker';
  * @returns {String}
  */
 export function zeroPad(number) {
-  return number < 10 ? `0${number}` : number.toString();
+	return number < 10 ? `0${number}` : number.toString();
 }
 
 /**
@@ -19,13 +19,13 @@ export function zeroPad(number) {
  * @returns {Boolean}
  */
 export function normalizeRange(range) {
-  if (!range) {
-    return null;
-  }
-  return {
-    from: range.from == null ? null : range.from,
-    to: range.to == null ? null : range.to,
-  };
+	if (!range) {
+		return null;
+	}
+	return {
+		from: range.from == null ? null : range.from,
+		to: range.to == null ? null : range.to,
+	};
 }
 
 /**
@@ -37,7 +37,7 @@ export function normalizeRange(range) {
  * @returns {String}
  */
 export function formatDateISO(date) {
-	return  `${date.getFullYear()}-${zeroPad(date.getMonth() + 1)}-${zeroPad(date.getDate())}`;
+	return `${date.getFullYear()}-${zeroPad(date.getMonth() + 1)}-${zeroPad(date.getDate())}`;
 }
 
 /**

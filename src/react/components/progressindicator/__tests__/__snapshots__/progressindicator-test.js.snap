@@ -2648,7 +2648,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />
@@ -2658,7 +2658,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />
@@ -2668,7 +2668,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />
@@ -2678,7 +2678,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />
@@ -2860,7 +2860,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "30px",
-                  "margin": "0",
+                  "margin": "0 0 0 0",
                 }
               }
             >
@@ -2881,7 +2881,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "30px",
-                  "margin": "0",
+                  "margin": "0 0 0 0",
                 }
               }
             >
@@ -2902,7 +2902,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "30px",
-                  "margin": "0",
+                  "margin": "0 0 0 0",
                 }
               }
             >
@@ -3016,7 +3016,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "30px",
-                  "margin": "0 15px",
+                  "margin": "0 15px 0 15px",
                 }
               }
             />
@@ -3026,7 +3026,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "30px",
-                  "margin": "0 15px",
+                  "margin": "0 15px 0 15px",
                 }
               }
             />
@@ -3036,7 +3036,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "30px",
-                  "margin": "0 15px",
+                  "margin": "0 15px 0 15px",
                 }
               }
             />
@@ -3126,7 +3126,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />
@@ -3136,7 +3136,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />
@@ -3146,7 +3146,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               style={
                 Object {
                   "height": "4px",
-                  "margin": "0 2px",
+                  "margin": "0 2px 0 2px",
                 }
               }
             />

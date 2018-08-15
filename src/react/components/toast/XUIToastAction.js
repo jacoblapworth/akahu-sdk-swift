@@ -35,6 +35,7 @@ XUIToastAction.propTypes = {
 	children: PropTypes.node,
 	/** Turns the button into a link and gives it the href you provide */
 	href: PropTypes.string,
-	/** Typically internal prop that, when used with the new XUIActions component, removes the extra `<ul>` wrapping element */
-	usesActions: PropTypes.bool
+	/** Typically internal prop that, when used with the new XUIActions component,
+	 * removes the extra `<ul>` wrapping element */
+	usesActions: PropTypes.bool,
 };

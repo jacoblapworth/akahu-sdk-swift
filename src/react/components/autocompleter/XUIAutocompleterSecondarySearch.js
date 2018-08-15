@@ -2,16 +2,16 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
+import searchPath from '@xero/xui-icon/icons/search';
 
 import DropDown from '../dropdown/DropDown';
 import DropDownToggled from '../dropdown/DropDownToggled';
-import searchPath from '@xero/xui-icon/icons/search'
 import XUITextInput from '../textInput/XUITextInput';
 import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
 import XUIIcon from '../icon/XUIIcon';
 
-import { compose } from '../helpers/compose';
-import { ns } from "../helpers/xuiClassNamespace";
+import compose from '../helpers/compose';
+import { ns } from '../helpers/xuiClassNamespace';
 
 import { intervalRunner, isVisible } from './private/helpers';
 
@@ -33,8 +33,9 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			this.bindOnChange(searchThrottleInterval);
 		}
 		if (prevProps.searchValue !== searchValue) {
-			this.setState({
-				value: searchValue
+			// TODO: Lint - try remove setState
+			this.setState({ // eslint-disable-line
+				value: searchValue,
 			});
 		}
 		this.highlightFirstItem();
@@ -55,7 +56,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 			this.throttledOnChange = event => {
 				event.persist();
 				this.setState({
-					value: event.target.value
+					value: event.target.value,
 				});
 				throttled(event.target.value);
 			};
@@ -70,7 +71,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	clearValue = () => {
-		this.setState({ value: "" });
+		this.setState({ value: '' });
 	}
 
 	/**
@@ -97,7 +98,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	highlightItem = item => {
-		if(this.dropdown) {
+		if (this.dropdown) {
 			this.dropdown.highlightItem(item);
 		}
 	}
@@ -108,13 +109,13 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	 * @public
 	 */
 	highlightFirstItem = () => {
-		if(this.dropdown) {
+		if (this.dropdown) {
 			this.dropdown.highlightFirstItem();
 		}
 	}
 
 	/**
-	 * Focuses the autocompleter input before calling props.onOpen
+	 * Focuses the autocompleter input before calling onOpen
 	 *
 	 * @public
 	 */
@@ -139,86 +140,114 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 	}
 
 	render() {
-		const completer = this;
-		const props = completer.props;
-		const { value } = completer.state;
+		const {
+			qaHook,
+			dropdownSize,
+			dropdownClassName,
+			inputClassName,
+			inputContainerClassName,
+			placeholder,
+			inputLabelText,
+			isInputLabelHidden,
+			inputProps,
+			inputId,
+			onOptionSelect,
+			id,
+			dropdownFixedWidth,
+			footer,
+			restrictFocus,
+			children,
+			className,
+			trigger,
+			onClose,
+			closeOnSelect,
+			closeOnTab,
+			matchTriggerWidth,
+			isBlock,
+			forceDesktop,
+		} = this.props;
+		const { value } = this.state;
 
 		let listQaHook = null;
 		let containerQaHook = null;
-		if (props.qaHook) {
-			listQaHook = `${props.qaHook}--list`;
-			containerQaHook = `${props.qaHook}--container`;
+		if (qaHook) {
+			listQaHook = `${qaHook}--list`;
+			containerQaHook = `${qaHook}--container`;
 		}
 		const dropdownClasses = cn(
-			!props.dropdownSize && `${ns}-u-fullwidth`,
-			props.dropdownClassName,
+			!dropdownSize && `${ns}-u-fullwidth`,
+			dropdownClassName,
 		);
 		const searchItem = (
-				<div className={`${ns}-dropdown--header-container`}>
-					<XUITextInput
-						className={props.inputClassName}
-						containerClassName={props.inputContainerClassName}
-						value={value || ""}
-						leftElement={
-							<XUITextInputSideElement>
-								<XUIIcon icon={searchPath} isBoxed />
-							</XUITextInputSideElement>
-						}
-						placeholder={props.placeholder}
-						onChange={this.throttledOnChange}
-						inputRef={c => completer.input = c}
-						isBorderlessSolid
-						labelText={props.inputLabelText}
-						isLabelHidden={props.isInputLabelHidden}
-						inputProps={{
-							...props.inputProps,
-							'id': props.inputId,
-							'role': "textbox",
-							'aria-multiline': false,
-							'aria-autocomplete': "list",
-						}}
-					/>
+			<div className={`${ns}-dropdown--header-container`}>
+				<XUITextInput
+					className={inputClassName}
+					containerClassName={inputContainerClassName}
+					value={value || ''}
+					leftElement={
+						<XUITextInputSideElement>
+							<XUIIcon icon={searchPath} isBoxed />
+						</XUITextInputSideElement>
+					}
+					placeholder={placeholder}
+					onChange={this.throttledOnChange}
+					inputRef={c => this.input = c}
+					isBorderlessSolid
+					labelText={inputLabelText}
+					isLabelHidden={isInputLabelHidden}
+					inputProps={{
+						...inputProps,
+						'id': inputId,
+						'role': 'textbox',
+						'aria-multiline': false,
+						'aria-autocomplete': 'list',
+					}}
+				/>
 			</div>
 		);
-		const dropdownToggledClasses = !props.dropdownSize ? `${ns}-u-fullwidth` : null;
+		const dropdownToggledClasses = !dropdownSize ? `${ns}-u-fullwidth` : null;
 		const dropdown = (
 			<DropDown
-				ref={d => completer.dropdown = d}
-				ignoreKeyboardEvents={[32,37,39]} /* Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input */
+				ref={d => this.dropdown = d}
+				/* Space doesn't select in an autocompleter; left and right arrow keys should move
+				cursor in the input */
+				ignoreKeyboardEvents={[32, 37, 39]}
 				hasKeyboardEvents={false}
-				onSelect={props.onOptionSelect}
-				id={props.id}
+				onSelect={onOptionSelect}
+				id={id}
 				className={dropdownClasses}
 				qaHook={listQaHook}
-				size={props.dropdownSize}
-				fixedWidth={props.dropdownFixedWidth}
+				size={dropdownSize}
+				fixedWidth={dropdownFixedWidth}
 				header={searchItem}
-				footer={props.footer}
-				restrictFocus={props.restrictFocus}
+				footer={footer}
+				restrictFocus={restrictFocus}
 				shouldManageInitialHighlight={false}
-				forceStatefulPicklist={true}
+				forceStatefulPicklist
 				ariaRole="combobox"
 			>
-			{props.children}
-		</DropDown>);
+				{children}
+			</DropDown>
+		);
 
 		return (
 			<div
-				ref={c => completer.rootNode = c}
-				className={props.className}
+				ref={c => this.rootNode = c}
+				className={className}
 				data-automationid={containerQaHook}
 			>
 				<DropDownToggled
-					ref={c => completer.ddt = c}
-					trigger={props.trigger}
+					ref={c => this.ddt = c}
+					trigger={trigger}
 					dropdown={dropdown}
-					onOpen={completer.onOpen}
-					onClose={compose(this.props.onClose, this.clearValue)}
-					closeOnTab={props.closeOnTab}
-					closeOnSelect={props.closeOnSelect}
+					onOpen={this.onOpen}
+					onClose={compose(onClose, this.clearValue)}
+					closeOnTab={closeOnTab}
+					closeOnSelect={closeOnSelect}
 					className={dropdownToggledClasses}
-					matchTriggerWidth={props.matchTriggerWidth}
-					isBlock={props.isBlock}
+					matchTriggerWidth={matchTriggerWidth}
+					isBlock={isBlock}
+					forceDesktop={forceDesktop}
 				/>
 			</div>
 		);
@@ -229,11 +258,12 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Callback to handle when an option has been selected from the dropdown */
 	onOptionSelect: PropTypes.func,
 
-	/**
-	 * When set to true a loader will be displayed instead of the picklist items.
-	 * State for this should be managed externally and it's defaulted to false.
-	 */
-	loading: PropTypes.bool,
+	// TODO: Implement loading pattern
+	// /**
+	//  * When set to true a loader will be displayed instead of the picklist items.
+	//  * State for this should be managed externally and it's defaulted to false.
+	//  */
+	// loading: PropTypes.bool,
 
 	/** ID to be added to the dropdown element of the completer */
 	id: PropTypes.string,
@@ -259,8 +289,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Placeholder for the input */
 	placeholder: PropTypes.string,
 
-	/** A set of pills to show above the input.  Useful for showing what was selected in a multi-select */
-	pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	// /** A set of pills to show above the input.  Useful for showing what was selected
+	//  * in a multi-select */
+	// pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 
 	/** Callback for when the list opens */
 	onOpen: PropTypes.func,
@@ -280,11 +311,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
 
-	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've supplied a footer element with any links or interaction. */
+	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false,
+	 * if you've supplied a footer element with any links or interaction. */
 	closeOnTab: PropTypes.bool,
-
-	/** When set to true the dropdown will automatically open when the input is given focus. */
-	openOnFocus: PropTypes.bool,
 
 	/** Will be passed directly down to the DropDownToggled component as the main trigger. */
 	trigger: PropTypes.element.isRequired,
@@ -295,7 +324,8 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Label to show above the input */
 	inputLabelText: PropTypes.string,
 
-	/** Whether to allow the dropdown to take the full width of the wrapper (as SelectBox) or wrap with an inline block. */
+	/** Whether to allow the dropdown to take the full width of the wrapper (as SelectBox)
+	 * or wrap with an inline block. */
 	isBlock: PropTypes.bool,
 
 	/** Should label be applied as an aria-label, rather than being visibly displayed. */
@@ -304,7 +334,8 @@ XUIAutocompleterSecondarySearch.propTypes = {
 	/** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
 	forceDesktop: PropTypes.bool,
 
-	/** If a size is set, this will force the dropdown to that size instead of setting it as a max width. */
+	/** If a size is set, this will force the dropdown to that size instead of setting it
+	 * as a max width. */
 	dropdownFixedWidth: PropTypes.bool,
 
 	/** Whether focus should be restricted to the dropdown while it's open. */
@@ -325,9 +356,8 @@ XUIAutocompleterSecondarySearch.propTypes = {
 };
 
 XUIAutocompleterSecondarySearch.defaultProps = {
-	loading: false,
+	// loading: false,
 	searchThrottleInterval: 0,
-	openOnFocus: false,
 	inputId: 'secondary_search_input',
 	restrictFocus: true,
 };

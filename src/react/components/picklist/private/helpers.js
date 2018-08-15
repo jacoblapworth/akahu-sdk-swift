@@ -1,5 +1,7 @@
 import React, { Children } from 'react';
-import { compose } from '../../helpers/compose';
+import compose from '../../helpers/compose';
+// TODO: Fix up lint rules for this file
+/* eslint-disable */
 
 /**
  * Get the actual React component for a given element in the Children tree.  Useful for getting state off of a
@@ -80,7 +82,7 @@ const isNestedList = node => isComponent(node) && node.props._isGroup;
  *
  * @returns {boolean}
  */
-export function walk(node, test, opts={}) {
+export function walk(node, test, opts = {}) {
 	const { inCollapsedGroup, idCache } = opts;
 	if (test(node, inCollapsedGroup) === true) {
 		return true;
@@ -90,7 +92,7 @@ export function walk(node, test, opts={}) {
 			const iterator = child => {
 				const childOpts = {
 					inCollapsedGroup: inCollapsedGroup || (isNestedList(child) && isCollapsedNestedListContainer(node, idCache)),
-					idCache
+					idCache,
 				};
 				return walk(child, test, childOpts);
 			};
@@ -167,7 +169,7 @@ const matches = (node, el) => getId(node) === getId(el);
  * @param {React.element} node
  * @returns {boolean}
  */
-const isEnabledMenuItem = node  => isMenuItem(node) && !node.props.isDisabled;
+const isEnabledMenuItem = node => isMenuItem(node) && !node.props.isDisabled;
 
 /**
  * @private
@@ -184,7 +186,7 @@ function findLastMenuItem(node, idCache) {
 			lastItem = node;
 		}
 	};
-	walk(node, findLast, {idCache});
+	walk(node, findLast, { idCache });
 	return lastItem;
 }
 
@@ -216,7 +218,7 @@ export function findPreviousItem(node, el, idCache) {
 		}
 	};
 
-	walk(node, findPrevious, {idCache});
+	walk(node, findPrevious, { idCache });
 	if (previousItem == null) {
 		return findLastMenuItem(node, idCache);
 	}
@@ -274,7 +276,7 @@ export function findNextItem(node, el, idCache) {
 		}
 	};
 
-	walk(node, findNextMenuItem, {idCache});
+	walk(node, findNextMenuItem, { idCache });
 
 	if (nextItem == null) {
 		return findFirstMenuItem(node);
@@ -300,7 +302,7 @@ export function findInitialHighlightedItem(node, idCache) {
 			return true;
 		}
 	};
-	walk(node, findSelected, {idCache});
+	walk(node, findSelected, { idCache });
 
 	return item == null ? findFirstMenuItem(node, idCache) : item;
 }
@@ -350,7 +352,7 @@ function cloneMenuItem(node, spl) {
 		ref: compose(node.ref, c => spl.idCache[getId(node)] = c),
 		pickitemBodyProps: {
 			tabIndex: '-1',
-		}
+		},
 	};
 
 	if (!isNestedListTrigger(node)) {

@@ -11,5 +11,5 @@ export {
 	StatefulPicklist,
 	NestedPicklist,
 	NestedPicklistContainer,
-	NestedPicklistTrigger
+	NestedPicklistTrigger,
 };

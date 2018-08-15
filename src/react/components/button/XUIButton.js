@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
+// TODO: Fix lint in this file another time - some problems need a bit more thought
+/* eslint-disable */
 /**
  * Returns true if the button is a borderless variant
  *
@@ -12,9 +14,7 @@ import {ns} from "../helpers/xuiClassNamespace";
  * @param {string} variant - The button variant
  * @return {boolean} True if is a borderless button
  */
-const isBorderlessVariant = variant => {
-	return variant.indexOf('borderless') > -1;
-};
+const isBorderlessVariant = variant => variant.indexOf('borderless') > -1;
 
 /**
  * Returns true if the button is an icon variant
@@ -23,9 +23,7 @@ const isBorderlessVariant = variant => {
  * @param {string} variant - The button variant
  * @return {boolean} True if is an icon button
  */
-const isIconVariant = variant => {
-	return variant.indexOf('icon') > -1;
-};
+const isIconVariant = variant => variant.indexOf('icon') > -1;
 
 /**
  * Returns a class name for the button depending on the button variant string given. Will return
@@ -35,10 +33,13 @@ const isIconVariant = variant => {
  * @param {string} variant - The button variant
  * @return {string} The variant specific class name
  */
-const getVariantClass = variant => {
-	return VariantClassNames.hasOwnProperty(variant) ? VariantClassNames[variant] : `${ns}-button-standard`;
-};
+const getVariantClass = variant => (
+	VariantClassNames[variant] !== undefined
+		? VariantClassNames[variant]
+		: `${ns}-button-standard`
+);
 
+/* eslint-disable no-script-url */
 /**
  * Replaces any href of `#` or undefined with `javascript:void(0)`. Else returns the passed href.
  *
@@ -46,7 +47,8 @@ const getVariantClass = variant => {
  * @param {string} href - A given link's href
  * @return {string} The href that will be assigned to a link
  */
-const getHref = href => (!href || href === '#') ? 'javascript:void(0)' : href;
+const getHref = href => ((!href || href === '#') ? 'javascript:void(0)' : href);
+/* eslint-enable no-script-url */
 
 /**
  * KeyPress handler which will dispatch a click event when the space bar is pressed.
@@ -88,12 +90,17 @@ function handleSpacebarAsClick(event, props) {
 					shiftKey: false,
 					metaKey: false,
 					button: 0,
-					relatedTarget: null
+					relatedTarget: null,
 				});
 			} else {
 				clickEvent = document.createEvent('MouseEvents');
-				// If you're seeing a line through initMouseEvent because WebStorm, read the comment above the if statement
-				clickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+				// If you're seeing a line through initMouseEvent because WebStorm, read the comment
+				// above the if statement
+				clickEvent.initMouseEvent(
+					'click', true, true, window,
+					0, 0, 0, 0, 0,
+					false, false, false, false, 0, null,
+				);
 			}
 			event.target.dispatchEvent(clickEvent);
 		}
@@ -101,20 +108,22 @@ function handleSpacebarAsClick(event, props) {
 }
 
 /**
- * Links styled as buttons require a specific set of attributes to ensure proper functionality and accessibility.
- * This function ensures that those props will be added to the element.
+ * Links styled as buttons require a specific set of attributes to ensure proper functionality
+ * and accessibility. This function ensures that those props will be added to the element.
  *
  * @private
  * @param {Object} props
  * @param {Object} elementProps
  */
 const setupLinkProps = (props, elementProps) => {
-	// If this is just a plain link styled to be a button, the button role is not needed.  However, if this is a link
-	// which is styled to look AND function like a button, then we'll need the role.
+	/** If this is just a plain link styled to be a button, the button role is not needed.
+	 * However, if this is a link which is styled to look AND function like a button,
+	 * then we'll need the role.
+	 * */
 	if (!props.href || props.onClick) {
 		elementProps.role = 'button';
 	}
-	elementProps.onKeyPress = function(e) {
+	elementProps.onKeyPress = function (e) {
 		handleSpacebarAsClick(e, props);
 	};
 	elementProps.href = getHref(props.href);
@@ -122,7 +131,8 @@ const setupLinkProps = (props, elementProps) => {
 	elementProps.rel = props.rel;
 
 	if (props.isExternalLink) {
-		elementProps.rel = (elementProps.rel ? elementProps.rel + ' ' : '') + 'external noopener noreferrer'
+		const rel = elementProps.rel ? `${elementProps.rel} ` : '';
+		elementProps.rel = `${rel}external noopener noreferrer`;
 	}
 
 	if (props.isDisabled || props.isLoading) {
@@ -152,7 +162,7 @@ export default class XUIButton extends React.Component {
 		return this.rootNode == null ? false : this.rootNode.contains(document.activeElement);
 	}
 
-	render () {
+	render() {
 		const xuiButton = this;
 		const {
 			type,
@@ -188,14 +198,15 @@ export default class XUIButton extends React.Component {
 				retainLayout={retainLayout}
 				size="small"
 				defaultLayout={false}
-				className={`${ns}-button--loader`} />
+				className={`${ns}-button--loader`}
+			/>
 		);
 
 		if (retainLayout && isLoading) {
 			buttonChildren = [
-				<div className={`${ns}-u-hidden-content`} key='button-children'>{children}</div>,
-				loader
-			]
+				<div className={`${ns}-u-hidden-content`} key="button-children">{children}</div>,
+				loader,
+			];
 		} else if (isLoading) {
 			buttonChildren = loader;
 		}
@@ -209,10 +220,10 @@ export default class XUIButton extends React.Component {
 			isGrouped && `${ns}-button-grouped`,
 			(isInverted && !isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) && `${ns}-button-inverted`,
 			(isInverted && isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) && `${ns}-button-borderless-inverted`,
-			minLoaderWidth && `${ns}-button-min-loader-width`
+			minLoaderWidth && `${ns}-button-min-loader-width`,
 		);
 
-		const clickHandler = function() {
+		const clickHandler = function () {
 			if (isLink && buttonDisabled) {
 				event.preventDefault();
 			} else if (onClick) {
@@ -227,12 +238,20 @@ export default class XUIButton extends React.Component {
 			onKeyDown: buttonDisabled ? null : onKeyDown,
 			disabled: buttonDisabled,
 			className: buttonClassNames,
-			tabIndex: buttonDisabled ? -1 : tabIndex
+			tabIndex: buttonDisabled ? -1 : tabIndex,
 		};
 
 		// Element type specific props
 		if (isLink) {
-			setupLinkProps({ href, onClick, isExternalLink, target, rel, isDisabled, isLoading }, elementProps);
+			setupLinkProps({
+				href,
+				onClick,
+				isExternalLink,
+				target,
+				rel,
+				isDisabled,
+				isLoading,
+			}, elementProps);
 		} else {
 			elementProps.type = type;
 		}
@@ -302,7 +321,7 @@ XUIButton.propTypes = {
 	retainLayout: PropTypes.bool,
 
 	/** Use this to specify a min width on the button, when you want to swap to loading states */
-	minLoaderWidth: PropTypes.bool
+	minLoaderWidth: PropTypes.bool,
 };
 
 XUIButton.defaultProps = {
@@ -314,5 +333,5 @@ XUIButton.defaultProps = {
 	isExternalLink: false,
 	isGrouped: false,
 	isLoading: false,
-	retainLayout: true
+	retainLayout: true,
 };

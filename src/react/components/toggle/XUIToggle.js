@@ -1,10 +1,11 @@
-import '../helpers/xuiGlobalChecks';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { colorMap, layoutMap, variantMap, baseClass } from './private/constants';
-import {ns} from '../helpers/xuiClassNamespace';
 import uuidv4 from 'uuid/v4';
+
+import { colorMap, layoutMap, variantMap, baseClass } from './private/constants';
+import { ns } from '../helpers/xuiClassNamespace';
+import '../helpers/xuiGlobalChecks';
 
 export default class XUIToggle extends PureComponent {
 	id = this.props.labelId || uuidv4();
@@ -28,14 +29,20 @@ export default class XUIToggle extends PureComponent {
 			fieldClassName,
 			isFieldLayout,
 			labelClassName,
-			labelId
+			labelId,
 		} = this.props;
-		const classes = cn(className, baseClass, colorMap[color], layoutMap[layout], variantMap[variant]);
+		const classes = cn(
+			className,
+			baseClass,
+			colorMap[color],
+			layoutMap[layout],
+			variantMap[variant],
+		);
 
 		const labelClasses = cn(
 			labelClassName,
 			`${ns}-text-label`,
-			`${ns}-fieldlabel-layout`
+			`${ns}-fieldlabel-layout`,
 		);
 
 		const labelElement = labelText != null && !isLabelHidden && (
@@ -46,10 +53,12 @@ export default class XUIToggle extends PureComponent {
 
 		const rootClasses = cn(
 			fieldClassName,
-			isFieldLayout && `${ns}-field-layout`
+			isFieldLayout && `${ns}-field-layout`,
 		);
 
-		const ariaRole = secondaryProps && secondaryProps.role || this.toggleIsCheckbox() ? 'group' : 'radiogroup';
+		const ariaRole = (secondaryProps && secondaryProps.role) || this.toggleIsCheckbox()
+			? 'group'
+			: 'radiogroup';
 
 		return (
 			<div className={rootClasses}>
@@ -59,15 +68,16 @@ export default class XUIToggle extends PureComponent {
 					role={ariaRole}
 					className={classes}
 					data-automationid={qaHook}
-					aria-label={isLabelHidden && labelText || undefined}
-					// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-					aria-labelledby={labelElement && this.id || labelId || undefined}
+					aria-label={(isLabelHidden && labelText) || undefined}
+					// Attach a "labelledby" prop if we've created the label,
+					// or if the user has provided an id.
+					aria-labelledby={(labelElement && this.id) || labelId || undefined}
 				>
 					{children}
 				</div>
 			</div>
 		);
-		}
+	}
 }
 
 XUIToggle.propTypes = {
@@ -98,5 +108,5 @@ XUIToggle.propTypes = {
 
 XUIToggle.defaultProps = {
 	color: 'standard',
-	isFieldLayout: false
+	isFieldLayout: false,
 };

@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react'; 
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-contentblock`;
 
@@ -9,7 +9,7 @@ export default class XUIContentBlock extends PureComponent {
 	render() {
 		const {
 			className,
-			children
+			children,
 		} = this.props;
 		const listClasses = cn(className, baseClass);
 
@@ -23,7 +23,7 @@ export default class XUIContentBlock extends PureComponent {
 
 XUIContentBlock.propTypes = {
 	className: PropTypes.string,
-	children: PropTypes.node
+	children: PropTypes.node,
 };
 
 XUIContentBlock.defaultProps = {};

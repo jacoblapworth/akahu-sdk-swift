@@ -1,24 +1,23 @@
 import PropTypes from 'prop-types';
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
+import { ns } from '../helpers/xuiClassNamespace';
 
 export default class XUIIsolationHeader extends PureComponent {
 	render() {
-		const header = this;
 		const {
 			qaHook,
 			className,
 			isPositionFixed,
 			role,
 			tagName,
-			children
-		} = header.props;
+			children,
+		} = this.props;
 
 		const classNames = cn(
 			className,
 			`${ns}-isolationheader`,
-			isPositionFixed && `${ns}-isolationheader-fixed`
+			isPositionFixed && `${ns}-isolationheader-fixed`,
 		);
 
 		const Tag = tagName;
@@ -32,20 +31,21 @@ export default class XUIIsolationHeader extends PureComponent {
 }
 
 XUIIsolationHeader.propTypes = {
+	children: PropTypes.node,
 	className: PropTypes.string,
 	qaHook: PropTypes.string,
 
-	/** The role attribute that should be applied. Defaults to 'banner' **/
+	/** The role attribute that should be applied. Defaults to 'banner' */
 	role: PropTypes.string,
 
-	/** The element tag to use. Defaults to 'header' **/
+	/** The element tag to use. Defaults to 'header' */
 	tagName: PropTypes.string,
 
 	/** Applies fixed positioning so the isolation mode header scrolls with the page */
-	isPositionFixed: PropTypes.bool
+	isPositionFixed: PropTypes.bool,
 };
 
 XUIIsolationHeader.defaultProps = {
 	role: 'banner',
-	tagName: 'header'
+	tagName: 'header',
 };

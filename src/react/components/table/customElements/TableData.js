@@ -1,6 +1,7 @@
+/* eslint-disable react/no-multi-comp */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames'
+import cn from 'classnames';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 
 class HeadData extends PureComponent {
@@ -8,8 +9,7 @@ class HeadData extends PureComponent {
 		const { children, ...props } = this.props;
 
 		return (
-			<th
-				{...props}>
+			<th {...props} >
 				{children || NBSP}
 			</th>
 		);
@@ -31,7 +31,7 @@ class BodyData extends PureComponent {
 		const { children, onClick, className: suppliedClasses, ...props } = this.props;
 		const className = cn(
 			suppliedClasses,
-			{ [`${NAME_SPACE}--cell-hasprecedence`]: this.state.hasPrecedence }
+			{ [`${NAME_SPACE}--cell-hasprecedence`]: this.state.hasPrecedence },
 		);
 		// TODO: Ascertain best course of action from an accessibility perspective
 		// allowing nested cell interactions (`<a />`  and `<button />`) along with
@@ -49,9 +49,10 @@ class BodyData extends PureComponent {
 						onPointerOver: onClick && (() => this.setState(() => ({ hasPrecedence: true }))),
 						onPointerOut: onClick && (() => this.setState(() => ({ hasPrecedence: false }))),
 						role: 'button',
-					}
+					},
 				}}
-				className={className}>
+				className={className}
+			>
 				{children || NBSP}
 			</td>
 		);
@@ -84,7 +85,7 @@ TableData.propTypes = {
 };
 
 TableData.defaultProps = {
-	tabIndex: 0
+	tabIndex: 0,
 };
 
 export default TableData;

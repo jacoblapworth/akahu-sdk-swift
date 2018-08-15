@@ -1,16 +1,18 @@
-import '../helpers/xuiGlobalChecks';
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
 import uuidv4 from 'uuid/v4';
+
+import '../helpers/xuiGlobalChecks';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-switch`;
 
 /**
- * @function onLabelClick - Prevent 2 click events bubbling. Since our input is wrapped inside a label,
- * then clicking the label will also cause a new click event on the input, which also bubbles up. If a consumer
- * attaches an onClick event listener further up the DOM, we don't want it to be fired twice.
+ * @function onLabelClick - Prevent 2 click events bubbling. Since our input is wrapped
+ * inside a label, then clicking the label will also cause a new click event on the input,
+ * which also bubbles up. If a consumer attaches an onClick event listener further up the
+ * DOM, we don't want it to be fired twice.
  *
  * @private
  */
@@ -36,18 +38,18 @@ export default class XUISwitch extends PureComponent {
 			className,
 			isReversed,
 			isLabelHidden,
-			labelClassName
+			labelClassName,
 		} = this.props;
 
 		const classes = cn(
 			className,
 			baseClass,
 			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-is-disabled`
+			isDisabled && `${ns}-is-disabled`,
 		);
 		const labelClasses = cn(
 			`${baseClass}--label`,
-			labelClassName
+			labelClassName,
 		);
 		const labelElement =
 			!isLabelHidden &&
@@ -61,15 +63,18 @@ export default class XUISwitch extends PureComponent {
 				</span>
 			);
 
-		const inputClasses =`${ns}-u-hidden-visually ${baseClass}--checkbox`;
+		const inputClasses = `${ns}-u-hidden-visually ${baseClass}--checkbox`;
 
 		const ariaProps = {
 			'role': 'switch',
 			'aria-checked': !!isChecked,
 			'aria-disabled': isDisabled || undefined,
-			'aria-label': isLabelHidden && children || undefined,
+			'aria-label': (isLabelHidden && children) || undefined,
 			// Attach a "labelledby" prop if we've created the label, or if the user has provided an id.
-			'aria-labelledby': labelElement && this.labelId || !children && this.props.labelId || undefined
+			'aria-labelledby':
+				(labelElement && this.labelId)
+				|| (!children && this.props.labelId)
+				|| undefined,
 		};
 
 		return (
@@ -77,7 +82,7 @@ export default class XUISwitch extends PureComponent {
 				data-automationid={qaHook && `${qaHook}--label`}
 				className={classes}
 				onClick={onLabelClick}
-				role='presentation'
+				role="presentation"
 			>
 				<input
 					type="checkbox"
@@ -90,7 +95,7 @@ export default class XUISwitch extends PureComponent {
 					data-automationid={qaHook && `${qaHook}--input`}
 					{...ariaProps}
 				/>
-				<div className={`${ns}-switch--control`} data-automationid={qaHook}></div>
+				<div className={`${ns}-switch--control`} data-automationid={qaHook} />
 				{labelElement}
 			</label>
 		);
@@ -100,15 +105,15 @@ export default class XUISwitch extends PureComponent {
 XUISwitch.propTypes = {
 	children: PropTypes.node,
 	/** Fires when the switch is turned on or off */
-	onChange : PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	qaHook: PropTypes.string,
 	className: PropTypes.string,
 	/** Determines whether the switch is checked or unchecked */
-	isChecked : PropTypes.bool,
+	isChecked: PropTypes.bool,
 	/** Determines whether the switch is enabled or disabled */
-	isDisabled : PropTypes.bool,
+	isDisabled: PropTypes.bool,
 	/** Name attribute for the input */
-	name : PropTypes.string,
+	name: PropTypes.string,
 	/** Value attribute for the input */
 	value: PropTypes.string,
 	/** Provide a specific label ID which will be used as the "labelleby" aria property */
@@ -119,12 +124,13 @@ XUISwitch.propTypes = {
 	/** Additional class names on the span (pseudo-label) element  */
 	labelClassName: PropTypes.string,
 
-	/** Prevents the label element from being displayed on the page. Label is still accessible to screen readers. */
+	/** Prevents the label element from being displayed on the page. Label is still
+	 * accessible to screen readers. */
 	isLabelHidden: PropTypes.bool,
 };
 
 XUISwitch.defaultProps = {
 	isLabelHidden: false,
 	isDisabled: false,
-	isReversed: false
+	isReversed: false,
 };

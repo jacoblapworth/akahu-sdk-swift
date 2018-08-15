@@ -3,5 +3,5 @@ import XUITextInputSideElement from './components/textInput/XUITextInputSideElem
 
 export {
 	XUITextInput as default,
-	XUITextInputSideElement
+	XUITextInputSideElement,
 };

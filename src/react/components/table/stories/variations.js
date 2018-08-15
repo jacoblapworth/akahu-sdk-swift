@@ -3,12 +3,12 @@ const storyKind = 'Instances/XUITable';
 const data = {
 	0: {},
 	1: {},
-	2: {}
+	2: {},
 };
 const tableProps = {
 	data,
 	isResponsive: true,
-}
+};
 const variations = [
 
 	{
@@ -20,7 +20,7 @@ const variations = [
 				...tableProps,
 				isResponsive: false,
 			},
-		}]
+		}],
 	},
 
 	{
@@ -31,7 +31,7 @@ const variations = [
 			removeHeader: true,
 			tableProps: {
 				...tableProps,
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -39,7 +39,7 @@ const variations = [
 			tableProps: {
 				...tableProps,
 				data: {},
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -48,8 +48,8 @@ const variations = [
 				...tableProps,
 				data: {},
 				isLoading: true,
-			}
-		}]
+			},
+		}],
 	},
 
 	{
@@ -59,8 +59,8 @@ const variations = [
 			columns: 10,
 			tableProps: {
 				...tableProps,
-			}
-		}]
+			},
+		}],
 	},
 
 	{
@@ -73,7 +73,7 @@ const variations = [
 				hasCheckbox: true,
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -83,7 +83,7 @@ const variations = [
 				checkedIds: { 1: true },
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -97,8 +97,8 @@ const variations = [
 				},
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
-			}
-		}]
+			},
+		}],
 	},
 
 	{
@@ -109,9 +109,9 @@ const variations = [
 			tableProps: {
 				...tableProps,
 				hasOverflowMenu: true,
-				createOverflowMenu: noop
-			}
-		}]
+				createOverflowMenu: noop,
+			},
+		}],
 	},
 
 	{
@@ -125,7 +125,7 @@ const variations = [
 				hasCheckbox: true,
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
-			}
+			},
 		},
 		{
 			columns: 10,
@@ -133,8 +133,8 @@ const variations = [
 				...tableProps,
 				hasPinnedLastColumn: true,
 				hasOverflowMenu: true,
-				createOverflowMenu: noop
-			}
+				createOverflowMenu: noop,
+			},
 		},
 		{
 			columns: 10,
@@ -146,9 +146,9 @@ const variations = [
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
 				hasOverflowMenu: true,
-				createOverflowMenu: noop
-			}
-		}]
+				createOverflowMenu: noop,
+			},
+		}],
 	},
 
 	{
@@ -163,7 +163,7 @@ const variations = [
 					1: { content: 'The quick brown fox jumps over the lazy dog' },
 				},
 				isTruncated: true,
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -178,9 +178,9 @@ const variations = [
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
 				hasOverflowMenu: true,
-				createOverflowMenu: noop
-			}
-		}]
+				createOverflowMenu: noop,
+			},
+		}],
 	},
 
 	{
@@ -191,7 +191,7 @@ const variations = [
 			tableProps: {
 				...tableProps,
 				className: 'xui-table-visualTesting-tableWrapper',
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -201,13 +201,13 @@ const variations = [
 					...data,
 					1: { className: 'xui-table-visualTesting-cell' },
 				},
-			}
+			},
 		},
 		{
 			columns: 3,
 			hasHeaderClassName: true,
 			tableProps,
-		}]
+		}],
 	},
 
 	{
@@ -222,10 +222,10 @@ const variations = [
 					...data,
 					1: {
 						hasWrapping: true,
-						content: 'The quick brown fox jumps over the lazy dog'
+						content: 'The quick brown fox jumps over the lazy dog',
 					},
 				},
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -236,11 +236,11 @@ const variations = [
 					...data,
 					1: {
 						hasWrapping: true,
-						content: 'The quick brown fox jumps over the lazy dog'
+						content: 'The quick brown fox jumps over the lazy dog',
 					},
 				},
 				isTruncated: true,
-			}
+			},
 		},
 		{
 			columns: 3,
@@ -251,11 +251,11 @@ const variations = [
 					...data,
 					1: {
 						hasWrapping: true,
-						content: 'The quick brown fox jumps over the lazy dog'
+						content: 'The quick brown fox jumps over the lazy dog',
 					},
 				},
 				isTruncated: true,
-			}
+			},
 		},
 		{
 			columns: 10,
@@ -266,7 +266,7 @@ const variations = [
 					...data,
 					1: {
 						hasWrapping: true,
-						content: 'The quick brown fox jumps over the lazy dog'
+						content: 'The quick brown fox jumps over the lazy dog',
 					},
 				},
 				hasPinnedFirstColumn: true,
@@ -275,8 +275,8 @@ const variations = [
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
 				hasOverflowMenu: true,
-				createOverflowMenu: noop
-			}
+				createOverflowMenu: noop,
+			},
 		},
 		{
 			columns: 3,
@@ -287,13 +287,13 @@ const variations = [
 					...data,
 					1: {
 						hasWrapping: true,
-						content: 'The quick brown fox jumps over the lazy dog'
+						content: 'The quick brown fox jumps over the lazy dog',
 					},
 				},
 				onRowClick: noop,
 				shouldRowClick: () => true,
-			}
-		}]
+			},
+		}],
 	},
 
 	{
@@ -344,10 +344,10 @@ const variations = [
 						? (a, b) => a.tags.length > b.tags.length
 						: (a, b) => a.tags.length < b.tags.length;
 
-					return data.sort((a, b) => comparison(a, b) ? 1 : -1);
-				}
+					return data.sort((a, b) => (comparison(a, b) ? 1 : -1));
+				},
 			},
-		}]
+		}],
 	},
 
 	{
@@ -374,7 +374,7 @@ const variations = [
 				header: true,
 				footer: true,
 			},
-		}]
+		}],
 	},
 
 	{
@@ -394,7 +394,7 @@ const variations = [
 				data: {},
 				isLoading: true,
 			},
-		}]
+		}],
 	},
 
 	{
@@ -414,7 +414,7 @@ const variations = [
 			columns: 6,
 			styleOverrides: { maxWidth: '250px' },
 			tableProps,
-		}]
+		}],
 	},
 
 	{
@@ -453,7 +453,7 @@ const variations = [
 				onCheckAllToggle: noop,
 				onCheckOneToggle: noop,
 			},
-		}]
+		}],
 	},
 
 ];

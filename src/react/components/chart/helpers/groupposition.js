@@ -1,12 +1,12 @@
-import {forceValuePositive} from './utilities';
-import {NAME_SPACE} from './constants';
+import { forceValuePositive } from './utilities';
+import { NAME_SPACE } from './constants';
 
-const getGroupPosition = (groupNode) => {
+const getGroupPosition = groupNode => {
 	const nodes = groupNode
 		? [...groupNode.querySelectorAll(`.${NAME_SPACE}-chart--measure`)]
 		: [];
 
-	if (!nodes.length) return {width: 0, height: 0};
+	if (!nodes.length) return { width: 0, height: 0 };
 
 	let position = (() => {
 		const { innerHeight: windowHeight, innerWidth: windowWidth } = window;
@@ -16,13 +16,17 @@ const getGroupPosition = (groupNode) => {
 			maxLeft: makeNegative(windowHeight),
 			maxTop: makeNegative(windowHeight),
 			minTop: windowHeight,
-			minLeft: windowWidth
+			minLeft: windowWidth,
 		};
 	})();
 
 	nodes.forEach(node => {
-		const {width = 0, height = 0, x = 0, y = 0} = (node.getBBox ? node.getBBox() : {});
-		const {maxLeft, maxTop, minTop, minLeft} = position;
+		const {
+			width = 0, height = 0, x = 0, y = 0,
+		} = (node.getBBox ? node.getBBox() : {});
+		const {
+			maxLeft, maxTop, minTop, minLeft,
+		} = position;
 
 		position = {
 			maxLeft: Math.max(width + x, maxLeft),
@@ -34,7 +38,7 @@ const getGroupPosition = (groupNode) => {
 
 	return {
 		width: forceValuePositive(position.maxLeft - position.minLeft),
-		height: forceValuePositive(position.maxTop - position.minTop)
+		height: forceValuePositive(position.maxTop - position.minTop),
 	};
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer';
 import NestedDropDown from '../NestedDropDown';
 import DropDownPanel from '../DropDownPanel';
 import Picklist from '../../picklist/Picklist';
 import Pickitem from '../../picklist/Pickitem';
+import renderer from 'react-test-renderer';
 
 import {fixedWidthDropdownSizes, maxWidthDropdownSizes} from '../private/constants';
 

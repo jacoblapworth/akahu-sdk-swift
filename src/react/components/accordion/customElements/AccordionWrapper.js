@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getRectangle, shouldAccordionPop } from '../private/helpers';
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export default class AccordionWrapper extends PureComponent {
 	state = { left: null, right: null };
@@ -17,12 +17,19 @@ export default class AccordionWrapper extends PureComponent {
 
 	popClassName() {
 		if (!this.props.isOpen) return '';
-		if (shouldAccordionPop(this.state)) return `${ns}-accordionwrapper-new-pop`;
+		const accordionShouldPop = shouldAccordionPop({
+			left: this.state.left,
+			right: this.state.right,
+		});
+		if (accordionShouldPop) return `${ns}-accordionwrapper-new-pop`;
 		return `${ns}-accordionwrapper-new-no-pop`;
 	}
 
 	setRect = () => {
-		const { left, right } = getRectangle(this.accordionItem);
+		const { left, right } = getRectangle({
+			left: this.state.left,
+			right: this.state.right,
+		});
 		this.setState({ left, right });
 	};
 
@@ -31,7 +38,9 @@ export default class AccordionWrapper extends PureComponent {
 	};
 
 	render() {
-		const { children, isOpen, qaHook, trigger } = this.props;
+		const {
+			children, isOpen, qaHook, trigger,
+		} = this.props;
 
 		return (
 			<div
@@ -40,12 +49,14 @@ export default class AccordionWrapper extends PureComponent {
 				className={cn(
 					`${ns}-accordionwrapper-new`,
 					{ [`${ns}-accordionwrapper-new-is-open`]: isOpen },
-					this.popClassName()
-				)}>
+					this.popClassName(),
+				)}
+			>
 				{trigger}
 				<div className={cn(`${ns}-accordionwrapper-new--content`, {
 					[`${ns}-accordionwrapper-new--content-is-open`]: isOpen,
-				})}>
+				})}
+				>
 					{children}
 				</div>
 			</div>

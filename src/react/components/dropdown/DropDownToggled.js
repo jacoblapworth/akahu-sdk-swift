@@ -2,19 +2,20 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
+import uuidv4 from 'uuid/v4';
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
-import uuidv4 from 'uuid/v4';
 import {
 	isNarrowViewport,
 	addEventListeners,
 	removeEventListeners,
 	throttleToFrame,
 } from './private/helpers';
-import { compose } from '../helpers/compose';
-import { baseClass, dropdownPositionOptions } from "./private/constants";
+import compose from '../helpers/compose';
+import { baseClass, dropdownPositionOptions } from './private/constants';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
+/* eslint-disable */
 
 /**
  * If the given DOM node isn't on screen, scroll it into view.
@@ -73,8 +74,8 @@ function shouldLockScroll(ddt) {
 }
 
 /**
- * HOC to wrap the passed in Dropdown & TriggerComponent elements. Adds functionality to toggle the list open/closed
- * based on click of the TriggerComponent.
+ * HOC to wrap the passed in Dropdown & TriggerComponent elements. Adds functionality
+ * to toggle the list open/closed based on click of the TriggerComponent.
  *
  * @export
  * @class DropDownToggled
@@ -149,7 +150,7 @@ export default class DropDownToggled extends PureComponent {
 				// Checking for the wrapper confirms that component is fully mounted
 				if (shouldLockScroll(ddt) && this.wrapper) {
 					this.setState({
-						shouldUnlockScroll: lockScroll()
+						shouldUnlockScroll: lockScroll(),
 					});
 				}
 			}
@@ -222,12 +223,10 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 */
 	closeDropDown = () => {
-		this.setState(() => {
-			return {
-				isHidden: !shouldAnimate(this),
-				isClosing: shouldAnimate(this),
-			};
-		});
+		this.setState(() => ({
+			isHidden: !shouldAnimate(this),
+			isClosing: shouldAnimate(this),
+		}));
 	};
 
 	/**
@@ -236,9 +235,7 @@ export default class DropDownToggled extends PureComponent {
 	 * @public
 	 * @returns {Boolean}
 	 */
-	isDropDownOpen = () => {
-		return !this.state.isHidden;
-	};
+	isDropDownOpen = () => !this.state.isHidden;
 
 	/**
 	 * A convenience method to toggle the visibility of the dropdown.
@@ -257,12 +254,12 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	triggerClickHandler = () => {
 		switch (this.props.triggerClickAction) {
-			case 'toggle':
-				this.toggle();
-				break;
-			case 'open':
-				this.openDropDown();
-				break;
+		case 'toggle':
+			this.toggle();
+			break;
+		case 'open':
+			this.openDropDown();
+			break;
 		}
 	};
 
@@ -321,7 +318,6 @@ export default class DropDownToggled extends PureComponent {
 		) {
 			ddt.closeDropDown();
 		}
-
 	};
 
 	/**
@@ -333,7 +329,7 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	onSelect = (event, item) => {
 		this.setState({
-			activeDescendant: item.props.id
+			activeDescendant: item.props.id,
 		});
 
 		if (this.props.closeOnSelect) {
@@ -348,7 +344,7 @@ export default class DropDownToggled extends PureComponent {
 	 */
 	onHighlightChange = item => {
 		this.setState({
-			activeDescendant: item.props.id
+			activeDescendant: item.props.id,
 		});
 	};
 
@@ -418,7 +414,9 @@ export default class DropDownToggled extends PureComponent {
 
 	render() {
 		const ddt = this;
-		const { className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, ariaRole, isLegacyDisplay, ...otherProps } = ddt.props;
+		const {
+			className, trigger, dropdown, restrictToViewPort, forceDesktop, qaHook, maxHeight, preferredPosition, ariaPopupType, ariaRole, isLegacyDisplay, ...otherProps
+		} = ddt.props;
 		const { isOpening, isClosing, isHidden } = ddt.state;
 
 		const clonedTrigger = React.cloneElement(trigger, {
@@ -427,13 +425,13 @@ export default class DropDownToggled extends PureComponent {
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': ariaPopupType,
-			'aria-controls': this.dropdownId
+			'aria-controls': this.dropdownId,
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
 			isHidden,
 			id: this.dropdownId,
-			forceDesktop: forceDesktop,
+			forceDesktop,
 			animateOpen: isOpening,
 			animateClosed: isClosing,
 			ref: compose(dropdown.ref, c => ddt.dropdown = c),
@@ -442,18 +440,18 @@ export default class DropDownToggled extends PureComponent {
 			onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, ddt.onCloseAnimationEnd),
 			onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, ddt.onOpenAnimationEnd),
 			onKeyDown: compose(dropdown.props.onKeyDown, ddt.onDropDownKeyDown),
-			className: dropdown.props.className
+			className: dropdown.props.className,
 		});
 
 		const commonPositioningProps = {
-			maxHeight: maxHeight,
+			maxHeight,
 			isVisible: !isHidden,
 			shouldRestrictMaxHeight: restrictToViewPort,
 			isNotResponsive: forceDesktop,
 			onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
 			ref: c => this.positioning = c,
 			parentRef: ddt.wrapper,
-			isTriggerWidthMatched: ddt.props.matchTriggerWidth
+			isTriggerWidthMatched: ddt.props.matchTriggerWidth,
 		};
 
 		const positionedDropdown = isLegacyDisplay || this.state.isNarrowViewport ? (
@@ -470,9 +468,9 @@ export default class DropDownToggled extends PureComponent {
 				qaHook={qaHook && `${qaHook}--positioning-inline`}
 				preferredPosition={preferredPosition}
 				maxWidth={-1}
-				useDropdownPositioning={true}
+				useDropdownPositioning
 			>
-					{clonedDropdown}
+				{clonedDropdown}
 			</PositioningInline>
 		);
 
@@ -487,7 +485,7 @@ export default class DropDownToggled extends PureComponent {
 				{...wrapperAria}
 				ref={c => ddt.wrapper = c}
 				className={className}
-				data-ref='toggled-wrapper'
+				data-ref="toggled-wrapper"
 				data-automationid={qaHook}
 			>
 				{clonedTrigger}
@@ -577,7 +575,7 @@ DropDownToggled.propTypes = {
 	/**
 	 * Aria role for dropdown wrapper
 	 */
-	ariaRole: PropTypes.string
+	ariaRole: PropTypes.string,
 };
 
 DropDownToggled.defaultProps = {
@@ -594,5 +592,5 @@ DropDownToggled.defaultProps = {
 	triggerDropdownGap: 6,
 	isLegacyDisplay: true,
 	isBlock: false,
-	ariaPopupType: 'listbox'
+	ariaPopupType: 'listbox',
 };

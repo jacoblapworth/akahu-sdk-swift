@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import verge from 'verge';
 import { Portal } from 'react-portal';
+import uuidv4 from 'uuid/v4';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIModalHeader from './XUIModalHeader';
 import { registerModal, deRegisterTopModal } from '../helpers/modalManager';
 import portalContainer, { portalClass } from '../helpers/portalContainer';
-import {baseClass} from './constants';
-import {ns} from "../helpers/xuiClassNamespace";
-import uuidv4 from 'uuid/v4';
+import { baseClass } from './constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 export const modalSizes = {
 	default: `${baseClass}-width-default`,
@@ -19,7 +19,7 @@ export const modalSizes = {
 	medium: `${baseClass}-width-medium`,
 	large: `${baseClass}-width-large`,
 	xlarge: `${baseClass}-width-xlarge`,
-	fullscreen: `${baseClass}-fullscreen`
+	fullscreen: `${baseClass}-fullscreen`,
 };
 
 const maskClass = `${ns}-mask`;
@@ -42,106 +42,65 @@ function shouldUpdateListeners(props, otherProps) {
 	);
 }
 
-/**
- * Add the global event listeners necessary to ensure that props like hideOnEsc
- * can function properly.
- *
- * @private
- * @param {XUIModal} modal
- */
-function addListeners(modal) {
-	const { onClose, keyListenerTarget, restrictFocus, hideOnEsc } = modal.props;
-	const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
-
-	// Be paranoid.  Some test environments won't have a window object.
-	if (listenerTarget != null) {
-		if (onClose && hideOnEsc) {
-			modal._keyUpHandler = modal._keyUpHandler.bind(modal);
-			listenerTarget.addEventListener('keyup', modal._keyUpHandler);
-		}
-		if (restrictFocus) {
-			modal._restrictFocus = modal._restrictFocus.bind(modal);
-			listenerTarget.addEventListener('focus', modal._restrictFocus, true);
-		}
-	}
-}
-
-/**
- * Remove any global event listeners associated with a given modal.
- *
- * @private
- * @param {XUIModal} modal
- */
-function removeListeners(modal) {
-	const { keyListenerTarget } = modal.props;
-	const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
-
-	// Be paranoid.  Some test environments won't have a window object.
-	if (listenerTarget != null) {
-		listenerTarget.removeEventListener('keyup', modal._keyUpHandler);
-		listenerTarget.removeEventListener('focus', modal._restrictFocus, true);
-	}
-}
-
 export default class XUIModal extends Component {
-
 	state = {
 		positionSettings: null,
-		isTopModal: null // This is handled and manipulated by helpers/modalManager
+		isTopModal: null, // This is handled and manipulated by helpers/modalManager
 	};
 
 	generatedHeaderId = uuidv4();
 
 	componentDidMount() {
-		const modal = this;
-		addListeners(modal);
-		if (modal.props.isOpen && !modal.state.isTopModal) {
-			const activeElement = document.activeElement;
-			modal.priorFocusedEl = activeElement;
-			registerModal(modal);
+		const { isOpen } = this.props;
+		const { isTopModal } = this.state;
+		this.addListeners();
+		if (isOpen && !isTopModal) {
+			const { activeElement } = document;
+			this.priorFocusedEl = activeElement;
+			registerModal(this);
 
-			modal._isScrollLocked = true;
+			this._isScrollLocked = true;
 
-			modal.calcOffsetTop();
+			this.calcOffsetTop();
 
-			if (!modal._maskNode.contains(activeElement)) {
-				modal._modalNode.focus();
+			if (!this._maskNode.contains(activeElement)) {
+				this._modalNode.focus();
 			}
 		}
 	}
 
 	componentWillUnmount() {
-		removeListeners(this);
+		this.removeListeners();
 
 		this._isScrollLocked = false;
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (shouldUpdateListeners(this.props, nextProps)) {
-			removeListeners(this);
+			this.removeListeners();
 		}
 	}
 
 	componentDidUpdate(prevProps) {
-		const modal = this;
-		const { isOpen, restrictFocus } = modal.props;
-		const { isTopModal } = modal.state;
-		const activeElement = document.activeElement;
+		const { isOpen, restrictFocus } = this.props;
+		const { isTopModal } = this.state;
+		const { activeElement } = document;
 
-		if (shouldUpdateListeners(modal.props, prevProps)) {
-			addListeners(modal);
+
+		if (shouldUpdateListeners(this.props, prevProps)) {
+			this.addListeners();
 		}
 
-		if (isOpen && !modal._isScrollLocked && !isTopModal) {
-			modal.priorFocusedEl = activeElement;
-			registerModal(modal);
-			modal._isScrollLocked = true;
+		if (isOpen && !this._isScrollLocked && !isTopModal) {
+			this.priorFocusedEl = activeElement;
+			registerModal(this);
+			this._isScrollLocked = true;
 
-			modal.calcOffsetTop();
+			this.calcOffsetTop();
 		}
 
-		if (!isOpen && modal._isScrollLocked && isTopModal) {
-			modal._isScrollLocked = false;
+		if (!isOpen && this._isScrollLocked && isTopModal) {
+			this._isScrollLocked = false;
 			deRegisterTopModal();
 		}
 
@@ -149,31 +108,72 @@ export default class XUIModal extends Component {
 			isOpen &&
 			restrictFocus &&
 			(!prevProps.isOpen || !prevProps.restrictFocus) &&
-			!modal._maskNode.contains(activeElement)
+			!this._maskNode.contains(activeElement)
 		) {
-			modal._modalNode.focus();
+			this._modalNode.focus();
+		}
+	}
+
+	/**
+	 * Add the global event listeners necessary to ensure that props like hideOnEsc
+	 * can function properly.
+	 */
+	addListeners = () => {
+		const {
+			onClose,
+			keyListenerTarget,
+			restrictFocus,
+			hideOnEsc,
+		} = this.props;
+		const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
+
+		// Be paranoid.  Some test environments won't have a window object.
+		if (listenerTarget != null) {
+			if (onClose && hideOnEsc) {
+				this._keyUpHandler = this._keyUpHandler.bind(this);
+				listenerTarget.addEventListener('keyup', this._keyUpHandler);
+			}
+			if (restrictFocus) {
+				this._restrictFocus = this._restrictFocus.bind(this);
+				listenerTarget.addEventListener('focus', this._restrictFocus, true);
+			}
+		}
+	}
+
+	/**
+	 * Remove any global event listeners associated with a given modal.
+	 */
+	removeListeners = () => {
+		const { keyListenerTarget } = this.props;
+		const listenerTarget = keyListenerTarget == null ? window : keyListenerTarget;
+
+		// Be paranoid.  Some test environments won't have a window object.
+		if (listenerTarget != null) {
+			listenerTarget.removeEventListener('keyup', this._keyUpHandler);
+			listenerTarget.removeEventListener('focus', this._restrictFocus, true);
 		}
 	}
 
 	calcOffsetTop = () => {
 		const viewportH = verge.viewportH();
 		const modalHeight = this._modalNode.getBoundingClientRect().height;
-		const calculatedOffsetTop = Math.max(((viewportH - modalHeight) / 2) - 15, 0); // subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's (wrapping component) existing padding
+		/* subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's
+		 * (wrapping component) existing padding */
+		const calculatedOffsetTop = Math.max(((viewportH - modalHeight) / 2) - 15, 0);
 		const positionSettings = {
-			top: `${calculatedOffsetTop}px`
+			top: `${calculatedOffsetTop}px`,
 		};
 		this.setState({
-			positionSettings
+			positionSettings,
 		});
 	}
 
 	/**
-	 * @private
 	 * @param {Object} event - A keyUp event which is set to be listened to by componentDidMount.
 	 * If the modal needs to close when the user presses the esc key, we need to attach a key
 	 * listener to a parent (`window` by default) to catch this key press
 	 */
-	_keyUpHandler(event) {
+	_keyUpHandler = event => {
 		const { isOpen, onClose } = this.props;
 		const { isTopModal } = this.state;
 		const escapeKeyCode = 27;
@@ -184,21 +184,20 @@ export default class XUIModal extends Component {
 	}
 
 	/**
-	 * @private
 	 * @param {Object} event - A focus change event which is set to be listened to by componentDidMount
 	 * Limits the focusable elements to those within the modal
-	 **/
-	_restrictFocus(event) {
-		const modal = this;
-		const { isOpen, restrictFocus } = modal.props;
+	 * */
+	_restrictFocus = event => {
+		const { isOpen, restrictFocus } = this.props;
 		if (isOpen && restrictFocus) {
-			// Need to check if the focus is within this modal mask, or in another portalled element (e.g. dropdowns)
+			/* Need to check if the focus is within this modal mask, or in another portalled element
+			(e.g. dropdowns) */
 			const maskAndPortalNodes = [...document.querySelectorAll(`.${portalClass}, .${maskClass}`)];
 			const targetIsWindow = event.target === window;
 			if (targetIsWindow || !maskAndPortalNodes.some(node => node.contains(event.target))) {
 				event.stopPropagation();
-				if (modal._modalNode) {
-					modal._modalNode.focus();
+				if (this._modalNode) {
+					this._modalNode.focus();
 				}
 			}
 		}
@@ -221,33 +220,33 @@ export default class XUIModal extends Component {
 			id,
 			isForm,
 			isUsingPortal,
-			closeButtonLabel
+			closeButtonLabel,
 		} = this.props;
 		const {
 			positionSettings,
-			isTopModal
+			isTopModal,
 		} = this.state;
 
 		const maskClasses = cn(
 			maskClass,
 			maskClassName,
 			isOpen && `${maskClass}-is-active`,
-			!isTopModal && `${ns}-unmask` // unmasks previous modal's mask if there is more than 1 modal open
+			// unmasks previous modal's mask if there is more than 1 modal open
+			!isTopModal && `${ns}-unmask`,
 		);
 		const modalClasses = cn(
 			baseClass,
 			modalSizes[size],
 			defaultLayout && `${baseClass}-layout`,
-			className
+			className,
 		);
 		const overlayClickHandler =
 			hideOnOverlayClick && onClose
-				? function(event) {
-						if (event.target.classList.contains(maskClass) && isOpen) {
-							onClose();
-						}
+				? event => {
+					if (event.target.classList.contains(maskClass) && isOpen) {
+						onClose();
 					}
-				: null;
+				} : null;
 
 		const closeButton = onClose ? (
 			<XUIButton
@@ -270,12 +269,11 @@ export default class XUIModal extends Component {
 				const headerId = child.props.id || this.generatedHeaderId;
 				headerElement = cloneElement(child, { ...child.props, id: headerId }, [
 					child.props.children,
-					closeButton
+					closeButton,
 				]);
 				return null;
-			} else {
-				return child;
 			}
+			return child;
 		});
 		// Our CSS requires that the modal close button sits inside a header element
 		if (headerElement == null && closeButton != null) {
@@ -302,7 +300,7 @@ export default class XUIModal extends Component {
 					role={isOpen ? 'dialog' : null}
 					style={positionSettings}
 					// If a modal header has been provided, it can be used for the label.
-					aria-labelledby={ariaLabelledBy || headerElement && headerElement.props.id || undefined}
+					aria-labelledby={ariaLabelledBy || (headerElement && headerElement.props.id) || undefined}
 					aria-describedby={ariaDescribedBy}
 					data-automationid={qaHook}
 					ref={m => (this._modalNode = m)}
@@ -313,20 +311,19 @@ export default class XUIModal extends Component {
 			</div>
 		);
 
-		return isUsingPortal ? (
-			isOpen ? (
-				<Portal node={portalContainer()}>
-					<div
-						className={`${ns}-container`}
-						data-automationid={qaHook && `${qaHook}--container`}
-					>
-						{childNodes}
-					</div>
-				</Portal>
-			) : null
-		) : (
-			childNodes
-		);
+		if (!isUsingPortal) {
+			return childNodes;
+		}
+		return isOpen ? (
+			<Portal node={portalContainer()}>
+				<div
+					className={`${ns}-container`}
+					data-automationid={qaHook && `${qaHook}--container`}
+				>
+					{childNodes}
+				</div>
+			</Portal>
+		) : null;
 	}
 }
 
@@ -349,7 +346,8 @@ XUIModal.propTypes = {
 	/** Whether the modal is visible */
 	isOpen: PropTypes.bool,
 
-	/** Whether the modal wrapping element should be a `<form>` rather than a `<section>`. Allows the enter key to activate the submit button inside native form controls. */
+	/** Whether the modal wrapping element should be a `<form>` rather than a `<section>`.
+	 * Allows the enter key to activate the submit button inside native form controls. */
 	isForm: PropTypes.bool,
 
 	/** The target that should listen to key presses. Defaults to the window. */
@@ -364,7 +362,8 @@ XUIModal.propTypes = {
 	/** Restricts focus to elements within the modal while it is open */
 	restrictFocus: PropTypes.bool,
 
-	/** ID for the element containing an appropriate label for screen readers. If a ModalHeader is provided, it will automatically be used as the labelling element. */
+	/** ID for the element containing an appropriate label for screen readers. If a ModalHeader
+	 * is provided, it will automatically be used as the labelling element. */
 	ariaLabelledBy: PropTypes.string,
 
 	/** ID for the element containing an appropriate description for screen readers */
@@ -379,7 +378,7 @@ XUIModal.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 	id: PropTypes.string,
-	qaHook: PropTypes.string
+	qaHook: PropTypes.string,
 };
 
 XUIModal.defaultProps = {
@@ -391,5 +390,5 @@ XUIModal.defaultProps = {
 	restrictFocus: true,
 	isUsingPortal: true,
 	isForm: false,
-	closeButtonLabel: 'Close'
+	closeButtonLabel: 'Close',
 };

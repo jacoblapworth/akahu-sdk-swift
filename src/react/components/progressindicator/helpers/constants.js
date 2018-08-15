@@ -1,4 +1,4 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 const NAME_SPACE = `${ns}-progress`;
 const COLORS = [
@@ -14,6 +14,6 @@ const COLORS = [
 	'grey',
 ];
 
-const constants = {NAME_SPACE, COLORS};
+const constants = { NAME_SPACE, COLORS };
 
-export {constants as default, NAME_SPACE, COLORS};
+export { constants as default, NAME_SPACE, COLORS };

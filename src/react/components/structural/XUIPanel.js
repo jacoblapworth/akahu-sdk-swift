@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseClass = `${ns}-panel`;
 
@@ -25,21 +25,20 @@ export default class XUIPanel extends PureComponent {
 					{children}
 					{footer}
 				</Tag>
-			)
-		} else {
-			return (
-				<Tag {...spreadProps} className={classes}>
-					<div className={`${baseClass}--sidebar`}>
-						{sidebar}
-					</div>
-					<div className={`${ns}-u-flex-1`}>
-						{heading}
-						{children}
-						{footer}
-					</div>
-				</Tag>
 			);
 		}
+		return (
+			<Tag {...spreadProps} className={classes}>
+				<div className={`${baseClass}--sidebar`}>
+					{sidebar}
+				</div>
+				<div className={`${ns}-u-flex-1`}>
+					{heading}
+					{children}
+					{footer}
+				</div>
+			</Tag>
+		);
 	}
 }
 
@@ -61,9 +60,9 @@ XUIPanel.propTypes = {
 	/**
 	 * Main element tag type, for semantic purposes (eg. main or aside). Defaults to "div"
 	 */
-	tagName: PropTypes.string
+	tagName: PropTypes.string,
 };
 
 XUIPanel.defaultProps = {
-	tagName: "div"
+	tagName: 'div',
 };

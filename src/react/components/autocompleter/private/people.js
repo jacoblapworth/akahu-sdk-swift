@@ -1,94 +1,94 @@
 export default [
 	{
-		name: "Frida",
+		name: 'Frida',
 		id: 0,
-		email: "Frida@gmail.com",
-		subtext: "Frida likes cheese"
+		email: 'Frida@gmail.com',
+		subtext: 'Frida likes cheese',
 	},
 	{
-		name: "Fred",
+		name: 'Fred',
 		id: 1,
-		email: "Fredgreenisthebest@gmail.com",
-		subtext: "green is good"
+		email: 'Fredgreenisthebest@gmail.com',
+		subtext: 'green is good',
 	},
 	{
-		name: "Person",
+		name: 'Person',
 		id: 2,
-		email: "Person@gmail.com",
-		subtext: "noname"
+		email: 'Person@gmail.com',
+		subtext: 'noname',
 	},
 	{
-		name: "Mario",
+		name: 'Mario',
 		id: 3,
-		email: "Mario@thekartbiz.com",
-		subtext: "misses Luigi",
-		avatar: "https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png"
+		email: 'Mario@thekartbiz.com',
+		subtext: 'misses Luigi',
+		avatar: 'https://s3-ap-southeast-2.amazonaws.com/uxe-internal/mario_icon.png',
 	},
 	{
-		name: "Batman",
+		name: 'Batman',
 		id: 4,
-		email: "Batman@thecave.com",
-		subtext: "Has a nice car",
-		avatar: "https://s3-ap-southeast-2.amazonaws.com/uxe-internal/batman.gif"
+		email: 'Batman@thecave.com',
+		subtext: 'Has a nice car',
+		avatar: 'https://s3-ap-southeast-2.amazonaws.com/uxe-internal/batman.gif',
 	},
 	{
-		name: "Anonymous",
+		name: 'Anonymous',
 		id: 5,
-		email: "Anon@ymous.com",
-		subtext: "ran out of names"
+		email: 'Anon@ymous.com',
+		subtext: 'ran out of names',
 	},
 	{
-		name: "Jimmy",
+		name: 'Jimmy',
 		id: 6,
-		email: "jimmy@xero.com",
-		subtext: "The captain"
+		email: 'jimmy@xero.com',
+		subtext: 'The captain',
 	},
 	{
-		name: "Morty",
+		name: 'Morty',
 		id: 7,
-		email: "morty.smith@gooblecrank.com",
-		subtext: "It's a Morty"
+		email: 'morty.smith@gooblecrank.com',
+		subtext: "It's a Morty",
 	},
 	{
-		name: "Rick",
+		name: 'Rick',
 		id: 8,
-		email: "rick.sanchez@c137.com",
-		subtext: "Wubba lubba dub dub"
+		email: 'rick.sanchez@c137.com',
+		subtext: 'Wubba lubba dub dub',
 	},
 	{
-		name: "Beth",
+		name: 'Beth',
 		id: 9,
-		email: "Beth.smith@c137.com",
-		subtext: "It's beth"
+		email: 'Beth.smith@c137.com',
+		subtext: "It's beth",
 	},
 	{
-		name: "Jerry",
+		name: 'Jerry',
 		id: 10,
-		email: "Jerry.smith@c137.com",
-		subtext: "Hungry for apples"
+		email: 'Jerry.smith@c137.com',
+		subtext: 'Hungry for apples',
 	},
 	{
-		name: "Squanchy",
+		name: 'Squanchy',
 		id: 11,
-		email: "squanchy@squanchy.com",
-		subtext: "Squanch"
+		email: 'squanchy@squanchy.com',
+		subtext: 'Squanch',
 	},
 	{
-		name: "Birdperson",
+		name: 'Birdperson',
 		id: 12,
-		email: "birdperson@squanchy.com",
-		subtext: "I'm phoenix person now"
+		email: 'birdperson@squanchy.com',
+		subtext: "I'm phoenix person now",
 	},
 	{
-		name: "Spider-Man",
+		name: 'Spider-Man',
 		id: 13,
-		email: "peterparker@yahoo.com",
-		subtext: "totally not peter parker"
+		email: 'peterparker@yahoo.com',
+		subtext: 'totally not peter parker',
 	},
 	{
-		name: "Iron Man",
+		name: 'Iron Man',
 		id: 14,
-		email: "tonystark@stark.com",
-		subtext: "I am Iron Man"
-	}
+		email: 'tonystark@stark.com',
+		subtext: 'I am Iron Man',
+	},
 ];

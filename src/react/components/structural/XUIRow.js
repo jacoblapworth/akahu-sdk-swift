@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from '../helpers/xuiClassNamespace';
+import { ns } from '../helpers/xuiClassNamespace';
 
 import { rowVariants } from './private/constants';
 
@@ -11,13 +11,19 @@ const getClasses = (className, variant) => {
 	return cn(className, rowClass);
 };
 
-const XUIRow = ({children, className, variant, ...spreadProps}) =>
+const XUIRow = ({
+	children,
+	className,
+	variant,
+	...spreadProps
+}) => (
 	<div
 		{...spreadProps}
 		className={getClasses(className, variant)}
 	>
 		{children}
-	</div>;
+	</div>
+);
 
 XUIRow.propTypes = {
 	children: PropTypes.node,
@@ -27,7 +33,7 @@ XUIRow.propTypes = {
 };
 
 XUIRow.defaultProps = {
-	variant: 'standard'
+	variant: 'standard',
 };
 
 export { XUIRow as default };

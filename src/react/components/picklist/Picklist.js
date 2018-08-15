@@ -1,8 +1,8 @@
-import '../helpers/xuiGlobalChecks';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import {ns} from "../helpers/xuiClassNamespace";
+import '../helpers/xuiGlobalChecks';
+import { ns } from '../helpers/xuiClassNamespace';
 
 /**
  * Presentational (aka dumb) component used to display a selectable list of Pickitems.
@@ -22,18 +22,19 @@ export default class Picklist extends Component {
 			secondaryProps,
 			defaultLayout,
 			isHorizontal,
-			qaHook
+			qaHook,
 		} = this.props;
 
 		const classes = cn(
 			`${ns}-picklist`,
 			className,
 			(defaultLayout && !isHorizontal) && `${ns}-picklist-layout`,
-			isHorizontal && `${ns}-picklist-horizontal`
+			isHorizontal && `${ns}-picklist-horizontal`,
 		);
 
 		/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-		// Deferring the fix for this until we determine how to change the surface of pickitems & picklists
+		// Deferring the fix for this until we determine how to change the surface
+		// of pickitems & picklists
 		return (
 			<ul
 				{...secondaryProps}
@@ -45,7 +46,7 @@ export default class Picklist extends Component {
 			>
 				{children}
 			</ul>
-		)
+		);
 		/* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
 	}
 }
@@ -65,12 +66,12 @@ Picklist.propTypes = {
 	/* Whether to add the default layout class */
 	defaultLayout: PropTypes.bool,
 	/* Whether to render as horizontal pickitems */
-	isHorizontal: PropTypes.bool
+	isHorizontal: PropTypes.bool,
 };
 
 Picklist.defaultProps = {
 	defaultLayout: true,
-	secondaryProps : {
-		role:"group"
+	secondaryProps: {
+		role: 'group',
 	},
 };

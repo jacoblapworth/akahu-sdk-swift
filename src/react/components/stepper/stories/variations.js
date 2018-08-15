@@ -17,13 +17,13 @@ const defaultTabs = [
 		name: 'Complete',
 		description: 'All done =)',
 		isComplete: true,
-	}
+	},
 ];
 
 const baseProps = {
 	id: 'myCustomStepperId',
 	currentStep: 0,
-	tabs: defaultTabs
+	tabs: defaultTabs,
 };
 
 const standardTabs = [
@@ -129,7 +129,7 @@ const variations = [
 		storyKind,
 		storyTitle: 'standard button combinations',
 		lockLayout: 'stacked',
-		tabs: standardTabs
+		tabs: standardTabs,
 	},
 
 	{
@@ -137,7 +137,7 @@ const variations = [
 		storyKind,
 		storyTitle: 'progress button combinations',
 		lockLayout: 'stacked',
-		tabs: progressTabs
+		tabs: progressTabs,
 	},
 
 	{
@@ -145,7 +145,7 @@ const variations = [
 		storyKind,
 		storyTitle: 'extra long content',
 		lockLayout: 'stacked',
-		tabs: longTabs
+		tabs: longTabs,
 	},
 
 ];

@@ -2,7 +2,7 @@
 
 `NestedDropDown` is designed as a `DropDown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown.  A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
 
-```
+```jsx
 require('array.prototype.find').shim();
 const NestedDropDown = require('./NestedDropDown').default;
 const DropDownPanel = require('./DropDownPanel').default;
@@ -41,12 +41,7 @@ const convenienceDates = [
 		text: 'Next Month',
 		getDate: () => {
 			const today = getToday();
-			const targetDate = today.getDate();
 			today.setMonth(today.getMonth() + 1);
-			if (today.getMonth() !== targetDate) {
-				today.setDate(targetDate);
-				today.setMonth(today.getMonth() - 1);
-			}
 			return today;
 		}
 	},
@@ -137,7 +132,7 @@ class NestedExample extends Component {
 					<Pickitem
 						id="custom"
 						key="custom"
-						onSelect={() => this.selectConvenienceDate('custom')}
+						onClick={() => this.selectConvenienceDate('custom')}
 					>
 						Custom Date
 					</Pickitem>
@@ -190,7 +185,7 @@ class NestedExample extends Component {
 				dropdown={dropdown}
 				closeOnSelect={false}
 				onClose={this.showConvenienceDates}
-				closeOnTab={isPicklist}
+				closeOnTab={false}
 				restrictFocus={isPicklist}
 				restrictToViewPort={isPicklist}
 			/>

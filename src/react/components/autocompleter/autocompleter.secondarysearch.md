@@ -110,6 +110,7 @@ class SecondarySearchExample extends React.Component {
 					isInputLabelHidden
 					qaHook='secondary-search'
 					footer={footer}
+					closeOnTab={false}
 					onClose={() => this.onClose()}
 				>
 					<Picklist>

@@ -1,5 +1,7 @@
 `DropDownHeader` and `DropDownFooter` are used to add a fixed header and/or footer element to dropdowns. These elements don't scroll with the rest of the list, and are ignored by the default arrow key handlers. Add these components via the `header` and `footer` props in `DropDown`.
 
+If you've included any actions in the header or footer, set the `closeOnTab` property of `DropDownToggled` to `false`, so users navigating by keyboard are able to access them.
+
 ```jsx
 const DropDownToggled = require('./DropDownToggled').default;
 const DropDownFooter = require('./DropDownFooter').default;
@@ -178,6 +180,7 @@ class XDD extends Component {
 				trigger={trigger}
 				dropdown={dropdown}
 				closeOnSelect={false}
+				closeOnTab={false}
 				onClose={this.onClose}
 				onOpen={this.onOpen}
 			/>

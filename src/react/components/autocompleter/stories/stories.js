@@ -201,6 +201,7 @@ class DetailedListExample extends Component {
 					searchValue={value}
 					dropdownFixedWidth={dropdownFixedWidth}
 					footer={noDrawerFooter ? null : footer}
+					closeOnTab={noDrawerFooter}
 					onClose={() => this.onClose()}
 					onBackspacePill={this.deleteLastPerson}
 					loading={isLoading}
@@ -338,6 +339,7 @@ class SecondarySearchExample extends React.Component {
 					inputLabelText='secondary search label'
 					isInputLabelHidden
 					qaHook='secondary-search'
+					closeOnTab={false}
 					footer={footer}
 				>
 					<Picklist>

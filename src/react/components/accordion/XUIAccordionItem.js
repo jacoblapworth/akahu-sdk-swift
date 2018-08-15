@@ -11,12 +11,15 @@ export default class XUIAccordionItem extends PureComponent {
 	render = () => null;
 }
 
+/* eslint-disable react/no-unused-prop-types */
 XUIAccordionItem.propTypes = {
 
-	/** A space to accommodate additional content that is not addressed by the various _"official"_ trigger props. */
+	/** A space to accommodate additional content that is not addressed by the
+	 * various _"official"_ trigger props. */
 	custom: PropTypes.node,
 
-	/** Left most consumer specified component option, sits to the right of the arrow. Typically an `<XUIAvatar />`, `<XUICheckbox />` or `<XUIRolloverCheckbox />` component. */
+	/** Left most consumer specified component option, sits to the right of the arrow.
+	 * Typically an `<XUIAvatar />`, `<XUICheckbox />` or `<XUIRolloverCheckbox />` component. */
 	leftContent: PropTypes.node,
 
 	/** Primary heading content. */
@@ -34,6 +37,7 @@ XUIAccordionItem.propTypes = {
 	/** Any component passed as right most content, typically a `<DropDownToggled />` component. */
 	overflow: PropTypes.node,
 
-	/** Callback for a accordion item toggle. Returns the entire `item` from the `items` array in addition to an `isOpen` boolean representing the items toggled state. */
+	/** Callback for a accordion item toggle. Returns the entire `item` from the `items` array in
+	 * addition to an `isOpen` boolean representing the items toggled state. */
 	onItemClick: PropTypes.func,
 };

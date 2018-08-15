@@ -1,4 +1,4 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export const NAME_SPACE = ns;
 
@@ -6,7 +6,7 @@ export const CHART_HEIGHT = 400;
 export const CHART_WIDTH = 200;
 export const CHART_FONT_SMALL = 11;
 export const CHART_FONT_LARGE = 13;
-export const CHART_FONT_FAMILY = `"Helvetica Neue", Helvetica, Arial, sans-serif`;
+export const CHART_FONT_FAMILY = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 export const CHART_FONT_COLOR = '#657483';
 export const CHART_BREAKPOINT = 520;
 

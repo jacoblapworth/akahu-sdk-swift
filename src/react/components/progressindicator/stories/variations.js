@@ -164,7 +164,7 @@ const variations = [
 		...baseProps,
 		storyKind,
 		storyTitle: 'circular custom (icon) hard error',
-		isHardError: true
+		isHardError: true,
 	},
 	{
 		...baseProps,

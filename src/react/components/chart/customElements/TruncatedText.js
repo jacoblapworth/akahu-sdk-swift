@@ -1,13 +1,13 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const createTotalCharacterReducer = maxWidth => ({totalWidth = 20, totalChars = 0}, node) => {
+const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars = 0 }, node) => {
 	const charWidth = node.getComputedTextLength();
 	const newWidth = totalWidth + charWidth;
 
 	return newWidth > maxWidth
-		? {totalWidth, totalChars}
-		: {totalWidth: newWidth, totalChars: totalChars + 1};
+		? { totalWidth, totalChars }
+		: { totalWidth: newWidth, totalChars: totalChars + 1 };
 };
 
 class TruncatedText extends PureComponent {
@@ -15,9 +15,9 @@ class TruncatedText extends PureComponent {
 	state = { /* maxWidth, text */ };
 
 	updateTruncationReference = () => {
-		const {state: { maxWidth: prevMaxWidth, text: prevText }} = this;
-		const {maxWidth: nextMaxWidth, children: nextText} = this.props;
-		const shouldUpdate = !(nextMaxWidth === prevMaxWidth && nextText === prevText);
+		const { maxWidth, text } = this.state;
+		const { maxWidth: nextMaxWidth, children: nextText } = this.props;
+		const shouldUpdate = !(nextMaxWidth === maxWidth && nextText === text);
 
 		if (shouldUpdate) {
 			this.setState({
@@ -36,9 +36,11 @@ class TruncatedText extends PureComponent {
 	}
 
 	render = () => {
-		const {rootNode} = this;
+		const { rootNode } = this;
 		const charNodes = rootNode ? rootNode.querySelectorAll('tspan') : [];
-		const {style, maxWidth, children: text, ...textProps} = this.props;
+		const {
+			style, maxWidth, children: text, ...textProps
+		} = this.props;
 		const createTextSpan = (character, key) => <tspan key={key} style={style}>{character}</tspan>;
 		const reducer = createTotalCharacterReducer(maxWidth);
 		const totalCharsRaw = charNodes
@@ -61,7 +63,8 @@ class TruncatedText extends PureComponent {
 				}
 				<text
 					y="9999999"
-					ref={node => this.rootNode = node}>
+					ref={node => this.rootNode = node}
+				>
 					{text.split('').map(createTextSpan)}
 				</text>
 				{
@@ -77,7 +80,7 @@ class TruncatedText extends PureComponent {
 	}
 }
 
-export default TruncatedText
+export default TruncatedText;
 
 TruncatedText.propTypes = {
 	className: PropTypes.string,

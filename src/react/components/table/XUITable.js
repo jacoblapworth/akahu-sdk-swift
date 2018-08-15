@@ -2,7 +2,7 @@ import 'core-js/library/fn/array/virtual/fill';
 import 'element-closest';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames'
+import cn from 'classnames';
 import throttle from 'lodash.throttle';
 import XUILoader from '../loader/XUILoader';
 import noop from '../helpers/noop';
@@ -37,12 +37,12 @@ class XUITable extends Component {
 	};
 
 	setCurrentWidth = () => {
-		const { rootNode, state } = this;
+		const { rootNode } = this;
 		const rootWidth = rootNode && rootNode.clientWidth;
-		const isRootWidthNew = rootNode && rootWidth !== state.rootWidth;
+		const isRootWidthNew = rootNode && rootWidth !== this.state.rootWidth;
 
 		if (isRootWidthNew) {
-			this.setState({ ...state, rootWidth });
+			this.setState({ rootWidth });
 		}
 	};
 
@@ -77,7 +77,7 @@ class XUITable extends Component {
 
 		// Generic measurements around where we are in the Table in respect to
 		// width / scroll etc.
-		const {clientWidth: cellWidth, offsetLeft: cellOffset } = event.target;
+		const { clientWidth: cellWidth, offsetLeft: cellOffset } = event.target;
 		const scrollOffset = wrapperNode.scrollLeft;
 		const wrapperWidth = wrapperNode.clientWidth;
 
@@ -113,11 +113,12 @@ class XUITable extends Component {
 			// be representative of the current scroll values (lets take a look to make sure).
 			this.setScrollOverflow();
 		}
-
 	};
 
 	render = () => {
-		const { state, props, rootNode, tableNode, wrapperNode, ensureCellVisibility } = this;
+		const {
+			state, props, rootNode, tableNode, wrapperNode, ensureCellVisibility,
+		} = this;
 		const {
 			qaHook,
 			className: suppliedClasses,
@@ -164,7 +165,7 @@ class XUITable extends Component {
 				[`${NAME_SPACE}-pinright`]: hasPinnedLastColumn,
 				[`${NAME_SPACE}-hasheader`]: hasHeader,
 				[`${NAME_SPACE}-nopointerevents`]: !hasPointerEvents,
-			}
+			},
 		);
 
 		const handleScroll = (hasPinnedFirstColumn || hasPinnedLastColumn) ? this.scrollThrottled : noop;
@@ -173,12 +174,14 @@ class XUITable extends Component {
 			<div
 				className={className}
 				ref={node => this.rootNode = node}
-				data-automationid={qaHook}>
+				data-automationid={qaHook}
+			>
 
 				{header && (
 					<div
 						data-automationid={qaHook && `${qaHook}-header`}
-						className={`${NAME_SPACE}--customheader`}>
+						className={`${NAME_SPACE}--customheader`}
+					>
 						{header}
 					</div>
 				)}
@@ -186,12 +189,14 @@ class XUITable extends Component {
 				<div
 					className={`${NAME_SPACE}-wrapper`}
 					ref={node => this.wrapperNode = node}
-					onScroll={handleScroll}>
+					onScroll={handleScroll}
+				>
 
 					<table
 						data-automationid={qaHook && `${qaHook}-table`}
 						className={`${NAME_SPACE}-element`}
-						ref={node => this.tableNode = node}>
+						ref={node => this.tableNode = node}
+					>
 
 						{hasHeader && (
 
@@ -207,7 +212,8 @@ class XUITable extends Component {
 								checkAllRowsLabel,
 								hasOverflowMenu,
 								ensureCellVisibility,
-							}} />
+							}}
+							/>
 
 						)}
 
@@ -225,7 +231,8 @@ class XUITable extends Component {
 							overflowMenuTitle,
 							createDividerClassesThunk,
 							ensureCellVisibility,
-						}} />
+						}}
+						/>
 
 					</table>
 
@@ -233,7 +240,7 @@ class XUITable extends Component {
 
 				{isLoading && (
 					<TableAlert qaHook={qaHook && `${qaHook}-loader`}>
-						<XUILoader ariaLabel={ loaderLabel } />
+						<XUILoader ariaLabel={loaderLabel} />
 					</TableAlert>
 				)}
 
@@ -246,7 +253,8 @@ class XUITable extends Component {
 				{footer && (
 					<div
 						data-automationid={qaHook && `${qaHook}-footer`}
-						className={`${NAME_SPACE}--customfooter`}>
+						className={`${NAME_SPACE}--customfooter`}
+					>
 						{footer}
 					</div>
 				)}
@@ -272,7 +280,8 @@ XUITable.propTypes = {
 	/** Allows the table to scroll horizontally when there is overflowing columns. */
 	isResponsive: PropTypes.bool,
 
-	/** Changes overflowing column data into a truncated column view if legibility can still be maintained. */
+	/** Changes overflowing column data into a truncated column view if legibility can
+	 * still be maintained. */
 	isTruncated: PropTypes.bool,
 
 	// - - - - //
@@ -324,7 +333,8 @@ XUITable.propTypes = {
 	/** Appends a custom overflow menu column to the table. */
 	hasOverflowMenu: PropTypes.bool,
 
-	/** A function that is supplied the data from each row and returns an array of Pickitem components. */
+	/** A function that is supplied the data from each row and returns an array of
+	 * Pickitem components. */
 	createOverflowMenu: PropTypes.func,
 
 	/** Describes the overflow menu functionality for accessibility purposes. */
@@ -353,7 +363,8 @@ XUITable.propTypes = {
 	/** A callback function for row interactions. */
 	onRowClick: PropTypes.func,
 
-	/** A function that receives a single rows data set and determines if that particular row should have the `onRowClick` click handler applied to it. */
+	/** A function that receives a single rows data set and determines if that particular
+	 * row should have the `onRowClick` click handler applied to it. */
 	shouldRowCLick: PropTypes.func,
 
 	// - - - - - - //
@@ -374,7 +385,7 @@ XUITable.propTypes = {
 	emptyStateComponent: PropTypes.node,
 
 	/** Change the default "Empty State" message with a custom version. */
-	emptyMessage: PropTypes.string
+	emptyMessage: PropTypes.string,
 
 };
 

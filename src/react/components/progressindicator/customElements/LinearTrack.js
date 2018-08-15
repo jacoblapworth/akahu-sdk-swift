@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import WithLinearGrowth from './WithLinearGrowth';
-import {NAME_SPACE} from '../helpers/constants';
-import {createArray} from '../helpers/utilities';
+import { NAME_SPACE } from '../helpers/constants';
+import { createArray } from '../helpers/utilities';
 
 const DEFAULT_THICKNESS = 4;
 
@@ -19,8 +19,9 @@ const standardiseThickness = (thickness, isGrow, elementHeight) => (
 		: Math.max(thickness, DEFAULT_THICKNESS)
 );
 
-const createSegmentBaseline = ({index, total, progress, thickness}) => {
-
+const createSegmentBaseline = ({
+	index, total, progress, thickness,
+}) => {
 	const isProgress = index < progress;
 
 	return {
@@ -30,15 +31,15 @@ const createSegmentBaseline = ({index, total, progress, thickness}) => {
 			`${NAME_SPACE}-linear-segment`,
 			{
 				[`${NAME_SPACE}-linear-current`]: isProgress,
-				[`${NAME_SPACE}-linear-track`]: !isProgress
-			}
+				[`${NAME_SPACE}-linear-track`]: !isProgress,
+			},
 		),
 		gap: `${thickness / 2}px`,
 		height: `${thickness}px`,
 	};
 };
 
-const createLinearSegmentDots = ({total, progress, thickness}) => (
+const createLinearSegmentDots = ({ total, progress, thickness }) => (
 	createArray(total).map((_, index) => {
 		const {
 			isFirst,
@@ -46,23 +47,18 @@ const createLinearSegmentDots = ({total, progress, thickness}) => (
 			itemClasses,
 			gap,
 			height,
-		} = createSegmentBaseline({index, total, progress, thickness});
+		} = createSegmentBaseline({
+			index, total, progress, thickness,
+		});
 		const width = height;
 		const left = `-${gap}`;
-		const margin = (
-			isFirst
-			? `0 0 0 ${gap}`
-				: isLast
-				? `0 ${gap} 0 0`
-					// Center segment.
-					: '0'
-		);
+		const margin = `0 ${isLast ? gap : 0} 0 ${isFirst ? gap : 0}`;
 
 		return (
 			<div
-				key={index}
+				key={index}// eslint-disable-line react/no-array-index-key
 				className={`${NAME_SPACE}-linear-dot`}
-				style={{margin, height}}
+				style={{ margin, height }}
 			>
 				{/*
 					The current / progress tracks are nested inside of a "dot" element so
@@ -73,13 +69,14 @@ const createLinearSegmentDots = ({total, progress, thickness}) => (
 				*/}
 				<div
 					className={itemClasses}
-					style={{height, left, width}}/>
+					style={{ height, left, width }}
+				/>
 			</div>
 		);
 	})
 );
 
-const createLinearSegmentDashes = ({total, progress, thickness}) => (
+const createLinearSegmentDashes = ({ total, progress, thickness }) => (
 	createArray(total).map((_, index) => {
 		const {
 			isFirst,
@@ -87,19 +84,17 @@ const createLinearSegmentDashes = ({total, progress, thickness}) => (
 			itemClasses,
 			gap,
 			height,
-		} = createSegmentBaseline({index, total, progress, thickness});
-		const margin = (
-			isFirst
-			? `0 ${gap} 0 0`
-				: isLast
-				? `0 0 0 ${gap}`
-					// Center segment.
-					: `0 ${gap}`
-		);
+		} = createSegmentBaseline({
+			index, total, progress, thickness,
+		});
+
+		const marginLeft = isFirst || (!isFirst && !isLast) ? gap : 0;
+		const marginRight = isLast || (!isFirst && !isLast) ? gap : 0;
+		const margin = `0 ${marginLeft} 0 ${marginRight}`;
 
 		return (
 			<div
-				key={index}
+				key={index}// eslint-disable-line react/no-array-index-key
 				className={itemClasses}
 				style={{ margin, height }}
 			/>
@@ -107,36 +102,38 @@ const createLinearSegmentDashes = ({total, progress, thickness}) => (
 	})
 );
 
-const createLinearStandardDashes = ({total, progress, thickness}) => {
+const createLinearSegments = ({ hasSegmentDots, ...props }) =>
+	(hasSegmentDots ? createLinearSegmentDots(props) : createLinearSegmentDashes(props));
 
-	const width = `${progress / total * 100}%`;
+const createLinearStandardDashes = ({ total, progress, thickness }) => {
+	const width = `${(progress / total) * 100}%`;
 	const height = `${thickness}px`;
 
 	return (
 		<div
 			className={`${NAME_SPACE}-linear-track`}
-			style={{height}}>
+			style={{ height }}
+		>
 			<div
 				className={`${NAME_SPACE}-linear-current`}
-				style={{height, width}}
+				style={{ height, width }}
 			/>
 		</div>
 	);
-
 };
 
 createLinearStandardDashes.propTypes = dashProps;
 
-const LinearTrack = ({total, progress, isSegmented, hasSegmentDots, isGrow, elementHeight, ...props}) => {
-
+const LinearTrack = ({
+	total, progress, isSegmented, hasSegmentDots, isGrow, elementHeight, ...props
+}) => {
 	const thickness = standardiseThickness(props.thickness, isGrow, elementHeight);
 	const dashes = (
-		hasSegmentDots
-		? createLinearSegmentDots({total, progress, thickness})
-			: isSegmented
-			? createLinearSegmentDashes({total, progress, thickness})
-				// Standard.
-				: createLinearStandardDashes({total, progress, thickness})
+		hasSegmentDots || isSegmented
+			? createLinearSegments({
+				total, progress, thickness, hasSegmentDots,
+			})
+			: createLinearStandardDashes({ total, progress, thickness })
 	);
 
 	return (
@@ -144,7 +141,6 @@ const LinearTrack = ({total, progress, isSegmented, hasSegmentDots, isGrow, elem
 			{dashes}
 		</div>
 	);
-
 };
 
 LinearTrack.propTypes = {

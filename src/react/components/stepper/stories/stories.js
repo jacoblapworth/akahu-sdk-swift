@@ -29,35 +29,34 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 	const layout = select('lockLayout', ['default', 'stacked', 'sidebar', 'inline']);
 	return (
-		<div style={ wrapperStyles }>
+		<div style={wrapperStyles}>
 			<XUIStepper
-				id={ text('id', `myStepperId_${layout}`) }
-				qaHook={ text('qaHook', 'myStepperQaHook') }
-				currentStep={ number('currentStep', 0) }
-				hasStackedButtons={ boolean('hasStackedButtons', false) }
+				id={text('id', `myStepperId_${layout}`)}
+				qaHook={text('qaHook', 'myStepperQaHook')}
+				currentStep={number('currentStep', 0)}
+				hasStackedButtons={boolean('hasStackedButtons', false)}
 				lockLayout={layout}
-				tabs={ object('tabs', baseProps.tabs) }>
-				<h3 style={ contentStyles }>Content Area</h3>
+				tabs={object('tabs', baseProps.tabs)}
+			>
+				<h3 style={contentStyles}>Content Area</h3>
 			</XUIStepper>
 		</div>
-	)
+	);
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
-
 	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
 	const width = props.lockLayout === 'stacked' ? '400px' : 'auto';
 	const Comparison = (
 		<div style={{ ...wrapperStyles, width }}>
 			<XUIStepper {...props}>
-				<h3 style={ contentStyles }>Content Area</h3>
+				<h3 style={contentStyles}>Content Area</h3>
 			</XUIStepper>
 		</div>
 	);
 
 	storiesWithVariations.add(storyTitle, () => Comparison);
-
 });

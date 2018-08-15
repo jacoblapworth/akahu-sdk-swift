@@ -11,6 +11,7 @@ class XUITableCell extends PureComponent {
 	render = () => (null);
 }
 
+/* eslint-disable react/no-unused-prop-types */
 XUITableCell.propTypes = {
 
 	/** Reference to an object key in the supplied data that the relating column should sort by. */
@@ -26,5 +27,6 @@ XUITableCell.propTypes = {
 	hasWrapping: PropTypes.bool,
 
 };
+/* eslint-enable react/no-unused-prop-types */
 
 export default XUITableCell;

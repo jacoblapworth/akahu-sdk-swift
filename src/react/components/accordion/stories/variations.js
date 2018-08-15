@@ -3,6 +3,7 @@ const XUIAvatar = require('../../avatar/XUIAvatar').default;
 const XUIButton = require('../../button/XUIButton').default;
 const XUIContentBlock = require('../../structural/XUIContentBlock').default;
 const XUIContentBlockItem = require('../../structural/XUIContentBlockItem').default;
+
 const storyKind = 'Instances/XUIAccordion';
 const variations = [
 	{
@@ -11,12 +12,12 @@ const variations = [
 		items: [
 			{ id: 1, name: 'John Smith' },
 			{ id: 2, name: 'Barry Allen' },
-			{ id: 3, name: 'Ernest Hemmingway' }
+			{ id: 3, name: 'Ernest Hemmingway' },
 		],
-		createItem: ({id, name}) => ({
+		createItem: ({ id, name }) => ({
 			id,
-			primaryHeading: name
-		})
+			primaryHeading: name,
+		}),
 	},
 	{
 		storyKind,
@@ -24,16 +25,16 @@ const variations = [
 		items: [
 			{ id: 1, name: 'John Smith', projects: '0 projects', minutes: '0:00' },
 			{ id: 2, name: 'Barry Allen', projects: '0 projects', minutes: '0:00' },
-			{ id: 3, name: 'Ernest Hemmingway', projects: '0 projects', minutes: '0:00' }
+			{ id: 3, name: 'Ernest Hemmingway', projects: '0 projects', minutes: '0:00' },
 		],
-		createItem: ({id, name, projects, minutes}) => ({
+		createItem: ({ id, name, projects, minutes }) => ({
 			id,
 			primaryHeading: name,
 			secondaryHeading: projects,
 			pinnedValue: <span className="xui-margin-right-small">{minutes}</span>,
 			leftContent: <XUIAvatar value={name} className="xui-margin-right" />,
 			action: <XUIButton size="small">See more</XUIButton>,
-		})
+		}),
 	},
 	{
 		storyKind,
@@ -54,8 +55,8 @@ const variations = [
 						project: 'American Aviation',
 						minutes: '15:30',
 						percentage: '75',
-					}
-				]
+					},
+				],
 			},
 			{
 				id: 2,
@@ -66,16 +67,16 @@ const variations = [
 						project: 'Mad men',
 						minutes: '1500:00',
 						percentage: '100',
-					}
-				]
+					},
+				],
 			},
 			{
 				id: 3,
 				name: 'Ernest Hemmingway',
-				contacts: []
-			}
+				contacts: [],
+			},
 		],
-		createItem: ({id, name, contacts}) => {
+		createItem: ({ id, name, contacts }) => {
 			const totalContacts = contacts.length;
 			return {
 				id,
@@ -85,7 +86,7 @@ const variations = [
 				action: <XUIButton size="small">See more</XUIButton>,
 				children: Boolean(totalContacts) && (
 					<XUIContentBlock>
-						{contacts.map(({contact, project, minutes, percentage}, key) => (
+						{contacts.map(({ contact, project, minutes, percentage }, key) => (
 							<XUIContentBlockItem
 								key={key}
 								primaryHeading={`${contact} - ${project}`}
@@ -96,10 +97,10 @@ const variations = [
 							/>
 						))}
 					</XUIContentBlock>
-				)
+				),
 			};
-		}
-	}
+		},
+	},
 ];
 
 module.exports = {

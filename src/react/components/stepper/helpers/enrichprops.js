@@ -3,8 +3,7 @@ import NOOP from '../../helpers/noop';
 import { NAME_SPACE, INLINE, LAYOUTS } from '../helpers/constants';
 import { createAriaTabId, createAriaPanelId } from '../helpers/utilities';
 
-export const enrichTabProps = (props) => {
-
+export const enrichTabProps = props => {
 	const { isDisabled, isError, totalProgress } = props;
 
 	const currentProgress = props.currentProgress < 0
@@ -21,14 +20,12 @@ export const enrichTabProps = (props) => {
 
 	const tabIndex = isDisabled ? -1 : 0;
 
-	const linkClasses = cn(
-		`${NAME_SPACE}-link`, {
-			[`${NAME_SPACE}-link-standard`]: isStandard,
-			[`${NAME_SPACE}-link-active`]: isActive,
-			[`${NAME_SPACE}-link-error`]: isError,
-			[`${NAME_SPACE}-link-disabled`]: isDisabled
-		}
-	);
+	const linkClasses = cn(`${NAME_SPACE}-link`, {
+		[`${NAME_SPACE}-link-standard`]: isStandard,
+		[`${NAME_SPACE}-link-active`]: isActive,
+		[`${NAME_SPACE}-link-error`]: isError,
+		[`${NAME_SPACE}-link-disabled`]: isDisabled,
+	});
 
 	return {
 		...props,
@@ -39,12 +36,10 @@ export const enrichTabProps = (props) => {
 		tabIndex,
 		linkClasses,
 	};
-
 };
 
 export const enrichStepperProps = (props, { layout }) => {
-
-	const { id, tabs, } = props;
+	const { id, tabs } = props;
 
 	const currentStep = props.currentStep < 0
 		? 0 : Math.min(props.currentStep, tabs.length - 1);
@@ -59,7 +54,7 @@ export const enrichStepperProps = (props, { layout }) => {
 	// by giving each tab an `auto` value and the column `1fr`.
 	// NOTE: We also test that the Array.fill method exists for browsers like IE11
 	// (which does not support CSS grid anyway).
-	const gridTemplateRows = Boolean(Array().fill)
+	const gridTemplateRows = Boolean([].fill)
 		&& `${new Array(tabs.length).fill('auto').join(' ')} 1fr`;
 
 	const ariaActiveTabId = createAriaTabId(id, currentStep);
@@ -68,7 +63,7 @@ export const enrichStepperProps = (props, { layout }) => {
 	const wrapperClasses = cn(
 		`${NAME_SPACE}-wrapper`,
 		`${NAME_SPACE}-${layout}`,
-		{ [`${NAME_SPACE}-stacked-links`]: hasStackedButtons }
+		{ [`${NAME_SPACE}-stacked-links`]: hasStackedButtons },
 	);
 
 	return {
@@ -81,5 +76,4 @@ export const enrichStepperProps = (props, { layout }) => {
 		ariaPanelId,
 		wrapperClasses,
 	};
-
 };

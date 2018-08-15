@@ -95,20 +95,17 @@ storiesWithKnobs.add('Playground | Linear', () => (
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
-const createColorComparison = (props) => {
-
+const createColorComparison = props => {
 	const enrichedProps = (
 		COLORS
 			// Take the set of "color" keys, and merge them into groups of two (a custom
 			// color for the "total" and "progress" tracks).
 			.reduce((acc, color, index) => {
-
 				index = Math.floor(index / 2);
 				acc[index] = acc[index] || [];
 				acc[index] = [...acc[index], color];
 
 				return acc;
-
 			}, [])
 			// Spread the color groups into the supplied props to generate a component
 			// scaffold for each color combination.
@@ -123,9 +120,8 @@ const createColorComparison = (props) => {
 	// Create a "circular" and "linear" component for each color combination.
 	return [
 		enrichedProps.map((props, index) => <div key={`circular-${index}`} style={colorStyle} ><XUIProgressCircular {...props} /></div>),
-		enrichedProps.map((props, index) => <div key={`linear-${index}`} style={colorStyle} ><XUIProgressLinear {...props} /></div>)
+		enrichedProps.map((props, index) => <div key={`linear-${index}`} style={colorStyle} ><XUIProgressLinear {...props} /></div>),
 	];
-
 };
 
 const createStandardComparison = (styles, Component, props, children) => (
@@ -137,7 +133,6 @@ const createStandardComparison = (styles, Component, props, children) => (
 );
 
 variations.forEach(variation => {
-
 	const { storyTitle, storyKind, ...props } = variation; // eslint-disable-line no-unused-vars
 	const isLinear = storyTitle.startsWith('linear');
 	const isColor = storyTitle.startsWith('color');
@@ -146,30 +141,20 @@ variations.forEach(variation => {
 	let Comparison;
 
 	if (isColor) {
-
 		Comparison = createColorComparison(props);
-
 	} else if (isLinear) {
-
 		Comparison = createStandardComparison(linearStyles, XUIProgressLinear, props);
-
 	} else if (isCustomContent) {
-
 		const children = <img style={{ width: '100%', height: 'auto' }} alt="custom indicator fill" src="http://via.placeholder.com/350x350" />;
 
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, props, children);
-
 	} else if (isErrorWithIcon) {
 		const starIcon = <XUIIcon icon={iconPath} isBoxed />;
 
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, { hardErrorAlert: starIcon, ...props });
-
 	} else {
-
 		Comparison = createStandardComparison(circularStyles, XUIProgressCircular, props);
-
 	}
 
 	storiesWithVariations.add(storyTitle, () => Comparison);
-
 });

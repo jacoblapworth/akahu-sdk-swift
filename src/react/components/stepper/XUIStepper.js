@@ -1,8 +1,8 @@
-import '../helpers/xuiGlobalChecks';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import throttle from 'lodash.throttle';
+import '../helpers/xuiGlobalChecks';
 import { NAME_SPACE, STACKED, SIDE_BAR, INLINE } from './helpers/constants';
 import { enrichStepperProps } from './helpers/enrichprops';
 import { createAriaTabId } from './helpers/utilities';
@@ -10,10 +10,11 @@ import StepperTab from './customElements/StepperTab';
 import InlineDummyLayout, { testIsInlineRelevant } from './customElements/InlineDummyLayout';
 import SideBarDummyLayout, { testIsSideBarRelevant } from './customElements/SideBarDummyLayout';
 
-const createTabs = ({ qaHook, tabs, id, ariaPanelId, currentStep }, overrides) => (
+const createTabs = ({
+	qaHook, tabs, id, ariaPanelId, currentStep,
+}, overrides) => (
 
 	tabs.map((tabProps, index) => {
-
 		const isFirst = index === 0;
 		const isLast = index === tabs.length - 1;
 		const isActive = currentStep === index;
@@ -25,32 +26,30 @@ const createTabs = ({ qaHook, tabs, id, ariaPanelId, currentStep }, overrides) =
 			id: ariaTabId,
 			step: index + 1,
 		};
-		const tabClasses = cn(
-			`${NAME_SPACE}-tab`, {
-				[`${NAME_SPACE}-tab-first`]: isFirst,
-				[`${NAME_SPACE}-tab-last`]: isLast
-			});
+		const tabClasses = cn(`${NAME_SPACE}-tab`, {
+			[`${NAME_SPACE}-tab-first`]: isFirst,
+			[`${NAME_SPACE}-tab-last`]: isLast,
+		});
 
 		return (
 			<div
-				key={ ariaTabId }
-				id={ ariaTabId }
-				className={ tabClasses }
-				aria-controls={ ariaPanelId }
-				aria-selected={ isActive }
+				key={ariaTabId}
+				id={ariaTabId}
+				className={tabClasses}
+				aria-controls={ariaPanelId}
+				aria-selected={isActive}
 				role="tab"
 				style={{ order: index }}
-				data-automationid={ qaHook && `${qaHook}-tab-${index}` }>
+				data-automationid={qaHook && `${qaHook}-tab-${index}`}
+			>
 				<StepperTab {...enrichedProps} />
 			</div>
 		);
-
 	})
 
 );
 
 class XUIStepper extends Component {
-
 	state = { layout: STACKED };
 	rootNode = null;
 	throttled = null;
@@ -58,49 +57,39 @@ class XUIStepper extends Component {
 	componentDidUpdate = () => this.setCurrentLayout();
 
 	componentDidMount = () => {
-
 		this.setCurrentLayout();
 		this.throttled = throttle(this.setCurrentLayout, 500);
 		window.addEventListener('resize', this.throttled);
-
 	};
 
 	componentWillUnmount = () => {
-
 		window.removeEventListener('resize', this.throttled);
 		this.throttled.cancel();
-
 	};
 
 	setCurrentLayout = () => {
-
-		const { rootNode, props, state } = this;
+		const { rootNode, props } = this;
+		const { layout } = this.state;
 		const { lockLayout } = props;
-		const currentLayout = state.layout;
-		const setLayout = newLayout => (
-			newLayout !== currentLayout) && this.setState({ layout: newLayout }
-		);
+		const setLayout = newLayout => (newLayout !== layout) && this.setState({ layout: newLayout });
 
 		if (lockLayout) {
-
 			setLayout(lockLayout);
-
 		} else if (rootNode) {
-
 			const isInline = testIsInlineRelevant(rootNode);
 			const isSideBar = testIsSideBarRelevant(rootNode);
-			const layout = isInline
-				? INLINE
-				: (isSideBar ? SIDE_BAR : STACKED);
 
-			setLayout(layout);
-
+			if (isInline) {
+				setLayout(INLINE);
+			} else if (isSideBar) {
+				setLayout(SIDE_BAR);
+			} else {
+				setLayout(STACKED);
+			}
 		}
-
 	};
 
 	render = () => {
-
 		const { props, state } = this;
 		const {
 			children,
@@ -113,10 +102,12 @@ class XUIStepper extends Component {
 			gridTemplateRows,
 			ariaActiveTabId,
 			ariaPanelId,
-			wrapperClasses
+			wrapperClasses,
 		} = enrichStepperProps(props, state);
 
-		const tabProps = { qaHook, tabs, id, ariaPanelId, currentStep };
+		const tabProps = {
+			qaHook, tabs, id, ariaPanelId, currentStep,
+		};
 		const visibleTabs = createTabs(tabProps);
 
 		// We use the override parameter here to ensure that the dummy UI's do not
@@ -128,36 +119,41 @@ class XUIStepper extends Component {
 
 		return (
 			<div
-				className={ NAME_SPACE }
-				ref={ (node) => this.rootNode = node }
-				data-automationid={ qaHook }>
+				className={NAME_SPACE}
+				ref={node => this.rootNode = node}
+				data-automationid={qaHook}
+			>
 
-				{!lockLayout && (<div
-					className={ `${NAME_SPACE}-tests xui-u-hidden-content` }
-					aria-hidden="true">
+				{!lockLayout && (
+					<div
+						className={`${NAME_SPACE}-tests xui-u-hidden-content`}
+						aria-hidden="true"
+					>
 
-					{/* Render "dummy" UI scenarios in secret to determine what layout the
-					component best conforms to the <XUIStepper /> width if no pre-defined
-					layout has been supplied. */}
-					<InlineDummyLayout hasStackedButtons={hasStackedButtons} tabs={hiddenTabs} />
-					<SideBarDummyLayout gridTemplateRows={gridTemplateRows} tabs={hiddenTabs} />
-
-				</div>)}
+						{/* Render "dummy" UI scenarios in secret to determine what layout the
+						component best conforms to the <XUIStepper /> width if no pre-defined
+						layout has been supplied. */}
+						<InlineDummyLayout hasStackedButtons={hasStackedButtons} tabs={hiddenTabs} />
+						<SideBarDummyLayout gridTemplateRows={gridTemplateRows} tabs={hiddenTabs} />
+					</div>
+				)}
 
 				<div
-					className={ wrapperClasses }
+					className={wrapperClasses}
 					style={{ gridTemplateRows }}
-					role="tablist">
+					role="tablist"
+				>
 
 					{ visibleTabs }
 
 					<div
-						id={ ariaPanelId }
-						className={ `${NAME_SPACE}-section` }
+						id={ariaPanelId}
+						className={`${NAME_SPACE}-section`}
 						style={{ order: currentStep }}
 						role="tabpanel"
-						aria-labelledby={ ariaActiveTabId }
-						data-automationid={ qaHook && `${qaHook}-content` }>
+						aria-labelledby={ariaActiveTabId}
+						data-automationid={qaHook && `${qaHook}-content`}
+					>
 						{ children }
 					</div>
 
@@ -165,13 +161,12 @@ class XUIStepper extends Component {
 
 			</div>
 		);
-
 	};
-
 }
 
 export default XUIStepper;
 
+/* eslint-disable react/no-unused-prop-types */
 XUIStepper.propTypes = {
 
 	qaHook: PropTypes.string,
@@ -182,46 +177,46 @@ XUIStepper.propTypes = {
 	children: PropTypes.node,
 
 	/** The group of Stepper tabs */
-	tabs: PropTypes.arrayOf(
-		PropTypes.shape({
+	tabs: PropTypes.arrayOf(PropTypes.shape({
 
-			/** Main display text. */
-			name: PropTypes.string.isRequired,
+		/** Main display text. */
+		name: PropTypes.string.isRequired,
 
-			/** Secondary display text. */
-			description: PropTypes.string,
+		/** Secondary display text. */
+		description: PropTypes.string,
 
-			/**`. */
-			handleClick: PropTypes.func,
+		/** `. */
+		handleClick: PropTypes.func,
 
-			/**`. */
-			isError: PropTypes.bool,
+		/** `. */
+		isError: PropTypes.bool,
 
-			/**`. */
-			isComplete: PropTypes.bool,
+		/** `. */
+		isComplete: PropTypes.bool,
 
-			/**`. */
-			isDisabled: PropTypes.bool,
+		/** `. */
+		isDisabled: PropTypes.bool,
 
-			/** Render a Progress Indicator. */
-			isProgress: PropTypes.bool,
+		/** Render a Progress Indicator. */
+		isProgress: PropTypes.bool,
 
-			/** Set the maximum Progress Indicator value. */
-			totalProgress: PropTypes.number,
+		/** Set the maximum Progress Indicator value. */
+		totalProgress: PropTypes.number,
 
-			/** Set the current Progress Indicator value. */
-			currentProgress: PropTypes.number,
+		/** Set the current Progress Indicator value. */
+		currentProgress: PropTypes.number,
 
-		})
-	).isRequired,
+	})).isRequired,
 
-	/** Target a tab by its index in the "tabs" array and set it to its "active" state (index is zero based). */
+	/** Target a tab by its index in the "tabs" array and set it to its "active" state
+	 * (index is zero based). */
 	currentStep: PropTypes.number.isRequired,
 
 	/** Set the tab buttons to have a "stacked" layout (only applicable in the "inline" layout) */
 	hasStackedButtons: PropTypes.bool,
 
-	/** Lock the Stepper to only use a single layout style (the Stepper will augment its layout automatically by default). */
+	/** Lock the Stepper to only use a single layout style (the Stepper will augment its layout
+	 * automatically by default). */
 	lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline']),
 
 };

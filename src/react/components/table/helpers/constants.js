@@ -1,4 +1,4 @@
-import {ns} from "../../helpers/xuiClassNamespace";
+import { ns } from '../../helpers/xuiClassNamespace';
 
 export const NAME_SPACE = `${ns}-table`;
 export const NBSP = '\u00A0';

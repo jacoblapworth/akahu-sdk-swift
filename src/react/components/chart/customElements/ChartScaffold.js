@@ -1,12 +1,12 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
-import {VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line} from 'victory';
-import {barChartTheme} from '../helpers/theme';
-import {testIsCloseEnough, pause} from '../helpers/utilities';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryLabel, Line } from 'victory';
+import { barChartTheme } from '../helpers/theme';
+import { testIsCloseEnough, pause } from '../helpers/utilities';
 import getGroupPosition from '../helpers/groupposition';
-import {NAME_SPACE, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH} from '../helpers/constants';
-import {enrichParams} from '../helpers/bars';
+import { NAME_SPACE, CHART_WIDTH, X_AXIS_HEIGHT, Y_AXIS_WIDTH } from '../helpers/constants';
+import { enrichParams } from '../helpers/bars';
 import StackedBar from './StackedBar';
 import GraphTooltip from './GraphTooltip';
 import ContentPagination from './ContentPagination';
@@ -74,8 +74,12 @@ class ChartScaffold extends PureComponent {
 	};
 
 	updateToolTip = (nextPosition = {}, toolTipMessage = null) => {
-		const {left: nextLeft, top: nextTop, width: nextWidth, height: nextHeight} = nextPosition;
-		const {left: prevLeft, top: prevTop, width: prevWidth, height: prevHeight} = this.state.toolTipPosition;
+		const {
+			left: nextLeft, top: nextTop, width: nextWidth, height: nextHeight,
+		} = nextPosition;
+		const {
+			left: prevLeft, top: prevTop, width: prevWidth, height: prevHeight,
+		} = this.state.toolTipPosition;
 		const shouldUpdate = (
 			nextLeft !== prevLeft || nextTop !== prevTop ||
 			nextWidth !== prevWidth || nextHeight !== prevHeight
@@ -85,50 +89,50 @@ class ChartScaffold extends PureComponent {
 			this.setState({
 				...this.state,
 				toolTipPosition: nextPosition,
-				toolTipMessage
+				toolTipMessage,
 			});
 		}
 	};
 
 	updateChartWidth = () => {
-		const {rootNode, state} = this;
+		const { rootNode, state } = this;
 		const chartWidth = rootNode && rootNode.offsetWidth;
 		const shouldUpdate = !testIsCloseEnough(chartWidth || CHART_WIDTH, state.chartWidth);
 
 		if (shouldUpdate) {
-			this.setState({...state, chartWidth});
+			this.setState({ ...state, chartWidth });
 		}
 	};
 
 	updateXAxisHeight = () => pause(this.testIsChartMounted, this.props.barsData, () => {
-		const {rootNode, state} = this;
+		const { rootNode, state } = this;
 		const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
 		const xAxisHeight = xAxisNode && getGroupPosition(xAxisNode).height;
 		const shouldUpdate = !testIsCloseEnough(xAxisHeight || X_AXIS_HEIGHT, state.xAxisHeight);
 
 		if (shouldUpdate) {
-			this.setState({...state, xAxisHeight});
+			this.setState({ ...state, xAxisHeight });
 		}
 	});
 
 	updateYAxisWidth = () => pause(this.testIsChartMounted, this.props.barsData, () => {
-		const {rootNode, state} = this;
+		const { rootNode, state } = this;
 		const yAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--yaxis`);
 		const yAxisWidth = yAxisNode && getGroupPosition(yAxisNode).width;
 		const shouldUpdate = !testIsCloseEnough(yAxisWidth || Y_AXIS_WIDTH, state.yAxisWidth);
 
 		if (shouldUpdate) {
-			this.setState({...state, yAxisWidth});
+			this.setState({ ...state, yAxisWidth });
 		}
 	});
 
 	handleContentScroll = () => {
-		const {rootNode, contentNode, props: {hasPagination}} = this;
+		const { rootNode, contentNode, props: { hasPagination } } = this;
 		const victoryNode = contentNode && contentNode.querySelector('.VictoryContainer');
 		const shouldUpdate = !hasPagination && rootNode && contentNode && victoryNode;
 
 		if (shouldUpdate) {
-			const {scrollLeft} = contentNode;
+			const { scrollLeft } = contentNode;
 			const panelWidth = contentNode.clientWidth;
 			const victoryWidth = victoryNode.clientWidth;
 			const hasLeftShadow = scrollLeft > 0;
@@ -152,7 +156,7 @@ class ChartScaffold extends PureComponent {
 
 	updatePanel = panelCurrent => {
 		const minPage = 1;
-		const {state, props} = this;
+		const { state, props } = this;
 		const maxPage = props.barsData.length;
 		const sanitisedPage = panelCurrent < minPage ? minPage : Math.min(panelCurrent, maxPage);
 		const shouldUpdate = sanitisedPage !== state.panelCurrent;
@@ -160,19 +164,19 @@ class ChartScaffold extends PureComponent {
 		if (shouldUpdate) {
 			this.setState({
 				...state,
-				panelCurrent: sanitisedPage
+				panelCurrent: sanitisedPage,
 			});
 		}
 	};
 
-	findScrollOffset = ({hasPagination, panelWidth, panelCurrent}) => (
+	findScrollOffset = ({ hasPagination, panelWidth, panelCurrent }) => (
 		hasPagination
 			? (panelCurrent - 1) * panelWidth
-			: (this.contentNode ? this.contentNode.scrollLeft : 0)
+			: ((this.contentNode && this.contentNode.scrollLeft) || 0)
 	);
 
 	render = () => {
-		const {props, state} = this;
+		const { props, state } = this;
 		const params = enrichParams(state, props, barChartTheme);
 		const {
 			qaHook,
@@ -189,10 +193,12 @@ class ChartScaffold extends PureComponent {
 			barsData, barsWidth, barWidth, onBarClick, activeBars, barColorActive, barColorStacks,
 
 			// Pagination...
-			hasPagination, createPaginationMessage, paginationLabel, paginationNextTitle, paginationPreviousTitle,
+			hasPagination, createPaginationMessage, paginationLabel, paginationNextTitle,
+			paginationPreviousTitle,
 
 			// Tooltip...
-			hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition, createBarToolTipMessage,
+			hasToolTip, isBarToolTipHidden, isXAxisToolTipHidden, toolTipMessage, toolTipPosition,
+			createBarToolTipMessage,
 
 			// Y-Axis...
 			yAxisHeight, yAxisTickValues, createYAxisLabelFormat,
@@ -207,7 +213,8 @@ class ChartScaffold extends PureComponent {
 		return (
 			<div
 				data-automationid={qaHook}
-				className={chartClassName}>
+				className={chartClassName}
+			>
 
 				{hasChartHeader && (
 					<div className={`${NAME_SPACE}-chart--header`}>
@@ -215,7 +222,9 @@ class ChartScaffold extends PureComponent {
 						{hasChartTitle && (
 							<h2
 								data-automationid={qaHook && `${qaHook}--title`}
-								className={`${NAME_SPACE}-chart--title`}>{chartTitle}</h2>
+								className={`${NAME_SPACE}-chart--title`}
+							>{chartTitle}
+							</h2>
 						)}
 
 						{hasPagination && (
@@ -255,8 +264,9 @@ class ChartScaffold extends PureComponent {
 							// NOTE: The overflow could cause problems with the tooltip down the
 							// line.
 							height: `${chartHeight}px`,
-							overflow: 'hidden'
-						}}>
+							overflow: 'hidden',
+						}}
+					>
 						{
 						// We have a situation where we need to create a "responsive" scrolling
 						// content area in a static SVG environment that does not allow for such
@@ -319,7 +329,7 @@ class ChartScaffold extends PureComponent {
 							// Push bars "middle" alignment back into the graph "bar" area.
 							// We are controlling this via bespoke components and therefore reset
 							// everything back to zero.
-							domainPadding={{x: 0}}
+							domainPadding={{ x: 0 }}
 
 							// Height of the "svg" graph (px).
 							height={chartHeight}
@@ -334,12 +344,13 @@ class ChartScaffold extends PureComponent {
 									title={chartTitle}
 									desc={chartDescription}
 								/>
-							)}>
+							)}
+						>
 
 							<VictoryAxis
 								dependentAxis
 								orientation="left"
-								scale={{y: 'linear'}}
+								scale={{ y: 'linear' }}
 								padding={chartPadding}
 								tickFormat={createYAxisLabelFormat}
 								tickValues={yAxisTickValues}
@@ -349,7 +360,7 @@ class ChartScaffold extends PureComponent {
 										className={`${NAME_SPACE}-chart--yaxis`}
 									/>
 								)}
-								tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`}/>}
+								tickLabelComponent={<VictoryLabel className={`${NAME_SPACE}-chart--measure`} />}
 
 								// Add the zero at the start of the axis (is hidden by default).
 								crossAxis={false}
@@ -363,7 +374,7 @@ class ChartScaffold extends PureComponent {
 								bottom: `${chartBottom}px`,
 								left: `${chartLeft}px`,
 								top: `${chartTop}px`,
-								width: `${panelWidth}px`
+								width: `${panelWidth}px`,
 							}}
 						/>
 
@@ -372,17 +383,19 @@ class ChartScaffold extends PureComponent {
 							ref={node => (this.contentNode = node)}
 							style={{
 								left: `${chartLeft}px`,
-								width: `${panelWidth}px`
+								width: `${panelWidth}px`,
 							}}
-							onScroll={this.throttledContentScroll}>
+							onScroll={this.throttledContentScroll}
+						>
 
 							<div
 								className={`${NAME_SPACE}-chart--scroll`}
 								style={{
 									...hasPagination && {
-										transform: `translateX(-${(panelCurrent - 1) * 100}%)`
-									}
-								}}>
+										transform: `translateX(-${(panelCurrent - 1) * 100}%)`,
+									},
+								}}
+							>
 
 								<VictoryChart
 									theme={chartTheme}
@@ -390,7 +403,7 @@ class ChartScaffold extends PureComponent {
 									// Push bars "middle" alignment back into the graph "bar" area.
 									// We are controlling this via bespoke components and therefore reset
 									// everything back to zero.
-									domainPadding={{x: 0}}
+									domainPadding={{ x: 0 }}
 
 									// Height of the "svg" graph (px).
 									height={chartHeight}
@@ -408,12 +421,13 @@ class ChartScaffold extends PureComponent {
 											// on our static sizes that we measure.
 											responsive={false}
 										/>
-									)}>
+									)}
+								>
 
 									<VictoryAxis
 										dependentAxis={false}
 										orientation="bottom"
-										scale={{x: 'linear'}}
+										scale={{ x: 'linear' }}
 										padding={chartPadding}
 										width={barsWidth}
 										tickValues={xAxisTickValues}
@@ -429,7 +443,7 @@ class ChartScaffold extends PureComponent {
 												type="grid"
 												style={{
 													stroke: 'transparent',
-													strokeWidth: 0
+													strokeWidth: 0,
 												}}
 											/>
 										)}
@@ -513,8 +527,8 @@ ChartScaffold.propTypes = {
 	chartHeight: PropTypes.number,
 	keyTitle: PropTypes.string,
 	keyLabel: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
+		PropTypes.string,
+		PropTypes.arrayOf(PropTypes.string),
 	]),
 	barsData: PropTypes.array,
 	barColor: PropTypes.oneOfType([

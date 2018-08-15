@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ElementSize from './ElementSize';
 
@@ -28,9 +28,8 @@ const DEFAULT_WIDTH = 20;
 //         | |
 //
 // This serves as an acceptable track thickness resizer and complements the ability
-//for our users to supply their own track thickness manually.
-const createDynamicThickness = (width) => {
-
+// for our users to supply their own track thickness manually.
+const createDynamicThickness = width => {
 	// A magic number to spread the strokes scaling effect between the initial "0"
 	// and "45" degree values on the Tangental X-axis.
 	const scale = width / 8;
@@ -44,26 +43,23 @@ const createDynamicThickness = (width) => {
 	// to calculate what percentage of the "maxStroke" we assign based on the
 	// components DOM dimension.
 	return Math.tan(radians) * maxStroke;
-
 };
 
 const WithCircularGrowth = Wrapper => class CircularGrowth extends Component {
-
 	static propTypes = {
 		isGrow: PropTypes.bool,
 		thickness: PropTypes.number,
 	};
 
 	render = () => {
-
-		const {props} = this;
-		const {isGrow, thickness} = props;
+		const { props } = this;
+		const { isGrow, thickness } = props;
 
 		return isGrow
 
 			? (
 				<ElementSize>
-					{({elementWidth}) => (
+					{({ elementWidth }) => (
 						<Wrapper
 							{...props}
 							elementWidth={elementWidth || DEFAULT_WIDTH}
@@ -81,10 +77,8 @@ const WithCircularGrowth = Wrapper => class CircularGrowth extends Component {
 						thickness={thickness}
 					/>
 				</div>
-			)
-
+			);
 	};
-
 };
 
-export {WithCircularGrowth as default, createDynamicThickness};
+export { WithCircularGrowth as default, createDynamicThickness };

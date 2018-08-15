@@ -1,15 +1,15 @@
 const storyKind = 'Instances/XUIBarChart';
 
 const standardBarsData = [
-	{ id: 0, x: "Apple", y: 1 },
-	{ id: 1, x: "Potato", y: 2 },
-	{ id: 2, x: "Carrot", y: 3 },
+	{ id: 0, x: 'Apple', y: 1 },
+	{ id: 1, x: 'Potato', y: 2 },
+	{ id: 2, x: 'Carrot', y: 3 },
 ];
 
 const stackedBarsData = [
-	{ id: 0, x: "Apple", y: [1] },
-	{ id: 1, x: "Potato", y: [1, 2] },
-	{ id: 2, x: "Carrot", y: [1, 2, 3] },
+	{ id: 0, x: 'Apple', y: [1] },
+	{ id: 1, x: 'Potato', y: [1, 2] },
+	{ id: 2, x: 'Carrot', y: [1, 2, 3] },
 ];
 
 const stackedBarColor = ['#50E3C2', null, '#AC00FF'];
@@ -25,7 +25,7 @@ const variations = [
 			barsData: standardBarsData,
 			activeBars: {
 				0: true,
-				2: false
+				2: false,
 			},
 		},
 		{
@@ -37,11 +37,11 @@ const variations = [
 			barColorActive: 'hsla(320, 100%, 50%, 0.5)',
 			activeBars: {
 				0: true,
-				2: [1]
+				2: [1],
 			},
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Standard Colored Bars',
@@ -59,9 +59,9 @@ const variations = [
 			isBarStacked: true,
 			barsData: stackedBarsData,
 			barColor: stackedBarColor,
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Bars Overflow',
@@ -88,9 +88,9 @@ const variations = [
 			xAxisVisibleItems: 2,
 			hasPagination: true,
 			createPaginationMessage: (current, total) => `Page ${current} of ${total}`,
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Customise Y-Axis',
@@ -99,7 +99,7 @@ const variations = [
 			chartTitle: 'Custom Y-Axis Label',
 			chartDescription: 'Custom y-axis label for each vertical tick',
 			barsData: standardBarsData,
-			createYAxisLabelFormat: (y) => `${Math.round(y * 100)}k`,
+			createYAxisLabelFormat: y => `${Math.round(y * 100)}k`,
 		},
 		{
 			chartId: 'customYaxisMaximimAcceptedValue',
@@ -114,9 +114,9 @@ const variations = [
 			chartDescription: 'Propose a maximum y-axis value that is declined due to being lower than the largest bar total',
 			barsData: standardBarsData,
 			yAxisDefaultTopValue: 2,
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Undefined / Disparit Stress Test',
@@ -125,9 +125,9 @@ const variations = [
 			chartTitle: 'Undefined Bar Data',
 			chartDescription: 'Appearance of the chart when no bars in the data set have a value greater than zero',
 			barsData: [
-				{ id: 0, x: "Apple" },
-				{ id: 1, x: "Potato", y: 0 },
-				{ id: 2, x: "Carrot", y: undefined },
+				{ id: 0, x: 'Apple' },
+				{ id: 1, x: 'Potato', y: 0 },
+				{ id: 2, x: 'Carrot', y: undefined },
 			],
 		},
 		{
@@ -135,13 +135,13 @@ const variations = [
 			chartTitle: 'Disparit Bar Data',
 			chartDescription: 'Avoid the situation where a data set is so disparit that a bar with a low value can actually disappear',
 			barsData: [
-				{ id: 0, x: "Apple", y: 0},
-				{ id: 1, x: "Potato", y: 10 },
-				{ id: 2, x: "Carrot", y: 1000000 },
-			]
-		}]
+				{ id: 0, x: 'Apple', y: 0 },
+				{ id: 1, x: 'Potato', y: 10 },
+				{ id: 2, x: 'Carrot', y: 1000000 },
+			],
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Loading State',
@@ -151,9 +151,9 @@ const variations = [
 			chartDescription: 'The charts loading state that removes the generic charting scaffold',
 			barsData: standardBarsData,
 			isLoading: true,
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Empty States',
@@ -168,7 +168,7 @@ const variations = [
 			chartTitle: 'Custom Empty Message',
 			chartDescription: 'Add a customised message to the default empty state',
 			barsData: [],
-			emptyMessage: 'Custom Empty Message'
+			emptyMessage: 'Custom Empty Message',
 		},
 		{
 			chartId: 'customEmptyComponent',
@@ -176,9 +176,9 @@ const variations = [
 			chartDescription: 'Supply a customised empty state component',
 			barsData: [],
 			emptyStateComponent: '🙃',
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Avatar X-Axis Label',
@@ -187,38 +187,38 @@ const variations = [
 			chartTitle: 'Tiny Avatar Label',
 			chartDescription: 'Show just the avatar icon',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'Apple', y: 1 }],
 			xAxisType: 'avatar',
-			testStyles: {flexGrow: 'initial', width: '110px'},
+			testStyles: { flexGrow: 'initial', width: '110px' },
 		},
 		{
 			chartId: 'smallAvatarLabel',
 			chartTitle: 'Small Avatar Label',
 			chartDescription: 'Show the small font stacked avatar and label variant',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'Apple', y: 1 }],
 			xAxisType: 'avatar',
-			testStyles: {flexGrow: 'initial', width: '130px'},
+			testStyles: { flexGrow: 'initial', width: '130px' },
 		},
 		{
 			chartId: 'mediumAvatarLabel',
 			chartTitle: 'MediumAvatarLabel',
 			chartDescription: 'Show the large font stacked avatar and label variant',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'Apple', y: 1 }],
 			xAxisType: 'avatar',
-			testStyles: {flexGrow: 'initial', width: '160px'},
+			testStyles: { flexGrow: 'initial', width: '160px' },
 		},
 		{
 			chartId: 'largeAvatarLabel',
 			chartTitle: 'Label Avatar Label',
 			chartDescription: 'Show the large font inline avatar and label variant',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'Apple', y: 1 }],
 			xAxisType: 'avatar',
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Abbreviation X-Axis Label',
@@ -227,38 +227,38 @@ const variations = [
 			chartTitle: 'Tiny Abbreviation Label',
 			chartDescription: 'Show the tiny text string in a small font',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "A | App | Apple | Organic Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'A | App | Apple | Organic Apple', y: 1 }],
 			xAxisType: 'abbreviation',
-			testStyles: {flexGrow: 'initial', width: '110px'},
+			testStyles: { flexGrow: 'initial', width: '110px' },
 		},
 		{
 			chartId: 'smallAbbreviationLabel',
 			chartTitle: 'Small Abbreviation Label',
 			chartDescription: 'Show the small text string in a small font',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "A | App | Apple | Organic Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'A | App | Apple | Organic Apple', y: 1 }],
 			xAxisType: 'abbreviation',
-			testStyles: {flexGrow: 'initial', width: '130px'},
+			testStyles: { flexGrow: 'initial', width: '130px' },
 		},
 		{
 			chartId: 'mediumAbbreviationLabel',
 			chartTitle: 'Medium Abbreviation Label',
 			chartDescription: 'Show the medium text string in a large font',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "A | App | Apple | Organic Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'A | App | Apple | Organic Apple', y: 1 }],
 			xAxisType: 'abbreviation',
-			testStyles: {flexGrow: 'initial', width: '160px'},
+			testStyles: { flexGrow: 'initial', width: '160px' },
 		},
 		{
 			chartId: 'largeAbbreviationLabel',
 			chartTitle: 'Label Abbreviation Label',
 			chartDescription: 'Show the large text string in a large font',
 			chartHeight: 200,
-			barsData: [{ id: 0, x: "A | App | Apple | Organic Apple", y: 1 }],
+			barsData: [{ id: 0, x: 'A | App | Apple | Organic Apple', y: 1 }],
 			xAxisType: 'abbreviation',
-		}]
+		}],
 	},
-// - - - - - - - - - -
+	// - - - - - - - - - -
 	{
 		storyKind,
 		storyTitle: 'Header elements',
@@ -269,7 +269,7 @@ const variations = [
 			chartDescription: 'Hide the header when no key, pagination and visual title is required',
 			chartHeight: 200,
 			barsData: standardBarsData,
-			testStyles: {width: '50%'},
+			testStyles: { width: '50%' },
 		},
 		{
 			chartId: 'headerKey',
@@ -277,8 +277,8 @@ const variations = [
 			chartDescription: 'Show the title and key in a flexible layout',
 			chartHeight: 200,
 			barsData: standardBarsData,
-			keyLabel: "Fruit",
-			testStyles: {width: '50%'},
+			keyLabel: 'Fruit',
+			testStyles: { width: '50%' },
 		},
 		{
 			chartId: 'headerKeyWithPagination',
@@ -286,10 +286,10 @@ const variations = [
 			chartDescription: 'Show the key and standard pagination associated together in a flexible layout',
 			chartHeight: 200,
 			barsData: standardBarsData,
-			keyLabel: "Fruit",
+			keyLabel: 'Fruit',
 			xAxisVisibleItems: 2,
 			hasPagination: true,
-			testStyles: {width: '50%'},
+			testStyles: { width: '50%' },
 		},
 		{
 			chartId: 'headerKeyWithCustomPagination',
@@ -297,40 +297,40 @@ const variations = [
 			chartDescription: 'Place the custom pagination version on its own line when at a narrow element size',
 			chartHeight: 200,
 			barsData: standardBarsData,
-			keyLabel: "Fruit",
+			keyLabel: 'Fruit',
 			xAxisVisibleItems: 2,
 			hasPagination: true,
 			createPaginationMessage: (current, total) => `Page ${current} of ${total}`,
-			testStyles: {width: '50%'},
-		}]
+			testStyles: { width: '50%' },
+		}],
 	},
-// - - - - - - - - - -
-{
-	storyKind,
-	storyTitle: 'Standard Negative Bars',
-	examples: [{
-		chartId: 'standardNegativeBars',
-		chartTitle: 'Standard Negative Bars',
-		chartDescription: 'Negative states on a standard layout',
-		barsData: [
-			{...standardBarsData[0], y: -1},
-			{...standardBarsData[1], y: 1},
-			{...standardBarsData[2], y: -2},
-		],
-	},
+	// - - - - - - - - - -
 	{
-		chartId: 'stackedNegativeBars',
-		chartTitle: 'Stacked Negative Bars',
-		chartDescription: 'Negative states on a stacked layout',
-		isBarStacked: true,
-		barsData: [
-			{...standardBarsData[0], y: [-1]},
-			{...standardBarsData[1], y: [1, -2]},
-			{...standardBarsData[2], y: [-1, 2, -3]},
-		],
-		barColor: stackedBarColor,
-	}]
-},
+		storyKind,
+		storyTitle: 'Standard Negative Bars',
+		examples: [{
+			chartId: 'standardNegativeBars',
+			chartTitle: 'Standard Negative Bars',
+			chartDescription: 'Negative states on a standard layout',
+			barsData: [
+				{ ...standardBarsData[0], y: -1 },
+				{ ...standardBarsData[1], y: 1 },
+				{ ...standardBarsData[2], y: -2 },
+			],
+		},
+		{
+			chartId: 'stackedNegativeBars',
+			chartTitle: 'Stacked Negative Bars',
+			chartDescription: 'Negative states on a stacked layout',
+			isBarStacked: true,
+			barsData: [
+				{ ...standardBarsData[0], y: [-1] },
+				{ ...standardBarsData[1], y: [1, -2] },
+				{ ...standardBarsData[2], y: [-1, 2, -3] },
+			],
+			barColor: stackedBarColor,
+		}],
+	},
 ];
 
 module.exports = {

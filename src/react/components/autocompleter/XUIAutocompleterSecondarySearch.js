@@ -214,6 +214,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 					dropdown={dropdown}
 					onOpen={completer.onOpen}
 					onClose={compose(this.props.onClose, this.clearValue)}
+					closeOnTab={props.closeOnTab}
 					closeOnSelect={props.closeOnSelect}
 					className={dropdownToggledClasses}
 					matchTriggerWidth={props.matchTriggerWidth}
@@ -278,6 +279,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
+
+	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've supplied a footer element with any links or interaction. */
+	closeOnTab: PropTypes.bool,
 
 	/** When set to true the dropdown will automatically open when the input is given focus. */
 	openOnFocus: PropTypes.bool,

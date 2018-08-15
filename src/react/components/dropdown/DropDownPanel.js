@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Picklist from '../picklist/Picklist';
 import StatefulPicklist from '../picklist/StatefulPicklist';
@@ -250,26 +250,28 @@ class DropDownPanel extends PureComponent {
 				>
 					{header}
 					{shouldAddStatefulPicklist ? (
-						<StatefulPicklist
-							className={scrollableContainerClasses}
-							ref={c => this.list = c}
-							onSelect={onSelect}
-							ignoreKeyboardEvents={ignoreKeyboardEvents}
-							onHighlightChange={onHighlightChange}
-							qaHook={qaHook && `${qaHook}--scrollable-container`}
-							// Need the role here, because ARIA state needs to be managed at the same level.
-							secondaryProps={{role: "listbox"}}
-							shouldManageInitialHighlight={shouldManageInitialHighlight}
-						>
-							<div
-								className={`${baseClass}--scrollable-content`}
-								ref={sc => this._scrollableContent = sc}
-								data-automationid={qaHook && `${qaHook}--scrollable-content`}
+						<Fragment>
+							<StatefulPicklist
+								className={scrollableContainerClasses}
+								ref={c => this.list = c}
+								onSelect={onSelect}
+								ignoreKeyboardEvents={ignoreKeyboardEvents}
+								onHighlightChange={onHighlightChange}
+								qaHook={qaHook && `${qaHook}--scrollable-container`}
+								// Need the role here, because ARIA state needs to be managed at the same level.
+								secondaryProps={{role: "listbox"}}
+								shouldManageInitialHighlight={shouldManageInitialHighlight}
 							>
-								{children}
-							</div>
+								<div
+									className={`${baseClass}--scrollable-content`}
+									ref={sc => this._scrollableContent = sc}
+									data-automationid={qaHook && `${qaHook}--scrollable-content`}
+								>
+									{children}
+								</div>
+							</StatefulPicklist>
 							{footer}
-						</StatefulPicklist>
+						</Fragment>
 					) : (
 							<div
 								className={scrollableContainerClasses}

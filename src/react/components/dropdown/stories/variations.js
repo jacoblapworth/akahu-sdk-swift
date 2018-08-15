@@ -20,7 +20,9 @@ const variations = [
 		storyTitle: 'with Header and Footer',
 		ddSettings: {
 			headerAndFooter: true
-		}
+		},
+		closeOnTab: false,
+		closeOnSelect: false
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
@@ -43,7 +45,9 @@ const variations = [
 		storyTitle: 'with NestedDropDown',
 		ddSettings: {
 			children: 'nested'
-		}
+		},
+		closeOnTab: false,
+		closeOnSelect: false
 	},
 	{
 		storyKind: storiesWithVariationsKindName,

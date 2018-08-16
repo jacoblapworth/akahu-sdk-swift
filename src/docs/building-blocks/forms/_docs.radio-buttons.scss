@@ -3,22 +3,22 @@
 // Teaser: Choose a single item from a range of options
 //
 // Introduction:
-// XUI provides a custom radio button for consistency across platforms and visual alignment with other form elements. They can be used inline or grouped.
+// XUI provides a custom radio control for consistency across platforms and visual alignment with other form elements.
 //
 // Components: Radio
 //
 // Styleguide: Building Blocks.Controls.Radio
 
-// Best practice
+// Anatomy
 //
-// Tips:
-// Do: When disabling radios within groups, disable the entire group
-// Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
-// Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
+// Radios benefit from the built-in functionality of native inputs, but extend their style to match our visual language.
+// To create one, use the following classes.
 //
-// Styleguide: Building Blocks.Controls.Radio.1
-
-// Inline radios buttons
+// Classes:
+// xui-styledcheckboxradio: Wrapper for the checkbox
+// xui-styledcheckboxradio--input: Native input, visually hidden
+// xui-styledcheckboxradio--radio: Styled control
+// xui-styledcheckboxradio--label: Text label
 //
 // Markup:
 // <label class="xui-styledcheckboxradio">
@@ -31,88 +31,108 @@
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked</span>
 // </label>
-// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
+//
+// Styleguide: Building Blocks.Controls.Radio.1
+
+// Disabling
+//
+// Tips:
+// Do: When disabling, disable the entire group
+// Do: An alternative to partially disabled groups is to simply omit the disabled options
+// Warning: Avoid partially disabling groups when one of the disabled options is pre-selected as this causes unexpected results for keyboard navigation
+//
+// To disable a radio, add the following class and add the `disabled` attribute.
+//
+// Classes: 
+// xui-styledcheckboxradio-is-disabled: Adds disabled style
+//
+// Markup:
+// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled" id="r3" name="rg1">
 //   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" disabled>
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Disabled</span>
 // </label>
-// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
+// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled" id="r4" name="rg1">
 //   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" checked disabled>
 //   <div class="xui-styledcheckboxradio--radio"></div>
 //   <span class="xui-styledcheckboxradio--label">Checked and disabled</span>
 // </label>
 //
-// Styleguide: Building Blocks.Controls.Radio.3
+// Styleguide: Building Blocks.Controls.Radio.2
 
-
-
-
-
-// Grouped radio buttons
+// Grouped radios
+//
+// To increase hit states and create visual similarity with other form elements, consider using a radio group.
 //
 // Markup:
-// <label class="xui-text-label xui-fieldlabel-layout">Choose your favourite Star Trek character</label>
+// <label class="xui-text-label xui-fieldlabel-layout">Notification frequency</label>
 // <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r2" name="rg1">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r5" name="rg2">
 //     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
+//     <span class="xui-styledcheckboxradio--label">As they happen</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r3" name="rg1" checked>
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r6" name="rg2" checked>
 //     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
+//     <span class="xui-styledcheckboxradio--label">Daily</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r4" name="rg1">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r7" name="rg2">
 //     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Geordi La Forge</span>
+//     <span class="xui-styledcheckboxradio--label">Weekly</span>
 //   </label>
-//   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" disabled>
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r8" name="rg2">
 //     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Wesley Crusher</span>
+//     <span class="xui-styledcheckboxradio--label">Never</span>
 //   </label>
 // </div>
 //
-// Styleguide: Building Blocks.Controls.Radio.7
+// Styleguide: Building Blocks.Controls.Radio.3
+
+
+// Multiline radio
+//
+// Checkbox groups can handle long strings very easily, as they wrap by default.
+//
+// Markup:
+// <label class="xui-text-label xui-fieldlabel-layout">Label</label>
+// <div class="xui-styledcheckboxradio-group">
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r9" name="rg3" checked>
+//     <div class="xui-styledcheckboxradio--radio"></div>
+//     <span class="xui-styledcheckboxradio--label">Multiline radio that spans<br>multiple lines</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r10" name="rg3">
+//     <div class="xui-styledcheckboxradio--radio"></div>
+//     <span class="xui-styledcheckboxradio--label">Multiline radio that spans<br>multiple lines</span>
+//   </label>
+// </div>
+//
+// Styleguide: Building Blocks.Controls.Radio.3.1
 
 // Order
 //
 // By default, radio buttons precede the text of the label. This can be reversed by adding `xui-styledcheckboxradio-reversed` to the wrapping element.
 //
-//
 // Markup:
 // <div class="xui-styledcheckboxradio-group" aria-label="rg1" role="radiogroup">
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r2" name="rg1">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r11" name="rg4">
 //     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Jean-Luc Picard</span>
+//     <span class="xui-styledcheckboxradio--label">Reversed radio</span>
 //   </label>
 //   <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r3" name="rg1" checked>
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r12" name="rg4" checked>
 //     <div class="xui-styledcheckboxradio--radio"></div>
-//     <span class="xui-styledcheckboxradio--label">Deanna Troi</span>
+//     <span class="xui-styledcheckboxradio--label">Reversed radio</span>
 //   </label>
 // </div>
-// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r0" name="rg0">
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
-// </label>
-// <label class="xui-styledcheckboxradio xui-styledcheckboxradio-reversed">
-//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r1" name="rg0" checked>
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Checked</span>
-// </label>
 //
-// Styleguide: Building Blocks.Controls.Radio.8
+// Styleguide: Building Blocks.Controls.Radio.4
 
-// Implementation
-//
-// The standard XUI radio button is composed of 3 SVGs for various states. These are styled and displayed based on state pseudo classes.
-//
-// Styleguide: Building Blocks.Controls.Radio.20
 
 // Class list
 //

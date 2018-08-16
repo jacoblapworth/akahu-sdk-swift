@@ -1,30 +1,37 @@
-// Rollover Checkboxes
+// Rollover checkbox
 //
 // Teaser: An interactive component between a checkbox and nominated inactive state.
 //
-// Introduction: An interactive component between a checkbox and nominated inactive state.
+// Introduction: Rollover checkboxes are concealed by default in favour of more visual elements like avatars, icons or thumbnails, but reveal bulk actions when interacted with.
 //
 // Components: Rollovercheckbox
 //
 // Styleguide: Building Blocks.Controls.Checkbox.11
 
-// Best Practices
+// Best practice
+//
+// Tips:
+// Do: Use when horizontal space is limited and bulk select is not a primary interaction
+// Warning: Take care to use the entire row to trigger visibility of the checkbox, not the element in isolation
+// Warning: Avoid using in tables which are optimised for bulk actions, use an always-visible variant instead
 //
 // Styleguide: Building Blocks.Controls.Checkbox.11.1
 
 // Anatomy
+//
+// Rollover checkboxes require React. The behaviour in this example is simulated using CSS.
 //
 // Classes:
 // xui-rollovercheckbox: A flexed wrapper
 // xui-rollovercheckbox--target: The component hit target
 // xui-rollovercheckbox--target-disabled: disabled styling for the target
 //
-// Note: For the rollover behaviour to work you need Javascript, this example is mocked with CSS.
+// 
 //
 // Markup:
 // <div class="xui-rollovercheckbox--target" onmouseover="this.children[0].children[0].style = 'display:none'; this.children[0].children[1].style = 'display: flex'" onmouseout="this.children[0].children[0].style = 'display:flex'; this.children[0].children[1].style = 'display:none'">
 //  <div class="xui-rollovercheckbox">
-//      <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kerihenare/24.jpg" role="presentation" />
+//      <abbr class="xui-avatar xui-avatar-color-9" title="Darryl King" role="presentation">DK</abbr>
 //      <label class="xui-styledcheckboxradio" style="display:none">
 //          <input class="xui-styledcheckboxradio--input" type="checkbox">
 //          <div class="xui-styledcheckboxradio--checkbox"></div>

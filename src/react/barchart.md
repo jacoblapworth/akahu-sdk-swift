@@ -104,7 +104,7 @@ class Demo extends React.Component {
 					return `${value} ${keyLabel[stackIndex]} Item${Math.sqrt(value * value) === 1 ? '' : 's'}`
 				}}
 				keyLabel={keyLabel}
-				barColor={["#5C5CE6", "#51DAAF"]}
+				barColor={["#5A5AE6", "#50DCAA"]}
 				barColorActive="rgba(0,0,0,0.5)"
 			/>
 		);

@@ -12,7 +12,7 @@ const stackedBarsData = [
 	{ id: 2, x: 'Carrot', y: [1, 2, 3] },
 ];
 
-const stackedBarColor = ['#50E3C2', null, '#AC00FF'];
+const stackedBarColor = ['#50DCAA', null, '#B446C8'];
 
 const variations = [
 	{
@@ -50,7 +50,7 @@ const variations = [
 			chartTitle: 'Standard Colored Bars',
 			chartDescription: 'Colored bars on a standard layout',
 			barsData: standardBarsData,
-			barColor: '#FF7400',
+			barColor: '#FA8200',
 		},
 		{
 			chartId: 'stackedColoredBars',

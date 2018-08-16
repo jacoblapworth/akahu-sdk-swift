@@ -11,6 +11,7 @@ export const CHART_FONT_COLOR = '#59606D'; // Grey 3
 export const CHART_BREAKPOINT = 520;
 
 export const X_AXIS_HEIGHT = 50;
+export const X_AXIS_FONT_COLOR = '#404756'; // Grey 2
 
 export const Y_AXIS_WIDTH = 50;
 export const Y_AXIS_MIN_PADDING = 100;

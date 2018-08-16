@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getAvatarColorClass, abbreviateAvatar } from '../../avatar/utils';
-import { baseFontTheme } from '../helpers/theme';
+import { xAxisFontTheme } from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
 import { NAME_SPACE, CHART_FONT_LARGE, AVATAR_RADIUS } from '../helpers/constants';
 import TruncatedText from './TruncatedText';
@@ -20,7 +20,7 @@ const getStackedAvatarDimensions = ({ labelWidth, textRaw, top = 10 }) => {
 		avatarText: abbreviateAvatar(textRaw, 2),
 		avatarClassName: cn(`${NAME_SPACE}-chart--measure`, getAvatarColorClass(textRaw)),
 		avatarStyle: {
-			...baseFontTheme,
+			...xAxisFontTheme,
 			fill: null, // Removing the Victory inline "fill" so that we can target via CSS.
 			fontSize: '10px',
 			fontWeight: 'bold',
@@ -35,7 +35,7 @@ const getStackedTagDimensions = (
 	tagLeft: avatarCircleLeft,
 	tagTop: avatarCircleTop + (AVATAR_RADIUS * 2) + 5,
 	tagText: textRaw,
-	tagStyle: baseFontTheme,
+	tagStyle: xAxisFontTheme,
 	tagTextWidth: labelWidth,
 	tagAnchor: 'middle',
 });
@@ -70,7 +70,7 @@ const responsiveOptions = {
 		return {
 			...avatar,
 			...getStackedTagDimensions(params, avatar),
-			tagStyle: { ...baseFontTheme, fontSize: CHART_FONT_LARGE },
+			tagStyle: { ...xAxisFontTheme, fontSize: CHART_FONT_LARGE },
 		};
 	},
 
@@ -97,7 +97,7 @@ const responsiveOptions = {
 			...getStackedTagDimensions(params, avatar),
 			tagLeft: (AVATAR_RADIUS * 2) + 5,
 			tagTop: avatarCircleTop + 5,
-			tagStyle: { ...baseFontTheme, fontSize: CHART_FONT_LARGE },
+			tagStyle: { ...xAxisFontTheme, fontSize: CHART_FONT_LARGE },
 			tagAnchor: 'left',
 			tagTextWidth: params.labelWidth - (AVATAR_RADIUS * 2) - 5,
 			toolTipOffset: 14,

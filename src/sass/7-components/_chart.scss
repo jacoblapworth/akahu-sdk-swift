@@ -6,6 +6,15 @@
 	position: relative;
 }
 
+.#{$ns}-chart--position * {
+	// Make sure that any display property other than `block` is not allowed. The
+	// chart uses a series of overlapping SVG elements that MUST be perfectly inlined
+	// (we are displaying important data and need to be accurate). Storybook for
+	// instance can be a hindrance with its `display: table;` wrapper. This ensures
+	// that a similar scenario does not compromise the chart system.
+	display: block !important;
+}
+
 .#{$ns}-chart--base {
 	height: 400px;
 }

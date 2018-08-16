@@ -46,7 +46,7 @@ describe('XUIToggleOption', function() {
 	it('should be disabled if isDisabled is true', function () {
 		const wrapper = mount(<XUIToggleOption isDisabled onChange={() => {}} />);
 		expect(wrapper.find('input[disabled]')).toHaveLength(1);
-		expect(wrapper.find('.xui-is-disabled')).toHaveLength(1);
+		expect(wrapper.find('.xui-toggle-is-disabled')).toHaveLength(1);
 	});
 
 	// isChecked and isDisabled properties
@@ -54,7 +54,7 @@ describe('XUIToggleOption', function() {
 		const wrapper = mount(<XUIToggleOption isDisabled isChecked onChange={() => {}} />);
 		expect(wrapper.find('input[disabled]')).toHaveLength(1);
 		expect(wrapper.find('input[checked]')).toHaveLength(1);
-		expect(wrapper.find('.xui-is-disabled')).toHaveLength(1);
+		expect(wrapper.find('.xui-toggle-is-disabled')).toHaveLength(1);
 	});
 
 	// isRequired property

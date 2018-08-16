@@ -78,8 +78,7 @@ $bg-color - Text color to use
 	border-color: $xui-color-grey-alpha-5;
 	box-shadow: none;
 	color: $color;
-	cursor: default;
-	pointer-events: none;
+	cursor: not-allowed;
 }
 
 /*

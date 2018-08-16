@@ -51,7 +51,7 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	&:checked + .#{$ns}-switch--control {
 		background: $xui-switch-checked-bg-color;
 		.#{$ns}-switch-is-disabled & {
-			background: $xui-switch-checked-diabled-bg-color;
+			background: $xui-switch-checked-disabled-bg-color;
 		}
 		&::before {
 			left: auto;

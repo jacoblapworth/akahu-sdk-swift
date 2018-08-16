@@ -155,7 +155,7 @@ variations.forEach(variation => {
 			delete variationMinusStoryDetails.colors;
 			const avatars = [];
 			colorClassNames.forEach((colorClass, i) => {
-				avatars.push(<abbr className={`xui-avatar xui-margin-xsmall ${colorClass}`}>A{i+1}</abbr>);
+				avatars.push(<abbr className={`xui-avatar xui-margin-xsmall ${colorClass}`} key={`${i}`}>A{i+1}</abbr>);
 			});
 			return <div className="xui-panel xui-padding-small">{avatars}</div>;
 		}

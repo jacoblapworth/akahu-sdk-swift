@@ -194,7 +194,7 @@ class XUITextInput extends PureComponent {
 						ref={compose(inputRef, i => this.input = i)}
 						aria-label={ariaLabel}
 						aria-labelledby={ariaLabelledBy}
-						aria-describedby={message && messageId}
+						aria-describedby={(message && messageId) || undefined}
 						// used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
 						rows={isMultiline ? rows || minRows : undefined}
 					/>

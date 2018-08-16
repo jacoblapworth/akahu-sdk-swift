@@ -74,7 +74,7 @@ export default class SelectBox extends Component {
 			defaultLayout && `${ns}-fieldlabel-layout`,
 			islabelHidden && `${ns}-u-hidden-visually`,
 		);
-		const caretClasses = !buttonVariant && `${ns}-select--caret`;
+		const caretClasses = (!buttonVariant && `${ns}-select--caret`) || undefined;
 		const content = !buttonVariant ? (
 			<span className={`${ns}-select--content`}>
 				{buttonContent}

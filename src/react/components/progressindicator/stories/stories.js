@@ -50,47 +50,67 @@ const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 
-storiesWithKnobs.add('Playground | Circular', () => (
-	<div style={playgroundStyle}>
-		<XUIProgressCircular
-			id={text('id', 'myCustomCircularId')}
-			total={number('total', 10)}
-			progress={number('progress', 5)}
-			isSegmented={boolean('isSegmented', false)}
-			isGrow={boolean('isGrow', false)}
-			thickness={number('thickness', 3)}
-			hasToolTip={boolean('hasToolTip', false)}
-			toolTipMessage={text('toolTipMessage', '')}
-			isAlertOnComplete={boolean('isAlertOnComplete', false)}
-			isOverflow={boolean('isOverflow', false)}
-			isSoftError={boolean('isSoftError', false)}
-			isHardError={boolean('isHardError', false)}
-			hardErrorAlert={text('hardErrorAlert', '')}
-			totalColor={select('totalColor', colorOptions, defaultColor)}
-			progressColor={select('progressColor', colorOptions, defaultColor)}
-		/>
-	</div>
-));
+storiesWithKnobs.add('Playground | Circular', () => {
+	const totalColor = select('totalColor', colorOptions, defaultColor) == defaultColor
+		? undefined
+		: select('totalColor', colorOptions, defaultColor);
 
-storiesWithKnobs.add('Playground | Linear', () => (
-	<div style={playgroundStyle}>
-		<XUIProgressLinear
-			id={text('id', 'myCustomLinearId')}
-			total={number('total', 10)}
-			progress={number('progress', 5)}
-			isSegmented={boolean('isSegmented', false)}
-			isGrow={boolean('isGrow', false)}
-			thickness={number('thickness', 4)}
-			hasSegmentDots={boolean('hasSegmentDots', false)}
-			hasToolTip={boolean('hasToolTip', false)}
-			toolTipMessage={text('toolTipMessage', '')}
-			isOverflow={boolean('isOverflow', false)}
-			isSoftError={boolean('isSoftError', false)}
-			totalColor={select('totalColor', colorOptions, defaultColor)}
-			progressColor={select('progressColor', colorOptions, defaultColor)}
-		/>
-	</div>
-));
+	const progressColor = select('progressColor', colorOptions, defaultColor) == defaultColor
+		? undefined
+		: select('progressColor', colorOptions, defaultColor);
+
+	return (
+		<div style={playgroundStyle}>
+			<XUIProgressCircular
+				id={text('id', 'myCustomCircularId')}
+				total={number('total', 10)}
+				progress={number('progress', 5)}
+				isSegmented={boolean('isSegmented', false)}
+				isGrow={boolean('isGrow', false)}
+				thickness={number('thickness', 3)}
+				hasToolTip={boolean('hasToolTip', false)}
+				toolTipMessage={text('toolTipMessage', '')}
+				isAlertOnComplete={boolean('isAlertOnComplete', false)}
+				isOverflow={boolean('isOverflow', false)}
+				isSoftError={boolean('isSoftError', false)}
+				isHardError={boolean('isHardError', false)}
+				hardErrorAlert={text('hardErrorAlert', '')}
+				totalColor={totalColor}
+				progressColor={progressColor}
+			/>
+		</div>
+	);
+});
+
+storiesWithKnobs.add('Playground | Linear', () => {
+	const totalColor = select('totalColor', colorOptions, defaultColor) == defaultColor
+		? undefined
+		: select('totalColor', colorOptions, defaultColor);
+
+	const progressColor = select('progressColor', colorOptions, defaultColor) == defaultColor
+		? undefined
+		: select('progressColor', colorOptions, defaultColor);
+
+	return (
+		<div style={playgroundStyle}>
+			<XUIProgressLinear
+				id={text('id', 'myCustomLinearId')}
+				total={number('total', 10)}
+				progress={number('progress', 5)}
+				isSegmented={boolean('isSegmented', false)}
+				isGrow={boolean('isGrow', false)}
+				thickness={number('thickness', 4)}
+				hasSegmentDots={boolean('hasSegmentDots', false)}
+				hasToolTip={boolean('hasToolTip', false)}
+				toolTipMessage={text('toolTipMessage', '')}
+				isOverflow={boolean('isOverflow', false)}
+				isSoftError={boolean('isSoftError', false)}
+				totalColor={totalColor}
+				progressColor={progressColor}
+			/>
+		</div>
+	);
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);

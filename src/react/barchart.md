@@ -196,8 +196,8 @@ The y-axis customisation options are:
 
 + `createYAxisLabelFormat`: A function that returns an augmentation of the _"raw"_ `y` value
 
-+ `yAxisDefaultTopValue`: A custom _"max"_ value to appear at the top of the axis.
-  **Note:**
++ `yAxisDefaultTopValue`: A custom _"max"_ value to appear at the top of the axis. **Note:**
+
     + This custom value is still sanitised by our _"internal"_ display system and therefore may be changed slightly.
     + A greater `y` value will supersede this prop.
 

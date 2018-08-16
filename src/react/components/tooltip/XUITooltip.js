@@ -96,7 +96,7 @@ export default class XUITooltip extends PureComponent {
 	componentDidMount = () => {
 		const { trigger } = this;
 		const rootNode = (trigger && (trigger.rootNode || trigger.inputNode)) || trigger;
-		if (!rootNode) {
+		if (!rootNode || rootNode.type !== 'Element') {
 			return;
 		}
 		const { display } = window.getComputedStyle(rootNode);

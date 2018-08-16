@@ -25,13 +25,13 @@ storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 	const rotation = select('Rotation', [0, ...Object.keys(rotationClasses)]);
-
+	const color = select('Color', Object.keys(colorClasses), 'standard');
 	return (
 		<XUIIcon
 			icon={select('Icon', swappedIconData, iconData.other.xero)}
 			size={select('Size', Object.keys(wrapperSizeClasses), 'large')}
 			rotation={rotation > 0 ? rotation : null}
-			color={select('Color', Object.keys(colorClasses), 'standard')}
+			color={color === 'standard' ? undefined : color}
 			isBoxed={boolean('Boxed', true)}
 			title={text('Title', '')}
 			desc={text('Desc', '')}

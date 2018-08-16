@@ -576,6 +576,7 @@ $kss-color-padding: #eeebff;
 		background: $ds-nav-focus-bg-color;
 	}
 	&:checked ~ .ds-nav--nested {
+		padding: $xui-s-small 0;
 		transition: .3s ease-in-out;
 		pointer-events: initial ;
 		display: block;
@@ -584,9 +585,6 @@ $kss-color-padding: #eeebff;
 		border-bottom: 1px solid $ds-nav-border-color;
 		& .ds-nav--child {
 			visibility: visible;
-		}
-		ul {
-			padding-bottom: 10px;
 		}
 	}
 }
@@ -678,13 +676,24 @@ $kss-color-padding: #eeebff;
 }
 
 .ds-nav--group-header {
-	box-shadow: $ds-shadow-border-top;
 	color: $ds-text-secondary-color;
 	display: inline-block;
 	font-size: 11px;
-	padding: $xui-s-large $xui-s-large 0;
+	padding-left: $xui-s-large;
+	padding-right: $xui-s-large;
 	width: 100%;
 }
+
+.ds-nav--nested li:nth-child(1) .ds-nav--group-header {
+  padding-top: $xui-s-small;
+}
+
+.ds-nav--nested li:nth-child(n+2) .ds-nav--group-header {
+  box-shadow: $ds-shadow-border-top;
+  padding-top: $xui-s-large;
+  margin-top: $xui-s-small;
+}
+
 
 .ds-nav--child {
 	color: $ds-text-primary-color;
@@ -1015,7 +1024,7 @@ $kss-color-padding: #eeebff;
 // Step text
 .ds-step--body {
 	@include xui-text-line-height-compact;
-
+	text-decoration: none;
 	color: currentColor;
 	outline: none;
 	padding: $xui-s-actionlink;
@@ -1090,7 +1099,7 @@ a.ds-component-link:after {
 		height: 0;
 		border-top: 5px solid transparent;
 		border-bottom: 5px solid transparent;
-		border-left: 5px solid $ds-border-color;
+		border-left: 5px solid $ds-code-bg-color;
 		transform: translateX(-1px) translateY(-2px);
 		z-index: 10;
 		right: calc(100% - 5px);

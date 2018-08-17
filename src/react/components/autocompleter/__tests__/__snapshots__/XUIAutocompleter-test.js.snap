@@ -10,7 +10,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid="baseAC--dropdown"
     data-ref="toggled-wrapper"
@@ -18,7 +18,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -82,7 +82,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -90,7 +90,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -154,7 +154,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -162,7 +162,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -226,7 +226,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -234,7 +234,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -298,7 +298,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -306,7 +306,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -370,7 +370,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -378,7 +378,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className="test-class"
       onClick={[Function]}
@@ -442,7 +442,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -450,7 +450,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -516,7 +516,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -524,7 +524,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -588,7 +588,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -596,7 +596,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -660,7 +660,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -668,7 +668,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}
@@ -732,7 +732,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
 >
   <div
     aria-expanded={undefined}
-    aria-owns="testDropdownId"
+    aria-owns={undefined}
     className={undefined}
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -740,7 +740,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
   >
     <div
       aria-activedescendant={null}
-      aria-controls="testDropdownId"
+      aria-controls={undefined}
       aria-haspopup="listbox"
       className={undefined}
       onClick={[Function]}

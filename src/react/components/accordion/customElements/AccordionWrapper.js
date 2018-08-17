@@ -26,10 +26,7 @@ export default class AccordionWrapper extends PureComponent {
 	}
 
 	setRect = () => {
-		const { left, right } = getRectangle({
-			left: this.state.left,
-			right: this.state.right,
-		});
+		const { left, right } = getRectangle(this.accordionItem);
 		this.setState({ left, right });
 	};
 

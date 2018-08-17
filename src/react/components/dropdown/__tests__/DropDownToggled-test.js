@@ -9,8 +9,9 @@ import Pickitem from '../../picklist/Pickitem';
 import div from './helpers/container';
 import uuidv4 from 'uuid/v4';
 
+const testId = 'testDropdownId';
 jest.mock('uuid/v4');
-uuidv4.mockImplementation(() => 'testDropdownId');
+uuidv4.mockImplementation(() => testId);
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -129,19 +130,24 @@ describe('<DropDownToggled />', () => {
 
 			expect(wrapper.instance().isDropDownOpen()).toBeFalsy();
 		});
+
+		it('expects a matching id on the dropdown and referenced by aria attributes', () => {
+			expect(wrapper.html().includes(`aria-owns="${testId}"`)).toBeTruthy();
+			expect(wrapper.find('button').first().html().includes(`aria-controls="${testId}"`)).toBeTruthy();
+		});
 	});
 
-	it('should render a passed qaHook as an auotmation id and manually set ID', () => {
-        const automationId = renderer.create(
+	it('should render a passed qaHook as an auotmation id', () => {
+    const automationId = renderer.create(
 			<DropDownToggled
 				qaHook="ddt-example"
 				trigger={getTrigger({qaHook: 'ddt-example--trigger'})}
-				dropdown={getDropDown({ id: 'gday' })}
+				dropdown={getDropDown()}
 			/>
 		);
 
-        expect(automationId).toMatchSnapshot();
-    });
+    expect(automationId).toMatchSnapshot();
+	});
 
 	// These are skipped as enzyme cannot test shit rendered in portal.
 	describe.skip('closeOnSelect', function () {

@@ -178,7 +178,7 @@ $xui-color-disabled: $xui-color-grey-5;
 $xui-standard-shadow-color: $xui-color-grey-alpha-6;
 $xui-overlap-shadow-color: $xui-color-grey-alpha-8;
 $xui-standard-border-color: $xui-color-grey-6;
-$xui-muted-border-color: $xui-color-grey-6;
+$xui-muted-border-color: $xui-color-grey-7;
 
 // For controls and checkboxes and inputs and selects
 $xui-control-border-color: $xui-color-grey-5;
@@ -473,8 +473,11 @@ $xui-text-inverted-faint: $xui-color-white-faint;
 
 // Capsule
 
+$xui-capsule-border-color: $xui-color-grey-alpha-5;
+$xui-capsule-hover-border-color: $xui-color-grey-alpha-4;
 $xui-capsule-interactive-color: $xui-color-blue;
 $xui-capsule-invalid-color: $xui-color-white;
+$xui-invalid-hover-bg-color: $xui-color-red-dark;
 $xui-capsule-focus-bg-color: $xui-color-blue;
 $xui-capsule-focus-color: $xui-color-white;
 

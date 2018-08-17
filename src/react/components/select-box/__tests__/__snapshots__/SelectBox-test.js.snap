@@ -49,6 +49,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
           <path
             d="M10,13L15 18 20 13z"
             role="presentation"
+            transform={undefined}
           />
         </svg>
       </button>

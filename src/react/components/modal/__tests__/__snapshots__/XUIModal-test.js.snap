@@ -41,6 +41,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
           <path
             d="M14.6568542,13.2426407 L10.4142136,9 L9,10.4142136 L13.2426407,14.6568542 L9,18.8994949 L10.4142136,20.3137085 L14.6568542,16.0710678 L18.8994949,20.3137085 L20.3137085,18.8994949 L16.0710678,14.6568542 L20.3137085,10.4142136 L18.8994949,9 L14.6568542,13.2426407 Z"
             role="presentation"
+            transform={undefined}
           />
         </svg>
       </button>
@@ -93,6 +94,7 @@ exports[`XUIModal should render an automation id when a qaHook is passed in 1`] 
           <path
             d="M14.6568542,13.2426407 L10.4142136,9 L9,10.4142136 L13.2426407,14.6568542 L9,18.8994949 L10.4142136,20.3137085 L14.6568542,16.0710678 L18.8994949,20.3137085 L20.3137085,18.8994949 L16.0710678,14.6568542 L20.3137085,10.4142136 L18.8994949,9 L14.6568542,13.2426407 Z"
             role="presentation"
+            transform={undefined}
           />
         </svg>
       </button>

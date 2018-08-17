@@ -20,7 +20,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
   >
     <div
       aria-expanded={undefined}
-      aria-owns="testThisSelect"
+      aria-owns={undefined}
       className={undefined}
       data-automationid="test-selectbox---dropdowntoggled"
       data-ref="toggled-wrapper"
@@ -28,7 +28,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
     >
       <button
         aria-activedescendant={null}
-        aria-controls="testThisSelect"
+        aria-controls={undefined}
         aria-haspopup="listbox"
         className="xui-button xui-select--button xui-button-standard"
         data-automationid="test-selectbox---button"
@@ -85,7 +85,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
   >
     <div
       aria-expanded={undefined}
-      aria-owns="testDropdownId"
+      aria-owns={undefined}
       className={undefined}
       data-automationid={null}
       data-ref="toggled-wrapper"
@@ -93,7 +93,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
     >
       <button
         aria-activedescendant={null}
-        aria-controls="testDropdownId"
+        aria-controls={undefined}
         aria-haspopup="listbox"
         className="xui-button xui-select--button xui-button-standard xui-button-is-disabled"
         data-automationid={null}

@@ -22,11 +22,19 @@
 // * If there is no space below the input, position it at the top of the input in a banner
 // * If there is no space below the input, include an icon that can inherit focus that displays a tooltip with the full error message
 //
+// Tips:
+// Do: Include the name of the field in the message
+// Do: Add an explanation or example of correct input formats if something invalid is entered
+// Do: Add the "status" aria role to inline validation messages
+// Warning: Attempt to be flexible with the formats accepted rather than giving unnecessary errors
+// Dont: Don't mark fields as invalid without an accompanying message
+// Dont: Don't use vague error messages that don't suggest how to fix the problem
+//
 // Markup:
 // <div class="xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Phone number</label>
 //   <input type="text" class="xui-textinput xui-textinput--input xui-textinput-is-invalid" aria-label="Text input"/>
-//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">Must be at least 9 digits</div>
+//   <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">Phone number must be at least 9 digits</div>
 // </div>
 // <div class="xui-field-layout">
 //   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Description</label>
@@ -45,8 +53,10 @@
 // When to validate
 //
 // Tips:
-// Do: Validate when the user leaves the field for linear sequences
-// Do: Validate on submit for non-linear documents (eg. an invoice)
+// Do: Validate when the user's focus leaves a field in an invalid state
+// Do: Validate whether required fields are completed on submit
+// Warning: Carefully consider whether it's helpful to warn the user that a field is required before submitting (they may decide to complete harder fields later)
+// Dont: Don't validate fields on key press
 //
 // Styleguide: Compounds.CollectingInput.Forms.7.4
 
@@ -86,9 +96,10 @@
 
 
 
-// Banners and other feedback options
+// Other feedback options
 //
 // Tips:
+// Do: Add an error message or banner at the top of a form with an "alert" aria role if a user submits a form with validation errors
 // Dont: Avoid using banners with lists of errors that users must then hunt down
 // Warning: Only prevent submission if fields are few and requirements very clear
 //

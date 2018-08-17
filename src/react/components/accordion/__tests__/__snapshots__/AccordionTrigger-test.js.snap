@@ -34,6 +34,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
         <path
           d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
           role="presentation"
+          transform={undefined}
         />
       </svg>
     </button>
@@ -88,6 +89,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
         <path
           d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
           role="presentation"
+          transform={undefined}
         />
       </svg>
     </button>
@@ -142,6 +144,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
         <path
           d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
           role="presentation"
+          transform={undefined}
         />
       </svg>
     </button>
@@ -196,6 +199,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
         <path
           d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
           role="presentation"
+          transform={undefined}
         />
       </svg>
     </button>

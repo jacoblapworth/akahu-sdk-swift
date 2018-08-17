@@ -122,6 +122,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
           <path
             d="M0 0l5 5 5-5z"
             role="presentation"
+            transform={undefined}
           />
         </svg>
       </button>

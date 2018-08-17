@@ -42,7 +42,6 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
             <path
               d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
-              transform={undefined}
             />
           </svg>
         </button>
@@ -110,7 +109,6 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
             <path
               d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
-              transform={undefined}
             />
           </svg>
         </button>
@@ -178,7 +176,6 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
             <path
               d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
-              transform={undefined}
             />
           </svg>
         </button>
@@ -244,7 +241,6 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
             <path
               d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
-              transform={undefined}
             />
           </svg>
         </button>
@@ -333,7 +329,6 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
             <path
               d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
-              transform={undefined}
             />
           </svg>
         </button>
@@ -424,7 +419,6 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
             <path
               d="M5.5 4.2L9.625 0 11 1.4 5.5 7 0 1.4 1.375 0z"
               role="presentation"
-              transform={undefined}
             />
           </svg>
         </button>

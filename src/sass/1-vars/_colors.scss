@@ -432,12 +432,16 @@ $xui-overview-label-color: $xui-color-grey-alpha-2;
 // Pill
 
 $xui-pill-bg-color: $xui-color-grey-alpha-7;
-$xui-pill-secondary-color: $xui-color-grey-alpha-2;
-$xui-pill-focused-bg-color: rgba($xui-color-black, 0.15);
+$xui-pill-hover-bg-color: $xui-color-grey-alpha-6;
+$xui-pill-active-bg-color: $xui-color-grey-alpha-5;
+$xui-pill-secondary-color: $xui-color-grey-1;
+$xui-pill-focused-bg-color: $xui-color-grey-alpha-6;
 $xui-pill-invalid-bg-color: $xui-color-red;
 $xui-pill-invalid-color: $xui-color-white;
-$xui-pill-invalid-focused-bg-color: $xui-color-red-xdark;
-$xui-pill-invalid-secondary-color: $xui-color-white-alpha-2;
+$xui-pill-invalid-hover-bg-color: mix($xui-color-grey-1, $xui-color-red, 10%);
+$xui-pill-invalid-active-bg-color: mix($xui-color-grey-1, $xui-color-red, 20%);
+$xui-pill-invalid-focused-bg-color: mix($xui-color-grey-1, $xui-color-red, 10%);
+$xui-pill-invalid-secondary-color: $xui-color-white;
 
 $xui-pill-single-invalid-color: $xui-color-red;
 $xui-pill-single-invalid-secondary-color: $xui-color-grey-alpha-2;
@@ -522,7 +526,6 @@ $xui-tooltip-outline-shadow-color: $xui-color-white-alpha-5;
 
 
 $xui-input-disabled: $xui-color-grey-8;
-$xui-color-pill-bg: $xui-color-grey-7;
 
 // Progress Indicator
 

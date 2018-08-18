@@ -125,6 +125,7 @@
     "tinycolor2": "1.4.1",
     "uppercamelcase": "3.0.0",
     "webpack": "3.8.1",
+    "why-did-you-update": "0.1.1",
     "workbox-build": "3.1.0",
     "yargs": "9.0.1"
   }

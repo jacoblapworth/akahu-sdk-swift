@@ -1,12 +1,12 @@
-import React, { PureComponent, createElement } from 'react';
+/* eslint-disable react/no-multi-comp */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUICheckbox from '../../checkbox/XUICheckbox';
 import {
 	getCellLocation,
 	createCellLocationClasses,
-	createInteractionProps,
-	createRowClickCallback,
+	queryIsValidInteraction,
 } from '../helpers/utilities';
 import { NAME_SPACE, NBSP } from '../helpers/constants';
 import OverflowMenu from './OverflowMenu';
@@ -15,17 +15,19 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 const BODY_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-padding-small`;
 
-class TableBody extends PureComponent {
-	state = { hasPrecedence: false };
-	createCheckBoxCell = ({
-		rowData,
-		checkedIds,
-		onCheckOneToggle,
-		checkOneRowLabel,
-		dividerClasses,
-	}) => {
-		const { _id } = rowData;
-		const isChecked = checkedIds.indexOf(_id) >= 0;
+class CheckBoxCell extends PureComponent {
+	handleChange = event => {
+		const { onCheckOneToggle, rowId } = this.props;
+
+		onCheckOneToggle(event, rowId);
+	};
+
+	render() {
+		const {
+			isChecked,
+			checkOneRowLabel,
+			dividerClasses,
+		} = this.props;
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			BODY_CELL_CLASSES,
@@ -42,7 +44,7 @@ class TableBody extends PureComponent {
 				<XUICheckbox
 					className={`${NAME_SPACE}--checkbox-body`}
 					isChecked={isChecked}
-					onChange={event => onCheckOneToggle(event, _id)}
+					onChange={this.handleChange}
 					tabIndex={0}
 					isLabelHidden
 				>
@@ -50,13 +52,21 @@ class TableBody extends PureComponent {
 				</XUICheckbox>
 			</TableData>
 		);
-	};
+	}
+}
 
-	createOverflowMenuCell = ({
-		rowData, createOverflowMenu, overflowMenuTitle, dividerClasses,
-	}) => {
-		const items = createOverflowMenu && createOverflowMenu(rowData);
-		const hasItems = Boolean(items && items.length);
+CheckBoxCell.propTypes = {
+	rowId: PropTypes.string.isRequired,
+	isChecked: PropTypes.bool,
+	onCheckOneToggle: PropTypes.func,
+	checkOneRowLabel: PropTypes.string,
+	dividerClasses: PropTypes.string,
+};
+
+class OverflowMenuCell extends PureComponent {
+	render() {
+		const { overflowMenuItems, overflowMenuTitle, dividerClasses } = this.props;
+		const hasItems = Boolean(overflowMenuItems && overflowMenuItems.length);
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			BODY_CELL_CLASSES,
@@ -72,34 +82,49 @@ class TableBody extends PureComponent {
 				{NBSP}
 				{hasItems && (
 					<OverflowMenu
-						items={items}
+						items={overflowMenuItems}
 						overflowMenuTitle={overflowMenuTitle}
 					/>
 				)}
 			</TableData>
 		);
+	}
+}
+
+OverflowMenuCell.propTypes = {
+	overflowMenuItems: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.node),
+		PropTypes.bool,
+	]),
+	overflowMenuTitle: PropTypes.string,
+	dividerClasses: PropTypes.string,
+};
+
+OverflowMenuCell.defaultProps = {
+	overflowMenuItems: [],
+};
+
+class GenericCell extends PureComponent {
+	handleInteraction = event => {
+		const { handleCellInteraction, onCellClick } = this.props;
+		handleCellInteraction(event, onCellClick);
 	};
 
-	createGenericCell = ({
-		body: funcAsComponent,
-		rowData,
-		columnIndex,
-		isRowLink,
-		dividerClasses,
-		cellLocation,
-		ensureCellVisibility,
-	}) => {
-		const body = funcAsComponent(rowData, columnIndex);
+	render() {
 		const {
+			className: suppliedClasses,
+			isRowLink,
+			dividerClasses,
+			ensureCellVisibility,
 			children,
 			onCellClick,
 			hasWrapping,
-			className: suppliedClasses,
-		} = body.props;
-		const key = `row-cell-${columnIndex}`;
-		const uniqueInteraction = !isRowLink && onCellClick;
-		const isCellLink = uniqueInteraction;
-		const interactionProps = isCellLink && createInteractionProps(uniqueInteraction, rowData);
+			cellLocation,
+		} = this.props;
+		const isCellLink = !isRowLink && onCellClick;
+		const role = isCellLink ? 'button' : undefined;
+		const onClick = isCellLink ? this.handleInteraction : undefined;
+		const onKeyDown = isCellLink ? this.handleInteraction : undefined;
 		const className = cn(
 			BODY_CELL_CLASSES,
 			dividerClasses,
@@ -111,20 +136,79 @@ class TableBody extends PureComponent {
 			},
 		);
 
-		return createElement(TableData, {
-			key,
-			className,
-			onFocus: ensureCellVisibility,
-			...interactionProps,
-		}, children);
+		return (
+			<TableData
+				{...{
+					className,
+					onFocus: ensureCellVisibility,
+					role,
+					onClick,
+					onKeyDown,
+					// Unlike "rows", generic "cells" are always tab-able.
+					tabIndex: '0',
+				}}
+			>
+				{children}
+			</TableData>
+		);
+	}
+}
+
+GenericCell.propTypes = {
+	cellLocation: PropTypes.string,
+	columnIndex: PropTypes.number,
+	isRowLink: PropTypes.bool,
+	dividerClasses: PropTypes.string,
+	ensureCellVisibility: PropTypes.func,
+	handleCellInteraction: PropTypes.func,
+	onCellClick: PropTypes.func,
+	hasWrapping: PropTypes.bool,
+	className: PropTypes.string,
+	children: PropTypes.node,
+};
+
+class TableBody extends PureComponent {
+	state = { hasPrecedence: false };
+
+	setPrecedence = hasPrecedence => () => (this.setState(() => ({ hasPrecedence })));
+
+	// Register an interaction on a Row providing there is not an predefined
+	// action residing in the location that was clicked. E.g clicking on a cell
+	// that has a checkbox action in it should not trigger the interaction callback.
+	handleRowInteraction = event => {
+		const { onRowClick, rowData } = this.props;
+		const { target, currentTarget } = event;
+		const actionClassName = `${NAME_SPACE}--cell-action`;
+		const isAction = (
+			target.classList.contains(`${actionClassName}`)
+			|| target.closest(`.${actionClassName}`)
+		);
+		const isValidInteraction = queryIsValidInteraction(event);
+
+		if (!isAction && isValidInteraction) {
+			onRowClick(event, rowData);
+			currentTarget.focus();
+			event.preventDefault();
+		}
+	};
+
+	handleCellInteraction = (event, onCellClick) => {
+		const { rowData } = this.props;
+		const isValidInteraction = queryIsValidInteraction(event);
+
+		if (isValidInteraction) {
+			onCellClick(rowData);
+			event.preventDefault();
+		}
 	};
 
 	render = () => {
 		const {
-			data,
+			rowData,
+			rowIndex,
 			columns,
 			hasCheckbox,
-			checkedIds,
+			isChecked,
 			onCheckOneToggle,
 			checkOneRowLabel,
 			onRowClick,
@@ -132,83 +216,105 @@ class TableBody extends PureComponent {
 			hasOverflowMenu,
 			createOverflowMenu,
 			overflowMenuTitle,
-			createDividerClassesThunk,
+			createDividerClasses,
 			ensureCellVisibility,
 		} = this.props;
+		const isRowLink = Boolean(onRowClick && shouldRowClick(rowData));
+		const onClick = isRowLink ? this.handleRowInteraction : undefined;
+		const onKeyDown = isRowLink ? this.handleRowInteraction : undefined;
+		const tabIndex = isRowLink ? '0' : undefined;
+		const role = isRowLink ? 'button' : undefined;
+		const onPointerOver = isRowLink ? this.setPrecedence(true) : undefined;
+		const onPointerOut = isRowLink ? this.setPrecedence(false) : undefined;
+		const dividerClasses = createDividerClasses(rowIndex);
+		const rowClassName = cn(
+			`${NAME_SPACE}--row`,
+			{ [`${NAME_SPACE}--row-link`]: isRowLink },
+			{ [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence },
+		);
 
 		return (
-			<tbody className={`${NAME_SPACE}--body`}>
+			<tr
+				{...{
+					className: rowClassName,
+					onClick,
+					onKeyDown,
+					tabIndex,
+					role,
+					onPointerOver,
+					onPointerOut,
+				}}
+			>
 
-				{data && data.map((rowData, rowIndex) => {
-					const rowClickCallback = createRowClickCallback({ shouldRowClick, rowData, onRowClick });
-					const isRowLink = rowClickCallback ? Boolean(rowClickCallback) : undefined;
-					const interactionProps = isRowLink && createInteractionProps(rowClickCallback, rowData);
-					const dividerClasses = createDividerClassesThunk(rowIndex);
-					const className = cn(
-						`${NAME_SPACE}--row`,
-						{ [`${NAME_SPACE}--row-link`]: isRowLink },
-						{ [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence },
-					);
+				{hasCheckbox && (
+					<CheckBoxCell {...{
+						rowId: rowData._id,
+						isChecked,
+						onCheckOneToggle,
+						checkOneRowLabel,
+						dividerClasses,
+					}}
+					/>
+				)}
+
+				{columns.map(({ props: { body: createBodyNode } }, columnIndex) => {
+					const {
+						props: {
+							children,
+							onCellClick,
+							hasWrapping,
+							className: cellClassName,
+						},
+					} = createBodyNode(rowData, columnIndex);
+					const cellLocation = getCellLocation({
+						columns, columnIndex, hasCheckbox, hasOverflowMenu,
+					});
 
 					return (
-						<tr
-							{...interactionProps}
-							key={`row-${rowIndex}`} // eslint-disable-line react/no-array-index-key
-							className={className}
-							onPointerOver={isRowLink && (() => this.setState(() => ({ hasPrecedence: true })))}
-							onPointerOut={isRowLink && (() => this.setState(() => ({ hasPrecedence: false })))}
-						>
-
-							{hasCheckbox && this.createCheckBoxCell({
-								rowData,
-								checkedIds,
-								onCheckOneToggle,
-								checkOneRowLabel,
-								dividerClasses,
-							})}
-
-							{columns.map(({ props: { body } }, columnIndex) => (
-								this.createGenericCell({
-									body,
-									rowData,
-									columnIndex,
-									isRowLink,
-									dividerClasses,
-									ensureCellVisibility,
-									cellLocation: getCellLocation({
-										columns, index: columnIndex, hasCheckbox, hasOverflowMenu,
-									}),
-								})
-							))}
-
-							{hasOverflowMenu && this.createOverflowMenuCell({
-								rowData,
-								createOverflowMenu,
-								overflowMenuTitle,
-								dividerClasses,
-							})}
-
-						</tr>
+						<GenericCell {...{
+							key: `row-cell-${columnIndex}`,
+							handleCellInteraction: this.handleCellInteraction,
+							className: cellClassName,
+							children,
+							cellLocation,
+							columnIndex,
+							isRowLink,
+							dividerClasses,
+							ensureCellVisibility,
+							onCellClick,
+							hasWrapping,
+						}}
+						/>
 					);
 				})}
 
-			</tbody>
+				{hasOverflowMenu && (
+					<OverflowMenuCell {...{
+						overflowMenuItems: createOverflowMenu && createOverflowMenu(rowData),
+						overflowMenuTitle,
+						dividerClasses,
+					}}
+					/>
+				)}
+
+			</tr>
 		);
 	};
 }
 
 TableBody.propTypes = {
 
-	data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+	rowData: PropTypes.object.isRequired,
+	rowIndex: PropTypes.number.isRequired,
 	columns: PropTypes.node,
 	ensureCellVisibility: PropTypes.func,
 
 	// Divider.
-	createDividerClassesThunk: PropTypes.func,
+	createDividerClasses: PropTypes.func,
 
 	// Checkbox.
 	hasCheckbox: PropTypes.bool,
-	checkedIds: PropTypes.array,
+	isChecked: PropTypes.bool,
 	onCheckOneToggle: PropTypes.func,
 	checkOneRowLabel: PropTypes.string,
 
@@ -218,7 +324,10 @@ TableBody.propTypes = {
 	overflowMenuTitle: PropTypes.string,
 
 	// Interaction.
-	onRowClick: PropTypes.func,
+	onRowClick: PropTypes.oneOfType([
+		PropTypes.func,
+		PropTypes.bool,
+	]),
 	shouldRowClick: PropTypes.func,
 };
 

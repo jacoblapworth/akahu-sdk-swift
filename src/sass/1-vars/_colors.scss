@@ -483,7 +483,9 @@ $xui-table-bg-color: $xui-color-white;
 $xui-table-sortbutton-hover-color: $xui-color-blue-dark;
 $xui-table-sortbutton-focus-bg-color: $xui-color-grey-8;
 $xui-table-sortbutton-active-bg-color: $xui-color-grey-7;
-$xui-table-divider-bg-color: $xui-color-grey-alpha-6;
+// Please ONLY use opaque colors as its a performance hit when we have 100's of
+// rows in the Table interface.
+$xui-table-divider-bg-color: $xui-color-grey-6;
 $xui-table-link-hover-bg-color: $xui-color-grey-8;
 $xui-table-link-focus-bg-color: $xui-color-grey-7;
 

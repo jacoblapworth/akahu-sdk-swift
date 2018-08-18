@@ -322,7 +322,6 @@
 //
 // Styleguide: Compounds.DisplayingData.ContentBlock.2.7
 
-
 // Headers
 //
 // To style content block headers, the following typography presets are required.
@@ -406,7 +405,6 @@
 // </div>
 //
 // Styleguide: Compounds.DisplayingData.ContentBlock.3.3
-
 
 // With bulk select
 //
@@ -562,7 +560,7 @@
 		text-align: right;
 	}
 
-	.#{$ns}-contentblockitem--pinnedvalue:nth-last-child(odd){
+	.#{$ns}-contentblockitem--pinnedvalue:nth-last-child(odd) {
 		margin-right: $xui-s-large;
 	}
 }
@@ -592,7 +590,6 @@
 	color: inherit;
 	display: block;
 }
-
 
 // Table
 //
@@ -1039,23 +1036,51 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table {
 	border-radius: $xui-radius;
-	overflow: hidden;
 	position: relative;
 }
 
 .#{$ns}-table-responsive .#{$ns}-table-wrapper {
 	overflow-x: auto;
-	overflow-y: hidden;
 }
 
 .#{$ns}-table-element {
 	width: 100%;
 }
 
+// The following blocks of nth-* selectors create rounded corners on the four
+// corner cells (top left, top right, bottom left, bottom right). If we do not
+// round the corners then some background color will bleed over the tables panel
+// border.
+
+// Originally we created a simple "overflow: hidden" on the table itself which
+// although simple had VERY bad performance in older browsers (IE11 for instance).
+// This is a more convoluted solution but is performant for 1000's or rows instead
+// of 10's in IE11.
+.#{$ns}-table-element > *:nth-child(1) > tr:nth-child(1) {
+
+	> *:nth-child(1) {
+		border-top-left-radius: $xui-radius;
+	}
+
+	> *:nth-last-child(1) {
+		border-top-right-radius: $xui-radius;
+	}
+}
+
+.#{$ns}-table-element > *:nth-last-child(1) > tr:nth-last-child(1) {
+
+	> *:nth-child(1) {
+		border-bottom-left-radius: $xui-radius;
+	}
+
+	> *:nth-last-child(1) {
+		border-bottom-right-radius: $xui-radius;
+	}
+}
+
 .#{$ns}-table-pinleft .#{$ns}-table-element:before,
 .#{$ns}-table-pinright .#{$ns}-table-element:after {
-	background: $xui-table-bg-color;
-	content: '';
+	content: "";
 	display: block;
 	height: 100%;
 	position: absolute;
@@ -1065,19 +1090,21 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-table-pinleft .#{$ns}-table-element:before {
+	border-radius: $xui-radius 0 0 $xui-radius;
+	border-right: 1px solid transparent;
 	left: 0;
 }
 
 .#{$ns}-table-pinright .#{$ns}-table-element:after {
+	border-left: 1px solid transparent;
+	border-radius: 0 $xui-radius $xui-radius 0;
 	right: 0;
 }
 
-.#{$ns}-table-overflowleft .#{$ns}-table-element:before {
-	box-shadow: $xui-shadow-depth-overlap-left;
-}
-
+.#{$ns}-table-overflowleft .#{$ns}-table-element:before,
 .#{$ns}-table-overflowright .#{$ns}-table-element:after {
-	box-shadow: $xui-shadow-depth-overlap-right;
+	border-color: $xui-table-divider-bg-color;
+	box-sizing: content-box;
 }
 
 .#{$ns}-table-withtruncation .#{$ns}-table-element {
@@ -1086,7 +1113,10 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table--row {
 	background: $xui-table-bg-color;
-	transition: $xui-motion-speed-fast;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background;
+	}
 }
 
 .#{$ns}-table--row-link {
@@ -1098,12 +1128,22 @@ $xui-table-z-alert: 4;
 	}
 }
 
+// Here we are creating the "row link" visual interaction. When the interface has
+// pinned columns we need to ensure that they to change their background color
+// while overlapping the content below.
 .#{$ns}-table-nopointerevents .#{$ns}-table--row-link,
 .#{$ns}-table--row-hasprecedence.#{$ns}-table--row-link {
 
-	&:hover,
-	&:active {
-		background: $xui-table-link-hover-bg-color;
+	@at-root {
+
+		&:hover,
+		&:active,
+		.#{$ns}-table-pinleft#{&}:hover .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinleft#{&}:active .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:hover .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:active .#{$ns}-table--cell-action {
+			background: $xui-table-link-hover-bg-color;
+		}
 	}
 }
 
@@ -1114,7 +1154,10 @@ $xui-table-z-alert: 4;
 	outline: 0;
 	overflow: hidden;
 	text-align: left;
-	transition: $xui-motion-speed-fast;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background;
+	}
 	width: 100%;
 
 	&:hover {
@@ -1130,12 +1173,16 @@ $xui-table-z-alert: 4;
 	}
 }
 
-.#{$ns}-table--cell-last.#{$ns}-table--sortbutton:not(.#{$ns}-table--sortbutton-active) > * {
+.#{$ns}-table--cell-last.#{$ns}-table--sortbutton:not(.#{$ns}-table--sortbutton-active)
+	> * {
 	transform: translateX(#{$xui-s-standard});
 }
 
 .#{$ns}-table--sortbutton * {
-	transition: $xui-motion-speed-fast;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: color, transform;
+	}
 }
 
 .#{$ns}-table--sortbutton-icon {
@@ -1221,7 +1268,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table--cell-divider:after {
 	background: $xui-table-divider-bg-color;
-	content: '';
+	content: "";
 	display: block;
 	height: 1px;
 	left: 0;
@@ -1275,7 +1322,10 @@ $xui-table-z-alert: 4;
 .#{$ns}-table--cell-link {
 	cursor: pointer;
 	outline: 0;
-	transition: $xui-motion-speed-fast;
+	transition: {
+		duration: $xui-motion-speed-fast;
+		property: background;
+	}
 
 	&:focus {
 		background: $xui-table-link-focus-bg-color;
@@ -1284,7 +1334,6 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table-nopointerevents .#{$ns}-table--cell-link,
 .#{$ns}-table--cell-hasprecedence.#{$ns}-table--cell-link {
-
 	&:hover,
 	&:active {
 		background: $xui-table-link-hover-bg-color;

@@ -8,30 +8,30 @@ const cellClassNames = {
 	last: `${NAME_SPACE}--cell-last`,
 };
 
-export const createRowClickCallback = ({ shouldRowClick, rowData, onRowClick }) => {
-	switch (true) {
-	// Checks the click handlers relevance (`shouldRowClick`) against this
-	// particular rows data and then returns the handler (`onRowClick`) if required.
-	case Boolean(shouldRowClick): return shouldRowClick(rowData) && onRowClick;
+// export const createRowClickCallback = ({ shouldRowClick, rowData, onRowClick }) => {
+// 	switch (true) {
+// 	// Checks the click handlers relevance (`shouldRowClick`) against this
+// 	// particular rows data and then returns the handler (`onRowClick`) if required.
+// 	case Boolean(shouldRowClick): return shouldRowClick(rowData) && onRowClick;
 
-		// The legacy system that takes the `onRowClick` as a thunk
-		// (`(args) => isRelevant() && () => ...`) and does the relevance test as well
-		// as the click handling all in same prop. This was hard for our users to
-		// grasp so we use the method above as the primary conditional / handler
-		// combination.
-	case Boolean(onRowClick): return onRowClick(rowData);
+// 		// The legacy system that takes the `onRowClick` as a thunk
+// 		// (`(args) => isRelevant() && () => ...`) and does the relevance test as well
+// 		// as the click handling all in same prop. This was hard for our users to
+// 		// grasp so we use the method above as the primary conditional / handler
+// 		// combination.
+// 	case Boolean(onRowClick): return onRowClick(rowData);
 
-		// Do not create an interaction for the current row.
-	default: return null;
-	}
-};
+// 		// Do not create an interaction for the current row.
+// 	default: return null;
+// 	}
+// };
 
-export const getCellLocation = ({ columns, index, hasCheckbox, hasOverflowMenu }) => {
+export const getCellLocation = ({ columns, columnIndex, hasCheckbox, hasOverflowMenu }) => {
 	const { length } = columns;
 	// Length by default accomodates hasCheckbox or hasOverflow menu, should be adjusted if
 	// neither or both are present
 	const total = (length - 1) + (!!hasCheckbox + !!hasOverflowMenu);
-	const location = hasCheckbox ? index + 1 : index;
+	const location = hasCheckbox ? columnIndex + 1 : columnIndex;
 	const isFirst = location === 0;
 	const isSecond = location === 1;
 	const isSecondToLast = location === total - 1;
@@ -74,32 +74,32 @@ export const queryIsValidInteraction = event => {
 
 // Register an interaction on a Cell or Row providing there is not an predefined
 // action residing in the location that was clicked.
-const createInteractionHandler = (handler, data) => event => {
-	const isValidInteraction = queryIsValidInteraction(event);
-	const { target } = event;
-	const isRow = target.classList.contains(`${NAME_SPACE}--row-link`);
-	const isActionCell = !isRow && (() => {
-		const isCell = target.classList.contains(`${NAME_SPACE}--cell`);
-		const cellNode = isCell ? target : target.closest(`.${NAME_SPACE}--cell`);
+// const createInteractionHandler = (handler, data) => event => {
+// 	const isValidInteraction = queryIsValidInteraction(event);
+// 	const { target } = event;
+// 	const isRow = target.classList.contains(`${NAME_SPACE}--row-link`);
+// 	const isActionCell = !isRow && (() => {
+// 		const isCell = target.classList.contains(`${NAME_SPACE}--cell`);
+// 		const cellNode = isCell ? target : target.closest(`.${NAME_SPACE}--cell`);
 
-		return !cellNode || cellNode.classList.contains(`${NAME_SPACE}--cell-action`);
-	})();
+// 		return !cellNode || cellNode.classList.contains(`${NAME_SPACE}--cell-action`);
+// 	})();
 
-	return (isValidInteraction && !isActionCell)
-		? handler(event, data)
-		: null;
-};
+// 	return (isValidInteraction && !isActionCell)
+// 		? handler(event, data)
+// 		: null;
+// };
 
-export const createInteractionProps = (handler, data) => {
-	const interactionhandler = createInteractionHandler(handler, data);
+// export const createInteractionProps = (handler, data) => {
+// 	const interactionhandler = createInteractionHandler(handler, data);
 
-	return {
-		tabIndex: '0',
-		role: 'button',
-		onClick: interactionhandler,
-		onKeyDown: interactionhandler,
-	};
-};
+// 	return {
+// 		tabIndex: '0',
+// 		role: 'button',
+// 		onClick: interactionhandler,
+// 		onKeyDown: interactionhandler,
+// 	};
+// };
 
 const createTruncationArea = (actionWidth, rootWidth, { hasCheckbox, hasOverflowMenu }) => {
 	switch (true) {
@@ -151,8 +151,10 @@ const flattenSuppliedData = (data, checkedIds) => {
 // Generates a className that renders a divider into a cell. We conditionally
 // generate the divider based on the rows order in the cascade and if there are
 // header cells currently in the layout.
-const createDividerClasses = hasHeader =>
-	rowIndex => ((!rowIndex && hasHeader) || rowIndex) && `${NAME_SPACE}--cell-divider`;
+const createDividerClassesThunk = hasHeader => rowIndex => {
+	const hasClassName = ((!rowIndex && hasHeader) || rowIndex);
+	return hasClassName ? `${NAME_SPACE}--cell-divider`	: '';
+};
 
 export const enrichProps = (state, props, { tableNode }) => {
 	const { rootWidth } = state;
@@ -194,7 +196,7 @@ export const enrichProps = (state, props, { tableNode }) => {
 	// The hook to conditionally inject the "emptyStateComponent" prop.
 	const isEmpty = Boolean(!sortedData.length && !isLoading);
 
-	const createDividerClassesThunk = createDividerClasses(hasHeader);
+	const createDividerClasses = createDividerClassesThunk(hasHeader);
 
 	// We use Pointer Events to determine how to handle nested buttons and links
 	// inside of cells. If we do not have Pointer Events in the browser then we use
@@ -211,7 +213,7 @@ export const enrichProps = (state, props, { tableNode }) => {
 		isEmpty,
 		hasPinnedFirstColumn,
 		hasPinnedLastColumn,
-		createDividerClassesThunk,
+		createDividerClasses,
 		hasPointerEvents,
 	};
 };

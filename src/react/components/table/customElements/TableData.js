@@ -19,6 +19,16 @@ class HeadData extends PureComponent {
 HeadData.propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
+
+	// Interaction.
+	role: PropTypes.string,
+	onClick: PropTypes.func,
+	onFocus: PropTypes.func,
+	onKeyDown: PropTypes.func,
+	tabIndex: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 };
 
 class BodyData extends PureComponent {
@@ -27,6 +37,9 @@ class BodyData extends PureComponent {
 	// stop the event from propagating up to the parent cell and invoking the
 	// interaction effects like `:hover`.
 	state = { hasPrecedence: false };
+
+	setPrecedence = hasPrecedence => () => (this.setState(() => ({ hasPrecedence })));
+
 	render = () => {
 		const { children, onClick, className: suppliedClasses, ...props } = this.props;
 		const className = cn(
@@ -46,8 +59,8 @@ class BodyData extends PureComponent {
 					...onClick && {
 						onClick,
 						onKeyDown: onClick,
-						onPointerOver: onClick && (() => this.setState(() => ({ hasPrecedence: true }))),
-						onPointerOut: onClick && (() => this.setState(() => ({ hasPrecedence: false }))),
+						onPointerOver: onClick && this.setPrecedence(true),
+						onPointerOut: onClick && this.setPrecedence(false),
 						role: 'button',
 					},
 				}}
@@ -61,19 +74,18 @@ class BodyData extends PureComponent {
 }
 
 BodyData.propTypes = {
-
 	children: PropTypes.node,
 	className: PropTypes.string,
 
 	// Interaction.
+	role: PropTypes.string,
+	onClick: PropTypes.func,
+	onFocus: PropTypes.func,
+	onKeyDown: PropTypes.func,
 	tabIndex: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.number,
 	]),
-	role: PropTypes.string,
-	onClick: PropTypes.func,
-	onKeyDown: PropTypes.func,
-
 };
 
 const TableData = ({ isHead, ...props }) => (
@@ -82,6 +94,7 @@ const TableData = ({ isHead, ...props }) => (
 
 TableData.propTypes = {
 	isHead: PropTypes.bool,
+	// Ignore remaining props - we address them in <HeadData /> and <BodyData />.
 };
 
 TableData.defaultProps = {

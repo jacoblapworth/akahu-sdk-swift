@@ -4,7 +4,7 @@
 
 The Table scaffold is a convent way to layout data sets with an *accessible* and *responsive design* mindset.
 
-The scaffold is broken up into three key components. `import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';`
+The scaffold is broken up into three key components.<br />`import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';`
 
 ## Basic
 
@@ -37,7 +37,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -57,7 +57,7 @@ const {
 } }>
 	<Column body={ ({ fruit }) => <Cell>{ fruit }</Cell> } />
 	<Column body={ ({ color }) => <Cell>{ color }</Cell> } />
-	<Column body={ ({ price }) => <Cell>${ price }</Cell> } />
+	<Column body={ ({ price }) => <Cell>{`$${price}`}</Cell> } />
 </Table>
 ```
 
@@ -105,7 +105,7 @@ const {
 
 	<Column
 		head={ <Cell>Quantity</Cell> }
-		body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+		body={ ({ quantity }) => <Cell>{`x${quantity} units`}</Cell> }
 	/>
 
 	<Column
@@ -115,12 +115,12 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 	<Column
 		head={ <Cell>Total Cost</Cell> }
-		body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+		body={ ({ price, quantity }) => <Cell>{`$${price * quantity}`}</Cell> }
 	/>
 
 	<Column
@@ -176,7 +176,7 @@ const {
 
 	<Column
 		head={ <Cell>Quantity</Cell> }
-		body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+		body={ ({ quantity }) => <Cell>{`x${quantity} units`}</Cell> }
 	/>
 
 	<Column
@@ -186,12 +186,12 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 	<Column
 		head={ <Cell>Total Cost</Cell> }
-		body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+		body={ ({ price, quantity }) => <Cell>{`$${price * quantity}`}</Cell> }
 	/>
 
 	<Column
@@ -237,7 +237,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -281,7 +281,7 @@ document.head.appendChild(node);
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -314,7 +314,7 @@ const {
 
 	<Column
 		head={ <Cell className="xui-heading-large">Price / kg</Cell> }
-		body={ ({ price, paid }) => <Cell className={ paid ? 'xui-textcolor-positive' : 'xui-textcolor-negative'}>${ price }</Cell> }
+		body={ ({ price, paid }) => <Cell className={ paid ? 'xui-textcolor-positive' : 'xui-textcolor-negative'}>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -384,7 +384,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 				/>
 
 			</Table>
@@ -440,7 +440,7 @@ createOverflowMenu={ ({ fruit, paid }) => !paid && ([
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -460,6 +460,9 @@ const {
 	XUITableCell: Cell,
 } = require('./table');
 const { Pickitem } = require ( './picklist.js' );
+const XUIButton = require('./button').default;
+const XUIIcon = require('./icon').default;
+const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 
 class Demo extends React.Component {
 
@@ -500,13 +503,15 @@ class Demo extends React.Component {
 				checkedIds={ this.state.checkedIds }
 				onCheckAllToggle={ this.handleCheckAllToggle }
 				onCheckOneToggle={ this.handleCheckOneToggle }
+				shouldRowClick={ ({ fruit }) => (fruit === 'Banana') }
+				onRowClick={ (event, { fruit }) => alert(`You clicked the ${fruit} row`) }
 				hasOverflowMenu
-				createOverflowMenu={ () => ([
+				createOverflowMenu={ ({fruit}) => ([
 					<Pickitem
 						key="0"
 						id="0"
-						onClick={ () => {} }>
-						Edit
+						onClick={ () => alert(`Edit ${fruit}`) }>
+						{`Edit ${fruit}`}
 					</Pickitem>
 				]) }>
 
@@ -537,7 +542,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Quantity</Cell> }
-					body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+					body={ ({ quantity }) => <Cell>{`x${quantity} units`}</Cell> }
 				/>
 
 				<Column
@@ -547,12 +552,25 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => (
+						<Cell onCellClick={ () => alert(`You clicked $${price}`) }>
+							{`$${price}`}
+							<XUIButton
+								title="select"
+								className="xui-margin-left"
+								size="small"
+								onClick={event => event.stopPropagation()}
+								onKeyDown={event => event.stopPropagation()}
+								onPointerOver={event => event.stopPropagation()}>
+								<XUIIcon icon={tickIcon} />
+							</XUIButton>
+						</Cell>
+					) }
 				/>
 
 				<Column
 					head={ <Cell>Total Cost</Cell> }
-					body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+					body={ ({ price, quantity }) => <Cell>{`$${price * quantity}`}</Cell> }
 				/>
 
 				<Column
@@ -566,7 +584,8 @@ class Demo extends React.Component {
 }
 
 <Demo data={ {
-	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true },
+	def456: { fruit: 'Apple', color: 'Red', price: 3.49, purchased: 'Jane Doe', ordered: 7645456634323, delivered: 7645456634323, quantity: 45, address: '19-23 Taranaki St, Te Aro, Wellington, 6011', paid: false }
 } }/>
 ```
 
@@ -576,7 +595,7 @@ Convert *Column* `head` cells into buttons with sorting functionality by introdu
 
 + `sortKey` affiliates a `head` *Cell* with a key value in the `data` schema.
 + `activeSortKey` determines which `sortKey` should be used to sort the *Table* rows.
-+ `isSortAsc` defines the sort order to be *ascending* / *decending*.
++ `isSortAsc` defines the sort order to be *ascending* / *descending*.
 
 ### Custom sorting
 
@@ -650,7 +669,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell sortKey="price">Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 				/>
 
 			</Table>
@@ -703,7 +722,7 @@ const Appendage = ({ children }) => (
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -738,7 +757,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -763,6 +782,7 @@ const {
 const XUIButton = require('./button').default;
 const XUIIcon = require('./icon').default;
 const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
+const handleCellClick = ({price}) => alert(`You clicked $${price}`);
 
 <Table
 	data={ {
@@ -781,7 +801,15 @@ const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 		head={ <Cell>Color</Cell> }
 		body={ ({ color }) => (
 			<Cell onCellClick={ () => alert(`You clicked ${color}`) }>
-				{ color }, <a href="#" className="xui-text-link" onPointerOver={event => event.stopPropagation()}>more</a>
+				{ color },
+				<a
+					href="#"
+					className="xui-text-link"
+					onClick={event => event.stopPropagation()}
+					onKeyDown={event => event.stopPropagation()}
+					onPointerOver={event => event.stopPropagation()}>
+					more
+				</a>
 			</Cell>
 		) }
 	/>
@@ -789,12 +817,14 @@ const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 	<Column
 		head={ <Cell>Price / kg</Cell> }
 		body={ ({ price }) => (
-			<Cell onCellClick={ () => alert(`You clicked $${price}`) }>
-				${ price }
+			<Cell onCellClick={handleCellClick}>
+				{`$${price}`}
 				<XUIButton
 					title="select"
 					className="xui-margin-left"
 					size="small"
+					onClick={event => event.stopPropagation()}
+					onKeyDown={event => event.stopPropagation()}
 					onPointerOver={event => event.stopPropagation()}>
 					<XUIIcon icon={tickIcon} />
 				</XUIButton>
@@ -834,7 +864,7 @@ const {
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>
@@ -873,7 +903,7 @@ const emptyStateComponent = (
 
 	<Column
 		head={ <Cell>Price / kg</Cell> }
-		body={ ({ price }) => <Cell>${ price }</Cell> }
+		body={ ({ price }) => <Cell>{`$${price}`}</Cell> }
 	/>
 
 </Table>

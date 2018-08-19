@@ -8,8 +8,8 @@
  * https://codepen.io/thebabydino/pen/qVQLzm
  */
 
- $xui-range-slider-height: 2px;
- $xui-range-slider-thumb-diameter: $xui-s-xlarge;
+$xui-range-slider-height: 2px;
+$xui-range-slider-thumb-diameter: $xui-s-xlarge;
 
 @mixin xui-range-slider-track {
 	background: $xui-range-slider-track-color;
@@ -30,6 +30,7 @@
 	&:hover, &:focus {
 		border-color: $xui-range-border-hover-color;
 	}
+
 	&:active {
 		border-color: $xui-range-border-hover-color;
 	}

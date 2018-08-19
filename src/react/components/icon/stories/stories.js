@@ -13,10 +13,12 @@ import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
-const swappedIconData = {};
+const flattenedIconMap = {};
+const flattenedIconList = [];
 Object.keys(iconData).forEach(groupKey => {
 	Object.keys(iconData[groupKey]).forEach(iconKey => {
-		swappedIconData[iconData[groupKey][iconKey]] = iconKey;
+		flattenedIconMap[iconKey] = iconData[groupKey][iconKey];
+		flattenedIconList.push(iconKey);
 	});
 });
 
@@ -26,9 +28,11 @@ storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => {
 	const rotation = select('Rotation', [0, ...Object.keys(rotationClasses)]);
 	const color = select('Color', Object.keys(colorClasses), 'standard');
+	const icon = select('Icon', flattenedIconList, 'xero');
+
 	return (
 		<XUIIcon
-			icon={select('Icon', swappedIconData, iconData.other.xero)}
+			icon={flattenedIconMap[icon]}
 			size={select('Size', Object.keys(wrapperSizeClasses), 'large')}
 			rotation={rotation > 0 ? rotation : null}
 			color={color === 'standard' ? undefined : color}

@@ -333,7 +333,7 @@ $xui-datepicker-hover-bg-color: $xui-color-grey-alpha-6;
 // Dropdowns
 
 $xui-dropdown-mask-bg-color: transparentize($xui-color-grey-1, 0.5);
-$xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-5;
+$xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 
 // Forms
 
@@ -412,8 +412,8 @@ $xui-modal-bg-color: $xui-color-white;
 
 // Picklists
 
-$xui-pickitem-focus-bg-color: $xui-color-grey-alpha-7;
-$xui-pickitem-active-bg-color: $xui-color-grey-alpha-6;
+$xui-pickitem-focus-bg-color: $xui-color-grey-alpha-8;
+$xui-pickitem-active-bg-color: $xui-color-grey-alpha-7;
 $xui-pickitem-selected-color: $xui-color-blue;
 $xui-submenu-uicontrol-icon-color: $xui-color-grey-alpha-2;
 
@@ -531,7 +531,7 @@ $xui-input-disabled: $xui-color-grey-8;
 
 //TODO Progress indicator track is too dark
 
-$xui-progress-total-bg-color: $xui-color-grey-alpha-6;
+$xui-progress-total-bg-color: $xui-color-grey-alpha-7;
 $xui-progress-current-bg-color: $xui-color-blue;
 $xui-progress-error-color: $xui-color-red;
 $xui-progress-colors: (

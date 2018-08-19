@@ -601,7 +601,7 @@
 	position: relative;
 
 	& + .#{$ns}-picklist {
-		border-top: 1px solid $xui-color-grey-alpha-5;
+		border-top: 1px solid $xui-color-grey-alpha-6;
 	}
 }
 
@@ -707,7 +707,7 @@
 
 	> .#{$ns}-pickitem--split, // TODO: remove this old selector
 	> .#{$ns}-pickitem-split {
-		border-right: 1px solid rgba(50, 70, 90, 0.1);
+		border-right: 1px solid $xui-color-grey-alpha-7;
 	}
 }
 

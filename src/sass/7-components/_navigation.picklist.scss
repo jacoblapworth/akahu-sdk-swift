@@ -699,6 +699,13 @@
 		width: 3px;
 		z-index: 1;
 	}
+
+	&:hover, &:focus {
+		color: $xui-pickitem-selected-hover-color;
+	}
+	&:active {
+		color: $xui-pickitem-selected-active-color;
+	}
 }
 
 .#{$ns}-picklist--nestedcontainer {

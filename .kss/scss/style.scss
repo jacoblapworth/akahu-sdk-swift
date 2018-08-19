@@ -635,6 +635,7 @@ $kss-color-padding: #eeebff;
 	justify-content: center;
 	transition: all .15s ease-in-out;
 	width: 52px;
+	user-select: none; // Prevent double click selecting child content
 	&:hover:not(:focus) {
 		background: $ds-nav-focus-bg-color;
 	}

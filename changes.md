@@ -38,6 +38,10 @@
 
 ## Additions
 
+### Component classes
+
+* Content blocks: `xui-contentblockitem-rowlink` has been added to provide hover styles for an entire content block row
+
 ### Component props
 
 * Switch: `isReversed`, `labelId`, `labelClassName`, and `isLabelHidden` props have been added, to match the Checkbox and Radio labelling API

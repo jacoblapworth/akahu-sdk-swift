@@ -39,7 +39,7 @@
 // Standard
 //
 // Classes:
-// xui-background-grey-7: Apply to row on hover
+// xui-contentblockitem-rowlink: Applies visual feedback on row interaction
 //
 // Tips:
 // Do: Tint the entire row on hover to clarify that it is a link
@@ -50,7 +50,7 @@
 //
 // Markup:
 // <div class="xui-contentblock xui-panel">
-// 	<div class="xui-contentblockitem xui-contentblockitem-layout">
+// 	<div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
 // 		<a class="xui-contentblockitem--links">
 // 			<span class="xui-contentblockitem--toplinks">
 // 				<span class="xui-heading-small">Item 1 Primary</span>
@@ -64,7 +64,7 @@
 // 			</button>
 // 		</div>
 // 	</div>
-// 	<div class="xui-contentblockitem xui-contentblockitem-layout">
+// 	<div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
 // 		<a class="xui-contentblockitem--links">
 // 			<span class="xui-contentblockitem--toplinks">
 // 				<span class="xui-heading-small">Item 2 Primary</span>
@@ -464,6 +464,24 @@
 	}
 }
 
+.#{$ns}-contentblockitem-rowlink {
+	&:hover,
+	&:focus {
+		background-color: $xui-color-grey-7;
+	}
+}
+
+.#{$ns}-contentblockitem--links {
+	color: inherit;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+
+	&:hover {
+		color: inherit;
+	}
+}
+
 .#{$ns}-contentblockitem-layout {
 	align-items: center;
 	display: flex;
@@ -514,13 +532,6 @@
 	}
 }
 
-.#{$ns}-contentblockitem--links {
-	color: inherit;
-	cursor: pointer;
-	display: block;
-	text-decoration: none;
-}
-
 .#{$ns}-contentblockitem--toplinks {
 	@include xui-text-truncated;
 }
@@ -535,7 +546,6 @@
 	@include xui-text-truncated;
 	@include xui-text-muted;
 }
-
 
 .#{$ns}-contentblockitem--pinnedvalue {
 	font-size: $xui-font-size-medium;

@@ -31,7 +31,7 @@
     "release": "node scripts/release"
   },
   "dependencies": {
-    "@xero/xui-icon": "6.1.1",
+    "@xero/xui-icon": "^6.1.2",
     "@xero/xuishift": "1.0.0",
     "autosize": "4.0.2",
     "babel-runtime": "^6.26.0",

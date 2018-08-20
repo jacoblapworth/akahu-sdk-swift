@@ -27,7 +27,7 @@
 // xui-capsule: Base class
 //
 // Markup:
-// A standard <a tabindex="1" class="xui-button xui-capsule">capsule</a>
+// A standard <span class="xui-button xui-capsule">capsule</span>
 //
 // Styleguide: Building Blocks.Identifiers.Capsule.2
 
@@ -40,7 +40,7 @@
 // xui-capsule-interactive: Indicates that a capsule is interactive
 //
 // Markup:
-// An interactive <a tabindex="1" class="xui-button xui-capsule xui-capsule-interactive">capsule</a>
+// An interactive <a class="xui-button xui-capsule xui-capsule-interactive" tabindex="0" role="button" href="https://www.xero.com">capsule</a>
 //
 // Styleguide: Building Blocks.Identifiers.Capsule.3
 
@@ -53,7 +53,7 @@
 // xui-capsule-invalid: Indicates that a capsule is invalid
 //
 // Markup:
-// An invalid <a tabindex="1" class="xui-button xui-capsule xui-capsule-invalid">capsule</a>
+// An invalid <a class="xui-button xui-capsule xui-capsule-interactive xui-capsule-invalid" tabindex="0" role="button" href="https://www.xero.com">capsule</a>
 //
 // Styleguide: Building Blocks.Identifiers.Capsule.4
 

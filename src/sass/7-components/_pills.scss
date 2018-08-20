@@ -55,7 +55,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-interactive" tabindex="1">
+// <div class="xui-pill xui-pill-layout xui-pill-is-interactive">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <span class="xui-pill--text">Interactive</span>
 //   </button>
@@ -97,7 +97,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-interactive" tabindex="1">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-interactive">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <span class="xui-pill--secondary">Status</span>
 //     <span class="xui-pill--text">Draft</span>
@@ -120,7 +120,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-interactive" tabindex="1">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-interactive">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //     <span class="xui-pill--text">zoe@deschanel.com</span>
@@ -164,7 +164,7 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focused xui-pill-is-interactive" tabindex="1">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-focused xui-pill-is-interactive">
 //   <button type='button' class="xui-button xui-pill--button xui-pill--content">
 //     <span class="xui-pill--text">Focused</span>
 //   </button>
@@ -227,7 +227,7 @@
 //
 // Markup:
 // <div class="xui-textinput xui-textinput--input" tabindex='0'>
-//   <div class="xui-pill-single" tabindex="1">
+//   <div class="xui-pill-single">
 //     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
@@ -238,7 +238,7 @@
 //   </div>
 // </div>
 // <div class="xui-textinput xui-margin-top" tabindex='0'>
-//   <div class="xui-pill-single xui-pill-is-invalid" tabindex="1">
+//   <div class="xui-pill-single xui-pill-is-invalid">
 //     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
@@ -289,12 +289,12 @@
 		background-color: $xui-pill-active-bg-color;
 	}
 	&:focus {
-		background-color: $xui-pill-focused-bg-color;
 		box-shadow: $xui-shadow-focus;
+		outline: none;
 	}
 }
 
-.#{$ns}-pill-is-invalid + .#{$ns}-pill-is-interactive {
+.#{$ns}-pill-is-invalid.#{$ns}-pill-is-interactive {
 	&:hover {
 		background-color: $xui-pill-invalid-hover-bg-color;
 	}

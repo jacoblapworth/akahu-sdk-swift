@@ -40,6 +40,7 @@ export default class XUIPill extends Component {
 			deleteButtonLabel,
 			defaultLayout,
 			href,
+			isInteractive,
 			isInvalid,
 			onClick,
 			onDeleteClick,
@@ -62,6 +63,7 @@ export default class XUIPill extends Component {
 			isInvalid && `${baseClass}-is-invalid`,
 			isFocused && `${baseClass}-is-focused`,
 			onDeleteClick && `${baseClass}-is-deleteable`,
+			isInteractive && `${baseClass}-is-interactive`,
 		);
 
 		const closeButtonClasses = cn(
@@ -128,6 +130,8 @@ XUIPill.propTypes = {
 	href: PropTypes.string,
 	/** When invalid, displays the text in a red colour. */
 	isInvalid: PropTypes.bool,
+	/** When interactive, adds pseudo state styling to component **/
+	isInteractive: PropTypes.bool,
 	/** Callback to fire when the main pill content is clicked. */
 	onClick: PropTypes.func,
 	/** Callback to fire when the delete pill button is clicked. When omitted, the delete button

@@ -270,52 +270,52 @@
 //
 // Markup:
 // <div class="xui-contentblock xui-panel">
-//     <div class="xui-contentblockitem xui-contentblockitem-layout">
-//         <div class="xui-contentblockitem--leftcontent">
-//             <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
-//         </div>
-//         <a class="xui-contentblockitem--links">
-//             <span class="xui-contentblockitem--toplinks">
-//                 <span class="xui-heading-small">Primary</span>
-//                 <span class="xui-tag xui-tag-positive xui-margin-left-small">Sent</span>
-//             </span>
-//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
-//         </a>
-//         <div class="xui-contentblockitem--rightcontent">
-//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
-//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
-//                 <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Action</button>
-//             </div>
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon">
-//                     <use xlink:href="#xui-icon-overflow"></use>
-//                 </svg>
-//             </button>
-//         </div>
+//   <div class="xui-contentblockitem xui-contentblockitem-layout">
+//     <div class="xui-contentblockitem--leftcontent">
+//       <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
 //     </div>
-//		<div class="xui-contentblockitem xui-contentblockitem-layout">
-//         <div class="xui-contentblockitem--leftcontent">
-//             <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
-//         </div>
-//         <a class="xui-contentblockitem--links">
-//             <span class="xui-contentblockitem--toplinks">
-//                 <span class="xui-heading-small">Primary</span>
-//                 <span class="xui-tag xui-tag-neutral xui-margin-left-small">Draft</span>
-//             </span>
-//         	<div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
-//         </a>
-//         <div class="xui-contentblockitem--rightcontent">
-//             <div class="xui-contentblockitem--pinnedvalue">0.00</div>
-//             <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
-//                 <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Action</button>
-//             </div>
-//             <button class="xui-button xui-button-icon" tabindex="0" type="button">
-//                 <svg focusable="false" class="xui-icon">
-//                     <use xlink:href="#xui-icon-overflow"></use>
-//                 </svg>
-//             </button>
-//         </div>
+//     <a class="xui-contentblockitem--links">
+//       <span class="xui-contentblockitem--toplinks">
+//         <span class="xui-heading-small">Primary</span>
+//         <span class="xui-tag xui-tag-positive xui-margin-left-small">Sent</span>
+//       </span>
+//       <div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//     </a>
+//     <div class="xui-contentblockitem--rightcontent">
+//       <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//       <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//         <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Action</button>
+//       </div>
+//       <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
 //     </div>
+//   </div>
+//   <div class="xui-contentblockitem xui-contentblockitem-layout">
+//     <div class="xui-contentblockitem--leftcontent">
+//       <abbr class="xui-avatar xui-avatar-color-2" role="presentation">P</abbr>
+//     </div>
+//     <a class="xui-contentblockitem--links">
+//       <span class="xui-contentblockitem--toplinks">
+//         <span class="xui-heading-small">Primary</span>
+//         <span class="xui-tag xui-tag-neutral xui-margin-left-small">Draft</span>
+//       </span>
+//       <div class="xui-contentblockitem--secondaryheading">Secondary<span class="xui-margin-horizontal-xsmall">•</span>Secondary</div>
+//     </a>
+//     <div class="xui-contentblockitem--rightcontent">
+//       <div class="xui-contentblockitem--pinnedvalue">0.00</div>
+//       <div class="xui-actions xui-contentblockitem--actions xui-actions-layout">
+//         <button class="xui-button xui-actions--primary xui-button-main xui-button-small" tabindex="0" type="button">Action</button>
+//       </div>
+//       <button class="xui-button xui-button-icon" tabindex="0" type="button">
+//         <svg focusable="false" class="xui-icon">
+//           <use xlink:href="#xui-icon-overflow"></use>
+//         </svg>
+//       </button>
+//     </div>
+//   </div>
 // </div>
 //
 // Styleguide: Compounds.DisplayingData.ContentBlock.2.7

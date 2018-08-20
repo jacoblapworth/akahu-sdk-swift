@@ -195,7 +195,7 @@
 // </div>
 // <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-invalid">
 //   <span class="xui-pill--content">
-//		 <span class="xui-pill--secondary">Admin</span>
+//     <span class="xui-pill--secondary">Admin</span>
 //     <span class="xui-pill--text">example.email@xero.com</span>
 //   </span>
 //   <button class="xui-button xui-button-icon xui-pill--button-icon xui-button-icon-inverted">
@@ -313,10 +313,6 @@
 	padding: 5px 5px 5px 15px;
 }
 
-.xui-pill--content.xui-pill--button .xui-pill--text {
-	text-decoration: underline;
-}
-
 .#{$ns}-pill--text,
 .#{$ns}-pill--secondary {
 	line-height: $xui-line-height-compact;
@@ -387,6 +383,10 @@
 	border-radius: $xui-s-large;
 	color: inherit;
 	text-align: left;
+
+	.#{$ns}-pill--text {
+		text-decoration: underline;
+	}
 }
 
 .#{$ns}-pill-single {

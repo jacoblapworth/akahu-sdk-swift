@@ -130,7 +130,7 @@ XUIPill.propTypes = {
 	href: PropTypes.string,
 	/** When invalid, displays the text in a red colour. */
 	isInvalid: PropTypes.bool,
-	/** When interactive, adds pseudo state styling to component **/
+	/** When interactive, adds pseudo state styling to component */
 	isInteractive: PropTypes.bool,
 	/** Callback to fire when the main pill content is clicked. */
 	onClick: PropTypes.func,

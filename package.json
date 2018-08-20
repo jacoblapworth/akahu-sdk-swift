@@ -9,8 +9,8 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": ">=8.11.0",
-    "npm": ">=3"
+    "node": ">=10.9.0",
+    "npm": ">=6"
   },
   "files": [
     "react",
@@ -22,7 +22,7 @@
     "lint": "eslint src/ && node scripts/lint/sass",
     "lint:fix": "eslint src/ --fix",
     "prepack": "node scripts/prepack",
-    "prepare": "check-engines && nsp check",
+    "prepare": "check-engines",
     "postmerge": "./post-merge.sh",
     "precommit": "./pre-commit.sh",
     "prepush": "./pre-push.sh",
@@ -103,7 +103,6 @@
     "node-sass": "4.7.2",
     "nopt": "4.0.1",
     "npm-run-all": "4.0.2",
-    "nsp": "3.0.0",
     "ora": "2.0.0",
     "postcss": "6.0.13",
     "postcss-discard-comments": "2.0.4",

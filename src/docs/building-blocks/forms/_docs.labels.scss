@@ -15,19 +15,44 @@
 // Tips:
 // Do: Apply classes to the label element itself if it’s sibling of the input
 // Do: Apply classes to a nested span if the label wraps the input
+// Do: Add a label above the input if space is available
+// Warning: Only consider adding a label within the input if space above is not available
+// Dont: Don't use a symbol to indicate fields as required without explaining what it means
 //
 // Markup:
 // <div class="xui-row-grid">
-// <div class="xui-field-layout xui-column-6-of-12">
-//   <label>
-//     <span class="xui-text-label xui-fieldlabel-layout">Wrapping label</span>
-//     <input class="xui-textinput xui-textinput--input" type="text" placeholder=""/>
-//   </label>
-// </div>
-// <div class="xui-field-layout xui-column-6-of-12">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Sibling label</label>
-//   <input class="xui-textinput xui-textinput--input" id="sibling-example" type="text" placeholder=""/>
-// </div>
+//   <div class="xui-field-layout xui-column-6-of-12">
+//     <label>
+//			 <span class="xui-text-label xui-fieldlabel-layout">Wrapping label</span>
+//			 <input class="xui-textinput xui-textinput--input" type="text" placeholder=""/>
+//		 </label>
+//   </div>
+//   <div class="xui-field-layout xui-column-6-of-12">
+//     <label class="xui-text-label xui-fieldlabel-layout" for="sibling-example">Sibling label</label>
+//     <input class="xui-textinput xui-textinput--input" id="sibling-example" type="text" placeholder=""/>
+//   </div>
+//   <div class="xui-field-layout xui-column-6-of-12">
+//     <div class="xui-verticaltextinputgroup">
+//       <label class="xui-textinput">
+//         <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
+//           First name:
+//         </div>
+//         <input class="xui-textinput--input xui-padding-left-none"/>
+//       </label>
+//       <label class="xui-textinput">
+//         <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
+//           Surname:
+//         </div>
+//         <input class="xui-textinput--input xui-padding-left-none"/>
+//       </label>
+//       <label class="xui-textinput">
+//         <div class="xui-textinput--sideelement xui-textinput--sideelement-text">
+//           Preferred Name:
+//         </div>
+//         <input class="xui-textinput--input xui-padding-left-none"/>
+//       </label>
+//     </div>
+//   </div>
 // </div>
 //
 // Classes:
@@ -42,6 +67,7 @@
 // It’s ok to hide labels visually in some circumstances.
 //
 // Tips:
+// Do: Make sure an aria label is still available for screen-readers
 // Do: Isolated, commonly understood interactions
 // Do: Repeat-use fields which have clear context
 // Do: Include an icon and placeholder
@@ -95,6 +121,7 @@
 //
 // Tips:
 // Do: Show on focus - especially if there is a few in one interface
+// Do: Provide advice on how to correctly format input if it has been filled incorrectly
 //
 // Markup:
 // <div>

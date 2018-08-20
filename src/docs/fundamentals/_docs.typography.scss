@@ -264,6 +264,7 @@
 //
 // XUI’s type styling is designed primarily for application interfaces and does not target HTML elements like `h1` or `p`.
 // Use the `xui-textcontent` wrapper class to enclose any long-form text which needs basic margins and typographic scale.
+// Elements added to `xui-textcontent` will receive a top margin by default. So user should avoid adding elements like icons as direct children.
 //
 // Tips:
 // Warning: These styles are fairly basic, you may need to fine-tune - let us know how it goes!

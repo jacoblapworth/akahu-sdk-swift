@@ -44,6 +44,7 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
   data-automationid={undefined}
 >
   <a
+    aria-disabled={false}
     className="xui-button xui-button-small xui-button-borderless-main"
     data-automationid={undefined}
     disabled={false}

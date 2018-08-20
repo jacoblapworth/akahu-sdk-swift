@@ -36,6 +36,7 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
   data-automationid="toast-actions"
 >
   <a
+    aria-disabled={false}
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -50,6 +51,7 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     Action 1
   </a>
   <a
+    aria-disabled={false}
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -72,6 +74,7 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
   data-automationid="toast-actions"
 >
   <a
+    aria-disabled={false}
     className="xui-button xui-actions--primary xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -86,6 +89,7 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     Action 1
   </a>
   <a
+    aria-disabled={false}
     className="xui-button xui-actions--secondary xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}

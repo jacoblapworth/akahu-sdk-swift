@@ -28,6 +28,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
   onFocus={[Function]}
 >
   <a
+    aria-disabled={false}
     className="xui-button xui-pill--content xui-pill--button"
     data-automationid={undefined}
     disabled={false}

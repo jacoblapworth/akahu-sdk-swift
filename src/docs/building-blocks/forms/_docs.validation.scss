@@ -32,19 +32,19 @@
 //
 // Markup:
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Phone number</label>
+//   <label class="xui-text-label xui-fieldlabel-layout" for="phone1">Phone number</label>
 //   <input type="text" class="xui-textinput xui-textinput--input xui-textinput-is-invalid" aria-label="Text input"/>
 //   <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">Phone number must be at least 9 digits</div>
 // </div>
 // <div class="xui-field-layout">
-//   <label class="xui-text-label xui-fieldlabel-layout" for="field1">Description</label>
+//   <label class="xui-text-label xui-fieldlabel-layout" for="phone1">Description</label>
 //   <textarea class="xui-textinput xui-textinput--input xui-u-resize-vertical xui-textinput-is-invalid" aria-label="Text area field"></textarea>
 // </div>
 // <div class="xui-field-layout">
 //   <div class="xui-textinputgroup">
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12 xui-textinput-is-invalid" placeholder="2 columns"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12 xui-textinput-is-invalid" placeholder="2 columns" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid" placeholder="5 columns" aria-label="test input"/>
 //   </div>
 // </div>
 //

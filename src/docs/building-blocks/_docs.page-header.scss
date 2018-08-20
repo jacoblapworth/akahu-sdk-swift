@@ -67,11 +67,11 @@
 //     <div class="xui-pageheading--actions">
 //      <div class="xui-buttongroup">
 //        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-small">New employee</button>
-//        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split xui-button-small">
+//        <button type="button" class="xui-button xui-button-grouped xui-button-create xui-button-split xui-button-small" title="Other actions">
 //          <svg focusable="false" class="xui-icon xui-button--caret"> <use xlink:href="#xui-icon-caret" role="presentation"/></svg>
 //        </button>
 //      </div>
-//      <button type="button" class="xui-button xui-button-icon xui-button-icon-large">
+//      <button type="button" class="xui-button xui-button-icon xui-button-icon-large" title="More options">
 //        <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-overflow" role="presentation"/></svg>
 //      </button>
 //     </div>
@@ -103,13 +103,17 @@
 //         <a href="#" class="xui-breadcrumb--link">Settings</a>
 //       </li>
 //       <li class="xui-breadcrumb-arrow">
-//         <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//				 <div class="xui-breadcrumb--icon xui-u-rotate-270 xui-iconwrapper">
+//       	   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//				 <div/>
 //       </li>
 //       <li class="xui-breadcrumb">
 //         <a href="#" class="xui-breadcrumb--link">Permissions</a>
 //       </li>
 //       <li class="xui-breadcrumb-arrow">
-//       	 <svg focusable="false" class="xui-breadcrumb--icon xui-icon xui-u-rotate-270"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//				 <div class="xui-breadcrumb--icon xui-u-rotate-270 xui-iconwrapper">
+//       	   <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-arrow-small" role="presentation"/></svg>
+//				 <div/>
 //       </li>
 //       <li class="xui-breadcrumb">
 //         Edit permissions

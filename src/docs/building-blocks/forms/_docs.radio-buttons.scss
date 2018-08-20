@@ -21,16 +21,18 @@
 // xui-styledcheckboxradio--label: Text label
 //
 // Markup:
-// <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r0" name="rg0">
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Unchecked</span>
-// </label>
-// <label class="xui-styledcheckboxradio">
-//   <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r1" name="rg0" checked>
-//   <div class="xui-styledcheckboxradio--radio"></div>
-//   <span class="xui-styledcheckboxradio--label">Checked</span>
-// </label>
+// <div aria-label="r0" role="radiogroup">
+// 	 <label class="xui-styledcheckboxradio">
+//   	 <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r0" name="rg0">
+//     <div class="xui-styledcheckboxradio--radio"></div>
+//     <span class="xui-styledcheckboxradio--label">Unchecked</span>
+//   </label>
+//   <label class="xui-styledcheckboxradio">
+//     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r1" name="rg0" checked>
+//     <div class="xui-styledcheckboxradio--radio"></div>
+//     <span class="xui-styledcheckboxradio--label">Checked</span>
+//   </label>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.Radio.1
 
@@ -43,7 +45,7 @@
 //
 // To disable a radio, add the following class and add the `disabled` attribute.
 //
-// Classes: 
+// Classes:
 // xui-styledcheckboxradio-is-disabled: Adds disabled style
 //
 // Markup:
@@ -98,7 +100,7 @@
 //
 // Markup:
 // <label class="xui-text-label xui-fieldlabel-layout">Label</label>
-// <div class="xui-styledcheckboxradio-group">
+// <div class="xui-styledcheckboxradio-group" role="radiogroup" aria-label="r3">
 //   <label class="xui-styledcheckboxradio">
 //     <input class="xui-styledcheckboxradio--input" type="radio" role="radio" id="r9" name="rg3" checked>
 //     <div class="xui-styledcheckboxradio--radio"></div>

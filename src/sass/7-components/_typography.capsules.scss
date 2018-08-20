@@ -66,6 +66,16 @@
 	.#{$ns}-icon {
 		vertical-align: bottom;
 	}
+
+	&:hover {
+		box-shadow: 0 0 0 1px $xui-capsule-hover-border-color;
+	}
+
+	&:focus {
+		background: $xui-capsule-focus-bg-color;
+		box-shadow: $xui-shadow-focus;
+		color: $xui-capsule-focus-color;
+	}
 }
 
 .#{$ns}-capsule-interactive {
@@ -75,25 +85,15 @@
 .#{$ns}-capsule-invalid {
 	background: $xui-invalid-bg-color;
 	color: $xui-capsule-invalid-color;
-}
 
-.#{$ns}-capsule:hover {
-	box-shadow: 0 0 0 1px $xui-capsule-hover-border-color;
-}
+	&:hover {
+		background-color: $xui-invalid-hover-bg-color;
+		color: $xui-capsule-invalid-color;
+	}
 
-.#{$ns}-capsule:focus {
-	background: $xui-capsule-focus-bg-color;
-	box-shadow: $xui-shadow-focus;
-	color: $xui-capsule-focus-color;
-}
-
-.#{$ns}-capsule-invalid:hover {
-	background-color: $xui-invalid-hover-bg-color;
-	color: $xui-capsule-invalid-color;
-}
-
-.#{$ns}-capsule-invalid:focus {
-	background-color: $xui-invalid-bg-color;
-	box-shadow: $xui-shadow-focus;
-	color: $xui-capsule-invalid-color;
+	&:focus {
+		background-color: $xui-invalid-bg-color;
+		box-shadow: $xui-shadow-focus;
+		color: $xui-capsule-invalid-color;
+	}
 }

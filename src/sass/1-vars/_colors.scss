@@ -178,7 +178,7 @@ $xui-color-disabled: $xui-color-grey-5;
 $xui-standard-shadow-color: $xui-color-grey-alpha-6;
 $xui-overlap-shadow-color: $xui-color-grey-alpha-8;
 $xui-standard-border-color: $xui-color-grey-6;
-$xui-muted-border-color: $xui-color-grey-6;
+$xui-muted-border-color: $xui-color-grey-7;
 
 // For controls and checkboxes and inputs and selects
 $xui-control-border-color: $xui-color-grey-5;
@@ -333,7 +333,7 @@ $xui-datepicker-hover-bg-color: $xui-color-grey-alpha-6;
 // Dropdowns
 
 $xui-dropdown-mask-bg-color: transparentize($xui-color-grey-1, 0.5);
-$xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-5;
+$xui-dropdown-divider-shadow-color: $xui-color-grey-alpha-6;
 
 // Forms
 
@@ -412,9 +412,11 @@ $xui-modal-bg-color: $xui-color-white;
 
 // Picklists
 
-$xui-pickitem-focus-bg-color: $xui-color-grey-alpha-7;
-$xui-pickitem-active-bg-color: $xui-color-grey-alpha-6;
+$xui-pickitem-focus-bg-color: $xui-color-grey-alpha-8;
+$xui-pickitem-active-bg-color: $xui-color-grey-alpha-7;
 $xui-pickitem-selected-color: $xui-color-blue;
+$xui-pickitem-selected-hover-color: $xui-color-blue-dark;
+$xui-pickitem-selected-active-color: $xui-color-blue-xdark;
 $xui-submenu-uicontrol-icon-color: $xui-color-grey-alpha-2;
 
 // Page heading
@@ -432,12 +434,16 @@ $xui-overview-label-color: $xui-color-grey-alpha-2;
 // Pill
 
 $xui-pill-bg-color: $xui-color-grey-alpha-7;
-$xui-pill-secondary-color: $xui-color-grey-alpha-2;
-$xui-pill-focused-bg-color: rgba($xui-color-black, 0.15);
+$xui-pill-hover-bg-color: $xui-color-grey-alpha-6;
+$xui-pill-active-bg-color: $xui-color-grey-alpha-5;
+$xui-pill-secondary-color: $xui-color-grey-1;
+$xui-pill-focused-bg-color: $xui-color-grey-alpha-6;
 $xui-pill-invalid-bg-color: $xui-color-red;
 $xui-pill-invalid-color: $xui-color-white;
-$xui-pill-invalid-focused-bg-color: $xui-color-red-xdark;
-$xui-pill-invalid-secondary-color: $xui-color-white-alpha-2;
+$xui-pill-invalid-hover-bg-color: mix($xui-color-grey-1, $xui-color-red, 10%);
+$xui-pill-invalid-active-bg-color: mix($xui-color-grey-1, $xui-color-red, 20%);
+$xui-pill-invalid-focused-bg-color: mix($xui-color-grey-1, $xui-color-red, 10%);
+$xui-pill-invalid-secondary-color: $xui-color-white;
 
 $xui-pill-single-invalid-color: $xui-color-red;
 $xui-pill-single-invalid-secondary-color: $xui-color-grey-alpha-2;
@@ -473,8 +479,11 @@ $xui-text-inverted-faint: $xui-color-white-faint;
 
 // Capsule
 
+$xui-capsule-border-color: $xui-color-grey-alpha-5;
+$xui-capsule-hover-border-color: $xui-color-grey-alpha-4;
 $xui-capsule-interactive-color: $xui-color-blue;
 $xui-capsule-invalid-color: $xui-color-white;
+$xui-invalid-hover-bg-color: $xui-color-red-dark;
 $xui-capsule-focus-bg-color: $xui-color-blue;
 $xui-capsule-focus-color: $xui-color-white;
 
@@ -515,17 +524,25 @@ $xui-tooltip-shadow-color: $xui-color-grey-alpha-6;
 $xui-tooltip-outline-shadow-color: $xui-color-white-alpha-5;
 
 
+// Range
+
+$xui-range-bg-color: $xui-color-white;
+$xui-range-border-color: $xui-control-border-color;
+$xui-range-border-hover-color: $xui-control-hover-border-color;
+$xui-range-border-active-color: $xui-control-active-border-color;
+$xui-range-slider-track-color: $xui-color-grey-5;
+
+
 // Controls
 
 
 $xui-input-disabled: $xui-color-grey-8;
-$xui-color-pill-bg: $xui-color-grey-7;
 
 // Progress Indicator
 
 //TODO Progress indicator track is too dark
 
-$xui-progress-total-bg-color: $xui-color-grey-alpha-6;
+$xui-progress-total-bg-color: $xui-color-grey-alpha-7;
 $xui-progress-current-bg-color: $xui-color-blue;
 $xui-progress-error-color: $xui-color-red;
 $xui-progress-colors: (

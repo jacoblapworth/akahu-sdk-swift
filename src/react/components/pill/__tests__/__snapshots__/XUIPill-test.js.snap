@@ -8,7 +8,7 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
   onFocus={[Function]}
 >
   <span
-    className="xui-pill--content xui-pill--button"
+    className="xui-pill--content"
     data-automationid={undefined}
   >
     <span
@@ -22,13 +22,13 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
-  className="xui-pill xui-pill-layout xui-pill-maxwidth"
+  className="xui-pill xui-pill-layout xui-pill-maxwidth xui-pill-interactive"
   data-automationid={undefined}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <a
-    className="xui-button xui-pill--content"
+    className="xui-button xui-pill--content xui-pill--button"
     data-automationid={undefined}
     disabled={false}
     href="http://xero.com"
@@ -51,7 +51,7 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
   onFocus={[Function]}
 >
   <span
-    className="xui-pill--content xui-pill--button"
+    className="xui-pill--content"
     data-automationid={undefined}
   />
 </div>
@@ -65,7 +65,7 @@ exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1
   onFocus={[Function]}
 >
   <span
-    className="xui-pill--content xui-pill--button"
+    className="xui-pill--content"
     data-automationid="pill-test--inner"
   />
 </div>

@@ -601,7 +601,7 @@
 	position: relative;
 
 	& + .#{$ns}-picklist {
-		border-top: 1px solid $xui-color-grey-alpha-5;
+		border-top: 1px solid $xui-color-grey-alpha-6;
 	}
 }
 
@@ -699,6 +699,13 @@
 		width: 3px;
 		z-index: 1;
 	}
+
+	&:hover, &:focus {
+		color: $xui-pickitem-selected-hover-color;
+	}
+	&:active {
+		color: $xui-pickitem-selected-active-color;
+	}
 }
 
 .#{$ns}-picklist--nestedcontainer {
@@ -707,7 +714,7 @@
 
 	> .#{$ns}-pickitem--split, // TODO: remove this old selector
 	> .#{$ns}-pickitem-split {
-		border-right: 1px solid rgba(50, 70, 90, 0.1);
+		border-right: 1px solid $xui-color-grey-alpha-7;
 	}
 }
 

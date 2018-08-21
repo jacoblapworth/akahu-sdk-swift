@@ -202,9 +202,7 @@ export default class XUIButton extends React.Component {
 			},
 			'href': getHref(href),
 			'target': target,
-			'rel': isExternalLink
-				? cn(rel, 'external noopener noreferrer')
-				: rel,
+			'rel': cn(rel, isExternalLink && 'external noopener noreferrer') || undefined,
 			'aria-disabled': isDisabled || isLoading || undefined,
 
 			/** If this is just a plain link styled to be a button, the button role is not needed.

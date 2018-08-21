@@ -112,32 +112,25 @@ function handleSpacebarAsClick(event, props) {
  *
  * @private
  * @param {Object} props
- * @param {Object} elementProps
+ * @returns {Object}
  */
-const getLinkProps = props => {
-	const returnProps = {
-		'onKeyPress': e => {
-			handleSpacebarAsClick(e, props);
-		},
-		'href': getHref(props.href),
-		'target': props.target,
-		'rel': props.rel,
-		'aria-disabled': props.isDisabled || props.isLoading,
-	};
+const getLinkProps = props => ({
+	'onKeyPress': e => {
+		handleSpacebarAsClick(e, props);
+	},
+	'href': getHref(props.href),
+	'target': props.target,
+	'rel': props.isExternalLink
+		? `${props.rel || ''} external noopener noreferrer`
+		: props.rel,
+	'aria-disabled': props.isDisabled || props.isLoading || undefined,
+
 	/** If this is just a plain link styled to be a button, the button role is not needed.
 	 * However, if this is a link which is styled to look AND function like a button,
 	 * then we'll need the role.
 	 * */
-	if (!props.href || props.onClick) {
-		returnProps.role = 'button';
-	}
-
-	if (props.isExternalLink) {
-		const rel = returnProps.rel ? `${returnProps.rel} ` : '';
-		returnProps.rel = `${rel}external noopener noreferrer`;
-	}
-	return returnProps;
-};
+	'role': !props.href || props.onClick ? 'button' : undefined,
+});
 
 /**
  * Attempt to focus the root DOM node of the given component, if the DOM node exists
@@ -229,6 +222,19 @@ export default class XUIButton extends React.Component {
 			? event => event.preventDefault()
 			: onClick || noop;
 
+
+		const elementSpecificTypeProps = isLink ? getLinkProps({
+			href,
+			onClick,
+			isExternalLink,
+			target,
+			rel,
+			isDisabled,
+			isLoading,
+		}) : {
+			type,
+		};
+
 		// Standard props for all element types
 		const elementProps = {
 			...spreadProps,
@@ -237,16 +243,7 @@ export default class XUIButton extends React.Component {
 			disabled: buttonDisabled,
 			className: buttonClassNames,
 			tabIndex: buttonDisabled ? -1 : tabIndex,
-			// Element type specific props
-			...(isLink ? getLinkProps({
-				href,
-				onClick,
-				isExternalLink,
-				target,
-				rel,
-				isDisabled,
-				isLoading,
-			}) : { type }),
+			...elementSpecificTypeProps,
 		};
 
 		return (

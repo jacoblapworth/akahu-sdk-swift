@@ -43,7 +43,7 @@ describe('<XUIButton/>', () => {
 		);
 
 		const node = button.rootNode;
-		assert.strictEqual(node.getAttribute('rel'), 'external noopener noreferrer');
+		assert.strictEqual(node.getAttribute('rel').trim(), 'external noopener noreferrer');
 	});
 
 	it('should render as a link element with existing `rel` value intact when `isExternalLink` prop is true', () => {

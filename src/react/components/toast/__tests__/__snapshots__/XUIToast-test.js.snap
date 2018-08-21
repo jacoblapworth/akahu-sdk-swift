@@ -74,7 +74,7 @@ exports[`XUIToast should render one message as a prop, one action as a prop 1`] 
     data-automationid={undefined}
   >
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -83,6 +83,7 @@ exports[`XUIToast should render one message as a prop, one action as a prop 1`] 
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
@@ -114,7 +115,7 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
     data-automationid={undefined}
   >
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -123,13 +124,14 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
       Action ONE
     </a>
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -138,6 +140,7 @@ exports[`XUIToast should render two actions as a prop, but not more than two 1`]
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
@@ -169,7 +172,7 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
     data-automationid={undefined}
   >
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-actions--primary xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -178,13 +181,14 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
       Action ONE
     </a>
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-actions--secondary xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -193,6 +197,7 @@ exports[`XUIToast should render using the XUIActions component under the hood wh
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
@@ -224,7 +229,7 @@ exports[`XUIToast should still be able to render actions as children, along with
     data-automationid={undefined}
   >
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -233,13 +238,14 @@ exports[`XUIToast should still be able to render actions as children, along with
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
       Action ONE
     </a>
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -248,6 +254,7 @@ exports[`XUIToast should still be able to render actions as children, along with
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
@@ -279,7 +286,7 @@ exports[`XUIToast should still be able to render messages as children, along wit
     data-automationid={undefined}
   >
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -288,13 +295,14 @@ exports[`XUIToast should still be able to render messages as children, along wit
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >
       Action ONE
     </a>
     <a
-      aria-disabled={false}
+      aria-disabled={undefined}
       className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
       data-automationid={undefined}
       disabled={false}
@@ -303,6 +311,7 @@ exports[`XUIToast should still be able to render messages as children, along wit
       onKeyDown={undefined}
       onKeyPress={[Function]}
       rel={undefined}
+      role={undefined}
       tabIndex={0}
       target={undefined}
     >

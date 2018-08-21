@@ -44,7 +44,7 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
   data-automationid={undefined}
 >
   <a
-    aria-disabled={false}
+    aria-disabled={undefined}
     className="xui-button xui-button-small xui-button-borderless-main"
     data-automationid={undefined}
     disabled={false}
@@ -53,6 +53,7 @@ exports[`<XUIBannerAction /> should render as a link if an href value is passed 
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >

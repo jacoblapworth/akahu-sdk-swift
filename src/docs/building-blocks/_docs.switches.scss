@@ -10,6 +10,9 @@
 
 // Best practice
 //
+// Add `role="switch"` to the input element. This will require toggling [additional aria properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_switch_role) via Javascript.
+// For simplicity, the examples below do not use `role="switch"`.
+//
 // Tips:
 // Do: Use switches to turn a single option on or off
 // Warning: Switches should have immediate effect, avoid using in combination with a submit button
@@ -30,11 +33,11 @@
 //
 // Markup:
 // <label class="xui-switch" role="presentation">
-// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" role="switch" aria-checked="false" aria-disabled="false" aria-label="sample switch">
+// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-label="sample switch">
 // 	<div class="xui-switch--control"></div>
 // </label>
 // <label class="xui-switch" role="presentation">
-// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" role="switch" aria-checked="false" aria-disabled="false" aria-labelledby="switch-label">
+// 	<input type="checkbox" checked class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch-label">
 // 	<div class="xui-switch--control"></div>
 // 	<span id="switch-label" class="xui-switch--label">A switch</span>
 // </label>
@@ -43,19 +46,16 @@
 
 // Disabling
 //
-// To disable a switch, add the following global modifier.
-// Make sure to also add the `disabled` attribute to the input, to prevent mouse and keyboard focus.
-//
-// Classes:
-// xui-is-disabled: Apply to label when disabled
+// To disable a switch, add the `xui-switch-is-disabled` modifier.
+// Be sure to also add the `disabled` attribute to the input to prevent mouse and keyboard focus.
 //
 // Markup:
-// <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" class="xui-switch--checkbox" disabled role="switch" aria-label="sample switch3">
+// <label class="xui-switch xui-switch-is-disabled">
+//   <input type="checkbox" class="xui-switch--checkbox" disabled aria-label="sample switch3">
 //   <span class="xui-switch--control"></span>
 // </label>
-// <label class="xui-switch xui-is-disabled">
-//   <input type="checkbox" class="xui-switch--checkbox" disabled checked role="switch" aria-label="sample switch4">
+// <label class="xui-switch xui-switch-is-disabled">
+//   <input type="checkbox" class="xui-switch--checkbox" disabled checked aria-label="sample switch4">
 //   <span class="xui-switch--control"></span>
 // </label>
 //
@@ -70,7 +70,7 @@
 //
 // Markup:
 // <label class="xui-switch xui-switch-reversed" role="presentation">
-// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" role="switch" aria-checked="false" aria-disabled="false" aria-labelledby="switch-label">
+// 	<input type="checkbox" class="xui-u-hidden-visually xui-switch--checkbox" aria-labelledby="switch-label">
 // 	<div class="xui-switch--control"></div>
 // 	<span id="switch-label" class="xui-switch--label">A reversed switch</span>
 // </label>

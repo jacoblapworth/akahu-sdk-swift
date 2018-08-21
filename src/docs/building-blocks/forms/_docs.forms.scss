@@ -105,7 +105,9 @@
 //         <option>CAD</option>
 //         <option>USD</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       </div>
 //     </div>
 //     <div class="xui-column-8-of-12 xui-textinputwrapper">
 //       <input class="xui-textinput xui-textinput--input" id="horizontaldemofield1" />

@@ -1,5 +1,6 @@
 function setInitialButtonStyling(button){
 	button.setAttribute('class', 'clipboard-button xui-button code-copy');
+	button.setAttribute('title', 'Copy code');
 	setStandardButtonStyling(button);
 }
 

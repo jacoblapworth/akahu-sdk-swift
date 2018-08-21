@@ -203,7 +203,7 @@ export default class XUIButton extends React.Component {
 			'href': getHref(href),
 			'target': target,
 			'rel': isExternalLink
-				? `${rel || ''} external noopener noreferrer`
+				? `${rel || ''} external noopener noreferrer`.trim()
 				: rel,
 			'aria-disabled': isDisabled || isLoading || undefined,
 

@@ -196,7 +196,6 @@ export default class XUIButton extends React.Component {
 			? event => event.preventDefault()
 			: onClick || noop;
 
-
 		const elementSpecificTypeProps = isLink ? {
 			'onKeyPress': e => {
 				handleSpacebarAsClick(e, { isDisabled, isLoading });

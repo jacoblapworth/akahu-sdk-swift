@@ -107,32 +107,6 @@ function handleSpacebarAsClick(event, props) {
 }
 
 /**
- * Links styled as buttons require a specific set of attributes to ensure proper functionality
- * and accessibility. This function ensures that those props will be added to the element.
- *
- * @private
- * @param {Object} props
- * @returns {Object}
- */
-const getLinkProps = props => ({
-	'onKeyPress': e => {
-		handleSpacebarAsClick(e, props);
-	},
-	'href': getHref(props.href),
-	'target': props.target,
-	'rel': props.isExternalLink
-		? `${props.rel || ''} external noopener noreferrer`
-		: props.rel,
-	'aria-disabled': props.isDisabled || props.isLoading || undefined,
-
-	/** If this is just a plain link styled to be a button, the button role is not needed.
-	 * However, if this is a link which is styled to look AND function like a button,
-	 * then we'll need the role.
-	 * */
-	'role': !props.href || props.onClick ? 'button' : undefined,
-});
-
-/**
  * Attempt to focus the root DOM node of the given component, if the DOM node exists
  *
  * @private
@@ -223,15 +197,23 @@ export default class XUIButton extends React.Component {
 			: onClick || noop;
 
 
-		const elementSpecificTypeProps = isLink ? getLinkProps({
-			href,
-			onClick,
-			isExternalLink,
-			target,
-			rel,
-			isDisabled,
-			isLoading,
-		}) : {
+		const elementSpecificTypeProps = isLink ? {
+			'onKeyPress': e => {
+				handleSpacebarAsClick(e, { isDisabled, isLoading });
+			},
+			'href': getHref(href),
+			'target': target,
+			'rel': isExternalLink
+				? `${rel || ''} external noopener noreferrer`
+				: rel,
+			'aria-disabled': isDisabled || isLoading || undefined,
+
+			/** If this is just a plain link styled to be a button, the button role is not needed.
+			 * However, if this is a link which is styled to look AND function like a button,
+			 * then we'll need the role.
+			 * */
+			'role': !href || onClick ? 'button' : undefined,
+		} : {
 			type,
 		};
 

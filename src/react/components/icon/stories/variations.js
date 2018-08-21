@@ -5,7 +5,7 @@ const storiesWithVariationsKindName = 'Instances/XUIIcon';
 const variations = [
 	{
 		storyKind: storiesWithVariationsKindName,
-		storyTitle: 'with path',
+		storyTitle: 'single icon',
 		icon: 'cross',
 		className: "capture"
 	},

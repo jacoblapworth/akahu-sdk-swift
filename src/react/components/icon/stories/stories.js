@@ -3,7 +3,6 @@ import React from 'react';
 
 // Components we need to test with
 import XUIIcon from '../XUIIcon';
-import iconData from '@xero/xui-icon/lib/private/iconData';
 import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
 
 // Story book things
@@ -12,15 +11,7 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-
-const flattenedIconMap = {};
-const flattenedIconList = [];
-Object.keys(iconData).forEach(groupKey => {
-	Object.keys(iconData[groupKey]).forEach(iconKey => {
-		flattenedIconMap[iconKey] = iconData[groupKey][iconKey];
-		flattenedIconList.push(iconKey);
-	});
-});
+import {flattenedIconList, flattenedIconMap} from "../../helpers/icons";
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -49,7 +40,13 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
 function generateSubVariants(subVariants, variant) {
-	const examples = subVariants.map((prop, idx) => <XUIIcon key={idx} {...prop} {...variant} />)
+	const examples = subVariants.map((prop, idx) => {
+		const icon = flattenedIconMap[prop.icon || variant.icon];
+		return (
+			<XUIIcon key={idx} {...prop} {...variant} icon={icon} />
+		);
+	});
+
 	return (
 		<div className="capture">
 			{examples}
@@ -69,7 +66,7 @@ variations.forEach(variation => {
 			? generateSubVariants(subVariants, variationMinusStoryDetails)
 			: (
 				<div className="capture">
-					<XUIIcon {...variationMinusStoryDetails} />
+					<XUIIcon {...variationMinusStoryDetails} icon={flattenedIconMap[variationMinusStoryDetails.icon]} />
 				</div>
 			);
 

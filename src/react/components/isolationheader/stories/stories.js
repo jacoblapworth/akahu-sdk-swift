@@ -19,15 +19,7 @@ import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-
-const flattenedIconMap = {};
-const flattenedIconList = [];
-Object.keys(iconData).forEach(groupKey => {
-	Object.keys(iconData[groupKey]).forEach(iconKey => {
-		flattenedIconMap[iconKey] = iconData[groupKey][iconKey];
-		flattenedIconList.push(iconKey);
-	});
-});
+import {flattenedIconList, flattenedIconMap} from "../../helpers/icons";
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);

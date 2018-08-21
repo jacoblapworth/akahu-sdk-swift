@@ -56,8 +56,8 @@ const getHref = href => ((!href || href === '#') ? 'javascript:void(0)' : href);
  * @param {KeyboardEvent} event
  * @param {Object} props
  */
-function handleSpacebarAsClick(event, props) {
-	if (props.isDisabled || props.isLoading) {
+function handleSpacebarAsClick(event, { isDisabled, isLoading }) {
+	if (isDisabled || isLoading) {
 		let shouldClick;
 		if (event.key) {
 			shouldClick = event.key === ' ' || event.key === 'Spacebar';

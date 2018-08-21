@@ -13,6 +13,9 @@ export default class XUIContentBlockItem extends PureComponent {
 			children,
 			className,
 			hasLayout,
+			hasTopRadius,
+			hasBottomRadius,
+			isRowLink,
 			href,
 			overflow,
 			pinnedValue,
@@ -70,7 +73,14 @@ export default class XUIContentBlockItem extends PureComponent {
 			</div>
 		);
 
-		const divClasses = cn(`${baseClass}`, hasLayout && `${baseClass}-layout`, className);
+		const divClasses = cn(
+			`${baseClass}`,
+			hasLayout && `${baseClass}-layout`,
+			isRowLink && `${baseClass}-rowlink`,
+			hasTopRadius && `${baseClass}-has-top-radius`,
+			hasBottomRadius && `${baseClass}-has-bottom-radius`,
+			className,
+		);
 
 		return (
 			<li className={divClasses}>
@@ -95,6 +105,18 @@ XUIContentBlockItem.propTypes = {
 	 * Left most component option, typically an `avatar`, `checkbox` or `rollover checkbox` component
 	 */
 	leftContent: PropTypes.element,
+	/**
+	 * Determines whether to apply hover styling on the entire content block item
+	 */
+	isRowLink: PropTypes.bool,
+	/**
+	 * Determines whether to apply top left and top right border radius on the content block item
+	 */
+	hasTopRadius: PropTypes.bool,
+	/**
+	 * Determines whether to apply bottom left and bottom right border radius on the content block item
+	 */
+	hasBottomRadius: PropTypes.bool,
 	/**
 	 * Determines whether to apply default layout styling or not
 	 */

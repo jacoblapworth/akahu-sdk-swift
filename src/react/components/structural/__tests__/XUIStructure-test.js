@@ -343,6 +343,9 @@ describe('<XUI Structure/>', () => {
 			const testContentblockWithEverything = renderer.create(
 				<XUIContentBlock>
 					<XUIContentBlockItem
+						isRowLink
+						hasTopRadius
+						hasBottomRadius
 						primaryHeading={testPrimaryHeading}
 						secondaryHeading="test secondary heading"
 						overflow={testOverflow}

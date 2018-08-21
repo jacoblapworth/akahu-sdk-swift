@@ -3,7 +3,7 @@ module.exports = {
 	'xui-u-flex-horizontallycentered': 'xui-u-flex-justify-center',
 	'xui-u-flex-horizontal': 'xui-u-flex-row',
 	'xui-u-flex-vertical': 'xui-u-flex-column',
-	'xui-u-spacebetween': 'xui-u-flex-space-between',
+	'xui-u-spacebetween': 'xui-u-flex-justify-space-between',
 	'xui-u-flex-space-between': 'xui-u-flex-justify-space-between',
 	'xui-u-flex-space-between-medium': 'xui-u-flex-justify-space-between-medium',
 	'xui-u-flex-space-between-wide': 'xui-u-flex-justify-space-between-wide',
@@ -16,4 +16,7 @@ module.exports = {
 	'xui-u-flex-justify-right': 'xui-u-flex-justify-end',
 	'xui-u-flex-justify-right-medium': 'xui-u-flex-justify-end-medium',
 	'xui-u-flex-justify-right-wide': 'xui-u-flex-justify-end-wide',
+	'xui-icon-color-standard': 'xui-icon-color-black-muted',
+	'xui-progress-tooltip': 'xui-progress--tooltip',
+	'xui-contentblock--item': 'xui-contentblockitem',
 };

@@ -628,6 +628,7 @@ $xui-datepicker-day-size-compact: 30px;
 	font-size: inherit;
 	height: $xui-datepicker-day-size;
 	justify-content: center;
+	line-height: 1;
 	padding: 0;
 	position: relative;
 	text-align: center;
@@ -712,6 +713,7 @@ $xui-datepicker-day-size-compact: 30px;
 
 .#{$ns}-datepicker--day-is-today {
 	color: $xui-datepicker-today-color;
+	font-weight: bold;
 }
 
 .#{$ns}-datepicker--day-is-selected {
@@ -737,7 +739,7 @@ $xui-datepicker-day-size-compact: 30px;
 }
 
 .#{$ns}-datepicker--day-is-disabled {
-	cursor: default;
+	cursor: not-allowed;
 	.#{$ns}-datepicker--day--time {
 		color: $xui-datepicker-disabled-color;
 	}

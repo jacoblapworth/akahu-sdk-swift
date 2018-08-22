@@ -16,6 +16,7 @@ exports[`<XUIToastAction /> should be able to render custom class names 1`] = `
 
 exports[`<XUIToastAction /> should render a custom href because it's a link 1`] = `
 <a
+  aria-disabled={undefined}
   className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
   data-automationid={undefined}
   disabled={false}
@@ -24,6 +25,7 @@ exports[`<XUIToastAction /> should render a custom href because it's a link 1`] 
   onKeyDown={undefined}
   onKeyPress={[Function]}
   rel={undefined}
+  role={undefined}
   tabIndex={0}
   target={undefined}
 >

@@ -28,6 +28,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
   onFocus={[Function]}
 >
   <a
+    aria-disabled={undefined}
     className="xui-button xui-pill--content xui-pill--button"
     data-automationid={undefined}
     disabled={false}
@@ -36,6 +37,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target="_blank"
     title={undefined}

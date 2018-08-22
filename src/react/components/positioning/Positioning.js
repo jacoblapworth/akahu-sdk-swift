@@ -29,6 +29,7 @@ import { ns } from '../helpers/xuiClassNamespace';
  * @param {Number} options.viewportGutter Amount of space to put between the dropdown & the edge
  * of the viewport
  * @param {Number} options.triggerDropdownGap Amount of space to put between the trigger & dropdown
+ * @param {Boolean} options.isNotResponsive Whether to enforce standard widescreen behaviour
  * @returns {Object}
  */
 function getTriggerAlignmentStyles({

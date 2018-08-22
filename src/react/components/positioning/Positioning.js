@@ -110,7 +110,7 @@ const stylesForBottomLeftPositioning = {
 };
 
 class Positioning extends PureComponent {
-	state = defaultState;
+	state = { ...defaultState };
 	ticking = false;
 
 	componentDidMount() {
@@ -122,42 +122,48 @@ class Positioning extends PureComponent {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		const popup = this;
-		const { props, state } = popup;
+		const {
+			isVisible,
+			onVisible,
+			shouldRestrictMaxHeight,
+		} = this.props;
+		const {
+			positioned,
+		} = this.state;
 
 		// If the popup is going from hidden to visible but hasn't been positioned yet, the render
 		// method will ensure that everything is rendered with "visibility: hidden".
 		// Wait a bit to make sure all children also render, then measure things and position the
 		// popup correctly on the screen.
-		if (props.isVisible && !state.positioned) {
-			this._positionTimer = setTimeout(this.positionOnShow, 50, popup);
+		if (isVisible && !positioned) {
+			this._positionTimer = setTimeout(this.positionOnShow, 50, this);
 		}
 
-		if (!prevState.positioned && state.positioned && props.onVisible != null) {
-			this._visibleTimer = setTimeout(props.onVisible, 50);
+		if (!prevState.positioned && positioned && onVisible != null) {
+			this._visibleTimer = setTimeout(onVisible, 50);
 		}
 
-		if (props.isVisible !== prevProps.isVisible) {
-			if (!props.isVisible) {
+		if (isVisible !== prevProps.isVisible) {
+			if (!isVisible) {
 				// If we're hiding the popup, reset the state to defaults so that the next show event
 				// will properly reposition everything.
-				this.setState(defaultState); // eslint-disable-line react/no-did-update-set-state
-				detachListeners(popup);
+				this.setState({ ...defaultState }); // eslint-disable-line react/no-did-update-set-state
+				detachListeners(this);
 
 				// In case these haven't fired for some reason, kill them now to prevent errors
-				clearTimeout(popup._positionTimer);
-				clearTimeout(popup._visibleTimer);
+				clearTimeout(this._positionTimer);
+				clearTimeout(this._visibleTimer);
 			} else {
-				attachListeners(popup);
-				popup.positionComponent();
+				attachListeners(this);
+				this.positionComponent();
 			}
 		}
 
-		if (prevProps.shouldRestrictMaxHeight !== props.shouldRestrictMaxHeight) {
-			if (props.shouldRestrictMaxHeight) {
-				popup.calculateMaxHeight();
+		if (prevProps.shouldRestrictMaxHeight !== shouldRestrictMaxHeight) {
+			if (shouldRestrictMaxHeight) {
+				this.calculateMaxHeight();
 			} else {
-				popup.setState({
+				this.setState({ // eslint-disable-line react/no-did-update-set-state
 					maxHeight: null,
 				});
 			}

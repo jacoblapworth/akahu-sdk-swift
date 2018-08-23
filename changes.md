@@ -40,7 +40,7 @@
 
 ### Component classes
 
-* Content blocks: `xui-contentblockitem-rowlink` has been added to provide hover styles for an entire content block row
+* Content blocks: `xui-contentblockitem-rowlink`, `xui-contentblockitem-has-top-radius`, and `xui-contentblockitem-has-bottom-radius` have been added to provide hover styles for an entire content block row. The top and bottom radius classes were added to avoid adding overlow:hidden to xui-panel as this interferes with dropdown and tooltip display.
 
 ### Component props
 

@@ -39,7 +39,9 @@
 // Standard
 //
 // Classes:
-// xui-contentblockitem-rowlink: Applies visual feedback on row interaction
+// xui-contentblockitem-rowlink: Applies visual feedback on row interaction. Use only when entire row is clickable.
+// xui-contentblockitem-has-top-radius: Applies top left and top right border radius. Example use: if the content block item is the first item at the top of a container with a borer radius (e.g. panel)
+// xui-contentblockitem-has-bottom-radius: Applies bottom left and bottom right border radius. Example use: if the content block item is the last item at the bottom of a container with a borer radius (e.g. panel)
 //
 // Tips:
 // Do: Tint the entire row on hover to clarify that it is a link
@@ -50,7 +52,7 @@
 //
 // Markup:
 // <div class="xui-contentblock xui-panel">
-// 	<div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+// 	<div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius">
 // 		<a class="xui-contentblockitem--links">
 // 			<span class="xui-contentblockitem--toplinks">
 // 				<span class="xui-heading-small">Item 1 Primary</span>
@@ -64,7 +66,7 @@
 // 			</button>
 // 		</div>
 // 	</div>
-// 	<div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink">
+// 	<div class="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-bottom-radius">
 // 		<a class="xui-contentblockitem--links">
 // 			<span class="xui-contentblockitem--toplinks">
 // 				<span class="xui-heading-small">Item 2 Primary</span>
@@ -492,6 +494,16 @@
 	&:active {
 		background-color: $xui-color-grey-7;
 	}
+}
+
+.#{$ns}-contentblockitem-has-top-radius {
+	border-top-left-radius: $xui-radius;
+	border-top-right-radius: $xui-radius;
+}
+
+.#{$ns}-contentblockitem-has-bottom-radius {
+	border-bottom-left-radius: $xui-radius;
+	border-bottom-right-radius: $xui-radius;
 }
 
 .#{$ns}-contentblockitem--links {

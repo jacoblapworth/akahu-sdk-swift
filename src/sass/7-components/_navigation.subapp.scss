@@ -65,7 +65,7 @@
 }
 
 .#{$ns}-breadcrumb--link {
-	@include xui-button-borderless($xui-breadcrumb-link-color, $xui-breadcrumb-link-hover-color);
+	@include xui-button-borderless($xui-breadcrumb-link-color, $xui-breadcrumb-link-hover-color, $xui-breadcrumb-link-active-color);
 	display: block;
 	line-height: inherit; // Overrides the line-height from the xui-button-borderless mixin, which is mostly good.
 	min-height: $xui-input-height-small;

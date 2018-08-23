@@ -17,7 +17,7 @@
 	}
 
 	&.#{$ns}-button-is-disabled {
-		color: $xui-button-icon-disabled-color;
+		@include xui-button-is-disabled(none, $xui-button-icon-disabled-color, initial);
 	}
 
 	&-inverted {
@@ -25,7 +25,7 @@
 		color: $xui-button-icon-inverted-color;
 
 		&.#{$ns}-button-is-disabled {
-			color: $xui-button-icon-inverted-disabled-color;
+			@include xui-button-is-disabled(none, $xui-button-icon-inverted-disabled-color, initial);
 		}
 	}
 

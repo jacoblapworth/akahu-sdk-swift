@@ -55,16 +55,16 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Classes:
-// -standard: Secondary actions
 // -main: Primary actions
 // -create: Creating new objects
 // -negative: Destructive actions
+// -standard: Secondary actions
 //
 // Markup:
+// <button class='xui-button xui-button-main xui-margin-right-small'>Main</button>
+// <button class='xui-button xui-button-create xui-margin-right-small'>Create</button>
+// <button class='xui-button xui-button-negative xui-margin-right-small'>Negative</button>
 // <button class='xui-button xui-button-standard'>Standard</button>
-// <button class='xui-button xui-button-main'>Main</button>
-// <button class='xui-button xui-button-create'>Create</button>
-// <button class='xui-button xui-button-negative'>Negative</button>
 //
 // Styleguide: Building Blocks.Controls.Button.3
 
@@ -81,20 +81,20 @@
 // Dont: When using color variation, avoid vague text like "Complete"
 //
 // Classes:
-// -borderless-standard: Standard text color
-// -borderless-muted: Secondary text color
 // -borderless-main: Primary actions
 // -borderless-create: Creating new objects
 // -borderless-negative: Desctructive actions
+// -borderless-muted: Secondary text color
+// -borderless-standard: Standard text color
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
+// <button class='xui-button xui-button-borderless-main xui-margin-right-small'>Main</button>
+// <button class='xui-button xui-button-borderless-create xui-margin-right-small'>Create</button>
+// <button class='xui-button xui-button-borderless-negative xui-margin-right-small'>Negative</button>
+// <button class='xui-button xui-button-borderless-muted xui-margin-right-small'>Muted</button>
 // <button class='xui-button xui-button-borderless-standard'>Standard</button>
-// <button class='xui-button xui-button-borderless-muted'>Muted</button>
-// <button class='xui-button xui-button-borderless-main'>Main</button>
-// <button class='xui-button xui-button-borderless-create'>Create</button>
-// <button class='xui-button xui-button-borderless-negative'>Negative</button>
 //
 // Styleguide: Building Blocks.Controls.Button.3.1
 
@@ -108,7 +108,10 @@
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <button class='xui-button xui-button-standard xui-button-small'>Small</button>
+// <button class='xui-button xui-button-main xui-button-small xui-margin-right-small'>Main</button>
+// <button class='xui-button xui-button-create xui-button-small xui-margin-right-small'>Create</button>
+// <button class='xui-button xui-button-negative xui-button-small xui-margin-right-small'>Negative</button>
+// <button class='xui-button xui-button-standard xui-button-small xui-margin-right-small'>Standard</button>
 //
 // Styleguide: Building Blocks.Controls.Button.4
 
@@ -123,6 +126,7 @@
 //
 // Markup:
 // <button class='xui-button xui-button-main xui-u-fullwidth'>Full width</button>
+// <button class='xui-button xui-button-small xui-button-main xui-u-fullwidth xui-margin-top-small'>Full width</button>
 //
 // Styleguide: Building Blocks.Controls.Button.4.1
 
@@ -272,12 +276,16 @@
 // ExampleClass: ds-example-dark ds-example-verticallycentered
 //
 // Markup:
-// <button type="button" class="xui-button xui-button-main xui-button-inverted">Main</button>
-// <button type="button" class="xui-button xui-button-standard xui-button-inverted">Standard</button>
-// <button type="button" class="xui-button xui-button-borderless-inverted">Borderless</button>
-// <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Go back to the previous page" aria-label="Go back to the previous page">
-//  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
-// </button>
+// <div>
+//   <button type="button" class="xui-button xui-button-main xui-button-inverted xui-margin-right-small">Main</button>
+//   <button type="button" class="xui-button xui-button-create xui-button-inverted xui-margin-right-small">Create</button>
+//   <button type="button" class="xui-button xui-button-negative xui-button-inverted xui-margin-right-small">Negative</button>
+//   <button type="button" class="xui-button xui-button-standard xui-button-inverted xui-margin-right-small">Standard</button>
+//   <button type="button" class="xui-button xui-button-borderless-inverted xui-margin-right-small">Borderless inverted</button>
+//   <button type="button" class="xui-button xui-button-icon xui-button-icon-inverted" title="Go back to the previous page" aria-label="Go back to the previous page">
+//    <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
+//   </button>
+// </div>
 //
 // Styleguide: Building Blocks.Controls.Button.10
 
@@ -292,9 +300,9 @@
 // xui-button-is-disabled: Apply to any disabled button
 //
 // Markup:
-// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled">Main</button>
-// <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled">Standard</button>
-// <button type="button" disabled class="xui-button xui-button-borderless-standard xui-button-is-disabled">Borderless</button>
+// <button type="button" disabled class="xui-button xui-button-main xui-button-is-disabled xui-margin-right-small">Main</button>
+// <button type="button" disabled class="xui-button xui-button-standard xui-button-is-disabled xui-margin-right-small">Standard</button>
+// <button type="button" disabled class="xui-button xui-button-borderless-standard xui-button-is-disabled xui-margin-right-small">Borderless</button>
 // <button type="button" disabled class="xui-button xui-button-icon xui-button-is-disabled" title="Go back to the previous page" aria-label="Go back to the previous page">
 //  <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-back"></use></svg>
 // </button>

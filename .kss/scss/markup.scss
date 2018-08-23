@@ -8,7 +8,7 @@
 }
 
 .ds-markup {
-	background: mix(#000, $ds-dark-bg-color, 40%);
+	background: $ds-markup-bg-color;
 	display: block;
 	padding-top: 1rem;
 	padding-left: 1rem;
@@ -52,7 +52,7 @@
 		left: 0;
 		top: 0;
 		right: 0;
-		background: mix(#000, $ds-dark-bg-color, 40%);
+		background: $ds-markup-bg-color;
 		height: $ds-page-header-height;
 		padding-left: 1rem;
 		padding-right: 1rem;

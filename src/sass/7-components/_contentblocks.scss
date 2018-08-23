@@ -474,7 +474,7 @@
 }
 
 .#{$ns}-contentblockitem {
-	border-top: $xui-border-muted;
+	border-top: $xui-border-standard;
 	list-style: none; // TODO use xui-listreset
 	min-height: inherit; // IE11 bug fix
 	position: relative;
@@ -487,6 +487,9 @@
 .#{$ns}-contentblockitem-rowlink {
 	&:hover,
 	&:focus {
+		background-color: $xui-color-grey-8;
+	}
+	&:active {
 		background-color: $xui-color-grey-7;
 	}
 }

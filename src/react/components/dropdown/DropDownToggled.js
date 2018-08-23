@@ -425,7 +425,7 @@ export default class DropDownToggled extends PureComponent {
 			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': ariaPopupType,
-			'aria-controls': this.dropdownId,
+			'aria-controls': (!isHidden && this.dropdownId) || undefined,
 		});
 
 		const clonedDropdown = React.cloneElement(dropdown, {
@@ -477,7 +477,7 @@ export default class DropDownToggled extends PureComponent {
 		const wrapperAria = {
 			'role': ariaRole || 'presentation',
 			'aria-expanded': ariaRole && !isHidden || undefined,
-			'aria-owns': this.dropdownId,
+			'aria-owns': (!isHidden && this.dropdownId) || undefined,
 		};
 
 		return (

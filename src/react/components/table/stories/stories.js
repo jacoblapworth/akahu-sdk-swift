@@ -248,7 +248,7 @@ const TestScaffold = ({
 							{...tableProps.activeSortKey && !columnIndex && { sortKey: 'content' }}
 							className={hasHeaderClassName && 'xui-table-visualTesting-cell'}
 						>
-								Header {columnIndex + 1}
+								{`Header ${columnIndex + 1}`}
 						</Cell>
 					)}
 					body={({

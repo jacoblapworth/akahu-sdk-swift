@@ -4,9 +4,8 @@ import cn from 'classnames';
 import XUILoader from '../loader/XUILoader';
 import { VariantClassNames, SizeClassNames, ButtonTypes } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import noop from '../helpers/noop';
 
-// TODO: Fix lint in this file another time - some problems need a bit more thought
-/* eslint-disable */
 /**
  * Returns true if the button is a borderless variant
  *
@@ -57,8 +56,8 @@ const getHref = href => ((!href || href === '#') ? 'javascript:void(0)' : href);
  * @param {KeyboardEvent} event
  * @param {Object} props
  */
-function handleSpacebarAsClick(event, props) {
-	if (props.isDisabled || props.isLoading) {
+function handleSpacebarAsClick(event, { isDisabled, isLoading }) {
+	if (isDisabled || isLoading) {
 		let shouldClick;
 		if (event.key) {
 			shouldClick = event.key === ' ' || event.key === 'Spacebar';
@@ -106,39 +105,6 @@ function handleSpacebarAsClick(event, props) {
 		}
 	}
 }
-
-/**
- * Links styled as buttons require a specific set of attributes to ensure proper functionality
- * and accessibility. This function ensures that those props will be added to the element.
- *
- * @private
- * @param {Object} props
- * @param {Object} elementProps
- */
-const setupLinkProps = (props, elementProps) => {
-	/** If this is just a plain link styled to be a button, the button role is not needed.
-	 * However, if this is a link which is styled to look AND function like a button,
-	 * then we'll need the role.
-	 * */
-	if (!props.href || props.onClick) {
-		elementProps.role = 'button';
-	}
-	elementProps.onKeyPress = function (e) {
-		handleSpacebarAsClick(e, props);
-	};
-	elementProps.href = getHref(props.href);
-	elementProps.target = props.target;
-	elementProps.rel = props.rel;
-
-	if (props.isExternalLink) {
-		const rel = elementProps.rel ? `${elementProps.rel} ` : '';
-		elementProps.rel = `${rel}external noopener noreferrer`;
-	}
-
-	if (props.isDisabled || props.isLoading) {
-		elementProps['aria-disabled'] = true;
-	}
-};
 
 /**
  * Attempt to focus the root DOM node of the given component, if the DOM node exists
@@ -218,17 +184,34 @@ export default class XUIButton extends React.Component {
 			SizeClassNames[size],
 			isDisabled && `${ns}-button-is-disabled`,
 			isGrouped && `${ns}-button-grouped`,
-			(isInverted && !isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) && `${ns}-button-inverted`,
-			(isInverted && isBorderlessVariant(variantClass) && !isIconVariant(variantClass)) && `${ns}-button-borderless-inverted`,
+			(isInverted && !isIconVariant(variantClass)) &&
+				(isBorderlessVariant(variantClass)
+					? `${ns}-button-borderless-inverted`
+					: `${ns}-button-inverted`
+				),
 			minLoaderWidth && `${ns}-button-min-loader-width`,
 		);
 
-		const clickHandler = function () {
-			if (isLink && buttonDisabled) {
-				event.preventDefault();
-			} else if (onClick) {
-				onClick.call(xuiButton, ...arguments);
-			}
+		const clickHandler = (isLink && buttonDisabled)
+			? event => event.preventDefault()
+			: onClick || noop;
+
+		const elementSpecificTypeProps = isLink ? {
+			'onKeyPress': e => {
+				handleSpacebarAsClick(e, { isDisabled, isLoading });
+			},
+			'href': getHref(href),
+			'target': target,
+			'rel': cn(rel, isExternalLink && 'external noopener noreferrer') || undefined,
+			'aria-disabled': isDisabled || isLoading || undefined,
+
+			/** If this is just a plain link styled to be a button, the button role is not needed.
+			 * However, if this is a link which is styled to look AND function like a button,
+			 * then we'll need the role.
+			 * */
+			'role': !href || onClick ? 'button' : undefined,
+		} : {
+			type,
 		};
 
 		// Standard props for all element types
@@ -239,22 +222,8 @@ export default class XUIButton extends React.Component {
 			disabled: buttonDisabled,
 			className: buttonClassNames,
 			tabIndex: buttonDisabled ? -1 : tabIndex,
+			...elementSpecificTypeProps,
 		};
-
-		// Element type specific props
-		if (isLink) {
-			setupLinkProps({
-				href,
-				onClick,
-				isExternalLink,
-				target,
-				rel,
-				isDisabled,
-				isLoading,
-			}, elementProps);
-		} else {
-			elementProps.type = type;
-		}
 
 		return (
 			<ElementType ref={n => xuiButton.rootNode = n} {...elementProps} data-automationid={qaHook}>
@@ -272,10 +241,12 @@ XUIButton.propTypes = {
 	/** Determines if the button is disabled or not. */
 	isDisabled: PropTypes.bool,
 
-	/** If true, sets appropriate `rel` values to prevent new page from having access to `window.opener`. Should be used for links pointing at external sites. */
+	/** If true, sets appropriate `rel` values to prevent new page from having access to
+	 * `window.opener`. Should be used for links pointing at external sites. */
 	isExternalLink: PropTypes.bool,
 
-	/** If true, shows a loader inside the button and also disables the button to prevent clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
+	/** If true, shows a loader inside the button and also disables the button to prevent
+	 * clicking. Can be used in conjunction with isDisabled (which also provides a disabled class)  */
 	isLoading: PropTypes.bool,
 
 	/** If this button is part of a parent button group */
@@ -287,7 +258,10 @@ XUIButton.propTypes = {
 	/** Bind a function to fire when the button is clicked */
 	onClick: PropTypes.func,
 
-	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`, 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative', 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or `unstyled`. */
+	/** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`, `link`,
+	 * 'borderless-standard', 'borderless-primary', 'borderless-create', 'borderless-negative',
+	 * 'borderless-negative', 'icon', 'icon-large', 'icon-inverted', 'icon-inverted-large' or
+	 * `unstyled`. */
 	variant: PropTypes.oneOf(Object.keys(VariantClassNames)),
 
 	/** Modifier for the size of the button. `small`, `full-width`, or `full-width-layout`. */
@@ -297,7 +271,7 @@ XUIButton.propTypes = {
 	isLink: PropTypes.bool,
 
 	/** The type attribute of this button. `submit`, `button`, or `reset`. */
-	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])), // Can't use Object.values without polyfilling for older supported browsers
+	type: PropTypes.oneOf(Object.keys(ButtonTypes).map(type => ButtonTypes[type])),
 
 	/** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
 	href: PropTypes.string,

@@ -2,17 +2,17 @@
 	<a href="../section-compounds-navigation-stepper.html" isDocLink>Stepper in the XUI Documentation</a>
 </div>
 
-The Stepper is a scaffold that renders a sequence of tabs and an *active* content panel. `import XUIStepper from '@xero/xui/react/stepper';`.
+The stepper renders a set of _tabs_ and a _content_ area corresponding to the currently _active_ step/tab.<br />`import XUIStepper from '@xero/xui/react/stepper';`.
 
-**Note:** The unique `id` prop specifically relates to the *ARIA* relationships within the Stepper component. In that regard we require this prop on all Stepper instances.
+## Responsive
+
+By default the stepper will automatically change the positioning of tabs and content in respect to the `currentStep` prop: either inline within the stepper for narrow viewports, or below the stepper for wider viewports to ensure optimal usability in the widest range of responsive scenarios.
+
+The content elements must be passed as children to the stepper component so that the stepper can take control of their layout. Without this, you will not get the full benefits of the stepper's responsive behaviour.
+
+You can opt out of the stepper's responsive functionality, however we **strongly** recommend that you retain these capabilities and **not** use the `lockLayout` prop. By not supporting all device sizes you are creating a reduced user experience.
 
 ## Examples
-
-### Layout Options
-
-By default the Stepper will lay its elements out in a manner that conforms to its own internal element queries. There is however the ability to lock the design to one of the following layout options.
-
-**Note:** Although we allow the ability to opt out of the responsive functionality that comes built into the Stepper we **strongly** recommend that you retain these responsive capabilities by **not** using the `lockLayout` prop. This ensures that the your Stepper instance has optimal usability in the widest range of scenarios.
 
 #### Inline *(standard)*
 
@@ -35,6 +35,8 @@ Lock by supplying the string `inline` to the prop `lockLayout`.
 #### Inline *(stacked buttons)*
 
 The `inline` layout also has the ability to stack its button content using the prop `hasStackedButtons`.
+
++ You can use this prop in both a _locked_ or _default_ layout state.
 
 ```
 <XUIStepper
@@ -139,20 +141,3 @@ will be applied automatically.
 />
 ```
 
-### Content
-
-When setting the *current* tab using the `currentStep` prop you can also display any respective content using a traditional nested children format.
-
-```
-<XUIStepper
-	id="stepper-progress-disabled"
-	lockLayout="inline"
-	currentStep={2}
-	tabs={[
-		{ name: 'First Tab' },
-		{ name: 'Middle Tab' },
-		{ name: 'Last Tab' }
-	]}>
-	<h3>Custom Content for the last tab</h3>
-</XUIStepper>
-```

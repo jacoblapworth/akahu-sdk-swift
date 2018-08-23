@@ -439,7 +439,8 @@ XUIAutocompleter.propTypes = {
 	/** Maps to the `closeOnSelect` property of the DropDownToggled component. */
 	closeOnSelect: PropTypes.bool,
 
-	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've supplied a footer element with any links or interaction. */
+	/** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've
+	 * supplied a footer element with any links or interaction. */
 	closeOnTab: PropTypes.bool,
 
 	/** When set to true the dropdown will automatically open when the input is given focus. */

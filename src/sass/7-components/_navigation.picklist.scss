@@ -342,7 +342,7 @@
 // 		<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 			<div class="xui-pickitem--body">
 // 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="discount">
-// 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="discount">
+// 					<input type="checkbox" class="xui-styledcheckboxradio--input" id="discount">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 					<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
 //						<span>Discount</span>
@@ -353,7 +353,7 @@
 // 		<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 			<div class="xui-pickitem--body">
 // 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="reference">
-// 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="reference">
+// 					<input type="checkbox" class="xui-styledcheckboxradio--input" id="reference">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 					<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
 //						<span>Reference</span>
@@ -364,7 +364,7 @@
 // 		<li class="xui-pickitem xui-pickitem-multiselect" role="option">
 // 			<div class="xui-pickitem--body">
 // 				<label class="xui-pickitem-multiselect--checkbox xui-styledcheckboxradio" for="quantity">
-// 					<input type="checkbox" tabindex="-1" class="xui-styledcheckboxradio--input" id="quantity">
+// 					<input type="checkbox" class="xui-styledcheckboxradio--input" id="quantity">
 // 					<div class="xui-styledcheckboxradio--checkbox xui-pickitem--input"></div>
 // 					<span class="xui-styledcheckboxradio--label xui-pickitem-multiselect--label">
 //						<span>Quantity</span>
@@ -601,7 +601,7 @@
 	position: relative;
 
 	& + .#{$ns}-picklist {
-		border-top: 1px solid $xui-color-grey-alpha-5;
+		border-top: 1px solid $xui-color-grey-alpha-6;
 	}
 }
 
@@ -699,6 +699,13 @@
 		width: 3px;
 		z-index: 1;
 	}
+
+	&:hover, &:focus {
+		color: $xui-pickitem-selected-hover-color;
+	}
+	&:active {
+		color: $xui-pickitem-selected-active-color;
+	}
 }
 
 .#{$ns}-picklist--nestedcontainer {
@@ -707,7 +714,7 @@
 
 	> .#{$ns}-pickitem--split, // TODO: remove this old selector
 	> .#{$ns}-pickitem-split {
-		border-right: 1px solid rgba(50, 70, 90, 0.1);
+		border-right: 1px solid $xui-color-grey-alpha-7;
 	}
 }
 
@@ -891,6 +898,7 @@
 
 .#{$ns}-pickitem--icon {
 	margin: 0 15px;
+	pointer-events: none;
 	position: absolute;
 	top: 5px;
 }

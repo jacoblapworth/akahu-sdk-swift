@@ -223,7 +223,7 @@ const renderTableTokens = (tokens, tokenType) => {
 }
 
 const typographyRow = (example, name, value) => `
-	<li class="xui-contentblock--item xui-padding-vertical-small xui-u-flex">
+	<li class="xui-contentblockitem xui-padding-vertical-small xui-u-flex">
 		<div class="xui-column-5-of-12">
 			<code>${name}</code>
 		</div>

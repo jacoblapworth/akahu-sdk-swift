@@ -45,7 +45,7 @@ export default class XUISwitch extends PureComponent {
 			className,
 			baseClass,
 			isReversed && `${baseClass}-reversed`,
-			isDisabled && `${ns}-is-disabled`,
+			isDisabled && `${baseClass}-is-disabled`,
 		);
 		const labelClasses = cn(
 			`${baseClass}--label`,

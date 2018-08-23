@@ -8,14 +8,10 @@ $xui-switch-label-padding: $xui-s-small - 2;
 	align-items: center;
 	display: inline-flex; // Inline inputs
 	position: relative;
+}
 
-	&.#{$ns}-is-disabled {
-		// Disabled due to iOS - no cursor, but we still want this for desktop clients
-		/* doiuse-disable */
-		cursor: not-allowed;
-		opacity: 1;
-		/* doiuse-enable */
-	}
+.#{$ns}-switch-is-disabled {
+	cursor: not-allowed;
 }
 
 .#{$ns}-switch--control {
@@ -40,8 +36,9 @@ $xui-switch-label-padding: $xui-s-small - 2;
 		transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
 		width: 18px;
 	}
-	.#{$ns}-is-disabled & {
-		background: $xui-switch-diabled-bg-color;
+	.#{$ns}-switch-is-disabled & {
+		background: $xui-switch-disabled-bg-color;
+		cursor: not-allowed;
 	}
 }
 
@@ -53,8 +50,8 @@ $xui-switch-label-padding: $xui-s-small - 2;
 
 	&:checked + .#{$ns}-switch--control {
 		background: $xui-switch-checked-bg-color;
-		.#{$ns}-is-disabled & {
-			background: $xui-switch-checked-diabled-bg-color;
+		.#{$ns}-switch-is-disabled & {
+			background: $xui-switch-checked-disabled-bg-color;
 		}
 		&::before {
 			left: auto;
@@ -72,7 +69,7 @@ $xui-switch-label-padding: $xui-s-small - 2;
 		padding-left: $xui-switch-label-padding;
 	}
 
-	.#{$ns}-is-disabled & {
+	.#{$ns}-switch-is-disabled & {
 		color: $xui-color-grey-alpha-4;
 	}
 }

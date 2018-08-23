@@ -1,8 +1,7 @@
 @import "../vars";
 
 .#{$ns}-button:disabled {
-	cursor: default;
-	pointer-events: none;
+	cursor: not-allowed;
 }
 
 .#{$ns}-button-is-disabled {

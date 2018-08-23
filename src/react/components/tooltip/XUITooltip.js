@@ -95,7 +95,7 @@ export default class XUITooltip extends PureComponent {
 
 	componentDidMount = () => {
 		const { trigger } = this;
-		const rootNode = (trigger && (trigger.rootNode || trigger.inputNode)) || trigger;
+		const rootNode = (trigger && (trigger.rootNode || trigger.input)) || trigger;
 		if (!rootNode) {
 			return;
 		}

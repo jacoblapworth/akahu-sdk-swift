@@ -36,8 +36,8 @@
 //     <input class="xui-textinput xui-textinput--input" type="text" id="field1" placeholder="" />
 //   </div>
 //   <div class="xui-field-layout">
-//     <label class="xui-text-label xui-fieldlabel-layout" for="field2">IRD number</label>
-//     <input class="xui-textinput xui-textinput--input" type="text" id="field2" placeholder="" />
+//     <label class="xui-text-label xui-fieldlabel-layout" for="ird2">IRD number</label>
+//     <input class="xui-textinput xui-textinput--input" type="text" id="ird2" placeholder="" />
 //     <div class="xui-validation xui-validation-layout">Found on the top of your IR3 statement</div>
 //   </div>
 //   <div class="xui-field-layout">
@@ -105,7 +105,9 @@
 //         <option>CAD</option>
 //         <option>USD</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"><use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+//       </div>
 //     </div>
 //     <div class="xui-column-8-of-12 xui-textinputwrapper">
 //       <input class="xui-textinput xui-textinput--input" id="horizontaldemofield1" />
@@ -132,9 +134,9 @@
 // <div class="xui-field-layout">
 //   <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout">Inputs only</label>
 //   <div class="xui-textinputgroup">
-//     <input id="horizontaldemofield1" class="xui-textinput xui-textinput--input xui-column-2-of-12" placeholder="2 columns"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12" placeholder="5 columns"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12" placeholder="5 columns"/>
+//     <input id="horizontaldemofield1" class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="2 columns" placeholder="2 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12" placeholder="5 columns" aria-label="5 columns"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-5-of-12" placeholder="5 columns" aria-label="5 columns"/>
 //   </div>
 // </div>
 // <div class="xui-field-layout">
@@ -146,12 +148,14 @@
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12"/>
-//     <input class="xui-textinput xui-textinput--input xui-textinput-is-invalid xui-column-2-of-12" placeholder="Invalid input" />
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-textinput-is-invalid xui-column-2-of-12" placeholder="Invalid input" aria-label="Invalid input" />
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <button class="xui-button xui-button-main xui-column-2-of-12">Action</button>
 //   </div>
 // </div>
@@ -159,17 +163,19 @@
 //   <label for="horizontaldemofield3" class="xui-text-label xui-fieldlabel-layout">Another mix of select, input and button</label>
 //   <div class="xui-textinputgroup">
 //     <button id="horizontaldemofield3" class="xui-button xui-button-standard xui-column-2-of-12">Action</button>
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12"/>
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" />
-//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
+//     <input class="xui-textinput xui-textinput--input xui-column-2-of-12" aria-label="test input"/>
 //     <div class="xui-select xui-column-2-of-12">
 //       <select class="xui-select--control xui-textinput-is-invalid">
 //         <option>Invalid</option>
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
 //   </div>
 // </div>
@@ -195,7 +201,9 @@
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
 //   </div>
 // </div>
@@ -208,7 +216,9 @@
 //         <option>Value 2</option>
 //         <option>Value 3</option>
 //       </select>
-//       <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 <div class="xui-select--caret">
+//         <svg focusable="false" class="xui-icon xui-blobicon xui-icon-color-black-muted xui-select--caret"> <use xlink:href="#xui-icon-caret" role="presentation" /></svg>
+// 			 </div>
 //     </div>
 //   </div>
 // </div>
@@ -225,8 +235,8 @@
 //   <label for="street-address" class="xui-text-label xui-fieldlabel-layout">Street address</label>
 //   <div class="xui-verticalinputgroup">
 //   <input id="street-address" class="xui-textinput xui-textinput--input" aria-label="Street Address Line 1"/>
-//   <input class="xui-textinput xui-textinput--input"  aria-label="Street Address Line 2"/>
-//   <input class="xui-textinput xui-textinput--input"  aria-label="Street Address Line 3"/>
+//   <input class="xui-textinput xui-textinput--input" aria-label="Street Address Line 2"/>
+//   <input class="xui-textinput xui-textinput--input" aria-label="Street Address Line 3"/>
 // </div>
 // </div>
 // <div class="xui-heading xui-margin-top-large xui-margin-bottom">Log in to continue</div>
@@ -238,7 +248,7 @@
 //           <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-email" role="presentation" /></svg>
 //         </div>
 //       </div>
-//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Email" />
+//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Email" aria-label="Email" />
 //     </div>
 //   </div>
 //   <div class="xui-textinputwrapper">
@@ -248,7 +258,7 @@
 //           <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-lock" role="presentation" /></svg>
 //         </div>
 //       </div>
-//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Password" />
+//       <input class="xui-textinput--input xui-padding-left-none" placeholder="Password"  aria-label="Password" />
 //     </div>
 //   </div>
 // </div>

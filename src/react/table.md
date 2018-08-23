@@ -792,6 +792,7 @@ const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 			<Cell onCellClick={ () => alert(`You clicked $${price}`) }>
 				${ price }
 				<XUIButton
+					title="select"
 					className="xui-margin-left"
 					size="small"
 					onPointerOver={event => event.stopPropagation()}>

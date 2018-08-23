@@ -163,8 +163,8 @@ test.add(storyNames.formOnAPage, () => {
 							/>
 						</XUIColumn>
 						<XUIColumn gridColumns="half">
-							<InputLabel>A simple select box</InputLabel>
 							<SelectBox
+								labelText="A simple select box"
 								name="selectOne"
 								buttonContent="Hello world"
 								isTextTruncated={false}
@@ -172,12 +172,14 @@ test.add(storyNames.formOnAPage, () => {
 								<SelectBoxOption
 									id="1"
 									key={1}
+									value="1"
 								>
 									It&apos;s a wonderful day
 								</SelectBoxOption>
 								<SelectBoxOption
 									id="2"
 									key={2}
+									value="2"
 								>
 									Today Yo!
 								</SelectBoxOption>

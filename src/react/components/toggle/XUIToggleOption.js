@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass } from './private/constants';
-import { ns } from '../helpers/xuiClassNamespace';
 
 /** @private typeMap - Map types to attributes */
 const typeMap = {
@@ -28,7 +27,7 @@ export default function XUIToggleOption(props) {
 	const classes = cn(
 		className,
 		`${baseClass}-option`,
-		isDisabled && `${ns}-is-disabled`,
+		isDisabled && `${baseClass}-is-disabled`,
 	);
 
 	return (

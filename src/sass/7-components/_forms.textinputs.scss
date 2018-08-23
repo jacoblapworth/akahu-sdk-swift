@@ -49,6 +49,10 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 
 .#{$ns}-textinput-is-disabled {
 	@include xui-disabled-form;
+
+	.#{$ns}-textinput--input {
+		cursor: not-allowed;
+	}
 }
 
 .#{$ns}-textinput--sideelement {

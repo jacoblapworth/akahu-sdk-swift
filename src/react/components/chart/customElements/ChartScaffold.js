@@ -420,6 +420,8 @@ class ChartScaffold extends PureComponent {
 											// { height: 100%; width: 100%; } overides and instead rely
 											// on our static sizes that we measure.
 											responsive={false}
+											title={chartTitle}
+											desc={chartDescription}
 										/>
 									)}
 								>

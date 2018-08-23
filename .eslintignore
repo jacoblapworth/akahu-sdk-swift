@@ -2,7 +2,9 @@ node_modules
 src/sass
 dist/*
 coverage/*
+scripts/
 .visual-testing/*
 .tmp/*
 .kss/*
+**/stories/*
 src/react/components/*/__tests__/*-test.js

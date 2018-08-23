@@ -13,9 +13,11 @@
 }
 
 // Provides coloring for disabled XUI forms
+// TODO: Rename this because what is a "form"
 @mixin xui-disabled-form {
 	background-color: $xui-control-disabled-bg-color;
 	border-color: $xui-control-disabled-border-color;
 	color: $xui-control-disabled-color;
+	cursor: not-allowed;
 	-webkit-text-fill-color: $xui-control-disabled-color;
 }

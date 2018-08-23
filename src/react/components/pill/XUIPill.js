@@ -62,6 +62,7 @@ export default class XUIPill extends Component {
 			isInvalid && `${baseClass}-is-invalid`,
 			isFocused && `${baseClass}-is-focused`,
 			onDeleteClick && `${baseClass}-is-deleteable`,
+			(href || onClick) && `${baseClass}-interactive`,
 		);
 
 		const closeButtonClasses = cn(

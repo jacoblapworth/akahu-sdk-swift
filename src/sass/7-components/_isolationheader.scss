@@ -39,8 +39,9 @@
 // Markup:
 // <header class="xui-isolationheader" role="banner">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
+// 				 <use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
 //     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
 //       Title
@@ -67,8 +68,8 @@
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
 //     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
 //       Title
@@ -81,10 +82,10 @@
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
-//     <abbr class="xui-avatar xui-avatar-color-4 xui-avatar-business xui-margin-right" role="presentation">XUI</abbr>
+//     <abbr class="xui-avatar xui-avatar-color-3 xui-avatar-business xui-margin-right" role="presentation">HE</abbr>
 //     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
 //       Title
 //     </h1>
@@ -96,8 +97,8 @@
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon"><use xlink:href="#xui-icon-cross" role="presentation" /></svg>
 //     </button>
 //     <h1 class="xui-heading xui-margin-right-small xui-margin-vertical-none xui-text-truncated">
 //       Title
@@ -125,8 +126,8 @@
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
@@ -141,8 +142,8 @@
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
@@ -158,8 +159,8 @@
 // <br>
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>
@@ -170,8 +171,8 @@
 //   <div class="xui-isolationheader--actions">
 //     <button class="xui-button xui-button-standard xui-button-small xui-margin-right-small">Secondary</button>
 //     <button class="xui-button xui-button-main xui-button-small xui-margin-right-xsmall">Primary</button>
-//     <button class="xui-button xui-button-icon xui-button-icon-large">
-//       <svg focusable="false" class="xui-icon" title="Overflow menu" aria-label="Overflow menu">
+//     <button class="xui-button xui-button-icon xui-button-icon-large" title="Overflow menu" aria-label="Overflow menu">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-overflow" role="presentation" />
 //       </svg>
 //     </button>
@@ -237,14 +238,16 @@
 // Markup:
 // <header class="xui-isolationheader" style="overflow: visible;">
 //   <div class="xui-isolationheader--navigation" style="overflow: visible;">
-//     <span class="xui-tooltip">
-//       <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//         <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page">
-//           <use xlink:href="#xui-icon-cross" role="presentation" />
-//         </svg>
+//     <span class="xui-tooltip xui-has-inline-trigger xui-tooltip-tipopen">
+//       <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//				 <div class="xui-iconwrapper">
+//           <svg focusable="false" class="xui-icon">
+//             <use xlink:href="#xui-icon-cross" role="presentation" />
+//           </svg>
+// 				 </div>
 //       </button>
-//       <span class="xui-positioningInline" style="flex-direction: row; top: -3px; left: 5px;">
-//         <span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--bottom-left">Back to Xero</span>
+//       <span class="xui-positioningInline" style="flex-direction: row; top: 10px; left: 5px;">
+//         <span class="xui-tooltip--tip xui-tooltip--tip-open xui-positioningInline--content-bottomleft">Back to Xero</span>
 //       </span>
 //     </span>
 //     <h1 class="xui-heading xui-margin-vertical-none xui-text-truncated">
@@ -266,8 +269,8 @@
 // Markup:
 // <header class="xui-isolationheader">
 //   <div class="xui-isolationheader--navigation">
-//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small">
-//       <svg focusable="false" class="xui-icon" title="Return to source page" aria-label="Return to source page">
+//     <button class="xui-button xui-button-icon xui-button-icon-large xui-margin-right-small" title="Return to source page" aria-label="Return to source page">
+//       <svg focusable="false" class="xui-icon">
 //         <use xlink:href="#xui-icon-cross" role="presentation" />
 //       </svg>
 //     </button>

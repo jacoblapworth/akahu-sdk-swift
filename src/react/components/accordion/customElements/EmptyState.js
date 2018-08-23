@@ -12,7 +12,7 @@ export default class XUIAccordionItemEmptyState extends PureComponent {
 				data-automationid={qaHook}
 				className={`${ns}-accordion-new--emptystate`}
 			>
-				<XUIIcon size="large" icon={emptyIcon} />
+				<XUIIcon size="large" icon={emptyIcon} isBoxed />
 				<div>{children}</div>
 			</div>
 		);

@@ -36,6 +36,7 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
   data-automationid="toast-actions"
 >
   <a
+    aria-disabled={undefined}
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -44,12 +45,14 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >
     Action 1
   </a>
   <a
+    aria-disabled={undefined}
     className="xui-button xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -58,6 +61,7 @@ exports[`<XUIToastActions /> should render actions passed in as children 1`] = `
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >
@@ -72,6 +76,7 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
   data-automationid="toast-actions"
 >
   <a
+    aria-disabled={undefined}
     className="xui-button xui-actions--primary xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -80,12 +85,14 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >
     Action 1
   </a>
   <a
+    aria-disabled={undefined}
     className="xui-button xui-actions--secondary xui-toast--action xui-button-borderless-main xui-button-small"
     data-automationid={undefined}
     disabled={false}
@@ -94,6 +101,7 @@ exports[`<XUIToastActions /> should render actions passed in using the primaryAc
     onKeyDown={undefined}
     onKeyPress={[Function]}
     rel={undefined}
+    role={undefined}
     tabIndex={0}
     target={undefined}
   >

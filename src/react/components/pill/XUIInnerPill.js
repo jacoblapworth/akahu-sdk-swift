@@ -31,9 +31,11 @@ class XUIInnerPill extends PureComponent {
 		);
 		const valueEl = value && <span className={`${ns}-pill--text`}>{value}</span>;
 
+		const isInteractive = href || onClick;
+
 		const className = cn(
 			`${ns}-pill--content`,
-			!href && `${ns}-pill--button`,
+			isInteractive && `${ns}-pill--button`,
 		);
 		const innerPillQaHook = qaHook && `${qaHook}--inner`;
 		const contents = (
@@ -44,7 +46,7 @@ class XUIInnerPill extends PureComponent {
 			</Fragment>
 		);
 
-		return (href || onClick) ? (
+		return isInteractive ? (
 			<XUIButton
 				className={className}
 				isLink={!!href}

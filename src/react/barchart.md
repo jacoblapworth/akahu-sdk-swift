@@ -104,7 +104,7 @@ class Demo extends React.Component {
 					return `${value} ${keyLabel[stackIndex]} Item${Math.sqrt(value * value) === 1 ? '' : 's'}`
 				}}
 				keyLabel={keyLabel}
-				barColor={["#5C5CE6", "#51DAAF"]}
+				barColor={["#5A5AE6", "#50DCAA"]}
 				barColorActive="rgba(0,0,0,0.5)"
 			/>
 		);
@@ -196,8 +196,8 @@ The y-axis customisation options are:
 
 + `createYAxisLabelFormat`: A function that returns an augmentation of the _"raw"_ `y` value
 
-+ `yAxisDefaultTopValue`: A custom _"max"_ value to appear at the top of the axis.
-  **Note:**
++ `yAxisDefaultTopValue`: A custom _"max"_ value to appear at the top of the axis. **Note:**
+
     + This custom value is still sanitised by our _"internal"_ display system and therefore may be changed slightly.
     + A greater `y` value will supersede this prop.
 

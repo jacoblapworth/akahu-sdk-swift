@@ -41,7 +41,7 @@ storiesWithKnobs.add('Playground', () => (
 			color={select('color', Object.keys(colorMap), 'standard')}
 			layout={boolean('full-width?', false) ? 'fullwidth': undefined}
 			variant={boolean('small?', false) ? 'small': undefined}
-			labelText={text('labelText', '')}
+			labelText={text('labelText', 'Toggle label')}
 			isLabelHidden={boolean('isLabelHidden', false)}
 			isFieldLayout={boolean('isFieldLayout', true)}
 		>

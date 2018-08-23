@@ -11,7 +11,6 @@ import XUIButton from '../../button/XUIButton';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
-import iconData from '@xero/xui-icon/lib/private/iconData';
 
 // Story book things
 import { storiesOf } from '@storybook/react';

@@ -2,7 +2,8 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
-import XUIAvatar from '../avatar/XUIAvatar';
+import LeftVisualEl from './private/LeftVisualEl';
+import basePillClass from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
 class XUIInnerPill extends PureComponent {
@@ -10,6 +11,7 @@ class XUIInnerPill extends PureComponent {
 		const {
 			avatarProps,
 			href,
+			isInvalid,
 			onClick,
 			qaHook,
 			secondaryText,
@@ -18,29 +20,23 @@ class XUIInnerPill extends PureComponent {
 			value,
 		} = this.props;
 
-		const avatarClasses = avatarProps && cn(
-			avatarProps.className,
-			`${ns}-pill--avatar`,
-		);
-
-		const avatarEl = avatarProps && <XUIAvatar {...avatarProps} className={avatarClasses} />;
-		const secondaryTextEl = secondaryText && (
-			<span className={`${ns}-color-grey-muted ${ns}-pill--secondary`}>
-				{secondaryText}
-			</span>
-		);
-		const valueEl = value && <span className={`${ns}-pill--text`}>{value}</span>;
-
 		const isInteractive = href || onClick;
 
 		const className = cn(
-			`${ns}-pill--content`,
-			isInteractive && `${ns}-pill--button`,
+			`${basePillClass}--content`,
+			isInteractive && `${basePillClass}--button`,
 		);
 		const innerPillQaHook = qaHook && `${qaHook}--inner`;
+		const secondaryTextEl = secondaryText && (
+			<span className={`${ns}-color-grey-muted ${basePillClass}--secondary`}>
+				{secondaryText}
+			</span>
+		);
+		const valueEl = value && <span className={`${basePillClass}--text`}>{value}</span>;
+
 		const contents = (
 			<Fragment>
-				{avatarEl}
+				<LeftVisualEl isInvalid={isInvalid} avatarProps={avatarProps} />
 				{secondaryTextEl}
 				{valueEl}
 			</Fragment>
@@ -87,6 +83,8 @@ XUIInnerPill.propTypes = {
 	title: PropTypes.string,
 	/** The text to display inside the pill. */
 	value: PropTypes.string,
+	/** The pill is invalid and should display the invalid icon */
+	isInvalid: PropTypes.bool,
 };
 
 export default XUIInnerPill;

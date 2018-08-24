@@ -309,12 +309,14 @@
 
 .#{$ns}-pill--content {
 	@include xui-text-truncated;
+	display: flex;
 	min-height: $xui-icon-standard;
 	padding: 5px 5px 5px 15px;
 }
 
 .#{$ns}-pill--text,
 .#{$ns}-pill--secondary {
+	align-self: center;
 	line-height: $xui-line-height-compact;
 	vertical-align: middle;
 }
@@ -414,7 +416,14 @@
 	}
 }
 
-// TODO: Deprecated, remove in XUI14 as now we use the standard invalid class
-.#{$ns}-pill-single-is-invalid {
-	color: $xui-pill-single-invalid-color;
+.#{$ns}-pill--erroricon {
+	align-items: center;
+	background: $xui-color-white;
+	border-radius: 50%;
+	display: inline-flex;
+	height: 20px;
+	justify-content: center;
+	margin-left: -10px;
+	margin-right: 5px;
+	width: 20px;
 }

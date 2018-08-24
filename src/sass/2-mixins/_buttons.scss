@@ -30,16 +30,6 @@ $color - alpha value for the box shadow to be applied with
 }
 
 /*
-Applies hover button styling and given contents on hover.
-*/
-@mixin xui-button-hover {
-	&:hover {
-		text-decoration: none;
-		@content;
-	}
-}
-
-/*
 Applies focus button styling on focus
 
 $shadow - `box-shadow` to apply on hover
@@ -53,48 +43,37 @@ $shadow - `box-shadow` to apply on hover
 }
 
 /*
-Provides active button styling. Contents will be applied when active.
-
-$bg-color - Background color to use when active
-$border-color - Border color to use when active
-*/
-@mixin xui-button-active($bg-color: $xui-color-grey-7, $border-color: $xui-color-grey-3) {
-	&:active {
-		background-color: $bg-color;
-		border-color: $border-color;
-		text-decoration: none;
-		@content;
-	}
-}
-
-/*
 Provides disabled button styling
 
 $bg-color - Background color to use
 $bg-color - Text color to use
+$hover-bg-color - Background color to use on hover
 */
-@mixin xui-button-is-disabled($bg-color: $xui-color-white, $color: $xui-color-grey-alpha-4) {
+@mixin xui-button-is-disabled($bg-color: $xui-color-white, $color: $xui-color-grey-alpha-4, $hover-bg-color: null) {
 	background-color: $bg-color;
 	border-color: $xui-color-grey-alpha-5;
 	box-shadow: none;
 	color: $color;
 	cursor: not-allowed;
+	&:hover, &:active{
+		background-color: $hover-bg-color;
+	}
 }
 
 /*
 Used to create the variants of xui buttons
 
-$background-color - Background color to use
+$bg-color - Background color to use
+$bg-hover-color - Background color to use on hover
+$bg-active-color - Background color to use on active
 $color - Text color to use
-$background-image - Background image to use
-$border - Border to use
+$hover-color - Text color to use on hover
+$active-color - Text color to use on active
+$border-color - Border color to use
 */
-@mixin xui-button-variant($background-color: $xui-color-white, $color: $xui-color-blue, $background-image: null, $border: null) {
-	background-clip: padding-box;
-	background-color: $background-color;
-	background-image: $background-image;
-	background-repeat: no-repeat;
-	border: $border;
+@mixin xui-button-variant($bg-color: $xui-color-white, $bg-hover-color: $xui-button-hover-bg-color, $bg-active-color: $xui-button-active-bg-color, $color: $xui-color-blue, $hover-color: $xui-color-blue, $active-color: $xui-color-blue, $border-color: $color) {
+	background-color: $bg-color;
+	border: 1px solid $border-color;
 	border-radius: $xui-radius;
 	color: $color;
 	font-weight: bold;
@@ -107,6 +86,14 @@ $border - Border to use
 	transition-duration: $xui-motion-speed-fast;
 	transition-property: color, background, box-shadow;
 	transition-timing-function: $xui-motion-curve-standard;
+	&:hover {
+		background-color: $bg-hover-color;
+		color: $hover-color;
+	}
+	&:active {
+		background-color: $bg-active-color;
+		color: $active-color;
+	}
 }
 
 /*
@@ -117,7 +104,7 @@ $text-hover-color - Text color to use on hover
 $background-focus - Background color to use on focus
 $background-active - Background color to use while active
 */
-@mixin xui-button-borderless($text-color, $text-hover-color, $background-focus: $xui-button-borderless-focus-bg-color, $background-active: $xui-button-borderless-active-bg-color) {
+@mixin xui-button-borderless($text-color, $text-hover-color, $text-active-color, $background-focus: $xui-button-borderless-focus-bg-color, $background-active: $xui-button-borderless-active-bg-color) {
 	background: transparent;
 	border-radius: $xui-radius;
 	color: $text-color;
@@ -138,6 +125,7 @@ $background-active - Background color to use while active
 	}
 	&:active {
 		background: $background-active;
+		color: $text-active-color;
 	}
 }
 
@@ -154,13 +142,11 @@ $hover-bg-color - Background color to use when hovered
 		background-color: $hover-bg-color;
 		color: $text-color;
 	}
-
 	&:focus {
 		background: $focus-bg-color;
 		color: $text-color;
 		outline: none;
 	}
-
 	&:active {
 		background: $active-bg-color;
 		color: $text-color;

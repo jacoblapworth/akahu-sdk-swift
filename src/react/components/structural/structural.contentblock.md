@@ -19,7 +19,8 @@ const overflow = require('@xero/xui-icon/icons/overflow').default;
 const overflowButton = <XUIButton className="xui-button-icon-large" variant="icon" aria-label="More options"><XUIIcon icon={overflow}/></XUIButton>;
 
 <XUIContentBlock className="xui-panel">
-	<XUIContentBlockItem primaryHeading="Primary" overflow={overflowButton}/>
+	<XUIContentBlockItem isRowLink hasTopRadius primaryHeading="Primary" href="#" overflow={overflowButton}/>
+	<XUIContentBlockItem isRowLink hasBottomRadius primaryHeading="Primary" href="#" overflow={overflowButton}/>
 </XUIContentBlock>
 ```
 

@@ -111,20 +111,34 @@
 // Additionally, make sure the `disabled` attribute is added to the input as well.
 //
 // Classes:
-// xui-is-disabled: Apply to toggle option
+// xui-toggle-is-disabled: Apply to toggle option
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup:
-// <div class="xui-toggle" role="radiogroup" aria-label="ee">
-//   <label class="xui-toggle-option xui-is-disabled">
-//   <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
-//   </label>
-//   <label class="xui-toggle-option xui-is-disabled">
-//     <input type="radio" name="ee" class="xui-toggle--input" disabled/>
-//     <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
-//   </label>
+// <div class="xui-padding-large">
+//   <div class="xui-toggle" role="radiogroup" aria-label="ee">
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <input type="radio" name="ee" class="xui-toggle--input" disabled checked/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//     </label>
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//       <input type="radio" name="ee" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//     </label>
+//   </div>
+// </div>
+// <div class="ds-example-dark xui-padding-large">
+//   <div class="xui-toggle xui-toggle-inverted" role="radiogroup" aria-label="kk">
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//     <input type="radio" name="kk" class="xui-toggle--input" disabled checked/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">View</span>
+//     </label>
+//     <label class="xui-toggle-option xui-toggle-is-disabled">
+//       <input type="radio" name="kk" class="xui-toggle--input" disabled/>
+//       <span class="xui-toggle--label xui-padding-vertical-small xui-padding-horizontal">Edit</span>
+//     </label>
+//   </div>
 // </div>
 //
 // Styleguide: Building Blocks.Controls.Toggle.5

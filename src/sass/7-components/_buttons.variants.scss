@@ -5,21 +5,28 @@
 
 		@if $variant == standard {
 			// TODO: figure out a way to do this without a border, as it adds unwanted width
-			@include xui-button-variant($color, $xui-color-blue, linear-gradient($xui-color-white, $xui-color-white), 1px solid $xui-button-border-color);
+			@include xui-button-variant(
+				$color,// bg color
+				$xui-button-standard-hover-bg-color,// bg hover
+				$xui-button-standard-active-bg-color,// bg active
+				$xui-color-blue,// text
+				$xui-button-standard-hover-color,// text hover
+				$xui-button-standard-active-color,// text active
+				$xui-button-border-color// border color
+			);
 		} @else {
-			@include xui-button-variant($color, $xui-color-white);
+			@include xui-button-variant(
+				$color,//
+				mix($xui-color-grey-1, $color, 10%),// bg hover
+				mix($xui-color-grey-1, $color, 20%),// bg active
+				$xui-color-white,// text
+				$xui-color-white,// text hover
+				$xui-color-white,// text active
+				$color// border color
+			);
 		}
 
 		@include xui-button-focus($xui-shadow-focus);
-
-		@include xui-button-hover {
-			@include xui-button-shadow($xui-button-hover-shadow-color);
-		}
-
-		@include xui-button-active($color, $color) {
-			@include xui-button-shadow($xui-button-active-shadow-color);
-		}
-
 	}
 
 }

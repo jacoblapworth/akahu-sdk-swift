@@ -43,7 +43,7 @@ exports[`<XUI Structure/> Content block and content block item renders content b
   className="xui-contentblock"
 >
   <li
-    className="xui-contentblockitem xui-contentblockitem-layout"
+    className="xui-contentblockitem xui-contentblockitem-layout xui-contentblockitem-rowlink xui-contentblockitem-has-top-radius xui-contentblockitem-has-bottom-radius"
   >
     <div
       className="xui-contentblockitem--leftcontent"

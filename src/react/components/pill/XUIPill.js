@@ -7,6 +7,7 @@ import XUIIcon from '../icon/XUIIcon';
 import XUIButton from '../button/XUIButton';
 import XUIInnerPill from './XUIInnerPill';
 import { ns } from '../helpers/xuiClassNamespace';
+import basePillClass from './private/constants';
 
 /**
  * @private
@@ -52,27 +53,26 @@ export default class XUIPill extends Component {
 		} = this.props;
 		const { isFocused } = this.state;
 
-		const baseClass = `${ns}-pill`;
-
 		const pillClasses = cn(
 			className,
-			baseClass,
-			defaultLayout && `${baseClass}-layout`,
-			!isMaxContentWidth && `${baseClass}-maxwidth`, // TODO: Remove in XUI 14
-			isInvalid && `${baseClass}-is-invalid`,
-			isFocused && `${baseClass}-is-focused`,
-			onDeleteClick && `${baseClass}-is-deleteable`,
-			(href || onClick) && `${baseClass}-interactive`,
+			basePillClass,
+			defaultLayout && `${basePillClass}-layout`,
+			!isMaxContentWidth && `${basePillClass}-maxwidth`, // TODO: Remove in XUI 14
+			isInvalid && `${basePillClass}-is-invalid`,
+			isFocused && `${basePillClass}-is-focused`,
+			onDeleteClick && `${basePillClass}-is-deleteable`,
+			(href || onClick) && `${basePillClass}-interactive`,
 		);
 
 		const closeButtonClasses = cn(
-			`${baseClass}--button-icon`,
+			`${basePillClass}--button-icon`,
 			isInvalid && `${ns}-button-icon-inverted`,
 		);
 
 		const innerPillProps = {
 			avatarProps,
 			href,
+			isInvalid,
 			onClick,
 			qaHook,
 			secondaryText,

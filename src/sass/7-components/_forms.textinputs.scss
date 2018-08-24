@@ -166,8 +166,7 @@ $xui-input-avatar-padding-size: ($xui-input-height - 24px) / 2;
 		color: $xui-textinput-borderless-inverted-color;
 
 		&::placeholder {
-			color: $xui-textinput-borderless-inverted-color;
-			opacity: 0.5;
+			color: $xui-input-placeholder-inverted-color;
 		}
 	}
 }

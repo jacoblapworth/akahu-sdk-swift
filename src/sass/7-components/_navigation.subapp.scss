@@ -71,6 +71,7 @@
 	min-height: $xui-input-height-small;
 	outline: none;
 	padding: 6px $xui-s-small;
+	text-decoration: none;
 	.#{$ns}-breadcrumb:first-of-type & {
 		@include xui-margin-right(-$xui-s-small);
 	}

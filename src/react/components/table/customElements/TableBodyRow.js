@@ -167,7 +167,7 @@ GenericCell.propTypes = {
 	children: PropTypes.node,
 };
 
-class TableBody extends PureComponent {
+class TableBodyRow extends PureComponent {
 	state = { hasPrecedence: false };
 
 	setPrecedence = hasPrecedence => () => (this.setState(() => ({ hasPrecedence })));
@@ -302,7 +302,7 @@ class TableBody extends PureComponent {
 	};
 }
 
-TableBody.propTypes = {
+TableBodyRow.propTypes = {
 
 	rowData: PropTypes.object.isRequired,
 	rowIndex: PropTypes.number.isRequired,
@@ -331,4 +331,4 @@ TableBody.propTypes = {
 	shouldRowClick: PropTypes.func,
 };
 
-export default TableBody;
+export default TableBodyRow;

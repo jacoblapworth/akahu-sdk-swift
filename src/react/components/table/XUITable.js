@@ -9,7 +9,7 @@ import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
 import { NAME_SPACE, ACTION_WIDTH } from './helpers/constants';
 import TableHead from './customElements/TableHead';
-import TableRow from './customElements/TableBody';
+import TableBodyRow from './customElements/TableBodyRow';
 import EmptyState from './customElements/EmptyState';
 import TableAlert from './customElements/TableAlert';
 
@@ -220,7 +220,7 @@ class XUITable extends Component {
 						<tbody className={`${NAME_SPACE}--body`}>
 
 							{data && data.map((rowData, rowIndex) => (
-								<TableRow {...{
+								<TableBodyRow {...{
 									key: `row-${rowData._id}`,
 									rowData,
 									rowIndex,

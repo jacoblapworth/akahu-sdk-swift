@@ -1173,8 +1173,7 @@ $xui-table-z-alert: 4;
 	}
 }
 
-.#{$ns}-table--cell-last.#{$ns}-table--sortbutton:not(.#{$ns}-table--sortbutton-active)
-	> * {
+.#{$ns}-table--cell-last.#{$ns}-table--sortbutton:not(.#{$ns}-table--sortbutton-active) > * {
 	transform: translateX(#{$xui-s-standard});
 }
 

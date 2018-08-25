@@ -1080,6 +1080,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table-pinleft .#{$ns}-table-element:before,
 .#{$ns}-table-pinright .#{$ns}-table-element:after {
+	background: $xui-table-bg-color;
 	content: "";
 	display: block;
 	height: 100%;

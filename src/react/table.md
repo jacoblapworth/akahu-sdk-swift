@@ -460,9 +460,6 @@ const {
 	XUITableCell: Cell,
 } = require('./table');
 const { Pickitem } = require ( './picklist.js' );
-const XUIButton = require('./button').default;
-const XUIIcon = require('./icon').default;
-const tickIcon = require('@xero/xui-icon/icons/checkbox-check').default;
 
 class Demo extends React.Component {
 
@@ -503,15 +500,13 @@ class Demo extends React.Component {
 				checkedIds={ this.state.checkedIds }
 				onCheckAllToggle={ this.handleCheckAllToggle }
 				onCheckOneToggle={ this.handleCheckOneToggle }
-				shouldRowClick={ ({ fruit }) => (fruit === 'Banana') }
-				onRowClick={ (event, { fruit }) => alert(`You clicked the ${fruit} row`) }
 				hasOverflowMenu
-				createOverflowMenu={ ({fruit}) => ([
+				createOverflowMenu={ () => ([
 					<Pickitem
 						key="0"
 						id="0"
-						onClick={ () => alert(`Edit ${fruit}`) }>
-						{`Edit ${fruit}`}
+						onClick={ () => {} }>
+						Edit
 					</Pickitem>
 				]) }>
 
@@ -542,7 +537,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Quantity</Cell> }
-					body={ ({ quantity }) => <Cell>{`x${quantity} units`}</Cell> }
+					body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
 				/>
 
 				<Column
@@ -552,25 +547,12 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Price / kg</Cell> }
-					body={ ({ price }) => (
-						<Cell onCellClick={ () => alert(`You clicked $${price}`) }>
-							{`$${price}`}
-							<XUIButton
-								title="select"
-								className="xui-margin-left"
-								size="small"
-								onClick={event => event.stopPropagation()}
-								onKeyDown={event => event.stopPropagation()}
-								onPointerOver={event => event.stopPropagation()}>
-								<XUIIcon icon={tickIcon} />
-							</XUIButton>
-						</Cell>
-					) }
+					body={ ({ price }) => <Cell>${ price }</Cell> }
 				/>
 
 				<Column
 					head={ <Cell>Total Cost</Cell> }
-					body={ ({ price, quantity }) => <Cell>{`$${price * quantity}`}</Cell> }
+					body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
 				/>
 
 				<Column
@@ -584,8 +566,7 @@ class Demo extends React.Component {
 }
 
 <Demo data={ {
-	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true },
-	def456: { fruit: 'Apple', color: 'Red', price: 3.49, purchased: 'Jane Doe', ordered: 7645456634323, delivered: 7645456634323, quantity: 45, address: '19-23 Taranaki St, Te Aro, Wellington, 6011', paid: false }
+	abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, purchased: 'John Smith', ordered: 1519865730672, delivered: 1520124930672, quantity: 128, address: '1 Watt St, Parnell, Auckland, 1052', paid: true }
 } }/>
 ```
 

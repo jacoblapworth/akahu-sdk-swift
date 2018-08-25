@@ -537,7 +537,7 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Quantity</Cell> }
-					body={ ({ quantity }) => <Cell>x{ quantity } units</Cell> }
+					body={ ({ quantity }) => <Cell>{ `x${quantity} units` }</Cell> }
 				/>
 
 				<Column
@@ -547,12 +547,12 @@ class Demo extends React.Component {
 
 				<Column
 					head={ <Cell>Price / kg</Cell> }
-					body={ ({ price }) => <Cell>${ price }</Cell> }
+					body={ ({ price }) => <Cell>{ `$${price}` }</Cell> }
 				/>
 
 				<Column
 					head={ <Cell>Total Cost</Cell> }
-					body={ ({ price, quantity }) => <Cell>${ price * quantity }</Cell> }
+					body={ ({ price, quantity }) => <Cell>{ `$${price * quantity}` }</Cell> }
 				/>
 
 				<Column

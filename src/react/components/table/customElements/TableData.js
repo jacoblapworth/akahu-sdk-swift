@@ -38,7 +38,9 @@ class BodyData extends PureComponent {
 	// interaction effects like `:hover`.
 	state = { hasPrecedence: false };
 
-	setPrecedence = hasPrecedence => () => (this.setState(() => ({ hasPrecedence })));
+	removePrecedence = () => this.setPrecedence(false);
+	addPrecedence = () => this.setPrecedence(true);
+	setPrecedence = hasPrecedence => this.setState(() => ({ hasPrecedence }));
 
 	render = () => {
 		const { children, onClick, className: suppliedClasses, ...props } = this.props;
@@ -59,8 +61,8 @@ class BodyData extends PureComponent {
 					...onClick && {
 						onClick,
 						onKeyDown: onClick,
-						onPointerOver: onClick && this.setPrecedence(true),
-						onPointerOut: onClick && this.setPrecedence(false),
+						onPointerOver: onClick && this.addPrecedence,
+						onPointerOut: onClick && this.removePrecedence,
 						role: 'button',
 					},
 				}}

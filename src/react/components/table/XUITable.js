@@ -272,11 +272,6 @@ class XUITable extends Component {
 	}
 }
 
-// if (process.env.NODE_ENV !== 'production') {
-// 	const { whyDidYouUpdate } = require('why-did-you-update');
-// 	whyDidYouUpdate(React);
-// }
-
 XUITable.propTypes = {
 
 	/** The row data for the table body. Each row is differentiated by a unique object key. */

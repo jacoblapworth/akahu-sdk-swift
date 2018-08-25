@@ -170,7 +170,9 @@ GenericCell.propTypes = {
 class TableBodyRow extends PureComponent {
 	state = { hasPrecedence: false };
 
-	setPrecedence = hasPrecedence => () => (this.setState(() => ({ hasPrecedence })));
+	removePrecedence = () => this.setPrecedence(false);
+	addPrecedence = () => this.setPrecedence(true);
+	setPrecedence = hasPrecedence => this.setState(() => ({ hasPrecedence }));
 
 	// Register an interaction on a Row providing there is not an predefined
 	// action residing in the location that was clicked. E.g clicking on a cell
@@ -224,8 +226,8 @@ class TableBodyRow extends PureComponent {
 		const onKeyDown = isRowLink ? this.handleRowInteraction : undefined;
 		const tabIndex = isRowLink ? '0' : undefined;
 		const role = isRowLink ? 'button' : undefined;
-		const onPointerOver = isRowLink ? this.setPrecedence(true) : undefined;
-		const onPointerOut = isRowLink ? this.setPrecedence(false) : undefined;
+		const onPointerOver = isRowLink ? this.addPrecedence : undefined;
+		const onPointerOut = isRowLink ? this.removePrecedence : undefined;
 		const dividerClasses = createDividerClasses(rowIndex);
 		const rowClassName = cn(
 			`${NAME_SPACE}--row`,

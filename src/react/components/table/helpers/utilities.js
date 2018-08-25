@@ -8,24 +8,6 @@ const cellClassNames = {
 	last: `${NAME_SPACE}--cell-last`,
 };
 
-// export const createRowClickCallback = ({ shouldRowClick, rowData, onRowClick }) => {
-// 	switch (true) {
-// 	// Checks the click handlers relevance (`shouldRowClick`) against this
-// 	// particular rows data and then returns the handler (`onRowClick`) if required.
-// 	case Boolean(shouldRowClick): return shouldRowClick(rowData) && onRowClick;
-
-// 		// The legacy system that takes the `onRowClick` as a thunk
-// 		// (`(args) => isRelevant() && () => ...`) and does the relevance test as well
-// 		// as the click handling all in same prop. This was hard for our users to
-// 		// grasp so we use the method above as the primary conditional / handler
-// 		// combination.
-// 	case Boolean(onRowClick): return onRowClick(rowData);
-
-// 		// Do not create an interaction for the current row.
-// 	default: return null;
-// 	}
-// };
-
 export const getCellLocation = ({ columns, columnIndex, hasCheckbox, hasOverflowMenu }) => {
 	const { length } = columns;
 	// Length by default accomodates hasCheckbox or hasOverflow menu, should be adjusted if
@@ -71,35 +53,6 @@ export const queryIsValidInteraction = event => {
 
 	return isClick || isKeyboard;
 };
-
-// Register an interaction on a Cell or Row providing there is not an predefined
-// action residing in the location that was clicked.
-// const createInteractionHandler = (handler, data) => event => {
-// 	const isValidInteraction = queryIsValidInteraction(event);
-// 	const { target } = event;
-// 	const isRow = target.classList.contains(`${NAME_SPACE}--row-link`);
-// 	const isActionCell = !isRow && (() => {
-// 		const isCell = target.classList.contains(`${NAME_SPACE}--cell`);
-// 		const cellNode = isCell ? target : target.closest(`.${NAME_SPACE}--cell`);
-
-// 		return !cellNode || cellNode.classList.contains(`${NAME_SPACE}--cell-action`);
-// 	})();
-
-// 	return (isValidInteraction && !isActionCell)
-// 		? handler(event, data)
-// 		: null;
-// };
-
-// export const createInteractionProps = (handler, data) => {
-// 	const interactionhandler = createInteractionHandler(handler, data);
-
-// 	return {
-// 		tabIndex: '0',
-// 		role: 'button',
-// 		onClick: interactionhandler,
-// 		onKeyDown: interactionhandler,
-// 	};
-// };
 
 const createTruncationArea = (actionWidth, rootWidth, { hasCheckbox, hasOverflowMenu }) => {
 	switch (true) {

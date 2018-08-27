@@ -32,7 +32,7 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--section {
-	border-top: $xui-border-muted;
+	border-top: $xui-border-standard;
 	margin: 0;
 
 	&:first-child {
@@ -54,7 +54,7 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--footer {
-	border-top: $xui-border-muted;
+	border-top: $xui-border-standard;
 	display: flex;
 	min-height: 60px;
 	&:first-child {
@@ -69,7 +69,6 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--sidebar {
-	border-right: $xui-border-muted;
+	border-right: $xui-border-standard;
 	flex: 0 0 220px;
 }
-

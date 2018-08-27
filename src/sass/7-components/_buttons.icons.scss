@@ -12,7 +12,6 @@
 	width: $xui-icon-standard;
 
 	.#{$ns}-icon {
-		@include xui-margin-horizontal-auto; // Safari seems to ignore the flex rules and does not center horizontally
 		display: block;
 	}
 

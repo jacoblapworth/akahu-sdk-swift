@@ -91,9 +91,9 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
         className="xui-icon xui-icon-color-red xui-icon-inline"
         data-automationid={undefined}
         focusable="false"
-        height={10.666666666666666}
+        height={8}
         viewBox="0 0 2 8"
-        width={2.6666666666666665}
+        width={2}
       >
         <path
           d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"
@@ -128,9 +128,9 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
         className="xui-icon xui-icon-color-red xui-icon-inline"
         data-automationid={undefined}
         focusable="false"
-        height={10.666666666666666}
+        height={8}
         viewBox="0 0 2 8"
-        width={2.6666666666666665}
+        width={2}
       >
         <path
           d="M0,0 L2,0 L2,5 L0,5 L0,0 Z M0,6 L2,6 L2,8 L0,8 L0,6 Z"

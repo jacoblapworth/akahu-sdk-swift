@@ -185,29 +185,21 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-invalid">
-//   <span class="xui-pill--content">
+// <div class="xui-pill xui-pill-layout xui-pill-is-invalid xui-pill-is-deleteable xui-pill-interactive">
+//   <button class="xui-button xui-pill--content xui-pill--button" tabindex="0" type="button">
+//     <div class="xui-pill--erroricon">
+//       <svg focusable="false" class="xui-icon xui-icon-color-red">
+//         <use xlink:href="#xui-icon-exclamation" role="presentation"/>
+//       </svg>
+//     </div>
 //     <span class="xui-pill--text">example.email@xero.com</span>
-//   </span>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon xui-button-icon-inverted">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
 //   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-invalid">
-//   <span class="xui-pill--content">
-//     <span class="xui-pill--secondary">Admin</span>
-//     <span class="xui-pill--text">example.email@xero.com</span>
-//   </span>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon xui-button-icon-inverted">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
-//   </button>
-// </div>
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-is-invalid xui-pill-interactive">
-//   <a class="xui-pill--content xui-pill--link">
-//     <span class="xui-pill--text">example.email@xero.com</span>
-//   </a>
-//   <button class="xui-button xui-button-icon xui-pill--button-icon xui-button-icon-inverted">
-//     <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation"/></svg>
+//   <button title="Delete" aria-label="Delete" class="xui-button xui-pill--button-icon xui-button-icon-inverted xui-button-icon" type="button">
+//     <div class="xui-iconwrapper">
+//       <svg focusable="false" class="xui-icon">
+//         <use xlink:href="#xui-icon-cross-small" role="presentation"/>
+//       </svg>
+//     </div>
 //   </button>
 // </div>
 //

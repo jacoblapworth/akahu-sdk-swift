@@ -16,7 +16,7 @@ export default function LeftVisualEl({ isInvalid, avatarProps }) {
 
 	return isInvalid ? (
 		<div className={`${basePillClass}--erroricon`}>
-			<XUIIcon icon={exclamation} size="large" color="red" />
+			<XUIIcon icon={exclamation} color="red" />
 		</div>
 	) : <XUIAvatar {...avatarProps} className={avatarClasses} />;
 }

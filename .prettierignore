@@ -15,3 +15,4 @@ jest.config.js
 jest.setup.js
 stylelint.config.js
 webpack.umd.config.js
+changes.md

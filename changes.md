@@ -50,6 +50,7 @@
 * NestedPicklistTrigger: `ariaLabel` has been added to provide assistive tech with information about the expansion button
 * ProgressWrapper, ProgressCircular, & ProgressLinear: `ariaLabel` and `ariaLabelledBy` have been added
 * RolloverCheckbox: `ariaLabelledBy` has been added
+* Table: `onRowClick` now **only** holds the handler callback with the conditional logic being asserted on each table row through the use of `shouldRowClick`. (see https://github.dev.xero.com/UXE/xui/issues/3278)
 
 ## Other changes
 

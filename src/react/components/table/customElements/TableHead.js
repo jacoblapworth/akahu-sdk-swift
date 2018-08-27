@@ -16,6 +16,9 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-heading-separator`;
 
+// TODO: Refactor the various "cell" types (generic, overflow and checkbox) into
+// individual files for clarity.
+
 class CheckBoxCell extends PureComponent {
 	render() {
 		const {

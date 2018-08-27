@@ -15,6 +15,9 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 const BODY_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-padding-small`;
 
+// TODO: Refactor the various "cell" types (generic, overflow and checkbox) into
+// individual files for clarity.
+
 class CheckBoxCell extends PureComponent {
 	handleChange = event => {
 		const { onCheckOneToggle, rowId } = this.props;
@@ -222,17 +225,28 @@ class TableBodyRow extends PureComponent {
 			ensureCellVisibility,
 		} = this.props;
 		const isRowLink = Boolean(onRowClick && shouldRowClick(rowData));
-		const onClick = isRowLink ? this.handleRowInteraction : undefined;
-		const onKeyDown = isRowLink ? this.handleRowInteraction : undefined;
-		const tabIndex = isRowLink ? '0' : undefined;
-		const role = isRowLink ? 'button' : undefined;
-		const onPointerOver = isRowLink ? this.addPrecedence : undefined;
-		const onPointerOut = isRowLink ? this.removePrecedence : undefined;
+		const {
+			onClick,
+			onKeyDown,
+			tabIndex,
+			role,
+			onPointerOver,
+			onPointerOut,
+		} = (isRowLink ? {
+			onClick: this.handleRowInteraction,
+			onKeyDown: this.handleRowInteraction,
+			tabIndex: '0',
+			role: 'button',
+			onPointerOver: this.addPrecedence,
+			onPointerOut: this.removePrecedence,
+		} : {});
 		const dividerClasses = createDividerClasses(rowIndex);
 		const rowClassName = cn(
 			`${NAME_SPACE}--row`,
-			{ [`${NAME_SPACE}--row-link`]: isRowLink },
-			{ [`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence },
+			{
+				[`${NAME_SPACE}--row-link`]: isRowLink,
+				[`${NAME_SPACE}--row-hasprecedence`]: this.state.hasPrecedence,
+			},
 		);
 
 		return (

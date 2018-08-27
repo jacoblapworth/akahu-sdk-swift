@@ -106,7 +106,7 @@ const flattenSuppliedData = (data, checkedIds) => {
 // header cells currently in the layout.
 const createDividerClassesThunk = hasHeader => rowIndex => {
 	const hasClassName = ((!rowIndex && hasHeader) || rowIndex);
-	return hasClassName ? `${NAME_SPACE}--cell-divider`	: '';
+	return hasClassName ? `${NAME_SPACE}--cell-divider` : '';
 };
 
 export const enrichProps = (state, props, { tableNode }) => {

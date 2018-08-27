@@ -412,6 +412,22 @@ export default class DropDownToggled extends PureComponent {
 		}
 	};
 
+	handleOnClick = event => {
+		const { props, triggerClickHandler } = this;
+		const { onClick } = props.trigger.props;
+		const handler = compose(onClick, triggerClickHandler);
+
+		handler(event);
+	};
+
+	handleOnKeyDown = event => {
+		const { props, onTriggerKeyDown } = this;
+		const { onKeyDown } = props.trigger.props;
+		const handler = compose(onKeyDown, onTriggerKeyDown);
+
+		handler(event);
+	};
+
 	render() {
 		const ddt = this;
 		const {
@@ -421,8 +437,8 @@ export default class DropDownToggled extends PureComponent {
 
 		const clonedTrigger = React.cloneElement(trigger, {
 			'ref': compose(trigger.ref, c => ddt.trigger = c),
-			'onClick': compose(trigger.props.onClick, ddt.triggerClickHandler),
-			'onKeyDown': compose(trigger.props.onKeyDown, ddt.onTriggerKeyDown),
+			'onClick': ddt.handleOnClick,
+			'onKeyDown': ddt.handleOnKeyDown,
 			'aria-activedescendant': ddt.state.activeDescendant,
 			'aria-haspopup': ariaPopupType,
 			'aria-controls': (!isHidden && this.dropdownId) || undefined,

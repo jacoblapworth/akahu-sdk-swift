@@ -1,8 +1,8 @@
-import React, { PureComponent, createElement } from 'react';
+/* eslint-disable react/no-multi-comp */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import sortPathData from '@xero/xui-icon/icons/sort-single';
-
 import XUICheckbox from '../../checkbox/XUICheckbox';
 import XUIIcon from '../../icon/XUIIcon';
 import {
@@ -16,20 +16,23 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 const HEAD_CELL_CLASSES = `${NAME_SPACE}--cell ${ns}-heading-separator`;
 
-class TableHead extends PureComponent {
-	createCheckBoxCell = ({
-		data,
-		checkedIds,
-		onCheckAllToggle,
-		checkAllRowsLabel,
-	}) => {
+// TODO: Refactor the various "cell" types (generic, overflow and checkbox) into
+// individual files for clarity.
+
+class CheckBoxCell extends PureComponent {
+	render() {
+		const {
+			totalData,
+			checkedIds,
+			onCheckAllToggle,
+			checkAllRowsLabel,
+		} = this.props;
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			HEAD_CELL_CLASSES,
 			createCellLocationClasses('first'),
 		);
 		const totalCheckIds = checkedIds.length;
-		const totalData = data.length;
 		const isDisabled = !totalData;
 		const isChecked = Boolean(totalData && totalCheckIds === totalData);
 		const isIndeterminate = Boolean(totalCheckIds && !isChecked);
@@ -56,9 +59,18 @@ class TableHead extends PureComponent {
 				)}
 			</TableData>
 		);
-	};
+	}
+}
 
-	createOverflowMenuCell = () => {
+CheckBoxCell.propTypes = {
+	totalData: PropTypes.number,
+	checkedIds: PropTypes.array,
+	onCheckAllToggle: PropTypes.func,
+	checkAllRowsLabel: PropTypes.string,
+};
+
+class OverflowMenuCell extends PureComponent {
+	render() {
 		const className = cn(
 			`${NAME_SPACE}--cell-action`,
 			HEAD_CELL_CLASSES,
@@ -73,59 +85,84 @@ class TableHead extends PureComponent {
 				{NBSP}
 			</TableData>
 		);
+	}
+}
+
+class SortButton extends PureComponent {
+	handleInteraction = event => {
+		const { onSortChange, sortKey } = this.props;
+		const isValidInteraction = queryIsValidInteraction(event);
+
+		if (isValidInteraction) {
+			onSortChange(sortKey);
+			event.preventDefault();
+		}
 	};
 
-	createSortButton = ({
-		children,
-		sortKey,
-		activeSortKey,
-		isSortAsc,
-		onSortChange,
-		...props
-	}) => {
+	render() {
+		const {
+			className: suppliedClasses,
+			children,
+			sortKey,
+			activeSortKey,
+			isSortAsc,
+			// Do not pass "onSortChange" into a DOM node or React gets sad.
+			// eslint-disable-next-line no-unused-vars
+			onSortChange,
+			...props
+		} = this.props;
 		const isSortActive = activeSortKey && activeSortKey === sortKey;
-		const interactionhandler = event => queryIsValidInteraction(event) && onSortChange(sortKey);
 		const className = cn(
-			props.className,
+			suppliedClasses,
 			`${NAME_SPACE}--sortbutton`,
 			isSortActive && `${NAME_SPACE}--sortbutton-active`,
 		);
-		const content = (
-			<div>
-				<span>{children}</span>
 
-				<XUIIcon
-					icon={sortPathData}
-					className={`${NAME_SPACE}--sortbutton-icon`}
-					rotation={isSortAsc ? null : 180}
-				/>
-			</div>
+		return (
+			<TableData {...{
+				...props,
+				className,
+				role: 'button',
+				onClick: this.handleInteraction,
+				onKeyDown: this.handleInteraction,
+				isHead: true,
+			}}
+			>
+				<div>
+					<span>{children}</span>
+					<XUIIcon
+						icon={sortPathData}
+						className={`${NAME_SPACE}--sortbutton-icon`}
+						rotation={isSortAsc ? null : 180}
+					/>
+				</div>
+			</TableData>
 		);
+	}
+}
 
-		return createElement(TableData, {
-			...props,
-			className,
-			role: 'button',
-			onClick: interactionhandler,
-			onKeyDown: interactionhandler,
-		}, content);
-	};
+SortButton.propTypes = {
+	children: PropTypes.node,
+	className: PropTypes.string,
+	sortKey: PropTypes.string,
+	activeSortKey: PropTypes.string,
+	isSortAsc: PropTypes.bool,
+	onSortChange: PropTypes.func,
+	onFocus: PropTypes.func,
+};
 
-	createGenericCell = ({
-		head,
-		index,
-		activeSortKey,
-		isSortAsc,
-		onSortChange,
-		cellLocation,
-		ensureCellVisibility,
-	}) => {
+class GenericCell extends PureComponent {
+	render() {
 		const {
+			className: suppliedClasses,
 			children,
 			sortKey,
-			className: suppliedClasses,
-		} = head.props;
-		const key = `column-cell-${index}`;
+			activeSortKey,
+			isSortAsc,
+			onSortChange,
+			cellLocation,
+			ensureCellVisibility,
+		} = this.props;
 		const isHead = true;
 		const onFocus = ensureCellVisibility;
 		const className = cn(
@@ -135,24 +172,42 @@ class TableHead extends PureComponent {
 		);
 
 		return sortKey
-			? this.createSortButton({
-				children,
-				key,
-				className,
-				sortKey,
-				activeSortKey,
-				isSortAsc,
-				onSortChange,
-				onFocus,
-			})
-			: createElement(TableData, {
-				isHead,
-				key,
-				className,
-				onFocus,
-			}, <span>{children}</span>);
-	};
+			? (
+				<SortButton {...{
+					children,
+					className,
+					sortKey,
+					activeSortKey,
+					isSortAsc,
+					onSortChange,
+					onFocus,
+				}}
+				/>
+			) : (
+				<TableData {...{
+					isHead,
+					className,
+					onFocus,
+				}}
+				>
+					<span>{children}</span>
+				</TableData>
+			);
+	}
+}
 
+GenericCell.propTypes = {
+	className: PropTypes.node,
+	children: PropTypes.node,
+	sortKey: PropTypes.string,
+	activeSortKey: PropTypes.string,
+	isSortAsc: PropTypes.bool,
+	onSortChange: PropTypes.func,
+	cellLocation: PropTypes.string,
+	ensureCellVisibility: PropTypes.func,
+};
+
+class TableHead extends PureComponent {
 	render = () => {
 		const {
 			data,
@@ -172,30 +227,37 @@ class TableHead extends PureComponent {
 			<thead className={`${NAME_SPACE}--head`}>
 				<tr className={`${NAME_SPACE}--row ${ns}-text-align-left`}>
 
-					{hasCheckbox && this.createCheckBoxCell({
-						data,
-						checkedIds,
-						onCheckAllToggle,
-						checkAllRowsLabel,
-					})}
+					{hasCheckbox && (
+						<CheckBoxCell {...{
+							totalData: data.length,
+							checkedIds,
+							onCheckAllToggle,
+							checkAllRowsLabel,
+						}}
+						/>
+					)}
 
-					{columns.map(({ props: { head } }, index) => (
-
-						this.createGenericCell({
-							head,
-							index,
+					{columns.map((
+						{ props: { head: { props: { children, sortKey, className } } } },
+						columnIndex,
+					) => (
+						<GenericCell {...{
+							key: `column-cell-${columnIndex}`,
 							activeSortKey,
 							isSortAsc,
 							onSortChange,
 							ensureCellVisibility,
+							sortKey,
+							className,
+							children,
 							cellLocation: getCellLocation({
-								columns, index, hasCheckbox, hasOverflowMenu,
+								columns, columnIndex, hasCheckbox, hasOverflowMenu,
 							}),
-						})
-
+						}}
+						/>
 					))}
 
-					{hasOverflowMenu && this.createOverflowMenuCell()}
+					{hasOverflowMenu && <OverflowMenuCell />}
 
 				</tr>
 			</thead>

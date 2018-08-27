@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import tablePathData from '@xero/xui-icon/icons/table';
 import cn from 'classnames';
-
 import XUIIcon from '../../icon/XUIIcon';
 import { ns } from '../../helpers/xuiClassNamespace';
 

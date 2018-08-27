@@ -9,7 +9,7 @@ import noop from '../helpers/noop';
 import { enrichProps } from './helpers/utilities';
 import { NAME_SPACE, ACTION_WIDTH } from './helpers/constants';
 import TableHead from './customElements/TableHead';
-import TableBody from './customElements/TableBody';
+import TableBodyRow from './customElements/TableBodyRow';
 import EmptyState from './customElements/EmptyState';
 import TableAlert from './customElements/TableAlert';
 
@@ -77,7 +77,7 @@ class XUITable extends Component {
 
 		// Generic measurements around where we are in the Table in respect to
 		// width / scroll etc.
-		const { clientWidth: cellWidth, offsetLeft: cellOffset } = event.target;
+		const { clientWidth: cellWidth, offsetLeft: cellOffset } = event.currentTarget;
 		const scrollOffset = wrapperNode.scrollLeft;
 		const wrapperWidth = wrapperNode.clientWidth;
 
@@ -144,7 +144,7 @@ class XUITable extends Component {
 			overflowMenuTitle,
 			hasPinnedFirstColumn,
 			hasPinnedLastColumn,
-			createDividerClassesThunk,
+			createDividerClasses,
 			onRowClick,
 			shouldRowClick,
 			header,
@@ -167,7 +167,7 @@ class XUITable extends Component {
 				[`${NAME_SPACE}-nopointerevents`]: !hasPointerEvents,
 			},
 		);
-
+		const checkIsChecked = _id => checkedIds.indexOf(_id) >= 0;
 		const handleScroll = (hasPinnedFirstColumn || hasPinnedLastColumn) ? this.scrollThrottled : noop;
 
 		return (
@@ -217,22 +217,30 @@ class XUITable extends Component {
 
 						)}
 
-						<TableBody {...{
-							data,
-							columns,
-							hasCheckbox,
-							checkedIds,
-							onCheckOneToggle,
-							checkOneRowLabel,
-							onRowClick,
-							shouldRowClick,
-							hasOverflowMenu,
-							createOverflowMenu,
-							overflowMenuTitle,
-							createDividerClassesThunk,
-							ensureCellVisibility,
-						}}
-						/>
+						<tbody className={`${NAME_SPACE}--body`}>
+
+							{data && data.map((rowData, rowIndex) => (
+								<TableBodyRow {...{
+									key: `row-${rowData._id}`,
+									rowData,
+									rowIndex,
+									columns,
+									hasCheckbox,
+									isChecked: checkIsChecked(rowData._id),
+									onCheckOneToggle,
+									checkOneRowLabel,
+									onRowClick,
+									shouldRowClick,
+									hasOverflowMenu,
+									createOverflowMenu,
+									overflowMenuTitle,
+									createDividerClasses,
+									ensureCellVisibility,
+								}}
+								/>
+							))}
+
+						</tbody>
 
 					</table>
 

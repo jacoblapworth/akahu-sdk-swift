@@ -4,165 +4,62 @@
 //
 // Styleguide: Getting Started.Accessibility
 
-// Web accessibility
+// What is accessibility?
 //
-// Web accessibility is about building inclusive software. The focus is on enabling humans with any kind of impairment - whether the users are blind, have a broken arm, are sitting in the sun, can’t hear, or have a slow internet connection -  to be able to use a piece of software. Impairments may be permanent, temporary or situational.
+// Building accessible software means that everyone should be able to use it, regardless of any disabilities or impairments. It's about offering more than one way to perform an action or access information, and removing barriers that need not be present.
 //
-// To be accessible, websites, tools, and technologies need to be designed and developed so that anyone can use them. To use software effectively, people need to be able to perceive, understand, contribute navigate, and interact with the Web.
+// When we think about a variety of accessible use cases for Xero, we consider visual, auditory, motor, cognitive, situational impairments, and more. They don't necessarily permanent conditions either. In fact, many of us move in and out of contexts that may impair our access to the web. Some categories, like speech impairment, may become more relevant for Xero in the future, but aren't currently creating barriers in our software.
 //
 // Styleguide: Getting Started.Accessibility.1
 
-// Government compliance
+// What are the benefits?
 //
-// Around the globe, the requirement for government agencies and related services to meet accessibility standards is becoming more & more common. In the <a href="https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction#meeting-government-accessibility-requirements">UK government</a>, agencies are required to meet WCAG 2.0 AA rating.
-//
-// To meet the requirements of the government procurement process, including any integration with government APIs we too, must meet the same accessibility requirements, otherwise we may be considered to be in breach of the UK Equality Act 2010.
-//
-// Other jurisdictions are making moves in this direction too.
-//
-// Styleguide: Getting Started.Accessibility.1.2
-
-// Broaden our reach
-//
-// Providing the best user experience to the widest range of humans we can, widens our customer pool – some figures indicate that up to 25% of the population may have a condition that impacts their ability to access different web technologies at any given time.
-//
-// Styleguide: Getting Started.Accessibility.1.3
-
-// Accessibility in Xero
-//
-// With XUI fast becoming the standard for UI at Xero, it is the logical hub to set the accessibility standards and best practices for Xero products – this will mean that any team using XUI will automatically reap the benefits of the accessibility practices built into XUI design and components.
+// - Thinking about loving and protecting our customers, and understanding their journeys, we know that making our software accessible and inclusive is the right thing to do.
+// - Accessibility features often make usage easier and more delightful for everyone, including those _without_ impairments, or with temporary impairments and injuries. If you've ever used crutches or rolled a pram or a bicycle up a ramp, you know ramps benefit more than just wheelchair users.
+// -  Making software that better serves more people broadens our potential market.
+// - As governments and regulatory bodies are also recognizing the benefits of accessibility, they're beginning to require it to do business. We're excited to get ahead of this, if we can.
 //
 // Styleguide: Getting Started.Accessibility.2
 
-// WCAG 2.0 AA rating
+// What does success look like?
 //
-// Xero has an aspirational goal of achieving the WCAG 2.0 AA rating. <a href="https://www.w3.org/TR/2006/WD-WCAG20-20060427/appendixB.html">WCAG 2.0</a> is the most widely recognised web accessibility standard, and rating AA is the middle tier of three possible ratings.
-//
-// Styleguide: Getting Started.Accessibility.2.1
-
-// Accessibility in XUI components
-//
-// XUI storybook components have been assessed using an a11y storybook plugin powered by <a href="https://github.com/dequelabs/axe-cli">aXe</a> against WCAG 2.0 – AA rating, and Section 508.
-//
-// This highlighted 41 specific areas for improvement on a per component basis.
-//
-// Two of the main areas that we need to improve within XUI and Xero are colour contrast and keyboard navigation. Colour contrast consistently returns the highest number of violations – this is something that is set by design standards so will need to be looked at in that light.
-//
-// Keyboard navigation will be addressed, initially through an audit of current behaviour before planning specific improvements.
-//
-// In addition to these areas, the more common violations relate to a lack of labelling or related text, and provision of meta info on markup.
-//
-// The XUI design and development teams are working through the straightforward fixes, and making an action plan for the violations that require more thought. You can check progress within the <a href="https://github.dev.xero.com/UXE/xui/projects/7">XUI Accessibility project</a> on Github. These fixes will roll out into new versions of XUI – as product teams upgrade to more recent versions, the individual Product team accessibility issues will also be addressed.
-//
-// Styleguide: Getting Started.Accessibility.2.3
-
-// Accessibility in non-XUI & XUI based UIs
-//
-// To assess Xero and XUI performance against accessibility standards we ran the aXe plugin over a set of product pages.  Results are summarised below - but raw numbers should be taken with a grain of salt, and be considered a snapshot in time (March 2018). Colour contrast violations form the vast majority of violations so these will be considered separately to other issues that product teams have direct control over. Additionally, more complex pages provide more opportunities for violations to occur which can skew raw numbers.
-//
-// Running the aXe plugin on the old Ext Bank Reconciliation UI, there’s a very high level of violations – 86 issues, compared to just 10 within Projects project overview page, which uses close to 100% XUI components. The difference here is significant and exemplifies how using XUI components can enable the provision of an accessible UI without additional development effort being needed.
-//
-// In a fairer comparison, the aXe plugin was run on the old and new User roles: Invite user page. The amount of violations, excluding colour contrast reduced by close to 50%. With the old vs new Invoice page we saw over 80% reduction in issues.
-//
-// New design however isn’t all good news for accessibility standards. When we tested the old User roles list compared with the new user roles list we actually had an increase in total, non-colour contrast specific violations – the majority of which were about having discernable text on labels or buttons.
-//
-// <div class="xui-table xui-panel xui-table-hasheader xui-margin-vertical-2xlarge" style="overflow: scroll;">
-//   <div class="xui-table-wrapper">
-//     <table class="xui-table-element">
-//       <thead class="xui-table--head">
-//         <tr class="xui-table--row xui-text-align-left">
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell"><span>Product page</span></th>
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell"><span>Violations/reviews needed</span></th>
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell"><span>Colour contrast</span></th>
-//           <th class="xui-table--cell xui-heading-separator xui-table--cell"><span>Other</span></th>
-//         </tr>
-//       </thead>
-//       <tbody class="xui-table--body">
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">Bank Rec</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">299</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">213</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">86</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">Projects: Project overview</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">29</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">19</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">10</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">Old User roles: Invite user</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">51</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">37</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">14</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">New User roles: Invite user</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">23</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">15</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">8</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">Old User roles: User list</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">29</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">24</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">5</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">New User roles: User list</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">30</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">22</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">8</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">Old Invoices: Create invoice</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">64</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">33</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">31</td>
-//         </tr>
-//         <tr class="xui-table--row">
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline"><span class="xui-text-emphasis">New Invoices: Create invoice</span></td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">8</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">3</td>
-//           <td class="xui-table--cell xui-padding-small xui-table--cell-divider xui-table--cell xui-table--cell-singleline">5</td>
-//         </tr>
-//       </tbody>
-//     </table>
-//   </div>
-// </div>
-//
-// When these Products upgrade to a future version of XUI – the accessibility issues that are being addressed in the XUI backlog will also be addressed in individual products.
-//
-// Styleguide: Getting Started.Accessibility.2.4
-
-// How to test your product’s accessibility performance
-//
-// #### Accessibility runner in toolchain
-// <a href="https://github.com/dequelabs/axe-cli" aria-label="aXe-cli">aXe-cli</a><br>
-// <a href="https://github.com/pa11y/pa11y" aria-label="pa11y">pa11y</a><br>
-// <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y" aria-label="eslint-plugin-jsx-a11y">eslint-plugin-jsx-a11y</a>
-//
-// #### Browser plugin aXe
-// <a href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd" aria-label="Google Chrome aXe plugin">For Google Chrome</a><br>
-// <a href="https://addons.mozilla.org/en-us/firefox/addon/axe-devtools/" aria-label="Firefox aXe plugin">For Firefox</a>
-//
-// Styleguide: Getting Started.Accessibility.2.5
-
-// Accessible design & development
-//
-// Using XUI can address a lot of the WCAG 2.0 accessibility requirements, however, it is important to be aware of accessibility issues that XUI does not have control over, and need to be addressed by product development teams – largely specific coding practices such as providing alt text on images.
-//
-// There’s a whole host of resources available on the web that can aid you in reaching best practice – here’s a few to make a start with:
-//
-// #### Development resources
-// <a href="https://developers.google.com/web/fundamentals/accessibility/" aria-label="Accessibility for Google">Accessibility for Google</a><br>
-// <a href="https://www.w3.org/TR/2006/WD-WCAG20-20060427/appendixB.html" aria-label="WCAG">WCAG</a><br>
-// <a href="https://axe-core.org/" aria-label="aXe">aXe</a><br>
-// <a href="https://webtoolkit.govt.nz/standards/web-accessibility-standard-1-0/" aria-label="NZ Government">NZ Government</a>
-//
-// #### Design resources
-// <a href="https://medium.com/salesforce-ux/7-things-every-designer-needs-to-know-about-accessibility-64f105f0881b" aria-label="7 Things Every Designer Needs to Know about Accessibility">7 Things Every Designer Needs to Know about Accessibility</a><br>
-// <a href="http://accessibility.arl.org/standards-best-practices/" aria-label="Web accessibility toolkit">Web accessibility toolkit</a><br>
-// <a href="https://webaim.org/resources/contrastchecker/" aria-label="Online contrast checker">Online contrast checker</a>
+// - The international standard for accessibility is WCAG 2.0, and our goal is to meet the AA level. It includes many recommendations for making a web app accessible to people with a wide range of impairments.
+// - Performance of a web app is part of making it accessible to users with varying devices and internet speeds. Access may sometimes be a very literal concept.
+// - Responsive is mostly related to devices, but also refers to different working modes preferred, or at times, required, by users. Someone working on-the-go may wish to access advanced web app features from a small mobile device with a touch interface, while a power user at their desk may wish to display as much data as possible on a very large monitor and navigate quickly using only their keyboard. Support for lower resolution displays also plays a part in this.
+// - Localisation is also a closely related concept, especially as we expand into new markets. In order for something to be accessible, people to be able to successfully perceive it, and understand it. To do this, we've got to simultaneously consider concerns like culturally-specific color associations, multi-language support, and even details like making sure we're optimising for variable line-lengths.
 //
 // Styleguide: Getting Started.Accessibility.3
+
+// Who is responsible?
+//
+// In short, <a href="http://accessibility.voxmedia.com/" target="_blank">everyone</a>.
+// - Product managers and owners can advocate for accessibility, making it an acceptance criteria and building it into estimates of time and effort.
+// - Designers and writers have a wealth of resources available on the web about creating for accessibility. While XUI can do much of the work at a component-level, keep in mind how feature-specific patterns or interactions might introduce barriers to users with different impairments. See our <a href="https://docs.google.com/document/d/1L-wsibww_UyysZ808NSXYB1e5jG67sS_3o1ZrpfH38o/edit?usp=sharing" target="_blank">Guide to Accessible Design</a> for more details.
+// - Developers are responsible for a lot of the non-visible features such as keyboard navigation and accommodation for assistive technology like screen readers. See our <a href="https://docs.google.com/document/d/1a06iPJw_vDXMg15boqtLMt4VNtiXd6nB5alDG3p6Oxk/edit?usp=sharing" target="_blank">Guide to Accessible App Development</a>.
+//
+// Styleguide: Getting Started.Accessibility.4
+
+// Accessibility in XUI Components
+//
+// Our recent improvement process has included:
+// 1. Rendered Storybook components have been assessed using an accessibility plugin powered by aXe against WCAG 2.0 – A & AA ratings, and Section 508.
+// 2. Code has been linted with the jsx-a11y plugin with the "recommended" settings, except that we set the "label-has-for" rule to "allowChildren", allowing implicit as well as explicit labeling.
+// 3. Rendered components have been manually tested for keyboard navigability and input interaction both on a per-component level, and in some test environments with compositions of fuller pages.
+// 4. Color contrast has been evaluated against the WCAG 2.0 – AA standard, and a new palette developed to make XUI delightful for all users, including those with some level of vision impairment.
+// 5. Non-default states of UI components have also been audited by the design team to ensure non-text information is clear for low-vision users. For example, error, hover, focus, selected, and disabled states are being continuously revised.
+// 6. Standard sizes across the design system will soon be adjusted for improved readability and interaction. This will take the form of larger base fonts, less dense interfaces, and larger controls. However, increased density is still supported where it makes sense.
+// 7. Very limited testing has been done with screen readers (primarily MacOS VoiceOver). We hope to dedicate additional resources to this, as the more readily-detected issues are resolved.
+//
+// We strongly recommend using the first three methods in your own application testing process.
+//
+// As a result of these audits, we've made significant upgrades to XUI, though we will probably not run out of candidate issues for some time. You can check progress within the XUI Accessibility project on Github. Remaining fixes will roll out into new versions of XUI.
+//
+// Styleguide: Getting Started.Accessibility.5
+
+// Other great general resources about accessibility:
+//
+// - <a href="https://www.microsoft.com/design/#toolkit" targe="_blank">Microsoft's "Inclusive 101"</a>
+// - <a href="https://accessibility.digital.gov/" targe="_blank">United States GSA's "Accessibility for Teams"</a>
+// - <a href="http://accessibility.voxmedia.com/" targe="_blank">Vox media's "Accessibility Guidelines"</a>
+//
+// Styleguide: Getting Started.Accessibility.6

@@ -26,14 +26,6 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 	box-sizing: border-box;
 	height: $xui-range-slider-thumb-diameter;
 	width: $xui-range-slider-thumb-diameter;
-
-	&:hover, &:focus {
-		border-color: $xui-range-border-hover-color;
-	}
-
-	&:active {
-		border-color: $xui-range-border-hover-color;
-	}
 }
 
 .#{$ns}-range-slider {
@@ -44,12 +36,41 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 	padding: 0;
 	width: 100%;
 
-	&:hover {
-		cursor: pointer;
+	&.#{$ns}-range-slider-is-invalid {
+		&::-webkit-slider-thumb {
+			border-color: $xui-range-slider-thumb-invalid-color;
+		}
+		&::-moz-range-thumb {
+			border-color: $xui-range-slider-thumb-invalid-color;
+		}
+		&::-ms-thumb {
+			border-color: $xui-range-slider-thumb-invalid-color;
+		}
+		&::-webkit-slider-runnable-track {
+			background: $xui-range-slider-track-invalid-color;
+		}
+
+		&::-moz-range-track {
+			background: $xui-range-slider-track-invalid-color;
+		}
+
+		&::-ms-track {
+			background: $xui-range-slider-track-invalid-color;
+			color: $xui-range-slider-track-invalid-color;
+		}
 	}
 
-	&:focus {
-		outline: none;
+	&:disabled {
+		cursor: not-allowed;
+		&::-webkit-slider-thumb {
+			background: $xui-range-slider-thumb-disabled-color;
+		}
+		&::-moz-range-thumb {
+			background: $xui-range-slider-thumb-disabled-color;
+		}
+		&::-ms-thumb {
+			background: $xui-range-slider-thumb-disabled-color;
+		}
 	}
 
 	//	I’d normally alphabetise these browser-specific properties,
@@ -88,5 +109,67 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 	&::-ms-thumb {
 		@include xui-range-slider-thumb;
 		margin-top: 0;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+		&::-webkit-slider-thumb {
+			box-shadow: $xui-shadow-focus;
+		}
+
+		&::-moz-range-thumb {
+			box-shadow: $xui-shadow-focus;
+		}
+
+		&::-ms-thumb {
+			box-shadow: $xui-shadow-focus;
+		}
+	}
+
+	&:hover:not(:disabled):not(.#{$ns}-range-slider-is-invalid) {
+		&::-webkit-slider-thumb {
+			border-color: $xui-range-border-hover-color;
+		}
+
+		&::-moz-range-thumb {
+			border-color: $xui-range-border-hover-color;
+		}
+
+		&::-ms-thumb {
+			border-color: $xui-range-border-hover-color;
+		}
+	}
+
+	&:focus:not(:disabled):not(.#{$ns}-range-slider-is-invalid) {
+		&::-webkit-slider-thumb {
+			border-color: $xui-range-border-focus-color;
+		}
+
+		&::-moz-range-thumb {
+			border-color: $xui-range-border-focus-color;
+		}
+
+		&::-ms-thumb {
+			border-color: $xui-range-border-focus-color;
+		}
+	}
+
+
+	&:active:not(:disabled):not(.#{$ns}-range-slider-is-invalid) {
+		&::-webkit-slider-thumb {
+			border-color: $xui-range-border-active-color;
+		}
+
+		&::-moz-range-thumb {
+			border-color: $xui-range-border-active-color;
+		}
+
+		&::-ms-thumb {
+			border-color: $xui-range-border-active-color;
+		}
 	}
 }

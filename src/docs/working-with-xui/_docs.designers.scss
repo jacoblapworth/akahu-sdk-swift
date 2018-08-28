@@ -1,41 +1,146 @@
 // Designing with XUI
 //
-// Introduction: “Got 99 problems but my border-radius ain‘t one...”
+// Introduction: 
+// XUI enables designers to move beyond the interface.
+// When the basics are covered, we can start to focus our attention on what matters more — solving user problems. 
 //
 // Weight: 1.2
 //
 // Styleguide: Getting Started.Designing with XUI
 
-// Tools
-//
-// Create fast mockups with the [XUI stickersheet](https://github.dev.xero.com/designers/xui-design-toolkit/releases).
-//
-// You can use [Codepen](https://codepen.io/team/xero/) to quickly prototype XUI interfaces.
-// Our team account has base templates with the correct stylesheet, icons and responsive navigation pulled in already.
-// Let us know if you need a Codepen account by contacting us on [Slack](https://xero.slack.com/messages/C56RA62Q5).
-//
-// Styleguide: Getting Started.Designing with XUI.3
 
-// Tips
+// Why it matters
 //
-// ### Start with XUI
-// Work hard to make the best thing from the materials we already have.
+// * <strong>Efficiency</strong>
+// </br>
+// A lot of design resource can be wasted in a constant attempt to reinvent the wheel.
+// A shared library helps us build on what others may already solved, prioritise the user rather than the UI, and free us up from doing menial, repetitive design tasks like spec-work.
+// It saves time and money.
+//
+// * <strong>Consistency</strong>
+// </br>
+// Designing with XUI provides us with a shared vocabulary, and a common visual language.
+// In turn, this helps us communicate effectively as a team, and build a body of work that feels like part of a cohesive family.
+// And consistent user interfaces aid usability and build trust.
+//
+// * <strong>Scalability</strong>
+// </br>
+// A static style guide is not a design system at all.
+// Conversely, XUI lets us increment our evolving visual language at scale, equip an increasingly global team, and prepare us for entry into new markets and new products.
+// XUI provides a solid foundation for growth.
+//
+// Styleguide: Getting Started.Designing with XUI.1
+
+
+// Designing responsibly
+//
+// 1. <strong>Start with the system</strong>
+// </br>
+// Work hard to make the best from the materials we already have.
 // Introduce new concepts consciously and in parallel with the overall system.
+// Deviation means stagnation, so do so with intention and good reason. 
 //
-// ### Speak in variables
-// Remove some of the spec work by using a shared language around things like [spacing units](section-fundamentals-spacing.html), [color](section-fundamentals-colors.html) and [type size](section-fundamentals-typography.html#fundamentals-typography-20).
+// 2. <strong>Speak in variables</strong>
+// </br>
+// Remove some of the spec work by using our shared vocabulary around things like spacing units, color and type size.
+// Favor shared terms like `grey-1` or `padding-small` over hex-codes and pixel values, which may be subject to change.
+// This helps break down the barriers between roles, too.
 //
-// ### Think responsive
-// Avoid brittle interfaces by becoming familiar with the responsive tools available to you with regard to [alignment](section-fundamentals-utilities.html#fundamentals-utilities-1-4) and [layout](section-fundamentals-layout.html).
+// 3. <strong>Think flexibly</strong>
+// </br>
+// Avoid brittle interfaces.
+// Familiarise yourself with the tools available to you in regard to responsive layouts, accessibility, and localisation.
+// Don’t make assumptions about devices, users, or content formats.
+//
+// 4. <strong>Share early and often</strong>
+// </br>
+// Avoid designing things in isolation.
+// Share work to find wider use cases, additional requirements, or existing solutions.
+// A unified experience is better for the user and for Xero than several distinct experiences.
+//
+// 5. <strong>Contribute back</strong>
+// </br>
+// Our visual language will never evolve if no one contributes to it.
+// Or worse, it will only reflect a select few.
+// If you want your voice to be heard, use it.
+// Talk with the XUI team to identify areas of improvement or incorporation at all stages of your project, and encourage your developers to do so too.
+//
+// 6. <strong>Prioritise the user</strong>
+// </br>
+// Subjectivity is the enemy of a large team, so rationalise your suggestions with research.
+// Evidence helps move the system forward. 
 //
 // Styleguide: Getting Started.Designing with XUI.2
 
+
 // Contributing
 //
-// There are many things XUI doesn’t yet cover – it needs your help! Talk to the design systems team if you've got questions or have ideas about how XUI should grow.
+// * <strong>Slack</strong>
+// </br>
+// There are many things XUI doesn’t yet cover – we need your help!
+// Talk to the design systems team if you've got questions or have ideas about how XUI should grow.
+// We’ve got a dedicated design channel for this in [Slack](https://xero.slack.com/messages/C56RA62Q5), so please don’t hesitate to get in touch.
 //
-// Minor XUI bugs are best captured as an issue in the main [XUI Development repo](https://github.dev.xero.com/UXE/xui/issues).
-// Additionally, if you'd like to see things improved with the Sketch stickersheet, add an issue to the [XUI Design repo](https://github.dev.xero.com/designers/xui-design-toolkit/issues).
-// Let us know if you need a Github account by contacting us on [Slack](https://xero.slack.com/messages/C56RA62Q5).
+// * <strong>Github</strong>
+// </br>
+// Minor bugs or technical requests are best captured as issues in the main [Github](https://github.dev.xero.com/UXE/xui/issues) repository.
+// There are instructions there to help you format your submission.
+// Let us know if you need an account by contacting us on [Slack](https://xero.slack.com/messages/C56RA62Q5).
 //
-// Styleguide: Getting Started.Designing with XUI.5
+// * <strong>Trello</strong>
+// </br>
+// Additionally, if you'd like to raise a specific design concept, feature, or track progress on any requests you’ve made in the past, visit our [Trello](https://trello.com/b/LZhG5Yrr/xui-design-backlog) board.
+// You can vote on cards others have raised too.
+// There are instructions there to help you format your submission. 
+//
+// Styleguide: Getting Started.Designing with XUI.3
+
+
+// Getting started
+// 
+// * <strong>Symbols</strong>
+// </br>
+// Consuming XUI as a library in Sketch lets you set it once and then forget about it.
+// Once set, any updates will come automatically via the notification bar in the top right corner, which you can choose to incorporate via visual diffs.
+// To set this up, first create a new file in Sketch.
+// In the application menu, navigate to `Sketch` → `Preferences` or hit `command` + `,`.
+// Select `Libraries`, then click `Add Library`.
+// When the file picker opens, set it to `Dropbox`/`Xero`/`Product`/`XUI`/`XUI-Library.sketch`.
+// The thumbnail will indicate the current version.
+// You can then insert symbols via the `Insert` option in the menu.
+//
+// * <strong>Assets</strong>
+// </br>
+// Dragging and dropping elements from a local duplicate of `XUI-Library.sketch` file is also a common practice.
+// We refer to this method as the sticker sheet method.
+// To do this, visit [Github](https://github.dev.xero.com/designers/xui-toolkit/releases), click the most recent release, then download and extract the ZIP file.
+// Open the Sketch file and simply copy and paste elements between your files.
+// Every now and then, repeat this process to make sure you have the most recent version.
+// Most importantly, downloading from Github helps prevent the master file in Dropbox getting overridden with accidental edits.
+//
+// * <strong>Colors</strong>
+// </br>
+// Sketch is notoriously bad at setting up color palettes.
+// To get around this issue, we’ve adopted a third-party plugin to help you consume XUI colors.
+// To set it up, download the plugin from [Github](https://github.com/andrewfiorillo/sketch-palettes/archive/master.zip), extract the ZIP file and double click the file to install.
+// If you don’t want the default Sketch colors, first remove them by clicking `Clear Palette…` in the plugin menu.
+// Then, load the palette located in `Dropbox`/`Xero`/`Product`/`XUI`/`XUI-X.X.X.sketchpalette`.
+// You can specify to load it just for your current file, or globally.
+//
+// * <strong>Codepen</strong>
+// </br>
+// You can also use [Codepen](https://codepen.io/) to quickly prototype XUI interfaces in the browser.
+// Our team account has base templates with the correct stylesheets, scripts, icons, and navigation pre-loaded.
+// Let us know if you need an account by contacting us on [Slack](https://xero.slack.com/messages/C56RA62Q5).
+// However, we have limited spaces so if you’re not using it regularly, please get in touch so we can reallocate it to someone who is.
+//
+// * <strong>Github</strong>
+// </br>
+// If you’ve got coding chops, you’re also more than welcome to iterate on XUI source code itself.
+// Simply visit the [Github](https://github.dev.xero.com/UXE/xui) repository and follow the `README.md` instructions.
+// Let us know if you need an account by contacting us on [Slack](https://xero.slack.com/messages/C56RA62Q5).
+// And if you’d like to learn more about front-end, we’re always willing to help.
+//
+// Styleguide: Getting Started.Designing with XUI.4
+
+

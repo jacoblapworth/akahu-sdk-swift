@@ -7,7 +7,7 @@ module.exports = {
 				{
 					name: 'isInline',
 					newName: 'isBoxed',
-					valueTransform: invert
+					valueTransform: invert(true),
 				}
 			]
 		}

@@ -19,6 +19,7 @@
 
 
 .#{$ns}-button-split {
+	flex-shrink: 0;
 	min-width: 0;
 	padding: 0;
 }

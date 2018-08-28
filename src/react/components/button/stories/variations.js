@@ -43,6 +43,13 @@ const variations = [
 	},
 	{
 		storyKind: storiesWithVariationsKindName,
+		storyTitle: 'as a Split Button Group with multi-line text',
+		componentType: 'XUISplitButtonGroup',
+		variant: 'primary',
+		contentsKey: 'asSplitGroupMulti',
+	},
+	{
+		storyKind: storiesWithVariationsKindName,
 		storyTitle: 'as a small Split Button Group',
 		contentsKey: 'asSplitGroupSm',
 		componentType: 'XUISplitButtonGroup',

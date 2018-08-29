@@ -2,16 +2,16 @@
 
 exports[`<XUIAccordion /> associate items to a custom key 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionwrapper-new"
+    className="xui-accordionwrapper"
     data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
-      className="xui-accordiontrigger-new"
+      className="xui-accordiontrigger"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -19,7 +19,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordiontrigger-new--arrow"
+        className="xui-accordiontrigger--arrow"
       >
         <button
           className="xui-button xui-button-icon xui-button-icon-large"
@@ -47,13 +47,13 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
         </button>
       </div>
       <div
-        className="xui-accordiontrigger-new--content"
+        className="xui-accordiontrigger--content"
       >
         <div
-          className="xui-accordiontrigger-new--headings"
+          className="xui-accordiontrigger--headings"
         >
           <div
-            className="xui-accordiontrigger-new--primaryheading"
+            className="xui-accordiontrigger--primaryheading"
           >
             John Smith
           </div>
@@ -61,7 +61,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
       </div>
     </div>
     <div
-      className="xui-accordionwrapper-new--content"
+      className="xui-accordionwrapper--content"
     />
   </div>
 </div>
@@ -69,16 +69,16 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
 
 exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
 <div
-  className="xui-accordion-new testClass"
+  className="xui-accordion testClass"
   data-automationid="testHook"
 >
   <div
-    className="xui-accordionwrapper-new"
+    className="xui-accordionwrapper"
     data-automationid="testHook-wrapper"
   >
     <div
       aria-label="Toggle"
-      className="xui-accordiontrigger-new"
+      className="xui-accordiontrigger"
       data-automationid="testHook-trigger"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -86,7 +86,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordiontrigger-new--arrow"
+        className="xui-accordiontrigger--arrow"
       >
         <button
           className="xui-button xui-button-icon xui-button-icon-large"
@@ -114,13 +114,13 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
         </button>
       </div>
       <div
-        className="xui-accordiontrigger-new--content"
+        className="xui-accordiontrigger--content"
       >
         <div
-          className="xui-accordiontrigger-new--headings"
+          className="xui-accordiontrigger--headings"
         >
           <div
-            className="xui-accordiontrigger-new--primaryheading"
+            className="xui-accordiontrigger--primaryheading"
           >
             John Smith
           </div>
@@ -128,7 +128,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
       </div>
     </div>
     <div
-      className="xui-accordionwrapper-new--content"
+      className="xui-accordionwrapper--content"
     />
   </div>
 </div>
@@ -136,16 +136,16 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
 
 exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
     data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
-      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      className="xui-accordiontrigger xui-accordiontrigger-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -153,7 +153,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordiontrigger-new--arrow"
+        className="xui-accordiontrigger--arrow"
       >
         <button
           className="xui-button xui-button-icon xui-button-icon-large"
@@ -181,15 +181,15 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
         </button>
       </div>
       <div
-        className="xui-accordiontrigger-new--content"
+        className="xui-accordiontrigger--content"
       >
         <div
-          className="xui-accordiontrigger-new--headings"
+          className="xui-accordiontrigger--headings"
         />
       </div>
     </div>
     <div
-      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+      className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
     >
       <div>
         Custom empty state component
@@ -201,16 +201,16 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
 
 exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
     data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
-      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      className="xui-accordiontrigger xui-accordiontrigger-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -218,7 +218,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordiontrigger-new--arrow"
+        className="xui-accordiontrigger--arrow"
       >
         <button
           className="xui-button xui-button-icon xui-button-icon-large"
@@ -246,18 +246,18 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
         </button>
       </div>
       <div
-        className="xui-accordiontrigger-new--content"
+        className="xui-accordiontrigger--content"
       >
         <div
-          className="xui-accordiontrigger-new--headings"
+          className="xui-accordiontrigger--headings"
         />
       </div>
     </div>
     <div
-      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+      className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
     >
       <div
-        className="xui-accordion-new--emptystate"
+        className="xui-accordion--emptystate"
         data-automationid={undefined}
       >
         <div
@@ -289,16 +289,16 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
 
 exports[`<XUIAccordion /> should render an open accordion item 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
     data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
-      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      className="xui-accordiontrigger xui-accordiontrigger-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -306,7 +306,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordiontrigger-new--arrow"
+        className="xui-accordiontrigger--arrow"
       >
         <button
           className="xui-button xui-button-icon xui-button-icon-large"
@@ -334,13 +334,13 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
         </button>
       </div>
       <div
-        className="xui-accordiontrigger-new--content"
+        className="xui-accordiontrigger--content"
       >
         <div
-          className="xui-accordiontrigger-new--headings"
+          className="xui-accordiontrigger--headings"
         >
           <div
-            className="xui-accordiontrigger-new--primaryheading"
+            className="xui-accordiontrigger--primaryheading"
           >
             John Smith
           </div>
@@ -348,7 +348,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
       </div>
     </div>
     <div
-      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+      className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
     >
       Accountant
     </div>
@@ -358,37 +358,37 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
 
 exports[`<XUIAccordion /> should render the accordion with a custom class name 1`] = `
 <div
-  className="xui-accordion-new testClass"
+  className="xui-accordion testClass"
   data-automationid={undefined}
 />
 `;
 
 exports[`<XUIAccordion /> should render the accordion with a custom qa hook 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid="testHook"
 />
 `;
 
 exports[`<XUIAccordion /> should render the base component with only required props passed 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid={undefined}
 />
 `;
 
 exports[`<XUIAccordion /> should render the default empty state 1`] = `
 <div
-  className="xui-accordion-new"
+  className="xui-accordion"
   data-automationid={undefined}
 >
   <div
-    className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+    className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
     data-automationid={undefined}
   >
     <div
       aria-label="Toggle"
-      className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+      className="xui-accordiontrigger xui-accordiontrigger-is-open"
       data-automationid={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -396,7 +396,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
       tabIndex="0"
     >
       <div
-        className="xui-accordiontrigger-new--arrow"
+        className="xui-accordiontrigger--arrow"
       >
         <button
           className="xui-button xui-button-icon xui-button-icon-large"
@@ -424,18 +424,18 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
         </button>
       </div>
       <div
-        className="xui-accordiontrigger-new--content"
+        className="xui-accordiontrigger--content"
       >
         <div
-          className="xui-accordiontrigger-new--headings"
+          className="xui-accordiontrigger--headings"
         />
       </div>
     </div>
     <div
-      className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+      className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
     >
       <div
-        className="xui-accordion-new--emptystate"
+        className="xui-accordion--emptystate"
         data-automationid={undefined}
       >
         <div

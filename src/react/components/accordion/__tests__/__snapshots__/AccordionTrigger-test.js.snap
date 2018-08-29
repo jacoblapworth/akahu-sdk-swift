@@ -3,7 +3,7 @@
 exports[`<XUIAccordion /> | Accordion Trigger should render an automation id when passed in the qaHook prop 1`] = `
 <div
   aria-label="Toggle"
-  className="xui-accordiontrigger-new"
+  className="xui-accordiontrigger"
   data-automationid="test-qahook"
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -11,7 +11,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
   tabIndex="0"
 >
   <div
-    className="xui-accordiontrigger-new--arrow"
+    className="xui-accordiontrigger--arrow"
   >
     <button
       className="xui-button xui-button-icon xui-button-icon-large"
@@ -39,13 +39,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
     </button>
   </div>
   <div
-    className="xui-accordiontrigger-new--content"
+    className="xui-accordiontrigger--content"
   >
     <div
-      className="xui-accordiontrigger-new--headings"
+      className="xui-accordiontrigger--headings"
     >
       <div
-        className="xui-accordiontrigger-new--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </div>
@@ -57,7 +57,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
 exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 <div
   aria-label="Toggle"
-  className="xui-accordiontrigger-new"
+  className="xui-accordiontrigger"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -65,7 +65,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
   tabIndex="0"
 >
   <div
-    className="xui-accordiontrigger-new--arrow"
+    className="xui-accordiontrigger--arrow"
   >
     <button
       className="xui-button xui-button-icon xui-button-icon-large"
@@ -93,13 +93,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
     </button>
   </div>
   <div
-    className="xui-accordiontrigger-new--content"
+    className="xui-accordiontrigger--content"
   >
     <div
-      className="xui-accordiontrigger-new--headings"
+      className="xui-accordiontrigger--headings"
     >
       <div
-        className="xui-accordiontrigger-new--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </div>
@@ -111,7 +111,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
 exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 <div
   aria-label="Toggle"
-  className="xui-accordiontrigger-new xui-accordiontrigger-new-is-open"
+  className="xui-accordiontrigger xui-accordiontrigger-is-open"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -119,7 +119,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
   tabIndex="0"
 >
   <div
-    className="xui-accordiontrigger-new--arrow"
+    className="xui-accordiontrigger--arrow"
   >
     <button
       className="xui-button xui-button-icon xui-button-icon-large"
@@ -147,13 +147,13 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
     </button>
   </div>
   <div
-    className="xui-accordiontrigger-new--content"
+    className="xui-accordiontrigger--content"
   >
     <div
-      className="xui-accordiontrigger-new--headings"
+      className="xui-accordiontrigger--headings"
     >
       <div
-        className="xui-accordiontrigger-new--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </div>
@@ -165,7 +165,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
 exports[`<XUIAccordion /> | Accordion Trigger should render with available props 1`] = `
 <div
   aria-label="Toggle"
-  className="xui-accordiontrigger-new"
+  className="xui-accordiontrigger"
   data-automationid={undefined}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -173,7 +173,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
   tabIndex="0"
 >
   <div
-    className="xui-accordiontrigger-new--arrow"
+    className="xui-accordiontrigger--arrow"
   >
     <button
       className="xui-button xui-button-icon xui-button-icon-large"
@@ -206,18 +206,18 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
     GB
   </abbr>
   <div
-    className="xui-accordiontrigger-new--content"
+    className="xui-accordiontrigger--content"
   >
     <div
-      className="xui-accordiontrigger-new--headings"
+      className="xui-accordiontrigger--headings"
     >
       <div
-        className="xui-accordiontrigger-new--primaryheading"
+        className="xui-accordiontrigger--primaryheading"
       >
         John Smith
       </div>
       <div
-        className="xui-accordiontrigger-new--secondaryheading"
+        className="xui-accordiontrigger--secondaryheading"
       >
         <div>
           <span>
@@ -232,10 +232,10 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
       Custom content
     </div>
     <div
-      className="xui-accordiontrigger-new--rightcontent"
+      className="xui-accordiontrigger--rightcontent"
     >
       <div
-        className="xui-accordiontrigger-new--pinnedvalue"
+        className="xui-accordiontrigger--pinnedvalue"
       >
         00:00
       </div>
@@ -243,7 +243,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
         Action
       </button>
       <div
-        className="xui-accordiontrigger-new--overflowcontent"
+        className="xui-accordiontrigger--overflowcontent"
       >
         <button>
           ...

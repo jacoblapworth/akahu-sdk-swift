@@ -21,8 +21,8 @@ export default class AccordionWrapper extends PureComponent {
 			left: this.state.left,
 			right: this.state.right,
 		});
-		if (accordionShouldPop) return `${ns}-accordionwrapper-new-pop`;
-		return `${ns}-accordionwrapper-new-no-pop`;
+		if (accordionShouldPop) return `${ns}-accordionwrapper-pop`;
+		return `${ns}-accordionwrapper-no-pop`;
 	}
 
 	setRect = () => {
@@ -44,14 +44,14 @@ export default class AccordionWrapper extends PureComponent {
 				ref={this.setRef}
 				data-automationid={qaHook}
 				className={cn(
-					`${ns}-accordionwrapper-new`,
-					{ [`${ns}-accordionwrapper-new-is-open`]: isOpen },
+					`${ns}-accordionwrapper`,
+					{ [`${ns}-accordionwrapper-is-open`]: isOpen },
 					this.popClassName(),
 				)}
 			>
 				{trigger}
-				<div className={cn(`${ns}-accordionwrapper-new--content`, {
-					[`${ns}-accordionwrapper-new--content-is-open`]: isOpen,
+				<div className={cn(`${ns}-accordionwrapper--content`, {
+					[`${ns}-accordionwrapper--content-is-open`]: isOpen,
 				})}
 				>
 					{children}

@@ -75,7 +75,7 @@ export default class XUIAccordion extends PureComponent {
 		return (
 			<div
 				data-automationid={qaHook}
-				className={cn(`${ns}-accordion-new`, className)}
+				className={cn(`${ns}-accordion`, className)}
 			>
 				{shouldCreateItems && items.map(createItem).map(this.createAccordionItem)}
 			</div>

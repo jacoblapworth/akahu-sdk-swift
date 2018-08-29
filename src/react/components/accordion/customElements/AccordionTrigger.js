@@ -34,25 +34,25 @@ export default class AccordionTrigger extends PureComponent {
 		} = this.props;
 
 		const primaryHeadingScaffold = primaryHeading && (
-			<div className={`${ns}-accordiontrigger-new--primaryheading`}>
+			<div className={`${ns}-accordiontrigger--primaryheading`}>
 				{primaryHeading}
 			</div>);
 
 		const secondaryHeadingScaffold = secondaryHeading && (
-			<div className={`${ns}-accordiontrigger-new--secondaryheading`}>
+			<div className={`${ns}-accordiontrigger--secondaryheading`}>
 				{secondaryHeading}
 			</div>);
 
 		const pinnedValueScaffold = pinnedValue && (
-			<div className={`${ns}-accordiontrigger-new--pinnedvalue`}>
+			<div className={`${ns}-accordiontrigger--pinnedvalue`}>
 				{pinnedValue}
 			</div>);
 
 		const builtRightContent = (pinnedValueScaffold || action || overflow) && (
-			<div className={`${ns}-accordiontrigger-new--rightcontent`}>
+			<div className={`${ns}-accordiontrigger--rightcontent`}>
 				{pinnedValueScaffold}
 				{action}
-				<div className={`${ns}-accordiontrigger-new--overflowcontent`}>{overflow}</div>
+				<div className={`${ns}-accordiontrigger--overflowcontent`}>{overflow}</div>
 			</div>);
 
 		return (
@@ -63,11 +63,11 @@ export default class AccordionTrigger extends PureComponent {
 				tabIndex="0"
 				role="button"
 				aria-label={toggleLabel}
-				className={cn(`${ns}-accordiontrigger-new`, {
-					[`${ns}-accordiontrigger-new-is-open`]: isOpen,
+				className={cn(`${ns}-accordiontrigger`, {
+					[`${ns}-accordiontrigger-is-open`]: isOpen,
 				})}
 			>
-				<div className={`${ns}-accordiontrigger-new--arrow`}>
+				<div className={`${ns}-accordiontrigger--arrow`}>
 					<XUIButton
 						variant="icon-large"
 						title={toggleLabel}
@@ -82,8 +82,8 @@ export default class AccordionTrigger extends PureComponent {
 
 				{leftContent}
 
-				<div className={`${ns}-accordiontrigger-new--content`}>
-					<div className={`${ns}-accordiontrigger-new--headings`}>
+				<div className={`${ns}-accordiontrigger--content`}>
+					<div className={`${ns}-accordiontrigger--headings`}>
 						{primaryHeadingScaffold}
 						{secondaryHeadingScaffold}
 					</div>

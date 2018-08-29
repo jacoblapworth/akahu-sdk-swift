@@ -2,7 +2,7 @@ XUI
 ===
 
 [![TC_build_status](https://teamcity1.inside.xero-support.com/app/rest/builds/buildType:id:Xui_Style_Master/statusIcon)](https://teamcity1.inside.xero-support.com/viewType.html?buildTypeId=Xui_Style_Master)
-![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)
+[![](https://github.dev.xero.com/pages/UXE/Home/interrupt.svg)](https://slack.com/app_redirect?channel=C565NP1A5)
 
 ## Make things people know and love
 XUI is a design system for Xero web applications. It includes standard approaches and patterns plus the front-end code to implement them. XUI lets us focus on user problems over UI problems, keep a large codebase healthy, and get to market quickly.
@@ -224,7 +224,7 @@ How to run the codemod:
 
 1. Install jscodeshift
  ```bash
- npm i -g jscodeshift
+ npm i -g jscodeshift@~0.5.0
  ```
 1. Run the codemod
  ```bash

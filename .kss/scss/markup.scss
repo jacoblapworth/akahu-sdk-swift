@@ -148,13 +148,13 @@ code {
   /* markup tag name */
 
   .tag {
-    color: $xui-color-white-muted;
+    color: $xui-color-white-faint;
   }
 
   /* markup attribute name */
 
   .atn {
-    color: $xui-color-green;
+    color: $xui-color-pink-light;
   }
 
   /* markup attribute value */
@@ -166,7 +166,7 @@ code {
 	/* plain text */
 
 	.pln {
-    color: $ds-markup-pln-color;
+    color: $xui-color-white;
   }
 
   /* declaration */

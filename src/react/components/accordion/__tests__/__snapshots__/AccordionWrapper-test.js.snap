@@ -2,14 +2,14 @@
 
 exports[`<XUIAccordion /> | Accordion Wrapper should render open, and not pop 1`] = `
 <div
-  className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-no-pop"
+  className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-no-pop"
   data-automationid={undefined}
 >
   <div>
     John Smith
   </div>
   <div
-    className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+    className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
   >
     <div>
       Accountant
@@ -20,14 +20,14 @@ exports[`<XUIAccordion /> | Accordion Wrapper should render open, and not pop 1`
 
 exports[`<XUIAccordion /> | Accordion Wrapper should render open, and pop 1`] = `
 <div
-  className="xui-accordionwrapper-new xui-accordionwrapper-new-is-open xui-accordionwrapper-new-pop"
+  className="xui-accordionwrapper xui-accordionwrapper-is-open xui-accordionwrapper-pop"
   data-automationid={undefined}
 >
   <div>
     John Smith
   </div>
   <div
-    className="xui-accordionwrapper-new--content xui-accordionwrapper-new--content-is-open"
+    className="xui-accordionwrapper--content xui-accordionwrapper--content-is-open"
   >
     <div>
       Accountant

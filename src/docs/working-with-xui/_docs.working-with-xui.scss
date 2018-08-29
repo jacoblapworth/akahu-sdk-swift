@@ -11,7 +11,7 @@
 //
 // **XUI won’t do everything.** Teams still need to carefully design the _right_ experience by composing XUI elements most effectively for their users.
 //
-// Currently XUI covers mainly low-level ‘atoms’ such as color or input style. It’s currently growing to include arrangements into complex components and layouts, however it’s early in that process.
+// XUI provides styles and components ranging from atoms like icons, through to more complex compounds like page layouts. The component suite is continually growing and being refined.
 //
 // There will be times when pushing beyond what XUI offers delivers a significantly better, valuable experience. When that happens we encourage involvement to extend XUI over simply cutting custom code.
 //
@@ -19,7 +19,7 @@
 
 // Developers
 //
-// There are two parts to XUI: a library of reusable [HTML and SCSS partials](./section-building-blocks.html) plus a collection of React Components that wrap some of these with consistent behaviours.
+// There are two parts to XUI: a library of reusable [HTML and SCSS partials](./section-building-blocks.html) plus a collection of [React components](./react/) that wrap some of these with consistent behaviours.
 // These can be added to legacy interfaces or used to build fresh ones from the ground up.
 //
 // Everything in XUI is tested across the range of browsers supported by Xero and has robust accessibility baked in.

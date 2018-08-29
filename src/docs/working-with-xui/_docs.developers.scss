@@ -48,15 +48,15 @@
 
 // Conventions and standards
 //
-// * XUI uses a SMACSS and BEM inspired syntax to name things
-// * We strongly favour a flat class based approach to CSS.
+// * XUI uses a [convention](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#scss) inspired by SMACSS and BEM to name things.
+// * We strongly favour a flat class-based approach to CSS.
 // * We don't support CSS in JavaScript.
-// * We author in SCSS and ship as a single CSS.
+// * We author in SCSS and ship a single CSS artifact.
 // * XUI styling should be additive and avoid overwriting styled properties.
-// * XUI CSS works without React components but components are prefered.
+// * XUI CSS works without React components but components are preferred.
 // * Margin, padding and positioning styles should be provided in optional `-layout` classes.
-// * All rules get the `xui-` namespace - please use your own namespace for any custom code never this.
-// * XUI does not provide a reset style as to not make assumptions about resetting elements that may have already been styled.
+// * By default we use the `xui-` namespace. Please use your own namespace for any custom code.
+// * XUI does not provide a comprehensive reset style as to not make assumptions about resetting elements that may have already been styled.
 //
 // Styleguide: Getting Started.Developing with XUI.1.2
 
@@ -66,7 +66,7 @@
 //
 // * Avoid writing your own CSS as much as possible, particularly if your CSS overrides XUI's styling. The less custom CSS you have, the easier it will be to upgrade to future versions of XUI.
 //
-// * Prefer XUI React components over custom components. XUI components are tested to work as suite of components and will work across upgrades automatically or have a tested migration path.
+// * Prefer XUI React components over custom components. XUI components are tested to work as a suite and will work across upgrades automatically or have a tested migration path.
 //
 // Styleguide: Getting Started.Developing with XUI.1.3
 
@@ -99,7 +99,7 @@
 // import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
 // ```
 //
-// Full component documentation can be found in the [XUI React Docs](react/).
+// Full component documentation can be found in the [XUI React Docs](./react/).
 //
 // Styleguide: Getting Started.Developing with XUI.2
 
@@ -116,7 +116,7 @@
 //
 // We would really like you to use XUI provided CSS and React components but if what you need isn't in the library we provide a couple of ways of extending XUI.
 //
-// 1. XUI exposes its variables and mixins and these can be brought into an application or component to gain access to things like colours and spacing.
+// 1. XUI exposes its variables and mixins and these can be brought into an application or component to gain access to values for colours, spacing and other properties.
 // 2. XUI React components can be used to compose new and interesting components that can be used inside an app and shared with your friends
 //
 // If you're planning on writing a component using our CSS, we recommend the following two files as your keys to building using our conventions and standards.
@@ -130,7 +130,7 @@
 
 // Contributing
 //
-// We would love your help. XUI is structured to work like an inner source project, however in practice this has been difficult to maintain. XUI has a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
+// We would love your help. XUI is structured to work like an inner source project with the core team providing ongoing ownership and support. We have a quarterly release cycle and the core team progress a themed project each quarter and manage the backlog of ad hoc requests.
 //
 // We encourage you to join the discussions on issues and pull requests. As the core of XUI evolves we are putting in support structures to make it easier to contribute. [CONTRIBUTING.md](#) will always contain the detailed information around the process to contribute to the project.
 //

@@ -11,26 +11,26 @@ $xui-color-green: #00823c;
 // @tokenparserendignore
 
 // @section Neutrals
-// @description The following palette consisting of seven shades of grey is sufficient for most elements within our application. These are also available as background colors using the namespace `.xui-background-*`.
+// @description The following palette consisting of 8 shades of grey is sufficient for most elements within our application. These are also available as background colors using the namespace `.xui-background-*`.
 // @type color
 //
 // Grey 1 : Primary text
 $xui-color-grey-1: $xui-color-black;
 // Grey 2 : Secondary text
 $xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
-// Grey 3 : Placeholder text
+// Grey 3 : Tertiary text
 $xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 65%);
-// Grey 4 : ?? Standard borders
+// Grey 4
 $xui-color-grey-4: mix($xui-color-grey-1, $xui-color-white, 50%);
-// Grey 5 : ?? Subtle borders
+// Grey 5
 $xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 35%);
-// Grey 6 : ??
+// Grey 6
 $xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 20%);
-// Grey 7 : Page background
+// Grey 7
 $xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 10%);
-// Grey 8 : Hover states
+// Grey 8
 $xui-color-grey-8: mix($xui-color-grey-1, $xui-color-white, 5%);
-// White : Element backgrounds
+// White
 $xui-color-white: $xui-color-white;
 
 // @section Interaction colors
@@ -38,9 +38,9 @@ $xui-color-white: $xui-color-white;
 //
 // Action: Primary color for any interactive element
 $xui-action-primary-color: $xui-color-blue;
-// Negative: Destructive actions or indicating negative sentiment
+// Negative: Primary destructive actions or indicating negative sentiment
 $xui-action-negative-color: $xui-color-red;
-// Positive: Creating new items or indicating positive sentiment
+// Positive: Primary creation actions or indicating positive sentiment
 $xui-action-positive-color: $xui-color-green;
 
 
@@ -70,9 +70,9 @@ $xui-color-grey-alpha-8: rgba($xui-color-grey-1, 0.05);
 // @description Use transparent whites to create interfaces on strongly colored backgrounds. Be careful to ensure primary and secondary text has sufficent contrast.
 // @type transparent-color
 //
-// White alpha 2: Secondary text
+// White alpha 2
 $xui-color-white-alpha-2: rgba($xui-color-white, 0.75);
-// White alpha 3: Faint or placeholder text
+// White alpha 3
 $xui-color-white-alpha-3: rgba($xui-color-white, 0.65);
 // White alpha 4
 $xui-color-white-alpha-4: rgba($xui-color-white, 0.50);

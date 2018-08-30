@@ -44,7 +44,7 @@ exports[`SelectBox should render the appropriate automation id's when a qaHook i
           test
         </span>
         <svg
-          className="xui-icon xui-select--caret xui-button--caret xui-icon-inline"
+          className="xui-icon xui-select--caret xui-button--caret"
           data-automationid="test-selectbox---button-icon"
           focusable="false"
           height={5}
@@ -109,7 +109,7 @@ exports[`SelectBox should render the trigger in a disabled state if \`isDisabled
           test
         </span>
         <svg
-          className="xui-icon xui-select--caret xui-button--caret xui-icon-inline"
+          className="xui-icon xui-select--caret xui-button--caret"
           data-automationid={null}
           focusable="false"
           height={5}

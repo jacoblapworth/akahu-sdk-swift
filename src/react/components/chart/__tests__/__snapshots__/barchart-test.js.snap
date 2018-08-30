@@ -17,7 +17,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-90 xui-icon-inline"
+      className="xui-icon xui-u-rotate-90"
       data-automationid={undefined}
       focusable="false"
       height={7}
@@ -41,7 +41,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "next" button
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-270 xui-icon-inline"
+      className="xui-icon xui-u-rotate-270"
       data-automationid={undefined}
       focusable="false"
       height={7}
@@ -74,7 +74,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-90 xui-icon-inline"
+      className="xui-icon xui-u-rotate-90"
       data-automationid={undefined}
       focusable="false"
       height={7}
@@ -98,7 +98,7 @@ exports[`<XUIBarChart /> Pagination interaction Should disable the "previous" bu
     type="button"
   >
     <svg
-      className="xui-icon xui-u-rotate-270 xui-icon-inline"
+      className="xui-icon xui-u-rotate-270"
       data-automationid={undefined}
       focusable="false"
       height={7}

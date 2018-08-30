@@ -205,24 +205,6 @@
 //
 // Styleguide: Building Blocks.Controls.Button.6
 
-// Inline icons
-//
-// You can add any icon to a button to provide an additional visual indicator.
-// To do this, simply include the icon on either side of the text, and add the following modifier.
-//
-// Classes:
-// xui-icon-inline: Apply to icon
-//
-// ExampleClass: ds-example-flush ds-example-transparent
-//
-// Markup:
-// <button type="button" class="xui-button xui-button-standard">
-//   <svg focusable="false" class="xui-icon xui-icon-inline"> <use xlink:href="#xui-icon-plus" role="presentation" /></svg>
-//   Create invoice
-// </button>
-//
-// Styleguide: Building Blocks.Controls.Button.7
-
 // Grouped
 //
 // To group a series of similar actions in a more compact space, apply the following classes.
@@ -363,7 +345,6 @@
 // Classes:
 // xui-button: Style for a button
 // xui-button--caret: Subcomponent for a caret button
-// xui-icon-inline: Applied to inline icons until we remove the 30px viewbox assumption
 // xui-button-fullwidth-layout: Modifier for a full-width button at narrow breakpoint
 // xui-buttongroup: Container for a group of buttons
 // xui-button-grouped: Modifier for a grouped button

@@ -25,12 +25,11 @@ export default function XUIIcon(props) {
 		isBoxed,
 	} = props;
 
-	const classes = cn(
+	const svgClasses = cn(
 		baseClass,
 		colorClasses[color],
 		rotationClasses[rotation],
-		!isBoxed && className,
-		!isBoxed && `${baseClass}-inline`,
+		!isBoxed && className, // If no wrapper is needed, apply custom classes directly on the SVG
 	);
 
 	const optionalTitle = title ? <title>{ title }</title> : null;
@@ -41,7 +40,7 @@ export default function XUIIcon(props) {
 		<svg
 			data-automationid={qaHook}
 			focusable="false"
-			className={classes}
+			className={svgClasses}
 			width={icon.width * sizeMultiplier}
 			height={icon.height * sizeMultiplier}
 			viewBox={`0 0 ${icon.width} ${icon.height}`}

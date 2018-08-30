@@ -88,7 +88,7 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
       className="xui-pill--erroricon"
     >
       <svg
-        className="xui-icon xui-icon-color-red xui-icon-inline"
+        className="xui-icon xui-icon-color-red"
         data-automationid={undefined}
         focusable="false"
         height={8}
@@ -125,7 +125,7 @@ exports[`<XUIPill /> should render an error icon when invalid even with an avata
       className="xui-pill--erroricon"
     >
       <svg
-        className="xui-icon xui-icon-color-red xui-icon-inline"
+        className="xui-icon xui-icon-color-red"
         data-automationid={undefined}
         focusable="false"
         height={8}

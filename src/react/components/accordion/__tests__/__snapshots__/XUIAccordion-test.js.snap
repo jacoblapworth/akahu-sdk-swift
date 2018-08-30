@@ -32,7 +32,7 @@ exports[`<XUIAccordion /> associate items to a custom key 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-icon-inline"
+            className="xui-icon"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -99,7 +99,7 @@ exports[`<XUIAccordion /> should render a closed accordion item 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-icon-inline"
+            className="xui-icon"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -166,7 +166,7 @@ exports[`<XUIAccordion /> should render a custom empty state component 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            className="xui-icon xui-u-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -231,7 +231,7 @@ exports[`<XUIAccordion /> should render a custom empty state message 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            className="xui-icon xui-u-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -319,7 +319,7 @@ exports[`<XUIAccordion /> should render an open accordion item 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            className="xui-icon xui-u-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}
@@ -409,7 +409,7 @@ exports[`<XUIAccordion /> should render the default empty state 1`] = `
           type="button"
         >
           <svg
-            className="xui-icon xui-u-rotate-180 xui-icon-inline"
+            className="xui-icon xui-u-rotate-180"
             data-automationid={undefined}
             focusable="false"
             height={7}

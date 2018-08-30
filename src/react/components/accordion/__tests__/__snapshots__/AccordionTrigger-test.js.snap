@@ -24,7 +24,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render an automation id whe
       type="button"
     >
       <svg
-        className="xui-icon xui-icon-inline"
+        className="xui-icon"
         data-automationid={undefined}
         focusable="false"
         height={7}
@@ -78,7 +78,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render closed 1`] = `
       type="button"
     >
       <svg
-        className="xui-icon xui-icon-inline"
+        className="xui-icon"
         data-automationid={undefined}
         focusable="false"
         height={7}
@@ -132,7 +132,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render open 1`] = `
       type="button"
     >
       <svg
-        className="xui-icon xui-u-rotate-180 xui-icon-inline"
+        className="xui-icon xui-u-rotate-180"
         data-automationid={undefined}
         focusable="false"
         height={7}
@@ -186,7 +186,7 @@ exports[`<XUIAccordion /> | Accordion Trigger should render with available props
       type="button"
     >
       <svg
-        className="xui-icon xui-icon-inline"
+        className="xui-icon"
         data-automationid={undefined}
         focusable="false"
         height={7}

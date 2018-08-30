@@ -6,7 +6,7 @@
 
 ## Examples
 
-### Read only modal
+### Read-only modal
 
 `XUIModal` should contain a `XUIModalHeader` to display a header, and have a callback to close the modal passed in to `XUIModal` via the `onClose` prop. By default this will enable closing via the `esc` key and by the close button which will be rendered on the right side of the header.
 

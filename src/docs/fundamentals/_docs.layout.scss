@@ -20,13 +20,13 @@
 
 // Creating columns
 //
-// Utilising XUI's 12 column grid provides easy access to the common layout divisors of halves, thirds, and quarters, as well as many  other fractions between 1 and 12.
+// Utilising XUI's 12 column grid provides easy access to the common layout divisors of halves, thirds, and quarters, as well other fractions in 1/12 increments.
 //
 // Styleguide: Fundamentals.Layout.2
 
 // Rows
 //
-// To create a column based layout, first specify which kind of layout is desired by adding one of the following classes to the parent.
+// To create a column-based layout, first specify which kind of layout is desired by adding one of the following classes to the parent.
 //
 // Definitions:
 // Standard:			Standard row:					`.xui-row`
@@ -62,7 +62,7 @@
 
 // Columns
 //
-// To specify the widths of the children, use the following `.xui-column-*-of-12` percentage classes.
+// To specify the widths of child elements, use the following `.xui-column-*-of-12` classes.
 //
 // Definitions:
 // 1/12: 	Twelfth:								`-1-of-12`

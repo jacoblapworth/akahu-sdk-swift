@@ -14,8 +14,8 @@
 // Usage
 //
 // The classes outlined here are only responsible for styling the icons, and do not contain the SVG data themselves.
-// To include these, you will need to import the icons into your page using the following script, and then reference their name via the `xlink:href` attribute.
-// If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>XUI icon repository</a>.
+// To include the SVG data, you will need to import the icons into your page using the following script, and then reference their name via the `xlink:href` attribute.
+// If you are using React, this is not required. For more information, visit the <a href='https://github.dev.xero.com/UXE/xui-icon'>xui-icon repository</a>.
 //
 // @xuiIconLoaderURL
 //
@@ -29,7 +29,7 @@
 //
 // Icons are available in a number of sizes.
 // The default size is optimised for use inside buttons and form controls.
-// The additional sizes are intended mainly for read only contexts such as empty states or success screens.
+// The additional sizes are intended mainly for read-only contexts such as empty states or success screens.
 // If using the `iconLoader` script mentioned above, adding the following classes will modify the scale of the icons added to your page.
 //
 // Definitions:
@@ -75,7 +75,7 @@
 // Color
 //
 // By default, icons inherit the color of the parent element.
-// However, there are a number of color modifiers available to specify your own, when this is not desired.
+// However, there are a number of color modifiers available to specify your own, when inheritance is not desired.
 //
 // Definitions:
 // Inherit:  		none
@@ -157,7 +157,7 @@
 
 // Rotation
 //
-// To rotate any icon in increments of 90 degrees, use one of the following utilities.
+// The following utilities provide rotation in 90 degree increments.
 //
 // Definitions:
 // Default: 	none

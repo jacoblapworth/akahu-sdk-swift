@@ -38,7 +38,7 @@ const cn = require('classnames');
 	<XUITextInput
 		qaHook="test-ui"
 		inputProps={{ readOnly: true }}
-		defaultValue= "A read only value"
+		defaultValue="A read-only value"
 		labelText='input'
 		isLabelHidden
 	/>

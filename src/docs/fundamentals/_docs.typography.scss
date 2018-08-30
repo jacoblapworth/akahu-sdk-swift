@@ -93,7 +93,7 @@
 // Definitions:
 // Standard: `xui-textcolor-standard`: Default primary text color in XUI.
 // Muted: `xui-textcolor-muted`: Reduced hierarchy. It can be used independently or via `.xui-text-secondary`
-// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to it’s poor accessibility.
+// Faint: `xui-textcolor-faint`: Use very sparingly for inconsequential things due to its poor accessibility.
 //
 // Styleguide: Fundamentals.Typography.30.1
 
@@ -150,7 +150,7 @@
 // Links
 //
 // With a few exceptions, interactive elements in XUI should be **clearly different** from static ones.
-// Links in XUI should only be used for elements that have an `href` – use a [button](/section-building-blocks-controls-button.html) if not.
+// Links in XUI should only be used for elements that have an `href` – otherwise use a [button](/section-building-blocks-controls-button.html).
 //
 //
 // Definitions:
@@ -264,10 +264,10 @@
 //
 // XUI’s type styling is designed primarily for application interfaces and does not target HTML elements like `h1` or `p`.
 // Use the `xui-textcontent` wrapper class to enclose any long-form text which needs basic margins and typographic scale.
-// Elements added to `xui-textcontent` will receive a top margin by default. So user should avoid adding elements like icons as direct children.
+// Elements added to `xui-textcontent` will receive a top margin by default. Users should avoid adding elements like icons as direct children.
 //
 // Tips:
-// Warning: These styles are fairly basic, you may need to fine-tune - let us know how it goes!
+// Warning: These styles are fairly basic and you may need to fine-tune - let us know how it goes!
 //
 // Markup:
 // <div class="xui-textcontent">

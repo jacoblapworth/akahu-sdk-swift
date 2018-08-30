@@ -6,6 +6,20 @@ import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
 
+// TODO: If there is further need to conform to specific browser scenarios then
+// we will need to replace this snippet with something more robust and granular,
+// or an NPM library (one that is not too heavy). Currently this is the only case
+// in XUI where we are browser sniffing.
+const isIeOrEdge =
+	typeof window !== 'undefined' &&
+	(() => {
+		const { document, navigator } = window;
+		const isIe = document.documentMode;
+		const isEdge = /Edge/.test(navigator.userAgent);
+
+		return isIe || isEdge;
+	})();
+
 /**
  * @function setIndeterminate - Set the indeterminate DOM property of the given checkbox instance
  * @param xuiCheckbox - The checkbox instance for which to set the indeterminate DOM property
@@ -13,7 +27,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 const setIndeterminate = xuiCheckbox => {
 	if (xuiCheckbox._input) {
 		// TODO: Lint fix
-		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate; // eslint-disable-line
+		// eslint-disable-next-line no-param-reassign
+		xuiCheckbox._input.indeterminate = xuiCheckbox.props.isIndeterminate;
 	}
 };
 
@@ -110,8 +125,20 @@ export default class XUICheckbox extends Component {
 		setIndeterminate(this);
 	}
 
-	onClick = () => {
+	onClick = event => {
+		const { _input: { indeterminate }, props: { onChange, isIndeterminate } } = this;
+
 		setIndeterminate(this);
+
+		// Both IE11 and Edge do not register an "onChange" event when the checkbox
+		// is in an "Indeterminate" state. In that regard the checkbox becomes non
+		// responsive and cannot rebound back to a "checked" or "unchecked" state.
+		// Here we check if the checkbox's "Indeterminate" state is attempting to
+		// change and if so we give it a helping hand by manually triggering the
+		// "onChange" hook..
+		if (onChange && isIeOrEdge && (indeterminate !== isIndeterminate)) {
+			onChange(event);
+		}
 	};
 
 	render() {

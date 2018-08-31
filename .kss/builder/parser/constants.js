@@ -28,50 +28,50 @@ module.exports = {
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Buttons',
-			source: './src/sass/2-Mixins/_buttons.scss',
+			source: './src/sass/2-mixins/_buttons.scss',
 			isSubsection: true
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Components',
-			source: './src/sass/2-Mixins/_components.scss'
+			source: './src/sass/2-mixins/_components.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Elements',
-			source: './src/sass/2-Mixins/_elements.scss'
+			source: './src/sass/2-mixins/_elements.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Breakpoints',
-			source: './src/sass/2-Mixins/_layout.breakpoints.scss'
+			source: './src/sass/2-mixins/_layout.breakpoints.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Margin & Padding',
-			source: './src/sass/2-Mixins/_layout.marginpadding.scss'
+			source: './src/sass/2-mixins/_layout.marginpadding.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Selectors',
-			source: './src/sass/2-Mixins/_selectors.scss'
+			source: './src/sass/2-mixins/_selectors.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'States',
-			source: './src/sass/2-Mixins/_states.scss'
+			source: './src/sass/2-mixins/_states.scss'
 		},
 		{
 			section: 'Fundamentals',
 			page: 'Variables&Mixins',
 			name: 'Utilities',
-			source: './src/sass/2-Mixins/_utilities.scss'
+			source: './src/sass/2-mixins/_utilities.scss'
 		}
 	],
 	types: {

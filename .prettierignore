@@ -9,6 +9,7 @@ coverage/*
 node_modules/*
 src/*
 dist/*
+scripts/*
 .tmp/*
 .eslintrc.js
 jest.config.js
@@ -16,3 +17,4 @@ jest.setup.js
 stylelint.config.js
 webpack.umd.config.js
 changes.md
+

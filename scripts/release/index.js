@@ -4,11 +4,13 @@ const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs');
 const { rootDirectory } = require('../helpers');
-const checkSecurity = require(path.resolve(
-	rootDirectory,
-	'scripts',
-	'security'
-));
+// TODO: Is this being replace with something else down the track?
+const checkSecurity = () => Promise.resolve();
+// const checkSecurity = require(path.resolve(
+// 	rootDirectory,
+// 	'scripts',
+// 	'security'
+// ));
 const updateVersion = require(path.resolve(
 	rootDirectory,
 	'scripts',

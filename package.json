@@ -58,7 +58,7 @@
     "@xero/babel-preset-xero": "1.3.2",
     "@xero/browserslist-autoprefixer": "2.4.0",
     "@xero/eslint-config-xero-react": "2.0.3",
-    "@xero/xuishift": "2.0.0",
+    "@xero/xuishift": "2.0.1",
     "array.prototype.find": "2.0.4",
     "autoprefixer": "7.1.5",
     "babel-cli": "6.26.0",

@@ -1,10 +1,8 @@
 @import "../vars";
 @import "../mixins";
 
-
 .#{$ns}-select--control {
 	@include xui-commoninput;
-
 	cursor: pointer;
 	padding-right: $xui-s-3xlarge;
 
@@ -16,19 +14,14 @@
 		color: transparent;
 		text-shadow: 0 0 0 $xui-color-black;
 	}
-
+	&:focus ~ .#{$ns}-select--caret {
+		z-index: 3;
+	}
 	~ .#{$ns}-select--caret {
-		align-items: center;
-		bottom: 0;
-		display: flex;
-		justify-content: center;
-		margin: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
-		pointer-events: none;
 		position: absolute;
-		right: 0;
-		top: 0;
-		width: $xui-icon-standard;
-		z-index: 2;
+		right: $xui-s-standard;
+		top: 50%;
+		transform: translate(0,-50%);
 	}
 }
 
@@ -38,9 +31,7 @@
 
 .#{$ns}-select--caret {
 	align-self: center;
-	.#{$ns}-is-disabled ~ & {
-		opacity: .4;
-	}
+	fill: $xui-color-grey-2;
 }
 
 .#{$ns}-select--content {
@@ -49,7 +40,7 @@
 
 .#{$ns}-select--button {
 	@include xui-commoninput;
-	background-color: transparent;
+	background-color: $xui-color-white;
 	border: $xui-border-control;
 	border-radius: $xui-radius;
 	color: $xui-select-color;
@@ -58,9 +49,6 @@
 	min-height: $xui-input-height;
 	padding: $xui-input-padding-vertical $xui-input-padding-horizontal $xui-input-padding-vertical $xui-input-padding-horizontal;
 	text-align: left;
-	&.#{$ns}-button-is-disabled {
-		background-image: none; // Needs to strip out some button-like behavior, to look like an input when disabled.
-	}
 }
 
 .#{$ns}-dropdownmenu-select {

@@ -6,9 +6,6 @@ import DropDownPanel from './DropDownPanel';
 import { lockScroll, unlockScroll } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
 
-// TODO: Tidy up lint rules with remaining dropdown-ish components
-/* eslint-disable */
-
 /**
  * Wrapper for all content which will go inside of a dropdown.  It ensures the correct
  * presentational components are used to output content, scrolling is managed properly,
@@ -96,10 +93,10 @@ export default class DropDown extends PureComponent {
 	};
 
 	onHighlightChange = item => {
-		const dropdown = this;
 		if (item != null) {
-			dropdown.panel.scrollIdIntoView(item.props.id);
-			dropdown.props.onHighlightChange && dropdown.props.onHighlightChange(item);
+			const { onHighlightChange } = this.props;
+			this.panel.scrollIdIntoView(item.props.id);
+			onHighlightChange && onHighlightChange(item);
 		}
 	};
 

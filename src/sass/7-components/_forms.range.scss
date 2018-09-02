@@ -111,7 +111,7 @@ $xui-range-slider-thumb-diameter: $xui-s-xlarge;
 		margin-top: 0;
 	}
 
-	&:hover {
+	&:hover:not(:disabled) {
 		cursor: pointer;
 	}
 

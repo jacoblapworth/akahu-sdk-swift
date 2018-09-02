@@ -2,13 +2,16 @@
 
 ## Dependency updates
 
-Please check the versions of the following list of commonly used dependencies against your projects' package.json
-to avoid multiple versions of a dependency being bundled in your projects. To be safe, we recommend running
-a bundle analyzer after upgrading (and regularly in general!)
+Please take some time to check that your projects' package.json dependencies match those of XUI's package.json
+dependencies to avoid multiple versions of a dependency being bundled in your projects.
 
-* `xui-icon` dependency is now `^6.1.2`
-* `react` and `react-dom` dependencies are now `^16.4.2`
-* `classnames` dependency is now `2.2.6`
+We recommend running a bundle analyzer after upgrading (and regularly in general!)
+
+Quick check for the most common dependencies:
+
+* `xui-icon` is at `^6.1.2`
+* `react` and `react-dom` are at `^16.4.2`
+* `classnames` is at `^2.2.6`
 
 If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 

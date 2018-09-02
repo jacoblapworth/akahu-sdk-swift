@@ -1,3 +1,17 @@
+# XUI 14 Changes
+
+## Dependency updates
+
+Please check the versions of the following list of commonly used dependencies against your projects' package.json
+to avoid multiple versions of a dependency being bundled in your projects. To be safe, we recommend running
+a bundle analyzer after upgrading (and regularly in general!)
+
+* `xui-icon` dependency is now `^6.1.2`
+* `react` and `react-dom` dependencies are now `^16.4.2`
+* `classnames` dependency is now `2.2.6`
+
+If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
+
 ## Removals
 
 ### Utility classes

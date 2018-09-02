@@ -216,6 +216,10 @@ The UXE team manage releases of XUI via AWS Codepipeline. Following are the comm
 
 ### Upgrading between versions of XUI
 
+When you upgrade XUI, please check [changes.md](./changes.md) to see what shared dependencies have changed in XUI and check
+which dependencies you need to update in your projects - otherwise you may end up bundling multiple versions of xui-icon or
+other dependencies and bloating your application artifacts.
+
 To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift).
 
 The codemod contains transforms for moving from the previous major version of XUI.

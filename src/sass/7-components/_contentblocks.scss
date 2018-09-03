@@ -1243,12 +1243,21 @@ $xui-table-z-alert: 4;
 	@at-root {
 
 		&:hover,
-		&:active,
 		.#{$ns}-table-pinleft#{&}:hover .#{$ns}-table--cell-action,
-		.#{$ns}-table-pinleft#{&}:active .#{$ns}-table--cell-action,
-		.#{$ns}-table-pinright#{&}:hover .#{$ns}-table--cell-action,
-		.#{$ns}-table-pinright#{&}:active .#{$ns}-table--cell-action {
+		.#{$ns}-table-pinright#{&}:hover .#{$ns}-table--cell-action {
 			background: $xui-table-link-hover-bg-color;
+		}
+
+		&:active,
+		.#{$ns}-table-pinleft#{&}:active .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:active .#{$ns}-table--cell-action {
+			background: $xui-table-link-active-bg-color;
+		}
+
+		&:focus,
+		.#{$ns}-table-pinleft#{&}:focus .#{$ns}-table--cell-action,
+		.#{$ns}-table-pinright#{&}:focus .#{$ns}-table--cell-action {
+			outline: 0;
 		}
 	}
 }
@@ -1439,9 +1448,11 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table-nopointerevents .#{$ns}-table--cell-link,
 .#{$ns}-table--cell-hasprecedence.#{$ns}-table--cell-link {
-	&:hover,
-	&:active {
+	&:hover {
 		background: $xui-table-link-hover-bg-color;
+	}
+	&:active {
+		background: $xui-table-link-active-bg-color;
 	}
 }
 

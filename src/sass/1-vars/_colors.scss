@@ -267,8 +267,8 @@ $xui-button-hover-border: $xui-color-grey-4;
 
 $xui-button-borderless-focus-bg-color: $xui-color-grey-alpha-8;
 $xui-button-borderless-active-bg-color: $xui-color-grey-alpha-7;
-$xui-button-borderless-inverted-focus-bg-color: $xui-color-white-alpha-7;
-$xui-button-borderless-inverted-active-bg-color: $xui-color-white-alpha-6;
+$xui-button-borderless-inverted-focus-bg-color: $xui-color-white-alpha-6;
+$xui-button-borderless-inverted-active-bg-color: $xui-color-white-alpha-5;
 
 $xui-button-hover-bg-color: $xui-color-grey-alpha-7;
 $xui-button-active-bg-color: $xui-color-grey-alpha-6;
@@ -281,6 +281,8 @@ $xui-button-create-hover-color: mix($xui-color-grey-1, $xui-color-green, 5%);
 $xui-button-create-active-color: mix($xui-color-grey-1, $xui-color-green, 10%);
 $xui-button-negative-hover-color: mix($xui-color-grey-1, $xui-color-red, 5%);
 $xui-button-negative-active-color: mix($xui-color-grey-1, $xui-color-red, 10%);
+
+$xui-button-disabled-bg-color: $xui-color-grey-4;
 
 $xui-toggle-color: $xui-color-grey-2;
 $xui-toggle-label-hover-bg-color: $xui-color-grey-alpha-8;
@@ -309,10 +311,10 @@ $xui-toggle-label-inverted-checked-border-color: $xui-color-white;
 $xui-toggle-label-inverted-checked-color: $xui-color-grey-2;
 
 $xui-toggle-label-inverted-disabled-checked-bg-color: $xui-color-white-alpha-4;
-$xui-toggle-label-inverted-disabled-checked-border-color: $xui-color-white-alpha-6;
+$xui-toggle-label-inverted-disabled-checked-border-color: transparent;
 $xui-toggle-label-inverted-disabled-checked-color: $xui-color-grey-1;
 $xui-toggle-label-inverted-disabled-bg-color: $xui-color-white-alpha-6;
-$xui-toggle-label-inverted-disabled-border-color: $xui-color-white-alpha-4;
+$xui-toggle-label-inverted-disabled-border-color: $xui-color-white-alpha-6;
 $xui-toggle-label-inverted-disabled-color: $xui-color-white-alpha-2;
 
 $xui-shadow-focus: 0 0 0 3px $xui-color-grey-alpha-6;
@@ -376,8 +378,6 @@ $xui-textinput-borderless-transparent-focus-bg-color: $xui-color-grey-alpha-8;
 $xui-input-hover-border-color: $xui-color-grey-alpha-3;
 $xui-textinput-invalid-border-color: $xui-color-red;
 
-
-
 // Checkbox Radio
 
 $xui-checkboxradio-label-disabled-color: $xui-color-grey-alpha-4;
@@ -393,7 +393,6 @@ $xui-checkboxradio-active-bg-color: $xui-color-grey-7; // Can not be alpha becau
 $xui-checkboxradio-checked-hover-bg-color: mix($xui-color-grey-1, $xui-color-blue, 10%);
 $xui-checkboxradio-checked-active-bg-color: mix($xui-color-grey-1, $xui-color-blue, 20%);
 
-
 $xui-checkboxradio-disabled-fill: $xui-color-grey-7;
 $xui-checkboxradio-disabled-checked-fill: $xui-color-grey-4;
 $xui-checkboxradio-focus-stroke: $xui-color-grey-alpha-6;
@@ -401,8 +400,6 @@ $xui-checkboxradio-checked-fill: $xui-color-blue;
 $xui-checkboxradio-checked-stroke: $xui-color-blue;
 $xui-checkboxradio-disabled-stroke: $xui-control-disabled-border-color;
 $xui-checkboxradio-check-checked-fill: $xui-color-white;
-
-
 
 // Select
 
@@ -456,17 +453,18 @@ $xui-overview-label-color: $xui-color-grey-alpha-2;
 
 // Pill
 
+$xui-pill-color: $xui-color-grey-1;
+$xui-pill-secondary-color: $xui-color-grey-1;
 $xui-pill-bg-color: $xui-color-grey-alpha-7;
 $xui-pill-hover-bg-color: $xui-color-grey-alpha-6;
 $xui-pill-active-bg-color: $xui-color-grey-alpha-5;
-$xui-pill-secondary-color: $xui-color-grey-1;
 $xui-pill-focused-bg-color: $xui-color-grey-alpha-6;
-$xui-pill-invalid-bg-color: $xui-color-red;
 $xui-pill-invalid-color: $xui-color-white;
+$xui-pill-invalid-secondary-color: $xui-color-white;
+$xui-pill-invalid-bg-color: $xui-color-red;
 $xui-pill-invalid-hover-bg-color: mix($xui-color-grey-1, $xui-color-red, 10%);
 $xui-pill-invalid-active-bg-color: mix($xui-color-grey-1, $xui-color-red, 20%);
 $xui-pill-invalid-focused-bg-color: mix($xui-color-grey-1, $xui-color-red, 10%);
-$xui-pill-invalid-secondary-color: $xui-color-white;
 
 $xui-pill-single-invalid-color: $xui-color-red;
 $xui-pill-single-invalid-secondary-color: $xui-color-grey-alpha-2;
@@ -487,7 +485,8 @@ $xui-table-sortbutton-active-bg-color: $xui-color-grey-7;
 // rows in the Table interface.
 $xui-table-divider-bg-color: $xui-color-grey-6;
 $xui-table-link-hover-bg-color: $xui-color-grey-8;
-$xui-table-link-focus-bg-color: $xui-color-grey-7;
+$xui-table-link-focus-bg-color: $xui-color-grey-8;
+$xui-table-link-active-bg-color: $xui-color-grey-7;
 
 // Typography
 
@@ -518,6 +517,7 @@ $xui-tag-bg-color: $xui-color-white;
 $xui-tag-shadow-color: $xui-color-grey-alpha-4;
 $xui-tag-color: $xui-color-grey-alpha-2;
 $xui-tag-neutral-bg-color: $xui-color-grey-alpha-6;
+$xui-tag-neutral-shadow-color: $xui-color-grey-alpha-6;
 $xui-tag-positive-bg-color: $xui-color-green-xlight;
 $xui-tag-positive-shadow-color: $xui-color-green-light;
 $xui-tag-positive-color: $xui-color-green-xdark;
@@ -548,7 +548,6 @@ $xui-tooltip-color: $xui-color-white;
 $xui-tooltip-shadow-color: $xui-color-grey-alpha-6;
 $xui-tooltip-outline-shadow-color: $xui-color-white-alpha-5;
 
-
 // Range
 
 $xui-range-bg-color: $xui-color-white;
@@ -561,6 +560,27 @@ $xui-range-slider-thumb-disabled-color: $xui-color-grey-7;
 $xui-range-slider-track-invalid-color: $xui-color-red;
 $xui-range-slider-thumb-invalid-color: $xui-color-red;
 
+// Stepper
+
+$xui-stepper-color: $xui-color-grey-1;
+$xui-stepper-hover-color: $xui-color-blue-dark;
+$xui-stepper-focus-color: $xui-color-blue-xdark;
+$xui-stepper-active-color: $xui-color-blue-xdark;
+
+$xui-stepper-error-color: $xui-invalid-color;
+$xui-stepper-error-hover-color: $xui-color-red-dark;
+$xui-stepper-error-active-color: $xui-color-red-xdark;
+$xui-stepper-error-focus-color: $xui-color-red-dark;
+
+$xui-stepper-disabled-color: $xui-color-grey-4;
+
+$xui-stepper-link-active-color: $xui-color-blue;
+
+$xui-stepper-hover-bg-color: $xui-color-grey-alpha-8;
+$xui-stepper-focus-bg-color: $xui-color-grey-alpha-7;
+$xui-stepper-active-bg-color: $xui-color-grey-alpha-6;
+
+$xui-stepper-line-bg-color: $xui-color-grey-6;
 
 // Controls
 

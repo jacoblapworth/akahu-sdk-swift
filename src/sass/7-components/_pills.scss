@@ -142,8 +142,8 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable">
-//   <a href="#" class="xui-pill--content xui-pill--link">
+// <div class="xui-pill xui-pill-layout xui-pill-is-deleteable xui-pill-interactive">
+//   <a href="#" class="xui-button xui-pill--button xui-pill--content xui-pill--link">
 //     <span class="xui-pill--text">Link</span>
 //   </a>
 //   <button class="xui-button xui-button-icon xui-pill--button-icon">
@@ -218,12 +218,12 @@
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup:
-// <div class="xui-textinput xui-textinput--input" tabindex='0'>
+// <div class="xui-textinput xui-textinput--input" tabindex='1'>
 //   <div class="xui-pill-single">
-//     <button type='button' class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
+//     <span class="xui-pill--content">
 //       <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
-//     </button>
+//     </span>
 //     <button class="xui-button xui-button-icon">
 //       <svg focusable="false" class="xui-icon"> <use xlink:href="#xui-icon-cross-small" role="presentation" /></svg>
 //     </button>
@@ -242,7 +242,7 @@
 // </div>
 // <div class="xui-textinput xui-margin-top" tabindex='0'>
 //   <div class="xui-pill xui-pill-single">
-//   	 <a href="#" class="xui-pill--content xui-pill--link" tabindex='-1'>
+//   	 <a href="#" class="xui-button xui-pill--button xui-pill--content" tabindex='-1'>
 //     	 <abbr class="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-color-8" role="presentation">Z</abbr>
 //       <span class="xui-pill--text">zoe@deschanel.com</span>
 //   	 </a>
@@ -329,7 +329,7 @@
 	outline: none;
 
 	.#{$ns}-pill--text {
-		text-decoration: underline;
+		color: $xui-pill-color;
 	}
 }
 
@@ -375,8 +375,12 @@
 
 .#{$ns}-pill--button {
 	border-radius: $xui-s-large;
-	color: inherit;
+	color: $xui-pill-color;
 	text-align: left;
+
+	&:hover, &:active, &:focus {
+		color: $xui-pill-color;
+	}
 
 	.#{$ns}-pill--text {
 		text-decoration: underline;

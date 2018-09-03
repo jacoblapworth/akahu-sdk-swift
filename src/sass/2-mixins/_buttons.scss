@@ -49,9 +49,9 @@ $bg-color - Background color to use
 $bg-color - Text color to use
 $hover-bg-color - Background color to use on hover
 */
-@mixin xui-button-is-disabled($bg-color: $xui-color-white, $color: $xui-color-grey-alpha-4, $hover-bg-color: null) {
+@mixin xui-button-is-disabled($bg-color: $xui-color-white, $color: $xui-button-disabled-bg-color, $hover-bg-color: null) {
 	background-color: $bg-color;
-	border-color: $xui-color-grey-alpha-5;
+	border-color: $xui-button-disabled-bg-color;
 	box-shadow: none;
 	color: $color;
 	cursor: not-allowed;

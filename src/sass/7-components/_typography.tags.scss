@@ -44,7 +44,7 @@
 //     <a class="xui-contentblockitem--links">
 //       <span class="xui-contentblockitem--toplinks">
 //         <span class="xui-heading-small">Finn Clark</span>
-//         <span class="xui-tag xui-tag-positive xui-margin-left-small">Admin</span>
+//         <span class="xui-tag xui-tag-positive xui-margin-left-small">Paid</span>
 //       </span>
 //       <div class="xui-contentblockitem--secondaryheading">Active 2h ago<span class="xui-margin-horizontal-xsmall">•</span>email@address.com</div>
 //     </a>
@@ -101,6 +101,7 @@
 }
 .#{$ns}-tag-neutral {
 	background-color: $xui-tag-neutral-bg-color;
+	box-shadow: inset 0 0 0 1px $xui-tag-neutral-shadow-color;
 }
 
 .#{$ns}-tag-positive {

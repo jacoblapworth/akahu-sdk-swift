@@ -635,6 +635,7 @@
 	padding-left: $xui-s-large;
 	padding-right: 0;
 	text-align: left;
+	text-decoration: none; // In case pickitem body element is a link
 	width: 100%;
 
 	&:hover,

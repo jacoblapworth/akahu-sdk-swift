@@ -589,6 +589,9 @@
 }
 
 .#{$ns}-contentblockitem-rowlink {
+	color: inherit; // Remove default link color
+	text-decoration: none; // Remove default link underline
+
 	&:hover,
 	&:focus {
 		background-color: $xui-color-grey-8;

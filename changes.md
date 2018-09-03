@@ -17,6 +17,11 @@ If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 
 ## Removals
 
+### Components
+
+`XUIInput` and `XUITextarea` have been removed. Use `XUITextInput` (with `isMultiline` for textarea functionality) instead.
+Please consult the React component docs to see which props have changed.
+
 ### Utility classes
 
 | Removed       | Replacement    |
@@ -45,6 +50,7 @@ If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 * `xui-contentblock--item` has been replaced with `xui-contentblockitem`.
 * `xui-contentblock--item-selected` has been removed and has no replacement.
 * `xui-contentblock--item-negative` has been removed and has no replacement.
+* `xui-toggle-form-layout` has been removed. Use `xui-toggle-fullwidth-layout`
 
 ### Component prop name changes
 
@@ -54,6 +60,7 @@ If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 * AutocompleterSecondarySearch: `isinputLabelHidden` is now `isInputLabelHidden` (case change, only)
 * Switch: `labelText` property has been removed and label text can now be placed as a child of the component. API matches Checkbox and Radio.
 * RadioGroup & CheckboxGroup: `groupLabel` is now `labelText`
+* Toggle no longer supports `form` as a `layout` property value. Use `fullwidth` instead.
 
 ## Additions
 

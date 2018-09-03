@@ -8,8 +8,12 @@ module.exports = {
 					name: 'isInline',
 					newName: 'isBoxed',
 					valueTransform: invert(true),
+				},
+				{
+					name: 'path',
+					newName: 'icon'
 				}
-			]
+			],
 		}
 	],
 	'@xero/xui/react/select-box': [
@@ -90,4 +94,19 @@ module.exports = {
 			]
 		}
 	],
+	'@xero/xui/react/toggle': [
+		{
+			isDefault: true,
+			props: [
+				{
+					name: 'layout',
+					valueTransform: (node, j) => {
+						if (node != null && node.value != null && node.value.value === 'form') {
+							return j.literal('fullwidth');
+						}
+					}
+				}
+			]
+		}
+	]
 };

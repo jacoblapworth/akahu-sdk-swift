@@ -19,4 +19,5 @@ module.exports = {
 	'xui-icon-color-standard': 'xui-icon-color-black-muted',
 	'xui-progress-tooltip': 'xui-progress--tooltip',
 	'xui-contentblock--item': 'xui-contentblockitem',
+	'xui-toggle-form-layout': 'xui-toggle-fullwidth-layout'
 };

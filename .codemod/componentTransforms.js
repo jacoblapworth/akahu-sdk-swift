@@ -1,4 +1,5 @@
 const invert = require('@xero/xuishift/transforms/invert');
+const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 module.exports = {
 	'@xero/xui/react/icon': [
 		{
@@ -63,7 +64,7 @@ module.exports = {
 	],
 	'@xero/xui/react/autocompleter': [
 		{
-			isDefault: 'XUIAutocompleterSecondarySearch',
+			name: 'XUIAutocompleterSecondarySearch',
 			props: [
 				{
 					name: 'isinputLabelHidden',
@@ -74,7 +75,7 @@ module.exports = {
 	],
 	'@xero/xui/react/radio': [
 		{
-			isDefault: 'XUIRadioGroup',
+			name: 'XUIRadioGroup',
 			props: [
 				{
 					name: 'groupLabel',
@@ -85,7 +86,7 @@ module.exports = {
 	],
 	'@xero/xui/react/checkbox': [
 		{
-			isDefault: 'XUICheckboxGroup',
+			name: 'XUICheckboxGroup',
 			props: [
 				{
 					name: 'groupLabel',
@@ -100,11 +101,7 @@ module.exports = {
 			props: [
 				{
 					name: 'layout',
-					valueTransform: (node, j) => {
-						if (node != null && node.value != null && node.value.value === 'form') {
-							return j.literal('fullwidth');
-						}
-					}
+					valueTransform: stringReplace({'form': 'fullwidth'}),
 				}
 			]
 		}

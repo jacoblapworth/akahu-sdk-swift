@@ -80,7 +80,7 @@ export function scrollTopPosition(itemDOM, scrollableDOM) {
 	return scrollTopAmount;
 }
 
-export const isNarrowViewport = () =>
+export const checkIsNarrowViewport = () =>
 	typeof window !== 'undefined'
 	&& window.document.documentElement.clientWidth < breakpoints.narrow;
 

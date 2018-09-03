@@ -11,12 +11,9 @@ import {
 	isVisible,
 	intervalRunner,
 	scrollTopPosition,
-	isNarrowViewport,
+	checkIsNarrowViewport,
 } from './private/helpers';
 import { ns } from '../helpers/xuiClassNamespace';
-
-// TODO: Tidy up linting with other dropdown elements
-/* eslint-disable */
 
 /**
  * Utilize the intervalRunner to execute a callback when the list box and its children
@@ -58,7 +55,7 @@ class DropDownPanel extends PureComponent {
 		const content = this._scrollableContent;
 		if (
 			content != null &&
-			content.style.hasOwnProperty('webkitOverflowScrolling') &&
+			Object.prototype.hasOwnProperty.call(content.style, 'webkitOverflowScrolling') &&
 			navigator != null &&
 			navigator.userAgent.indexOf('Edge/') === -1
 		) {
@@ -228,7 +225,7 @@ class DropDownPanel extends PureComponent {
 
 		let maxHeight = style && style.maxHeight;
 		let overflowY;
-		if (isNarrowViewport()) {
+		if (checkIsNarrowViewport()) {
 			maxHeight = header == null ? '80vh' : '100vh';
 		} else {
 			overflowY = 'auto';
@@ -275,7 +272,7 @@ class DropDownPanel extends PureComponent {
 								onHighlightChange={onHighlightChange}
 								qaHook={qaHook && `${qaHook}--scrollable-container`}
 								// Need the role here, because ARIA state needs to be managed at the same level.
-								secondaryProps={{role: "listbox"}}
+								secondaryProps={{ role: 'listbox' }}
 								shouldManageInitialHighlight={shouldManageInitialHighlight}
 							>
 								<div

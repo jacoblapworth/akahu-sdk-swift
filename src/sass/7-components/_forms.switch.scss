@@ -71,6 +71,7 @@ $xui-switch-label-padding: $xui-s-small - 2;
 
 	.#{$ns}-switch-is-disabled & {
 		color: $xui-color-grey-alpha-4;
+		cursor: not-allowed;
 	}
 }
 
@@ -83,5 +84,40 @@ $xui-switch-label-padding: $xui-s-small - 2;
 
 	.#{$ns}-switch--label {
 		padding-right: $xui-switch-label-padding;
+	}
+}
+
+// Group styles
+// ============
+.#{$ns}-switch-group {
+	background: $xui-color-white;
+	border: $xui-border-control;
+	border-radius: $xui-radius;
+
+	.#{$ns}-switch {
+		display: flex; // Stacked inputs
+		padding: $xui-switch-label-padding/2; // Border padding
+	}
+
+	.#{$ns}-switch:nth-last-of-type(n+2) {
+		border-bottom: $xui-border-control;
+	}
+
+	.#{$ns}-switch:not(.#{$ns}-switch-reversed) {
+		.#{$ns}-switch--label {
+			padding: 5px 6px 4px 3px;
+		}
+	}
+
+	.#{$ns}-switch-reversed {
+		.#{$ns}-switch--label {
+			padding: 5px 3px 4px 6px;
+		}
+	}
+
+	.#{$ns}-switch--control {
+		align-self: flex-start;
+		flex-shrink: 0;
+		margin: $xui-switch-label-padding/2;
 	}
 }

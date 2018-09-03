@@ -18,13 +18,19 @@
 	.#{$ns}-styledcheckboxradio:nth-last-of-type(n+2) {
 		border-bottom: $xui-border-control;
 	}
+
+	.#{$ns}-styledcheckboxradio-reversed {
+		.#{$ns}-styledcheckboxradio--label {
+			padding: 6px 3px 3px 6px;
+		}
+	}
 }
 
 // Label spacing
 // =============
 .#{$ns}-styledcheckboxradio--label {
 	flex-grow: 1;
-	padding: 6px 3px 3px;
+	padding: 6px 6px 3px 3px;
 
 	.#{$ns}-styledcheckboxradio-is-disabled & {
 		color: $xui-checkboxradio-label-disabled-color;

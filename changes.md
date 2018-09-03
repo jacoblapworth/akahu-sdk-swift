@@ -19,8 +19,18 @@ If you use `xui-layout`, version `^7.0.0` is compatible with XUI 14.
 
 ### Components
 
-`XUIInput` and `XUITextarea` have been removed. Use `XUITextInput` (with `isMultiline` for textarea functionality) instead.
-Please consult the React component docs to see which props have changed.
+#### Text inputs
+
+`XUIInput`, `XUIStatelessInput`, and `XUITextarea` have been removed. Use `XUITextInput` (with `isMultiline`
+for textarea functionality) instead.
+
+We've built a codemod to do as much of the migration for you as we can. But there's a few things you'll need to manually check
+
+ - Usage of `className`, `containerClassName`, and `fieldClassName`.
+  The internal structure of `XUITextInput` is slightly different, so you'll need to check that your input is displaying as expected
+ - `XUITextArea`'s `children` will need to be moved to the `labelText` prop
+ - Miscellaneous props are no longer spread onto the internal `input`. Any props you want on the underlying `input` should be added to `inputProps`
+ - Any props we can suggest a replacement to, but aren't able to migrate ourselves, we'll add instructions to inform you e.g. `'textareaId'` will become `'textareaID_MOVE_TO_inputProps'`.
 
 ### Utility classes
 
